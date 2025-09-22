@@ -1,4 +1,7 @@
-import { Button, Card, CardHeader, CardTitle, CardContent, Input, Textarea } from '../../components/ui'
+import { Button, Card, CardHeader, CardTitle, CardContent } from '../../components/ui'
+import { ContactForm } from '../../components/contact/ContactForm'
+import { InteractiveMap, ServiceAreaOverview } from '../../components/map/InteractiveMap'
+import { LeadCapture } from '../../components/lead/LeadCapture'
 
 export default function ContactPage() {
   const contactInfo = {
@@ -107,95 +110,10 @@ export default function ContactPage() {
             
             {/* Contact Form */}
             <div>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-2xl">Send Us a Message</CardTitle>
-                  <p className="text-gray-600">
-                    Fill out the form below and we&apos;ll get back to you within 2 hours during business hours.
-                  </p>
-                </CardHeader>
-                <CardContent>
-                  <form className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <Input
-                        label="First Name"
-                        placeholder="Enter your first name"
-                        required
-                      />
-                      <Input
-                        label="Last Name"
-                        placeholder="Enter your last name"
-                        required
-                      />
-                    </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <Input
-                        label="Email"
-                        type="email"
-                        placeholder="your.email@example.com"
-                        required
-                      />
-                      <Input
-                        label="Phone"
-                        type="tel"
-                        placeholder="(509) 555-0123"
-                      />
-                    </div>
-                    
-                    <Input
-                      label="Project Type"
-                      placeholder="e.g., Custom Home, Renovation, Commercial"
-                      helperText="What type of construction project are you considering?"
-                    />
-                    
-                    <Input
-                      label="Location"
-                      placeholder="Project location (city, state)"
-                    />
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <Input
-                        label="Budget Range"
-                        placeholder="e.g., $50,000 - $100,000"
-                        helperText="Approximate budget range"
-                      />
-                      <Input
-                        label="Timeline"
-                        placeholder="e.g., 3-6 months"
-                        helperText="Desired project timeline"
-                      />
-                    </div>
-                    
-                    <Textarea
-                      label="Project Details"
-                      placeholder="Please describe your project in detail..."
-                      rows={4}
-                      helperText="The more details you provide, the better we can assist you"
-                    />
-                    
-                    <div className="flex items-center">
-                      <input
-                        type="checkbox"
-                        id="veteran"
-                        className="mr-3"
-                      />
-                      <label htmlFor="veteran" className="text-sm text-gray-700">
-                        I am a veteran or military family member interested in our Wounded Warrior Initiative
-                      </label>
-                    </div>
-                    
-                    <Button variant="primary" size="lg" className="w-full">
-                      Send Message
-                    </Button>
-                    
-                    <p className="text-xs text-gray-500 text-center">
-                      By submitting this form, you agree to our privacy policy and consent to be contacted 
-                      regarding your construction project.
-                    </p>
-                  </form>
-                </CardContent>
-              </Card>
+              <ContactForm 
+                formType="general"
+                title="Send Us a Message"
+              />
             </div>
 
             {/* Contact Information */}
@@ -304,6 +222,76 @@ export default function ContactPage() {
                   </p>
                 </CardContent>
               </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Map & Service Areas */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-tactic-bold text-gray-900 mb-4">
+              Our Location & Service Areas
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Based in Pasco, WA, we proudly serve the entire Pacific Northwest region. 
+              Find us on the map and explore our comprehensive service areas.
+            </p>
+          </div>
+          
+          <div className="mb-16">
+            <InteractiveMap 
+              showServiceAreas={true}
+              showProjects={true}
+              height="500px"
+              className="mb-8"
+            />
+          </div>
+
+          <div>
+            <h3 className="text-2xl font-semibold text-center mb-8">
+              Detailed Service Area Information
+            </h3>
+            <ServiceAreaOverview />
+          </div>
+        </div>
+      </section>
+
+      {/* Lead Capture Section */}
+      <section className="py-16 bg-gradient-to-br from-brand-primary to-brand-secondary">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-white">
+              <h2 className="text-3xl font-tactic-bold mb-6">
+                Ready to Start Your Dream Project?
+              </h2>
+              <div className="space-y-4 text-lg">
+                <div className="flex items-center">
+                  <span className="text-2xl mr-3">🏗️</span>
+                  <span>20+ years of construction excellence</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-2xl mr-3">🇺🇸</span>
+                  <span>Veteran-owned and operated</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-2xl mr-3">🛡️</span>
+                  <span>Licensed, bonded & fully insured</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-2xl mr-3">⚡</span>
+                  <span>24-hour response guarantee</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <LeadCapture
+                source="contact_page_cta"
+                title="Get Your Free Consultation"
+                subtitle="No obligation • Free estimates • Expert guidance"
+                className="bg-white"
+              />
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 {
   "name": "mh-construction-website",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Revolutionary construction website for MH Construction - Building Tomorrow with Today's Technology",
   "private": true,
   "scripts": {
@@ -34,14 +34,18 @@
     "@types/node": "^24.5.2",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.36.0",
     "eslint-config-next": "^15.5.3",
     "firebase": "^12.3.0",
+    "lucide-react": "^0.544.0",
     "next": "^15.5.2",
     "postcss": "^8.5.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-markdown": "^10.1.0",
+    "react-syntax-highlighter": "^15.6.6",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2",
     "web-vitals": "^5.1.0"

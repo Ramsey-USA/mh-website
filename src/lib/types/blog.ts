@@ -1,0 +1,412 @@
+// Blog and content management types
+export interface BlogPost {
+  id: string
+  title: string
+  slug: string
+  excerpt: string
+  content: string
+  author: {
+    name: string
+    role: string
+    avatar?: string
+    bio?: string
+  }
+  publishedAt: string
+  updatedAt?: string
+  category: BlogCategory
+  tags: string[]
+  featuredImage: {
+    url: string
+    alt: string
+    caption?: string
+  }
+  seo: {
+    metaTitle?: string
+    metaDescription?: string
+    keywords?: string[]
+    ogImage?: string
+  }
+  status: 'draft' | 'published' | 'archived'
+  readTime: number // in minutes
+  featured: boolean
+  relatedPosts?: string[] // Post IDs
+}
+
+export interface BlogCategory {
+  id: string
+  name: string
+  slug: string
+  description: string
+  color: string
+  icon: string
+  postCount: number
+}
+
+export interface NewsUpdate {
+  id: string
+  title: string
+  content: string
+  date: string
+  type: 'company' | 'project' | 'industry' | 'team'
+  priority: 'low' | 'medium' | 'high'
+  author: string
+  images?: string[]
+  featured: boolean
+}
+
+export interface ProjectShowcase {
+  id: string
+  title: string
+  description: string
+  category: 'residential' | 'commercial' | 'renovation' | 'emergency'
+  location: string
+  completionDate: string
+  budget: {
+    range: string
+    actual?: number
+  }
+  duration: {
+    estimated: string
+    actual?: string
+  }
+  images: {
+    before?: string[]
+    during?: string[]
+    after: string[]
+    featured: string
+  }
+  testimonial?: {
+    quote: string
+    client: string
+    rating: number
+  }
+  features: string[]
+  challenges?: string[]
+  solutions?: string[]
+  materials: string[]
+  team: string[]
+  tags: string[]
+  seo: {
+    metaTitle?: string
+    metaDescription?: string
+  }
+}
+
+// Mock data for development
+export const mockBlogCategories: BlogCategory[] = [
+  {
+    id: 'construction-tips',
+    name: 'Construction Tips',
+    slug: 'construction-tips',
+    description: 'Professional construction advice and best practices',
+    color: '#3B82F6',
+    icon: '🔨',
+    postCount: 12
+  },
+  {
+    id: 'home-improvement',
+    name: 'Home Improvement',
+    slug: 'home-improvement',
+    description: 'DIY guides and home renovation insights',
+    color: '#10B981',
+    icon: '🏠',
+    postCount: 8
+  },
+  {
+    id: 'company-news',
+    name: 'Company News',
+    slug: 'company-news',
+    description: 'Latest updates from MH Construction',
+    color: '#F59E0B',
+    icon: '📢',
+    postCount: 5
+  },
+  {
+    id: 'veteran-spotlight',
+    name: 'Veteran Spotlight',
+    slug: 'veteran-spotlight',
+    description: 'Stories from our veteran team and community',
+    color: '#EF4444',
+    icon: '🇺🇸',
+    postCount: 7
+  },
+  {
+    id: 'project-stories',
+    name: 'Project Stories',
+    slug: 'project-stories',
+    description: 'Behind-the-scenes project documentation',
+    color: '#8B5CF6',
+    icon: '📖',
+    postCount: 15
+  }
+]
+
+export const mockBlogPosts: BlogPost[] = [
+  {
+    id: 'winter-construction-prep-2024',
+    title: 'Essential Winter Construction Preparation: Protecting Your Project from Pacific Northwest Weather',
+    slug: 'winter-construction-prep-2024',
+    excerpt: 'Learn how to prepare your construction project for the harsh Pacific Northwest winter. Our veteran team shares 20+ years of experience managing projects through challenging weather conditions.',
+    content: `
+# Essential Winter Construction Preparation
+
+The Pacific Northwest presents unique challenges for construction projects during winter months. With over 20 years of experience, our veteran team at MH Construction has developed proven strategies to keep projects on track regardless of weather conditions.
+
+## Weather Planning Strategies
+
+### Temperature Management
+- Monitor daily temperature forecasts
+- Adjust concrete curing schedules for cold weather
+- Implement heating systems for enclosed work areas
+- Plan for temperature-sensitive materials
+
+### Moisture Protection
+Rain and snow can significantly impact construction timelines. Key protection strategies include:
+
+1. **Temporary Roofing**: Install temporary roof systems to protect work areas
+2. **Drainage Systems**: Implement proper site drainage to prevent water accumulation
+3. **Material Storage**: Keep materials dry and elevated off the ground
+4. **Covered Work Areas**: Create enclosed spaces for critical work phases
+
+## Material Considerations
+
+Winter conditions require special attention to material selection and handling:
+
+- **Concrete Additives**: Use appropriate winter additives for cold-weather concrete
+- **Fasteners**: Select corrosion-resistant hardware for wet conditions
+- **Insulation**: Plan insulation installation during dry periods
+- **Sealants**: Choose cold-weather compatible sealants and adhesives
+
+## Safety First
+
+Our veteran team prioritizes safety in all weather conditions:
+
+- Daily safety briefings addressing weather-specific hazards
+- Proper PPE for cold and wet conditions
+- Regular equipment maintenance for winter operations
+- Emergency procedures for severe weather events
+
+## Client Communication
+
+Keeping clients informed during winter projects:
+
+- **Weekly Weather Reports**: Share weather forecasts and project impacts
+- **Progress Updates**: Provide detailed updates on weather-related delays
+- **Flexibility Planning**: Discuss contingency plans for severe weather
+- **Quality Assurance**: Explain how weather protection maintains quality standards
+
+## MH Construction Advantage
+
+Our military background gives us unique advantages in challenging conditions:
+
+- **Discipline**: Structured approach to weather planning
+- **Adaptability**: Quick response to changing conditions
+- **Team Coordination**: Military-style communication and coordination
+- **Mission Focus**: Commitment to completing projects regardless of challenges
+
+Contact our team today to discuss how we can keep your project moving forward through the winter months.
+    `,
+    author: {
+      name: 'Mark Harris',
+      role: 'Owner & Project Manager',
+      avatar: '/images/team/mark-harris.jpg',
+      bio: 'Army veteran with 20+ years in construction management'
+    },
+    publishedAt: '2024-12-15',
+    category: mockBlogCategories[0],
+    tags: ['winter construction', 'weather planning', 'project management', 'safety'],
+    featuredImage: {
+      url: '/images/blog/winter-construction-prep.jpg',
+      alt: 'Construction site prepared for winter weather with protective coverings',
+      caption: 'Proper winter preparation keeps projects on schedule'
+    },
+    seo: {
+      metaTitle: 'Winter Construction Preparation Guide | Pacific Northwest | MH Construction',
+      metaDescription: 'Expert winter construction tips from veteran-owned MH Construction. Learn weather planning, material protection, and safety strategies for Pacific Northwest projects.',
+      keywords: ['winter construction', 'Pacific Northwest', 'weather preparation', 'construction safety', 'veteran contractors']
+    },
+    status: 'published',
+    readTime: 8,
+    featured: true
+  },
+  {
+    id: 'veteran-owned-business-advantages',
+    title: 'Why Choose a Veteran-Owned Construction Company: The MH Construction Difference',
+    slug: 'veteran-owned-business-advantages',
+    excerpt: 'Discover the unique advantages of working with veteran-owned construction companies. Learn how military training translates to superior project management and client service.',
+    content: `
+# The Veteran Advantage in Construction
+
+When you choose MH Construction, you\'re not just hiring a construction company – you\'re partnering with veterans who bring military precision, discipline, and values to every project.
+
+## Military Values in Construction
+
+### Attention to Detail
+Military training instills an uncompromising attention to detail that directly translates to construction excellence:
+
+- **Precision Measurements**: Every dimension checked and verified
+- **Quality Control**: Multi-point inspections at each project phase
+- **Documentation**: Detailed records of all work performed
+- **Standard Operating Procedures**: Consistent processes for reliable results
+
+### Mission-First Mentality
+Veterans approach every project with a mission-first mentality:
+
+- **Objective Focus**: Clear goals and defined success metrics
+- **Obstacle Overcome**: Creative problem-solving when challenges arise
+- **Team Coordination**: Seamless collaboration among all team members
+- **Completion Commitment**: Projects finished on time and within budget
+
+## Leadership Under Pressure
+
+Military leadership training provides unique advantages in construction management:
+
+### Crisis Management
+- Quick decision-making in challenging situations
+- Calm leadership during unexpected complications
+- Resource allocation under pressure
+- Team morale maintenance during difficult phases
+
+### Communication Excellence
+- Clear, direct communication with all stakeholders
+- Regular status updates and progress reports
+- Proactive problem identification and solutions
+- Transparent discussion of challenges and timelines
+
+## Wounded Warrior Initiative
+
+At MH Construction, we\'re committed to supporting our veteran community:
+
+### Special Programs
+- **10% Veteran Discount**: For all military families
+- **Flexible Payment Plans**: Understanding of veteran financial situations
+- **Peer Support Network**: Connection with other veteran-owned businesses
+- **Employment Opportunities**: Prioritizing veteran hiring in our expansion
+
+### Community Impact
+- Supporting local veteran organizations
+- Mentoring veteran entrepreneurs
+- Participating in community service projects
+- Building homes for disabled veterans
+
+## The Bottom Line
+
+Choosing a veteran-owned construction company means choosing:
+
+- **Reliability**: Military-trained professionals who honor commitments
+- **Quality**: Attention to detail that exceeds civilian standards
+- **Integrity**: Honest communication and transparent business practices
+- **Service**: A team that understands the meaning of service before self
+
+Ready to experience the veteran advantage? Contact MH Construction today for your free consultation.
+    `,
+    author: {
+      name: 'Sarah Harris',
+      role: 'Co-Owner & Design Manager',
+      avatar: '/images/team/sarah-harris.jpg',
+      bio: 'Navy veteran specializing in construction design and project coordination'
+    },
+    publishedAt: '2024-12-10',
+    category: mockBlogCategories[3],
+    tags: ['veteran owned', 'military values', 'construction quality', 'wounded warrior'],
+    featuredImage: {
+      url: '/images/blog/veteran-owned-advantages.jpg',
+      alt: 'MH Construction team with American flag at construction site',
+      caption: 'Military precision meets construction excellence'
+    },
+    seo: {
+      metaTitle: 'Veteran-Owned Construction Company Benefits | MH Construction Pasco WA',
+      metaDescription: 'Discover why veteran-owned MH Construction delivers superior results. Military training, precision, and values make the difference in your construction project.',
+      keywords: ['veteran owned construction', 'military contractors', 'Pasco WA', 'construction quality', 'wounded warrior']
+    },
+    status: 'published',
+    readTime: 6,
+    featured: true
+  },
+  {
+    id: 'kitchen-renovation-trends-2024',
+    title: '2024 Kitchen Renovation Trends: What Pacific Northwest Homeowners Want',
+    slug: 'kitchen-renovation-trends-2024',
+    excerpt: 'Explore the latest kitchen renovation trends popular with Pacific Northwest homeowners. From sustainable materials to smart technology integration.',
+    content: `
+# 2024 Kitchen Renovation Trends
+
+The Pacific Northwest has always been at the forefront of home design innovation, and 2024 kitchen renovations are no exception. Here are the trends we\'re seeing in our recent projects.
+
+## Sustainable Materials
+
+### Reclaimed Wood
+- Locally sourced Pacific Northwest timber
+- Barn wood accent walls and islands
+- Sustainable flooring options
+- Custom cabinetry from reclaimed materials
+
+### Eco-Friendly Countertops
+- Recycled glass countertops
+- Bamboo cutting board integration
+- Locally quarried stone options
+- Low-VOC finishes and sealers
+
+## Smart Technology Integration
+
+### Connected Appliances
+- Smart refrigerators with inventory tracking
+- Voice-controlled lighting systems
+- Automated faucets and soap dispensers
+- Integration with home security systems
+
+### Energy Efficiency
+- ENERGY STAR certified appliances
+- LED lighting throughout
+- Smart thermostats for radiant floor heating
+- High-efficiency range hoods
+
+## Design Aesthetics
+
+### Natural Color Palettes
+- Earth tones reflecting Pacific Northwest nature
+- Deep greens and forest blues
+- Warm grays and natural whites
+- Accent colors from local landscapes
+
+### Open Concept Living
+- Kitchen islands as family gathering spaces
+- Seamless flow to outdoor living areas
+- Multi-functional prep and dining areas
+- Built-in storage solutions
+
+## MH Construction Expertise
+
+Our veteran team brings unique advantages to kitchen renovations:
+
+- **Project Management**: Military-style planning and execution
+- **Quality Control**: Attention to detail that ensures perfection
+- **Timeline Management**: Projects completed on schedule
+- **Budget Discipline**: Transparent pricing with no surprises
+
+Ready to start your kitchen renovation? Contact us for a free consultation and see how we can bring these trends to your home.
+    `,
+    author: {
+      name: 'Jim Rodriguez',
+      role: 'Lead Carpenter',
+      avatar: '/images/team/jim-rodriguez.jpg',
+      bio: 'Marine veteran with expertise in custom cabinetry and finish work'
+    },
+    publishedAt: '2024-12-05',
+    category: mockBlogCategories[1],
+    tags: ['kitchen renovation', 'design trends', 'sustainable materials', 'smart home'],
+    featuredImage: {
+      url: '/images/blog/kitchen-trends-2024.jpg',
+      alt: 'Modern kitchen renovation with sustainable materials and smart technology',
+      caption: 'Latest 2024 kitchen trends featuring sustainable and smart design'
+    },
+    seo: {
+      metaTitle: '2024 Kitchen Renovation Trends Pacific Northwest | MH Construction',
+      metaDescription: 'Discover the latest kitchen renovation trends for 2024. MH Construction shares insights on sustainable materials, smart technology, and Pacific Northwest design.',
+      keywords: ['kitchen renovation', '2024 trends', 'Pacific Northwest', 'sustainable materials', 'smart kitchen']
+    },
+    status: 'published',
+    readTime: 5,
+    featured: false
+  }
+]

@@ -41,10 +41,30 @@ export default function ProjectDetailPage() {
     { name: project.title, url: `/portfolio/${project.seoMetadata.slug}` }
   ])
 
+  // Convert project data for structured data (dates need to be strings)
+  const projectForStructuredData = {
+    title: project.title,
+    description: project.description,
+    details: {
+      startDate: undefined, // Not available in current ProjectDetails type
+      completionDate: project.details.completionDate?.toISOString()
+    },
+    location: {
+      city: project.location.city,
+      state: project.location.state
+    },
+    tags: project.tags,
+    category: project.category,
+    images: project.images.map(img => ({
+      url: img.url,
+      caption: img.caption
+    }))
+  }
+
   return (
     <>
       {/* SEO Structured Data */}
-      <StructuredData data={generateProjectStructuredData(project)} />
+      <StructuredData data={generateProjectStructuredData(projectForStructuredData)} />
       <StructuredData data={breadcrumbData} />
       
       <div className="min-h-screen bg-gray-50">

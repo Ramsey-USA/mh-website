@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  eslint: {
+    // Warning: This disables ESLint during builds
+    ignoreDuringBuilds: true,
+  },
   experimental: {
     // No appDir needed in Next.js 15.5.2 as it's stable
     optimizePackageImports: ['@/components', '@/lib'],

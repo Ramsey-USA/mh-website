@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { PortfolioService } from '@/lib/services/portfolioService'
+import { mockBlogPosts } from '@/lib/types/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mhconstruction.com'
@@ -17,6 +18,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/projects`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/news`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/services`,
@@ -61,5 +80,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: project.isFeatured ? 0.8 : 0.6,
     }))
 
-  return [...staticPages, ...portfolioPages]
+  // Blog posts
+  const blogPages: MetadataRoute.Sitemap = mockBlogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.updatedAt || post.publishedAt),
+    changeFrequency: 'monthly' as const,
+    priority: post.featured ? 0.8 : 0.6,
+  }))
+
+  // Blog category pages
+  const categoryPages: MetadataRoute.Sitemap = [
+    'construction-tips',
+    'home-improvement', 
+    'company-news',
+    'veteran-spotlight',
+    'project-stories'
+  ].map((category) => ({
+    url: `${baseUrl}/blog?category=${category}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.6,
+  }))
+
+  return [...staticPages, ...portfolioPages, ...blogPages, ...categoryPages]
 }
