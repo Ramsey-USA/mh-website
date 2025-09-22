@@ -80,7 +80,7 @@ export function generateSEOMetadata({
   const pageDescription = description || defaultSEO.defaultDescription
   const pageKeywords = [...defaultSEO.defaultKeywords, ...keywords].join(', ')
   const pageUrl = canonicalUrl || defaultSEO.siteUrl
-  const pageImage = ogImage || `${defaultSEO.siteUrl}/images/og-default.jpg`
+  const pageImage = ogImage || `${defaultSEO.siteUrl}/images/og-default.png`
 
   return {
     title: pageTitle,

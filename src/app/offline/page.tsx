@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Wifi, WifiOff, RefreshCw, Home, Phone, Calendar, Calculator, MessageSquare, Hammer, CheckCircle } from 'lucide-react'
 
 export default function OfflinePage() {
@@ -91,6 +92,18 @@ export default function OfflinePage() {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6">
+        {/* MH Logo */}
+        <div className="text-center mb-4">
+          <Image
+            src="/images/logo/mh-logo.png"
+            alt="MH Construction"
+            width={150}
+            height={75}
+            className="mx-auto"
+            priority
+          />
+        </div>
+        
         {/* Status Icon */}
         <div className="text-center mb-6">
           <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 ${

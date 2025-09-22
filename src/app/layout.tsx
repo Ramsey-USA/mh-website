@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Navigation, Footer } from '../components/layout'
+import FaviconLinks from '../components/layout/FaviconLinks'
 import { AuthProvider } from '../lib/auth/AuthContext'
 import { ThemeProvider } from '../contexts/ThemeContext'
 import { WebVitalsReporter } from '../components/performance/optimized-components'
@@ -34,10 +35,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
       { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
       { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' }
     ],
-    shortcut: [{ url: '/icons/icon-192x192.png' }],
+    shortcut: [{ url: '/favicon.ico' }],
     apple: [
       { url: '/icons/icon-180x180.png', sizes: '180x180', type: 'image/png' }
     ]
@@ -58,6 +60,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <FaviconLinks />
+      </head>
       <body className={inter.className}>
         <WebVitalsReporter />
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
