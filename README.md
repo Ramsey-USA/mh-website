@@ -12,10 +12,10 @@
 [![PWA](https://img.shields.io/badge/PWA-enabled-purple.svg)](https://web.dev/progressive-web-apps/)
 
 > **📅 Last Updated:** September 22, 2025  
-> **🚀 Current Version:** 2.4.1  
+> **🚀 Current Version:** 2.5.0  
 > **👥 Team:** MH Construction Development Team  
 > **📧 Contact:** developers@mhconstruction.com  
-> **🎯 Status:** Production Ready with Enhanced Navigation System, Theme Toggle & MH Brand Integration
+> **🎯 Status:** Production Ready with Enhanced Home Page, Icon System & Advanced Animations
 
 ---
 
@@ -137,10 +137,11 @@ Package Manager: "npm 8+"
 
 // Frontend & Styling
 UI Framework: "React 18+ with TypeScript"
-Styling: "Tailwind CSS 4.0 with custom MH theme"
+Styling: "Tailwind CSS 4.0 with custom MH theme & advanced animation system"
 Fonts: "Tactic Sans (Bold/Medium), Adobe Garamond Pro"
-Icons: "Custom Sharp Duotone icon system (18 professional icons)"
+Icons: "Custom Sharp Duotone icon system (22 professional icons)"
 Components: "Custom UI library with accessibility focus"
+Animations: "ScrollReveal system with Intersection Observer API"
 
 // Backend & Database
 Database: "Firebase Firestore (NoSQL)"
@@ -163,6 +164,7 @@ Analytics: "Google Analytics 4 with custom event tracking"
 Maps: "Interactive location maps with service area visualization"
 Forms: "Advanced form validation with lead capture analytics"
 BackgroundSync: "IndexedDB queue management with automatic retry"
+Animations: "ScrollReveal, staggered animations, floating effects, parallax hero"
 
 // Hosting & Deployment
 Hosting: "Firebase Hosting with CDN"
@@ -206,11 +208,11 @@ mh-website/
 ├── 📁 src/                          # Source code
 │   ├── 📁 app/                      # Next.js App Router
 │   │   ├── 📁 (pages)/             # Public website pages
-│   │   │   ├── page.tsx            # Home page
+│   │   │   ├── page.tsx            # Enhanced home page with stats, testimonials & animations
 │   │   │   ├── about/              # About page
 │   │   │   ├── services/           # Services page
 │   │   │   ├── portfolio/          # Dynamic portfolio showcase
-│   │   │   │   ├── page.tsx        # Portfolio listing
+│   │   │   │   ├── page.tsx        # Portfolio listing with enhanced cards
 │   │   │   │   └── [slug]/         # Individual project pages
 │   │   │   ├── contact/            # Enhanced contact with map
 │   │   │   ├── blog/               # Blog system with categories
@@ -227,7 +229,7 @@ mh-website/
 │   │   ├── 📁 estimator/           # AI cost estimator
 │   │   ├── 📁 api/                 # API routes
 │   │   ├── layout.tsx              # Root layout
-│   │   └── globals.css             # Global styles
+│   │   └── globals.css             # Enhanced global styles with animation system
 │   ├── 📁 components/              # Reusable components
 │   │   ├── 📁 ui/                  # Base UI components
 │   │   │   ├── Button.tsx
@@ -235,7 +237,9 @@ mh-website/
 │   │   │   ├── Input.tsx
 │   │   │   └── index.ts            # Component exports
 │   │   ├── 📁 icons/               # Sharp Duotone icon system
-│   │   │   └── SharpDuotoneIcons.tsx # 18 professional icons
+│   │   │   └── SharpDuotoneIcons.tsx # 22 professional icons with CSS variables
+│   │   ├── 📁 animations/          # Animation components
+│   │   │   └── ScrollReveal.tsx    # Intersection Observer scroll animations
 │   │   ├── 📁 layout/              # Layout components
 │   │   │   ├── Header.tsx
 │   │   │   ├── Footer.tsx
@@ -306,7 +310,19 @@ mh-website/
 
 ### ✅ **Latest PWA Implementation (v2.2.0)**
 
-#### **📱 Progressive Web App (PWA)**
+#### **✅ Latest Home Page Enhancements (v2.5.0)**
+| Feature | Description | Status |
+|---------|-------------|--------|
+| **ScrollReveal Animation System** | Progressive content revelation with Intersection Observer and smooth transitions | ✅ Live |
+| **Enhanced Portfolio Cards** | Advanced hover effects with overlay animations and scale transforms | ✅ Live |
+| **Company Statistics Section** | Branded stats showcase with icons and achievement highlights | ✅ Live |
+| **Custom Testimonials** | Clean testimonial section with authentic client reviews and professional styling | ✅ Live |
+| **Icon System Optimization** | Complete CSS variable support ensuring all icons display properly | ✅ Live |
+| **Advanced Animation Framework** | Staggered animations, floating effects, and scroll-based reveals | ✅ Live |
+| **Enhanced Visual Hierarchy** | Improved spacing, typography, and professional design consistency | ✅ Live |
+| **Dark Mode Optimization** | Complete theme support with intelligent color adaptation | ✅ Live |
+
+#### **📱 Progressive Web App (PWA) (v2.2.0)**
 | Feature | Description | Status |
 |---------|-------------|--------|
 | **Offline Functionality** | Full offline browsing with intelligent caching strategies | ✅ Live |
@@ -356,7 +372,19 @@ mh-website/
 | **Enhanced Button System** | 10 variants with outer rings, MH colors, and advanced hover effects | ✅ Live |
 | **Mobile Menu Overlay** | Professional backdrop blur with easy close functionality | ✅ Live |
 
-#### **🎖️ Latest Updates (v2.4.0) - Enhanced Footer System & Light/Dark Mode**
+#### **🎖️ Latest Updates (v2.5.0) - Enhanced Home Page Experience & Animation System**
+| Feature | Description | Status |
+|---------|-------------|--------|
+| **Icon Visibility System** | Complete icon system overhaul with CSS variable support and proper container styling | ✅ Live |
+| **Enhanced Portfolio Section** | Advanced card animations with overlay effects, hover states, and smooth transitions | ✅ Live |
+| **Custom Testimonials Section** | Replaced complex widget with clean custom testimonials featuring authentic client reviews | ✅ Live |
+| **Company Stats Section** | New branded statistics section showcasing 25+ years experience and 500+ projects | ✅ Live |
+| **ScrollReveal Animation System** | Custom scroll-based animations with Intersection Observer for progressive content revelation | ✅ Live |
+| **Advanced CSS Framework** | Enhanced globals.css with comprehensive animation system, section styling, and dark mode support | ✅ Live |
+| **Professional Visual Hierarchy** | Improved spacing, typography, and staggered animations for enhanced user experience | ✅ Live |
+| **Zero Compilation Errors** | Complete technical debt resolution with all warnings and errors addressed | ✅ Live |
+
+#### **🎖️ Previous Updates (v2.4.0) - Enhanced Footer System & Light/Dark Mode**
 | Feature | Description | Status |
 |---------|-------------|--------|
 | **75% Larger Logo** | Footer logo increased from 210x105 to 315x158 pixels for maximum brand presence | ✅ Live |
@@ -615,7 +643,41 @@ Cache Management:
 
 ---
 
-## 🏗️ **RECENT UPDATES (v2.4.1)**
+### **🏗️ RECENT UPDATES (v2.5.0)**
+
+### **September 22, 2025 - Enhanced Home Page Experience & Animation System**
+
+#### **✅ Icon System Overhaul**
+- **CSS Variable Support**: Complete icon system restructure with proper CSS variable definitions for consistent display
+- **Container Styling**: Enhanced icon containers with proper flex alignment and sizing for optimal visibility
+- **Sharp Duotone Integration**: All 22 professional icons now display consistently across light and dark themes
+- **Performance Optimization**: Streamlined SVG rendering with zero external dependencies
+
+#### **✅ Enhanced Portfolio Section**
+- **Advanced Card Animations**: Smooth hover effects with scale transforms and overlay animations
+- **Interactive Overlays**: Professional overlay effects revealing project details on hover
+- **Improved Visual Hierarchy**: Enhanced spacing and typography for better content organization
+- **Responsive Design**: Perfect display across all device sizes with touch-friendly interactions
+
+#### **✅ Custom Testimonials System**
+- **Replaced Complex Widget**: Eliminated problematic TestimonialsWidget in favor of clean custom implementation
+- **Authentic Client Reviews**: Featured genuine testimonials with professional styling and attribution
+- **Enhanced Readability**: Improved typography and spacing for better user engagement
+- **Theme Consistency**: Full light/dark mode support with proper color adaptation
+
+#### **✅ ScrollReveal Animation Framework**
+- **Intersection Observer API**: Efficient scroll-based animations with minimal performance impact
+- **Progressive Content Revelation**: Smooth reveal animations for enhanced user experience
+- **Staggered Animation System**: Professional timing sequences for visual appeal
+- **Accessibility Compliant**: Respects user motion preferences with reduced motion support
+
+#### **✅ Advanced CSS Enhancement**
+- **Comprehensive Animation System**: Enhanced globals.css with keyframes, transitions, and effects
+- **Section Styling Framework**: Dedicated classes for consistent section backgrounds and spacing
+- **Dark Mode Optimization**: Complete theme variable system with intelligent color adaptation
+- **Performance Focused**: Optimized CSS with minimal redundancy and maximum efficiency
+
+### **🏗️ PREVIOUS UPDATES (v2.4.1)**
 
 ### **September 22, 2025 - Navigation System & Theme Toggle Fixes**
 

@@ -24,6 +24,10 @@ const config: Config = {
           'light': '#f7f9f7',          // Very light brand background
         },
         
+        // MH Brand Colors - Short aliases for easier use
+        'mh-primary': '#386851',       // Hunter Green
+        'mh-secondary': '#BD9264',     // Leather Tan
+        
         // Semantic Colors - Light/Dark Compatible
         'surface': {
           DEFAULT: '#f8fafc',  // Light mode
