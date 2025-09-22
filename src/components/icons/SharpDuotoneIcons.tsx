@@ -235,6 +235,45 @@ export const SyncIcon: React.FC<IconProps> = (props) => (
   </IconBase>
 )
 
+// Social Media Icons
+export const FacebookIcon: React.FC<IconProps> = (props) => (
+  <IconBase {...props}>
+    <g opacity="0.3">
+      <circle cx="12" cy="12" r="10" stroke="var(--icon-secondary)" strokeWidth="2"/>
+    </g>
+    <path d="M14.8 20v-7.2h2.4l.4-2.8h-2.8V8.4c0-.8.2-1.4 1.4-1.4h1.4V4.4c-.2 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8V10H8.8v2.8h2.9V20h3.1z" fill="var(--icon-primary)"/>
+  </IconBase>
+)
+
+export const InstagramIcon: React.FC<IconProps> = (props) => (
+  <IconBase {...props}>
+    <g opacity="0.3">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="var(--icon-secondary)" strokeWidth="2"/>
+    </g>
+    <circle cx="12" cy="12" r="3" stroke="var(--icon-primary)" strokeWidth="2"/>
+    <circle cx="17.5" cy="6.5" r="1.5" fill="var(--icon-primary)"/>
+  </IconBase>
+)
+
+export const LinkedInIcon: React.FC<IconProps> = (props) => (
+  <IconBase {...props}>
+    <g opacity="0.3">
+      <rect x="2" y="2" width="20" height="20" rx="2" ry="2" stroke="var(--icon-secondary)" strokeWidth="2"/>
+    </g>
+    <path d="M6 8v12M10 8v12M10 12c0-2 1.5-3 3-3s3 1 3 3v8" stroke="var(--icon-primary)" strokeWidth="2"/>
+    <circle cx="6" cy="6" r="1" fill="var(--icon-primary)"/>
+  </IconBase>
+)
+
+export const TwitterIcon: React.FC<IconProps> = (props) => (
+  <IconBase {...props}>
+    <g opacity="0.3">
+      <circle cx="12" cy="12" r="10" stroke="var(--icon-secondary)" strokeWidth="2"/>
+    </g>
+    <path d="M20 6.5c-.8.4-1.6.6-2.5.7.9-.5 1.6-1.4 1.9-2.4-.8.5-1.7.8-2.7 1-.8-.8-1.9-1.3-3.1-1.3-2.3 0-4.2 1.9-4.2 4.2 0 .3 0 .6.1.9-3.5-.2-6.6-1.9-8.7-4.4-.4.6-.6 1.4-.6 2.2 0 1.5.7 2.8 1.8 3.5-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.7 3.3 4.1-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1.5 1.6 2 2.8 3.8 2.8-1.4 1.1-3.2 1.8-5.1 1.8-.3 0-.7 0-1-.1 1.9 1.2 4.1 1.9 6.5 1.9 7.8 0 12.1-6.5 12.1-12.1v-.6c.8-.6 1.5-1.3 2.1-2.1z" fill="var(--icon-primary)"/>
+  </IconBase>
+)
+
 // Export all icons as a collection
 export const SharpDuotoneIcons = {
   Menu: MenuIcon,
@@ -255,7 +294,11 @@ export const SharpDuotoneIcons = {
   Bolt: BoltIcon,
   Cog: CogIcon,
   Bell: BellIcon,
-  Sync: SyncIcon
+  Sync: SyncIcon,
+  Facebook: FacebookIcon,
+  Instagram: InstagramIcon,
+  LinkedIn: LinkedInIcon,
+  Twitter: TwitterIcon
 }
 
 export default SharpDuotoneIcons

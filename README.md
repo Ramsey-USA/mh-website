@@ -12,10 +12,10 @@
 [![PWA](https://img.shields.io/badge/PWA-enabled-purple.svg)](https://web.dev/progressive-web-apps/)
 
 > **📅 Last Updated:** September 22, 2025  
-> **🚀 Current Version:** 2.3.0  
+> **🚀 Current Version:** 2.4.0  
 > **👥 Team:** MH Construction Development Team  
 > **📧 Contact:** developers@mhconstruction.com  
-> **🎯 Status:** Production Ready with Enhanced Button System & Sharp Duotone Icons
+> **🎯 Status:** Production Ready with Enhanced Footer System, Light/Dark Mode & Social Media Integration
 
 ---
 
@@ -356,7 +356,19 @@ mh-website/
 | **Enhanced Button System** | 10 variants with outer rings, MH colors, and advanced hover effects | ✅ Live |
 | **Mobile Menu Overlay** | Professional backdrop blur with easy close functionality | ✅ Live |
 
-#### **🎖️ Latest Updates (v2.3.0) - Logo-Focused Design & Veteran Support**
+#### **🎖️ Latest Updates (v2.4.0) - Enhanced Footer System & Light/Dark Mode**
+| Feature | Description | Status |
+|---------|-------------|--------|
+| **75% Larger Logo** | Footer logo increased from 210x105 to 315x158 pixels for maximum brand presence | ✅ Live |
+| **Professional Social Media Icons** | Large social media icons with red hover effects, scaling animations, and shadow glows | ✅ Live |
+| **Comprehensive Light/Dark Mode** | Complete color system supporting both light and dark themes with smooth transitions | ✅ Live |
+| **MH Brand Color Integration** | Consistent red-400/red-500 color scheme throughout all footer elements and hover states | ✅ Live |
+| **Expanded Navigation Links** | Two-column quick links including Wounded Warrior Project, careers, blog, and gallery | ✅ Live |
+| **Enhanced Social Media Section** | Moved to top of Stay Connected column with improved visual hierarchy | ✅ Live |
+| **Team Dashboard Access** | Quick access link added to footer bottom bar alongside legal links | ✅ Live |
+| **Animated Hover Effects** | Professional hover animations with scale, shadow, and color transitions | ✅ Live |
+
+#### **🎖️ Previous Updates (v2.3.0) - Logo-Focused Design & Veteran Support**
 | Feature | Description | Status |
 |---------|-------------|--------|
 | **Logo-Only Header** | Streamlined header design featuring only the logo for maximum brand impact | ✅ Live |
@@ -366,10 +378,11 @@ mh-website/
 | **Enhanced Team Controls** | PWA notifications and background sync status in footer team section | ✅ Live |
 | **Priority Veteran Services** | Comprehensive wounded warrior support with accessibility modifications | ✅ Live |
 
-#### **🎨 Sharp Duotone Icon System (v2.3.0)**
+#### **🎨 Sharp Duotone Icon System (v2.4.0)**
 | Feature | Description | Status |
 |---------|-------------|--------|
-| **18 Professional Icons** | Complete custom icon library with dual-tone styling | ✅ Live |
+| **22 Professional Icons** | Complete custom icon library with dual-tone styling including social media | ✅ Live |
+| **Social Media Integration** | Facebook, Instagram, LinkedIn, and Twitter icons with MH brand styling | ✅ Live |
 | **Brand-Consistent Design** | Icons match MH Construction color palette and aesthetic | ✅ Live |
 | **Size System Integration** | 6 standardized sizes (xs to 2xl) with Tailwind compatibility | ✅ Live |
 | **Dynamic Color Theming** | Primary/secondary color support for brand cohesion | ✅ Live |
@@ -1183,7 +1196,7 @@ Comprehensive button component with outer rings, MH color variants, and smooth h
 ### **Sharp Duotone Icon System**
 Custom-built professional icon system with dual-tone styling for consistent brand presentation.
 
-#### **Icon Library (18 Components)**
+#### **Icon Library (22 Components)**
 ```typescript
 // Available Sharp Duotone Icons
 import { 
@@ -1206,7 +1219,10 @@ import {
   BoltIcon, CogIcon,
   
   // Notifications & Status
-  BellIcon, SyncIcon
+  BellIcon, SyncIcon,
+  
+  // Social Media (New in v2.4.0)
+  FacebookIcon, InstagramIcon, LinkedInIcon, TwitterIcon
 } from '@/components/icons/SharpDuotoneIcons'
 ```
 
@@ -1262,6 +1278,85 @@ style={{
   '--icon-secondary': secondaryColor
 } as React.CSSProperties}
 ```
+
+### **Enhanced Footer System (v2.4.0)**
+Comprehensive footer component with 4-column layout, social media integration, and light/dark mode support.
+
+#### **Footer Architecture**
+```typescript
+// 4-Column Footer Layout
+<footer className="bg-gray-900 dark:bg-gray-950 text-white">
+  {/* Column 1: Company Info with Large Logo */}
+  <div className="space-y-6">
+    <Image src="/images/logo/mh-logo.png" width={315} height={158} className="h-32" />
+    {/* Contact Information */}
+  </div>
+  
+  {/* Column 2: Quick Links */}
+  <div>
+    <h3>Quick Links</h3>
+    {/* Home, About, Services, Projects, Contact, Get Quote */}
+  </div>
+  
+  {/* Column 3: Resources */}
+  <div>
+    <h3>Resources</h3>
+    {/* Wounded Warrior, Careers, Blog, Testimonials, Gallery, Team Access */}
+  </div>
+  
+  {/* Column 4: Stay Connected */}
+  <div>
+    {/* Social Media (Top) + Newsletter (Bottom) */}
+  </div>
+</footer>
+```
+
+#### **Social Media Integration**
+```typescript
+// Enhanced Social Icons with Hover Effects
+<div className="flex space-x-6">
+  <a className="group p-2 rounded-lg bg-gray-800 dark:bg-gray-900 
+                hover:bg-red-500 transition-all duration-300 
+                transform hover:scale-110 hover:shadow-lg 
+                hover:shadow-red-500/25">
+    <FacebookIcon size="lg" className="text-gray-400 group-hover:text-white 
+                                      transition-colors duration-300" />
+  </a>
+  {/* Instagram, LinkedIn, Twitter with same styling */}
+</div>
+```
+
+#### **Light/Dark Mode Support**
+```css
+/* Comprehensive Theme Support */
+.footer-element {
+  /* Light Mode */
+  color: rgb(209 213 219);           /* text-gray-300 */
+  
+  /* Dark Mode */
+  color: rgb(156 163 175);           /* dark:text-gray-400 */
+  
+  /* Hover States */
+  hover: rgb(248 113 113);           /* hover:text-red-400 */
+  hover: rgb(252 165 165);           /* dark:hover:text-red-300 */
+}
+
+/* Background Transitions */
+.footer-bg {
+  background: rgb(17 24 39);         /* bg-gray-900 */
+  background: rgb(2 6 23);           /* dark:bg-gray-950 */
+}
+```
+
+#### **Enhanced Features**
+- **75% Larger Logo**: Prominent 315x158px logo for maximum brand impact
+- **Animated Social Icons**: Scale, glow, and color transition effects
+- **Comprehensive Navigation**: Two-column links including Wounded Warrior Project
+- **Team Dashboard Access**: Quick access in footer bottom bar
+- **Professional Animations**: 300ms cubic-bezier transitions
+- **Brand Color Consistency**: MH red theme throughout hover states
+- **Mobile Responsive**: Adaptive layout for all screen sizes
+- **Accessibility Compliant**: WCAG guidelines with proper contrast ratios
 
 ### **Accessibility Features**
 - **Color Contrast**: All color combinations meet WCAG AA standards (4.5:1 ratio)
@@ -1852,7 +1947,19 @@ TechnicalMetrics: {
 
 ## 📝 **CHANGELOG**
 
-### **Version 2.3.0** (September 22, 2025) - Latest
+### **Version 2.4.0** (September 22, 2025) - Latest
+- 🎨 **Enhanced Footer System**: Comprehensive 4-column footer with professional design and functionality
+- 📏 **75% Larger Logo**: Footer logo increased to 315x158px for maximum brand prominence
+- 📱 **Professional Social Media Icons**: Large social media icons with scaling animations and red glow effects
+- 🌙 **Complete Light/Dark Mode Support**: Comprehensive theme system with smooth color transitions
+- 🔴 **MH Brand Color Integration**: Consistent red-400/red-500 color scheme throughout hover states
+- 🔗 **Expanded Navigation Links**: Two-column quick links including Wounded Warrior Project and resources
+- ✨ **Animated Hover Effects**: Professional scale, shadow, and color transition animations
+- 🎯 **Team Dashboard Access**: Quick access link in footer bottom bar for enhanced team workflow
+- 🌟 **Social Media Priority**: Moved social icons to top of Stay Connected column for better visibility
+- 🎪 **22 Sharp Duotone Icons**: Added Facebook, Instagram, LinkedIn, and Twitter icons to library
+
+### **Version 2.3.0** (September 22, 2025)
 - 🎨 **Sharp Duotone Icon System**: Complete custom icon library with 18 professional icons
 - 🖌️ **Dual-Tone Styling**: Brand-consistent icons with primary/secondary color support
 - 📏 **Standardized Sizing**: Six size variants (xs to 2xl) with Tailwind integration
