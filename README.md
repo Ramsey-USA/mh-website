@@ -15,7 +15,7 @@
 > **🚀 Current Version:** 2.5.0  
 > **👥 Team:** MH Construction Development Team  
 > **📧 Contact:** developers@mhconstruction.com  
-> **🎯 Status:** Production Ready with Enhanced Home Page, Icon System & Advanced Animations
+> **🎯 Status:** Production Ready with Enhanced Home Page, Standardized Button System & Advanced Animations
 
 ---
 
@@ -1208,74 +1208,126 @@ GET    /api/export-data            # Export consultation data
 --leading-relaxed: 1.75;
 ```
 
-### **Enhanced Button System (v2.3.0)**
-Comprehensive button component with outer rings, MH color variants, and smooth hover effects.
+### **MH Brand Standard Button System (v2.5.0)**
+**Standardized button components with MH brand colors, consistent effects, and accessibility compliance.**
 
-#### **Button Variants**
-```typescript
-// All button variants with Ring System
-<Button variant="primary" size="md">Primary Action</Button>
-<Button variant="secondary" size="md">Secondary Action</Button>
-<Button variant="outline" size="md">Outline Style</Button>
-<Button variant="ghost" size="md">Ghost Button</Button>
-<Button variant="gradient" size="md">Gradient CTA</Button>
-<Button variant="military" size="md">Military Theme</Button>
-<Button variant="veteran" size="md">Veteran Support</Button>
-<Button variant="success" size="md">Success State</Button>
-<Button variant="warning" size="md">Warning State</Button>
-<Button variant="danger" size="md">Danger State</Button>
+> **🎯 Brand Standard**: All buttons across the website must use these standardized classes and follow MH brand guidelines for consistency and professional appearance.
 
-// Size variants
-<Button variant="primary" size="sm">Small</Button>
-<Button variant="primary" size="md">Medium</Button>  // Default
-<Button variant="primary" size="lg">Large</Button>
-```
+#### **Core Button Standards**
 
-#### **Enhanced CSS Classes**
+**Base Requirements:**
+- All buttons inherit from `.btn-base` for consistent padding, border-radius (50px), and transitions
+- MH brand colors: Hunter Green (#386851) and Leather Tan (#BD9264)
+- 3px lift on hover with enhanced shadows
+- Smooth transitions with cubic-bezier easing
+- Accessibility compliant with proper contrast ratios
+
+#### **Primary Button Types**
+
 ```css
-/* Enhanced Button Variants with Outer Rings */
-.btn-primary {
-  background: var(--brand-primary);
+/* MH Brand Standard Button Classes */
+
+/* 1. Primary Button - Hunter Green (Main CTA) */
+.btn-primary, .project-filter.active {
+  background: var(--brand-primary);      /* Hunter Green */
   color: white;
   border: 2px solid var(--brand-primary);
-  box-shadow: 0 0 0 0 var(--brand-primary);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(56, 104, 81, 0.2);
 }
 .btn-primary:hover {
   background: var(--brand-primary-light);
-  border-color: var(--brand-primary-light);
-  box-shadow: 0 0 0 4px rgba(56, 104, 81, 0.2);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(56, 104, 81, 0.35);
 }
 
-.btn-gradient {
-  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+/* 2. Secondary Button - Leather Tan */
+.btn-secondary {
+  background: var(--brand-secondary);    /* Leather Tan */
   color: white;
+  border: 2px solid var(--brand-secondary);
+  box-shadow: 0 4px 16px rgba(189, 146, 100, 0.2);
+}
+
+/* 3. Outline Button - Default state for filters */
+.btn-outline, .project-filter {
+  background: transparent;
+  color: var(--brand-primary);
+  border: 2px solid var(--brand-primary);
+  box-shadow: 0 2px 8px rgba(56, 104, 81, 0.1);
+}
+
+/* 4. Outline Secondary */
+.btn-outline-secondary {
+  background: transparent;
+  color: var(--brand-secondary);
+  border: 2px solid var(--brand-secondary);
+}
+
+/* 5. Ghost Button - Minimal style */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text);
   border: 2px solid transparent;
-  box-shadow: 0 0 0 0 var(--brand-primary);
 }
-.btn-gradient:hover {
-  background: linear-gradient(135deg, var(--brand-primary-light), var(--brand-secondary-light));
-  box-shadow: 0 0 0 4px rgba(56, 104, 81, 0.3);
-  transform: translateY(-2px) scale(1.02);
-}
-
-.btn-military {
-  background: var(--brand-accent);
-  color: white;
-  border: 2px solid var(--brand-accent);
-  position: relative;
-}
-.btn-military:hover {
-  background: var(--brand-accent-dark);
-  box-shadow: 0 0 0 4px rgba(189, 146, 100, 0.3);
-}
-
-/* Ring System Utilities */
-.ring-brand-primary { box-shadow: 0 0 0 4px rgba(56, 104, 81, 0.2); }
-.ring-brand-secondary { box-shadow: 0 0 0 4px rgba(189, 146, 100, 0.2); }
-.ring-brand-accent { box-shadow: 0 0 0 4px rgba(231, 161, 108, 0.2); }
 ```
+
+#### **Button Sizes**
+```css
+.btn-sm    { padding: 0.5rem 1rem; font-size: 0.875rem; }
+.btn-base  { padding: 0.75rem 1.5rem; font-size: 1rem; }     /* Default */
+.btn-lg    { padding: 1rem 2rem; font-size: 1.125rem; }
+.btn-xl    { padding: 1.25rem 2.5rem; font-size: 1.25rem; }
+```
+
+#### **Usage Examples**
+
+**Featured Projects Filters (Standardized):**
+```tsx
+// Now uses MH Brand Standard Button System
+<button className="project-filter">All</button>                    // Outline style
+<button className="project-filter active">Residential</button>     // Primary style  
+<button className="project-filter">Commercial</button>             // Outline style
+<button className="project-filter">Renovation</button>             // Outline style
+```
+
+**General Usage:**
+```tsx
+// Primary actions
+<button className="btn-primary btn-lg">Get Free Estimate</button>
+<button className="btn-primary">Contact Us</button>
+
+// Secondary actions  
+<button className="btn-secondary">View Portfolio</button>
+<button className="btn-outline">Learn More</button>
+
+// Utility actions
+<button className="btn-ghost btn-sm">Cancel</button>
+```
+
+#### **Animation Standards**
+- **Hover Lift**: `translateY(-3px)` for primary/secondary buttons
+- **Shadow Enhancement**: Progressive shadow increase on hover
+- **Shine Effect**: Horizontal sweep animation with `::before` pseudo-element
+- **Transition Timing**: `0.3s cubic-bezier(0.4, 0, 0.2, 1)` for all animations
+
+#### **Dark Mode Compatibility**
+```css
+.dark .btn-outline { 
+  color: var(--brand-primary-light); 
+  border-color: var(--brand-primary-light); 
+}
+.dark .btn-outline-secondary { 
+  color: var(--brand-secondary-light); 
+  border-color: var(--brand-secondary-light); 
+}
+```
+
+#### **Accessibility Standards**
+- ✅ WCAG 2.1 AA contrast compliance
+- ✅ Focus visible indicators
+- ✅ Screen reader friendly
+- ✅ Keyboard navigation support
+- ✅ Reduced motion respect
 
 #### **Advanced Features**
 - **Outer Ring System**: Visual feedback with brand-consistent ring colors

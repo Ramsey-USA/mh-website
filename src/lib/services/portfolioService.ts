@@ -11,8 +11,8 @@ export const portfolioData: ProjectPortfolio[] = [
     subcategory: 'Custom Home',
     status: 'completed',
     location: {
-      city: 'Aspen',
-      state: 'Colorado',
+      city: 'Spokane',
+      state: 'WA',
       isPublic: true,
     },
     images: [
@@ -63,10 +63,10 @@ export const portfolioData: ProjectPortfolio[] = [
     },
     tags: ['luxury', 'eco-friendly', 'custom', 'veteran-built'],
     seoMetadata: {
-      slug: 'luxury-mountain-home-aspen',
-      metaTitle: 'Luxury Mountain Home Construction - Aspen, CO',
-      metaDescription: 'Custom 4,500 sq ft mountain retreat with timber frame construction and sustainable features.',
-      keywords: ['luxury home', 'mountain construction', 'timber frame', 'custom build'],
+      slug: 'luxury-mountain-home-spokane',
+      metaTitle: 'Luxury Mountain Home Construction - Spokane, WA',
+      metaDescription: 'Custom 4,500 sq ft mountain retreat with timber frame construction and sustainable features in Spokane, WA.',
+      keywords: ['luxury home', 'mountain construction', 'timber frame', 'custom build', 'Spokane'],
     },
     isPublished: true,
     isFeatured: true,
@@ -82,8 +82,8 @@ export const portfolioData: ProjectPortfolio[] = [
     subcategory: 'Office Building',
     status: 'completed',
     location: {
-      city: 'Denver',
-      state: 'Colorado',
+      city: 'Yakima',
+      state: 'WA',
       isPublic: true,
     },
     images: [
@@ -116,10 +116,10 @@ export const portfolioData: ProjectPortfolio[] = [
     },
     tags: ['commercial', 'LEED-certified', 'modern', 'sustainable'],
     seoMetadata: {
-      slug: 'modern-office-complex-denver',
-      metaTitle: 'LEED-Certified Office Building Construction - Denver, CO',
-      metaDescription: '25,000 sq ft modern office complex with sustainable design and energy-efficient systems.',
-      keywords: ['office building', 'commercial construction', 'LEED certified', 'Denver'],
+      slug: 'modern-office-complex-yakima',
+      metaTitle: 'LEED-Certified Office Building Construction - Yakima, WA',
+      metaDescription: '25,000 sq ft modern office complex with sustainable design and energy-efficient systems in Yakima, WA.',
+      keywords: ['office building', 'commercial construction', 'LEED certified', 'Yakima'],
     },
     isPublished: true,
     isFeatured: true,
@@ -135,8 +135,8 @@ export const portfolioData: ProjectPortfolio[] = [
     subcategory: 'Kitchen & Bath',
     status: 'completed',
     location: {
-      city: 'Boulder',
-      state: 'Colorado',
+      city: 'Spokane',
+      state: 'WA',
       isPublic: true,
     },
     images: [
@@ -173,10 +173,10 @@ export const portfolioData: ProjectPortfolio[] = [
     },
     tags: ['renovation', 'kitchen', 'bathroom', 'modern'],
     seoMetadata: {
-      slug: 'kitchen-bath-renovation-boulder',
-      metaTitle: 'Kitchen & Bathroom Renovation - Boulder, CO',
-      metaDescription: 'Complete kitchen and master bath renovation with modern amenities and custom features.',
-      keywords: ['kitchen renovation', 'bathroom remodel', 'home improvement', 'Boulder'],
+      slug: 'kitchen-bath-renovation-spokane',
+      metaTitle: 'Kitchen & Bathroom Renovation - Spokane, WA',
+      metaDescription: 'Complete kitchen and master bath renovation with modern amenities and custom features in Spokane, WA.',
+      keywords: ['kitchen renovation', 'bathroom remodel', 'home improvement', 'Spokane'],
     },
     isPublished: true,
     isFeatured: false,

@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import { Button, Card, CardHeader, CardTitle, CardContent } from '../components/ui'
 import { PortfolioImage } from '../components/portfolio/ProjectImage'
+import FeaturedProjectsSection from '../components/portfolio/FeaturedProjectsSection'
 import { PortfolioService } from '../lib/services/portfolioService'
 import { generateSEOMetadata, generateOrganizationStructuredData, StructuredData } from '../components/seo/seo-meta'
 import TestimonialsWidget from '../components/TestimonialsWidget'
-import { BoltIcon, CalendarIcon, UserIcon, ShieldIcon, CogIcon, StarIcon, HammerIcon, CheckIcon } from '../components/icons/SharpDuotoneIcons'
+import { BoltIcon, CalendarIcon, UserIcon, ShieldIcon, CogIcon, StarIcon, HammerIcon, CheckIcon, ToolsIcon } from '../components/icons/SharpDuotoneIcons'
 import ScrollReveal from '../components/animations/ScrollReveal'
 
 // Generate metadata for the homepage
@@ -156,7 +157,7 @@ export default function Home() {
 
       {/* Military Values Section */}
       <section className="section-values py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 scroll-reveal">
             <h2 className="text-responsive-3xl font-tactic-bold text-mh-primary mb-4">
               Built on Military Values
@@ -166,28 +167,69 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { value: 'Ethics', icon: ShieldIcon, color: 'from-mh-primary to-mh-secondary' },
-              { value: 'Experience', icon: StarIcon, color: 'from-mh-secondary to-mh-primary' },
-              { value: 'Integrity', icon: CheckIcon, color: 'from-mh-primary to-mh-secondary' },
-              { value: 'Honesty', icon: ShieldIcon, color: 'from-mh-secondary to-mh-primary' },
-              { value: 'Trust', icon: StarIcon, color: 'from-mh-primary to-mh-secondary' },
-              { value: 'Professionalism', icon: CogIcon, color: 'from-mh-secondary to-mh-primary' }
+              { 
+                value: 'Integrity', 
+                icon: ShieldIcon, 
+                description: 'We conduct business with unwavering honesty and moral principles, ensuring every project reflects our commitment to doing what is right.'
+              },
+              { 
+                value: 'Excellence', 
+                icon: StarIcon, 
+                description: 'We pursue perfection in every detail, delivering superior craftsmanship that exceeds expectations and stands the test of time.'
+              },
+              { 
+                value: 'Service', 
+                icon: ToolsIcon, 
+                description: 'We serve our clients and community with dedication, putting their needs first and treating every project as our mission.'
+              },
+              { 
+                value: 'Leadership', 
+                icon: CheckIcon, 
+                description: 'We lead by example in the construction industry, setting standards for innovation, safety, and professional excellence.'
+              },
+              { 
+                value: 'Accountability', 
+                icon: CogIcon, 
+                description: 'We take full responsibility for our work and commitments, ensuring transparency and reliability in every interaction.'
+              },
+              { 
+                value: 'Teamwork', 
+                icon: HammerIcon, 
+                description: 'We build success through collaboration, leveraging diverse skills and perspectives to achieve exceptional results together.'
+              }
             ].map((item, index) => {
               const IconComponent = item.icon;
               return (
-                <div key={item.value} className="text-center group scroll-reveal" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className={`w-16 h-16 bg-gradient-to-br ${item.color} rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-xl group-hover:rotate-12`}>
-                    <IconComponent 
-                      size="md" 
-                      primaryColor="white" 
-                      secondaryColor="rgba(255,255,255,0.7)"
-                    />
+                <div key={item.value} className="flip-card scroll-reveal" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className="flip-card-inner">
+                    <div className="flip-card-front">
+                      <div className="flip-card-icon">
+                        <div className="w-16 h-16 bg-gradient-to-br from-mh-primary to-mh-secondary rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                          <IconComponent 
+                            size="lg" 
+                            primaryColor="white" 
+                            secondaryColor="rgba(255,255,255,0.7)"
+                          />
+                        </div>
+                      </div>
+                      <h3 className="flip-card-title">
+                        {item.value}
+                      </h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Hover to learn more
+                      </p>
+                    </div>
+                    <div className="flip-card-back">
+                      <h3 className="text-xl font-bold mb-4 text-white">
+                        {item.value}
+                      </h3>
+                      <p className="flip-card-description text-white/90">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="font-semibold text-responsive-base text-mh-primary dark:text-mh-secondary transition-all duration-300 group-hover:text-mh-secondary dark:group-hover:text-mh-primary">
-                    {item.value}
-                  </h3>
                 </div>
               );
             })}
@@ -195,68 +237,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Portfolio Showcase */}
-      <section className="section-features py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 scroll-reveal">
-            <h2 className="text-responsive-3xl font-tactic-bold text-mh-primary mb-4">
-              Featured Projects
-            </h2>
-            <p className="text-responsive-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Discover our exceptional work and see why clients trust MH Construction with their most important projects
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {featuredProjects.map((project, index) => (
-              <div key={project.seoMetadata.slug} className="group cursor-pointer scroll-reveal" style={{ animationDelay: `${index * 0.2}s` }}>
-                <Link href={`/portfolio/${project.seoMetadata.slug}`}>
-                  <div className="card relative h-80 rounded-xl overflow-hidden mb-4 shadow-lg">
-                    <PortfolioImage
-                      src={project.images[0]?.url || '/placeholder-construction.jpg'}
-                      alt={project.title}
-                      className="object-cover w-full h-full group-hover:scale-110 transition-all duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
-                      <span className="bg-mh-primary px-3 py-1 rounded-full text-sm font-semibold text-white shadow-lg">
-                        {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
-                      </span>
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                      <h3 className="text-xl font-semibold mb-2">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-gray-200 mb-3">
-                        {project.description.substring(0, 100)}...
-                      </p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-mh-secondary font-medium">
-                          {project.location.city}, {project.location.state}
-                        </span>
-                        {project.details.completionDate && (
-                          <span className="text-sm text-gray-300">
-                            {new Date(project.details.completionDate).getFullYear()}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-
-          {/* Portfolio CTA */}
-          <div className="text-center scroll-reveal">
-            <Link href="/portfolio">
-              <Button className="btn-outline transition-all duration-300 hover:scale-105" size="lg" withRing>
-                View All Projects
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Featured Projects Section */}
+      <FeaturedProjectsSection featuredProjects={featuredProjects} />
 
       {/* Client Testimonials */}
       <section className="section-values py-16">
@@ -274,7 +256,7 @@ export default function Home() {
             {[
               {
                 name: "Sarah Thompson",
-                location: "Seattle, WA",
+                location: "Spokane, WA",
                 project: "Home Renovation",
                 rating: 5,
                 review: "MH Construction transformed our 1920s home with incredible attention to detail. Their military precision and professionalism made the entire process seamless.",
@@ -282,7 +264,7 @@ export default function Home() {
               },
               {
                 name: "Mike Chen",
-                location: "Portland, OR",
+                location: "Yakima, WA",
                 project: "Kitchen Remodel",
                 rating: 5,
                 review: "The AI cost estimator was spot-on, and the quality of work exceeded our expectations. Highly recommend for any construction project.",
