@@ -6,6 +6,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Button } from '../ui'
 import { useAuth } from '../../lib/auth/AuthContext'
+import PushNotifications from '../pwa/PushNotifications'
+import BackgroundSyncStatus from '../pwa/BackgroundSyncStatus'
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -29,6 +31,7 @@ export function Navigation() {
     { href: '/services', label: 'Services' },
     { href: '/portfolio', label: 'Portfolio' },
     { href: '/projects', label: 'Projects' },
+    { href: '/testimonials', label: 'Testimonials' },
     { href: '/blog', label: 'Blog' },
     { href: '/news', label: 'News' },
     { href: '/estimator', label: 'AI Estimator' },
@@ -82,6 +85,12 @@ export function Navigation() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
+            {/* Background Sync Status */}
+            <BackgroundSyncStatus />
+            
+            {/* Push Notifications */}
+            <PushNotifications />
+            
             {user ? (
               // Authenticated User Actions
               <div className="flex items-center space-x-4">

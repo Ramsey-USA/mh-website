@@ -3,6 +3,7 @@ import { Button, Card, CardHeader, CardTitle, CardContent } from '../components/
 import { PortfolioImage } from '../components/portfolio/ProjectImage'
 import { PortfolioService } from '../lib/services/portfolioService'
 import { generateSEOMetadata, generateOrganizationStructuredData, StructuredData } from '../components/seo/seo-meta'
+import TestimonialsWidget from '../components/TestimonialsWidget'
 
 // Generate metadata for the homepage
 export const metadata = generateSEOMetadata({
@@ -209,6 +210,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Client Testimonials */}
+      <TestimonialsWidget
+        title="What Our Clients Say"
+        subtitle="Read testimonials from satisfied customers across the Pacific Northwest"
+        variant="default"
+        autoSlide={true}
+        showViewAll={true}
+      />
 
       {/* CTA Section */}
       <section className="py-16 bg-brand-primary text-white">
