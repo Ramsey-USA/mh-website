@@ -23,7 +23,7 @@ export default function Footer() {
   const [isTeamModalOpen, setIsTeamModalOpen] = useState(false)
 
   return (
-    <footer className="footer-primary">
+    <footer className="bg-gray-800 dark:bg-black text-gray-300 pt-12 pb-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8">
@@ -73,22 +73,22 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-white">Quick Links</h3>
             <nav className="grid grid-cols-1 gap-2">
-              <Link href="/" className="footer-nav-link">
+              <Link href="/" className="inline-block py-3 px-4 rounded-lg text-gray-300 transition-all duration-300 relative overflow-hidden hover:text-white hover:bg-gray-800/50 hover:-translate-y-0.5 hover:ring-2 hover:ring-brand-primary/30 before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:transition-all before:duration-500 hover:before:left-full dark:text-slate-300 dark:hover:text-slate-50 dark:hover:bg-slate-700/50 dark:hover:ring-brand-primary-light/40">
                 Home
               </Link>
-              <Link href="/about" className="footer-nav-link">
+              <Link href="/about" className="inline-block py-3 px-4 rounded-lg text-gray-300 transition-all duration-300 relative overflow-hidden hover:text-white hover:bg-gray-800/50 hover:-translate-y-0.5 hover:ring-2 hover:ring-brand-primary/30 before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:transition-all before:duration-500 hover:before:left-full dark:text-slate-300 dark:hover:text-slate-50 dark:hover:bg-slate-700/50 dark:hover:ring-brand-primary-light/40">
                 About Us
               </Link>
-              <Link href="/services" className="footer-nav-link">
+              <Link href="/services" className="inline-block py-3 px-4 rounded-lg text-gray-300 transition-all duration-300 relative overflow-hidden hover:text-white hover:bg-gray-800/50 hover:-translate-y-0.5 hover:ring-2 hover:ring-brand-primary/30 before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:transition-all before:duration-500 hover:before:left-full dark:text-slate-300 dark:hover:text-slate-50 dark:hover:bg-slate-700/50 dark:hover:ring-brand-primary-light/40">
                 Services
               </Link>
-              <Link href="/portfolio" className="footer-nav-link">
+              <Link href="/portfolio" className="inline-block py-3 px-4 rounded-lg text-gray-300 transition-all duration-300 relative overflow-hidden hover:text-white hover:bg-gray-800/50 hover:-translate-y-0.5 hover:ring-2 hover:ring-brand-primary/30 before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:transition-all before:duration-500 hover:before:left-full dark:text-slate-300 dark:hover:text-slate-50 dark:hover:bg-slate-700/50 dark:hover:ring-brand-primary-light/40">
                 Portfolio
               </Link>
-              <Link href="/contact" className="footer-nav-link">
+              <Link href="/contact" className="inline-block py-3 px-4 rounded-lg text-gray-300 transition-all duration-300 relative overflow-hidden hover:text-white hover:bg-gray-800/50 hover:-translate-y-0.5 hover:ring-2 hover:ring-brand-primary/30 before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:transition-all before:duration-500 hover:before:left-full dark:text-slate-300 dark:hover:text-slate-50 dark:hover:bg-slate-700/50 dark:hover:ring-brand-primary-light/40">
                 Contact
               </Link>
-              <Link href="/estimator" className="footer-nav-link footer-nav-link-primary">
+              <Link href="/estimator" className="inline-block py-3 px-4 rounded-lg text-white bg-gradient-to-r from-green-600 to-green-700 ring-2 ring-brand-primary/20 transition-all duration-300 relative overflow-hidden hover:from-green-500 hover:to-green-600 hover:-translate-y-0.5 hover:ring-brand-primary/40 hover:shadow-lg hover:shadow-brand-primary/30 before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent before:transition-all before:duration-500 hover:before:left-full">
                 Get Quote
               </Link>
             </nav>
@@ -98,22 +98,22 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-white">Resources</h3>
             <nav className="grid grid-cols-1 gap-2">
-              <Link href="/wounded-warrior" className="footer-nav-link footer-nav-link-veteran">
+              <Link href="/wounded-warrior" className="inline-block py-3 px-4 rounded-lg text-white bg-gradient-to-r from-red-600 to-red-700 ring-2 ring-red-600/20 transition-all duration-300 relative overflow-hidden hover:from-red-500 hover:to-red-600 hover:-translate-y-0.5 hover:ring-red-500/40 hover:shadow-lg hover:shadow-red-500/30 before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:transition-all before:duration-500 hover:before:left-full">
                 Wounded Warrior Program
               </Link>
-              <Link href="/careers" className="footer-nav-link">
+              <Link href="/careers" className="inline-block py-3 px-4 rounded-lg text-gray-300 transition-all duration-300 relative overflow-hidden hover:text-white hover:bg-gray-800/50 hover:-translate-y-0.5 hover:ring-2 hover:ring-brand-primary/30 before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:transition-all before:duration-500 hover:before:left-full dark:text-slate-300 dark:hover:text-slate-50 dark:hover:bg-slate-700/50 dark:hover:ring-brand-primary-light/40">
                 Careers
               </Link>
-              <Link href="/blog" className="footer-nav-link">
+              <Link href="/blog" className="inline-block py-3 px-4 rounded-lg text-gray-300 transition-all duration-300 relative overflow-hidden hover:text-white hover:bg-gray-800/50 hover:-translate-y-0.5 hover:ring-2 hover:ring-brand-primary/30 before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:transition-all before:duration-500 hover:before:left-full dark:text-slate-300 dark:hover:text-slate-50 dark:hover:bg-slate-700/50 dark:hover:ring-brand-primary-light/40">
                 Blog
               </Link>
-              <Link href="/testimonials" className="footer-nav-link">
+              <Link href="/testimonials" className="inline-block py-3 px-4 rounded-lg text-gray-300 transition-all duration-300 relative overflow-hidden hover:text-white hover:bg-gray-800/50 hover:-translate-y-0.5 hover:ring-2 hover:ring-brand-primary/30 before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:transition-all before:duration-500 hover:before:left-full dark:text-slate-300 dark:hover:text-slate-50 dark:hover:bg-slate-700/50 dark:hover:ring-brand-primary-light/40">
                 Testimonials
               </Link>
-              <Link href="/portfolio" className="footer-nav-link">
+              <Link href="/portfolio" className="inline-block py-3 px-4 rounded-lg text-gray-300 transition-all duration-300 relative overflow-hidden hover:text-white hover:bg-gray-800/50 hover:-translate-y-0.5 hover:ring-2 hover:ring-brand-primary/30 before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:transition-all before:duration-500 hover:before:left-full dark:text-slate-300 dark:hover:text-slate-50 dark:hover:bg-slate-700/50 dark:hover:ring-brand-primary-light/40">
                 Gallery
               </Link>
-              <Link href="/dashboard" className="footer-nav-link footer-nav-link-dashboard">
+              <Link href="/dashboard" className="inline-block py-3 px-4 rounded-lg text-white bg-gradient-to-r from-blue-600 to-blue-700 ring-2 ring-blue-600/20 transition-all duration-300 relative overflow-hidden hover:from-blue-500 hover:to-blue-600 hover:-translate-y-0.5 hover:ring-blue-500/40 hover:shadow-lg hover:shadow-blue-500/30 before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent before:transition-all before:duration-500 hover:before:left-full">
                 Team Access
               </Link>
             </nav>
@@ -180,7 +180,7 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
-                  className="btn-primary-footer w-full group"
+                  className="w-full py-3 px-6 bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold rounded-full transition-all duration-300 relative overflow-hidden ring-2 ring-brand-primary/20 shadow-[0_4px_12px_rgba(56,104,81,0.2)] hover:from-green-500 hover:to-green-600 hover:-translate-y-0.5 hover:ring-brand-primary/40 hover:shadow-[0_8px_25px_rgba(56,104,81,0.3)] before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent before:transition-all before:duration-500 hover:before:left-full cursor-pointer border-none group"
                 >
                   <span className="relative z-10">Subscribe</span>
                 </button>

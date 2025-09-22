@@ -50,7 +50,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   themeColor: '#386851',
-  colorScheme: 'light'
+  colorScheme: 'light dark'
 }
 
 export default function RootLayout({
@@ -70,7 +70,7 @@ export default function RootLayout({
         )}
         <ThemeProvider defaultTheme="system" storageKey="mh-construction-theme">
           <AuthProvider>
-            <div className="flex flex-col min-h-screen">
+            <div className="flex flex-col min-h-screen" style={{backgroundColor: 'var(--color-background)'}}>
               <Navigation />
               <main className="flex-grow">
                 {children}

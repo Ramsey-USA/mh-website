@@ -7,11 +7,36 @@
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-15.5.2-black.svg)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1.13-06B6D4.svg)](https://tailwindcss.com/)
 [![PWA](https://img.shields.io/badge/PWA-enabled-purple.svg)](https://web.dev/progressive-web-apps/)
 
 > **📅 Last Updated:** September 22, 2025  
-> **🚀 Current Version:** 2.5.0  
-> **🎯 Status:** Production Ready with Enhanced Home Page & PWA Features
+> **🚀 Current Version:** 2.6.0  
+> **🎯 Status:** Production Ready with Pure Tailwind CSS v4 Implementation  
+> **🎨 Architecture:** Zero Custom CSS - 100% Tailwind Utilities
+
+---
+
+## 🚨 **MAJOR UPDATE: Pure Tailwind CSS v4 Implementation**
+
+### **What's New in v2.6.0:**
+- ✅ **Complete migration** from custom CSS classes to pure Tailwind CSS v4.1.13
+- ✅ **Zero custom CSS classes** - all styling uses Tailwind utilities
+- ✅ **Improved performance** with smaller bundle size and better caching
+- ✅ **Enhanced maintainability** through component-based architecture
+- ✅ **Better developer experience** with full IntelliSense support
+- ✅ **Future-proof design system** compatible with Tailwind CSS v4+
+
+### **Before vs After:**
+```tsx
+// OLD (v2.5.0) - Custom CSS classes
+<button className="btn-primary">Get Quote</button>
+<div className="card-primary">Content</div>
+
+// NEW (v2.6.0+) - Pure Tailwind with components
+<Button variant="primary">Get Quote</Button>
+<div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl">Content</div>
+```
 
 ---
 
@@ -66,12 +91,23 @@ npm run lint           # Code quality check
 
 ```typescript
 Framework: "Next.js 15.5.2 with App Router & TypeScript"
-Styling: "Tailwind CSS 4.0 with MH brand theme"
+Styling: "Pure Tailwind CSS v4.1.13 (Zero Custom CSS)"
+Theme: "MH brand colors with automatic light/dark mode"
+Components: "Reusable Button system with pure Tailwind"
 Backend: "Firebase (Firestore, Auth, Storage, Functions)"
 PWA: "Complete offline capabilities with push notifications"
 Hosting: "Firebase Hosting with CDN"
 Analytics: "Google Analytics 4 + Firebase Analytics"
+Architecture: "Component-based with zero custom CSS classes"
 ```
+
+### **Pure Tailwind Benefits:**
+- 🚀 **Performance**: Smaller bundle size, better caching
+- 🛠️ **Maintainability**: Single source of truth for styling
+- 💡 **Developer Experience**: Full IntelliSense and autocomplete
+- 🎨 **Consistency**: No more mixing custom and utility classes
+- ♿ **Accessibility**: Built-in Tailwind accessibility utilities
+- 🔄 **Future-Proof**: Compatible with Tailwind CSS v4 and beyond
 
 ---
 

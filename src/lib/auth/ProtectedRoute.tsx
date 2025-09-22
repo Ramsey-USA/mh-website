@@ -4,7 +4,7 @@
 import React from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth, UserRole } from './AuthContext'
-import { Card, CardContent } from '../../components/ui'
+import { Card, CardContent, Button } from '../../components/ui'
 
 interface ProtectedRouteProps {
   children: React.ReactNode
@@ -96,18 +96,20 @@ function UnauthorizedScreen({ requiredRole, userRole }: { requiredRole: UserRole
           </p>
           
           <div className="space-y-2">
-            <button
+            <Button
               onClick={() => router.back()}
-              className="w-full btn-secondary"
+              variant="secondary"
+              className="w-full"
             >
               Go Back
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => router.push('/')}
-              className="w-full btn-primary"
+              variant="primary"
+              className="w-full"
             >
               Return Home
-            </button>
+            </Button>
           </div>
         </CardContent>
       </Card>

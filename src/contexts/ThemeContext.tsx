@@ -2,96 +2,84 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
-type Theme = 'light' | 'dark' | 'system'
+type Theme = 'dark' | 'light' | 'system'
 
-interface ThemeContextType {
-  theme: Theme
-  setTheme: (theme: Theme) => void
-  isDarkMode: boolean
-}
-
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
-
-interface ThemeProviderProps {
+type ThemeProviderProps = {
   children: React.ReactNode
   defaultTheme?: Theme
   storageKey?: string
 }
 
+type ThemeProviderState = {
+  theme: Theme
+  setTheme: (theme: Theme) => void
+}
+
+const initialState: ThemeProviderState = {
+  theme: 'system',
+  setTheme: () => null,
+}
+
+const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
+
 export function ThemeProvider({
   children,
   defaultTheme = 'system',
   storageKey = 'mh-construction-theme',
+  ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(defaultTheme)
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    // Initialize theme from localStorage
-    const stored = localStorage.getItem(storageKey) as Theme
-    if (stored && ['light', 'dark', 'system'].includes(stored)) {
-      setTheme(stored)
+    setMounted(true)
+    const storedTheme = localStorage.getItem(storageKey) as Theme
+    if (storedTheme) {
+      setTheme(storedTheme)
     }
   }, [storageKey])
 
   useEffect(() => {
-    const root = window.document.documentElement
+    if (!mounted) return
 
-    // Remove previous theme classes
+    const root = window.document.documentElement
     root.classList.remove('light', 'dark')
 
-    let actualTheme: 'light' | 'dark'
-
     if (theme === 'system') {
-      actualTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-    } else {
-      actualTheme = theme
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light'
+      root.classList.add(systemTheme)
+      return
     }
 
-    // Apply theme
-    root.classList.add(actualTheme)
-    setIsDarkMode(actualTheme === 'dark')
-
-    // Store theme preference
-    localStorage.setItem(storageKey, theme)
-  }, [theme, storageKey])
-
-  // Listen to system theme changes
-  useEffect(() => {
-    if (theme !== 'system') return
-
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    
-    const handleChange = (e: MediaQueryListEvent) => {
-      const actualTheme = e.matches ? 'dark' : 'light'
-      document.documentElement.classList.remove('light', 'dark')
-      document.documentElement.classList.add(actualTheme)
-      setIsDarkMode(actualTheme === 'dark')
-    }
-
-    mediaQuery.addEventListener('change', handleChange)
-    return () => mediaQuery.removeEventListener('change', handleChange)
-  }, [theme])
+    root.classList.add(theme)
+  }, [theme, mounted])
 
   const value = {
     theme,
-    setTheme,
-    isDarkMode,
+    setTheme: (theme: Theme) => {
+      localStorage.setItem(storageKey, theme)
+      setTheme(theme)
+    },
+  }
+
+  if (!mounted) {
+    return <>{children}</>
   }
 
   return (
-    <ThemeContext.Provider value={value}>
+    <ThemeProviderContext.Provider {...props} value={value}>
       {children}
-    </ThemeContext.Provider>
+    </ThemeProviderContext.Provider>
   )
 }
 
 export const useTheme = () => {
-  const context = useContext(ThemeContext)
+  const context = useContext(ThemeProviderContext)
 
-  if (context === undefined) {
+  if (context === undefined)
     throw new Error('useTheme must be used within a ThemeProvider')
-  }
 
   return context
 }
