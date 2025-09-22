@@ -1,8 +1,32 @@
+import Link from 'next/link'
 import { Button, Card, CardHeader, CardTitle, CardContent } from '../components/ui'
+import { PortfolioImage } from '../components/portfolio/ProjectImage'
+import { PortfolioService } from '../lib/services/portfolioService'
+import { generateSEOMetadata, generateOrganizationStructuredData, StructuredData } from '../components/seo/seo-meta'
+
+// Generate metadata for the homepage
+export const metadata = generateSEOMetadata({
+  title: 'Home',
+  description: 'MH Construction delivers exceptional residential, commercial, and industrial construction services throughout the Pacific Northwest. Get your free AI-powered estimate today.',
+  keywords: [
+    'construction services',
+    'home builder',
+    'commercial contractor',
+    'renovation experts',
+    'AI construction estimate',
+    'Pacific Northwest construction'
+  ]
+})
 
 export default function Home() {
+  // Get featured projects for the homepage
+  const featuredProjects = PortfolioService.getFeaturedProjects().slice(0, 3)
+
   return (
     <>
+      {/* Add structured data for SEO */}
+      <StructuredData data={generateOrganizationStructuredData()} />
+      
       {/* Hero Section */}
       <section className="hero-gradient text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,12 +39,16 @@ export default function Home() {
               Serving the Pacific Northwest with military precision.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg">
-                Schedule Free Consultation
-              </Button>
-              <Button variant="primary" size="lg">
-                Get AI Estimate
-              </Button>
+              <Link href="/booking">
+                <Button variant="secondary" size="lg">
+                  Schedule Free Consultation
+                </Button>
+              </Link>
+              <Link href="/estimator">
+                <Button variant="primary" size="lg">
+                  Get AI Estimate
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -127,6 +155,61 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Portfolio Showcase */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-tactic-bold text-brand-primary mb-4">
+              Featured Projects
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Discover our exceptional work and see why clients trust MH Construction with their most important projects
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {featuredProjects.map((project, index) => (
+              <div key={project.seoMetadata.slug} className="group cursor-pointer">
+                <Link href={`/portfolio/${project.seoMetadata.slug}`}>
+                  <div className="relative h-64 rounded-lg overflow-hidden mb-4">
+                    <PortfolioImage
+                      src={project.images[0]?.url || '/placeholder-construction.jpg'}
+                      alt={project.title}
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="bg-brand-primary px-3 py-1 rounded-full text-sm font-semibold">
+                        {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
+                      </span>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-brand-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    {project.description.substring(0, 120)}...
+                  </p>
+                  <div className="mt-3 text-sm text-brand-primary font-medium">
+                    {project.location.city}, {project.location.state}
+                    {project.details.completionDate && ` • ${new Date(project.details.completionDate).getFullYear()}`}
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          {/* Portfolio CTA */}
+          <div className="text-center">
+            <Link href="/portfolio">
+              <Button variant="secondary" size="lg">
+                View All Projects
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-brand-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -137,12 +220,16 @@ export default function Home() {
             Get started with a free consultation and AI-powered estimate today
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg">
-              Schedule Consultation
-            </Button>
-            <Button variant="primary" size="lg" className="bg-white text-brand-primary hover:bg-gray-100">
-              Get Free Estimate
-            </Button>
+            <Link href="/booking">
+              <Button variant="secondary" size="lg">
+                Schedule Consultation
+              </Button>
+            </Link>
+            <Link href="/estimator">
+              <Button variant="primary" size="lg" className="bg-white text-brand-primary hover:bg-gray-100">
+                Get Free Estimate
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

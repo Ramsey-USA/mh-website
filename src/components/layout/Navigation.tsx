@@ -1,14 +1,27 @@
-// Navigation component with responsive hamburger menu
+// Navigation component with responsive hamburger menu and authentication
 'use client'
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { Button } from '../ui'
+import { useAuth } from '../../lib/auth/AuthContext'
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { user, userProfile, logout } = useAuth()
+  const router = useRouter()
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+
+  const handleLogout = async () => {
+    try {
+      await logout()
+      router.push('/')
+    } catch (error) {
+      console.error('Logout error:', error)
+    }
+  }
 
   const navigationLinks = [
     { href: '/', label: 'Home' },
@@ -18,8 +31,10 @@ export function Navigation() {
     { href: '/estimator', label: 'AI Estimator' },
     { href: '/booking', label: 'Book Consultation' },
     { href: '/contact', label: 'Contact' },
-    { href: '/dashboard', label: 'Dashboard', protected: true },
   ]
+
+  // Only show dashboard link if user has team member or admin access
+  const canAccessDashboard = userProfile && (userProfile.role === 'team_member' || userProfile.role === 'admin')
 
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-50">
@@ -49,14 +64,57 @@ export function Navigation() {
                   {link.label}
                 </Link>
               ))}
+              
+              {/* Dashboard Link for Authorized Users */}
+              {canAccessDashboard && (
+                <Link
+                  href="/dashboard"
+                  className="text-gray-700 hover:text-brand-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                >
+                  Dashboard
+                </Link>
+              )}
             </div>
           </div>
 
-          {/* CTA Button - Desktop */}
-          <div className="hidden md:block">
-            <Button variant="primary" size="sm">
-              Schedule Consultation
-            </Button>
+          {/* Desktop Actions */}
+          <div className="hidden md:flex items-center space-x-4">
+            {user ? (
+              // Authenticated User Actions
+              <div className="flex items-center space-x-4">
+                {/* User Info */}
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-brand-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
+                    {userProfile?.displayName?.charAt(0) || user.email?.charAt(0) || 'U'}
+                  </div>
+                  <div className="text-sm">
+                    <div className="font-medium text-gray-900">
+                      {userProfile?.displayName || 'User'}
+                    </div>
+                    <div className="text-gray-500 capitalize">
+                      {userProfile?.role?.replace('_', ' ') || 'Member'}
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Logout Button */}
+                <Button variant="secondary" size="sm" onClick={handleLogout}>
+                  Sign Out
+                </Button>
+              </div>
+            ) : (
+              // Guest Actions
+              <div className="flex items-center space-x-4">
+                <Link href="/auth/login">
+                  <Button variant="secondary" size="sm">
+                    Team Login
+                  </Button>
+                </Link>
+                <Button variant="primary" size="sm">
+                  Schedule Consultation
+                </Button>
+              </div>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -118,10 +176,55 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <div className="pt-4 pb-2">
-              <Button variant="primary" size="sm" className="w-full">
-                Schedule Consultation
-              </Button>
+            
+            {/* Dashboard Link for Mobile */}
+            {canAccessDashboard && (
+              <Link
+                href="/dashboard"
+                className="text-gray-700 hover:text-brand-primary block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Dashboard
+              </Link>
+            )}
+            
+            {/* Mobile Actions */}
+            <div className="pt-4 pb-2 space-y-2">
+              {user ? (
+                // Authenticated User Mobile Actions
+                <div className="space-y-2">
+                  <div className="px-3 py-2 border-t border-gray-200">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-8 h-8 bg-brand-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
+                        {userProfile?.displayName?.charAt(0) || user.email?.charAt(0) || 'U'}
+                      </div>
+                      <div className="text-sm">
+                        <div className="font-medium text-gray-900">
+                          {userProfile?.displayName || 'User'}
+                        </div>
+                        <div className="text-gray-500 capitalize">
+                          {userProfile?.role?.replace('_', ' ') || 'Member'}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <Button variant="secondary" size="sm" className="w-full" onClick={handleLogout}>
+                    Sign Out
+                  </Button>
+                </div>
+              ) : (
+                // Guest Mobile Actions
+                <div className="space-y-2">
+                  <Link href="/auth/login" onClick={() => setIsMenuOpen(false)}>
+                    <Button variant="secondary" size="sm" className="w-full">
+                      Team Login
+                    </Button>
+                  </Link>
+                  <Button variant="primary" size="sm" className="w-full">
+                    Schedule Consultation
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </div>

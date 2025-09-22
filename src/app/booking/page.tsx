@@ -149,7 +149,7 @@ export default function BookingPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
-                    <h4 className="font-semibold text-gray-800">What's Included:</h4>
+                    <h4 className="font-semibold text-gray-800">What&apos;s Included:</h4>
                     <ul className="space-y-1">
                       {consultation.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-center text-sm">

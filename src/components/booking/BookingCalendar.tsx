@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Button, Card, CardHeader, CardTitle, CardContent, Input } from '../ui'
+import { Button, Card, CardHeader, CardTitle, CardContent } from '../ui'
 
 interface TimeSlot {
   id: string
@@ -272,7 +272,7 @@ export function BookingCalendar({ onTimeSlotSelected }: BookingCalendarProps = {
                   {selectedDate.getDay() === 0 || selectedDate.getDay() === 6 ? (
                     <div className="text-center py-8 text-gray-500">
                       <div className="text-4xl mb-2">📅</div>
-                      <p>We're closed on weekends</p>
+                      <p>We&apos;re closed on weekends</p>
                       <p className="text-sm">Please select a weekday</p>
                     </div>
                   ) : (

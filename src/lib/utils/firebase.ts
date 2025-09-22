@@ -13,7 +13,7 @@ import {
   limit, 
   Timestamp 
 } from 'firebase/firestore';
-import { db } from '../firebase/config';
+import { getFirebaseDb } from '../firebase/config';
 import type { Consultation, ProjectEstimate, Notification, TeamMember } from '../types';
 
 // Consultation operations
@@ -25,13 +25,13 @@ export const consultationService = {
       updatedAt: Timestamp.now(),
     };
     
-    const docRef = await addDoc(collection(db, 'consultations'), consultationData);
+    const docRef = await addDoc(collection(getFirebaseDb(), 'consultations'), consultationData);
     return docRef.id;
   },
 
   async getAll() {
     const q = query(
-      collection(db, 'consultations'),
+      collection(getFirebaseDb(), 'consultations'),
       orderBy('createdAt', 'desc')
     );
     const snapshot = await getDocs(q);
@@ -46,7 +46,7 @@ export const consultationService = {
 
   async getByStatus(status: string) {
     const q = query(
-      collection(db, 'consultations'),
+      collection(getFirebaseDb(), 'consultations'),
       where('status', '==', status),
       orderBy('scheduledDate', 'desc')
     );
@@ -66,11 +66,11 @@ export const consultationService = {
       updatedAt: Timestamp.now(),
     };
     
-    await updateDoc(doc(db, 'consultations', id), updateData);
+    await updateDoc(doc(getFirebaseDb(), 'consultations', id), updateData);
   },
 
   async delete(id: string) {
-    await deleteDoc(doc(db, 'consultations', id));
+    await deleteDoc(doc(getFirebaseDb(), 'consultations', id));
   }
 };
 
@@ -82,12 +82,12 @@ export const estimateService = {
       createdAt: Timestamp.now(),
     };
     
-    const docRef = await addDoc(collection(db, 'estimates'), estimateData);
+    const docRef = await addDoc(collection(getFirebaseDb(), 'estimates'), estimateData);
     return docRef.id;
   },
 
   async getById(id: string) {
-    const docSnapshot = await getDoc(doc(db, 'estimates', id));
+    const docSnapshot = await getDoc(doc(getFirebaseDb(), 'estimates', id));
     if (docSnapshot.exists()) {
       return {
         id: docSnapshot.id,
@@ -101,7 +101,7 @@ export const estimateService = {
 
   async getByUser(userId: string) {
     const q = query(
-      collection(db, 'estimates'),
+      collection(getFirebaseDb(), 'estimates'),
       where('createdBy', '==', userId),
       orderBy('createdAt', 'desc'),
       limit(10)
@@ -124,13 +124,13 @@ export const notificationService = {
       createdAt: Timestamp.now(),
     };
     
-    const docRef = await addDoc(collection(db, 'notifications'), notificationData);
+    const docRef = await addDoc(collection(getFirebaseDb(), 'notifications'), notificationData);
     return docRef.id;
   },
 
   async getUnread(userId: string) {
     const q = query(
-      collection(db, 'notifications'),
+      collection(getFirebaseDb(), 'notifications'),
       where('recipientId', '==', userId),
       where('read', '==', false),
       orderBy('createdAt', 'desc')
@@ -144,21 +144,21 @@ export const notificationService = {
   },
 
   async markAsRead(id: string) {
-    await updateDoc(doc(db, 'notifications', id), {
+    await updateDoc(doc(getFirebaseDb(), 'notifications', id), {
       read: true,
     });
   },
 
   async markAllAsRead(userId: string) {
     const q = query(
-      collection(db, 'notifications'),
+      collection(getFirebaseDb(), 'notifications'),
       where('recipientId', '==', userId),
       where('read', '==', false)
     );
     const snapshot = await getDocs(q);
     
     const updatePromises = snapshot.docs.map(docSnapshot =>
-      updateDoc(doc(db, 'notifications', docSnapshot.id), { read: true })
+      updateDoc(doc(getFirebaseDb(), 'notifications', docSnapshot.id), { read: true })
     );
     
     await Promise.all(updatePromises);
@@ -169,7 +169,7 @@ export const notificationService = {
 export const teamService = {
   async getAll() {
     const q = query(
-      collection(db, 'team'),
+      collection(getFirebaseDb(), 'team'),
       where('active', '==', true),
       orderBy('name')
     );
@@ -182,7 +182,7 @@ export const teamService = {
   },
 
   async getById(id: string) {
-    const docSnapshot = await getDoc(doc(db, 'team', id));
+    const docSnapshot = await getDoc(doc(getFirebaseDb(), 'team', id));
     if (docSnapshot.exists()) {
       return {
         id: docSnapshot.id,

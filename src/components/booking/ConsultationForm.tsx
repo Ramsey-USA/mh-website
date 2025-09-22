@@ -76,7 +76,7 @@ export function ConsultationForm({ selectedDate, selectedTimeSlot, onBack }: Con
     '$100,000 - $250,000', '$250,000 - $500,000', 'Over $500,000'
   ]
 
-  const handleInputChange = (field: keyof BookingData, value: any) => {
+  const handleInputChange = (field: keyof BookingData, value: string | string[] | boolean) => {
     setBookingData(prev => ({
       ...prev,
       [field]: value

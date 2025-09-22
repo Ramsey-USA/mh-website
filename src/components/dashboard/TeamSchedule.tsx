@@ -155,7 +155,7 @@ export function TeamSchedule() {
 
               {/* Today's Schedule */}
               <div>
-                <h5 className="text-sm font-medium text-gray-700 mb-2">Today's Schedule:</h5>
+                <h5 className="text-sm font-medium text-gray-700 mb-2">Today&apos;s Schedule:</h5>
                 <div className="space-y-2">
                   {member.todaySchedule.map((item, index) => (
                     <div key={index} className="flex items-center justify-between text-sm">

@@ -66,7 +66,7 @@ export function EstimatorForm() {
     'Custom Lighting', 'Landscaping', 'Pool/Spa', 'Security System'
   ]
 
-  const handleInputChange = (field: keyof ProjectData, value: any) => {
+  const handleInputChange = (field: keyof ProjectData, value: string | string[] | number | boolean) => {
     setProjectData(prev => ({
       ...prev,
       [field]: value

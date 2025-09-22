@@ -1,4 +1,4 @@
-import { Button, Card, CardHeader, CardTitle, CardContent, Input } from '../../../components/ui'
+import { Button, Card, CardHeader, CardTitle, CardContent } from '../../../components/ui'
 import { DashboardSidebar } from '../../../components/dashboard'
 
 export default function TeamPage() {

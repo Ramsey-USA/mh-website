@@ -22,7 +22,7 @@ export default function DashboardPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <h1 className="text-2xl font-tactic-bold text-brand-primary">Team Dashboard</h1>
-                  <p className="text-gray-600">Welcome back! Here's your MH Construction overview.</p>
+                  <p className="text-gray-600">Welcome back! Here&apos;s your MH Construction overview.</p>
                 </div>
                 <div className="flex items-center space-x-4">
                   <Button variant="secondary" size="sm">

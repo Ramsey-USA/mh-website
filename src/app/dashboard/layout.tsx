@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import type { Metadata } from 'next'
+import { DashboardProtection } from '../../lib/auth/ProtectedRoute'
 
 export const metadata: Metadata = {
   title: 'Team Dashboard - MH Construction',
@@ -12,8 +13,10 @@ interface DashboardLayoutProps {
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {children}
-    </div>
+    <DashboardProtection>
+      <div className="min-h-screen bg-gray-50">
+        {children}
+      </div>
+    </DashboardProtection>
   )
 }
