@@ -12,10 +12,10 @@
 [![PWA](https://img.shields.io/badge/PWA-enabled-purple.svg)](https://web.dev/progressive-web-apps/)
 
 > **📅 Last Updated:** September 22, 2025  
-> **🚀 Current Version:** 2.4.0  
+> **🚀 Current Version:** 2.4.1  
 > **👥 Team:** MH Construction Development Team  
 > **📧 Contact:** developers@mhconstruction.com  
-> **🎯 Status:** Production Ready with Enhanced Footer System, Light/Dark Mode & Social Media Integration
+> **🎯 Status:** Production Ready with Enhanced Navigation System, Theme Toggle & MH Brand Integration
 
 ---
 
@@ -615,7 +615,32 @@ Cache Management:
 
 ---
 
-## 🏗️ **RECENT UPDATES (v2.2.0)**
+## 🏗️ **RECENT UPDATES (v2.4.1)**
+
+### **September 22, 2025 - Navigation System & Theme Toggle Fixes**
+
+#### **✅ Navigation Component Overhaul**
+- **Fixed Hamburger Menu**: Resolved Tailwind `hidden` class conflicts that prevented mobile menu visibility
+- **Logo Integration**: Implemented proper MH Construction logo display using `/images/logo/mh-logo.png`
+- **Theme Toggle Functionality**: Connected theme switching to proper ThemeProvider context system
+- **Responsive Design**: Removed problematic responsive classes, ensuring consistent navigation across all devices
+- **Mobile Menu Cleanup**: Streamlined mobile dropdown to focus on navigation (removed redundant theme toggle)
+
+#### **✅ Theme System Integration** 
+- **Proper Context Usage**: Navigation now uses `useTheme()` hook instead of manual DOM manipulation
+- **CSS Variable Support**: Enhanced global.css with comprehensive MH brand color system
+- **Light/Dark Mode**: Fully functional theme switching with localStorage persistence
+- **Brand Color Consistency**: Standardized Hunter Green (#386851) and Leather Tan (#BD9264) throughout
+
+#### **✅ Development Lessons Learned**
+- **Tailwind Class Issues**: `md:hidden` and responsive classes can conflict - prefer explicit visibility controls
+- **Icon Dependencies**: Custom icon components may fail - Unicode symbols (☰, ✕) provide reliable fallbacks  
+- **Theme Architecture**: Always use established context patterns rather than direct DOM manipulation
+- **Component Simplicity**: Simpler, explicit code often works better than complex responsive frameworks
+
+---
+
+## 🏗️ **PREVIOUS UPDATES (v2.2.0)**
 
 ### **September 2025 - PWA Implementation Release**
 

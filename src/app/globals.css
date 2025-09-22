@@ -1,15 +1,88 @@
 @import "tailwindcss";
 
+/* MH Construction Brand Palette - Based on README Design System */
 :root {
-  /* MH Construction Brand Colors */
-  --brand-primary: #386851;           /* Hunter Green */
-  --brand-primary-light: #4a7a63;     /* Lighter hunter green */
-  --brand-primary-dark: #2d5240;      /* Darker hunter green */
-  --brand-secondary: #BD9264;         /* Leather Tan */
-  --brand-secondary-light: #c9a176;   /* Lighter tan */
-  --brand-secondary-dark: #a67d52;    /* Darker tan */
+  /* Primary Brand Colors */
+  --brand-primary: #386851;           /* Hunter Green - Primary actions, headers */
+  --brand-primary-light: #4a7a63;     /* Lighter hunter green for hover states */
+  --brand-primary-dark: #2d5240;      /* Darker hunter green for active states */
   
-  /* Semantic Colors - Light Mode */
+  --brand-secondary: #BD9264;         /* Leather Tan - Secondary actions, accents */
+  --brand-secondary-light: #c9a176;   /* Lighter tan for hover states */
+  --brand-secondary-dark: #a67d52;    /* Darker tan for active states */
+  
+  /* Neutral Colors - Light Mode */
+  --color-background: #ffffff;        /* Main background */
+  --color-surface: #f8fafc;          /* Card backgrounds */
+  --color-surface-secondary: #f1f5f9; /* Alternate backgrounds */
+  
+  --color-text-primary: #1e293b;     /* Primary text */
+  --color-text-secondary: #64748b;   /* Secondary text */
+  --color-text-muted: #94a3b8;       /* Muted text */
+  
+  --color-border: #e2e8f0;           /* Borders and dividers */
+  --color-border-light: #f1f5f9;     /* Light borders */
+  
+  /* Status Colors */
+  --color-success: #10b981;          /* Success states */
+  --color-success-light: #d1fae5;    /* Success backgrounds */
+  
+  --color-warning: #f59e0b;          /* Warning states */
+  --color-warning-light: #fef3c7;    /* Warning backgrounds */
+  
+  --color-error: #ef4444;            /* Error states */
+  --color-error-light: #fee2e2;      /* Error backgrounds */
+  
+  --color-info: #3b82f6;             /* Info states */
+  --color-info-light: #dbeafe;       /* Info backgrounds */
+  
+  /* Veteran Recognition Colors */
+  --veteran-red: #dc2626;            /* Red for veteran badges */
+  --veteran-blue: #1d4ed8;           /* Blue for veteran elements */
+  --veteran-gold: #ca8a04;           /* Gold for veteran honors */
+}
+
+/* Dark Mode Theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Neutral Colors - Dark Mode */
+    --color-background: #0f172a;      /* Main background */
+    --color-surface: #1e293b;         /* Card backgrounds */
+    --color-surface-secondary: #334155; /* Alternate backgrounds */
+    
+    --color-text-primary: #f8fafc;    /* Primary text */
+    --color-text-secondary: #cbd5e1;  /* Secondary text */
+    --color-text-muted: #64748b;      /* Muted text */
+    
+    --color-border: #334155;          /* Borders and dividers */
+    --color-border-light: #475569;    /* Light borders */
+    
+    /* Status Colors - Adjusted for dark mode */
+    --color-success-light: #064e3b;   /* Dark success backgrounds */
+    --color-warning-light: #451a03;   /* Dark warning backgrounds */
+    --color-error-light: #7f1d1d;     /* Dark error backgrounds */
+    --color-info-light: #1e3a8a;      /* Dark info backgrounds */
+  }
+}
+
+/* Manual dark mode override (for theme toggle) */
+.dark {
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+  --color-surface-secondary: #334155;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #64748b;
+  --color-border: #334155;
+  --color-border-light: #475569;
+  --color-success-light: #064e3b;
+  --color-warning-light: #451a03;
+  --color-error-light: #7f1d1d;
+  --color-info-light: #1e3a8a;
+}
+
+/* Manual light mode override */
+.light {
   --color-background: #ffffff;
   --color-surface: #f8fafc;
   --color-surface-secondary: #f1f5f9;
@@ -18,315 +91,192 @@
   --color-text-muted: #94a3b8;
   --color-border: #e2e8f0;
   --color-border-light: #f1f5f9;
-  
-  /* Status Colors */
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
-  --color-info: #3b82f6;
-  
-  /* Veteran Recognition Colors */
-  --veteran-red: #dc2626;
-  --veteran-blue: #1d4ed8;
-  --veteran-gold: #ca8a04;
+  --color-success-light: #d1fae5;
+  --color-warning-light: #fef3c7;
+  --color-error-light: #fee2e2;
+  --color-info-light: #dbeafe;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark Mode Overrides */
-    --color-background: #0f172a;
-    --color-surface: #1e293b;
-    --color-surface-secondary: #334155;
-    --color-text-primary: #f8fafc;
-    --color-text-secondary: #cbd5e1;
-    --color-text-muted: #64748b;
-    --color-border: #334155;
-    --color-border-light: #475569;
-  }
+/* Typography System */
+:root {
+  --font-heading: 'Tactic Sans Bold', 'Arial Black', sans-serif;
+  --font-subheading: 'Tactic Sans Medium', 'Arial', sans-serif;
+  --font-body: 'Adobe Garamond Pro', 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+
+  /* Font Scales - Fluid Typography */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.8rem);     /* 12px-13px */
+  --text-sm: clamp(0.875rem, 0.8rem + 0.3vw, 0.95rem);   /* 14px-15px */
+  --text-base: clamp(1rem, 0.9rem + 0.4vw, 1.1rem);      /* 16px-18px */
+  --text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);     /* 18px-20px */
+  --text-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.4rem);     /* 20px-22px */
+  --text-2xl: clamp(1.5rem, 1.3rem + 0.8vw, 1.75rem);    /* 24px-28px */
+  --text-3xl: clamp(1.875rem, 1.6rem + 1vw, 2.25rem);    /* 30px-36px */
+  --text-4xl: clamp(2.25rem, 1.9rem + 1.4vw, 3rem);      /* 36px-48px */
+
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
 }
 
+/* Global Base Styles */
 body {
   background-color: var(--color-background);
   color: var(--color-text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-body);
 }
 
-/* MH Construction Enhanced Button System */
-/* Primary Button - Hunter Green */
-.btn-primary-enhanced {
-  background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-dark));
-  color: white;
-  font-weight: 700;
-  border: 2px solid var(--brand-primary);
-  box-shadow: 0 4px 12px rgba(56, 104, 81, 0.25);
-  transform: translateY(0);
-}
+/* MH Brand Color Utilities */
+.text-mh-primary { color: var(--brand-primary); }
+.text-mh-secondary { color: var(--brand-secondary); }
+.bg-mh-primary { background-color: var(--brand-primary); }
+.bg-mh-secondary { background-color: var(--brand-secondary); }
+.border-mh-primary { border-color: var(--brand-primary); }
+.border-mh-secondary { border-color: var(--brand-secondary); }
 
-.btn-primary-enhanced:hover {
-  background: linear-gradient(135deg, var(--brand-primary-light), var(--brand-primary));
-  border-color: var(--brand-primary-light);
-  box-shadow: 0 6px 20px rgba(56, 104, 81, 0.35);
-  transform: translateY(-2px);
-}
-
-.btn-primary-enhanced:active {
-  background: var(--brand-primary-dark);
-  border-color: var(--brand-primary-dark);
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(56, 104, 81, 0.4);
-}
-
-/* Secondary Button - Leather Tan */
-.btn-secondary-enhanced {
-  background: linear-gradient(135deg, var(--brand-secondary), var(--brand-secondary-dark));
-  color: white;
-  font-weight: 700;
-  border: 2px solid var(--brand-secondary);
-  box-shadow: 0 4px 12px rgba(189, 146, 100, 0.25);
-  transform: translateY(0);
-}
-
-.btn-secondary-enhanced:hover {
-  background: linear-gradient(135deg, var(--brand-secondary-light), var(--brand-secondary));
-  border-color: var(--brand-secondary-light);
-  box-shadow: 0 6px 20px rgba(189, 146, 100, 0.35);
-  transform: translateY(-2px);
-}
-
-.btn-secondary-enhanced:active {
-  background: var(--brand-secondary-dark);
-  border-color: var(--brand-secondary-dark);
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(189, 146, 100, 0.4);
-}
-
-/* Outline Button - Hunter Green Outline */
-.btn-outline-enhanced {
-  background: transparent;
+/* Navigation Specific Styles */
+.nav-logo {
   color: var(--brand-primary);
-  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.nav-logo:hover {
+  color: var(--brand-primary-light);
+}
+
+/* Dark mode navigation adjustments */
+.dark .nav-logo {
+  color: var(--brand-primary-light);
+}
+
+.dark .nav-logo:hover {
+  color: var(--brand-secondary-light);
+}
+
+/* Enhanced Button System - MH Brand Colors */
+.btn-primary {
+  background: var(--brand-primary);
+  color: white;
   border: 2px solid var(--brand-primary);
+  font-weight: 600;
+  transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(56, 104, 81, 0.15);
 }
 
-.btn-outline-enhanced:hover {
-  background: var(--brand-primary);
-  color: white;
-  border-color: var(--brand-primary);
-  box-shadow: 0 4px 16px rgba(56, 104, 81, 0.25);
-  transform: translateY(-1px);
-}
-
-.btn-outline-enhanced:active {
-  background: var(--brand-primary-dark);
-  border-color: var(--brand-primary-dark);
-  transform: translateY(0);
-}
-
-/* Ghost Button - Minimal with MH Colors */
-.btn-ghost-enhanced {
-  background: rgba(56, 104, 81, 0.1);
-  color: var(--brand-primary);
-  font-weight: 600;
-  border: 2px solid transparent;
-}
-
-.btn-ghost-enhanced:hover {
-  background: rgba(56, 104, 81, 0.2);
-  border-color: var(--brand-primary);
-  color: var(--brand-primary-dark);
-  transform: translateY(-1px);
-}
-
-.btn-ghost-enhanced:active {
-  background: rgba(56, 104, 81, 0.3);
-  transform: translateY(0);
-}
-
-/* Gradient Button - MH Brand Gradient */
-.btn-gradient-enhanced {
-  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary), var(--brand-primary-dark));
-  color: white;
-  font-weight: 700;
-  border: 2px solid transparent;
-  box-shadow: 0 4px 16px rgba(56, 104, 81, 0.3);
-  background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
-}
-
-.btn-gradient-enhanced:hover {
-  box-shadow: 0 6px 24px rgba(56, 104, 81, 0.4);
-  transform: translateY(-2px);
-  animation-duration: 1.5s;
-}
-
-.btn-gradient-enhanced:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 12px rgba(56, 104, 81, 0.5);
-}
-
-/* Destructive Button - Error States */
-.btn-destructive-enhanced {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-  color: white;
-  font-weight: 700;
-  border: 2px solid #ef4444;
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
-}
-
-.btn-destructive-enhanced:hover {
-  background: linear-gradient(135deg, #f87171, #ef4444);
-  border-color: #f87171;
-  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.35);
-  transform: translateY(-1px);
-}
-
-.btn-destructive-enhanced:active {
-  background: #dc2626;
-  border-color: #dc2626;
-  transform: translateY(0);
-}
-
-/* Gradient Animation */
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Legacy Button Classes - Maintained for Backward Compatibility */
-.btn-primary {
-  background-color: var(--brand-primary);
-  color: white;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  transition: all 0.3s ease;
-}
-
 .btn-primary:hover {
-  background-color: var(--brand-primary-light);
+  background: var(--brand-primary-light);
+  border-color: var(--brand-primary-light);
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(56, 104, 81, 0.25);
 }
 
 .btn-secondary {
-  background-color: var(--brand-secondary);
+  background: var(--brand-secondary);
   color: white;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
+  border: 2px solid var(--brand-secondary);
+  font-weight: 600;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(189, 146, 100, 0.15);
 }
 
 .btn-secondary:hover {
-  background-color: var(--brand-secondary-light);
+  background: var(--brand-secondary-light);
+  border-color: var(--brand-secondary-light);
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(189, 146, 100, 0.25);
 }
 
-.btn-social {
-  background-color: var(--brand-primary);
-  color: white;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  min-height: 48px;
+.btn-outline {
+  background: transparent;
+  color: var(--brand-primary);
+  border: 2px solid var(--brand-primary);
+  font-weight: 600;
   transition: all 0.3s ease;
 }
 
-.btn-social:hover {
-  background-color: var(--brand-secondary);
+.btn-outline:hover {
+  background: var(--brand-primary);
+  color: white;
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(56, 104, 81, 0.25);
 }
 
-.text-brand-primary {
+/* Dark mode button adjustments */
+.dark .btn-outline {
+  color: var(--brand-primary-light);
+  border-color: var(--brand-primary-light);
+}
+
+.dark .btn-outline:hover {
+  background: var(--brand-primary-light);
+  border-color: var(--brand-primary-light);
+  color: var(--color-background);
+}
+
+/* Card and Surface Styling */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--brand-primary);
+  box-shadow: 0 4px 12px rgba(56, 104, 81, 0.1);
+}
+
+/* Link Styling with MH Colors */
+.link-primary {
   color: var(--brand-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.text-brand-secondary {
+.link-primary:hover {
+  color: var(--brand-primary-light);
+}
+
+.dark .link-primary {
+  color: var(--brand-primary-light);
+}
+
+.dark .link-primary:hover {
+  color: var(--brand-secondary-light);
+}
+
+/* Form Elements with MH Styling */
+.form-input {
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: var(--brand-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 104, 81, 0.1);
+}
+
+/* Header and Text Styling */
+.heading-primary {
+  color: var(--brand-primary);
+  font-family: var(--font-heading);
+}
+
+.heading-secondary {
   color: var(--brand-secondary);
+  font-family: var(--font-subheading);
 }
 
-.bg-brand-primary {
-  background-color: var(--brand-primary);
+.dark .heading-primary {
+  color: var(--brand-primary-light);
 }
 
-.bg-brand-secondary {
-  background-color: var(--brand-secondary);
-}
-
-.hero-gradient {
-  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary), var(--brand-primary-dark));
-}
-
-.military-card {
-  background-color: white;
-  border: 1px solid var(--field-gray);
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-}
-
-.military-card:hover {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* Enhanced Ring System for MH Brand */
-.ring-brand-primary\/30 {
-  --tw-ring-color: rgba(56, 104, 81, 0.3);
-}
-
-.ring-brand-primary\/50 {
-  --tw-ring-color: rgba(56, 104, 81, 0.5);
-}
-
-.ring-brand-secondary\/30 {
-  --tw-ring-color: rgba(189, 146, 100, 0.3);
-}
-
-.ring-brand-secondary\/50 {
-  --tw-ring-color: rgba(189, 146, 100, 0.5);
-}
-
-/* Button Focus and Accessibility States */
-.btn-primary-enhanced:focus-visible,
-.btn-secondary-enhanced:focus-visible,
-.btn-outline-enhanced:focus-visible,
-.btn-ghost-enhanced:focus-visible,
-.btn-gradient-enhanced:focus-visible,
-.btn-destructive-enhanced:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-/* Disabled State for All Enhanced Buttons */
-.btn-primary-enhanced:disabled,
-.btn-secondary-enhanced:disabled,
-.btn-outline-enhanced:disabled,
-.btn-ghost-enhanced:disabled,
-.btn-gradient-enhanced:disabled,
-.btn-destructive-enhanced:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-/* Loading State Animation */
-@keyframes button-pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-}
-
-.btn-loading {
-  animation: button-pulse 1.5s ease-in-out infinite;
+.dark .heading-secondary {
+  color: var(--brand-secondary-light);
 }
