@@ -47,12 +47,12 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/booking">
-                <Button className="btn-secondary transition-all duration-300 hover:scale-105" size="lg" withRing>
+                <Button className="btn-primary btn-lg" size="lg" withRing>
                   Schedule Free Consultation
                 </Button>
               </Link>
               <Link href="/estimator">
-                <Button className="btn-outline bg-white text-mh-primary hover:bg-gray-100 border-white transition-all duration-300 hover:scale-105" size="lg" withRing>
+                <Button className="btn-outline btn-lg" size="lg" withRing>
                   Get AI Estimate
                 </Button>
               </Link>
@@ -307,7 +307,7 @@ export default function Home() {
           
           <div className="text-center scroll-reveal">
             <Link href="/testimonials">
-              <Button className="btn-outline transition-all duration-300 hover:scale-105" size="lg" withRing>
+              <Button className="btn-outline btn-lg" size="lg" withRing>
                 View All Testimonials
               </Button>
             </Link>
@@ -328,12 +328,12 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/booking">
-                <Button className="bg-white text-mh-primary hover:bg-gray-100 border-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl" size="lg" withRing>
+                <Button className="btn-primary btn-xl" size="xl" withRing>
                   Schedule Consultation
                 </Button>
               </Link>
               <Link href="/estimator">
-                <Button className="btn-secondary transition-all duration-300 hover:scale-105" size="lg" withRing>
+                <Button className="btn-secondary btn-xl" size="xl" withRing>
                   Get Free Estimate
                 </Button>
               </Link>

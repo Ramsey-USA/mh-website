@@ -168,7 +168,7 @@ body {
   font-size: 1rem;
   text-align: center;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   display: inline-flex;
@@ -177,41 +177,58 @@ body {
   gap: 0.5rem;
   text-decoration: none;
   border: 2px solid;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Primary Button - MH Hunter Green */
-.btn-primary,
-.project-filter.active {
-  background: var(--brand-primary);
-  color: white;
-  border-color: var(--brand-primary);
-  box-shadow: 0 4px 16px rgba(56, 104, 81, 0.2);
-}
-
-.btn-primary::before,
-.project-filter.active::before {
+/* Enhanced shine effect for all buttons */
+.btn-base::before {
   content: '';
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s ease;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s ease;
   z-index: 1;
 }
 
-.btn-primary:hover::before,
-.project-filter.active:hover::before {
+.btn-base:hover::before {
   left: 100%;
+}
+
+/* Primary Button - MH Hunter Green */
+.btn-primary,
+.project-filter.active {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-light));
+  color: white;
+  border-color: var(--brand-primary);
+  box-shadow: 0 4px 16px rgba(56, 104, 81, 0.3);
 }
 
 .btn-primary:hover,
 .project-filter.active:hover {
-  background: var(--brand-primary-light);
+  background: linear-gradient(135deg, var(--brand-primary-light), var(--brand-primary));
   border-color: var(--brand-primary-light);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(56, 104, 81, 0.35);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(56, 104, 81, 0.4);
+}
+
+/* Secondary Button - MH Leather Tan */
+.btn-secondary {
+  background: linear-gradient(135deg, var(--brand-secondary), var(--brand-secondary-light));
+  color: white;
+  border-color: var(--brand-secondary);
+  box-shadow: 0 4px 16px rgba(189, 146, 100, 0.3);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, var(--brand-secondary-light), var(--brand-secondary));
+  border-color: var(--brand-secondary-light);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(189, 146, 100, 0.4);
 }
 
 /* Outline Button - Default state for filters */
@@ -220,18 +237,14 @@ body {
   background: transparent;
   color: var(--brand-primary);
   border-color: var(--brand-primary);
-  box-shadow: 0 2px 8px rgba(56, 104, 81, 0.1);
+  box-shadow: 0 2px 8px rgba(56, 104, 81, 0.15);
 }
 
 .btn-outline::before,
 .project-filter::before {
-  content: '';
-  position: absolute;
-  top: 0;
+  background: var(--brand-primary);
   left: 0;
   width: 0;
-  height: 100%;
-  background: var(--brand-primary);
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: -1;
 }
@@ -245,8 +258,8 @@ body {
 .project-filter:hover {
   color: white;
   border-color: var(--brand-primary);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(56, 104, 81, 0.3);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(56, 104, 81, 0.35);
 }
 
 /* Secondary Button - MH Leather Tan */
