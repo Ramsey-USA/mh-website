@@ -288,7 +288,7 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <Button variant="secondary" size="lg">
+          <Button variant="outline" size="lg" withRing>
             Learn About Veteran Services
           </Button>
         </div>
@@ -304,10 +304,10 @@ export default function AboutPage() {
             Experience the difference that military precision and construction expertise makes
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="primary" size="lg" className="bg-white text-brand-secondary hover:bg-gray-100">
+            <Button variant="outline" size="lg" withRing>
               Schedule Consultation
             </Button>
-            <Button variant="primary" size="lg" className="bg-brand-primary hover:bg-brand-primary/80">
+            <Button variant="gradient" size="lg" withRing>
               View Our Portfolio
             </Button>
           </div>

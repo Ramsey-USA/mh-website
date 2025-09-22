@@ -24,7 +24,7 @@ export function usePreloadResources() {
     // Preload critical images
     const criticalImages = [
       '/images/hero-bg.jpg',
-      '/images/logo.png'
+      '/images/logo/mh-logo.png'
     ]
     
     criticalImages.forEach(src => {

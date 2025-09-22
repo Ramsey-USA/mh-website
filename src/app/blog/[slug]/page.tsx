@@ -122,7 +122,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               name: 'MH Construction',
               logo: {
                 '@type': 'ImageObject',
-                url: '/images/logo/mh-construction-logo.png',
+                url: '/images/logo/mh-logo.png',
               },
             },
             datePublished: post.publishedAt,

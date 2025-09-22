@@ -95,11 +95,19 @@ export function DashboardSidebar() {
       {/* Logo */}
       <div className="p-6 border-b">
         <Link href="/dashboard" className="flex items-center">
-          <div className="text-xl font-tactic-bold text-brand-primary">
-            MH Construction
-          </div>
-          <div className="ml-2 text-xs text-brand-secondary font-semibold">
-            DASHBOARD
+          <img 
+            src="/images/logo/mh-logo.png" 
+            alt="MH Construction Logo" 
+            className="h-8 w-auto mr-3"
+            loading="eager"
+          />
+          <div className="flex flex-col">
+            <div className="text-lg font-tactic-bold text-brand-primary">
+              MH Construction
+            </div>
+            <div className="text-xs text-brand-secondary font-semibold">
+              DASHBOARD
+            </div>
           </div>
         </Link>
       </div>

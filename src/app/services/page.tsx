@@ -109,7 +109,7 @@ export default function ServicesPage() {
               Comprehensive construction solutions delivered with military precision, 
               cutting-edge technology, and unwavering commitment to excellence.
             </p>
-            <Button variant="secondary" size="lg">
+            <Button variant="gradient" size="lg" withRing>
               Get Free AI Estimate
             </Button>
           </div>
@@ -167,7 +167,7 @@ export default function ServicesPage() {
                       </div>
                     </div>
                     
-                    <Button variant="primary" size="sm" className="w-full mt-4">
+                    <Button variant="primary" size="sm" withRing className="w-full mt-4">
                       Get Quote for {service.category}
                     </Button>
                   </div>
@@ -339,10 +339,10 @@ export default function ServicesPage() {
             Get an instant AI-powered estimate or schedule a free consultation with our veteran team
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="primary" size="lg" className="bg-white text-brand-secondary hover:bg-gray-100">
+            <Button variant="outline" size="lg" withRing>
               Get AI Estimate Now
             </Button>
-            <Button variant="primary" size="lg" className="bg-brand-primary hover:bg-brand-primary/80">
+            <Button variant="gradient" size="lg" withRing>
               Schedule Consultation
             </Button>
           </div>

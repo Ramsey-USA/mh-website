@@ -18,6 +18,10 @@ const config: Config = {
           'secondary': '#BD9264',      // Leather Tan
           'secondary-light': '#c9a176', // Lighter tan
           'secondary-dark': '#a67d52',  // Darker tan
+          'accent': '#7c9885',         // Sage Green accent
+          'accent-light': '#96ad9c',   // Lighter sage
+          'accent-dark': '#5a7363',    // Darker sage
+          'light': '#f7f9f7',          // Very light brand background
         },
         
         // Semantic Colors - Light/Dark Compatible

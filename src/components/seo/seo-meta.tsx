@@ -153,7 +153,7 @@ export function generateOrganizationStructuredData() {
     name: defaultSEO.companyInfo.name,
     description: defaultSEO.defaultDescription,
     url: defaultSEO.siteUrl,
-    logo: `${defaultSEO.siteUrl}/images/logo.png`,
+    logo: `${defaultSEO.siteUrl}/images/logo/mh-logo.png`,
     image: `${defaultSEO.siteUrl}/images/og-default.jpg`,
     telephone: defaultSEO.companyInfo.telephone,
     email: defaultSEO.companyInfo.email,
