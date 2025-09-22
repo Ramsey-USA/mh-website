@@ -23,199 +23,202 @@ export default function Footer() {
   const [isTeamModalOpen, setIsTeamModalOpen] = useState(false)
 
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info Column */}
-          <div className="space-y-6">
-            <div>
+    <footer className="footer-primary">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8">
+          
+          {/* Column 1: Company Info with Large Logo */}
+          <div className="lg:col-span-1 space-y-6">
+            <div className="mh-logo-enhanced footer-logo-enhanced">
               <Image
                 src="/images/logo/mh-logo.png"
-                alt="MH Construction LLC"
+                alt="MH Construction LLC - Veteran-Owned Excellence"
                 width={315}
                 height={158}
-                className="h-32 w-auto mb-4"
+                className="footer-logo rounded-xl cursor-pointer"
+                priority
               />
-              <p className="text-gray-300 dark:text-gray-400 text-sm">
-                MH Construction LLC - Professional construction services with military precision and veteran integrity.
-              </p>
             </div>
             
             <div className="space-y-3">
-              <div className="flex items-center text-sm text-gray-300 dark:text-gray-400">
-                <PhoneIcon size="sm" className="mr-3 text-red-400 dark:text-red-500" />
-                <a href="tel:+15093086489" className="hover:text-white dark:hover:text-red-300 transition-colors">
-                  (509) 308-6489
-                </a>
-              </div>
-              <div className="flex items-center text-sm text-gray-300 dark:text-gray-400">
-                <EmailIcon size="sm" className="mr-3 text-red-400 dark:text-red-500" />
-                <a href="mailto:info@mhconstructionllc.com" className="hover:text-white dark:hover:text-red-300 transition-colors">
-                  info@mhconstructionllc.com
-                </a>
-              </div>
-              <div className="flex items-start text-sm text-gray-300 dark:text-gray-400">
-                <LocationIcon size="sm" className="mr-3 text-red-400 dark:text-red-500 mt-0.5 flex-shrink-0" />
-                <span>3111 N. Capital Ave.<br />Pasco, WA 99301</span>
+              <h3 className="text-lg font-semibold text-white mb-4">Contact Information</h3>
+              <div className="space-y-2 text-gray-300">
+                <p className="flex items-center">
+                  <span className="font-medium">Phone:</span>
+                  <a href="tel:+15093086489" className="ml-2 hover:text-red-400 transition-colors duration-300 rounded-md px-1 py-0.5">
+                    (509) 308-6489
+                  </a>
+                </p>
+                <p className="flex items-start">
+                  <span className="font-medium">Address:</span>
+                  <span className="ml-2">3111 N. Capital Ave.<br />Pasco, WA 99301</span>
+                </p>
+                <p className="flex items-center">
+                  <span className="font-medium">Email:</span>
+                  <a href="mailto:info@mhconstruction.com" className="ml-2 hover:text-red-400 transition-colors duration-300 rounded-md px-1 py-0.5">
+                    info@mhconstruction.com
+                  </a>
+                </p>
+                <div className="mt-4 p-3 bg-gray-800/50 dark:bg-gray-900/50 rounded-lg border border-red-500/20">
+                  <p className="text-sm text-gray-400">
+                    <strong className="text-red-400">Emergency 24/7:</strong> (509) 308-6489
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Quick Links Column 1 */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-white dark:text-gray-100">Quick Links</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/" className="text-gray-300 dark:text-gray-400 hover:text-red-400 dark:hover:text-red-300 transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-gray-300 dark:text-gray-400 hover:text-red-400 dark:hover:text-red-300 transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-gray-300 dark:text-gray-400 hover:text-red-400 dark:hover:text-red-300 transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/projects" className="text-gray-300 dark:text-gray-400 hover:text-red-400 dark:hover:text-red-300 transition-colors">
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-gray-300 dark:text-gray-400 hover:text-red-400 dark:hover:text-red-300 transition-colors">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/quote" className="text-gray-300 dark:text-gray-400 hover:text-red-400 dark:hover:text-red-300 transition-colors">
-                  Get Quote
-                </Link>
-              </li>
-            </ul>
+          {/* Column 2: Quick Links */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-white">Quick Links</h3>
+            <nav className="grid grid-cols-1 gap-2">
+              <Link href="/" className="footer-nav-link">
+                Home
+              </Link>
+              <Link href="/about" className="footer-nav-link">
+                About Us
+              </Link>
+              <Link href="/services" className="footer-nav-link">
+                Services
+              </Link>
+              <Link href="/portfolio" className="footer-nav-link">
+                Portfolio
+              </Link>
+              <Link href="/contact" className="footer-nav-link">
+                Contact
+              </Link>
+              <Link href="/estimator" className="footer-nav-link footer-nav-link-primary">
+                Get Quote
+              </Link>
+            </nav>
           </div>
 
-          {/* Quick Links Column 2 */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-white dark:text-gray-100">Resources</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/wounded-warrior" className="text-gray-300 dark:text-gray-400 hover:text-red-400 dark:hover:text-red-300 transition-colors">
-                  Wounded Warrior Project
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers" className="text-gray-300 dark:text-gray-400 hover:text-red-400 dark:hover:text-red-300 transition-colors">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-gray-300 dark:text-gray-400 hover:text-red-400 dark:hover:text-red-300 transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/testimonials" className="text-gray-300 dark:text-gray-400 hover:text-red-400 dark:hover:text-red-300 transition-colors">
-                  Testimonials
-                </Link>
-              </li>
-              <li>
-                <Link href="/gallery" className="text-gray-300 dark:text-gray-400 hover:text-red-400 dark:hover:text-red-300 transition-colors">
-                  Gallery
-                </Link>
-              </li>
-              <li>
-                <button
-                  onClick={() => setIsTeamModalOpen(true)}
-                  className="text-gray-300 dark:text-gray-400 hover:text-red-400 dark:hover:text-red-300 transition-colors"
-                >
-                  Team Access
-                </button>
-              </li>
-            </ul>
+          {/* Column 3: Resources */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-white">Resources</h3>
+            <nav className="grid grid-cols-1 gap-2">
+              <Link href="/wounded-warrior" className="footer-nav-link footer-nav-link-veteran">
+                Wounded Warrior Program
+              </Link>
+              <Link href="/careers" className="footer-nav-link">
+                Careers
+              </Link>
+              <Link href="/blog" className="footer-nav-link">
+                Blog
+              </Link>
+              <Link href="/testimonials" className="footer-nav-link">
+                Testimonials
+              </Link>
+              <Link href="/portfolio" className="footer-nav-link">
+                Gallery
+              </Link>
+              <Link href="/dashboard" className="footer-nav-link footer-nav-link-dashboard">
+                Team Access
+              </Link>
+            </nav>
           </div>
 
-          {/* Newsletter & Social Column */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-white dark:text-gray-100">Stay Connected</h3>
+          {/* Column 4: Stay Connected */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-semibold text-white">Stay Connected</h3>
             
-            {/* Social Media */}
-            <div className="mb-6">
-              <p className="text-gray-300 dark:text-gray-400 text-sm mb-4">Follow us on social media</p>
-              <div className="flex space-x-6">
+            {/* Social Media Icons - Top Priority */}
+            <div className="space-y-4">
+              <h4 className="text-sm font-medium text-gray-400 uppercase tracking-wide">Follow Us</h4>
+              <div className="flex space-x-3">
                 <a
-                  href="https://facebook.com/mhconstructionllc"
+                  href="https://facebook.com/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-2 rounded-lg bg-gray-800 dark:bg-gray-900 hover:bg-red-500 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-red-500/25"
+                  className="footer-social-icon group"
+                  aria-label="Follow us on Facebook"
                 >
                   <FacebookIcon size="lg" className="text-gray-400 group-hover:text-white transition-colors duration-300" />
                 </a>
                 <a
-                  href="https://instagram.com/mhconstructionllc"
+                  href="https://instagram.com/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-2 rounded-lg bg-gray-800 dark:bg-gray-900 hover:bg-red-500 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-red-500/25"
+                  className="footer-social-icon group"
+                  aria-label="Follow us on Instagram"
                 >
                   <InstagramIcon size="lg" className="text-gray-400 group-hover:text-white transition-colors duration-300" />
                 </a>
                 <a
-                  href="https://linkedin.com/company/mhconstructionllc"
+                  href="https://linkedin.com/company/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-2 rounded-lg bg-gray-800 dark:bg-gray-900 hover:bg-red-500 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-red-500/25"
+                  className="footer-social-icon group"
+                  aria-label="Connect with us on LinkedIn"
                 >
                   <LinkedInIcon size="lg" className="text-gray-400 group-hover:text-white transition-colors duration-300" />
                 </a>
                 <a
-                  href="https://twitter.com/mhconstructionllc"
+                  href="https://twitter.com/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-2 rounded-lg bg-gray-800 dark:bg-gray-900 hover:bg-red-500 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-red-500/25"
+                  className="footer-social-icon group"
+                  aria-label="Follow us on Twitter"
                 >
                   <TwitterIcon size="lg" className="text-gray-400 group-hover:text-white transition-colors duration-300" />
                 </a>
               </div>
             </div>
 
-            {/* Newsletter */}
-            <div>
-              <p className="text-gray-300 dark:text-gray-400 text-sm mb-4">
-                Subscribe to our newsletter for updates and construction tips.
+            {/* Newsletter Signup */}
+            <div className="space-y-3">
+              <h4 className="text-sm font-medium text-gray-400 uppercase tracking-wide">Newsletter</h4>
+              <p className="text-sm text-gray-300">
+                Stay updated on our latest projects and construction insights.
               </p>
-              <div className="flex flex-col space-y-2">
+              <form className="space-y-3">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="px-3 py-2 bg-gray-800 dark:bg-gray-900 border border-gray-700 dark:border-gray-600 rounded-md text-white dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-red-400 focus:border-transparent transition-colors"
+                  className="newsletter-input"
                 />
-                <Button variant="primary" size="sm" className="w-full hover:bg-red-600 dark:hover:bg-red-500 transition-colors">
-                  Subscribe
-                </Button>
-              </div>
+                <button
+                  type="submit"
+                  className="btn-primary-footer w-full group"
+                >
+                  <span className="relative z-10">Subscribe</span>
+                </button>
+              </form>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-800 dark:border-gray-700">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 dark:text-gray-500 text-sm mb-4 md:mb-0">
-              © {new Date().getFullYear()} MH Construction LLC. All rights reserved.
+        {/* Footer Bottom Bar */}
+        <div className="border-t border-gray-800 pt-6 pb-4">
+          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            
+            {/* Copyright and Legal */}
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
+              <p className="text-gray-400 text-sm">
+                © 2025 MH Construction LLC. All rights reserved.
+              </p>
+              <div className="flex items-center space-x-4 text-sm">
+                <Link href="/privacy" className="footer-legal-link">
+                  Privacy Policy
+                </Link>
+                <Link href="/terms" className="footer-legal-link">
+                  Terms of Service
+                </Link>
+                <Link href="/dashboard" className="footer-legal-link footer-legal-link-dashboard">
+                  Team Dashboard
+                </Link>
+              </div>
             </div>
-            <div className="flex space-x-6 text-sm">
-              <Link href="/privacy" className="text-gray-400 dark:text-gray-500 hover:text-red-400 dark:hover:text-red-300 transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="text-gray-400 dark:text-gray-500 hover:text-red-400 dark:hover:text-red-300 transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="/dashboard" className="text-gray-400 dark:text-gray-500 hover:text-red-400 dark:hover:text-red-300 transition-colors">
-                Team Dashboard
-              </Link>
+
+            {/* Veteran Badge */}
+            <div className="flex items-center space-x-2">
+              <div className="veteran-badge">
+                <span className="text-white text-xs font-semibold">VETERAN OWNED</span>
+              </div>
+              <p className="text-gray-400 text-xs">
+                Serving the Pacific Northwest
+              </p>
             </div>
           </div>
         </div>
@@ -241,7 +244,7 @@ export default function Footer() {
               <input
                 type="text"
                 id="username"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                className="modal-input"
                 placeholder="Enter your username"
               />
             </div>
@@ -252,15 +255,15 @@ export default function Footer() {
               <input
                 type="password"
                 id="password"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                className="modal-input"
                 placeholder="Enter your password"
               />
             </div>
             <div className="flex justify-end space-x-3 pt-4">
-              <Button variant="secondary" onClick={() => setIsTeamModalOpen(false)}>
+              <Button variant="outline" onClick={() => setIsTeamModalOpen(false)} className="rounded-full">
                 Cancel
               </Button>
-              <Button variant="primary">
+              <Button variant="primary" className="rounded-full">
                 Sign In
               </Button>
             </div>

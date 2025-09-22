@@ -17,15 +17,15 @@ export function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-900 shadow-md border-b border-mh-primary dark:border-mh-secondary z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-24 py-2">
           
-          {/* LOGO */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center nav-logo">
+          {/* LOGO - Enhanced padding */}
+          <div className="flex-shrink-0 py-3">
+            <Link href="/" className="flex items-center nav-logo mh-logo-enhanced header-logo-enhanced">
               <img 
                 src="/images/logo/mh-logo.png" 
                 alt="MH Construction" 
-                className="h-10 w-auto hover:opacity-80 transition-opacity"
+                className="h-20 w-auto hover:opacity-80 transition-opacity"
               />
             </Link>
           </div>
@@ -34,20 +34,20 @@ export function Navigation() {
           <div className="flex items-center space-x-4">
             <button 
               onClick={toggleTheme}
-              className="px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-mh-primary dark:text-mh-secondary border border-mh-primary dark:border-mh-secondary hover:bg-mh-primary hover:text-white dark:hover:bg-mh-secondary transition-all duration-300"
+              className="btn-base btn-ghost"
               title="Toggle dark/light mode"
             >
               🌙☀️
             </button>
             
             <Link href="/quote">
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" className="btn-base btn-outline">
                 Get Quote
               </Button>
             </Link>
             
             <Link href="/contact">
-              <Button variant="primary" size="sm">
+              <Button variant="primary" size="sm" className="btn-base btn-primary">
                 Contact Us
               </Button>
             </Link>
@@ -57,7 +57,7 @@ export function Navigation() {
           <div className="block">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-3 rounded-lg text-mh-primary dark:text-mh-secondary hover:bg-mh-primary hover:text-white dark:hover:bg-mh-secondary border-2 border-mh-primary dark:border-mh-secondary transition-colors text-xl font-bold"
+              className="btn-base btn-outline text-xl font-bold"
               aria-label="Toggle navigation menu"
             >
               {isMenuOpen ? '✕' : '☰'}
@@ -73,13 +73,13 @@ export function Navigation() {
               {/* CTA Buttons */}
               <div className="space-y-2">
                 <Link href="/quote" onClick={() => setIsMenuOpen(false)} className="block">
-                  <Button variant="outline" size="sm" className="w-full">
+                  <Button variant="outline" size="sm" className="w-full btn-base btn-outline">
                     Get Quote
                   </Button>
                 </Link>
                 
                 <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="block">
-                  <Button variant="primary" size="sm" className="w-full">
+                  <Button variant="primary" size="sm" className="w-full btn-base btn-primary">
                     Contact Us
                   </Button>
                 </Link>

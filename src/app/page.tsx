@@ -34,35 +34,32 @@ export default function Home() {
       {/* Initialize scroll reveal animations */}
       <ScrollReveal />
       
-      {/* Hero Section */}
-      <section className="section-hero text-white py-20 relative">
+      {/* Hero Section with Enhanced Theme Support */}
+      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/20 via-brand-secondary/10 to-brand-primary/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center scroll-reveal">
-            <h1 className="text-responsive-4xl font-tactic-bold mb-6 text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
               Building Tomorrow with Today&apos;s Technology
             </h1>
-            <p className="text-responsive-xl mb-8 text-gray-100 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto">
               Veteran-owned construction excellence powered by cutting-edge AI technology. 
               Serving the Pacific Northwest with military precision.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/booking">
-                <Button className="btn-primary btn-lg" size="lg" withRing>
-                  Schedule Free Consultation
-                </Button>
+              <Link href="/booking" className="btn-primary btn-lg">
+                Schedule Free Consultation
               </Link>
-              <Link href="/estimator">
-                <Button className="btn-outline btn-lg" size="lg" withRing>
-                  Get AI Estimate
-                </Button>
+              <Link href="/estimator" className="btn-outline btn-lg" style={{ borderColor: 'white', color: 'white' }}>
+                Get AI Estimate
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Company Stats Section */}
-      <section className="stats-section py-12 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+      {/* Company Stats Section with Enhanced Theme */}
+      <section style={{ background: 'var(--color-background)', borderColor: 'var(--color-border)' }} className="py-12 border-t">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -72,13 +69,13 @@ export default function Home() {
               { number: "100%", label: "Veteran Owned", icon: CheckIcon }
             ].map((stat, index) => (
               <div key={index} className="text-center scroll-reveal" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="w-12 h-12 bg-gradient-to-br from-mh-primary to-mh-secondary rounded-lg flex items-center justify-center mx-auto mb-3 shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-lg flex items-center justify-center mx-auto mb-3 shadow-lg">
                   <stat.icon size="md" primaryColor="white" secondaryColor="rgba(255,255,255,0.7)" />
                 </div>
-                <div className="text-responsive-2xl font-bold text-mh-primary dark:text-mh-secondary mb-1">
+                <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: 'var(--color-text-accent)' }}>
                   {stat.number}
                 </div>
-                <div className="text-responsive-sm text-gray-600 dark:text-gray-400">
+                <div className="text-sm md:text-base" style={{ color: 'var(--color-text-secondary)' }}>
                   {stat.label}
                 </div>
               </div>
@@ -87,82 +84,82 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="section-features py-16">
+      {/* Features Section with Theme Support */}
+      <section style={{ background: 'var(--color-surface)' }} className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 scroll-reveal">
-            <h2 className="text-responsive-3xl font-tactic-bold text-mh-primary mb-4 gradient-text">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: 'var(--color-text-accent)' }}>
               Revolutionary Construction Solutions
             </h2>
-            <p className="text-responsive-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl max-w-2xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
               Experience the future of construction with our AI-powered tools and veteran expertise
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card hover={true} className="card border-mh-primary/20 hover:border-mh-primary/50 scroll-reveal">
-              <CardHeader>
-                <div className="w-12 h-12 bg-mh-primary text-white rounded-lg flex items-center justify-center mb-4 shadow-lg icon-hover-scale">
+            <div className="card-primary scroll-reveal">
+              <div className="p-6">
+                <div className="w-12 h-12 bg-brand-primary text-white rounded-lg flex items-center justify-center mb-4 shadow-lg">
                   <BoltIcon size="lg" primaryColor="currentColor" secondaryColor="rgba(255,255,255,0.6)" />
                 </div>
-                <CardTitle className="text-mh-primary text-responsive-lg">AI Project Estimator</CardTitle>
-              </CardHeader>
-              <CardContent className="text-responsive-base">
-                Get accurate project estimates with our revolutionary AI-powered cost calculator. 
-                ±15% precision guaranteed.
-              </CardContent>
-            </Card>
+                <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--color-text-accent)' }}>AI Project Estimator</h3>
+                <p style={{ color: 'var(--color-text-secondary)' }}>
+                  Get accurate project estimates with our revolutionary AI-powered cost calculator. 
+                  ±15% precision guaranteed.
+                </p>
+              </div>
+            </div>
 
-            <Card hover={true} className="card border-mh-secondary/20 hover:border-mh-secondary/50 scroll-reveal">
-              <CardHeader>
-                <div className="w-12 h-12 bg-mh-secondary text-white rounded-lg flex items-center justify-center mb-4 shadow-lg icon-hover-scale">
+            <div className="card-primary scroll-reveal">
+              <div className="p-6">
+                <div className="w-12 h-12 bg-brand-secondary text-white rounded-lg flex items-center justify-center mb-4 shadow-lg">
                   <CalendarIcon size="lg" primaryColor="currentColor" secondaryColor="rgba(255,255,255,0.6)" />
                 </div>
-                <CardTitle className="text-mh-secondary text-responsive-lg">Smart Scheduling</CardTitle>
-              </CardHeader>
-              <CardContent className="text-responsive-base">
-                Book your free consultation with our visual calendar system. 
-                Real-time availability and instant confirmations.
-              </CardContent>
-            </Card>
+                <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--brand-secondary)' }}>Smart Scheduling</h3>
+                <p style={{ color: 'var(--color-text-secondary)' }}>
+                  Book your free consultation with our visual calendar system. 
+                  Real-time availability and instant confirmations.
+                </p>
+              </div>
+            </div>
 
-            <Card hover={true} className="card border-mh-primary/20 hover:border-mh-primary/50 scroll-reveal">
-              <CardHeader>
-                <div className="w-12 h-12 bg-mh-primary text-white rounded-lg flex items-center justify-center mb-4 shadow-lg icon-hover-scale">
+            <div className="card-primary scroll-reveal">
+              <div className="p-6">
+                <div className="w-12 h-12 bg-brand-primary text-white rounded-lg flex items-center justify-center mb-4 shadow-lg">
                   <HammerIcon size="lg" primaryColor="currentColor" secondaryColor="rgba(255,255,255,0.6)" />
                 </div>
-                <CardTitle className="text-mh-primary text-responsive-lg">3D Project Explorer</CardTitle>
-              </CardHeader>
-              <CardContent className="text-responsive-base">
-                Immersive project tours with HD visualization and real-time builder insights. 
-                See your vision come to life.
-              </CardContent>
-            </Card>
+                <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--color-text-accent)' }}>3D Project Explorer</h3>
+                <p style={{ color: 'var(--color-text-secondary)' }}>
+                  Immersive project tours with HD visualization and real-time builder insights. 
+                  See your vision come to life.
+                </p>
+              </div>
+            </div>
 
-            <Card hover={true} className="card border-mh-secondary/20 hover:border-mh-secondary/50 scroll-reveal">
-              <CardHeader>
-                <div className="w-12 h-12 bg-mh-secondary text-white rounded-lg flex items-center justify-center mb-4 shadow-lg icon-hover-scale">
+            <div className="card-primary scroll-reveal">
+              <div className="p-6">
+                <div className="w-12 h-12 bg-brand-secondary text-white rounded-lg flex items-center justify-center mb-4 shadow-lg">
                   <UserIcon size="lg" primaryColor="currentColor" secondaryColor="rgba(255,255,255,0.6)" />
                 </div>
-                <CardTitle className="text-mh-secondary text-responsive-lg">24/7 AI Assistant</CardTitle>
-              </CardHeader>
-              <CardContent className="text-responsive-base">
-                Military-grade support with our enhanced chatbot. 
-                Context-aware responses and veteran-specific assistance.
-              </CardContent>
-            </Card>
+                <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--brand-secondary)' }}>24/7 AI Assistant</h3>
+                <p style={{ color: 'var(--color-text-secondary)' }}>
+                  Military-grade support with our enhanced chatbot. 
+                  Context-aware responses and veteran-specific assistance.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Military Values Section */}
-      <section className="section-values py-16">
+      {/* Military Values Section with Theme Support */}
+      <section style={{ background: 'var(--color-background)' }} className="py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 scroll-reveal">
-            <h2 className="text-responsive-3xl font-tactic-bold text-mh-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: 'var(--color-text-accent)' }}>
               Built on Military Values
             </h2>
-            <p className="text-responsive-lg text-gray-600 dark:text-gray-300">
+            <p className="text-lg md:text-xl" style={{ color: 'var(--color-text-secondary)' }}>
               150+ years of combined expertise guided by unwavering principles
             </p>
           </div>
@@ -202,30 +199,20 @@ export default function Home() {
             ].map((item, index) => {
               const IconComponent = item.icon;
               return (
-                <div key={item.value} className="flip-card scroll-reveal" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="flip-card-inner">
-                    <div className="flip-card-front">
-                      <div className="flip-card-icon">
-                        <div className="w-16 h-16 bg-gradient-to-br from-mh-primary to-mh-secondary rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                          <IconComponent 
-                            size="lg" 
-                            primaryColor="white" 
-                            secondaryColor="rgba(255,255,255,0.7)"
-                          />
-                        </div>
+                <div key={item.value} className="group scroll-reveal" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className="card-primary h-full p-6 cursor-pointer transition-all duration-300 hover:transform hover:scale-105">
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                        <IconComponent 
+                          size="lg" 
+                          primaryColor="white" 
+                          secondaryColor="rgba(255,255,255,0.7)"
+                        />
                       </div>
-                      <h3 className="flip-card-title">
+                      <h3 className="text-xl font-bold mb-3" style={{ color: 'var(--color-text-accent)' }}>
                         {item.value}
                       </h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Hover to learn more
-                      </p>
-                    </div>
-                    <div className="flip-card-back">
-                      <h3 className="text-xl font-bold mb-4 text-white">
-                        {item.value}
-                      </h3>
-                      <p className="flip-card-description text-white/90">
+                      <p className="leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
                         {item.description}
                       </p>
                     </div>
@@ -240,14 +227,14 @@ export default function Home() {
       {/* Featured Projects Section */}
       <FeaturedProjectsSection featuredProjects={featuredProjects} />
 
-      {/* Client Testimonials */}
-      <section className="section-values py-16">
+      {/* Client Testimonials with Theme Support */}
+      <section style={{ background: 'var(--color-surface)' }} className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 scroll-reveal">
-            <h2 className="text-responsive-3xl font-tactic-bold text-mh-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: 'var(--color-text-accent)' }}>
               What Our Clients Say
             </h2>
-            <p className="text-responsive-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl max-w-2xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
               Read testimonials from satisfied customers across the Pacific Northwest
             </p>
           </div>
@@ -279,63 +266,59 @@ export default function Home() {
                 image: "/images/testimonials/jessica-r.jpg"
               }
             ].map((testimonial, index) => (
-              <div key={index} className="card scroll-reveal" style={{ animationDelay: `${index * 0.2}s` }}>
-                <div className="flex items-start space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-mh-primary to-mh-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-lg">{testimonial.name.charAt(0)}</span>
+              <div key={index} className="card-primary scroll-reveal" style={{ animationDelay: `${index * 0.2}s` }}>
+                <div className="p-6">
+                  <div className="flex items-start space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-bold text-lg">{testimonial.name.charAt(0)}</span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-base" style={{ color: 'var(--color-text-accent)' }}>
+                        {testimonial.name}
+                      </h3>
+                      <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>
+                        {testimonial.location} • {testimonial.project}
+                      </p>
+                    </div>
+                    <div className="flex space-x-1">
+                      {Array.from({ length: testimonial.rating }).map((_, i) => (
+                        <StarIcon key={i} size="sm" primaryColor="#BD9264" secondaryColor="rgba(189, 146, 100, 0.4)" />
+                      ))}
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-responsive-base text-mh-primary dark:text-mh-secondary">
-                      {testimonial.name}
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {testimonial.location} • {testimonial.project}
-                    </p>
-                  </div>
-                  <div className="flex space-x-1">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <StarIcon key={i} size="sm" primaryColor="var(--brand-secondary)" secondaryColor="var(--brand-secondary-light)" />
-                    ))}
-                  </div>
+                  <blockquote className="text-base italic leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
+                    "{testimonial.review}"
+                  </blockquote>
                 </div>
-                <blockquote className="text-gray-700 dark:text-gray-300 text-responsive-base italic leading-relaxed">
-                  "{testimonial.review}"
-                </blockquote>
               </div>
             ))}
           </div>
           
           <div className="text-center scroll-reveal">
-            <Link href="/testimonials">
-              <Button className="btn-outline btn-lg" size="lg" withRing>
-                View All Testimonials
-              </Button>
+            <Link href="/testimonials" className="btn-outline btn-lg">
+              View All Testimonials
             </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-mh-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-mh-primary via-mh-primary-dark to-mh-secondary opacity-90"></div>
+      {/* CTA Section with Enhanced Theme Gradient */}
+      <section className="py-16 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-secondary text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="scroll-reveal">
-            <h2 className="text-responsive-3xl font-tactic-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Build Your Dream Project?
             </h2>
-            <p className="text-responsive-xl mb-8 text-gray-100">
+            <p className="text-xl md:text-2xl mb-8 text-gray-100">
               Get started with a free consultation and AI-powered estimate today
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/booking">
-                <Button className="btn-primary btn-xl" size="xl" withRing>
-                  Schedule Consultation
-                </Button>
+              <Link href="/booking" className="btn-secondary btn-xl">
+                Schedule Consultation
               </Link>
-              <Link href="/estimator">
-                <Button className="btn-secondary btn-xl" size="xl" withRing>
-                  Get Free Estimate
-                </Button>
+              <Link href="/estimator" className="btn-outline btn-xl" style={{ borderColor: 'white', color: 'white' }}>
+                Get Free Estimate
               </Link>
             </div>
           </div>

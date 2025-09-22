@@ -6,466 +6,466 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-15.5.2-black.svg)](https://nextjs.org/)
-[![Firebase](https://img.shields.io/badge/Firebase-hosting-orange.svg)](https://firebase.google.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1-38B2AC.svg)](https://tailwindcss.com/)
 [![PWA](https://img.shields.io/badge/PWA-enabled-purple.svg)](https://web.dev/progressive-web-apps/)
 
 > **📅 Last Updated:** September 22, 2025  
 > **🚀 Current Version:** 2.5.0  
-> **👥 Team:** MH Construction Development Team  
-> **📧 Contact:** developers@mhconstruction.com  
-> **🎯 Status:** Production Ready with Enhanced Home Page, Standardized Button System & Advanced Animations
+> **🎯 Status:** Production Ready with Enhanced Home Page & PWA Features
 
 ---
 
-## 📋 Table of Contents
+## 🚀 Quick Start
 
-- [🚀 Quick Start](#-quick-start-guide)
-- [🏢 Company Information](#-company-information) 
-- [🏗️ System Architecture](#️-system-architecture)
-- [🎯 Features & Capabilities](#-features--capabilities)
-- [📱 Progressive Web App (PWA)](#-progressive-web-app-pwa)
-- [🛠️ Installation & Setup](#️-installation--setup)
-- [⚙️ Configuration](#️-configuration)
-- [💻 Development](#-development)
-- [🚀 Deployment](#-deployment)
-- [📚 API Documentation](#-api-documentation)
-- [🎨 Design System](#-design-system)
-- [📁 Project Structure](#-project-structure)
-- [🧪 Testing](#-testing)
-- [⚡ Performance](#-performance)
-- [🔧 Troubleshooting](#-troubleshooting)
-- [🤝 Contributing](#-contributing)
-- [🔧 Maintenance](#-maintenance)
-- [📞 Support](#-support)
-- [📈 Development Roadmap](#-development-roadmap)
-- [🔐 Security](#-security)
-
----
-
-## 🚀 **QUICK START GUIDE**
-
-### **Prerequisites**
+### Prerequisites
 ```bash
 Node.js >= 18.0.0
 npm >= 8.0.0
 Git
-Firebase CLI (optional, for deployment)
+Firebase CLI (optional)
 ```
 
-### **For Developers**
+### Setup
 ```bash
-# Clone the repository
+# Clone and install
 git clone https://github.com/Ramsey-USA/mh-website.git
 cd mh-website
-
-# Install dependencies
 npm install
 
-# Copy environment variables
+# Environment setup
 cp .env.example .env.local
-# Edit .env.local with your Firebase configuration
+# Edit .env.local with Firebase configuration
 
-# Start development server
-npm run dev            # Runs on http://localhost:3000
-
-# Build and test
+# Start development
+npm run dev            # http://localhost:3000
 npm run build          # Production build
-npm run start          # Test production build locally
-npm run lint           # Run ESLint
-npm run type-check     # TypeScript type checking
+npm run lint           # Code quality check
 ```
-
-### **For Content Team**
-- **Team Dashboard**: Access at `/dashboard` for consultation and project management
-- **Live Preview**: Development server at `http://localhost:3000`
-- **Content Updates**: Direct edit in `/src/app/(pages)/` for page content
-- **Asset Management**: Place images in `/public/images/` directory
-
-### **For Project Management**
-- **Development Status**: Track progress in this README and GitHub Issues
-- **Build Status**: Check `npm run build` output for deployment readiness
-- **Performance Monitoring**: Use `npm run analyze` for bundle analysis
-- **Team Coordination**: All communication through `/dashboard/team` interface
 
 ---
 
-## 🏢 **COMPANY INFORMATION**
+## 🏢 Company Information
 
-### **Business Name**
-**MH Construction LLC**  
-*Veteran-Owned Construction Company*
-
-### **Contact Details**
 | Information | Details |
 |-------------|---------|
-| **Primary Phone** | (509) 308-6489 |
-| **Business Address** | 3111 N. Capital Ave., Pasco, WA 99301 |
+| **Business Name** | MH Construction LLC (Veteran-Owned) |
+| **Phone** | (509) 308-6489 |
+| **Address** | 3111 N. Capital Ave., Pasco, WA 99301 |
 | **Service Area** | Pacific Northwest (WA, OR, ID) |
-| **Primary Email** | info@mhconstruction.com |
+| **Email** | info@mhconstruction.com |
 | **Website** | [mhconstruction.com](https://mhconstruction.com) |
-| **Emergency Line** | (509) 308-6489 (24/7) |
-| **License #** | WA State Contractor License #MHCONL*123CL |
 
-### **Business Hours**
-| Service Type | Schedule | Notes |
-|--------------|----------|-------|
-| **Consultations** | Mon-Fri 8:00 AM - 3:00 PM (PT) | By appointment |
-| **General Business** | Mon-Fri 7:00 AM - 6:00 PM, Sat 8:00 AM - 4:00 PM | Office hours |
-| **Emergency Services** | Available 24/7 | Emergency repairs only |
-| **Project Work** | Mon-Sat 7:00 AM - 6:00 PM | Weather dependent |
-
-### **Leadership Team**
-| Role | Name | Experience | Contact |
-|------|------|------------|---------|
-| **Owner/Project Manager** | Mark Harris | 20+ years | mark@mhconstruction.com |
-| **Co-Owner/Design Manager** | Sarah Harris | 18+ years | sarah@mhconstruction.com |
-| **Lead Carpenter** | Jim Rodriguez | 15+ years | jim@mhconstruction.com |
+### Leadership Team
+- **Mark Harris** - Owner/Project Manager (20+ years)
+- **Sarah Harris** - Co-Owner/Design Manager (18+ years)
+- **Jim Rodriguez** - Lead Carpenter (15+ years)
 
 ---
 
-## 🏗️ **SYSTEM ARCHITECTURE**
+## 🏗️ Tech Stack
 
-### **Technology Stack**
 ```typescript
-// Core Framework & Runtime
-Framework: "Next.js 15.5.2 with App Router"
-Language: "TypeScript 5.0+"
-Runtime: "Node.js 18+"
-Package Manager: "npm 8+"
-
-// Frontend & Styling
-UI Framework: "React 18+ with TypeScript"
-Styling: "Tailwind CSS 4.0 with custom MH theme & advanced animation system"
-Fonts: "Tactic Sans (Bold/Medium), Adobe Garamond Pro"
-Icons: "Custom Sharp Duotone icon system (22 professional icons)"
-Components: "Custom UI library with accessibility focus"
-Animations: "ScrollReveal system with Intersection Observer API"
-
-// Backend & Database
-Database: "Firebase Firestore (NoSQL)"
-Authentication: "Firebase Auth with role-based access"
-Storage: "Firebase Storage for images/documents" 
-Functions: "Firebase Cloud Functions (Node.js)"
-Real-time: "Firebase Realtime Database for live updates"
-
-// Progressive Web App (PWA)
-PWA: "Full PWA support with offline capabilities"
-ServiceWorker: "Advanced caching strategies and background sync"
-PushNotifications: "Real-time project and appointment notifications"
-OfflineFirst: "Intelligent offline functionality and form queue"
-AppInstallation: "Native app installation experience"
-
-// Advanced Features
-SEO: "Dynamic meta tags, Open Graph, Twitter Cards, JSON-LD structured data"
-Performance: "WebP/AVIF images, lazy loading, Core Web Vitals optimization"
-Analytics: "Google Analytics 4 with custom event tracking"
-Maps: "Interactive location maps with service area visualization"
-Forms: "Advanced form validation with lead capture analytics"
-BackgroundSync: "IndexedDB queue management with automatic retry"
-Animations: "ScrollReveal, staggered animations, floating effects, parallax hero"
-
-// Hosting & Deployment
+Framework: "Next.js 15.5.2 with App Router & TypeScript"
+Styling: "Tailwind CSS 4.0 with MH brand theme"
+Backend: "Firebase (Firestore, Auth, Storage, Functions)"
+PWA: "Complete offline capabilities with push notifications"
 Hosting: "Firebase Hosting with CDN"
-Domain: "Custom domain with SSL"
-CI/CD: "GitHub Actions with automated deployment"
-Analytics: "Firebase Analytics + Google Analytics 4"
-Monitoring: "Real-time performance and error tracking"
-
-// Development & Quality
-Linting: "ESLint + Prettier with TypeScript rules"
-Testing: "Jest + React Testing Library"
-Performance: "Next.js Image Optimization + Web Vitals"
-Monitoring: "Firebase Performance Monitoring"
-PWATesting: "Lighthouse PWA audits and performance testing"
+Analytics: "Google Analytics 4 + Firebase Analytics"
 ```
 
-### **Architecture Overview**
-```mermaid
-graph TB
-    A[Client Browser] --> B[Next.js Frontend]
-    A --> SW[Service Worker]
-    SW --> C[Cache Management]
-    SW --> PS[Push Notifications]
-    SW --> BS[Background Sync]
-    B --> D[Firebase Auth]
-    B --> E[Firebase Firestore]
-    B --> F[Firebase Storage]
-    E --> G[Cloud Functions]
-    G --> H[External APIs]
-    B --> I[Dashboard Admin]
-    I --> J[Team Management]
-    I --> K[Project Tracking]
-    I --> L[Consultation System]
-    PS --> M[Notification API]
-    BS --> N[IndexedDB Queue]
-```
+---
 
-### **Project Structure**
+## 📁 Project Structure
+
 ```
 mh-website/
-├── 📁 src/                          # Source code
-│   ├── 📁 app/                      # Next.js App Router
-│   │   ├── 📁 (pages)/             # Public website pages
-│   │   │   ├── page.tsx            # Enhanced home page with stats, testimonials & animations
-│   │   │   ├── offline/            # Enhanced offline page with MH branding
-│   │   │   ├── about/              # About page
-│   │   │   ├── services/           # Services page
-│   │   │   ├── portfolio/          # Dynamic portfolio showcase
-│   │   │   │   ├── page.tsx        # Portfolio listing with enhanced cards
-│   │   │   │   └── [slug]/         # Individual project pages
-│   │   │   ├── contact/            # Enhanced contact with map
-│   │   │   ├── blog/               # Blog system with categories
-│   │   │   ├── testimonials/       # Client testimonials showcase
-│   │   │   ├── button-showcase/    # Enhanced button system demo
-│   │   │   └── offline/            # Enhanced offline page
-│   │   │   └── booking/            # Consultation booking
-│   │   ├── icon.tsx                # Dynamic favicon generation with MH branding
-│   │   ├── 📁 dashboard/           # Protected admin area
-│   │   │   ├── page.tsx            # Team dashboard
-│   │   │   ├── client/             # Client dashboard portal
-│   │   │   ├── consultations/      # Consultation management
-│   │   │   ├── projects/           # Project management
-│   │   │   └── team/               # Team management
-│   │   ├── 📁 estimator/           # AI cost estimator
-│   │   ├── 📁 api/                 # API routes
-│   │   ├── layout.tsx              # Root layout
-│   │   └── globals.css             # Enhanced global styles with animation system
-│   ├── 📁 components/              # Reusable components
-│   │   ├── 📁 ui/                  # Base UI components
-│   │   │   ├── Button.tsx
-│   │   │   ├── Card.tsx
-│   │   │   ├── Input.tsx
-│   │   │   └── index.ts            # Component exports
-│   │   ├── 📁 icons/               # Sharp Duotone icon system
-│   │   │   └── SharpDuotoneIcons.tsx # 22 professional icons with CSS variables
-│   │   ├── 📁 animations/          # Animation components
-│   │   │   └── ScrollReveal.tsx    # Intersection Observer scroll animations
-│   │   ├── 📁 layout/              # Layout components
-│   │   │   ├── Header.tsx
-│   │   │   ├── Footer.tsx
-│   │   │   ├── Navigation.tsx
-│   │   │   └── FaviconLinks.tsx    # Favicon link declarations
-│   │   ├── 📁 dashboard/           # Dashboard components
-│   │   │   ├── ClientDashboard.tsx # Client portal
-│   │   │   ├── ProjectTracking.tsx # Real-time updates
-│   │   │   ├── DocumentSharing.tsx # File management
-│   │   │   ├── DashboardSidebar.tsx
-│   │   │   ├── DashboardStats.tsx
-│   │   │   └── index.ts
-│   │   ├── 📁 contact/             # Contact system
-│   │   │   └── ContactForm.tsx     # Enhanced forms
-│   │   ├── 📁 map/                 # Interactive maps
-│   │   │   └── InteractiveMap.tsx  # Location & service areas
-│   │   ├── 📁 pwa/                 # Progressive Web App components
-│   │   │   ├── PWAInstall.tsx      # App installation prompts
-│   │   │   ├── PWAUpdate.tsx       # Service worker updates
-│   │   │   ├── PushNotifications.tsx # Push notification system
-│   │   │   └── BackgroundSyncStatus.tsx # Sync status indicators
-│   │   ├── 📁 lead/                # Lead generation
-│   │   │   └── LeadCapture.tsx     # Conversion optimization
-│   │   ├── 📁 seo/                 # SEO components
-│   │   │   └── seo-meta.tsx        # Dynamic meta tags
-│   │   ├── 📁 analytics/           # Analytics integration
-│   │   │   └── google-analytics.tsx
-│   │   ├── 📁 performance/         # Performance optimization
-│   │   │   └── optimized-components.tsx
-│   │   └── 📁 portfolio/           # Portfolio components
-│   │       └── ProjectImage.tsx    # Optimized images
-│   ├── 📁 lib/                     # Utility libraries
-│   │   ├── 📁 firebase/            # Firebase configuration
-│   │   │   ├── config.ts
-│   │   │   ├── firestore.ts
-│   │   │   └── auth.ts
-│   │   ├── background-sync.ts      # Background sync management
-│   │   ├── 📁 utils/               # Helper functions
-│   │   └── 📁 types/               # TypeScript type definitions
-│   ├── 📁 hooks/                   # Custom React hooks
-│   └── 📁 styles/                  # Additional styling
-├── 📁 public/                      # Static assets
-│   ├── sw.js                       # Service worker with PWA features
-│   ├── manifest.json               # Web app manifest with MH icons
-│   ├── favicon.ico                 # Primary MH logo favicon
-│   └── 📁 icons/                   # Complete PWA icon system
-│   │   ├── icon-16x16.png          # Browser favicon (small)
-│   │   ├── icon-32x32.png          # Browser favicon (standard)
-│   │   ├── icon-180x180.png        # Apple touch icon
-│   │   ├── icon-192x192.png        # PWA icon (standard)
-│   │   ├── icon-512x512.png        # PWA icon (large)
-│   │   └── shortcut-*.png          # PWA shortcut icons
-│   ├── 📁 images/                  # Image assets with MH branding
-│   │   ├── og-default.png          # Open Graph default image
-│   │   ├── placeholder*.jpg        # MH logo fallback images
-│   │   ├── 📁 projects/            # Project photos
-│   │   ├── 📁 team/                # Team photos
-│   │   ├── 📁 blog/                # Blog post images with defaults
-│   │   ├── 📁 news/                # News article images with defaults
-│   │   └── 📁 logo/                # Brand assets
-│   │       └── mh-logo.png         # Main company logo
-│   ├── 📁 screenshots/             # PWA app store screenshots
-│   │   ├── desktop-*.png           # Desktop app screenshots
-│   │   └── mobile-*.png            # Mobile app screenshots
-│   └── favicon.ico                 # Site favicon
-├── 📁 firebase/                    # Firebase configuration
-│   ├── firestore.rules            # Firestore security rules
-│   └── firebase.json              # Firebase config
-├── 📄 package.json                # Dependencies & scripts
-├── 📄 tailwind.config.ts          # Tailwind configuration
-├── 📄 tsconfig.json               # TypeScript configuration
-├── 📄 next.config.js              # Next.js configuration
-├── 📄 .env.example                # Environment variables template
-└── 📄 README.md                   # This file
+├── src/
+│   ├── app/                      # Next.js App Router
+│   │   ├── (pages)/             # Public pages
+│   │   │   ├── page.tsx         # Enhanced home with animations
+│   │   │   ├── about/
+│   │   │   ├── services/
+│   │   │   ├── portfolio/
+│   │   │   ├── contact/
+│   │   │   └── offline/         # PWA offline page
+│   │   ├── dashboard/           # Protected admin area
+│   │   ├── api/                 # API routes
+│   │   └── globals.css          # Enhanced animation system
+│   ├── components/
+│   │   ├── ui/                  # Base components
+│   │   ├── icons/               # Sharp Duotone icon system (22 icons)
+│   │   ├── animations/          # ScrollReveal system
+│   │   ├── layout/              # Header, Footer, Navigation
+│   │   └── pwa/                 # PWA components
+│   └── lib/                     # Utilities and Firebase config
+├── public/
+│   ├── sw.js                    # Service worker
+│   ├── manifest.json            # PWA manifest
+│   ├── favicon.ico              # MH logo favicon
+│   └── icons/                   # Complete PWA icon set
+└── firebase/                    # Firebase configuration
 ```
 
 ---
 
-## 🎯 **FEATURES & CAPABILITIES**
+## 🎯 Key Features
 
-### ✅ **Latest PWA Implementation (v2.2.0)**
+### ✅ PWA Implementation (v2.5.0)
+- **Complete Favicon System**: MH logo across all contexts
+- **Offline Functionality**: Full offline browsing
+- **Push Notifications**: Real-time project updates
+- **Background Sync**: Form submission queue
+- **App Installation**: Native app experience
 
-#### **✅ Complete Favicon & Brand Identity System (v2.5.0)**
-| Feature | Description | Status |
-|---------|-------------|--------|
-| **Primary Favicon Implementation** | Complete favicon.ico and multi-format icon system for all browsers | ✅ Live |
-| **PWA Icon System** | All required icon sizes (16x16 to 512x512) for Progressive Web App installation | ✅ Live |
-| **Social Media Integration** | Open Graph and Twitter card images using MH logo for social sharing | ✅ Live |
-| **SEO Image System** | Default images for blog posts, projects, news, and social media previews | ✅ Live |
-| **Apple Touch Icons** | iOS home screen icons and startup images for mobile app experience | ✅ Live |
-| **PWA Screenshots & Shortcuts** | App store screenshots and shortcut icons for enhanced PWA functionality | ✅ Live |
-| **Placeholder Image System** | Comprehensive fallback images using MH branding for all content types | ✅ Live |
-| **Offline Page Branding** | MH logo integration in offline experience for brand consistency | ✅ Live |
+### ✅ Enhanced Home Page (v2.5.0)
+- **ScrollReveal Animations**: Progressive content revelation
+- **Portfolio Cards**: Advanced hover effects
+- **Company Statistics**: Branded stats showcase
+- **Custom Testimonials**: Clean client reviews
+- **Icon System**: 22 professional Sharp Duotone icons
 
-#### **✅ Latest Home Page Enhancements (v2.5.0)**
-| Feature | Description | Status |
-|---------|-------------|--------|
-| **ScrollReveal Animation System** | Progressive content revelation with Intersection Observer and smooth transitions | ✅ Live |
-| **Enhanced Portfolio Cards** | Advanced hover effects with overlay animations and scale transforms | ✅ Live |
-| **Company Statistics Section** | Branded stats showcase with icons and achievement highlights | ✅ Live |
-| **Custom Testimonials** | Clean testimonial section with authentic client reviews and professional styling | ✅ Live |
-| **Icon System Optimization** | Complete CSS variable support ensuring all icons display properly | ✅ Live |
-| **Advanced Animation Framework** | Staggered animations, floating effects, and scroll-based reveals | ✅ Live |
-| **Enhanced Visual Hierarchy** | Improved spacing, typography, and professional design consistency | ✅ Live |
-| **Dark Mode Optimization** | Complete theme support with intelligent color adaptation | ✅ Live |
+### ✅ Core Platform
+- **AI Cost Estimator**: Real-time project estimation
+- **Interactive Booking**: Calendar with availability
+- **Team Dashboard**: Project and consultation management
+- **Client Portal**: Real-time tracking and communication
+- **Performance**: 95+ Lighthouse score, <3s load times
 
-#### **📱 Progressive Web App (PWA) (v2.2.0)**
-| Feature | Description | Status |
-|---------|-------------|--------|
-| **Offline Functionality** | Full offline browsing with intelligent caching strategies | ✅ Live |
-| **Push Notifications** | Real-time project updates, appointments, and communications | ✅ Live |
-| **Background Sync** | Form submissions automatically sync when connection restored | ✅ Live |
-| **App Installation** | Native app-like installation experience on mobile/desktop | ✅ Live |
-| **Service Worker** | Advanced caching with cache-first and network-first strategies | ✅ Live |
-| **Offline Page** | Enhanced offline experience with cached content display | ✅ Live |
+---
 
-#### **🔔 Real-time Communication System**
-| Feature | Description | Status |
-|---------|-------------|--------|
-| **Push Notification Management** | User-controlled notification preferences and history | ✅ Live |
-| **Background Sync Status** | Visual indicators for pending sync operations | ✅ Live |
-| **Offline Message Queue** | Messages saved locally and sent when connection returns | ✅ Live |
-| **Emergency Notifications** | 24/7 emergency contact availability offline | ✅ Live |
-| **Notification Categories** | Project, appointment, message, and general notifications | ✅ Live |
+## 🎨 MH Brand System
 
-#### **⚡ Enhanced Performance & Reliability**
-| Feature | Description | Status |
-|---------|-------------|--------|
-| **Intelligent Caching** | Strategic caching with stale-while-revalidate for critical endpoints | ✅ Live |
-| **Connection Monitoring** | Real-time online/offline status with auto-reconnection | ✅ Live |
-| **Automatic Retry Logic** | Smart retry mechanisms with exponential backoff | ✅ Live |
-| **Critical Resource Priority** | Essential content and APIs load first | ✅ Live |
-| **Cache Warmup** | Pre-loading critical endpoints on service worker activation | ✅ Live |
+> **See [MH-BRANDING.md](./MH-BRANDING.md) for complete brand guidelines**
 
-#### **🎨 Branding & Visual Identity**
-| Feature | Description | Status |
-|---------|-------------|--------|
-| **Company Logo Integration** | Official MH Construction logo implemented across all components | ✅ Live |
-| **SEO Logo Optimization** | Logo properly configured for search engines and social media | ✅ Live |
-| **Responsive Logo Display** | Logo scales appropriately across all device sizes | ✅ Live |
-| **PWA Icon Integration** | Logo adapted for Progressive Web App icons and manifest | ✅ Live |
-| **Enhanced Navigation Design** | Clean, modern header with prominent logo and brand colors | ✅ Live |
-| **Hamburger Menu System** | Sophisticated slide-out navigation with smooth animations | ✅ Live |
-| **Brand Color Prominence** | Logo glow effects and gradient CTAs showcase brand identity | ✅ Live |
+### Enhanced Brand Logo System
+```css
+/* MH Logo with Glimmer Effects */
+.mh-logo-enhanced {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-#### **📱 Navigation & User Interface**
-| Feature | Description | Status |
-|---------|-------------|--------|
-| **Clean Header Design** | Spacious 80px header with prominent logo positioning | ✅ Live |
-| **Scroll-based Header Effects** | Dynamic backdrop blur and shadow on scroll | ✅ Live |
-| **Slide-out Mobile Menu** | Full-height drawer navigation with brand header | ✅ Live |
-| **Sharp Duotone Menu Icons** | Professional menu/close icons with dual-tone styling | ✅ Live |
-| **Priority-based Link Organization** | Featured CTAs and logical navigation grouping | ✅ Live |
-| **Enhanced Button System** | 10 variants with outer rings, MH colors, and advanced hover effects | ✅ Live |
-| **Mobile Menu Overlay** | Professional backdrop blur with easy close functionality | ✅ Live |
+.mh-logo-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.6s ease;
+}
 
-#### **🎖️ Latest Updates (v2.5.0) - Enhanced Home Page Experience & Animation System**
-| Feature | Description | Status |
-|---------|-------------|--------|
-| **Complete Favicon System** | Comprehensive MH logo implementation across all browser and PWA contexts | ✅ Live |
-| **Icon Visibility System** | Complete icon system overhaul with CSS variable support and proper container styling | ✅ Live |
-| **Enhanced Portfolio Section** | Advanced card animations with overlay effects, hover states, and smooth transitions | ✅ Live |
-| **Custom Testimonials Section** | Replaced complex widget with clean custom testimonials featuring authentic client reviews | ✅ Live |
-| **Company Stats Section** | New branded statistics section showcasing 25+ years experience and 500+ projects | ✅ Live |
-| **ScrollReveal Animation System** | Custom scroll-based animations with Intersection Observer for progressive content revelation | ✅ Live |
-| **Advanced CSS Framework** | Enhanced globals.css with comprehensive animation system, section styling, and dark mode support | ✅ Live |
-| **Social Media & SEO Images** | Complete Open Graph and social sharing image system using MH branding | ✅ Live |
-| **Professional Visual Hierarchy** | Improved spacing, typography, and staggered animations for enhanced user experience | ✅ Live |
-| **Zero Compilation Errors** | Complete technical debt resolution with all warnings and errors addressed | ✅ Live |
+.mh-logo-enhanced:hover::before {
+  left: 100%;
+}
 
-#### **🎖️ Previous Updates (v2.4.0) - Enhanced Footer System & Light/Dark Mode**
-| Feature | Description | Status |
-|---------|-------------|--------|
-| **75% Larger Logo** | Footer logo increased from 210x105 to 315x158 pixels for maximum brand presence | ✅ Live |
-| **Professional Social Media Icons** | Large social media icons with red hover effects, scaling animations, and shadow glows | ✅ Live |
-| **Comprehensive Light/Dark Mode** | Complete color system supporting both light and dark themes with smooth transitions | ✅ Live |
-| **MH Brand Color Integration** | Consistent red-400/red-500 color scheme throughout all footer elements and hover states | ✅ Live |
-| **Expanded Navigation Links** | Two-column quick links including Wounded Warrior Project, careers, blog, and gallery | ✅ Live |
-| **Enhanced Social Media Section** | Moved to top of Stay Connected column with improved visual hierarchy | ✅ Live |
-| **Team Dashboard Access** | Quick access link added to footer bottom bar alongside legal links | ✅ Live |
-| **Animated Hover Effects** | Professional hover animations with scale, shadow, and color transitions | ✅ Live |
+.mh-logo-enhanced:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+```
 
-#### **🎖️ Previous Updates (v2.3.0) - Logo-Focused Design & Veteran Support**
-| Feature | Description | Status |
-|---------|-------------|--------|
-| **Logo-Only Header** | Streamlined header design featuring only the logo for maximum brand impact | ✅ Live |
-| **Always-Visible Hamburger Menu** | Hamburger menu accessible on all screen sizes for consistent navigation | ✅ Live |
-| **Wounded Warrior Program Page** | Dedicated page showcasing veteran support services and priority programs | ✅ Live |
-| **Team Access in Footer** | Relocated team login and notifications to footer for cleaner header | ✅ Live |
-| **Enhanced Team Controls** | PWA notifications and background sync status in footer team section | ✅ Live |
-| **Priority Veteran Services** | Comprehensive wounded warrior support with accessibility modifications | ✅ Live |
+### Advanced Button System with Glimmer Effects
+```css
+/* MH Brand Standard Button Classes with Enhanced Effects */
 
-#### **🎨 Sharp Duotone Icon System (v2.4.0)**
-| Feature | Description | Status |
-|---------|-------------|--------|
-| **22 Professional Icons** | Complete custom icon library with dual-tone styling including social media | ✅ Live |
-| **Social Media Integration** | Facebook, Instagram, LinkedIn, and Twitter icons with MH brand styling | ✅ Live |
-| **Brand-Consistent Design** | Icons match MH Construction color palette and aesthetic | ✅ Live |
-| **Size System Integration** | 6 standardized sizes (xs to 2xl) with Tailwind compatibility | ✅ Live |
-| **Dynamic Color Theming** | Primary/secondary color support for brand cohesion | ✅ Live |
-| **TypeScript Support** | Full type safety with proper interfaces and IntelliSense | ✅ Live |
-| **Zero Dependencies** | Custom SVG implementation requiring no external packages | ✅ Live |
-| **Accessibility Optimized** | Semantic SVG structure with proper viewBox ratios | ✅ Live |
-| **Performance Focused** | Optimized SVG paths with minimal file sizes | ✅ Live |
+/* 1. Primary Button - Hunter Green with Glimmer */
+.btn-primary {
+  background: var(--brand-primary);
+  color: white;
+  border: 2px solid var(--brand-primary);
+  box-shadow: 0 4px 16px rgba(56, 104, 81, 0.2);
+  position: relative;
+  overflow: hidden;
+}
 
-#### **🔲 Enhanced Button System (v2.3.0)**
-| Feature | Description | Status |
-|---------|-------------|--------|
-| **10 Button Variants** | Comprehensive button library with primary, gradient, military, and utility variants | ✅ Live |
-| **Outer Ring System** | Visual feedback with brand-consistent ring colors and smooth animations | ✅ Live |
-| **MH Color Integration** | All variants use official MH Construction brand color palette | ✅ Live |
-| **Advanced Hover Effects** | Lift, scale, and ring animations with cubic-bezier transitions | ✅ Live |
-| **Size Standardization** | Three consistent sizes (sm, md, lg) with proper proportions | ✅ Live |
-| **Accessibility Compliant** | WCAG 2.1 AA compliant focus states and semantic structure | ✅ Live |
-| **TypeScript Support** | Full type safety with comprehensive variant and size interfaces | ✅ Live |
-| **Military Theme Support** | Specialized military and veteran-themed button variants | ✅ Live |
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
+}
 
-### ✅ **Content & User Experience (v2.1.0)**
+.btn-primary:hover {
+  background: var(--brand-primary-light);
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 3px rgba(56, 104, 81, 0.3), 0 8px 25px rgba(56, 104, 81, 0.35);
+}
 
-#### **📝 Blog & Content Management System**
-| Feature | Description | Status |
-|---------|-------------|--------|
-| **Comprehensive Blog Platform** | SEO-optimized blog with categories, tags, and search | ✅ Live |
-| **Company News Hub** | Real-time company updates and announcements | ✅ Live |
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+/* 2. Footer Navigation Links with Enhanced Styling */
+.footer-nav-link {
+  position: relative;
+  overflow: hidden;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.footer-nav-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 2px rgba(56, 104, 81, 0.3);
+}
+
+.footer-nav-link:hover::before {
+  left: 100%;
+}
+
+/* 3. Enhanced Social Media Icons */
+.footer-social-icon {
+  position: relative;
+  overflow: hidden;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: rgb(31 41 55);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-social-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.footer-social-icon:hover {
+  background: rgb(239 68 68);
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3), 0 8px 25px rgba(239, 68, 68, 0.25);
+}
+
+.footer-social-icon:hover::before {
+  left: 100%;
+}
+```
+
+### Quick Brand Reference
+```css
+/* MH Brand Colors */
+--brand-primary: #386851;      /* Hunter Green */
+--brand-secondary: #BD9264;    /* Leather Tan */
+
+/* Enhanced Button Standards with Glimmer Effects */
+.btn-primary          /* Hunter Green - Main CTAs with glimmer */
+.btn-secondary        /* Leather Tan - Secondary actions with glimmer */
+.btn-outline          /* Outline style - Default filters with glimmer */
+.btn-primary-footer   /* Footer buttons with enhanced glimmer */
+.btn-veteran          /* Red veteran-themed buttons */
+.btn-dashboard        /* Blue dashboard-themed buttons */
+```
+
+### Sharp Duotone Icons (22 Available)
+```typescript
+import { 
+  MenuIcon, CloseIcon, PhoneIcon, EmailIcon, LocationIcon,
+  CheckIcon, ToolsIcon, HomeIcon, UserIcon, HammerIcon,
+  CalendarIcon, ShieldIcon, StarIcon, BoltIcon, CogIcon,
+  BellIcon, SyncIcon, FacebookIcon, InstagramIcon, 
+  LinkedInIcon, TwitterIcon, ArrowRightIcon 
+} from '@/components/icons/SharpDuotoneIcons'
+```
+
+---
+
+## ⚙️ Configuration
+
+### Environment Variables (.env.local)
+```env
+# Firebase Configuration
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+
+# PWA Push Notifications
+NEXT_PUBLIC_VAPID_PUBLIC_KEY=your_vapid_public_key
+VAPID_PRIVATE_KEY=your_vapid_private_key
+
+# Site Configuration
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_GA_MEASUREMENT_ID=your_ga_id
+```
+
+---
+
+## 💻 Development
+
+### Available Scripts
+```bash
+# Development
+npm run dev              # Start dev server
+npm run build           # Production build
+npm run start           # Start production server
+
+# Code Quality
+npm run lint            # ESLint check
+npm run lint:fix        # Fix ESLint issues
+npm run type-check      # TypeScript validation
+
+# Firebase
+npm run firebase:deploy # Deploy to Firebase
+npm run firebase:emulate # Local Firebase emulators
+
+# Utilities
+npm run analyze         # Bundle analysis
+```
+
+### Development Workflow
+1. Create feature branch: `git checkout -b feature/name`
+2. Make changes and test: `npm run dev`
+3. Quality checks: `npm run lint && npm run type-check`
+4. Build test: `npm run build`
+5. Commit and push for PR
+
+---
+
+## 🚀 Deployment
+
+### Firebase Deployment
+```bash
+npm run build
+firebase deploy
+
+# Specific targets
+firebase deploy --only hosting
+firebase deploy --only firestore:rules
+```
+
+### Build Status
+```bash
+✅ 25+ Static Pages Generated
+✅ Zero TypeScript Errors  
+✅ PWA Score: 100/100
+✅ Performance: 95+ Lighthouse
+✅ SEO Score: 100/100
+✅ Accessibility: 100/100
+```
+
+---
+
+## 📈 Recent Updates
+
+### v2.5.0 (September 22, 2025) - Enhanced Home Page & Logo Glimmer Effects
+- ✅ Complete MH logo favicon implementation across all contexts
+- ✅ Enhanced logo glimmer effects in header and footer
+- ✅ ScrollReveal animation framework with Intersection Observer
+- ✅ Enhanced portfolio section with advanced hover effects
+- ✅ Custom testimonials system replacing complex widgets
+- ✅ Company statistics section with branded showcase
+- ✅ Icon system overhaul with CSS variable support
+- ✅ Advanced button system with glimmer animations and outer rings
+- ✅ Footer navigation links with enhanced hover effects and glimmer
+- ✅ Social media icons with scaling and glimmer animations
+
+### v2.4.0 - Enhanced Footer & Social Media
+- ✅ 75% larger footer logo (315x158px) with hover effects
+- ✅ Professional social media icons with glimmer animations
+- ✅ Complete light/dark mode support
+- ✅ Sharp Duotone icon system (22 icons)
+
+### v2.3.0 - Button System & Military Theme
+- ✅ Standardized button system (10+ variants) with glimmer effects
+- ✅ MH brand color integration with enhanced hover states
+- ✅ Military-themed components with special animations
+- ✅ Enhanced accessibility compliance
+
+---
+
+## 🎯 Development Roadmap
+
+### Current Focus
+- [x] Enhanced logo glimmer effects ✅
+- [x] Complete button system standardization with animations ✅
+- [ ] Performance optimization (target: 100/100 Lighthouse)
+
+### Next Phase (1-2 months)
+- [ ] Blog system expansion
+- [ ] Advanced loading animations
+- [ ] Enhanced form validation
+- [ ] A/B testing framework
+
+### Future Vision (3-6 months)
+- [ ] AI-enhanced cost estimation
+- [ ] Real-time project tracking expansion
+- [ ] Native mobile app development
+- [ ] 3D project visualization tools
+
+---
+
+## 📞 Support
+
+### Development Team
+| Role | Contact | Hours |
+|------|---------|-------|
+| **Lead Developer** | developers@mhconstruction.com | Mon-Fri 9AM-5PM PT |
+| **Project Manager** | pm@mhconstruction.com | Mon-Fri 8AM-6PM PT |
+| **Emergency Support** | support@mhconstruction.com | 24/7 |
+
+### Resources
+- **Component Docs**: `/src/components/README.md`
+- **API Reference**: `/docs/API.md`
+- **Brand Guidelines**: `./MH-BRANDING.md`
+
+---
+
+## 🔐 Security & Performance
+
+### Security Measures
+- Firebase Security Rules with strict access controls
+- HTTPS-only with SSL encryption
+- Environment variable protection
+- Input validation and sanitization
+- Role-based authentication
+
+### Performance Targets
+| Metric | Target | Current |
+|--------|--------|---------|
+| Page Load Speed | <3s | ✅ 2.1s |
+| Lighthouse Performance | 90+ | ✅ 94 |
+| First Contentful Paint | <1.5s | ✅ 1.2s |
+| PWA Score | 90+ | ✅ 100 |
+
+---
+
+## 📄 License
+
+MIT License - Copyright © 2025 MH Construction LLC
+
+---
+
+**Built with military precision and veteran excellence** 🏗️
+
+*"Building Tomorrow with Today's Technology - Where Military Precision Meets Construction Excellence"*
+
+---
+
+*Last updated: January 2025 | Version 2.0.0 | MH Construction Development Team*
 | **Project Showcase Gallery** | Before/after project documentation with testimonials | ✅ Live |
 | **Content Discovery** | Advanced filtering by category, tags, and search | ✅ Live |
 | **Responsive Content Design** | Optimized reading experience across all devices | ✅ Live |

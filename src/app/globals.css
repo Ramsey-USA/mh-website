@@ -1,188 +1,325 @@
 @import "tailwindcss";
 
-/* MH Construction Brand Palette - Based on README Design System */
+/* =================================================================
+   MH CONSTRUCTION BRAND SYSTEM - COMPLETE IMPLEMENTATION
+   Based on MH-BRANDING.md v2.5.0 with Complete Dark/Light Mode Support
+   ================================================================= */
+
+/* Brand Color System with Theme Support */
 :root {
-  /* Primary Brand Colors */
-  --brand-primary: #386851;           /* Hunter Green - Primary actions, headers */
-  --brand-primary-light: #4a7a63;     /* Lighter hunter green for hover states */
-  --brand-primary-dark: #2d5240;      /* Darker hunter green for active states */
+  /* MH Construction Official Brand Colors */
+  --brand-primary: #386851;           /* Hunter Green */
+  --brand-primary-light: #4a7a63;     
+  --brand-primary-dark: #2d5240;      
   
-  --brand-secondary: #BD9264;         /* Leather Tan - Secondary actions, accents */
-  --brand-secondary-light: #c9a176;   /* Lighter tan for hover states */
-  --brand-secondary-dark: #a67d52;    /* Darker tan for active states */
-  
-  /* Neutral Colors - Light Mode */
-  --color-background: #ffffff;        /* Main background */
-  --color-surface: #f8fafc;          /* Card backgrounds */
-  --color-surface-secondary: #f1f5f9; /* Alternate backgrounds */
-  
-  --color-text-primary: #1e293b;     /* Primary text */
-  --color-text-secondary: #64748b;   /* Secondary text */
-  --color-text-muted: #94a3b8;       /* Muted text */
-  
-  --color-border: #e2e8f0;           /* Borders and dividers */
-  --color-border-light: #f1f5f9;     /* Light borders */
-  
-  /* Status Colors */
-  --color-success: #10b981;          /* Success states */
-  --color-success-light: #d1fae5;    /* Success backgrounds */
-  
-  --color-warning: #f59e0b;          /* Warning states */
-  --color-warning-light: #fef3c7;    /* Warning backgrounds */
-  
-  --color-error: #ef4444;            /* Error states */
-  --color-error-light: #fee2e2;      /* Error backgrounds */
-  
-  --color-info: #3b82f6;             /* Info states */
-  --color-info-light: #dbeafe;       /* Info backgrounds */
+  --brand-secondary: #BD9264;         /* Leather Tan */
+  --brand-secondary-light: #c9a176;   
+  --brand-secondary-dark: #a67d52;    
   
   /* Veteran Recognition Colors */
-  --veteran-red: #dc2626;            /* Red for veteran badges */
-  --veteran-blue: #1d4ed8;           /* Blue for veteran elements */
-  --veteran-gold: #ca8a04;           /* Gold for veteran honors */
-}
+  --veteran-red: #dc2626;             
+  --veteran-blue: #1d4ed8;            
+  --veteran-gold: #ca8a04;            
 
-/* Dark Mode Theme */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Neutral Colors - Dark Mode */
-    --color-background: #0f172a;      /* Main background */
-    --color-surface: #1e293b;         /* Card backgrounds */
-    --color-surface-secondary: #334155; /* Alternate backgrounds */
-    --color-surface-dark: #1e293b;    /* Dark surface */
-    --color-surface-dark-secondary: #334155; /* Dark surface secondary */
-    
-    --color-text-primary: #f8fafc;    /* Primary text */
-    --color-text-secondary: #cbd5e1;  /* Secondary text */
-    --color-text-muted: #64748b;      /* Muted text */
-    
-    --color-border: #334155;          /* Borders and dividers */
-    --color-border-light: #475569;    /* Light borders */
-    
-    /* Status Colors - Adjusted for dark mode */
-    --color-success-light: #064e3b;   /* Dark success backgrounds */
-    --color-warning-light: #451a03;   /* Dark warning backgrounds */
-    --color-error-light: #7f1d1d;     /* Dark error backgrounds */
-    --color-info-light: #1e3a8a;      /* Dark info backgrounds */
-  }
-}
-
-/* Manual dark mode override (for theme toggle) */
-.dark {
-  --color-background: #0f172a;
-  --color-surface: #1e293b;
-  --color-surface-secondary: #334155;
-  --color-surface-dark: #1e293b;
-  --color-surface-dark-secondary: #334155;
-  --color-text-primary: #f8fafc;
-  --color-text-secondary: #cbd5e1;
-  --color-text-muted: #64748b;
-  --color-border: #334155;
-  --color-border-light: #475569;
-  --color-success-light: #064e3b;
-  --color-warning-light: #451a03;
-  --color-error-light: #7f1d1d;
-  --color-info-light: #1e3a8a;
-}
-
-/* Manual light mode override */
-.light {
-  --color-background: #ffffff;
-  --color-surface: #f8fafc;
-  --color-surface-secondary: #f1f5f9;
-  --color-text-primary: #1e293b;
-  --color-text-secondary: #64748b;
-  --color-text-muted: #94a3b8;
-  --color-border: #e2e8f0;
-  --color-border-light: #f1f5f9;
-  --color-success-light: #d1fae5;
-  --color-warning-light: #fef3c7;
-  --color-error-light: #fee2e2;
-  --color-info-light: #dbeafe;
-}
-
-/* Typography System */
-:root {
+  /* Typography System */
   --font-heading: 'Tactic Sans Bold', 'Arial Black', sans-serif;
   --font-subheading: 'Tactic Sans Medium', 'Arial', sans-serif;
   --font-body: 'Adobe Garamond Pro', 'Times New Roman', serif;
   --font-mono: 'JetBrains Mono', 'Consolas', monospace;
 
-  /* Font Scales - Fluid Typography */
-  --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.8rem);     /* 12px-13px */
-  --text-sm: clamp(0.875rem, 0.8rem + 0.3vw, 0.95rem);   /* 14px-15px */
-  --text-base: clamp(1rem, 0.9rem + 0.4vw, 1.1rem);      /* 16px-18px */
-  --text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);     /* 18px-20px */
-  --text-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.4rem);     /* 20px-22px */
-  --text-2xl: clamp(1.5rem, 1.3rem + 0.8vw, 1.75rem);    /* 24px-28px */
-  --text-3xl: clamp(1.875rem, 1.6rem + 1vw, 2.25rem);    /* 30px-36px */
-  --text-4xl: clamp(2.25rem, 1.9rem + 1.4vw, 3rem);      /* 36px-48px */
+  /* Fluid Typography Scale */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.8rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.3vw, 0.95rem);
+  --text-base: clamp(1rem, 0.9rem + 0.4vw, 1.1rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.4rem);
+  --text-2xl: clamp(1.5rem, 1.3rem + 0.8vw, 1.75rem);
+  --text-3xl: clamp(1.875rem, 1.6rem + 1vw, 2.25rem);
+  --text-4xl: clamp(2.25rem, 1.9rem + 1.4vw, 3rem);
 
-  /* Line Heights */
-  --leading-tight: 1.25;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.75;
+  /* =================================================================
+     COMPREHENSIVE LIGHT MODE THEME COLORS
+     ================================================================= */
+  
+  /* Main Layout Colors */
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;              /* slate-50 */
+  --color-surface-secondary: #f1f5f9;    /* slate-100 */
+  --color-surface-elevated: #ffffff;
+  --color-surface-hover: #f1f5f9;        /* slate-100 */
+  
+  /* Text Colors */
+  --color-text-primary: #1e293b;         /* slate-800 */
+  --color-text-secondary: #64748b;       /* slate-500 */
+  --color-text-muted: #94a3b8;           /* slate-400 */
+  --color-text-inverse: #ffffff;
+  --color-text-accent: var(--brand-primary);
+  
+  /* Border Colors */
+  --color-border: #e2e8f0;               /* slate-200 */
+  --color-border-light: #f1f5f9;         /* slate-100 */
+  --color-border-strong: #cbd5e1;        /* slate-300 */
+  --color-border-hover: var(--brand-primary);
+  
+  /* Interactive States */
+  --color-interactive-default: var(--brand-primary);
+  --color-interactive-hover: var(--brand-primary-light);
+  --color-interactive-active: var(--brand-primary-dark);
+  --color-interactive-disabled: #94a3b8; /* slate-400 */
+  
+  /* Status Colors */
+  --color-success: #10b981;              /* emerald-500 */
+  --color-success-light: #d1fae5;        /* emerald-100 */
+  --color-success-dark: #047857;         /* emerald-700 */
+  
+  --color-warning: #f59e0b;              /* amber-500 */
+  --color-warning-light: #fef3c7;        /* amber-100 */
+  --color-warning-dark: #d97706;         /* amber-600 */
+  
+  --color-error: #ef4444;                /* red-500 */
+  --color-error-light: #fee2e2;          /* red-100 */
+  --color-error-dark: #dc2626;           /* red-600 */
+  
+  --color-info: #3b82f6;                 /* blue-500 */
+  --color-info-light: #dbeafe;           /* blue-100 */
+  --color-info-dark: #2563eb;            /* blue-600 */
+  
+  /* Navigation Colors */
+  --color-nav-background: rgba(255, 255, 255, 0.95);
+  --color-nav-text: var(--color-text-primary);
+  --color-nav-border: rgba(0, 0, 0, 0.1);
+  --color-nav-hover: var(--color-surface-hover);
+  
+  /* Card Colors */
+  --color-card-background: var(--color-surface);
+  --color-card-border: var(--color-border);
+  --color-card-shadow: rgba(0, 0, 0, 0.1);
+  --color-card-hover-shadow: rgba(0, 0, 0, 0.15);
+  
+  /* Form Colors */
+  --color-input-background: #ffffff;
+  --color-input-border: var(--color-border);
+  --color-input-focus: var(--brand-primary);
+  --color-input-text: var(--color-text-primary);
+  --color-input-placeholder: var(--color-text-muted);
 }
 
-/* Global Base Styles */
-body {
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: var(--font-body);
+/* =================================================================
+   COMPREHENSIVE DARK MODE THEME COLORS
+   ================================================================= */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Main Layout Colors */
+    --color-background: #0f172a;           /* slate-900 */
+    --color-surface: #1e293b;              /* slate-800 */
+    --color-surface-secondary: #334155;    /* slate-700 */
+    --color-surface-elevated: #1e293b;     /* slate-800 */
+    --color-surface-hover: #334155;        /* slate-700 */
+    
+    /* Text Colors */
+    --color-text-primary: #f8fafc;         /* slate-50 */
+    --color-text-secondary: #cbd5e1;       /* slate-300 */
+    --color-text-muted: #64748b;           /* slate-500 */
+    --color-text-inverse: #1e293b;         /* slate-800 */
+    --color-text-accent: var(--brand-primary-light);
+    
+    /* Border Colors */
+    --color-border: #334155;               /* slate-700 */
+    --color-border-light: #475569;         /* slate-600 */
+    --color-border-strong: #64748b;        /* slate-500 */
+    --color-border-hover: var(--brand-primary-light);
+    
+    /* Interactive States */
+    --color-interactive-default: var(--brand-primary-light);
+    --color-interactive-hover: #4a7a63;
+    --color-interactive-active: var(--brand-primary);
+    --color-interactive-disabled: #64748b; /* slate-500 */
+    
+    /* Status Colors - Adjusted for dark mode */
+    --color-success: #34d399;              /* emerald-400 */
+    --color-success-light: #064e3b;        /* emerald-900 */
+    --color-success-dark: #059669;         /* emerald-600 */
+    
+    --color-warning: #fbbf24;              /* amber-400 */
+    --color-warning-light: #451a03;        /* amber-900 */
+    --color-warning-dark: #f59e0b;         /* amber-500 */
+    
+    --color-error: #f87171;                /* red-400 */
+    --color-error-light: #7f1d1d;          /* red-900 */
+    --color-error-dark: #ef4444;           /* red-500 */
+    
+    --color-info: #60a5fa;                 /* blue-400 */
+    --color-info-light: #1e3a8a;           /* blue-900 */
+    --color-info-dark: #3b82f6;            /* blue-500 */
+    
+    /* Navigation Colors */
+    --color-nav-background: rgba(15, 23, 42, 0.95);
+    --color-nav-text: var(--color-text-primary);
+    --color-nav-border: rgba(255, 255, 255, 0.1);
+    --color-nav-hover: var(--color-surface-hover);
+    
+    /* Card Colors */
+    --color-card-background: var(--color-surface);
+    --color-card-border: var(--color-border);
+    --color-card-shadow: rgba(0, 0, 0, 0.3);
+    --color-card-hover-shadow: rgba(0, 0, 0, 0.4);
+    
+    /* Form Colors */
+    --color-input-background: var(--color-surface);
+    --color-input-border: var(--color-border);
+    --color-input-focus: var(--brand-primary-light);
+    --color-input-text: var(--color-text-primary);
+    --color-input-placeholder: var(--color-text-muted);
+  }
 }
 
-/* MH Brand Color Utilities */
-.text-mh-primary { color: var(--brand-primary); }
-.text-mh-secondary { color: var(--brand-secondary); }
-.bg-mh-primary { background-color: var(--brand-primary); }
-.bg-mh-secondary { background-color: var(--brand-secondary); }
-.border-mh-primary { border-color: var(--brand-primary); }
-.border-mh-secondary { border-color: var(--brand-secondary); }
-
-/* Navigation Specific Styles */
-.nav-logo {
-  color: var(--brand-primary);
-  transition: color 0.3s ease;
+/* Manual Dark Mode Class Override */
+.dark {
+  /* Main Layout Colors */
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+  --color-surface-secondary: #334155;
+  --color-surface-elevated: #1e293b;
+  --color-surface-hover: #334155;
+  
+  /* Text Colors */
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #1e293b;
+  --color-text-accent: var(--brand-primary-light);
+  
+  /* Border Colors */
+  --color-border: #334155;
+  --color-border-light: #475569;
+  --color-border-strong: #64748b;
+  --color-border-hover: var(--brand-primary-light);
+  
+  /* Interactive States */
+  --color-interactive-default: var(--brand-primary-light);
+  --color-interactive-hover: #4a7a63;
+  --color-interactive-active: var(--brand-primary);
+  --color-interactive-disabled: #64748b;
+  
+  /* Status Colors */
+  --color-success: #34d399;
+  --color-success-light: #064e3b;
+  --color-success-dark: #059669;
+  
+  --color-warning: #fbbf24;
+  --color-warning-light: #451a03;
+  --color-warning-dark: #f59e0b;
+  
+  --color-error: #f87171;
+  --color-error-light: #7f1d1d;
+  --color-error-dark: #ef4444;
+  
+  --color-info: #60a5fa;
+  --color-info-light: #1e3a8a;
+  --color-info-dark: #3b82f6;
+  
+  /* Navigation Colors */
+  --color-nav-background: rgba(15, 23, 42, 0.95);
+  --color-nav-text: var(--color-text-primary);
+  --color-nav-border: rgba(255, 255, 255, 0.1);
+  --color-nav-hover: var(--color-surface-hover);
+  
+  /* Card Colors */
+  --color-card-background: var(--color-surface);
+  --color-card-border: var(--color-border);
+  --color-card-shadow: rgba(0, 0, 0, 0.3);
+  --color-card-hover-shadow: rgba(0, 0, 0, 0.4);
+  
+  /* Form Colors */
+  --color-input-background: var(--color-surface);
+  --color-input-border: var(--color-border);
+  --color-input-focus: var(--brand-primary-light);
+  --color-input-text: var(--color-text-primary);
+  --color-input-placeholder: var(--color-text-muted);
 }
 
-.nav-logo:hover {
-  color: var(--brand-primary-light);
+/* =================================================================
+   MH LOGO SYSTEM WITH GLIMMER EFFECTS
+   ================================================================= */
+
+.mh-logo-enhanced {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  display: inline-block;
 }
 
-/* Dark mode navigation adjustments */
-.dark .nav-logo {
-  color: var(--brand-primary-light);
+.mh-logo-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.dark .nav-logo:hover {
-  color: var(--brand-secondary-light);
+.mh-logo-enhanced:hover::before {
+  left: 100%;
 }
 
-/* MH Brand Standard Button System */
-/* Base button styles - all buttons inherit these properties */
+.mh-logo-enhanced:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1) contrast(1.05);
+}
+
+/* Header Logo Specific */
+.header-logo-enhanced {
+  filter: drop-shadow(0 2px 4px rgba(56, 104, 81, 0.1));
+}
+
+.header-logo-enhanced:hover {
+  filter: drop-shadow(0 4px 8px rgba(56, 104, 81, 0.2)) brightness(1.1);
+}
+
+.header-logo-enhanced::before {
+  background: linear-gradient(90deg, transparent, rgba(56, 104, 81, 0.3), transparent);
+}
+
+.dark .header-logo-enhanced::before {
+  background: linear-gradient(90deg, transparent, rgba(74, 122, 99, 0.4), transparent);
+}
+
+/* Footer Logo Specific */
+.footer-logo-enhanced {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.footer-logo-enhanced:hover {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)) brightness(1.1);
+}
+
+.footer-logo-enhanced::before {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+}
+
+/* =================================================================
+   MH BUTTON SYSTEM WITH GLIMMER EFFECTS & DARK MODE
+   ================================================================= */
+
+/* Universal Button Base */
 .btn-base {
   padding: 0.75rem 1.5rem;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 1rem;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: var(--font-subheading);
+  letter-spacing: 0.025em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  border: 2px solid;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
-/* Enhanced shine effect for all buttons */
 .btn-base::before {
   content: '';
   position: absolute;
@@ -191,7 +328,7 @@ body {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  transition: left 0.6s ease;
+  transition: left 0.5s ease;
   z-index: 1;
 }
 
@@ -199,75 +336,66 @@ body {
   left: 100%;
 }
 
-/* Primary Button - MH Hunter Green */
-.btn-primary,
-.project-filter.active {
-  background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-light));
+/* Button Size System */
+.btn-sm { padding: 0.5rem 1rem; font-size: 0.875rem; }
+.btn-md { padding: 0.75rem 1.5rem; font-size: 1rem; }
+.btn-lg { padding: 1rem 2rem; font-size: 1.125rem; }
+.btn-xl { padding: 1.25rem 2.5rem; font-size: 1.25rem; }
+
+/* Primary Button (Hunter Green) with Dark Mode Support */
+.btn-primary {
+  background: var(--color-interactive-default);
   color: white;
-  border-color: var(--brand-primary);
-  box-shadow: 0 4px 16px rgba(56, 104, 81, 0.3);
+  border: 2px solid var(--color-interactive-default);
+  box-shadow: 0 4px 16px rgba(56, 104, 81, 0.2);
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
 }
 
-.btn-primary:hover,
-.project-filter.active:hover {
-  background: linear-gradient(135deg, var(--brand-primary-light), var(--brand-primary));
-  border-color: var(--brand-primary-light);
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 30px rgba(56, 104, 81, 0.4);
-}
-
-/* Secondary Button - MH Leather Tan */
-.btn-secondary {
-  background: linear-gradient(135deg, var(--brand-secondary), var(--brand-secondary-light));
-  color: white;
-  border-color: var(--brand-secondary);
-  box-shadow: 0 4px 16px rgba(189, 146, 100, 0.3);
-}
-
-.btn-secondary:hover {
-  background: linear-gradient(135deg, var(--brand-secondary-light), var(--brand-secondary));
-  border-color: var(--brand-secondary-light);
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 30px rgba(189, 146, 100, 0.4);
-}
-
-/* Outline Button - Default state for filters */
-.btn-outline,
-.project-filter {
-  background: transparent;
-  color: var(--brand-primary);
-  border-color: var(--brand-primary);
-  box-shadow: 0 2px 8px rgba(56, 104, 81, 0.15);
-}
-
-.btn-outline::before,
-.project-filter::before {
-  background: var(--brand-primary);
-  left: 0;
-  width: 0;
-  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: -1;
-}
-
-.btn-outline:hover::before,
-.project-filter:hover::before {
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
   width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s ease;
+  z-index: 1;
 }
 
-.btn-outline:hover,
-.project-filter:hover {
-  color: white;
-  border-color: var(--brand-primary);
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 30px rgba(56, 104, 81, 0.35);
+.btn-primary:hover {
+  background: var(--color-interactive-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 3px rgba(56, 104, 81, 0.3), 0 8px 25px rgba(56, 104, 81, 0.35);
 }
 
-/* Secondary Button - MH Leather Tan */
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.dark .btn-primary {
+  box-shadow: 0 4px 16px rgba(74, 122, 99, 0.3);
+}
+
+.dark .btn-primary:hover {
+  box-shadow: 0 0 0 3px rgba(74, 122, 99, 0.4), 0 8px 25px rgba(74, 122, 99, 0.4);
+}
+
+/* Secondary Button with Dark Mode Support */
 .btn-secondary {
   background: var(--brand-secondary);
   color: white;
-  border-color: var(--brand-secondary);
+  border: 2px solid var(--brand-secondary);
   box-shadow: 0 4px 16px rgba(189, 146, 100, 0.2);
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-secondary::before {
@@ -277,849 +405,729 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
   transition: left 0.5s ease;
   z-index: 1;
+}
+
+.btn-secondary:hover {
+  background: var(--brand-secondary-light);
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 3px rgba(189, 146, 100, 0.3), 0 8px 25px rgba(189, 146, 100, 0.35);
 }
 
 .btn-secondary:hover::before {
   left: 100%;
 }
 
-.btn-secondary:hover {
-  background: var(--brand-secondary-light);
-  border-color: var(--brand-secondary-light);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(189, 146, 100, 0.35);
+.dark .btn-secondary {
+  box-shadow: 0 4px 16px rgba(201, 161, 118, 0.3);
 }
 
-/* Outline Secondary Button */
-.btn-outline-secondary {
+.dark .btn-secondary:hover {
+  box-shadow: 0 0 0 3px rgba(201, 161, 118, 0.4), 0 8px 25px rgba(201, 161, 118, 0.4);
+}
+
+/* Outline Button with Dark Mode Support */
+.btn-outline {
   background: transparent;
-  color: var(--brand-secondary);
-  border-color: var(--brand-secondary);
-  box-shadow: 0 2px 8px rgba(189, 146, 100, 0.1);
-}
-
-.btn-outline-secondary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: var(--brand-secondary);
-  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: -1;
-}
-
-.btn-outline-secondary:hover::before {
-  width: 100%;
-}
-
-.btn-outline-secondary:hover {
-  color: white;
-  border-color: var(--brand-secondary);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(189, 146, 100, 0.3);
-}
-
-/* Ghost Button - Minimal style */
-.btn-ghost {
-  background: transparent;
-  color: var(--color-text);
-  border-color: transparent;
-  box-shadow: none;
-}
-
-.btn-ghost:hover {
-  background: var(--color-surface-hover);
-  color: var(--brand-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Button Sizes */
-.btn-sm {
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-}
-
-.btn-lg {
-  padding: 1rem 2rem;
-  font-size: 1.125rem;
-}
-
-.btn-xl {
-  padding: 1.25rem 2.5rem;
-  font-size: 1.25rem;
-}
-
-/* Dark mode button adjustments */
-.dark .btn-outline,
-.dark .project-filter {
-  color: var(--brand-primary-light);
-  border-color: var(--brand-primary-light);
-}
-
-.dark .btn-outline::before,
-.dark .project-filter::before {
-  background: var(--brand-primary-light);
-}
-
-.dark .btn-outline:hover,
-.dark .project-filter:hover {
-  border-color: var(--brand-primary-light);
-  color: var(--color-background);
-}
-
-.dark .btn-outline-secondary {
-  color: var(--brand-secondary-light);
-  border-color: var(--brand-secondary-light);
-}
-
-.dark .btn-outline-secondary::before {
-  background: var(--brand-secondary-light);
-}
-
-.dark .btn-outline-secondary:hover {
-  border-color: var(--brand-secondary-light);
-  color: var(--color-background);
-}
-
-.dark .btn-ghost {
-  color: var(--color-text-dark);
-}
-
-.dark .btn-ghost:hover {
-  background: var(--color-surface-dark-hover);
-  color: var(--brand-primary-light);
-}
-
-/* Enhanced Card and Surface Styling with animations */
-.card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--color-interactive-default);
+  border: 2px solid var(--color-interactive-default);
+  box-shadow: 0 2px 8px rgba(56, 104, 81, 0.1);
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
   position: relative;
   overflow: hidden;
 }
 
-.card::before {
+.btn-outline::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--brand-primary), var(--brand-secondary));
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-  transform-origin: left;
-}
-
-.card:hover::before {
-  transform: scaleX(1);
-}
-
-.card:hover {
-  border-color: var(--brand-primary);
-  box-shadow: 0 8px 25px rgba(56, 104, 81, 0.15);
-  transform: translateY(-4px);
-}
-
-.dark .card {
-  background: var(--color-surface);
-  border-color: var(--color-border);
-}
-
-.dark .card:hover {
-  border-color: var(--brand-primary-light);
-  box-shadow: 0 8px 25px rgba(74, 122, 99, 0.2);
-}
-
-/* Icon animation utilities */
-.icon-hover-scale {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.icon-hover-scale:hover {
-  transform: scale(1.1);
-}
-
-.icon-pulse {
-  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse-subtle {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-/* Icon system CSS variable support */
-svg {
-  --icon-primary: currentColor;
-  --icon-secondary: currentColor;
-}
-
-/* Ensure icons are visible */
-.w-12.h-12 svg {
+  left: -100%;
   width: 100%;
   height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(56, 104, 81, 0.1), transparent);
+  transition: left 0.5s ease;
+  z-index: 1;
 }
 
-/* Icon container styles for better visibility */
-.icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
+.btn-outline:hover {
+  background: rgba(56, 104, 81, 0.05);
+  color: var(--color-interactive-active);
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 2px rgba(56, 104, 81, 0.2), 0 6px 20px rgba(56, 104, 81, 0.15);
 }
 
-/* Enhanced gradient utilities */
-.gradient-text {
-  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.btn-outline:hover::before {
+  left: 100%;
 }
 
-.gradient-border {
-  position: relative;
-}
-
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  padding: 2px;
-  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
-  border-radius: inherit;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: subtract;
-}
-
-/* Link Styling with MH Colors */
-.link-primary {
-  color: var(--brand-primary);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.link-primary:hover {
+.dark .btn-outline {
   color: var(--brand-primary-light);
+  border-color: var(--brand-primary-light);
+  box-shadow: 0 2px 8px rgba(74, 122, 99, 0.2);
 }
 
-.dark .link-primary {
+.dark .btn-outline::before {
+  background: linear-gradient(90deg, transparent, rgba(74, 122, 99, 0.1), transparent);
+}
+
+.dark .btn-outline:hover {
+  background: rgba(74, 122, 99, 0.1);
   color: var(--brand-primary-light);
+  box-shadow: 0 0 0 2px rgba(74, 122, 99, 0.3), 0 6px 20px rgba(74, 122, 99, 0.2);
 }
 
-.dark .link-primary:hover {
-  color: var(--brand-secondary-light);
-}
+/* =================================================================
+   COMPREHENSIVE COMPONENT THEME SUPPORT
+   ================================================================= */
 
-/* Form Elements with MH Styling */
-.form-input {
-  border: 2px solid var(--color-border);
-  background: var(--color-surface);
+/* Enhanced Card System with Dark Mode */
+.card-primary {
+  background: var(--color-card-background);
+  border: 1px solid var(--color-card-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px var(--color-card-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--color-text-primary);
-  transition: border-color 0.3s ease;
+}
+
+.card-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px var(--color-card-hover-shadow);
+}
+
+/* Navigation with Dark Mode */
+.nav-primary {
+  background: var(--color-nav-background);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-nav-border);
+  color: var(--color-nav-text);
+}
+
+.nav-link {
+  color: var(--color-nav-text);
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background: var(--color-nav-hover);
+  color: var(--color-interactive-default);
+}
+
+/* Form Elements with Dark Mode */
+.form-input {
+  background: var(--color-input-background);
+  border: 2px solid var(--color-input-border);
+  color: var(--color-input-text);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: var(--color-input-placeholder);
 }
 
 .form-input:focus {
-  border-color: var(--brand-primary);
   outline: none;
+  border-color: var(--color-input-focus);
   box-shadow: 0 0 0 3px rgba(56, 104, 81, 0.1);
 }
 
-/* Header and Text Styling */
-.heading-primary {
-  color: var(--brand-primary);
-  font-family: var(--font-heading);
+.dark .form-input:focus {
+  box-shadow: 0 0 0 3px rgba(74, 122, 99, 0.2);
 }
 
-.heading-secondary {
-  color: var(--brand-secondary);
-  font-family: var(--font-subheading);
+/* Status Indicators with Dark Mode */
+.status-success {
+  background: var(--color-success-light);
+  color: var(--color-success-dark);
+  border: 1px solid var(--color-success);
 }
 
-.dark .heading-primary {
-  color: var(--brand-primary-light);
+.status-warning {
+  background: var(--color-warning-light);
+  color: var(--color-warning-dark);
+  border: 1px solid var(--color-warning);
 }
 
-.dark .heading-secondary {
-  color: var(--brand-secondary-light);
+.status-error {
+  background: var(--color-error-light);
+  color: var(--color-error-dark);
+  border: 1px solid var(--color-error);
 }
 
-/* Enhanced Section Styles */
-.section-hero {
-  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-dark) 50%, var(--brand-secondary) 100%);
+.status-info {
+  background: var(--color-info-light);
+  color: var(--color-info-dark);
+  border: 1px solid var(--color-info);
+}
+
+/* =================================================================
+   FOOTER SYSTEM WITH ENHANCED DARK MODE
+   ================================================================= */
+
+.footer-primary {
+  background-color: #1a202c;
+  color: #d1d5db;
+  padding: 3rem 0 1rem;
+}
+
+.dark .footer-primary {
+  background-color: #0a0a0a;
+}
+
+.footer-logo {
+  width: 315px;
+  height: 158px;
+  margin-bottom: 1.5rem;
+  object-fit: contain;
+  border-radius: 0.75rem;
+}
+
+/* Footer Navigation Links with Enhanced Dark Mode */
+.footer-nav-link {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  color: #d1d5db;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  background-attachment: fixed;
+  text-decoration: none;
 }
 
-.section-hero::before {
+.footer-nav-link::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.15"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-  pointer-events: none;
-  animation: float 20s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-.section-features {
-  background: var(--color-surface-secondary);
-  position: relative;
-}
-
-.dark .section-features {
-  background: var(--color-surface-dark-secondary);
-}
-
-.section-values {
-  background: var(--color-background);
-  position: relative;
-}
-
-.dark .section-values {
-  background: var(--color-surface-dark);
-}
-
-/* Enhanced stats section */
-.stats-section {
-  background: linear-gradient(90deg, 
-    rgba(56, 104, 81, 0.05) 0%, 
-    rgba(189, 146, 100, 0.05) 100%
-  );
-}
-
-.dark .stats-section {
-  background: linear-gradient(90deg, 
-    rgba(74, 122, 99, 0.1) 0%, 
-    rgba(201, 161, 118, 0.1) 100%
-  );
-}
-
-/* Improved scroll animations */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.scroll-reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Enhanced loading states */
-.loading-shimmer {
-  background: linear-gradient(90deg, 
-    var(--color-border) 25%, 
-    var(--color-border-light) 50%, 
-    var(--color-border) 75%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-/* Dark mode specific improvements */
-.dark {
-  color-scheme: dark;
-}
-
-.dark .section-hero {
-  background: linear-gradient(135deg, var(--brand-primary-light) 0%, var(--brand-primary) 50%, var(--brand-secondary) 100%);
-}
-
-/* Enhanced focus states for accessibility */
-*:focus-visible {
-  outline: 2px solid var(--brand-primary);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
-.dark *:focus-visible {
-  outline-color: var(--brand-primary-light);
-}
-
-/* Responsive text utilities */
-.text-responsive-sm {
-  font-size: clamp(0.875rem, 0.8rem + 0.3vw, 0.95rem);
-}
-
-.text-responsive-base {
-  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.1rem);
-}
-
-.text-responsive-lg {
-  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
-}
-
-.text-responsive-xl {
-  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.4rem);
-}
-
-.text-responsive-2xl {
-  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 1.75rem);
-}
-
-.text-responsive-3xl {
-  font-size: clamp(1.875rem, 1.6rem + 1vw, 2.25rem);
-}
-
-.text-responsive-4xl {
-  font-size: clamp(2.25rem, 1.9rem + 1.4vw, 3rem);
-}
-
-/* Additional animation utilities */
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-slide-up {
-  animation: slideInUp 0.6s ease-out;
-}
-
-.animate-slide-left {
-  animation: slideInLeft 0.6s ease-out;
-}
-
-.animate-slide-right {
-  animation: slideInRight 0.6s ease-out;
-}
-
-/* Enhanced section dividers */
-.section-divider {
-  height: 1px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    var(--brand-primary) 20%, 
-    var(--brand-secondary) 50%, 
-    var(--brand-primary) 80%, 
-    transparent 100%
-  );
-  margin: 3rem 0;
-}
-
-/* Floating action elements */
-.floating-element {
-  animation: float 6s ease-in-out infinite;
-}
-
-.floating-element:nth-child(2) {
-  animation-delay: -2s;
-}
-
-.floating-element:nth-child(3) {
-  animation-delay: -4s;
-}
-
-/* Enhanced Flip Card System */
-.flip-card {
-  background-color: transparent;
-  perspective: 1000px;
-  height: 200px;
-  width: 100%;
-}
-
-.flip-card-inner {
-  position: relative;
+  left: -100%;
   width: 100%;
   height: 100%;
-  text-align: center;
-  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transform-style: preserve-3d;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.footer-nav-link:hover {
+  color: #ffffff;
+  background-color: rgba(31, 41, 55, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 2px rgba(56, 104, 81, 0.3);
+}
+
+.footer-nav-link:hover::before {
+  left: 100%;
+}
+
+.dark .footer-nav-link {
+  color: #cbd5e1;
+}
+
+.dark .footer-nav-link:hover {
+  color: #f8fafc;
+  background-color: rgba(51, 65, 85, 0.5);
+  box-shadow: 0 0 0 2px rgba(74, 122, 99, 0.4);
+}
+
+/* Footer Link Variants */
+.footer-nav-link-primary {
+  background: linear-gradient(to right, #16a34a, #15803d);
+  color: white;
+  box-shadow: 0 0 0 2px rgba(56, 104, 81, 0.2);
+}
+
+.footer-nav-link-primary::before {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+}
+
+.footer-nav-link-primary:hover {
+  background: linear-gradient(to right, #22c55e, #16a34a);
+  box-shadow: 0 0 0 3px rgba(56, 104, 81, 0.4), 0 4px 12px rgba(56, 104, 81, 0.3);
+  transform: translateY(-2px);
+}
+
+.footer-nav-link-veteran {
+  background: linear-gradient(to right, #dc2626, #b91c1c);
+  color: white;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2);
+}
+
+.footer-nav-link-veteran::before {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+}
+
+.footer-nav-link-veteran:hover {
+  background: linear-gradient(to right, #ef4444, #dc2626);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.4), 0 4px 12px rgba(220, 38, 38, 0.3);
+  transform: translateY(-2px);
+}
+
+.footer-nav-link-dashboard {
+  background: linear-gradient(to right, #2563eb, #1d4ed8);
+  color: white;
+  box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.2);
+}
+
+.footer-nav-link-dashboard::before {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+}
+
+.footer-nav-link-dashboard:hover {
+  background: linear-gradient(to right, #3b82f6, #2563eb);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.4), 0 4px 12px rgba(29, 78, 216, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Social Media Icons */
+.footer-social-icon {
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background-color: #374151;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px transparent;
+}
+
+.dark .footer-social-icon {
+  background-color: #1f2937;
+}
+
+.footer-social-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.footer-social-icon:hover {
+  background-color: #ef4444;
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3), 0 8px 25px rgba(239, 68, 68, 0.25);
+}
+
+.footer-social-icon:hover::before {
+  left: 100%;
+}
+
+/* Newsletter Input */
+.newsletter-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #374151;
+  border: 2px solid #4b5563;
+  border-radius: 0.75rem;
+  color: #d1d5db;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-input::placeholder {
+  color: #9ca3af;
+}
+
+.dark .newsletter-input {
+  background-color: #1f2937;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2), 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Footer Primary Button */
+.btn-primary-footer {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(to right, #16a34a, #15803d);
+  color: white;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px rgba(56, 104, 81, 0.2), 0 4px 12px rgba(56, 104, 81, 0.2);
+  border: none;
   cursor: pointer;
 }
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
+.btn-primary-footer::before {
+  content: '';
   position: absolute;
+  top: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(56, 104, 81, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
 }
 
-.flip-card-front {
-  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-secondary) 100%);
-  border: 2px solid var(--color-border);
+.btn-primary-footer:hover {
+  background: linear-gradient(to right, #22c55e, #16a34a);
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 3px rgba(56, 104, 81, 0.4), 0 8px 25px rgba(56, 104, 81, 0.3);
 }
 
-.flip-card-back {
-  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
-  color: white;
-  transform: rotateY(180deg);
+.btn-primary-footer:hover::before {
+  left: 100%;
 }
 
-.flip-card:hover .flip-card-front {
-  box-shadow: 0 12px 40px rgba(56, 104, 81, 0.2);
+/* Veteran Badge */
+.veteran-badge {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(to right, #dc2626, #b91c1c);
+  border-radius: 9999px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2), 0 4px 12px rgba(220, 38, 38, 0.2);
 }
 
-.flip-card:hover .flip-card-back {
-  box-shadow: 0 12px 40px rgba(189, 146, 100, 0.3);
+.veteran-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 2s ease;
 }
 
-/* Dark mode flip card adjustments */
-.dark .flip-card-front {
-  background: linear-gradient(135deg, var(--color-surface-dark) 0%, var(--color-surface-dark-secondary) 100%);
-  border-color: var(--color-border);
+.veteran-badge:hover {
+  background: linear-gradient(to right, #ef4444, #dc2626);
+  transform: scale(1.05);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.3), 0 6px 20px rgba(220, 38, 38, 0.25);
 }
 
-/* Flip card content styling */
-.flip-card-icon {
-  margin-bottom: 1rem;
+.veteran-badge:hover::before {
+  left: 100%;
+}
+
+/* Footer Legal Links */
+.footer-legal-link {
+  color: #9ca3af;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.footer-legal-link:hover {
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.1);
+  box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.2);
+}
+
+.footer-legal-link-dashboard {
+  background-color: rgba(37, 99, 235, 0.2);
+  color: #93c5fd;
+}
+
+.footer-legal-link-dashboard:hover {
+  color: #bfdbfe;
+  background: rgba(29, 78, 216, 0.2);
+  box-shadow: 0 0 0 1px rgba(29, 78, 216, 0.3);
+}
+
+/* =================================================================
+   FORM ELEMENTS
+   ================================================================= */
+
+.modal-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 0.75rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.flip-card:hover .flip-card-icon {
-  transform: scale(1.1);
+.modal-input:focus {
+  outline: none;
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
 }
 
-.flip-card-title {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 700;
+/* =================================================================
+   ADDITIONAL HOME PAGE STYLES
+   ================================================================= */
+
+/* Brand Color Utilities */
+.text-brand-primary {
   color: var(--brand-primary);
-  margin-bottom: 0.5rem;
-  transition: all 0.3s ease;
 }
 
-.dark .flip-card-title {
-  color: var(--brand-primary-light);
-}
-
-.flip-card-description {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  text-align: center;
-  opacity: 0.95;
-}
-
-/* Enhanced Featured Projects Styling */
-.project-card {
-  position: relative;
-  height: 400px;
-  border-radius: 20px;
-  overflow: hidden;
-  background: var(--color-surface);
-  box-shadow: 0 8px 32px rgba(56, 104, 81, 0.1);
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  cursor: pointer;
-}
-
-.project-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(56, 104, 81, 0.25);
-}
-
-.project-card-image {
-  position: relative;
-  height: 240px;
-  overflow: hidden;
-}
-
-.project-card-image img {
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-  transform-origin: center;
-}
-
-.project-card:hover .project-card-image img {
-  transform: scale(1.15) rotate(2deg);
-}
-
-.project-card-content {
-  position: relative;
-  padding: 1.5rem;
-  background: var(--color-surface);
-  z-index: 2;
-}
-
-.project-card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(30, 41, 59, 0.95) 0%,
-    rgba(56, 104, 81, 0.9) 50%,
-    rgba(189, 146, 100, 0.85) 100%
-  );
-  opacity: 0;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  overflow-y: auto;
-  backdrop-filter: blur(8px);
-}
-
-.project-card:hover .project-card-overlay {
-  opacity: 1;
-}
-
-/* Enhanced overlay text styles for better readability */
-.project-card-overlay h3 {
-  color: #ffffff;
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
-  letter-spacing: 0.5px;
-  line-height: 1.2;
-  text-align: center;
-}
-
-.project-card-overlay p {
-  color: #f8fafc;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-  font-weight: 500;
-  max-width: 100%;
-  text-align: center;
-  padding: 0 0.5rem;
-}
-
-.project-card-stats {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.project-card:hover .project-card-stats {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.2s;
-}
-
-.project-stat {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  border-radius: 12px;
-  padding: 1rem;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-.project-stat-number {
-  display: block;
-  font-size: 1.375rem;
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-  margin-bottom: 0.25rem;
-}
-
-.project-stat-label {
-  display: block;
-  font-size: 0.875rem;
-  color: #f1f5f9;
-  margin-top: 0.25rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.75px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-}
-
-.project-badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  box-shadow: 0 4px 15px rgba(56, 104, 81, 0.3);
-  opacity: 0;
-  transform: translateX(20px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.project-card:hover .project-badge {
-  opacity: 1;
-  transform: translateX(0);
-  transition-delay: 0.1s;
-}
-
-.project-title {
-  font-size: 1.375rem;
-  font-weight: 700;
-  color: var(--brand-primary);
-  margin-bottom: 0.5rem;
-  line-height: 1.3;
-}
-
-.dark .project-title {
-  color: var(--brand-primary-light);
-}
-
-.project-description {
-  color: var(--color-text-secondary);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.project-meta {
-  display: flex;
-  justify-content: between;
-  align-items: center;
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-}
-
-.project-location {
+.text-brand-secondary {
   color: var(--brand-secondary);
-  font-weight: 600;
 }
 
-/* Project Filter System - Now uses MH Standard Button System */
-.project-filters {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
+.bg-brand-primary {
+  background-color: var(--brand-primary);
 }
 
-/* Project filters inherit from btn-base and btn-outline standards */
-
-/* Enhanced grid animations */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
+.bg-brand-secondary {
+  background-color: var(--brand-secondary);
 }
 
-.project-card-animate {
-  opacity: 0;
-  transform: translateY(40px);
-  animation: slideInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+.border-brand-primary {
+  border-color: var(--brand-primary);
 }
 
-@keyframes slideInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.border-brand-secondary {
+  border-color: var(--brand-secondary);
+}
+
+/* Gradient Background for CTA sections */
+.from-brand-primary {
+  --tw-gradient-from: var(--brand-primary);
+  --tw-gradient-to: rgb(56 104 81 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.via-brand-primary-dark {
+  --tw-gradient-to: rgb(45 82 64 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--brand-primary), var(--tw-gradient-to);
+}
+
+.to-brand-secondary {
+  --tw-gradient-to: var(--brand-secondary);
 }
 
 /* Dark mode adjustments */
-.dark .project-card {
-  background: var(--color-surface-dark);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+.dark .text-brand-primary {
+  color: var(--brand-primary-light);
 }
 
-.dark .project-card:hover {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+.dark .text-brand-secondary {
+  color: var(--brand-secondary-light);
 }
 
-.dark .project-card-content {
-  background: var(--color-surface-dark);
+/* Comprehensive gradient utilities for dark mode */
+.dark .from-brand-primary {
+  --tw-gradient-from: var(--brand-primary-light);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .project-card {
-    height: 350px;
+.dark .via-brand-primary-dark {
+  --tw-gradient-to: rgb(74 122 99 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--brand-primary), var(--tw-gradient-to);
+}
+
+.dark .to-brand-secondary {
+  --tw-gradient-to: var(--brand-secondary-light);
+}
+
+/* Text color utilities */
+.text-theme-primary {
+  color: var(--color-text-primary);
+}
+
+.text-theme-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-theme-muted {
+  color: var(--color-text-muted);
+}
+
+.text-theme-accent {
+  color: var(--color-text-accent);
+}
+
+/* Background utilities */
+.bg-theme-surface {
+  background-color: var(--color-surface);
+}
+
+.bg-theme-background {
+  background-color: var(--color-background);
+}
+
+.bg-theme-elevated {
+  background-color: var(--color-surface-elevated);
+}
+
+/* Border utilities */
+.border-theme {
+  border-color: var(--color-border);
+}
+
+.border-theme-light {
+  border-color: var(--color-border-light);
+}
+
+.border-theme-strong {
+  border-color: var(--color-border-strong);
+}
+
+/* Enhanced button hover states for dark mode */
+.dark .btn-primary:hover {
+  box-shadow: 0 0 0 3px rgba(74, 122, 99, 0.4), 0 8px 25px rgba(74, 122, 99, 0.4);
+}
+
+.dark .btn-secondary:hover {
+  box-shadow: 0 0 0 3px rgba(201, 161, 118, 0.4), 0 8px 25px rgba(201, 161, 118, 0.4);
+}
+
+/* Enhanced card system for dark mode */
+.dark .card-primary {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark .card-primary:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Status indicators theme support */
+.dark .status-success {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.dark .status-warning {
+  background: var(--color-warning-light);
+  color: var(--color-warning);
+}
+
+.dark .status-error {
+  background: var(--color-error-light);
+  color: var(--color-error);
+}
+
+.dark .status-info {
+  background: var(--color-info-light);
+  color: var(--color-info);
+}
+
+/* Form elements dark mode support */
+.dark .form-input {
+  background: var(--color-input-background);
+  border-color: var(--color-input-border);
+  color: var(--color-input-text);
+}
+
+.dark .form-input::placeholder {
+  color: var(--color-input-placeholder);
+}
+
+.dark .form-input:focus {
+  border-color: var(--color-input-focus);
+  box-shadow: 0 0 0 3px rgba(74, 122, 99, 0.2);
+}
+
+/* Navigation dark mode support */
+.dark .nav-primary {
+  background: var(--color-nav-background);
+  border-color: var(--color-nav-border);
+}
+
+.dark .nav-link {
+  color: var(--color-nav-text);
+}
+
+.dark .nav-link:hover {
+  background: var(--color-nav-hover);
+  color: var(--brand-primary-light);
+}
+
+/* Enhanced modal support for dark mode */
+.dark .modal-input {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.dark .modal-input:focus {
+  border-color: var(--brand-primary-light);
+  box-shadow: 0 0 0 3px rgba(74, 122, 99, 0.1);
+}
+
+/* Theme transition animations */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Prevent theme transition on page load */
+.no-transition * {
+  transition: none !important;
+}
+
+/* Theme toggle button styling */
+.theme-toggle {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--color-surface-hover);
+  border-color: var(--color-border-hover);
+}
+
+.theme-toggle:focus {
+  outline: 2px solid var(--color-interactive-default);
+  outline-offset: 2px;
+}
+
+/* Theme-aware scrollbar (webkit browsers) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-interactive-default);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-primary-light);
+}
+
+/* Enhanced print styles for both themes */
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
   }
   
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .project-filters {
-    gap: 0.75rem;
-  }
-  
-  .project-filter {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-  }
-  
-  .project-card-stats {
-    flex-direction: column;
-    gap: 0.75rem;
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    border: 1px solid black !important;
+    background: white !important;
+    color: black !important;
   }
 }
