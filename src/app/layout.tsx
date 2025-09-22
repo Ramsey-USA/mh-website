@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { Navigation, Footer } from '../components/layout'
 import { AuthProvider } from '../lib/auth/AuthContext'
+import { ThemeProvider } from '../contexts/ThemeContext'
 import { WebVitalsReporter } from '../components/performance/optimized-components'
 import { GoogleAnalytics } from '../components/analytics/google-analytics'
 import PWAUpdate from '../components/pwa/PWAUpdate'
@@ -62,19 +63,21 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         )}
-        <AuthProvider>
-          <div className="flex flex-col min-h-screen">
-            <Navigation />
-            <main className="flex-grow">
-              {children}
-            </main>
-            <Footer />
-          </div>
-          {/* PWA Components */}
-          <PWAUpdate />
-          <PWAInstall />
-          <PushNotifications />
-        </AuthProvider>
+        <ThemeProvider defaultTheme="system" storageKey="mh-construction-theme">
+          <AuthProvider>
+            <div className="flex flex-col min-h-screen">
+              <Navigation />
+              <main className="flex-grow">
+                {children}
+              </main>
+              <Footer />
+            </div>
+            {/* PWA Components */}
+            <PWAUpdate />
+            <PWAInstall />
+            <PushNotifications />
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

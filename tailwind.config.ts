@@ -6,7 +6,7 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: 'media', // Enables automatic dark mode based on system preference
+  darkMode: 'class', // Enables class-based dark mode for theme toggle control
   theme: {
     extend: {
       colors: {

@@ -3,7 +3,8 @@
 import { useState, useMemo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Star, Filter, MapPin, Calendar, Award, Quote, ChevronDown, ChevronUp, Users, TrendingUp, MessageCircle } from 'lucide-react'
+import { Star, Quote, MapPin, Calendar, Search, Filter, ChevronLeft, ChevronRight, Trophy, Award, Briefcase, Users, TrendingUp, MessageCircle, ChevronUp, ChevronDown } from 'lucide-react'
+import { formatDate } from '@/lib/utils/dateUtils'
 import { mockTestimonials, getReviewStats, type ClientTestimonial, type TestimonialFilter } from '@/lib/types/testimonials'
 
 const projectTypeOptions = [
@@ -391,7 +392,7 @@ function FeaturedTestimonialCard({ testimonial }: { testimonial: ClientTestimoni
             </div>
             <div className="flex items-center gap-1">
               <Calendar className="h-4 w-4" />
-              <span>{new Date(testimonial.completionDate).toLocaleDateString()}</span>
+              <span>{formatDate(testimonial.completionDate)}</span>
             </div>
           </div>
         </div>
@@ -534,7 +535,7 @@ function RegularTestimonialCard({ testimonial }: { testimonial: ClientTestimonia
             <div className="text-right">
               <div className="flex items-center gap-1">
                 <Calendar className="h-3 w-3" />
-                <span>{new Date(testimonial.completionDate).toLocaleDateString()}</span>
+                <span>{formatDate(testimonial.completionDate)}</span>
               </div>
               {testimonial.projectValue && (
                 <div className="font-semibold text-gray-900">{testimonial.projectValue}</div>

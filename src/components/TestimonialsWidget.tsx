@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Star, Quote, ChevronLeft, ChevronRight, Award, MapPin, Calendar, ExternalLink } from 'lucide-react'
 import { mockTestimonials, type ClientTestimonial } from '@/lib/types/testimonials'
+import { formatDate } from '@/lib/utils/dateUtils'
 
 interface TestimonialsWidgetProps {
   title?: string
@@ -253,7 +254,7 @@ function TestimonialSlide({ testimonial }: { testimonial: ClientTestimonial }) {
               </div>
               <div className="flex items-center gap-1">
                 <Calendar className="h-4 w-4" />
-                <span>{new Date(testimonial.completionDate).toLocaleDateString()}</span>
+                <span>{formatDate(testimonial.completionDate)}</span>
               </div>
             </div>
           </div>

@@ -3,7 +3,8 @@
 import { useState, useMemo } from 'react'
 import Image from 'next/image'
 import { Star, Eye, Edit3, Trash2, Check, X, Filter, Search, Calendar, MapPin, Users, Award, MessageCircle, TrendingUp, AlertCircle, ChevronDown, ChevronUp } from 'lucide-react'
-import { mockTestimonials, getReviewStats, type ClientTestimonial, type TestimonialStatus } from '@/lib/types/testimonials'
+import { ClientTestimonial, TestimonialStatus, mockTestimonials, getReviewStats } from '@/lib/types/testimonials'
+import { formatDate } from '@/lib/utils/dateUtils'
 
 type SortOption = 'newest' | 'oldest' | 'rating' | 'status'
 
@@ -498,7 +499,7 @@ function TestimonialRow({
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
         <div className="flex items-center gap-1">
           <Calendar className="h-3 w-3" />
-          <span>{new Date(testimonial.submissionDate).toLocaleDateString()}</span>
+          <span>{formatDate(testimonial.submissionDate)}</span>
         </div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
@@ -576,7 +577,7 @@ function TestimonialCard({
         <div className="flex items-center gap-4 text-sm text-gray-600 mb-2">
           <span className="capitalize">{testimonial.projectType}</span>
           <span>•</span>
-          <span>{new Date(testimonial.completionDate).toLocaleDateString()}</span>
+          <span>{formatDate(testimonial.completionDate)}</span>
         </div>
         <div className="flex items-center gap-1 mb-3">
           {[...Array(5)].map((_, i) => (

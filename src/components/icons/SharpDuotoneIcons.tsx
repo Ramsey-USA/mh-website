@@ -235,6 +235,37 @@ export const SyncIcon: React.FC<IconProps> = (props) => (
   </IconBase>
 )
 
+// Theme & Display Icons
+export const SunIcon: React.FC<IconProps> = (props) => (
+  <IconBase {...props}>
+    <g opacity="0.4">
+      <circle cx="12" cy="12" r="5" stroke="var(--icon-secondary)" strokeWidth="2"/>
+    </g>
+    <g stroke="var(--icon-primary)" strokeWidth="2" strokeLinecap="round">
+      <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </g>
+  </IconBase>
+)
+
+export const MoonIcon: React.FC<IconProps> = (props) => (
+  <IconBase {...props}>
+    <g opacity="0.4">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z" stroke="var(--icon-secondary)" strokeWidth="2"/>
+    </g>
+    <path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z" fill="var(--icon-primary)" opacity="0.6"/>
+  </IconBase>
+)
+
+export const DesktopIcon: React.FC<IconProps> = (props) => (
+  <IconBase {...props}>
+    <g opacity="0.4">
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="var(--icon-secondary)" strokeWidth="2"/>
+      <line x1="8" y1="21" x2="16" y2="21" stroke="var(--icon-secondary)" strokeWidth="2"/>
+    </g>
+    <line x1="12" y1="17" x2="12" y2="21" stroke="var(--icon-primary)" strokeWidth="2"/>
+  </IconBase>
+)
+
 // Social Media Icons
 export const FacebookIcon: React.FC<IconProps> = (props) => (
   <IconBase {...props}>
@@ -295,6 +326,9 @@ export const SharpDuotoneIcons = {
   Cog: CogIcon,
   Bell: BellIcon,
   Sync: SyncIcon,
+  Sun: SunIcon,
+  Moon: MoonIcon,
+  Desktop: DesktopIcon,
   Facebook: FacebookIcon,
   Instagram: InstagramIcon,
   LinkedIn: LinkedInIcon,
