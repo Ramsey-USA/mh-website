@@ -1,0 +1,48 @@
+{
+  "name": "mh-construction-website",
+  "version": "2.0.0",
+  "description": "Revolutionary construction website for MH Construction - Building Tomorrow with Today's Technology",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:turbo": "next dev --turbo",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build && next export",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "firebase:deploy": "firebase deploy",
+    "firebase:emulate": "firebase emulators:start"
+  },
+  "keywords": [
+    "construction",
+    "nextjs",
+    "firebase",
+    "veteran-owned",
+    "ai-estimator",
+    "typescript"
+  ],
+  "author": "MH Construction Development Team",
+  "license": "MIT",
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.36.0",
+    "eslint-config-next": "^15.5.3",
+    "firebase": "^12.3.0",
+    "next": "^15.5.2",
+    "postcss": "^8.5.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.9.2"
+  }
+}

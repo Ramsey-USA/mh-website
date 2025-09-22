@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  /* MH Construction Brand Colors */
+  --brand-primary: #386851;           /* Hunter Green */
+  --brand-primary-light: #4a7a63;     /* Lighter hunter green */
+  --brand-primary-dark: #2d5240;      /* Darker hunter green */
+  --brand-secondary: #BD9264;         /* Leather Tan */
+  --brand-secondary-light: #c9a176;   /* Lighter tan */
+  --brand-secondary-dark: #a67d52;    /* Darker tan */
+  
+  /* Semantic Colors - Light Mode */
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-surface-secondary: #f1f5f9;
+  --color-text-primary: #1e293b;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #94a3b8;
+  --color-border: #e2e8f0;
+  --color-border-light: #f1f5f9;
+  
+  /* Status Colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+  
+  /* Veteran Recognition Colors */
+  --veteran-red: #dc2626;
+  --veteran-blue: #1d4ed8;
+  --veteran-gold: #ca8a04;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode Overrides */
+    --color-background: #0f172a;
+    --color-surface: #1e293b;
+    --color-surface-secondary: #334155;
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #cbd5e1;
+    --color-text-muted: #64748b;
+    --color-border: #334155;
+    --color-border-light: #475569;
+  }
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* MH Construction Custom Component Classes */
+.btn-primary {
+  background-color: var(--brand-primary);
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-primary-light);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--brand-secondary);
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--brand-secondary-light);
+  transform: translateY(-1px);
+}
+
+.btn-social {
+  background-color: var(--brand-primary);
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  min-height: 48px;
+  transition: all 0.3s ease;
+}
+
+.btn-social:hover {
+  background-color: var(--brand-secondary);
+  transform: translateY(-1px);
+}
+
+.text-brand-primary {
+  color: var(--brand-primary);
+}
+
+.text-brand-secondary {
+  color: var(--brand-secondary);
+}
+
+.bg-brand-primary {
+  background-color: var(--brand-primary);
+}
+
+.bg-brand-secondary {
+  background-color: var(--brand-secondary);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary), var(--brand-primary-dark));
+}
+
+.military-card {
+  background-color: white;
+  border: 1px solid var(--field-gray);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.military-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}

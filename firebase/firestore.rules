@@ -1,0 +1,45 @@
+// Firestore security rules for MH Construction website
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Consultations collection - protected access
+    match /consultations/{consultationId} {
+      // Allow read/write for authenticated team members
+      allow read, write: if request.auth != null && 
+                        exists(/databases/$(database)/documents/team/$(request.auth.uid));
+      
+      // Allow create for any user (new consultation bookings)
+      allow create: if true;
+    }
+    
+    // Team members collection - admin only
+    match /team/{teamId} {
+      allow read, write: if request.auth != null && 
+                        get(/databases/$(database)/documents/team/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Project estimates - allow read for owner, write for authenticated users
+    match /estimates/{estimateId} {
+      allow read: if resource.data.createdBy == request.auth.uid || 
+                  (request.auth != null && 
+                   exists(/databases/$(database)/documents/team/$(request.auth.uid)));
+      allow create: if true;
+      allow update: if request.auth != null && 
+                    exists(/databases/$(database)/documents/team/$(request.auth.uid));
+    }
+    
+    // Notifications - team members only
+    match /notifications/{notificationId} {
+      allow read, write: if request.auth != null && 
+                        exists(/databases/$(database)/documents/team/$(request.auth.uid));
+    }
+    
+    // Public data - company information, services, etc.
+    match /public/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && 
+                   get(/databases/$(database)/documents/team/$(request.auth.uid)).data.role == 'admin';
+    }
+  }
+}
