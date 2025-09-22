@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-interface SubscriptionData {
+export interface SubscriptionData {
   subscription: PushSubscription
   userAgent: string
   timestamp: number

@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import type { SubscriptionData } from '../send/route'
 
 declare global {
+  // Ensure the type matches the declaration in send/route.ts
   var subscriptionsStore: Map<string, SubscriptionData>
 }
 

@@ -111,7 +111,7 @@ export default function PushNotifications({
       
       const pushSubscription = await registration.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: urlBase64ToUint8Array(vapidPublicKey)
+        applicationServerKey: urlBase64ToUint8Array(vapidPublicKey) as BufferSource
       })
 
       setSubscription(pushSubscription)
@@ -415,7 +415,7 @@ function urlBase64ToUint8Array(base64String: string): Uint8Array {
   for (let i = 0; i < rawData.length; ++i) {
     outputArray[i] = rawData.charCodeAt(i)
   }
-  return outputArray
+  return new Uint8Array(outputArray.buffer)
 }
 
 // Notification types for different use cases
@@ -437,7 +437,6 @@ export const sendNotification = async (title: string, body: string, type: string
         badge: '/icons/icon-96x96.png',
         tag: `mh-${type}-${Date.now()}`,
         data: { type, timestamp: Date.now() },
-        vibrate: [100, 50, 100],
         requireInteraction: type === 'appointment'
       })
     } catch (error) {
