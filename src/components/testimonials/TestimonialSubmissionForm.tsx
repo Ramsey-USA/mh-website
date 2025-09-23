@@ -1,8 +1,28 @@
 'use client'
 
 import { useState } from 'react'
-import { Star, Upload, X, Check, AlertCircle, Send, Camera, FileText, MapPin, Calendar, Users } from 'lucide-react'
-import { Button, Card, CardHeader, CardTitle, CardContent, Input, Textarea } from '../ui'
+import {
+  Star,
+  Upload,
+  X,
+  Check,
+  AlertCircle,
+  Send,
+  Camera,
+  FileText,
+  MapPin,
+  Calendar,
+  Users,
+} from 'lucide-react'
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  Input,
+  Textarea,
+} from '../ui'
 
 interface TestimonialFormData {
   clientName: string
@@ -10,7 +30,12 @@ interface TestimonialFormData {
   clientPhone: string
   clientLocation: string
   projectTitle: string
-  projectType: 'residential' | 'commercial' | 'renovation' | 'emergency' | 'other'
+  projectType:
+    | 'residential'
+    | 'commercial'
+    | 'renovation'
+    | 'emergency'
+    | 'other'
   projectValue: string
   completionDate: string
   rating: number
@@ -31,10 +56,13 @@ const projectTypeOptions = [
   { value: 'commercial', label: 'Commercial Building', icon: Users },
   { value: 'renovation', label: 'Renovation/Remodel', icon: Users },
   { value: 'emergency', label: 'Emergency Repair', icon: AlertCircle },
-  { value: 'other', label: 'Other', icon: FileText }
+  { value: 'other', label: 'Other', icon: FileText },
 ]
 
-export default function TestimonialSubmissionForm({ onSubmit, className = '' }: TestimonialSubmissionFormProps) {
+export default function TestimonialSubmissionForm({
+  onSubmit,
+  className = '',
+}: TestimonialSubmissionFormProps) {
   const [formData, setFormData] = useState<TestimonialFormData>({
     clientName: '',
     clientEmail: '',
@@ -49,7 +77,7 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
     wouldRecommend: true,
     allowContact: true,
     images: [],
-    projectHighlights: ['']
+    projectHighlights: [''],
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -67,7 +95,7 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
     const files = Array.from(e.target.files || [])
     const existingImages = formData.images || []
     const totalImages = existingImages.length + files.length
-    
+
     if (totalImages > 5) {
       alert('Maximum 5 images allowed')
       return
@@ -89,7 +117,10 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
 
   const removeHighlight = (index: number) => {
     if (formData.projectHighlights.length > 1) {
-      updateFormData('projectHighlights', formData.projectHighlights.filter((_, i) => i !== index))
+      updateFormData(
+        'projectHighlights',
+        formData.projectHighlights.filter((_, i) => i !== index)
+      )
     }
   }
 
@@ -102,9 +133,17 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
   const validateStep = (step: number): boolean => {
     switch (step) {
       case 1:
-        return !!(formData.clientName && formData.clientEmail && formData.clientLocation)
+        return !!(
+          formData.clientName &&
+          formData.clientEmail &&
+          formData.clientLocation
+        )
       case 2:
-        return !!(formData.projectTitle && formData.projectType && formData.completionDate)
+        return !!(
+          formData.projectTitle &&
+          formData.projectType &&
+          formData.completionDate
+        )
       case 3:
         return formData.rating > 0 && formData.testimonialText.length >= 50
       case 4:
@@ -128,22 +167,22 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!validateStep(3)) {
       alert('Please complete all required fields')
       return
     }
 
     setIsSubmitting(true)
-    
+
     try {
       // In a real app, this would send to an API
       await new Promise(resolve => setTimeout(resolve, 2000))
-      
+
       if (onSubmit) {
         onSubmit(formData)
       }
-      
+
       setIsSubmitted(true)
     } catch (error) {
       console.error('Submission error:', error)
@@ -161,23 +200,27 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Check className="h-8 w-8 text-green-600" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              Thank You!
+            </h2>
             <p className="text-gray-600">
-              Your testimonial has been submitted successfully. We appreciate you taking the time to share your experience with MH Construction.
+              Your testimonial has been submitted successfully. We appreciate
+              you taking the time to share your experience with MH Construction.
             </p>
           </div>
-          
+
           <div className="bg-blue-50 p-4 rounded-lg mb-6">
             <p className="text-sm text-blue-800">
-              <strong>What happens next?</strong><br />
-              Our team will review your testimonial and may contact you for any additional information. Once approved, your testimonial will be featured on our website to help other potential clients learn about our services.
+              <strong>What happens next?</strong>
+              <br />
+              Our team will review your testimonial and may contact you for any
+              additional information. Once approved, your testimonial will be
+              featured on our website to help other potential clients learn
+              about our services.
             </p>
           </div>
-          
-          <Button 
-            onClick={() => window.location.reload()} 
-            variant="secondary"
-          >
+
+          <Button onClick={() => window.location.reload()} variant="secondary">
             Submit Another Testimonial
           </Button>
         </CardContent>
@@ -192,19 +235,23 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
         <div className="flex items-center justify-between mb-4">
           {[1, 2, 3, 4].map(step => (
             <div key={step} className="flex items-center">
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                step < currentStep 
-                  ? 'bg-green-600 text-white' 
-                  : step === currentStep 
-                    ? 'bg-blue-600 text-white' 
-                    : 'bg-gray-200 text-gray-600'
-              }`}>
+              <div
+                className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                  step < currentStep
+                    ? 'bg-green-600 text-white'
+                    : step === currentStep
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-200 text-gray-600'
+                }`}
+              >
                 {step < currentStep ? <Check className="h-4 w-4" /> : step}
               </div>
               {step < 4 && (
-                <div className={`h-1 w-full mx-2 ${
-                  step < currentStep ? 'bg-green-600' : 'bg-gray-200'
-                }`} />
+                <div
+                  className={`h-1 w-full mx-2 ${
+                    step < currentStep ? 'bg-green-600' : 'bg-gray-200'
+                  }`}
+                />
               )}
             </div>
           ))}
@@ -224,7 +271,8 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
             Share Your Experience with MH Construction
           </CardTitle>
           <p className="text-gray-600">
-            Help others learn about our construction services by sharing your project experience.
+            Help others learn about our construction services by sharing your
+            project experience.
           </p>
         </CardHeader>
 
@@ -233,8 +281,10 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
             {/* Step 1: Contact Information */}
             {currentStep === 1 && (
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Contact Information</h3>
-                
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Contact Information
+                </h3>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -242,12 +292,14 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
                     </label>
                     <Input
                       value={formData.clientName}
-                      onChange={(e) => updateFormData('clientName', e.target.value)}
+                      onChange={e =>
+                        updateFormData('clientName', e.target.value)
+                      }
                       placeholder="Enter your full name"
                       required
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Email Address *
@@ -255,7 +307,9 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
                     <Input
                       type="email"
                       value={formData.clientEmail}
-                      onChange={(e) => updateFormData('clientEmail', e.target.value)}
+                      onChange={e =>
+                        updateFormData('clientEmail', e.target.value)
+                      }
                       placeholder="your.email@example.com"
                       required
                     />
@@ -270,11 +324,13 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
                     <Input
                       type="tel"
                       value={formData.clientPhone}
-                      onChange={(e) => updateFormData('clientPhone', e.target.value)}
+                      onChange={e =>
+                        updateFormData('clientPhone', e.target.value)
+                      }
                       placeholder="(555) 123-4567"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       <MapPin className="inline h-4 w-4 mr-1" />
@@ -282,7 +338,9 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
                     </label>
                     <Input
                       value={formData.clientLocation}
-                      onChange={(e) => updateFormData('clientLocation', e.target.value)}
+                      onChange={e =>
+                        updateFormData('clientLocation', e.target.value)
+                      }
                       placeholder="City, State"
                       required
                     />
@@ -293,7 +351,10 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
                   <div className="flex items-start gap-2">
                     <AlertCircle className="h-5 w-5 text-blue-600 mt-0.5" />
                     <div className="text-sm text-blue-800">
-                      <strong>Privacy Notice:</strong> Your contact information will only be used to verify your testimonial and may be used to contact you about featuring your review. You can opt out of contact permissions in the next steps.
+                      <strong>Privacy Notice:</strong> Your contact information
+                      will only be used to verify your testimonial and may be
+                      used to contact you about featuring your review. You can
+                      opt out of contact permissions in the next steps.
                     </div>
                   </div>
                 </div>
@@ -303,15 +364,19 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
             {/* Step 2: Project Details */}
             {currentStep === 2 && (
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Project Details</h3>
-                
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Project Details
+                </h3>
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Project Title *
                   </label>
                   <Input
                     value={formData.projectTitle}
-                    onChange={(e) => updateFormData('projectTitle', e.target.value)}
+                    onChange={e =>
+                      updateFormData('projectTitle', e.target.value)
+                    }
                     placeholder="e.g., Custom Home Build, Kitchen Renovation, etc."
                     required
                   />
@@ -324,7 +389,9 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
                     </label>
                     <select
                       value={formData.projectType}
-                      onChange={(e) => updateFormData('projectType', e.target.value as any)}
+                      onChange={e =>
+                        updateFormData('projectType', e.target.value as any)
+                      }
                       className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       required
                     >
@@ -335,7 +402,7 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
                       ))}
                     </select>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       <Calendar className="inline h-4 w-4 mr-1" />
@@ -344,7 +411,9 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
                     <Input
                       type="date"
                       value={formData.completionDate}
-                      onChange={(e) => updateFormData('completionDate', e.target.value)}
+                      onChange={e =>
+                        updateFormData('completionDate', e.target.value)
+                      }
                       required
                     />
                   </div>
@@ -356,16 +425,24 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
                   </label>
                   <select
                     value={formData.projectValue}
-                    onChange={(e) => updateFormData('projectValue', e.target.value)}
+                    onChange={e =>
+                      updateFormData('projectValue', e.target.value)
+                    }
                     className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="">Prefer not to say</option>
                     <option value="Under $10,000">Under $10,000</option>
                     <option value="$10,000 - $25,000">$10,000 - $25,000</option>
                     <option value="$25,000 - $50,000">$25,000 - $50,000</option>
-                    <option value="$50,000 - $100,000">$50,000 - $100,000</option>
-                    <option value="$100,000 - $250,000">$100,000 - $250,000</option>
-                    <option value="$250,000 - $500,000">$250,000 - $500,000</option>
+                    <option value="$50,000 - $100,000">
+                      $50,000 - $100,000
+                    </option>
+                    <option value="$100,000 - $250,000">
+                      $100,000 - $250,000
+                    </option>
+                    <option value="$250,000 - $500,000">
+                      $250,000 - $500,000
+                    </option>
                     <option value="Over $500,000">Over $500,000</option>
                   </select>
                 </div>
@@ -381,7 +458,7 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
                     <div key={index} className="flex items-center gap-2 mb-2">
                       <Input
                         value={highlight}
-                        onChange={(e) => updateHighlight(index, e.target.value)}
+                        onChange={e => updateHighlight(index, e.target.value)}
                         placeholder={`Highlight ${index + 1}`}
                       />
                       {formData.projectHighlights.length > 1 && (
@@ -411,8 +488,10 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
             {/* Step 3: Rating and Review */}
             {currentStep === 3 && (
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Your Review</h3>
-                
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Your Review
+                </h3>
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-3">
                     Overall Rating *
@@ -450,11 +529,14 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
                     Your Testimonial *
                   </label>
                   <p className="text-sm text-gray-600 mb-3">
-                    Share your experience working with MH Construction. What made your project special?
+                    Share your experience working with MH Construction. What
+                    made your project special?
                   </p>
                   <Textarea
                     value={formData.testimonialText}
-                    onChange={(e) => updateFormData('testimonialText', e.target.value)}
+                    onChange={e =>
+                      updateFormData('testimonialText', e.target.value)
+                    }
                     placeholder="Tell others about your experience with MH Construction. What was the project? How was the quality of work? How was the communication and professionalism? Would you work with them again?"
                     rows={6}
                     className="resize-none"
@@ -472,10 +554,15 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
                       type="checkbox"
                       id="recommend"
                       checked={formData.wouldRecommend}
-                      onChange={(e) => updateFormData('wouldRecommend', e.target.checked)}
+                      onChange={e =>
+                        updateFormData('wouldRecommend', e.target.checked)
+                      }
                       className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                     />
-                    <label htmlFor="recommend" className="text-sm text-gray-700">
+                    <label
+                      htmlFor="recommend"
+                      className="text-sm text-gray-700"
+                    >
                       I would recommend MH Construction to others
                     </label>
                   </div>
@@ -485,11 +572,17 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
                       type="checkbox"
                       id="allowContact"
                       checked={formData.allowContact}
-                      onChange={(e) => updateFormData('allowContact', e.target.checked)}
+                      onChange={e =>
+                        updateFormData('allowContact', e.target.checked)
+                      }
                       className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                     />
-                    <label htmlFor="allowContact" className="text-sm text-gray-700">
-                      MH Construction may contact me about featuring this testimonial
+                    <label
+                      htmlFor="allowContact"
+                      className="text-sm text-gray-700"
+                    >
+                      MH Construction may contact me about featuring this
+                      testimonial
                     </label>
                   </div>
                 </div>
@@ -499,17 +592,20 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
             {/* Step 4: Photos and Submit */}
             {currentStep === 4 && (
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Photos & Submit</h3>
-                
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Photos & Submit
+                </h3>
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     <Camera className="inline h-4 w-4 mr-1" />
                     Project Photos (Optional)
                   </label>
                   <p className="text-sm text-gray-600 mb-4">
-                    Add up to 5 photos of your completed project. These help showcase our work quality.
+                    Add up to 5 photos of your completed project. These help
+                    showcase our work quality.
                   </p>
-                  
+
                   {(!formData.images || formData.images.length < 5) && (
                     <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
                       <Camera className="h-8 w-8 text-gray-400 mx-auto mb-2" />
@@ -554,12 +650,23 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
                 </div>
 
                 <div className="bg-green-50 p-4 rounded-lg">
-                  <h4 className="font-medium text-green-900 mb-2">Review Summary</h4>
+                  <h4 className="font-medium text-green-900 mb-2">
+                    Review Summary
+                  </h4>
                   <div className="space-y-2 text-sm text-green-800">
-                    <div><strong>Client:</strong> {formData.clientName}</div>
-                    <div><strong>Project:</strong> {formData.projectTitle}</div>
-                    <div><strong>Rating:</strong> {formData.rating}/5 stars</div>
-                    <div><strong>Photos:</strong> {formData.images?.length || 0} uploaded</div>
+                    <div>
+                      <strong>Client:</strong> {formData.clientName}
+                    </div>
+                    <div>
+                      <strong>Project:</strong> {formData.projectTitle}
+                    </div>
+                    <div>
+                      <strong>Rating:</strong> {formData.rating}/5 stars
+                    </div>
+                    <div>
+                      <strong>Photos:</strong> {formData.images?.length || 0}{' '}
+                      uploaded
+                    </div>
                   </div>
                 </div>
 
@@ -567,7 +674,10 @@ export default function TestimonialSubmissionForm({ onSubmit, className = '' }: 
                   <div className="flex items-start gap-2">
                     <AlertCircle className="h-5 w-5 text-blue-600 mt-0.5" />
                     <div className="text-sm text-blue-800">
-                      <strong>Before you submit:</strong> Please review your testimonial for accuracy. Once submitted, our team will review your testimonial before it appears on our website. This typically takes 1-2 business days.
+                      <strong>Before you submit:</strong> Please review your
+                      testimonial for accuracy. Once submitted, our team will
+                      review your testimonial before it appears on our website.
+                      This typically takes 1-2 business days.
                     </div>
                   </div>
                 </div>

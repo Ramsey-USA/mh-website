@@ -1,32 +1,39 @@
 'use client'
 
-import { useState } from 'react';
-import { useAuth } from '../../context/AuthContext';
-import { Button, Input, Card, CardHeader, CardTitle, CardContent } from '../../components/ui';
-import Link from 'next/link';
+import { useState } from 'react'
+import { useAuth } from '../../context/AuthContext'
+import {
+  Button,
+  Input,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from '../../components/ui'
+import Link from 'next/link'
 
 // This page should not be statically generated since it uses authentication
 export const dynamic = 'force-dynamic'
 
 export default function LoginPage() {
-  const { login } = useAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  const { login } = useAuth()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setError('');
+    e.preventDefault()
+    setLoading(true)
+    setError('')
     try {
-      await login(email, password);
+      await login(email, password)
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : 'Login failed');
+      setError(err instanceof Error ? err.message : 'Login failed')
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-surface dark:bg-surface-dark">
@@ -52,17 +59,25 @@ export default function LoginPage() {
               required
             />
             {error && <div className="text-error text-sm">{error}</div>}
-            <Button type="submit" variant="primary" size="lg" disabled={loading}>
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              disabled={loading}
+            >
               {loading ? 'Signing In...' : 'Sign In'}
             </Button>
           </form>
           <div className="mt-6 text-center">
-            <Link href="/forgot-password" className="text-brand-primary hover:underline">
+            <Link
+              href="/forgot-password"
+              className="text-brand-primary hover:underline"
+            >
               Forgot password?
             </Link>
           </div>
         </CardContent>
       </Card>
     </div>
-  );
+  )
 }

@@ -16,7 +16,7 @@ export function RecentConsultations() {
       status: 'confirmed',
       isVeteran: true,
       priority: 'high',
-      estimatedValue: '$425,000'
+      estimatedValue: '$425,000',
     },
     {
       id: 'C002',
@@ -29,7 +29,7 @@ export function RecentConsultations() {
       status: 'confirmed',
       isVeteran: false,
       priority: 'medium',
-      estimatedValue: '$45,000'
+      estimatedValue: '$45,000',
     },
     {
       id: 'C003',
@@ -42,7 +42,7 @@ export function RecentConsultations() {
       status: 'pending',
       isVeteran: false,
       priority: 'high',
-      estimatedValue: '$850,000'
+      estimatedValue: '$850,000',
     },
     {
       id: 'C004',
@@ -55,7 +55,7 @@ export function RecentConsultations() {
       status: 'confirmed',
       isVeteran: true,
       priority: 'medium',
-      estimatedValue: '$85,000'
+      estimatedValue: '$85,000',
     },
     {
       id: 'C005',
@@ -68,25 +68,33 @@ export function RecentConsultations() {
       status: 'confirmed',
       isVeteran: false,
       priority: 'low',
-      estimatedValue: '$22,000'
-    }
+      estimatedValue: '$22,000',
+    },
   ]
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'confirmed': return 'bg-green-100 text-green-800'
-      case 'pending': return 'bg-yellow-100 text-yellow-800'
-      case 'cancelled': return 'bg-red-100 text-red-800'
-      default: return 'bg-gray-100 text-gray-800'
+      case 'confirmed':
+        return 'bg-green-100 text-green-800'
+      case 'pending':
+        return 'bg-yellow-100 text-yellow-800'
+      case 'cancelled':
+        return 'bg-red-100 text-red-800'
+      default:
+        return 'bg-gray-100 text-gray-800'
     }
   }
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case 'high': return 'bg-red-500'
-      case 'medium': return 'bg-yellow-500'
-      case 'low': return 'bg-green-500'
-      default: return 'bg-gray-500'
+      case 'high':
+        return 'bg-red-500'
+      case 'medium':
+        return 'bg-yellow-500'
+      case 'low':
+        return 'bg-green-500'
+      default:
+        return 'bg-gray-500'
     }
   }
 
@@ -102,18 +110,24 @@ export function RecentConsultations() {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          {consultations.map((consultation) => (
-            <div key={consultation.id} className="flex items-center p-4 border rounded-lg hover:bg-gray-50 transition-colors">
-              
+          {consultations.map(consultation => (
+            <div
+              key={consultation.id}
+              className="flex items-center p-4 border rounded-lg hover:bg-gray-50 transition-colors"
+            >
               {/* Priority Indicator */}
-              <div className={`w-1 h-16 rounded-full mr-4 ${getPriorityColor(consultation.priority)}`}></div>
-              
+              <div
+                className={`w-1 h-16 rounded-full mr-4 ${getPriorityColor(consultation.priority)}`}
+              ></div>
+
               {/* Main Content */}
               <div className="flex-1">
                 <div className="flex items-start justify-between">
                   <div>
                     <div className="flex items-center">
-                      <h4 className="font-semibold text-gray-900">{consultation.clientName}</h4>
+                      <h4 className="font-semibold text-gray-900">
+                        {consultation.clientName}
+                      </h4>
                       {consultation.isVeteran && (
                         <span className="ml-2 text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
                           🎖️ Veteran
@@ -121,27 +135,31 @@ export function RecentConsultations() {
                       )}
                     </div>
                     <p className="text-sm text-gray-600">
-                      {consultation.projectType} • {consultation.consultationType}
+                      {consultation.projectType} •{' '}
+                      {consultation.consultationType}
                     </p>
                     <p className="text-xs text-gray-500 mt-1">
-                      ID: {consultation.id} • Est. Value: {consultation.estimatedValue}
+                      ID: {consultation.id} • Est. Value:{' '}
+                      {consultation.estimatedValue}
                     </p>
                   </div>
-                  
+
                   <div className="text-right">
-                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(consultation.status)}`}>
+                    <span
+                      className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(consultation.status)}`}
+                    >
                       {consultation.status}
                     </span>
                   </div>
                 </div>
-                
+
                 <div className="mt-3 flex items-center justify-between">
                   <div className="flex items-center text-sm text-gray-600">
                     <span className="mr-4">📅 {consultation.date}</span>
                     <span className="mr-4">🕐 {consultation.time}</span>
                     <span>👨‍💼 {consultation.teamMember}</span>
                   </div>
-                  
+
                   <div className="flex space-x-2">
                     <Button variant="secondary" size="sm">
                       Reschedule
@@ -155,7 +173,7 @@ export function RecentConsultations() {
             </div>
           ))}
         </div>
-        
+
         {/* Quick Actions */}
         <div className="mt-6 pt-4 border-t">
           <div className="flex space-x-3">

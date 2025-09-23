@@ -4,7 +4,12 @@ import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Calendar, Clock, User, Tag, Search, Filter } from 'lucide-react'
-import { mockBlogPosts, mockBlogCategories, type BlogPost, type BlogCategory } from '@/lib/types/blog'
+import {
+  mockBlogPosts,
+  mockBlogCategories,
+  type BlogPost,
+  type BlogCategory,
+} from '@/lib/types/blog'
 
 export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState('')
@@ -23,14 +28,18 @@ export default function BlogPage() {
   // Filter posts based on search and filters
   const filteredPosts = useMemo(() => {
     return mockBlogPosts.filter(post => {
-      const matchesSearch = 
+      const matchesSearch =
         post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
-      
-      const matchesCategory = selectedCategory === 'all' || post.category.id === selectedCategory
-      const matchesTag = selectedTag === 'all' || post.tags.includes(selectedTag)
-      
+        post.tags.some(tag =>
+          tag.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+
+      const matchesCategory =
+        selectedCategory === 'all' || post.category.id === selectedCategory
+      const matchesTag =
+        selectedTag === 'all' || post.tags.includes(selectedTag)
+
       return matchesSearch && matchesCategory && matchesTag
     })
   }, [searchTerm, selectedCategory, selectedTag])
@@ -39,19 +48,18 @@ export default function BlogPage() {
   const regularPosts = filteredPosts.filter(post => !post.featured)
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">
-              MH Construction Blog
-            </h1>
+            <h1 className="text-5xl font-bold mb-6">MH Construction Blog</h1>
             <p className="text-xl text-blue-100 mb-8">
-              Professional construction insights, veteran expertise, and industry knowledge 
-              from the Pacific Northwest&apos;s trusted construction team.
+              Professional construction insights, veteran expertise, and
+              industry knowledge from the Pacific Northwest&apos;s trusted
+              construction team.
             </p>
-            
+
             {/* Search Bar */}
             <div className="relative max-w-2xl mx-auto">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -59,7 +67,7 @@ export default function BlogPage() {
                 type="text"
                 placeholder="Search articles, tips, and insights..."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={e => setSearchTerm(e.target.value)}
                 className="w-full pl-12 pr-4 py-4 text-gray-900 rounded-lg border-0 focus:ring-2 focus:ring-blue-300 text-lg"
               />
             </div>
@@ -72,12 +80,14 @@ export default function BlogPage() {
           {/* Main Content */}
           <div className="lg:w-2/3">
             {/* Filter Controls */}
-            <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
               <div className="flex items-center gap-4 mb-4">
                 <Filter className="h-5 w-5 text-blue-600" />
-                <h3 className="text-lg font-semibold text-gray-900">Filter Articles</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Filter Articles
+                </h3>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Category Filter */}
                 <div>
@@ -86,7 +96,7 @@ export default function BlogPage() {
                   </label>
                   <select
                     value={selectedCategory}
-                    onChange={(e) => setSelectedCategory(e.target.value)}
+                    onChange={e => setSelectedCategory(e.target.value)}
                     className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="all">All Categories</option>
@@ -105,7 +115,7 @@ export default function BlogPage() {
                   </label>
                   <select
                     value={selectedTag}
-                    onChange={(e) => setSelectedTag(e.target.value)}
+                    onChange={e => setSelectedTag(e.target.value)}
                     className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="all">All Tags</option>
@@ -119,7 +129,9 @@ export default function BlogPage() {
               </div>
 
               {/* Active Filters Display */}
-              {(selectedCategory !== 'all' || selectedTag !== 'all' || searchTerm) && (
+              {(selectedCategory !== 'all' ||
+                selectedTag !== 'all' ||
+                searchTerm) && (
                 <div className="mt-4 pt-4 border-t border-gray-200">
                   <div className="flex flex-wrap gap-2">
                     {searchTerm && (
@@ -135,7 +147,12 @@ export default function BlogPage() {
                     )}
                     {selectedCategory !== 'all' && (
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-green-100 text-green-800">
-                        Category: {mockBlogCategories.find(c => c.id === selectedCategory)?.name}
+                        Category:{' '}
+                        {
+                          mockBlogCategories.find(
+                            c => c.id === selectedCategory
+                          )?.name
+                        }
                         <button
                           onClick={() => setSelectedCategory('all')}
                           className="ml-2 text-green-600 hover:text-green-800"
@@ -163,7 +180,8 @@ export default function BlogPage() {
             {/* Results Summary */}
             <div className="mb-6">
               <p className="text-gray-600">
-                Showing {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''}
+                Showing {filteredPosts.length} article
+                {filteredPosts.length !== 1 ? 's' : ''}
                 {searchTerm && ` for &quot;${searchTerm}&quot;`}
               </p>
             </div>
@@ -171,7 +189,9 @@ export default function BlogPage() {
             {/* Featured Posts */}
             {featuredPosts.length > 0 && (
               <div className="mb-12">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Featured Articles</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  Featured Articles
+                </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {featuredPosts.map(post => (
                     <FeaturedPostCard key={post.id} post={post} />
@@ -184,7 +204,9 @@ export default function BlogPage() {
             {regularPosts.length > 0 && (
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                  {featuredPosts.length > 0 ? 'Latest Articles' : 'All Articles'}
+                  {featuredPosts.length > 0
+                    ? 'Latest Articles'
+                    : 'All Articles'}
                 </h2>
                 <div className="space-y-8">
                   {regularPosts.map(post => (
@@ -200,9 +222,12 @@ export default function BlogPage() {
                 <div className="text-gray-400 mb-4">
                   <Search className="h-16 w-16 mx-auto" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">No articles found</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  No articles found
+                </h3>
                 <p className="text-gray-600 mb-4">
-                  Try adjusting your search terms or filters to find what you&apos;re looking for.
+                  Try adjusting your search terms or filters to find what
+                  you&apos;re looking for.
                 </p>
                 <button
                   onClick={() => {
@@ -240,7 +265,7 @@ function FeaturedPostCard({ post }: { post: BlogPost }) {
             className="object-cover hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute top-4 left-4">
-            <span 
+            <span
               className="px-3 py-1 rounded-full text-sm font-medium text-white"
               style={{ backgroundColor: post.category.color }}
             >
@@ -249,18 +274,16 @@ function FeaturedPostCard({ post }: { post: BlogPost }) {
           </div>
         </div>
       </Link>
-      
+
       <div className="p-6">
         <Link href={`/blog/${post.slug}`}>
           <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors line-clamp-2">
             {post.title}
           </h3>
         </Link>
-        
-        <p className="text-gray-600 mb-4 line-clamp-3">
-          {post.excerpt}
-        </p>
-        
+
+        <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
+
         <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1">
@@ -277,10 +300,10 @@ function FeaturedPostCard({ post }: { post: BlogPost }) {
             </div>
           </div>
         </div>
-        
+
         <div className="flex flex-wrap gap-2">
           {post.tags.slice(0, 3).map(tag => (
-            <span 
+            <span
               key={tag}
               className="inline-flex items-center px-2 py-1 rounded-md text-xs bg-gray-100 text-gray-700"
             >
@@ -313,27 +336,25 @@ function RegularPostCard({ post }: { post: BlogPost }) {
             />
           </div>
         </Link>
-        
+
         <div className="md:w-2/3 p-6">
           <div className="flex items-center gap-2 mb-3">
-            <span 
+            <span
               className="px-2 py-1 rounded-full text-xs font-medium text-white"
               style={{ backgroundColor: post.category.color }}
             >
               {post.category.icon} {post.category.name}
             </span>
           </div>
-          
+
           <Link href={`/blog/${post.slug}`}>
             <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors line-clamp-2">
               {post.title}
             </h3>
           </Link>
-          
-          <p className="text-gray-600 mb-4 line-clamp-2">
-            {post.excerpt}
-          </p>
-          
+
+          <p className="text-gray-600 mb-4 line-clamp-2">{post.excerpt}</p>
+
           <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1">
@@ -350,10 +371,10 @@ function RegularPostCard({ post }: { post: BlogPost }) {
               </div>
             </div>
           </div>
-          
+
           <div className="flex flex-wrap gap-2">
             {post.tags.slice(0, 4).map(tag => (
-              <span 
+              <span
                 key={tag}
                 className="inline-flex items-center px-2 py-1 rounded-md text-xs bg-gray-100 text-gray-700"
               >
@@ -368,7 +389,13 @@ function RegularPostCard({ post }: { post: BlogPost }) {
   )
 }
 
-function BlogSidebar({ categories, tags }: { categories: BlogCategory[], tags: string[] }) {
+function BlogSidebar({
+  categories,
+  tags,
+}: {
+  categories: BlogCategory[]
+  tags: string[]
+}) {
   return (
     <div className="space-y-8">
       {/* Categories */}
@@ -397,7 +424,9 @@ function BlogSidebar({ categories, tags }: { categories: BlogCategory[], tags: s
 
       {/* Popular Tags */}
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Popular Tags</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          Popular Tags
+        </h3>
         <div className="flex flex-wrap gap-2">
           {tags.slice(0, 15).map(tag => (
             <Link
@@ -414,7 +443,9 @@ function BlogSidebar({ categories, tags }: { categories: BlogCategory[], tags: s
 
       {/* Recent Posts */}
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Posts</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          Recent Posts
+        </h3>
         <div className="space-y-4">
           {mockBlogPosts.slice(0, 3).map(post => (
             <Link
@@ -438,7 +469,8 @@ function BlogSidebar({ categories, tags }: { categories: BlogCategory[], tags: s
       <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow-md p-6 text-white">
         <h3 className="text-lg font-semibold mb-2">Stay Updated</h3>
         <p className="text-blue-100 text-sm mb-4">
-          Get the latest construction tips and company updates delivered to your inbox.
+          Get the latest construction tips and company updates delivered to your
+          inbox.
         </p>
         <div className="space-y-3">
           <input

@@ -14,9 +14,17 @@ import PushNotifications from '../components/pwa/PushNotifications'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'MH Construction - Building Tomorrow with Today\'s Technology',
-  description: 'Veteran-owned construction excellence powered by cutting-edge AI technology. Serving the Pacific Northwest with military precision and construction expertise.',
-  keywords: ['construction', 'veteran-owned', 'Pacific Northwest', 'Pasco WA', 'building', 'AI estimator'],
+  title: "MH Construction - Building Tomorrow with Today's Technology",
+  description:
+    'Veteran-owned construction excellence powered by cutting-edge AI technology. Serving the Pacific Northwest with military precision and construction expertise.',
+  keywords: [
+    'construction',
+    'veteran-owned',
+    'Pacific Northwest',
+    'Pasco WA',
+    'building',
+    'AI estimator',
+  ],
   authors: [{ name: 'MH Construction Team' }],
   manifest: '/manifest.json',
   appleWebApp: {
@@ -26,31 +34,31 @@ export const metadata: Metadata = {
     startupImage: [
       {
         url: '/icons/icon-512x512.png',
-        media: '(device-width: 768px) and (device-height: 1024px)'
-      }
-    ]
+        media: '(device-width: 768px) and (device-height: 1024px)',
+      },
+    ],
   },
   formatDetection: {
-    telephone: false
+    telephone: false,
   },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
       { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' }
+      { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' },
     ],
     shortcut: [{ url: '/favicon.ico' }],
     apple: [
-      { url: '/icons/icon-180x180.png', sizes: '180x180', type: 'image/png' }
-    ]
-  }
+      { url: '/icons/icon-180x180.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 }
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   themeColor: '#386851',
-  colorScheme: 'light dark'
+  colorScheme: 'light dark',
 }
 
 export default function RootLayout({
@@ -66,15 +74,15 @@ export default function RootLayout({
       <body className={inter.className}>
         <WebVitalsReporter />
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+          <GoogleAnalytics
+            measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
+          />
         )}
-        <ThemeProvider defaultTheme="system" storageKey="mh-construction-theme">
+        <ThemeProvider defaultTheme="light" storageKey="mh-construction-theme">
           <AuthProvider>
-            <div className="flex flex-col min-h-screen" style={{backgroundColor: 'var(--color-background)'}}>
+            <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900">
               <Navigation />
-              <main className="flex-grow">
-                {children}
-              </main>
+              <main className="flex-grow">{children}</main>
               <Footer />
             </div>
             {/* PWA Components */}

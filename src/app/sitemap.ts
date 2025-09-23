@@ -3,8 +3,9 @@ import { PortfolioService } from '@/lib/services/portfolioService'
 import { mockBlogPosts } from '@/lib/types/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mhconstruction.com'
-  
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://mhconstruction.com'
+
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     {
@@ -66,7 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
-    }
+    },
   ]
 
   // Dynamic portfolio pages
@@ -81,7 +82,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
 
   // Blog posts
-  const blogPages: MetadataRoute.Sitemap = mockBlogPosts.map((post) => ({
+  const blogPages: MetadataRoute.Sitemap = mockBlogPosts.map(post => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.updatedAt || post.publishedAt),
     changeFrequency: 'monthly' as const,
@@ -91,11 +92,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog category pages
   const categoryPages: MetadataRoute.Sitemap = [
     'construction-tips',
-    'home-improvement', 
+    'home-improvement',
     'company-news',
     'veteran-spotlight',
-    'project-stories'
-  ].map((category) => ({
+    'project-stories',
+  ].map(category => ({
     url: `${baseUrl}/blog?category=${category}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,

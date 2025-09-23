@@ -8,9 +8,9 @@ export function usePreloadResources() {
     // Preload critical fonts
     const fontLinks = [
       '/fonts/TacticSans-Bold.woff2',
-      '/fonts/TacticSans-Regular.woff2'
+      '/fonts/TacticSans-Regular.woff2',
     ]
-    
+
     fontLinks.forEach(href => {
       const link = document.createElement('link')
       link.rel = 'preload'
@@ -22,11 +22,8 @@ export function usePreloadResources() {
     })
 
     // Preload critical images
-    const criticalImages = [
-      '/images/hero-bg.jpg',
-      '/images/logo/mh-logo.png'
-    ]
-    
+    const criticalImages = ['/images/hero-bg.jpg', '/images/logo/mh-logo.png']
+
     criticalImages.forEach(src => {
       const link = document.createElement('link')
       link.rel = 'preload'
@@ -38,9 +35,9 @@ export function usePreloadResources() {
     // DNS prefetch for external domains
     const domains = [
       'https://firebasestorage.googleapis.com',
-      'https://www.google-analytics.com'
+      'https://www.google-analytics.com',
     ]
-    
+
     domains.forEach(domain => {
       const link = document.createElement('link')
       link.rel = 'dns-prefetch'
@@ -81,15 +78,20 @@ export function usePerformanceMonitoring() {
     // Monitor page load performance
     if (typeof window !== 'undefined' && 'performance' in window) {
       const measurePageLoad = () => {
-        const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming
-        
+        const navigation = performance.getEntriesByType(
+          'navigation'
+        )[0] as PerformanceNavigationTiming
+
         if (navigation) {
           const metrics = {
-            'Time to First Byte': navigation.responseStart - navigation.requestStart,
-            'DOM Content Loaded': navigation.domContentLoadedEventEnd - navigation.fetchStart,
-            'Page Load Complete': navigation.loadEventEnd - navigation.fetchStart
+            'Time to First Byte':
+              navigation.responseStart - navigation.requestStart,
+            'DOM Content Loaded':
+              navigation.domContentLoadedEventEnd - navigation.fetchStart,
+            'Page Load Complete':
+              navigation.loadEventEnd - navigation.fetchStart,
           }
-          
+
           // In production, send to analytics
           if (process.env.NODE_ENV === 'production') {
             console.log('Performance Metrics:', metrics)
@@ -123,7 +125,8 @@ export function useImageOptimization() {
     const avifImage = new Image()
     avifImage.onload = () => setSupportsAVIF(true)
     avifImage.onerror = () => setSupportsAVIF(false)
-    avifImage.src = 'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAABcAAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAEAAAABAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAMAAAAABNjb2xybmNseAABAA0ABoAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAAB9tZGF0EgAKCBgABogQEDQgMgkQAAAAB8dSLfI='
+    avifImage.src =
+      'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAABcAAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAEAAAABAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAMAAAAABNjb2xybmNseAABAA0ABoAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAAB9tZGF0EgAKCBgABogQEDQgMgkQAAAAB8dSLfI='
 
     // Get device pixel ratio
     setDevicePixelRatio(window.devicePixelRatio || 1)
@@ -139,7 +142,7 @@ export function useImageOptimization() {
     const sizes = [
       `(max-width: 768px) ${Math.min(maxWidth, 768)}px`,
       `(max-width: 1200px) ${Math.min(maxWidth, 1200)}px`,
-      `${maxWidth}px`
+      `${maxWidth}px`,
     ]
     return sizes.join(', ')
   }
@@ -149,6 +152,6 @@ export function useImageOptimization() {
     supportsAVIF,
     devicePixelRatio,
     getOptimalImageFormat,
-    getSizesAttribute
+    getSizesAttribute,
   }
 }

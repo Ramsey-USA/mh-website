@@ -1,7 +1,18 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Bell, BellOff, Check, X, Settings, AlertCircle, CheckCircle, Calendar, MessageSquare, Hammer } from 'lucide-react'
+import {
+  Bell,
+  BellOff,
+  Check,
+  X,
+  Settings,
+  AlertCircle,
+  CheckCircle,
+  Calendar,
+  MessageSquare,
+  Hammer,
+} from 'lucide-react'
 
 interface PushNotification {
   id: string
@@ -21,29 +32,36 @@ interface PushNotificationsProps {
   onNotificationReceived?: (notification: PushNotification) => void
 }
 
-export default function PushNotifications({ 
-  onPermissionChange, 
-  onNotificationReceived 
+export default function PushNotifications({
+  onPermissionChange,
+  onNotificationReceived,
 }: PushNotificationsProps) {
-  const [permission, setPermission] = useState<NotificationPermission>('default')
+  const [permission, setPermission] =
+    useState<NotificationPermission>('default')
   const [isSubscribed, setIsSubscribed] = useState(false)
   const [notifications, setNotifications] = useState<PushNotification[]>([])
   const [showSettings, setShowSettings] = useState(false)
   const [isSupported, setIsSupported] = useState(false)
-  const [subscription, setSubscription] = useState<PushSubscription | null>(null)
+  const [subscription, setSubscription] = useState<PushSubscription | null>(
+    null
+  )
 
   useEffect(() => {
     // Check if push notifications are supported
-    const supported = 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window
+    const supported =
+      'serviceWorker' in navigator &&
+      'PushManager' in window &&
+      'Notification' in window
     setIsSupported(supported)
 
     if (supported) {
       // Get current permission status
       setPermission(Notification.permission)
-      
+
       // Check if already subscribed
-      navigator.serviceWorker.ready.then(async (registration) => {
-        const existingSubscription = await registration.pushManager.getSubscription()
+      navigator.serviceWorker.ready.then(async registration => {
+        const existingSubscription =
+          await registration.pushManager.getSubscription()
         setIsSubscribed(!!existingSubscription)
         setSubscription(existingSubscription)
       })
@@ -64,7 +82,12 @@ export default function PushNotifications({
       const stored = localStorage.getItem('mh-notifications')
       if (stored) {
         const parsed = JSON.parse(stored)
-        setNotifications(parsed.sort((a: PushNotification, b: PushNotification) => b.timestamp - a.timestamp))
+        setNotifications(
+          parsed.sort(
+            (a: PushNotification, b: PushNotification) =>
+              b.timestamp - a.timestamp
+          )
+        )
       }
     } catch (error) {
       console.error('Error loading stored notifications:', error)
@@ -88,7 +111,7 @@ export default function PushNotifications({
     try {
       const result = await Notification.requestPermission()
       setPermission(result)
-      
+
       if (result === 'granted') {
         await subscribeToPush()
         return true
@@ -105,13 +128,17 @@ export default function PushNotifications({
   const subscribeToPush = async () => {
     try {
       const registration = await navigator.serviceWorker.ready
-      
+
       // VAPID public key (in production, this would be your actual VAPID public key)
-      const vapidPublicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || 'BMqSvZTDRZhUqQZCiK6ARr6jxJEa-XmbmGWgSJF1rRLyf5QrZVKnJV_8UaW4Nkr_r5HX-5Q6_2mVhE_U3d7J8yY'
-      
+      const vapidPublicKey =
+        process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ||
+        'BMqSvZTDRZhUqQZCiK6ARr6jxJEa-XmbmGWgSJF1rRLyf5QrZVKnJV_8UaW4Nkr_r5HX-5Q6_2mVhE_U3d7J8yY'
+
       const pushSubscription = await registration.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: urlBase64ToUint8Array(vapidPublicKey) as BufferSource
+        applicationServerKey: urlBase64ToUint8Array(
+          vapidPublicKey
+        ) as BufferSource,
       })
 
       setSubscription(pushSubscription)
@@ -119,7 +146,7 @@ export default function PushNotifications({
 
       // Send subscription to server
       await sendSubscriptionToServer(pushSubscription)
-      
+
       console.log('Push subscription successful:', pushSubscription)
     } catch (error) {
       console.error('Error subscribing to push notifications:', error)
@@ -152,10 +179,10 @@ export default function PushNotifications({
         body: JSON.stringify({
           subscription: subscription.toJSON(),
           userAgent: navigator.userAgent,
-          timestamp: Date.now()
-        })
+          timestamp: Date.now(),
+        }),
       })
-      
+
       if (!response.ok) {
         throw new Error('Failed to send subscription to server')
       }
@@ -166,7 +193,9 @@ export default function PushNotifications({
     }
   }
 
-  const removeSubscriptionFromServer = async (subscription: PushSubscription) => {
+  const removeSubscriptionFromServer = async (
+    subscription: PushSubscription
+  ) => {
     try {
       await fetch('/api/notifications/unsubscribe', {
         method: 'POST',
@@ -174,8 +203,8 @@ export default function PushNotifications({
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          subscription: subscription.toJSON()
-        })
+          subscription: subscription.toJSON(),
+        }),
       })
     } catch (error) {
       console.log('Note: Unsubscription not sent to server (demo mode):', error)
@@ -191,7 +220,7 @@ export default function PushNotifications({
       type: 'general',
       timestamp: Date.now(),
       read: false,
-      icon: '/icons/icon-96x96.png'
+      icon: '/icons/icon-96x96.png',
     }
 
     const updatedNotifications = [testNotification, ...notifications]
@@ -207,7 +236,7 @@ export default function PushNotifications({
       new Notification(testNotification.title, {
         body: testNotification.body,
         icon: testNotification.icon,
-        tag: testNotification.id
+        tag: testNotification.id,
       })
     }
   }
@@ -235,10 +264,14 @@ export default function PushNotifications({
 
   const getNotificationIcon = (type: string) => {
     switch (type) {
-      case 'project': return <Hammer className="h-4 w-4" />
-      case 'appointment': return <Calendar className="h-4 w-4" />
-      case 'message': return <MessageSquare className="h-4 w-4" />
-      default: return <Bell className="h-4 w-4" />
+      case 'project':
+        return <Hammer className="h-4 w-4" />
+      case 'appointment':
+        return <Calendar className="h-4 w-4" />
+      case 'message':
+        return <MessageSquare className="h-4 w-4" />
+      default:
+        return <Bell className="h-4 w-4" />
     }
   }
 
@@ -259,7 +292,7 @@ export default function PushNotifications({
         ) : (
           <BellOff className="h-5 w-5" />
         )}
-        
+
         {unreadCount > 0 && (
           <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
             {unreadCount > 9 ? '9+' : unreadCount}
@@ -283,13 +316,21 @@ export default function PushNotifications({
 
             {/* Permission Status */}
             <div className="flex items-center gap-2 mb-3">
-              <div className={`w-2 h-2 rounded-full ${
-                permission === 'granted' ? 'bg-green-500' : 
-                permission === 'denied' ? 'bg-red-500' : 'bg-yellow-500'
-              }`}></div>
+              <div
+                className={`w-2 h-2 rounded-full ${
+                  permission === 'granted'
+                    ? 'bg-green-500'
+                    : permission === 'denied'
+                      ? 'bg-red-500'
+                      : 'bg-yellow-500'
+                }`}
+              ></div>
               <span className="text-sm text-gray-600">
-                {permission === 'granted' ? 'Enabled' : 
-                 permission === 'denied' ? 'Blocked' : 'Not enabled'}
+                {permission === 'granted'
+                  ? 'Enabled'
+                  : permission === 'denied'
+                    ? 'Blocked'
+                    : 'Not enabled'}
               </span>
             </div>
 
@@ -303,7 +344,7 @@ export default function PushNotifications({
                   Enable Notifications
                 </button>
               )}
-              
+
               {isSubscribed && (
                 <button
                   onClick={unsubscribeFromPush}
@@ -333,21 +374,26 @@ export default function PushNotifications({
               </div>
             ) : (
               <div className="divide-y divide-gray-100">
-                {notifications.slice(0, 10).map((notification) => (
+                {notifications.slice(0, 10).map(notification => (
                   <div
                     key={notification.id}
                     className={`p-3 hover:bg-gray-50 ${!notification.read ? 'bg-blue-50' : ''}`}
                   >
                     <div className="flex items-start gap-3">
-                      <div className={`p-1 rounded ${
-                        notification.type === 'project' ? 'bg-blue-100 text-blue-600' :
-                        notification.type === 'appointment' ? 'bg-green-100 text-green-600' :
-                        notification.type === 'message' ? 'bg-purple-100 text-purple-600' :
-                        'bg-gray-100 text-gray-600'
-                      }`}>
+                      <div
+                        className={`p-1 rounded ${
+                          notification.type === 'project'
+                            ? 'bg-blue-100 text-blue-600'
+                            : notification.type === 'appointment'
+                              ? 'bg-green-100 text-green-600'
+                              : notification.type === 'message'
+                                ? 'bg-purple-100 text-purple-600'
+                                : 'bg-gray-100 text-gray-600'
+                        }`}
+                      >
                         {getNotificationIcon(notification.type)}
                       </div>
-                      
+
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-900 truncate">
                           {notification.title}
@@ -404,10 +450,8 @@ export default function PushNotifications({
 
 // Utility function to convert VAPID key
 function urlBase64ToUint8Array(base64String: string): Uint8Array {
-  const padding = '='.repeat((4 - base64String.length % 4) % 4)
-  const base64 = (base64String + padding)
-    .replace(/-/g, '+')
-    .replace(/_/g, '/')
+  const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
+  const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/')
 
   const rawData = window.atob(base64)
   const outputArray = new Uint8Array(rawData.length)
@@ -421,13 +465,17 @@ function urlBase64ToUint8Array(base64String: string): Uint8Array {
 // Notification types for different use cases
 export const NotificationTypes = {
   PROJECT_UPDATE: 'project',
-  APPOINTMENT_REMINDER: 'appointment', 
+  APPOINTMENT_REMINDER: 'appointment',
   MESSAGE_RECEIVED: 'message',
-  GENERAL: 'general'
+  GENERAL: 'general',
 } as const
 
 // Helper function to send notifications (for use in other components)
-export const sendNotification = async (title: string, body: string, type: string = 'general') => {
+export const sendNotification = async (
+  title: string,
+  body: string,
+  type: string = 'general'
+) => {
   if ('serviceWorker' in navigator && Notification.permission === 'granted') {
     try {
       const registration = await navigator.serviceWorker.ready
@@ -437,7 +485,7 @@ export const sendNotification = async (title: string, body: string, type: string
         badge: '/icons/icon-96x96.png',
         tag: `mh-${type}-${Date.now()}`,
         data: { type, timestamp: Date.now() },
-        requireInteraction: type === 'appointment'
+        requireInteraction: type === 'appointment',
       })
     } catch (error) {
       console.error('Error sending notification:', error)

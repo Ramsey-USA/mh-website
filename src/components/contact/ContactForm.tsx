@@ -1,7 +1,15 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Button, Card, CardContent, CardHeader, CardTitle, Input, Textarea } from '../ui'
+import {
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  Input,
+  Textarea,
+} from '../ui'
 import { analytics } from '../analytics/google-analytics'
 
 interface ContactFormData {
@@ -24,7 +32,11 @@ interface ContactFormProps {
   description?: string
 }
 
-export function ContactForm({ formType, title, description }: ContactFormProps) {
+export function ContactForm({
+  formType,
+  title,
+  description,
+}: ContactFormProps) {
   const [formData, setFormData] = useState<ContactFormData>({
     firstName: '',
     lastName: '',
@@ -36,7 +48,7 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
     timeline: '',
     message: '',
     urgency: 'medium',
-    preferredContact: 'either'
+    preferredContact: 'either',
   })
 
   const [errors, setErrors] = useState<Partial<ContactFormData>>({})
@@ -52,7 +64,7 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
     'Industrial Project',
     'Renovation/Restoration',
     'Emergency Repair',
-    'Other'
+    'Other',
   ]
 
   const budgetRanges = [
@@ -63,7 +75,7 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
     '$250,000 - $500,000',
     '$500,000 - $1,000,000',
     'Over $1,000,000',
-    'Not Sure Yet'
+    'Not Sure Yet',
   ]
 
   const timelineOptions = [
@@ -73,14 +85,15 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
     '3-6 months',
     '6-12 months',
     'Over 1 year',
-    'Just Planning'
+    'Just Planning',
   ]
 
   const validateForm = (): boolean => {
     const newErrors: Partial<ContactFormData> = {}
 
     // Required fields
-    if (!formData.firstName.trim()) newErrors.firstName = 'First name is required'
+    if (!formData.firstName.trim())
+      newErrors.firstName = 'First name is required'
     if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required'
     if (!formData.email.trim()) newErrors.email = 'Email is required'
     if (!formData.message.trim()) newErrors.message = 'Message is required'
@@ -101,8 +114,10 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
 
     // Project-specific validation
     if (formType === 'project') {
-      if (!formData.projectType) newErrors.projectType = 'Please select a project type'
-      if (!formData.projectLocation.trim()) newErrors.projectLocation = 'Project location is required'
+      if (!formData.projectType)
+        newErrors.projectType = 'Please select a project type'
+      if (!formData.projectLocation.trim())
+        newErrors.projectLocation = 'Project location is required'
     }
 
     setErrors(newErrors)
@@ -111,7 +126,7 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!validateForm()) return
 
     setIsSubmitting(true)
@@ -125,9 +140,9 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
       await new Promise(resolve => setTimeout(resolve, 2000))
 
       console.log('Form submitted:', formData)
-      
+
       setIsSubmitted(true)
-      
+
       // Reset form after successful submission
       setTimeout(() => {
         setIsSubmitted(false)
@@ -142,10 +157,9 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
           timeline: '',
           message: '',
           urgency: 'medium',
-          preferredContact: 'either'
+          preferredContact: 'either',
         })
       }, 3000)
-
     } catch (error) {
       console.error('Form submission error:', error)
       // Handle error (show error message)
@@ -166,12 +180,16 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
     return (
       <Card className="p-8 text-center">
         <div className="text-green-600 text-6xl mb-4">✓</div>
-        <h3 className="text-2xl font-semibold text-gray-900 mb-2">Thank You!</h3>
+        <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+          Thank You!
+        </h3>
         <p className="text-gray-600 mb-4">
-          Your message has been sent successfully. We&apos;ll get back to you within 24 hours.
+          Your message has been sent successfully. We&apos;ll get back to you
+          within 24 hours.
         </p>
         <div className="text-sm text-gray-500">
-          For urgent matters, please call us directly at <strong>(509) 308-6489</strong>
+          For urgent matters, please call us directly at{' '}
+          <strong>(509) 308-6489</strong>
         </div>
       </Card>
     )
@@ -181,9 +199,7 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
     <Card>
       <CardHeader>
         <CardTitle className="text-xl text-gray-900">{title}</CardTitle>
-        {description && (
-          <p className="text-gray-600">{description}</p>
-        )}
+        {description && <p className="text-gray-600">{description}</p>}
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -195,7 +211,9 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
               </label>
               <Input
                 value={formData.firstName}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('firstName', e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  handleInputChange('firstName', e.target.value)
+                }
                 className={errors.firstName ? 'border-red-500' : ''}
                 placeholder="John"
               />
@@ -209,7 +227,9 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
               </label>
               <Input
                 value={formData.lastName}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('lastName', e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  handleInputChange('lastName', e.target.value)
+                }
                 className={errors.lastName ? 'border-red-500' : ''}
                 placeholder="Smith"
               />
@@ -228,7 +248,9 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
               <Input
                 type="email"
                 value={formData.email}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('email', e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  handleInputChange('email', e.target.value)
+                }
                 className={errors.email ? 'border-red-500' : ''}
                 placeholder="john@example.com"
               />
@@ -243,7 +265,9 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
               <Input
                 type="tel"
                 value={formData.phone}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('phone', e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  handleInputChange('phone', e.target.value)
+                }
                 className={errors.phone ? 'border-red-500' : ''}
                 placeholder="(509) 555-0123"
               />
@@ -263,18 +287,24 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
                   </label>
                   <select
                     value={formData.projectType}
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleInputChange('projectType', e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                      handleInputChange('projectType', e.target.value)
+                    }
                     className={`w-full border border-gray-300 rounded-md px-3 py-2 ${
                       errors.projectType ? 'border-red-500' : ''
                     }`}
                   >
                     <option value="">Select project type</option>
                     {projectTypes.map(type => (
-                      <option key={type} value={type}>{type}</option>
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
                     ))}
                   </select>
                   {errors.projectType && (
-                    <p className="text-red-500 text-sm mt-1">{errors.projectType}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.projectType}
+                    </p>
                   )}
                 </div>
                 <div>
@@ -283,12 +313,16 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
                   </label>
                   <Input
                     value={formData.projectLocation}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('projectLocation', e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      handleInputChange('projectLocation', e.target.value)
+                    }
                     className={errors.projectLocation ? 'border-red-500' : ''}
                     placeholder="Seattle, WA"
                   />
                   {errors.projectLocation && (
-                    <p className="text-red-500 text-sm mt-1">{errors.projectLocation}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.projectLocation}
+                    </p>
                   )}
                 </div>
               </div>
@@ -300,12 +334,16 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
                   </label>
                   <select
                     value={formData.budget}
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleInputChange('budget', e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                      handleInputChange('budget', e.target.value)
+                    }
                     className="w-full border border-gray-300 rounded-md px-3 py-2"
                   >
                     <option value="">Select budget range</option>
                     {budgetRanges.map(range => (
-                      <option key={range} value={range}>{range}</option>
+                      <option key={range} value={range}>
+                        {range}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -315,12 +353,16 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
                   </label>
                   <select
                     value={formData.timeline}
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleInputChange('timeline', e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                      handleInputChange('timeline', e.target.value)
+                    }
                     className="w-full border border-gray-300 rounded-md px-3 py-2"
                   >
                     <option value="">Select timeline</option>
                     {timelineOptions.map(option => (
-                      <option key={option} value={option}>{option}</option>
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -336,14 +378,31 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
               </label>
               <div className="flex gap-2">
                 {[
-                  { value: 'low', label: 'Low', color: 'bg-green-100 text-green-800' },
-                  { value: 'medium', label: 'Medium', color: 'bg-yellow-100 text-yellow-800' },
-                  { value: 'high', label: 'High', color: 'bg-red-100 text-red-800' }
+                  {
+                    value: 'low',
+                    label: 'Low',
+                    color: 'bg-green-100 text-green-800',
+                  },
+                  {
+                    value: 'medium',
+                    label: 'Medium',
+                    color: 'bg-yellow-100 text-yellow-800',
+                  },
+                  {
+                    value: 'high',
+                    label: 'High',
+                    color: 'bg-red-100 text-red-800',
+                  },
                 ].map(urgency => (
                   <button
                     key={urgency.value}
                     type="button"
-                    onClick={() => handleInputChange('urgency', urgency.value as 'low' | 'medium' | 'high')}
+                    onClick={() =>
+                      handleInputChange(
+                        'urgency',
+                        urgency.value as 'low' | 'medium' | 'high'
+                      )
+                    }
                     className={`px-3 py-1 rounded-full text-sm transition-colors ${
                       formData.urgency === urgency.value
                         ? urgency.color
@@ -363,12 +422,17 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
                 {[
                   { value: 'email', label: 'Email' },
                   { value: 'phone', label: 'Phone' },
-                  { value: 'either', label: 'Either' }
+                  { value: 'either', label: 'Either' },
                 ].map(method => (
                   <button
                     key={method.value}
                     type="button"
-                    onClick={() => handleInputChange('preferredContact', method.value as 'email' | 'phone' | 'either')}
+                    onClick={() =>
+                      handleInputChange(
+                        'preferredContact',
+                        method.value as 'email' | 'phone' | 'either'
+                      )
+                    }
                     className={`px-3 py-1 rounded-full text-sm transition-colors ${
                       formData.preferredContact === method.value
                         ? 'bg-primary-100 text-primary-800'
@@ -389,7 +453,9 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
             </label>
             <Textarea
               value={formData.message}
-              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleInputChange('message', e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                handleInputChange('message', e.target.value)
+              }
               className={errors.message ? 'border-red-500' : ''}
               rows={4}
               placeholder="Please describe your project or inquiry in detail..."
@@ -410,7 +476,8 @@ export function ContactForm({ formType, title, description }: ContactFormProps) 
           </Button>
 
           <p className="text-sm text-gray-500 text-center">
-            By submitting this form, you agree to be contacted by MH Construction regarding your inquiry.
+            By submitting this form, you agree to be contacted by MH
+            Construction regarding your inquiry.
           </p>
         </form>
       </CardContent>

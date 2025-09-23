@@ -19,13 +19,13 @@ export function RelatedPosts({ posts, currentCategory }: RelatedPostsProps) {
           More from {currentCategory.name}
         </h2>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {posts.map(post => (
           <RelatedPostCard key={post.id} post={post} />
         ))}
       </div>
-      
+
       <div className="mt-8 text-center">
         <Link
           href={`/blog?category=${currentCategory.id}`}
@@ -51,17 +51,15 @@ function RelatedPostCard({ post }: { post: BlogPost }) {
           />
         </div>
       </Link>
-      
+
       <Link href={`/blog/${post.slug}`}>
         <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-2 line-clamp-2">
           {post.title}
         </h3>
       </Link>
-      
-      <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-        {post.excerpt}
-      </p>
-      
+
+      <p className="text-sm text-gray-600 mb-3 line-clamp-2">{post.excerpt}</p>
+
       <div className="flex items-center text-xs text-gray-500">
         <div className="flex items-center gap-1 mr-4">
           <Calendar className="h-3 w-3" />

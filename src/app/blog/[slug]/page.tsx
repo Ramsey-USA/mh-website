@@ -2,7 +2,15 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Calendar, Clock, User, Tag, ArrowLeft, Share2, ChevronRight } from 'lucide-react'
+import {
+  Calendar,
+  Clock,
+  User,
+  Tag,
+  ArrowLeft,
+  Share2,
+  ChevronRight,
+} from 'lucide-react'
 import { mockBlogPosts, type BlogPost } from '@/lib/types/blog'
 import { BlogContent } from '@/components/blog/BlogContent'
 import { RelatedPosts } from '@/components/blog/RelatedPosts'
@@ -16,20 +24,22 @@ interface BlogPostPageProps {
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
-  return mockBlogPosts.map((post) => ({
+  return mockBlogPosts.map(post => ({
     slug: post.slug,
   }))
 }
 
 // Generate metadata for SEO
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params
-  const post = mockBlogPosts.find((p) => p.slug === slug)
-  
+  const post = mockBlogPosts.find(p => p.slug === slug)
+
   if (!post) {
     return {
       title: 'Post Not Found | MH Construction Blog',
-      description: 'The requested blog post could not be found.'
+      description: 'The requested blog post could not be found.',
     }
   }
 
@@ -80,15 +90,18 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
-  const post = mockBlogPosts.find((p) => p.slug === slug)
-  
+  const post = mockBlogPosts.find(p => p.slug === slug)
+
   if (!post) {
     notFound()
   }
 
   const currentIndex = mockBlogPosts.findIndex(p => p.slug === slug)
   const previousPost = currentIndex > 0 ? mockBlogPosts[currentIndex - 1] : null
-  const nextPost = currentIndex < mockBlogPosts.length - 1 ? mockBlogPosts[currentIndex + 1] : null
+  const nextPost =
+    currentIndex < mockBlogPosts.length - 1
+      ? mockBlogPosts[currentIndex + 1]
+      : null
 
   // Get related posts (same category, excluding current post)
   const relatedPosts = mockBlogPosts
@@ -147,11 +160,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               Home
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <Link href="/blog" className="hover:text-blue-600 transition-colors">
+            <Link
+              href="/blog"
+              className="hover:text-blue-600 transition-colors"
+            >
               Blog
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <Link 
+            <Link
               href={`/blog?category=${post.category.id}`}
               className="hover:text-blue-600 transition-colors"
             >
@@ -170,7 +186,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Back to Blog Link */}
-            <Link 
+            <Link
               href="/blog"
               className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors mb-8 group"
             >
@@ -180,7 +196,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {/* Category Badge */}
             <div className="mb-6">
-              <span 
+              <span
                 className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium text-white"
                 style={{ backgroundColor: post.category.color }}
               >
@@ -209,20 +225,22 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="h-5 w-5" />
-                <span>{new Date(post.publishedAt).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}</span>
+                <span>
+                  {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="h-5 w-5" />
                 <span>{post.readTime} min read</span>
               </div>
-            <div className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors">
-              <Share2 className="h-5 w-5" />
-              <span className="hidden sm:inline">Share</span>
-            </div>
+              <div className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors">
+                <Share2 className="h-5 w-5" />
+                <span className="hidden sm:inline">Share</span>
+              </div>
             </div>
 
             {/* Tags */}
@@ -308,7 +326,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {relatedPosts.length > 0 && (
         <div className="container mx-auto px-4 mb-12">
           <div className="max-w-4xl mx-auto">
-            <RelatedPosts posts={relatedPosts} currentCategory={post.category} />
+            <RelatedPosts
+              posts={relatedPosts}
+              currentCategory={post.category}
+            />
           </div>
         </div>
       )}
@@ -327,7 +348,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             Ready to Start Your Construction Project?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Get expert advice and a free consultation from our veteran-owned construction team.
+            Get expert advice and a free consultation from our veteran-owned
+            construction team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

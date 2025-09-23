@@ -1,14 +1,26 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Wifi, WifiOff, Clock, CheckCircle, AlertCircle, RefreshCw } from 'lucide-react'
-import { getPendingSyncCount, getBackgroundSyncManager } from '@/lib/background-sync'
+import {
+  Wifi,
+  WifiOff,
+  Clock,
+  CheckCircle,
+  AlertCircle,
+  RefreshCw,
+} from 'lucide-react'
+import {
+  getPendingSyncCount,
+  getBackgroundSyncManager,
+} from '@/lib/background-sync'
 
 interface BackgroundSyncStatusProps {
   className?: string
 }
 
-export default function BackgroundSyncStatus({ className = '' }: BackgroundSyncStatusProps) {
+export default function BackgroundSyncStatus({
+  className = '',
+}: BackgroundSyncStatusProps) {
   const [isOnline, setIsOnline] = useState(true)
   const [pendingCount, setPendingCount] = useState(0)
   const [lastSync, setLastSync] = useState<Date | null>(null)
@@ -26,7 +38,7 @@ export default function BackgroundSyncStatus({ className = '' }: BackgroundSyncS
       const manager = await getBackgroundSyncManager()
       manager.processPendingRequests()
     }
-    
+
     const handleOffline = () => setIsOnline(false)
 
     window.addEventListener('online', handleOnline)
@@ -50,13 +62,13 @@ export default function BackgroundSyncStatus({ className = '' }: BackgroundSyncS
 
   const handleManualSync = async () => {
     if (!isOnline || isManualSync) return
-    
+
     setIsManualSync(true)
     try {
       const manager = await getBackgroundSyncManager()
       await manager.processPendingRequests()
       setLastSync(new Date())
-      
+
       // Refresh pending count
       const count = await getPendingSyncCount()
       setPendingCount(count)
@@ -71,11 +83,11 @@ export default function BackgroundSyncStatus({ className = '' }: BackgroundSyncS
     if (!isOnline) {
       return <WifiOff className="h-4 w-4 text-red-500" />
     }
-    
+
     if (pendingCount > 0) {
       return <Clock className="h-4 w-4 text-yellow-500" />
     }
-    
+
     return <CheckCircle className="h-4 w-4 text-green-500" />
   }
 
@@ -83,11 +95,11 @@ export default function BackgroundSyncStatus({ className = '' }: BackgroundSyncS
     if (!isOnline) {
       return 'Offline'
     }
-    
+
     if (pendingCount > 0) {
       return `${pendingCount} pending`
     }
-    
+
     return 'Synced'
   }
 
@@ -95,18 +107,20 @@ export default function BackgroundSyncStatus({ className = '' }: BackgroundSyncS
     if (!isOnline) {
       return 'text-red-600 bg-red-50 border-red-200'
     }
-    
+
     if (pendingCount > 0) {
       return 'text-yellow-600 bg-yellow-50 border-yellow-200'
     }
-    
+
     return 'text-green-600 bg-green-50 border-green-200'
   }
 
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       {/* Status Badge */}
-      <div className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor()}`}>
+      <div
+        className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor()}`}
+      >
         {getStatusIcon()}
         <span>{getStatusText()}</span>
       </div>
@@ -119,7 +133,9 @@ export default function BackgroundSyncStatus({ className = '' }: BackgroundSyncS
           className="p-1 text-gray-400 hover:text-gray-600 disabled:opacity-50"
           title="Sync now"
         >
-          <RefreshCw className={`h-4 w-4 ${isManualSync ? 'animate-spin' : ''}`} />
+          <RefreshCw
+            className={`h-4 w-4 ${isManualSync ? 'animate-spin' : ''}`}
+          />
         </button>
       )}
 
@@ -174,6 +190,6 @@ export const useBackgroundSync = () => {
   return {
     isOnline,
     pendingCount,
-    hasPendingSync: pendingCount > 0
+    hasPendingSync: pendingCount > 0,
   }
 }

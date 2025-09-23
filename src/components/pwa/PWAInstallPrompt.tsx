@@ -10,11 +10,11 @@ interface PWAInstallPromptProps {
   showOnDesktop?: boolean
 }
 
-export default function PWAInstallPrompt({ 
+export default function PWAInstallPrompt({
   className = '',
   variant = 'banner',
   showOnMobile = true,
-  showOnDesktop = true
+  showOnDesktop = true,
 }: PWAInstallPromptProps) {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
   const [isVisible, setIsVisible] = useState(false)
@@ -25,8 +25,10 @@ export default function PWAInstallPrompt({
   useEffect(() => {
     // Check if PWA is already installed
     const checkIfInstalled = () => {
-      if (window.matchMedia('(display-mode: standalone)').matches || 
-          (window.navigator as any).standalone) {
+      if (
+        window.matchMedia('(display-mode: standalone)').matches ||
+        (window.navigator as any).standalone
+      ) {
         setIsInstalled(true)
         return
       }
@@ -35,9 +37,12 @@ export default function PWAInstallPrompt({
     // Detect mobile and iOS
     const checkDevice = () => {
       const userAgent = window.navigator.userAgent.toLowerCase()
-      const mobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent)
+      const mobile =
+        /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
+          userAgent
+        )
       const ios = /iphone|ipad|ipod/i.test(userAgent)
-      
+
       setIsMobile(mobile)
       setIsIOS(ios)
     }
@@ -47,9 +52,9 @@ export default function PWAInstallPrompt({
       const dismissed = localStorage.getItem('pwa-install-dismissed')
       const dismissedTime = dismissed ? parseInt(dismissed) : 0
       const dayInMs = 24 * 60 * 60 * 1000
-      
+
       // Show again after 7 days
-      return (Date.now() - dismissedTime) < (7 * dayInMs)
+      return Date.now() - dismissedTime < 7 * dayInMs
     }
 
     checkIfInstalled()
@@ -64,7 +69,7 @@ export default function PWAInstallPrompt({
       console.log('[PWA] Install prompt event triggered')
       e.preventDefault()
       setDeferredPrompt(e)
-      
+
       // Show install prompt based on device preferences
       if ((isMobile && showOnMobile) || (!isMobile && showOnDesktop)) {
         setIsVisible(true)
@@ -92,7 +97,10 @@ export default function PWAInstallPrompt({
     }
 
     return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
+      window.removeEventListener(
+        'beforeinstallprompt',
+        handleBeforeInstallPrompt
+      )
       window.removeEventListener('appinstalled', handleAppInstalled)
     }
   }, [showOnMobile, showOnDesktop, isMobile, isInstalled])
@@ -110,18 +118,18 @@ export default function PWAInstallPrompt({
     try {
       // Show the install prompt
       deferredPrompt.prompt()
-      
+
       // Wait for the user to respond to the prompt
       const { outcome } = await deferredPrompt.userChoice
-      
+
       console.log('[PWA] User choice:', outcome)
-      
+
       if (outcome === 'accepted') {
         console.log('[PWA] User accepted the install prompt')
       } else {
         console.log('[PWA] User dismissed the install prompt')
       }
-      
+
       // Clear the prompt
       setDeferredPrompt(null)
       setIsVisible(false)
@@ -143,12 +151,14 @@ export default function PWAInstallPrompt({
     { icon: Zap, text: 'Faster loading and performance' },
     { icon: Wifi, text: 'Works offline with cached content' },
     { icon: Smartphone, text: 'Full-screen mobile experience' },
-    { icon: Monitor, text: 'Desktop shortcut access' }
+    { icon: Monitor, text: 'Desktop shortcut access' },
   ]
 
   if (variant === 'banner') {
     return (
-      <div className={`fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 shadow-lg ${className}`}>
+      <div
+        className={`fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 shadow-lg ${className}`}
+      >
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Download className="h-6 w-6" />
@@ -159,7 +169,7 @@ export default function PWAInstallPrompt({
               </div>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-2">
             {isIOS ? (
               <div className="text-sm text-blue-100">
@@ -173,7 +183,7 @@ export default function PWAInstallPrompt({
                 Install
               </button>
             )}
-            
+
             <button
               onClick={handleDismiss}
               className="text-blue-100 hover:text-white p-1"
@@ -189,7 +199,9 @@ export default function PWAInstallPrompt({
 
   if (variant === 'card') {
     return (
-      <div className={`bg-white rounded-lg shadow-lg border border-gray-200 p-6 ${className}`}>
+      <div
+        className={`bg-white rounded-lg shadow-lg border border-gray-200 p-6 ${className}`}
+      >
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className="bg-blue-100 p-2 rounded-lg">
@@ -197,10 +209,12 @@ export default function PWAInstallPrompt({
             </div>
             <div>
               <h3 className="font-semibold text-gray-900">Install Our App</h3>
-              <p className="text-sm text-gray-600">Enhanced mobile experience</p>
+              <p className="text-sm text-gray-600">
+                Enhanced mobile experience
+              </p>
             </div>
           </div>
-          
+
           <button
             onClick={handleDismiss}
             className="text-gray-400 hover:text-gray-600"
@@ -212,7 +226,10 @@ export default function PWAInstallPrompt({
 
         <div className="space-y-3 mb-4">
           {features.slice(0, 2).map((feature, index) => (
-            <div key={index} className="flex items-center gap-2 text-sm text-gray-700">
+            <div
+              key={index}
+              className="flex items-center gap-2 text-sm text-gray-700"
+            >
               <feature.icon className="h-4 w-4 text-blue-600" />
               <span>{feature.text}</span>
             </div>
@@ -222,9 +239,12 @@ export default function PWAInstallPrompt({
         {isIOS ? (
           <div className="bg-blue-50 p-3 rounded-lg">
             <p className="text-sm text-blue-800">
-              <strong>To install on iOS:</strong><br />
-              1. Tap the share button in Safari<br />
-              2. Select &quot;Add to Home Screen&quot;<br />
+              <strong>To install on iOS:</strong>
+              <br />
+              1. Tap the share button in Safari
+              <br />
+              2. Select &quot;Add to Home Screen&quot;
+              <br />
               3. Tap &quot;Add&quot; to install
             </p>
           </div>
@@ -244,7 +264,9 @@ export default function PWAInstallPrompt({
   if (variant === 'modal') {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
-        <div className={`bg-white rounded-lg shadow-xl max-w-md w-full p-6 ${className}`}>
+        <div
+          className={`bg-white rounded-lg shadow-xl max-w-md w-full p-6 ${className}`}
+        >
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
               <div className="bg-blue-100 p-2 rounded-lg">
@@ -257,7 +279,7 @@ export default function PWAInstallPrompt({
                 <p className="text-gray-600">Get the best mobile experience</p>
               </div>
             </div>
-            
+
             <button
               onClick={handleDismiss}
               className="text-gray-400 hover:text-gray-600"
@@ -269,7 +291,10 @@ export default function PWAInstallPrompt({
 
           <div className="space-y-4 mb-6">
             {features.map((feature, index) => (
-              <div key={index} className="flex items-center gap-3 text-gray-700">
+              <div
+                key={index}
+                className="flex items-center gap-3 text-gray-700"
+              >
                 <feature.icon className="h-5 w-5 text-blue-600" />
                 <span>{feature.text}</span>
               </div>

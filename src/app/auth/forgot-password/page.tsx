@@ -4,7 +4,14 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { useAuth } from '../../../lib/auth/AuthContext'
-import { Button, Card, CardContent, CardHeader, CardTitle, Input } from '../../../components/ui'
+import {
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  Input,
+} from '../../../components/ui'
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState('')
@@ -36,12 +43,21 @@ export default function ForgotPasswordPage() {
   return (
     <div className="min-h-screen bg-surface flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
-        
         {/* Header */}
         <div className="text-center">
           <div className="mx-auto h-16 w-16 bg-brand-primary rounded-full flex items-center justify-center mb-4">
-            <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+            <svg
+              className="h-8 w-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
+              />
             </svg>
           </div>
           <h2 className="text-3xl font-tactic-bold text-brand-primary">
@@ -58,7 +74,6 @@ export default function ForgotPasswordPage() {
             <CardTitle>Password Reset</CardTitle>
           </CardHeader>
           <CardContent>
-            
             {/* Success Message */}
             {message && (
               <div className="mb-4 p-3 bg-success-light border border-success/20 rounded-md">
@@ -79,7 +94,7 @@ export default function ForgotPasswordPage() {
                 label="Email Address"
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={e => setEmail(e.target.value)}
                 placeholder="Enter your email address"
                 required
                 disabled={loading}
@@ -104,17 +119,17 @@ export default function ForgotPasswordPage() {
 
             {/* Footer Links */}
             <div className="mt-6 text-center text-sm space-y-2">
-              <Link 
-                href="/auth/login" 
+              <Link
+                href="/auth/login"
                 className="text-brand-primary hover:text-brand-primary-light"
               >
                 ← Back to Sign In
               </Link>
-              
+
               <div className="text-text-muted">
                 Need help? Contact{' '}
-                <a 
-                  href="mailto:support@mhconstruction.com" 
+                <a
+                  href="mailto:support@mhconstruction.com"
                   className="text-brand-primary hover:text-brand-primary-light"
                 >
                   support@mhconstruction.com

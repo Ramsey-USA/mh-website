@@ -7,16 +7,20 @@ interface PWAUpdatePromptProps {
   className?: string
 }
 
-export default function PWAUpdatePrompt({ className = '' }: PWAUpdatePromptProps) {
+export default function PWAUpdatePrompt({
+  className = '',
+}: PWAUpdatePromptProps) {
   const [updateAvailable, setUpdateAvailable] = useState(false)
   const [isUpdating, setIsUpdating] = useState(false)
-  const [registration, setRegistration] = useState<ServiceWorkerRegistration | null>(null)
+  const [registration, setRegistration] =
+    useState<ServiceWorkerRegistration | null>(null)
 
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       // Register service worker
-      navigator.serviceWorker.register('/sw.js')
-        .then((reg) => {
+      navigator.serviceWorker
+        .register('/sw.js')
+        .then(reg => {
           console.log('[PWA] Service worker registered:', reg)
           setRegistration(reg)
 
@@ -29,10 +33,13 @@ export default function PWAUpdatePrompt({ className = '' }: PWAUpdatePromptProps
           reg.addEventListener('updatefound', () => {
             console.log('[PWA] Update found')
             const newWorker = reg.installing
-            
+
             if (newWorker) {
               newWorker.addEventListener('statechange', () => {
-                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                if (
+                  newWorker.state === 'installed' &&
+                  navigator.serviceWorker.controller
+                ) {
                   console.log('[PWA] New content available')
                   setUpdateAvailable(true)
                 }
@@ -40,12 +47,12 @@ export default function PWAUpdatePrompt({ className = '' }: PWAUpdatePromptProps
             }
           })
         })
-        .catch((error) => {
+        .catch(error => {
           console.error('[PWA] Service worker registration failed:', error)
         })
 
       // Listen for service worker messages
-      navigator.serviceWorker.addEventListener('message', (event) => {
+      navigator.serviceWorker.addEventListener('message', event => {
         if (event.data && event.data.type === 'UPDATE_AVAILABLE') {
           setUpdateAvailable(true)
         }
@@ -69,7 +76,7 @@ export default function PWAUpdatePrompt({ className = '' }: PWAUpdatePromptProps
     try {
       // Tell the waiting service worker to skip waiting
       registration.waiting.postMessage({ type: 'SKIP_WAITING' })
-      
+
       // The page will reload automatically when the new SW takes control
     } catch (error) {
       console.error('[PWA] Update failed:', error)
@@ -93,12 +100,14 @@ export default function PWAUpdatePrompt({ className = '' }: PWAUpdatePromptProps
   }
 
   return (
-    <div className={`fixed top-4 right-4 z-50 bg-white border border-gray-200 rounded-lg shadow-lg p-4 max-w-sm ${className}`}>
+    <div
+      className={`fixed top-4 right-4 z-50 bg-white border border-gray-200 rounded-lg shadow-lg p-4 max-w-sm ${className}`}
+    >
       <div className="flex items-start gap-3">
         <div className="bg-green-100 p-2 rounded-lg flex-shrink-0">
           <Download className="h-5 w-5 text-green-600" />
         </div>
-        
+
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between mb-2">
             <h3 className="font-semibold text-gray-900 text-sm">
@@ -112,11 +121,12 @@ export default function PWAUpdatePrompt({ className = '' }: PWAUpdatePromptProps
               <X className="h-4 w-4" />
             </button>
           </div>
-          
+
           <p className="text-sm text-gray-600 mb-3">
-            A new version of MH Construction is available with improvements and bug fixes.
+            A new version of MH Construction is available with improvements and
+            bug fixes.
           </p>
-          
+
           <div className="flex gap-2">
             <button
               onClick={handleUpdate}
@@ -135,7 +145,7 @@ export default function PWAUpdatePrompt({ className = '' }: PWAUpdatePromptProps
                 </>
               )}
             </button>
-            
+
             <button
               onClick={handleDismiss}
               className="bg-gray-200 text-gray-800 px-3 py-1.5 rounded text-sm font-semibold hover:bg-gray-300 transition-colors"
@@ -158,8 +168,10 @@ export function usePWA() {
   useEffect(() => {
     // Check if PWA is installed
     const checkInstalled = () => {
-      return window.matchMedia('(display-mode: standalone)').matches || 
-             (window.navigator as any).standalone
+      return (
+        window.matchMedia('(display-mode: standalone)').matches ||
+        (window.navigator as any).standalone
+      )
     }
 
     // Check online status
@@ -190,7 +202,10 @@ export function usePWA() {
     window.addEventListener('offline', updateOnlineStatus)
 
     return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
+      window.removeEventListener(
+        'beforeinstallprompt',
+        handleBeforeInstallPrompt
+      )
       window.removeEventListener('appinstalled', handleAppInstalled)
       window.removeEventListener('online', updateOnlineStatus)
       window.removeEventListener('offline', updateOnlineStatus)
@@ -203,7 +218,7 @@ export function usePWA() {
     try {
       installPrompt.prompt()
       const { outcome } = await installPrompt.userChoice
-      
+
       if (outcome === 'accepted') {
         setInstallPrompt(null)
         return true
@@ -211,7 +226,7 @@ export function usePWA() {
     } catch (error) {
       console.error('[PWA] Install error:', error)
     }
-    
+
     return false
   }
 
@@ -219,7 +234,7 @@ export function usePWA() {
     isInstalled,
     isOnline,
     canInstall: !!installPrompt,
-    installApp
+    installApp,
   }
 }
 

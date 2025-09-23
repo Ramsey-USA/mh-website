@@ -28,8 +28,10 @@ interface GenerateMetadataProps {
 const defaultSEO = {
   siteName: 'MH Construction',
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://mhconstruction.com',
-  defaultTitle: 'MH Construction - Veteran-Owned Construction Excellence in the Pacific Northwest',
-  defaultDescription: 'MH Construction delivers exceptional residential, commercial, and industrial construction services throughout the Pacific Northwest. Veteran-owned with AI-powered project management.',
+  defaultTitle:
+    'MH Construction - Veteran-Owned Construction Excellence in the Pacific Northwest',
+  defaultDescription:
+    'MH Construction delivers exceptional residential, commercial, and industrial construction services throughout the Pacific Northwest. Veteran-owned with AI-powered project management.',
   defaultKeywords: [
     'construction',
     'building',
@@ -47,7 +49,7 @@ const defaultSEO = {
     'kitchen remodel',
     'bathroom renovation',
     'construction estimate',
-    'AI construction'
+    'AI construction',
   ],
   twitterHandle: '@MHConstruction',
   companyInfo: {
@@ -57,11 +59,11 @@ const defaultSEO = {
       addressLocality: 'Seattle',
       addressRegion: 'WA',
       postalCode: '98101',
-      addressCountry: 'US'
+      addressCountry: 'US',
     },
     telephone: '+1-555-123-4567',
-    email: 'info@mhconstruction.com'
-  }
+    email: 'info@mhconstruction.com',
+  },
 }
 
 export function generateSEOMetadata({
@@ -71,12 +73,12 @@ export function generateSEOMetadata({
   canonicalUrl,
   ogImage,
   ogType = 'website',
-  noIndex = false
+  noIndex = false,
 }: GenerateMetadataProps): Metadata {
-  const pageTitle = title 
+  const pageTitle = title
     ? `${title} | ${defaultSEO.siteName}`
     : defaultSEO.defaultTitle
-  
+
   const pageDescription = description || defaultSEO.defaultDescription
   const pageKeywords = [...defaultSEO.defaultKeywords, ...keywords].join(', ')
   const pageUrl = canonicalUrl || defaultSEO.siteUrl
@@ -87,12 +89,12 @@ export function generateSEOMetadata({
     description: pageDescription,
     keywords: pageKeywords,
     robots: noIndex ? 'noindex,nofollow' : 'index,follow',
-    
+
     // Canonical URL
     alternates: {
-      canonical: pageUrl
+      canonical: pageUrl,
     },
-    
+
     // Open Graph
     openGraph: {
       title: pageTitle,
@@ -106,11 +108,11 @@ export function generateSEOMetadata({
           width: 1200,
           height: 630,
           alt: pageTitle,
-        }
+        },
       ],
-      locale: 'en_US'
+      locale: 'en_US',
     },
-    
+
     // Twitter
     twitter: {
       card: 'summary_large_image',
@@ -118,9 +120,9 @@ export function generateSEOMetadata({
       creator: defaultSEO.twitterHandle,
       title: pageTitle,
       description: pageDescription,
-      images: [pageImage]
+      images: [pageImage],
     },
-    
+
     // Additional meta tags
     other: {
       'theme-color': '#1E40AF', // Brand primary color
@@ -130,8 +132,8 @@ export function generateSEOMetadata({
       'apple-mobile-web-app-title': defaultSEO.siteName,
       'application-name': defaultSEO.siteName,
       'msapplication-TileColor': '#1E40AF',
-      'msapplication-config': '/browserconfig.xml'
-    }
+      'msapplication-config': '/browserconfig.xml',
+    },
   }
 }
 
@@ -159,22 +161,22 @@ export function generateOrganizationStructuredData() {
     email: defaultSEO.companyInfo.email,
     address: {
       '@type': 'PostalAddress',
-      ...defaultSEO.companyInfo.address
+      ...defaultSEO.companyInfo.address,
     },
     geo: {
       '@type': 'GeoCoordinates',
       latitude: '47.6062',
-      longitude: '-122.3321'
+      longitude: '-122.3321',
     },
     areaServed: [
       {
         '@type': 'State',
-        name: 'Washington'
+        name: 'Washington',
       },
       {
-        '@type': 'State', 
-        name: 'Oregon'
-      }
+        '@type': 'State',
+        name: 'Oregon',
+      },
     ],
     serviceType: [
       'Residential Construction',
@@ -183,13 +185,13 @@ export function generateOrganizationStructuredData() {
       'Renovation Services',
       'Remodeling Services',
       'Custom Home Building',
-      'Project Management'
+      'Project Management',
     ],
     sameAs: [
       'https://www.facebook.com/mhconstruction',
       'https://www.linkedin.com/company/mhconstruction',
-      'https://www.instagram.com/mhconstruction'
-    ]
+      'https://www.instagram.com/mhconstruction',
+    ],
   }
 }
 
@@ -210,7 +212,7 @@ export function generateProjectStructuredData(project: {
     description: project.description,
     creator: {
       '@type': 'Organization',
-      name: defaultSEO.companyInfo.name
+      name: defaultSEO.companyInfo.name,
     },
     dateCreated: project.details.startDate,
     dateModified: project.details.completionDate,
@@ -219,21 +221,23 @@ export function generateProjectStructuredData(project: {
       address: {
         '@type': 'PostalAddress',
         addressLocality: project.location.city,
-        addressRegion: project.location.state
-      }
+        addressRegion: project.location.state,
+      },
     },
     keywords: project.tags,
     category: project.category,
     image: project.images.map((img: { url: string; caption?: string }) => ({
       '@type': 'ImageObject',
       url: img.url,
-      caption: img.caption || project.title
-    }))
+      caption: img.caption || project.title,
+    })),
   }
 }
 
 // Generate breadcrumb structured data
-export function generateBreadcrumbStructuredData(breadcrumbs: Array<{name: string, url: string}>) {
+export function generateBreadcrumbStructuredData(
+  breadcrumbs: Array<{ name: string; url: string }>
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -241,7 +245,7 @@ export function generateBreadcrumbStructuredData(breadcrumbs: Array<{name: strin
       '@type': 'ListItem',
       position: index + 1,
       name: crumb.name,
-      item: crumb.url
-    }))
+      item: crumb.url,
+    })),
   }
 }

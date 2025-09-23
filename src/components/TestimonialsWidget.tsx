@@ -3,8 +3,20 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Star, Quote, ChevronLeft, ChevronRight, Award, MapPin, Calendar, ExternalLink } from 'lucide-react'
-import { mockTestimonials, type ClientTestimonial } from '@/lib/types/testimonials'
+import {
+  Star,
+  Quote,
+  ChevronLeft,
+  ChevronRight,
+  Award,
+  MapPin,
+  Calendar,
+  ExternalLink,
+} from 'lucide-react'
+import {
+  mockTestimonials,
+  type ClientTestimonial,
+} from '@/lib/types/testimonials'
 import { formatDate } from '@/lib/utils/dateUtils'
 
 interface TestimonialsWidgetProps {
@@ -18,19 +30,21 @@ interface TestimonialsWidgetProps {
 }
 
 export default function TestimonialsWidget({
-  title = "What Our Clients Say",
-  subtitle = "Read testimonials from satisfied customers across the Pacific Northwest",
+  title = 'What Our Clients Say',
+  subtitle = 'Read testimonials from satisfied customers across the Pacific Northwest',
   showViewAll = true,
   autoSlide = true,
   slideDuration = 5000,
   maxTestimonials = 6,
-  variant = 'default'
+  variant = 'default',
 }: TestimonialsWidgetProps) {
   // Get featured and approved testimonials
   const featuredTestimonials = mockTestimonials
-    .filter(testimonial => 
-      (testimonial.status === 'featured' || testimonial.status === 'approved') &&
-      testimonial.featured
+    .filter(
+      testimonial =>
+        (testimonial.status === 'featured' ||
+          testimonial.status === 'approved') &&
+        testimonial.featured
     )
     .slice(0, maxTestimonials)
 
@@ -55,7 +69,10 @@ export default function TestimonialsWidget({
   }
 
   const goToPrevious = () => {
-    setCurrentIndex(prev => (prev - 1 + featuredTestimonials.length) % featuredTestimonials.length)
+    setCurrentIndex(
+      prev =>
+        (prev - 1 + featuredTestimonials.length) % featuredTestimonials.length
+    )
     setIsAutoPlaying(false)
     setTimeout(() => setIsAutoPlaying(autoSlide), 3000)
   }
@@ -76,7 +93,7 @@ export default function TestimonialsWidget({
 
   if (variant === 'cards') {
     return (
-      <CardsTestimonialsWidget 
+      <CardsTestimonialsWidget
         testimonials={featuredTestimonials}
         title={title}
         subtitle={subtitle}
@@ -139,8 +156,8 @@ export default function TestimonialsWidget({
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                    index === currentIndex 
-                      ? 'bg-blue-600 scale-125' 
+                    index === currentIndex
+                      ? 'bg-blue-600 scale-125'
                       : 'bg-gray-300 hover:bg-gray-400'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
@@ -184,7 +201,7 @@ function TestimonialSlide({ testimonial }: { testimonial: ClientTestimonial }) {
             <Quote className="h-24 w-24 text-white/30" />
           </div>
         )}
-        
+
         {/* Project Type Badge */}
         <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-sm font-medium capitalize">
           {testimonial.projectType}
@@ -264,7 +281,11 @@ function TestimonialSlide({ testimonial }: { testimonial: ClientTestimonial }) {
   )
 }
 
-function CompactTestimonialsWidget({ testimonials }: { testimonials: ClientTestimonial[] }) {
+function CompactTestimonialsWidget({
+  testimonials,
+}: {
+  testimonials: ClientTestimonial[]
+}) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
@@ -283,7 +304,7 @@ function CompactTestimonialsWidget({ testimonials }: { testimonials: ClientTesti
         <Quote className="h-5 w-5 text-blue-600" />
         <h3 className="font-semibold text-gray-900">Client Testimonial</h3>
       </div>
-      
+
       <div className="mb-4">
         <div className="flex items-center gap-1 mb-2">
           {[...Array(5)].map((_, i) => (
@@ -311,7 +332,7 @@ function CompactTestimonialsWidget({ testimonials }: { testimonials: ClientTesti
             {currentTestimonial.projectTitle}
           </div>
         </div>
-        
+
         <Link
           href="/testimonials"
           className="text-blue-600 hover:text-blue-700 text-sm font-medium"
@@ -337,12 +358,12 @@ function CompactTestimonialsWidget({ testimonials }: { testimonials: ClientTesti
   )
 }
 
-function CardsTestimonialsWidget({ 
-  testimonials, 
-  title, 
-  subtitle, 
-  showViewAll 
-}: { 
+function CardsTestimonialsWidget({
+  testimonials,
+  title,
+  subtitle,
+  showViewAll,
+}: {
   testimonials: ClientTestimonial[]
   title: string
   subtitle: string
@@ -360,7 +381,10 @@ function CardsTestimonialsWidget({
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {testimonials.slice(0, 3).map(testimonial => (
-            <div key={testimonial.id} className="bg-white rounded-lg shadow-lg overflow-hidden border hover:shadow-xl transition-shadow duration-300">
+            <div
+              key={testimonial.id}
+              className="bg-white rounded-lg shadow-lg overflow-hidden border hover:shadow-xl transition-shadow duration-300"
+            >
               {/* Image */}
               {testimonial.images?.after && testimonial.images.after[0] && (
                 <div className="relative h-48 overflow-hidden">

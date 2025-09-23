@@ -43,7 +43,10 @@ export const placeholderImages = {
 }
 
 // Helper function to get placeholder image
-export function getPlaceholderImage(category: keyof typeof placeholderImages, filename: string): string {
+export function getPlaceholderImage(
+  category: keyof typeof placeholderImages,
+  filename: string
+): string {
   const categoryImages = placeholderImages[category] as Record<string, string>
   return categoryImages[filename] || '/images/placeholder.jpg'
 }

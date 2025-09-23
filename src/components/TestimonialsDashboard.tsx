@@ -2,8 +2,31 @@
 
 import { useState, useMemo } from 'react'
 import Image from 'next/image'
-import { Star, Eye, Edit3, Trash2, Check, X, Filter, Search, Calendar, MapPin, Users, Award, MessageCircle, TrendingUp, AlertCircle, ChevronDown, ChevronUp } from 'lucide-react'
-import { ClientTestimonial, TestimonialStatus, mockTestimonials, getReviewStats } from '@/lib/types/testimonials'
+import {
+  Star,
+  Eye,
+  Edit3,
+  Trash2,
+  Check,
+  X,
+  Filter,
+  Search,
+  Calendar,
+  MapPin,
+  Users,
+  Award,
+  MessageCircle,
+  TrendingUp,
+  AlertCircle,
+  ChevronDown,
+  ChevronUp,
+} from 'lucide-react'
+import {
+  ClientTestimonial,
+  TestimonialStatus,
+  mockTestimonials,
+  getReviewStats,
+} from '@/lib/types/testimonials'
 import { formatDate } from '@/lib/utils/dateUtils'
 
 type SortOption = 'newest' | 'oldest' | 'rating' | 'status'
@@ -12,20 +35,22 @@ const statusColors = {
   pending: 'bg-yellow-100 text-yellow-800 border-yellow-200',
   approved: 'bg-green-100 text-green-800 border-green-200',
   rejected: 'bg-red-100 text-red-800 border-red-200',
-  featured: 'bg-blue-100 text-blue-800 border-blue-200'
+  featured: 'bg-blue-100 text-blue-800 border-blue-200',
 }
 
 const statusIcons = {
   pending: AlertCircle,
   approved: Check,
   rejected: X,
-  featured: Award
+  featured: Award,
 }
 
 export default function TestimonialsDashboard() {
   const [selectedTestimonials, setSelectedTestimonials] = useState<string[]>([])
   const [searchTerm, setSearchTerm] = useState('')
-  const [statusFilter, setStatusFilter] = useState<TestimonialStatus | 'all'>('all')
+  const [statusFilter, setStatusFilter] = useState<TestimonialStatus | 'all'>(
+    'all'
+  )
   const [sortBy, setSortBy] = useState<SortOption>('newest')
   const [showFilters, setShowFilters] = useState(false)
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('list')
@@ -38,20 +63,22 @@ export default function TestimonialsDashboard() {
     pending: mockTestimonials.filter(t => t.status === 'pending').length,
     approved: mockTestimonials.filter(t => t.status === 'approved').length,
     rejected: mockTestimonials.filter(t => t.status === 'rejected').length,
-    featured: mockTestimonials.filter(t => t.status === 'featured').length
+    featured: mockTestimonials.filter(t => t.status === 'featured').length,
   }
 
   // Filter and sort testimonials
   const filteredTestimonials = useMemo(() => {
-    let filtered = mockTestimonials.filter(testimonial => {
+    const filtered = mockTestimonials.filter(testimonial => {
       // Search filter
       if (searchTerm) {
         const search = searchTerm.toLowerCase()
-        if (!testimonial.clientName.toLowerCase().includes(search) &&
-            !testimonial.projectTitle.toLowerCase().includes(search) &&
-            !testimonial.testimonialText.toLowerCase().includes(search) &&
-            !testimonial.clientLocation.toLowerCase().includes(search) &&
-            !testimonial.tags.some(tag => tag.toLowerCase().includes(search))) {
+        if (
+          !testimonial.clientName.toLowerCase().includes(search) &&
+          !testimonial.projectTitle.toLowerCase().includes(search) &&
+          !testimonial.testimonialText.toLowerCase().includes(search) &&
+          !testimonial.clientLocation.toLowerCase().includes(search) &&
+          !testimonial.tags.some(tag => tag.toLowerCase().includes(search))
+        ) {
           return false
         }
       }
@@ -68,13 +95,24 @@ export default function TestimonialsDashboard() {
     filtered.sort((a, b) => {
       switch (sortBy) {
         case 'newest':
-          return new Date(b.submissionDate).getTime() - new Date(a.submissionDate).getTime()
+          return (
+            new Date(b.submissionDate).getTime() -
+            new Date(a.submissionDate).getTime()
+          )
         case 'oldest':
-          return new Date(a.submissionDate).getTime() - new Date(b.submissionDate).getTime()
+          return (
+            new Date(a.submissionDate).getTime() -
+            new Date(b.submissionDate).getTime()
+          )
         case 'rating':
           return b.rating - a.rating
         case 'status':
-          const statusOrder = { pending: 0, featured: 1, approved: 2, rejected: 3 }
+          const statusOrder = {
+            pending: 0,
+            featured: 1,
+            approved: 2,
+            rejected: 3,
+          }
           return statusOrder[a.status] - statusOrder[b.status]
         default:
           return 0
@@ -93,20 +131,23 @@ export default function TestimonialsDashboard() {
   }
 
   const handleSelectTestimonial = (id: string) => {
-    setSelectedTestimonials(prev => 
-      prev.includes(id) 
-        ? prev.filter(tid => tid !== id)
-        : [...prev, id]
+    setSelectedTestimonials(prev =>
+      prev.includes(id) ? prev.filter(tid => tid !== id) : [...prev, id]
     )
   }
 
-  const handleBulkAction = (action: 'approve' | 'reject' | 'feature' | 'delete') => {
+  const handleBulkAction = (
+    action: 'approve' | 'reject' | 'feature' | 'delete'
+  ) => {
     // In a real app, this would make API calls
     console.log(`Bulk ${action} action for testimonials:`, selectedTestimonials)
     setSelectedTestimonials([])
   }
 
-  const handleStatusChange = (testimonialId: string, newStatus: TestimonialStatus) => {
+  const handleStatusChange = (
+    testimonialId: string,
+    newStatus: TestimonialStatus
+  ) => {
     // In a real app, this would make an API call
     console.log(`Changing testimonial ${testimonialId} status to ${newStatus}`)
   }
@@ -118,8 +159,12 @@ export default function TestimonialsDashboard() {
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Testimonials Dashboard</h1>
-              <p className="text-gray-600 mt-1">Manage client testimonials and reviews</p>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Testimonials Dashboard
+              </h1>
+              <p className="text-gray-600 mt-1">
+                Manage client testimonials and reviews
+              </p>
             </div>
             <div className="flex items-center gap-4">
               <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
@@ -137,7 +182,9 @@ export default function TestimonialsDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600">Total Reviews</p>
-                <p className="text-3xl font-bold text-gray-900">{reviewStats.totalReviews}</p>
+                <p className="text-3xl font-bold text-gray-900">
+                  {reviewStats.totalReviews}
+                </p>
               </div>
               <MessageCircle className="h-8 w-8 text-blue-500" />
             </div>
@@ -152,7 +199,9 @@ export default function TestimonialsDashboard() {
               <div>
                 <p className="text-sm text-gray-600">Average Rating</p>
                 <div className="flex items-center gap-2">
-                  <p className="text-3xl font-bold text-gray-900">{reviewStats.averageRating}</p>
+                  <p className="text-3xl font-bold text-gray-900">
+                    {reviewStats.averageRating}
+                  </p>
                   <Star className="h-6 w-6 fill-yellow-400 text-yellow-400" />
                 </div>
               </div>
@@ -167,20 +216,22 @@ export default function TestimonialsDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600">Pending Review</p>
-                <p className="text-3xl font-bold text-yellow-600">{statusStats.pending}</p>
+                <p className="text-3xl font-bold text-yellow-600">
+                  {statusStats.pending}
+                </p>
               </div>
               <AlertCircle className="h-8 w-8 text-yellow-500" />
             </div>
-            <div className="mt-4 text-sm text-yellow-600">
-              Need approval
-            </div>
+            <div className="mt-4 text-sm text-yellow-600">Need approval</div>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-sm border">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600">Featured</p>
-                <p className="text-3xl font-bold text-blue-600">{statusStats.featured}</p>
+                <p className="text-3xl font-bold text-blue-600">
+                  {statusStats.featured}
+                </p>
               </div>
               <Award className="h-8 w-8 text-blue-500" />
             </div>
@@ -193,14 +244,20 @@ export default function TestimonialsDashboard() {
         {/* Filters and Search */}
         <div className="bg-white rounded-lg shadow-sm border p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-gray-900">Filter & Search</h3>
+            <h3 className="text-lg font-semibold text-gray-900">
+              Filter & Search
+            </h3>
             <button
               onClick={() => setShowFilters(!showFilters)}
               className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
             >
               <Filter className="h-4 w-4" />
               {showFilters ? 'Hide Filters' : 'Show Filters'}
-              {showFilters ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              {showFilters ? (
+                <ChevronUp className="h-4 w-4" />
+              ) : (
+                <ChevronDown className="h-4 w-4" />
+              )}
             </button>
           </div>
 
@@ -211,7 +268,7 @@ export default function TestimonialsDashboard() {
               type="text"
               placeholder="Search testimonials by client, project, content..."
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={e => setSearchTerm(e.target.value)}
               className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
@@ -220,10 +277,14 @@ export default function TestimonialsDashboard() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {/* Status Filter */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Status
+                </label>
                 <select
                   value={statusFilter}
-                  onChange={(e) => setStatusFilter(e.target.value as TestimonialStatus | 'all')}
+                  onChange={e =>
+                    setStatusFilter(e.target.value as TestimonialStatus | 'all')
+                  }
                   className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="all">All Status</option>
@@ -236,10 +297,12 @@ export default function TestimonialsDashboard() {
 
               {/* Sort By */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Sort By</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Sort By
+                </label>
                 <select
                   value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as SortOption)}
+                  onChange={e => setSortBy(e.target.value as SortOption)}
                   className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="newest">Newest First</option>
@@ -251,7 +314,9 @@ export default function TestimonialsDashboard() {
 
               {/* View Mode */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">View Mode</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  View Mode
+                </label>
                 <div className="flex gap-2">
                   <button
                     onClick={() => setViewMode('list')}
@@ -299,7 +364,8 @@ export default function TestimonialsDashboard() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <span className="text-sm text-blue-900 font-medium">
-                  {selectedTestimonials.length} testimonial{selectedTestimonials.length > 1 ? 's' : ''} selected
+                  {selectedTestimonials.length} testimonial
+                  {selectedTestimonials.length > 1 ? 's' : ''} selected
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -335,13 +401,17 @@ export default function TestimonialsDashboard() {
         {/* Results Summary */}
         <div className="flex items-center justify-between mb-6">
           <p className="text-gray-600">
-            Showing {filteredTestimonials.length} of {mockTestimonials.length} testimonials
+            Showing {filteredTestimonials.length} of {mockTestimonials.length}{' '}
+            testimonials
           </p>
           <div className="flex items-center gap-4">
             <label className="flex items-center gap-2 text-sm text-gray-600">
               <input
                 type="checkbox"
-                checked={selectedTestimonials.length === filteredTestimonials.length && filteredTestimonials.length > 0}
+                checked={
+                  selectedTestimonials.length === filteredTestimonials.length &&
+                  filteredTestimonials.length > 0
+                }
                 onChange={handleSelectAll}
                 className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
               />
@@ -360,7 +430,11 @@ export default function TestimonialsDashboard() {
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       <input
                         type="checkbox"
-                        checked={selectedTestimonials.length === filteredTestimonials.length && filteredTestimonials.length > 0}
+                        checked={
+                          selectedTestimonials.length ===
+                            filteredTestimonials.length &&
+                          filteredTestimonials.length > 0
+                        }
                         onChange={handleSelectAll}
                         className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                       />
@@ -389,7 +463,9 @@ export default function TestimonialsDashboard() {
                       testimonial={testimonial}
                       selected={selectedTestimonials.includes(testimonial.id)}
                       onSelect={() => handleSelectTestimonial(testimonial.id)}
-                      onStatusChange={(status) => handleStatusChange(testimonial.id, status)}
+                      onStatusChange={status =>
+                        handleStatusChange(testimonial.id, status)
+                      }
                     />
                   ))}
                 </tbody>
@@ -404,7 +480,9 @@ export default function TestimonialsDashboard() {
                 testimonial={testimonial}
                 selected={selectedTestimonials.includes(testimonial.id)}
                 onSelect={() => handleSelectTestimonial(testimonial.id)}
-                onStatusChange={(status) => handleStatusChange(testimonial.id, status)}
+                onStatusChange={status =>
+                  handleStatusChange(testimonial.id, status)
+                }
               />
             ))}
           </div>
@@ -414,12 +492,13 @@ export default function TestimonialsDashboard() {
         {filteredTestimonials.length === 0 && (
           <div className="text-center py-12">
             <MessageCircle className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">No testimonials found</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              No testimonials found
+            </h3>
             <p className="text-gray-600">
-              {searchTerm || statusFilter !== 'all' 
+              {searchTerm || statusFilter !== 'all'
                 ? 'Try adjusting your filters or search terms.'
-                : 'No testimonials have been submitted yet.'
-              }
+                : 'No testimonials have been submitted yet.'}
             </p>
           </div>
         )}
@@ -428,12 +507,12 @@ export default function TestimonialsDashboard() {
   )
 }
 
-function TestimonialRow({ 
-  testimonial, 
-  selected, 
-  onSelect, 
-  onStatusChange 
-}: { 
+function TestimonialRow({
+  testimonial,
+  selected,
+  onSelect,
+  onStatusChange,
+}: {
   testimonial: ClientTestimonial
   selected: boolean
   onSelect: () => void
@@ -464,8 +543,12 @@ function TestimonialRow({
             </div>
           )}
           <div className="min-w-0 flex-1">
-            <div className="font-medium text-gray-900">{testimonial.clientName}</div>
-            <div className="text-sm text-gray-600 truncate">{testimonial.projectTitle}</div>
+            <div className="font-medium text-gray-900">
+              {testimonial.clientName}
+            </div>
+            <div className="text-sm text-gray-600 truncate">
+              {testimonial.projectTitle}
+            </div>
             <div className="flex items-center gap-2 text-xs text-gray-500 mt-1">
               <MapPin className="h-3 w-3" />
               <span>{testimonial.clientLocation}</span>
@@ -487,11 +570,15 @@ function TestimonialRow({
               }`}
             />
           ))}
-          <span className="ml-1 text-sm text-gray-600">({testimonial.rating})</span>
+          <span className="ml-1 text-sm text-gray-600">
+            ({testimonial.rating})
+          </span>
         </div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
-        <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium border ${statusColors[testimonial.status]}`}>
+        <div
+          className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium border ${statusColors[testimonial.status]}`}
+        >
           <StatusIcon className="h-3 w-3" />
           <span className="capitalize">{testimonial.status}</span>
         </div>
@@ -504,15 +591,21 @@ function TestimonialRow({
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="flex items-center gap-2">
-          <button className="text-blue-600 hover:text-blue-700 p-1" title="View Details">
+          <button
+            className="text-blue-600 hover:text-blue-700 p-1"
+            title="View Details"
+          >
             <Eye className="h-4 w-4" />
           </button>
-          <button className="text-gray-600 hover:text-gray-700 p-1" title="Edit">
+          <button
+            className="text-gray-600 hover:text-gray-700 p-1"
+            title="Edit"
+          >
             <Edit3 className="h-4 w-4" />
           </button>
           <select
             value={testimonial.status}
-            onChange={(e) => onStatusChange(e.target.value as TestimonialStatus)}
+            onChange={e => onStatusChange(e.target.value as TestimonialStatus)}
             className="text-xs border border-gray-300 rounded px-2 py-1 focus:ring-1 focus:ring-blue-500 focus:border-transparent"
           >
             <option value="pending">Pending</option>
@@ -526,12 +619,12 @@ function TestimonialRow({
   )
 }
 
-function TestimonialCard({ 
-  testimonial, 
-  selected, 
-  onSelect, 
-  onStatusChange 
-}: { 
+function TestimonialCard({
+  testimonial,
+  selected,
+  onSelect,
+  onStatusChange,
+}: {
   testimonial: ClientTestimonial
   selected: boolean
   onSelect: () => void
@@ -540,7 +633,9 @@ function TestimonialCard({
   const StatusIcon = statusIcons[testimonial.status]
 
   return (
-    <div className={`bg-white rounded-lg shadow-sm border p-6 ${selected ? 'ring-2 ring-blue-500' : ''}`}>
+    <div
+      className={`bg-white rounded-lg shadow-sm border p-6 ${selected ? 'ring-2 ring-blue-500' : ''}`}
+    >
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
@@ -561,11 +656,17 @@ function TestimonialCard({
             </div>
           )}
           <div>
-            <div className="font-medium text-gray-900">{testimonial.clientName}</div>
-            <div className="text-sm text-gray-600">{testimonial.clientLocation}</div>
+            <div className="font-medium text-gray-900">
+              {testimonial.clientName}
+            </div>
+            <div className="text-sm text-gray-600">
+              {testimonial.clientLocation}
+            </div>
           </div>
         </div>
-        <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium border ${statusColors[testimonial.status]}`}>
+        <div
+          className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium border ${statusColors[testimonial.status]}`}
+        >
           <StatusIcon className="h-3 w-3" />
           <span className="capitalize">{testimonial.status}</span>
         </div>
@@ -573,7 +674,9 @@ function TestimonialCard({
 
       {/* Project Info */}
       <div className="mb-4">
-        <h3 className="font-semibold text-gray-900 mb-2">{testimonial.projectTitle}</h3>
+        <h3 className="font-semibold text-gray-900 mb-2">
+          {testimonial.projectTitle}
+        </h3>
         <div className="flex items-center gap-4 text-sm text-gray-600 mb-2">
           <span className="capitalize">{testimonial.projectType}</span>
           <span>•</span>
@@ -590,7 +693,9 @@ function TestimonialCard({
               }`}
             />
           ))}
-          <span className="ml-1 text-sm text-gray-600">({testimonial.rating})</span>
+          <span className="ml-1 text-sm text-gray-600">
+            ({testimonial.rating})
+          </span>
         </div>
       </div>
 
@@ -602,19 +707,28 @@ function TestimonialCard({
       {/* Actions */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <button className="text-blue-600 hover:text-blue-700 p-1" title="View Details">
+          <button
+            className="text-blue-600 hover:text-blue-700 p-1"
+            title="View Details"
+          >
             <Eye className="h-4 w-4" />
           </button>
-          <button className="text-gray-600 hover:text-gray-700 p-1" title="Edit">
+          <button
+            className="text-gray-600 hover:text-gray-700 p-1"
+            title="Edit"
+          >
             <Edit3 className="h-4 w-4" />
           </button>
-          <button className="text-red-600 hover:text-red-700 p-1" title="Delete">
+          <button
+            className="text-red-600 hover:text-red-700 p-1"
+            title="Delete"
+          >
             <Trash2 className="h-4 w-4" />
           </button>
         </div>
         <select
           value={testimonial.status}
-          onChange={(e) => onStatusChange(e.target.value as TestimonialStatus)}
+          onChange={e => onStatusChange(e.target.value as TestimonialStatus)}
           className="text-xs border border-gray-300 rounded px-2 py-1 focus:ring-1 focus:ring-blue-500 focus:border-transparent"
         >
           <option value="pending">Pending</option>

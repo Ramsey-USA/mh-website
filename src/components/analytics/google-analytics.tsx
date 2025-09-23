@@ -33,7 +33,11 @@ export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
 export const analytics = {
   // Track page views
   pageView: (url: string, title?: string) => {
-    if (typeof window !== 'undefined' && window.gtag && process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID) {
+    if (
+      typeof window !== 'undefined' &&
+      window.gtag &&
+      process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+    ) {
       window.gtag('config', process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID, {
         page_title: title || document.title,
         page_location: url,
@@ -42,7 +46,10 @@ export const analytics = {
   },
 
   // Track custom events
-  event: (eventName: string, parameters?: Record<string, string | number | boolean | undefined>) => {
+  event: (
+    eventName: string,
+    parameters?: Record<string, string | number | boolean | undefined>
+  ) => {
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', eventName, parameters)
     }
@@ -54,7 +61,7 @@ export const analytics = {
       project_title: projectTitle,
       project_category: projectCategory,
       event_category: 'Portfolio',
-      event_label: projectTitle
+      event_label: projectTitle,
     })
   },
 
@@ -64,7 +71,7 @@ export const analytics = {
       project_type: projectType,
       location: location,
       event_category: 'Lead Generation',
-      event_label: 'AI Estimate Request'
+      event_label: 'AI Estimate Request',
     })
   },
 
@@ -73,7 +80,7 @@ export const analytics = {
     analytics.event('consultation_booking', {
       service_type: serviceType,
       event_category: 'Lead Generation',
-      event_label: 'Consultation Booking'
+      event_label: 'Consultation Booking',
     })
   },
 
@@ -83,7 +90,7 @@ export const analytics = {
       form_type: formType,
       inquiry_type: inquiryType,
       event_category: 'Lead Generation',
-      event_label: 'Contact Form'
+      event_label: 'Contact Form',
     })
   },
 
@@ -92,7 +99,7 @@ export const analytics = {
     analytics.event('phone_click', {
       phone_number: phoneNumber,
       event_category: 'Contact',
-      event_label: 'Phone Call'
+      event_label: 'Phone Call',
     })
   },
 
@@ -101,7 +108,7 @@ export const analytics = {
     analytics.event('email_click', {
       email_address: emailAddress,
       event_category: 'Contact',
-      event_label: 'Email'
+      event_label: 'Email',
     })
   },
 
@@ -111,7 +118,7 @@ export const analytics = {
       file_name: fileName,
       file_type: fileType,
       event_category: 'Downloads',
-      event_label: fileName
+      event_label: fileName,
     })
   },
 
@@ -121,9 +128,9 @@ export const analytics = {
       social_platform: platform,
       social_url: url,
       event_category: 'Social Media',
-      event_label: platform
+      event_label: platform,
     })
-  }
+  },
 }
 
 // Hook for tracking page views in Next.js

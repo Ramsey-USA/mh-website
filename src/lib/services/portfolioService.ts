@@ -6,7 +6,8 @@ export const portfolioData: ProjectPortfolio[] = [
   {
     id: '1',
     title: 'Luxury Mountain Home',
-    description: 'A stunning 4,500 sq ft custom mountain retreat featuring timber frame construction, floor-to-ceiling windows, and sustainable materials throughout.',
+    description:
+      'A stunning 4,500 sq ft custom mountain retreat featuring timber frame construction, floor-to-ceiling windows, and sustainable materials throughout.',
     category: 'residential',
     subcategory: 'Custom Home',
     status: 'completed',
@@ -54,10 +55,16 @@ export const portfolioData: ProjectPortfolio[] = [
         'Custom Millwork',
         'Stone Fireplace',
       ],
-      materials: ['Reclaimed Timber', 'Natural Stone', 'Low-E Windows', 'Metal Roofing'],
+      materials: [
+        'Reclaimed Timber',
+        'Natural Stone',
+        'Low-E Windows',
+        'Metal Roofing',
+      ],
     },
     clientTestimonial: {
-      quote: 'MH Construction exceeded our expectations. Their attention to detail and veteran discipline made our dream home a reality.',
+      quote:
+        'MH Construction exceeded our expectations. Their attention to detail and veteran discipline made our dream home a reality.',
       clientName: 'Sarah & Mike Johnson',
       rating: 5,
     },
@@ -65,8 +72,15 @@ export const portfolioData: ProjectPortfolio[] = [
     seoMetadata: {
       slug: 'luxury-mountain-home-spokane',
       metaTitle: 'Luxury Mountain Home Construction - Spokane, WA',
-      metaDescription: 'Custom 4,500 sq ft mountain retreat with timber frame construction and sustainable features in Spokane, WA.',
-      keywords: ['luxury home', 'mountain construction', 'timber frame', 'custom build', 'Spokane'],
+      metaDescription:
+        'Custom 4,500 sq ft mountain retreat with timber frame construction and sustainable features in Spokane, WA.',
+      keywords: [
+        'luxury home',
+        'mountain construction',
+        'timber frame',
+        'custom build',
+        'Spokane',
+      ],
     },
     isPublished: true,
     isFeatured: true,
@@ -77,7 +91,8 @@ export const portfolioData: ProjectPortfolio[] = [
   {
     id: '2',
     title: 'Modern Office Complex',
-    description: 'A 25,000 sq ft LEED-certified office building featuring open concept design, natural lighting, and energy-efficient systems.',
+    description:
+      'A 25,000 sq ft LEED-certified office building featuring open concept design, natural lighting, and energy-efficient systems.',
     category: 'commercial',
     subcategory: 'Office Building',
     status: 'completed',
@@ -112,14 +127,25 @@ export const portfolioData: ProjectPortfolio[] = [
         'Modern Security Systems',
         'Electric Vehicle Charging',
       ],
-      materials: ['Steel Frame', 'Glass Curtain Wall', 'Sustainable Flooring', 'LED Lighting'],
+      materials: [
+        'Steel Frame',
+        'Glass Curtain Wall',
+        'Sustainable Flooring',
+        'LED Lighting',
+      ],
     },
     tags: ['commercial', 'LEED-certified', 'modern', 'sustainable'],
     seoMetadata: {
       slug: 'modern-office-complex-yakima',
       metaTitle: 'LEED-Certified Office Building Construction - Yakima, WA',
-      metaDescription: '25,000 sq ft modern office complex with sustainable design and energy-efficient systems in Yakima, WA.',
-      keywords: ['office building', 'commercial construction', 'LEED certified', 'Yakima'],
+      metaDescription:
+        '25,000 sq ft modern office complex with sustainable design and energy-efficient systems in Yakima, WA.',
+      keywords: [
+        'office building',
+        'commercial construction',
+        'LEED certified',
+        'Yakima',
+      ],
     },
     isPublished: true,
     isFeatured: true,
@@ -130,7 +156,8 @@ export const portfolioData: ProjectPortfolio[] = [
   {
     id: '3',
     title: 'Kitchen & Bath Renovation',
-    description: 'Complete transformation of a 1970s ranch home kitchen and master bathroom with modern amenities and timeless design.',
+    description:
+      'Complete transformation of a 1970s ranch home kitchen and master bathroom with modern amenities and timeless design.',
     category: 'renovation',
     subcategory: 'Kitchen & Bath',
     status: 'completed',
@@ -167,7 +194,8 @@ export const portfolioData: ProjectPortfolio[] = [
       materials: ['Quartz', 'Hardwood', 'Ceramic Tile', 'Stainless Steel'],
     },
     clientTestimonial: {
-      quote: 'The team was professional, clean, and delivered exactly what we envisioned. Highly recommend!',
+      quote:
+        'The team was professional, clean, and delivered exactly what we envisioned. Highly recommend!',
       clientName: 'Jennifer Martinez',
       rating: 5,
     },
@@ -175,8 +203,14 @@ export const portfolioData: ProjectPortfolio[] = [
     seoMetadata: {
       slug: 'kitchen-bath-renovation-spokane',
       metaTitle: 'Kitchen & Bathroom Renovation - Spokane, WA',
-      metaDescription: 'Complete kitchen and master bath renovation with modern amenities and custom features in Spokane, WA.',
-      keywords: ['kitchen renovation', 'bathroom remodel', 'home improvement', 'Spokane'],
+      metaDescription:
+        'Complete kitchen and master bath renovation with modern amenities and custom features in Spokane, WA.',
+      keywords: [
+        'kitchen renovation',
+        'bathroom remodel',
+        'home improvement',
+        'Spokane',
+      ],
     },
     isPublished: true,
     isFeatured: false,
@@ -194,13 +228,15 @@ export class PortfolioService {
 
   // Get featured projects for homepage
   static getFeaturedProjects(): ProjectPortfolio[] {
-    return portfolioData.filter(project => project.isPublished && project.isFeatured)
+    return portfolioData.filter(
+      project => project.isPublished && project.isFeatured
+    )
   }
 
   // Get project by slug
   static getProjectBySlug(slug: string): ProjectPortfolio | undefined {
-    return portfolioData.find(project => 
-      project.isPublished && project.seoMetadata.slug === slug
+    return portfolioData.find(
+      project => project.isPublished && project.seoMetadata.slug === slug
     )
   }
 
@@ -209,8 +245,8 @@ export class PortfolioService {
     if (category === 'all') {
       return this.getAllProjects()
     }
-    return portfolioData.filter(project => 
-      project.isPublished && project.category === category
+    return portfolioData.filter(
+      project => project.isPublished && project.category === category
     )
   }
 
@@ -231,16 +267,22 @@ export class PortfolioService {
     }
 
     if (filter.location) {
-      filteredProjects = filteredProjects.filter(project =>
-        project.location.city.toLowerCase().includes(filter.location!.toLowerCase()) ||
-        project.location.state.toLowerCase().includes(filter.location!.toLowerCase())
+      filteredProjects = filteredProjects.filter(
+        project =>
+          project.location.city
+            .toLowerCase()
+            .includes(filter.location!.toLowerCase()) ||
+          project.location.state
+            .toLowerCase()
+            .includes(filter.location!.toLowerCase())
       )
     }
 
     if (filter.dateRange) {
-      filteredProjects = filteredProjects.filter(project =>
-        project.details.completionDate >= filter.dateRange!.start &&
-        project.details.completionDate <= filter.dateRange!.end
+      filteredProjects = filteredProjects.filter(
+        project =>
+          project.details.completionDate >= filter.dateRange!.start &&
+          project.details.completionDate <= filter.dateRange!.end
       )
     }
 
@@ -248,15 +290,19 @@ export class PortfolioService {
   }
 
   // Get related projects (same category, different project)
-  static getRelatedProjects(projectId: string, limit: number = 3): ProjectPortfolio[] {
+  static getRelatedProjects(
+    projectId: string,
+    limit: number = 3
+  ): ProjectPortfolio[] {
     const currentProject = portfolioData.find(p => p.id === projectId)
     if (!currentProject) return []
 
     return portfolioData
-      .filter(project => 
-        project.isPublished &&
-        project.id !== projectId &&
-        project.category === currentProject.category
+      .filter(
+        project =>
+          project.isPublished &&
+          project.id !== projectId &&
+          project.category === currentProject.category
       )
       .slice(0, limit)
   }
@@ -265,7 +311,7 @@ export class PortfolioService {
   static getPortfolioStats() {
     const projects = this.getAllProjects()
     const categories = Array.from(new Set(projects.map(p => p.category)))
-    
+
     return {
       totalProjects: projects.length,
       categories: categories,

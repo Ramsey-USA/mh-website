@@ -15,7 +15,7 @@ const sizeClasses = {
   sm: 'max-w-md',
   md: 'max-w-lg',
   lg: 'max-w-2xl',
-  xl: 'max-w-4xl'
+  xl: 'max-w-4xl',
 }
 
 export const Modal: React.FC<ModalProps> = ({
@@ -23,21 +23,23 @@ export const Modal: React.FC<ModalProps> = ({
   onClose,
   title,
   children,
-  size = 'md'
+  size = 'md',
 }) => {
   if (!isOpen) return null
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
       {/* Backdrop */}
-      <div 
+      <div
         className="fixed inset-0 bg-black bg-opacity-75 transition-opacity"
         onClick={onClose}
       />
-      
+
       {/* Modal */}
       <div className="flex min-h-full items-center justify-center p-4">
-        <div className={`relative w-full ${sizeClasses[size]} bg-gray-900 rounded-xl shadow-2xl border border-gray-700`}>
+        <div
+          className={`relative w-full ${sizeClasses[size]} bg-gray-900 rounded-xl shadow-2xl border border-gray-700`}
+        >
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-700">
             <h2 className="text-xl font-tactic-bold text-white">{title}</h2>
@@ -45,14 +47,16 @@ export const Modal: React.FC<ModalProps> = ({
               onClick={onClose}
               className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-gray-800 rounded-lg"
             >
-              <CloseIcon size="sm" primaryColor="currentColor" secondaryColor="rgba(255,255,255,0.6)" />
+              <CloseIcon
+                size="sm"
+                primaryColor="currentColor"
+                secondaryColor="rgba(255,255,255,0.6)"
+              />
             </button>
           </div>
-          
+
           {/* Content */}
-          <div className="p-6">
-            {children}
-          </div>
+          <div className="p-6">{children}</div>
         </div>
       </div>
     </div>

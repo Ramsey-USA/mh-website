@@ -8,7 +8,10 @@ interface BlogNavigationProps {
   nextPost: BlogPost | null
 }
 
-export function BlogNavigation({ previousPost, nextPost }: BlogNavigationProps) {
+export function BlogNavigation({
+  previousPost,
+  nextPost,
+}: BlogNavigationProps) {
   if (!previousPost && !nextPost) return null
 
   return (
@@ -39,7 +42,7 @@ export function BlogNavigation({ previousPost, nextPost }: BlogNavigationProps) 
                     {previousPost.title}
                   </h3>
                   <div className="flex items-center gap-2 text-xs text-gray-500">
-                    <span 
+                    <span
                       className="px-2 py-1 rounded-full text-white text-xs"
                       style={{ backgroundColor: previousPost.category.color }}
                     >
@@ -74,7 +77,7 @@ export function BlogNavigation({ previousPost, nextPost }: BlogNavigationProps) 
                     {nextPost.title}
                   </h3>
                   <div className="flex items-center justify-end gap-2 text-xs text-gray-500">
-                    <span 
+                    <span
                       className="px-2 py-1 rounded-full text-white text-xs"
                       style={{ backgroundColor: nextPost.category.color }}
                     >

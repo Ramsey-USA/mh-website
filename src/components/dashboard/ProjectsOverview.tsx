@@ -17,7 +17,7 @@ export function ProjectsOverview() {
       expectedCompletion: '2025-12-15',
       teamLead: 'Mark Harris',
       isVeteran: true,
-      phase: 'Foundation & Framing'
+      phase: 'Foundation & Framing',
     },
     {
       id: 'P002',
@@ -31,7 +31,7 @@ export function ProjectsOverview() {
       expectedCompletion: '2025-10-30',
       teamLead: 'Jim Rodriguez',
       isVeteran: false,
-      phase: 'Interior Finishing'
+      phase: 'Interior Finishing',
     },
     {
       id: 'P003',
@@ -45,7 +45,7 @@ export function ProjectsOverview() {
       expectedCompletion: '2025-11-15',
       teamLead: 'Sarah Harris',
       isVeteran: false,
-      phase: 'Design & Permits'
+      phase: 'Design & Permits',
     },
     {
       id: 'P004',
@@ -59,7 +59,7 @@ export function ProjectsOverview() {
       expectedCompletion: '2025-11-30',
       teamLead: 'Mark Harris',
       isVeteran: true,
-      phase: 'Structural Work'
+      phase: 'Structural Work',
     },
     {
       id: 'P005',
@@ -73,17 +73,22 @@ export function ProjectsOverview() {
       expectedCompletion: '2025-08-15',
       teamLead: 'Jim Rodriguez',
       isVeteran: false,
-      phase: 'Project Complete'
-    }
+      phase: 'Project Complete',
+    },
   ]
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'planning': return 'bg-blue-100 text-blue-800'
-      case 'in-progress': return 'bg-yellow-100 text-yellow-800'
-      case 'completed': return 'bg-green-100 text-green-800'
-      case 'on-hold': return 'bg-red-100 text-red-800'
-      default: return 'bg-gray-100 text-gray-800'
+      case 'planning':
+        return 'bg-blue-100 text-blue-800'
+      case 'in-progress':
+        return 'bg-yellow-100 text-yellow-800'
+      case 'completed':
+        return 'bg-green-100 text-green-800'
+      case 'on-hold':
+        return 'bg-red-100 text-red-800'
+      default:
+        return 'bg-gray-100 text-gray-800'
     }
   }
 
@@ -114,41 +119,67 @@ export function ProjectsOverview() {
           <table className="w-full">
             <thead>
               <tr className="border-b">
-                <th className="text-left py-3 font-semibold text-gray-700">Project</th>
-                <th className="text-left py-3 font-semibold text-gray-700">Client</th>
-                <th className="text-left py-3 font-semibold text-gray-700">Status</th>
-                <th className="text-left py-3 font-semibold text-gray-700">Progress</th>
-                <th className="text-left py-3 font-semibold text-gray-700">Value</th>
-                <th className="text-left py-3 font-semibold text-gray-700">Team Lead</th>
-                <th className="text-left py-3 font-semibold text-gray-700">Actions</th>
+                <th className="text-left py-3 font-semibold text-gray-700">
+                  Project
+                </th>
+                <th className="text-left py-3 font-semibold text-gray-700">
+                  Client
+                </th>
+                <th className="text-left py-3 font-semibold text-gray-700">
+                  Status
+                </th>
+                <th className="text-left py-3 font-semibold text-gray-700">
+                  Progress
+                </th>
+                <th className="text-left py-3 font-semibold text-gray-700">
+                  Value
+                </th>
+                <th className="text-left py-3 font-semibold text-gray-700">
+                  Team Lead
+                </th>
+                <th className="text-left py-3 font-semibold text-gray-700">
+                  Actions
+                </th>
               </tr>
             </thead>
             <tbody>
-              {projects.map((project) => (
+              {projects.map(project => (
                 <tr key={project.id} className="border-b hover:bg-gray-50">
                   <td className="py-4">
                     <div>
                       <div className="flex items-center">
-                        <span className="font-semibold text-gray-900">{project.name}</span>
+                        <span className="font-semibold text-gray-900">
+                          {project.name}
+                        </span>
                         {project.isVeteran && (
                           <span className="ml-2 text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
                             🎖️
                           </span>
                         )}
                       </div>
-                      <div className="text-sm text-gray-600">{project.type}</div>
-                      <div className="text-xs text-gray-500">ID: {project.id}</div>
+                      <div className="text-sm text-gray-600">
+                        {project.type}
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        ID: {project.id}
+                      </div>
                     </div>
                   </td>
                   <td className="py-4">
-                    <div className="text-sm text-gray-900">{project.client}</div>
+                    <div className="text-sm text-gray-900">
+                      {project.client}
+                    </div>
                   </td>
                   <td className="py-4">
                     <div>
-                      <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(project.status)}`}>
+                      <span
+                        className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(project.status)}`}
+                      >
                         {project.status.replace('-', ' ')}
                       </span>
-                      <div className="text-xs text-gray-500 mt-1">{project.phase}</div>
+                      <div className="text-xs text-gray-500 mt-1">
+                        {project.phase}
+                      </div>
                     </div>
                   </td>
                   <td className="py-4">
@@ -165,11 +196,17 @@ export function ProjectsOverview() {
                     </div>
                   </td>
                   <td className="py-4">
-                    <div className="font-semibold text-gray-900">{project.value}</div>
-                    <div className="text-xs text-gray-500">Expected: {project.expectedCompletion}</div>
+                    <div className="font-semibold text-gray-900">
+                      {project.value}
+                    </div>
+                    <div className="text-xs text-gray-500">
+                      Expected: {project.expectedCompletion}
+                    </div>
                   </td>
                   <td className="py-4">
-                    <div className="text-sm text-gray-900">{project.teamLead}</div>
+                    <div className="text-sm text-gray-900">
+                      {project.teamLead}
+                    </div>
                   </td>
                   <td className="py-4">
                     <div className="flex space-x-1">
@@ -203,7 +240,9 @@ export function ProjectsOverview() {
               <div className="text-sm text-green-800">Completed</div>
             </div>
             <div className="text-center p-3 bg-purple-50 rounded-lg">
-              <div className="text-2xl font-tactic-bold text-purple-600">$2.4M</div>
+              <div className="text-2xl font-tactic-bold text-purple-600">
+                $2.4M
+              </div>
               <div className="text-sm text-purple-800">Total Value</div>
             </div>
           </div>

@@ -30,7 +30,7 @@ export function LazyImage({
   placeholder = 'blur',
   blurDataURL,
   onLoad,
-  quality = 85
+  quality = 85,
 }: LazyImageProps) {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isInView, setIsInView] = useState(priority)
@@ -64,7 +64,7 @@ export function LazyImage({
       },
       {
         rootMargin: '50px', // Load images 50px before they come into view
-        threshold: 0.1
+        threshold: 0.1,
       }
     )
 
@@ -97,18 +97,21 @@ export function LazyImage({
     onError: handleError,
     ...(placeholder === 'blur' && {
       placeholder: 'blur' as const,
-      blurDataURL: blurDataURL || generateBlurDataURL(width || 400, height || 300)
+      blurDataURL:
+        blurDataURL || generateBlurDataURL(width || 400, height || 300),
     }),
-    ...(fill ? { fill: true } : { width: width || 800, height: height || 600 })
+    ...(fill ? { fill: true } : { width: width || 800, height: height || 600 }),
   }
 
   if (!isInView && !priority) {
     // Show placeholder while waiting for intersection
     return (
-      <div 
+      <div
         ref={imgRef}
         className={`bg-gray-200 animate-pulse ${className}`}
-        style={fill ? undefined : { width: width || 800, height: height || 600 }}
+        style={
+          fill ? undefined : { width: width || 800, height: height || 600 }
+        }
       >
         <div className="flex items-center justify-center h-full text-gray-400 text-sm">
           Loading...
@@ -120,7 +123,9 @@ export function LazyImage({
   return (
     <div ref={imgRef} className="relative">
       {!isLoaded && !hasError && (
-        <div className={`absolute inset-0 bg-gray-200 animate-pulse z-10 ${fill ? '' : 'w-full h-full'}`}>
+        <div
+          className={`absolute inset-0 bg-gray-200 animate-pulse z-10 ${fill ? '' : 'w-full h-full'}`}
+        >
           <div className="flex items-center justify-center h-full text-gray-400 text-sm">
             Loading...
           </div>
@@ -137,7 +142,7 @@ export function OptimizedPortfolioImage({
   alt,
   className = '',
   priority = false,
-  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
 }: {
   src: string
   alt: string

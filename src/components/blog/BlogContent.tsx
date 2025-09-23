@@ -36,14 +36,12 @@ export function BlogContent({ content }: BlogContentProps) {
               {children}
             </h4>
           ),
-          
+
           // Custom paragraph styles
           p: ({ children }: any) => (
-            <p className="text-gray-700 leading-relaxed mb-6">
-              {children}
-            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">{children}</p>
           ),
-          
+
           // Custom list styles
           ul: ({ children }: any) => (
             <ul className="list-disc list-inside space-y-2 mb-6 text-gray-700">
@@ -55,12 +53,8 @@ export function BlogContent({ content }: BlogContentProps) {
               {children}
             </ol>
           ),
-          li: ({ children }: any) => (
-            <li className="ml-4">
-              {children}
-            </li>
-          ),
-          
+          li: ({ children }: any) => <li className="ml-4">{children}</li>,
+
           // Custom link styles
           a: ({ href, children }: any) => (
             <Link
@@ -70,17 +64,19 @@ export function BlogContent({ content }: BlogContentProps) {
               {children}
             </Link>
           ),
-          
+
           // Custom blockquote styles
           blockquote: ({ children }: any) => (
             <blockquote className="border-l-4 border-blue-500 pl-6 py-2 my-6 bg-blue-50 italic text-gray-700 rounded-r-lg">
               {children}
             </blockquote>
           ),
-          
+
           // Custom code styles
           code: ({ className, children, ...props }: any) => {
-            const inline = !props.node || props.node.position?.start.line === props.node.position?.end.line
+            const inline =
+              !props.node ||
+              props.node.position?.start.line === props.node.position?.end.line
             const match = /language-(\w+)/.exec(className || '')
             return !inline && match ? (
               <div className="my-6">
@@ -100,7 +96,7 @@ export function BlogContent({ content }: BlogContentProps) {
               </code>
             )
           },
-          
+
           // Custom table styles
           table: ({ children }: any) => (
             <div className="overflow-x-auto my-6">
@@ -110,9 +106,7 @@ export function BlogContent({ content }: BlogContentProps) {
             </div>
           ),
           thead: ({ children }: any) => (
-            <thead className="bg-gray-50">
-              {children}
-            </thead>
+            <thead className="bg-gray-50">{children}</thead>
           ),
           th: ({ children }: any) => (
             <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-300">
@@ -124,7 +118,7 @@ export function BlogContent({ content }: BlogContentProps) {
               {children}
             </td>
           ),
-          
+
           // Custom image styles
           img: ({ src, alt }: any) => (
             <div className="my-8">
@@ -143,11 +137,9 @@ export function BlogContent({ content }: BlogContentProps) {
               )}
             </div>
           ),
-          
+
           // Custom horizontal rule
-          hr: () => (
-            <hr className="my-8 border-t border-gray-300" />
-          ),
+          hr: () => <hr className="my-8 border-t border-gray-300" />,
         }}
       >
         {content}

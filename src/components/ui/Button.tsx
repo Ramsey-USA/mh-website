@@ -2,27 +2,34 @@
 import React from 'react'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'gradient' | 'destructive'
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'outline'
+    | 'ghost'
+    | 'gradient'
+    | 'destructive'
   size?: 'sm' | 'md' | 'lg' | 'xl'
   withRing?: boolean
   children: React.ReactNode
 }
 
-export function Button({ 
-  variant = 'primary', 
-  size = 'md', 
+export function Button({
+  variant = 'primary',
+  size = 'md',
   withRing = true,
-  children, 
-  className = '', 
-  ...props 
+  children,
+  className = '',
+  ...props
 }: ButtonProps) {
-  const baseClasses = 'font-bold rounded-full transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 relative overflow-hidden group'
-  
+  const baseClasses =
+    'font-bold rounded-full transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 relative overflow-hidden group'
+
   // Ring styles for consistent outer ring effect
-  const ringClasses = withRing 
-    ? 'ring-2 ring-offset-2 ring-offset-white dark:ring-offset-surface-dark hover:ring-4 focus:ring-4 active:ring-2' 
+  const ringClasses = withRing
+    ? 'ring-2 ring-offset-2 ring-offset-white dark:ring-offset-surface-dark hover:ring-4 focus:ring-4 active:ring-2'
     : 'focus:ring-2 focus:ring-offset-2'
-  
+
   const variantClasses = {
     primary: `
       bg-brand-primary border-2 border-brand-primary text-white
@@ -78,18 +85,21 @@ export function Button({
       shadow-[0_4px_16px_rgba(239,68,68,0.2)]
       hover:bg-error-dark hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(239,68,68,0.35)]
       ${ringClasses} ring-red-300 hover:ring-red-400 focus:ring-red-400
-    `
+    `,
   }
-  
+
   const sizeClasses = {
     sm: 'px-3 py-1.5 text-sm min-h-[36px]',
     md: 'px-4 py-2 text-base min-h-[44px]',
     lg: 'px-6 py-3 text-lg min-h-[52px]',
-    xl: 'px-8 py-4 text-xl min-h-[60px]'
+    xl: 'px-8 py-4 text-xl min-h-[60px]',
   }
-  
-  const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`.replace(/\s+/g, ' ').trim()
-  
+
+  const classes =
+    `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`
+      .replace(/\s+/g, ' ')
+      .trim()
+
   return (
     <button className={classes} {...props}>
       {children}

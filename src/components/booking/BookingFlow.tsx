@@ -13,7 +13,9 @@ interface TimeSlot {
 
 export function BookingFlow() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
-  const [selectedTimeSlot, setSelectedTimeSlot] = useState<TimeSlot | null>(null)
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState<TimeSlot | null>(
+    null
+  )
   const [showBookingForm, setShowBookingForm] = useState(false)
 
   const handleTimeSlotSelected = (date: Date, timeSlot: TimeSlot) => {
@@ -29,7 +31,7 @@ export function BookingFlow() {
 
   if (showBookingForm && selectedDate && selectedTimeSlot) {
     return (
-      <ConsultationForm 
+      <ConsultationForm
         selectedDate={selectedDate}
         selectedTimeSlot={selectedTimeSlot}
         onBack={handleBackToCalendar}
@@ -37,7 +39,5 @@ export function BookingFlow() {
     )
   }
 
-  return (
-    <BookingCalendar onTimeSlotSelected={handleTimeSlotSelected} />
-  )
+  return <BookingCalendar onTimeSlotSelected={handleTimeSlotSelected} />
 }

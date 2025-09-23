@@ -15,7 +15,7 @@ if (!global.subscriptionsStore) {
 export async function POST(request: NextRequest) {
   try {
     const { subscription } = await request.json()
-    
+
     if (!subscription || !subscription.endpoint) {
       return NextResponse.json(
         { error: 'Invalid subscription object' },
@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
 
     // Generate the same ID used when subscribing
     const subscriptionId = Buffer.from(subscription.endpoint).toString('base64')
-    
+
     // Remove the subscription
     const existed = global.subscriptionsStore.delete(subscriptionId)
 
@@ -33,8 +33,10 @@ export async function POST(request: NextRequest) {
     console.log(`Total subscriptions: ${global.subscriptionsStore.size}`)
 
     return NextResponse.json({
-      message: existed ? 'Subscription removed successfully' : 'Subscription not found',
-      id: subscriptionId
+      message: existed
+        ? 'Subscription removed successfully'
+        : 'Subscription not found',
+      id: subscriptionId,
     })
   } catch (error) {
     console.error('Error removing subscription:', error)

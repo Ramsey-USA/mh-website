@@ -14,7 +14,7 @@ export function UserProfile() {
     displayName: userProfile?.displayName || '',
     phoneNumber: userProfile?.phoneNumber || '',
     company: userProfile?.company || '',
-    isVeteran: userProfile?.isVeteran || false
+    isVeteran: userProfile?.isVeteran || false,
   })
 
   const handleSave = async () => {
@@ -36,7 +36,7 @@ export function UserProfile() {
       displayName: userProfile?.displayName || '',
       phoneNumber: userProfile?.phoneNumber || '',
       company: userProfile?.company || '',
-      isVeteran: userProfile?.isVeteran || false
+      isVeteran: userProfile?.isVeteran || false,
     })
     setIsEditing(false)
     setMessage('')
@@ -49,13 +49,13 @@ export function UserProfile() {
   const roleColors = {
     admin: 'bg-red-100 text-red-800',
     team_member: 'bg-blue-100 text-blue-800',
-    client: 'bg-green-100 text-green-800'
+    client: 'bg-green-100 text-green-800',
   }
 
   const roleNames = {
     admin: 'Administrator',
     team_member: 'Team Member',
-    client: 'Client'
+    client: 'Client',
   }
 
   return (
@@ -65,11 +65,13 @@ export function UserProfile() {
       </CardHeader>
       <CardContent>
         {message && (
-          <div className={`mb-4 p-3 rounded-md ${
-            message.includes('success') 
-              ? 'bg-success-light text-success' 
-              : 'bg-error-light text-error'
-          }`}>
+          <div
+            className={`mb-4 p-3 rounded-md ${
+              message.includes('success')
+                ? 'bg-success-light text-success'
+                : 'bg-error-light text-error'
+            }`}
+          >
             {message}
           </div>
         )}
@@ -78,7 +80,9 @@ export function UserProfile() {
           {/* Profile Header */}
           <div className="flex items-center space-x-4">
             <div className="w-16 h-16 bg-brand-primary text-white rounded-full flex items-center justify-center text-xl font-bold">
-              {userProfile.displayName?.charAt(0) || user.email?.charAt(0) || 'U'}
+              {userProfile.displayName?.charAt(0) ||
+                user.email?.charAt(0) ||
+                'U'}
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900">
@@ -86,7 +90,9 @@ export function UserProfile() {
               </h3>
               <p className="text-text-secondary">{user.email}</p>
               <div className="flex items-center space-x-2 mt-1">
-                <span className={`px-2 py-1 rounded-full text-xs font-medium ${roleColors[userProfile.role]}`}>
+                <span
+                  className={`px-2 py-1 rounded-full text-xs font-medium ${roleColors[userProfile.role]}`}
+                >
                   {roleNames[userProfile.role]}
                 </span>
                 {userProfile.isVeteran && (
@@ -107,11 +113,15 @@ export function UserProfile() {
               {isEditing ? (
                 <Input
                   value={formData.displayName}
-                  onChange={(e) => setFormData({ ...formData, displayName: e.target.value })}
+                  onChange={e =>
+                    setFormData({ ...formData, displayName: e.target.value })
+                  }
                   placeholder="Your display name"
                 />
               ) : (
-                <p className="text-text-primary">{userProfile.displayName || 'Not set'}</p>
+                <p className="text-text-primary">
+                  {userProfile.displayName || 'Not set'}
+                </p>
               )}
             </div>
 
@@ -122,11 +132,15 @@ export function UserProfile() {
               {isEditing ? (
                 <Input
                   value={formData.phoneNumber}
-                  onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
+                  onChange={e =>
+                    setFormData({ ...formData, phoneNumber: e.target.value })
+                  }
                   placeholder="Your phone number"
                 />
               ) : (
-                <p className="text-text-primary">{userProfile.phoneNumber || 'Not set'}</p>
+                <p className="text-text-primary">
+                  {userProfile.phoneNumber || 'Not set'}
+                </p>
               )}
             </div>
 
@@ -137,11 +151,15 @@ export function UserProfile() {
               {isEditing ? (
                 <Input
                   value={formData.company}
-                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  onChange={e =>
+                    setFormData({ ...formData, company: e.target.value })
+                  }
                   placeholder="Company name"
                 />
               ) : (
-                <p className="text-text-primary">{userProfile.company || 'Not set'}</p>
+                <p className="text-text-primary">
+                  {userProfile.company || 'Not set'}
+                </p>
               )}
             </div>
 
@@ -162,7 +180,9 @@ export function UserProfile() {
                 <input
                   type="checkbox"
                   checked={formData.isVeteran}
-                  onChange={(e) => setFormData({ ...formData, isVeteran: e.target.checked })}
+                  onChange={e =>
+                    setFormData({ ...formData, isVeteran: e.target.checked })
+                  }
                   className="w-4 h-4 text-brand-primary border-gray-300 rounded focus:ring-brand-primary"
                 />
                 <span className="text-sm font-medium text-gray-700">
@@ -192,10 +212,7 @@ export function UserProfile() {
                 </Button>
               </>
             ) : (
-              <Button
-                variant="secondary"
-                onClick={() => setIsEditing(true)}
-              >
+              <Button variant="secondary" onClick={() => setIsEditing(true)}>
                 Edit Profile
               </Button>
             )}

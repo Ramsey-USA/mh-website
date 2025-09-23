@@ -24,23 +24,27 @@ interface BookingCalendarProps {
   onTimeSlotSelected?: (date: Date, timeSlot: TimeSlot) => void
 }
 
-export function BookingCalendar({ onTimeSlotSelected }: BookingCalendarProps = {}) {
+export function BookingCalendar({
+  onTimeSlotSelected,
+}: BookingCalendarProps = {}) {
   const [currentDate, setCurrentDate] = useState(new Date())
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
-  const [selectedTimeSlot, setSelectedTimeSlot] = useState<TimeSlot | null>(null)
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState<TimeSlot | null>(
+    null
+  )
   const [calendarDays, setCalendarDays] = useState<CalendarDay[]>([])
 
   // Business hours: Monday-Friday 8:00 AM - 3:00 PM (Pacific Time)
   const businessHours = {
     start: 8, // 8:00 AM
-    end: 15,  // 3:00 PM
-    days: [1, 2, 3, 4, 5] // Monday-Friday
+    end: 15, // 3:00 PM
+    days: [1, 2, 3, 4, 5], // Monday-Friday
   }
 
   const generateTimeSlots = (date: Date): TimeSlot[] => {
     const slots: TimeSlot[] = []
     const dayOfWeek = date.getDay()
-    
+
     // Only generate slots for business days
     if (!businessHours.days.includes(dayOfWeek)) {
       return slots
@@ -50,12 +54,12 @@ export function BookingCalendar({ onTimeSlotSelected }: BookingCalendarProps = {
     for (let hour = businessHours.start; hour < businessHours.end; hour++) {
       const timeString = formatTime(hour)
       const isAvailable = isSlotAvailable(date, hour)
-      
+
       slots.push({
         id: `${date.toISOString().split('T')[0]}-${hour}`,
         time: timeString,
         available: isAvailable,
-        teamMember: getAvailableTeamMember(date, hour)
+        teamMember: getAvailableTeamMember(date, hour),
       })
     }
 
@@ -72,14 +76,14 @@ export function BookingCalendar({ onTimeSlotSelected }: BookingCalendarProps = {
     const now = new Date()
     const slotDateTime = new Date(date)
     slotDateTime.setHours(hour, 0, 0, 0)
-    
+
     // Don't allow booking in the past
     if (slotDateTime <= now) return false
-    
+
     // Require at least 24 hours advance notice
     const twentyFourHoursFromNow = new Date(now.getTime() + 24 * 60 * 60 * 1000)
     if (slotDateTime < twentyFourHoursFromNow) return false
-    
+
     // Mock some unavailable slots (in real app, this would check Firebase)
     const unavailableSlots = [
       // Mock existing bookings
@@ -87,15 +91,17 @@ export function BookingCalendar({ onTimeSlotSelected }: BookingCalendarProps = {
       { date: '2025-09-23', hour: 14 },
       { date: '2025-09-24', hour: 10 },
     ]
-    
+
     const dateString = date.toISOString().split('T')[0]
-    return !unavailableSlots.some(slot => slot.date === dateString && slot.hour === hour)
+    return !unavailableSlots.some(
+      slot => slot.date === dateString && slot.hour === hour
+    )
   }
 
   const getAvailableTeamMember = (date: Date, hour: number): string => {
     // Mock team member availability logic
     const dayOfWeek = date.getDay()
-    
+
     if (dayOfWeek >= 2 && dayOfWeek <= 4 && hour >= 9 && hour <= 16) {
       return 'Sarah Harris' // Design Director available Tue-Thu 9-4
     } else if (hour >= 7 && hour <= 17) {
@@ -108,29 +114,30 @@ export function BookingCalendar({ onTimeSlotSelected }: BookingCalendarProps = {
   const generateCalendarDays = (date: Date): CalendarDay[] => {
     const year = date.getFullYear()
     const month = date.getMonth()
-    
+
     // Get first day of the month and last day
     const firstDay = new Date(year, month, 1)
     const lastDay = new Date(year, month + 1, 0)
-    
+
     // Get the first Sunday of the calendar view
     const startDate = new Date(firstDay)
     startDate.setDate(startDate.getDate() - firstDay.getDay())
-    
+
     const days: CalendarDay[] = []
     const today = new Date()
     today.setHours(0, 0, 0, 0)
-    
+
     // Generate 42 days (6 weeks)
     for (let i = 0; i < 42; i++) {
       const currentDay = new Date(startDate)
       currentDay.setDate(startDate.getDate() + i)
-      
+
       const isCurrentMonth = currentDay.getMonth() === month
       const isToday = currentDay.getTime() === today.getTime()
-      const isSelected = selectedDate && currentDay.getTime() === selectedDate.getTime()
+      const isSelected =
+        selectedDate && currentDay.getTime() === selectedDate.getTime()
       const isAvailable = isCurrentMonth && currentDay >= today
-      
+
       days.push({
         date: new Date(currentDay),
         dayNumber: currentDay.getDate(),
@@ -138,10 +145,10 @@ export function BookingCalendar({ onTimeSlotSelected }: BookingCalendarProps = {
         isToday,
         isSelected: Boolean(isSelected),
         isAvailable,
-        timeSlots: isAvailable ? generateTimeSlots(currentDay) : []
+        timeSlots: isAvailable ? generateTimeSlots(currentDay) : [],
       })
     }
-    
+
     return days
   }
 
@@ -173,8 +180,18 @@ export function BookingCalendar({ onTimeSlotSelected }: BookingCalendarProps = {
   }
 
   const monthNames = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ]
 
   const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -182,25 +199,25 @@ export function BookingCalendar({ onTimeSlotSelected }: BookingCalendarProps = {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
         {/* Calendar */}
         <div className="lg:col-span-2">
           <Card>
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-2xl">
-                  {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
+                  {monthNames[currentDate.getMonth()]}{' '}
+                  {currentDate.getFullYear()}
                 </CardTitle>
                 <div className="flex space-x-2">
-                  <Button 
-                    variant="secondary" 
+                  <Button
+                    variant="secondary"
                     size="sm"
                     onClick={() => navigateMonth('prev')}
                   >
                     ←
                   </Button>
-                  <Button 
-                    variant="secondary" 
+                  <Button
+                    variant="secondary"
                     size="sm"
                     onClick={() => navigateMonth('next')}
                   >
@@ -210,16 +227,18 @@ export function BookingCalendar({ onTimeSlotSelected }: BookingCalendarProps = {
               </div>
             </CardHeader>
             <CardContent>
-              
               {/* Day Headers */}
               <div className="grid grid-cols-7 gap-1 mb-2">
                 {dayNames.map(day => (
-                  <div key={day} className="p-2 text-center text-sm font-semibold text-gray-600">
+                  <div
+                    key={day}
+                    className="p-2 text-center text-sm font-semibold text-gray-600"
+                  >
                     {day}
                   </div>
                 ))}
               </div>
-              
+
               {/* Calendar Grid */}
               <div className="grid grid-cols-7 gap-1">
                 {calendarDays.map((day, index) => (
@@ -237,13 +256,14 @@ export function BookingCalendar({ onTimeSlotSelected }: BookingCalendarProps = {
                     `}
                   >
                     {day.dayNumber}
-                    {day.timeSlots.some(slot => slot.available) && day.isAvailable && (
-                      <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-green-500 rounded-full"></div>
-                    )}
+                    {day.timeSlots.some(slot => slot.available) &&
+                      day.isAvailable && (
+                        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-green-500 rounded-full"></div>
+                      )}
                   </button>
                 ))}
               </div>
-              
+
               <div className="mt-4 text-xs text-gray-500 text-center">
                 Business Hours: Monday-Friday, 8:00 AM - 3:00 PM Pacific Time
               </div>
@@ -256,20 +276,23 @@ export function BookingCalendar({ onTimeSlotSelected }: BookingCalendarProps = {
           <Card>
             <CardHeader>
               <CardTitle>
-                {selectedDate 
-                  ? `Available Times - ${selectedDate.toLocaleDateString('en-US', { 
-                      weekday: 'long', 
-                      month: 'short', 
-                      day: 'numeric' 
-                    })}`
-                  : 'Select a Date'
-                }
+                {selectedDate
+                  ? `Available Times - ${selectedDate.toLocaleDateString(
+                      'en-US',
+                      {
+                        weekday: 'long',
+                        month: 'short',
+                        day: 'numeric',
+                      }
+                    )}`
+                  : 'Select a Date'}
               </CardTitle>
             </CardHeader>
             <CardContent>
               {selectedDate ? (
                 <div className="space-y-2">
-                  {selectedDate.getDay() === 0 || selectedDate.getDay() === 6 ? (
+                  {selectedDate.getDay() === 0 ||
+                  selectedDate.getDay() === 6 ? (
                     <div className="text-center py-8 text-gray-500">
                       <div className="text-4xl mb-2">📅</div>
                       <p>We&apos;re closed on weekends</p>
@@ -277,29 +300,34 @@ export function BookingCalendar({ onTimeSlotSelected }: BookingCalendarProps = {
                     </div>
                   ) : (
                     <>
-                      {generateTimeSlots(selectedDate).map((timeSlot) => (
+                      {generateTimeSlots(selectedDate).map(timeSlot => (
                         <button
                           key={timeSlot.id}
                           onClick={() => handleTimeSlotSelect(timeSlot)}
                           disabled={!timeSlot.available}
                           className={`
                             w-full p-3 text-left rounded-lg border transition-colors
-                            ${timeSlot.available 
-                              ? 'border-gray-200 hover:border-brand-primary hover:bg-brand-primary hover:text-white' 
-                              : 'border-gray-100 bg-gray-50 text-gray-400 cursor-not-allowed'
+                            ${
+                              timeSlot.available
+                                ? 'border-gray-200 hover:border-brand-primary hover:bg-brand-primary hover:text-white'
+                                : 'border-gray-100 bg-gray-50 text-gray-400 cursor-not-allowed'
                             }
                           `}
                         >
                           <div className="font-semibold">{timeSlot.time}</div>
                           {timeSlot.available && timeSlot.teamMember && (
-                            <div className="text-xs opacity-75">with {timeSlot.teamMember}</div>
+                            <div className="text-xs opacity-75">
+                              with {timeSlot.teamMember}
+                            </div>
                           )}
                           {!timeSlot.available && (
                             <div className="text-xs">Unavailable</div>
                           )}
                         </button>
                       ))}
-                      {generateTimeSlots(selectedDate).every(slot => !slot.available) && (
+                      {generateTimeSlots(selectedDate).every(
+                        slot => !slot.available
+                      ) && (
                         <div className="text-center py-8 text-gray-500">
                           <div className="text-4xl mb-2">😔</div>
                           <p>No available times</p>

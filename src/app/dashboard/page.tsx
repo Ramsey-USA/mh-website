@@ -1,10 +1,16 @@
-import { Button, Card, CardHeader, CardTitle, CardContent } from '../../components/ui'
-import { 
-  DashboardSidebar, 
-  DashboardStats, 
-  RecentConsultations, 
-  ProjectsOverview, 
-  TeamSchedule 
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from '../../components/ui'
+import {
+  DashboardSidebar,
+  DashboardStats,
+  RecentConsultations,
+  ProjectsOverview,
+  TeamSchedule,
 } from '../../components/dashboard'
 
 export default function DashboardPage() {
@@ -13,7 +19,7 @@ export default function DashboardPage() {
       <div className="flex">
         {/* Sidebar */}
         <DashboardSidebar />
-        
+
         {/* Main Content */}
         <div className="flex-1 ml-64">
           {/* Header */}
@@ -21,8 +27,12 @@ export default function DashboardPage() {
             <div className="px-6 py-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-tactic-bold text-brand-primary">Team Dashboard</h1>
-                  <p className="text-gray-600">Welcome back! Here&apos;s your MH Construction overview.</p>
+                  <h1 className="text-2xl font-tactic-bold text-brand-primary">
+                    Team Dashboard
+                  </h1>
+                  <p className="text-gray-600">
+                    Welcome back! Here&apos;s your MH Construction overview.
+                  </p>
                 </div>
                 <div className="flex items-center space-x-4">
                   <Button variant="secondary" size="sm">
@@ -42,13 +52,11 @@ export default function DashboardPage() {
           {/* Dashboard Content */}
           <main className="p-6">
             <div className="space-y-6">
-              
               {/* Stats Overview */}
               <DashboardStats />
 
               {/* Main Dashboard Grid */}
               <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                
                 {/* Recent Consultations */}
                 <div className="xl:col-span-2">
                   <RecentConsultations />

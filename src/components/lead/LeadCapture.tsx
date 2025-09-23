@@ -26,7 +26,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
   className = '',
   title = 'Get Your Free Consultation',
   subtitle = 'Start your construction project with expert guidance',
-  compact = false
+  compact = false,
 }) => {
   const [formData, setFormData] = useState<QuickLeadData>({
     name: '',
@@ -34,7 +34,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
     phone: '',
     projectType: '',
     location: '',
-    source
+    source,
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -49,7 +49,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
     'Bathroom Remodel',
     'Addition/Extension',
     'Emergency Repair',
-    'Other'
+    'Other',
   ]
 
   const validateForm = (): boolean => {
@@ -79,7 +79,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!validateForm()) {
       return
     }
@@ -91,22 +91,21 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
       analytics.event('lead_capture', {
         source: formData.source,
         project_type: formData.projectType,
-        location: formData.location || 'not_specified'
+        location: formData.location || 'not_specified',
       })
 
       // Simulate API call (replace with actual lead capture API)
       await new Promise(resolve => setTimeout(resolve, 1500))
 
       console.log('Lead captured:', formData)
-      
+
       setIsSubmitted(true)
 
       // Track successful lead submission
       analytics.event('lead_submitted', {
         source: formData.source,
-        project_type: formData.projectType
+        project_type: formData.projectType,
       })
-
     } catch (error) {
       console.error('Lead submission error:', error)
       setErrors({ email: 'Submission failed. Please try again.' })
@@ -131,10 +130,13 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
             Thank You!
           </h3>
           <p className="text-green-700 mb-4">
-            We&apos;ve received your information and will contact you within 24 hours to schedule your free consultation.
+            We&apos;ve received your information and will contact you within 24
+            hours to schedule your free consultation.
           </p>
           <div className="text-sm text-green-600">
-            <p><strong>Next Steps:</strong></p>
+            <p>
+              <strong>Next Steps:</strong>
+            </p>
             <ul className="list-disc list-inside mt-2 space-y-1">
               <li>Our team will review your project requirements</li>
               <li>We&apos;ll call to schedule your consultation</li>
@@ -152,18 +154,14 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
         <CardTitle className={compact ? 'text-lg' : 'text-xl'}>
           {title}
         </CardTitle>
-        {subtitle && (
-          <p className="text-gray-600 text-sm">
-            {subtitle}
-          </p>
-        )}
+        {subtitle && <p className="text-gray-600 text-sm">{subtitle}</p>}
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input
             label="Full Name"
             value={formData.name}
-            onChange={(e) => handleInputChange('name', e.target.value)}
+            onChange={e => handleInputChange('name', e.target.value)}
             placeholder="Enter your full name"
             error={errors.name}
             required
@@ -174,7 +172,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
               label="Email"
               type="email"
               value={formData.email}
-              onChange={(e) => handleInputChange('email', e.target.value)}
+              onChange={e => handleInputChange('email', e.target.value)}
               placeholder="your.email@example.com"
               error={errors.email}
               required
@@ -184,7 +182,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
               label="Phone"
               type="tel"
               value={formData.phone}
-              onChange={(e) => handleInputChange('phone', e.target.value)}
+              onChange={e => handleInputChange('phone', e.target.value)}
               placeholder="(509) 555-0123"
               error={errors.phone}
               required
@@ -198,28 +196,30 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
               </label>
               <select
                 value={formData.projectType}
-                onChange={(e) => handleInputChange('projectType', e.target.value)}
+                onChange={e => handleInputChange('projectType', e.target.value)}
                 className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent ${
                   errors.projectType ? 'border-red-300' : 'border-gray-300'
                 }`}
                 required
               >
                 <option value="">Select project type</option>
-                {projectTypes.map((type) => (
+                {projectTypes.map(type => (
                   <option key={type} value={type}>
                     {type}
                   </option>
                 ))}
               </select>
               {errors.projectType && (
-                <p className="text-red-600 text-xs mt-1">{errors.projectType}</p>
+                <p className="text-red-600 text-xs mt-1">
+                  {errors.projectType}
+                </p>
               )}
             </div>
 
             <Input
               label="Project Location"
               value={formData.location}
-              onChange={(e) => handleInputChange('location', e.target.value)}
+              onChange={e => handleInputChange('location', e.target.value)}
               placeholder="City, State"
               helperText="Where is your project located?"
             />
@@ -245,7 +245,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
           <Button
             type="submit"
             variant="primary"
-            size={compact ? "md" : "lg"}
+            size={compact ? 'md' : 'lg'}
             className="w-full"
             disabled={isSubmitting}
           >
@@ -260,8 +260,9 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
           </Button>
 
           <p className="text-xs text-gray-500 text-center">
-            By submitting this form, you agree to be contacted about your construction project. 
-            We respect your privacy and will never spam you.
+            By submitting this form, you agree to be contacted about your
+            construction project. We respect your privacy and will never spam
+            you.
           </p>
         </form>
       </CardContent>

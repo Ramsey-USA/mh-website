@@ -2,7 +2,7 @@
 'use client'
 
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { 
+import {
   User,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -11,7 +11,7 @@ import {
   updateProfile,
   sendPasswordResetEmail,
   GoogleAuthProvider,
-  signInWithPopup
+  signInWithPopup,
 } from 'firebase/auth'
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'
 import { getFirebaseAuth, getFirebaseDb } from '../firebase/config'
@@ -40,7 +40,12 @@ interface AuthContextType {
   userProfile: UserProfile | null
   loading: boolean
   signIn: (email: string, password: string) => Promise<void>
-  signUp: (email: string, password: string, displayName: string, role?: UserRole) => Promise<void>
+  signUp: (
+    email: string,
+    password: string,
+    displayName: string,
+    role?: UserRole
+  ) => Promise<void>
   signInWithGoogle: () => Promise<void>
   logout: () => Promise<void>
   resetPassword: (email: string) => Promise<void>
@@ -102,14 +107,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   // Update user profile (admin function to update any user)
-  const updateUserProfileById = async (uid: string, updates: Partial<UserProfile>) => {
+  const updateUserProfileById = async (
+    uid: string,
+    updates: Partial<UserProfile>
+  ) => {
     try {
       const db = getFirebaseDb()
       await updateDoc(doc(db, 'users', uid), {
         ...updates,
         lastLoginAt: new Date(),
       })
-      
+
       // Update local state if it's the current user
       if (userProfile && userProfile.uid === uid) {
         setUserProfile({ ...userProfile, ...updates })
@@ -141,9 +149,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       const auth = getFirebaseAuth()
       const result = await createUserWithEmailAndPassword(auth, email, password)
-      
+
       // Create user profile in Firestore
-      await createUserProfile(result.user, { displayName, role: role || 'client' })
+      await createUserProfile(result.user, {
+        displayName,
+        role: role || 'client',
+      })
     } catch (error) {
       console.error('Error signing up:', error)
       throw error
@@ -156,11 +167,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const auth = getFirebaseAuth()
       const googleProvider = new GoogleAuthProvider()
       googleProvider.setCustomParameters({
-        prompt: 'select_account'
+        prompt: 'select_account',
       })
-      
+
       const result = await signInWithPopup(auth, googleProvider)
-      
+
       // Check if user profile exists, create one if not
       const existingProfile = await getUserProfile(result.user.uid)
       if (!existingProfile) {
@@ -188,14 +199,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   // Update user profile (current user only)
   const updateUserProfile = async (updates: Partial<UserProfile>) => {
     if (!user) throw new Error('No user logged in')
-    
+
     try {
       const db = getFirebaseDb()
       await updateDoc(doc(db, 'users', user.uid), {
         ...updates,
         lastLoginAt: new Date(),
       })
-      
+
       // Update local state
       if (userProfile) {
         setUserProfile({ ...userProfile, ...updates })
@@ -220,7 +231,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   // Listen for authentication state changes
   useEffect(() => {
     const auth = getFirebaseAuth()
-    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async firebaseUser => {
       if (firebaseUser) {
         setUser(firebaseUser)
         // Fetch user profile from Firestore
@@ -248,11 +259,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     updateUserProfile,
   }
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  )
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
 
 // Custom hook to use authentication context
@@ -267,17 +274,17 @@ export function useAuth() {
 // Role-based access control hooks
 export function useRequireAuth(requiredRole?: UserRole) {
   const { user, userProfile, loading } = useAuth()
-  
+
   const hasAccess = React.useMemo(() => {
     if (!user || !userProfile) return false
     if (!requiredRole) return true
-    
+
     const roleHierarchy: Record<UserRole, number> = {
-      'client': 0,
-      'team_member': 1,
-      'admin': 2
+      client: 0,
+      team_member: 1,
+      admin: 2,
     }
-    
+
     return roleHierarchy[userProfile.role] >= roleHierarchy[requiredRole]
   }, [user, userProfile, requiredRole])
 
@@ -289,7 +296,7 @@ export function useRequireAdmin() {
   return useRequireAuth('admin')
 }
 
-// Team member access hook  
+// Team member access hook
 export function useRequireTeamMember() {
   return useRequireAuth('team_member')
 }

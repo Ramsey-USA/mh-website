@@ -4,7 +4,8 @@ import { DashboardProtection } from '../../lib/auth/ProtectedRoute'
 
 export const metadata: Metadata = {
   title: 'Team Dashboard - MH Construction',
-  description: 'MH Construction team dashboard for managing projects, consultations, and business operations.',
+  description:
+    'MH Construction team dashboard for managing projects, consultations, and business operations.',
 }
 
 interface DashboardLayoutProps {
@@ -14,9 +15,7 @@ interface DashboardLayoutProps {
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
     <DashboardProtection>
-      <div className="min-h-screen bg-gray-50">
-        {children}
-      </div>
+      <div className="min-h-screen bg-gray-50">{children}</div>
     </DashboardProtection>
   )
 }

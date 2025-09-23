@@ -11,12 +11,8 @@ export function Card({ children, className = '', hover = true }: CardProps) {
   const baseClasses = 'military-card p-6'
   const hoverClasses = hover ? 'cursor-pointer' : ''
   const classes = `${baseClasses} ${hoverClasses} ${className}`
-  
-  return (
-    <div className={classes}>
-      {children}
-    </div>
-  )
+
+  return <div className={classes}>{children}</div>
 }
 
 interface CardHeaderProps {
@@ -25,11 +21,7 @@ interface CardHeaderProps {
 }
 
 export function CardHeader({ children, className = '' }: CardHeaderProps) {
-  return (
-    <div className={`mb-4 ${className}`}>
-      {children}
-    </div>
-  )
+  return <div className={`mb-4 ${className}`}>{children}</div>
 }
 
 interface CardTitleProps {
@@ -51,9 +43,5 @@ interface CardContentProps {
 }
 
 export function CardContent({ children, className = '' }: CardContentProps) {
-  return (
-    <div className={`text-gray-700 ${className}`}>
-      {children}
-    </div>
-  )
+  return <div className={`text-gray-700 ${className}`}>{children}</div>
 }

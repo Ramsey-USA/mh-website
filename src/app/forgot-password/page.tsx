@@ -1,34 +1,43 @@
 'use client'
 
-import { useState } from 'react';
-import { useAuth } from '../../context/AuthContext';
-import { Button, Input, Card, CardHeader, CardTitle, CardContent } from '../../components/ui';
-import Link from 'next/link';
+import { useState } from 'react'
+import { useAuth } from '../../context/AuthContext'
+import {
+  Button,
+  Input,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from '../../components/ui'
+import Link from 'next/link'
 
 // This page should not be statically generated since it uses authentication
 export const dynamic = 'force-dynamic'
 
 export default function ForgotPasswordPage() {
-  const { resetPassword } = useAuth();
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  const { resetPassword } = useAuth()
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setError('');
-    setMessage('');
+    e.preventDefault()
+    setLoading(true)
+    setError('')
+    setMessage('')
     try {
-      await resetPassword(email);
-      setMessage('Password reset email sent!');
+      await resetPassword(email)
+      setMessage('Password reset email sent!')
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : 'Failed to send reset email');
+      setError(
+        err instanceof Error ? err.message : 'Failed to send reset email'
+      )
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-surface dark:bg-surface-dark">
@@ -48,7 +57,12 @@ export default function ForgotPasswordPage() {
             />
             {error && <div className="text-error text-sm">{error}</div>}
             {message && <div className="text-success text-sm">{message}</div>}
-            <Button type="submit" variant="primary" size="lg" disabled={loading}>
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              disabled={loading}
+            >
               {loading ? 'Sending...' : 'Send Reset Email'}
             </Button>
           </form>
@@ -60,5 +74,5 @@ export default function ForgotPasswordPage() {
         </CardContent>
       </Card>
     </div>
-  );
+  )
 }

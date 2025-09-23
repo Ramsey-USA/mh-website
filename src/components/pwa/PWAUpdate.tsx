@@ -9,19 +9,24 @@ interface PWAUpdateProps {
   className?: string
 }
 
-export default function PWAUpdate({ onUpdate, onDismiss, className = '' }: PWAUpdateProps) {
+export default function PWAUpdate({
+  onUpdate,
+  onDismiss,
+  className = '',
+}: PWAUpdateProps) {
   const [updateAvailable, setUpdateAvailable] = useState(false)
   const [isUpdating, setIsUpdating] = useState(false)
   const [updateSuccess, setUpdateSuccess] = useState(false)
-  const [registration, setRegistration] = useState<ServiceWorkerRegistration | null>(null)
+  const [registration, setRegistration] =
+    useState<ServiceWorkerRegistration | null>(null)
   const [showUpdatePrompt, setShowUpdatePrompt] = useState(false)
 
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       // Check for existing service worker registration
-      navigator.serviceWorker.ready.then((reg) => {
+      navigator.serviceWorker.ready.then(reg => {
         setRegistration(reg)
-        
+
         // Check for waiting service worker (update available)
         if (reg.waiting) {
           setUpdateAvailable(true)
@@ -33,7 +38,10 @@ export default function PWAUpdate({ onUpdate, onDismiss, className = '' }: PWAUp
           const newWorker = reg.installing
           if (newWorker) {
             newWorker.addEventListener('statechange', () => {
-              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              if (
+                newWorker.state === 'installed' &&
+                navigator.serviceWorker.controller
+              ) {
                 // New service worker installed and ready
                 setUpdateAvailable(true)
                 setShowUpdatePrompt(true)
@@ -44,7 +52,7 @@ export default function PWAUpdate({ onUpdate, onDismiss, className = '' }: PWAUp
       })
 
       // Listen for messages from service worker
-      navigator.serviceWorker.addEventListener('message', (event) => {
+      navigator.serviceWorker.addEventListener('message', event => {
         if (event.data && event.data.type === 'SW_UPDATED') {
           setUpdateAvailable(true)
           setShowUpdatePrompt(true)
@@ -58,7 +66,7 @@ export default function PWAUpdate({ onUpdate, onDismiss, className = '' }: PWAUp
         setUpdateSuccess(true)
         setUpdateAvailable(false)
         setShowUpdatePrompt(false)
-        
+
         // Auto-hide success message after 3 seconds
         setTimeout(() => {
           setUpdateSuccess(false)
@@ -77,7 +85,7 @@ export default function PWAUpdate({ onUpdate, onDismiss, className = '' }: PWAUp
     try {
       // Tell the waiting service worker to skip waiting and become active
       registration.waiting.postMessage({ type: 'SKIP_WAITING' })
-      
+
       // The controllerchange event will handle the rest
     } catch (error) {
       console.error('Error updating service worker:', error)
@@ -98,7 +106,9 @@ export default function PWAUpdate({ onUpdate, onDismiss, className = '' }: PWAUp
   // Success notification
   if (updateSuccess) {
     return (
-      <div className={`fixed top-4 right-4 bg-green-600 text-white rounded-lg shadow-lg p-4 z-50 max-w-sm ${className}`}>
+      <div
+        className={`fixed top-4 right-4 bg-green-600 text-white rounded-lg shadow-lg p-4 z-50 max-w-sm ${className}`}
+      >
         <div className="flex items-center gap-3">
           <CheckCircle className="h-5 w-5 flex-shrink-0" />
           <div>
@@ -115,7 +125,9 @@ export default function PWAUpdate({ onUpdate, onDismiss, className = '' }: PWAUp
   // Update prompt
   if (showUpdatePrompt && updateAvailable) {
     return (
-      <div className={`fixed top-4 right-4 bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-50 max-w-sm ${className}`}>
+      <div
+        className={`fixed top-4 right-4 bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-50 max-w-sm ${className}`}
+      >
         <div className="flex items-start gap-3">
           <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
             <Download className="h-4 w-4 text-blue-600" />
@@ -125,7 +137,8 @@ export default function PWAUpdate({ onUpdate, onDismiss, className = '' }: PWAUp
               App Update Available
             </h3>
             <p className="text-sm text-gray-600 mb-3">
-              A new version of MH Construction is ready with improvements and new features.
+              A new version of MH Construction is ready with improvements and
+              new features.
             </p>
             <div className="flex gap-2">
               <button
@@ -177,17 +190,17 @@ export function ServiceWorkerStatus() {
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       setIsSupported(true)
-      
-      navigator.serviceWorker.ready.then((registration) => {
+
+      navigator.serviceWorker.ready.then(registration => {
         setIsRegistered(!!registration)
         setIsControlling(!!navigator.serviceWorker.controller)
       })
 
       // Estimate cache size
       if ('storage' in navigator && 'estimate' in navigator.storage) {
-        navigator.storage.estimate().then((estimate) => {
+        navigator.storage.estimate().then(estimate => {
           if (estimate.usage) {
-            setCacheSize(Math.round(estimate.usage / 1024 / 1024 * 100) / 100) // MB
+            setCacheSize(Math.round((estimate.usage / 1024 / 1024) * 100) / 100) // MB
           }
         })
       }
@@ -198,10 +211,8 @@ export function ServiceWorkerStatus() {
     if ('serviceWorker' in navigator && 'caches' in window) {
       try {
         const cacheNames = await caches.keys()
-        await Promise.all(
-          cacheNames.map(cacheName => caches.delete(cacheName))
-        )
-        
+        await Promise.all(cacheNames.map(cacheName => caches.delete(cacheName)))
+
         // Reload the page to re-register service worker
         window.location.reload()
       } catch (error) {
@@ -213,24 +224,32 @@ export function ServiceWorkerStatus() {
   return (
     <div className="bg-gray-50 rounded-lg p-4">
       <h4 className="font-medium text-gray-900 mb-3">App Status</h4>
-      
+
       <div className="space-y-2 text-sm">
         <div className="flex items-center justify-between">
           <span className="text-gray-600">Service Worker:</span>
-          <span className={`flex items-center gap-1 ${isSupported && isRegistered ? 'text-green-600' : 'text-gray-500'}`}>
-            <div className={`w-2 h-2 rounded-full ${isSupported && isRegistered ? 'bg-green-500' : 'bg-gray-400'}`}></div>
+          <span
+            className={`flex items-center gap-1 ${isSupported && isRegistered ? 'text-green-600' : 'text-gray-500'}`}
+          >
+            <div
+              className={`w-2 h-2 rounded-full ${isSupported && isRegistered ? 'bg-green-500' : 'bg-gray-400'}`}
+            ></div>
             {isSupported && isRegistered ? 'Active' : 'Inactive'}
           </span>
         </div>
-        
+
         <div className="flex items-center justify-between">
           <span className="text-gray-600">Offline Ready:</span>
-          <span className={`flex items-center gap-1 ${isControlling ? 'text-green-600' : 'text-gray-500'}`}>
-            <div className={`w-2 h-2 rounded-full ${isControlling ? 'bg-green-500' : 'bg-gray-400'}`}></div>
+          <span
+            className={`flex items-center gap-1 ${isControlling ? 'text-green-600' : 'text-gray-500'}`}
+          >
+            <div
+              className={`w-2 h-2 rounded-full ${isControlling ? 'bg-green-500' : 'bg-gray-400'}`}
+            ></div>
             {isControlling ? 'Yes' : 'No'}
           </span>
         </div>
-        
+
         {cacheSize !== null && (
           <div className="flex items-center justify-between">
             <span className="text-gray-600">Cache Size:</span>
@@ -238,7 +257,7 @@ export function ServiceWorkerStatus() {
           </div>
         )}
       </div>
-      
+
       <div className="mt-4 pt-4 border-t border-gray-200">
         <button
           onClick={clearCache}
@@ -261,12 +280,19 @@ export function NetworkStatus() {
     setIsOnline(navigator.onLine)
 
     // Get connection info if available
-    const connection = (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection
+    const connection =
+      (navigator as any).connection ||
+      (navigator as any).mozConnection ||
+      (navigator as any).webkitConnection
     if (connection) {
-      setConnectionType(connection.effectiveType || connection.type || 'unknown')
-      
+      setConnectionType(
+        connection.effectiveType || connection.type || 'unknown'
+      )
+
       connection.addEventListener('change', () => {
-        setConnectionType(connection.effectiveType || connection.type || 'unknown')
+        setConnectionType(
+          connection.effectiveType || connection.type || 'unknown'
+        )
       })
     }
 
@@ -285,16 +311,20 @@ export function NetworkStatus() {
   return (
     <div className="bg-gray-50 rounded-lg p-4">
       <h4 className="font-medium text-gray-900 mb-3">Connection Status</h4>
-      
+
       <div className="space-y-2 text-sm">
         <div className="flex items-center justify-between">
           <span className="text-gray-600">Status:</span>
-          <span className={`flex items-center gap-1 ${isOnline ? 'text-green-600' : 'text-red-600'}`}>
-            <div className={`w-2 h-2 rounded-full ${isOnline ? 'bg-green-500' : 'bg-red-500'}`}></div>
+          <span
+            className={`flex items-center gap-1 ${isOnline ? 'text-green-600' : 'text-red-600'}`}
+          >
+            <div
+              className={`w-2 h-2 rounded-full ${isOnline ? 'bg-green-500' : 'bg-red-500'}`}
+            ></div>
             {isOnline ? 'Online' : 'Offline'}
           </span>
         </div>
-        
+
         {connectionType !== 'unknown' && (
           <div className="flex items-center justify-between">
             <span className="text-gray-600">Connection:</span>
@@ -302,13 +332,14 @@ export function NetworkStatus() {
           </div>
         )}
       </div>
-      
+
       {!isOnline && (
         <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
           <div className="flex items-start gap-2">
             <AlertCircle className="h-4 w-4 text-yellow-600 mt-0.5 flex-shrink-0" />
             <p className="text-xs text-yellow-800">
-              You&apos;re offline. Some features may be limited, but cached content is still available.
+              You&apos;re offline. Some features may be limited, but cached
+              content is still available.
             </p>
           </div>
         </div>

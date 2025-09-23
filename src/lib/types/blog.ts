@@ -101,7 +101,7 @@ export const mockBlogCategories: BlogCategory[] = [
     description: 'Professional construction advice and best practices',
     color: '#3B82F6',
     icon: '🔨',
-    postCount: 12
+    postCount: 12,
   },
   {
     id: 'home-improvement',
@@ -110,7 +110,7 @@ export const mockBlogCategories: BlogCategory[] = [
     description: 'DIY guides and home renovation insights',
     color: '#10B981',
     icon: '🏠',
-    postCount: 8
+    postCount: 8,
   },
   {
     id: 'company-news',
@@ -119,7 +119,7 @@ export const mockBlogCategories: BlogCategory[] = [
     description: 'Latest updates from MH Construction',
     color: '#F59E0B',
     icon: '📢',
-    postCount: 5
+    postCount: 5,
   },
   {
     id: 'veteran-spotlight',
@@ -128,7 +128,7 @@ export const mockBlogCategories: BlogCategory[] = [
     description: 'Stories from our veteran team and community',
     color: '#EF4444',
     icon: '🇺🇸',
-    postCount: 7
+    postCount: 7,
   },
   {
     id: 'project-stories',
@@ -137,16 +137,18 @@ export const mockBlogCategories: BlogCategory[] = [
     description: 'Behind-the-scenes project documentation',
     color: '#8B5CF6',
     icon: '📖',
-    postCount: 15
-  }
+    postCount: 15,
+  },
 ]
 
 export const mockBlogPosts: BlogPost[] = [
   {
     id: 'winter-construction-prep-2024',
-    title: 'Essential Winter Construction Preparation: Protecting Your Project from Pacific Northwest Weather',
+    title:
+      'Essential Winter Construction Preparation: Protecting Your Project from Pacific Northwest Weather',
     slug: 'winter-construction-prep-2024',
-    excerpt: 'Learn how to prepare your construction project for the harsh Pacific Northwest winter. Our veteran team shares 20+ years of experience managing projects through challenging weather conditions.',
+    excerpt:
+      'Learn how to prepare your construction project for the harsh Pacific Northwest winter. Our veteran team shares 20+ years of experience managing projects through challenging weather conditions.',
     content: `
 # Essential Winter Construction Preparation
 
@@ -210,30 +212,45 @@ Contact our team today to discuss how we can keep your project moving forward th
       name: 'Mark Harris',
       role: 'Owner & Project Manager',
       avatar: '/images/team/mark-harris.jpg',
-      bio: 'Army veteran with 20+ years in construction management'
+      bio: 'Army veteran with 20+ years in construction management',
     },
     publishedAt: '2024-12-15',
     category: mockBlogCategories[0],
-    tags: ['winter construction', 'weather planning', 'project management', 'safety'],
+    tags: [
+      'winter construction',
+      'weather planning',
+      'project management',
+      'safety',
+    ],
     featuredImage: {
       url: '/images/blog/winter-construction-prep.jpg',
       alt: 'Construction site prepared for winter weather with protective coverings',
-      caption: 'Proper winter preparation keeps projects on schedule'
+      caption: 'Proper winter preparation keeps projects on schedule',
     },
     seo: {
-      metaTitle: 'Winter Construction Preparation Guide | Pacific Northwest | MH Construction',
-      metaDescription: 'Expert winter construction tips from veteran-owned MH Construction. Learn weather planning, material protection, and safety strategies for Pacific Northwest projects.',
-      keywords: ['winter construction', 'Pacific Northwest', 'weather preparation', 'construction safety', 'veteran contractors']
+      metaTitle:
+        'Winter Construction Preparation Guide | Pacific Northwest | MH Construction',
+      metaDescription:
+        'Expert winter construction tips from veteran-owned MH Construction. Learn weather planning, material protection, and safety strategies for Pacific Northwest projects.',
+      keywords: [
+        'winter construction',
+        'Pacific Northwest',
+        'weather preparation',
+        'construction safety',
+        'veteran contractors',
+      ],
     },
     status: 'published',
     readTime: 8,
-    featured: true
+    featured: true,
   },
   {
     id: 'veteran-owned-business-advantages',
-    title: 'Why Choose a Veteran-Owned Construction Company: The MH Construction Difference',
+    title:
+      'Why Choose a Veteran-Owned Construction Company: The MH Construction Difference',
     slug: 'veteran-owned-business-advantages',
-    excerpt: 'Discover the unique advantages of working with veteran-owned construction companies. Learn how military training translates to superior project management and client service.',
+    excerpt:
+      'Discover the unique advantages of working with veteran-owned construction companies. Learn how military training translates to superior project management and client service.',
     content: `
 # The Veteran Advantage in Construction
 
@@ -304,30 +321,45 @@ Ready to experience the veteran advantage? Contact MH Construction today for you
       name: 'Sarah Harris',
       role: 'Co-Owner & Design Manager',
       avatar: '/images/team/sarah-harris.jpg',
-      bio: 'Navy veteran specializing in construction design and project coordination'
+      bio: 'Navy veteran specializing in construction design and project coordination',
     },
     publishedAt: '2024-12-10',
     category: mockBlogCategories[3],
-    tags: ['veteran owned', 'military values', 'construction quality', 'wounded warrior'],
+    tags: [
+      'veteran owned',
+      'military values',
+      'construction quality',
+      'wounded warrior',
+    ],
     featuredImage: {
       url: '/images/blog/veteran-owned-advantages.jpg',
       alt: 'MH Construction team with American flag at construction site',
-      caption: 'Military precision meets construction excellence'
+      caption: 'Military precision meets construction excellence',
     },
     seo: {
-      metaTitle: 'Veteran-Owned Construction Company Benefits | MH Construction Pasco WA',
-      metaDescription: 'Discover why veteran-owned MH Construction delivers superior results. Military training, precision, and values make the difference in your construction project.',
-      keywords: ['veteran owned construction', 'military contractors', 'Pasco WA', 'construction quality', 'wounded warrior']
+      metaTitle:
+        'Veteran-Owned Construction Company Benefits | MH Construction Pasco WA',
+      metaDescription:
+        'Discover why veteran-owned MH Construction delivers superior results. Military training, precision, and values make the difference in your construction project.',
+      keywords: [
+        'veteran owned construction',
+        'military contractors',
+        'Pasco WA',
+        'construction quality',
+        'wounded warrior',
+      ],
     },
     status: 'published',
     readTime: 6,
-    featured: true
+    featured: true,
   },
   {
     id: 'kitchen-renovation-trends-2024',
-    title: '2024 Kitchen Renovation Trends: What Pacific Northwest Homeowners Want',
+    title:
+      '2024 Kitchen Renovation Trends: What Pacific Northwest Homeowners Want',
     slug: 'kitchen-renovation-trends-2024',
-    excerpt: 'Explore the latest kitchen renovation trends popular with Pacific Northwest homeowners. From sustainable materials to smart technology integration.',
+    excerpt:
+      'Explore the latest kitchen renovation trends popular with Pacific Northwest homeowners. From sustainable materials to smart technology integration.',
     content: `
 # 2024 Kitchen Renovation Trends
 
@@ -390,23 +422,37 @@ Ready to start your kitchen renovation? Contact us for a free consultation and s
       name: 'Jim Rodriguez',
       role: 'Lead Carpenter',
       avatar: '/images/team/jim-rodriguez.jpg',
-      bio: 'Marine veteran with expertise in custom cabinetry and finish work'
+      bio: 'Marine veteran with expertise in custom cabinetry and finish work',
     },
     publishedAt: '2024-12-05',
     category: mockBlogCategories[1],
-    tags: ['kitchen renovation', 'design trends', 'sustainable materials', 'smart home'],
+    tags: [
+      'kitchen renovation',
+      'design trends',
+      'sustainable materials',
+      'smart home',
+    ],
     featuredImage: {
       url: '/images/blog/kitchen-trends-2024.jpg',
       alt: 'Modern kitchen renovation with sustainable materials and smart technology',
-      caption: 'Latest 2024 kitchen trends featuring sustainable and smart design'
+      caption:
+        'Latest 2024 kitchen trends featuring sustainable and smart design',
     },
     seo: {
-      metaTitle: '2024 Kitchen Renovation Trends Pacific Northwest | MH Construction',
-      metaDescription: 'Discover the latest kitchen renovation trends for 2024. MH Construction shares insights on sustainable materials, smart technology, and Pacific Northwest design.',
-      keywords: ['kitchen renovation', '2024 trends', 'Pacific Northwest', 'sustainable materials', 'smart kitchen']
+      metaTitle:
+        '2024 Kitchen Renovation Trends Pacific Northwest | MH Construction',
+      metaDescription:
+        'Discover the latest kitchen renovation trends for 2024. MH Construction shares insights on sustainable materials, smart technology, and Pacific Northwest design.',
+      keywords: [
+        'kitchen renovation',
+        '2024 trends',
+        'Pacific Northwest',
+        'sustainable materials',
+        'smart kitchen',
+      ],
     },
     status: 'published',
     readTime: 5,
-    featured: false
-  }
+    featured: false,
+  },
 ]

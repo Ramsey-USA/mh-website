@@ -6,7 +6,14 @@ import { Card, CardContent, CardHeader, CardTitle, Button } from '../ui'
 interface SharedDocument {
   id: string
   name: string
-  type: 'contract' | 'permit' | 'invoice' | 'photo' | 'plan' | 'report' | 'other'
+  type:
+    | 'contract'
+    | 'permit'
+    | 'invoice'
+    | 'photo'
+    | 'plan'
+    | 'report'
+    | 'other'
   category: 'project' | 'legal' | 'financial' | 'progress' | 'reference'
   url: string
   uploadDate: string
@@ -36,12 +43,13 @@ const mockDocuments: SharedDocument[] = [
     uploadDate: '2024-11-01',
     uploadedBy: 'MH Construction Legal Team',
     size: '2.3 MB',
-    description: 'Signed contract for kitchen renovation project including all terms and conditions.',
+    description:
+      'Signed contract for kitchen renovation project including all terms and conditions.',
     projectId: 'proj-001',
     isPrivate: false,
     downloadCount: 3,
     version: '1.0',
-    status: 'active'
+    status: 'active',
   },
   {
     id: 'doc-002',
@@ -52,12 +60,13 @@ const mockDocuments: SharedDocument[] = [
     uploadDate: '2024-12-17',
     uploadedBy: 'Lisa Thompson',
     size: '890 KB',
-    description: 'Approved building permit for master bathroom addition project.',
+    description:
+      'Approved building permit for master bathroom addition project.',
     projectId: 'proj-002',
     isPrivate: false,
     downloadCount: 1,
     version: '1.0',
-    status: 'active'
+    status: 'active',
   },
   {
     id: 'doc-003',
@@ -68,12 +77,13 @@ const mockDocuments: SharedDocument[] = [
     uploadDate: '2024-12-20',
     uploadedBy: 'Mike Rodriguez',
     size: '15.7 MB',
-    description: 'Weekly progress photos showing demolition completion and electrical rough-in.',
+    description:
+      'Weekly progress photos showing demolition completion and electrical rough-in.',
     projectId: 'proj-001',
     isPrivate: false,
     downloadCount: 5,
     version: '1.0',
-    status: 'active'
+    status: 'active',
   },
   {
     id: 'doc-004',
@@ -89,7 +99,7 @@ const mockDocuments: SharedDocument[] = [
     isPrivate: false,
     downloadCount: 2,
     version: '1.0',
-    status: 'active'
+    status: 'active',
   },
   {
     id: 'doc-005',
@@ -100,19 +110,20 @@ const mockDocuments: SharedDocument[] = [
     uploadDate: '2024-10-25',
     uploadedBy: 'Design Team',
     size: '5.2 MB',
-    description: 'Approved architectural drawings and design specifications for kitchen renovation.',
+    description:
+      'Approved architectural drawings and design specifications for kitchen renovation.',
     projectId: 'proj-001',
     isPrivate: false,
     downloadCount: 8,
     version: '2.1',
-    status: 'active'
-  }
+    status: 'active',
+  },
 ]
 
 export const DocumentSharing: React.FC<DocumentSharingProps> = ({
   projectId,
   canUpload = true,
-  className = ''
+  className = '',
 }) => {
   const [documents, setDocuments] = useState<SharedDocument[]>(mockDocuments)
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
@@ -121,7 +132,8 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const filteredDocuments = documents.filter(doc => {
-    const categoryMatch = selectedCategory === 'all' || doc.category === selectedCategory
+    const categoryMatch =
+      selectedCategory === 'all' || doc.category === selectedCategory
     const projectMatch = !projectId || doc.projectId === projectId
     return categoryMatch && projectMatch
   })
@@ -132,31 +144,44 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
     { value: 'legal', label: 'Legal Documents', icon: '📋' },
     { value: 'financial', label: 'Financial', icon: '💰' },
     { value: 'progress', label: 'Progress Reports', icon: '📈' },
-    { value: 'reference', label: 'Reference', icon: '📚' }
+    { value: 'reference', label: 'Reference', icon: '📚' },
   ]
 
   const getDocumentIcon = (type: SharedDocument['type']) => {
     switch (type) {
-      case 'contract': return '📋'
-      case 'permit': return '📜'
-      case 'invoice': return '💰'
-      case 'photo': return '📸'
-      case 'plan': return '📐'
-      case 'report': return '📊'
-      default: return '📄'
+      case 'contract':
+        return '📋'
+      case 'permit':
+        return '📜'
+      case 'invoice':
+        return '💰'
+      case 'photo':
+        return '📸'
+      case 'plan':
+        return '📐'
+      case 'report':
+        return '📊'
+      default:
+        return '📄'
     }
   }
 
   const getStatusColor = (status: SharedDocument['status']) => {
     switch (status) {
-      case 'active': return 'bg-green-100 text-green-800'
-      case 'archived': return 'bg-gray-100 text-gray-800'
-      case 'pending-review': return 'bg-yellow-100 text-yellow-800'
-      default: return 'bg-gray-100 text-gray-800'
+      case 'active':
+        return 'bg-green-100 text-green-800'
+      case 'archived':
+        return 'bg-gray-100 text-gray-800'
+      case 'pending-review':
+        return 'bg-yellow-100 text-yellow-800'
+      default:
+        return 'bg-gray-100 text-gray-800'
     }
   }
 
-  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const files = event.target.files
     if (!files || files.length === 0) return
 
@@ -185,7 +210,7 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
       isPrivate: false,
       downloadCount: 0,
       version: '1.0',
-      status: 'active'
+      status: 'active',
     }
 
     setDocuments(prev => [newDocument, ...prev])
@@ -200,14 +225,14 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
 
   const handleDownload = (document: SharedDocument) => {
     // Simulate download
-    setDocuments(prev => 
-      prev.map(doc => 
-        doc.id === document.id 
+    setDocuments(prev =>
+      prev.map(doc =>
+        doc.id === document.id
           ? { ...doc, downloadCount: doc.downloadCount + 1 }
           : doc
       )
     )
-    
+
     // In a real app, this would trigger the actual download
     console.log('Downloading:', document.name)
   }
@@ -244,11 +269,13 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
         {isUploading && (
           <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-blue-800">Uploading...</span>
+              <span className="text-sm font-medium text-blue-800">
+                Uploading...
+              </span>
               <span className="text-sm text-blue-600">{uploadProgress}%</span>
             </div>
             <div className="w-full bg-blue-200 rounded-full h-2">
-              <div 
+              <div
                 className="bg-blue-600 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${uploadProgress}%` }}
               ></div>
@@ -259,7 +286,7 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
         {/* Category Filter */}
         <div className="mb-6">
           <div className="flex flex-wrap gap-2">
-            {categories.map((category) => (
+            {categories.map(category => (
               <button
                 key={category.value}
                 onClick={() => setSelectedCategory(category.value)}
@@ -294,7 +321,7 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {filteredDocuments.map((document) => (
+              {filteredDocuments.map(document => (
                 <div
                   key={document.id}
                   className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
@@ -302,7 +329,9 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
                   {/* Document Header */}
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center">
-                      <span className="text-2xl mr-3">{getDocumentIcon(document.type)}</span>
+                      <span className="text-2xl mr-3">
+                        {getDocumentIcon(document.type)}
+                      </span>
                       <div className="flex-1">
                         <h4 className="font-medium text-gray-900 text-sm leading-tight">
                           {document.name}
@@ -312,7 +341,9 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
                         </p>
                       </div>
                     </div>
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(document.status)}`}>
+                    <span
+                      className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(document.status)}`}
+                    >
                       {document.status}
                     </span>
                   </div>
@@ -332,7 +363,9 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
                     </div>
                     <div className="flex justify-between">
                       <span>Date:</span>
-                      <span>{new Date(document.uploadDate).toLocaleDateString()}</span>
+                      <span>
+                        {new Date(document.uploadDate).toLocaleDateString()}
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span>Downloads:</span>
@@ -369,26 +402,38 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
         <div className="mt-8 pt-6 border-t border-gray-200">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
-              <p className="text-2xl font-bold text-brand-primary">{filteredDocuments.length}</p>
+              <p className="text-2xl font-bold text-brand-primary">
+                {filteredDocuments.length}
+              </p>
               <p className="text-sm text-gray-600">Documents</p>
             </div>
             <div>
               <p className="text-2xl font-bold text-brand-primary">
-                {filteredDocuments.reduce((sum, doc) => sum + doc.downloadCount, 0)}
+                {filteredDocuments.reduce(
+                  (sum, doc) => sum + doc.downloadCount,
+                  0
+                )}
               </p>
               <p className="text-sm text-gray-600">Downloads</p>
             </div>
             <div>
               <p className="text-2xl font-bold text-brand-primary">
-                {(filteredDocuments.reduce((sum, doc) => 
-                  sum + parseFloat(doc.size.replace(/[^\d.]/g, '')), 0
-                ) / 1024).toFixed(1)}
+                {(
+                  filteredDocuments.reduce(
+                    (sum, doc) =>
+                      sum + parseFloat(doc.size.replace(/[^\d.]/g, '')),
+                    0
+                  ) / 1024
+                ).toFixed(1)}
               </p>
               <p className="text-sm text-gray-600">GB Total</p>
             </div>
             <div>
               <p className="text-2xl font-bold text-brand-primary">
-                {filteredDocuments.filter(doc => doc.status === 'active').length}
+                {
+                  filteredDocuments.filter(doc => doc.status === 'active')
+                    .length
+                }
               </p>
               <p className="text-sm text-gray-600">Active</p>
             </div>

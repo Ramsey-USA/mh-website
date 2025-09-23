@@ -2,41 +2,34 @@
 
 **Complete brand identity, design system, and implementation guidelines for MH Construction LLC**
 
-> **📅 Last Updated:** September 22, 2025  
-> **🎨 Brand Version:** 2.6.0  
+> **📅 Last Updated:** September 23, 2025  
+> **🎨 Brand Version:** 2.5.1  
 > **👥 Authority:** MH Construction Leadership Team  
-> **💻 Implementation:** Pure Tailwind CSS v4 with custom brand colors  
-> **🌙 Theme Support:** Complete light/dark mode system with Tailwind utilities  
-> **🚀 Architecture:** Migrated to pure Tailwind CSS for improved consistency and performance
+> **💻 Implementation:** Tailwind CSS v4 with enhanced MH brand system  
+> **🌙 Theme Support:** Complete light/dark mode system with custom CSS enhancements  
+> **🚀 Architecture:** Hybrid approach - Tailwind utilities + custom MH brand classes for enhanced effects
 
 ---
 
-## 🚨 **IMPORTANT: Pure Tailwind CSS Implementation**
+## 🚨 **IMPLEMENTATION NOTICE: Enhanced MH Brand System**
 
-### **Migration Notice (v2.6.0)**
-**MH Construction has fully migrated from custom CSS classes to pure Tailwind CSS utilities.**
+### **Current Architecture (v2.5.1)**
+**MH Construction uses a hybrid approach combining Tailwind CSS utilities with custom MH brand classes for enhanced visual effects.**
 
-#### **Before (v2.5.0 and earlier):**
+#### **Tailwind + Custom Classes Approach:**
 ```tsx
-<button className="btn-primary">Get Quote</button>
-<div className="card-primary">Content</div>
-<nav className="nav-primary">Navigation</nav>
-```
-
-#### **After (v2.6.0+):**
-```tsx
-<Button variant="primary" size="xl">Get Quote</Button>
+<Button variant="primary" className="btn-primary">Get Quote</Button>
 <div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl">Content</div>
-<nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark">Navigation</nav>
+<nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark nav-primary">Navigation</nav>
 ```
 
-### **Benefits of Pure Tailwind Approach:**
-- ✅ **Consistent Styling**: No more mixing custom classes with Tailwind utilities
-- ✅ **Better Performance**: Pure Tailwind classes are more efficient and cacheable
-- ✅ **Improved Maintainability**: Single source of truth for all styling
-- ✅ **Future-Proof**: Compatible with Tailwind CSS v4 and beyond
-- ✅ **Enhanced Developer Experience**: IntelliSense support and better tooling
-- ✅ **Reduced Bundle Size**: No custom CSS overhead
+### **Benefits of Hybrid Approach:**
+- ✅ **Enhanced Visual Effects**: Custom classes provide glimmer animations and advanced hover states
+- ✅ **Brand Consistency**: Specialized MH Construction styling beyond standard Tailwind
+- ✅ **Performance**: Tailwind utilities for layout, custom classes for brand-specific enhancements
+- ✅ **Maintainability**: Clear separation between utility styling and brand effects
+- ✅ **Theme Support**: Complete dark/light mode with enhanced brand theming
+- ✅ **Future Evolution**: Flexible foundation for advancing toward pure Tailwind when ready
 
 ---
 
@@ -128,43 +121,48 @@ export default {
 }
 ```
 
-### Color Usage Guidelines (Pure Tailwind Implementation)
+### Color Usage Guidelines (Hybrid Implementation)
 
 #### Hunter Green (`bg-brand-primary`, `text-brand-primary`) - Primary
-- **Primary CTAs**: `<Button variant="primary">` components
-- **Header navigation**: `bg-brand-primary` backgrounds
-- **Active states**: `bg-brand-primary-dark` for pressed states
-- **Logo applications**: `text-brand-primary` for brand elements
+- **Primary CTAs**: `<Button variant="primary">` components with `.btn-primary` enhancements
+- **Header navigation**: `bg-brand-primary` backgrounds with custom nav classes
+- **Active states**: `bg-brand-primary-dark` for pressed states plus glimmer effects
+- **Logo applications**: `text-brand-primary` for brand elements with enhanced animations
 
 #### Leather Tan (`bg-brand-secondary`, `text-brand-secondary`) - Secondary  
-- **Secondary CTAs**: `<Button variant="secondary">` components
-- **Accent elements**: `bg-brand-secondary` backgrounds
-- **Complementary design**: `border-brand-secondary` borders
-- **Warm accent applications**: `text-brand-secondary` text
+- **Secondary CTAs**: `<Button variant="secondary">` components with `.btn-secondary` styling
+- **Accent elements**: `bg-brand-secondary` backgrounds with custom enhancements
+- **Complementary design**: `border-brand-secondary` borders with hover animations
+- **Warm accent applications**: `text-brand-secondary` text with theme support
 
-#### Veteran Colors (Tailwind Classes)
-- **Red**: `bg-veteran-red` for veteran badges, `text-veteran-red` for service indicators
-- **Blue**: `bg-veteran-blue` for program elements, `border-veteran-blue` for highlights  
-- **Gold**: `bg-veteran-gold` for achievements, `text-veteran-gold` for honors
+#### Veteran Colors (Enhanced Classes)
+- **Red**: `bg-veteran-red` + `.btn-veteran` for veteran badges with animations
+- **Blue**: `bg-veteran-blue` + `.btn-dashboard` for program elements with effects  
+- **Gold**: `bg-veteran-gold` + `.veteran-badge` for achievements with glimmer
 
-#### Usage Examples with Pure Tailwind:
+#### Usage Examples with Hybrid Approach:
 ```tsx
-// Primary button with brand colors
+// Primary button with brand colors and enhancements
 <Button 
   variant="primary" 
-  className="bg-brand-primary hover:bg-brand-primary-dark focus:ring-brand-primary/50"
+  className="btn-primary bg-brand-primary hover:bg-brand-primary-dark focus:ring-brand-primary/50"
 >
   Get Quote
 </Button>
 
-// Card with theme-aware styling
-<div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl p-6">
+// Card with theme-aware styling and custom enhancements
+<div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl p-6 card-primary">
   <h3 className="text-brand-primary dark:text-brand-primary-light">Project Title</h3>
   <p className="text-text-secondary dark:text-text-secondary-dark">Description</p>
 </div>
 
-// Veteran recognition element
-<div className="bg-veteran-red text-white px-4 py-2 rounded-full">
+// Navigation with enhanced styling
+<nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark nav-primary">
+  Navigation with MH brand enhancements
+</nav>
+
+// Veteran recognition element with custom styling
+<div className="bg-veteran-red text-white px-4 py-2 rounded-full btn-veteran">
   Veteran Owned
 </div>
 ```
@@ -177,16 +175,94 @@ export default {
 Our design system uses Tailwind's built-in dark mode with custom brand colors that automatically adapt.
 
 ```typescript
+## 🌙 Enhanced Tailwind Light/Dark Theme System
+
+### Tailwind Theme Configuration with MH Brand Enhancement
+Our design system uses Tailwind's built-in dark mode with custom brand colors and enhanced CSS classes that automatically adapt.
+
+```typescript
 // tailwind.config.ts - Dark mode configuration
 export default {
   darkMode: 'class', // Enables class-based dark mode
   theme: {
     extend: {
-      // Brand colors work in both light and dark modes
-      // Tailwind automatically handles opacity and variants
+      // MH brand colors integrated with Tailwind
     }
   }
 }
+```
+
+### Theme Implementation with Hybrid Approach
+
+#### Light Mode (Default with Custom Enhancements)
+```tsx
+// Components use Tailwind utilities + custom MH classes
+<div className="bg-surface text-text-primary border border-border card-primary">
+  <h2 className="text-brand-primary">Light Mode Content</h2>
+  <p className="text-text-secondary">Enhanced with MH brand styling</p>
+</div>
+```
+
+#### Dark Mode (`.dark` class with Enhanced Styling)
+```tsx
+// Same component automatically adapts with MH enhancements
+<div className="bg-surface dark:bg-surface-dark text-text-primary dark:text-text-primary-dark border border-border dark:border-border-dark card-primary">
+  <h2 className="text-brand-primary dark:text-brand-primary-light">Dark Mode Content</h2>
+  <p className="text-text-secondary dark:text-text-secondary-dark">Enhanced MH styling in dark mode</p>
+</div>
+```
+
+### Theme-Aware Component Patterns
+
+#### Navigation with MH Enhancement:
+```tsx
+<nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark border-b border-border dark:border-border-dark backdrop-blur-sm nav-primary">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Link 
+      href="/" 
+      className="flex items-center transition-all duration-300 hover:scale-105 relative overflow-hidden group mh-logo-enhanced"
+    >
+      MH Logo with enhanced effects
+    </Link>
+  </div>
+</nav>
+```
+
+#### Button Component (Hybrid Approach):
+```tsx
+export function Button({ variant, children, ...props }) {
+  const variants = {
+    primary: `
+      bg-brand-primary hover:bg-brand-primary-dark text-white 
+      btn-primary // Custom MH class for glimmer effects
+      px-6 py-3 rounded-full font-bold transition-all duration-300
+      focus:outline-none focus:ring-2 focus:ring-brand-primary/50
+    `
+  }
+  
+  return (
+    <button 
+      className={`btn-base ${variants[variant]} ${className}`}
+      {...props}
+    >
+      {children}
+    </button>
+  )
+}
+```
+
+#### Card Component (Enhanced with MH Styling):
+```tsx
+<div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/10 transition-all duration-300 p-6 card-primary">
+  <h3 className="text-brand-primary dark:text-brand-primary-light text-xl font-bold mb-4">
+    Project Title
+  </h3>
+  <p className="text-text-secondary dark:text-text-secondary-dark mb-4">
+    Project description with automatic theme adaptation and MH enhancements
+  </p>
+  <Button variant="primary" className="btn-primary">Learn More</Button>
+</div>
+```
 ```
 
 ### Theme Implementation with Pure Tailwind

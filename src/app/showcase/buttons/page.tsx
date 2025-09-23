@@ -1,7 +1,7 @@
-'use client';
+'use client'
 
-import { Button } from '@/components/ui/Button';
-import { SharpDuotoneIcons } from '@/components/icons/SharpDuotoneIcons';
+import { Button } from '@/components/ui/Button'
+import { SharpDuotoneIcons } from '@/components/icons/SharpDuotoneIcons'
 
 export default function ButtonShowcase() {
   return (
@@ -13,19 +13,22 @@ export default function ButtonShowcase() {
             MH Construction Button System
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Enhanced button components with outer rings, gradient animations, and consistent MH brand styling.
-            All variants include accessibility features and professional hover effects.
+            Enhanced button components with outer rings, gradient animations,
+            and consistent MH brand styling. All variants include accessibility
+            features and professional hover effects.
           </p>
         </div>
 
         {/* Button Variants Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          
           {/* Primary Variant */}
           <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Primary Variant</h3>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              Primary Variant
+            </h3>
             <p className="text-gray-600 mb-6">
-              Hunter Green background with smooth hover effects and professional ring animation.
+              Hunter Green background with smooth hover effects and professional
+              ring animation.
             </p>
             <div className="space-y-4">
               <div className="flex flex-wrap gap-4">
@@ -53,9 +56,12 @@ export default function ButtonShowcase() {
 
           {/* Secondary Variant */}
           <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Secondary Variant</h3>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              Secondary Variant
+            </h3>
             <p className="text-gray-600 mb-6">
-              Leather Tan styling with complementary colors and elegant transitions.
+              Leather Tan styling with complementary colors and elegant
+              transitions.
             </p>
             <div className="space-y-4">
               <div className="flex flex-wrap gap-4">
@@ -83,9 +89,12 @@ export default function ButtonShowcase() {
 
           {/* Outline Variant */}
           <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Outline Variant</h3>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              Outline Variant
+            </h3>
             <p className="text-gray-600 mb-6">
-              Clean border design with fill animation on hover and subtle ring effects.
+              Clean border design with fill animation on hover and subtle ring
+              effects.
             </p>
             <div className="space-y-4">
               <div className="flex flex-wrap gap-4">
@@ -113,9 +122,12 @@ export default function ButtonShowcase() {
 
           {/* Ghost Variant */}
           <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Ghost Variant</h3>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              Ghost Variant
+            </h3>
             <p className="text-gray-600 mb-6">
-              Minimal design with background fill on hover and gentle ring animations.
+              Minimal design with background fill on hover and gentle ring
+              animations.
             </p>
             <div className="space-y-4">
               <div className="flex flex-wrap gap-4">
@@ -143,9 +155,12 @@ export default function ButtonShowcase() {
 
           {/* Gradient Variant */}
           <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Gradient Variant</h3>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              Gradient Variant
+            </h3>
             <p className="text-gray-600 mb-6">
-              Eye-catching gradient from Hunter Green to Leather Tan with animated effects.
+              Eye-catching gradient from Hunter Green to Leather Tan with
+              animated effects.
             </p>
             <div className="space-y-4">
               <div className="flex flex-wrap gap-4">
@@ -173,9 +188,12 @@ export default function ButtonShowcase() {
 
           {/* Destructive Variant */}
           <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Destructive Variant</h3>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              Destructive Variant
+            </h3>
             <p className="text-gray-600 mb-6">
-              Red styling for critical actions with warning ring effects and clear hover states.
+              Red styling for critical actions with warning ring effects and
+              clear hover states.
             </p>
             <div className="space-y-4">
               <div className="flex flex-wrap gap-4">
@@ -204,16 +222,24 @@ export default function ButtonShowcase() {
 
         {/* Interactive Demo Section */}
         <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200 mb-12">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Interactive Demo</h3>
+          <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+            Interactive Demo
+          </h3>
           <p className="text-gray-600 mb-8">
-            Test the button interactions and ring effects. All buttons include focus states for accessibility.
+            Test the button interactions and ring effects. All buttons include
+            focus states for accessibility.
           </p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="text-center p-4 border border-gray-200 rounded-lg">
               <h4 className="font-semibold mb-4">Call-to-Action Buttons</h4>
               <div className="space-y-3">
-                <Button variant="gradient" size="lg" withRing className="w-full">
+                <Button
+                  variant="gradient"
+                  size="lg"
+                  withRing
+                  className="w-full"
+                >
                   <SharpDuotoneIcons.Hammer className="w-5 h-5 mr-2" />
                   Start Your Project
                 </Button>
@@ -227,7 +253,12 @@ export default function ButtonShowcase() {
             <div className="text-center p-4 border border-gray-200 rounded-lg">
               <h4 className="font-semibold mb-4">Navigation Actions</h4>
               <div className="space-y-3">
-                <Button variant="secondary" size="md" withRing className="w-full">
+                <Button
+                  variant="secondary"
+                  size="md"
+                  withRing
+                  className="w-full"
+                >
                   <SharpDuotoneIcons.Menu className="w-4 h-4 mr-2" />
                   View Portfolio
                 </Button>
@@ -254,11 +285,15 @@ export default function ButtonShowcase() {
 
         {/* Technical Specifications */}
         <div className="bg-gray-50 rounded-lg p-8 border border-gray-200">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Technical Specifications</h3>
-          
+          <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+            Technical Specifications
+          </h3>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">Color Palette</h4>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                Color Palette
+              </h4>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center gap-3">
                   <div className="w-4 h-4 rounded bg-brand-primary"></div>
@@ -276,7 +311,9 @@ export default function ButtonShowcase() {
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">Features</h4>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                Features
+              </h4>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>• Outer ring animations with focus states</li>
                 <li>• Gradient backgrounds with smooth transitions</li>
@@ -290,9 +327,11 @@ export default function ButtonShowcase() {
           </div>
 
           <div className="mt-8 p-4 bg-white rounded border border-gray-200">
-            <h4 className="text-lg font-semibold text-gray-900 mb-3">Usage Example</h4>
+            <h4 className="text-lg font-semibold text-gray-900 mb-3">
+              Usage Example
+            </h4>
             <pre className="text-sm bg-gray-100 p-3 rounded overflow-x-auto">
-{`<Button variant="gradient" size="lg" withRing>
+              {`<Button variant="gradient" size="lg" withRing>
   <SharpDuotoneIcons.Hammer className="w-5 h-5 mr-2" />
   Start Your Project
 </Button>`}
@@ -302,12 +341,16 @@ export default function ButtonShowcase() {
 
         {/* Back to Home */}
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg" onClick={() => window.history.back()}>
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={() => window.history.back()}
+          >
             <SharpDuotoneIcons.ArrowRight className="w-5 h-5 mr-2" />
             Back to Website
           </Button>
         </div>
       </div>
     </div>
-  );
+  )
 }
