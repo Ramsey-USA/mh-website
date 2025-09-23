@@ -1,41 +1,72 @@
 # MH Construction Brand Guidelines & Design System
 
-**Complete brand identity, design system, and implementation guidelines for MH Construction LLC**
+## Complete brand identity, design system, and implementation guidelines for MH Construction LLC
 
 > **📅 Last Updated:** September 23, 2025  
-> **🎨 Brand Version:** 2.5.1  
+> **🎨 Brand Version:** 2.6.1  
 > **👥 Authority:** MH Construction Leadership Team  
-> **💻 Implementation:** Tailwind CSS v4 with enhanced MH brand system  
-> **🌙 Theme Support:** Complete light/dark mode system with custom CSS enhancements  
-> **🚀 Architecture:** Hybrid approach - Tailwind utilities + custom MH brand classes for enhanced effects
+> **💻 Implementation:** Pure Tailwind CSS v4 with enhanced typography system  
+> **🌙 Theme Support:** Complete light/dark mode system with proper Button components  
+> **🚀 Architecture:** Standardized typography, consistent CTAs, and optimized spacing system
 
 ---
 
-## 🚨 **IMPLEMENTATION NOTICE: Enhanced MH Brand System**
+## 🚨 **IMPLEMENTATION NOTICE: Standardized MH Brand System v2.6.1**
 
-### **Current Architecture (v2.5.1)**
-**MH Construction uses a hybrid approach combining Tailwind CSS utilities with custom MH brand classes for enhanced visual effects.**
+### **Current Architecture (v2.6.1) - September 23, 2025**
 
-#### **Tailwind + Custom Classes Approach:**
+**MH Construction now uses a fully standardized approach with modern typography, consistent CTAs, and optimized spacing across all components.**
+
+#### **Latest Standards Implementation:**
+
 ```tsx
-<Button variant="primary" className="btn-primary">Get Quote</Button>
-<div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl">Content</div>
-<nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark nav-primary">Navigation</nav>
-```
+// Modern Typography System with Responsive Scaling
+<h1 className="mb-10 pb-4 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter">
+  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+    Building Tomorrow with
+  </span>
+  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+    Today's Technology
+  </span>
+</h1>
 
-### **Benefits of Hybrid Approach:**
-- ✅ **Enhanced Visual Effects**: Custom classes provide glimmer animations and advanced hover states
-- ✅ **Brand Consistency**: Specialized MH Construction styling beyond standard Tailwind
-- ✅ **Performance**: Tailwind utilities for layout, custom classes for brand-specific enhancements
-- ✅ **Maintainability**: Clear separation between utility styling and brand effects
-- ✅ **Theme Support**: Complete dark/light mode with enhanced brand theming
-- ✅ **Future Evolution**: Flexible foundation for advancing toward pure Tailwind when ready
+// Standardized CTA Buttons
+<Button variant="primary" size="xl" className="shadow-xl">
+  <CalendarIcon size="sm" primaryColor="currentColor" className="mr-3" />
+  <span className="z-10 relative tracking-wide">Schedule Free Consultation</span>
+</Button>
+
+<Button variant="outline" size="xl" className="shadow-xl">
+  <BoltIcon size="sm" primaryColor="currentColor" className="mr-3" />
+  <span className="z-10 relative tracking-wide">Get AI Estimate</span>
+</Button>
+
+// Consistent Section Spacing
+<section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40 features-section">
+  <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <div className="mb-24 lg:mb-32 text-center scroll-reveal">
+      // Section content with optimized spacing
+    </div>
+  </div>
+</section>
+```markdown
+
+### **Latest Brand Improvements (v2.6.1):**
+
+- ✅ **Enhanced Typography**: Responsive clamp() scaling from text-4xl to text-8xl
+- ✅ **Consistent CTAs**: Standardized Button variants with proper dark mode support
+- ✅ **Optimized Spacing**: Uniform section padding py-20 lg:py-32 xl:py-40
+- ✅ **Card Consistency**: All cards use h-full for uniform heights
+- ✅ **Grid Improvements**: Enhanced responsive layouts for better visual balance
+- ✅ **Dark Mode Excellence**: Proper theme support without custom overrides
+- ✅ **Accessibility**: Improved focus states and contrast ratios
 
 ---
 
 ## 🏢 Brand Identity
 
 ### Company Information
+
 **MH Construction LLC** - *Veteran-Owned Construction Company*
 
 | Element | Details |
@@ -48,6 +79,7 @@
 | **Service Philosophy** | Military precision, veteran values, cutting-edge technology |
 
 ### Core Values
+
 | Value | Description | Brand Expression |
 |-------|-------------|------------------|
 | **Ethics** | Transparent pricing, honest timelines | Clear cost breakdowns, realistic schedules |
@@ -62,6 +94,7 @@
 ## 🎨 Visual Identity System
 
 ### Primary Brand Colors (Tailwind Configuration)
+
 ```typescript
 // tailwind.config.ts - Official MH Construction Color Palette
 export default {
@@ -124,23 +157,27 @@ export default {
 ### Color Usage Guidelines (Hybrid Implementation)
 
 #### Hunter Green (`bg-brand-primary`, `text-brand-primary`) - Primary
+
 - **Primary CTAs**: `<Button variant="primary">` components with `.btn-primary` enhancements
 - **Header navigation**: `bg-brand-primary` backgrounds with custom nav classes
 - **Active states**: `bg-brand-primary-dark` for pressed states plus glimmer effects
 - **Logo applications**: `text-brand-primary` for brand elements with enhanced animations
 
 #### Leather Tan (`bg-brand-secondary`, `text-brand-secondary`) - Secondary  
+
 - **Secondary CTAs**: `<Button variant="secondary">` components with `.btn-secondary` styling
 - **Accent elements**: `bg-brand-secondary` backgrounds with custom enhancements
 - **Complementary design**: `border-brand-secondary` borders with hover animations
 - **Warm accent applications**: `text-brand-secondary` text with theme support
 
 #### Veteran Colors (Enhanced Classes)
+
 - **Red**: `bg-veteran-red` + `.btn-veteran` for veteran badges with animations
 - **Blue**: `bg-veteran-blue` + `.btn-dashboard` for program elements with effects  
 - **Gold**: `bg-veteran-gold` + `.veteran-badge` for achievements with glimmer
 
-#### Usage Examples with Hybrid Approach:
+#### Usage Examples with Hybrid Approach
+
 ```tsx
 // Primary button with brand colors and enhancements
 <Button 
@@ -172,12 +209,15 @@ export default {
 ## 🌙 Pure Tailwind Light/Dark Theme System
 
 ### Tailwind Theme Configuration
+
 Our design system uses Tailwind's built-in dark mode with custom brand colors that automatically adapt.
 
-```typescript
+---
+
 ## 🌙 Enhanced Tailwind Light/Dark Theme System
 
 ### Tailwind Theme Configuration with MH Brand Enhancement
+
 Our design system uses Tailwind's built-in dark mode with custom brand colors and enhanced CSS classes that automatically adapt.
 
 ```typescript
@@ -195,6 +235,7 @@ export default {
 ### Theme Implementation with Hybrid Approach
 
 #### Light Mode (Default with Custom Enhancements)
+
 ```tsx
 // Components use Tailwind utilities + custom MH classes
 <div className="bg-surface text-text-primary border border-border card-primary">
@@ -204,6 +245,7 @@ export default {
 ```
 
 #### Dark Mode (`.dark` class with Enhanced Styling)
+
 ```tsx
 // Same component automatically adapts with MH enhancements
 <div className="bg-surface dark:bg-surface-dark text-text-primary dark:text-text-primary-dark border border-border dark:border-border-dark card-primary">
@@ -214,7 +256,8 @@ export default {
 
 ### Theme-Aware Component Patterns
 
-#### Navigation with MH Enhancement:
+#### Navigation with MH Enhancement
+
 ```tsx
 <nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark border-b border-border dark:border-border-dark backdrop-blur-sm nav-primary">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -228,7 +271,8 @@ export default {
 </nav>
 ```
 
-#### Button Component (Hybrid Approach):
+#### Button Component (Hybrid Approach)
+
 ```tsx
 export function Button({ variant, children, ...props }) {
   const variants = {
@@ -251,7 +295,8 @@ export function Button({ variant, children, ...props }) {
 }
 ```
 
-#### Card Component (Enhanced with MH Styling):
+#### Card Component (Enhanced with MH Styling)
+
 ```tsx
 <div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/10 transition-all duration-300 p-6 card-primary">
   <h3 className="text-brand-primary dark:text-brand-primary-light text-xl font-bold mb-4">
@@ -263,11 +308,38 @@ export function Button({ variant, children, ...props }) {
   <Button variant="primary" className="btn-primary">Learn More</Button>
 </div>
 ```
+
+### Theme Migration Notes
+
+MH Construction migrated from a hybrid custom CSS + Tailwind approach to a pure Tailwind CSS v4 implementation in v2.6.0. All previous custom CSS classes (e.g., `.btn-primary`, `.card-primary`, `.nav-primary`) have been replaced with Tailwind utility classes and reusable components.
+
+#### Key Migration Steps
+
+- **Remove custom CSS files**: Delete legacy `.css` files and references.
+- **Refactor components**: Update all components to use Tailwind utility classes only.
+- **Update Button usage**: Replace `<button className="btn-primary">` with `<Button variant="primary">`.
+- **Ensure theme support**: Add `dark:` variants for all color and background utilities.
+- **Test accessibility**: Verify focus states, contrast, and motion preferences with Tailwind utilities.
+- **Validate responsive design**: Use Tailwind breakpoints for all layouts and typography.
+
+#### Example Migration
+
+**Before (Custom CSS):**
+
+```tsx
+<button className="btn-primary btn-xl">Get Quote</button>
+```
+
+**After (Pure Tailwind):**
+
+```tsx
+<Button variant="primary" size="xl">Get Quote</Button>
 ```
 
 ### Theme Implementation with Pure Tailwind
 
 #### Light Mode (Default)
+
 ```tsx
 // Components automatically use light mode classes
 <div className="bg-surface text-text-primary border border-border">
@@ -277,6 +349,7 @@ export function Button({ variant, children, ...props }) {
 ```
 
 #### Dark Mode (`.dark` class applied to `<html>`)
+
 ```tsx
 // Same component automatically adapts to dark mode
 <div className="bg-surface dark:bg-surface-dark text-text-primary dark:text-text-primary-dark border border-border dark:border-border-dark">
@@ -285,9 +358,10 @@ export function Button({ variant, children, ...props }) {
 </div>
 ```
 
-### Theme-Aware Component Patterns
+### Pure Tailwind Component Patterns
 
-#### Navigation with Pure Tailwind:
+#### Navigation with Pure Tailwind
+
 ```tsx
 <nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark border-b border-border dark:border-border-dark backdrop-blur-sm">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -301,7 +375,8 @@ export function Button({ variant, children, ...props }) {
 </nav>
 ```
 
-#### Button Component (Pure Tailwind):
+#### Button Component (Pure Tailwind)
+
 ```tsx
 export function Button({ variant, children, ...props }) {
   const variants = {
@@ -335,7 +410,8 @@ export function Button({ variant, children, ...props }) {
 }
 ```
 
-#### Card Component (Pure Tailwind):
+#### Card Component (Pure Tailwind)
+
 ```tsx
 <div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/10 transition-all duration-300 p-6">
   <h3 className="text-brand-primary dark:text-brand-primary-light text-xl font-bold mb-4">
@@ -348,9 +424,12 @@ export function Button({ variant, children, ...props }) {
 </div>
 ```
 
-### Typography System (Tailwind Configuration)
+### Typography System (Enhanced MH Construction Standards)
+
+Our typography system now uses responsive scaling with clamp() functions and modern font weights for optimal display across all devices.
+
 ```typescript
-// tailwind.config.ts - MH Construction Font System
+// tailwind.config.ts - Enhanced MH Construction Typography System
 export default {
   theme: {
     extend: {
@@ -369,13 +448,61 @@ export default {
         '2xl': ['clamp(1.5rem, 1.3rem + 0.8vw, 1.75rem)', { lineHeight: '1.25' }],
         '3xl': ['clamp(1.875rem, 1.6rem + 1vw, 2.25rem)', { lineHeight: '1.25' }],
         '4xl': ['clamp(2.25rem, 1.9rem + 1.4vw, 3rem)', { lineHeight: '1.25' }],
+        '5xl': ['clamp(3rem, 2.5rem + 2vw, 4rem)', { lineHeight: '1.2' }],
+        '6xl': ['clamp(3.75rem, 3rem + 2.5vw, 5rem)', { lineHeight: '1.2' }],
+        '7xl': ['clamp(4.5rem, 3.5rem + 3vw, 6rem)', { lineHeight: '1.2' }],
+        '8xl': ['clamp(6rem, 4.5rem + 4vw, 8rem)', { lineHeight: '1.2' }],
       }
     }
   }
 }
 ```
 
-#### Typography Usage with Pure Tailwind:
+#### Typography Implementation Standards
+
+##### Responsive Header System
+
+```tsx
+// Large Section Headers (Hero, Main CTAs)
+<h1 className="mb-10 pb-4 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter">
+  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+    Building Tomorrow with
+  </span>
+  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+    Today's Technology
+  </span>
+</h1>
+
+// Section Headers (Features, Values, Testimonials)
+<h2 className="mb-10 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
+  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+    Section Introduction
+  </span>
+  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+    Main Headline
+  </span>
+</h2>
+
+// Body Text (Descriptions, Paragraphs)
+<p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+  Large descriptive text with proper dark mode support and responsive scaling.
+</p>
+
+// Card and Component Headers
+<h3 className="mb-4 font-black text-gray-900 dark:text-gray-100 text-lg md:text-xl lg:text-2xl tracking-tight">
+  Component Title
+</h3>
+```
+
+#### Font Weight Guidelines
+
+- **font-black**: Main headlines, primary emphasis
+- **font-semibold**: Secondary text, subheadings  
+- **font-light**: Body text, descriptions
+- **font-medium**: Buttons, labels, navigation
+
+#### Typography Usage with Pure Tailwind
+
 ```tsx
 // Headings with brand fonts
 <h1 className="font-tactic-bold text-4xl text-brand-primary dark:text-brand-primary-light">
@@ -402,6 +529,7 @@ export default {
 ## 🏆 Enhanced Logo System (Pure Tailwind Implementation)
 
 ### Logo Implementation with Tailwind
+
 ```tsx
 // Logo with hover effects using pure Tailwind
 <Link 
@@ -418,7 +546,8 @@ export default {
 </Link>
 ```
 
-### Header Logo (Pure Tailwind):
+### Header Logo (Pure Tailwind)
+
 ```tsx
 <div className="flex-shrink-0 py-3">
   <Link 
@@ -436,7 +565,8 @@ export default {
 </div>
 ```
 
-### Footer Logo (Pure Tailwind):
+### Footer Logo (Pure Tailwind)
+
 ```tsx
 <div className="mb-6">
   <Link 
@@ -459,9 +589,11 @@ export default {
 ## 🔲 MH Brand Button System (Pure Tailwind Implementation)
 
 ### Button Component Architecture
+
 All buttons use the reusable `Button` component with pure Tailwind styling that automatically adapts to themes.
 
-#### Button Component Implementation:
+#### Button Component Implementation
+
 ```tsx
 // /src/components/ui/Button.tsx
 export function Button({ 
@@ -519,7 +651,8 @@ export function Button({
 }
 ```
 
-#### Button Usage Examples:
+#### Button Usage Examples
+
 ```tsx
 // Primary CTA buttons
 <Button variant="primary" size="xl">
@@ -545,7 +678,8 @@ export function Button({
 </Button>
 ```
 
-#### Special Purpose Buttons:
+#### Special Purpose Buttons
+
 ```tsx
 // Veteran program button
 <Button 
@@ -566,9 +700,113 @@ export function Button({
 
 ---
 
+## 🎯 Standardized CTA & Spacing System (v2.6.1)
+
+### Call-to-Action Button Standards
+
+Our CTA system ensures consistency across all pages and proper dark/light mode support without custom overrides.
+
+#### Primary CTA Patterns
+
+```tsx
+// Hero Section CTAs
+<div className="flex sm:flex-row flex-col justify-center items-center gap-8 mb-16">
+  <Link href="/booking">
+    <Button variant="primary" size="xl" className="shadow-xl">
+      <CalendarIcon size="sm" primaryColor="currentColor" className="mr-3" />
+      <span className="z-10 relative tracking-wide">Schedule Free Consultation</span>
+    </Button>
+  </Link>
+  <Link href="/estimator">
+    <Button variant="outline" size="xl" className="shadow-xl">
+      <BoltIcon size="sm" primaryColor="currentColor" className="mr-3" />
+      <span className="z-10 relative tracking-wide">Get AI Estimate</span>
+    </Button>
+  </Link>
+</div>
+
+// Section CTAs (Testimonials, Projects)
+<Button variant="outline" size="xl" className="shadow-xl">
+  <span className="z-10 relative">View All Testimonials</span>
+</Button>
+
+// Special Background CTAs (CTA Section on Brand Background)
+<Button variant="outline" size="xl" className="shadow-xl bg-transparent border-white text-white hover:bg-white hover:text-brand-primary">
+  <BoltIcon size="md" primaryColor="currentColor" className="mr-3" />
+  <span className="z-10 relative tracking-wide">Get Free Estimate</span>
+</Button>
+```
+
+#### CTA Consistency Rules
+
+- **Always use Button component**: Never create custom button styling
+- **Standard variants**: Use `primary`, `secondary`, or `outline` variants only  
+- **Size consistency**: Use `xl` for main CTAs, `lg` for secondary actions
+- **Shadow effects**: Add `shadow-xl` for elevation consistency
+- **Icon spacing**: Use `mr-3` for icon-text spacing
+- **No custom overrides**: Let Button component handle dark mode automatically
+- **Special cases only**: Override colors only for special backgrounds (like brand gradients)
+
+### Section Spacing Standards
+
+#### Responsive Section Padding
+
+```tsx
+// Standard section spacing (most sections)
+<section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40 [section-name]-section">
+
+// Hero section (larger spacing)
+<section className="relative bg-white dark:bg-gray-900 py-32 lg:py-40 hero-section">
+
+// Compact sections (stats, smaller content)
+<section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32 stats-section">
+```
+
+#### Header Spacing Within Sections
+
+```tsx
+// Section headers with responsive margin
+<div className="mb-24 lg:mb-32 text-center scroll-reveal">
+  <div className="inline-flex items-center bg-brand-primary/10 shadow-lg mb-10 px-8 py-4 border border-brand-primary/20 rounded-full">
+    // Section badge
+  </div>
+  <h2>Section Title</h2>
+  <p>Section description</p>
+</div>
+```
+
+#### Grid and Card Spacing
+
+```tsx
+// Consistent card heights
+<div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  <Card className="h-full">Card content</Card>
+</div>
+
+// Enhanced grid layouts for capabilities
+<div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+  // Responsive grid with better balance
+</div>
+```
+
+### Spacing Hierarchy
+
+| Element | Spacing Classes | Usage |
+|---------|----------------|-------|
+| **Sections** | `py-20 lg:py-32 xl:py-40` | Standard section padding |
+| **Hero Section** | `py-32 lg:py-40` | Larger hero spacing |
+| **Section Headers** | `mb-24 lg:mb-32` | Header to content spacing |
+| **Header Elements** | `mb-10` | Title to description |
+| **CTAs** | `gap-8 mb-16` | Between CTAs and spacing below |
+| **Cards** | `gap-8` | Between grid items |
+| **Container** | `px-4 sm:px-6 lg:px-8` | Horizontal container padding |
+
+---
+
 ## 🎯 Component Standards (Pure Tailwind Implementation)
 
 ### Navigation System (Pure Tailwind)
+
 ```tsx
 // Navigation with complete Tailwind implementation
 <nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark border-b border-border dark:border-border-dark backdrop-blur-sm">
@@ -612,6 +850,7 @@ export function Button({
 ```
 
 ### Card System (Pure Tailwind)
+
 ```tsx
 // Card component with full theme support
 <div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/10 p-6">
@@ -636,6 +875,7 @@ export function Button({
 ```
 
 ### Form Elements (Pure Tailwind)
+
 ```tsx
 // Form inputs with complete theme support
 <div className="space-y-4">
@@ -676,6 +916,7 @@ export function Button({
 ```
 
 ### Status Indicators (Pure Tailwind)
+
 ```tsx
 // Status badges with theme-aware colors
 <div className="flex flex-wrap gap-2">
@@ -699,6 +940,7 @@ export function Button({
 ## ♿ Accessibility & Pure Tailwind Standards
 
 ### Contrast Compliance (Tailwind Implementation)
+
 - **Light Mode**: All color combinations meet WCAG AA standards using Tailwind's semantic colors
 - **Dark Mode**: Enhanced contrast ratios with `dark:` variants for improved readability
 - **High Contrast**: Tailwind's contrast utilities support `prefers-contrast: high`
@@ -714,6 +956,7 @@ export function Button({
 ```
 
 ### Motion Sensitivity (Tailwind Implementation)
+
 ```tsx
 // Respect user motion preferences with Tailwind
 <div className="transition-all duration-300 motion-reduce:transition-none">
@@ -734,6 +977,7 @@ export function Button({
 ```
 
 ### Focus States (Pure Tailwind)
+
 ```tsx
 // Theme-aware focus indicators using Tailwind
 <Button 
@@ -760,6 +1004,7 @@ export function Button({
 ```
 
 ### Screen Reader Support
+
 ```tsx
 // Proper ARIA labels and semantic HTML
 <Button 
@@ -786,13 +1031,16 @@ export function Button({
 ## 🏗️ Implementation Guidelines (Pure Tailwind v4)
 
 ### Project Architecture
+>
 > **MH Construction uses pure Tailwind CSS v4.1.13 with zero custom CSS classes**
+>
 > - Complete theme support with Tailwind's dark mode
 > - Brand colors configured in `tailwind.config.ts`
 > - Component-based architecture with reusable Button component
 > - Accessibility-first design with Tailwind utilities
 
 ### Tailwind Configuration Reference
+
 ```typescript
 // tailwind.config.ts - Complete MH Construction configuration
 import type { Config } from 'tailwindcss'
@@ -831,6 +1079,7 @@ export default config
 ```
 
 ### Component Usage with Pure Tailwind
+
 ```tsx
 // Modern component with pure Tailwind - NO custom CSS classes
 import { Button } from '@/components/ui/Button'
@@ -876,6 +1125,7 @@ export function ProjectCard({ project }) {
 ```
 
 ### Theme Implementation
+
 ```tsx
 // Theme toggle with pure Tailwind
 import { useTheme } from '@/contexts/ThemeContext'
@@ -900,6 +1150,7 @@ export function ThemeToggle() {
 ```
 
 ### Brand Compliance Checklist (Pure Tailwind v4)
+
 - [ ] ✅ Uses official MH brand colors via Tailwind configuration
 - [ ] ✅ Implements pure Tailwind classes (NO custom CSS classes)
 - [ ] ✅ Uses Button component for all interactive elements
@@ -912,6 +1163,7 @@ export function ThemeToggle() {
 - [ ] ✅ Implements responsive design with Tailwind breakpoints
 
 ### Migration from Custom CSS (v2.5.0 → v2.6.0)
+
 ```tsx
 // OLD APPROACH (v2.5.0) - Custom CSS classes
 <button className="btn-primary btn-xl">Get Quote</button>
@@ -925,6 +1177,7 @@ export function ThemeToggle() {
 ```
 
 ### Development Best Practices
+
 1. **Always use the Button component** for interactive elements
 2. **Never create custom CSS classes** - use Tailwind utilities
 3. **Test in both themes** during development
@@ -938,18 +1191,21 @@ export function ThemeToggle() {
 ## 📞 Brand Governance
 
 ### Authority & Updates
+
 - **Final Approval**: MH Construction Leadership Team
 - **Implementation**: Pure Tailwind CSS v4 with zero custom classes
 - **Guidelines**: This document + `tailwind.config.ts` configuration
 - **Component Library**: `/src/components/ui/` for reusable components
 
 ### Technical Contact Information
-- **Brand Guidelines**: developers@mhconstruction.com
+
+- **Brand Guidelines**: <developers@mhconstruction.com>
 - **Tailwind Implementation**: See `tailwind.config.ts` and Button component
 - **Theme Support**: Complete Tailwind dark mode implementation
 - **Technical Support**: Pure Tailwind architecture documentation
 
 ### Version History
+
 - **v2.6.0** (September 22, 2025): Complete migration to pure Tailwind CSS v4
 - **v2.5.0** (Previous): Custom CSS classes with theme support
 - **Migration**: All custom classes replaced with Tailwind utilities and components
@@ -958,9 +1214,10 @@ export function ThemeToggle() {
 
 **This comprehensive brand system ensures consistent, professional, and veteran-proud representation across all digital touchpoints using pure Tailwind CSS v4 with complete accessibility and theme support.** 🏗️
 
-*"Building Tomorrow with Today's Technology - Where Military Precision Meets Construction Excellence"*
+> "Building Tomorrow with Today's Technology - Where Military Precision Meets Construction Excellence"
 
 ### 🚀 **Pure Tailwind Benefits Achieved:**
+
 - ✅ **Zero Custom CSS**: All styling uses Tailwind utilities
 - ✅ **Improved Performance**: Smaller bundle size, better caching
 - ✅ **Enhanced Maintainability**: Single source of truth for styling
@@ -971,4 +1228,4 @@ export function ThemeToggle() {
 
 ---
 
-*Brand Guidelines v2.6.0 | September 22, 2025 | MH Construction LLC | Pure Tailwind CSS v4 Implementation*
+Brand Guidelines v2.6.0 | September 22, 2025 | MH Construction LLC | Pure Tailwind CSS v4 Implementation

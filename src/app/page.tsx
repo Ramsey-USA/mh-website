@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import Link from 'next/link'
 import {
   Button,
@@ -15,6 +18,7 @@ import {
   StructuredData,
 } from '../components/seo/seo-meta'
 import TestimonialsWidget from '../components/TestimonialsWidget'
+import Head from 'next/head'
 import {
   BoltIcon,
   CalendarIcon,
@@ -26,163 +30,255 @@ import {
   CheckIcon,
   ToolsIcon,
 } from '../components/icons/SharpDuotoneIcons'
-import ScrollReveal from '../components/animations/ScrollReveal'
-
-// Generate metadata for the homepage
-export const metadata = generateSEOMetadata({
-  title: 'Home',
-  description:
-    'MH Construction delivers exceptional residential, commercial, and industrial construction services throughout the Pacific Northwest. Get your free AI-powered estimate today.',
-  keywords: [
-    'construction services',
-    'home builder',
-    'commercial contractor',
-    'renovation experts',
-    'AI construction estimate',
-    'Pacific Northwest construction',
-  ],
-})
+import {
+  FadeInWhenVisible,
+  StaggeredFadeIn,
+  HoverScale,
+} from '../components/animations/FramerMotionComponents'
+import DynamicSearch from '../components/features/DynamicSearch'
+import InteractiveGallery from '../components/features/InteractiveGallery'
+import { useAnalytics } from '../components/analytics/enhanced-analytics'
+import { OptimizedImage } from '../components/ui/OptimizedImage'
+import {
+  useIntersectionObserver,
+  useImagePreloader,
+} from '../hooks/usePerformanceOptimization'
 
 export default function Home() {
+  // Initialize analytics
+  const { trackEvent } = useAnalytics()
+
   // Get featured projects for the homepage
   const featuredProjects = PortfolioService.getFeaturedProjects().slice(0, 3)
 
+  // Preload critical images for better performance
+  const criticalImages = [
+    '/images/placeholder.jpg',
+    '/images/placeholder-project.jpg',
+    '/images/projects/project-default.png',
+    '/images/logo/mh-logo.png',
+  ]
+
+  const preloadedImages = useImagePreloader(criticalImages)
+
+  // Track page view
+  React.useEffect(() => {
+    trackEvent('page_view', {
+      page_name: 'homepage',
+      page_location: '/',
+      content_group1: 'marketing',
+    })
+  }, [trackEvent])
+
+  // Track scroll depth for engagement analytics
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const scrollPercent = Math.round(
+        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
+          100
+      )
+
+      if (scrollPercent >= 25 && !sessionStorage.getItem('scroll_25')) {
+        sessionStorage.setItem('scroll_25', 'true')
+        trackEvent('scroll_depth', { percent: 25, page: 'homepage' })
+      }
+      if (scrollPercent >= 50 && !sessionStorage.getItem('scroll_50')) {
+        sessionStorage.setItem('scroll_50', 'true')
+        trackEvent('scroll_depth', { percent: 50, page: 'homepage' })
+      }
+      if (scrollPercent >= 75 && !sessionStorage.getItem('scroll_75')) {
+        sessionStorage.setItem('scroll_75', 'true')
+        trackEvent('scroll_depth', { percent: 75, page: 'homepage' })
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [trackEvent])
+
   return (
     <>
+      <Head>
+        <title>
+          MH Construction - Building Tomorrow with Today's Technology
+        </title>
+        <meta
+          name="description"
+          content="MH Construction delivers exceptional residential, commercial, and industrial construction services throughout the Pacific Northwest. Get your free AI-powered estimate today."
+        />
+        <meta
+          name="keywords"
+          content="construction services, home builder, commercial contractor, renovation experts, AI construction estimate, Pacific Northwest construction"
+        />
+        <meta
+          property="og:title"
+          content="MH Construction - Building Tomorrow with Today's Technology"
+        />
+        <meta
+          property="og:description"
+          content="Veteran-owned construction excellence powered by cutting-edge AI technology."
+        />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://mhconstruction.com" />
+      </Head>
+
       {/* Add structured data for SEO */}
       <StructuredData data={generateOrganizationStructuredData()} />
 
-      {/* Initialize scroll reveal animations */}
-      <ScrollReveal />
-
       {/* Enhanced Hero Section */}
-      <section className="hero-section relative py-32 lg:py-40 overflow-hidden bg-white dark:bg-gray-900">
+      <section className="relative bg-white dark:bg-gray-900 py-32 lg:py-40 hero-section">
         {/* Simple Background */}
         <div className="absolute inset-0"></div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center scroll-reveal">
+        <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <FadeInWhenVisible className="text-center">
             {/* Veteran Badge */}
-            <div className="inline-flex items-center px-6 py-3 mb-8 bg-brand-primary/10 dark:bg-brand-primary/20 backdrop-blur-sm rounded-full border border-brand-primary/20 dark:border-brand-primary/30 shadow-lg">
+            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
               <ShieldIcon
                 size="sm"
                 primaryColor="currentColor"
                 secondaryColor="currentColor"
                 className="text-brand-primary dark:text-brand-primary-light"
               />
-              <span className="ml-3 text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-wide">
-                VETERAN-OWNED EXCELLENCE
+              <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider letterspacing-wide">
+                Veteran-Owned Excellence
               </span>
             </div>
 
-            <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 text-gray-900 dark:text-white leading-tight">
-              Building Tomorrow with
-              <span className="block mt-4 bg-gradient-to-r from-brand-secondary via-brand-secondary-light to-brand-secondary bg-clip-text text-transparent">
+            <h1 className="mb-10 pb-4 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter hero-title">
+              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+                Building Tomorrow with
+              </span>
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary drop-shadow-sm font-black text-transparent">
                 Today's Technology
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl lg:text-3xl mb-12 text-gray-700 dark:text-gray-300 max-w-5xl mx-auto leading-relaxed">
-              Veteran-owned construction excellence powered by cutting-edge AI
-              technology. Serving the Pacific Northwest with{' '}
-              <span className="text-brand-secondary dark:text-brand-secondary-light font-semibold">
+            <p className="mx-auto mb-14 max-w-4xl font-light text-gray-600 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide">
+              Veteran-owned construction excellence powered by{' '}
+              <span className="font-medium text-gray-800 dark:text-gray-200">
+                cutting-edge AI technology
+              </span>
+              . Serving the Pacific Northwest with{' '}
+              <span className="bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-primary font-semibold text-transparent">
                 military precision
               </span>
               .
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+            <div className="flex sm:flex-row flex-col justify-center items-center gap-8 mb-16">
               <Link href="/booking">
-                <Button variant="primary" size="xl" className="group">
-                  <CalendarIcon
-                    size="sm"
-                    primaryColor="currentColor"
-                    className="mr-3"
-                  />
-                  <span className="relative z-10">
-                    Schedule Free Consultation
-                  </span>
-                </Button>
+                <HoverScale>
+                  <Button
+                    variant="primary"
+                    size="xl"
+                    className="shadow-xl"
+                    onClick={() =>
+                      trackEvent('cta_click', {
+                        button_name: 'schedule_consultation',
+                        location: 'hero_section',
+                        page: 'homepage',
+                      })
+                    }
+                  >
+                    <CalendarIcon
+                      size="sm"
+                      primaryColor="currentColor"
+                      className="mr-3"
+                    />
+                    <span className="z-10 relative tracking-wide">
+                      Schedule Free Consultation
+                    </span>
+                  </Button>
+                </HoverScale>
               </Link>
               <Link href="/estimator">
-                <Button
-                  variant="outline"
-                  size="xl"
-                  className="group border-white text-white hover:bg-white hover:text-brand-primary"
-                >
-                  <BoltIcon
-                    size="sm"
-                    primaryColor="currentColor"
-                    className="mr-3"
-                  />
-                  <span className="relative z-10">Get AI Estimate</span>
-                </Button>
+                <HoverScale>
+                  <Button
+                    variant="outline"
+                    size="xl"
+                    className="shadow-xl"
+                    onClick={() =>
+                      trackEvent('cta_click', {
+                        button_name: 'get_ai_estimate',
+                        location: 'hero_section',
+                        page: 'homepage',
+                      })
+                    }
+                  >
+                    <BoltIcon
+                      size="sm"
+                      primaryColor="currentColor"
+                      className="mr-3"
+                    />
+                    <span className="z-10 relative tracking-wide">
+                      Get AI Estimate
+                    </span>
+                  </Button>
+                </HoverScale>
               </Link>
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-8 text-white/80 text-sm">
-              <div className="flex items-center">
-                <CheckIcon
-                  size="xs"
-                  primaryColor="currentColor"
-                  className="mr-2"
-                />
-                <span>Free Consultation</span>
-              </div>
-              <div className="flex items-center">
-                <CheckIcon
-                  size="xs"
-                  primaryColor="currentColor"
-                  className="mr-2"
-                />
-                <span>±15% Estimate Accuracy</span>
-              </div>
-              <div className="flex items-center">
-                <CheckIcon
-                  size="xs"
-                  primaryColor="currentColor"
-                  className="mr-2"
-                />
-                <span>24/7 Emergency Support</span>
-              </div>
-              <div className="flex items-center">
-                <CheckIcon
-                  size="xs"
-                  primaryColor="currentColor"
-                  className="mr-2"
-                />
-                <span>Licensed & Insured</span>
-              </div>
-            </div>
-          </div>
+            <StaggeredFadeIn className="flex flex-wrap justify-center items-center gap-10 font-medium text-gray-700 dark:text-gray-300 text-base">
+              {[
+                'Free Consultation',
+                '±15% Estimate Accuracy',
+                '24/7 Emergency Support',
+                'Licensed & Insured',
+              ].map((indicator, index) => (
+                <div
+                  key={index}
+                  className="flex items-center bg-white/10 dark:bg-gray-800/30 backdrop-blur-sm px-4 py-2 border border-gray-200/20 dark:border-gray-700/30 rounded-full"
+                >
+                  <CheckIcon
+                    size="sm"
+                    primaryColor="currentColor"
+                    className="mr-3 text-green-600 dark:text-green-400"
+                  />
+                  <span className="tracking-wide">{indicator}</span>
+                </div>
+              ))}
+            </StaggeredFadeIn>
+          </FadeInWhenVisible>
         </div>
       </section>
 
       {/* Enhanced Company Stats Section */}
-      <section className="stats-section py-24 bg-white dark:bg-gray-900 relative">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-primary/30 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-transparent dark:from-gray-800/30"></div>
+      <section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32 stats-section">
+        <div className="top-0 right-0 left-0 absolute bg-gradient-to-r from-transparent via-brand-primary/30 to-transparent h-px"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 dark:from-gray-800/30 to-transparent"></div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-20 scroll-reveal">
-            <div className="inline-flex items-center px-4 py-2 mb-6 bg-brand-primary/10 rounded-full">
-              <StarIcon size="sm" primaryColor="var(--brand-primary)" />
-              <span className="ml-2 text-sm font-semibold text-brand-primary uppercase tracking-wide">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="mb-24 lg:mb-32 text-center scroll-reveal">
+            <div className="inline-flex items-center bg-brand-primary/10 shadow-lg mb-10 px-8 py-4 border border-brand-primary/20 rounded-full">
+              <StarIcon size="md" primaryColor="var(--brand-primary)" />
+              <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider letterspacing-widest">
                 Proven Excellence
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-gray-100">
-              Excellence in Numbers
+            <h2 className="mb-10 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
+              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+                Excellence in
+              </span>
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                Numbers
+              </span>
             </h2>
-            <p className="text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-400">
-              Our track record speaks for itself - delivering outstanding
-              results with military precision for over 150 combined years of
-              experience
+            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+              Our track record speaks for itself - delivering{' '}
+              <span className="font-medium text-gray-800 dark:text-gray-200">
+                outstanding results
+              </span>{' '}
+              with military precision for over{' '}
+              <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
+                150 combined years
+              </span>{' '}
+              of experience
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+          <div className="gap-8 lg:gap-12 grid grid-cols-2 md:grid-cols-4">
             {[
               {
                 number: '150+',
@@ -215,7 +311,7 @@ export default function Home() {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="stats-card group text-center scroll-reveal"
+                className="group text-center scroll-reveal stats-card"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div
@@ -227,19 +323,13 @@ export default function Home() {
                     secondaryColor="rgba(255,255,255,0.8)"
                   />
                 </div>
-                <div className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
+                <div className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary mb-4 font-black text-transparent text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter">
                   {stat.number}
                 </div>
-                <div
-                  className="text-lg md:text-xl font-semibold mb-2"
-                  style={{ color: 'var(--color-text-primary)' }}
-                >
+                <div className="mb-4 font-black text-gray-900 dark:text-gray-100 text-lg md:text-xl lg:text-2xl tracking-tight">
                   {stat.label}
                 </div>
-                <p
-                  className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ color: 'var(--color-text-muted)' }}
-                >
+                <p className="opacity-0 group-hover:opacity-100 font-light text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed tracking-wide transition-opacity duration-300">
                   {stat.description}
                 </p>
               </div>
@@ -249,40 +339,43 @@ export default function Home() {
       </section>
 
       {/* Revolutionary Features Section */}
-      <section className="features-section py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/patterns/grid.svg')] opacity-5 dark:opacity-10"></div>
-        <div className="absolute top-20 right-20 w-32 h-32 bg-brand-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-40 h-40 bg-brand-secondary/5 rounded-full blur-3xl"></div>
+      <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-20 lg:py-32 xl:py-40 features-section">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(56,104,81,0.05)_0%,transparent_50%)] opacity-60"></div>
+        <div className="top-20 right-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
+        <div className="bottom-20 left-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-40 h-40"></div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-24 scroll-reveal">
-            <div className="inline-flex items-center px-6 py-3 mb-8 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-full">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <FadeInWhenVisible className="mb-24 lg:mb-32 text-center">
+            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg mb-10 px-8 py-4 border border-brand-primary/20 rounded-full">
               <BoltIcon size="md" primaryColor="var(--brand-primary)" />
-              <span className="ml-3 text-sm font-bold text-brand-primary uppercase tracking-wide">
+              <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider letterspacing-widest">
                 Revolutionary Solutions
               </span>
             </div>
 
-            <h2
-              className="text-5xl md:text-6xl font-bold mb-8"
-              style={{ color: 'var(--color-text-accent)' }}
-            >
-              The Future of
-              <span className="block bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
+            <h2 className="mb-10 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
+              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+                The Future of
+              </span>
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                 Construction
               </span>
             </h2>
-            <p
-              className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed"
-              style={{ color: 'var(--color-text-secondary)' }}
-            >
-              Experience cutting-edge technology combined with decades of
-              expertise. Our AI-powered tools and veteran precision deliver
-              results that exceed expectations.
+            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+              Experience{' '}
+              <span className="font-medium text-gray-800 dark:text-gray-200">
+                cutting-edge technology
+              </span>{' '}
+              combined with decades of expertise. Our AI-powered tools and
+              veteran precision deliver results that{' '}
+              <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
+                exceed expectations
+              </span>
+              .
             </p>
-          </div>
+          </FadeInWhenVisible>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <StaggeredFadeIn className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 icon: BoltIcon,
@@ -317,12 +410,8 @@ export default function Home() {
                 delay: '0.3s',
               },
             ].map((feature, index) => (
-              <div
-                key={index}
-                className="feature-card group scroll-reveal"
-                style={{ animationDelay: feature.delay }}
-              >
-                <div className="relative p-8 h-full bg-white dark:bg-gray-800 rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+              <HoverScale key={index} className="group feature-card">
+                <div className="relative bg-white dark:bg-gray-800 shadow-lg group-hover:shadow-2xl p-8 rounded-3xl h-full transition-all duration-500">
                   {/* Gradient Background */}
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-500`}
@@ -339,23 +428,17 @@ export default function Home() {
                     />
                   </div>
 
-                  <h3
-                    className="text-2xl font-bold mb-4 group-hover:text-brand-primary transition-colors duration-300"
-                    style={{ color: 'var(--color-text-primary)' }}
-                  >
+                  <h3 className="mb-6 font-black text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-xl md:text-2xl lg:text-3xl leading-tight tracking-tight transition-colors duration-300">
                     {feature.title}
                   </h3>
 
-                  <p
-                    className="text-base leading-relaxed mb-6"
-                    style={{ color: 'var(--color-text-secondary)' }}
-                  >
+                  <p className="mb-8 font-light text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed tracking-wide">
                     {feature.description}
                   </p>
 
                   {/* Hover Arrow */}
-                  <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-                    <div className="w-10 h-10 bg-brand-primary rounded-full flex items-center justify-center shadow-lg">
+                  <div className="right-6 bottom-6 absolute opacity-0 group-hover:opacity-100 transition-all translate-x-2 group-hover:translate-x-0 duration-300 transform">
+                    <div className="flex justify-center items-center bg-brand-primary shadow-lg rounded-full w-10 h-10">
                       <svg
                         className="w-5 h-5 text-white"
                         fill="none"
@@ -372,48 +455,51 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </HoverScale>
             ))}
-          </div>
+          </StaggeredFadeIn>
         </div>
       </section>
 
       {/* Military Values Section */}
-      <section className="values-section py-32 bg-white dark:bg-gray-900 relative overflow-hidden">
+      <section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40 values-section">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.05)_0%,transparent_50%)]"></div>
-        <div className="absolute top-40 left-10 w-24 h-24 bg-brand-secondary/10 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-brand-primary/10 rounded-full blur-2xl"></div>
+        <div className="top-40 left-10 absolute bg-brand-secondary/10 blur-2xl rounded-full w-24 h-24"></div>
+        <div className="right-10 bottom-20 absolute bg-brand-primary/10 blur-2xl rounded-full w-32 h-32"></div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-24 scroll-reveal">
-            <div className="inline-flex items-center px-6 py-3 mb-8 bg-red-50 dark:bg-red-900/20 rounded-full">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <div className="mb-24 lg:mb-32 text-center scroll-reveal">
+            <div className="inline-flex items-center bg-red-50 dark:bg-red-900/20 shadow-lg mb-10 px-8 py-4 border border-red-200/30 rounded-full">
               <ShieldIcon size="md" primaryColor="var(--veteran-red)" />
-              <span className="ml-3 text-sm font-bold text-red-600 dark:text-red-400 uppercase tracking-wide">
+              <span className="ml-4 font-black text-red-600 dark:text-red-400 text-sm uppercase tracking-wider letterspacing-widest">
                 Military Values
               </span>
             </div>
 
-            <h2
-              className="text-5xl md:text-6xl font-bold mb-8"
-              style={{ color: 'var(--color-text-accent)' }}
-            >
-              Built on
-              <span className="block bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
+            <h2 className="mb-10 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
+              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+                Built on
+              </span>
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                 Unwavering Principles
               </span>
             </h2>
-            <p
-              className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed"
-              style={{ color: 'var(--color-text-secondary)' }}
-            >
-              Our foundation rests on military values that guide every project,
-              every decision, and every client relationship we build with honor
-              and dedication.
+            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+              Our foundation rests on{' '}
+              <span className="font-medium text-gray-800 dark:text-gray-200">
+                military values
+              </span>{' '}
+              that guide every project, every decision, and every client
+              relationship we build with{' '}
+              <span className="bg-clip-text bg-gradient-to-r from-red-600 to-brand-primary font-semibold text-transparent">
+                honor and dedication
+              </span>
+              .
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 value: 'Integrity',
@@ -462,16 +548,16 @@ export default function Home() {
               return (
                 <div
                   key={item.value}
-                  className="value-card group scroll-reveal"
+                  className="group scroll-reveal value-card"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="relative p-8 h-full bg-white dark:bg-gray-800 rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-3 overflow-hidden">
+                  <div className="relative bg-white dark:bg-gray-800 shadow-lg group-hover:shadow-2xl p-8 rounded-3xl h-full overflow-hidden transition-all group-hover:-translate-y-3 duration-500">
                     {/* Gradient Overlay */}
                     <div
                       className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                     ></div>
 
-                    <div className="text-center relative z-10">
+                    <div className="z-10 relative text-center">
                       <div
                         className={`w-24 h-24 bg-gradient-to-br ${item.color} rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-lg group-hover:shadow-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}
                       >
@@ -482,17 +568,11 @@ export default function Home() {
                         />
                       </div>
 
-                      <h3
-                        className="text-2xl md:text-3xl font-bold mb-6 group-hover:text-brand-primary transition-colors duration-300"
-                        style={{ color: 'var(--color-text-accent)' }}
-                      >
+                      <h3 className="mb-6 font-black text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl md:text-3xl lg:text-4xl leading-tight tracking-tight transition-colors duration-300">
                         {item.value}
                       </h3>
 
-                      <p
-                        className="leading-relaxed text-lg"
-                        style={{ color: 'var(--color-text-secondary)' }}
-                      >
+                      <p className="font-light text-gray-600 dark:text-gray-300 text-base md:text-lg lg:text-xl leading-relaxed tracking-wide">
                         {item.description}
                       </p>
                     </div>
@@ -507,40 +587,182 @@ export default function Home() {
       {/* Featured Projects Section */}
       <FeaturedProjectsSection featuredProjects={featuredProjects} />
 
-      {/* Enhanced Client Testimonials */}
-      <section className="testimonials-section py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/patterns/testimonials.svg')] opacity-5"></div>
-        <div className="absolute top-20 left-20 w-40 h-40 bg-brand-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-32 h-32 bg-brand-secondary/5 rounded-full blur-3xl"></div>
+      {/* Interactive Showcase Section */}
+      <section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40 showcase-section">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 dark:from-gray-800/50 to-white dark:to-gray-900"></div>
+        <div className="top-20 right-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
+        <div className="bottom-20 left-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-40 h-40"></div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-24 scroll-reveal">
-            <div className="inline-flex items-center px-6 py-3 mb-8 bg-yellow-50 dark:bg-yellow-900/20 rounded-full">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <FadeInWhenVisible className="mb-24 text-center">
+            <div className="inline-flex items-center bg-brand-primary/10 shadow-lg mb-10 px-8 py-4 border border-brand-primary/20 rounded-full">
+              <BoltIcon size="md" primaryColor="var(--brand-primary)" />
+              <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider letterspacing-widest">
+                Interactive Experience
+              </span>
+            </div>
+            <h2 className="mb-10 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
+              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+                Explore Our
+              </span>
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                Capabilities
+              </span>
+            </h2>
+            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+              Discover our services, browse project galleries, and see what
+              makes us{' '}
+              <span className="font-medium text-gray-800 dark:text-gray-200">
+                different
+              </span>{' '}
+              from the rest
+            </p>
+          </FadeInWhenVisible>
+
+          {/* Dynamic Search Component */}
+          <FadeInWhenVisible className="mb-16">
+            <DynamicSearch
+              items={[
+                {
+                  id: '1',
+                  title: 'Residential Construction',
+                  description: 'Custom homes built with precision and care',
+                  category: 'Services',
+                  type: 'service',
+                  tags: ['residential', 'custom homes', 'construction'],
+                  date: new Date(),
+                  image: '/images/placeholder-project.jpg',
+                },
+                {
+                  id: '2',
+                  title: 'Commercial Projects',
+                  description: 'Large-scale commercial construction solutions',
+                  category: 'Services',
+                  type: 'service',
+                  tags: ['commercial', 'office buildings', 'retail'],
+                  date: new Date(),
+                  image: '/images/placeholder-project.jpg',
+                },
+                {
+                  id: '3',
+                  title: 'Kitchen Renovations',
+                  description: 'Transform your kitchen with modern designs',
+                  category: 'Renovation',
+                  type: 'service',
+                  tags: ['kitchen', 'renovation', 'modern'],
+                  date: new Date(),
+                  image: '/images/placeholder-project.jpg',
+                },
+                {
+                  id: '4',
+                  title: 'Bathroom Remodeling',
+                  description: 'Luxury bathroom transformations',
+                  category: 'Renovation',
+                  type: 'service',
+                  tags: ['bathroom', 'luxury', 'remodeling'],
+                  date: new Date(),
+                  image: '/images/placeholder-project.jpg',
+                },
+              ]}
+              categories={['All', 'Services', 'Renovation', 'Projects']}
+              placeholder="Search our services and capabilities..."
+              className="mx-auto max-w-4xl"
+              onItemClick={item => {
+                trackEvent('search_result_click', {
+                  item_id: item.id,
+                  item_title: item.title,
+                  item_category: item.category,
+                  search_location: 'homepage_showcase',
+                })
+              }}
+            />
+          </FadeInWhenVisible>
+
+          {/* Interactive Gallery Showcase */}
+          <FadeInWhenVisible>
+            <InteractiveGallery
+              title="Recent Work Gallery"
+              images={[
+                {
+                  id: '1',
+                  src: '/images/projects/project-default.png',
+                  alt: 'Modern Kitchen Renovation',
+                  title: 'Modern Kitchen Renovation',
+                  description:
+                    'Complete kitchen transformation with smart appliances',
+                  category: 'Kitchen',
+                },
+                {
+                  id: '2',
+                  src: '/images/projects/project-default.png',
+                  alt: 'Luxury Bathroom',
+                  title: 'Luxury Master Bathroom',
+                  description: 'Spa-like bathroom with premium finishes',
+                  category: 'Bathroom',
+                },
+                {
+                  id: '3',
+                  src: '/images/projects/project-default.png',
+                  alt: 'Custom Home Build',
+                  title: 'Custom Home Construction',
+                  description:
+                    'From foundation to finish - complete home build',
+                  category: 'Residential',
+                },
+                {
+                  id: '4',
+                  src: '/images/projects/project-default.png',
+                  alt: 'Commercial Office',
+                  title: 'Modern Office Space',
+                  description: 'Contemporary commercial space design',
+                  category: 'Commercial',
+                },
+              ]}
+              showCategories={true}
+              showThumbnails={true}
+              className="mx-auto max-w-6xl"
+            />
+          </FadeInWhenVisible>
+        </div>
+      </section>
+
+      {/* Enhanced Client Testimonials */}
+      <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-20 lg:py-32 xl:py-40 testimonials-section">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(189,146,100,0.05)_0%,transparent_50%)] opacity-60"></div>
+        <div className="top-20 left-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-40 h-40"></div>
+        <div className="right-20 bottom-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-32 h-32"></div>
+
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="mb-24 lg:mb-32 text-center scroll-reveal">
+            <div className="inline-flex items-center bg-yellow-50 dark:bg-yellow-900/20 shadow-lg mb-10 px-8 py-4 border border-yellow-200/30 rounded-full">
               <StarIcon size="md" primaryColor="var(--brand-secondary)" />
-              <span className="ml-3 text-sm font-bold text-yellow-600 dark:text-yellow-400 uppercase tracking-wide">
+              <span className="ml-4 font-black text-yellow-600 dark:text-yellow-400 text-sm uppercase tracking-wider letterspacing-widest">
                 Client Success Stories
               </span>
             </div>
 
-            <h2
-              className="text-5xl md:text-6xl font-bold mb-8"
-              style={{ color: 'var(--color-text-accent)' }}
-            >
-              What Our
-              <span className="block bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
+            <h2 className="mb-10 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
+              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+                What Our
+              </span>
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                 Clients Say
               </span>
             </h2>
-            <p
-              className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed"
-              style={{ color: 'var(--color-text-secondary)' }}
-            >
-              Read testimonials from satisfied customers across the Pacific
-              Northwest who have experienced our veteran excellence firsthand.
+            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+              Read testimonials from{' '}
+              <span className="font-medium text-gray-800 dark:text-gray-200">
+                satisfied customers
+              </span>{' '}
+              across the Pacific Northwest who have experienced our{' '}
+              <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
+                veteran excellence
+              </span>{' '}
+              firsthand.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-20">
             {[
               {
                 name: 'Sarah Thompson',
@@ -572,12 +794,12 @@ export default function Home() {
             ].map((testimonial, index) => (
               <div
                 key={index}
-                className="testimonial-card group scroll-reveal"
+                className="group scroll-reveal testimonial-card"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="relative p-8 h-full bg-white dark:bg-gray-800 rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+                <div className="relative bg-white dark:bg-gray-800 shadow-lg group-hover:shadow-2xl p-8 rounded-3xl h-full transition-all group-hover:-translate-y-2 duration-500">
                   {/* Quote Icon */}
-                  <div className="absolute top-6 right-6 w-12 h-12 bg-brand-secondary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="top-6 right-6 absolute flex justify-center items-center bg-brand-secondary/10 rounded-full w-12 h-12 group-hover:scale-110 transition-transform duration-300">
                     <svg
                       className="w-6 h-6 text-brand-secondary"
                       fill="currentColor"
@@ -588,23 +810,20 @@ export default function Home() {
                   </div>
 
                   <div className="flex items-start space-x-4 mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-white font-bold text-2xl">
+                    <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-primary to-brand-secondary shadow-lg rounded-2xl w-16 h-16 group-hover:scale-110 transition-transform duration-300">
+                      <span className="font-bold text-white text-2xl">
                         {testimonial.name.charAt(0)}
                       </span>
                     </div>
                     <div className="flex-1">
-                      <h3
-                        className="font-bold text-xl mb-1"
-                        style={{ color: 'var(--color-text-accent)' }}
-                      >
+                      <h3 className="mb-2 font-black text-gray-900 dark:text-gray-100 text-xl md:text-2xl tracking-tight">
                         {testimonial.name}
                       </h3>
-                      <p
-                        className="text-sm mb-2"
-                        style={{ color: 'var(--color-text-muted)' }}
-                      >
-                        {testimonial.location} • {testimonial.project}
+                      <p className="mb-3 font-medium text-gray-600 dark:text-gray-400 text-sm md:text-base tracking-wide">
+                        {testimonial.location} •{' '}
+                        <span className="font-bold text-brand-primary">
+                          {testimonial.project}
+                        </span>
                       </p>
                       <div className="flex space-x-1">
                         {Array.from({ length: testimonial.rating }).map(
@@ -621,10 +840,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <blockquote
-                    className="text-lg leading-relaxed"
-                    style={{ color: 'var(--color-text-primary)' }}
-                  >
+                  <blockquote className="font-light text-gray-700 dark:text-gray-300 text-lg md:text-xl italic leading-relaxed tracking-wide">
                     "{testimonial.review}"
                   </blockquote>
                 </div>
@@ -634,8 +850,8 @@ export default function Home() {
 
           <div className="text-center scroll-reveal">
             <Link href="/testimonials">
-              <Button variant="outline" size="xl" className="group">
-                <span className="relative z-10">View All Testimonials</span>
+              <Button variant="outline" size="xl" className="shadow-xl">
+                <span className="z-10 relative">View All Testimonials</span>
               </Button>
             </Link>
           </div>
@@ -643,80 +859,95 @@ export default function Home() {
       </section>
 
       {/* Enhanced CTA Section */}
-      <section className="cta-section relative py-32 overflow-hidden">
+      <section className="relative py-20 lg:py-32 xl:py-40 cta-section">
         {/* Animated Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)]"></div>
-          <div className="absolute inset-0 bg-[url('/images/patterns/construction.svg')] opacity-5"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(56,104,81,0.1)_0%,transparent_70%)] opacity-60"></div>
           <div className="absolute inset-0">
-            <div className="absolute top-20 left-20 w-3 h-3 bg-white/20 rounded-full animate-pulse"></div>
+            <div className="top-20 left-20 absolute bg-white/20 rounded-full w-3 h-3 animate-pulse"></div>
             <div
-              className="absolute top-40 right-32 w-2 h-2 bg-white/30 rounded-full animate-pulse"
+              className="top-40 right-32 absolute bg-white/30 rounded-full w-2 h-2 animate-pulse"
               style={{ animationDelay: '1s' }}
             ></div>
             <div
-              className="absolute bottom-32 left-1/3 w-2.5 h-2.5 bg-white/25 rounded-full animate-pulse"
+              className="bottom-32 left-1/3 absolute bg-white/25 rounded-full w-2.5 h-2.5 animate-pulse"
               style={{ animationDelay: '2s' }}
             ></div>
             <div
-              className="absolute bottom-20 right-20 w-2 h-2 bg-white/20 rounded-full animate-pulse"
+              className="right-20 bottom-20 absolute bg-white/20 rounded-full w-2 h-2 animate-pulse"
               style={{ animationDelay: '0.5s' }}
             ></div>
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl text-center">
           <div className="scroll-reveal">
             {/* Badge */}
-            <div className="inline-flex items-center px-8 py-4 mb-12 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 shadow-lg">
+            <div className="inline-flex items-center bg-white/10 shadow-lg backdrop-blur-sm mb-12 px-8 py-4 border border-white/20 rounded-full">
               <CheckIcon size="md" primaryColor="white" />
-              <span className="ml-3 text-lg font-bold text-white tracking-wide">
-                FREE CONSULTATION & ESTIMATE
+              <span className="ml-4 font-black text-white text-base md:text-lg uppercase tracking-wider letterspacing-widest">
+                Free Consultation & Estimate
               </span>
             </div>
 
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-12 text-white leading-tight">
-              Ready to Build Your
-              <span className="block text-brand-secondary-light mt-4">
+            <h2 className="mb-12 font-black text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
+              <span className="block mb-4 font-semibold text-gray-200 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+                Ready to Build Your
+              </span>
+              <span className="block drop-shadow-lg text-brand-secondary-light">
                 Dream Project?
               </span>
             </h2>
 
-            <p className="text-xl md:text-2xl lg:text-3xl mb-16 text-gray-100 max-w-4xl mx-auto leading-relaxed">
-              Get started with a free consultation and AI-powered estimate
-              today. Experience the difference of working with veteran-owned
-              excellence and cutting-edge technology.
+            <p className="mx-auto mb-16 max-w-5xl font-light text-gray-100 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+              Get started with a{' '}
+              <span className="font-medium text-white">free consultation</span>{' '}
+              and AI-powered estimate today. Experience the difference of
+              working with{' '}
+              <span className="font-semibold text-brand-secondary-light">
+                veteran-owned excellence
+              </span>{' '}
+              and cutting-edge technology.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16">
+            <div className="flex sm:flex-row flex-col justify-center items-center gap-8 mb-16">
               <Link href="/booking">
-                <Button variant="secondary" size="xl" className="group">
+                <Button
+                  variant="secondary"
+                  size="xl"
+                  className="shadow-xl"
+                >
                   <CalendarIcon
                     size="md"
                     primaryColor="currentColor"
                     className="mr-3"
                   />
-                  <span className="relative z-10">Schedule Consultation</span>
+                  <span className="z-10 relative tracking-wide">
+                    Schedule Consultation
+                  </span>
                 </Button>
               </Link>
               <Link href="/estimator">
                 <Button
                   variant="outline"
                   size="xl"
-                  className="group border-white text-white hover:bg-white hover:text-brand-primary"
+                  className="shadow-xl bg-transparent border-white text-white hover:bg-white hover:text-brand-primary"
                 >
                   <BoltIcon
                     size="md"
                     primaryColor="currentColor"
                     className="mr-3"
                   />
-                  <span className="relative z-10">Get Free Estimate</span>
+                  <span className="z-10 relative tracking-wide">
+                    Get Free Estimate
+                  </span>
                 </Button>
               </Link>
             </div>
 
             {/* Enhanced Trust Indicators */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-white/20">
+            <div className="gap-8 grid grid-cols-2 md:grid-cols-4 pt-12 border-white/20 border-t">
               {[
                 { icon: CheckIcon, text: 'Free Consultation' },
                 { icon: ShieldIcon, text: '24/7 Emergency Support' },
@@ -725,12 +956,12 @@ export default function Home() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center text-white/90 group"
+                  className="group flex flex-col items-center text-white/90"
                 >
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-white/20 transition-colors duration-300">
+                  <div className="flex justify-center items-center bg-white/10 group-hover:bg-white/20 mb-3 rounded-full w-12 h-12 transition-colors duration-300">
                     <item.icon size="md" primaryColor="currentColor" />
                   </div>
-                  <span className="text-sm font-medium text-center">
+                  <span className="font-medium text-sm text-center">
                     {item.text}
                   </span>
                 </div>

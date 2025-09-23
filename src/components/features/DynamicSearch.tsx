@@ -151,7 +151,7 @@ const DynamicSearch = ({
   }
 
   const renderGridView = () => (
-    <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
       {filteredItems.map(item => (
         <div
           key={item.id}

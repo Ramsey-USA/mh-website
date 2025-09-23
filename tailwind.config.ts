@@ -96,6 +96,10 @@ const config: Config = {
         '2xl': ['clamp(1.5rem, 1.3rem + 0.8vw, 1.75rem)', { lineHeight: '1.25' }],
         '3xl': ['clamp(1.875rem, 1.6rem + 1vw, 2.25rem)', { lineHeight: '1.25' }],
         '4xl': ['clamp(2.25rem, 1.9rem + 1.4vw, 3rem)', { lineHeight: '1.25' }],
+        '5xl': ['clamp(3rem, 2.5rem + 2vw, 4rem)', { lineHeight: '1.2' }],
+        '6xl': ['clamp(3.75rem, 3rem + 2.5vw, 5rem)', { lineHeight: '1.2' }],
+        '7xl': ['clamp(4.5rem, 3.5rem + 3vw, 6rem)', { lineHeight: '1.2' }],
+        '8xl': ['clamp(6rem, 4.5rem + 4vw, 8rem)', { lineHeight: '1.2' }],
       },
       spacing: {
         'xs': '0.25rem',   // 4px
