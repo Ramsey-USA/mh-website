@@ -126,12 +126,12 @@ export default function Home() {
       <StructuredData data={generateOrganizationStructuredData()} />
 
       {/* Enhanced Hero Section */}
-      <section className="relative bg-white dark:bg-gray-900 py-32 lg:py-40 hero-section">
+      <section className="relative bg-white dark:bg-gray-900 h-screen hero-section">
         {/* Simple Background */}
         <div className="absolute inset-0"></div>
 
-        <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible className="text-center">
+        <div className="z-10 relative flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-8 max-w-7xl h-full">
+          <FadeInWhenVisible className="w-full text-center">
             {/* Veteran Badge */}
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
               <ShieldIcon
@@ -145,8 +145,8 @@ export default function Home() {
               </span>
             </div>
 
-            <h1 className="mb-10 pb-4 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter hero-title">
-              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+            <h1 className="mb-6 pb-2 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter hero-title">
+              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
                 Building Tomorrow with
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary drop-shadow-sm font-black text-transparent">
@@ -154,7 +154,7 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="mx-auto mb-14 max-w-4xl font-light text-gray-600 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide">
+            <p className="mx-auto mb-8 max-w-4xl font-light text-gray-600 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide">
               Veteran-owned construction excellence powered by{' '}
               <span className="font-medium text-gray-800 dark:text-gray-200">
                 cutting-edge AI technology
@@ -166,7 +166,7 @@ export default function Home() {
               .
             </p>
 
-            <div className="flex sm:flex-row flex-col justify-center items-center gap-8 mb-16">
+            <div className="flex sm:flex-row flex-col justify-center items-center gap-8 mb-8">
               <Link href="/booking">
                 <HoverScale>
                   <Button
@@ -913,11 +913,7 @@ export default function Home() {
 
             <div className="flex sm:flex-row flex-col justify-center items-center gap-8 mb-16">
               <Link href="/booking">
-                <Button
-                  variant="secondary"
-                  size="xl"
-                  className="shadow-xl"
-                >
+                <Button variant="secondary" size="xl" className="shadow-xl">
                   <CalendarIcon
                     size="md"
                     primaryColor="currentColor"
@@ -932,7 +928,7 @@ export default function Home() {
                 <Button
                   variant="outline"
                   size="xl"
-                  className="shadow-xl bg-transparent border-white text-white hover:bg-white hover:text-brand-primary"
+                  className="bg-transparent hover:bg-white shadow-xl border-white text-white hover:text-brand-primary"
                 >
                   <BoltIcon
                     size="md"

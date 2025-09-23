@@ -1,9 +1,13 @@
+'use client'
+
+import React from 'react'
+import Link from 'next/link'
 import {
   Button,
   Card,
+  CardContent,
   CardHeader,
   CardTitle,
-  CardContent,
 } from '../../components/ui'
 import { ContactForm } from '../../components/contact/ContactForm'
 import {
@@ -11,6 +15,25 @@ import {
   ServiceAreaOverview,
 } from '../../components/map/InteractiveMap'
 import { LeadCapture } from '../../components/lead/LeadCapture'
+import {
+  generateSEOMetadata,
+  generateOrganizationStructuredData,
+  StructuredData,
+} from '../../components/seo/seo-meta'
+import {
+  PhoneIcon,
+  EmailIcon,
+  LocationIcon,
+  CalendarIcon,
+  CheckIcon,
+  UserIcon,
+  CloseIcon,
+} from '../../components/icons/SharpDuotoneIcons'
+import {
+  FadeInWhenVisible,
+  StaggeredFadeIn,
+  HoverScale,
+} from '../../components/animations/FramerMotionComponents'
 
 export default function ContactPage() {
   const contactInfo = {
@@ -31,96 +54,270 @@ export default function ContactPage() {
 
   const contactMethods = [
     {
-      icon: '📞',
+      icon: PhoneIcon,
       title: 'Phone',
       primary: contactInfo.phone,
       secondary: 'Direct line to our team',
       action: 'Call Now',
+      href: `tel:${contactInfo.phone}`,
+      variant: 'primary' as const,
     },
     {
-      icon: '📧',
+      icon: EmailIcon,
       title: 'Email',
       primary: contactInfo.email,
       secondary: 'We respond within 2 hours',
       action: 'Send Email',
+      href: `mailto:${contactInfo.email}`,
+      variant: 'secondary' as const,
     },
     {
-      icon: '📍',
+      icon: LocationIcon,
       title: 'Visit Us',
       primary: `${contactInfo.address.street}, ${contactInfo.address.city}`,
       secondary: `${contactInfo.address.state} ${contactInfo.address.zip}`,
       action: 'Get Directions',
+      href: 'https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301',
+      variant: 'outline' as const,
     },
     {
-      icon: '💬',
-      title: 'Live Chat',
-      primary: '24/7 AI Assistant',
-      secondary: 'Instant responses to your questions',
-      action: 'Start Chat',
+      icon: CalendarIcon,
+      title: 'Schedule',
+      primary: 'Free Consultation',
+      secondary: 'Book your project assessment',
+      action: 'Book Now',
+      href: '/booking',
+      variant: 'primary' as const,
+    },
+  ]
+
+  const serviceAreas = [
+    'Seattle Metro Area',
+    'Portland Metro Area',
+    'Spokane Valley',
+    'Tacoma-Bellevue',
+    'Tri-Cities Region',
+    'Eastern Washington',
+    'Eastern Oregon',
+    'Northern Idaho',
+  ]
+
+  const responseGuarantees = [
+    {
+      icon: PhoneIcon,
+      title: 'Phone Calls',
+      time: '< 2 hours',
+      description: 'Direct response during business hours',
+    },
+    {
+      icon: EmailIcon,
+      title: 'Email Inquiries',
+      time: '< 4 hours',
+      description: 'Detailed written response with next steps',
+    },
+    {
+      icon: CalendarIcon,
+      title: 'Emergency Services',
+      time: '< 1 hour',
+      description: '24/7 emergency response for urgent issues',
+    },
+    {
+      icon: UserIcon,
+      title: 'Consultations',
+      time: '< 24 hours',
+      description: 'Schedule your free project consultation',
     },
   ]
 
   return (
     <>
+      {/* SEO Structured Data */}
+      <StructuredData data={generateOrganizationStructuredData()} />
+
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-brand-primary to-brand-secondary text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-tactic-bold mb-6">
-              Contact MH Construction
+      <section className="relative bg-white dark:bg-gray-900 h-screen hero-section">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/10 dark:from-brand-primary/5 to-transparent"></div>
+        <div className="top-20 right-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
+        <div className="bottom-20 left-20 absolute bg-blue-500/5 blur-3xl rounded-full w-40 h-40"></div>
+
+        <div className="z-10 relative flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-8 max-w-7xl h-full">
+          <FadeInWhenVisible className="w-full text-center">
+            {/* Hero Badge */}
+            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
+              <PhoneIcon
+                size="sm"
+                primaryColor="currentColor"
+                className="text-brand-primary dark:text-brand-primary-light"
+              />
+              <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider">
+                Get In Touch Today
+              </span>
+            </div>
+
+            {/* Hero Title */}
+            <h1 className="mb-6 pb-2 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter hero-title">
+              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+                Ready to Start
+              </span>
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary via-blue-500 to-brand-primary drop-shadow-sm font-black text-transparent">
+                Your Project?
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto">
-              Ready to start your project? Our veteran team is standing by to
-              provide expert consultation and military-precision service.
+
+            {/* Hero Description */}
+            <p className="mx-auto mb-8 max-w-4xl font-light text-gray-600 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide">
+              Our{' '}
+              <span className="font-medium text-gray-800 dark:text-gray-200">
+                veteran construction team
+              </span>{' '}
+              is standing by to provide{' '}
+              <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-blue-500 font-semibold text-transparent">
+                expert consultation and military-precision service
+              </span>
+              .
             </p>
-            <Button variant="secondary" size="lg">
-              Schedule Free Consultation
-            </Button>
-          </div>
+
+            {/* CTA Buttons */}
+            <div className="flex sm:flex-row flex-col justify-center items-center gap-8 mb-8">
+              <Button
+                variant="primary"
+                size="xl"
+                className="shadow-xl"
+                onClick={() => window.open(`tel:${contactInfo.phone}`, '_self')}
+              >
+                <PhoneIcon
+                  size="sm"
+                  primaryColor="currentColor"
+                  className="mr-3"
+                />
+                <span className="z-10 relative tracking-wide">
+                  Call (509) 308-6489
+                </span>
+              </Button>
+              <Link href="/booking">
+                <HoverScale>
+                  <Button variant="outline" size="xl" className="shadow-xl">
+                    <CalendarIcon
+                      size="sm"
+                      primaryColor="currentColor"
+                      className="mr-3"
+                    />
+                    <span className="z-10 relative tracking-wide">
+                      Schedule Consultation
+                    </span>
+                  </Button>
+                </HoverScale>
+              </Link>
+            </div>
+
+            {/* Trust Indicators */}
+            <StaggeredFadeIn className="flex flex-wrap justify-center items-center gap-10 font-medium text-gray-700 dark:text-gray-300 text-base">
+              {[
+                'Free Consultations',
+                '< 2 Hour Response Time',
+                'Veteran-Owned & Operated',
+                '24/7 Emergency Service',
+              ].map((indicator, index) => (
+                <div
+                  key={index}
+                  className="flex items-center bg-white/10 dark:bg-gray-800/30 backdrop-blur-sm px-4 py-2 border border-gray-200/20 dark:border-gray-700/30 rounded-full"
+                >
+                  <CheckIcon
+                    size="sm"
+                    primaryColor="currentColor"
+                    className="mr-3 text-green-600 dark:text-green-400"
+                  />
+                  <span className="tracking-wide">{indicator}</span>
+                </div>
+              ))}
+            </StaggeredFadeIn>
+          </FadeInWhenVisible>
         </div>
       </section>
 
-      {/* Contact Methods */}
-      <section className="py-16 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-tactic-bold text-brand-primary mb-4">
-              Get In Touch
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Multiple ways to connect with our team. Choose the method that
-              works best for you.
-            </p>
-          </div>
+      {/* Contact Methods Section */}
+      <section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40 contact-methods-section">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 dark:from-gray-800/30 to-transparent"></div>
+        <div className="top-20 right-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <FadeInWhenVisible className="mb-24 lg:mb-32 text-center">
+            <div className="inline-flex items-center bg-blue-500/10 dark:bg-blue-500/20 shadow-lg mb-10 px-8 py-4 border border-blue-500/20 rounded-full">
+              <UserIcon size="md" primaryColor="var(--blue-500)" />
+              <span className="ml-4 font-black text-blue-500 text-sm uppercase tracking-wider">
+                Multiple Ways to Connect
+              </span>
+            </div>
+
+            <h2 className="mb-10 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
+              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+                Choose How to
+              </span>
+              <span className="block bg-clip-text bg-gradient-to-r from-blue-500 via-brand-primary to-blue-500 drop-shadow-sm font-black text-transparent">
+                Get In Touch
+              </span>
+            </h2>
+
+            <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-xl leading-relaxed">
+              Multiple contact methods to fit your schedule and communication
+              preferences. Every inquiry gets our personal attention.
+            </p>
+          </FadeInWhenVisible>
+
+          <StaggeredFadeIn className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {contactMethods.map((method, index) => (
-              <Card key={index} hover={true} className="text-center">
-                <CardHeader>
-                  <div className="text-4xl mb-4">{method.icon}</div>
-                  <CardTitle>{method.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="font-semibold text-brand-primary mb-1">
-                    {method.primary}
-                  </p>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                    {method.secondary}
-                  </p>
-                  <Button variant="primary" size="sm" className="w-full">
-                    {method.action}
-                  </Button>
-                </CardContent>
-              </Card>
+              <HoverScale key={index}>
+                <Card className="hover:shadow-xl border-gray-200/30 hover:border-brand-primary/30 h-full text-center transition-all duration-500">
+                  <CardHeader className="pb-4">
+                    <div className="flex justify-center mb-4">
+                      <div className="bg-gradient-to-br from-brand-primary to-blue-500 shadow-lg p-4 rounded-xl">
+                        <method.icon
+                          size="lg"
+                          primaryColor="white"
+                          className="text-white"
+                        />
+                      </div>
+                    </div>
+                    <CardTitle className="font-bold text-gray-900 dark:text-gray-100 text-xl">
+                      {method.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="mb-2 font-semibold text-brand-primary dark:text-brand-primary-light text-lg">
+                      {method.primary}
+                    </p>
+                    <p className="mb-6 text-gray-600 dark:text-gray-400 text-sm">
+                      {method.secondary}
+                    </p>
+                    <Button
+                      variant={method.variant}
+                      size="md"
+                      className="w-full"
+                      onClick={() =>
+                        window.open(
+                          method.href,
+                          method.href.startsWith('tel:') ||
+                            method.href.startsWith('mailto:')
+                            ? '_self'
+                            : '_blank'
+                        )
+                      }
+                    >
+                      {method.action}
+                    </Button>
+                  </CardContent>
+                </Card>
+              </HoverScale>
             ))}
-          </div>
+          </StaggeredFadeIn>
         </div>
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <section className="bg-gray-50 dark:bg-gray-800 py-16">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="gap-12 grid grid-cols-1 lg:grid-cols-2">
             {/* Contact Form */}
             <div>
               <ContactForm formType="general" title="Send Us a Message" />
@@ -172,7 +369,7 @@ export default function ContactPage() {
                   <div className="space-y-3">
                     <div className="flex items-start">
                       <svg
-                        className="w-5 h-5 text-brand-primary mr-3 mt-0.5 flex-shrink-0"
+                        className="flex-shrink-0 mt-0.5 mr-3 w-5 h-5 text-brand-primary"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -211,7 +408,7 @@ export default function ContactPage() {
                   <div className="space-y-3">
                     <div className="flex items-center">
                       <svg
-                        className="w-5 h-5 mr-3 flex-shrink-0"
+                        className="flex-shrink-0 mr-3 w-5 h-5"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -225,7 +422,7 @@ export default function ContactPage() {
                     </div>
                     <div className="flex items-center">
                       <svg
-                        className="w-5 h-5 mr-3 flex-shrink-0"
+                        className="flex-shrink-0 mr-3 w-5 h-5"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -239,7 +436,7 @@ export default function ContactPage() {
                     </div>
                     <div className="flex items-center">
                       <svg
-                        className="w-5 h-5 mr-3 flex-shrink-0"
+                        className="flex-shrink-0 mr-3 w-5 h-5"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -261,10 +458,10 @@ export default function ContactPage() {
                   <CardTitle>Service Areas</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-3">
+                  <p className="mb-3 text-gray-600">
                     We proudly serve the Pacific Northwest region:
                   </p>
-                  <div className="grid grid-cols-2 gap-2 text-sm">
+                  <div className="gap-2 grid grid-cols-2 text-sm">
                     {[
                       'Pasco, WA',
                       'Kennewick, WA',
@@ -274,12 +471,12 @@ export default function ContactPage() {
                       'Spokane, WA',
                     ].map((area, index) => (
                       <div key={index} className="flex items-center">
-                        <span className="text-brand-secondary mr-2">•</span>
+                        <span className="mr-2 text-brand-secondary">•</span>
                         <span>{area}</span>
                       </div>
                     ))}
                   </div>
-                  <p className="text-xs text-gray-500 mt-3">
+                  <p className="mt-3 text-gray-500 text-xs">
                     Additional areas may be available for larger projects
                   </p>
                 </CardContent>
@@ -290,13 +487,13 @@ export default function ContactPage() {
       </section>
 
       {/* Interactive Map & Service Areas */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-tactic-bold text-gray-900 mb-4">
+      <section className="bg-white py-16">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 font-tactic-bold text-gray-900 text-3xl">
               Our Location & Service Areas
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="mx-auto max-w-3xl text-gray-600 text-xl">
               Based in Pasco, WA, we proudly serve the entire Pacific Northwest
               region. Find us on the map and explore our comprehensive service
               areas.
@@ -313,7 +510,7 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <h3 className="text-2xl font-semibold text-center mb-8">
+            <h3 className="mb-8 font-semibold text-2xl text-center">
               Detailed Service Area Information
             </h3>
             <ServiceAreaOverview />
@@ -322,28 +519,28 @@ export default function ContactPage() {
       </section>
 
       {/* Lead Capture Section */}
-      <section className="py-16 bg-gradient-to-br from-brand-primary to-brand-secondary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="bg-gradient-to-br from-brand-primary to-brand-secondary py-16">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <div className="items-center gap-12 grid grid-cols-1 lg:grid-cols-2">
             <div className="text-white">
-              <h2 className="text-3xl font-tactic-bold mb-6">
+              <h2 className="mb-6 font-tactic-bold text-3xl">
                 Ready to Start Your Dream Project?
               </h2>
               <div className="space-y-4 text-lg">
                 <div className="flex items-center">
-                  <span className="text-2xl mr-3">🏗️</span>
+                  <span className="mr-3 text-2xl">🏗️</span>
                   <span>20+ years of construction excellence</span>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-2xl mr-3">🇺🇸</span>
+                  <span className="mr-3 text-2xl">🇺🇸</span>
                   <span>Veteran-owned and operated</span>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-2xl mr-3">🛡️</span>
+                  <span className="mr-3 text-2xl">🛡️</span>
                   <span>Licensed, bonded & fully insured</span>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-2xl mr-3">⚡</span>
+                  <span className="mr-3 text-2xl">⚡</span>
                   <span>24-hour response guarantee</span>
                 </div>
               </div>
@@ -361,20 +558,20 @@ export default function ContactPage() {
       </section>
 
       {/* Emergency Contact */}
-      <section className="py-16 bg-red-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-tactic-bold mb-6">
+      <section className="bg-red-600 py-16 text-white">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+          <h2 className="mb-6 font-tactic-bold text-3xl">
             Emergency Construction Services
           </h2>
-          <p className="text-xl mb-8">
+          <p className="mb-8 text-xl">
             Storm damage, structural emergencies, or urgent repairs? Our veteran
             team responds 24/7 to keep you safe.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex sm:flex-row flex-col justify-center gap-4">
             <Button
               variant="secondary"
               size="lg"
-              className="bg-white text-red-600 hover:bg-gray-100"
+              className="bg-white hover:bg-gray-100 text-red-600"
             >
               Call Emergency Line: {contactInfo.phone}
             </Button>

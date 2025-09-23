@@ -755,8 +755,14 @@ Our CTA system ensures consistency across all pages and proper dark/light mode s
 // Standard section spacing (most sections)
 <section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40 [section-name]-section">
 
-// Hero section (larger spacing)
-<section className="relative bg-white dark:bg-gray-900 py-32 lg:py-40 hero-section">
+// Hero section (full viewport height with perfect centering)
+<section className="relative bg-white dark:bg-gray-900 h-screen hero-section">
+  <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full flex items-center justify-center pt-32 pb-8">
+    <FadeInWhenVisible className="text-center w-full">
+      {/* Hero content here */}
+    </FadeInWhenVisible>
+  </div>
+</section>
 
 // Compact sections (stats, smaller content)
 <section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32 stats-section">
@@ -794,12 +800,86 @@ Our CTA system ensures consistency across all pages and proper dark/light mode s
 | Element | Spacing Classes | Usage |
 |---------|----------------|-------|
 | **Sections** | `py-20 lg:py-32 xl:py-40` | Standard section padding |
-| **Hero Section** | `py-32 lg:py-40` | Larger hero spacing |
+| **Hero Section** | `h-screen` with `pt-32 pb-8` | Full viewport height with nav offset |
 | **Section Headers** | `mb-24 lg:mb-32` | Header to content spacing |
 | **Header Elements** | `mb-10` | Title to description |
-| **CTAs** | `gap-8 mb-16` | Between CTAs and spacing below |
+| **CTAs** | `gap-8 mb-8` | Between CTAs and spacing below |
 | **Cards** | `gap-8` | Between grid items |
 | **Container** | `px-4 sm:px-6 lg:px-8` | Horizontal container padding |
+
+---
+
+### 🏠 Hero Section Standards (v2.6.1)
+
+#### Full Viewport Hero Implementation
+
+The new hero section standard ensures complete visibility on all screen sizes with perfect centering and navigation awareness.
+
+```tsx
+// Enhanced Hero Section - New Standard (v2.6.1)
+<section className="relative bg-white dark:bg-gray-900 h-screen hero-section">
+  {/* Background Elements */}
+  <div className="absolute inset-0"></div>
+
+  {/* Main Content Container */}
+  <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full flex items-center justify-center pt-32 pb-8">
+    <FadeInWhenVisible className="text-center w-full">
+      
+      {/* Veteran Badge */}
+      <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
+        <ShieldIcon size="sm" primaryColor="currentColor" className="text-brand-primary dark:text-brand-primary-light" />
+        <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider">
+          Veteran-Owned Excellence
+        </span>
+      </div>
+
+      {/* Hero Title */}
+      <h1 className="mb-6 pb-2 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter hero-title">
+        <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+          Building Tomorrow with
+        </span>
+        <span className="block bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary drop-shadow-sm font-black text-transparent">
+          Today's Technology
+        </span>
+      </h1>
+
+      {/* Hero Description */}
+      <p className="mx-auto mb-8 max-w-4xl font-light text-gray-600 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide">
+        Veteran-owned construction excellence powered by cutting-edge AI technology.
+      </p>
+
+      {/* CTA Buttons */}
+      <div className="flex sm:flex-row flex-col justify-center items-center gap-8 mb-8">
+        <Button variant="primary" size="xl">Primary CTA</Button>
+        <Button variant="outline" size="xl">Secondary CTA</Button>
+      </div>
+
+      {/* Trust Indicators */}
+      <div className="flex flex-wrap justify-center items-center gap-10 font-medium text-gray-700 dark:text-gray-300 text-base">
+        {/* Trust indicator badges */}
+      </div>
+      
+    </FadeInWhenVisible>
+  </div>
+</section>
+```
+
+#### Key Hero Section Features
+
+- **Full Viewport Height**: `h-screen` ensures the hero uses the complete screen height
+- **Navigation Offset**: `pt-32` provides proper clearance for the fixed navigation (h-24)
+- **Perfect Centering**: `flex items-center justify-center` centers content both vertically and horizontally  
+- **Optimized Spacing**: Reduced margins for better content fit while maintaining visual hierarchy
+- **Responsive Design**: Scales perfectly across all device sizes
+- **Accessibility**: Maintains proper contrast and text sizing
+
+#### Hero Section Benefits
+
+- ✅ **Complete Visibility**: Entire hero content visible on large screens
+- ✅ **No Cutoff**: Badge and bottom elements properly displayed
+- ✅ **Professional Look**: Balanced spacing that looks polished
+- ✅ **Brand Consistent**: Follows MH Construction design standards
+- ✅ **Performance Optimized**: Efficient CSS with minimal custom code
 
 ---
 
@@ -1228,4 +1308,4 @@ export function ThemeToggle() {
 
 ---
 
-Brand Guidelines v2.6.0 | September 22, 2025 | MH Construction LLC | Pure Tailwind CSS v4 Implementation
+Brand Guidelines v2.6.1 | September 23, 2025 | MH Construction LLC | Pure Tailwind CSS v4 Implementation
