@@ -1,5 +1,8 @@
-// Enhanced Button component with Pure Tailwind CSS - MH Construction standardized styling
+// Enhanced Button component with Framer Motion and Pure Tailwind CSS
+'use client'
+
 import React from 'react'
+import { motion } from 'framer-motion'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?:
@@ -11,6 +14,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     | 'destructive'
   size?: 'sm' | 'md' | 'lg' | 'xl'
   withRing?: boolean
+  enableAnimation?: boolean
   children: React.ReactNode
 }
 
@@ -18,8 +22,10 @@ export function Button({
   variant = 'primary',
   size = 'md',
   withRing = true,
+  enableAnimation = true,
   children,
   className = '',
+  onClick,
   ...props
 }: ButtonProps) {
   const baseClasses =
@@ -100,8 +106,39 @@ export function Button({
       .replace(/\s+/g, ' ')
       .trim()
 
+  if (enableAnimation) {
+    // Filter out conflicting event handlers and style props for motion.button
+    const {
+      onDrag,
+      onDragStart,
+      onDragEnd,
+      onAnimationStart,
+      onAnimationEnd,
+      onTransitionEnd,
+      style,
+      ...motionProps
+    } = props
+
+    return (
+      <motion.button
+        className={classes}
+        whileHover={{ scale: 1.02, y: -2 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{
+          type: 'spring',
+          stiffness: 400,
+          damping: 25,
+        }}
+        onClick={onClick}
+        {...motionProps}
+      >
+        {children}
+      </motion.button>
+    )
+  }
+
   return (
-    <button className={classes} {...props}>
+    <button className={classes} onClick={onClick} {...props}>
       {children}
     </button>
   )

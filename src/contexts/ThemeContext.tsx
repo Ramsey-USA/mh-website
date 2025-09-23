@@ -13,11 +13,13 @@ type ThemeProviderProps = {
 type ThemeProviderState = {
   theme: Theme
   setTheme: (theme: Theme) => void
+  isDarkMode: boolean
 }
 
 const initialState: ThemeProviderState = {
   theme: 'system',
   setTheme: () => null,
+  isDarkMode: false,
 }
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
@@ -67,6 +69,11 @@ export function ThemeProvider({
       localStorage.setItem(storageKey, theme)
       setTheme(theme)
     },
+    isDarkMode:
+      mounted &&
+      (theme === 'dark' ||
+        (theme === 'system' &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)),
   }
 
   if (!mounted) {

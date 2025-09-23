@@ -6,10 +6,16 @@ import FaviconLinks from '../components/layout/FaviconLinks'
 import { AuthProvider } from '../lib/auth/AuthContext'
 import { ThemeProvider } from '../contexts/ThemeContext'
 import { WebVitalsReporter } from '../components/performance/optimized-components'
-import { GoogleAnalytics } from '../components/analytics/google-analytics'
+import { AnalyticsProvider } from '../components/analytics/enhanced-analytics'
 import PWAUpdate from '../components/pwa/PWAUpdate'
 import PWAInstall from '../components/pwa/PWAInstall'
 import PushNotifications from '../components/pwa/PushNotifications'
+import {
+  StructuredData,
+  generateEnhancedOrganizationSchema,
+  generateWebsiteSchema,
+} from '../components/seo/enhanced-seo'
+import { useCriticalResourcePreloader } from '../hooks/usePerformanceOptimization'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -70,27 +76,35 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <FaviconLinks />
+        {/* Enhanced Schema Markup */}
+        <StructuredData
+          data={[generateEnhancedOrganizationSchema(), generateWebsiteSchema()]}
+        />
       </head>
       <body className={inter.className}>
         <WebVitalsReporter />
-        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <GoogleAnalytics
-            measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
-          />
-        )}
-        <ThemeProvider defaultTheme="light" storageKey="mh-construction-theme">
-          <AuthProvider>
-            <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900">
-              <Navigation />
-              <main className="flex-grow">{children}</main>
-              <Footer />
-            </div>
-            {/* PWA Components */}
-            <PWAUpdate />
-            <PWAInstall />
-            <PushNotifications />
-          </AuthProvider>
-        </ThemeProvider>
+        <AnalyticsProvider
+          measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
+          enableScrollTracking={true}
+          enableTimeTracking={true}
+        >
+          <ThemeProvider
+            defaultTheme="light"
+            storageKey="mh-construction-theme"
+          >
+            <AuthProvider>
+              <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
+                <Navigation />
+                <main className="flex-grow">{children}</main>
+                <Footer />
+              </div>
+              {/* PWA Components */}
+              <PWAUpdate />
+              <PWAInstall />
+              <PushNotifications />
+            </AuthProvider>
+          </ThemeProvider>
+        </AnalyticsProvider>
       </body>
     </html>
   )
