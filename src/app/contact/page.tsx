@@ -21,14 +21,14 @@ import {
   StructuredData,
 } from '../../components/seo/seo-meta'
 import {
-  PhoneIcon,
-  EmailIcon,
-  LocationIcon,
-  CalendarIcon,
-  CheckIcon,
-  UserIcon,
-  CloseIcon,
-} from '../../components/icons/SharpDuotoneIcons'
+  WPZoomPhoneIcon as PhoneIcon,
+  WPZoomEmailIcon as EmailIcon,
+  WPZoomLocationIcon as LocationIcon,
+  WPZoomCalendarIcon as CalendarIcon,
+  WPZoomCheckIcon as CheckIcon,
+  WPZoomUserIcon as UserIcon,
+  WPZoomCloseIcon as CloseIcon,
+} from '../../components/icons/WPZoomIcons'
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -147,7 +147,7 @@ export default function ContactPage() {
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
               <PhoneIcon
                 size="sm"
-                primaryColor="currentColor"
+                color="currentColor"
                 className="text-brand-primary dark:text-brand-primary-light"
               />
               <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider">
@@ -186,11 +186,7 @@ export default function ContactPage() {
                 className="shadow-xl"
                 onClick={() => window.open(`tel:${contactInfo.phone}`, '_self')}
               >
-                <PhoneIcon
-                  size="sm"
-                  primaryColor="currentColor"
-                  className="mr-3"
-                />
+                <PhoneIcon size="sm" color="currentColor" className="mr-3" />
                 <span className="z-10 relative tracking-wide">
                   Call (509) 308-6489
                 </span>
@@ -200,7 +196,7 @@ export default function ContactPage() {
                   <Button variant="outline" size="xl" className="shadow-xl">
                     <CalendarIcon
                       size="sm"
-                      primaryColor="currentColor"
+                      color="currentColor"
                       className="mr-3"
                     />
                     <span className="z-10 relative tracking-wide">
@@ -225,7 +221,7 @@ export default function ContactPage() {
                 >
                   <CheckIcon
                     size="sm"
-                    primaryColor="currentColor"
+                    color="currentColor"
                     className="mr-3 text-green-600 dark:text-green-400"
                   />
                   <span className="tracking-wide">{indicator}</span>
@@ -244,7 +240,7 @@ export default function ContactPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-24 lg:mb-32 text-center">
             <div className="inline-flex items-center bg-blue-500/10 dark:bg-blue-500/20 shadow-lg mb-10 px-8 py-4 border border-blue-500/20 rounded-full">
-              <UserIcon size="md" primaryColor="var(--blue-500)" />
+              <UserIcon size="md" color="var(--blue-500)" />
               <span className="ml-4 font-black text-blue-500 text-sm uppercase tracking-wider">
                 Multiple Ways to Connect
               </span>
@@ -274,7 +270,7 @@ export default function ContactPage() {
                       <div className="bg-gradient-to-br from-brand-primary to-blue-500 shadow-lg p-4 rounded-xl">
                         <method.icon
                           size="lg"
-                          primaryColor="white"
+                          color="white"
                           className="text-white"
                         />
                       </div>

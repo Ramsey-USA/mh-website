@@ -4,15 +4,15 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
-  PhoneIcon,
-  EmailIcon,
-  LocationIcon,
-  FacebookIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  XIcon,
-  YouTubeIcon,
-} from '@/components/icons/SharpDuotoneIcons'
+  WPZoomPhoneIcon as PhoneIcon,
+  WPZoomEmailIcon as EmailIcon,
+  WPZoomLocationIcon as LocationIcon,
+  WPZoomFacebookIcon as FacebookIcon,
+  WPZoomInstagramIcon as InstagramIcon,
+  WPZoomLinkedInIcon as LinkedInIcon,
+  WPZoomTwitterIcon as XIcon,
+  WPZoomYouTubeIcon as YouTubeIcon,
+} from '@/components/icons/WPZoomIcons'
 import { Button } from '@/components/ui/Button'
 import { Modal } from '@/components/ui/Modal'
 
@@ -45,7 +45,7 @@ export default function Footer() {
                 <p className="flex items-center">
                   <PhoneIcon
                     size="sm"
-                    primaryColor="var(--brand-primary)"
+                    color="var(--brand-primary)"
                     className="mr-3 text-brand-primary"
                   />
                   <span className="mr-2 font-medium">Phone:</span>
@@ -59,7 +59,7 @@ export default function Footer() {
                 <p className="flex items-start">
                   <LocationIcon
                     size="sm"
-                    primaryColor="var(--brand-primary)"
+                    color="var(--brand-primary)"
                     className="mt-1 mr-3 text-brand-primary"
                   />
                   <span className="mr-2 font-medium">Address:</span>
@@ -72,7 +72,7 @@ export default function Footer() {
                 <p className="flex items-center">
                   <EmailIcon
                     size="sm"
-                    primaryColor="var(--brand-primary)"
+                    color="var(--brand-primary)"
                     className="mr-3 text-brand-primary"
                   />
                   <span className="mr-2 font-medium">Email:</span>

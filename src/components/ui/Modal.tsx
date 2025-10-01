@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { CloseIcon } from '@/components/icons/SharpDuotoneIcons'
+import { WPZoomCloseIcon as CloseIcon } from '@/components/icons/WPZoomIcons'
 
 interface ModalProps {
   isOpen: boolean
@@ -28,7 +28,7 @@ export const Modal: React.FC<ModalProps> = ({
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto">
+    <div className="z-50 fixed inset-0 overflow-y-auto">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black bg-opacity-75 transition-opacity"
@@ -36,22 +36,18 @@ export const Modal: React.FC<ModalProps> = ({
       />
 
       {/* Modal */}
-      <div className="flex min-h-full items-center justify-center p-4">
+      <div className="flex justify-center items-center p-4 min-h-full">
         <div
           className={`relative w-full ${sizeClasses[size]} bg-gray-900 rounded-xl shadow-2xl border border-gray-700`}
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-gray-700">
-            <h2 className="text-xl font-tactic-bold text-white">{title}</h2>
+          <div className="flex justify-between items-center p-6 border-gray-700 border-b">
+            <h2 className="font-tactic-bold text-white text-xl">{title}</h2>
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-gray-800 rounded-lg"
+              className="hover:bg-gray-800 p-2 rounded-lg text-gray-400 hover:text-white transition-colors"
             >
-              <CloseIcon
-                size="sm"
-                primaryColor="currentColor"
-                secondaryColor="rgba(255,255,255,0.6)"
-              />
+              <CloseIcon size="sm" color="currentColor" />
             </button>
           </div>
 

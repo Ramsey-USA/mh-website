@@ -239,7 +239,8 @@ CTAs: "Standardized Button components with proper dark mode support"
 Spacing: "Optimized responsive section padding py-16 lg:py-24 and compact grid layouts"
 Components: "h-full card consistency with enhanced responsive grids"
 Interactions: "Hover-triggered modals with Why Choose section animations"
-Icons: "Sharp Duotone icon system with 24+ professional components"
+Icons: "WPZoom icon system with react-icons + Custom MH Construction icons (15 brand-specific)"
+HoverEffects: "Context-aware icon animations (scale, rotate, pulse, slide, glow, bounce)"
 Backend: "Firebase (Firestore, Auth, Storage, Functions)"
 PWA: "Complete offline capabilities with push notifications"
 Hosting: "Firebase Hosting with CDN"
@@ -280,7 +281,7 @@ mh-website/
 │   │   └── globals.css          # Enhanced animation system
 │   ├── components/
 │   │   ├── ui/                  # Base components
-│   │   ├── icons/               # Sharp Duotone icon system (24 icons)
+│   │   ├── icons/               # WPZoom + Custom MH Construction icon systems
 │   │   ├── animations/          # ScrollReveal system
 │   │   ├── layout/              # Header, Footer, Navigation
 │   │   └── pwa/                 # PWA components
@@ -311,7 +312,7 @@ mh-website/
 - **Portfolio Cards**: Advanced hover effects
 - **Company Statistics**: Branded stats showcase
 - **Custom Testimonials**: Clean client reviews
-- **Icon System**: 22 professional Sharp Duotone icons
+- **Icon System**: WPZoom icons + 15 Custom MH Construction icons with hover effects
 
 ### ✅ Core Platform
 
@@ -471,16 +472,18 @@ mh-website/
 .btn-dashboard        /* Blue dashboard-themed buttons */
 ```
 
-### Sharp Duotone Icons (22 Available)
+### Icon Usage Examples
 
 ```typescript
-import { 
-  MenuIcon, CloseIcon, PhoneIcon, EmailIcon, LocationIcon,
-  CheckIcon, ToolsIcon, HomeIcon, UserIcon, HammerIcon,
-  CalendarIcon, ShieldIcon, StarIcon, BoltIcon, CogIcon,
-  BellIcon, SyncIcon, FacebookIcon, InstagramIcon, 
-  LinkedInIcon, TwitterIcon, ArrowRightIcon 
-} from '@/components/icons/SharpDuotoneIcons'
+// WPZoom Icons via react-icons
+import { WPMenuIcon, WPPhoneIcon, WPEmailIcon } from '@/components/icons/WPZoomIcons'
+
+// Custom MH Construction Icons
+import { MHHammerIcon, MHVeteranStarIcon, MHQualityShieldIcon } from '@/components/icons/MHCustomIcons'
+
+// Usage with hover effects
+<MHHammerIcon size="lg" hoverEffect="rotate" />
+<WPPhoneIcon size="md" color="#386851" />
 ```
 
 ---
@@ -602,17 +605,19 @@ firebase deploy --only firestore:rules
 - ✅ Enhanced portfolio section with advanced hover effects
 - ✅ Custom testimonials system replacing complex widgets
 - ✅ Company statistics section with branded showcase
-- ✅ Icon system overhaul with CSS variable support
+- ✅ **WPZoom Icon System Migration** - Complete migration to react-icons with modern tree-shaking
+- ✅ **Custom MH Construction Icons** - 15 brand-specific icons with built-in hover effects
 - ✅ Advanced button system with glimmer animations and outer rings
 - ✅ Footer navigation links with enhanced hover effects and glimmer
 - ✅ Social media icons with scaling and glimmer animations
 
-### v2.4.0 - Enhanced Footer & Social Media
+### v2.4.0 - Enhanced Footer & Icon Systems
 
 - ✅ 75% larger footer logo (315x158px) with hover effects
 - ✅ Professional social media icons with glimmer animations
 - ✅ Complete light/dark mode support
-- ✅ Sharp Duotone icon system (24 icons)
+- ✅ **WPZoom Icon System** - Modern react-icons integration with optimized performance
+- ✅ **Custom MH Icons** - Brand-specific construction icons with context-aware hover effects
 
 ### v2.3.0 - Button System & Military Theme
 
@@ -620,19 +625,22 @@ firebase deploy --only firestore:rules
 - ✅ MH brand color integration with enhanced hover states
 - ✅ Military-themed components with special animations
 - ✅ Enhanced accessibility compliance
+- ✅ **WPZoom Icon System Migration** - Complete migration from Sharp Duotone to WPZoom-style icons using react-icons
+- ✅ **Custom MH Construction Icon System** - 15 brand-specific icons with built-in hover effects
+- ✅ **Advanced Icon Hover Effects** - Context-appropriate animations (scale, rotate, pulse, slide, glow, bounce)
 
 ---
 
 ## 🎯 Development Roadmap
 
-### Current Focus (In Progress 🔧)
+### Current Focus (Recently Completed ✅)
 
 - [x] Interactive Why Choose section with hover modals ✅
 - [x] Desktop typography optimization and compact section layouts ✅
 - [x] Footer enhancement with modern social media ✅
-- [ ] Services page enhancement with SharpDuotoneIcons
-- [ ] Dynamic pricing integration with min/max bounds
-- [ ] Enhanced structured data with proper price schema
+- [x] **WPZoom Icon Migration** - Complete system-wide migration to modern react-icons ✅
+- [x] **Custom MH Icon System** - Brand-specific construction icons with hover effects ✅
+- [x] **Icon Hover Effect System** - Context-based animation system for enhanced UX ✅
 
 ### Next Phase (1-2 weeks)
 
@@ -640,6 +648,7 @@ firebase deploy --only firestore:rules
 - [ ] Compare Services table implementation
 - [ ] Blog system expansion with better content management
 - [ ] Performance optimization (target: 100/100 Lighthouse)
+- [ ] Custom icon integration across remaining pages
 
 ### Mid-term Goals (1-2 months)
 
@@ -958,10 +967,10 @@ Cache Management:
 
 #### **✅ Icon System Overhaul**
 
-- **CSS Variable Support**: Complete icon system restructure with proper CSS variable definitions for consistent display
-- **Container Styling**: Enhanced icon containers with proper flex alignment and sizing for optimal visibility
-- **Sharp Duotone Integration**: All 24 professional icons now display consistently across light and dark themes
-- **Performance Optimization**: Streamlined SVG rendering with zero external dependencies
+- **Dual Icon Architecture**: WPZoom icons via react-icons + Custom MH Construction icons for brand identity
+- **Modern Tree-Shaking**: Optimized performance with react-icons integration for minimal bundle size
+- **Custom Brand Icons**: 15 brand-specific construction icons with built-in hover effects
+- **Context-Aware Animations**: 6 hover effect types (scale, rotate, pulse, slide, glow, bounce)
 
 #### **✅ Enhanced Portfolio Section**
 
@@ -1704,52 +1713,116 @@ GET    /api/export-data            # Export consultation data
 }
 ```
 
-### **Sharp Duotone Icon System**
+### **Modern Icon System Architecture**
 
-Custom-built professional icon system with dual-tone styling for consistent brand presentation.
+Comprehensive dual-icon system combining performance and brand identity.
 
-#### **Icon Library (22 Components)**
+#### **WPZoom Icon System (Primary)**
+
+Modern react-icons integration with optimized tree-shaking and performance.
 
 ```typescript
-// Available Sharp Duotone Icons
+// WPZoom Icons using react-icons (Heroicons + FontAwesome)
 import { 
-  // Navigation & Actions
-  MenuIcon, CloseIcon, ArrowRightIcon,
+  // Navigation & UI
+  WPZoomMenuIcon, WPZoomCloseIcon, WPZoomArrowRightIcon,
   
   // Contact & Communication  
-  PhoneIcon, EmailIcon, LocationIcon,
+  WPZoomPhoneIcon, WPZoomEmailIcon, WPZoomLocationIcon,
   
   // Business & Professional
-  CheckIcon, ToolsIcon, HomeIcon, UserIcon, LogoutIcon,
+  WPZoomCheckIcon, WPZoomToolsIcon, WPZoomHomeIcon, WPZoomUserIcon,
   
   // Construction & Projects
-  HammerIcon, CalendarIcon,
-  
-  // Military & Veteran Support
-  ShieldIcon, StarIcon,
+  WPZoomHammerIcon, WPZoomCalendarIcon, WPZoomShieldIcon,
   
   // Technology & Innovation
-  BoltIcon, CogIcon,
+  WPZoomBoltIcon, WPZoomCogIcon, WPZoomStarIcon,
   
-  // Notifications & Status
-  BellIcon, SyncIcon,
+  // Theme & Status
+  WPZoomSunIcon, WPZoomMoonIcon, WPZoomDesktopIcon,
   
-  // Social Media (New in v2.4.0)
-  FacebookIcon, InstagramIcon, LinkedInIcon, TwitterIcon
-} from '@/components/icons/SharpDuotoneIcons'
+  // Social Media
+  WPZoomFacebookIcon, WPZoomInstagramIcon, WPZoomLinkedInIcon, 
+  WPZoomTwitterIcon, WPZoomYouTubeIcon
+} from '@/components/icons/WPZoomIcons'
+```
+
+#### **Custom MH Construction Icons (Brand-Specific)**
+
+Professional construction-themed icons with built-in hover effects.
+
+```typescript
+// Custom MH Construction Icons with Hover Effects
+import { 
+  // Brand Identity
+  MHLogoIcon, MHQualityShieldIcon, MHVeteranStarIcon,
+  
+  // Construction Tools
+  MHHammerIcon, MHBlueprintIcon, MHHardHatIcon, MHLevelIcon, 
+  MHMeasureIcon, MHBuildingIcon,
+  
+  // Contact & Communication
+  MHPhoneIcon, MHEmailIcon, MHLocationIcon, MHCalendarIcon,
+  
+  // UI Elements
+  MHArrowRightIcon, MHCheckIcon
+} from '@/components/icons/MHCustomIcons'
+```
+
+#### **Hover Effect System**
+
+```typescript
+// Built-in hover effects for enhanced UX
+<MHHammerIcon 
+  size="lg" 
+  hoverEffect="rotate"  // rotate, scale, pulse, slide, glow, bounce
+  className="construction-tool"
+/>
+
+<MHPhoneIcon 
+  size="md" 
+  hoverEffect="bounce" 
+  className="cta-contact"
+/>
 ```
 
 #### **Usage Examples**
 
 ```tsx
-// Basic Usage
-<CheckIcon size="md" />
-
-// Custom Colors (Brand-aware)
-<PhoneIcon 
+// WPZoom Icons (Primary System)
+<WPZoomCheckIcon size="md" color="currentColor" />
+<WPZoomPhoneIcon 
   size="lg" 
-  primaryColor="#386851"      // Brand primary
-  secondaryColor="rgba(56,104,81,0.4)" 
+  color="#386851"  // MH brand primary
+  className="hover:scale-110 transition-transform"
+/>
+
+// Custom MH Construction Icons (Brand Identity)
+<MHVeteranStarIcon 
+  size="xl" 
+  hoverEffect="glow" 
+  color="#dc2626"  // Patriotic red
+  className="veteran-badge"
+/>
+
+<MHHammerIcon 
+  size="lg" 
+  hoverEffect="rotate" 
+  className="service-icon"
+/>
+
+// Context-Aware Implementation
+<MHPhoneIcon 
+  size="md" 
+  hoverEffect="bounce"  // Encourages action
+  className="cta-contact"
+/>
+
+<MHArrowRightIcon 
+  size="sm" 
+  hoverEffect="slide"   // Directional movement
+  className="navigation-cue"
 />
 
 // Size Variants
@@ -2619,12 +2692,12 @@ TechnicalMetrics: {
 - ✨ **Animated Hover Effects**: Professional scale, shadow, and color transition animations
 - 🎯 **Team Dashboard Access**: Quick access link in footer bottom bar for enhanced team workflow
 - 🌟 **Social Media Priority**: Moved social icons to top of Stay Connected column for better visibility
-- 🎪 **22 Sharp Duotone Icons**: Added Facebook, Instagram, LinkedIn, and Twitter icons to library
+- 🎪 **WPZoom Icon System**: React-icons integration with optimized tree-shaking and performance
 
 ### **Version 2.3.0** (September 22, 2025)
 
-- 🎨 **Sharp Duotone Icon System**: Complete custom icon library with 18 professional icons
-- 🖌️ **Dual-Tone Styling**: Brand-consistent icons with primary/secondary color support
+- 🎨 **Custom MH Construction Icons**: Brand-specific icon system with 15 professional construction icons
+- 🖌️ **Hover Effect System**: 6 animation types with context-aware implementation
 - 📏 **Standardized Sizing**: Six size variants (xs to 2xl) with Tailwind integration
 - 🎯 **Zero Dependencies**: Custom SVG implementation replacing external icon libraries
 - ♿ **Accessibility Enhanced**: Semantic SVG structure with proper ARIA support

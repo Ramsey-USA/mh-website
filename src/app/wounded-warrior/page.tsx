@@ -15,15 +15,15 @@ import {
   StructuredData,
 } from '../../components/seo/seo-meta'
 import {
-  ShieldIcon,
-  StarIcon,
-  HammerIcon,
-  CheckIcon,
-  UserIcon,
-  PhoneIcon,
-  EmailIcon,
-  CalendarIcon,
-} from '../../components/icons/SharpDuotoneIcons'
+  WPZoomShieldIcon as ShieldIcon,
+  WPZoomStarIcon as StarIcon,
+  WPZoomHammerIcon as HammerIcon,
+  WPZoomCheckIcon as CheckIcon,
+  WPZoomUserIcon as UserIcon,
+  WPZoomPhoneIcon as PhoneIcon,
+  WPZoomEmailIcon as EmailIcon,
+  WPZoomCalendarIcon as CalendarIcon,
+} from '../../components/icons/WPZoomIcons'
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -187,7 +187,7 @@ export default function WoundedWarriorPage() {
             <div className="inline-flex items-center bg-veteran-red/10 dark:bg-veteran-red/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-veteran-red/20 dark:border-veteran-red/30 rounded-full">
               <ShieldIcon
                 size="sm"
-                primaryColor="currentColor"
+                color="currentColor"
                 className="text-veteran-red dark:text-red-400"
               />
               <span className="ml-3 font-bold text-veteran-red dark:text-red-400 text-xs uppercase tracking-wider">
@@ -224,11 +224,7 @@ export default function WoundedWarriorPage() {
                 size="xl"
                 className="bg-veteran-red hover:bg-red-700 shadow-xl border-veteran-red"
               >
-                <PhoneIcon
-                  size="sm"
-                  primaryColor="currentColor"
-                  className="mr-3"
-                />
+                <PhoneIcon size="sm" color="currentColor" className="mr-3" />
                 <span className="z-10 relative tracking-wide">
                   Call Veteran Hotline
                 </span>
@@ -238,7 +234,7 @@ export default function WoundedWarriorPage() {
                   <Button variant="outline" size="xl" className="shadow-xl">
                     <CalendarIcon
                       size="sm"
-                      primaryColor="currentColor"
+                      color="currentColor"
                       className="mr-3"
                     />
                     <span className="z-10 relative tracking-wide">
@@ -263,7 +259,7 @@ export default function WoundedWarriorPage() {
                 >
                   <CheckIcon
                     size="sm"
-                    primaryColor="currentColor"
+                    color="currentColor"
                     className="mr-3 text-green-600 dark:text-green-400"
                   />
                   <span className="tracking-wide">{indicator}</span>
@@ -282,7 +278,7 @@ export default function WoundedWarriorPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-24 lg:mb-32 text-center">
             <div className="inline-flex items-center bg-veteran-red/10 dark:bg-veteran-red/20 shadow-lg mb-10 px-8 py-4 border border-veteran-red/20 rounded-full">
-              <HammerIcon size="md" primaryColor="var(--veteran-red)" />
+              <HammerIcon size="md" color="var(--veteran-red)" />
               <span className="ml-4 font-black text-veteran-red text-sm uppercase tracking-wider">
                 Veteran Support Services
               </span>
@@ -307,7 +303,7 @@ export default function WoundedWarriorPage() {
                       <div className="bg-gradient-to-br from-veteran-red to-red-600 shadow-lg p-4 rounded-xl group-hover:scale-110 transition-transform duration-300">
                         <service.icon
                           size="lg"
-                          primaryColor="white"
+                          color="white"
                           className="text-white"
                         />
                       </div>
@@ -342,7 +338,7 @@ export default function WoundedWarriorPage() {
                           >
                             <CheckIcon
                               size="sm"
-                              primaryColor="currentColor"
+                              color="currentColor"
                               className="flex-shrink-0 mr-3 text-green-600 dark:text-green-400"
                             />
                             <span>{feature}</span>
@@ -366,7 +362,7 @@ export default function WoundedWarriorPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-16 text-center">
             <div className="inline-flex items-center bg-blue-500/10 dark:bg-blue-500/20 shadow-lg mb-10 px-8 py-4 border border-blue-500/20 rounded-full">
-              <CheckIcon size="md" primaryColor="var(--blue-500)" />
+              <CheckIcon size="md" color="var(--blue-500)" />
               <span className="ml-4 font-black text-blue-500 text-sm uppercase tracking-wider">
                 Program Eligibility
               </span>
@@ -393,7 +389,7 @@ export default function WoundedWarriorPage() {
                       <div className="bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg p-6 rounded-2xl">
                         <requirement.icon
                           size="xl"
-                          primaryColor="white"
+                          color="white"
                           className="text-white"
                         />
                       </div>
@@ -425,19 +421,11 @@ export default function WoundedWarriorPage() {
                   size="lg"
                   className="bg-veteran-red hover:bg-red-700 border-veteran-red"
                 >
-                  <PhoneIcon
-                    size="sm"
-                    primaryColor="currentColor"
-                    className="mr-2"
-                  />
+                  <PhoneIcon size="sm" color="currentColor" className="mr-2" />
                   Call (509) 308-6489
                 </Button>
                 <Button variant="outline" size="lg">
-                  <EmailIcon
-                    size="sm"
-                    primaryColor="currentColor"
-                    className="mr-2"
-                  />
+                  <EmailIcon size="sm" color="currentColor" className="mr-2" />
                   Email Veteran Team
                 </Button>
               </div>
@@ -488,7 +476,7 @@ export default function WoundedWarriorPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-24 lg:mb-32 text-center">
             <div className="inline-flex items-center bg-yellow-500/10 dark:bg-yellow-500/20 shadow-lg mb-10 px-8 py-4 border border-yellow-500/20 rounded-full">
-              <StarIcon size="md" primaryColor="var(--yellow-500)" />
+              <StarIcon size="md" color="var(--yellow-500)" />
               <span className="ml-4 font-black text-yellow-600 dark:text-yellow-400 text-sm uppercase tracking-wider">
                 Veteran Stories
               </span>
@@ -515,7 +503,7 @@ export default function WoundedWarriorPage() {
                           <StarIcon
                             key={i}
                             size="sm"
-                            primaryColor="var(--yellow-500)"
+                            color="var(--yellow-500)"
                             className="text-yellow-500"
                           />
                         ))}
@@ -570,11 +558,7 @@ export default function WoundedWarriorPage() {
                   size="xl"
                   className="bg-white hover:bg-gray-100 shadow-xl text-veteran-red"
                 >
-                  <PhoneIcon
-                    size="sm"
-                    primaryColor="currentColor"
-                    className="mr-3"
-                  />
+                  <PhoneIcon size="sm" color="currentColor" className="mr-3" />
                   <span className="z-10 relative tracking-wide">
                     Call Veteran Hotline
                   </span>
@@ -589,7 +573,7 @@ export default function WoundedWarriorPage() {
                   >
                     <CalendarIcon
                       size="sm"
-                      primaryColor="currentColor"
+                      color="currentColor"
                       className="mr-3"
                     />
                     <span className="z-10 relative tracking-wide">

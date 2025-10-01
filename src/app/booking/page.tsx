@@ -11,12 +11,12 @@ import {
 } from '../../components/ui'
 import { BookingFlow } from '../../components/booking/BookingFlow'
 import {
-  CalendarIcon,
-  CheckIcon,
-  UserIcon,
-  PhoneIcon,
-  EmailIcon,
-} from '../../components/icons/SharpDuotoneIcons'
+  WPZoomCalendarIcon as CalendarIcon,
+  WPZoomCheckIcon as CheckIcon,
+  WPZoomUserIcon as UserIcon,
+  WPZoomPhoneIcon as PhoneIcon,
+  WPZoomEmailIcon as EmailIcon,
+} from '../../components/icons/WPZoomIcons'
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -37,7 +37,7 @@ export default function BookingPage() {
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
               <CalendarIcon
                 size="sm"
-                primaryColor="currentColor"
+                color="currentColor"
                 className="text-brand-primary dark:text-brand-primary-light"
               />
               <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider">
@@ -58,8 +58,8 @@ export default function BookingPage() {
               Meet with our{' '}
               <span className="font-medium text-gray-800 dark:text-gray-200">
                 veteran construction team
-              </span>
-              {' '}to discuss your project. From{' '}
+              </span>{' '}
+              to discuss your project. From{' '}
               <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-blue-500 font-semibold text-transparent">
                 free initial consultations to detailed design sessions
               </span>
@@ -67,16 +67,8 @@ export default function BookingPage() {
             </p>
 
             <div className="flex sm:flex-row flex-col justify-center items-center gap-8 mb-8">
-              <Button 
-                variant="primary" 
-                size="xl" 
-                className="shadow-xl"
-              >
-                <CalendarIcon
-                  size="sm"
-                  primaryColor="currentColor"
-                  className="mr-3"
-                />
+              <Button variant="primary" size="xl" className="shadow-xl">
+                <CalendarIcon size="sm" color="currentColor" className="mr-3" />
                 <span className="z-10 relative tracking-wide">
                   Book Free Consultation
                 </span>
@@ -84,11 +76,7 @@ export default function BookingPage() {
               <Link href="/contact">
                 <HoverScale>
                   <Button variant="outline" size="xl" className="shadow-xl">
-                    <UserIcon
-                      size="sm"
-                      primaryColor="currentColor"
-                      className="mr-3"
-                    />
+                    <UserIcon size="sm" color="currentColor" className="mr-3" />
                     <span className="z-10 relative tracking-wide">
                       Meet Our Team
                     </span>
@@ -110,7 +98,7 @@ export default function BookingPage() {
                 >
                   <CheckIcon
                     size="sm"
-                    primaryColor="currentColor"
+                    color="currentColor"
                     className="mr-3 text-green-600 dark:text-green-400"
                   />
                   <span className="tracking-wide">{indicator}</span>
@@ -128,7 +116,7 @@ export default function BookingPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-16 text-center">
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg mb-10 px-8 py-4 border border-brand-primary/20 rounded-full">
-              <CalendarIcon size="md" primaryColor="var(--brand-primary)" />
+              <CalendarIcon size="md" color="var(--brand-primary)" />
               <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider">
                 Schedule Now
               </span>
@@ -140,7 +128,9 @@ export default function BookingPage() {
               </span>
             </h2>
             <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-xl leading-relaxed">
-              Select a date and time that works for you. Our calendar shows real-time availability and automatically adjusts for your timezone.
+              Select a date and time that works for you. Our calendar shows
+              real-time availability and automatically adjusts for your
+              timezone.
             </p>
           </FadeInWhenVisible>
 
@@ -162,7 +152,8 @@ export default function BookingPage() {
               Need Emergency Consultation?
             </h2>
             <p className="mb-8 font-light text-red-100 text-xl md:text-2xl leading-relaxed">
-              Structural damage, permit issues, or construction emergencies? Our veteran team provides 24/7 emergency consultation services.
+              Structural damage, permit issues, or construction emergencies? Our
+              veteran team provides 24/7 emergency consultation services.
             </p>
             <div className="flex sm:flex-row flex-col justify-center gap-4">
               <HoverScale>
@@ -172,11 +163,7 @@ export default function BookingPage() {
                   className="bg-white hover:bg-gray-100 shadow-xl text-red-600"
                   onClick={() => window.open('tel:(509) 308-6489', '_self')}
                 >
-                  <PhoneIcon
-                    size="sm"
-                    primaryColor="currentColor"
-                    className="mr-3"
-                  />
+                  <PhoneIcon size="sm" color="currentColor" className="mr-3" />
                   Call Emergency Line: (509) 308-6489
                 </Button>
               </HoverScale>
@@ -189,7 +176,7 @@ export default function BookingPage() {
                   >
                     <EmailIcon
                       size="sm"
-                      primaryColor="currentColor"
+                      color="currentColor"
                       className="mr-3"
                     />
                     Request Emergency Consultation

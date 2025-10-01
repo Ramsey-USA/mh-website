@@ -8,15 +8,15 @@ import { PortfolioImage } from '../../components/portfolio/ProjectImage'
 import { ProjectPortfolio } from '../../lib/types'
 import { PortfolioService } from '../../lib/services/portfolioService'
 import {
-  HomeIcon,
-  ToolsIcon,
-  StarIcon,
-  ShieldIcon,
-  HammerIcon,
-  CheckIcon,
-  ArrowRightIcon,
-  BoltIcon,
-} from '../../components/icons/SharpDuotoneIcons'
+  WPZoomHomeIcon as HomeIcon,
+  WPZoomToolsIcon as ToolsIcon,
+  WPZoomStarIcon as StarIcon,
+  WPZoomShieldIcon as ShieldIcon,
+  WPZoomHammerIcon as HammerIcon,
+  WPZoomCheckIcon as CheckIcon,
+  WPZoomArrowRightIcon as ArrowRightIcon,
+  WPZoomBoltIcon as BoltIcon,
+} from '../../components/icons/WPZoomIcons'
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -86,7 +86,7 @@ export default function PortfolioPage() {
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
               <HammerIcon
                 size="sm"
-                primaryColor="currentColor"
+                color="currentColor"
                 className="text-brand-primary dark:text-brand-primary-light"
               />
               <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider">
@@ -121,21 +121,13 @@ export default function PortfolioPage() {
             {/* CTA Buttons */}
             <div className="flex sm:flex-row flex-col justify-center items-center gap-8 mb-8">
               <Button variant="primary" size="xl" className="shadow-xl">
-                <BoltIcon
-                  size="sm"
-                  primaryColor="currentColor"
-                  className="mr-3"
-                />
+                <BoltIcon size="sm" color="currentColor" className="mr-3" />
                 <span className="z-10 relative tracking-wide">
                   Start Your Project
                 </span>
               </Button>
               <Button variant="outline" size="xl" className="shadow-xl">
-                <HomeIcon
-                  size="sm"
-                  primaryColor="currentColor"
-                  className="mr-3"
-                />
+                <HomeIcon size="sm" color="currentColor" className="mr-3" />
                 <span className="z-10 relative tracking-wide">
                   View All Projects
                 </span>
@@ -158,7 +150,7 @@ export default function PortfolioPage() {
                   >
                     <IconComponent
                       size="sm"
-                      primaryColor="currentColor"
+                      color="currentColor"
                       className="mr-3 text-brand-primary dark:text-brand-primary-light"
                     />
                     <span className="tracking-wide">{indicator.text}</span>
@@ -178,7 +170,7 @@ export default function PortfolioPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-20 text-center">
             <div className="inline-flex items-center bg-brand-secondary/10 dark:bg-brand-secondary/20 shadow-lg mb-10 px-8 py-4 border border-brand-secondary/20 rounded-full">
-              <StarIcon size="md" primaryColor="var(--brand-secondary)" />
+              <StarIcon size="md" color="var(--brand-secondary)" />
               <span className="ml-4 font-black text-brand-secondary text-sm uppercase tracking-wider">
                 Signature Work
               </span>
@@ -205,7 +197,7 @@ export default function PortfolioPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-16 text-center">
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg mb-10 px-8 py-4 border border-brand-primary/20 rounded-full">
-              <ToolsIcon size="md" primaryColor="var(--brand-primary)" />
+              <ToolsIcon size="md" color="var(--brand-primary)" />
               <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider">
                 Project Categories
               </span>
@@ -366,11 +358,7 @@ export default function PortfolioPage() {
                   size="xl"
                   className="bg-transparent hover:bg-white shadow-xl border-white text-white hover:text-brand-primary"
                 >
-                  <BoltIcon
-                    size="md"
-                    primaryColor="currentColor"
-                    className="mr-3"
-                  />
+                  <BoltIcon size="md" color="currentColor" className="mr-3" />
                   <span className="z-10 relative tracking-wide">
                     Get Free Estimate
                   </span>
@@ -379,11 +367,7 @@ export default function PortfolioPage() {
               <Link href="/contact">
                 <HoverScale>
                   <Button variant="secondary" size="xl" className="shadow-xl">
-                    <HomeIcon
-                      size="md"
-                      primaryColor="currentColor"
-                      className="mr-3"
-                    />
+                    <HomeIcon size="md" color="currentColor" className="mr-3" />
                     <span className="z-10 relative tracking-wide">
                       Schedule Consultation
                     </span>

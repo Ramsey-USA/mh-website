@@ -15,15 +15,15 @@ import {
   StructuredData,
 } from '../../components/seo/seo-meta'
 import {
-  ShieldIcon,
-  StarIcon,
-  HammerIcon,
-  CheckIcon,
-  UserIcon,
-  BoltIcon,
-  CogIcon,
-  ToolsIcon,
-} from '../../components/icons/SharpDuotoneIcons'
+  WPZoomShieldIcon as ShieldIcon,
+  WPZoomStarIcon as StarIcon,
+  WPZoomHammerIcon as HammerIcon,
+  WPZoomCheckIcon as CheckIcon,
+  WPZoomUserIcon as UserIcon,
+  WPZoomBoltIcon as BoltIcon,
+  WPZoomCogIcon as CogIcon,
+  WPZoomToolsIcon as ToolsIcon,
+} from '../../components/icons/WPZoomIcons'
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -302,7 +302,7 @@ export default function ServicesPage() {
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
               <HammerIcon
                 size="sm"
-                primaryColor="currentColor"
+                color="currentColor"
                 className="text-brand-primary dark:text-brand-primary-light"
               />
               <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider">
@@ -338,11 +338,7 @@ export default function ServicesPage() {
               <Link href="/estimator">
                 <HoverScale>
                   <Button variant="primary" size="xl" className="shadow-xl">
-                    <BoltIcon
-                      size="sm"
-                      primaryColor="currentColor"
-                      className="mr-3"
-                    />
+                    <BoltIcon size="sm" color="currentColor" className="mr-3" />
                     <span className="z-10 relative tracking-wide">
                       Get AI Estimate
                     </span>
@@ -352,11 +348,7 @@ export default function ServicesPage() {
               <Link href="/booking">
                 <HoverScale>
                   <Button variant="outline" size="xl" className="shadow-xl">
-                    <UserIcon
-                      size="sm"
-                      primaryColor="currentColor"
-                      className="mr-3"
-                    />
+                    <UserIcon size="sm" color="currentColor" className="mr-3" />
                     <span className="z-10 relative tracking-wide">
                       Schedule Consultation
                     </span>
@@ -379,7 +371,7 @@ export default function ServicesPage() {
                 >
                   <CheckIcon
                     size="sm"
-                    primaryColor="currentColor"
+                    color="currentColor"
                     className="mr-3 text-green-600 dark:text-green-400"
                   />
                   <span className="tracking-wide">{indicator}</span>
@@ -398,7 +390,7 @@ export default function ServicesPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-24 lg:mb-32 text-center">
             <div className="inline-flex items-center bg-brand-secondary/10 dark:bg-brand-secondary/20 shadow-lg mb-10 px-8 py-4 border border-brand-secondary/20 rounded-full">
-              <CogIcon size="md" primaryColor="var(--brand-secondary)" />
+              <CogIcon size="md" color="var(--brand-secondary)" />
               <span className="ml-4 font-black text-brand-secondary text-sm uppercase tracking-wider">
                 Service Categories
               </span>
@@ -476,7 +468,7 @@ export default function ServicesPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-24 lg:mb-32 text-center">
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg mb-10 px-8 py-4 border border-brand-primary/20 rounded-full">
-              <HammerIcon size="md" primaryColor="var(--brand-primary)" />
+              <HammerIcon size="md" color="var(--brand-primary)" />
               <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider">
                 Service Details
               </span>
@@ -504,7 +496,7 @@ export default function ServicesPage() {
                         >
                           <service.icon
                             size="lg"
-                            primaryColor="white"
+                            color="white"
                             className="text-white"
                           />
                         </div>
@@ -537,7 +529,7 @@ export default function ServicesPage() {
                           <li key={featureIndex} className="flex items-center">
                             <CheckIcon
                               size="sm"
-                              primaryColor="currentColor"
+                              color="currentColor"
                               className="flex-shrink-0 mr-3 text-green-600 dark:text-green-400"
                             />
                             <span className="text-gray-700 dark:text-gray-300">
@@ -573,7 +565,7 @@ export default function ServicesPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-24 lg:mb-32 text-center">
             <div className="inline-flex items-center bg-veteran-blue/10 dark:bg-veteran-blue/20 shadow-lg mb-10 px-8 py-4 border border-veteran-blue/20 rounded-full">
-              <CogIcon size="md" primaryColor="var(--veteran-blue)" />
+              <CogIcon size="md" color="var(--veteran-blue)" />
               <span className="ml-4 font-black text-veteran-blue text-sm uppercase tracking-wider">
                 Our Process
               </span>
@@ -599,7 +591,7 @@ export default function ServicesPage() {
                         <div className="flex justify-center items-center bg-gradient-to-br from-veteran-blue to-brand-primary shadow-lg rounded-2xl w-20 h-20 group-hover:scale-110 transition-transform duration-300">
                           <step.icon
                             size="lg"
-                            primaryColor="white"
+                            color="white"
                             className="text-white"
                           />
                         </div>
@@ -648,11 +640,7 @@ export default function ServicesPage() {
                     size="xl"
                     className="bg-white hover:bg-gray-100 shadow-xl text-brand-primary"
                   >
-                    <BoltIcon
-                      size="sm"
-                      primaryColor="currentColor"
-                      className="mr-3"
-                    />
+                    <BoltIcon size="sm" color="currentColor" className="mr-3" />
                     <span className="z-10 relative tracking-wide">
                       Get AI Estimate
                     </span>
@@ -666,11 +654,7 @@ export default function ServicesPage() {
                     size="xl"
                     className="hover:bg-white/10 shadow-xl border-white text-white"
                   >
-                    <UserIcon
-                      size="sm"
-                      primaryColor="currentColor"
-                      className="mr-3"
-                    />
+                    <UserIcon size="sm" color="currentColor" className="mr-3" />
                     <span className="z-10 relative tracking-wide">
                       Schedule Consultation
                     </span>

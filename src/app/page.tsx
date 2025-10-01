@@ -19,18 +19,28 @@ import {
 import TestimonialsWidget from '../components/TestimonialsWidget'
 import Head from 'next/head'
 import {
-  BoltIcon,
-  CalendarIcon,
-  UserIcon,
-  ShieldIcon,
-  CogIcon,
-  StarIcon,
-  HammerIcon,
-  CheckIcon,
-  ToolsIcon,
-  HomeIcon,
-  ArrowRightIcon,
-} from '../components/icons/SharpDuotoneIcons'
+  WPZoomBoltIcon as BoltIcon,
+  WPZoomCalendarIcon as CalendarIcon,
+  WPZoomUserIcon as UserIcon,
+  WPZoomShieldIcon as ShieldIcon,
+  WPZoomCogIcon as CogIcon,
+  WPZoomStarIcon as StarIcon,
+  WPZoomHammerIcon as HammerIcon,
+  WPZoomCheckIcon as CheckIcon,
+  WPZoomToolsIcon as ToolsIcon,
+  WPZoomHomeIcon as HomeIcon,
+  WPZoomArrowRightIcon as ArrowRightIcon,
+} from '../components/icons/WPZoomIcons'
+// Import custom MH Construction icons with built-in hover effects
+import {
+  MHLogoIcon,
+  MHHammerIcon,
+  MHQualityShieldIcon,
+  MHVeteranStarIcon,
+  MHCheckIcon,
+  MHBuildingIcon,
+  MHArrowRightIcon,
+} from '../components/icons/MHCustomIcons'
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -132,8 +142,7 @@ export default function Home() {
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
               <ShieldIcon
                 size="sm"
-                primaryColor="currentColor"
-                secondaryColor="currentColor"
+                color="currentColor"
                 className="text-brand-primary dark:text-brand-primary-light"
               />
               <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider letterspacing-wide">
@@ -179,7 +188,7 @@ export default function Home() {
                   >
                     <CalendarIcon
                       size="sm"
-                      primaryColor="currentColor"
+                      color="currentColor"
                       className="mr-3"
                     />
                     <span className="z-10 relative tracking-wide">
@@ -202,11 +211,7 @@ export default function Home() {
                       })
                     }
                   >
-                    <BoltIcon
-                      size="sm"
-                      primaryColor="currentColor"
-                      className="mr-3"
-                    />
+                    <BoltIcon size="sm" color="currentColor" className="mr-3" />
                     <span className="z-10 relative tracking-wide">
                       Get AI Estimate
                     </span>
@@ -229,7 +234,7 @@ export default function Home() {
                 >
                   <CheckIcon
                     size="sm"
-                    primaryColor="currentColor"
+                    color="currentColor"
                     className="mr-3 text-green-600 dark:text-green-400"
                   />
                   <span className="tracking-wide">{indicator}</span>
@@ -252,7 +257,7 @@ export default function Home() {
           {/* Enhanced Header */}
           <div className="mb-16 text-center scroll-reveal">
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-6 px-6 py-3 border border-brand-primary/30 dark:border-brand-primary/40 rounded-full">
-              <StarIcon size="sm" primaryColor="var(--brand-primary)" />
+              <StarIcon size="sm" color="var(--brand-primary)" />
               <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-widest">
                 Our Numbers
               </span>
@@ -328,7 +333,7 @@ export default function Home() {
                   <div
                     className={`w-12 h-12 bg-gradient-to-br ${stat.defaultGradient} group-hover:bg-gradient-to-br group-hover:${stat.hoverGradient} rounded-xl flex items-center justify-center mx-auto mb-4 shadow-sm group-hover:shadow-lg transition-all duration-500 group-hover:scale-110`}
                   >
-                    <stat.icon size="md" primaryColor="white" />
+                    <stat.icon size="md" color="white" />
                   </div>
 
                   {/* Number with Color Change Effect */}
@@ -363,7 +368,7 @@ export default function Home() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-16 lg:mb-20 text-center">
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg mb-8 px-8 py-4 border border-brand-primary/20 rounded-full">
-              <BoltIcon size="md" primaryColor="var(--brand-primary)" />
+              <BoltIcon size="md" color="var(--brand-primary)" />
               <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider letterspacing-widest">
                 Revolutionary Solutions
               </span>
@@ -478,11 +483,7 @@ export default function Home() {
                         <div
                           className={`w-20 h-20 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
                         >
-                          <feature.icon
-                            size="xl"
-                            primaryColor="white"
-                            secondaryColor="rgba(255,255,255,0.8)"
-                          />
+                          <feature.icon size="xl" color="white" />
                         </div>
 
                         <h3 className="mb-4 font-black text-text-primary dark:text-text-primary-dark text-xl md:text-2xl leading-tight tracking-tight">
@@ -508,8 +509,7 @@ export default function Home() {
                       <div className="flex-shrink-0">
                         <feature.icon
                           size="md"
-                          primaryColor="white"
-                          secondaryColor="rgba(255,255,255,0.8)"
+                          color="white"
                           className="mx-auto mb-3"
                         />
                         <h3 className="mb-2 font-black text-xl">
@@ -587,11 +587,7 @@ export default function Home() {
                   className="shadow-lg hover:shadow-xl mb-3 w-full h-12 transition-all duration-300"
                   onClick={() => (window.location.href = cta.href)}
                 >
-                  <cta.icon
-                    size="sm"
-                    primaryColor="currentColor"
-                    className="mr-3"
-                  />
+                  <cta.icon size="sm" color="currentColor" className="mr-3" />
                   <span className="font-semibold">{cta.title}</span>
                 </Button>
                 <p className="font-light text-text-secondary dark:text-text-secondary-dark text-sm">
@@ -613,7 +609,7 @@ export default function Home() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="mb-16 lg:mb-20 text-center scroll-reveal">
             <div className="inline-flex items-center bg-veteran-red/10 dark:bg-veteran-red/20 shadow-lg backdrop-blur-sm mb-8 px-8 py-4 border border-veteran-red/20 dark:border-veteran-red/30 rounded-full">
-              <ShieldIcon size="md" primaryColor="var(--veteran-red)" />
+              <ShieldIcon size="md" color="var(--veteran-red)" />
               <span className="ml-4 font-black text-veteran-red dark:text-red-400 text-sm uppercase tracking-wider letterspacing-widest">
                 Military Values
               </span>
@@ -733,11 +729,7 @@ export default function Home() {
                           <div
                             className={`w-24 h-24 bg-gradient-to-br ${item.color} rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg`}
                           >
-                            <IconComponent
-                              size="2xl"
-                              primaryColor="white"
-                              secondaryColor="rgba(255,255,255,0.8)"
-                            />
+                            <IconComponent size="2xl" color="white" />
                           </div>
 
                           <h3 className="mb-4 font-black text-text-primary dark:text-text-primary-dark text-2xl md:text-3xl leading-tight tracking-tight">
@@ -761,8 +753,7 @@ export default function Home() {
                         <div className="flex-shrink-0">
                           <IconComponent
                             size="md"
-                            primaryColor="white"
-                            secondaryColor="rgba(255,255,255,0.8)"
+                            color="white"
                             className="mx-auto mb-3"
                           />
                           <h3 className="mb-2 font-black text-xl">
@@ -798,7 +789,7 @@ export default function Home() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-16 text-center">
             <div className="inline-flex items-center bg-brand-primary/10 shadow-lg mb-8 px-8 py-4 border border-brand-primary/20 rounded-full">
-              <HammerIcon size="md" primaryColor="var(--brand-primary)" />
+              <HammerIcon size="md" color="var(--brand-primary)" />
               <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider letterspacing-widest">
                 Featured Excellence
               </span>
@@ -833,7 +824,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <HomeIcon size="lg" primaryColor="var(--brand-primary)" />
+                  <HomeIcon size="lg" color="var(--brand-primary)" />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Residential Construction
@@ -844,7 +835,7 @@ export default function Home() {
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
+                  <ArrowRightIcon size="sm" color="currentColor" />
                 </div>
               </div>
             </div>
@@ -854,7 +845,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <HammerIcon size="lg" primaryColor="var(--brand-primary)" />
+                  <HammerIcon size="lg" color="var(--brand-primary)" />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Commercial Construction
@@ -865,7 +856,7 @@ export default function Home() {
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
+                  <ArrowRightIcon size="sm" color="currentColor" />
                 </div>
               </div>
             </div>
@@ -875,7 +866,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <CogIcon size="lg" primaryColor="var(--brand-primary)" />
+                  <CogIcon size="lg" color="var(--brand-primary)" />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Kitchen Renovations
@@ -886,7 +877,7 @@ export default function Home() {
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
+                  <ArrowRightIcon size="sm" color="currentColor" />
                 </div>
               </div>
             </div>
@@ -896,7 +887,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <ShieldIcon size="lg" primaryColor="var(--brand-primary)" />
+                  <ShieldIcon size="lg" color="var(--brand-primary)" />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Bathroom Remodeling
@@ -907,7 +898,7 @@ export default function Home() {
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
+                  <ArrowRightIcon size="sm" color="currentColor" />
                 </div>
               </div>
             </div>
@@ -917,7 +908,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <BoltIcon size="lg" primaryColor="var(--brand-primary)" />
+                  <BoltIcon size="lg" color="var(--brand-primary)" />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Roofing Services
@@ -928,7 +919,7 @@ export default function Home() {
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
+                  <ArrowRightIcon size="sm" color="currentColor" />
                 </div>
               </div>
             </div>
@@ -938,7 +929,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <ToolsIcon size="lg" primaryColor="var(--brand-primary)" />
+                  <ToolsIcon size="lg" color="var(--brand-primary)" />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   General Contracting
@@ -949,7 +940,7 @@ export default function Home() {
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
+                  <ArrowRightIcon size="sm" color="currentColor" />
                 </div>
               </div>
             </div>
@@ -966,7 +957,7 @@ export default function Home() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="mb-16 lg:mb-20 text-center scroll-reveal">
             <div className="inline-flex items-center bg-yellow-50 dark:bg-yellow-900/20 shadow-lg mb-8 px-8 py-4 border border-yellow-200/30 rounded-full">
-              <StarIcon size="md" primaryColor="var(--brand-secondary)" />
+              <StarIcon size="md" color="var(--brand-secondary)" />
               <span className="ml-4 font-black text-yellow-600 dark:text-yellow-400 text-sm uppercase tracking-wider letterspacing-widest">
                 Client Success Stories
               </span>
@@ -1059,12 +1050,7 @@ export default function Home() {
                       <div className="flex space-x-1">
                         {Array.from({ length: testimonial.rating }).map(
                           (_, i) => (
-                            <StarIcon
-                              key={i}
-                              size="sm"
-                              primaryColor="#fbbf24"
-                              secondaryColor="rgba(251, 191, 36, 0.3)"
-                            />
+                            <StarIcon key={i} size="sm" color="#fbbf24" />
                           )
                         )}
                       </div>
@@ -1095,9 +1081,10 @@ export default function Home() {
           {/* Section Header */}
           <div className="mb-16 lg:mb-20 text-center scroll-reveal">
             <div className="inline-flex items-center bg-white/10 shadow-lg backdrop-blur-sm mb-6 px-6 py-3 border border-white/20 rounded-full">
-              <ShieldIcon
+              <MHQualityShieldIcon
                 size="sm"
-                primaryColor="currentColor"
+                hoverEffect="pulse"
+                color="currentColor"
                 className="text-white"
               />
               <span className="ml-3 font-bold text-white text-xs uppercase tracking-wider">
@@ -1121,7 +1108,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Core Differentiators - 4 Flip Cards */}
+          {/* Core Differentiators - 4 Flip Cards with Custom MH Icons */}
           <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {/* Veteran-Owned Excellence */}
             <div className="group h-80 perspective-1000">
@@ -1130,10 +1117,11 @@ export default function Home() {
                 <div className="absolute inset-0 backface-hidden">
                   <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
                     <div className="mb-4">
-                      <ShieldIcon
-                        size="lg"
-                        primaryColor="currentColor"
-                        className="mx-auto text-brand-secondary"
+                      <MHVeteranStarIcon
+                        size="xl"
+                        hoverEffect="glow"
+                        color="#dc2626"
+                        className="drop-shadow-lg mx-auto"
                       />
                     </div>
                     <h3 className="font-black text-white text-lg lg:text-xl tracking-tight">
@@ -1149,10 +1137,11 @@ export default function Home() {
                 <div className="absolute inset-0 rotate-y-180 backface-hidden">
                   <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
                     <div className="mb-4">
-                      <ShieldIcon
-                        size="md"
-                        primaryColor="currentColor"
-                        className="mx-auto text-brand-secondary"
+                      <MHVeteranStarIcon
+                        size="lg"
+                        hoverEffect="pulse"
+                        color="#dc2626"
+                        className="mx-auto"
                       />
                     </div>
                     <h3 className="mb-4 font-black text-white text-lg">
@@ -1177,9 +1166,9 @@ export default function Home() {
                   <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
                     <div className="mb-4">
                       <BoltIcon
-                        size="lg"
-                        primaryColor="currentColor"
-                        className="mx-auto text-brand-secondary"
+                        size="xl"
+                        color="currentColor"
+                        className="mx-auto text-brand-secondary hover:rotate-12 hover:scale-110 transition-all duration-300"
                       />
                     </div>
                     <h3 className="font-black text-white text-lg lg:text-xl tracking-tight">
@@ -1196,9 +1185,9 @@ export default function Home() {
                   <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
                     <div className="mb-4">
                       <BoltIcon
-                        size="md"
-                        primaryColor="currentColor"
-                        className="mx-auto text-brand-secondary"
+                        size="lg"
+                        color="currentColor"
+                        className="mx-auto text-brand-secondary hover:rotate-6 hover:scale-110 transition-all duration-300"
                       />
                     </div>
                     <h3 className="mb-4 font-black text-white text-lg">
@@ -1222,11 +1211,12 @@ export default function Home() {
                 <div className="absolute inset-0 backface-hidden">
                   <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
                     <div className="mb-4">
-                      <div className="flex justify-center items-center bg-brand-secondary/20 mx-auto rounded-full w-16 h-16">
-                        <span className="font-black text-brand-secondary text-xl">
-                          150+
-                        </span>
-                      </div>
+                      <MHHammerIcon
+                        size="xl"
+                        hoverEffect="rotate"
+                        color="currentColor"
+                        className="drop-shadow-lg mx-auto text-brand-secondary"
+                      />
                     </div>
                     <h3 className="font-black text-white text-lg lg:text-xl tracking-tight">
                       Proven Expertise
@@ -1241,11 +1231,12 @@ export default function Home() {
                 <div className="absolute inset-0 rotate-y-180 backface-hidden">
                   <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
                     <div className="mb-4">
-                      <div className="flex justify-center items-center bg-brand-secondary/30 mx-auto rounded-full w-12 h-12">
-                        <span className="font-black text-brand-secondary text-lg">
-                          150+
-                        </span>
-                      </div>
+                      <MHHammerIcon
+                        size="lg"
+                        hoverEffect="pulse"
+                        color="currentColor"
+                        className="mx-auto text-brand-secondary"
+                      />
                     </div>
                     <h3 className="mb-4 font-black text-white text-lg">
                       Decades of Excellence
@@ -1268,21 +1259,12 @@ export default function Home() {
                 <div className="absolute inset-0 backface-hidden">
                   <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
                     <div className="mb-4">
-                      <div className="flex justify-center items-center bg-brand-secondary/20 mx-auto rounded-full w-16 h-16">
-                        <svg
-                          className="w-8 h-8 text-brand-secondary"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                          />
-                        </svg>
-                      </div>
+                      <MHQualityShieldIcon
+                        size="xl"
+                        hoverEffect="glow"
+                        color="currentColor"
+                        className="drop-shadow-lg mx-auto text-brand-secondary"
+                      />
                     </div>
                     <h3 className="font-black text-white text-lg lg:text-xl tracking-tight">
                       Quality Guarantee
@@ -1297,21 +1279,12 @@ export default function Home() {
                 <div className="absolute inset-0 rotate-y-180 backface-hidden">
                   <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
                     <div className="mb-4">
-                      <div className="flex justify-center items-center bg-brand-secondary/30 mx-auto rounded-full w-12 h-12">
-                        <svg
-                          className="w-6 h-6 text-brand-secondary"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                          />
-                        </svg>
-                      </div>
+                      <MHQualityShieldIcon
+                        size="lg"
+                        hoverEffect="pulse"
+                        color="currentColor"
+                        className="mx-auto text-brand-secondary"
+                      />
                     </div>
                     <h3 className="mb-4 font-black text-white text-lg">
                       Complete Satisfaction
@@ -1355,11 +1328,7 @@ export default function Home() {
             <div className="flex sm:flex-row flex-col justify-center items-center gap-8 mb-12">
               <HoverScale>
                 <Button variant="secondary" size="xl" className="shadow-xl">
-                  <BoltIcon
-                    size="md"
-                    primaryColor="currentColor"
-                    className="mr-3"
-                  />
+                  <BoltIcon size="md" color="currentColor" className="mr-3" />
                   <span className="z-10 relative tracking-wide">
                     Get Free Estimate
                   </span>
@@ -1374,7 +1343,7 @@ export default function Home() {
                   >
                     <CalendarIcon
                       size="md"
-                      primaryColor="currentColor"
+                      color="currentColor"
                       className="mr-3"
                     />
                     <span className="z-10 relative tracking-wide">
@@ -1399,7 +1368,7 @@ export default function Home() {
                 >
                   <CheckIcon
                     size="sm"
-                    primaryColor="currentColor"
+                    color="currentColor"
                     className="mr-3 text-brand-secondary"
                   />
                   <span className="tracking-wide">{indicator}</span>

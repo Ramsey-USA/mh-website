@@ -10,13 +10,13 @@ import {
   StructuredData,
 } from '../../components/seo/seo-meta'
 import {
-  ShieldIcon,
-  StarIcon,
-  HammerIcon,
-  CheckIcon,
-  UserIcon,
-  BoltIcon,
-} from '../../components/icons/SharpDuotoneIcons'
+  WPZoomShieldIcon as ShieldIcon,
+  WPZoomStarIcon as StarIcon,
+  WPZoomHammerIcon as HammerIcon,
+  WPZoomCheckIcon as CheckIcon,
+  WPZoomUserIcon as UserIcon,
+  WPZoomBoltIcon as BoltIcon,
+} from '../../components/icons/WPZoomIcons'
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -132,7 +132,7 @@ export default function AboutPage() {
             <div className="inline-flex items-center bg-veteran-blue/10 dark:bg-veteran-blue/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-veteran-blue/20 dark:border-veteran-blue/30 rounded-full">
               <ShieldIcon
                 size="sm"
-                primaryColor="currentColor"
+                color="currentColor"
                 className="text-veteran-blue dark:text-veteran-blue-light"
               />
               <span className="ml-3 font-bold text-veteran-blue dark:text-veteran-blue-light text-xs uppercase tracking-wider">
@@ -168,11 +168,7 @@ export default function AboutPage() {
               <Link href="/contact">
                 <HoverScale>
                   <Button variant="primary" size="xl" className="shadow-xl">
-                    <UserIcon
-                      size="sm"
-                      primaryColor="currentColor"
-                      className="mr-3"
-                    />
+                    <UserIcon size="sm" color="currentColor" className="mr-3" />
                     <span className="z-10 relative tracking-wide">
                       Meet Our Team
                     </span>
@@ -184,7 +180,7 @@ export default function AboutPage() {
                   <Button variant="outline" size="xl" className="shadow-xl">
                     <HammerIcon
                       size="sm"
-                      primaryColor="currentColor"
+                      color="currentColor"
                       className="mr-3"
                     />
                     <span className="z-10 relative tracking-wide">
@@ -209,7 +205,7 @@ export default function AboutPage() {
                 >
                   <CheckIcon
                     size="sm"
-                    primaryColor="currentColor"
+                    color="currentColor"
                     className="mr-3 text-green-600 dark:text-green-400"
                   />
                   <span className="tracking-wide">{indicator}</span>
@@ -228,7 +224,7 @@ export default function AboutPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-24 lg:mb-32 text-center">
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg mb-10 px-8 py-4 border border-brand-primary/20 rounded-full">
-              <StarIcon size="md" primaryColor="var(--brand-primary)" />
+              <StarIcon size="md" color="var(--brand-primary)" />
               <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider">
                 Our Foundation
               </span>
@@ -309,7 +305,7 @@ export default function AboutPage() {
                           <div className="bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 p-4 rounded-2xl">
                             <stat.icon
                               size="lg"
-                              primaryColor="var(--brand-primary)"
+                              color="var(--brand-primary)"
                               className="text-brand-primary"
                             />
                           </div>
@@ -338,7 +334,7 @@ export default function AboutPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-24 lg:mb-32 text-center">
             <div className="inline-flex items-center bg-veteran-blue/10 dark:bg-veteran-blue/20 shadow-lg mb-10 px-8 py-4 border border-veteran-blue/20 rounded-full">
-              <ShieldIcon size="md" primaryColor="var(--veteran-blue)" />
+              <ShieldIcon size="md" color="var(--veteran-blue)" />
               <span className="ml-4 font-black text-veteran-blue text-sm uppercase tracking-wider">
                 Core Values
               </span>
@@ -371,7 +367,7 @@ export default function AboutPage() {
                       >
                         <value.icon
                           size="xl"
-                          primaryColor="white"
+                          color="white"
                           className="text-white"
                         />
                       </div>
@@ -398,7 +394,7 @@ export default function AboutPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-24 lg:mb-32 text-center">
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg mb-10 px-8 py-4 border border-brand-primary/20 rounded-full">
-              <UserIcon size="md" primaryColor="var(--brand-primary)" />
+              <UserIcon size="md" color="var(--brand-primary)" />
               <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider">
                 Leadership Team
               </span>
@@ -498,7 +494,7 @@ export default function AboutPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-24 lg:mb-32 text-center">
             <div className="inline-flex items-center bg-brand-secondary/10 dark:bg-brand-secondary/20 shadow-lg mb-10 px-8 py-4 border border-brand-secondary/20 rounded-full">
-              <StarIcon size="md" primaryColor="var(--brand-secondary)" />
+              <StarIcon size="md" color="var(--brand-secondary)" />
               <span className="ml-4 font-black text-brand-secondary text-sm uppercase tracking-wider">
                 Our Journey
               </span>
@@ -592,11 +588,7 @@ export default function AboutPage() {
                     size="xl"
                     className="bg-white hover:bg-gray-100 shadow-xl text-brand-primary"
                   >
-                    <UserIcon
-                      size="sm"
-                      primaryColor="currentColor"
-                      className="mr-3"
-                    />
+                    <UserIcon size="sm" color="currentColor" className="mr-3" />
                     <span className="z-10 relative tracking-wide">
                       Schedule Consultation
                     </span>
@@ -612,7 +604,7 @@ export default function AboutPage() {
                   >
                     <HammerIcon
                       size="sm"
-                      primaryColor="currentColor"
+                      color="currentColor"
                       className="mr-3"
                     />
                     <span className="z-10 relative tracking-wide">

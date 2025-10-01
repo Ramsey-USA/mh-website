@@ -1,18 +1,18 @@
 'use client'
 
 import { Button } from '@/components/ui/Button'
-import { SharpDuotoneIcons } from '@/components/icons/SharpDuotoneIcons'
+import { WPZoomIcons } from '@/components/icons/WPZoomIcons'
 
 export default function ButtonShowcase() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white py-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-br from-gray-50 to-white py-12 min-h-screen">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 font-bold text-gray-900 text-4xl">
             MH Construction Button System
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mx-auto max-w-3xl text-gray-600 text-xl">
             Enhanced button components with outer rings, gradient animations,
             and consistent MH brand styling. All variants include accessibility
             features and professional hover effects.
@@ -20,13 +20,13 @@ export default function ButtonShowcase() {
         </div>
 
         {/* Button Variants Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="gap-8 grid grid-cols-1 lg:grid-cols-2 mb-12">
           {/* Primary Variant */}
-          <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+          <div className="bg-white shadow-lg p-8 border border-gray-200 rounded-lg">
+            <h3 className="mb-4 font-semibold text-gray-900 text-2xl">
               Primary Variant
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="mb-6 text-gray-600">
               Hunter Green background with smooth hover effects and professional
               ring animation.
             </p>
@@ -44,7 +44,7 @@ export default function ButtonShowcase() {
               </div>
               <div className="flex flex-wrap gap-4">
                 <Button variant="primary" size="md" withRing>
-                  <SharpDuotoneIcons.Phone className="w-4 h-4 mr-2" />
+                  <WPZoomIcons.Phone className="mr-2 w-4 h-4" />
                   With Ring & Icon
                 </Button>
                 <Button variant="primary" size="md" disabled>
@@ -55,11 +55,11 @@ export default function ButtonShowcase() {
           </div>
 
           {/* Secondary Variant */}
-          <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+          <div className="bg-white shadow-lg p-8 border border-gray-200 rounded-lg">
+            <h3 className="mb-4 font-semibold text-gray-900 text-2xl">
               Secondary Variant
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="mb-6 text-gray-600">
               Leather Tan styling with complementary colors and elegant
               transitions.
             </p>
@@ -77,7 +77,7 @@ export default function ButtonShowcase() {
               </div>
               <div className="flex flex-wrap gap-4">
                 <Button variant="secondary" size="md" withRing>
-                  <SharpDuotoneIcons.Email className="w-4 h-4 mr-2" />
+                  <WPZoomIcons.Email className="mr-2 w-4 h-4" />
                   With Ring & Icon
                 </Button>
                 <Button variant="secondary" size="md" disabled>
@@ -88,11 +88,11 @@ export default function ButtonShowcase() {
           </div>
 
           {/* Outline Variant */}
-          <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+          <div className="bg-white shadow-lg p-8 border border-gray-200 rounded-lg">
+            <h3 className="mb-4 font-semibold text-gray-900 text-2xl">
               Outline Variant
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="mb-6 text-gray-600">
               Clean border design with fill animation on hover and subtle ring
               effects.
             </p>
@@ -110,7 +110,7 @@ export default function ButtonShowcase() {
               </div>
               <div className="flex flex-wrap gap-4">
                 <Button variant="outline" size="md" withRing>
-                  <SharpDuotoneIcons.Location className="w-4 h-4 mr-2" />
+                  <WPZoomIcons.Location className="mr-2 w-4 h-4" />
                   With Ring & Icon
                 </Button>
                 <Button variant="outline" size="md" disabled>
@@ -121,11 +121,11 @@ export default function ButtonShowcase() {
           </div>
 
           {/* Ghost Variant */}
-          <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+          <div className="bg-white shadow-lg p-8 border border-gray-200 rounded-lg">
+            <h3 className="mb-4 font-semibold text-gray-900 text-2xl">
               Ghost Variant
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="mb-6 text-gray-600">
               Minimal design with background fill on hover and gentle ring
               animations.
             </p>
@@ -143,7 +143,7 @@ export default function ButtonShowcase() {
               </div>
               <div className="flex flex-wrap gap-4">
                 <Button variant="ghost" size="md" withRing>
-                  <SharpDuotoneIcons.Sync className="w-4 h-4 mr-2" />
+                  <WPZoomIcons.Sync className="mr-2 w-4 h-4" />
                   With Ring & Icon
                 </Button>
                 <Button variant="ghost" size="md" disabled>
@@ -154,11 +154,11 @@ export default function ButtonShowcase() {
           </div>
 
           {/* Gradient Variant */}
-          <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+          <div className="bg-white shadow-lg p-8 border border-gray-200 rounded-lg">
+            <h3 className="mb-4 font-semibold text-gray-900 text-2xl">
               Gradient Variant
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="mb-6 text-gray-600">
               Eye-catching gradient from Hunter Green to Leather Tan with
               animated effects.
             </p>
@@ -176,7 +176,7 @@ export default function ButtonShowcase() {
               </div>
               <div className="flex flex-wrap gap-4">
                 <Button variant="gradient" size="md" withRing>
-                  <SharpDuotoneIcons.Hammer className="w-4 h-4 mr-2" />
+                  <WPZoomIcons.Hammer className="mr-2 w-4 h-4" />
                   With Ring & Icon
                 </Button>
                 <Button variant="gradient" size="md" disabled>
@@ -187,11 +187,11 @@ export default function ButtonShowcase() {
           </div>
 
           {/* Destructive Variant */}
-          <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+          <div className="bg-white shadow-lg p-8 border border-gray-200 rounded-lg">
+            <h3 className="mb-4 font-semibold text-gray-900 text-2xl">
               Destructive Variant
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="mb-6 text-gray-600">
               Red styling for critical actions with warning ring effects and
               clear hover states.
             </p>
@@ -209,7 +209,7 @@ export default function ButtonShowcase() {
               </div>
               <div className="flex flex-wrap gap-4">
                 <Button variant="destructive" size="md" withRing>
-                  <SharpDuotoneIcons.Close className="w-4 h-4 mr-2" />
+                  <WPZoomIcons.Close className="mr-2 w-4 h-4" />
                   With Ring & Icon
                 </Button>
                 <Button variant="destructive" size="md" disabled>
@@ -221,18 +221,18 @@ export default function ButtonShowcase() {
         </div>
 
         {/* Interactive Demo Section */}
-        <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200 mb-12">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+        <div className="bg-white shadow-lg mb-12 p-8 border border-gray-200 rounded-lg">
+          <h3 className="mb-6 font-semibold text-gray-900 text-2xl">
             Interactive Demo
           </h3>
-          <p className="text-gray-600 mb-8">
+          <p className="mb-8 text-gray-600">
             Test the button interactions and ring effects. All buttons include
             focus states for accessibility.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="text-center p-4 border border-gray-200 rounded-lg">
-              <h4 className="font-semibold mb-4">Call-to-Action Buttons</h4>
+          <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div className="p-4 border border-gray-200 rounded-lg text-center">
+              <h4 className="mb-4 font-semibold">Call-to-Action Buttons</h4>
               <div className="space-y-3">
                 <Button
                   variant="gradient"
@@ -240,18 +240,18 @@ export default function ButtonShowcase() {
                   withRing
                   className="w-full"
                 >
-                  <SharpDuotoneIcons.Hammer className="w-5 h-5 mr-2" />
+                  <WPZoomIcons.Hammer className="mr-2 w-5 h-5" />
                   Start Your Project
                 </Button>
                 <Button variant="primary" size="md" withRing className="w-full">
-                  <SharpDuotoneIcons.Phone className="w-4 h-4 mr-2" />
+                  <WPZoomIcons.Phone className="mr-2 w-4 h-4" />
                   Call Now
                 </Button>
               </div>
             </div>
 
-            <div className="text-center p-4 border border-gray-200 rounded-lg">
-              <h4 className="font-semibold mb-4">Navigation Actions</h4>
+            <div className="p-4 border border-gray-200 rounded-lg text-center">
+              <h4 className="mb-4 font-semibold">Navigation Actions</h4>
               <div className="space-y-3">
                 <Button
                   variant="secondary"
@@ -259,18 +259,18 @@ export default function ButtonShowcase() {
                   withRing
                   className="w-full"
                 >
-                  <SharpDuotoneIcons.Menu className="w-4 h-4 mr-2" />
+                  <WPZoomIcons.Menu className="mr-2 w-4 h-4" />
                   View Portfolio
                 </Button>
                 <Button variant="outline" size="md" withRing className="w-full">
-                  <SharpDuotoneIcons.Sync className="w-4 h-4 mr-2" />
+                  <WPZoomIcons.Sync className="mr-2 w-4 h-4" />
                   Get Estimate
                 </Button>
               </div>
             </div>
 
-            <div className="text-center p-4 border border-gray-200 rounded-lg">
-              <h4 className="font-semibold mb-4">Form Actions</h4>
+            <div className="p-4 border border-gray-200 rounded-lg text-center">
+              <h4 className="mb-4 font-semibold">Form Actions</h4>
               <div className="space-y-3">
                 <Button variant="primary" size="md" className="w-full">
                   Submit Form
@@ -284,37 +284,37 @@ export default function ButtonShowcase() {
         </div>
 
         {/* Technical Specifications */}
-        <div className="bg-gray-50 rounded-lg p-8 border border-gray-200">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+        <div className="bg-gray-50 p-8 border border-gray-200 rounded-lg">
+          <h3 className="mb-6 font-semibold text-gray-900 text-2xl">
             Technical Specifications
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="gap-8 grid grid-cols-1 md:grid-cols-2">
             <div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">
+              <h4 className="mb-4 font-semibold text-gray-900 text-lg">
                 Color Palette
               </h4>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center gap-3">
-                  <div className="w-4 h-4 rounded bg-brand-primary"></div>
+                  <div className="bg-brand-primary rounded w-4 h-4"></div>
                   <span>Hunter Green: #386851</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-4 h-4 rounded bg-brand-secondary"></div>
+                  <div className="bg-brand-secondary rounded w-4 h-4"></div>
                   <span>Leather Tan: #BD9264</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-4 h-4 rounded bg-red-600"></div>
+                  <div className="bg-red-600 rounded w-4 h-4"></div>
                   <span>Destructive: #DC2626</span>
                 </div>
               </div>
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">
+              <h4 className="mb-4 font-semibold text-gray-900 text-lg">
                 Features
               </h4>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-gray-600 text-sm">
                 <li>• Outer ring animations with focus states</li>
                 <li>• Gradient backgrounds with smooth transitions</li>
                 <li>• Accessibility-compliant color contrasts</li>
@@ -326,13 +326,13 @@ export default function ButtonShowcase() {
             </div>
           </div>
 
-          <div className="mt-8 p-4 bg-white rounded border border-gray-200">
-            <h4 className="text-lg font-semibold text-gray-900 mb-3">
+          <div className="bg-white mt-8 p-4 border border-gray-200 rounded">
+            <h4 className="mb-3 font-semibold text-gray-900 text-lg">
               Usage Example
             </h4>
-            <pre className="text-sm bg-gray-100 p-3 rounded overflow-x-auto">
+            <pre className="bg-gray-100 p-3 rounded overflow-x-auto text-sm">
               {`<Button variant="gradient" size="lg" withRing>
-  <SharpDuotoneIcons.Hammer className="w-5 h-5 mr-2" />
+  <WPZoomIcons.Hammer className="mr-2 w-5 h-5" />
   Start Your Project
 </Button>`}
             </pre>
@@ -340,13 +340,13 @@ export default function ButtonShowcase() {
         </div>
 
         {/* Back to Home */}
-        <div className="text-center mt-12">
+        <div className="mt-12 text-center">
           <Button
             variant="outline"
             size="lg"
             onClick={() => window.history.back()}
           >
-            <SharpDuotoneIcons.ArrowRight className="w-5 h-5 mr-2" />
+            <WPZoomIcons.ArrowRight className="mr-2 w-5 h-5" />
             Back to Website
           </Button>
         </div>

@@ -2,7 +2,11 @@
 
 import React from 'react'
 import { useTheme } from '../../contexts/ThemeContext'
-import { SunIcon, MoonIcon, DesktopIcon } from '../icons/SharpDuotoneIcons'
+import {
+  WPZoomSunIcon as SunIcon,
+  WPZoomMoonIcon as MoonIcon,
+  WPZoomDesktopIcon as DesktopIcon,
+} from '../icons/WPZoomIcons'
 
 interface ThemeToggleProps {
   size?: 'sm' | 'md' | 'lg'
@@ -86,18 +90,12 @@ export function ThemeToggle({
           <div className="relative flex justify-between items-center px-2 w-full">
             <MoonIcon
               size={iconSizes[size]}
-              primaryColor={isDarkMode ? 'white' : 'rgb(107 114 128)'}
-              secondaryColor={
-                isDarkMode ? 'rgba(255,255,255,0.3)' : 'rgba(107,114,128,0.3)'
-              }
+              color={isDarkMode ? 'white' : 'rgb(107 114 128)'}
               className="transition-colors duration-300"
             />
             <SunIcon
               size={iconSizes[size]}
-              primaryColor={!isDarkMode ? 'white' : 'rgb(107 114 128)'}
-              secondaryColor={
-                !isDarkMode ? 'rgba(255,255,255,0.3)' : 'rgba(107,114,128,0.3)'
-              }
+              color={!isDarkMode ? 'white' : 'rgb(107 114 128)'}
               className="transition-colors duration-300"
             />
           </div>
@@ -141,10 +139,7 @@ export function ThemeToggle({
           >
             <Icon
               size={iconSizes[size]}
-              primaryColor={theme === key ? 'currentColor' : undefined}
-              secondaryColor={
-                theme === key ? 'rgba(255,255,255,0.3)' : undefined
-              }
+              color={theme === key ? 'currentColor' : undefined}
               className={theme !== key ? colors : ''}
             />
             {size === 'lg' && (

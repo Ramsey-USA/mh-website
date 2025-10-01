@@ -5,12 +5,12 @@ import Link from 'next/link'
 import { Button } from '../ui'
 import { PortfolioImage } from '../portfolio/ProjectImage'
 import {
-  HammerIcon,
-  CheckIcon,
-  StarIcon,
-  BoltIcon,
-  CalendarIcon,
-} from '../icons/SharpDuotoneIcons'
+  WPZoomHammerIcon as HammerIcon,
+  WPZoomCheckIcon as CheckIcon,
+  WPZoomStarIcon as StarIcon,
+  WPZoomBoltIcon as BoltIcon,
+  WPZoomCalendarIcon as CalendarIcon,
+} from '../icons/WPZoomIcons'
 import ScrollReveal from '../animations/ScrollReveal'
 
 interface ProjectFiltersProps {
@@ -46,7 +46,7 @@ export default function FeaturedProjectsSection({
         <div className="mb-24 text-center scroll-reveal">
           {/* Enhanced Section Badge */}
           <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg mb-10 px-8 py-4 border border-brand-primary/20 rounded-full">
-            <HammerIcon size="md" primaryColor="var(--brand-primary)" />
+            <HammerIcon size="md" color="var(--brand-primary)" />
             <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider letterspacing-widest">
               Featured Excellence
             </span>
@@ -120,11 +120,7 @@ export default function FeaturedProjectsSection({
 
                     {/* Enhanced Category Badge */}
                     <div className="top-4 left-4 absolute flex items-center bg-brand-primary/90 shadow-lg backdrop-blur-sm px-4 py-2 rounded-full text-white">
-                      <HammerIcon
-                        size="xs"
-                        primaryColor="white"
-                        className="mr-2"
-                      />
+                      <HammerIcon size="xs" color="white" className="mr-2" />
                       <span className="font-bold text-sm uppercase tracking-wide">
                         {project.category.charAt(0).toUpperCase() +
                           project.category.slice(1)}
@@ -146,7 +142,7 @@ export default function FeaturedProjectsSection({
                           <div className="text-center">
                             <CalendarIcon
                               size="sm"
-                              primaryColor="white"
+                              color="white"
                               className="mx-auto mb-2"
                             />
                             <div className="font-black text-white text-lg md:text-xl">
@@ -159,7 +155,7 @@ export default function FeaturedProjectsSection({
                           <div className="text-center">
                             <CheckIcon
                               size="sm"
-                              primaryColor="white"
+                              color="white"
                               className="mx-auto mb-2"
                             />
                             <div className="font-black text-white text-lg md:text-xl">
@@ -172,7 +168,7 @@ export default function FeaturedProjectsSection({
                           <div className="text-center">
                             <StarIcon
                               size="sm"
-                              primaryColor="white"
+                              color="white"
                               className="mx-auto mb-2"
                             />
                             <div className="font-black text-white text-lg md:text-xl">
@@ -191,7 +187,7 @@ export default function FeaturedProjectsSection({
                           <div className="inline-flex items-center bg-white/10 hover:bg-white backdrop-blur-sm px-6 py-3 border border-white/20 rounded-xl font-bold text-white hover:text-brand-primary text-lg transition-all duration-300">
                             <BoltIcon
                               size="sm"
-                              primaryColor="currentColor"
+                              color="currentColor"
                               className="mr-2"
                             />
                             <span>View Project Details</span>
@@ -239,7 +235,7 @@ export default function FeaturedProjectsSection({
                         <div className="flex items-center text-gray-500 dark:text-gray-400">
                           <CheckIcon
                             size="sm"
-                            primaryColor="var(--brand-secondary)"
+                            color="var(--brand-secondary)"
                             className="mr-2"
                           />
                           <span className="font-medium text-sm md:text-base tracking-wide">
@@ -269,7 +265,7 @@ export default function FeaturedProjectsSection({
             <div className="z-10 relative text-center">
               {/* CTA Badge */}
               <div className="inline-flex items-center bg-white/10 backdrop-blur-sm mb-8 px-6 py-3 border border-white/20 rounded-full">
-                <StarIcon size="md" primaryColor="white" />
+                <StarIcon size="md" color="white" />
                 <span className="ml-3 font-black text-white text-sm uppercase tracking-wider letterspacing-widest">
                   Complete Portfolio
                 </span>
@@ -304,7 +300,7 @@ export default function FeaturedProjectsSection({
                   <Button variant="secondary" size="xl" className="shadow-xl">
                     <HammerIcon
                       size="md"
-                      primaryColor="currentColor"
+                      color="currentColor"
                       className="mr-3"
                     />
                     <span className="z-10 relative tracking-wide">
@@ -318,11 +314,7 @@ export default function FeaturedProjectsSection({
                     size="xl"
                     className="bg-transparent hover:bg-white shadow-xl border-white text-white hover:text-brand-primary"
                   >
-                    <BoltIcon
-                      size="md"
-                      primaryColor="currentColor"
-                      className="mr-3"
-                    />
+                    <BoltIcon size="md" color="currentColor" className="mr-3" />
                     <span className="z-10 relative tracking-wide">
                       Start Your Project
                     </span>
@@ -342,7 +334,7 @@ export default function FeaturedProjectsSection({
                     className="flex flex-col items-center text-white/90"
                   >
                     <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm mb-3 border border-white/20 rounded-full w-16 h-16">
-                      <item.icon size="lg" primaryColor="white" />
+                      <item.icon size="lg" color="white" />
                     </div>
                     <span className="font-bold text-lg text-center tracking-wide">
                       {item.text}
