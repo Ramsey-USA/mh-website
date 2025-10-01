@@ -86,24 +86,51 @@ body {
   outline-offset: 2px;
 }
 
-/* 3D Flip Animation Classes */
+/* 3D Flip Animation Classes - Enhanced for card flips */
 .perspective-1000 {
   perspective: 1000px;
+  -webkit-perspective: 1000px;
 }
 
 .preserve-3d {
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
 .backface-hidden {
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .rotate-y-180 {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }
 
-/* Hover state for flip animation */
+/* Hover state for flip animation - Enhanced specificity */
 .group:hover .group-hover\:rotate-y-180 {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
+/* Additional card flip support */
+.group.perspective-1000:hover .group-hover\:rotate-y-180 {
+  transform: rotateY(180deg) !important;
+  -webkit-transform: rotateY(180deg) !important;
+}
+
+/* Ensure proper positioning and z-index for card faces */
+.perspective-1000 .absolute {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Back face should be initially rotated */
+.perspective-1000 .rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Debug: Ensure back content is visible when flipped */
+.group:hover .rotate-y-180 {
+  z-index: 10;
 }

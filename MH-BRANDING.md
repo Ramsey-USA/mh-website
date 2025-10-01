@@ -2,12 +2,25 @@
 
 ## Complete brand identity, design system, and implementation guidelines for MH Construction LLC
 
-> **📅 Last Updated:** September 23, 2025  
-> **🎨 Brand Version:** 2.6.1  
+> **📅 Last Updated:** October 1, 2025  
+> **🎨 Brand Version:** 2.7.0  
 > **👥 Authority:** MH Construction Leadership Team  
 > **💻 Implementation:** Pure Tailwind CSS v4 with enhanced typography system  
 > **🌙 Theme Support:** Complete light/dark mode system with proper Button components  
 > **🚀 Architecture:** Standardized typography, consistent CTAs, and optimized spacing system
+
+## Core Brand Taglines
+
+### Primary Partnership Message
+
+**"Building for the Owner, NOT the Dollar"**  
+*Veteran-owned excellence where your success comes first*
+
+### Supporting Taglines
+
+- "Your Partner in Building Tomorrow"
+- "Working WITH you to serve our communities"
+- "Where Military Precision Meets Construction Excellence"
 
 ---
 

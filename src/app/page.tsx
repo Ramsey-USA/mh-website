@@ -105,24 +105,22 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>
-          MH Construction - Building Tomorrow with Today's Technology
-        </title>
+        <title>MH Construction - Your Partner in Building Tomorrow</title>
         <meta
           name="description"
-          content="MH Construction delivers exceptional residential, commercial, and industrial construction services throughout the Pacific Northwest. Get your free AI-powered estimate today."
+          content="MH Construction - working with you to deliver exceptional construction services throughout the Pacific Northwest. Your veteran-owned construction partners since 1995."
         />
         <meta
           name="keywords"
-          content="construction services, home builder, commercial contractor, renovation experts, AI construction estimate, Pacific Northwest construction"
+          content="construction partnership, construction collaboration, home builder partner, commercial contractor, Pacific Northwest construction, veteran owned construction"
         />
         <meta
           property="og:title"
-          content="MH Construction - Building Tomorrow with Today's Technology"
+          content="MH Construction - Your Partner in Building Tomorrow"
         />
         <meta
           property="og:description"
-          content="Veteran-owned construction excellence powered by cutting-edge AI technology."
+          content="Veteran-owned construction excellence - Working with you to serve our communities."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://mhconstruction.com" />
@@ -138,7 +136,7 @@ export default function Home() {
 
         <div className="z-10 relative flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-8 max-w-7xl h-full">
           <FadeInWhenVisible className="w-full text-center">
-            {/* Veteran Badge */}
+            {/* Partnership Badge */}
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
               <ShieldIcon
                 size="sm"
@@ -146,27 +144,41 @@ export default function Home() {
                 className="text-brand-primary dark:text-brand-primary-light"
               />
               <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider letterspacing-wide">
-                Veteran-Owned Excellence
+                Your Construction Partners
               </span>
             </div>
 
             <h1 className="mb-4 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter hero-title">
               <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                Building Tomorrow with
+                Your Partner in
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary drop-shadow-sm font-black text-transparent">
-                Today's Technology
+                Building Tomorrow
               </span>
             </h1>
 
+            {/* Core Philosophy Tagline */}
+            <div className="mb-6">
+              <p className="mx-auto max-w-3xl font-bold text-gray-800 dark:text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl text-center leading-snug tracking-wide">
+                "Building for the Owner,{' '}
+                <span className="font-black text-veteran-red dark:text-red-400 text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+                  NOT
+                </span>{' '}
+                the Dollar"
+              </p>
+              <p className="mx-auto mt-2 max-w-2xl font-medium text-gray-600 dark:text-gray-400 text-sm sm:text-base text-center italic">
+                Where veteran values meet genuine partnership
+              </p>
+            </div>
+
             <p className="mx-auto mb-6 max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed tracking-wide">
-              Veteran-owned construction excellence powered by{' '}
+              Veteran-owned construction excellence -{' '}
               <span className="font-medium text-gray-800 dark:text-gray-200">
-                cutting-edge AI technology
+                working with you to serve our communities
               </span>
               . Serving the Pacific Northwest with{' '}
               <span className="bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-primary font-semibold text-transparent">
-                military precision
+                collaborative precision
               </span>
               .
             </p>
@@ -180,7 +192,7 @@ export default function Home() {
                     className="shadow-xl"
                     onClick={() =>
                       trackEvent('cta_click', {
-                        button_name: 'schedule_consultation',
+                        button_name: 'start_partnership',
                         location: 'hero_section',
                         page: 'homepage',
                       })
@@ -192,7 +204,7 @@ export default function Home() {
                       className="mr-3"
                     />
                     <span className="z-10 relative tracking-wide">
-                      Schedule Free Consultation
+                      Start Our Partnership
                     </span>
                   </Button>
                 </HoverScale>
@@ -205,7 +217,7 @@ export default function Home() {
                     className="shadow-xl"
                     onClick={() =>
                       trackEvent('cta_click', {
-                        button_name: 'get_ai_estimate',
+                        button_name: 'work_together_estimate',
                         location: 'hero_section',
                         page: 'homepage',
                       })
@@ -213,20 +225,20 @@ export default function Home() {
                   >
                     <BoltIcon size="sm" color="currentColor" className="mr-3" />
                     <span className="z-10 relative tracking-wide">
-                      Get AI Estimate
+                      Work Together on Estimate
                     </span>
                   </Button>
                 </HoverScale>
               </Link>
             </div>
 
-            {/* Trust Indicators */}
+            {/* Partnership Indicators */}
             <StaggeredFadeIn className="flex flex-wrap justify-center items-center gap-10 font-medium text-gray-700 dark:text-gray-300 text-base">
               {[
-                'Free Consultation',
-                '±15% Estimate Accuracy',
-                '24/7 Emergency Support',
-                'Licensed & Insured',
+                'Partnership Consultation',
+                'Transparent Pricing',
+                'Community Focused',
+                'Veteran Owned & Operated',
               ].map((indicator, index) => (
                 <div
                   key={index}
@@ -255,7 +267,7 @@ export default function Home() {
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Enhanced Header */}
-          <div className="mb-16 text-center scroll-reveal">
+          <div className="mb-10 text-center scroll-reveal">
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-6 px-6 py-3 border border-brand-primary/30 dark:border-brand-primary/40 rounded-full">
               <StarIcon size="sm" color="var(--brand-primary)" />
               <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-widest">
@@ -360,13 +372,13 @@ export default function Home() {
       </section>
 
       {/* Revolutionary Features Section */}
-      <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-16 lg:py-24 features-section">
+      <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-12 lg:py-16 features-section">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(56,104,81,0.05)_0%,transparent_50%)] opacity-60"></div>
         <div className="top-20 right-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
         <div className="bottom-20 left-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-40 h-40"></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible className="mb-16 lg:mb-20 text-center">
+          <FadeInWhenVisible className="mb-10 lg:mb-12 text-center">
             <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg mb-8 px-8 py-4 border border-brand-primary/20 rounded-full">
               <BoltIcon size="md" color="var(--brand-primary)" />
               <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider letterspacing-widest">
@@ -374,8 +386,8 @@ export default function Home() {
               </span>
             </div>
 
-            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                 The Future of
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
@@ -469,7 +481,7 @@ export default function Home() {
               },
             ].map((feature, index) => (
               <div key={index} className="group perspective-1000 feature-card">
-                <div className="relative w-full h-[480px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
+                <div className="relative w-full h-[520px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                   {/* Front of Card */}
                   <div className="absolute inset-0 bg-surface dark:bg-surface-dark shadow-lg hover:shadow-brand-primary/10 hover:shadow-xl p-8 border border-border dark:border-border-dark rounded-3xl overflow-hidden transition-all duration-300 backface-hidden">
                     {/* Gradient Background */}
@@ -477,8 +489,8 @@ export default function Home() {
                       className={`absolute inset-0 ${feature.bgColor} rounded-3xl`}
                     ></div>
 
-                    <div className="z-10 relative flex flex-col justify-between h-full">
-                      <div>
+                    <div className="z-10 relative flex flex-col h-full">
+                      <div className="flex-grow">
                         {/* Icon Container */}
                         <div
                           className={`w-20 h-20 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
@@ -486,16 +498,17 @@ export default function Home() {
                           <feature.icon size="xl" color="white" />
                         </div>
 
-                        <h3 className="mb-4 font-black text-text-primary dark:text-text-primary-dark text-xl md:text-2xl leading-tight tracking-tight">
+                        <h3 className="mb-4 font-black text-text-primary dark:text-text-primary-dark text-2xl md:text-3xl leading-tight tracking-tight">
                           {feature.title}
                         </h3>
 
-                        <p className="font-light text-text-secondary dark:text-text-secondary-dark text-sm md:text-base leading-relaxed">
+                        <p className="font-light text-text-secondary dark:text-text-secondary-dark text-base md:text-lg leading-relaxed">
                           {feature.description}
                         </p>
                       </div>
 
-                      <div className="mt-4 font-semibold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider">
+                      {/* Pin to bottom */}
+                      <div className="mt-auto pt-6 font-semibold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider">
                         Hover for details
                       </div>
                     </div>
@@ -503,28 +516,28 @@ export default function Home() {
 
                   {/* Back of Card */}
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br ${feature.color} shadow-xl hover:shadow-2xl transition-shadow duration-300 p-6 rounded-3xl backface-hidden rotate-y-180 overflow-hidden`}
+                    className={`absolute inset-0 bg-gradient-to-br ${feature.color} shadow-xl hover:shadow-2xl transition-shadow duration-300 p-8 rounded-3xl backface-hidden rotate-y-180 overflow-hidden`}
                   >
-                    <div className="flex flex-col justify-between h-full text-white text-center">
-                      <div className="flex-shrink-0">
+                    <div className="flex flex-col h-full text-white text-center">
+                      <div className="flex flex-col flex-grow">
                         <feature.icon
                           size="md"
                           color="white"
                           className="mx-auto mb-3"
                         />
-                        <h3 className="mb-2 font-black text-xl">
+                        <h3 className="mb-3 font-black text-xl">
                           {feature.title}
                         </h3>
-                        <p className="mb-3 font-light text-white/90 text-base leading-snug">
+                        <p className="mb-4 font-light text-white/90 text-base leading-snug">
                           {feature.details}
                         </p>
                       </div>
 
-                      <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm p-3 border border-white/10 rounded-xl">
-                        <div className="mb-2 font-medium text-white/80 text-sm uppercase tracking-wider">
+                      <div className="bg-white/20 backdrop-blur-sm mt-auto p-3 border border-white/10 rounded-xl">
+                        <div className="mb-2 font-medium text-white/80 text-xs uppercase tracking-wider">
                           Key Features
                         </div>
-                        <ul className="space-y-1 text-sm">
+                        <ul className="space-y-1 text-xs">
                           {feature.features.map((feat, idx) => (
                             <li
                               key={idx}
@@ -549,7 +562,7 @@ export default function Home() {
           </StaggeredFadeIn>
 
           {/* AI Feature CTAs */}
-          <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-16">
+          <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-12">
             {[
               {
                 title: 'Try AI Estimator',
@@ -600,14 +613,14 @@ export default function Home() {
       </section>
 
       {/* Military Values Section */}
-      <section className="relative bg-white dark:bg-gray-900 py-16 lg:py-24 values-section">
+      <section className="relative bg-white dark:bg-gray-900 py-12 lg:py-16 values-section">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.05)_0%,transparent_50%)]"></div>
         <div className="top-40 left-10 absolute bg-brand-secondary/10 blur-2xl rounded-full w-24 h-24"></div>
         <div className="right-10 bottom-20 absolute bg-brand-primary/10 blur-2xl rounded-full w-32 h-32"></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="mb-16 lg:mb-20 text-center scroll-reveal">
+          <div className="mb-10 lg:mb-12 text-center scroll-reveal">
             <div className="inline-flex items-center bg-veteran-red/10 dark:bg-veteran-red/20 shadow-lg backdrop-blur-sm mb-8 px-8 py-4 border border-veteran-red/20 dark:border-veteran-red/30 rounded-full">
               <ShieldIcon size="md" color="var(--veteran-red)" />
               <span className="ml-4 font-black text-veteran-red dark:text-red-400 text-sm uppercase tracking-wider letterspacing-widest">
@@ -615,8 +628,8 @@ export default function Home() {
               </span>
             </div>
 
-            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                 Built on
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
@@ -781,7 +794,7 @@ export default function Home() {
       </section>
 
       {/* Showcase of Services Section */}
-      <section className="relative bg-white dark:bg-gray-900 py-16 lg:py-24 showcase-section">
+      <section className="relative bg-white dark:bg-gray-900 py-12 lg:py-16 showcase-section">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 dark:from-gray-800/50 to-white dark:to-gray-900"></div>
         <div className="top-20 right-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
         <div className="bottom-20 left-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-40 h-40"></div>
@@ -794,8 +807,8 @@ export default function Home() {
                 Featured Excellence
               </span>
             </div>
-            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                 Showcase of
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
@@ -818,7 +831,7 @@ export default function Home() {
           </FadeInWhenVisible>
 
           {/* Service Cards Grid - 6 Cards */}
-          <FadeInWhenVisible className="gap-8 lg:gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <FadeInWhenVisible className="gap-6 lg:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {/* Residential Construction */}
             <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
@@ -949,7 +962,7 @@ export default function Home() {
       </section>
 
       {/* Enhanced Client Testimonials */}
-      <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-16 lg:py-24 testimonials-section">
+      <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-12 lg:py-16 testimonials-section">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(189,146,100,0.05)_0%,transparent_50%)] opacity-60"></div>
         <div className="top-20 left-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-40 h-40"></div>
         <div className="right-20 bottom-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-32 h-32"></div>
@@ -963,8 +976,8 @@ export default function Home() {
               </span>
             </div>
 
-            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                 What Our
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
@@ -984,7 +997,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-20">
+          <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-12">
             {[
               {
                 name: 'Sarah Thompson',
@@ -1075,7 +1088,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose MH Construction Section */}
+      {/* Why Partner With MH Construction Section */}
       <section className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900 py-16 lg:py-20 xl:py-24 text-white">
         <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
@@ -1088,13 +1101,13 @@ export default function Home() {
                 className="text-white"
               />
               <span className="ml-3 font-bold text-white text-xs uppercase tracking-wider">
-                Why Choose Us
+                Why Partner With Us
               </span>
             </div>
 
-            <h2 className="mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-              <span className="block mb-2 font-semibold text-white/80 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                The MH Construction
+            <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+              <span className="block mb-2 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                The MH Partnership
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-white via-brand-secondary to-white text-transparent">
                 Difference
@@ -1102,15 +1115,26 @@ export default function Home() {
             </h2>
 
             <p className="mx-auto max-w-3xl font-light text-white/90 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-              Experience the perfect fusion of military precision, cutting-edge
-              technology, and unwavering commitment to excellence that sets us
-              apart.
+              Experience the collaborative approach where veteran values,
+              community focus, and genuine partnership create extraordinary
+              results together.
             </p>
+
+            {/* Core Philosophy Tagline */}
+            <div className="mt-8 mb-4">
+              <p className="mx-auto max-w-3xl font-bold text-white text-lg sm:text-xl md:text-2xl text-center leading-snug">
+                "Building for the Owner,{' '}
+                <span className="font-black text-veteran-red text-xl sm:text-2xl md:text-3xl">
+                  NOT
+                </span>{' '}
+                the Dollar"
+              </p>
+            </div>
           </div>
 
-          {/* Core Differentiators - 4 Flip Cards with Custom MH Icons */}
+          {/* Core Partnership Values - 4 Flip Cards with Custom MH Icons */}
           <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            {/* Veteran-Owned Excellence */}
+            {/* Partnership Approach */}
             <div className="group h-80 perspective-1000">
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
@@ -1125,7 +1149,7 @@ export default function Home() {
                       />
                     </div>
                     <h3 className="font-black text-white text-lg lg:text-xl tracking-tight">
-                      Veteran-Owned Excellence
+                      We Work With You
                     </h3>
                     <p className="mt-2 text-white/70 text-sm">
                       Hover to learn more
@@ -1145,34 +1169,35 @@ export default function Home() {
                       />
                     </div>
                     <h3 className="mb-4 font-black text-white text-lg">
-                      Military Precision
+                      True Collaboration
                     </h3>
                     <p className="text-white/90 text-sm leading-relaxed">
-                      Military precision meets construction expertise. Our
-                      veteran leadership brings discipline, integrity, and
-                      attention to detail to every project with military-grade
-                      precision.
+                      More than contractors - we're your construction partners.
+                      Your vision combined with our veteran-led expertise
+                      creates extraordinary results through genuine
+                      collaboration.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* AI-Powered Technology */}
+            {/* Community Focus */}
             <div className="group h-80 perspective-1000">
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
                 <div className="absolute inset-0 backface-hidden">
                   <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
                     <div className="mb-4">
-                      <BoltIcon
+                      <MHBuildingIcon
                         size="xl"
+                        hoverEffect="scale"
                         color="currentColor"
                         className="mx-auto text-brand-secondary hover:rotate-12 hover:scale-110 transition-all duration-300"
                       />
                     </div>
                     <h3 className="font-black text-white text-lg lg:text-xl tracking-tight">
-                      AI-Powered Innovation
+                      Community Centered
                     </h3>
                     <p className="mt-2 text-white/70 text-sm">
                       Hover to learn more
@@ -1184,27 +1209,28 @@ export default function Home() {
                 <div className="absolute inset-0 rotate-y-180 backface-hidden">
                   <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
                     <div className="mb-4">
-                      <BoltIcon
+                      <MHBuildingIcon
                         size="lg"
+                        hoverEffect="pulse"
                         color="currentColor"
                         className="mx-auto text-brand-secondary hover:rotate-6 hover:scale-110 transition-all duration-300"
                       />
                     </div>
                     <h3 className="mb-4 font-black text-white text-lg">
-                      Technology Advantage
+                      Pacific Northwest Roots
                     </h3>
                     <p className="text-white/90 text-sm leading-relaxed">
-                      Cutting-edge AI technology provides instant estimates,
-                      project optimization, and seamless communication
-                      throughout your construction journey with advanced
-                      efficiency.
+                      Every project strengthens our shared community. Local
+                      hiring, regional suppliers, and neighborhood focus - your
+                      construction partnership contributes to Pacific Northwest
+                      prosperity.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* 150+ Years Combined Experience */}
+            {/* Transparent Partnership */}
             <div className="group h-80 perspective-1000">
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
@@ -1219,7 +1245,7 @@ export default function Home() {
                       />
                     </div>
                     <h3 className="font-black text-white text-lg lg:text-xl tracking-tight">
-                      Proven Expertise
+                      Honest & Transparent
                     </h3>
                     <p className="mt-2 text-white/70 text-sm">
                       Hover to learn more
@@ -1239,20 +1265,20 @@ export default function Home() {
                       />
                     </div>
                     <h3 className="mb-4 font-black text-white text-lg">
-                      Decades of Excellence
+                      No Surprises Partnership
                     </h3>
                     <p className="text-white/90 text-sm leading-relaxed">
-                      Over 150 years of combined team experience delivering
-                      exceptional results across residential, commercial, and
-                      specialized construction projects with proven
-                      craftsmanship.
+                      Open pricing, honest timelines, and constant
+                      communication. Veteran integrity means no hidden costs, no
+                      sales pressure - just authentic conversation about your
+                      goals and dreams.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Quality Guarantee */}
+            {/* Lasting Relationships */}
             <div className="group h-80 perspective-1000">
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
@@ -1267,7 +1293,7 @@ export default function Home() {
                       />
                     </div>
                     <h3 className="font-black text-white text-lg lg:text-xl tracking-tight">
-                      Quality Guarantee
+                      Lifelong Partners
                     </h3>
                     <p className="mt-2 text-white/70 text-sm">
                       Hover to learn more
@@ -1287,12 +1313,13 @@ export default function Home() {
                       />
                     </div>
                     <h3 className="mb-4 font-black text-white text-lg">
-                      Complete Satisfaction
+                      Beyond Project Completion
                     </h3>
                     <p className="text-white/90 text-sm leading-relaxed">
-                      We stand behind our work with comprehensive warranties and
-                      a commitment to excellence that ensures your complete
-                      satisfaction and peace of mind.
+                      Our partnership doesn't end when construction finishes.
+                      Many clients become lifelong friends and community
+                      connections. Together, we build relationships that last
+                      generations.
                     </p>
                   </div>
                 </div>
@@ -1307,30 +1334,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Enhanced Call to Action Section */}
-      <section className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary py-20 lg:py-32 cta-section">
+      {/* Enhanced Partnership Call to Action Section */}
+      <section className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary py-12 lg:py-16 cta-section">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
           <FadeInWhenVisible>
             <h2 className="mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-              Ready to Start Your Project?
+              Ready to Begin Our Partnership?
             </h2>
             <p className="mx-auto mb-8 max-w-4xl font-light text-white/90 text-xl md:text-2xl leading-relaxed">
-              Join hundreds of satisfied clients who trust our{' '}
+              Join hundreds of Pacific Northwest neighbors who chose{' '}
               <span className="font-medium text-brand-secondary">
-                veteran construction team
+                collaborative construction partners
               </span>{' '}
-              with their most important projects.
+              committed to community and excellence.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex sm:flex-row flex-col justify-center items-center gap-8 mb-12">
+            {/* Partnership CTA Buttons */}
+            <div className="flex sm:flex-row flex-col justify-center items-center gap-6 mb-10">
               <HoverScale>
                 <Button variant="secondary" size="xl" className="shadow-xl">
                   <BoltIcon size="md" color="currentColor" className="mr-3" />
                   <span className="z-10 relative tracking-wide">
-                    Get Free Estimate
+                    Work Together on Estimate
                   </span>
                 </Button>
               </HoverScale>
@@ -1347,20 +1374,20 @@ export default function Home() {
                       className="mr-3"
                     />
                     <span className="z-10 relative tracking-wide">
-                      Schedule Consultation
+                      Begin Partnership Discussion
                     </span>
                   </Button>
                 </HoverScale>
               </Link>
             </div>
 
-            {/* Trust Indicators */}
-            <StaggeredFadeIn className="flex flex-wrap justify-center items-center gap-8 font-medium text-white/80 text-base">
+            {/* Partnership Trust Indicators */}
+            <StaggeredFadeIn className="flex flex-wrap justify-center items-center gap-6 font-medium text-white/80 text-base">
               {[
-                'Free Consultations',
-                '< 2 Hour Response Time',
-                'Veteran-Owned & Operated',
-                '24/7 Emergency Service',
+                'Collaborative Approach',
+                'Community-Focused Partners',
+                'Veteran-Owned & Community-Driven',
+                'Work With You Process',
               ].map((indicator, index) => (
                 <div
                   key={index}

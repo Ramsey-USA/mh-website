@@ -230,7 +230,14 @@ export function HoverScale({
       whileHover={{ scale }}
       whileTap={{ scale: 0.95 }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-      className={className}
+      className={`${className} hover-scale`}
+      style={{
+        WebkitFontSmoothing: 'antialiased',
+        MozOsxFontSmoothing: 'grayscale',
+        transform: 'translateZ(0)',
+        backfaceVisibility: 'hidden',
+        willChange: 'transform',
+      }}
     >
       {children}
     </motion.div>
