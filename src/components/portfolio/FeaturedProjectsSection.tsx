@@ -82,7 +82,7 @@ export default function FeaturedProjectsSection({
                 className={`group relative px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${
                   filter === activeFilter
                     ? 'bg-gradient-to-r from-brand-primary to-brand-secondary text-white shadow-xl transform scale-105'
-                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-2 border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-primary hover:text-brand-primary dark:hover:text-brand-primary hover:shadow-lg hover:scale-105'
+                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-2 border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-primary hover:text-brand-primary dark:hover:text-brand-primary hover:shadow-lg'
                 }`}
                 onClick={() => setActiveFilter(filter)}
               >
@@ -106,7 +106,7 @@ export default function FeaturedProjectsSection({
                 href={`/portfolio/${project.seoMetadata.slug}`}
                 className="block h-full"
               >
-                <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl rounded-2xl h-full overflow-hidden group-hover:scale-105 transition-all group-hover:-translate-y-2 duration-500">
+                <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl rounded-2xl h-full overflow-hidden transition-all duration-500">
                   {/* Enhanced Project Image Container */}
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <PortfolioImage
@@ -301,11 +301,7 @@ export default function FeaturedProjectsSection({
 
               <div className="flex sm:flex-row flex-col justify-center items-center gap-6 mb-12">
                 <Link href="/portfolio">
-                  <Button
-                    variant="secondary"
-                    size="xl"
-                    className="shadow-xl"
-                  >
+                  <Button variant="secondary" size="xl" className="shadow-xl">
                     <HammerIcon
                       size="md"
                       primaryColor="currentColor"
@@ -320,7 +316,7 @@ export default function FeaturedProjectsSection({
                   <Button
                     variant="outline"
                     size="xl"
-                    className="shadow-xl bg-transparent border-white text-white hover:bg-white hover:text-brand-primary"
+                    className="bg-transparent hover:bg-white shadow-xl border-white text-white hover:text-brand-primary"
                   >
                     <BoltIcon
                       size="md"

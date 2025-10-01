@@ -155,7 +155,7 @@ const DynamicSearch = ({
       {filteredItems.map(item => (
         <div
           key={item.id}
-          className="bg-white shadow-sm border rounded-lg overflow-hidden hover:scale-105 transition-transform cursor-pointer transform"
+          className="bg-white shadow-sm border rounded-lg overflow-hidden transition-transform cursor-pointer transform"
           onClick={() => handleItemClick(item)}
         >
           {item.image && (

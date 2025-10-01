@@ -23,53 +23,12 @@ import {
   HoverScale,
 } from '../../components/animations/FramerMotionComponents'
 
+import { teamMembers } from '../../lib/data/team'
+
 export default function AboutPage() {
-  const teamMembers = [
-    {
-      name: 'Michael Harrison',
-      title: 'Founder & CEO',
-      military: 'U.S. Army Veteran',
-      experience: '15+ years construction',
-      specialties: [
-        'Project Management',
-        'Veteran Hiring',
-        'Strategic Planning',
-      ],
-      description:
-        'Former Army Engineer who brings military precision to every project.',
-      avatar: '👨‍💼',
-    },
-    {
-      name: 'Sarah Martinez',
-      title: 'Project Director',
-      military: 'U.S. Navy Veteran',
-      experience: '12+ years design & build',
-      specialties: ['Design-Build', 'Client Relations', 'Quality Control'],
-      description:
-        'Navy Seabee veteran specializing in complex construction projects.',
-      avatar: '👩‍🏗️',
-    },
-    {
-      name: 'David Chen',
-      title: 'Operations Manager',
-      military: 'U.S. Air Force Veteran',
-      experience: '10+ years operations',
-      specialties: ['Logistics', 'Safety Management', 'Process Optimization'],
-      description:
-        'Air Force logistics expert ensuring efficient project delivery.',
-      avatar: '👨‍🔧',
-    },
-    {
-      name: 'Jennifer Thompson',
-      title: 'Lead Estimator',
-      military: 'Military Spouse',
-      experience: '8+ years estimation',
-      specialties: ['Cost Analysis', 'AI Technology', 'Bid Preparation'],
-      description:
-        'Military spouse who developed our AI-powered estimation system.',
-      avatar: '👩‍💻',
-    },
-  ]
+  // teamMembers now sourced from centralized data file (src/lib/data/team.ts)
+  // Each item should eventually include: name, role/title, veteran/military status, experience,
+  // specialties, description/bio, avatar or image.
 
   const companyValues = [
     {
@@ -455,52 +414,80 @@ export default function AboutPage() {
             </h2>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-12 grid grid-cols-1 md:grid-cols-2">
-            {teamMembers.map((member, index) => (
-              <HoverScale key={index}>
-                <Card className="group hover:shadow-2xl border-gray-200/30 hover:border-brand-primary/30 h-full transition-all duration-500">
-                  <CardContent className="p-8">
-                    <div className="flex items-start space-x-6">
-                      <div className="flex-shrink-0">
-                        <div className="flex justify-center items-center bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 rounded-2xl w-20 h-20 text-4xl group-hover:scale-110 transition-transform duration-300">
-                          {member.avatar}
+          {/* Grouped by Department */}
+          {Array.from(
+            teamMembers.reduce((acc: Map<string, typeof teamMembers>, m) => {
+              const dept = (m as any).department || 'Team'
+              if (!acc.has(dept)) acc.set(dept, [])
+              acc.get(dept)!.push(m)
+              return acc
+            }, new Map())
+          ).map(([department, members]) => (
+            <div key={department} className="mb-24 last:mb-0">
+              <FadeInWhenVisible className="mb-12 text-center">
+                <h3 className="mb-4 font-black text-gray-900 dark:text-gray-100 text-3xl sm:text-4xl tracking-tight">
+                  {department}
+                </h3>
+                <div className="bg-gradient-to-r from-brand-primary/10 via-brand-secondary/10 to-brand-primary/10 mx-auto rounded-full w-40 h-1" />
+              </FadeInWhenVisible>
+              <StaggeredFadeIn className="gap-12 grid grid-cols-1 md:grid-cols-2">
+                {members.map((member: any, index: number) => (
+                  <HoverScale key={index}>
+                    <Card className="group hover:shadow-2xl border-gray-200/30 hover:border-brand-primary/30 h-full transition-all duration-500">
+                      <CardContent className="p-8">
+                        <div className="flex items-start space-x-6">
+                          <div className="flex-shrink-0">
+                            <div className="flex justify-center items-center bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 rounded-2xl w-20 h-20 text-4xl transition-transform duration-300">
+                              {(member as any).avatar || '👤'}
+                            </div>
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="mb-2 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
+                              {member.name}
+                            </h3>
+                            <div className="space-y-1 mb-3">
+                              <p className="font-semibold text-brand-primary text-lg">
+                                {(member as any).title ||
+                                  (member as any).role ||
+                                  'TBD Role'}
+                              </p>
+                              <p className="font-medium text-veteran-blue text-base">
+                                {(member as any).military ||
+                                  (member as any).veteranStatus ||
+                                  'TBD Status'}
+                              </p>
+                              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                                {(member as any).experience ||
+                                  (member as any).experienceYears ||
+                                  'TBD Experience'}
+                              </p>
+                            </div>
+                            <p className="mb-4 text-gray-700 dark:text-gray-300 text-base leading-relaxed">
+                              {(member as any).description ||
+                                (member as any).bio ||
+                                'Bio coming soon.'}
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                              {((member as any).specialties || []).map(
+                                (specialty: string, specIndex: number) => (
+                                  <span
+                                    key={specIndex}
+                                    className="bg-brand-primary/10 px-3 py-1 rounded-full font-medium text-brand-primary text-sm"
+                                  >
+                                    {specialty}
+                                  </span>
+                                )
+                              )}
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="mb-2 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
-                          {member.name}
-                        </h3>
-                        <div className="space-y-1 mb-3">
-                          <p className="font-semibold text-brand-primary text-lg">
-                            {member.title}
-                          </p>
-                          <p className="font-medium text-veteran-blue text-base">
-                            {member.military}
-                          </p>
-                          <p className="text-gray-600 dark:text-gray-400 text-sm">
-                            {member.experience}
-                          </p>
-                        </div>
-                        <p className="mb-4 text-gray-700 dark:text-gray-300 text-base leading-relaxed">
-                          {member.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {member.specialties.map((specialty, specIndex) => (
-                            <span
-                              key={specIndex}
-                              className="bg-brand-primary/10 px-3 py-1 rounded-full font-medium text-brand-primary text-sm"
-                            >
-                              {specialty}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </HoverScale>
-            ))}
-          </StaggeredFadeIn>
+                      </CardContent>
+                    </Card>
+                  </HoverScale>
+                ))}
+              </StaggeredFadeIn>
+            </div>
+          ))}
         </div>
       </section>
 

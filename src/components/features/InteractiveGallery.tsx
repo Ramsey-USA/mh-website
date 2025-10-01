@@ -228,7 +228,7 @@ const InteractiveGallery = ({
       {filteredImages.map((image, index) => (
         <div
           key={image.id}
-          className={`group relative overflow-hidden rounded-lg cursor-pointer transform transition-all duration-300 hover:scale-105 ${
+          className={`group relative overflow-hidden rounded-lg cursor-pointer transform transition-all duration-300 ${
             viewMode === 'masonry' ? 'break-inside-avoid mb-4' : 'aspect-square'
           }`}
           onClick={() => openImage(image, index)}

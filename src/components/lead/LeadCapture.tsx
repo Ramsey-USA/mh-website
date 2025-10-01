@@ -125,19 +125,19 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
     return (
       <Card className={`${className} border-green-200 bg-green-50`}>
         <CardContent className="p-6 text-center">
-          <div className="text-green-600 text-4xl mb-3">✅</div>
-          <h3 className="text-xl font-semibold text-green-800 mb-2">
+          <div className="mb-3 text-green-600 text-4xl">✅</div>
+          <h3 className="mb-2 font-semibold text-green-800 text-xl">
             Thank You!
           </h3>
-          <p className="text-green-700 mb-4">
+          <p className="mb-4 text-green-700">
             We&apos;ve received your information and will contact you within 24
             hours to schedule your free consultation.
           </p>
-          <div className="text-sm text-green-600">
+          <div className="text-green-600 text-sm">
             <p>
               <strong>Next Steps:</strong>
             </p>
-            <ul className="list-disc list-inside mt-2 space-y-1">
+            <ul className="space-y-1 mt-2 list-disc list-inside">
               <li>Our team will review your project requirements</li>
               <li>We&apos;ll call to schedule your consultation</li>
               <li>Free on-site estimate within 48 hours</li>
@@ -167,7 +167,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
             required
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
             <Input
               label="Email"
               type="email"
@@ -189,9 +189,9 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block mb-1 font-medium text-gray-700 text-sm">
                 Project Type *
               </label>
               <select
@@ -210,7 +210,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
                 ))}
               </select>
               {errors.projectType && (
-                <p className="text-red-600 text-xs mt-1">
+                <p className="mt-1 text-red-600 text-xs">
                   {errors.projectType}
                 </p>
               )}
@@ -225,14 +225,14 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
             />
           </div>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div className="bg-blue-50 p-4 border border-blue-200 rounded-lg">
             <div className="flex items-start">
-              <div className="text-blue-500 text-xl mr-3">🎯</div>
+              <div className="mr-3 text-blue-500 text-xl">🎯</div>
               <div>
-                <h4 className="font-semibold text-blue-800 mb-1">
+                <h4 className="mb-1 font-semibold text-blue-800">
                   What You Get:
                 </h4>
-                <ul className="text-sm text-blue-700 space-y-1">
+                <ul className="space-y-1 text-blue-700 text-sm">
                   <li>• Free consultation and project assessment</li>
                   <li>• Detailed written estimate within 48 hours</li>
                   <li>• Veteran-owned company with 20+ years experience</li>
@@ -251,7 +251,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
           >
             {isSubmitting ? (
               <>
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                <div className="mr-2 border-white border-b-2 rounded-full w-4 h-4 animate-spin"></div>
                 Submitting...
               </>
             ) : (
@@ -259,7 +259,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
             )}
           </Button>
 
-          <p className="text-xs text-gray-500 text-center">
+          <p className="text-gray-500 text-xs text-center">
             By submitting this form, you agree to be contacted about your
             construction project. We respect your privacy and will never spam
             you.
@@ -276,12 +276,12 @@ export const QuickLeadCapture: React.FC = () => {
 
   if (!isExpanded) {
     return (
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="right-6 bottom-6 z-50 fixed">
         <Button
           onClick={() => setIsExpanded(true)}
           variant="primary"
           size="lg"
-          className="shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+          className="shadow-lg hover:shadow-xl transition-all duration-200"
         >
           💬 Free Consultation
         </Button>
@@ -290,7 +290,7 @@ export const QuickLeadCapture: React.FC = () => {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 w-80 max-w-[calc(100vw-3rem)]">
+    <div className="right-6 bottom-6 z-50 fixed w-80 max-w-[calc(100vw-3rem)]">
       <LeadCapture
         source="floating_cta"
         title="Quick Consultation Request"
@@ -302,7 +302,7 @@ export const QuickLeadCapture: React.FC = () => {
         onClick={() => setIsExpanded(false)}
         variant="secondary"
         size="sm"
-        className="absolute -top-2 -right-2 bg-white border-gray-300 hover:border-gray-400 rounded-full w-8 h-8 p-0"
+        className="-top-2 -right-2 absolute bg-white p-0 border-gray-300 hover:border-gray-400 rounded-full w-8 h-8"
       >
         ×
       </Button>

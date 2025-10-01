@@ -65,7 +65,7 @@ export function ThemeToggle({
             dark:from-gray-700 dark:to-gray-600
             border-2 border-gray-300 dark:border-gray-500
             transition-all duration-300 ease-in-out
-            hover:shadow-lg hover:scale-105
+            hover:shadow-lg
             focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2
             group overflow-hidden
           `}
@@ -83,7 +83,7 @@ export function ThemeToggle({
           />
 
           {/* Icons */}
-          <div className="relative flex items-center justify-between w-full px-2">
+          <div className="relative flex justify-between items-center px-2 w-full">
             <MoonIcon
               size={iconSizes[size]}
               primaryColor={isDarkMode ? 'white' : 'rgb(107 114 128)'}
@@ -104,7 +104,7 @@ export function ThemeToggle({
         </button>
 
         {showLabel && (
-          <span className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+          <span className="ml-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
             {isDarkMode ? 'Dark' : 'Light'}
           </span>
         )}
@@ -116,12 +116,12 @@ export function ThemeToggle({
   return (
     <div className={`flex items-center space-x-2 ${className}`}>
       {showLabel && (
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+        <span className="font-medium text-gray-700 dark:text-gray-300 text-sm">
           Theme:
         </span>
       )}
 
-      <div className="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1 border border-gray-200 dark:border-gray-700">
+      <div className="flex bg-gray-100 dark:bg-gray-800 p-1 border border-gray-200 dark:border-gray-700 rounded-lg">
         {themes.map(({ key, label, icon: Icon, colors }) => (
           <button
             key={key}
@@ -148,7 +148,7 @@ export function ThemeToggle({
               className={theme !== key ? colors : ''}
             />
             {size === 'lg' && (
-              <span className="ml-2 text-xs font-medium">{label}</span>
+              <span className="ml-2 font-medium text-xs">{label}</span>
             )}
           </button>
         ))}

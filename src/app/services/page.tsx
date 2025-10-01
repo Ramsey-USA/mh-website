@@ -449,7 +449,7 @@ export default function ServicesPage() {
                   <CardContent className="p-8 text-center">
                     <div className="flex justify-center mb-6">
                       <div
-                        className={`p-6 bg-gradient-to-br ${category.color} rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300 text-4xl`}
+                        className={`p-6 bg-gradient-to-br ${category.color} rounded-2xl shadow-lg transition-transform duration-300 text-4xl`}
                       >
                         {category.icon}
                       </div>

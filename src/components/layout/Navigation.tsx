@@ -30,15 +30,13 @@ export function Navigation() {
             <div className="flex-shrink-0 py-3">
               <Link
                 href="/"
-                className="group relative flex items-center overflow-hidden hover:scale-105 transition-all duration-300"
+                className="group relative flex items-center hover:scale-105 transition-all duration-300"
               >
                 <img
                   src="/images/logo/mh-logo.png"
                   alt="MH Construction"
                   className="z-10 relative drop-shadow-lg w-auto h-20 filter"
                 />
-                {/* Brand-colored shine effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-primary/30 to-transparent transition-transform -translate-x-full group-hover:translate-x-full duration-700" />
               </Link>
             </div>
 
@@ -85,7 +83,7 @@ export function Navigation() {
             <div className="block">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="relative bg-gradient-to-r from-[#386851] hover:from-[#2d5440] to-[#4a7c59] hover:to-[#3c6448] shadow-lg hover:shadow-xl p-3 rounded-xl focus:outline-none focus:ring-[#386851]/50 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 hover:scale-105 transition-all duration-300 transform"
+                className="relative bg-gradient-to-r from-[#386851] hover:from-[#2d5440] to-[#4a7c59] hover:to-[#3c6448] shadow-lg hover:shadow-xl p-3 rounded-xl focus:outline-none focus:ring-[#386851]/50 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 antialiased transform-gpu transition-all duration-300"
                 aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={isMenuOpen}
               >
@@ -129,7 +127,7 @@ export function Navigation() {
                     <Button
                       variant="outline"
                       size="md"
-                      className="hover:bg-[#386851] shadow-md hover:shadow-lg hover:border-[#386851] w-full hover:text-white hover:scale-[1.02] transition-all duration-300 transform"
+                      className="hover:bg-[#386851] shadow-md hover:shadow-lg hover:border-[#386851] w-full hover:text-white transition-all duration-300"
                     >
                       <span className="flex justify-center items-center">
                         <svg
@@ -178,6 +176,7 @@ export function Navigation() {
                 {/* Navigation Links */}
                 <div className="space-y-1 pt-6 border-gray-200 dark:border-gray-700 border-t">
                   {[
+                    // Core site pages
                     {
                       href: '/',
                       label: 'Home',
@@ -197,6 +196,41 @@ export function Navigation() {
                       href: '/portfolio',
                       label: 'Portfolio',
                       icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+                    },
+                    {
+                      href: '/projects',
+                      label: 'Projects',
+                      icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5l2 2h5a2 2 0 012 2v14a2 2 0 01-2 2z',
+                    },
+                    {
+                      href: '/showcase',
+                      label: 'Showcase',
+                      icon: 'M4 6h16M4 12h16M4 18h7',
+                    },
+                    {
+                      href: '/testimonials',
+                      label: 'Testimonials',
+                      icon: 'M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V7c0-1.105.895-2 2-2h14a2 2 0 012 2v7a2 2 0 01-2 2h-3l-4 4z',
+                    },
+                    {
+                      href: '/blog',
+                      label: 'Blog',
+                      icon: 'M11 5H6a2 2 0 00-2 2v11.5A1.5 1.5 0 005.5 20h11a1.5 1.5 0 001.5-1.5V14M16 3l5 5M16 3v5h5',
+                    },
+                    {
+                      href: '/news',
+                      label: 'News',
+                      icon: 'M12 8v8m-4-4h8M5 3h14a2 2 0 012 2v13a2 2 0 01-2 2H9l-4 3v-3H5a2 2 0 01-2-2V5a2 2 0 012-2z',
+                    },
+                    {
+                      href: '/booking',
+                      label: 'Booking',
+                      icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2h-1V3h-3v2H9V3H6v2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
+                    },
+                    {
+                      href: '/wounded-warrior',
+                      label: 'Wounded Warrior',
+                      icon: 'M12 8c1.657 0 3-1.343 3-3S13.657 2 12 2 9 3.343 9 5s1.343 3 3 3zm0 2c-3.314 0-6 2.239-6 5v5h12v-5c0-2.761-2.686-5-6-5z',
                     },
                   ].map((item, index) => (
                     <Link

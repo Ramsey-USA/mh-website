@@ -283,11 +283,11 @@ export function AnimatedButton({
 }: AnimatedButtonProps) {
   return (
     <motion.button
-      whileHover={{ scale: 1.02, y: -2 }}
-      whileTap={{ scale: 0.98, y: 0 }}
+      whileHover={{ scale: 1.01 }}
+      whileTap={{ scale: 0.99 }}
       transition={{
         type: 'spring',
-        stiffness: 400,
+        stiffness: 500,
         damping: 25,
       }}
       className={className}

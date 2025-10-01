@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import React from 'react'
 import { generateSEOMetadata } from '../../components/seo/seo-meta'
 
 export const metadata: Metadata = generateSEOMetadata({
@@ -17,3 +18,12 @@ export const metadata: Metadata = generateSEOMetadata({
   ],
   ogType: 'website',
 })
+
+// Layout wrapper required by Next.js App Router
+export default function WoundedWarriorLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return <>{children}</>
+}

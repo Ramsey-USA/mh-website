@@ -624,6 +624,42 @@ export const TwitterIcon: React.FC<IconProps> = props => (
   </IconBase>
 )
 
+export const XIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <g opacity="0.3">
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="var(--icon-secondary)"
+        strokeWidth="2"
+      />
+    </g>
+    <path
+      d="M18.244 4.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 23.75H1.68l7.73-8.835L1.254 4.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 6.126H5.117z"
+      fill="var(--icon-primary)"
+    />
+  </IconBase>
+)
+
+export const YouTubeIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <g opacity="0.3">
+      <rect
+        x="2"
+        y="6"
+        width="20"
+        height="12"
+        rx="2"
+        ry="2"
+        stroke="var(--icon-secondary)"
+        strokeWidth="2"
+      />
+    </g>
+    <polygon points="10,9 15,12 10,15" fill="var(--icon-primary)" />
+  </IconBase>
+)
+
 // Export all icons as a collection
 export const SharpDuotoneIcons = {
   Menu: MenuIcon,
@@ -652,6 +688,8 @@ export const SharpDuotoneIcons = {
   Instagram: InstagramIcon,
   LinkedIn: LinkedInIcon,
   Twitter: TwitterIcon,
+  X: XIcon,
+  YouTube: YouTubeIcon,
 }
 
 export default SharpDuotoneIcons

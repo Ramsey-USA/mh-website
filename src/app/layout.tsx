@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
+// @ts-ignore
 import './globals.css'
 import { Navigation, Footer } from '../components/layout'
 import FaviconLinks from '../components/layout/FaviconLinks'

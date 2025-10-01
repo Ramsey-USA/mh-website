@@ -11,30 +11,66 @@
 [![Framer Motion](https://img.shields.io/badge/Framer%20Motion-11+-FF0055.svg)](https://www.framer.com/motion/)
 [![PWA](https://img.shields.io/badge/PWA-enabled-purple.svg)](https://web.dev/progressive-web-apps/)
 
-> **📅 Last Updated:** September 23, 2025  
-> **🚀 Current Version:** 3.1.0  
-> **🎯 Status:** Production Ready with Enhanced Brand Standards  
-> **🎨 Architecture:** Modern React + Standardized Typography + Consistent CTAs + Optimized Spacing
+> **📅 Last Updated:** September 29, 2025  
+> **🚀 Current Version:** 3.2.0  
+> **🎯 Status:** Production Ready with Interactive Why Choose Section  
+> **🎨 Architecture:** Modern React + Interactive Components + Professional Animations + Optimized UX
 
 ---
 
-## 🚨 **CURRENT IMPLEMENTATION: Enhanced Brand Standards (v3.1.0)**
+## 🚨 **CURRENT IMPLEMENTATION: Interactive UI Components (v3.2.0)**
 
-### **What's New in v3.1.0 - September 23, 2025:**
+### **What's New in v3.2.0 - September 29, 2025:**
 
-- ✅ **Enhanced Typography System** - Responsive clamp() scaling from text-4xl to text-8xl with proper line heights
+- ✅ **Typography Optimization** - Reduced section sizes with compact desktop-friendly typography scaling
+- ✅ **Section Padding Optimization** - Streamlined padding from py-20 lg:py-32 xl:py-40 to py-16 lg:py-24 for better desktop viewing
+- ✅ **Responsive Typography** - Scaled down heading sizes from text-8xl to text-6xl maximum for improved readability
+- ✅ **Compact Layout Design** - Optimized spacing and margins for more content visibility on desktop screens
+- ✅ **Interactive Why Choose Section** - 4-card layout with hover-triggered modals and professional animations
+- ✅ **Enhanced Modal System** - Hover-triggered popups with proper pointer events and escape handling
+- ✅ **Uniform Card Heights** - Standardized h-full layout ensuring consistent card appearance
+- ✅ **Performance Optimizations** - Crisp text rendering and optimized transform effects
+- ✅ **Footer Enhancement** - Complete MH branding with modern social media integration (X, YouTube)
+
+### **Previous Updates (v3.1.0):**
+
+- ✅ **Enhanced Typography System** - Responsive clamp() scaling optimized for desktop viewing with compact section layouts
 - ✅ **Standardized CTA System** - Consistent Button components with proper dark/light mode support across all sections
-- ✅ **Optimized Spacing** - Uniform section padding py-20 lg:py-32 xl:py-40 with responsive header margins
+- ✅ **Optimized Spacing** - Reduced section padding py-16 lg:py-24 with responsive header margins for better content density
 - ✅ **Grid Layout Improvements** - Enhanced responsive layouts with better visual balance and card consistency
 - ✅ **Dark Mode Excellence** - Proper theme support without custom overrides, automatic adaptation
 - ✅ **Brand Consistency** - All components follow MH Construction design system standards
 
-### **Current Brand Standards:**
+### **Current Component Standards:**
 
 ```tsx
-// Enhanced Typography System
-<h1 className="mb-10 pb-4 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter">
-  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+// Interactive Why Choose Section (New in v3.2.0)
+<section className="bg-white dark:bg-gray-900 py-16 lg:py-24">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-3xl lg:text-5xl font-black text-center mb-12">
+      Why Choose MH Construction
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 h-full">
+      <div className="group relative h-full">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 text-center h-full flex flex-col">
+          <StarIcon size="2xl" primaryColor="#dc2626" className="mx-auto mb-6" />
+          <h3 className="text-xl font-bold mb-4">Veteran-Owned Excellence</h3>
+        </div>
+        {/* Hover Modal */}
+        <div className="absolute inset-0 bg-brand-primary/95 rounded-xl opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300 p-8 flex items-center justify-center">
+          <div className="text-white text-center">
+            <h4 className="text-xl font-bold mb-4">Military Precision</h4>
+            <p>Disciplined approach with attention to detail that only military experience provides.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+// Optimized Typography System (Desktop-Friendly)
+<h1 className="mb-4 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+  <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
     Building Tomorrow with
   </span>
   <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
@@ -48,9 +84,9 @@
   <span className="z-10 relative tracking-wide">Schedule Free Consultation</span>
 </Button>
 
-// Consistent Section Spacing
-<section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40 features-section">
-  <div className="mb-24 lg:mb-32 text-center scroll-reveal">
+// Optimized Section Spacing (Desktop-Friendly)
+<section className="relative bg-white dark:bg-gray-900 py-16 lg:py-24 features-section">
+  <div className="mb-16 lg:mb-20 text-center scroll-reveal">
     <h2>Section Content with Optimized Spacing</h2>
   </div>
 </section>
@@ -151,11 +187,45 @@ npm run lint           # Code quality check
 | **Email** | <info@mhconstruction.com> |
 | **Website** | [mhconstruction.com](https://mhconstruction.com) |
 
-### Leadership Team
+### Leadership & Core Team
 
-- **Mark Harris** - Owner/Project Manager (20+ years)
-- **Sarah Harris** - Co-Owner/Design Manager (18+ years)
-- **Jim Rodriguez** - Lead Carpenter (15+ years)
+The following roster is sourced directly from `src/lib/data/team.ts` and grouped by functional department.
+
+#### Executive Leadership
+
+| Name | Role | Experience | Status | Core Specialties |
+|------|------|-----------:|--------|------------------|
+| Jeremy Thamert | Owner & General Manager | 2 yrs | Civilian Supporter | Strategic Vision; Technology Integration; AI Adoption; Operational Leadership |
+| Mike Holstein | Founder (Retired) | 30 yrs | Retired Leadership | Company Foundations; Quality Standards; Leadership; Client Trust |
+| Arnold Garcia | Vice President | 15 yrs | Civilian | Client Relationships; Strategic Operations; Service Excellence; Project Oversight |
+
+#### Project Management & Estimating
+
+| Name | Role | Experience | Status | Core Specialties |
+|------|------|-----------:|--------|------------------|
+| Makayla Holstein | Project Manager | 8 yrs | Civilian | Project Coordination; Timeline Management; Client Communication; Risk Mitigation |
+| Ben Woodall | Project Manager | 10 yrs | Civilian | Project Efficiency; Budget Management; Resource Planning; Client Alignment |
+| Todd Schoeff | Lead Estimator | 20 yrs | Civilian | Cost Estimation; Commercial Projects; Medical Facilities; Specialty Projects |
+| Ronaldo Garcia | Drywall & Specialty Systems Expert | 12 yrs | Civilian | Drywall Installation; Specialty Wall Systems; Interior Finishing; Precision Craftsmanship |
+
+#### Site & Field Operations
+
+| Name | Role | Experience | Status | Core Specialties |
+|------|------|-----------:|--------|------------------|
+| Steve McClary | Senior Superintendent | 20+ yrs | Civilian | Field Leadership; Multi-Phase Oversight; Safety Management; Quality Assurance |
+| Reagan Massey | Superintendent | 12 yrs | Civilian | On-Site Operations; Crew Management; Quality Control; Daily Coordination |
+| Porter Cline | Superintendent | 5+ yrs | Civilian | Industrial Projects; Field Coordination; Complex Logistics; Heavy Systems |
+
+#### Administration & Support
+
+| Name | Role | Experience | Status | Core Specialties |
+|------|------|-----------:|--------|------------------|
+| Brooks Morris | Senior Accountant | 10 yrs | Civilian | Financial Reporting; Budget Management; Payroll; Cost Controls |
+| Brittney Holstein | HR Manager | 8 yrs | Civilian | Recruitment; Employee Relations; Team Development; HR Compliance |
+| Matt Ramsey | Project & Marketing Coordinator | 7 yrs | Veteran | Marketing Coordination; Technology Advocacy; Client Presentations; AI Estimator Promotion |
+| Jennifer Tenehuerta | Administrative Assistant | 5 yrs | Civilian | Office Administration; Scheduling; Team Support; Information Flow |
+
+> To update: modify `src/lib/data/team.ts` (fields: name, role, department, experienceYears, veteranStatus, specialties, bio). Regenerate this section manually or via tooling that reads the data file.
 
 ---
 
@@ -164,28 +234,31 @@ npm run lint           # Code quality check
 ```typescript
 Framework: "Next.js 15.5.2 with App Router & TypeScript"
 Styling: "Tailwind CSS v3.4.0 with Enhanced MH Brand System"
-Typography: "Responsive clamp() scaling with font-black/semibold/light hierarchy"
+Typography: "Desktop-optimized responsive scaling with compact text-6xl maximum hierarchy"
 CTAs: "Standardized Button components with proper dark mode support"
-Spacing: "Optimized responsive section padding and grid layouts"
+Spacing: "Optimized responsive section padding py-16 lg:py-24 and compact grid layouts"
 Components: "h-full card consistency with enhanced responsive grids"
+Interactions: "Hover-triggered modals with Why Choose section animations"
+Icons: "Sharp Duotone icon system with 24+ professional components"
 Backend: "Firebase (Firestore, Auth, Storage, Functions)"
 PWA: "Complete offline capabilities with push notifications"
 Hosting: "Firebase Hosting with CDN"
 Analytics: "Google Analytics 4 + Firebase Analytics"
 Theme: "Complete light/dark mode with automatic adaptation"
-Architecture: "Pure Tailwind CSS with standardized brand patterns"
+Architecture: "Pure Tailwind CSS with interactive component patterns"
 ```
 
-### **Enhanced Brand System Benefits:**
+### **Enhanced Interactive System Benefits:**
 
-- 🎨 **Typography Excellence**: Responsive scaling from mobile to desktop with perfect line heights
+- 🎨 **Typography Excellence**: Desktop-optimized responsive scaling from mobile to desktop with compact text-6xl maximum
 - 🎯 **CTA Consistency**: Standardized Button variants across all pages and components
-- � **Spacing Harmony**: Optimized section padding and responsive margins for visual flow
-- 🃏 **Card Uniformity**: Consistent heights and responsive grid layouts for better UX
+- 🎪 **Interactive Components**: Hover-triggered modals and professional animations
+- 📱 **Card Uniformity**: Consistent heights and responsive grid layouts for better UX
+- 📱 **Compact Layout Design**: Optimized section padding py-16 lg:py-24 for maximum content visibility
 - 🌙 **Dark Mode Perfection**: Proper theme support without custom overrides
 - ♿ **Accessibility First**: Enhanced focus states and proper contrast ratios
 - 🚀 **Performance**: Efficient CSS with Tailwind utilities and optimized animations
-- � **Maintainability**: Standardized patterns that scale across the entire application
+- 🔧 **Maintainability**: Standardized patterns that scale across the entire application
 
 ---
 
@@ -207,7 +280,7 @@ mh-website/
 │   │   └── globals.css          # Enhanced animation system
 │   ├── components/
 │   │   ├── ui/                  # Base components
-│   │   ├── icons/               # Sharp Duotone icon system (22 icons)
+│   │   ├── icons/               # Sharp Duotone icon system (24 icons)
 │   │   ├── animations/          # ScrollReveal system
 │   │   ├── layout/              # Header, Footer, Navigation
 │   │   └── pwa/                 # PWA components
@@ -487,6 +560,8 @@ firebase deploy --only firestore:rules
 ```bash
 ✅ 25+ Static Pages Generated
 ✅ Zero TypeScript Errors  
+✅ Desktop-Optimized Typography: Compact section layouts with text-6xl maximum
+✅ Interactive Components: Why Choose Section with Hover Modals
 ✅ PWA Score: 100/100
 ✅ Performance: 95+ Lighthouse
 ✅ SEO Score: 100/100
@@ -496,6 +571,28 @@ firebase deploy --only firestore:rules
 ---
 
 ## 📈 Recent Updates
+
+### v3.2.0 (September 29, 2025) - Desktop Typography Optimization & Interactive Components
+
+- ✅ **Desktop Typography Optimization** - Reduced section sizes and typography scaling for optimal desktop viewing experience
+- ✅ **Section Padding Optimization** - Streamlined from py-20 lg:py-32 xl:py-40 to py-16 lg:py-24 for better content density
+- ✅ **Responsive Typography Scaling** - Maximum heading size reduced from text-8xl to text-6xl for improved readability
+- ✅ **Compact Layout Design** - Optimized margins and spacing (mb-24 to mb-16, mb-10 to mb-6) for more content visibility
+- ✅ **Why Choose MH Construction Section** - Interactive 4-card layout with hover-triggered modals
+- ✅ **Hover Modal System** - Professional popup animations with proper pointer event handling
+- ✅ **Uniform Card Heights** - Implemented h-full layout system for consistent card appearance
+- ✅ **Font Rendering Optimization** - Crisp text rendering with optimized CSS transforms
+- ✅ **Footer Social Media Update** - Twitter to X transition, YouTube addition, icon-only design
+- ✅ **Enhanced MH Branding** - Sharp-edged logo implementation with emergency number removal
+
+### v3.1.0 (September 23, 2025) - Enhanced Brand Standards & Typography Foundation
+
+- ✅ **Typography System Foundation** - Established responsive scaling framework optimized for various screen sizes
+- ✅ **Standardized CTA System** - Consistent Button components with proper dark/light mode support across all sections
+- ✅ **Section Spacing Framework** - Implemented systematic section padding with responsive breakpoints
+- ✅ **Grid Layout Improvements** - Enhanced responsive layouts with better visual balance and card consistency
+- ✅ **Dark Mode Excellence** - Proper theme support without custom overrides, automatic adaptation
+- ✅ **Brand Consistency** - All components follow MH Construction design system standards
 
 ### v2.5.0 (September 22, 2025) - Enhanced Home Page & Logo Glimmer Effects
 
@@ -515,7 +612,7 @@ firebase deploy --only firestore:rules
 - ✅ 75% larger footer logo (315x158px) with hover effects
 - ✅ Professional social media icons with glimmer animations
 - ✅ Complete light/dark mode support
-- ✅ Sharp Duotone icon system (22 icons)
+- ✅ Sharp Duotone icon system (24 icons)
 
 ### v2.3.0 - Button System & Military Theme
 
@@ -528,18 +625,28 @@ firebase deploy --only firestore:rules
 
 ## 🎯 Development Roadmap
 
-### Current Focus
+### Current Focus (In Progress 🔧)
 
-- [x] Enhanced logo glimmer effects ✅
-- [x] Complete button system standardization with animations ✅
+- [x] Interactive Why Choose section with hover modals ✅
+- [x] Desktop typography optimization and compact section layouts ✅
+- [x] Footer enhancement with modern social media ✅
+- [ ] Services page enhancement with SharpDuotoneIcons
+- [ ] Dynamic pricing integration with min/max bounds
+- [ ] Enhanced structured data with proper price schema
+
+### Next Phase (1-2 weeks)
+
+- [ ] Services page sticky navigation with anchors
+- [ ] Compare Services table implementation
+- [ ] Blog system expansion with better content management
 - [ ] Performance optimization (target: 100/100 Lighthouse)
 
-### Next Phase (1-2 months)
+### Mid-term Goals (1-2 months)
 
-- [ ] Blog system expansion
-- [ ] Advanced loading animations
-- [ ] Enhanced form validation
-- [ ] A/B testing framework
+- [ ] Advanced loading animations and micro-interactions
+- [ ] Enhanced form validation with real-time feedback
+- [ ] A/B testing framework for conversion optimization
+- [ ] Mobile app-style interactions and gestures
 
 ### Future Vision (3-6 months)
 
@@ -853,7 +960,7 @@ Cache Management:
 
 - **CSS Variable Support**: Complete icon system restructure with proper CSS variable definitions for consistent display
 - **Container Styling**: Enhanced icon containers with proper flex alignment and sizing for optimal visibility
-- **Sharp Duotone Integration**: All 22 professional icons now display consistently across light and dark themes
+- **Sharp Duotone Integration**: All 24 professional icons now display consistently across light and dark themes
 - **Performance Optimization**: Streamlined SVG rendering with zero external dependencies
 
 #### **✅ Enhanced Portfolio Section**
@@ -1388,7 +1495,7 @@ GET    /api/export-data            # Export consultation data
 --font-body: 'Adobe Garamond Pro', 'Times New Roman', serif;
 --font-mono: 'JetBrains Mono', 'Consolas', monospace;
 
-/* Font Scales - Fluid Typography */
+/* Optimized Font Scales - Desktop-Friendly Typography */
 --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.8rem);     /* 12px-13px */
 --text-sm: clamp(0.875rem, 0.8rem + 0.3vw, 0.95rem);   /* 14px-15px */
 --text-base: clamp(1rem, 0.9rem + 0.4vw, 1.1rem);      /* 16px-18px */
@@ -1396,7 +1503,14 @@ GET    /api/export-data            # Export consultation data
 --text-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.4rem);     /* 20px-22px */
 --text-2xl: clamp(1.5rem, 1.3rem + 0.8vw, 1.75rem);    /* 24px-28px */
 --text-3xl: clamp(1.875rem, 1.6rem + 1vw, 2.25rem);    /* 30px-36px */
---text-4xl: clamp(2.25rem, 1.9rem + 1.4vw, 3rem);      /* 36px-48px */
+--text-4xl: clamp(2.25rem, 1.9rem + 1.2vw, 2.75rem);   /* 36px-44px - Optimized */
+--text-5xl: clamp(2.5rem, 2.1rem + 1.4vw, 3.25rem);    /* 40px-52px - Optimized */
+--text-6xl: clamp(3rem, 2.4rem + 1.6vw, 3.75rem);      /* 48px-60px - Maximum */
+
+/* Compact Section Spacing */
+--section-padding-compact: py-16 lg:py-24;              /* Optimized for desktop viewing */
+--section-margin-compact: mb-16 lg:mb-20;               /* Reduced content margins */
+--header-margin-compact: mb-6;                          /* Tighter header spacing */
 
 /* Line Heights */
 --leading-tight: 1.25;

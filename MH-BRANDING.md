@@ -58,6 +58,8 @@
 - ✅ **Optimized Spacing**: Uniform section padding py-20 lg:py-32 xl:py-40
 - ✅ **Card Consistency**: All cards use h-full for uniform heights
 - ✅ **Grid Improvements**: Enhanced responsive layouts for better visual balance
+- ✅ **Shimmer Effects Removed**: All shimmer/glimmer effects removed for cleaner professional appearance
+- ✅ **Button Optimization**: Simplified button interactions without distracting animations
 - ✅ **Dark Mode Excellence**: Proper theme support without custom overrides
 - ✅ **Accessibility**: Improved focus states and contrast ratios
 
@@ -160,7 +162,7 @@ export default {
 
 - **Primary CTAs**: `<Button variant="primary">` components with `.btn-primary` enhancements
 - **Header navigation**: `bg-brand-primary` backgrounds with custom nav classes
-- **Active states**: `bg-brand-primary-dark` for pressed states plus glimmer effects
+- **Active states**: `bg-brand-primary-dark` for pressed states
 - **Logo applications**: `text-brand-primary` for brand elements with enhanced animations
 
 #### Leather Tan (`bg-brand-secondary`, `text-brand-secondary`) - Secondary  
@@ -174,7 +176,7 @@ export default {
 
 - **Red**: `bg-veteran-red` + `.btn-veteran` for veteran badges with animations
 - **Blue**: `bg-veteran-blue` + `.btn-dashboard` for program elements with effects  
-- **Gold**: `bg-veteran-gold` + `.veteran-badge` for achievements with glimmer
+- **Gold**: `bg-veteran-gold` + `.veteran-badge` for achievements
 
 #### Usage Examples with Hybrid Approach
 
@@ -278,7 +280,7 @@ export function Button({ variant, children, ...props }) {
   const variants = {
     primary: `
       bg-brand-primary hover:bg-brand-primary-dark text-white 
-      btn-primary // Custom MH class for glimmer effects
+      btn-primary // Custom MH class for enhanced styling
       px-6 py-3 rounded-full font-bold transition-all duration-300
       focus:outline-none focus:ring-2 focus:ring-brand-primary/50
     `
@@ -534,15 +536,13 @@ export default {
 // Logo with hover effects using pure Tailwind
 <Link 
   href="/" 
-  className="flex items-center transition-opacity hover:opacity-80 relative overflow-hidden group"
+  className="flex items-center transition-opacity hover:opacity-80"
 >
   <img 
     src="/images/logo/mh-logo.png" 
     alt="MH Construction" 
-    className="h-20 w-auto relative z-10"
+    className="h-20 w-auto"
   />
-  {/* Hover shine effect with Tailwind */}
-  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
 </Link>
 ```
 
@@ -552,15 +552,13 @@ export default {
 <div className="flex-shrink-0 py-3">
   <Link 
     href="/" 
-    className="flex items-center transition-all duration-300 hover:scale-105 relative overflow-hidden group"
+    className="flex items-center transition-all duration-300 hover:scale-105"
   >
     <img 
       src="/images/logo/mh-logo.png" 
       alt="MH Construction" 
-      className="h-20 w-auto filter drop-shadow-lg relative z-10"
+      className="h-20 w-auto filter drop-shadow-lg"
     />
-    {/* Brand-colored shine effect */}
-    <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-brand-primary/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
   </Link>
 </div>
 ```
@@ -568,19 +566,15 @@ export default {
 ### Footer Logo (Pure Tailwind)
 
 ```tsx
-<div className="mb-6">
-  <Link 
-    href="/" 
-    className="inline-block transition-all duration-300 hover:scale-105 relative overflow-hidden group"
-  >
-    <img 
-      src="/images/logo/mh-logo.png" 
-      alt="MH Construction" 
-      className="h-16 w-auto brightness-0 invert dark:brightness-100 dark:invert-0 relative z-10"
-    />
-    {/* Enhanced shine for footer */}
-    <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/50 dark:via-brand-primary-light/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-  </Link>
+<div className="text-center lg:text-left">
+  <Image
+    src="/images/logo/mh-logo.png"
+    alt="MH Construction LLC - Veteran-Owned Excellence"
+    width={280}
+    height={140}
+    className="cursor-pointer filter drop-shadow-xl hover:drop-shadow-2xl transition-all duration-300"
+    priority
+  />
 </div>
 ```
 
@@ -604,7 +598,7 @@ export function Button({
   className = '', 
   ...props 
 }) {
-  const baseClasses = 'font-bold rounded-full transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 relative overflow-hidden group'
+  const baseClasses = 'font-bold rounded-full transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 relative group'
   
   const variantClasses = {
     primary: `
@@ -613,10 +607,6 @@ export function Button({
       hover:bg-brand-primary-dark hover:-translate-y-1 
       hover:shadow-[0_0_0_3px_rgba(56,104,81,0.3),0_8px_25px_rgba(56,104,81,0.35)]
       focus:ring-2 focus:ring-brand-primary/50
-      before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full
-      before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent
-      before:transition-all before:duration-500 before:z-10
-      hover:before:left-full
     `,
     secondary: `
       bg-brand-secondary border-2 border-brand-secondary text-white
@@ -994,6 +984,65 @@ The new hero section standard ensures complete visibility on all screen sizes wi
   </Button>
 </div>
 ```
+
+### Enhanced Footer System (Pure Tailwind Implementation)
+
+The footer system showcases comprehensive MH branding with sharp-edged logo, organized navigation, and veteran recognition elements.
+
+#### Footer Structure
+
+```tsx
+// Clean Footer with MH Branding
+<footer className="bg-gradient-to-br from-gray-800 via-gray-900 to-black dark:from-black dark:via-gray-900 dark:to-black pt-16 pb-6 text-gray-300 border-t border-brand-primary/20">
+  
+  {/* Four-Column Layout */}
+  <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+    
+    {/* Column 1: Sharp-Edged Logo & Contact with Icons */}
+    <div className="space-y-6">
+      <Image
+        src="/images/logo/mh-logo.png"
+        alt="MH Construction LLC - Veteran-Owned Excellence"
+        width={280}
+        height={140}
+        className="cursor-pointer filter drop-shadow-xl hover:drop-shadow-2xl transition-all duration-300"
+        priority
+      />
+      {/* Contact info with brand icons (PhoneIcon, EmailIcon, LocationIcon) */}
+    </div>
+    
+    {/* Column 2: Main Navigation (No Icons) */}
+    {/* Clean text-only navigation links */}
+    
+    {/* Column 3: Resources & Programs (No Icons) */}
+    {/* Clean text-only resource links */}
+    
+    {/* Column 4: Enhanced Social Media */}
+    {/* Single row of icon-only social media links (Facebook, Instagram, LinkedIn, X, YouTube) */}
+  </div>
+  
+  {/* Clean Bottom Bar */}
+  <div className="pt-8 pb-6 border-t border-brand-primary/30">
+    {/* Copyright, legal links, veteran badge - no team portal duplication */}
+    <div className="text-center mt-6 pt-4 border-t border-gray-700/50">
+      <p className="text-brand-primary dark:text-brand-primary-light font-semibold text-sm italic">
+        "Building Tomorrow with Today's Technology - Where Military Precision Meets Construction Excellence"
+      </p>
+    </div>
+  </div>
+</footer>
+```
+
+#### Key Footer Features
+
+- **Sharp-Edged Logo**: Removed rounded corners for crisp, professional appearance
+- **Complete Page Navigation**: All available routes organized by category
+- **Selective Icon Usage**: Icons only in contact section for clarity
+- **Enhanced Social Media**: Single row of icon-only links (Facebook, Instagram, LinkedIn, X, YouTube)
+- **Veteran Recognition**: Prominent veteran-owned badges and military values
+- **Brand Typography**: Gradient text headers using MH brand colors
+- **Clean Bottom Bar**: Streamlined without duplicate links
+- **Brand Tagline**: Inspirational footer tagline reinforcing company mission
 
 ### Status Indicators (Pure Tailwind)
 
