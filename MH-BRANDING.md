@@ -3,11 +3,11 @@
 ## Complete brand identity, design system, and implementation guidelines for MH Construction LLC
 
 > **📅 Last Updated:** October 1, 2025  
-> **🎨 Brand Version:** 2.7.0  
+> **🎨 Brand Version:** 2.8.0  
 > **👥 Authority:** MH Construction Leadership Team  
-> **💻 Implementation:** Pure Tailwind CSS v4 with enhanced typography system  
-> **🌙 Theme Support:** Complete light/dark mode system with proper Button components  
-> **🚀 Architecture:** Standardized typography, consistent CTAs, and optimized spacing system
+> **💻 Implementation:** Pure Tailwind CSS v4 with transparent header system  
+> **🌙 Theme Support:** Complete light/dark mode with edge-positioned theme toggle  
+> **🚀 Architecture:** Transparent navigation, enhanced hover effects, and streamlined content
 
 ## Core Brand Taglines
 
@@ -24,11 +24,28 @@
 
 ---
 
-## 🚨 **IMPLEMENTATION NOTICE: Standardized MH Brand System v2.6.1**
+## Navigation & User Interface Standards
 
-### **Current Architecture (v2.6.1) - September 23, 2025**
+### **Primary Navigation Labels (Updated October 2025)**
 
-**MH Construction now uses a fully standardized approach with modern typography, consistent CTAs, and optimized spacing across all components.**
+- **About Us** (formerly "About") - More personal and comprehensive
+- **What We Do** (formerly "Services") - Action-oriented and clear
+- **Portfolio** - Showcase of completed projects
+
+### **Call-to-Action Buttons (Current Standard)**
+
+1. **Consultation Sign Up** - Primary booking action
+2. **AI Estimator** - Technology-forward cost estimation
+3. **3D Explorer** - Interactive project visualization
+4. **Wounded Warrior** - Community support and veteran focus
+
+---
+
+## 🚨 **IMPLEMENTATION NOTICE: Enhanced Navigation System v2.8.0**
+
+### **Current Architecture (v2.8.0) - October 1, 2025**
+
+**MH Construction now features a transparent header design with enhanced navigation and streamlined content presentation.**
 
 #### **Latest Standards Implementation:**
 

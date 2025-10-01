@@ -17,6 +17,7 @@ import {
   StructuredData,
 } from '../components/seo/seo-meta'
 import TestimonialsWidget from '../components/TestimonialsWidget'
+import BlogNewsCarousel from '../components/blog/BlogNewsCarousel'
 import Head from 'next/head'
 import {
   WPZoomBoltIcon as BoltIcon,
@@ -136,18 +137,6 @@ export default function Home() {
 
         <div className="z-10 relative flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-8 max-w-7xl h-full">
           <FadeInWhenVisible className="w-full text-center">
-            {/* Partnership Badge */}
-            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-              <ShieldIcon
-                size="sm"
-                color="currentColor"
-                className="text-brand-primary dark:text-brand-primary-light"
-              />
-              <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider letterspacing-wide">
-                Your Construction Partners
-              </span>
-            </div>
-
             <h1 className="mb-4 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter hero-title">
               <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                 Your Partner in
@@ -254,120 +243,6 @@ export default function Home() {
               ))}
             </StaggeredFadeIn>
           </FadeInWhenVisible>
-        </div>
-      </section>
-
-      {/* Enhanced MH Brand Stats Section */}
-      <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-900 via-white dark:via-gray-800 to-brand-light/20 dark:to-gray-900 py-16 lg:py-20 overflow-hidden stats-section">
-        {/* MH Brand Background Elements */}
-        <div className="top-0 left-0 absolute w-full h-full">
-          <div className="top-20 left-10 absolute bg-brand-primary/5 dark:bg-brand-primary/10 blur-3xl rounded-full w-32 h-32"></div>
-          <div className="right-10 bottom-20 absolute bg-brand-secondary/5 dark:bg-brand-secondary/10 blur-3xl rounded-full w-40 h-40"></div>
-        </div>
-
-        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          {/* Enhanced Header */}
-          <div className="mb-10 text-center scroll-reveal">
-            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-6 px-6 py-3 border border-brand-primary/30 dark:border-brand-primary/40 rounded-full">
-              <StarIcon size="sm" color="var(--brand-primary)" />
-              <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-widest">
-                Our Numbers
-              </span>
-            </div>
-            <h2 className="mb-6 font-black text-3xl md:text-4xl lg:text-5xl tracking-tight">
-              <span className="bg-clip-text bg-gradient-to-r from-brand-primary dark:from-brand-primary-light via-brand-secondary dark:via-brand-secondary-light to-brand-primary dark:to-brand-primary-light text-transparent">
-                Excellence in Numbers
-              </span>
-            </h2>
-            <p className="mx-auto max-w-2xl text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-              Military precision meets construction expertise
-            </p>
-          </div>
-
-          {/* Enhanced MH Brand Stats Grid */}
-          <div className="gap-6 grid grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                number: '150+',
-                label: 'Years Experience',
-                icon: StarIcon,
-                defaultGradient:
-                  'from-brand-secondary via-brand-secondary-light to-brand-secondary-dark',
-                hoverGradient:
-                  'from-brand-secondary-light via-brand-secondary to-brand-secondary-dark',
-                bgAccent: 'bg-brand-secondary/5 dark:bg-brand-secondary/10',
-                borderAccent:
-                  'border-brand-secondary/30 dark:border-brand-secondary-light/40',
-              },
-              {
-                number: '500+',
-                label: 'Projects Done',
-                icon: HammerIcon,
-                defaultGradient:
-                  'from-brand-primary via-brand-primary-light to-brand-accent',
-                hoverGradient:
-                  'from-brand-primary-light via-brand-primary to-brand-accent-dark',
-                bgAccent: 'bg-brand-primary/5 dark:bg-brand-primary/10',
-                borderAccent:
-                  'border-brand-primary/30 dark:border-brand-primary-light/40',
-              },
-              {
-                number: '24/7',
-                label: 'Support',
-                icon: ShieldIcon,
-                defaultGradient: 'from-veteran-red via-red-500 to-red-700',
-                hoverGradient: 'from-red-400 via-veteran-red to-red-800',
-                bgAccent: 'bg-veteran-red/5 dark:bg-veteran-red/10',
-                borderAccent: 'border-veteran-red/30 dark:border-red-400/40',
-              },
-              {
-                number: '100%',
-                label: 'Veteran Owned',
-                icon: CheckIcon,
-                defaultGradient: 'from-veteran-blue via-blue-600 to-blue-800',
-                hoverGradient: 'from-blue-500 via-veteran-blue to-blue-900',
-                bgAccent: 'bg-veteran-blue/5 dark:bg-veteran-blue/10',
-                borderAccent: 'border-veteran-blue/30 dark:border-blue-400/40',
-              },
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className={`group relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-md hover:shadow-xl hover:shadow-brand-primary/20 dark:hover:shadow-brand-primary-light/20 p-6 border border-gray-200 dark:border-gray-700 hover:${stat.borderAccent} rounded-2xl text-center transition-all duration-500 scroll-reveal transform-gpu antialiased`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {/* Background Glow on Hover */}
-                <div
-                  className={`absolute inset-0 ${stat.bgAccent} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                ></div>
-
-                <div className="z-10 relative">
-                  {/* Icon with MH Brand Colors */}
-                  <div
-                    className={`w-12 h-12 bg-gradient-to-br ${stat.defaultGradient} group-hover:bg-gradient-to-br group-hover:${stat.hoverGradient} rounded-xl flex items-center justify-center mx-auto mb-4 shadow-sm group-hover:shadow-lg transition-all duration-500 group-hover:scale-110`}
-                  >
-                    <stat.icon size="md" color="white" />
-                  </div>
-
-                  {/* Number with Color Change Effect */}
-                  <div
-                    className={`bg-gradient-to-r ${stat.defaultGradient} group-hover:${stat.hoverGradient} bg-clip-text text-transparent mb-2 font-black text-2xl md:text-3xl lg:text-4xl tracking-tight leading-none transition-all duration-500`}
-                  >
-                    {stat.number}
-                  </div>
-
-                  {/* Label with Enhanced Contrast */}
-                  <div className="font-semibold text-gray-700 dark:group-hover:text-gray-200 dark:text-gray-300 group-hover:text-gray-800 text-sm md:text-base leading-tight transition-colors duration-300">
-                    {stat.label}
-                  </div>
-                </div>
-
-                {/* Corner Accent for Polish */}
-                <div
-                  className={`absolute top-3 right-3 w-2 h-2 ${stat.bgAccent} rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                ></div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -1334,8 +1209,67 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Latest Blog & News Section */}
+      <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-12 lg:py-16 blog-news-section">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(56,104,81,0.05)_0%,transparent_50%)] opacity-60"></div>
+        <div className="top-20 right-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
+        <div className="bottom-20 left-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-40 h-40"></div>
+
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <FadeInWhenVisible className="mb-16 text-center">
+            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-8 py-4 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
+              <BoltIcon size="md" color="var(--brand-primary)" />
+              <span className="ml-4 font-black text-brand-primary dark:text-brand-primary-light text-sm uppercase tracking-wider letterspacing-widest">
+                Latest Updates
+              </span>
+            </div>
+
+            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                Latest News &
+              </span>
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                Construction Insights
+              </span>
+            </h2>
+            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+              Stay informed with{' '}
+              <span className="font-medium text-gray-800 dark:text-gray-200">
+                construction industry insights
+              </span>{' '}
+              and the latest news from our veteran-owned team in the{' '}
+              <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
+                Pacific Northwest
+              </span>
+              .
+            </p>
+          </FadeInWhenVisible>
+
+          {/* Blog/News Carousel */}
+          <FadeInWhenVisible>
+            <BlogNewsCarousel />
+          </FadeInWhenVisible>
+
+          {/* View All Links */}
+          <div className="flex sm:flex-row flex-col justify-center items-center gap-6 mt-12 text-center">
+            <Link href="/blog">
+              <Button variant="outline" size="lg" className="shadow-lg">
+                <span className="mr-2">View All Blog Posts</span>
+                <ArrowRightIcon size="sm" color="currentColor" />
+              </Button>
+            </Link>
+            <Link href="/news">
+              <Button variant="outline" size="lg" className="shadow-lg">
+                <span className="mr-2">View All News</span>
+                <ArrowRightIcon size="sm" color="currentColor" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Enhanced Partnership Call to Action Section */}
-      <section className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary py-12 lg:py-16 cta-section">
+      <section className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary py-8 lg:py-12 cta-section">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
@@ -1343,7 +1277,7 @@ export default function Home() {
             <h2 className="mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
               Ready to Begin Our Partnership?
             </h2>
-            <p className="mx-auto mb-8 max-w-4xl font-light text-white/90 text-xl md:text-2xl leading-relaxed">
+            <p className="mx-auto mb-12 max-w-4xl font-light text-white/90 text-xl md:text-2xl leading-relaxed">
               Join hundreds of Pacific Northwest neighbors who chose{' '}
               <span className="font-medium text-brand-secondary">
                 collaborative construction partners
@@ -1351,57 +1285,88 @@ export default function Home() {
               committed to community and excellence.
             </p>
 
-            {/* Partnership CTA Buttons */}
-            <div className="flex sm:flex-row flex-col justify-center items-center gap-6 mb-10">
-              <HoverScale>
-                <Button variant="secondary" size="xl" className="shadow-xl">
-                  <BoltIcon size="md" color="currentColor" className="mr-3" />
-                  <span className="z-10 relative tracking-wide">
-                    Work Together on Estimate
-                  </span>
-                </Button>
-              </HoverScale>
-              <Link href="/contact">
+            {/* Partnership CTA Buttons - 4 Button Grid */}
+            <div className="gap-4 lg:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto mb-6 max-w-6xl">
+              <Link href="/booking">
                 <HoverScale>
                   <Button
-                    variant="outline"
-                    size="xl"
-                    className="bg-transparent hover:bg-white shadow-xl border-white text-white hover:text-brand-primary"
+                    variant="secondary"
+                    size="lg"
+                    className="shadow-xl w-full h-16 font-semibold text-base"
                   >
                     <CalendarIcon
                       size="md"
                       color="currentColor"
-                      className="mr-3"
+                      className="flex-shrink-0 mr-2"
                     />
-                    <span className="z-10 relative tracking-wide">
-                      Begin Partnership Discussion
+                    <span className="z-10 relative text-center leading-tight tracking-tight">
+                      Consultation
+                      <br />
+                      Sign Up
+                    </span>
+                  </Button>
+                </HoverScale>
+              </Link>
+
+              <Link href="/estimator">
+                <HoverScale>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="bg-transparent hover:bg-white shadow-xl border-white w-full h-16 font-semibold text-white hover:text-brand-primary text-base"
+                  >
+                    <BoltIcon
+                      size="md"
+                      color="currentColor"
+                      className="flex-shrink-0 mr-2"
+                    />
+                    <span className="z-10 relative text-center leading-tight tracking-tight">
+                      AI Estimator
+                    </span>
+                  </Button>
+                </HoverScale>
+              </Link>
+
+              <Link href="/portfolio">
+                <HoverScale>
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    className="shadow-xl w-full h-16 font-semibold text-base"
+                  >
+                    <HammerIcon
+                      size="md"
+                      color="currentColor"
+                      className="flex-shrink-0 mr-2"
+                    />
+                    <span className="z-10 relative text-center leading-tight tracking-tight">
+                      3D Explorer
+                    </span>
+                  </Button>
+                </HoverScale>
+              </Link>
+
+              <Link href="/wounded-warrior">
+                <HoverScale>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="bg-transparent hover:bg-white shadow-xl border-white w-full h-16 font-semibold text-white hover:text-brand-primary text-base"
+                  >
+                    <ShieldIcon
+                      size="md"
+                      color="currentColor"
+                      className="flex-shrink-0 mr-2"
+                    />
+                    <span className="z-10 relative text-center leading-tight tracking-tight">
+                      Wounded
+                      <br />
+                      Warrior
                     </span>
                   </Button>
                 </HoverScale>
               </Link>
             </div>
-
-            {/* Partnership Trust Indicators */}
-            <StaggeredFadeIn className="flex flex-wrap justify-center items-center gap-6 font-medium text-white/80 text-base">
-              {[
-                'Collaborative Approach',
-                'Community-Focused Partners',
-                'Veteran-Owned & Community-Driven',
-                'Work With You Process',
-              ].map((indicator, index) => (
-                <div
-                  key={index}
-                  className="flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 border border-white/20 rounded-full"
-                >
-                  <CheckIcon
-                    size="sm"
-                    color="currentColor"
-                    className="mr-3 text-brand-secondary"
-                  />
-                  <span className="tracking-wide">{indicator}</span>
-                </div>
-              ))}
-            </StaggeredFadeIn>
           </FadeInWhenVisible>
         </div>
       </section>
