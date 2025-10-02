@@ -130,58 +130,48 @@ export default function Home() {
       {/* Add structured data for SEO */}
       <StructuredData data={generateOrganizationStructuredData()} />
 
-      {/* Enhanced Hero Section */}
-      <section className="relative bg-white dark:bg-gray-900 h-screen hero-section">
-        {/* Simple Background */}
-        <div className="absolute inset-0"></div>
+      {/* Enhanced Hero Section - Video Ready */}
+      <section className="relative h-screen hero-section overflow-hidden">
+        {/* Video Background Container */}
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-gray-900/80">
+          {/* Future video element will go here */}
+          {/* <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline>
+            <source src="/videos/hero-video.mp4" type="video/mp4" />
+          </video> */}
+          
+          {/* Temporary background for now */}
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-gray-900 to-brand-secondary/20"></div>
+        </div>
 
-        <div className="z-10 relative flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-8 max-w-7xl h-full">
+        {/* Content Overlay */}
+        <div className="relative z-10 flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full text-white">
           <FadeInWhenVisible className="w-full text-center">
-            <h1 className="mb-4 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter hero-title">
-              <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+            {/* Simplified Hero Title */}
+            <h1 className="mb-6 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight">
+              <span className="block mb-2 font-semibold text-white/90 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                 Your Partner in
               </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary drop-shadow-sm font-black text-transparent">
+              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white drop-shadow-lg">
                 Building Tomorrow
               </span>
             </h1>
 
-            {/* Core Philosophy Tagline */}
-            <div className="mb-6">
-              <p className="mx-auto max-w-3xl font-bold text-gray-800 dark:text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl text-center leading-snug tracking-wide">
-                "Building for the Owner,{' '}
-                <span className="font-black text-veteran-red dark:text-red-400 text-xl sm:text-2xl md:text-3xl lg:text-4xl">
-                  NOT
-                </span>{' '}
-                the Dollar"
-              </p>
-              <p className="mx-auto mt-2 max-w-2xl font-medium text-gray-600 dark:text-gray-400 text-sm sm:text-base text-center italic">
-                Where veteran values meet genuine partnership
-              </p>
-            </div>
-
-            <p className="mx-auto mb-6 max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed tracking-wide">
-              Veteran-owned construction excellence -{' '}
-              <span className="font-medium text-gray-800 dark:text-gray-200">
-                working with you to serve our communities
-              </span>
-              . Serving the Pacific Northwest with{' '}
-              <span className="bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-primary font-semibold text-transparent">
-                collaborative precision
-              </span>
-              .
+            {/* Simplified Tagline */}
+            <p className="mx-auto mb-8 max-w-3xl text-xl sm:text-2xl md:text-3xl leading-relaxed text-white/90">
+              Veteran-owned construction excellence working with you to serve our communities.
             </p>
 
-            <div className="flex sm:flex-row flex-col justify-center items-center gap-6 mb-6">
+            {/* Simplified CTA */}
+            <div className="flex sm:flex-row flex-col justify-center items-center gap-4">
               <Link href="/booking">
                 <HoverScale>
                   <Button
                     variant="primary"
                     size="xl"
-                    className="shadow-xl"
+                    className="bg-white text-brand-primary hover:bg-white/90 shadow-2xl border-0"
                     onClick={() =>
                       trackEvent('cta_click', {
-                        button_name: 'start_partnership',
+                        button_name: 'get_started',
                         location: 'hero_section',
                         page: 'homepage',
                       })
@@ -192,9 +182,7 @@ export default function Home() {
                       color="currentColor"
                       className="mr-3"
                     />
-                    <span className="z-10 relative tracking-wide">
-                      Start Our Partnership
-                    </span>
+                    <span className="font-semibold">Get Started</span>
                   </Button>
                 </HoverScale>
               </Link>
@@ -203,45 +191,21 @@ export default function Home() {
                   <Button
                     variant="outline"
                     size="xl"
-                    className="shadow-xl"
+                    className="border-white text-white hover:bg-white hover:text-brand-primary shadow-2xl"
                     onClick={() =>
                       trackEvent('cta_click', {
-                        button_name: 'work_together_estimate',
+                        button_name: 'free_estimate',
                         location: 'hero_section',
                         page: 'homepage',
                       })
                     }
                   >
                     <BoltIcon size="sm" color="currentColor" className="mr-3" />
-                    <span className="z-10 relative tracking-wide">
-                      Work Together on Estimate
-                    </span>
+                    <span className="font-semibold">Free Estimate</span>
                   </Button>
                 </HoverScale>
               </Link>
             </div>
-
-            {/* Partnership Indicators */}
-            <StaggeredFadeIn className="flex flex-wrap justify-center items-center gap-10 font-medium text-gray-700 dark:text-gray-300 text-base">
-              {[
-                'Partnership Consultation',
-                'Transparent Pricing',
-                'Community Focused',
-                'Veteran Owned & Operated',
-              ].map((indicator, index) => (
-                <div
-                  key={index}
-                  className="flex items-center bg-white/10 dark:bg-gray-800/30 backdrop-blur-sm px-4 py-2 border border-gray-200/20 dark:border-gray-700/30 rounded-full"
-                >
-                  <CheckIcon
-                    size="sm"
-                    color="currentColor"
-                    className="mr-3 text-green-600 dark:text-green-400"
-                  />
-                  <span className="tracking-wide">{indicator}</span>
-                </div>
-              ))}
-            </StaggeredFadeIn>
           </FadeInWhenVisible>
         </div>
       </section>
