@@ -335,9 +335,9 @@ export default function Home() {
 
                     <div className="z-10 relative flex flex-col h-full">
                       <div className="flex-grow">
-                        {/* Icon Container */}
+                        {/* Icon Container - Maximized Space Utilization */}
                         <div
-                          className={`w-20 h-20 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
+                          className={`w-20 h-20 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg p-2`}
                         >
                           <feature.icon size="2xl" primaryColor="white" />
                         </div>
@@ -640,7 +640,7 @@ export default function Home() {
                       <div className="z-10 relative flex flex-col justify-between h-full text-center">
                         <div>
                           <div
-                            className={`w-24 h-24 bg-gradient-to-br ${item.color} rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg`}
+                            className={`w-24 h-24 bg-gradient-to-br ${item.color} rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg p-3`}
                           >
                             <IconComponent size="3xl" primaryColor="white" />
                           </div>{' '}
@@ -727,8 +727,8 @@ export default function Home() {
             {/* Construction Management */}
             <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
-              <div className="relative">
-                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
+              <div className="relative flex flex-col h-full">
+                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
                   <MaterialIcon
                     icon="explore"
                     size="xl"
@@ -738,12 +738,12 @@ export default function Home() {
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Construction Management
                 </h3>
-                <p className="mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="flex-grow mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
                   Full Construction Management (CM) services throughout the
                   Tri-Cities. We minimize "on-the-fly" decisions through
                   meticulous planning.
                 </p>
-                <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
+                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Call (509) 308-6489</span>
                   <MaterialIcon
                     icon="arrow_forward"
@@ -757,8 +757,8 @@ export default function Home() {
             {/* Master Planning */}
             <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
-              <div className="relative">
-                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
+              <div className="relative flex flex-col h-full">
+                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
                   <MaterialIcon
                     icon="architecture"
                     size="xl"
@@ -768,11 +768,11 @@ export default function Home() {
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Master Planning
                 </h3>
-                <p className="mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="flex-grow mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
                   Comprehensive Pre-Construction & Master Planning services.
                   Transform your vision into a practical, buildable reality.
                 </p>
-                <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
+                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
                   <MaterialIcon
                     icon="arrow_forward"
@@ -786,8 +786,8 @@ export default function Home() {
             {/* Commercial Buildings */}
             <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
-              <div className="relative">
-                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
+              <div className="relative flex flex-col h-full">
+                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
                   <MaterialIcon
                     icon="build"
                     size="xl"
@@ -797,11 +797,11 @@ export default function Home() {
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Commercial Buildings
                 </h3>
-                <p className="mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="flex-grow mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
                   Complete Commercial Construction Services for offices, retail,
                   and industrial facilities across WA, OR, and ID.
                 </p>
-                <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
+                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
                   <MaterialIcon
                     icon="arrow_forward"
@@ -815,8 +815,8 @@ export default function Home() {
             {/* Medical Facilities */}
             <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
-              <div className="relative">
-                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
+              <div className="relative flex flex-col h-full">
+                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
                   <MaterialIcon
                     icon="straighten"
                     size="xl"
@@ -826,11 +826,11 @@ export default function Home() {
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Medical Facilities
                 </h3>
-                <p className="mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="flex-grow mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
                   Specialized medical facility construction and clinic design.
                   Precision planning for healthcare environments.
                 </p>
-                <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
+                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
                   <MaterialIcon
                     icon="arrow_forward"
@@ -844,8 +844,8 @@ export default function Home() {
             {/* Light Industrial */}
             <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
-              <div className="relative">
-                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
+              <div className="relative flex flex-col h-full">
+                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
                   <MaterialIcon
                     icon="construction"
                     size="xl"
@@ -855,11 +855,11 @@ export default function Home() {
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Light Industrial
                 </h3>
-                <p className="mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="flex-grow mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
                   Safe, durable, and highly functional industrial buildings.
                   Warehouses to processing plants built to your specifications.
                 </p>
-                <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
+                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
                   <MaterialIcon
                     icon="arrow_forward"
@@ -873,8 +873,8 @@ export default function Home() {
             {/* Tenant Improvements */}
             <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
-              <div className="relative">
-                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
+              <div className="relative flex flex-col h-full">
+                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
                   <MaterialIcon
                     icon="gps_fixed"
                     size="xl"
@@ -884,12 +884,12 @@ export default function Home() {
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Tenant Improvements
                 </h3>
-                <p className="mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="flex-grow mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
                   Expert Commercial Tenant Improvement (TI) Services. Transform
                   your commercial space into a functional, beautiful
                   environment.
                 </p>
-                <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
+                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
                   <MaterialIcon
                     icon="arrow_forward"
@@ -968,10 +968,10 @@ export default function Home() {
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="relative bg-white dark:bg-gray-800 shadow-lg group-hover:shadow-2xl p-8 rounded-3xl h-full antialiased transform-gpu transition-all duration-500">
-                  {/* Quote Icon */}
-                  <div className="top-6 right-6 absolute flex justify-center items-center bg-brand-secondary/10 rounded-full w-12 h-12 group-hover:scale-110 transition-transform duration-300">
+                  {/* Quote Icon - Maximized Space */}
+                  <div className="top-6 right-6 absolute flex justify-center items-center bg-brand-secondary/10 p-2 rounded-full w-12 h-12 group-hover:scale-110 transition-transform duration-300">
                     <svg
-                      className="w-6 h-6 text-brand-secondary"
+                      className="w-full h-full text-brand-secondary"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -980,7 +980,7 @@ export default function Home() {
                   </div>
 
                   <div className="flex items-start space-x-4 mb-6">
-                    <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-primary to-brand-secondary shadow-lg rounded-2xl w-16 h-16 group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-primary to-brand-secondary shadow-lg p-3 rounded-2xl w-16 h-16 group-hover:scale-110 transition-transform duration-300">
                       <span className="font-bold text-white text-2xl">
                         {testimonial.name.charAt(0)}
                       </span>

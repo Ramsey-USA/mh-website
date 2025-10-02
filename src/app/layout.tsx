@@ -77,9 +77,16 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <FaviconLinks />
-        {/* Google Material Icons */}
+        {/* Preconnect to Google Fonts for faster loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        {/* Google Material Icons - Now optimized with font-display in globals.css */}
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
           rel="stylesheet"
         />
         {/* Enhanced Schema Markup */}

@@ -134,7 +134,16 @@ const config: Config = {
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
       },
+      // Performance optimization hints
+      willChange: {
+        'transform-opacity': 'transform, opacity',
+      },
     },
+  },
+  // Performance optimizations
+  corePlugins: {
+    // Disable unused features for smaller bundle size
+    preflight: true, // Keep Tailwind's base styles
   },
   plugins: [],
 }

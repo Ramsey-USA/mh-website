@@ -5,6 +5,7 @@ This guide walks you through setting up Firebase for the MH Construction website
 ## 🔥 Firebase Project Setup
 
 ### 1. Create Firebase Project
+
 1. Go to [Firebase Console](https://console.firebase.google.com/)
 2. Click "Create a project"
 3. Enter project name: `mh-construction-website`
@@ -12,6 +13,7 @@ This guide walks you through setting up Firebase for the MH Construction website
 5. Create project
 
 ### 2. Enable Authentication
+
 1. In Firebase Console, go to **Authentication** > **Sign-in method**
 2. Enable the following providers:
    - **Email/Password** (required)
@@ -21,11 +23,12 @@ This guide walks you through setting up Firebase for the MH Construction website
    - Your production domain
 
 ### 3. Set Up Firestore Database
+
 1. Go to **Firestore Database** > **Create database**
 2. Choose **Start in test mode** (for development)
 3. Select your preferred location
 4. Create the following collections:
-   ```
+
    users/
    ├── {userId}/
    │   ├── email: string
@@ -37,7 +40,7 @@ This guide walks you through setting up Firebase for the MH Construction website
    │   ├── createdAt: timestamp
    │   ├── lastLoginAt: timestamp
    │   └── isActive: boolean
-   
+
    consultations/
    ├── {consultationId}/
    │   ├── clientInfo: object
@@ -45,7 +48,7 @@ This guide walks you through setting up Firebase for the MH Construction website
    │   ├── scheduledDate: timestamp
    │   ├── status: 'pending' | 'confirmed' | 'completed' | 'cancelled'
    │   └── assignedTeamMember: string
-   
+
    projects/
    ├── {projectId}/
    │   ├── name: string
@@ -54,9 +57,9 @@ This guide walks you through setting up Firebase for the MH Construction website
    │   ├── progress: number
    │   ├── estimatedValue: number
    │   └── teamLead: string
-   ```
 
 ### 4. Configure Security Rules
+
 Update Firestore security rules:
 
 ```javascript
@@ -90,6 +93,7 @@ service cloud.firestore {
 ```
 
 ### 5. Set Up Storage (Optional)
+
 1. Go to **Storage** > **Get started**
 2. Start in test mode
 3. Configure storage rules for project images and documents
@@ -97,12 +101,14 @@ service cloud.firestore {
 ## 🔐 Environment Configuration
 
 ### 1. Get Firebase Configuration
+
 1. In Firebase Console, go to **Project settings** (gear icon)
 2. In "Your apps" section, click **Web app** icon (</>)
 3. Register app name: `mh-construction-website`
 4. Copy the configuration object
 
 ### 2. Create Environment File
+
 Create `.env.local` in your project root:
 
 ```bash
@@ -123,6 +129,7 @@ NEXT_PUBLIC_ENVIRONMENT=development
 ## 👤 User Roles & Permissions
 
 ### Role Hierarchy
+
 1. **Admin** (`admin`)
    - Full access to all features
    - User management
@@ -141,6 +148,7 @@ NEXT_PUBLIC_ENVIRONMENT=development
    - Project status viewing
 
 ### Creating Admin Users
+
 To create the first admin user:
 
 1. Register normally through the website
@@ -151,6 +159,7 @@ To create the first admin user:
 ## 🚀 Deployment Considerations
 
 ### Production Environment
+
 1. Update Firestore rules to production mode
 2. Set up proper authentication domains
 3. Configure environment variables in your hosting platform
@@ -158,6 +167,7 @@ To create the first admin user:
 5. Set up Firebase Analytics
 
 ### Security Best Practices
+
 - Use Firestore security rules for data protection
 - Implement proper role-based access control
 - Regularly audit user permissions
@@ -167,13 +177,16 @@ To create the first admin user:
 ## 🧪 Testing Authentication
 
 ### Local Testing
+
 1. Start development server: `npm run dev`
 2. Navigate to `/auth/login`
 3. Create test accounts with different roles
 4. Test dashboard access based on roles
 
 ### Test Users (for development)
+
 Create these test accounts for development:
+
 - Admin: `admin@mhconstruction.com`
 - Team Member: `team@mhconstruction.com`
 - Client: `client@example.com`
@@ -181,6 +194,7 @@ Create these test accounts for development:
 ## 📞 Support
 
 For Firebase setup issues:
+
 - Check Firebase Console for error messages
 - Review browser console for client-side errors
 - Verify environment variables are loaded

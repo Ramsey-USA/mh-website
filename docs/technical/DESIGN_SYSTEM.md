@@ -4,6 +4,8 @@
 
 **Foundation-Only Architecture**: Clean design system optimized for scalable expansion and consistent user experience.
 
+> **📐 For Page Layout Templates:** See [PAGE_LAYOUT_STANDARDS.md](./PAGE_LAYOUT_STANDARDS.md) for complete spacing, padding, and typography standards extracted from the home page.
+
 ---
 
 ## 🎨 Brand Identity

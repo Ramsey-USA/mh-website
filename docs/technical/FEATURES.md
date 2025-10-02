@@ -306,4 +306,4 @@ Foundation Components:
 
 ---
 
-*Last updated: October 2025 | MH Construction Development Team*
+**Last updated:** October 2025 | MH Construction Development Team

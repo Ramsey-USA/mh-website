@@ -252,21 +252,23 @@ Call (509) 308-6489 today to begin planning your new commercial, industrial, or 
 ## Contact Information
 
 ### Phone
+
 (509) 308-6489
 
 ### Email
+
 <info@mhconstruction.com>
 
 ### Address
+
 3111 N. Capital Ave., Pasco, WA 99301
 
 ### Website
+
 mhconstruction.com
 
 ---
 
 *Building partnerships, serving communities, creating lasting value in the Pacific Northwest.*
 
----
-
-*Last updated: October 2025 | MH Construction LLC*
+**Last updated:** October 2025 | MH Construction LLC

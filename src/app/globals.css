@@ -2,17 +2,127 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================
+   CSS CUSTOM PROPERTIES (CSS Variables)
+   Synchronized with Tailwind Config
+   ============================================ */
+
 :root {
+  /* MH Construction Brand Colors */
   --brand-primary: #386851;
   --brand-primary-light: #4a7a63;
   --brand-primary-dark: #2d5240;
   --brand-secondary: #bd9264;
   --brand-secondary-light: #c9a176;
   --brand-secondary-dark: #a67d52;
+  --brand-accent: #7c9885;
+  --brand-accent-light: #96ad9c;
+  --brand-accent-dark: #5a7363;
+
+  /* Veteran Recognition Colors */
   --veteran-red: #dc2626;
   --veteran-blue: #1d4ed8;
   --veteran-gold: #ca8a04;
+
+  /* Surface Colors - Light Mode */
+  --surface: #f8fafc;
+  --surface-secondary: #f1f5f9;
+
+  /* Text Colors - Light Mode */
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+
+  /* Border Colors - Light Mode */
+  --border: #e2e8f0;
+  --border-light: #f1f5f9;
 }
+
+.dark {
+  /* Surface Colors - Dark Mode */
+  --surface: #1e293b;
+  --surface-secondary: #334155;
+
+  /* Text Colors - Dark Mode */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+
+  /* Border Colors - Dark Mode */
+  --border: #334155;
+  --border-light: #475569;
+}
+
+/* ============================================
+   GOOGLE MATERIAL ICONS OPTIMIZATION
+   Performance-optimized font loading
+   ============================================ */
+
+/* Preload hint for Material Icons - helps browser prioritize */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap; /* Prevents FOIT (Flash of Invisible Text) */
+  src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2)
+    format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  /* font-size: 24px; - REMOVED: Let Tailwind text-* classes control size */
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'liga';
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+}
+
+/* GPU-accelerated icon rendering for better performance */
+.material-icons {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Icon-specific performance utilities */
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  contain: layout style; /* CSS containment for better rendering performance */
+}
+
+.icon-interactive {
+  will-change: transform, opacity;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-static {
+  will-change: auto; /* Remove will-change for non-interactive icons */
+  transform: none;
+}
+
+/* ============================================
+   BRAND COLOR UTILITIES
+   Direct CSS implementations for performance
+   ============================================ */
+
+/* ============================================
+   BRAND COLOR UTILITIES
+   Direct CSS implementations for performance
+   ============================================ */
 
 .text-brand-primary {
   color: var(--brand-primary);
@@ -62,6 +172,10 @@
   --tw-ring-color: var(--brand-primary);
 }
 
+/* ============================================
+   GLOBAL PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
 html {
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
@@ -86,7 +200,17 @@ body {
   outline-offset: 2px;
 }
 
-/* 3D Flip Animation Classes - Enhanced for card flips */
+/* Performance optimization for animated elements */
+.animate-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* ============================================
+   3D FLIP ANIMATION CLASSES
+   Enhanced for card flips with icon support
+   ============================================ */
 .perspective-1000 {
   perspective: 1000px;
   -webkit-perspective: 1000px;
