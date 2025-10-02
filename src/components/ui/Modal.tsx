@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { WPZoomCloseIcon as CloseIcon } from '@/components/icons/WPZoomIcons'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
 
 interface ModalProps {
   isOpen: boolean
@@ -47,7 +47,7 @@ export const Modal: React.FC<ModalProps> = ({
               onClick={onClose}
               className="hover:bg-gray-800 p-2 rounded-lg text-gray-400 hover:text-white transition-colors"
             >
-              <CloseIcon size="sm" color="currentColor" />
+              <MaterialIcon icon="close" size="sm" />
             </button>
           </div>
 

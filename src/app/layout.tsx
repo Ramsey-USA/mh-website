@@ -77,6 +77,11 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <FaviconLinks />
+        {/* Google Material Icons */}
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
         {/* Enhanced Schema Markup */}
         <StructuredData
           data={[generateEnhancedOrganizationSchema(), generateWebsiteSchema()]}

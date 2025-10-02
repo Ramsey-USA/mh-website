@@ -2,11 +2,7 @@
 
 import React from 'react'
 import { useTheme } from '../../contexts/ThemeContext'
-import {
-  WPZoomSunIcon as SunIcon,
-  WPZoomMoonIcon as MoonIcon,
-  WPZoomDesktopIcon as DesktopIcon,
-} from '../icons/WPZoomIcons'
+import { MaterialIcon } from '../icons/MaterialIcon'
 
 interface ThemeToggleProps {
   size?: 'sm' | 'md' | 'lg'
@@ -27,19 +23,19 @@ export function ThemeToggle({
     {
       key: 'light' as const,
       label: 'Light',
-      icon: SunIcon,
+      icon: 'light_mode',
       colors: 'text-yellow-500',
     },
     {
       key: 'dark' as const,
       label: 'Dark',
-      icon: MoonIcon,
+      icon: 'dark_mode',
       colors: 'text-blue-400',
     },
     {
       key: 'system' as const,
       label: 'System',
-      icon: DesktopIcon,
+      icon: 'computer',
       colors: 'text-gray-500',
     },
   ]
@@ -88,15 +84,19 @@ export function ThemeToggle({
 
           {/* Icons */}
           <div className="relative flex justify-between items-center px-2 w-full">
-            <MoonIcon
+            <MaterialIcon
+              icon="dark_mode"
               size={iconSizes[size]}
-              color={isDarkMode ? 'white' : 'rgb(107 114 128)'}
-              className="transition-colors duration-300"
+              className={`transition-colors duration-300 ${
+                isDarkMode ? 'text-white' : 'text-gray-500'
+              }`}
             />
-            <SunIcon
+            <MaterialIcon
+              icon="light_mode"
               size={iconSizes[size]}
-              color={!isDarkMode ? 'white' : 'rgb(107 114 128)'}
-              className="transition-colors duration-300"
+              className={`transition-colors duration-300 ${
+                !isDarkMode ? 'text-white' : 'text-gray-500'
+              }`}
             />
           </div>
         </button>
@@ -120,7 +120,7 @@ export function ThemeToggle({
       )}
 
       <div className="flex bg-gray-100 dark:bg-gray-800 p-1 border border-gray-200 dark:border-gray-700 rounded-lg">
-        {themes.map(({ key, label, icon: Icon, colors }) => (
+        {themes.map(({ key, label, icon, colors }) => (
           <button
             key={key}
             onClick={() => setTheme(key)}
@@ -137,10 +137,10 @@ export function ThemeToggle({
             aria-label={`Switch to ${label.toLowerCase()} mode`}
             title={label}
           >
-            <Icon
+            <MaterialIcon
+              icon={icon}
               size={iconSizes[size]}
-              color={theme === key ? 'currentColor' : undefined}
-              className={theme !== key ? colors : ''}
+              className={`${theme === key ? 'text-white' : colors}`}
             />
             {size === 'lg' && (
               <span className="ml-2 font-medium text-xs">{label}</span>

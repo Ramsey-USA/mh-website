@@ -6,7 +6,7 @@ import {
   FadeInWhenVisible,
   StaggeredFadeIn,
 } from '@/components/animations/FramerMotionComponents'
-import { useAuth } from '@/context/AuthContext'
+import { useAuth } from '@/lib/auth/AuthContext'
 import { useAnalytics } from '@/components/analytics/enhanced-analytics'
 import { Loader2, Plus, Edit, Trash2, Save, X } from 'lucide-react'
 

@@ -8,7 +8,7 @@ import {
   HoverScale,
 } from '@/components/animations/FramerMotionComponents'
 import ContentManagement from '@/components/dashboard/ContentManagementSimple'
-import { useAuth } from '@/context/AuthContext'
+import { useAuth } from '@/lib/auth/AuthContext'
 import { useAnalytics } from '@/components/analytics/enhanced-analytics'
 import {
   BarChart3,

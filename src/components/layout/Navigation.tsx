@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from '../ui/Button'
-import NewThemeToggle from '../ui/NewThemeToggle'
+import { ThemeToggle } from '../ui/ThemeToggle'
+import { MaterialIcon } from '../icons/MaterialIcon'
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -51,52 +52,67 @@ export function Navigation() {
 
             {/* Desktop Navigation Links */}
             <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-              <Link
-                href="/about"
-                className="group relative drop-shadow-sm font-medium text-white/90 hover:text-white dark:text-gray-100 text-sm xl:text-base transition-all duration-300"
-              >
-                <span className="z-10 relative">About Us</span>
-                <div className="bottom-0 absolute inset-x-0 bg-brand-secondary h-0.5 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 transform"></div>
-              </Link>
-              <Link
-                href="/services"
-                className="group relative drop-shadow-sm font-medium text-white/90 hover:text-white dark:text-gray-100 text-sm xl:text-base transition-all duration-300"
-              >
-                <span className="z-10 relative">What We Do</span>
-                <div className="bottom-0 absolute inset-x-0 bg-brand-secondary h-0.5 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 transform"></div>
-              </Link>
-              <Link
-                href="/portfolio"
-                className="group relative drop-shadow-sm font-medium text-white/90 hover:text-white dark:text-gray-100 text-sm xl:text-base transition-all duration-300"
-              >
-                <span className="z-10 relative">Portfolio</span>
-                <div className="bottom-0 absolute inset-x-0 bg-brand-secondary h-0.5 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 transform"></div>
-              </Link>
+              <div className="flex items-center space-x-1 text-white/40 text-xs">
+                <MaterialIcon
+                  icon="schedule"
+                  size="sm"
+                  className="text-white/30"
+                />
+                <span>Coming Soon:</span>
+              </div>
+              <div className="group relative drop-shadow-sm font-medium text-white/60 hover:text-white/80 text-sm xl:text-base transition-all duration-300 cursor-not-allowed">
+                <div className="flex items-center space-x-2">
+                  <MaterialIcon
+                    icon="info"
+                    size="sm"
+                    className="text-white/40 group-hover:text-white/60 transition-colors"
+                  />
+                  <span className="z-10 relative">About</span>
+                </div>
+              </div>
+              <div className="group relative drop-shadow-sm font-medium text-white/60 hover:text-white/80 text-sm xl:text-base transition-all duration-300 cursor-not-allowed">
+                <div className="flex items-center space-x-2">
+                  <MaterialIcon
+                    icon="build"
+                    size="sm"
+                    className="text-white/40 group-hover:text-white/60 transition-colors"
+                  />
+                  <span className="z-10 relative">Services</span>
+                </div>
+              </div>
+              <div className="group relative drop-shadow-sm font-medium text-white/60 hover:text-white/80 text-sm xl:text-base transition-all duration-300 cursor-not-allowed">
+                <div className="flex items-center space-x-2">
+                  <MaterialIcon
+                    icon="photo_library"
+                    size="sm"
+                    className="text-white/40 group-hover:text-white/60 transition-colors"
+                  />
+                  <span className="z-10 relative">Portfolio</span>
+                </div>
+              </div>
             </div>
 
             {/* Desktop Controls */}
             <div className="hidden sm:flex items-center space-x-2 lg:space-x-4">
-              <Link href="/estimator">
-                <Button
-                  variant="outline"
+              <div className="flex items-center space-x-2 bg-white/10 hover:bg-white/15 backdrop-blur-sm px-3 lg:px-4 py-2 border border-white/30 rounded-lg text-white/60 text-xs lg:text-sm transition-all duration-300 cursor-not-allowed">
+                <MaterialIcon
+                  icon="request_quote"
                   size="sm"
-                  className="hover:bg-white backdrop-blur-sm px-3 lg:px-4 border-white/50 text-white hover:text-brand-primary text-xs lg:text-sm"
-                >
-                  <span className="hidden lg:inline">Get Quote</span>
-                  <span className="lg:hidden">Quote</span>
-                </Button>
-              </Link>
+                  className="text-white/50"
+                />
+                <span className="hidden lg:inline">Get Quote (Soon)</span>
+                <span className="lg:hidden">Quote</span>
+              </div>
 
-              <Link href="/contact">
-                <Button
-                  variant="primary"
+              <div className="flex items-center space-x-2 bg-brand-primary/40 hover:bg-brand-primary/50 backdrop-blur-sm px-3 lg:px-4 py-2 border border-brand-primary/30 rounded-lg text-white/70 text-xs lg:text-sm transition-all duration-300 cursor-not-allowed">
+                <MaterialIcon
+                  icon="contact_mail"
                   size="sm"
-                  className="bg-brand-primary/90 hover:bg-brand-primary backdrop-blur-sm px-3 lg:px-4 text-xs lg:text-sm"
-                >
-                  <span className="hidden lg:inline">Contact Us</span>
-                  <span className="lg:hidden">Contact</span>
-                </Button>
-              </Link>
+                  className="text-white/60"
+                />
+                <span className="hidden lg:inline">Contact (Soon)</span>
+                <span className="lg:hidden">Contact</span>
+              </div>
             </div>
           </div>
         </div>
@@ -104,7 +120,7 @@ export function Navigation() {
 
       {/* Floating Theme Toggle - Scrolls with user (matches hamburger menu behavior) */}
       <div className="hidden sm:block top-4 left-4 sm:left-6 z-50 fixed">
-        <NewThemeToggle />
+        <ThemeToggle compact size="sm" />
       </div>
 
       {/* Floating Hamburger Menu - Scrolls with user */}
@@ -160,150 +176,124 @@ export function Navigation() {
           <div className="z-10 relative space-y-6 px-6 py-6 pt-20">
             {/* Primary Action Buttons */}
             <div className="space-y-3">
-              <Link href="/estimator" onClick={() => setIsMenuOpen(false)}>
-                <Button
-                  variant="outline"
-                  size="md"
-                  className="hover:bg-brand-primary shadow-md hover:shadow-lg border-brand-primary hover:border-brand-primary ring-brand-primary/30 hover:ring-brand-primary/50 w-full text-brand-primary hover:text-white transition-all duration-300"
-                >
-                  <span className="flex justify-center items-center">
-                    <svg
-                      className="mr-2 w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                      />
-                    </svg>
-                    Get Quote
-                  </span>
-                </Button>
-              </Link>
-              <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-                <Button
-                  variant="primary"
-                  size="md"
-                  className="bg-brand-primary hover:bg-brand-primary-dark shadow-lg hover:shadow-xl border-brand-primary ring-brand-primary/30 hover:ring-brand-primary/50 w-full text-white hover:scale-[1.02] transition-all duration-300 transform"
-                >
-                  <span className="flex justify-center items-center">
-                    <svg
-                      className="mr-2 w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
-                    Contact Us
-                  </span>
-                </Button>
-              </Link>
+              <div className="group bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 shadow-md px-4 py-3 border border-gray-200 dark:border-gray-600 hover:border-brand-primary/30 rounded-xl w-full text-gray-500 hover:text-brand-primary dark:text-gray-400 text-sm text-center transition-all duration-300 cursor-not-allowed">
+                <div className="flex justify-center items-center space-x-2">
+                  <MaterialIcon
+                    icon="request_quote"
+                    size="sm"
+                    className="group-hover:text-brand-primary transition-colors"
+                  />
+                  <span>Coming Soon: Get Quote</span>
+                  <MaterialIcon
+                    icon="schedule"
+                    size="sm"
+                    className="text-gray-400 group-hover:text-brand-primary/70 transition-colors"
+                  />
+                </div>
+              </div>
+              <div className="group bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 shadow-md px-4 py-3 border border-gray-200 dark:border-gray-600 hover:border-brand-primary/30 rounded-xl w-full text-gray-500 hover:text-brand-primary dark:text-gray-400 text-sm text-center transition-all duration-300 cursor-not-allowed">
+                <div className="flex justify-center items-center space-x-2">
+                  <MaterialIcon
+                    icon="contact_mail"
+                    size="sm"
+                    className="group-hover:text-brand-primary transition-colors"
+                  />
+                  <span>Coming Soon: Contact Us</span>
+                  <MaterialIcon
+                    icon="schedule"
+                    size="sm"
+                    className="text-gray-400 group-hover:text-brand-primary/70 transition-colors"
+                  />
+                </div>
+              </div>
             </div>
 
             {/* Navigation Links */}
             <div className="space-y-1 pt-6 border-gray-200 dark:border-gray-700 border-t">
               {[
-                // Core site pages
+                // Only active pages
                 {
                   href: '/',
                   label: 'Home',
-                  icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
+                  icon: 'home',
+                  active: true,
+                  description: 'Return to homepage',
                 },
+                // Coming soon pages
                 {
-                  href: '/about',
+                  href: '#',
                   label: 'About Us',
-                  icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+                  icon: 'business',
+                  active: false,
+                  description: 'Learn about our company',
                 },
                 {
-                  href: '/services',
-                  label: 'What We Do',
-                  icon: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z',
+                  href: '#',
+                  label: 'Services',
+                  icon: 'construction',
+                  active: false,
+                  description: 'Our construction services',
                 },
                 {
-                  href: '/portfolio',
+                  href: '#',
                   label: 'Portfolio',
-                  icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+                  icon: 'photo_library',
+                  active: false,
+                  description: 'View our completed projects',
                 },
                 {
-                  href: '/projects',
-                  label: 'Projects',
-                  icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5l2 2h5a2 2 0 012 2v14a2 2 0 01-2 2z',
-                },
-                {
-                  href: '/showcase',
-                  label: 'Showcase',
-                  icon: 'M4 6h16M4 12h16M4 18h7',
-                },
-                {
-                  href: '/testimonials',
-                  label: 'Testimonials',
-                  icon: 'M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V7c0-1.105.895-2 2-2h14a2 2 0 012 2v7a2 2 0 01-2 2h-3l-4 4z',
-                },
-                {
-                  href: '/blog',
-                  label: 'Blog',
-                  icon: 'M11 5H6a2 2 0 00-2 2v11.5A1.5 1.5 0 005.5 20h11a1.5 1.5 0 001.5-1.5V14M16 3l5 5M16 3v5h5',
-                },
-                {
-                  href: '/news',
-                  label: 'News',
-                  icon: 'M12 8v8m-4-4h8M5 3h14a2 2 0 012 2v13a2 2 0 01-2 2H9l-4 3v-3H5a2 2 0 01-2-2V5a2 2 0 012-2z',
-                },
-                {
-                  href: '/booking',
-                  label: 'Booking',
-                  icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2h-1V3h-3v2H9V3H6v2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
-                },
-                {
-                  href: '/wounded-warrior',
-                  label: 'Wounded Warrior',
-                  icon: 'M12 8c1.657 0 3-1.343 3-3S13.657 2 12 2 9 3.343 9 5s1.343 3 3 3zm0 2c-3.314 0-6 2.239-6 5v5h12v-5c0-2.761-2.686-5-6-5z',
+                  href: '#',
+                  label: 'Contact',
+                  icon: 'contact_phone',
+                  active: false,
+                  description: 'Get in touch with us',
                 },
               ].map((item, index) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center hover:bg-gray-100 dark:hover:bg-gray-800 px-4 py-3 rounded-xl font-medium text-gray-900 hover:text-[#386851] dark:hover:text-[#4a7c59] dark:text-gray-100 transition-all duration-300"
-                  onClick={() => setIsMenuOpen(false)}
+                  className={`group flex items-center px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
+                    item.active
+                      ? 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-900 hover:text-[#386851] dark:hover:text-[#4a7c59] dark:text-gray-100 hover:shadow-sm'
+                      : 'bg-gray-50 dark:bg-gray-800 text-gray-400 dark:text-gray-500 cursor-not-allowed hover:bg-gray-100 dark:hover:bg-gray-700'
+                  }`}
+                  onClick={() => item.active && setIsMenuOpen(false)}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <svg
-                    className="opacity-70 group-hover:opacity-100 mr-3 w-5 h-5 transition-opacity"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d={item.icon}
+                  <MaterialIcon
+                    icon={item.icon}
+                    size="sm"
+                    className={`mr-3 transition-all duration-300 ${
+                      item.active
+                        ? 'opacity-70 group-hover:opacity-100 group-hover:text-[#386851] dark:group-hover:text-[#4a7c59]'
+                        : 'opacity-50'
+                    }`}
+                  />
+                  <div className="flex-1">
+                    <div className="font-medium text-sm">{item.label}</div>
+                    {!item.active && (
+                      <div className="flex items-center space-x-1 text-gray-400 text-xs">
+                        <MaterialIcon
+                          icon="schedule"
+                          size="sm"
+                          className="text-xs"
+                        />
+                        <span>Coming Soon</span>
+                      </div>
+                    )}
+                    {item.active && (
+                      <div className="text-gray-500 dark:text-gray-400 text-xs">
+                        {item.description}
+                      </div>
+                    )}
+                  </div>
+                  {item.active && (
+                    <MaterialIcon
+                      icon="arrow_forward"
+                      size="sm"
+                      className="opacity-0 group-hover:opacity-100 ml-2 text-[#386851] dark:text-[#4a7c59] transition-all group-hover:translate-x-1 duration-300 transform"
                     />
-                  </svg>
-                  {item.label}
-                  <svg
-                    className="opacity-0 group-hover:opacity-100 ml-auto w-4 h-4 transition-all group-hover:translate-x-1 duration-300 transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
+                  )}
                 </Link>
               ))}
             </div>

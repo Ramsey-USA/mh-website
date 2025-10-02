@@ -9,63 +9,17 @@ import {
   CardTitle,
   CardContent,
 } from '../components/ui'
-import { PortfolioImage } from '../components/portfolio/ProjectImage'
+// import { PortfolioImage } from '../components/portfolio/ProjectImage'
 import { PortfolioService } from '../lib/services/portfolioService'
 import {
   generateSEOMetadata,
   generateOrganizationStructuredData,
   StructuredData,
 } from '../components/seo/seo-meta'
-import TestimonialsWidget from '../components/TestimonialsWidget'
-import BlogNewsCarousel from '../components/blog/BlogNewsCarousel'
+import TestimonialsWidget from '../components/testimonials/TestimonialsWidget'
+// import BlogNewsCarousel from '../components/blog/BlogNewsCarousel'
 import Head from 'next/head'
-import {
-  WrenchIcon,
-  BlueprintIcon,
-  MeasureIcon,
-  TargetIcon,
-  BadgeIcon,
-  MedalIcon,
-  AnchorIcon,
-  CompassIcon,
-  TiresIcon,
-  HelmetIcon,
-  ArrowRightIcon,
-  CheckIcon,
-  ShieldIcon,
-  AIIcon,
-  BinocularsIcon,
-  CalendarScheduleIcon,
-  UserProfileIcon,
-  HelmetThinIcon,
-  WrenchThinIcon,
-  BlueprintThinIcon,
-  MeasureThinIcon,
-  TargetThinIcon,
-  BadgeThinIcon,
-  MedalThinIcon,
-  AnchorThinIcon,
-  CompassThinIcon,
-  TiresThinIcon,
-  HandshakeIcon,
-  StarIcon,
-  ScaleIcon,
-  TransparencyIcon,
-  PrecisionIcon,
-  ClientFirstIcon,
-  ProfessionalControlIcon,
-  TrustIcon,
-} from '../components/icons/SharpDuotoneIcons'
-// Import custom MH Construction icons with built-in hover effects
-import {
-  MHLogoIcon,
-  MHHammerIcon,
-  MHQualityShieldIcon,
-  MHVeteranStarIcon,
-  MHCheckIcon,
-  MHBuildingIcon,
-  MHArrowRightIcon,
-} from '../components/icons/MHCustomIcons'
+import { MaterialIcon } from '../components/icons/MaterialIcon'
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -190,49 +144,51 @@ export default function Home() {
 
             {/* Enhanced CTA with Phone Number */}
             <div className="flex sm:flex-row flex-col justify-center items-center gap-4">
-              <a href="tel:5093086489">
+              <Link href="/booking">
                 <HoverScale>
                   <Button
                     variant="primary"
                     size="xl"
-                    className="bg-white hover:bg-white/90 shadow-2xl border-0 text-brand-primary"
+                    className="group bg-white hover:bg-gray-50 shadow-2xl hover:shadow-3xl border-0 text-gray-900 hover:text-gray-800 hover:scale-105 transition-all duration-300 ease-out transform"
                     onClick={() =>
                       trackEvent('cta_click', {
-                        button_name: 'call_now',
+                        button_name: 'schedule_consultation',
                         location: 'hero_section',
                         page: 'homepage',
                       })
                     }
                   >
-                    <CalendarScheduleIcon
-                      size="sm"
-                      primaryColor="currentColor"
-                      className="mr-3"
+                    <MaterialIcon
+                      icon="event"
+                      size="2xl"
+                      className="mr-4 text-gray-800 group-hover:scale-110 transition-transform duration-300"
                     />
-                    <span className="font-semibold">Call (509) 308-6489</span>
+                    <span className="font-semibold">
+                      Schedule a Consultation
+                    </span>
                   </Button>
                 </HoverScale>
-              </a>
+              </Link>
               <Link href="/estimator">
                 <HoverScale>
                   <Button
                     variant="outline"
                     size="xl"
-                    className="hover:bg-white shadow-2xl border-white text-white hover:text-brand-primary"
+                    className="group bg-transparent hover:bg-white shadow-2xl hover:shadow-3xl border-2 border-white text-white hover:text-gray-900 hover:scale-105 transition-all duration-300 ease-out transform"
                     onClick={() =>
                       trackEvent('cta_click', {
-                        button_name: 'free_estimate',
+                        button_name: 'ai_estimator',
                         location: 'hero_section',
                         page: 'homepage',
                       })
                     }
                   >
-                    <AIIcon
-                      size="sm"
-                      primaryColor="currentColor"
-                      className="mr-3"
+                    <MaterialIcon
+                      icon="smart_toy"
+                      size="2xl"
+                      className="mr-4 group-hover:scale-110 transition-transform duration-300"
                     />
-                    <span className="font-semibold">Free Estimate</span>
+                    <span className="font-semibold">AI Estimator</span>
                   </Button>
                 </HoverScale>
               </Link>
@@ -274,7 +230,13 @@ export default function Home() {
           <StaggeredFadeIn className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                icon: AIIcon,
+                icon: ({ size }: any) => (
+                  <MaterialIcon
+                    icon="smart_toy"
+                    size={size}
+                    className="text-white"
+                  />
+                ),
                 title: 'AI Project Estimator',
                 description:
                   'Revolutionary AI-powered cost calculator with ±15% precision guarantee for accurate project planning and budgeting.',
@@ -291,7 +253,13 @@ export default function Home() {
                 delay: '0s',
               },
               {
-                icon: CalendarScheduleIcon,
+                icon: ({ size }: any) => (
+                  <MaterialIcon
+                    icon="event"
+                    size={size}
+                    className="text-white"
+                  />
+                ),
                 title: 'Smart Scheduling',
                 description:
                   'Visual calendar system with real-time availability and instant confirmations for seamless booking experience.',
@@ -308,7 +276,13 @@ export default function Home() {
                 delay: '0.1s',
               },
               {
-                icon: BinocularsIcon,
+                icon: ({ size }: any) => (
+                  <MaterialIcon
+                    icon="visibility"
+                    size={size}
+                    className="text-white"
+                  />
+                ),
                 title: '3D Project Explorer',
                 description:
                   'Immersive HD visualization with real-time builder insights to bring your vision to life before construction begins.',
@@ -325,7 +299,14 @@ export default function Home() {
                 delay: '0.2s',
               },
               {
-                icon: HelmetIcon,
+                icon: ({ size }: any) => (
+                  <MaterialIcon
+                    icon="security"
+                    size={size}
+                    className="text-white"
+                    style={{ color: '#4CAF50' }}
+                  />
+                ),
                 title: '24/7 AI Assistant',
                 description:
                   'Military-grade support with enhanced chatbot providing context-aware veteran assistance and instant responses.',
@@ -406,8 +387,9 @@ export default function Home() {
                               key={idx}
                               className="flex items-start text-left"
                             >
-                              <CheckIcon
-                                size="sm"
+                              <MaterialIcon
+                                icon="check_circle"
+                                size="md"
                                 className="flex-shrink-0 mt-0.5 mr-2 text-white/80"
                               />
                               <span className="font-light leading-snug">
@@ -432,41 +414,64 @@ export default function Home() {
                 description: 'Get instant project estimates',
                 href: '/estimator',
                 variant: 'primary' as const,
-                icon: AIIcon,
+                icon: ({ size }: any) => (
+                  <MaterialIcon
+                    icon="smart_toy"
+                    size={size}
+                    className="text-current"
+                  />
+                ),
               },
               {
                 title: 'Book Meeting',
                 description: 'Schedule your free consultation',
                 href: '/booking',
                 variant: 'outline' as const,
-                icon: CalendarScheduleIcon,
+                icon: ({ size }: any) => (
+                  <MaterialIcon
+                    icon="event"
+                    size={size}
+                    className="text-current"
+                  />
+                ),
               },
               {
                 title: 'View Projects',
                 description: 'Explore our 3D gallery',
                 href: '/portfolio',
                 variant: 'outline' as const,
-                icon: BinocularsIcon,
+                icon: ({ size }: any) => (
+                  <MaterialIcon
+                    icon="visibility"
+                    size={size}
+                    className="text-current"
+                  />
+                ),
               },
               {
                 title: 'Chat with AI',
                 description: 'Get instant support',
                 href: '/contact',
                 variant: 'outline' as const,
-                icon: HelmetIcon,
+                icon: ({ size }: any) => (
+                  <MaterialIcon
+                    icon="support_agent"
+                    size={size}
+                    className="text-current"
+                  />
+                ),
               },
             ].map((cta, index) => (
               <div key={index} className="text-center">
                 <Button
                   variant={cta.variant}
                   size="lg"
-                  className="shadow-lg hover:shadow-xl mb-3 w-full h-12 transition-all duration-300"
+                  className="group shadow-lg hover:shadow-xl mb-3 w-full h-12 hover:scale-105 transition-all duration-300 ease-out transform"
                   onClick={() => (window.location.href = cta.href)}
                 >
                   <cta.icon
-                    size="sm"
-                    primaryColor="currentColor"
-                    className="mr-3"
+                    size="xl"
+                    className="mr-3 group-hover:scale-110 transition-transform duration-300"
                   />
                   <span className="font-semibold">{cta.title}</span>
                 </Button>
@@ -514,7 +519,13 @@ export default function Home() {
             {[
               {
                 value: 'Honesty & Transparency',
-                icon: TransparencyIcon,
+                icon: ({ size }: any) => (
+                  <MaterialIcon
+                    icon="visibility"
+                    size={size}
+                    className="text-current"
+                  />
+                ),
                 description:
                   'We provide full-disclosure transparency from day one. Our open-dialogue progress meetings include all stakeholders, ensuring every topic is vetted and documented.',
                 details:
@@ -525,7 +536,13 @@ export default function Home() {
               },
               {
                 value: 'Integrity',
-                icon: ScaleIcon,
+                icon: ({ size }: any) => (
+                  <MaterialIcon
+                    icon="balance"
+                    size={size}
+                    className="text-current"
+                  />
+                ),
                 description:
                   'Integrity is the unwavering commitment to our word. As a team built on principles of accountability and trust, we view our business conduct as a direct reflection of our personal character.',
                 details:
@@ -536,7 +553,13 @@ export default function Home() {
               },
               {
                 value: 'Precision & Experience',
-                icon: PrecisionIcon,
+                icon: ({ size }: any) => (
+                  <MaterialIcon
+                    icon="precision_manufacturing"
+                    size={size}
+                    className="text-current"
+                  />
+                ),
                 description:
                   'With over 150 years of combined experience in commercial construction, we offer a project team that has seen and managed virtually every challenge.',
                 details:
@@ -547,7 +570,13 @@ export default function Home() {
               },
               {
                 value: 'Client-First Ethics',
-                icon: ClientFirstIcon,
+                icon: ({ size }: any) => (
+                  <MaterialIcon
+                    icon="favorite"
+                    size={size}
+                    className="text-current"
+                  />
+                ),
                 description:
                   'Our foundation is built on small-town values: we are a "client" focused company, not just a "project" focused one.',
                 details:
@@ -558,7 +587,13 @@ export default function Home() {
               },
               {
                 value: 'Professionalism & Control',
-                icon: ProfessionalControlIcon,
+                icon: ({ size }: any) => (
+                  <MaterialIcon
+                    icon="engineering"
+                    size={size}
+                    className="text-current"
+                  />
+                ),
                 description:
                   'Professionalism here is the confident, controlled ability to navigate complex projects.',
                 details:
@@ -570,7 +605,13 @@ export default function Home() {
               },
               {
                 value: 'Trust (The Culmination)',
-                icon: TrustIcon,
+                icon: ({ size }: any) => (
+                  <MaterialIcon
+                    icon="verified"
+                    size={size}
+                    className="text-current"
+                  />
+                ),
                 description:
                   'Earning your trust is not a starting point; it is the culmination of our consistent performance in all other core values.',
                 details:
@@ -622,7 +663,7 @@ export default function Home() {
                       <div className="flex flex-col justify-between h-full text-white text-center">
                         <div className="flex-shrink-0">
                           <IconComponent
-                            size="md"
+                            size="xl"
                             primaryColor="white"
                             className="mx-auto mb-3"
                           />
@@ -688,7 +729,11 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <CompassIcon size="xl" primaryColor="var(--brand-primary)" />
+                  <MaterialIcon
+                    icon="explore"
+                    size="xl"
+                    className="text-brand-primary"
+                  />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Construction Management
@@ -700,7 +745,11 @@ export default function Home() {
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Call (509) 308-6489</span>
-                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
+                  <MaterialIcon
+                    icon="arrow_forward"
+                    size="lg"
+                    className="group-hover:scale-110 transition-all group-hover:translate-x-2 duration-300"
+                  />
                 </div>
               </div>
             </div>
@@ -710,9 +759,10 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <BlueprintIcon
+                  <MaterialIcon
+                    icon="architecture"
                     size="xl"
-                    primaryColor="var(--brand-primary)"
+                    className="text-brand-primary"
                   />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
@@ -724,7 +774,11 @@ export default function Home() {
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
+                  <MaterialIcon
+                    icon="arrow_forward"
+                    size="lg"
+                    className="group-hover:scale-110 transition-all group-hover:translate-x-2 duration-300"
+                  />
                 </div>
               </div>
             </div>
@@ -734,7 +788,11 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <WrenchIcon size="xl" primaryColor="var(--brand-primary)" />
+                  <MaterialIcon
+                    icon="build"
+                    size="xl"
+                    className="text-brand-primary"
+                  />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Commercial Buildings
@@ -745,7 +803,11 @@ export default function Home() {
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
+                  <MaterialIcon
+                    icon="arrow_forward"
+                    size="lg"
+                    className="group-hover:scale-110 transition-all group-hover:translate-x-2 duration-300"
+                  />
                 </div>
               </div>
             </div>
@@ -755,7 +817,11 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <MeasureIcon size="xl" primaryColor="var(--brand-primary)" />
+                  <MaterialIcon
+                    icon="straighten"
+                    size="xl"
+                    className="text-brand-primary"
+                  />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Medical Facilities
@@ -766,7 +832,11 @@ export default function Home() {
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
+                  <MaterialIcon
+                    icon="arrow_forward"
+                    size="lg"
+                    className="group-hover:scale-110 transition-all group-hover:translate-x-2 duration-300"
+                  />
                 </div>
               </div>
             </div>
@@ -776,7 +846,11 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <HelmetIcon size="xl" primaryColor="var(--brand-primary)" />
+                  <MaterialIcon
+                    icon="construction"
+                    size="xl"
+                    className="text-brand-primary"
+                  />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Light Industrial
@@ -787,7 +861,11 @@ export default function Home() {
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
+                  <MaterialIcon
+                    icon="arrow_forward"
+                    size="lg"
+                    className="group-hover:scale-110 transition-all group-hover:translate-x-2 duration-300"
+                  />
                 </div>
               </div>
             </div>
@@ -797,7 +875,11 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <TargetIcon size="xl" primaryColor="var(--brand-primary)" />
+                  <MaterialIcon
+                    icon="gps_fixed"
+                    size="xl"
+                    className="text-brand-primary"
+                  />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
                   Tenant Improvements
@@ -809,7 +891,11 @@ export default function Home() {
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
+                  <MaterialIcon
+                    icon="arrow_forward"
+                    size="lg"
+                    className="group-hover:scale-110 transition-all group-hover:translate-x-2 duration-300"
+                  />
                 </div>
               </div>
             </div>
@@ -912,10 +998,11 @@ export default function Home() {
                       <div className="flex space-x-1">
                         {Array.from({ length: testimonial.rating }).map(
                           (_, i) => (
-                            <StarIcon
+                            <MaterialIcon
                               key={i}
-                              size="sm"
-                              primaryColor="#fbbf24"
+                              icon="star"
+                              size="lg"
+                              className="text-yellow-400"
                             />
                           )
                         )}
@@ -933,8 +1020,14 @@ export default function Home() {
 
           <div className="text-center scroll-reveal">
             <Link href="/testimonials">
-              <Button variant="outline" size="xl" className="shadow-xl">
-                <span className="z-10 relative">View All Testimonials</span>
+              <Button
+                variant="outline"
+                size="xl"
+                className="group shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-out transform"
+              >
+                <span className="z-10 relative group-hover:scale-105 transition-transform duration-300">
+                  View All Testimonials
+                </span>
               </Button>
             </Link>
           </div>
@@ -942,12 +1035,12 @@ export default function Home() {
       </section>
 
       {/* Why Partner With MH Construction Section */}
-      <section className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900 py-16 lg:py-20 xl:py-24 text-white">
+      <section className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900 py-12 lg:py-16 text-white">
         <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
-          <div className="mb-16 lg:mb-20 text-center scroll-reveal">
-            <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-              <span className="block mb-2 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+          <div className="mb-10 lg:mb-12 text-center scroll-reveal">
+            <h2 className="mb-4 font-black text-white text-2xl sm:text-3xl md:text-4xl leading-tight tracking-tighter">
+              <span className="block mb-2 font-semibold text-white/80 text-lg sm:text-xl md:text-2xl tracking-tight">
                 The MH Partnership
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-white via-brand-secondary to-white text-transparent">
@@ -955,17 +1048,16 @@ export default function Home() {
               </span>
             </h2>
 
-            <p className="mx-auto max-w-3xl font-light text-white/90 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-              Experience the collaborative approach where veteran values,
-              community focus, and genuine partnership create extraordinary
-              results together.
+            <p className="mx-auto max-w-2xl font-light text-white/90 text-base md:text-lg leading-relaxed">
+              Experience the collaborative approach where veteran values and
+              genuine partnership create extraordinary results.
             </p>
 
             {/* Core Philosophy Tagline */}
-            <div className="mt-8 mb-4">
-              <p className="mx-auto max-w-3xl font-bold text-white text-lg sm:text-xl md:text-2xl text-center leading-snug">
+            <div className="mt-6 mb-2">
+              <p className="mx-auto max-w-2xl font-bold text-white text-base sm:text-lg text-center leading-snug">
                 "Building for the Owner,{' '}
-                <span className="font-black text-veteran-red text-xl sm:text-2xl md:text-3xl">
+                <span className="font-black text-veteran-red text-lg sm:text-xl">
                   NOT
                 </span>{' '}
                 the Dollar"
@@ -973,26 +1065,25 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Core Partnership Values - 4 Flip Cards with Custom MH Icons */}
-          <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            {/* Partnership Approach */}
-            <div className="group h-80 perspective-1000">
+          {/* Core Partnership Values - 4 Flip Cards with Sharp Duotone Icons */}
+          <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            {/* Partnership Approach - We Work With You */}
+            <div className="group h-64 perspective-1000">
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
                 <div className="absolute inset-0 backface-hidden">
-                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-4">
-                      <MHVeteranStarIcon
-                        size="xl"
-                        hoverEffect="glow"
-                        color="#dc2626"
-                        className="drop-shadow-lg mx-auto"
+                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
+                    <div className="mb-3">
+                      <MaterialIcon
+                        icon="security"
+                        size="2xl"
+                        className="drop-shadow-lg mx-auto text-white"
                       />
                     </div>
-                    <h3 className="font-black text-white text-lg lg:text-xl tracking-tight">
+                    <h3 className="font-black text-white text-base lg:text-lg tracking-tight">
                       We Work With You
                     </h3>
-                    <p className="mt-2 text-white/70 text-sm">
+                    <p className="mt-1 text-white/70 text-xs">
                       Hover to learn more
                     </p>
                   </div>
@@ -1000,23 +1091,21 @@ export default function Home() {
 
                 {/* Back of Card */}
                 <div className="absolute inset-0 rotate-y-180 backface-hidden">
-                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-4">
-                      <MHVeteranStarIcon
-                        size="lg"
-                        hoverEffect="pulse"
-                        color="#dc2626"
-                        className="mx-auto"
+                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
+                    <div className="mb-3">
+                      <MaterialIcon
+                        icon="security"
+                        size="xl"
+                        className="mx-auto text-white"
                       />
                     </div>
-                    <h3 className="mb-4 font-black text-white text-lg">
+                    <h3 className="mb-3 font-black text-white text-base">
                       True Collaboration
                     </h3>
-                    <p className="text-white/90 text-sm leading-relaxed">
+                    <p className="text-white/90 text-xs leading-relaxed">
                       More than contractors - we're your construction partners.
                       Your vision combined with our veteran-led expertise
-                      creates extraordinary results through genuine
-                      collaboration.
+                      creates extraordinary results.
                     </p>
                   </div>
                 </div>
@@ -1024,23 +1113,22 @@ export default function Home() {
             </div>
 
             {/* Community Focus */}
-            <div className="group h-80 perspective-1000">
+            <div className="group h-64 perspective-1000">
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
                 <div className="absolute inset-0 backface-hidden">
-                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-4">
-                      <MHBuildingIcon
-                        size="xl"
-                        hoverEffect="scale"
-                        color="currentColor"
-                        className="mx-auto text-brand-secondary hover:rotate-12 hover:scale-110 transition-all duration-300"
+                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
+                    <div className="mb-3">
+                      <MaterialIcon
+                        icon="favorite"
+                        size="2xl"
+                        className="mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="font-black text-white text-lg lg:text-xl tracking-tight">
+                    <h3 className="font-black text-white text-base lg:text-lg tracking-tight">
                       Community Centered
                     </h3>
-                    <p className="mt-2 text-white/70 text-sm">
+                    <p className="mt-1 text-white/70 text-xs">
                       Hover to learn more
                     </p>
                   </div>
@@ -1048,23 +1136,20 @@ export default function Home() {
 
                 {/* Back of Card */}
                 <div className="absolute inset-0 rotate-y-180 backface-hidden">
-                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-4">
-                      <MHBuildingIcon
-                        size="lg"
-                        hoverEffect="pulse"
-                        color="currentColor"
-                        className="mx-auto text-brand-secondary hover:rotate-6 hover:scale-110 transition-all duration-300"
+                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
+                    <div className="mb-3">
+                      <MaterialIcon
+                        icon="favorite"
+                        size="xl"
+                        className="mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="mb-4 font-black text-white text-lg">
+                    <h3 className="mb-3 font-black text-white text-base">
                       Pacific Northwest Roots
                     </h3>
-                    <p className="text-white/90 text-sm leading-relaxed">
+                    <p className="text-white/90 text-xs leading-relaxed">
                       Every project strengthens our shared community. Local
-                      hiring, regional suppliers, and neighborhood focus - your
-                      construction partnership contributes to Pacific Northwest
-                      prosperity.
+                      hiring, regional suppliers, and neighborhood focus.
                     </p>
                   </div>
                 </div>
@@ -1072,23 +1157,22 @@ export default function Home() {
             </div>
 
             {/* Transparent Partnership */}
-            <div className="group h-80 perspective-1000">
+            <div className="group h-64 perspective-1000">
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
                 <div className="absolute inset-0 backface-hidden">
-                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-4">
-                      <MHHammerIcon
-                        size="xl"
-                        hoverEffect="rotate"
-                        color="currentColor"
+                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
+                    <div className="mb-3">
+                      <MaterialIcon
+                        icon="visibility"
+                        size="2xl"
                         className="drop-shadow-lg mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="font-black text-white text-lg lg:text-xl tracking-tight">
+                    <h3 className="font-black text-white text-base lg:text-lg tracking-tight">
                       Honest & Transparent
                     </h3>
-                    <p className="mt-2 text-white/70 text-sm">
+                    <p className="mt-1 text-white/70 text-xs">
                       Hover to learn more
                     </p>
                   </div>
@@ -1096,23 +1180,20 @@ export default function Home() {
 
                 {/* Back of Card */}
                 <div className="absolute inset-0 rotate-y-180 backface-hidden">
-                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-4">
-                      <MHHammerIcon
-                        size="lg"
-                        hoverEffect="pulse"
-                        color="currentColor"
+                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
+                    <div className="mb-3">
+                      <MaterialIcon
+                        icon="visibility"
+                        size="xl"
                         className="mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="mb-4 font-black text-white text-lg">
+                    <h3 className="mb-3 font-black text-white text-base">
                       No Surprises Partnership
                     </h3>
-                    <p className="text-white/90 text-sm leading-relaxed">
+                    <p className="text-white/90 text-xs leading-relaxed">
                       Open pricing, honest timelines, and constant
-                      communication. Veteran integrity means no hidden costs, no
-                      sales pressure - just authentic conversation about your
-                      goals and dreams.
+                      communication. Veteran integrity means no hidden costs.
                     </p>
                   </div>
                 </div>
@@ -1120,23 +1201,22 @@ export default function Home() {
             </div>
 
             {/* Lasting Relationships */}
-            <div className="group h-80 perspective-1000">
+            <div className="group h-64 perspective-1000">
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
                 <div className="absolute inset-0 backface-hidden">
-                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-4">
-                      <MHQualityShieldIcon
-                        size="xl"
-                        hoverEffect="glow"
-                        color="currentColor"
+                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
+                    <div className="mb-3">
+                      <MaterialIcon
+                        icon="handshake"
+                        size="2xl"
                         className="drop-shadow-lg mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="font-black text-white text-lg lg:text-xl tracking-tight">
+                    <h3 className="font-black text-white text-base lg:text-lg tracking-tight">
                       Lifelong Partners
                     </h3>
-                    <p className="mt-2 text-white/70 text-sm">
+                    <p className="mt-1 text-white/70 text-xs">
                       Hover to learn more
                     </p>
                   </div>
@@ -1144,23 +1224,21 @@ export default function Home() {
 
                 {/* Back of Card */}
                 <div className="absolute inset-0 rotate-y-180 backface-hidden">
-                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-6 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-4">
-                      <MHQualityShieldIcon
-                        size="lg"
-                        hoverEffect="pulse"
-                        color="currentColor"
+                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
+                    <div className="mb-3">
+                      <MaterialIcon
+                        icon="handshake"
+                        size="xl"
                         className="mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="mb-4 font-black text-white text-lg">
+                    <h3 className="mb-3 font-black text-white text-base">
                       Beyond Project Completion
                     </h3>
-                    <p className="text-white/90 text-sm leading-relaxed">
+                    <p className="text-white/90 text-xs leading-relaxed">
                       Our partnership doesn't end when construction finishes.
                       Many clients become lifelong friends and community
-                      connections. Together, we build relationships that last
-                      generations.
+                      connections.
                     </p>
                   </div>
                 </div>
@@ -1204,23 +1282,36 @@ export default function Home() {
             </p>
           </FadeInWhenVisible>
 
-          {/* Blog/News Carousel */}
-          <FadeInWhenVisible>
-            <BlogNewsCarousel />
-          </FadeInWhenVisible>
+          {/* Blog/News Carousel removed for clean slate migration */}
 
           {/* View All Links */}
           <div className="flex sm:flex-row flex-col justify-center items-center gap-6 mt-12 text-center">
             <Link href="/blog">
-              <Button variant="outline" size="lg" className="shadow-lg">
+              <Button
+                variant="outline"
+                size="lg"
+                className="group shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out transform"
+              >
                 <span className="mr-2">View All Blog Posts</span>
-                <ArrowRightIcon size="sm" primaryColor="currentColor" />
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="lg"
+                  className="transition-transform group-hover:translate-x-1 duration-300"
+                />
               </Button>
             </Link>
             <Link href="/news">
-              <Button variant="outline" size="lg" className="shadow-lg">
+              <Button
+                variant="outline"
+                size="lg"
+                className="group shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out transform"
+              >
                 <span className="mr-2">View All News</span>
-                <ArrowRightIcon size="sm" primaryColor="currentColor" />
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="lg"
+                  className="transition-transform group-hover:translate-x-1 duration-300"
+                />
               </Button>
             </Link>
           </div>
@@ -1246,12 +1337,12 @@ export default function Home() {
             {/* Commercial CTA Buttons - 4 Button Grid */}
             <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto mb-6 max-w-6xl">
               <a href="tel:5093086489">
-                <button className="group relative bg-white hover:bg-gray-50 shadow-2xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-brand-primary text-base transition-all duration-200">
+                <button className="group relative bg-white hover:bg-gray-50 shadow-2xl hover:shadow-3xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-brand-primary text-base hover:scale-105 transition-all duration-300 ease-out transform">
                   <div className="flex justify-center items-center">
-                    <CalendarScheduleIcon
-                      size="md"
-                      primaryColor="currentColor"
-                      className="flex-shrink-0 mr-2"
+                    <MaterialIcon
+                      icon="phone"
+                      size="lg"
+                      className="flex-shrink-0 mr-2 group-hover:scale-110 transition-transform duration-300"
                     />
                     <span className="text-center leading-tight">
                       Call Now
@@ -1263,12 +1354,12 @@ export default function Home() {
               </a>
 
               <Link href="/estimator">
-                <button className="group relative bg-brand-primary hover:bg-brand-primary-dark shadow-2xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-white text-base transition-all duration-200">
+                <button className="group relative bg-brand-primary hover:bg-brand-primary-dark shadow-2xl hover:shadow-3xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-white text-base hover:scale-105 transition-all duration-300 ease-out transform">
                   <div className="flex justify-center items-center">
-                    <AIIcon
-                      size="md"
-                      primaryColor="currentColor"
-                      className="flex-shrink-0 mr-2"
+                    <MaterialIcon
+                      icon="smart_toy"
+                      size="lg"
+                      className="flex-shrink-0 mr-2 group-hover:scale-110 transition-transform duration-300"
                     />
                     <span className="text-center leading-tight">
                       Project Estimator
@@ -1278,12 +1369,12 @@ export default function Home() {
               </Link>
 
               <Link href="/portfolio">
-                <button className="group relative bg-white hover:bg-gray-50 shadow-2xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-brand-primary text-base transition-all duration-200">
+                <button className="group relative bg-white hover:bg-gray-50 shadow-2xl hover:shadow-3xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-brand-primary text-base hover:scale-105 transition-all duration-300 ease-out transform">
                   <div className="flex justify-center items-center">
-                    <BinocularsIcon
-                      size="md"
-                      primaryColor="currentColor"
-                      className="flex-shrink-0 mr-2"
+                    <MaterialIcon
+                      icon="visibility"
+                      size="lg"
+                      className="flex-shrink-0 mr-2 group-hover:scale-110 transition-transform duration-300"
                     />
                     <span className="text-center leading-tight">
                       View Projects
@@ -1293,12 +1384,12 @@ export default function Home() {
               </Link>
 
               <Link href="/booking">
-                <button className="group relative bg-brand-primary hover:bg-brand-primary-dark shadow-2xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-white text-base transition-all duration-200">
+                <button className="group relative bg-brand-primary hover:bg-brand-primary-dark shadow-2xl hover:shadow-3xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-white text-base hover:scale-105 transition-all duration-300 ease-out transform">
                   <div className="flex justify-center items-center">
-                    <WrenchIcon
-                      size="md"
-                      primaryColor="currentColor"
-                      className="flex-shrink-0 mr-2"
+                    <MaterialIcon
+                      icon="event"
+                      size="lg"
+                      className="flex-shrink-0 mr-2 group-hover:scale-110 transition-transform duration-300"
                     />
                     <span className="text-center leading-tight">
                       Free
