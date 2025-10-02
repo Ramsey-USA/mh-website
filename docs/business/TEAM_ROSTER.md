@@ -162,7 +162,7 @@
 - **Focus**: Building a strong team culture that supports both employee growth and client service
 - **Initiative**: Leading efforts to expand veteran hiring and support programs
 
-### Matt Ramsey - Project & Marketing Coordinator
+### Matt Ramsey - Project Engineer & Digital Marketing Manager
 
 - **Experience**: 7 years construction marketing
 - **Status**: Veteran
@@ -192,7 +192,7 @@
 
 ### Veteran Team Members
 
-- **Matt Ramsey**: Marketing Coordinator - Brings military precision to technology integration
+- **Matt Ramsey**: Project Engineer & Digital Marketing Manager - Brings military precision to technology integration
 - **Veteran Hiring Initiative**: Active recruitment of qualified veterans across all departments
 - **Wounded Warrior Support**: Specialized services and support for wounded veterans
 

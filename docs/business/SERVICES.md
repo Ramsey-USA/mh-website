@@ -22,163 +22,167 @@ Trust our experienced team to manage the intricate details, allowing you to focu
 
 ## 🎯 Core Services
 
-### 1. **Master Planning (Pre-Construction)**
+### 1. **Commercial Construction Management**
 
-#### Comprehensive Pre-Construction & Master Planning
+#### Streamline Your Project Success with Construction Management in the Tri-Cities
 
-Unlock the full potential of your commercial project with MH Construction's detailed Master Planning and Pre-Construction Services. Our team is passionate about transforming your vision into a practical, buildable reality.
+Planning a new commercial building demands intricate details and expert oversight. Put your project in the right hands by hiring MH Construction for comprehensive Construction Management (CM) services throughout the Tri-Cities (Pasco, WA) area. Our priority is delivering an exceptional client experience from start to finish. Our commitment to thorough communication and upfront planning is critical to streamlining the process, preventing costly on-the-fly decisions later on.
 
-**What We Plan For:**
+#### **Make Your Vision a Reality**
 
-- **Project Location and Surrounding Infrastructure**
+MH Construction has proven experience with construction management for all types of commercial, industrial, and specialty businesses, including:
+
+- **Commercial Businesses** (Retail, Offices)
+- **Medical Facilities**
+- **Industrial Buildings**
+- **Churches & Religious Facilities**
+- **Wineries & Vineyards**
+
+**Call to Action**: Call 509-308-6489 today to take the first step toward your new building construction.
+
+---
+
+### 2. **Master Planning (Pre-Construction)**
+
+#### Unlock Your Building's Potential with Comprehensive Master Planning in the Tri-Cities
+
+At MH Construction, we're passionate about transforming your vision into a reality through detailed Master Planning. We strategize and coordinate every component of your building construction from concept through the finishing touches. Our team works closely with you to create a comprehensive plan designed to prevent last-minute changes and scope creep in later stages of construction.
+
+#### **Navigating the Intricacies of Your Project**
+
+Our skilled team ensures zero gaps in scope coverage during your construction planning. We meticulously consider:
+
+- **Building Location and Surrounding Infrastructure**
 - **Local and State Building Codes** (WA, OR, ID)
 - **Detailed Budget Constraints and Cost Control**
 - **Project Timeline and Sequencing**
-- **Owner Design Preferences and Technical Requirements**
+- **Owner Design Preferences**
 
-**Benefits:**
+---
 
-- Prevents costly, last-minute changes to scope and budget
-- Creates comprehensive blueprint for success
-- Establishes realistic timelines and expectations
+### 3. **Procurement & Vendor Management**
 
-### 2. **Procurement (Vendor Management)**
+#### Reliable Construction Material Procurement and Vendor Management
 
-#### Construction Material Procurement & Vendor Management
+Navigating the logistics of construction requires extensive planning and coordination. At MH Construction, we offer Construction Vendor Management services throughout the Tri-Cities that specialize in sourcing quality materials tailored to your project goals. Our reliable Master Planning gives vendors the advanced notice necessary to streamline procurement and proactively manage long lead item delays, ensuring timely delivery and installation.
 
-The complexity of commercial construction is often bottlenecked by material procurement. We specialize in sourcing the highest-quality materials tailored precisely to your project goals.
+#### **What Our Service Provides**
 
-**Our Procurement Process:**
+We pay meticulous attention to detail throughout the entire procurement process. Count on us to manage:
 
 - **Material Sourcing and Vetting**
 - **Supplier Management and Communication**
-- **Budget Negotiation and Price Stabilization**
-- **Detailed Purchase Orders and Documentation**
+- **Budget Negotiation and Pricing**
+- **Purchase Orders and Documentation**
 - **Contract Management**
-- **On-Time Coordination of Deliveries**
-
-**Advantage**: Our efficient Master Planning provides vendors with advanced notice and coordinated scheduling to keep projects on track.
-
-### 3. **Constructability & Budget Control**
-
-#### Constructability Review & Proactive Budget Control
-
-Is your project feasible? And if so, how can it be cost-effective? We improve project planning and execution through early-stage Constructability Analysis and Budget Control.
-
-**Analysis Includes:**
-
-- **Optimized Construction Sequencing and Methods**
-- **Site Logistics** (equipment placement, utility installation)
-- **Identifying and Mitigating Budget Risks**
-- **Ensuring early alignment on Project Scope and Objectives**
-
-**Approach**: Close collaboration with key subcontractors to eliminate guesswork before ground is broken.
-
-### 4. **Modularization (Advanced Project Management)**
-
-#### Project Modularization & Subproject Management
-
-Reduce complexity and increase efficiency with our advanced Project Modularization services. This modern concept involves strategically dividing large, complex projects into smaller, specialized subprojects.
-
-**Benefits:**
-
-- **Streamlined Transitions** between different construction phases
-- **Improved Resource Allocation** and stakeholder communication
-- **Specialist Expertise** at each stage for better quality control
-
-**Innovation**: Replacing a single, overwhelmed project manager with a team of phase specialists for large ventures.
+- **Coordination of Deliveries**
 
 ---
 
-## 🏢 Project Types & Markets
+### 4. **Constructability & Budget Control**
 
-### **Commercial Markets We Serve**
+#### Constructability Review and Proactive Budget Control Services
 
-MH Construction is licensed and experienced to complete sophisticated construction projects across Washington, Oregon, and Idaho. With over 150 years of collective experience, we bring diverse visions to life.
+Is your project possible? And if so, how can it be cost-effective? MH Construction is committed to improving project planning and execution by conducting early-stage analysis of construction feasibility and cost considerations. We offer these critical Constructability and Budget Control Services to clients throughout Washington, Oregon, and Idaho.
 
-#### **Religious Facilities**
+#### **Collaboration Makes the Process Possible**
 
-- Churches and Community Centers
-- Renovation and new construction
-- Thoughtful design respecting community values
-- Careful budgeting for community organizations
+Our proactive approach involves collaborating closely with key subcontractors. This eliminates guesswork and allows us to determine:
 
-#### **Commercial Buildings**
-
-- Office buildings and corporate spaces
-- Retail centers and commercial complexes
-- Government buildings and public works
-- Educational buildings and training centers
-
-#### **Medical Facilities**
-
-- Medical centers and clinics
-- Specialized medical office construction
-- Compliance with medical building codes
-- Patient-focused design considerations
-
-#### **Wineries and Vineyards**
-
-- Processing facilities and tasting rooms
-- Specialized equipment installation
-- Agricultural building expertise
-- Hospitality space design
-
-#### **Grant Projects**
-
-- Specialized funding compliance
-- Government project requirements
-- Non-profit organization support
-- Community development projects
+- **The most efficient construction sequence and assembly**
+- **Logistics for specialty items** (like equipment and infrastructure)
+- **Precise parts ordering, timing, and cost control**
 
 ---
 
-## 🏪 Specialized Services
+### 5. **Modularization**
 
-### **Tenant Improvements (TI)**
+#### Project Modularization: Advanced Subproject Management for Complex Builds
 
-#### Expert Commercial Tenant Improvement Services
+Project Modularization involves strategically dividing a project into smaller, more manageable subprojects. This process simplifies design, execution, and maintenance. MH Construction focuses on Subproject Management to help clients complete large, complex projects more efficiently and consistently meet schedules across the Tri-Cities and the Northwest.
 
-Ready to transform your commercial space? We offer comprehensive Tenant Improvement (TI) Services throughout the Tri-Cities area. Licensed across Washington, Oregon, and Idaho.
+#### **Ushering in a New Era of Project Management**
 
-**Capabilities:**
+Replacing a single project manager with a team of phase specialists is the smartest decision you can make. Our subproject management services help to:
 
-- Recently purchased or leased building conversion
-- Functional, beautiful space design
-- Business requirement optimization
-- Fast turnaround times
+- **Streamline the transitions** between different construction phases
+- **Improve resource allocation** and communication efficiency
+- **Leverage our expertise** specifically at each stage of the process
+
+---
+
+## 🏢 Specialty Services
+
+### **Markets**
+
+#### Explore the Diverse Businesses We Work With | Tri-Cities, WA, OR, ID
+
+At MH Construction, we complete projects for a wide range of businesses throughout the Tri-Cities (Kennewick, Richland, Pasco) and the wider region. With over 150 years of construction experience, you can trust us to bring your unique vision to life—from specialty religious facilities to complex industrial centers.
+
+#### **What Businesses Can We Work With?**
+
+We serve a wide range of markets across Washington, Idaho, and Oregon, including:
+
+- **Religious Facilities** (Churches, Centers)
+- **Commercial Buildings** (Retail, Offices)
+- **Government Buildings and Grant Projects**
+- **Educational Buildings** (Schools, Training Centers)
+- **Medical Centers and Clinics**
+- **Wineries and Vineyards**
+
+---
+
+### **Tenant Improvements**
+
+#### Transform Your Commercial Space with Expert Tenant Improvement Services in the Tri-Cities
+
+If you've recently purchased a commercial building in the Tri-Cities (Kennewick, WA), MH Construction can help you transform it. We have decades of experience providing Tenant Improvement (TI) Services and are licensed to complete commercial renovation projects throughout Washington, Oregon, and Idaho. We'll help you bring your vision to life quickly and efficiently.
+
+**Call to Action**: Call us right away to schedule tenant improvement services.
+
+---
 
 ### **Commercial New Build-Outs**
 
-#### New Commercial Construction & Build-Outs
+#### Build Your Business Right: New Commercial Construction in the Tri-Cities
 
-Complete Commercial Construction Services for business owners throughout the Tri-Cities. From small corporate offices to large vehicle dealerships, we create spaces where businesses thrive.
+If you're looking for a committed, quality construction partner, look no further. We offer comprehensive Commercial Construction Services to business owners throughout Kennewick, WA and the entire Tri-Cities area. Whether you need a small office or a large dealership, we construct a space where your business can thrive, using top-grade materials and partnering with the best architects.
 
-**Past Build-Out Expertise:**
+#### **What We Build**
 
-- **Retail Construction Services**
-- **Winery Construction Services**
-- **Medical Office Construction Services**
-- **Car Dealership Construction Services**
+With over 150 years of combined experience, our crew provides a range of commercial construction services, including:
+
+- **Retail Construction**
+- **Medical Office Construction**
+- **Winery Construction**
+- **Car Dealership Construction**
 - **Boutique & Specialty Spaces**
 
-**Approach**: Partnership with the best architects and top-grade materials for structural integrity and project success.
+---
 
-### **Light Industrial Construction**
+### **Light Industrial**
 
-#### Safe & Functional Light Industrial Services
+#### Functional & Safe Light Industrial Construction Services | Tri-Cities, WA
 
-Specialized light industrial construction with over a decade of experience serving the Tri-Cities and surrounding areas.
+When choosing a contractor for light industrial facilities, experience is the most important factor. MH Construction has been providing Light Industrial Construction Services for over 13 years to business owners in the Tri-Cities (Kennewick, WA) and surrounding states. Count on us to create a safe and functional building—from warehouses to processing plants—all built to your precise specifications.
 
-**Industrial Materials & Features:**
+#### **Equipping Your Building with High-Quality Materials**
 
-- **Advanced Fire Protection Systems**
-- **Commercial-Grade Doors and Windows**
-- **Locker Room and Office Build-Outs**
+Light industrial facilities demand durability, accessibility, and reliability. We use industry-leading materials for all critical features, including:
+
+- **Fire Protection Systems**
+- **Commercial Doors and Windows**
+- **Locker Rooms and Offices**
 - **Structural Metal Studs and Sheetrock**
-- **Safety Hand Railings and Access Points**
+- **Safety Hand Railings**
 
-**Focus**: Durability, reliability, and highly functional buildings from warehouses to processing plants.
+---
+
+### **Religious Facilities**
+
+#### Specialized Construction for Religious Facilities | WA, OR, ID
+
+MH Construction provides dedicated commercial construction services for Churches, Community Centers, and Religious Facilities across Washington, Oregon, and Idaho. We understand that these spaces require thoughtful design, careful budgeting, and a deep respect for the community they serve. Trust our experienced team to manage every detail of your renovation or new construction project.
 
 ---
 

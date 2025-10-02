@@ -122,61 +122,107 @@ export default function Footer() {
                 />
               </Link>
 
-              <div className="flex items-center space-x-2 opacity-60 text-gray-500 text-sm cursor-not-allowed">
+              <Link
+                href="/about"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary text-sm transition-all hover:translate-x-1 duration-300"
+              >
                 <MaterialIcon
-                  icon="business"
+                  icon="info"
                   size="sm"
-                  className="text-gray-600"
+                  className="text-gray-500 group-hover:text-brand-primary transition-colors"
                 />
                 <span>About Us</span>
                 <MaterialIcon
-                  icon="schedule"
+                  icon="arrow_forward"
                   size="sm"
-                  className="text-gray-600 text-xs"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
                 />
-              </div>
+              </Link>
 
-              <div className="flex items-center space-x-2 opacity-60 text-gray-500 text-sm cursor-not-allowed">
+              <Link
+                href="/services"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary text-sm transition-all hover:translate-x-1 duration-300"
+              >
                 <MaterialIcon
-                  icon="construction"
+                  icon="build"
                   size="sm"
-                  className="text-gray-600"
+                  className="text-gray-500 group-hover:text-brand-primary transition-colors"
                 />
                 <span>Services</span>
                 <MaterialIcon
-                  icon="schedule"
+                  icon="arrow_forward"
                   size="sm"
-                  className="text-gray-600 text-xs"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
                 />
-              </div>
+              </Link>
 
-              <div className="flex items-center space-x-2 opacity-60 text-gray-500 text-sm cursor-not-allowed">
+              <Link
+                href="/team"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary text-sm transition-all hover:translate-x-1 duration-300"
+              >
+                <MaterialIcon
+                  icon="groups"
+                  size="sm"
+                  className="text-gray-500 group-hover:text-brand-primary transition-colors"
+                />
+                <span>Our Team</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
+              <Link
+                href="/projects"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary text-sm transition-all hover:translate-x-1 duration-300"
+              >
                 <MaterialIcon
                   icon="photo_library"
                   size="sm"
-                  className="text-gray-600"
+                  className="text-gray-500 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Portfolio</span>
+                <span>Projects</span>
                 <MaterialIcon
-                  icon="schedule"
+                  icon="arrow_forward"
                   size="sm"
-                  className="text-gray-600 text-xs"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
                 />
-              </div>
+              </Link>
 
-              <div className="flex items-center space-x-2 opacity-60 text-gray-500 text-sm cursor-not-allowed">
+              <Link
+                href="/government"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary text-sm transition-all hover:translate-x-1 duration-300"
+              >
+                <MaterialIcon
+                  icon="account_balance"
+                  size="sm"
+                  className="text-gray-500 group-hover:text-brand-primary transition-colors"
+                />
+                <span>Government & Grants</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
+              <Link
+                href="/contact"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary text-sm transition-all hover:translate-x-1 duration-300"
+              >
                 <MaterialIcon
                   icon="contact_phone"
                   size="sm"
-                  className="text-gray-600"
+                  className="text-gray-500 group-hover:text-brand-primary transition-colors"
                 />
                 <span>Contact</span>
                 <MaterialIcon
-                  icon="schedule"
+                  icon="arrow_forward"
                   size="sm"
-                  className="text-gray-600 text-xs"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
                 />
-              </div>
+              </Link>
             </nav>
           </div>
 
@@ -219,6 +265,32 @@ export default function Footer() {
                 >
                   <MaterialIcon
                     icon="photo_camera"
+                    size="md"
+                    className="text-gray-400 group-hover:text-white transition-colors"
+                  />
+                </a>
+                <a
+                  href="https://x.com/mhconstruction"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex justify-center items-center bg-gray-700 hover:bg-black hover:shadow-lg p-3 border border-gray-600 hover:border-gray-400 rounded-xl hover:scale-105 transition-all duration-300"
+                  title="Follow us on X (Twitter)"
+                >
+                  <MaterialIcon
+                    icon="close"
+                    size="md"
+                    className="text-gray-400 group-hover:text-white transition-colors"
+                  />
+                </a>
+                <a
+                  href="https://youtube.com/@mhconstruction"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex justify-center items-center bg-gray-700 hover:bg-red-600 hover:shadow-lg p-3 border border-gray-600 hover:border-red-500 rounded-xl hover:scale-105 transition-all duration-300"
+                  title="Subscribe on YouTube"
+                >
+                  <MaterialIcon
+                    icon="play_circle"
                     size="md"
                     className="text-gray-400 group-hover:text-white transition-colors"
                   />
@@ -300,11 +372,11 @@ export default function Footer() {
             </div>
             <div className="flex items-center space-x-1">
               <MaterialIcon
-                icon="schedule"
+                icon="location_on"
                 size="sm"
-                className="text-gray-500"
+                className="text-brand-primary"
               />
-              <span>Website updates coming soon</span>
+              <span>Serving WA, OR, & ID</span>
             </div>
             <div className="flex items-center space-x-1">
               <MaterialIcon
