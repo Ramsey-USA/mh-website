@@ -2,12 +2,12 @@
 
 ## Complete brand identity, design system, and implementation guidelines for MH Construction LLC
 
-> **📅 Last Updated:** October 1, 2025  
-> **🎨 Brand Version:** 2.8.0  
+> **📅 Last Updated:** October 2, 2025  
+> **🎨 Brand Version:** 3.6.0  
 > **👥 Authority:** MH Construction Leadership Team  
 > **💻 Implementation:** Pure Tailwind CSS v4 with transparent header system  
 > **🌙 Theme Support:** Complete light/dark mode with edge-positioned theme toggle  
-> **🚀 Architecture:** Transparent navigation, enhanced hover effects, and streamlined content
+> **🚀 Architecture:** 6-Value Core Foundation, enhanced messaging, trust-centered approach
 
 ## Core Brand Taglines
 
@@ -110,16 +110,28 @@
 | **Founded** | Veteran-owned and operated |
 | **Service Philosophy** | Military precision, veteran values, cutting-edge technology |
 
-### Core Values
+### Core Values (Updated v3.6.0 - October 2025)
 
-| Value | Description | Brand Expression |
-|-------|-------------|------------------|
-| **Ethics** | Transparent pricing, honest timelines | Clear cost breakdowns, realistic schedules |
-| **Experience** | 150+ years combined team expertise | Proven track record showcasing |
-| **Integrity** | Consistent performance, reliable delivery | Promise keeping, quality assurance |
-| **Honesty** | Open communication, no hidden costs | Transparent processes, upfront pricing |
-| **Trust** | Proven results, client testimonials | Social proof, referral programs |
-| **Professionalism** | Military-grade precision | Attention to detail, systematic approach |
+#### **6-Value Professional Foundation**
+
+*Evolution from simplified 4-value system to comprehensive professional methodology with trust as the ultimate goal.*
+
+| Value | Core Principle | Brand Expression |
+|-------|----------------|------------------|
+| **Honesty & Transparency** | Full-disclosure transparency from day one | Open-dialogue progress meetings, complete information sharing |
+| **Integrity** | Unwavering commitment to our word | Business conduct reflects personal character |
+| **Precision & Experience** | 150+ years combined construction expertise | Engineer-driven project packages, reliable foresight |
+| **Client-First Ethics** | Small-town values with client-focused approach | Acting solely in client's best interest |
+| **Professionalism & Control** | Confident navigation of complex projects | Levelheaded management, harmonious workflow |
+| **Trust (The Culmination)** | Measurable result of all other values | Foundation upon which MH Construction exists |
+
+#### **Value Messaging Framework**
+
+**Trust as Foundation**: "Earning your trust is not a starting point; it is the culmination of our consistent performance in all other core values."
+
+**Client Control**: "We manage the project; you control it."
+
+**Professional Approach**: "We are a 'client' focused company, not just a 'project' focused one."
 
 ---
 

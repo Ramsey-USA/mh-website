@@ -17,17 +17,56 @@
 [![PWA](https://img.shields.io/badge/PWA-enabled-purple.svg)](https://web.dev/progressive-web-apps/)
 
 > **📅 Last Updated:** October 2, 2025  
-> **🚀 Current Version:** 3.4.0  
+> **🚀 Current Version:** 3.6.0  
 > **🎯 Status:** Production Ready - Serving Pacific Northwest Communities  
 > **🤝 Philosophy:** Partnership-Driven Construction - We Work With You Every Step  
 > **🎨 Architecture:** Modern React + Community-Focused UI + Collaborative UX  
-> **🔄 Latest:** Header Bubble Cleanup + Professional UI Design + Enhanced Visual Hierarchy
+> **🔄 Latest:** Core Values System Redesign + 6-Value Professional Foundation + Trust-Centered Approach
 
 ---
 
-## 🚨 **CURRENT IMPLEMENTATION: UI Design Cleanup (v3.4.0)**
+## 🚨 **CURRENT IMPLEMENTATION: Core Values System Redesign (v3.6.0)**
 
-### **What's New in v3.4.0 - October 2, 2025:**
+### **What's New in v3.6.0 - October 2, 2025:**
+
+#### �️ **Core Values System Overhaul**
+
+- **6-Value Professional Foundation**: Evolved from 4 simplified values to comprehensive 6-principle system
+  - **Honesty & Transparency** (TransparencyIcon) - Full-disclosure approach in all communications
+  - **Integrity** (ScaleIcon - retained) - Unwavering commitment to what's right  
+  - **Precision & Experience** (PrecisionIcon) - 150+ years combined team expertise
+  - **Client-First Ethics** (ClientFirstIcon) - Small-town values with big-city capabilities
+  - **Professionalism & Control** (ProfessionalControlIcon) - You control it, we manage it
+  - **Trust** (TrustIcon) - The Culmination of all other values working together
+- **Strategic Focus**: Trust positioned as ultimate goal and measurable company foundation
+- **Professional Construction Methodology**: Detailed value descriptions reflecting industry expertise
+- **Client-Centered Philosophy**: "We manage the project; you control it" collaborative approach
+- **Enhanced Icon System**: New 3xl (20×20) and 4xl (24×24) size mappings for optimal visibility
+
+#### �🎨 **Previous Update - Icon System Redesign (v3.5.0)**
+
+- **Value Icon Alignment**: Teamwork (handshake), Leadership (star), Integrity (scales), Accountability (badge)
+- **Specialized Icons**: Enhanced AI, scheduling, and 3D exploration iconography  
+- **Size Optimization**: 25-60% larger icons for better visibility and container utilization
+- **Construction Theme**: Cohesive iconography aligned with construction industry standards
+
+#### 🏠 **Implementation Highlights (v3.6.0)**
+
+**Homepage Professional Foundation Redesign:**
+
+- **Section Title**: "Built on Professional Foundation" replacing military-focused messaging
+- **Trust-Centered Approach**: "Trust as our ultimate goal" messaging throughout
+- **6-Value System**: Complete grid layout showcasing all six professional foundation principles
+- **Enhanced Accessibility**: Improved contrast and readability across all value descriptions
+
+**Technical Implementation:**
+
+- **New Icon Components**: 5 specialized construction industry icons (TransparencyIcon, PrecisionIcon, ClientFirstIcon, ProfessionalControlIcon, TrustIcon)
+- **Enhanced Icon System**: New 3xl (20×20) and 4xl (24×24) size mappings for optimal visibility
+- **Complete Integration**: Values array replacement with professional messaging on homepage
+- **Brand Consistency**: Maintained MH Construction visual identity while evolving messaging approach
+
+#### 🎨 **Previous Update - Header Cleanup (v3.4.0)**
 
 #### **🎨 Comprehensive Header Bubble Cleanup**
 
@@ -260,7 +299,175 @@ npm run lint           # Code quality check
 
 ---
 
-## 🏢 Company Information
+## �️ **CONSTRUCTION SERVICES & EXPERTISE**
+
+### **Expert Commercial Construction Management in the Tri-Cities (Pasco, WA)**
+
+Put your commercial building project in the right hands. MH Construction delivers full Construction Management (CM) services throughout the Tri-Cities area, including Pasco, Kennewick, and Richland, WA. Our priority is delivering an exceptional client experience from concept through completion. We believe meticulous Master Planning and thorough communication are critical to streamlining the process in later stages, which is why we minimize "on-the-fly" decisions. Trust our experienced team to manage the intricate details, allowing you to focus on your vision's success.
+
+**📞 Call to Action:** Call (509) 308-6489 today to begin planning your new commercial, industrial, or medical construction project in Benton or Franklin County.
+
+### **Make Your Vision a Reality**
+
+MH Construction has proven expertise managing projects for:
+
+- **Commercial Businesses** (Offices, Retail, etc.)
+- **Medical Facilities** (Clinics, Specialty Offices)
+- **Industrial Buildings & Facilities**
+- **Wineries & Vineyards**
+- **Churches and Religious Facilities**
+
+---
+
+### **🎯 MASTER PLANNING (Pre-Construction)**
+
+#### **Comprehensive Pre-Construction & Master Planning | Tri-Cities, WA**
+
+Unlock the full potential of your commercial project with MH Construction's detailed Master Planning and Pre-Construction Services. Our team is passionate about transforming your vision into a practical, buildable reality. We strategize and coordinate every component of your building construction—from initial concept to the finishing touches. By listening intently to your goals, we create a comprehensive blueprint designed to prevent costly, last-minute changes to scope and budget.
+
+**📞 Call to Action:** Call (509) 308-6489 today to take the first, most critical step in the construction planning process. We serve Pasco, Kennewick, Richland, and the surrounding areas in Benton and Franklin Counties.
+
+#### **Navigating Project Complexity with Precision**
+
+Our highly skilled planning team ensures comprehensive scope coverage during your Pre-Construction phase. We meticulously consider:
+
+- **Project Location and Surrounding Infrastructure**
+- **Local and State Building Codes** (WA, OR, ID)
+- **Detailed Budget Constraints and Cost Control**
+- **Project Timeline and Sequencing**
+- **Owner Design Preferences and Technical Requirements**
+
+---
+
+### **📦 PROCUREMENT (Vendor Management)**
+
+#### **Construction Material Procurement & Vendor Management in the Tri-Cities**
+
+The complexity of commercial construction is often bottlenecked by material procurement. Rely on MH Construction for efficient Construction Vendor Management across the Tri-Cities area (Pasco, Kennewick, Richland). We specialize in sourcing the highest-quality materials tailored precisely to your project goals. Our efficient Master Planning provides vendors with the advanced notice and coordinated scheduling they need to streamline material delivery, proactively addressing long lead item delays to keep your project schedule intact.
+
+#### **What Our Procurement Service Includes**
+
+MH Construction applies meticulous attention to detail throughout the entire construction material procurement cycle. You can count on our team to expertly manage:
+
+- **Material Sourcing and Vetting**
+- **Supplier Management and Communication**
+- **Budget Negotiation and Price Stabilization**
+- **Detailed Purchase Orders and Documentation**
+- **Contract Management**
+- **On-Time Coordination of Deliveries**
+
+---
+
+### **💰 CONSTRUCTABILITY & BUDGET CONTROL**
+
+#### **Constructability Review & Proactive Budget Control Services**
+
+Is your project feasible? And if so, how can it be cost-effective? MH Construction is committed to improving project planning and execution through early-stage Constructability Analysis and Budget Control. Although our headquarters are in Pasco, WA, we provide these critical pre-construction services to clients throughout Washington, Oregon, and Idaho. Our proactive approach involves collaborating closely with key subcontractors to eliminate guesswork before ground is broken.
+
+**📞 Call to Action:** Request Budget Control and Feasibility Analysis today. Call (509) 308-6489 to learn more.
+
+#### **Collaboration for Cost-Effective Execution**
+
+Through close collaboration, we determine critical project details such as:
+
+- **Optimized Construction Sequencing and Methods**
+- **Site Logistics** (e.g., equipment placement, utility installation)
+- **Identifying and Mitigating Budget Risks**
+- **Ensuring early alignment on the Project Scope and Objectives**
+
+---
+
+### **🧩 MODULARIZATION (Advanced PM)**
+
+#### **Project Modularization & Subproject Management for Complex Builds**
+
+Reduce complexity and increase efficiency with our advanced Project Modularization services. This modern project management concept involves strategically dividing large, complex projects into smaller, specialized subprojects. MH Construction focuses on expert Subproject Management to help our clients complete large-scale builds more efficiently and consistently meet tight schedules in the Tri-Cities (Kennewick, WA) and beyond.
+
+#### **Ushering in a New Era of Project Management**
+
+Replacing a single, overwhelmed project manager with a team of phase specialists is the smart decision for large ventures. Our Modularization services:
+
+- **Streamline the transitions** between different construction phases
+- **Improve Resource Allocation** and stakeholder communication
+- **Leverage specialist expertise** at each stage of the process for better quality control
+
+---
+
+### **🏢 MARKET & PROJECT TYPES**
+
+#### **Commercial Construction for Key Markets: Tri-Cities, WA, OR, ID**
+
+MH Construction is licensed and experienced to complete sophisticated construction projects for a wide range of commercial markets across Washington, Oregon, and Idaho. With over 150 years of collective experience, you can trust our team to bring your specific vision to life—from a high-end winery to a complex medical center throughout Benton and Franklin Counties.
+
+#### **Diverse Projects We Build:**
+
+Our completed projects include, but are not limited to:
+
+- **Religious Facilities** (Churches, Centers)
+- **Commercial Buildings** (Offices, Retail Centers)
+- **Government Buildings and Public Works**
+- **Educational Buildings** (Schools, Training Centers)
+- **Medical Centers and Clinics**
+- **Wineries and Vineyards** (Processing and Tasting Rooms)
+- **Grant Projects** (Specialized Funding)
+
+---
+
+### **🏪 TENANT IMPROVEMENTS (TI)**
+
+#### **Expert Commercial Tenant Improvement Services | Tri-Cities, WA**
+
+Ready to transform your commercial space? MH Construction offers comprehensive Tenant Improvement (TI) Services throughout the Tri-Cities, WA area, including Kennewick, Richland, and Pasco. We are licensed to complete commercial renovation projects across Washington, Oregon, and Idaho. With over a decade of experience, we can quickly convert a recently purchased or leased building into a functional, beautiful space that meets your exact business requirements.
+
+**📞 Call to Action:** Are you ready to bring your commercial vision to life? Call us right away to schedule tenant improvement services.
+
+---
+
+### **🏗️ COMMERCIAL NEW BUILD-OUTS**
+
+#### **New Commercial Construction & Build-Outs in the Tri-Cities, WA**
+
+If you require a dedicated, reliable partner for new construction, MH Construction offers complete Commercial Construction Services for business owners throughout the Tri-Cities (Kennewick, Richland, and Pasco). Whether you want to build a small corporate office or a large vehicle dealership, we construct a space where your business can thrive. We partner with the best architects and utilize top-grade materials to ensure structural integrity and successful project goals.
+
+#### **Past Commercial Build-Out Expertise:**
+
+- **Retail Construction Services**
+- **Winery Construction Services**
+- **Medical Office Construction Services**
+- **Car Dealership Construction Services**
+- **Boutique & Specialty Spaces**
+
+---
+
+### **🏭 LIGHT INDUSTRIAL**
+
+#### **Safe & Functional Light Industrial Construction Services | Tri-Cities**
+
+For specialized light industrial construction, experience is the most important factor. MH Construction has been providing Light Industrial Construction Services for over a decade to business owners in the Tri-Cities, WA (Kennewick, Richland, Pasco) and surrounding areas. If you live in Washington, Oregon, or Idaho, count on us to create a safe, durable, and highly functional building—from warehouses to processing plants—built to your precise specifications.
+
+#### **Equipped with High-Quality Materials**
+
+Light Industrial facilities demand durability and reliability. Our construction contractors in the Tri-Cities utilize industry-leading materials for all critical features, including:
+
+- **Advanced Fire Protection Systems**
+- **Commercial-Grade Doors and Windows**
+- **Locker Room and Office Build-Outs**
+- **Structural Metal Studs and Sheetrock**
+- **Safety Hand Railings and Access Points**
+
+---
+
+### **⛪ RELIGIOUS FACILITIES**
+
+#### **Specialized Construction for Religious Facilities | WA, OR, ID**
+
+MH Construction provides dedicated commercial construction services for Churches, Community Centers, and Religious Facilities across Washington, Oregon, and Idaho. We understand that these spaces require thoughtful design, careful budgeting, and a respect for the community they serve. Trust our experienced team to manage every detail of your renovation or new construction project in Benton or Franklin County.
+
+**📞 Call to Action:** Call (509) 308-6489 to discuss your religious facility construction or renovation project.
+
+---
+
+## �🏢 Company Information
 
 | Information | Details |
 |-------------|---------|
@@ -331,7 +538,8 @@ CTAs: "Standardized Button components with proper dark mode support"
 Spacing: "Optimized responsive section padding py-16 lg:py-24 and compact grid layouts"
 Components: "h-full card consistency with enhanced responsive grids"
 Interactions: "Hover-triggered modals with Why Choose section animations"
-Icons: "WPZoom icon system with react-icons + Custom MH Construction icons (15 brand-specific)"
+Icons: "SharpDuotone icon system with enhanced sizing (3xl/4xl) + Custom MH Construction core values icons"
+CoreValues: "6-Value Professional Foundation system with specialized construction industry icons"
 HoverEffects: "Context-aware icon animations (scale, rotate, pulse, slide, glow, bounce)"
 Backend: "Firebase (Firestore, Auth, Storage, Functions)"
 PWA: "Complete offline capabilities with push notifications"
@@ -659,6 +867,8 @@ firebase deploy --only firestore:rules
 ```bash
 ✅ 25+ Static Pages Generated
 ✅ Zero TypeScript Errors  
+✅ Core Values System: 6-Value Professional Foundation with trust-centered approach
+✅ Enhanced Icon System: SharpDuotone icons with 3xl/4xl sizing and core values icons
 ✅ Desktop-Optimized Typography: Compact section layouts with text-6xl maximum
 ✅ Interactive Components: Why Choose Section with Hover Modals
 ✅ PWA Score: 100/100
@@ -670,6 +880,42 @@ firebase deploy --only firestore:rules
 ---
 
 ## 📈 Recent Updates
+
+### v3.6.0 (October 2, 2025) - Core Values System Redesign & Professional Foundation
+
+- ✅ **6-Value Professional Foundation** - Evolved from 4 simplified values to comprehensive 6-principle system
+- ✅ **Trust-Centered Philosophy** - Trust positioned as ultimate goal and company foundation ("The Culmination")
+- ✅ **Professional Construction Methodology** - Detailed descriptions reflecting construction industry expertise
+- ✅ **New Core Values Icons** - 5 specialized icons: TransparencyIcon, PrecisionIcon, ClientFirstIcon, ProfessionalControlIcon, TrustIcon
+- ✅ **Enhanced Icon System** - Added 3xl (20×20) and 4xl (24×24) size mappings for better visibility
+- ✅ **Client-Centered Messaging** - "We manage the project; you control it" approach
+- ✅ **Homepage Implementation** - Complete section redesign with Professional Foundation messaging
+- ✅ **Strategic Documentation** - Comprehensive documentation of core values evolution and implementation
+
+### v3.5.0 (October 1, 2025) - Icon System Redesign & Value Alignment
+
+- ✅ **Value Icon Conceptual Alignment** - Teamwork→handshake, Leadership→star, Integrity→scales, Accountability→badge
+- ✅ **Specialized Construction Icons** - Enhanced AI, scheduling, and 3D exploration iconography
+- ✅ **Icon Size Optimization** - 25-60% larger icons for better visibility and container utilization
+- ✅ **Construction Industry Theme** - Cohesive iconography aligned with construction industry standards
+- ✅ **Enhanced Binoculars Icon** - Improved design for better visual impact and clarity
+
+### v3.4.0 (September 30, 2025) - Header Cleanup & Professional Design
+
+- ✅ **Comprehensive Header Bubble Cleanup** - Removed 20+ decorative pill-shaped badges across all pages
+- ✅ **Cleaner Visual Design** - Streamlined section headers for better focus and readability
+- ✅ **Professional Appearance** - More minimalist and modern aesthetic throughout the site
+- ✅ **Enhanced User Experience** - Improved visual hierarchy and scanning patterns
+- ✅ **Multi-Page Coverage** - Homepage, Contact, Portfolio, Booking, Estimator, Services pages cleaned
+
+### v3.3.0 (October 1, 2025) - Transparent Header & Navigation Enhancement
+
+- ✅ **Transparent Header Design** - Fully transparent header on load with hero section showing through
+- ✅ **Theme Toggle Repositioning** - Moved to far left edge of screen for optimal accessibility
+- ✅ **Navigation Text Updates** - "About" → "About Us", "Services" → "What We Do"
+- ✅ **Enhanced Hover Effects** - Animated underlines with brand color integration
+- ✅ **Blog/News Carousel** - Interactive content carousel with auto-play and responsive design
+- ✅ **CTA Section Overhaul** - 4-button grid layout with strategic action options
 
 ### v3.2.0 (September 29, 2025) - Desktop Typography Optimization & Interactive Components
 

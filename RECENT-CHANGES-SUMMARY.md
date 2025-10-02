@@ -1,12 +1,158 @@
 # MH Construction Website - Recent Changes Summary
 
-## 🎯 **LATEST UPDATES: UI Cleanup & Design Improvements (v3.4.0)**
+## 🎯 **LATEST UPDATES: Core Values System Redesign (v3.6.0)**
 
 ### ✅ **Completed Changes - October 2, 2025**
 
 ---
 
-## **1. Header Bubble Cleanup (LATEST)**
+## **1. Core Values System Overhaul (LATEST)**
+
+### **6-Value Professional Foundation**
+
+Complete redesign from 4 simplified values to comprehensive 6-principle methodology:
+
+#### **New Core Values Structure**
+
+1. **Honesty & Transparency**
+   - *Full-disclosure transparency from day one*
+   - Open-dialogue progress meetings with all stakeholders
+   - Complete information sharing for educated client decisions
+   - "We manage the project; you control it"
+
+2. **Integrity**
+   - *Unwavering commitment to our word*
+   - Business conduct as reflection of personal character
+   - Consistent conversation, character, and conduct
+   - Actions transcend transactional relationships
+
+3. **Precision & Experience**
+   - *150+ years combined construction experience*
+   - Engineer-driven project packages
+   - Collective wisdom for challenge management
+   - Reliable foresight for risk minimization
+
+4. **Client-First Ethics**
+   - *Small-town values with client focus*
+   - Client-focused company, not just project-focused
+   - Acting solely in client's best interest
+   - Organized, concise, direct approach respecting client time
+
+5. **Professionalism & Control**
+   - *Confident navigation of complex projects*
+   - Decades of commercial and logistical experience
+   - Levelheaded management through construction challenges
+   - Coordinated, harmonious workflow for all stakeholders
+
+6. **Trust (The Culmination)**
+   - *Trust as measurable result, not starting point*
+   - Culmination of consistent performance in all other values
+   - Foundation upon which MH Construction exists
+   - Open, honest communication supporting smooth project flow
+
+### **Strategic Philosophy Evolution**
+
+- **From**: Military-inspired 4-value system (teamwork, leadership, integrity, accountability)
+- **To**: Construction industry expertise with client-first methodology
+- **Focus**: Trust positioned as ultimate goal and company foundation
+- **Approach**: Detailed professional descriptions vs. simplified concepts
+
+### **Implementation Requirements**
+
+#### **Icon System Updates Needed**
+
+- 🆕 Create 5 new icons: Transparency, Precision, Client-First, Control, Trust
+- ✅ Retain ScaleIcon for Integrity (fits concept perfectly)
+- 🔄 Phase out previous 4-value icons (Handshake, Star, Badge)
+
+#### **Layout Modifications Required**
+
+- **Grid Structure**: Adapt from 4-value (2×2) to 6-value (2×3 or 3×2) layouts
+- **Responsive Design**: Update mobile/tablet/desktop breakpoints
+- **Content Length**: Accommodate longer, more detailed descriptions
+- **Visual Hierarchy**: Special treatment for "Trust (The Culmination)" as summary value
+
+#### **Content Updates**
+
+- Homepage values section complete rewrite
+- About page values grid restructure
+- Enhanced descriptions reflecting professional construction approach
+- Statistics and metrics aligned with new value propositions
+
+### **Technical Architecture Changes**
+
+```tsx
+// Previous 4-value system
+const oldValues = [
+  'Teamwork', 'Leadership', 'Integrity', 'Accountability'
+]
+
+// New 6-value professional system  
+const newValues = [
+  'Honesty & Transparency',
+  'Integrity', // Retained
+  'Precision & Experience', 
+  'Client-First Ethics',
+  'Professionalism & Control',
+  'Trust (The Culmination)'
+]
+```
+
+### **Quality Assurance Needs**
+
+- [ ] **Icon Design**: 5 new construction-themed icons
+- [ ] **Layout Testing**: 6-value responsive grid systems
+- [ ] **Content Review**: Professional messaging alignment
+- [ ] **Performance**: Ensure no impact on load times
+- [ ] **Accessibility**: Maintain WCAG compliance with new content
+
+---
+
+## **2. Icon System Redesign (v3.5.0)**
+
+### **Value Icons Conceptual Alignment**
+
+- **Teamwork → HandshakeIcon**: Replaced TiresIcon with collaboration-focused handshake design
+- **Leadership → StarIcon**: Replaced AnchorIcon with excellence-focused star design  
+- **Integrity → ScaleIcon**: Replaced BadgeIcon with balance-focused justice scales
+- **Accountability → BadgeIcon**: Replaced MeasureIcon with responsibility-focused badge design
+
+### **Specialized Functional Icons**
+
+- **AI Estimator → AIIcon**: Brain circuit design for consistent AI branding
+- **Scheduling → CalendarScheduleIcon**: Calendar with time indicator for clear scheduling association
+- **3D Explorer → BinocularsIcon**: Enhanced dual-lens design for exploration features
+- **Security → ShieldIcon**: Protection symbolism for veteran values and security
+
+### **Size Optimization System**
+
+- **Enhanced Size Mappings**: Increased all base sizes by 25-60% for better container utilization
+- **New Large Sizes**: Added 3xl (20×20) and 4xl (24×24) for major containers
+- **Container-Specific Updates**:
+  - Homepage values: 2xl → 3xl (83% container fill vs 67%)
+  - Features section: lg → xl front cards, md → xl back cards
+  - Services grid: lg → xl across all 6 service cards
+  - About page: lg → xl for values and story sections
+
+### **Icon System Technical Details**
+
+- **TypeScript Interface**: Extended IconProps with 3xl and 4xl size options
+- **Size Classes**: Optimized width/height classes for maximum container utilization
+- **Construction Theme**: All icons aligned with construction industry symbolism
+- **Performance**: Maintained efficient SVG rendering with enhanced visibility
+
+### **Icon System Quality Assurance**
+
+- ✅ **Zero Compilation Errors**: All modules compiled successfully
+- ✅ **TypeScript Clean**: No type errors in icon system
+- ✅ **Responsive Design**: Icons scale properly across all screen sizes
+- ✅ **Theme Compatibility**: Proper dark/light mode adaptation
+
+*📋 Complete details in [ICON-SYSTEM-UPDATE-SUMMARY.md](./ICON-SYSTEM-UPDATE-SUMMARY.md)*
+
+---
+
+## **2. Header Bubble Cleanup (v3.4.0)**
 
 ### **Comprehensive Visual Cleanup**
 

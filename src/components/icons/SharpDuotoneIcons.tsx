@@ -6,20 +6,22 @@ import React from 'react'
 
 // Icon component props interface
 interface IconProps {
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
   className?: string
   primaryColor?: string
   secondaryColor?: string
 }
 
-// Size mappings
+// Size mappings - optimized to maximize container space
 const sizeClasses = {
-  xs: 'w-3 h-3',
-  sm: 'w-4 h-4',
-  md: 'w-5 h-5',
-  lg: 'w-6 h-6',
-  xl: 'w-8 h-8',
-  '2xl': 'w-10 h-10',
+  xs: 'w-4 h-4', // increased from w-3 h-3
+  sm: 'w-5 h-5', // increased from w-4 h-4
+  md: 'w-6 h-6', // increased from w-5 h-5
+  lg: 'w-8 h-8', // increased from w-6 h-6
+  xl: 'w-12 h-12', // increased from w-8 h-8
+  '2xl': 'w-16 h-16', // increased from w-10 h-10
+  '3xl': 'w-20 h-20', // new size
+  '4xl': 'w-24 h-24', // new size
 }
 
 // Base icon component
@@ -376,23 +378,6 @@ export const ShieldIcon: React.FC<IconProps> = props => (
   </IconBase>
 )
 
-export const StarIcon: React.FC<IconProps> = props => (
-  <IconBase {...props}>
-    <g opacity="0.4">
-      <polygon
-        points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"
-        stroke="var(--icon-secondary)"
-        strokeWidth="2"
-      />
-    </g>
-    <polygon
-      points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"
-      fill="var(--icon-primary)"
-      opacity="0.8"
-    />
-  </IconBase>
-)
-
 // Technology & Innovation Icons
 export const BoltIcon: React.FC<IconProps> = props => (
   <IconBase {...props}>
@@ -491,18 +476,941 @@ export const SunIcon: React.FC<IconProps> = props => (
 
 export const MoonIcon: React.FC<IconProps> = props => (
   <IconBase {...props}>
-    <g opacity="0.4">
-      <path
-        d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z"
-        stroke="var(--icon-secondary)"
-        strokeWidth="2"
-      />
-    </g>
     <path
-      d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z"
+      d="M12 2a9.5 9.5 0 0 0 8.5 8.5A9.5 9.5 0 0 1 12 22 10 10 0 0 1 12 2z"
       fill="var(--icon-primary)"
-      opacity="0.6"
+      fillOpacity="0.3"
     />
+    <path
+      d="M12 2a9.5 9.5 0 0 0 8.5 8.5A9.5 9.5 0 0 1 12 22 10 10 0 0 1 12 2z"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </IconBase>
+)
+
+// Construction-themed Solid Icons (for headings and important content)
+export const HelmetIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <path
+      d="M12 2C8.5 2 5.5 4.5 4.5 8H3.5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11H4.5C4.5 11.5 4.6 12 4.7 12.5H19.3C19.4 12 19.5 11.5 19.5 11H20.5C21.33 11 22 10.33 22 9.5S21.33 8 20.5 8H19.5C18.5 4.5 15.5 2 12 2Z"
+      fill="var(--icon-primary)"
+    />
+    <path
+      d="M4.7 12.5C5.5 16.5 8.5 19.5 12 19.5S18.5 16.5 19.3 12.5H4.7Z"
+      fill="var(--icon-primary)"
+      fillOpacity="0.7"
+    />
+    <circle cx="12" cy="8" r="1.5" fill="var(--icon-secondary)" />
+  </IconBase>
+)
+
+export const WrenchIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <path
+      d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94L14.7 6.3z"
+      fill="var(--icon-primary)"
+    />
+    <rect
+      x="16"
+      y="8"
+      width="2"
+      height="1"
+      rx="0.5"
+      fill="var(--icon-secondary)"
+      transform="rotate(45 17 8.5)"
+    />
+  </IconBase>
+)
+
+export const BlueprintIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <rect
+      x="3"
+      y="5"
+      width="18"
+      height="14"
+      rx="2"
+      fill="var(--icon-primary)"
+    />
+    <rect
+      x="5"
+      y="7"
+      width="14"
+      height="10"
+      rx="1"
+      fill="var(--icon-secondary)"
+      fillOpacity="0.3"
+    />
+    <line
+      x1="7"
+      y1="9"
+      x2="17"
+      y2="9"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      strokeDasharray="2,2"
+    />
+    <line
+      x1="7"
+      y1="11"
+      x2="13"
+      y2="11"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      strokeDasharray="2,2"
+    />
+    <line
+      x1="7"
+      y1="13"
+      x2="15"
+      y2="13"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      strokeDasharray="2,2"
+    />
+    <rect x="15" y="11" width="2" height="2" fill="var(--icon-primary)" />
+  </IconBase>
+)
+
+export const MeasureIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <rect
+      x="2"
+      y="11"
+      width="20"
+      height="2"
+      rx="1"
+      fill="var(--icon-primary)"
+    />
+    <rect x="3" y="6" width="2" height="12" rx="1" fill="var(--icon-primary)" />
+    <rect
+      x="19"
+      y="6"
+      width="2"
+      height="12"
+      rx="1"
+      fill="var(--icon-primary)"
+    />
+    <path d="M6 9L9 12L6 15" fill="var(--icon-secondary)" />
+    <path d="M18 9L15 12L18 15" fill="var(--icon-secondary)" />
+    <circle cx="12" cy="12" r="1" fill="var(--icon-secondary)" />
+  </IconBase>
+)
+
+export const TargetIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <circle
+      cx="12"
+      cy="12"
+      r="10"
+      fill="var(--icon-primary)"
+      fillOpacity="0.2"
+    />
+    <circle
+      cx="12"
+      cy="12"
+      r="6"
+      fill="var(--icon-primary)"
+      fillOpacity="0.4"
+    />
+    <circle cx="12" cy="12" r="3" fill="var(--icon-primary)" />
+    <circle cx="12" cy="12" r="1" fill="var(--icon-secondary)" />
+  </IconBase>
+)
+
+export const MedalIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <circle cx="12" cy="8" r="6" fill="var(--icon-primary)" />
+    <circle cx="12" cy="8" r="3" fill="var(--icon-secondary)" />
+    <path
+      d="M9 14L7 22L12 20L17 22L15 14"
+      fill="var(--icon-primary)"
+      fillOpacity="0.7"
+    />
+    <circle cx="12" cy="8" r="1.5" fill="var(--icon-primary)" />
+  </IconBase>
+)
+
+export const AnchorIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <circle cx="12" cy="5" r="3" fill="var(--icon-primary)" />
+    <path
+      d="M12 8V19M5 12H8M16 12H19"
+      stroke="var(--icon-primary)"
+      strokeWidth="3"
+      strokeLinecap="round"
+    />
+    <path
+      d="M8 19C8 15.13 9.79 11.67 12.5 9.5C15.21 11.67 17 15.13 17 19"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+      fill="none"
+    />
+    <circle cx="12" cy="19" r="2" fill="var(--icon-secondary)" />
+  </IconBase>
+)
+
+export const CompassIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <circle
+      cx="12"
+      cy="12"
+      r="10"
+      fill="var(--icon-primary)"
+      fillOpacity="0.2"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+    />
+    <path
+      d="M16.24 7.76L14.12 14.12L7.76 16.24L9.88 9.88L16.24 7.76Z"
+      fill="var(--icon-primary)"
+    />
+    <circle cx="12" cy="12" r="2" fill="var(--icon-secondary)" />
+    <path
+      d="M12 2V6M12 18V22M22 12H18M6 12H2"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+    />
+  </IconBase>
+)
+
+export const TiresIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <circle
+      cx="12"
+      cy="12"
+      r="8"
+      fill="var(--icon-primary)"
+      fillOpacity="0.3"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+    />
+    <circle
+      cx="12"
+      cy="12"
+      r="5"
+      fill="var(--icon-primary)"
+      fillOpacity="0.5"
+    />
+    <circle cx="12" cy="12" r="2" fill="var(--icon-secondary)" />
+    <path
+      d="M12 4L13 7M12 20L13 17M20 12L17 11M4 12L7 11"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <path
+      d="M18.36 5.64L16.24 7.76M5.64 18.36L7.76 16.24M18.36 18.36L16.24 16.24M5.64 5.64L7.76 7.76"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      strokeLinecap="round"
+    />
+  </IconBase>
+)
+
+// Thin Monoline Icons (for non-critical content and decorative elements)
+export const HelmetThinIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <path
+      d="M12 2C8.5 2 5.5 4.5 4.5 8H3.5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11H4.5C4.5 11.5 4.6 12 4.7 12.5H19.3C19.4 12 19.5 11.5 19.5 11H20.5C21.33 11 22 10.33 22 9.5S21.33 8 20.5 8H19.5C18.5 4.5 15.5 2 12 2Z"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <path
+      d="M4.7 12.5C5.5 16.5 8.5 19.5 12 19.5S18.5 16.5 19.3 12.5"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <circle
+      cx="12"
+      cy="8"
+      r="1"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+  </IconBase>
+)
+
+export const WrenchThinIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <path
+      d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94L14.7 6.3z"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+  </IconBase>
+)
+
+export const BlueprintThinIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <rect
+      x="3"
+      y="5"
+      width="18"
+      height="14"
+      rx="2"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <rect
+      x="5"
+      y="7"
+      width="14"
+      height="10"
+      rx="1"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <line
+      x1="7"
+      y1="9"
+      x2="17"
+      y2="9"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      strokeDasharray="2,2"
+    />
+    <line
+      x1="7"
+      y1="11"
+      x2="13"
+      y2="11"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      strokeDasharray="2,2"
+    />
+    <line
+      x1="7"
+      y1="13"
+      x2="15"
+      y2="13"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      strokeDasharray="2,2"
+    />
+    <rect
+      x="15"
+      y="11"
+      width="2"
+      height="2"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+  </IconBase>
+)
+
+export const MeasureThinIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <rect
+      x="2"
+      y="11"
+      width="20"
+      height="2"
+      rx="1"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <rect
+      x="3"
+      y="6"
+      width="2"
+      height="12"
+      rx="1"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <rect
+      x="19"
+      y="6"
+      width="2"
+      height="12"
+      rx="1"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <path
+      d="M6 9L9 12L6 15"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M18 9L15 12L18 15"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+      strokeLinejoin="round"
+    />
+    <circle
+      cx="12"
+      cy="12"
+      r="1"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+  </IconBase>
+)
+
+export const TargetThinIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <circle
+      cx="12"
+      cy="12"
+      r="10"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <circle
+      cx="12"
+      cy="12"
+      r="6"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <circle
+      cx="12"
+      cy="12"
+      r="3"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <circle
+      cx="12"
+      cy="12"
+      r="1"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+  </IconBase>
+)
+
+export const BadgeThinIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <path
+      d="M12 2L14.09 8.26L22 9L16 14.74L17.18 22.5L12 19.77L6.82 22.5L8 14.74L2 9L9.91 8.26L12 2Z"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <circle
+      cx="12"
+      cy="10"
+      r="3"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+  </IconBase>
+)
+
+export const MedalThinIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <circle
+      cx="12"
+      cy="8"
+      r="6"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <circle
+      cx="12"
+      cy="8"
+      r="3"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <path
+      d="M9 14L7 22L12 20L17 22L15 14"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+      strokeLinejoin="round"
+    />
+    <circle
+      cx="12"
+      cy="8"
+      r="1"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+  </IconBase>
+)
+
+export const AnchorThinIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <circle
+      cx="12"
+      cy="5"
+      r="3"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <path
+      d="M12 8V19M5 12H8M16 12H19"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      strokeLinecap="round"
+    />
+    <path
+      d="M8 19C8 15.13 9.79 11.67 12.5 9.5C15.21 11.67 17 15.13 17 19"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <circle
+      cx="12"
+      cy="19"
+      r="2"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+  </IconBase>
+)
+
+export const CompassThinIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <circle
+      cx="12"
+      cy="12"
+      r="10"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <path
+      d="M16.24 7.76L14.12 14.12L7.76 16.24L9.88 9.88L16.24 7.76Z"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+      strokeLinejoin="round"
+    />
+    <circle
+      cx="12"
+      cy="12"
+      r="2"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <path
+      d="M12 2V6M12 18V22M22 12H18M6 12H2"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      strokeLinecap="round"
+    />
+  </IconBase>
+)
+
+export const TiresThinIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <circle
+      cx="12"
+      cy="12"
+      r="8"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <circle
+      cx="12"
+      cy="12"
+      r="5"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <circle
+      cx="12"
+      cy="12"
+      r="2"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <path
+      d="M12 4L13 7M12 20L13 17M20 12L17 11M4 12L7 11"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      strokeLinecap="round"
+    />
+    <path
+      d="M18.36 5.64L16.24 7.76M5.64 18.36L7.76 16.24M18.36 18.36L16.24 16.24M5.64 5.64L7.76 7.76"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      strokeLinecap="round"
+    />
+  </IconBase>
+)
+
+// Specialized Construction Icons
+export const AIIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    {/* AI Brain Circuit */}
+    <circle
+      cx="12"
+      cy="12"
+      r="8"
+      fill="var(--icon-primary)"
+      fillOpacity="0.2"
+    />
+    <path d="M8 8H16V16H8V8Z" fill="var(--icon-primary)" fillOpacity="0.4" />
+    <circle cx="10" cy="10" r="1.5" fill="var(--icon-secondary)" />
+    <circle cx="14" cy="10" r="1.5" fill="var(--icon-secondary)" />
+    <circle cx="12" cy="14" r="1" fill="var(--icon-secondary)" />
+    {/* Circuit lines */}
+    <path
+      d="M10 10L12 14M14 10L12 14M8 12H16M12 8V16"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      strokeOpacity="0.6"
+    />
+    {/* Corner circuits */}
+    <path
+      d="M6 6L8 8M18 6L16 8M6 18L8 16M18 18L16 16"
+      stroke="var(--icon-primary)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+  </IconBase>
+)
+
+export const BinocularsIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    {/* Main body structure */}
+    <rect
+      x="6"
+      y="9"
+      width="3"
+      height="6"
+      rx="1.5"
+      fill="var(--icon-primary)"
+    />
+    <rect
+      x="15"
+      y="9"
+      width="3"
+      height="6"
+      rx="1.5"
+      fill="var(--icon-primary)"
+    />
+
+    {/* Lenses */}
+    <circle
+      cx="7.5"
+      cy="12"
+      r="2.5"
+      fill="var(--icon-primary)"
+      fillOpacity="0.3"
+    />
+    <circle
+      cx="16.5"
+      cy="12"
+      r="2.5"
+      fill="var(--icon-primary)"
+      fillOpacity="0.3"
+    />
+    <circle cx="7.5" cy="12" r="1.5" fill="var(--icon-secondary)" />
+    <circle cx="16.5" cy="12" r="1.5" fill="var(--icon-secondary)" />
+
+    {/* Bridge/connector */}
+    <rect x="9" y="11" width="6" height="2" rx="1" fill="var(--icon-primary)" />
+
+    {/* Adjustment rings */}
+    <circle
+      cx="7.5"
+      cy="12"
+      r="3"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+    <circle
+      cx="16.5"
+      cy="12"
+      r="3"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+    />
+
+    {/* Neck strap attachment points */}
+    <circle cx="7.5" cy="8" r="0.8" fill="var(--icon-primary)" />
+    <circle cx="16.5" cy="8" r="0.8" fill="var(--icon-primary)" />
+  </IconBase>
+)
+
+export const HandshakeIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    {/* Left hand/arm */}
+    <path
+      d="M2 16L8 10L10 12L12 10L14 12L16 10L18 12L22 8"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    {/* Right hand/arm */}
+    <path
+      d="M22 16L16 10L14 12L12 10L10 12L8 10L6 12L2 8"
+      stroke="var(--icon-secondary)"
+      strokeWidth="2"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    {/* Handshake connection point */}
+    <circle
+      cx="12"
+      cy="11"
+      r="2"
+      fill="var(--icon-primary)"
+      fillOpacity="0.3"
+    />
+    <circle cx="12" cy="11" r="1" fill="var(--icon-secondary)" />
+    {/* Strength lines */}
+    <path
+      d="M8 14L16 14M9 16L15 16"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      strokeOpacity="0.5"
+    />
+  </IconBase>
+)
+
+export const StarIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <path
+      d="M12 2L14.09 8.26L22 9L16 14.74L17.18 22.5L12 19.77L6.82 22.5L8 14.74L2 9L9.91 8.26L12 2Z"
+      fill="var(--icon-primary)"
+    />
+    <path
+      d="M12 2L14.09 8.26L22 9L16 14.74L17.18 22.5L12 19.77L6.82 22.5L8 14.74L2 9L9.91 8.26L12 2Z"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+      fillOpacity="0.2"
+    />
+    {/* Inner highlight */}
+    <path
+      d="M12 6L13 9L16 9.5L13.5 12L14 15L12 13.5L10 15L10.5 12L8 9.5L11 9L12 6Z"
+      fill="var(--icon-secondary)"
+    />
+  </IconBase>
+)
+
+export const ScaleIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    {/* Base */}
+    <rect
+      x="10"
+      y="20"
+      width="4"
+      height="2"
+      rx="1"
+      fill="var(--icon-primary)"
+    />
+    {/* Pillar */}
+    <rect x="11.5" y="8" width="1" height="12" fill="var(--icon-primary)" />
+    {/* Balance beam */}
+    <rect
+      x="6"
+      y="7"
+      width="12"
+      height="1"
+      rx="0.5"
+      fill="var(--icon-primary)"
+    />
+    {/* Left scale pan */}
+    <path
+      d="M6 7L4 11L8 11L6 7Z"
+      fill="var(--icon-primary)"
+      fillOpacity="0.7"
+    />
+    <rect
+      x="3"
+      y="11"
+      width="6"
+      height="0.5"
+      rx="0.25"
+      fill="var(--icon-primary)"
+    />
+    {/* Right scale pan */}
+    <path
+      d="M18 7L16 11L20 11L18 7Z"
+      fill="var(--icon-primary)"
+      fillOpacity="0.7"
+    />
+    <rect
+      x="15"
+      y="11"
+      width="6"
+      height="0.5"
+      rx="0.25"
+      fill="var(--icon-primary)"
+    />
+    {/* Balance point */}
+    <circle cx="12" cy="7.5" r="1" fill="var(--icon-secondary)" />
+    {/* Justice symbol */}
+    <path d="M12 4L11 6L13 6L12 4Z" fill="var(--icon-secondary)" />
+  </IconBase>
+)
+
+export const BadgeIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    {/* Shield shape */}
+    <path
+      d="M12 2L4 6V10C4 16 12 22 12 22S20 16 20 10V6L12 2Z"
+      fill="var(--icon-primary)"
+      fillOpacity="0.8"
+    />
+    <path
+      d="M12 2L4 6V10C4 16 12 22 12 22S20 16 20 10V6L12 2Z"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+      fill="none"
+    />
+    {/* Badge center */}
+    <circle
+      cx="12"
+      cy="11"
+      r="4"
+      fill="var(--icon-secondary)"
+      fillOpacity="0.3"
+    />
+    <circle
+      cx="12"
+      cy="11"
+      r="3"
+      stroke="var(--icon-secondary)"
+      strokeWidth="1.5"
+      fill="none"
+    />
+    {/* Badge star/emblem */}
+    <path
+      d="M12 8L13 10L15 10L13.5 11.5L14 14L12 12.5L10 14L10.5 11.5L9 10L11 10L12 8Z"
+      fill="var(--icon-secondary)"
+    />
+  </IconBase>
+)
+
+export const CalendarScheduleIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    {/* Calendar base */}
+    <rect
+      x="3"
+      y="4"
+      width="18"
+      height="16"
+      rx="2"
+      fill="var(--icon-primary)"
+      fillOpacity="0.2"
+    />
+    <rect
+      x="3"
+      y="4"
+      width="18"
+      height="16"
+      rx="2"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+      fill="none"
+    />
+
+    {/* Calendar header */}
+    <rect x="3" y="4" width="18" height="4" fill="var(--icon-primary)" />
+
+    {/* Spiral bindings */}
+    <line
+      x1="7"
+      y1="2"
+      x2="7"
+      y2="6"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <line
+      x1="17"
+      y1="2"
+      x2="17"
+      y2="6"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+
+    {/* Calendar grid */}
+    <line
+      x1="6"
+      y1="10"
+      x2="18"
+      y2="10"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+    />
+    <line
+      x1="6"
+      y1="13"
+      x2="18"
+      y2="13"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+    />
+    <line
+      x1="6"
+      y1="16"
+      x2="18"
+      y2="16"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+    />
+
+    {/* Time indicator */}
+    <circle cx="15" cy="14.5" r="1.5" fill="var(--icon-secondary)" />
+    <path
+      d="M15 13.5V14.5L15.7 15.2"
+      stroke="white"
+      strokeWidth="0.8"
+      strokeLinecap="round"
+    />
+  </IconBase>
+)
+
+export const UserProfileIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    <circle cx="12" cy="8" r="4" fill="var(--icon-primary)" />
+    <path
+      d="M6 21V19C6 16.7909 7.79086 15 10 15H14C16.2091 15 18 16.7909 18 19V21"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <circle cx="12" cy="8" r="2" fill="var(--icon-secondary)" />
   </IconBase>
 )
 
@@ -657,6 +1565,259 @@ export const YouTubeIcon: React.FC<IconProps> = props => (
       />
     </g>
     <polygon points="10,9 15,12 10,15" fill="var(--icon-primary)" />
+  </IconBase>
+)
+
+// NEW CORE VALUES ICONS (v3.6.0)
+
+export const TransparencyIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    {/* Open book base */}
+    <path
+      d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"
+      fill="var(--icon-primary)"
+      fillOpacity="0.3"
+    />
+    <path
+      d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"
+      fill="var(--icon-primary)"
+      fillOpacity="0.3"
+    />
+    {/* Book spine */}
+    <path d="M12 3v18" stroke="var(--icon-primary)" strokeWidth="2" />
+    {/* Transparency lines */}
+    <path
+      d="M5 8h3M5 11h4M5 14h3"
+      stroke="var(--icon-secondary)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+    <path
+      d="M16 8h3M16 11h4M16 14h3"
+      stroke="var(--icon-secondary)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+    {/* Glass effect overlay */}
+    <rect
+      x="3"
+      y="5"
+      width="18"
+      height="14"
+      rx="2"
+      stroke="var(--icon-primary)"
+      strokeWidth="1"
+      fill="none"
+      strokeDasharray="3,3"
+      opacity="0.5"
+    />
+  </IconBase>
+)
+
+export const PrecisionIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    {/* Main measuring tool body */}
+    <rect
+      x="3"
+      y="10"
+      width="18"
+      height="4"
+      rx="2"
+      fill="var(--icon-primary)"
+    />
+    {/* Precision markings */}
+    <line
+      x1="6"
+      y1="8"
+      x2="6"
+      y2="16"
+      stroke="var(--icon-secondary)"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <line
+      x1="9"
+      y1="9"
+      x2="9"
+      y2="15"
+      stroke="var(--icon-secondary)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+    <line
+      x1="12"
+      y1="8"
+      x2="12"
+      y2="16"
+      stroke="var(--icon-secondary)"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <line
+      x1="15"
+      y1="9"
+      x2="15"
+      y2="15"
+      stroke="var(--icon-secondary)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+    <line
+      x1="18"
+      y1="8"
+      x2="18"
+      y2="16"
+      stroke="var(--icon-secondary)"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    {/* Engineering precision indicator */}
+    <circle cx="12" cy="12" r="1.5" fill="var(--icon-secondary)" />
+    {/* Experience badge */}
+    <path d="M8 4h8l1 3h-10z" fill="var(--icon-primary)" fillOpacity="0.7" />
+  </IconBase>
+)
+
+export const ClientFirstIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    {/* Heart shape */}
+    <path
+      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+      fill="var(--icon-primary)"
+      fillOpacity="0.3"
+    />
+    {/* Handshake within heart */}
+    <path
+      d="M8 10h2l1 1 1-1h2"
+      stroke="var(--icon-secondary)"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <circle cx="9" cy="10" r="1" fill="var(--icon-secondary)" />
+    <circle cx="15" cy="10" r="1" fill="var(--icon-secondary)" />
+    {/* Client focus rays */}
+    <path d="M12 6l1 2-1 1-1-1z" fill="var(--icon-secondary)" />
+    <path d="M6 9l2 1-1 1-1-1z" fill="var(--icon-secondary)" />
+    <path d="M18 9l-2 1 1 1 1-1z" fill="var(--icon-secondary)" />
+  </IconBase>
+)
+
+export const ProfessionalControlIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    {/* Steering wheel/control center */}
+    <circle
+      cx="12"
+      cy="12"
+      r="8"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+      fill="none"
+    />
+    <circle cx="12" cy="12" r="2" fill="var(--icon-secondary)" />
+    {/* Control spokes */}
+    <line
+      x1="12"
+      y1="4"
+      x2="12"
+      y2="8"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <line
+      x1="12"
+      y1="16"
+      x2="12"
+      y2="20"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <line
+      x1="4"
+      y1="12"
+      x2="8"
+      y2="12"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <line
+      x1="16"
+      y1="12"
+      x2="20"
+      y2="12"
+      stroke="var(--icon-primary)"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    {/* Professional precision indicators */}
+    <circle cx="12" cy="6" r="1" fill="var(--icon-primary)" />
+    <circle cx="18" cy="12" r="1" fill="var(--icon-primary)" />
+    <circle cx="12" cy="18" r="1" fill="var(--icon-primary)" />
+    <circle cx="6" cy="12" r="1" fill="var(--icon-primary)" />
+    {/* Control flow lines */}
+    <path
+      d="M8.5 8.5l7 7M15.5 8.5l-7 7"
+      stroke="var(--icon-secondary)"
+      strokeWidth="1"
+      strokeOpacity="0.3"
+    />
+  </IconBase>
+)
+
+export const TrustIcon: React.FC<IconProps> = props => (
+  <IconBase {...props}>
+    {/* Foundation blocks */}
+    <rect
+      x="2"
+      y="18"
+      width="20"
+      height="4"
+      rx="1"
+      fill="var(--icon-primary)"
+    />
+    <rect
+      x="4"
+      y="14"
+      width="16"
+      height="4"
+      rx="1"
+      fill="var(--icon-primary)"
+      fillOpacity="0.8"
+    />
+    <rect
+      x="6"
+      y="10"
+      width="12"
+      height="4"
+      rx="1"
+      fill="var(--icon-primary)"
+      fillOpacity="0.6"
+    />
+    <rect
+      x="8"
+      y="6"
+      width="8"
+      height="4"
+      rx="1"
+      fill="var(--icon-primary)"
+      fillOpacity="0.4"
+    />
+    {/* Culmination crown/peak */}
+    <path d="M10 2l2 4 2-4 2 4-6 0z" fill="var(--icon-secondary)" />
+    {/* Trust connection lines */}
+    <path
+      d="M12 6v2M12 10v2M12 14v2"
+      stroke="var(--icon-secondary)"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    {/* Stability indicators */}
+    <circle cx="6" cy="20" r="1" fill="var(--icon-secondary)" />
+    <circle cx="12" cy="20" r="1" fill="var(--icon-secondary)" />
+    <circle cx="18" cy="20" r="1" fill="var(--icon-secondary)" />
   </IconBase>
 )
 

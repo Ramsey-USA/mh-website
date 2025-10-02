@@ -20,18 +20,42 @@ import TestimonialsWidget from '../components/TestimonialsWidget'
 import BlogNewsCarousel from '../components/blog/BlogNewsCarousel'
 import Head from 'next/head'
 import {
-  WPZoomBoltIcon as BoltIcon,
-  WPZoomCalendarIcon as CalendarIcon,
-  WPZoomUserIcon as UserIcon,
-  WPZoomShieldIcon as ShieldIcon,
-  WPZoomCogIcon as CogIcon,
-  WPZoomStarIcon as StarIcon,
-  WPZoomHammerIcon as HammerIcon,
-  WPZoomCheckIcon as CheckIcon,
-  WPZoomToolsIcon as ToolsIcon,
-  WPZoomHomeIcon as HomeIcon,
-  WPZoomArrowRightIcon as ArrowRightIcon,
-} from '../components/icons/WPZoomIcons'
+  WrenchIcon,
+  BlueprintIcon,
+  MeasureIcon,
+  TargetIcon,
+  BadgeIcon,
+  MedalIcon,
+  AnchorIcon,
+  CompassIcon,
+  TiresIcon,
+  HelmetIcon,
+  ArrowRightIcon,
+  CheckIcon,
+  ShieldIcon,
+  AIIcon,
+  BinocularsIcon,
+  CalendarScheduleIcon,
+  UserProfileIcon,
+  HelmetThinIcon,
+  WrenchThinIcon,
+  BlueprintThinIcon,
+  MeasureThinIcon,
+  TargetThinIcon,
+  BadgeThinIcon,
+  MedalThinIcon,
+  AnchorThinIcon,
+  CompassThinIcon,
+  TiresThinIcon,
+  HandshakeIcon,
+  StarIcon,
+  ScaleIcon,
+  TransparencyIcon,
+  PrecisionIcon,
+  ClientFirstIcon,
+  ProfessionalControlIcon,
+  TrustIcon,
+} from '../components/icons/SharpDuotoneIcons'
 // Import custom MH Construction icons with built-in hover effects
 import {
   MHLogoIcon,
@@ -106,22 +130,24 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>MH Construction - Your Partner in Building Tomorrow</title>
+        <title>
+          MH Construction - Commercial Construction Management | Tri-Cities WA
+        </title>
         <meta
           name="description"
-          content="MH Construction - working with you to deliver exceptional construction services throughout the Pacific Northwest. Your veteran-owned construction partners since 1995."
+          content="Expert Commercial Construction Management in Pasco, Kennewick, Richland WA. Full CM services for commercial, medical, and industrial projects. Call (509) 308-6489 today."
         />
         <meta
           name="keywords"
-          content="construction partnership, construction collaboration, home builder partner, commercial contractor, Pacific Northwest construction, veteran owned construction"
+          content="commercial construction management, Tri-Cities construction, Pasco construction, Kennewick construction, Richland construction, construction management services, medical facilities construction, industrial construction, tenant improvements"
         />
         <meta
           property="og:title"
-          content="MH Construction - Your Partner in Building Tomorrow"
+          content="MH Construction - Commercial Construction Management | Tri-Cities WA"
         />
         <meta
           property="og:description"
-          content="Veteran-owned construction excellence - Working with you to serve our communities."
+          content="Expert Commercial Construction Management services throughout the Tri-Cities area. Call (509) 308-6489 to begin your commercial project."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://mhconstruction.com" />
@@ -146,25 +172,25 @@ export default function Home() {
         {/* Content Overlay */}
         <div className="z-10 relative flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full text-white">
           <FadeInWhenVisible className="w-full text-center">
-            {/* Simplified Hero Title */}
+            {/* Updated Hero Title */}
             <h1 className="mb-6 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight">
               <span className="block mb-2 font-semibold text-white/90 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                Your Partner in
+                Commercial Construction
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white drop-shadow-lg">
-                Building Tomorrow
+                Management Experts
               </span>
             </h1>
 
-            {/* Simplified Tagline */}
+            {/* Updated Tagline */}
             <p className="mx-auto mb-8 max-w-3xl text-white/90 text-xl sm:text-2xl md:text-3xl leading-relaxed">
-              Veteran-owned construction excellence working with you to serve
-              our communities.
+              Full Construction Management services throughout the Tri-Cities.
+              Serving Pasco, Kennewick, Richland & surrounding areas.
             </p>
 
-            {/* Simplified CTA */}
+            {/* Enhanced CTA with Phone Number */}
             <div className="flex sm:flex-row flex-col justify-center items-center gap-4">
-              <Link href="/booking">
+              <a href="tel:5093086489">
                 <HoverScale>
                   <Button
                     variant="primary"
@@ -172,21 +198,21 @@ export default function Home() {
                     className="bg-white hover:bg-white/90 shadow-2xl border-0 text-brand-primary"
                     onClick={() =>
                       trackEvent('cta_click', {
-                        button_name: 'get_started',
+                        button_name: 'call_now',
                         location: 'hero_section',
                         page: 'homepage',
                       })
                     }
                   >
-                    <CalendarIcon
+                    <CalendarScheduleIcon
                       size="sm"
-                      color="currentColor"
+                      primaryColor="currentColor"
                       className="mr-3"
                     />
-                    <span className="font-semibold">Get Started</span>
+                    <span className="font-semibold">Call (509) 308-6489</span>
                   </Button>
                 </HoverScale>
-              </Link>
+              </a>
               <Link href="/estimator">
                 <HoverScale>
                   <Button
@@ -201,7 +227,11 @@ export default function Home() {
                       })
                     }
                   >
-                    <BoltIcon size="sm" color="currentColor" className="mr-3" />
+                    <AIIcon
+                      size="sm"
+                      primaryColor="currentColor"
+                      className="mr-3"
+                    />
                     <span className="font-semibold">Free Estimate</span>
                   </Button>
                 </HoverScale>
@@ -244,7 +274,7 @@ export default function Home() {
           <StaggeredFadeIn className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                icon: BoltIcon,
+                icon: AIIcon,
                 title: 'AI Project Estimator',
                 description:
                   'Revolutionary AI-powered cost calculator with ±15% precision guarantee for accurate project planning and budgeting.',
@@ -261,7 +291,7 @@ export default function Home() {
                 delay: '0s',
               },
               {
-                icon: CalendarIcon,
+                icon: CalendarScheduleIcon,
                 title: 'Smart Scheduling',
                 description:
                   'Visual calendar system with real-time availability and instant confirmations for seamless booking experience.',
@@ -278,7 +308,7 @@ export default function Home() {
                 delay: '0.1s',
               },
               {
-                icon: HammerIcon,
+                icon: BinocularsIcon,
                 title: '3D Project Explorer',
                 description:
                   'Immersive HD visualization with real-time builder insights to bring your vision to life before construction begins.',
@@ -295,7 +325,7 @@ export default function Home() {
                 delay: '0.2s',
               },
               {
-                icon: UserIcon,
+                icon: HelmetIcon,
                 title: '24/7 AI Assistant',
                 description:
                   'Military-grade support with enhanced chatbot providing context-aware veteran assistance and instant responses.',
@@ -328,7 +358,7 @@ export default function Home() {
                         <div
                           className={`w-20 h-20 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
                         >
-                          <feature.icon size="xl" color="white" />
+                          <feature.icon size="2xl" primaryColor="white" />
                         </div>
 
                         <h3 className="mb-4 font-black text-text-primary dark:text-text-primary-dark text-2xl md:text-3xl leading-tight tracking-tight">
@@ -354,8 +384,8 @@ export default function Home() {
                     <div className="flex flex-col h-full text-white text-center">
                       <div className="flex flex-col flex-grow">
                         <feature.icon
-                          size="md"
-                          color="white"
+                          size="xl"
+                          primaryColor="white"
                           className="mx-auto mb-3"
                         />
                         <h3 className="mb-3 font-black text-xl">
@@ -402,28 +432,28 @@ export default function Home() {
                 description: 'Get instant project estimates',
                 href: '/estimator',
                 variant: 'primary' as const,
-                icon: BoltIcon,
+                icon: AIIcon,
               },
               {
                 title: 'Book Meeting',
                 description: 'Schedule your free consultation',
                 href: '/booking',
                 variant: 'outline' as const,
-                icon: CalendarIcon,
+                icon: CalendarScheduleIcon,
               },
               {
                 title: 'View Projects',
                 description: 'Explore our 3D gallery',
                 href: '/portfolio',
                 variant: 'outline' as const,
-                icon: HammerIcon,
+                icon: BinocularsIcon,
               },
               {
                 title: 'Chat with AI',
                 description: 'Get instant support',
                 href: '/contact',
                 variant: 'outline' as const,
-                icon: UserIcon,
+                icon: HelmetIcon,
               },
             ].map((cta, index) => (
               <div key={index} className="text-center">
@@ -433,7 +463,11 @@ export default function Home() {
                   className="shadow-lg hover:shadow-xl mb-3 w-full h-12 transition-all duration-300"
                   onClick={() => (window.location.href = cta.href)}
                 >
-                  <cta.icon size="sm" color="currentColor" className="mr-3" />
+                  <cta.icon
+                    size="sm"
+                    primaryColor="currentColor"
+                    className="mr-3"
+                  />
                   <span className="font-semibold">{cta.title}</span>
                 </Button>
                 <p className="font-light text-text-secondary dark:text-text-secondary-dark text-sm">
@@ -445,7 +479,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Military Values Section */}
+      {/* Core Values Section */}
       <section className="relative bg-white dark:bg-gray-900 py-12 lg:py-16 values-section">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.05)_0%,transparent_50%)]"></div>
@@ -459,18 +493,18 @@ export default function Home() {
                 Built on
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
-                Unwavering Principles
+                Professional Foundation
               </span>
             </h2>
             <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
               Our foundation rests on{' '}
               <span className="font-medium text-gray-800 dark:text-gray-200">
-                military values
+                six core principles
               </span>{' '}
               that guide every project, every decision, and every client
               relationship we build with{' '}
               <span className="bg-clip-text bg-gradient-to-r from-veteran-red to-brand-primary font-semibold text-transparent">
-                honor and dedication
+                trust as our ultimate goal
               </span>
               .
             </p>
@@ -479,73 +513,72 @@ export default function Home() {
           <div className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                value: 'Integrity',
-                icon: ShieldIcon,
+                value: 'Honesty & Transparency',
+                icon: TransparencyIcon,
                 description:
-                  'We conduct business with unwavering honesty and moral principles, ensuring every project reflects our commitment to doing what is right.',
+                  'We provide full-disclosure transparency from day one. Our open-dialogue progress meetings include all stakeholders, ensuring every topic is vetted and documented.',
                 details:
-                  "Our commitment to integrity means transparent pricing, honest timelines, and delivering exactly what we promise. Every decision is made with our clients' best interests at heart.",
+                  'We believe you, the client, should have the most complete and up-to-date information—good or bad—to make truly educated decisions. We manage the project; you control it.',
                 color: 'from-brand-primary to-brand-primary-dark',
                 bgColor: 'bg-brand-primary/5',
-                stats: '100% Transparent Pricing',
+                stats: 'Open-Book Progress Meetings',
               },
               {
-                value: 'Excellence',
-                icon: StarIcon,
+                value: 'Integrity',
+                icon: ScaleIcon,
                 description:
-                  'We pursue perfection in every detail, delivering superior craftsmanship that exceeds expectations and stands the test of time.',
+                  'Integrity is the unwavering commitment to our word. As a team built on principles of accountability and trust, we view our business conduct as a direct reflection of our personal character.',
                 details:
-                  'Excellence drives our quality control processes, material selection, and attention to detail. We use only premium materials and employ master craftsmen.',
-                color: 'from-brand-secondary to-brand-secondary-dark',
+                  'Our conversation, character, and conduct are consistently diligent, ensuring our actions on your project transcend the transactional relationship.',
+                color: 'from-veteran-blue to-veteran-blue-light',
+                bgColor: 'bg-veteran-blue/5',
+                stats: 'Character-Driven Conduct',
+              },
+              {
+                value: 'Precision & Experience',
+                icon: PrecisionIcon,
+                description:
+                  'With over 150 years of combined experience in commercial construction, we offer a project team that has seen and managed virtually every challenge.',
+                details:
+                  'This collective wisdom is delivered in a neat, engineer-driven project package, providing the reliable foresight necessary to keep your project on track and minimize risk.',
+                color: 'from-brand-secondary to-brand-secondary-light',
                 bgColor: 'bg-brand-secondary/5',
-                stats: '98% Client Satisfaction',
+                stats: '150+ Years Combined Experience',
               },
               {
-                value: 'Service',
-                icon: ToolsIcon,
+                value: 'Client-First Ethics',
+                icon: ClientFirstIcon,
                 description:
-                  'We serve our clients and community with dedication, putting their needs first and treating every project as our mission.',
+                  'Our foundation is built on small-town values: we are a "client" focused company, not just a "project" focused one.',
                 details:
-                  'Service means being available when you need us, responding quickly to concerns, and going above and beyond to ensure your complete satisfaction.',
+                  'This means we are committed to acting solely in your best interest. We operate with discipline—staying organized, concise, and direct—so that your valuable time is respected and your decisions are always well-informed.',
                 color: 'from-brand-accent to-brand-accent-dark',
                 bgColor: 'bg-brand-accent/5',
-                stats: '24/7 Emergency Support',
+                stats: 'Client-Focused Approach',
               },
               {
-                value: 'Leadership',
-                icon: CheckIcon,
+                value: 'Professionalism & Control',
+                icon: ProfessionalControlIcon,
                 description:
-                  'We lead by example in the construction industry, setting standards for innovation, safety, and professional excellence.',
+                  'Professionalism here is the confident, controlled ability to navigate complex projects.',
                 details:
-                  'Leadership means pioneering new construction technologies, maintaining the highest safety standards, and mentoring the next generation of builders.',
-                color: 'from-brand-primary to-brand-secondary',
-                bgColor:
-                  'bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5',
-                stats: 'Zero Safety Incidents',
-              },
-              {
-                value: 'Accountability',
-                icon: CogIcon,
-                description:
-                  'We take full responsibility for our work and commitments, ensuring transparency and reliability in every interaction.',
-                details:
-                  'Accountability means owning our mistakes, learning from them, and always making things right. We stand behind our work with comprehensive warranties.',
+                  'We leverage decades of commercial and logistical experience to course the rough waters of construction through levelheaded management. This creates a coordinated, harmonious workflow that provides unmatched confidence to owners, subcontractors, and project peers.',
                 color: 'from-veteran-red to-brand-primary',
                 bgColor:
                   'bg-gradient-to-br from-veteran-red/5 to-brand-primary/5',
-                stats: '5-Year Warranty',
+                stats: 'Harmonious Workflow Management',
               },
               {
-                value: 'Teamwork',
-                icon: HammerIcon,
+                value: 'Trust (The Culmination)',
+                icon: TrustIcon,
                 description:
-                  'We build success through collaboration, leveraging diverse skills and perspectives to achieve exceptional results together.',
+                  'Earning your trust is not a starting point; it is the culmination of our consistent performance in all other core values.',
                 details:
-                  'Teamwork brings together veterans, skilled craftsmen, and industry experts. Our collaborative approach ensures every project benefits from collective expertise.',
-                color: 'from-brand-secondary to-brand-accent',
+                  'Trust is the measurable result that your project is on track, flowing smoothly, and supported by open, honest communication. We understand that your trust is the foundation upon which MH Construction exists.',
+                color: 'from-brand-primary to-brand-secondary',
                 bgColor:
-                  'bg-gradient-to-br from-brand-secondary/5 to-brand-accent/5',
-                stats: '15+ Team Members',
+                  'bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5',
+                stats: 'Foundation of Our Existence',
               },
             ].map((item, index) => {
               const IconComponent = item.icon
@@ -568,13 +601,11 @@ export default function Home() {
                           <div
                             className={`w-24 h-24 bg-gradient-to-br ${item.color} rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg`}
                           >
-                            <IconComponent size="2xl" color="white" />
-                          </div>
-
+                            <IconComponent size="3xl" primaryColor="white" />
+                          </div>{' '}
                           <h3 className="mb-4 font-black text-text-primary dark:text-text-primary-dark text-2xl md:text-3xl leading-tight tracking-tight">
                             {item.value}
                           </h3>
-
                           <p className="font-light text-text-secondary dark:text-text-secondary-dark text-sm md:text-base leading-relaxed">
                             {item.description}
                           </p>
@@ -592,7 +623,7 @@ export default function Home() {
                         <div className="flex-shrink-0">
                           <IconComponent
                             size="md"
-                            color="white"
+                            primaryColor="white"
                             className="mx-auto mb-3"
                           />
                           <h3 className="mb-2 font-black text-xl">
@@ -636,144 +667,149 @@ export default function Home() {
               </span>
             </h2>
             <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-              Discover our exceptional services and see why clients trust MH
-              Construction with their most important projects. Each service
-              represents our commitment to{' '}
+              Discover our comprehensive construction management and commercial
+              services throughout the{' '}
               <span className="font-medium text-gray-800 dark:text-gray-200">
-                military precision
+                Tri-Cities area
               </span>{' '}
-              and{' '}
+              (Pasco, Kennewick, Richland). Each service represents our
+              commitment to{' '}
               <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
-                veteran excellence
-              </span>
-              .
+                professional excellence
+              </span>{' '}
+              and client partnership.
             </p>
           </FadeInWhenVisible>
 
           {/* Service Cards Grid - 6 Cards */}
           <FadeInWhenVisible className="gap-6 lg:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {/* Residential Construction */}
+            {/* Construction Management */}
             <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <HomeIcon size="lg" color="var(--brand-primary)" />
+                  <CompassIcon size="xl" primaryColor="var(--brand-primary)" />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
-                  Residential Construction
+                  Construction Management
                 </h3>
                 <p className="mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Custom homes built with precision and care. From foundation to
-                  finish, we deliver exceptional craftsmanship.
+                  Full Construction Management (CM) services throughout the
+                  Tri-Cities. We minimize "on-the-fly" decisions through
+                  meticulous planning.
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
-                  <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" color="currentColor" />
+                  <span className="mr-2">Call (509) 308-6489</span>
+                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
                 </div>
               </div>
             </div>
 
-            {/* Commercial Projects */}
+            {/* Master Planning */}
             <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <HammerIcon size="lg" color="var(--brand-primary)" />
+                  <BlueprintIcon
+                    size="xl"
+                    primaryColor="var(--brand-primary)"
+                  />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
-                  Commercial Construction
+                  Master Planning
                 </h3>
                 <p className="mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Large-scale commercial construction solutions. Office
-                  buildings, retail spaces, and industrial facilities.
+                  Comprehensive Pre-Construction & Master Planning services.
+                  Transform your vision into a practical, buildable reality.
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" color="currentColor" />
+                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
                 </div>
               </div>
             </div>
 
-            {/* Kitchen Renovations */}
+            {/* Commercial Buildings */}
             <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <CogIcon size="lg" color="var(--brand-primary)" />
+                  <WrenchIcon size="xl" primaryColor="var(--brand-primary)" />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
-                  Kitchen Renovations
+                  Commercial Buildings
                 </h3>
                 <p className="mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Transform your kitchen with modern designs and smart
-                  appliances. Complete kitchen transformations.
+                  Complete Commercial Construction Services for offices, retail,
+                  and industrial facilities across WA, OR, and ID.
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" color="currentColor" />
+                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
                 </div>
               </div>
             </div>
 
-            {/* Bathroom Remodeling */}
+            {/* Medical Facilities */}
             <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <ShieldIcon size="lg" color="var(--brand-primary)" />
+                  <MeasureIcon size="xl" primaryColor="var(--brand-primary)" />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
-                  Bathroom Remodeling
+                  Medical Facilities
                 </h3>
                 <p className="mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Luxury bathroom transformations with premium finishes.
-                  Spa-like bathrooms that add value to your home.
+                  Specialized medical facility construction and clinic design.
+                  Precision planning for healthcare environments.
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" color="currentColor" />
+                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
                 </div>
               </div>
             </div>
 
-            {/* Roofing Services */}
+            {/* Light Industrial */}
             <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <BoltIcon size="lg" color="var(--brand-primary)" />
+                  <HelmetIcon size="xl" primaryColor="var(--brand-primary)" />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
-                  Roofing Services
+                  Light Industrial
                 </h3>
                 <p className="mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Professional roofing installation and repair. Protecting your
-                  investment with durable, weather-resistant solutions.
+                  Safe, durable, and highly functional industrial buildings.
+                  Warehouses to processing plants built to your specifications.
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" color="currentColor" />
+                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
                 </div>
               </div>
             </div>
 
-            {/* General Contracting */}
+            {/* Tenant Improvements */}
             <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16">
-                  <ToolsIcon size="lg" color="var(--brand-primary)" />
+                  <TargetIcon size="xl" primaryColor="var(--brand-primary)" />
                 </div>
                 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
-                  General Contracting
+                  Tenant Improvements
                 </h3>
                 <p className="mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Comprehensive project management and construction services.
-                  From planning to completion with veteran precision.
+                  Expert Commercial Tenant Improvement (TI) Services. Transform
+                  your commercial space into a functional, beautiful
+                  environment.
                 </p>
                 <div className="flex items-center font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
                   <span className="mr-2">Learn More</span>
-                  <ArrowRightIcon size="sm" color="currentColor" />
+                  <ArrowRightIcon size="sm" primaryColor="currentColor" />
                 </div>
               </div>
             </div>
@@ -876,7 +912,11 @@ export default function Home() {
                       <div className="flex space-x-1">
                         {Array.from({ length: testimonial.rating }).map(
                           (_, i) => (
-                            <StarIcon key={i} size="sm" color="#fbbf24" />
+                            <StarIcon
+                              key={i}
+                              size="sm"
+                              primaryColor="#fbbf24"
+                            />
                           )
                         )}
                       </div>
@@ -1174,13 +1214,13 @@ export default function Home() {
             <Link href="/blog">
               <Button variant="outline" size="lg" className="shadow-lg">
                 <span className="mr-2">View All Blog Posts</span>
-                <ArrowRightIcon size="sm" color="currentColor" />
+                <ArrowRightIcon size="sm" primaryColor="currentColor" />
               </Button>
             </Link>
             <Link href="/news">
               <Button variant="outline" size="lg" className="shadow-lg">
                 <span className="mr-2">View All News</span>
-                <ArrowRightIcon size="sm" color="currentColor" />
+                <ArrowRightIcon size="sm" primaryColor="currentColor" />
               </Button>
             </Link>
           </div>
@@ -1194,45 +1234,44 @@ export default function Home() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
           <FadeInWhenVisible>
             <h2 className="mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-              Ready to Begin Our Partnership?
+              Ready to Start Your Commercial Project?
             </h2>
             <p className="mx-auto mb-12 max-w-4xl font-light text-white/90 text-xl md:text-2xl leading-relaxed">
-              Join hundreds of Pacific Northwest neighbors who chose{' '}
-              <span className="font-medium text-white">
-                collaborative construction partners
-              </span>{' '}
-              committed to community and excellence.
+              Join business owners across the{' '}
+              <span className="font-medium text-white">Tri-Cities area</span>{' '}
+              who chose expert construction management for their commercial,
+              industrial, and medical facility projects.
             </p>
 
-            {/* Partnership CTA Buttons - 4 Button Grid */}
+            {/* Commercial CTA Buttons - 4 Button Grid */}
             <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto mb-6 max-w-6xl">
-              <Link href="/booking">
+              <a href="tel:5093086489">
                 <button className="group relative bg-white hover:bg-gray-50 shadow-2xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-brand-primary text-base transition-all duration-200">
                   <div className="flex justify-center items-center">
-                    <CalendarIcon
+                    <CalendarScheduleIcon
                       size="md"
-                      color="currentColor"
+                      primaryColor="currentColor"
                       className="flex-shrink-0 mr-2"
                     />
                     <span className="text-center leading-tight">
-                      Consultation
+                      Call Now
                       <br />
-                      Sign Up
+                      (509) 308-6489
                     </span>
                   </div>
                 </button>
-              </Link>
+              </a>
 
               <Link href="/estimator">
                 <button className="group relative bg-brand-primary hover:bg-brand-primary-dark shadow-2xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-white text-base transition-all duration-200">
                   <div className="flex justify-center items-center">
-                    <BoltIcon
+                    <AIIcon
                       size="md"
-                      color="currentColor"
+                      primaryColor="currentColor"
                       className="flex-shrink-0 mr-2"
                     />
                     <span className="text-center leading-tight">
-                      AI Estimator
+                      Project Estimator
                     </span>
                   </div>
                 </button>
@@ -1241,30 +1280,30 @@ export default function Home() {
               <Link href="/portfolio">
                 <button className="group relative bg-white hover:bg-gray-50 shadow-2xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-brand-primary text-base transition-all duration-200">
                   <div className="flex justify-center items-center">
-                    <HammerIcon
+                    <BinocularsIcon
                       size="md"
-                      color="currentColor"
+                      primaryColor="currentColor"
                       className="flex-shrink-0 mr-2"
                     />
                     <span className="text-center leading-tight">
-                      3D Explorer
+                      View Projects
                     </span>
                   </div>
                 </button>
               </Link>
 
-              <Link href="/wounded-warrior">
+              <Link href="/booking">
                 <button className="group relative bg-brand-primary hover:bg-brand-primary-dark shadow-2xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-white text-base transition-all duration-200">
                   <div className="flex justify-center items-center">
-                    <ShieldIcon
+                    <WrenchIcon
                       size="md"
-                      color="currentColor"
+                      primaryColor="currentColor"
                       className="flex-shrink-0 mr-2"
                     />
                     <span className="text-center leading-tight">
-                      Wounded
+                      Free
                       <br />
-                      Warrior
+                      Consultation
                     </span>
                   </div>
                 </button>

@@ -2,11 +2,61 @@
 
 ## Hover Effects Guide & Implementation Strategy
 
-### 🎯 Icon Hover Effect Requirements Analysis
+### 🎯 Icon System Overview (Updated v3.5.0)
 
-Based on the website's current design patterns, here's the comprehensive mapping of which icons need specific hover effects:
+**Latest Update**: October 2, 2025 - Major icon system overhaul with enhanced sizing and construction-themed alignment
 
-## 📍 **NAVIGATION & ACTION ICONS**
+### 📍 **CORE VALUE ICONS (Updated)**
+
+#### **Company Values - Construction Theme Alignment**
+
+1. **HandshakeIcon** (Teamwork)
+   - **Concept**: Collaboration and partnership
+   - **Effect**: `scale` + `rotate` (scale-110 + rotate-3)
+   - **Usage**: Homepage values, About page values grid
+   - **Sizing**: xl in containers, 3xl in hero sections
+
+2. **StarIcon** (Leadership)
+   - **Concept**: Excellence and guidance
+   - **Effect**: `glow` + `pulse`
+   - **Usage**: Homepage values, About page values grid, ratings
+   - **Sizing**: xl in containers, 3xl in hero sections
+
+3. **ScaleIcon** (Integrity)
+   - **Concept**: Balance and fairness
+   - **Effect**: `sway` (subtle rotation animation)
+   - **Usage**: Homepage values, About page values grid
+   - **Sizing**: xl in containers, 3xl in hero sections
+
+4. **BadgeIcon** (Accountability)
+   - **Concept**: Responsibility and achievement
+   - **Effect**: `shine` + `scale`
+   - **Usage**: Homepage values, About page values grid
+   - **Sizing**: xl in containers, 3xl in hero sections
+
+### 🤖 **SPECIALIZED FUNCTIONAL ICONS**
+
+#### **AI & Technology Icons**
+
+1. **AIIcon** (Brain Circuit Design)
+   - **Effect**: `pulse` + `glow` (electric blue)
+   - **Usage**: AI estimator features, homepage CTAs, estimator page
+   - **Consistency**: Used throughout for all AI-powered features
+   - **Sizing**: sm in buttons, lg in features, xl in hero
+
+2. **CalendarScheduleIcon** (Scheduling)
+   - **Effect**: `bounce` + `highlight`
+   - **Usage**: Booking CTAs, scheduling features, calendar elements
+   - **Association**: Clear calendar and time management connection
+   - **Sizing**: sm in buttons, lg in CTAs
+
+3. **BinocularsIcon** (3D Explorer - Enhanced Design)
+   - **Effect**: `zoom` + `focus` (lens reflection)
+   - **Usage**: Portfolio 3D features, exploration tools
+   - **Design**: Realistic dual-lens with bridge and strap points
+   - **Sizing**: lg in features, xl in portfolio
+
+### 📍 **NAVIGATION & ACTION ICONS**
 
 ### **High Priority - Always Need Hover Effects**
 
@@ -26,6 +76,17 @@ Based on the website's current design patterns, here's the comprehensive mapping
    - **Current Implementation**: Scale(1.1) + shadow effects
 
 ## 🏗️ **CONSTRUCTION-SPECIFIC ICONS**
+
+### **Service Icons (Enhanced Sizing)**
+
+All service icons now use `xl` size in 16×16 containers for 75% fill ratio:
+
+1. **BlueprintIcon** - Residential Construction
+2. **WrenchIcon** - Commercial Construction  
+3. **MeasureIcon** - Kitchen Renovations
+4. **TiresIcon** - Bathroom Remodeling
+5. **HelmetIcon** - Roofing Services
+6. **CompassIcon** - General Contracting
 
 ### **Brand Identity Icons (Custom MH Icons)**
 

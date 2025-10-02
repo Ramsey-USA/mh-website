@@ -10,13 +10,29 @@ import {
   StructuredData,
 } from '../../components/seo/seo-meta'
 import {
-  WPZoomShieldIcon as ShieldIcon,
-  WPZoomStarIcon as StarIcon,
-  WPZoomHammerIcon as HammerIcon,
-  WPZoomCheckIcon as CheckIcon,
-  WPZoomUserIcon as UserIcon,
-  WPZoomBoltIcon as BoltIcon,
-} from '../../components/icons/WPZoomIcons'
+  BadgeIcon,
+  MedalIcon,
+  AnchorIcon,
+  CheckIcon,
+  HelmetIcon,
+  TargetIcon,
+  WrenchIcon,
+  CompassIcon,
+  MeasureIcon,
+  TiresIcon,
+  BlueprintIcon,
+  ShieldIcon,
+  AIIcon,
+  BinocularsIcon,
+  CalendarScheduleIcon,
+  UserProfileIcon,
+  StarIcon,
+  HandshakeIcon,
+  ScaleIcon,
+  HammerIcon,
+  UserIcon,
+  BoltIcon,
+} from '../../components/icons/SharpDuotoneIcons'
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -32,42 +48,42 @@ export default function AboutPage() {
 
   const companyValues = [
     {
-      icon: ShieldIcon,
-      title: 'Partnership First',
+      icon: HandshakeIcon,
+      title: 'Teamwork',
       description:
-        'We work WITH you, not just for you. Your success is our mission, and collaboration drives every decision.',
+        'We work together as one unified team, combining diverse skills and perspectives to achieve exceptional results.',
       color: 'from-brand-primary to-brand-primary-light',
     },
     {
-      icon: CheckIcon,
-      title: 'Military Precision',
+      icon: StarIcon,
+      title: 'Leadership',
       description:
-        'Every project executed with the attention to detail and excellence that only military experience provides.',
+        'Leading by example with integrity, vision, and the courage to make decisions that benefit our clients and community.',
       color: 'from-veteran-blue to-veteran-blue-light',
     },
     {
-      icon: HammerIcon,
-      title: 'Community Investment',
+      icon: ScaleIcon,
+      title: 'Integrity',
       description:
-        'Building stronger Pacific Northwest communities through local partnerships and lasting relationships.',
+        "Honest, transparent, and ethical in all our dealings - doing what's right even when no one is watching.",
       color: 'from-brand-secondary to-brand-secondary-light',
     },
     {
-      icon: UserIcon,
-      title: 'Transparent Leadership',
+      icon: BadgeIcon,
+      title: 'Accountability',
       description:
-        'Honest communication, upfront pricing, and doing exactly what we promise - every time.',
+        'Taking full responsibility for our commitments, owning our mistakes, and delivering on every promise we make.',
       color: 'from-veteran-red to-veteran-red-light',
     },
     {
-      icon: BoltIcon,
+      icon: TargetIcon,
       title: 'Innovation Excellence',
       description:
         'Cutting-edge technology like our AI estimation system delivers unmatched accuracy and efficiency.',
       color: 'from-brand-primary to-brand-secondary',
     },
     {
-      icon: StarIcon,
+      icon: AnchorIcon,
       title: 'Veteran Values Legacy',
       description:
         'Service above self, mission first mentality applied to every partnership and project we undertake.',
@@ -128,7 +144,7 @@ export default function AboutPage() {
               <div className="inline-flex items-center bg-white dark:bg-gray-900 shadow-lg mb-8 px-8 py-4 border border-brand-primary/20 rounded-full">
                 <ShieldIcon
                   size="sm"
-                  color="var(--brand-primary)"
+                  primaryColor="var(--brand-primary)"
                   className="mr-3"
                 />
                 <span className="font-black text-brand-primary text-sm uppercase tracking-[0.2em] letter-spacing-wide">
@@ -164,15 +180,15 @@ export default function AboutPage() {
               <div className="bg-white dark:bg-gray-900 shadow-inner backdrop-blur-sm p-8 border border-brand-primary/10 rounded-2xl">
                 <div className="flex md:flex-row flex-col justify-center items-center gap-8 font-semibold text-brand-primary dark:text-brand-primary-light text-lg tracking-[-0.005em]">
                   <div className="flex items-center gap-3">
-                    <CheckIcon size="sm" color="var(--brand-primary)" />
+                    <CheckIcon size="sm" primaryColor="var(--brand-primary)" />
                     <span>500+ Projects Completed</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CheckIcon size="sm" color="var(--brand-primary)" />
+                    <CheckIcon size="sm" primaryColor="var(--brand-primary)" />
                     <span>100% Veteran-Owned</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CheckIcon size="sm" color="var(--brand-primary)" />
+                    <CheckIcon size="sm" primaryColor="var(--brand-primary)" />
                     <span>AI-Powered Estimation</span>
                   </div>
                 </div>
@@ -188,9 +204,9 @@ export default function AboutPage() {
                     size="xl"
                     className="shadow-2xl hover:shadow-brand-primary/25 transition-all duration-300"
                   >
-                    <UserIcon
+                    <UserProfileIcon
                       size="sm"
-                      color="var(--brand-primary)"
+                      primaryColor="var(--brand-primary)"
                       className="mr-3"
                     />
                     <span className="z-10 relative font-semibold tracking-wide">
@@ -206,9 +222,9 @@ export default function AboutPage() {
                     size="xl"
                     className="shadow-2xl hover:shadow-brand-secondary/25 border-2 transition-all duration-300"
                   >
-                    <BoltIcon
+                    <AIIcon
                       size="sm"
-                      color="var(--brand-secondary)"
+                      primaryColor="var(--brand-secondary)"
                       className="mr-3"
                     />
                     <span className="z-10 relative font-semibold tracking-wide">
@@ -272,7 +288,10 @@ export default function AboutPage() {
                 <div className="group bg-white dark:bg-gray-900 shadow-lg hover:shadow-xl p-10 border border-veteran-blue/10 hover:border-veteran-blue/20 rounded-3xl transition-all duration-500 cursor-pointer">
                   <div className="flex items-start gap-4 mb-8">
                     <div className="flex-shrink-0 bg-veteran-blue/10 group-hover:bg-veteran-blue/20 p-3 rounded-2xl transition-colors duration-300">
-                      <ShieldIcon size="lg" color="var(--veteran-blue)" />
+                      <ShieldIcon
+                        size="xl"
+                        primaryColor="var(--veteran-blue)"
+                      />
                     </div>
                     <h3 className="font-black text-veteran-blue group-hover:text-veteran-blue/80 text-xl md:text-2xl leading-[1.2] tracking-[-0.01em] transition-colors duration-300">
                       Partnership-Driven Construction
@@ -297,7 +316,7 @@ export default function AboutPage() {
                   <div className="inline-flex items-center bg-veteran-blue/10 mt-8 px-6 py-3 border border-veteran-blue/20 rounded-full">
                     <CheckIcon
                       size="sm"
-                      color="var(--veteran-blue)"
+                      primaryColor="var(--veteran-blue)"
                       className="mr-3"
                     />
                     <span className="font-semibold text-veteran-blue text-sm tracking-wide">
@@ -309,7 +328,10 @@ export default function AboutPage() {
                 <div className="group bg-white dark:bg-gray-900 shadow-lg hover:shadow-xl p-10 border border-brand-primary/10 hover:border-brand-primary/20 rounded-3xl transition-all duration-500 cursor-pointer">
                   <div className="flex items-start gap-4 mb-8">
                     <div className="flex-shrink-0 bg-brand-primary/10 group-hover:bg-brand-primary/20 p-3 rounded-2xl transition-colors duration-300">
-                      <HammerIcon size="lg" color="var(--brand-primary)" />
+                      <HammerIcon
+                        size="xl"
+                        primaryColor="var(--brand-primary)"
+                      />
                     </div>
                     <h3 className="font-black text-brand-primary group-hover:text-brand-primary/80 text-xl md:text-2xl leading-[1.2] tracking-[-0.01em] transition-colors duration-300">
                       Innovation Meets Partnership
@@ -332,7 +354,7 @@ export default function AboutPage() {
                   <div className="inline-flex items-center bg-brand-primary/10 mt-8 px-6 py-3 border border-brand-primary/20 rounded-full">
                     <BoltIcon
                       size="sm"
-                      color="var(--brand-primary)"
+                      primaryColor="var(--brand-primary)"
                       className="mr-3"
                     />
                     <span className="font-semibold text-brand-primary text-sm tracking-wide">
@@ -393,7 +415,7 @@ export default function AboutPage() {
                               >
                                 <stat.icon
                                   size="lg"
-                                  color="var(--brand-primary)"
+                                  primaryColor="var(--brand-primary)"
                                   className="text-brand-primary dark:text-brand-primary-light"
                                 />
                               </div>
@@ -418,11 +440,17 @@ export default function AboutPage() {
                 <div className="bg-white dark:bg-gray-900 shadow-inner p-8 border border-brand-primary/10 rounded-2xl">
                   <div className="text-center">
                     <div className="flex justify-center items-center gap-3 mb-4">
-                      <ShieldIcon size="md" color="var(--brand-primary)" />
+                      <ShieldIcon
+                        size="md"
+                        primaryColor="var(--brand-primary)"
+                      />
                       <h4 className="font-black text-brand-primary text-xl">
                         Partnership Commitment
                       </h4>
-                      <ShieldIcon size="md" color="var(--brand-primary)" />
+                      <ShieldIcon
+                        size="md"
+                        primaryColor="var(--brand-primary)"
+                      />
                     </div>
                     <p className="font-medium text-brand-secondary dark:text-brand-secondary-light text-lg leading-relaxed">
                       <span className="text-veteran-blue">
@@ -477,8 +505,8 @@ export default function AboutPage() {
                           className={`p-4 bg-gradient-to-br ${value.color} rounded-2xl shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}
                         >
                           <value.icon
-                            size="lg"
-                            color="white"
+                            size="xl"
+                            primaryColor="white"
                             className="text-white"
                           />
                         </div>
@@ -496,7 +524,7 @@ export default function AboutPage() {
                       >
                         <CheckIcon
                           size="sm"
-                          color="currentColor"
+                          primaryColor="currentColor"
                           className="mr-2"
                         />
                         <span className="font-semibold text-sm tracking-wide">
@@ -516,13 +544,13 @@ export default function AboutPage() {
               <div className="text-center">
                 <div className="flex justify-center items-center gap-4 mb-8">
                   <div className="bg-brand-primary/10 p-3 rounded-full">
-                    <ShieldIcon size="lg" color="var(--brand-primary)" />
+                    <ShieldIcon size="lg" primaryColor="var(--brand-primary)" />
                   </div>
                   <h3 className="font-black text-brand-primary text-3xl">
                     Partnership Promise
                   </h3>
                   <div className="bg-brand-primary/10 p-3 rounded-full">
-                    <ShieldIcon size="lg" color="var(--brand-primary)" />
+                    <ShieldIcon size="lg" primaryColor="var(--brand-primary)" />
                   </div>
                 </div>
                 <p className="mx-auto mb-8 max-w-4xl font-light text-brand-secondary dark:text-brand-secondary-light text-xl leading-relaxed">
@@ -535,7 +563,7 @@ export default function AboutPage() {
                 <div className="flex md:flex-row flex-col justify-center items-center gap-8">
                   <div className="flex items-center gap-3">
                     <div className="bg-veteran-blue/20 p-2 rounded-full">
-                      <CheckIcon size="sm" color="var(--veteran-blue)" />
+                      <CheckIcon size="sm" primaryColor="var(--veteran-blue)" />
                     </div>
                     <span className="font-semibold text-veteran-blue">
                       Veteran-Led Excellence
@@ -543,7 +571,10 @@ export default function AboutPage() {
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="bg-brand-primary/20 p-2 rounded-full">
-                      <CheckIcon size="sm" color="var(--brand-primary)" />
+                      <CheckIcon
+                        size="sm"
+                        primaryColor="var(--brand-primary)"
+                      />
                     </div>
                     <span className="font-semibold text-brand-primary">
                       Community-Focused Partnerships
@@ -551,7 +582,10 @@ export default function AboutPage() {
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="bg-brand-secondary/20 p-2 rounded-full">
-                      <CheckIcon size="sm" color="var(--brand-secondary)" />
+                      <CheckIcon
+                        size="sm"
+                        primaryColor="var(--brand-secondary)"
+                      />
                     </div>
                     <span className="font-semibold text-brand-secondary">
                       Innovation-Driven Solutions
@@ -619,7 +653,7 @@ export default function AboutPage() {
                           <StarIcon
                             key={i}
                             size="sm"
-                            color="var(--brand-secondary)"
+                            primaryColor="var(--brand-secondary)"
                             className="text-brand-secondary"
                           />
                         ))}
@@ -632,7 +666,10 @@ export default function AboutPage() {
                     <div className="pt-6 border-t border-brand-primary/20 dark:border-brand-primary/30">
                       <div className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 p-3 rounded-full">
-                          <UserIcon size="md" color="var(--brand-primary)" />
+                          <UserIcon
+                            size="md"
+                            primaryColor="var(--brand-primary)"
+                          />
                         </div>
                         <div>
                           <h4 className="font-black text-brand-primary dark:text-brand-primary-light group-hover:text-brand-secondary text-base leading-[1.3] tracking-[-0.005em] transition-colors">
@@ -659,7 +696,7 @@ export default function AboutPage() {
               <div className="flex md:flex-row flex-col justify-center items-center gap-12 text-center">
                 <div className="flex items-center gap-3">
                   <div className="bg-brand-primary/20 p-3 rounded-full">
-                    <CheckIcon size="md" color="var(--brand-primary)" />
+                    <CheckIcon size="md" primaryColor="var(--brand-primary)" />
                   </div>
                   <div>
                     <div className="font-black text-brand-primary dark:text-brand-primary-light text-2xl">
@@ -673,7 +710,7 @@ export default function AboutPage() {
 
                 <div className="flex items-center gap-3">
                   <div className="bg-brand-secondary/20 p-3 rounded-full">
-                    <StarIcon size="md" color="var(--brand-secondary)" />
+                    <StarIcon size="md" primaryColor="var(--brand-secondary)" />
                   </div>
                   <div>
                     <div className="font-black text-brand-primary dark:text-brand-primary-light text-2xl">
@@ -687,7 +724,7 @@ export default function AboutPage() {
 
                 <div className="flex items-center gap-3">
                   <div className="bg-veteran-blue/20 p-3 rounded-full">
-                    <HammerIcon size="md" color="var(--veteran-blue)" />
+                    <HammerIcon size="md" primaryColor="var(--veteran-blue)" />
                   </div>
                   <div>
                     <div className="font-black text-brand-primary dark:text-brand-primary-light text-2xl">
@@ -935,7 +972,7 @@ export default function AboutPage() {
           <FadeInWhenVisible className="text-center">
             {/* Enhanced CTA Badge */}
             <div className="inline-flex items-center bg-white/10 shadow-lg backdrop-blur-sm mb-8 px-8 py-4 border border-white/20 rounded-full">
-              <ShieldIcon size="sm" color="white" className="mr-3" />
+              <ShieldIcon size="sm" primaryColor="white" className="mr-3" />
               <span className="font-black text-white text-sm uppercase tracking-wider">
                 Ready to Start Your Partnership?
               </span>
@@ -964,19 +1001,19 @@ export default function AboutPage() {
                 <div className="flex md:flex-row flex-col justify-center items-center gap-8 font-medium text-white text-lg">
                   <div className="flex items-center gap-3">
                     <div className="bg-white/20 p-2 rounded-full">
-                      <CheckIcon size="sm" color="white" />
+                      <CheckIcon size="sm" primaryColor="white" />
                     </div>
                     <span>Free Consultation & Estimate</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="bg-white/20 p-2 rounded-full">
-                      <CheckIcon size="sm" color="white" />
+                      <CheckIcon size="sm" primaryColor="white" />
                     </div>
                     <span>Military Precision Guarantee</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="bg-white/20 p-2 rounded-full">
-                      <CheckIcon size="sm" color="white" />
+                      <CheckIcon size="sm" primaryColor="white" />
                     </div>
                     <span>Partnership-First Approach</span>
                   </div>
@@ -993,7 +1030,11 @@ export default function AboutPage() {
                     size="xl"
                     className="bg-white hover:bg-gray-100 shadow-2xl border-2 border-white text-brand-primary hover:scale-105 transition-all duration-300"
                   >
-                    <UserIcon size="sm" color="currentColor" className="mr-3" />
+                    <UserIcon
+                      size="sm"
+                      primaryColor="currentColor"
+                      className="mr-3"
+                    />
                     <span className="z-10 relative font-semibold tracking-wide">
                       Start Your Partnership
                     </span>
@@ -1007,7 +1048,11 @@ export default function AboutPage() {
                     size="xl"
                     className="hover:bg-white/10 shadow-2xl border-2 border-white text-white hover:scale-105 transition-all duration-300"
                   >
-                    <BoltIcon size="sm" color="currentColor" className="mr-3" />
+                    <BoltIcon
+                      size="sm"
+                      primaryColor="currentColor"
+                      className="mr-3"
+                    />
                     <span className="z-10 relative font-semibold tracking-wide">
                       Get AI Estimate
                     </span>
