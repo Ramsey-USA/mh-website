@@ -33,11 +33,6 @@ export function Navigation() {
         className="top-0 right-0 left-0 z-40 absolute bg-transparent transition-all duration-300"
         style={{ background: 'transparent', boxShadow: 'none' }}
       >
-        {/* Theme Toggle at Far Left Edge - Hidden on mobile since it's in hamburger menu */}
-        <div className="hidden sm:block top-6 left-4 sm:left-6 z-50 absolute">
-          <NewThemeToggle />
-        </div>
-
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex justify-between items-center py-2 h-20 sm:h-24">
             {/* Logo - Hidden on mobile since it's in hamburger menu */}
@@ -107,6 +102,11 @@ export function Navigation() {
         </div>
       </header>
 
+      {/* Floating Theme Toggle - Scrolls with user (matches hamburger menu behavior) */}
+      <div className="hidden sm:block top-4 left-4 sm:left-6 z-50 fixed">
+        <NewThemeToggle />
+      </div>
+
       {/* Floating Hamburger Menu - Scrolls with user */}
       <div className="top-4 right-4 z-50 fixed">
         <button
@@ -146,36 +146,25 @@ export function Navigation() {
           isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-800 to-white dark:to-gray-900 shadow-inner backdrop-blur-lg border-gray-200 dark:border-gray-700 border-b">
-          <div className="space-y-6 px-6 py-6 pt-20">
-            {/* Logo and Theme Toggle Header */}
-            <div className="flex justify-between items-center pb-4 border-gray-200 dark:border-gray-700 border-b">
-              {/* MH Logo */}
-              <Link
-                href="/"
-                className="group relative flex items-center hover:scale-105 transition-all duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <img
-                  src="/images/logo/mh-logo.png"
-                  alt="MH Construction"
-                  className="z-10 relative drop-shadow-lg w-auto h-12 filter"
-                />
-              </Link>
+        <div className="relative bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-800 to-white dark:to-gray-900 shadow-inner backdrop-blur-lg border-gray-200 dark:border-gray-700 border-b">
+          {/* Logo Background Watermark */}
+          <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+            <img
+              src="/images/logo/mh-logo.png"
+              alt=""
+              className="opacity-5 dark:opacity-10 grayscale w-[90vw] h-[90vh] object-contain filter"
+            />
+          </div>
 
-              {/* Theme Toggle */}
-              <div className="flex-shrink-0">
-                <NewThemeToggle />
-              </div>
-            </div>
-
+          {/* Menu Content */}
+          <div className="z-10 relative space-y-6 px-6 py-6 pt-20">
             {/* Primary Action Buttons */}
             <div className="space-y-3">
               <Link href="/estimator" onClick={() => setIsMenuOpen(false)}>
                 <Button
                   variant="outline"
                   size="md"
-                  className="hover:bg-[#386851] shadow-md hover:shadow-lg hover:border-[#386851] w-full hover:text-white transition-all duration-300"
+                  className="hover:bg-brand-primary shadow-md hover:shadow-lg border-brand-primary hover:border-brand-primary ring-brand-primary/30 hover:ring-brand-primary/50 w-full text-brand-primary hover:text-white transition-all duration-300"
                 >
                   <span className="flex justify-center items-center">
                     <svg
@@ -199,7 +188,7 @@ export function Navigation() {
                 <Button
                   variant="primary"
                   size="md"
-                  className="bg-gradient-to-r from-[#386851] hover:from-[#2d5440] to-[#4a7c59] hover:to-[#3c6448] shadow-lg hover:shadow-xl w-full hover:scale-[1.02] transition-all duration-300 transform"
+                  className="bg-brand-primary hover:bg-brand-primary-dark shadow-lg hover:shadow-xl border-brand-primary ring-brand-primary/30 hover:ring-brand-primary/50 w-full text-white hover:scale-[1.02] transition-all duration-300 transform"
                 >
                   <span className="flex justify-center items-center">
                     <svg

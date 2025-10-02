@@ -44,14 +44,6 @@ export default function FeaturedProjectsSection({
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="mb-24 text-center scroll-reveal">
-          {/* Enhanced Section Badge */}
-          <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg mb-10 px-8 py-4 border border-brand-primary/20 rounded-full">
-            <HammerIcon size="md" color="var(--brand-primary)" />
-            <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider letterspacing-widest">
-              Featured Excellence
-            </span>
-          </div>
-
           <h2 className="mb-10 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
             <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
               Showcase of
@@ -263,14 +255,6 @@ export default function FeaturedProjectsSection({
             <div className="bottom-8 left-8 absolute bg-white/5 blur-2xl rounded-full w-24 h-24"></div>
 
             <div className="z-10 relative text-center">
-              {/* CTA Badge */}
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm mb-8 px-6 py-3 border border-white/20 rounded-full">
-                <StarIcon size="md" color="white" />
-                <span className="ml-3 font-black text-white text-sm uppercase tracking-wider letterspacing-widest">
-                  Complete Portfolio
-                </span>
-              </div>
-
               <h3 className="mb-8 font-black text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                   Explore Our Complete
@@ -297,7 +281,7 @@ export default function FeaturedProjectsSection({
 
               <div className="flex sm:flex-row flex-col justify-center items-center gap-6 mb-12">
                 <Link href="/portfolio">
-                  <Button variant="secondary" size="xl" className="shadow-xl">
+                  <Button variant="outline" size="xl" className="shadow-xl">
                     <HammerIcon
                       size="md"
                       color="currentColor"

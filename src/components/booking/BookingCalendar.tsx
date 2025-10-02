@@ -197,27 +197,27 @@ export function BookingCalendar({
   const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div className="mx-auto max-w-6xl">
+      <div className="gap-8 grid grid-cols-1 lg:grid-cols-3">
         {/* Calendar */}
         <div className="lg:col-span-2">
           <Card>
             <CardHeader>
-              <div className="flex items-center justify-between">
+              <div className="flex justify-between items-center">
                 <CardTitle className="text-2xl">
                   {monthNames[currentDate.getMonth()]}{' '}
                   {currentDate.getFullYear()}
                 </CardTitle>
                 <div className="flex space-x-2">
                   <Button
-                    variant="secondary"
+                    variant="outline"
                     size="sm"
                     onClick={() => navigateMonth('prev')}
                   >
                     ←
                   </Button>
                   <Button
-                    variant="secondary"
+                    variant="outline"
                     size="sm"
                     onClick={() => navigateMonth('next')}
                   >
@@ -228,11 +228,11 @@ export function BookingCalendar({
             </CardHeader>
             <CardContent>
               {/* Day Headers */}
-              <div className="grid grid-cols-7 gap-1 mb-2">
+              <div className="gap-1 grid grid-cols-7 mb-2">
                 {dayNames.map(day => (
                   <div
                     key={day}
-                    className="p-2 text-center text-sm font-semibold text-gray-600"
+                    className="p-2 font-semibold text-gray-600 text-sm text-center"
                   >
                     {day}
                   </div>
@@ -240,7 +240,7 @@ export function BookingCalendar({
               </div>
 
               {/* Calendar Grid */}
-              <div className="grid grid-cols-7 gap-1">
+              <div className="gap-1 grid grid-cols-7">
                 {calendarDays.map((day, index) => (
                   <button
                     key={index}
@@ -249,22 +249,32 @@ export function BookingCalendar({
                     className={`
                       p-2 h-12 text-sm rounded-lg transition-colors relative
                       ${day.isCurrentMonth ? 'text-gray-900' : 'text-gray-400'}
-                      ${day.isToday ? 'bg-blue-100 text-blue-800 font-bold' : ''}
+                      ${
+                        day.isToday ? 'bg-blue-100 text-blue-800 font-bold' : ''
+                      }
                       ${day.isSelected ? 'bg-brand-primary text-white' : ''}
-                      ${day.isAvailable && !day.isSelected ? 'hover:bg-gray-100' : ''}
-                      ${!day.isAvailable ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}
+                      ${
+                        day.isAvailable && !day.isSelected
+                          ? 'hover:bg-gray-100'
+                          : ''
+                      }
+                      ${
+                        !day.isAvailable
+                          ? 'cursor-not-allowed opacity-50'
+                          : 'cursor-pointer'
+                      }
                     `}
                   >
                     {day.dayNumber}
                     {day.timeSlots.some(slot => slot.available) &&
                       day.isAvailable && (
-                        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-green-500 rounded-full"></div>
+                        <div className="bottom-1 left-1/2 absolute bg-green-500 rounded-full w-1 h-1 -translate-x-1/2 transform"></div>
                       )}
                   </button>
                 ))}
               </div>
 
-              <div className="mt-4 text-xs text-gray-500 text-center">
+              <div className="mt-4 text-gray-500 text-xs text-center">
                 Business Hours: Monday-Friday, 8:00 AM - 3:00 PM Pacific Time
               </div>
             </CardContent>
@@ -293,8 +303,8 @@ export function BookingCalendar({
                 <div className="space-y-2">
                   {selectedDate.getDay() === 0 ||
                   selectedDate.getDay() === 6 ? (
-                    <div className="text-center py-8 text-gray-500">
-                      <div className="text-4xl mb-2">📅</div>
+                    <div className="py-8 text-gray-500 text-center">
+                      <div className="mb-2 text-4xl">📅</div>
                       <p>We&apos;re closed on weekends</p>
                       <p className="text-sm">Please select a weekday</p>
                     </div>
@@ -316,7 +326,7 @@ export function BookingCalendar({
                         >
                           <div className="font-semibold">{timeSlot.time}</div>
                           {timeSlot.available && timeSlot.teamMember && (
-                            <div className="text-xs opacity-75">
+                            <div className="opacity-75 text-xs">
                               with {timeSlot.teamMember}
                             </div>
                           )}
@@ -328,8 +338,8 @@ export function BookingCalendar({
                       {generateTimeSlots(selectedDate).every(
                         slot => !slot.available
                       ) && (
-                        <div className="text-center py-8 text-gray-500">
-                          <div className="text-4xl mb-2">😔</div>
+                        <div className="py-8 text-gray-500 text-center">
+                          <div className="mb-2 text-4xl">😔</div>
                           <p>No available times</p>
                           <p className="text-sm">Please try another date</p>
                         </div>
@@ -338,8 +348,8 @@ export function BookingCalendar({
                   )}
                 </div>
               ) : (
-                <div className="text-center py-8 text-gray-500">
-                  <div className="text-4xl mb-2">📅</div>
+                <div className="py-8 text-gray-500 text-center">
+                  <div className="mb-2 text-4xl">📅</div>
                   <p>Select a date to view</p>
                   <p>available time slots</p>
                 </div>
@@ -355,19 +365,19 @@ export function BookingCalendar({
             <CardContent>
               <div className="space-y-3 text-sm">
                 <div className="flex items-center">
-                  <span className="text-green-500 mr-2">✓</span>
+                  <span className="mr-2 text-green-500">✓</span>
                   <span>24-hour advance booking required</span>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-green-500 mr-2">✓</span>
+                  <span className="mr-2 text-green-500">✓</span>
                   <span>Instant confirmation via email</span>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-green-500 mr-2">✓</span>
+                  <span className="mr-2 text-green-500">✓</span>
                   <span>Free cancellation up to 4 hours</span>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-green-500 mr-2">✓</span>
+                  <span className="mr-2 text-green-500">✓</span>
                   <span>Virtual or in-person options</span>
                 </div>
               </div>

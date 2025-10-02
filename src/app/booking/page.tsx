@@ -34,17 +34,6 @@ export default function BookingPage() {
 
         <div className="z-10 relative flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-8 max-w-7xl h-full">
           <FadeInWhenVisible className="w-full text-center">
-            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-              <CalendarIcon
-                size="sm"
-                color="currentColor"
-                className="text-brand-primary dark:text-brand-primary-light"
-              />
-              <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider">
-                Professional Consultations
-              </span>
-            </div>
-
             <h1 className="mb-6 pb-2 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter hero-title">
               <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
                 Schedule Your
@@ -115,13 +104,6 @@ export default function BookingPage() {
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-16 text-center">
-            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg mb-10 px-8 py-4 border border-brand-primary/20 rounded-full">
-              <CalendarIcon size="md" color="var(--brand-primary)" />
-              <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider">
-                Schedule Now
-              </span>
-            </div>
-
             <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
               <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-blue-500 drop-shadow-sm font-black text-transparent">
                 Choose Your Time
@@ -158,7 +140,7 @@ export default function BookingPage() {
             <div className="flex sm:flex-row flex-col justify-center gap-4">
               <HoverScale>
                 <Button
-                  variant="secondary"
+                  variant="outline"
                   size="lg"
                   className="bg-white hover:bg-gray-100 shadow-xl text-red-600"
                   onClick={() => window.open('tel:(509) 308-6489', '_self')}

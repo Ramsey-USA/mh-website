@@ -79,24 +79,26 @@ export function UserProfile() {
         <div className="space-y-6">
           {/* Profile Header */}
           <div className="flex items-center space-x-4">
-            <div className="w-16 h-16 bg-brand-primary text-white rounded-full flex items-center justify-center text-xl font-bold">
+            <div className="flex justify-center items-center bg-brand-primary rounded-full w-16 h-16 font-bold text-white text-xl">
               {userProfile.displayName?.charAt(0) ||
                 user.email?.charAt(0) ||
                 'U'}
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-gray-900">
+              <h3 className="font-semibold text-gray-900 text-lg">
                 {userProfile.displayName || 'User'}
               </h3>
               <p className="text-text-secondary">{user.email}</p>
               <div className="flex items-center space-x-2 mt-1">
                 <span
-                  className={`px-2 py-1 rounded-full text-xs font-medium ${roleColors[userProfile.role]}`}
+                  className={`px-2 py-1 rounded-full text-xs font-medium ${
+                    roleColors[userProfile.role]
+                  }`}
                 >
                   {roleNames[userProfile.role]}
                 </span>
                 {userProfile.isVeteran && (
-                  <span className="px-2 py-1 rounded-full text-xs font-medium bg-veteran-red/10 text-veteran-red">
+                  <span className="bg-veteran-red/10 px-2 py-1 rounded-full font-medium text-veteran-red text-xs">
                     🇺🇸 Veteran
                   </span>
                 )}
@@ -105,9 +107,9 @@ export function UserProfile() {
           </div>
 
           {/* Profile Details */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block mb-1 font-medium text-gray-700 text-sm">
                 Display Name
               </label>
               {isEditing ? (
@@ -126,7 +128,7 @@ export function UserProfile() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block mb-1 font-medium text-gray-700 text-sm">
                 Phone Number
               </label>
               {isEditing ? (
@@ -145,7 +147,7 @@ export function UserProfile() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block mb-1 font-medium text-gray-700 text-sm">
                 Company
               </label>
               {isEditing ? (
@@ -164,7 +166,7 @@ export function UserProfile() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block mb-1 font-medium text-gray-700 text-sm">
                 Account Created
               </label>
               <p className="text-text-primary">
@@ -183,9 +185,9 @@ export function UserProfile() {
                   onChange={e =>
                     setFormData({ ...formData, isVeteran: e.target.checked })
                   }
-                  className="w-4 h-4 text-brand-primary border-gray-300 rounded focus:ring-brand-primary"
+                  className="border-gray-300 rounded focus:ring-brand-primary w-4 h-4 text-brand-primary"
                 />
-                <span className="text-sm font-medium text-gray-700">
+                <span className="font-medium text-gray-700 text-sm">
                   I am a military veteran 🇺🇸
                 </span>
               </label>
@@ -204,7 +206,7 @@ export function UserProfile() {
                   {loading ? 'Saving...' : 'Save Changes'}
                 </Button>
                 <Button
-                  variant="secondary"
+                  variant="outline"
                   onClick={handleCancel}
                   disabled={loading}
                 >
@@ -212,7 +214,7 @@ export function UserProfile() {
                 </Button>
               </>
             ) : (
-              <Button variant="secondary" onClick={() => setIsEditing(true)}>
+              <Button variant="outline" onClick={() => setIsEditing(true)}>
                 Edit Profile
               </Button>
             )}

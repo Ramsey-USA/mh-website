@@ -153,8 +153,8 @@ export const ProjectTracking: React.FC<ProjectTimelineProps> = ({
           <CardTitle>Project Updates</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex items-center justify-center py-8">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-primary"></div>
+          <div className="flex justify-center items-center py-8">
+            <div className="border-b-2 border-brand-primary rounded-full w-8 h-8 animate-spin"></div>
             <span className="ml-3 text-gray-600">Loading updates...</span>
           </div>
         </CardContent>
@@ -165,9 +165,9 @@ export const ProjectTracking: React.FC<ProjectTimelineProps> = ({
   return (
     <Card className={className}>
       <CardHeader>
-        <CardTitle className="flex items-center justify-between">
+        <CardTitle className="flex justify-between items-center">
           <span>Project Timeline</span>
-          <span className="text-sm text-gray-500">
+          <span className="text-gray-500 text-sm">
             {updates.length} updates
           </span>
         </CardTitle>
@@ -175,49 +175,51 @@ export const ProjectTracking: React.FC<ProjectTimelineProps> = ({
       <CardContent>
         <div className="space-y-6">
           {updates.length === 0 ? (
-            <div className="text-center py-8 text-gray-500">
-              <div className="text-4xl mb-4">📋</div>
+            <div className="py-8 text-gray-500 text-center">
+              <div className="mb-4 text-4xl">📋</div>
               <p>No updates available for this project</p>
             </div>
           ) : (
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-6 top-0 bottom-0 w-px bg-gray-200"></div>
+              <div className="top-0 bottom-0 left-6 absolute bg-gray-200 w-px"></div>
 
               {updates.map((update, index) => (
                 <div key={update.id} className="relative flex items-start pb-6">
                   {/* Timeline dot */}
-                  <div className="relative z-10 flex items-center justify-center w-12 h-12 bg-white border-2 border-gray-300 rounded-full">
+                  <div className="z-10 relative flex justify-center items-center bg-white border-2 border-gray-300 rounded-full w-12 h-12">
                     <span className="text-xl">
                       {getUpdateIcon(update.type)}
                     </span>
                   </div>
 
                   {/* Update content */}
-                  <div className="ml-6 flex-1">
+                  <div className="flex-1 ml-6">
                     <div
-                      className={`p-4 rounded-lg border ${getUpdateColor(update.type)}`}
+                      className={`p-4 rounded-lg border ${getUpdateColor(
+                        update.type
+                      )}`}
                     >
-                      <div className="flex items-start justify-between mb-2">
+                      <div className="flex justify-between items-start mb-2">
                         <h4 className="font-semibold text-gray-900">
                           {update.title}
                         </h4>
-                        <span className="text-sm text-gray-500 whitespace-nowrap ml-4">
+                        <span className="ml-4 text-gray-500 text-sm whitespace-nowrap">
                           {formatTimestamp(update.timestamp)}
                         </span>
                       </div>
 
-                      <p className="text-gray-700 mb-3">{update.description}</p>
+                      <p className="mb-3 text-gray-700">{update.description}</p>
 
                       {update.progress !== undefined && (
                         <div className="mb-3">
-                          <div className="flex justify-between text-sm text-gray-600 mb-1">
+                          <div className="flex justify-between mb-1 text-gray-600 text-sm">
                             <span>Project Progress</span>
                             <span>{update.progress}%</span>
                           </div>
-                          <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div className="bg-gray-200 rounded-full w-full h-2">
                             <div
-                              className="bg-brand-primary h-2 rounded-full transition-all duration-300"
+                              className="bg-brand-primary rounded-full h-2 transition-all duration-300"
                               style={{ width: `${update.progress}%` }}
                             ></div>
                           </div>
@@ -226,11 +228,11 @@ export const ProjectTracking: React.FC<ProjectTimelineProps> = ({
 
                       {update.images && update.images.length > 0 && (
                         <div className="mb-3">
-                          <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                          <div className="gap-2 grid grid-cols-2 md:grid-cols-3">
                             {update.images.map((image, imgIndex) => (
                               <div
                                 key={imgIndex}
-                                className="aspect-square bg-gray-200 rounded-lg flex items-center justify-center text-gray-400"
+                                className="flex justify-center items-center bg-gray-200 rounded-lg aspect-square text-gray-400"
                               >
                                 <span className="text-2xl">📸</span>
                               </div>
@@ -239,8 +241,8 @@ export const ProjectTracking: React.FC<ProjectTimelineProps> = ({
                         </div>
                       )}
 
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-600">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600 text-sm">
                           {update.author}
                         </span>
                         {update.priority && (
@@ -249,10 +251,10 @@ export const ProjectTracking: React.FC<ProjectTimelineProps> = ({
                               update.priority === 'urgent'
                                 ? 'bg-red-100 text-red-800'
                                 : update.priority === 'high'
-                                  ? 'bg-orange-100 text-orange-800'
-                                  : update.priority === 'medium'
-                                    ? 'bg-yellow-100 text-yellow-800'
-                                    : 'bg-green-100 text-green-800'
+                                ? 'bg-orange-100 text-orange-800'
+                                : update.priority === 'medium'
+                                ? 'bg-yellow-100 text-yellow-800'
+                                : 'bg-green-100 text-green-800'
                             }`}
                           >
                             {update.priority} priority
@@ -307,16 +309,16 @@ export const ProjectNotifications: React.FC = () => {
   }
 
   return (
-    <div className="fixed top-20 right-6 z-50 w-80 max-w-[calc(100vw-3rem)]">
+    <div className="top-20 right-6 z-50 fixed w-80 max-w-[calc(100vw-3rem)]">
       <Card className="shadow-2xl border-brand-primary">
         <CardHeader className="pb-2">
-          <CardTitle className="text-sm flex items-center justify-between">
+          <CardTitle className="flex justify-between items-center text-sm">
             <span>🔔 New Updates</span>
             <Button
-              variant="secondary"
+              variant="outline"
               size="sm"
               onClick={() => setIsVisible(false)}
-              className="p-1 h-6 w-6"
+              className="p-1 w-6 h-6"
             >
               ×
             </Button>
@@ -327,19 +329,19 @@ export const ProjectNotifications: React.FC = () => {
             {notifications.slice(0, 3).map(notification => (
               <div
                 key={notification.id}
-                className="p-2 bg-brand-primary/5 rounded border"
+                className="bg-brand-primary/5 p-2 border rounded"
               >
                 <h4 className="font-medium text-sm">{notification.title}</h4>
-                <p className="text-xs text-gray-600">
+                <p className="text-gray-600 text-xs">
                   {notification.description}
                 </p>
-                <span className="text-xs text-gray-500">
+                <span className="text-gray-500 text-xs">
                   {formatTimestamp(notification.timestamp)}
                 </span>
               </div>
             ))}
           </div>
-          <Button variant="primary" size="sm" className="w-full mt-3">
+          <Button variant="primary" size="sm" className="mt-3 w-full">
             View All Updates
           </Button>
         </CardContent>

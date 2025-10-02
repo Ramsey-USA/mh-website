@@ -229,10 +229,10 @@ export const ClientDashboard: React.FC = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-7xl">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-tactic-bold text-gray-900 mb-2">
+        <h1 className="mb-2 font-tactic-bold text-gray-900 text-3xl">
           Client Dashboard
         </h1>
         <p className="text-gray-600">
@@ -242,8 +242,8 @@ export const ClientDashboard: React.FC = () => {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="border-b border-gray-200 mb-8">
-        <nav className="-mb-px flex space-x-8">
+      <div className="mb-8 border-gray-200 border-b">
+        <nav className="flex space-x-8 -mb-px">
           {[
             { id: 'overview', label: 'Overview', icon: '📊' },
             { id: 'projects', label: 'Projects', icon: '🏗️' },
@@ -272,7 +272,7 @@ export const ClientDashboard: React.FC = () => {
               <span className="mr-2">{tab.icon}</span>
               {tab.label}
               {tab.id === 'communications' && stats.unreadMessages > 0 && (
-                <span className="ml-2 bg-red-500 text-white text-xs rounded-full px-2 py-1">
+                <span className="bg-red-500 ml-2 px-2 py-1 rounded-full text-white text-xs">
                   {stats.unreadMessages}
                 </span>
               )}
@@ -285,13 +285,13 @@ export const ClientDashboard: React.FC = () => {
       {activeTab === 'overview' && (
         <div className="space-y-8">
           {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <Card>
               <CardContent className="p-6">
                 <div className="flex items-center">
-                  <div className="text-3xl mr-4">🏗️</div>
+                  <div className="mr-4 text-3xl">🏗️</div>
                   <div>
-                    <p className="text-2xl font-bold text-gray-900">
+                    <p className="font-bold text-gray-900 text-2xl">
                       {stats.activeProjects}
                     </p>
                     <p className="text-gray-600">Active Projects</p>
@@ -303,9 +303,9 @@ export const ClientDashboard: React.FC = () => {
             <Card>
               <CardContent className="p-6">
                 <div className="flex items-center">
-                  <div className="text-3xl mr-4">✅</div>
+                  <div className="mr-4 text-3xl">✅</div>
                   <div>
-                    <p className="text-2xl font-bold text-gray-900">
+                    <p className="font-bold text-gray-900 text-2xl">
                       {stats.completedProjects}
                     </p>
                     <p className="text-gray-600">Completed</p>
@@ -317,9 +317,9 @@ export const ClientDashboard: React.FC = () => {
             <Card>
               <CardContent className="p-6">
                 <div className="flex items-center">
-                  <div className="text-3xl mr-4">💰</div>
+                  <div className="mr-4 text-3xl">💰</div>
                   <div>
-                    <p className="text-2xl font-bold text-gray-900">
+                    <p className="font-bold text-gray-900 text-2xl">
                       ${stats.totalBudget.toLocaleString()}
                     </p>
                     <p className="text-gray-600">Total Investment</p>
@@ -330,7 +330,7 @@ export const ClientDashboard: React.FC = () => {
           </div>
 
           {/* Recent Activity */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="gap-8 grid grid-cols-1 lg:grid-cols-2">
             {/* Active Projects Summary */}
             <Card>
               <CardHeader>
@@ -345,30 +345,32 @@ export const ClientDashboard: React.FC = () => {
                     .map(project => (
                       <div
                         key={project.id}
-                        className="flex items-center justify-between p-4 border rounded-lg"
+                        className="flex justify-between items-center p-4 border rounded-lg"
                       >
                         <div className="flex-1">
                           <h4 className="font-semibold text-gray-900">
                             {project.name}
                           </h4>
-                          <p className="text-sm text-gray-600">
+                          <p className="text-gray-600 text-sm">
                             {project.nextMilestone}
                           </p>
                           <div className="mt-2">
-                            <div className="flex justify-between text-sm text-gray-600 mb-1">
+                            <div className="flex justify-between mb-1 text-gray-600 text-sm">
                               <span>Progress</span>
                               <span>{project.progress}%</span>
                             </div>
-                            <div className="w-full bg-gray-200 rounded-full h-2">
+                            <div className="bg-gray-200 rounded-full w-full h-2">
                               <div
-                                className="bg-brand-primary h-2 rounded-full"
+                                className="bg-brand-primary rounded-full h-2"
                                 style={{ width: `${project.progress}%` }}
                               ></div>
                             </div>
                           </div>
                         </div>
                         <span
-                          className={`ml-4 px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(project.status)}`}
+                          className={`ml-4 px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(
+                            project.status
+                          )}`}
                         >
                           {project.status}
                         </span>
@@ -381,10 +383,10 @@ export const ClientDashboard: React.FC = () => {
             {/* Recent Communications */}
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center justify-between">
+                <CardTitle className="flex justify-between items-center">
                   Recent Updates
                   {stats.unreadMessages > 0 && (
-                    <span className="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">
+                    <span className="bg-red-100 px-2 py-1 rounded-full text-red-800 text-xs">
                       {stats.unreadMessages} unread
                     </span>
                   )}
@@ -402,26 +404,28 @@ export const ClientDashboard: React.FC = () => {
                       }`}
                       onClick={() => markAsRead(comm.id)}
                     >
-                      <div className="flex items-start justify-between">
+                      <div className="flex justify-between items-start">
                         <div className="flex-1">
                           <h4 className="font-semibold text-gray-900">
                             {comm.title}
                           </h4>
-                          <p className="text-sm text-gray-600 mt-1">
+                          <p className="mt-1 text-gray-600 text-sm">
                             {comm.content}
                           </p>
-                          <p className="text-xs text-gray-500 mt-2">
+                          <p className="mt-2 text-gray-500 text-xs">
                             {comm.author} • {comm.date}
                           </p>
                         </div>
                         <div className="flex items-center ml-4">
                           <span
-                            className={`text-xs ${getPriorityColor(comm.priority)}`}
+                            className={`text-xs ${getPriorityColor(
+                              comm.priority
+                            )}`}
                           >
                             {comm.priority}
                           </span>
                           {!comm.isRead && (
-                            <div className="w-2 h-2 bg-brand-primary rounded-full ml-2"></div>
+                            <div className="bg-brand-primary ml-2 rounded-full w-2 h-2"></div>
                           )}
                         </div>
                       </div>
@@ -437,7 +441,7 @@ export const ClientDashboard: React.FC = () => {
       {/* Projects Tab */}
       {activeTab === 'projects' && (
         <div className="space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="gap-6 grid grid-cols-1 lg:grid-cols-3">
             {/* Project List */}
             <div className="lg:col-span-2">
               <Card>
@@ -456,9 +460,9 @@ export const ClientDashboard: React.FC = () => {
                         }`}
                         onClick={() => setSelectedProject(project)}
                       >
-                        <div className="flex items-start justify-between mb-4">
+                        <div className="flex justify-between items-start mb-4">
                           <div>
-                            <h3 className="text-lg font-semibold text-gray-900">
+                            <h3 className="font-semibold text-gray-900 text-lg">
                               {project.name}
                             </h3>
                             <p className="text-gray-600">
@@ -466,21 +470,23 @@ export const ClientDashboard: React.FC = () => {
                             </p>
                           </div>
                           <span
-                            className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(project.status)}`}
+                            className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(
+                              project.status
+                            )}`}
                           >
                             {project.status}
                           </span>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-4 mb-4">
+                        <div className="gap-4 grid grid-cols-2 mb-4">
                           <div>
-                            <p className="text-sm text-gray-600">Start Date</p>
+                            <p className="text-gray-600 text-sm">Start Date</p>
                             <p className="font-medium">
                               {new Date(project.startDate).toLocaleDateString()}
                             </p>
                           </div>
                           <div>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-gray-600 text-sm">
                               Est. Completion
                             </p>
                             <p className="font-medium">
@@ -490,13 +496,13 @@ export const ClientDashboard: React.FC = () => {
                             </p>
                           </div>
                           <div>
-                            <p className="text-sm text-gray-600">Budget</p>
+                            <p className="text-gray-600 text-sm">Budget</p>
                             <p className="font-medium">
                               ${project.budget.toLocaleString()}
                             </p>
                           </div>
                           <div>
-                            <p className="text-sm text-gray-600">Spent</p>
+                            <p className="text-gray-600 text-sm">Spent</p>
                             <p className="font-medium">
                               ${project.spent.toLocaleString()}
                             </p>
@@ -504,24 +510,24 @@ export const ClientDashboard: React.FC = () => {
                         </div>
 
                         <div className="mb-4">
-                          <div className="flex justify-between text-sm text-gray-600 mb-2">
+                          <div className="flex justify-between mb-2 text-gray-600 text-sm">
                             <span>Progress</span>
                             <span>{project.progress}%</span>
                           </div>
-                          <div className="w-full bg-gray-200 rounded-full h-3">
+                          <div className="bg-gray-200 rounded-full w-full h-3">
                             <div
-                              className="bg-brand-primary h-3 rounded-full transition-all duration-300"
+                              className="bg-brand-primary rounded-full h-3 transition-all duration-300"
                               style={{ width: `${project.progress}%` }}
                             ></div>
                           </div>
                         </div>
 
-                        <div className="flex items-center justify-between">
+                        <div className="flex justify-between items-center">
                           <div>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-gray-600 text-sm">
                               Next Milestone
                             </p>
-                            <p className="text-sm font-medium">
+                            <p className="font-medium text-sm">
                               {project.nextMilestone}
                             </p>
                           </div>
@@ -546,11 +552,11 @@ export const ClientDashboard: React.FC = () => {
                   <CardContent>
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-semibold mb-2">Team Members</h4>
+                        <h4 className="mb-2 font-semibold">Team Members</h4>
                         <div className="space-y-2">
                           {selectedProject.assignedTeam.map((member, index) => (
                             <div key={index} className="flex items-center">
-                              <div className="w-8 h-8 bg-brand-primary rounded-full flex items-center justify-center text-white text-sm mr-3">
+                              <div className="flex justify-center items-center bg-brand-primary mr-3 rounded-full w-8 h-8 text-white text-sm">
                                 {member
                                   .split(' ')
                                   .map(n => n[0])
@@ -563,12 +569,12 @@ export const ClientDashboard: React.FC = () => {
                       </div>
 
                       <div>
-                        <h4 className="font-semibold mb-2">Recent Documents</h4>
+                        <h4 className="mb-2 font-semibold">Recent Documents</h4>
                         <div className="space-y-2">
                           {selectedProject.documents.slice(0, 3).map(doc => (
                             <div
                               key={doc.id}
-                              className="flex items-center justify-between text-sm"
+                              className="flex justify-between items-center text-sm"
                             >
                               <span className="text-gray-900">{doc.name}</span>
                               <span className="text-gray-500">{doc.size}</span>
@@ -578,10 +584,10 @@ export const ClientDashboard: React.FC = () => {
                       </div>
 
                       <div className="pt-4 border-t">
-                        <Button variant="primary" className="w-full mb-2">
+                        <Button variant="primary" className="mb-2 w-full">
                           📞 Contact Team
                         </Button>
-                        <Button variant="secondary" className="w-full">
+                        <Button variant="outline" className="w-full">
                           📄 View All Documents
                         </Button>
                       </div>
@@ -590,8 +596,8 @@ export const ClientDashboard: React.FC = () => {
                 </Card>
               ) : (
                 <Card>
-                  <CardContent className="p-8 text-center text-gray-500">
-                    <div className="text-4xl mb-4">🏗️</div>
+                  <CardContent className="p-8 text-gray-500 text-center">
+                    <div className="mb-4 text-4xl">🏗️</div>
                     <p>Select a project to view details</p>
                   </CardContent>
                 </Card>
@@ -618,27 +624,27 @@ export const ClientDashboard: React.FC = () => {
                       : 'border-gray-200'
                   }`}
                 >
-                  <div className="flex items-start justify-between">
+                  <div className="flex justify-between items-start">
                     <div className="flex-1">
                       <div className="flex items-center mb-2">
-                        <span className="text-lg mr-2">
+                        <span className="mr-2 text-lg">
                           {comm.type === 'update'
                             ? '📢'
                             : comm.type === 'milestone'
-                              ? '🎯'
-                              : comm.type === 'issue'
-                                ? '⚠️'
-                                : '💬'}
+                            ? '🎯'
+                            : comm.type === 'issue'
+                            ? '⚠️'
+                            : '💬'}
                         </span>
-                        <h3 className="text-lg font-semibold text-gray-900">
+                        <h3 className="font-semibold text-gray-900 text-lg">
                           {comm.title}
                         </h3>
                         {!comm.isRead && (
-                          <span className="ml-2 w-2 h-2 bg-brand-primary rounded-full"></span>
+                          <span className="bg-brand-primary ml-2 rounded-full w-2 h-2"></span>
                         )}
                       </div>
-                      <p className="text-gray-700 mb-3">{comm.content}</p>
-                      <div className="flex items-center text-sm text-gray-500">
+                      <p className="mb-3 text-gray-700">{comm.content}</p>
+                      <div className="flex items-center text-gray-500 text-sm">
                         <span>{comm.author}</span>
                         <span className="mx-2">•</span>
                         <span>{comm.date}</span>
@@ -651,7 +657,7 @@ export const ClientDashboard: React.FC = () => {
                     <div className="ml-4">
                       {!comm.isRead && (
                         <Button
-                          variant="secondary"
+                          variant="outline"
                           size="sm"
                           onClick={() => markAsRead(comm.id)}
                         >
@@ -670,7 +676,7 @@ export const ClientDashboard: React.FC = () => {
       {/* Live Updates/Tracking Tab */}
       {activeTab === 'tracking' && (
         <div className="space-y-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="gap-8 grid grid-cols-1 lg:grid-cols-2">
             <ProjectTracking projectId={selectedProject?.id || 'all'} />
             <Card>
               <CardHeader>
@@ -681,13 +687,13 @@ export const ClientDashboard: React.FC = () => {
                   <Button variant="primary" className="w-full">
                     📞 Schedule Team Call
                   </Button>
-                  <Button variant="secondary" className="w-full">
+                  <Button variant="outline" className="w-full">
                     💬 Send Message to Team
                   </Button>
-                  <Button variant="secondary" className="w-full">
+                  <Button variant="outline" className="w-full">
                     📄 Request Progress Report
                   </Button>
-                  <Button variant="secondary" className="w-full">
+                  <Button variant="outline" className="w-full">
                     📋 View Change Orders
                   </Button>
                 </div>
@@ -714,27 +720,27 @@ export const ClientDashboard: React.FC = () => {
                       : 'border-gray-200'
                   }`}
                 >
-                  <div className="flex items-start justify-between">
+                  <div className="flex justify-between items-start">
                     <div className="flex-1">
                       <div className="flex items-center mb-2">
-                        <span className="text-lg mr-2">
+                        <span className="mr-2 text-lg">
                           {comm.type === 'update'
                             ? '�'
                             : comm.type === 'milestone'
-                              ? '🎯'
-                              : comm.type === 'issue'
-                                ? '⚠️'
-                                : '�'}
+                            ? '🎯'
+                            : comm.type === 'issue'
+                            ? '⚠️'
+                            : '�'}
                         </span>
-                        <h3 className="text-lg font-semibold text-gray-900">
+                        <h3 className="font-semibold text-gray-900 text-lg">
                           {comm.title}
                         </h3>
                         {!comm.isRead && (
-                          <span className="ml-2 w-2 h-2 bg-brand-primary rounded-full"></span>
+                          <span className="bg-brand-primary ml-2 rounded-full w-2 h-2"></span>
                         )}
                       </div>
-                      <p className="text-gray-700 mb-3">{comm.content}</p>
-                      <div className="flex items-center text-sm text-gray-500">
+                      <p className="mb-3 text-gray-700">{comm.content}</p>
+                      <div className="flex items-center text-gray-500 text-sm">
                         <span>{comm.author}</span>
                         <span className="mx-2">•</span>
                         <span>{comm.date}</span>
@@ -747,7 +753,7 @@ export const ClientDashboard: React.FC = () => {
                     <div className="ml-4">
                       {!comm.isRead && (
                         <Button
-                          variant="secondary"
+                          variant="outline"
                           size="sm"
                           onClick={() => markAsRead(comm.id)}
                         >

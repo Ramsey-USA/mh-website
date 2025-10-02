@@ -109,13 +109,13 @@ export function TeamSchedule() {
   return (
     <Card>
       <CardHeader>
-        <div className="flex items-center justify-between">
+        <div className="flex justify-between items-center">
           <CardTitle>Team Schedule</CardTitle>
-          <Button variant="secondary" size="sm">
+          <Button variant="outline" size="sm">
             📅 Full Calendar
           </Button>
         </div>
-        <p className="text-sm text-gray-600">
+        <p className="text-gray-600 text-sm">
           Today,{' '}
           {today.toLocaleDateString('en-US', {
             weekday: 'long',
@@ -127,41 +127,43 @@ export function TeamSchedule() {
       <CardContent>
         <div className="space-y-6">
           {teamSchedule.map(member => (
-            <div key={member.id} className="border-b pb-4 last:border-b-0">
+            <div key={member.id} className="pb-4 border-b last:border-b-0">
               {/* Team Member Header */}
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex justify-between items-center mb-3">
                 <div className="flex items-center">
-                  <div className="text-2xl mr-3">{member.avatar}</div>
+                  <div className="mr-3 text-2xl">{member.avatar}</div>
                   <div>
                     <h4 className="font-semibold text-gray-900">
                       {member.name}
                     </h4>
-                    <p className="text-sm text-gray-600">{member.title}</p>
+                    <p className="text-gray-600 text-sm">{member.title}</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <div
-                    className={`w-3 h-3 rounded-full ${getStatusColor(member.status)} mr-2`}
+                    className={`w-3 h-3 rounded-full ${getStatusColor(
+                      member.status
+                    )} mr-2`}
                   ></div>
-                  <span className="text-sm text-gray-600 capitalize">
+                  <span className="text-gray-600 text-sm capitalize">
                     {member.status}
                   </span>
                 </div>
               </div>
 
               {/* Current Task */}
-              <div className="bg-gray-50 p-3 rounded-lg mb-3">
-                <div className="flex items-center justify-between">
+              <div className="bg-gray-50 mb-3 p-3 rounded-lg">
+                <div className="flex justify-between items-center">
                   <div>
-                    <span className="text-sm font-medium text-gray-700">
+                    <span className="font-medium text-gray-700 text-sm">
                       Current Task:
                     </span>
-                    <span className="ml-2 text-sm text-gray-900">
+                    <span className="ml-2 text-gray-900 text-sm">
                       {member.currentTask}
                     </span>
                   </div>
                   {member.status !== 'available' && (
-                    <Button variant="secondary" size="sm">
+                    <Button variant="outline" size="sm">
                       Contact
                     </Button>
                   )}
@@ -170,18 +172,18 @@ export function TeamSchedule() {
 
               {/* Next Appointment */}
               {member.nextAppointment && (
-                <div className="bg-blue-50 p-3 rounded-lg mb-3">
-                  <div className="flex items-center justify-between">
+                <div className="bg-blue-50 mb-3 p-3 rounded-lg">
+                  <div className="flex justify-between items-center">
                     <div>
-                      <span className="text-sm font-medium text-blue-700">
+                      <span className="font-medium text-blue-700 text-sm">
                         Next:
                       </span>
-                      <span className="ml-2 text-sm text-blue-900">
+                      <span className="ml-2 text-blue-900 text-sm">
                         {member.nextAppointment.time} -{' '}
                         {member.nextAppointment.client}
                       </span>
                     </div>
-                    <span className="text-xs bg-blue-200 text-blue-800 px-2 py-1 rounded-full">
+                    <span className="bg-blue-200 px-2 py-1 rounded-full text-blue-800 text-xs">
                       {member.nextAppointment.type}
                     </span>
                   </div>
@@ -190,20 +192,20 @@ export function TeamSchedule() {
 
               {/* Today's Schedule */}
               <div>
-                <h5 className="text-sm font-medium text-gray-700 mb-2">
+                <h5 className="mb-2 font-medium text-gray-700 text-sm">
                   Today&apos;s Schedule:
                 </h5>
                 <div className="space-y-2">
                   {member.todaySchedule.map((item, index) => (
                     <div
                       key={index}
-                      className="flex items-center justify-between text-sm"
+                      className="flex justify-between items-center text-sm"
                     >
                       <div className="flex items-center">
-                        <span className="text-lg mr-2">
+                        <span className="mr-2 text-lg">
                           {getTaskTypeIcon(item.type)}
                         </span>
-                        <span className="text-gray-600 w-16">{item.time}</span>
+                        <span className="w-16 text-gray-600">{item.time}</span>
                         <span className="text-gray-900">{item.task}</span>
                       </div>
                       <span
@@ -211,10 +213,10 @@ export function TeamSchedule() {
                           item.type === 'consultation'
                             ? 'bg-green-100 text-green-800'
                             : item.type === 'site-visit'
-                              ? 'bg-blue-100 text-blue-800'
-                              : item.type === 'internal'
-                                ? 'bg-gray-100 text-gray-800'
-                                : 'bg-purple-100 text-purple-800'
+                            ? 'bg-blue-100 text-blue-800'
+                            : item.type === 'internal'
+                            ? 'bg-gray-100 text-gray-800'
+                            : 'bg-purple-100 text-purple-800'
                         }`}
                       >
                         {item.type}
@@ -229,11 +231,11 @@ export function TeamSchedule() {
 
         {/* Team Actions */}
         <div className="mt-6 pt-4 border-t">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="gap-3 grid grid-cols-2">
             <Button variant="primary" size="sm" className="w-full">
               📅 Schedule Meeting
             </Button>
-            <Button variant="secondary" size="sm" className="w-full">
+            <Button variant="outline" size="sm" className="w-full">
               👥 Team Chat
             </Button>
           </div>

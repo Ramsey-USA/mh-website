@@ -175,13 +175,21 @@ export function EstimatorForm() {
 
   const getProjectTimeline = (type: string, size: number): string => {
     const timelines = {
-      'Custom Home': `${Math.ceil((size / 2000) * 8)}-${Math.ceil((size / 2000) * 12)} months`,
-      'Home Addition': `${Math.ceil((size / 1000) * 2)}-${Math.ceil((size / 1000) * 4)} months`,
+      'Custom Home': `${Math.ceil((size / 2000) * 8)}-${Math.ceil(
+        (size / 2000) * 12
+      )} months`,
+      'Home Addition': `${Math.ceil((size / 1000) * 2)}-${Math.ceil(
+        (size / 1000) * 4
+      )} months`,
       'Kitchen Remodel': '4-8 weeks',
       'Bathroom Remodel': '2-4 weeks',
       'Deck/Patio': '1-3 weeks',
-      'Commercial Building': `${Math.ceil((size / 5000) * 6)}-${Math.ceil((size / 5000) * 18)} months`,
-      Renovation: `${Math.ceil((size / 1500) * 2)}-${Math.ceil((size / 1500) * 6)} months`,
+      'Commercial Building': `${Math.ceil((size / 5000) * 6)}-${Math.ceil(
+        (size / 5000) * 18
+      )} months`,
+      Renovation: `${Math.ceil((size / 1500) * 2)}-${Math.ceil(
+        (size / 1500) * 6
+      )} months`,
     }
     return timelines[type as keyof typeof timelines] || '2-6 months'
   }
@@ -213,10 +221,10 @@ export function EstimatorForm() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="mx-auto max-w-4xl">
       {/* Progress Bar */}
       <div className="mb-8">
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex justify-between items-center mb-2">
           {[1, 2, 3].map(step => (
             <div
               key={step}
@@ -241,13 +249,13 @@ export function EstimatorForm() {
             </div>
           ))}
         </div>
-        <div className="text-center text-sm text-gray-600">
+        <div className="text-gray-600 text-sm text-center">
           Step {currentStep} of 3:{' '}
           {currentStep === 1
             ? 'Project Basics'
             : currentStep === 2
-              ? 'Details & Features'
-              : 'Review & Calculate'}
+            ? 'Details & Features'
+            : 'Review & Calculate'}
         </div>
       </div>
 
@@ -264,10 +272,10 @@ export function EstimatorForm() {
           {currentStep === 1 && (
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
+                <label className="block mb-3 font-medium text-gray-700 text-sm">
                   What type of project are you planning?
                 </label>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="gap-3 grid grid-cols-2 md:grid-cols-4">
                   {projectTypes.map(type => (
                     <button
                       key={type}
@@ -285,10 +293,10 @@ export function EstimatorForm() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
+                <label className="block mb-3 font-medium text-gray-700 text-sm">
                   Project Location
                 </label>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <div className="gap-3 grid grid-cols-2 md:grid-cols-3">
                   {locations.map(location => (
                     <button
                       key={location}
@@ -332,7 +340,7 @@ export function EstimatorForm() {
                   }
                   className="mr-3"
                 />
-                <label htmlFor="veteran" className="text-sm text-gray-700">
+                <label htmlFor="veteran" className="text-gray-700 text-sm">
                   I am a veteran or military family member (10% discount
                   applies)
                 </label>
@@ -344,10 +352,10 @@ export function EstimatorForm() {
           {currentStep === 2 && (
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
+                <label className="block mb-3 font-medium text-gray-700 text-sm">
                   Material Quality Level
                 </label>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="gap-3 grid grid-cols-1 md:grid-cols-2">
                   {materialOptions.map(material => (
                     <button
                       key={material}
@@ -359,7 +367,7 @@ export function EstimatorForm() {
                       }`}
                     >
                       <div className="font-semibold">{material}</div>
-                      <div className="text-sm opacity-75">
+                      <div className="opacity-75 text-sm">
                         {material === 'Premium/Luxury' &&
                           '+40% cost, highest quality'}
                         {material === 'High-Quality Standard' &&
@@ -375,10 +383,10 @@ export function EstimatorForm() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
+                <label className="block mb-3 font-medium text-gray-700 text-sm">
                   Special Features (select all that apply)
                 </label>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <div className="gap-3 grid grid-cols-2 md:grid-cols-3">
                   {featureOptions.map(feature => (
                     <button
                       key={feature}
@@ -409,8 +417,8 @@ export function EstimatorForm() {
           {currentStep === 3 && (
             <div className="space-y-6">
               <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold mb-4">Project Summary</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <h3 className="mb-4 font-semibold text-lg">Project Summary</h3>
+                <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                   <div>
                     <span className="text-gray-600">Project Type:</span>
                     <span className="ml-2 font-semibold">
@@ -454,9 +462,9 @@ export function EstimatorForm() {
               </div>
 
               {isCalculating ? (
-                <div className="text-center py-8">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary mx-auto mb-4"></div>
-                  <p className="text-lg font-semibold">
+                <div className="py-8 text-center">
+                  <div className="mx-auto mb-4 border-b-2 border-brand-primary rounded-full w-12 h-12 animate-spin"></div>
+                  <p className="font-semibold text-lg">
                     Analyzing Your Project...
                   </p>
                   <p className="text-gray-600">
@@ -480,7 +488,7 @@ export function EstimatorForm() {
           {currentStep < 3 && (
             <div className="flex justify-between mt-8 pt-6 border-t">
               <Button
-                variant="secondary"
+                variant="outline"
                 onClick={() => setCurrentStep(Math.max(1, currentStep - 1))}
                 disabled={currentStep === 1}
               >

@@ -183,7 +183,6 @@ export default function WoundedWarriorPage() {
 
         <div className="z-10 relative flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-8 max-w-7xl h-full">
           <FadeInWhenVisible className="w-full text-center">
-            {/* Hero Badge */}
             <div className="inline-flex items-center bg-veteran-red/10 dark:bg-veteran-red/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-veteran-red/20 dark:border-veteran-red/30 rounded-full">
               <ShieldIcon
                 size="sm"
@@ -554,7 +553,7 @@ export default function WoundedWarriorPage() {
             <div className="flex sm:flex-row flex-col justify-center items-center gap-8">
               <HoverScale>
                 <Button
-                  variant="secondary"
+                  variant="outline"
                   size="xl"
                   className="bg-white hover:bg-gray-100 shadow-xl text-veteran-red"
                 >

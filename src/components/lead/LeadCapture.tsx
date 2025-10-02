@@ -300,7 +300,7 @@ export const QuickLeadCapture: React.FC = () => {
       />
       <Button
         onClick={() => setIsExpanded(false)}
-        variant="secondary"
+        variant="outline"
         size="sm"
         className="-top-2 -right-2 absolute bg-white p-0 border-gray-300 hover:border-gray-400 rounded-full w-8 h-8"
       >

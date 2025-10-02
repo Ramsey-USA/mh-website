@@ -135,11 +135,11 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     return (
       <Card className={className}>
         <CardContent className="p-8 text-center">
-          <div className="text-gray-400 text-4xl mb-4">🗺️</div>
-          <h3 className="text-xl font-semibold mb-2">
+          <div className="mb-4 text-gray-400 text-4xl">🗺️</div>
+          <h3 className="mb-2 font-semibold text-xl">
             Map Temporarily Unavailable
           </h3>
-          <p className="text-gray-600 mb-4">
+          <p className="mb-4 text-gray-600">
             Our interactive map is currently unavailable. Please use the contact
             information below.
           </p>
@@ -152,7 +152,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               📞 Call (509) 308-6489
             </Button>
             <Button
-              variant="secondary"
+              variant="outline"
               onClick={() => handleGetDirections(officeLocation)}
               className="w-full sm:w-auto"
             >
@@ -168,9 +168,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     <div className={className}>
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center justify-between">
+          <CardTitle className="flex justify-between items-center">
             <span>Our Location & Service Areas</span>
-            <Button variant="secondary" size="sm" onClick={handleCallOffice}>
+            <Button variant="outline" size="sm" onClick={handleCallOffice}>
               📞 Call Us
             </Button>
           </CardTitle>
@@ -180,24 +180,24 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           <div className="relative bg-gray-100 border-b" style={{ height }}>
             {!mapLoaded ? (
               // Loading state
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 flex justify-center items-center">
                 <div className="text-center">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-primary mx-auto mb-2"></div>
+                  <div className="mx-auto mb-2 border-b-2 border-brand-primary rounded-full w-8 h-8 animate-spin"></div>
                   <p className="text-gray-600">Loading map...</p>
                 </div>
               </div>
             ) : (
               // Interactive Map Placeholder (replace with actual Google Maps)
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+              <div className="absolute inset-0 flex justify-center items-center bg-gradient-to-br from-blue-50 to-green-50">
                 <div className="text-center">
-                  <div className="text-6xl mb-4">🗺️</div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  <div className="mb-4 text-6xl">🗺️</div>
+                  <h3 className="mb-2 font-semibold text-gray-800 text-xl">
                     Interactive Map
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="mb-4 text-gray-600">
                     MH Construction - Serving the Pacific Northwest
                   </p>
-                  <div className="grid grid-cols-2 gap-2 max-w-md">
+                  <div className="gap-2 grid grid-cols-2 max-w-md">
                     <Button
                       variant="primary"
                       size="sm"
@@ -206,7 +206,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                       📍 Office Directions
                     </Button>
                     <Button
-                      variant="secondary"
+                      variant="outline"
                       size="sm"
                       onClick={handleCallOffice}
                     >
@@ -220,7 +220,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
           {/* Location List */}
           <div className="p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {allLocations.map((location, index) => (
                 <div
                   key={index}
@@ -232,22 +232,22 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   onClick={() => setSelectedLocation(location)}
                 >
                   <div className="flex items-start">
-                    <div className="text-2xl mr-3">
+                    <div className="mr-3 text-2xl">
                       {location.type === 'office'
                         ? '🏢'
                         : location.type === 'project'
-                          ? '🏗️'
-                          : '📍'}
+                        ? '🏗️'
+                        : '📍'}
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-gray-900 mb-1">
+                      <h4 className="mb-1 font-semibold text-gray-900">
                         {location.title}
                       </h4>
-                      <p className="text-sm text-gray-600 mb-2">
+                      <p className="mb-2 text-gray-600 text-sm">
                         {location.description}
                       </p>
                       <Button
-                        variant="secondary"
+                        variant="outline"
                         size="sm"
                         onClick={e => {
                           e.stopPropagation()
@@ -266,12 +266,12 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
           {/* Selected Location Details */}
           {selectedLocation && (
-            <div className="border-t bg-gray-50 p-6">
+            <div className="bg-gray-50 p-6 border-t">
               <div className="max-w-2xl">
-                <h3 className="text-lg font-semibold mb-2">
+                <h3 className="mb-2 font-semibold text-lg">
                   {selectedLocation.title}
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="mb-4 text-gray-600">
                   {selectedLocation.description}
                 </p>
                 <div className="flex flex-wrap gap-3">
@@ -282,12 +282,12 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                     🧭 Get Directions
                   </Button>
                   {selectedLocation.type === 'office' && (
-                    <Button variant="secondary" onClick={handleCallOffice}>
+                    <Button variant="outline" onClick={handleCallOffice}>
                       📞 Call Office
                     </Button>
                   )}
                   <Button
-                    variant="secondary"
+                    variant="outline"
                     onClick={() => setSelectedLocation(null)}
                   >
                     Close Details
@@ -298,25 +298,25 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           )}
 
           {/* Quick Contact Strip */}
-          <div className="border-t bg-brand-primary text-white p-4">
-            <div className="flex flex-col sm:flex-row items-center justify-between">
+          <div className="bg-brand-primary p-4 border-t text-white">
+            <div className="flex sm:flex-row flex-col justify-between items-center">
               <div className="mb-2 sm:mb-0">
                 <h4 className="font-semibold">Ready to Start Your Project?</h4>
-                <p className="text-sm opacity-90">
+                <p className="opacity-90 text-sm">
                   Free consultations available throughout our service areas
                 </p>
               </div>
               <div className="flex gap-3">
                 <Button
-                  variant="secondary"
+                  variant="outline"
                   onClick={handleCallOffice}
-                  className="bg-white text-brand-primary hover:bg-gray-100"
+                  className="bg-white hover:bg-gray-100 text-brand-primary"
                 >
                   📞 (509) 308-6489
                 </Button>
                 <Button
-                  variant="secondary"
-                  className="border-white text-white hover:bg-white hover:text-brand-primary"
+                  variant="outline"
+                  className="hover:bg-white border-white text-white hover:text-brand-primary"
                   onClick={() => (window.location.href = '/contact')}
                 >
                   💬 Contact Form
@@ -364,28 +364,28 @@ export const ServiceAreaOverview: React.FC = () => {
   ]
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="gap-6 grid grid-cols-1 md:grid-cols-2">
       {serviceAreas.map((area, index) => (
         <Card key={index} className="hover:shadow-lg transition-shadow">
           <CardHeader>
-            <CardTitle className="flex items-center justify-between">
+            <CardTitle className="flex justify-between items-center">
               <span>
                 {area.city}, {area.state}
               </span>
-              <span className="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">
+              <span className="bg-green-100 px-2 py-1 rounded text-green-800 text-sm">
                 {area.responseTime}
               </span>
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-600 mb-4">{area.description}</p>
+            <p className="mb-4 text-gray-600">{area.description}</p>
             <div>
-              <h4 className="font-semibold mb-2">Available Services:</h4>
+              <h4 className="mb-2 font-semibold">Available Services:</h4>
               <div className="flex flex-wrap gap-2">
                 {area.services.map((service, idx) => (
                   <span
                     key={idx}
-                    className="bg-brand-primary/10 text-brand-primary px-2 py-1 rounded text-sm"
+                    className="bg-brand-primary/10 px-2 py-1 rounded text-brand-primary text-sm"
                   >
                     {service}
                   </span>

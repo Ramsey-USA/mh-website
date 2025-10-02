@@ -131,20 +131,20 @@ export default function Home() {
       <StructuredData data={generateOrganizationStructuredData()} />
 
       {/* Enhanced Hero Section - Video Ready */}
-      <section className="relative h-screen hero-section overflow-hidden">
+      <section className="relative h-screen overflow-hidden hero-section">
         {/* Video Background Container */}
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-gray-900/80">
           {/* Future video element will go here */}
           {/* <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline>
             <source src="/videos/hero-video.mp4" type="video/mp4" />
           </video> */}
-          
+
           {/* Temporary background for now */}
           <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-gray-900 to-brand-secondary/20"></div>
         </div>
 
         {/* Content Overlay */}
-        <div className="relative z-10 flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full text-white">
+        <div className="z-10 relative flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full text-white">
           <FadeInWhenVisible className="w-full text-center">
             {/* Simplified Hero Title */}
             <h1 className="mb-6 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight">
@@ -157,8 +157,9 @@ export default function Home() {
             </h1>
 
             {/* Simplified Tagline */}
-            <p className="mx-auto mb-8 max-w-3xl text-xl sm:text-2xl md:text-3xl leading-relaxed text-white/90">
-              Veteran-owned construction excellence working with you to serve our communities.
+            <p className="mx-auto mb-8 max-w-3xl text-white/90 text-xl sm:text-2xl md:text-3xl leading-relaxed">
+              Veteran-owned construction excellence working with you to serve
+              our communities.
             </p>
 
             {/* Simplified CTA */}
@@ -168,7 +169,7 @@ export default function Home() {
                   <Button
                     variant="primary"
                     size="xl"
-                    className="bg-white text-brand-primary hover:bg-white/90 shadow-2xl border-0"
+                    className="bg-white hover:bg-white/90 shadow-2xl border-0 text-brand-primary"
                     onClick={() =>
                       trackEvent('cta_click', {
                         button_name: 'get_started',
@@ -191,7 +192,7 @@ export default function Home() {
                   <Button
                     variant="outline"
                     size="xl"
-                    className="border-white text-white hover:bg-white hover:text-brand-primary shadow-2xl"
+                    className="hover:bg-white shadow-2xl border-white text-white hover:text-brand-primary"
                     onClick={() =>
                       trackEvent('cta_click', {
                         button_name: 'free_estimate',
@@ -218,13 +219,6 @@ export default function Home() {
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-10 lg:mb-12 text-center">
-            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg mb-8 px-8 py-4 border border-brand-primary/20 rounded-full">
-              <BoltIcon size="md" color="var(--brand-primary)" />
-              <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider letterspacing-widest">
-                Revolutionary Solutions
-              </span>
-            </div>
-
             <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
               <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                 The Future of
@@ -460,13 +454,6 @@ export default function Home() {
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="mb-10 lg:mb-12 text-center scroll-reveal">
-            <div className="inline-flex items-center bg-veteran-red/10 dark:bg-veteran-red/20 shadow-lg backdrop-blur-sm mb-8 px-8 py-4 border border-veteran-red/20 dark:border-veteran-red/30 rounded-full">
-              <ShieldIcon size="md" color="var(--veteran-red)" />
-              <span className="ml-4 font-black text-veteran-red dark:text-red-400 text-sm uppercase tracking-wider letterspacing-widest">
-                Military Values
-              </span>
-            </div>
-
             <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
               <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                 Built on
@@ -640,12 +627,6 @@ export default function Home() {
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-16 text-center">
-            <div className="inline-flex items-center bg-brand-primary/10 shadow-lg mb-8 px-8 py-4 border border-brand-primary/20 rounded-full">
-              <HammerIcon size="md" color="var(--brand-primary)" />
-              <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider letterspacing-widest">
-                Featured Excellence
-              </span>
-            </div>
             <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
               <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                 Showcase of
@@ -808,13 +789,6 @@ export default function Home() {
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="mb-16 lg:mb-20 text-center scroll-reveal">
-            <div className="inline-flex items-center bg-yellow-50 dark:bg-yellow-900/20 shadow-lg mb-8 px-8 py-4 border border-yellow-200/30 rounded-full">
-              <StarIcon size="md" color="var(--brand-secondary)" />
-              <span className="ml-4 font-black text-yellow-600 dark:text-yellow-400 text-sm uppercase tracking-wider letterspacing-widest">
-                Client Success Stories
-              </span>
-            </div>
-
             <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
               <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                 What Our
@@ -932,18 +906,6 @@ export default function Home() {
         <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
           <div className="mb-16 lg:mb-20 text-center scroll-reveal">
-            <div className="inline-flex items-center bg-white/10 shadow-lg backdrop-blur-sm mb-6 px-6 py-3 border border-white/20 rounded-full">
-              <MHQualityShieldIcon
-                size="sm"
-                hoverEffect="pulse"
-                color="currentColor"
-                className="text-white"
-              />
-              <span className="ml-3 font-bold text-white text-xs uppercase tracking-wider">
-                Why Partner With Us
-              </span>
-            </div>
-
             <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
               <span className="block mb-2 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                 The MH Partnership
@@ -1181,13 +1143,6 @@ export default function Home() {
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-16 text-center">
-            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-8 py-4 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-              <BoltIcon size="md" color="var(--brand-primary)" />
-              <span className="ml-4 font-black text-brand-primary dark:text-brand-primary-light text-sm uppercase tracking-wider letterspacing-widest">
-                Latest Updates
-              </span>
-            </div>
-
             <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
               <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                 Latest News &
@@ -1233,7 +1188,7 @@ export default function Home() {
       </section>
 
       {/* Enhanced Partnership Call to Action Section */}
-      <section className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary py-8 lg:py-12 cta-section">
+      <section className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary py-16 lg:py-24 cta-section">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
@@ -1243,92 +1198,76 @@ export default function Home() {
             </h2>
             <p className="mx-auto mb-12 max-w-4xl font-light text-white/90 text-xl md:text-2xl leading-relaxed">
               Join hundreds of Pacific Northwest neighbors who chose{' '}
-              <span className="font-medium text-brand-secondary">
+              <span className="font-medium text-white">
                 collaborative construction partners
               </span>{' '}
               committed to community and excellence.
             </p>
 
             {/* Partnership CTA Buttons - 4 Button Grid */}
-            <div className="gap-4 lg:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto mb-6 max-w-6xl">
+            <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto mb-6 max-w-6xl">
               <Link href="/booking">
-                <HoverScale>
-                  <Button
-                    variant="secondary"
-                    size="lg"
-                    className="shadow-xl w-full h-16 font-semibold text-base"
-                  >
+                <button className="group relative bg-white hover:bg-gray-50 shadow-2xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-brand-primary text-base transition-all duration-200">
+                  <div className="flex justify-center items-center">
                     <CalendarIcon
                       size="md"
                       color="currentColor"
                       className="flex-shrink-0 mr-2"
                     />
-                    <span className="z-10 relative text-center leading-tight tracking-tight">
+                    <span className="text-center leading-tight">
                       Consultation
                       <br />
                       Sign Up
                     </span>
-                  </Button>
-                </HoverScale>
+                  </div>
+                </button>
               </Link>
 
               <Link href="/estimator">
-                <HoverScale>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="bg-transparent hover:bg-white shadow-xl border-white w-full h-16 font-semibold text-white hover:text-brand-primary text-base"
-                  >
+                <button className="group relative bg-brand-primary hover:bg-brand-primary-dark shadow-2xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-white text-base transition-all duration-200">
+                  <div className="flex justify-center items-center">
                     <BoltIcon
                       size="md"
                       color="currentColor"
                       className="flex-shrink-0 mr-2"
                     />
-                    <span className="z-10 relative text-center leading-tight tracking-tight">
+                    <span className="text-center leading-tight">
                       AI Estimator
                     </span>
-                  </Button>
-                </HoverScale>
+                  </div>
+                </button>
               </Link>
 
               <Link href="/portfolio">
-                <HoverScale>
-                  <Button
-                    variant="secondary"
-                    size="lg"
-                    className="shadow-xl w-full h-16 font-semibold text-base"
-                  >
+                <button className="group relative bg-white hover:bg-gray-50 shadow-2xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-brand-primary text-base transition-all duration-200">
+                  <div className="flex justify-center items-center">
                     <HammerIcon
                       size="md"
                       color="currentColor"
                       className="flex-shrink-0 mr-2"
                     />
-                    <span className="z-10 relative text-center leading-tight tracking-tight">
+                    <span className="text-center leading-tight">
                       3D Explorer
                     </span>
-                  </Button>
-                </HoverScale>
+                  </div>
+                </button>
               </Link>
 
               <Link href="/wounded-warrior">
-                <HoverScale>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="bg-transparent hover:bg-white shadow-xl border-white w-full h-16 font-semibold text-white hover:text-brand-primary text-base"
-                  >
+                <button className="group relative bg-brand-primary hover:bg-brand-primary-dark shadow-2xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-white text-base transition-all duration-200">
+                  <div className="flex justify-center items-center">
                     <ShieldIcon
                       size="md"
                       color="currentColor"
                       className="flex-shrink-0 mr-2"
                     />
-                    <span className="z-10 relative text-center leading-tight tracking-tight">
+                    <span className="text-center leading-tight">
                       Wounded
                       <br />
                       Warrior
                     </span>
-                  </Button>
-                </HoverScale>
+                  </div>
+                </button>
               </Link>
             </div>
           </FadeInWhenVisible>

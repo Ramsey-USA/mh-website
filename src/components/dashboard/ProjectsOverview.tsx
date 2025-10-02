@@ -102,10 +102,10 @@ export function ProjectsOverview() {
   return (
     <Card>
       <CardHeader>
-        <div className="flex items-center justify-between">
+        <div className="flex justify-between items-center">
           <CardTitle>Active Projects</CardTitle>
           <div className="flex space-x-2">
-            <Button variant="secondary" size="sm">
+            <Button variant="outline" size="sm">
               📊 Project Reports
             </Button>
             <Button variant="primary" size="sm">
@@ -119,32 +119,32 @@ export function ProjectsOverview() {
           <table className="w-full">
             <thead>
               <tr className="border-b">
-                <th className="text-left py-3 font-semibold text-gray-700">
+                <th className="py-3 font-semibold text-gray-700 text-left">
                   Project
                 </th>
-                <th className="text-left py-3 font-semibold text-gray-700">
+                <th className="py-3 font-semibold text-gray-700 text-left">
                   Client
                 </th>
-                <th className="text-left py-3 font-semibold text-gray-700">
+                <th className="py-3 font-semibold text-gray-700 text-left">
                   Status
                 </th>
-                <th className="text-left py-3 font-semibold text-gray-700">
+                <th className="py-3 font-semibold text-gray-700 text-left">
                   Progress
                 </th>
-                <th className="text-left py-3 font-semibold text-gray-700">
+                <th className="py-3 font-semibold text-gray-700 text-left">
                   Value
                 </th>
-                <th className="text-left py-3 font-semibold text-gray-700">
+                <th className="py-3 font-semibold text-gray-700 text-left">
                   Team Lead
                 </th>
-                <th className="text-left py-3 font-semibold text-gray-700">
+                <th className="py-3 font-semibold text-gray-700 text-left">
                   Actions
                 </th>
               </tr>
             </thead>
             <tbody>
               {projects.map(project => (
-                <tr key={project.id} className="border-b hover:bg-gray-50">
+                <tr key={project.id} className="hover:bg-gray-50 border-b">
                   <td className="py-4">
                     <div>
                       <div className="flex items-center">
@@ -152,44 +152,48 @@ export function ProjectsOverview() {
                           {project.name}
                         </span>
                         {project.isVeteran && (
-                          <span className="ml-2 text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                          <span className="bg-blue-100 ml-2 px-2 py-1 rounded-full text-blue-800 text-xs">
                             🎖️
                           </span>
                         )}
                       </div>
-                      <div className="text-sm text-gray-600">
+                      <div className="text-gray-600 text-sm">
                         {project.type}
                       </div>
-                      <div className="text-xs text-gray-500">
+                      <div className="text-gray-500 text-xs">
                         ID: {project.id}
                       </div>
                     </div>
                   </td>
                   <td className="py-4">
-                    <div className="text-sm text-gray-900">
+                    <div className="text-gray-900 text-sm">
                       {project.client}
                     </div>
                   </td>
                   <td className="py-4">
                     <div>
                       <span
-                        className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(project.status)}`}
+                        className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(
+                          project.status
+                        )}`}
                       >
                         {project.status.replace('-', ' ')}
                       </span>
-                      <div className="text-xs text-gray-500 mt-1">
+                      <div className="mt-1 text-gray-500 text-xs">
                         {project.phase}
                       </div>
                     </div>
                   </td>
                   <td className="py-4">
                     <div className="w-24">
-                      <div className="flex items-center justify-between text-xs text-gray-600 mb-1">
+                      <div className="flex justify-between items-center mb-1 text-gray-600 text-xs">
                         <span>{project.progress}%</span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="bg-gray-200 rounded-full w-full h-2">
                         <div
-                          className={`h-2 rounded-full ${getProgressColor(project.progress)}`}
+                          className={`h-2 rounded-full ${getProgressColor(
+                            project.progress
+                          )}`}
                           style={{ width: `${project.progress}%` }}
                         ></div>
                       </div>
@@ -199,21 +203,21 @@ export function ProjectsOverview() {
                     <div className="font-semibold text-gray-900">
                       {project.value}
                     </div>
-                    <div className="text-xs text-gray-500">
+                    <div className="text-gray-500 text-xs">
                       Expected: {project.expectedCompletion}
                     </div>
                   </td>
                   <td className="py-4">
-                    <div className="text-sm text-gray-900">
+                    <div className="text-gray-900 text-sm">
                       {project.teamLead}
                     </div>
                   </td>
                   <td className="py-4">
                     <div className="flex space-x-1">
-                      <Button variant="secondary" size="sm">
+                      <Button variant="outline" size="sm">
                         View
                       </Button>
-                      <Button variant="secondary" size="sm">
+                      <Button variant="outline" size="sm">
                         Edit
                       </Button>
                     </div>
@@ -226,24 +230,24 @@ export function ProjectsOverview() {
 
         {/* Project Summary */}
         <div className="mt-6 pt-4 border-t">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="text-center p-3 bg-blue-50 rounded-lg">
-              <div className="text-2xl font-tactic-bold text-blue-600">3</div>
-              <div className="text-sm text-blue-800">Planning</div>
+          <div className="gap-4 grid grid-cols-1 md:grid-cols-4">
+            <div className="bg-blue-50 p-3 rounded-lg text-center">
+              <div className="font-tactic-bold text-blue-600 text-2xl">3</div>
+              <div className="text-blue-800 text-sm">Planning</div>
             </div>
-            <div className="text-center p-3 bg-yellow-50 rounded-lg">
-              <div className="text-2xl font-tactic-bold text-yellow-600">3</div>
-              <div className="text-sm text-yellow-800">In Progress</div>
+            <div className="bg-yellow-50 p-3 rounded-lg text-center">
+              <div className="font-tactic-bold text-yellow-600 text-2xl">3</div>
+              <div className="text-yellow-800 text-sm">In Progress</div>
             </div>
-            <div className="text-center p-3 bg-green-50 rounded-lg">
-              <div className="text-2xl font-tactic-bold text-green-600">2</div>
-              <div className="text-sm text-green-800">Completed</div>
+            <div className="bg-green-50 p-3 rounded-lg text-center">
+              <div className="font-tactic-bold text-green-600 text-2xl">2</div>
+              <div className="text-green-800 text-sm">Completed</div>
             </div>
-            <div className="text-center p-3 bg-purple-50 rounded-lg">
-              <div className="text-2xl font-tactic-bold text-purple-600">
+            <div className="bg-purple-50 p-3 rounded-lg text-center">
+              <div className="font-tactic-bold text-purple-600 text-2xl">
                 $2.4M
               </div>
-              <div className="text-sm text-purple-800">Total Value</div>
+              <div className="text-purple-800 text-sm">Total Value</div>
             </div>
           </div>
         </div>

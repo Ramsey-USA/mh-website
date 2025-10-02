@@ -268,19 +268,6 @@ export default function EstimatorPage() {
 
         <div className="z-10 relative flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-8 max-w-7xl h-full">
           <FadeInWhenVisible className="w-full text-center">
-            {/* Hero Badge */}
-            <div className="inline-flex items-center bg-blue-500/10 dark:bg-blue-500/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-blue-500/20 dark:border-blue-500/30 rounded-full">
-              <BoltIcon
-                size="sm"
-                color="currentColor"
-                className="text-blue-500 dark:text-blue-400"
-              />
-              <span className="ml-3 font-bold text-blue-500 dark:text-blue-400 text-xs uppercase tracking-wider">
-                AI-Powered Technology
-              </span>
-            </div>
-
-            {/* Hero Title */}
             <h1 className="mb-6 pb-2 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter hero-title">
               <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
                 Get Your Instant
@@ -363,13 +350,6 @@ export default function EstimatorPage() {
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-24 lg:mb-32 text-center">
-            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg mb-10 px-8 py-4 border border-brand-primary/20 rounded-full">
-              <CogIcon size="md" color="var(--brand-primary)" />
-              <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider">
-                Revolutionary Technology
-              </span>
-            </div>
-
             <h2 className="mb-10 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
               <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 Advanced AI Meets
@@ -418,13 +398,6 @@ export default function EstimatorPage() {
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-16 text-center">
-            <div className="inline-flex items-center bg-blue-500/10 dark:bg-blue-500/20 shadow-lg mb-10 px-8 py-4 border border-blue-500/20 rounded-full">
-              <BoltIcon size="md" color="var(--blue-500)" />
-              <span className="ml-4 font-black text-blue-500 text-sm uppercase tracking-wider">
-                Instant AI Estimate
-              </span>
-            </div>
-
             <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
               Get Your Estimate in{' '}
               <span className="bg-clip-text bg-gradient-to-r from-blue-500 to-brand-primary drop-shadow-sm font-black text-transparent">
@@ -907,7 +880,7 @@ export default function EstimatorPage() {
               <Link href="/booking">
                 <HoverScale>
                   <Button
-                    variant="secondary"
+                    variant="outline"
                     size="xl"
                     className="bg-white hover:bg-gray-100 shadow-xl text-blue-500"
                   >

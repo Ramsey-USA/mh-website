@@ -572,7 +572,7 @@ export default function BlogPage() {
                     className="px-4 py-3 border-0 rounded-lg focus:ring-4 w-full font-medium text-gray-900 focus:ring-accent-400/50"
                   />
                   <Button
-                    variant="secondary"
+                    variant="outline"
                     size="lg"
                     className="justify-center w-full font-bold"
                   >

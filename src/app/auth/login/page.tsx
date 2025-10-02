@@ -55,13 +55,13 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-surface flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="flex justify-center items-center bg-surface px-4 sm:px-6 lg:px-8 py-12 min-h-screen">
+      <div className="space-y-8 w-full max-w-md">
         {/* Header */}
         <div className="text-center">
-          <div className="mx-auto h-16 w-16 bg-brand-primary rounded-full flex items-center justify-center mb-4">
+          <div className="flex justify-center items-center bg-brand-primary mx-auto mb-4 rounded-full w-16 h-16">
             <svg
-              className="h-8 w-8 text-white"
+              className="w-8 h-8 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -74,7 +74,7 @@ export default function LoginPage() {
               />
             </svg>
           </div>
-          <h2 className="text-3xl font-tactic-bold text-brand-primary">
+          <h2 className="font-tactic-bold text-brand-primary text-3xl">
             MH Construction
           </h2>
           <p className="mt-2 text-text-secondary">Team Dashboard Access</p>
@@ -88,8 +88,8 @@ export default function LoginPage() {
           <CardContent>
             {/* Error Message */}
             {error && (
-              <div className="mb-4 p-3 bg-error-light border border-error/20 rounded-md">
-                <p className="text-sm text-error font-medium">{error}</p>
+              <div className="bg-error-light mb-4 p-3 border border-error/20 rounded-md">
+                <p className="font-medium text-error text-sm">{error}</p>
               </div>
             )}
 
@@ -123,7 +123,7 @@ export default function LoginPage() {
               >
                 {loading ? (
                   <>
-                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                    <div className="mr-2 border-2 border-white border-t-transparent rounded-full w-4 h-4 animate-spin"></div>
                     Signing In...
                   </>
                 ) : (
@@ -136,10 +136,10 @@ export default function LoginPage() {
             <div className="my-6">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-border"></div>
+                  <div className="border-t border-border w-full"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-surface text-text-muted">
+                  <span className="bg-surface px-2 text-text-muted">
                     Or continue with
                   </span>
                 </div>
@@ -149,12 +149,12 @@ export default function LoginPage() {
             {/* Google Sign In */}
             <Button
               type="button"
-              variant="secondary"
+              variant="outline"
               className="w-full"
               onClick={handleGoogleLogin}
               disabled={loading}
             >
-              <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
+              <svg className="mr-2 w-5 h-5" viewBox="0 0 24 24">
                 <path
                   fill="#4285F4"
                   d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -176,7 +176,7 @@ export default function LoginPage() {
             </Button>
 
             {/* Footer Links */}
-            <div className="mt-6 text-center text-sm space-y-2">
+            <div className="space-y-2 mt-6 text-sm text-center">
               <Link
                 href="/auth/forgot-password"
                 className="text-brand-primary hover:text-brand-primary-light"
@@ -208,12 +208,12 @@ export default function LoginPage() {
         <Card className="bg-veteran-blue/5 border-veteran-blue/20">
           <CardContent className="p-4">
             <div className="flex items-center">
-              <div className="text-2xl mr-3">🇺🇸</div>
+              <div className="mr-3 text-2xl">🇺🇸</div>
               <div>
                 <h3 className="font-semibold text-veteran-blue">
                   Veteran-Owned Business
                 </h3>
-                <p className="text-sm text-text-secondary mt-1">
+                <p className="mt-1 text-text-secondary text-sm">
                   Proudly serving our community with military precision and
                   dedication.
                 </p>

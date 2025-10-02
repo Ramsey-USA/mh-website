@@ -91,21 +91,21 @@ export function DashboardSidebar() {
   ]
 
   return (
-    <div className="fixed left-0 top-0 h-full w-64 bg-white shadow-lg border-r z-40">
+    <div className="top-0 left-0 z-40 fixed bg-white shadow-lg border-r w-64 h-full">
       {/* Logo */}
       <div className="p-6 border-b">
         <Link href="/dashboard" className="flex items-center">
           <img
             src="/images/logo/mh-logo.png"
             alt="MH Construction Logo"
-            className="h-8 w-auto mr-3"
+            className="mr-3 w-auto h-8"
             loading="eager"
           />
           <div className="flex flex-col">
-            <div className="text-lg font-tactic-bold text-brand-primary">
+            <div className="font-tactic-bold text-brand-primary text-lg">
               MH Construction
             </div>
-            <div className="text-xs text-brand-secondary font-semibold">
+            <div className="font-semibold text-brand-secondary text-xs">
               DASHBOARD
             </div>
           </div>
@@ -130,7 +130,7 @@ export function DashboardSidebar() {
               `}
             >
               <div className="flex items-center">
-                <span className="text-lg mr-3">{item.icon}</span>
+                <span className="mr-3 text-lg">{item.icon}</span>
                 <span className="font-medium">{item.label}</span>
               </div>
               {item.badge && (
@@ -153,7 +153,7 @@ export function DashboardSidebar() {
 
         {/* Veteran Features Section */}
         <div className="mt-8 pt-6 border-t">
-          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+          <h3 className="mb-3 font-semibold text-gray-500 text-xs uppercase tracking-wider">
             Veteran Services
           </h3>
           <div className="space-y-2">
@@ -161,12 +161,12 @@ export function DashboardSidebar() {
               <Link
                 key={item.id}
                 href={item.href}
-                className="flex items-start px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-blue-50 transition-colors"
+                className="flex items-start hover:bg-blue-50 px-3 py-2 rounded-lg text-gray-700 text-sm transition-colors"
               >
-                <span className="text-lg mr-3">{item.icon}</span>
+                <span className="mr-3 text-lg">{item.icon}</span>
                 <div>
                   <div className="font-medium">{item.label}</div>
-                  <div className="text-xs text-gray-500">
+                  <div className="text-gray-500 text-xs">
                     {item.description}
                   </div>
                 </div>
@@ -178,13 +178,13 @@ export function DashboardSidebar() {
         {/* Support Section */}
         <div className="mt-8 pt-6 border-t">
           <div className="bg-gray-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-sm text-gray-800 mb-2">
+            <h4 className="mb-2 font-semibold text-gray-800 text-sm">
               Need Help?
             </h4>
-            <p className="text-xs text-gray-600 mb-3">
+            <p className="mb-3 text-gray-600 text-xs">
               Access our knowledge base or contact support
             </p>
-            <Button variant="secondary" size="sm" className="w-full">
+            <Button variant="outline" size="sm" className="w-full">
               Get Support
             </Button>
           </div>
@@ -194,16 +194,16 @@ export function DashboardSidebar() {
       {/* User Profile */}
       <div className="p-4 border-t">
         <div className="flex items-center">
-          <div className="w-10 h-10 bg-brand-primary rounded-full flex items-center justify-center text-white font-bold">
+          <div className="flex justify-center items-center bg-brand-primary rounded-full w-10 h-10 font-bold text-white">
             MH
           </div>
-          <div className="ml-3 flex-1">
-            <div className="text-sm font-semibold text-gray-800">
+          <div className="flex-1 ml-3">
+            <div className="font-semibold text-gray-800 text-sm">
               Mark Harris
             </div>
-            <div className="text-xs text-gray-500">Founder & Lead</div>
+            <div className="text-gray-500 text-xs">Founder & Lead</div>
           </div>
-          <Button variant="secondary" size="sm">
+          <Button variant="outline" size="sm">
             ⋯
           </Button>
         </div>

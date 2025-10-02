@@ -79,10 +79,10 @@ export function EstimateResults({
   )
 
   return (
-    <div className="max-w-6xl mx-auto space-y-8">
+    <div className="space-y-8 mx-auto max-w-6xl">
       {/* Success Header */}
       <div className="text-center">
-        <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="flex justify-center items-center bg-green-500 mx-auto mb-4 rounded-full w-16 h-16">
           <svg
             className="w-8 h-8 text-white"
             fill="currentColor"
@@ -95,17 +95,17 @@ export function EstimateResults({
             />
           </svg>
         </div>
-        <h2 className="text-3xl font-tactic-bold text-brand-primary mb-2">
+        <h2 className="mb-2 font-tactic-bold text-brand-primary text-3xl">
           Your Estimate is Ready!
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="mx-auto max-w-2xl text-gray-600">
           Based on current market conditions and our database of 10,000+
           completed projects, here&apos;s your detailed construction estimate
           with {estimate.accuracy}% accuracy.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="gap-8 grid grid-cols-1 lg:grid-cols-3">
         {/* Main Estimate Card */}
         <div className="lg:col-span-2">
           <Card className="bg-gradient-to-r from-brand-primary to-brand-secondary text-white">
@@ -125,15 +125,15 @@ export function EstimateResults({
                       <span>Subtotal:</span>
                       <span>{formatCurrency(totalBeforeDiscount)}</span>
                     </div>
-                    <div className="flex justify-between items-center text-lg text-yellow-300">
+                    <div className="flex justify-between items-center text-yellow-300 text-lg">
                       <span>Veteran Discount (10%):</span>
                       <span>-{formatCurrency(estimate.veteranDiscount)}</span>
                     </div>
-                    <hr className="border-white/30 my-2" />
+                    <hr className="my-2 border-white/30" />
                   </div>
                 )}
 
-                <div className="flex justify-between items-center text-4xl font-tactic-bold">
+                <div className="flex justify-between items-center font-tactic-bold text-4xl">
                   <span>Total Cost:</span>
                   <span>{formatCurrency(estimate.totalCost)}</span>
                 </div>
@@ -181,7 +181,7 @@ export function EstimateResults({
                           {formatCurrency(item.amount)} ({percentage}%)
                         </span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="bg-gray-200 rounded-full w-full h-2">
                         <div
                           className={`h-2 rounded-full ${item.color}`}
                           style={{ width: `${percentage}%` }}
@@ -231,11 +231,11 @@ export function EstimateResults({
                 {projectData.features.length > 0 && (
                   <div>
                     <span className="text-gray-600">Features:</span>
-                    <div className="ml-2 mt-1">
+                    <div className="mt-1 ml-2">
                       {projectData.features.map((feature, index) => (
                         <div
                           key={index}
-                          className="text-xs bg-gray-100 inline-block px-2 py-1 rounded mr-1 mb-1"
+                          className="inline-block bg-gray-100 mr-1 mb-1 px-2 py-1 rounded text-xs"
                         >
                           {feature}
                         </div>
@@ -257,14 +257,14 @@ export function EstimateResults({
                 <Button variant="primary" className="w-full">
                   Schedule Free Consultation
                 </Button>
-                <Button variant="secondary" className="w-full">
+                <Button variant="outline" className="w-full">
                   Download PDF Report
                 </Button>
-                <Button variant="secondary" className="w-full">
+                <Button variant="outline" className="w-full">
                   Share Estimate
                 </Button>
                 <Button
-                  variant="secondary"
+                  variant="outline"
                   className="w-full"
                   onClick={onStartOver}
                 >
@@ -282,7 +282,7 @@ export function EstimateResults({
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-green-700">
+              <p className="text-green-700 text-sm">
                 This estimate is backed by our 95% accuracy guarantee. If your
                 final project cost varies by more than 10%, we&apos;ll provide a
                 credit toward your next project.
@@ -299,14 +299,14 @@ export function EstimateResults({
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-blue-700 mb-3">
+                <p className="mb-3 text-blue-700 text-sm">
                   As a veteran-owned company, we&apos;re honored to serve those
                   who served. Your 10% discount has been applied.
                 </p>
                 <Button
                   variant="primary"
                   size="sm"
-                  className="w-full bg-blue-600 hover:bg-blue-700"
+                  className="bg-blue-600 hover:bg-blue-700 w-full"
                 >
                   Learn About Our Wounded Warrior Initiative
                 </Button>
@@ -322,7 +322,7 @@ export function EstimateResults({
           <CardTitle>Project Timeline Breakdown</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 phase: 'Planning & Permits',
@@ -347,18 +347,18 @@ export function EstimateResults({
             ].map((phase, index) => (
               <div
                 key={index}
-                className="text-center p-4 bg-gray-50 rounded-lg"
+                className="bg-gray-50 p-4 rounded-lg text-center"
               >
-                <div className="w-8 h-8 bg-brand-primary text-white rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-2">
+                <div className="flex justify-center items-center bg-brand-primary mx-auto mb-2 rounded-full w-8 h-8 font-bold text-white text-sm">
                   {index + 1}
                 </div>
-                <h4 className="font-semibold text-brand-primary mb-1">
+                <h4 className="mb-1 font-semibold text-brand-primary">
                   {phase.phase}
                 </h4>
-                <div className="text-sm text-gray-600 mb-2">
+                <div className="mb-2 text-gray-600 text-sm">
                   {phase.duration}
                 </div>
-                <div className="text-xs text-gray-500">{phase.description}</div>
+                <div className="text-gray-500 text-xs">{phase.description}</div>
               </div>
             ))}
           </div>
@@ -366,7 +366,7 @@ export function EstimateResults({
       </Card>
 
       {/* Disclaimer */}
-      <div className="text-center text-xs text-gray-500 max-w-4xl mx-auto">
+      <div className="mx-auto max-w-4xl text-gray-500 text-xs text-center">
         <p>
           * This estimate is based on current market conditions, material costs,
           and regional labor rates. Final pricing may vary based on specific

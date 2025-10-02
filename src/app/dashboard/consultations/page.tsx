@@ -10,7 +10,7 @@ import { DashboardSidebar } from '../../../components/dashboard'
 
 export default function ConsultationsPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="bg-gray-50 min-h-screen">
       <div className="flex">
         {/* Sidebar */}
         <DashboardSidebar />
@@ -20,9 +20,9 @@ export default function ConsultationsPage() {
           {/* Header */}
           <header className="bg-white shadow-sm border-b">
             <div className="px-6 py-4">
-              <div className="flex items-center justify-between">
+              <div className="flex justify-between items-center">
                 <div>
-                  <h1 className="text-2xl font-tactic-bold text-brand-primary">
+                  <h1 className="font-tactic-bold text-brand-primary text-2xl">
                     Consultation Management
                   </h1>
                   <p className="text-gray-600">
@@ -30,10 +30,10 @@ export default function ConsultationsPage() {
                   </p>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <Button variant="secondary" size="sm">
+                  <Button variant="outline" size="sm">
                     📧 Send Reminders
                   </Button>
-                  <Button variant="secondary" size="sm">
+                  <Button variant="outline" size="sm">
                     📊 Export Data
                   </Button>
                   <Button variant="primary" size="sm">
@@ -53,16 +53,16 @@ export default function ConsultationsPage() {
                   <CardTitle>Filter Consultations</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div className="gap-4 grid grid-cols-1 md:grid-cols-4">
                     <Input
                       label="Search"
                       placeholder="Client name or project..."
                     />
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block mb-2 font-medium text-gray-700 text-sm">
                         Status
                       </label>
-                      <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary">
+                      <select className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary w-full">
                         <option value="">All Statuses</option>
                         <option value="confirmed">Confirmed</option>
                         <option value="pending">Pending</option>
@@ -71,10 +71,10 @@ export default function ConsultationsPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block mb-2 font-medium text-gray-700 text-sm">
                         Team Member
                       </label>
-                      <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary">
+                      <select className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary w-full">
                         <option value="">All Team Members</option>
                         <option value="mark-harris">Mark Harris</option>
                         <option value="sarah-harris">Sarah Harris</option>
@@ -82,10 +82,10 @@ export default function ConsultationsPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block mb-2 font-medium text-gray-700 text-sm">
                         Date Range
                       </label>
-                      <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary">
+                      <select className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary w-full">
                         <option value="this-week">This Week</option>
                         <option value="this-month">This Month</option>
                         <option value="next-week">Next Week</option>
@@ -97,7 +97,7 @@ export default function ConsultationsPage() {
               </Card>
 
               {/* Consultation Calendar View */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="gap-6 grid grid-cols-1 lg:grid-cols-3">
                 {/* Calendar */}
                 <div className="lg:col-span-2">
                   <Card>
@@ -106,8 +106,8 @@ export default function ConsultationsPage() {
                     </CardHeader>
                     <CardContent>
                       <div className="bg-gray-100 p-8 rounded-lg text-center">
-                        <div className="text-4xl mb-4">📅</div>
-                        <h3 className="text-lg font-semibold text-gray-700 mb-2">
+                        <div className="mb-4 text-4xl">📅</div>
+                        <h3 className="mb-2 font-semibold text-gray-700 text-lg">
                           Interactive Calendar
                         </h3>
                         <p className="text-gray-600">
@@ -131,31 +131,31 @@ export default function ConsultationsPage() {
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-4">
-                        <div className="text-center p-3 bg-blue-50 rounded-lg">
-                          <div className="text-2xl font-tactic-bold text-blue-600">
+                        <div className="bg-blue-50 p-3 rounded-lg text-center">
+                          <div className="font-tactic-bold text-blue-600 text-2xl">
                             3
                           </div>
-                          <div className="text-sm text-blue-800">Today</div>
+                          <div className="text-blue-800 text-sm">Today</div>
                         </div>
-                        <div className="text-center p-3 bg-green-50 rounded-lg">
-                          <div className="text-2xl font-tactic-bold text-green-600">
+                        <div className="bg-green-50 p-3 rounded-lg text-center">
+                          <div className="font-tactic-bold text-green-600 text-2xl">
                             12
                           </div>
-                          <div className="text-sm text-green-800">
+                          <div className="text-green-800 text-sm">
                             This Week
                           </div>
                         </div>
-                        <div className="text-center p-3 bg-yellow-50 rounded-lg">
-                          <div className="text-2xl font-tactic-bold text-yellow-600">
+                        <div className="bg-yellow-50 p-3 rounded-lg text-center">
+                          <div className="font-tactic-bold text-yellow-600 text-2xl">
                             2
                           </div>
-                          <div className="text-sm text-yellow-800">Pending</div>
+                          <div className="text-yellow-800 text-sm">Pending</div>
                         </div>
-                        <div className="text-center p-3 bg-purple-50 rounded-lg">
-                          <div className="text-2xl font-tactic-bold text-purple-600">
+                        <div className="bg-purple-50 p-3 rounded-lg text-center">
+                          <div className="font-tactic-bold text-purple-600 text-2xl">
                             95%
                           </div>
-                          <div className="text-sm text-purple-800">
+                          <div className="text-purple-800 text-sm">
                             Show Rate
                           </div>
                         </div>
@@ -208,7 +208,7 @@ export default function ConsultationsPage() {
                     ].map((activity, index) => (
                       <div
                         key={index}
-                        className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50"
+                        className="flex justify-between items-center hover:bg-gray-50 p-4 border rounded-lg"
                       >
                         <div className="flex items-center">
                           <div
@@ -216,23 +216,23 @@ export default function ConsultationsPage() {
                               activity.status === 'success'
                                 ? 'bg-green-500'
                                 : activity.status === 'info'
-                                  ? 'bg-blue-500'
-                                  : activity.status === 'warning'
-                                    ? 'bg-yellow-500'
-                                    : 'bg-red-500'
+                                ? 'bg-blue-500'
+                                : activity.status === 'warning'
+                                ? 'bg-yellow-500'
+                                : 'bg-red-500'
                             }`}
                           ></div>
                           <div>
                             <h4 className="font-semibold text-gray-900">
                               {activity.action}
                             </h4>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-gray-600 text-sm">
                               {activity.client} • {activity.type} •{' '}
                               {activity.teamMember}
                             </p>
                           </div>
                         </div>
-                        <div className="text-sm text-gray-500">
+                        <div className="text-gray-500 text-sm">
                           {activity.time}
                         </div>
                       </div>

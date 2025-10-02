@@ -151,10 +151,10 @@ export function ConsultationForm({
 
   if (showConfirmation) {
     return (
-      <div className="max-w-2xl mx-auto">
+      <div className="mx-auto max-w-2xl">
         <Card className="bg-green-50 border-green-200">
           <CardHeader className="text-center">
-            <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="flex justify-center items-center bg-green-500 mx-auto mb-4 rounded-full w-16 h-16">
               <svg
                 className="w-8 h-8 text-white"
                 fill="currentColor"
@@ -167,7 +167,7 @@ export function ConsultationForm({
                 />
               </svg>
             </div>
-            <CardTitle className="text-2xl text-green-800">
+            <CardTitle className="text-green-800 text-2xl">
               Consultation Booked Successfully!
             </CardTitle>
             <p className="text-green-700">
@@ -176,12 +176,12 @@ export function ConsultationForm({
             </p>
           </CardHeader>
           <CardContent>
-            <div className="bg-white p-6 rounded-lg space-y-4">
-              <h3 className="font-tactic-bold text-lg text-brand-primary mb-4">
+            <div className="space-y-4 bg-white p-6 rounded-lg">
+              <h3 className="mb-4 font-tactic-bold text-brand-primary text-lg">
                 Booking Summary
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                 <div>
                   <span className="text-gray-600">Date & Time:</span>
                   <div className="font-semibold">
@@ -228,30 +228,30 @@ export function ConsultationForm({
                   <div className="font-semibold">
                     {bookingData.firstName} {bookingData.lastName}
                   </div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-gray-600 text-sm">
                     {bookingData.email}
                   </div>
                 </div>
               </div>
 
               {bookingData.isVeteran && (
-                <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg">
+                <div className="bg-blue-50 p-4 border border-blue-200 rounded-lg">
                   <div className="flex items-center">
-                    <span className="text-blue-600 mr-2">🎖️</span>
+                    <span className="mr-2 text-blue-600">🎖️</span>
                     <span className="font-semibold text-blue-800">
                       Thank you for your service!
                     </span>
                   </div>
-                  <p className="text-blue-700 text-sm mt-1">
+                  <p className="mt-1 text-blue-700 text-sm">
                     Military discount applied. Learn more about our Wounded
                     Warrior Initiative during your consultation.
                   </p>
                 </div>
               )}
 
-              <div className="border-t pt-4 mt-6">
-                <h4 className="font-semibold mb-2">What happens next?</h4>
-                <ul className="space-y-1 text-sm text-gray-600">
+              <div className="mt-6 pt-4 border-t">
+                <h4 className="mb-2 font-semibold">What happens next?</h4>
+                <ul className="space-y-1 text-gray-600 text-sm">
                   <li>• Confirmation email sent to {bookingData.email}</li>
                   <li>• Calendar invite with meeting details</li>
                   <li>• Pre-consultation questionnaire (if applicable)</li>
@@ -260,17 +260,17 @@ export function ConsultationForm({
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <div className="flex sm:flex-row flex-col gap-4 mt-6">
               <Button variant="primary" size="lg" className="flex-1">
                 Add to Calendar
               </Button>
-              <Button variant="secondary" size="lg" className="flex-1">
+              <Button variant="outline" size="lg" className="flex-1">
                 View in Dashboard
               </Button>
             </div>
 
-            <div className="text-center mt-4">
-              <Button variant="secondary" onClick={onBack}>
+            <div className="mt-4 text-center">
+              <Button variant="outline" onClick={onBack}>
                 Book Another Consultation
               </Button>
             </div>
@@ -281,13 +281,13 @@ export function ConsultationForm({
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="mx-auto max-w-4xl">
       <Card>
         <CardHeader>
-          <div className="flex items-center justify-between">
+          <div className="flex justify-between items-center">
             <div>
               <CardTitle className="text-2xl">Book Your Consultation</CardTitle>
-              <p className="text-gray-600 mt-1">
+              <p className="mt-1 text-gray-600">
                 {selectedDate.toLocaleDateString('en-US', {
                   weekday: 'long',
                   year: 'numeric',
@@ -297,7 +297,7 @@ export function ConsultationForm({
                 at {selectedTimeSlot.time}
               </p>
             </div>
-            <Button variant="secondary" onClick={onBack}>
+            <Button variant="outline" onClick={onBack}>
               ← Change Time
             </Button>
           </div>
@@ -306,10 +306,10 @@ export function ConsultationForm({
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Personal Information */}
             <div>
-              <h3 className="text-lg font-tactic-bold text-brand-primary mb-4">
+              <h3 className="mb-4 font-tactic-bold text-brand-primary text-lg">
                 Personal Information
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                 <Input
                   label="First Name"
                   placeholder="Enter your first name"
@@ -347,19 +347,19 @@ export function ConsultationForm({
 
             {/* Consultation Details */}
             <div>
-              <h3 className="text-lg font-tactic-bold text-brand-primary mb-4">
+              <h3 className="mb-4 font-tactic-bold text-brand-primary text-lg">
                 Consultation Details
               </h3>
 
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-3">
+                <label className="block mb-3 font-medium text-gray-700 text-sm">
                   Consultation Type
                 </label>
                 <div className="space-y-3">
                   {consultationTypes.map(type => (
                     <label
                       key={type.id}
-                      className="flex items-center p-4 border rounded-lg cursor-pointer hover:border-brand-primary"
+                      className="flex items-center p-4 border hover:border-brand-primary rounded-lg cursor-pointer"
                     >
                       <input
                         type="radio"
@@ -373,7 +373,7 @@ export function ConsultationForm({
                       />
                       <div>
                         <div className="font-semibold">{type.label}</div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-gray-600 text-sm">
                           Duration: {type.duration} minutes •
                           {type.price === 0 ? ' Free' : ` $${type.price}`}
                         </div>
@@ -384,11 +384,11 @@ export function ConsultationForm({
               </div>
 
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-3">
+                <label className="block mb-3 font-medium text-gray-700 text-sm">
                   Meeting Preference
                 </label>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <label className="flex items-center p-4 border rounded-lg cursor-pointer hover:border-brand-primary">
+                <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
+                  <label className="flex items-center p-4 border hover:border-brand-primary rounded-lg cursor-pointer">
                     <input
                       type="radio"
                       name="meetingType"
@@ -401,12 +401,12 @@ export function ConsultationForm({
                     />
                     <div>
                       <div className="font-semibold">Virtual Meeting</div>
-                      <div className="text-sm text-gray-600">
+                      <div className="text-gray-600 text-sm">
                         Video call via Zoom or Google Meet
                       </div>
                     </div>
                   </label>
-                  <label className="flex items-center p-4 border rounded-lg cursor-pointer hover:border-brand-primary">
+                  <label className="flex items-center p-4 border hover:border-brand-primary rounded-lg cursor-pointer">
                     <input
                       type="radio"
                       name="meetingType"
@@ -419,7 +419,7 @@ export function ConsultationForm({
                     />
                     <div>
                       <div className="font-semibold">In-Person Meeting</div>
-                      <div className="text-sm text-gray-600">
+                      <div className="text-gray-600 text-sm">
                         At our office or project site
                       </div>
                     </div>
@@ -430,12 +430,12 @@ export function ConsultationForm({
 
             {/* Project Information */}
             <div>
-              <h3 className="text-lg font-tactic-bold text-brand-primary mb-4">
+              <h3 className="mb-4 font-tactic-bold text-brand-primary text-lg">
                 Project Information
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 font-medium text-gray-700 text-sm">
                     Project Type
                   </label>
                   <select
@@ -443,7 +443,7 @@ export function ConsultationForm({
                     onChange={e =>
                       handleInputChange('projectType', e.target.value)
                     }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary"
+                    className="px-3 py-2 border border-gray-300 focus:border-brand-primary rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
                     required
                   >
                     <option value="">Select project type</option>
@@ -466,13 +466,13 @@ export function ConsultationForm({
                 />
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 font-medium text-gray-700 text-sm">
                     Budget Range
                   </label>
                   <select
                     value={bookingData.budget}
                     onChange={e => handleInputChange('budget', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary"
+                    className="px-3 py-2 border border-gray-300 focus:border-brand-primary rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
                   >
                     <option value="">Select budget range</option>
                     {budgetRanges.map(range => (
@@ -507,7 +507,7 @@ export function ConsultationForm({
 
             {/* Special Requests & Military */}
             <div>
-              <h3 className="text-lg font-tactic-bold text-brand-primary mb-4">
+              <h3 className="mb-4 font-tactic-bold text-brand-primary text-lg">
                 Additional Information
               </h3>
 
@@ -521,9 +521,9 @@ export function ConsultationForm({
                     }
                     className="mr-3"
                   />
-                  <span className="text-sm text-gray-700">
+                  <span className="text-gray-700 text-sm">
                     I am a veteran or military family member
-                    <span className="text-brand-secondary font-semibold ml-1">
+                    <span className="ml-1 font-semibold text-brand-secondary">
                       (Special discounts apply)
                     </span>
                   </span>
@@ -543,8 +543,8 @@ export function ConsultationForm({
 
             {/* Summary */}
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-tactic-bold text-lg mb-4">Booking Summary</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <h3 className="mb-4 font-tactic-bold text-lg">Booking Summary</h3>
+              <div className="gap-4 grid grid-cols-1 md:grid-cols-2 text-sm">
                 <div>
                   <span className="text-gray-600">Date & Time:</span>
                   <div className="font-semibold">
@@ -579,7 +579,7 @@ export function ConsultationForm({
 
             {/* Submit */}
             <div className="flex justify-between items-center pt-6 border-t">
-              <Button variant="secondary" onClick={onBack}>
+              <Button variant="outline" onClick={onBack}>
                 Back to Calendar
               </Button>
 
@@ -591,11 +591,15 @@ export function ConsultationForm({
               >
                 {isSubmitting ? (
                   <div className="flex items-center">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                    <div className="mr-2 border-white border-b-2 rounded-full w-4 h-4 animate-spin"></div>
                     Booking...
                   </div>
                 ) : (
-                  `Confirm Booking${selectedConsultationType?.price ? ` - $${selectedConsultationType.price}` : ' - Free'}`
+                  `Confirm Booking${
+                    selectedConsultationType?.price
+                      ? ` - $${selectedConsultationType.price}`
+                      : ' - Free'
+                  }`
                 )}
               </Button>
             </div>

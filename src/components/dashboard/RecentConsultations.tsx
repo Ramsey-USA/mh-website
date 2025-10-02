@@ -101,9 +101,9 @@ export function RecentConsultations() {
   return (
     <Card>
       <CardHeader>
-        <div className="flex items-center justify-between">
+        <div className="flex justify-between items-center">
           <CardTitle>Recent Consultations</CardTitle>
-          <Button variant="secondary" size="sm">
+          <Button variant="outline" size="sm">
             View All
           </Button>
         </div>
@@ -113,32 +113,34 @@ export function RecentConsultations() {
           {consultations.map(consultation => (
             <div
               key={consultation.id}
-              className="flex items-center p-4 border rounded-lg hover:bg-gray-50 transition-colors"
+              className="flex items-center hover:bg-gray-50 p-4 border rounded-lg transition-colors"
             >
               {/* Priority Indicator */}
               <div
-                className={`w-1 h-16 rounded-full mr-4 ${getPriorityColor(consultation.priority)}`}
+                className={`w-1 h-16 rounded-full mr-4 ${getPriorityColor(
+                  consultation.priority
+                )}`}
               ></div>
 
               {/* Main Content */}
               <div className="flex-1">
-                <div className="flex items-start justify-between">
+                <div className="flex justify-between items-start">
                   <div>
                     <div className="flex items-center">
                       <h4 className="font-semibold text-gray-900">
                         {consultation.clientName}
                       </h4>
                       {consultation.isVeteran && (
-                        <span className="ml-2 text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                        <span className="bg-blue-100 ml-2 px-2 py-1 rounded-full text-blue-800 text-xs">
                           🎖️ Veteran
                         </span>
                       )}
                     </div>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-gray-600 text-sm">
                       {consultation.projectType} •{' '}
                       {consultation.consultationType}
                     </p>
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="mt-1 text-gray-500 text-xs">
                       ID: {consultation.id} • Est. Value:{' '}
                       {consultation.estimatedValue}
                     </p>
@@ -146,22 +148,24 @@ export function RecentConsultations() {
 
                   <div className="text-right">
                     <span
-                      className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(consultation.status)}`}
+                      className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(
+                        consultation.status
+                      )}`}
                     >
                       {consultation.status}
                     </span>
                   </div>
                 </div>
 
-                <div className="mt-3 flex items-center justify-between">
-                  <div className="flex items-center text-sm text-gray-600">
+                <div className="flex justify-between items-center mt-3">
+                  <div className="flex items-center text-gray-600 text-sm">
                     <span className="mr-4">📅 {consultation.date}</span>
                     <span className="mr-4">🕐 {consultation.time}</span>
                     <span>👨‍💼 {consultation.teamMember}</span>
                   </div>
 
                   <div className="flex space-x-2">
-                    <Button variant="secondary" size="sm">
+                    <Button variant="outline" size="sm">
                       Reschedule
                     </Button>
                     <Button variant="primary" size="sm">
@@ -180,10 +184,10 @@ export function RecentConsultations() {
             <Button variant="primary" size="sm" className="flex-1">
               + Schedule New Consultation
             </Button>
-            <Button variant="secondary" size="sm">
+            <Button variant="outline" size="sm">
               📊 Consultation Reports
             </Button>
-            <Button variant="secondary" size="sm">
+            <Button variant="outline" size="sm">
               📧 Send Reminders
             </Button>
           </div>

@@ -82,18 +82,6 @@ export default function PortfolioPage() {
         {/* Main Content Container */}
         <div className="z-10 relative flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-8 max-w-7xl h-full">
           <FadeInWhenVisible className="w-full text-center">
-            {/* Portfolio Badge */}
-            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-              <HammerIcon
-                size="sm"
-                color="currentColor"
-                className="text-brand-primary dark:text-brand-primary-light"
-              />
-              <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider">
-                Project Portfolio
-              </span>
-            </div>
-
             {/* Hero Title */}
             <h1 className="mb-6 pb-2 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter hero-title">
               <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
@@ -169,12 +157,6 @@ export default function PortfolioPage() {
       <section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40 featured-projects-section">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-20 text-center">
-            <div className="inline-flex items-center bg-brand-secondary/10 dark:bg-brand-secondary/20 shadow-lg mb-10 px-8 py-4 border border-brand-secondary/20 rounded-full">
-              <StarIcon size="md" color="var(--brand-secondary)" />
-              <span className="ml-4 font-black text-brand-secondary text-sm uppercase tracking-wider">
-                Signature Work
-              </span>
-            </div>
             <h2 className="mb-8 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl leading-tight tracking-tighter">
               <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl tracking-tight">
                 Featured Projects
@@ -196,13 +178,6 @@ export default function PortfolioPage() {
       <section className="relative bg-gray-50 dark:bg-gray-800 filter-section py-20 lg:py-32">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-16 text-center">
-            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg mb-10 px-8 py-4 border border-brand-primary/20 rounded-full">
-              <ToolsIcon size="md" color="var(--brand-primary)" />
-              <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider">
-                Project Categories
-              </span>
-            </div>
-
             <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
               <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm font-black text-transparent">
                 Explore Our Work
@@ -262,7 +237,7 @@ export default function PortfolioPage() {
                           />
                         </div>
                       )}
-                      {/* Category Badge */}
+
                       <div className="top-4 left-4 absolute">
                         <span className="bg-brand-primary px-3 py-1 rounded-full font-semibold text-white text-sm">
                           {project.category}
@@ -366,7 +341,7 @@ export default function PortfolioPage() {
               </HoverScale>
               <Link href="/contact">
                 <HoverScale>
-                  <Button variant="secondary" size="xl" className="shadow-xl">
+                  <Button variant="primary" size="xl" className="shadow-xl">
                     <HomeIcon size="md" color="currentColor" className="mr-3" />
                     <span className="z-10 relative tracking-wide">
                       Schedule Consultation

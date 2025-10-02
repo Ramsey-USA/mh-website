@@ -197,10 +197,10 @@ export default function TestimonialSubmissionForm({
       <Card className={`max-w-2xl mx-auto ${className}`}>
         <CardContent className="p-8 text-center">
           <div className="mb-6">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Check className="h-8 w-8 text-green-600" />
+            <div className="flex justify-center items-center bg-green-100 mx-auto mb-4 rounded-full w-16 h-16">
+              <Check className="w-8 h-8 text-green-600" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            <h2 className="mb-2 font-bold text-gray-900 text-2xl">
               Thank You!
             </h2>
             <p className="text-gray-600">
@@ -209,8 +209,8 @@ export default function TestimonialSubmissionForm({
             </p>
           </div>
 
-          <div className="bg-blue-50 p-4 rounded-lg mb-6">
-            <p className="text-sm text-blue-800">
+          <div className="bg-blue-50 mb-6 p-4 rounded-lg">
+            <p className="text-blue-800 text-sm">
               <strong>What happens next?</strong>
               <br />
               Our team will review your testimonial and may contact you for any
@@ -220,7 +220,7 @@ export default function TestimonialSubmissionForm({
             </p>
           </div>
 
-          <Button onClick={() => window.location.reload()} variant="secondary">
+          <Button onClick={() => window.location.reload()} variant="outline">
             Submit Another Testimonial
           </Button>
         </CardContent>
@@ -232,7 +232,7 @@ export default function TestimonialSubmissionForm({
     <div className={`max-w-4xl mx-auto ${className}`}>
       {/* Progress Indicator */}
       <div className="mb-8">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex justify-between items-center mb-4">
           {[1, 2, 3, 4].map(step => (
             <div key={step} className="flex items-center">
               <div
@@ -240,11 +240,11 @@ export default function TestimonialSubmissionForm({
                   step < currentStep
                     ? 'bg-green-600 text-white'
                     : step === currentStep
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-200 text-gray-600'
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-200 text-gray-600'
                 }`}
               >
-                {step < currentStep ? <Check className="h-4 w-4" /> : step}
+                {step < currentStep ? <Check className="w-4 h-4" /> : step}
               </div>
               {step < 4 && (
                 <div
@@ -256,7 +256,7 @@ export default function TestimonialSubmissionForm({
             </div>
           ))}
         </div>
-        <div className="flex justify-between text-xs text-gray-600">
+        <div className="flex justify-between text-gray-600 text-xs">
           <span>Contact Info</span>
           <span>Project Details</span>
           <span>Your Review</span>
@@ -267,7 +267,7 @@ export default function TestimonialSubmissionForm({
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Send className="h-5 w-5" />
+            <Send className="w-5 h-5" />
             Share Your Experience with MH Construction
           </CardTitle>
           <p className="text-gray-600">
@@ -281,13 +281,13 @@ export default function TestimonialSubmissionForm({
             {/* Step 1: Contact Information */}
             {currentStep === 1 && (
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                <h3 className="mb-4 font-semibold text-gray-900 text-lg">
                   Contact Information
                 </h3>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block mb-2 font-medium text-gray-700 text-sm">
                       Full Name *
                     </label>
                     <Input
@@ -301,7 +301,7 @@ export default function TestimonialSubmissionForm({
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block mb-2 font-medium text-gray-700 text-sm">
                       Email Address *
                     </label>
                     <Input
@@ -316,9 +316,9 @@ export default function TestimonialSubmissionForm({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block mb-2 font-medium text-gray-700 text-sm">
                       Phone Number
                     </label>
                     <Input
@@ -332,8 +332,8 @@ export default function TestimonialSubmissionForm({
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      <MapPin className="inline h-4 w-4 mr-1" />
+                    <label className="block mb-2 font-medium text-gray-700 text-sm">
+                      <MapPin className="inline mr-1 w-4 h-4" />
                       Project Location *
                     </label>
                     <Input
@@ -349,8 +349,8 @@ export default function TestimonialSubmissionForm({
 
                 <div className="bg-blue-50 p-4 rounded-lg">
                   <div className="flex items-start gap-2">
-                    <AlertCircle className="h-5 w-5 text-blue-600 mt-0.5" />
-                    <div className="text-sm text-blue-800">
+                    <AlertCircle className="mt-0.5 w-5 h-5 text-blue-600" />
+                    <div className="text-blue-800 text-sm">
                       <strong>Privacy Notice:</strong> Your contact information
                       will only be used to verify your testimonial and may be
                       used to contact you about featuring your review. You can
@@ -364,12 +364,12 @@ export default function TestimonialSubmissionForm({
             {/* Step 2: Project Details */}
             {currentStep === 2 && (
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                <h3 className="mb-4 font-semibold text-gray-900 text-lg">
                   Project Details
                 </h3>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 font-medium text-gray-700 text-sm">
                     Project Title *
                   </label>
                   <Input
@@ -382,9 +382,9 @@ export default function TestimonialSubmissionForm({
                   />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block mb-2 font-medium text-gray-700 text-sm">
                       Project Type *
                     </label>
                     <select
@@ -392,7 +392,7 @@ export default function TestimonialSubmissionForm({
                       onChange={e =>
                         updateFormData('projectType', e.target.value as any)
                       }
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="px-3 py-2 border border-gray-300 focus:border-transparent rounded-lg focus:ring-2 focus:ring-blue-500 w-full"
                       required
                     >
                       {projectTypeOptions.map(option => (
@@ -404,8 +404,8 @@ export default function TestimonialSubmissionForm({
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      <Calendar className="inline h-4 w-4 mr-1" />
+                    <label className="block mb-2 font-medium text-gray-700 text-sm">
+                      <Calendar className="inline mr-1 w-4 h-4" />
                       Completion Date *
                     </label>
                     <Input
@@ -420,7 +420,7 @@ export default function TestimonialSubmissionForm({
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 font-medium text-gray-700 text-sm">
                     Project Value (Optional)
                   </label>
                   <select
@@ -428,7 +428,7 @@ export default function TestimonialSubmissionForm({
                     onChange={e =>
                       updateFormData('projectValue', e.target.value)
                     }
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="px-3 py-2 border border-gray-300 focus:border-transparent rounded-lg focus:ring-2 focus:ring-blue-500 w-full"
                   >
                     <option value="">Prefer not to say</option>
                     <option value="Under $10,000">Under $10,000</option>
@@ -448,10 +448,10 @@ export default function TestimonialSubmissionForm({
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 font-medium text-gray-700 text-sm">
                     Project Highlights
                   </label>
-                  <p className="text-sm text-gray-600 mb-3">
+                  <p className="mb-3 text-gray-600 text-sm">
                     What were the key features or achievements of your project?
                   </p>
                   {formData.projectHighlights.map((highlight, index) => (
@@ -465,9 +465,9 @@ export default function TestimonialSubmissionForm({
                         <button
                           type="button"
                           onClick={() => removeHighlight(index)}
-                          className="text-red-600 hover:text-red-700 p-1"
+                          className="p-1 text-red-600 hover:text-red-700"
                         >
-                          <X className="h-4 w-4" />
+                          <X className="w-4 h-4" />
                         </button>
                       )}
                     </div>
@@ -476,7 +476,7 @@ export default function TestimonialSubmissionForm({
                     <button
                       type="button"
                       onClick={addHighlight}
-                      className="text-blue-600 hover:text-blue-700 text-sm font-medium"
+                      className="font-medium text-blue-600 hover:text-blue-700 text-sm"
                     >
                       + Add Another Highlight
                     </button>
@@ -488,12 +488,12 @@ export default function TestimonialSubmissionForm({
             {/* Step 3: Rating and Review */}
             {currentStep === 3 && (
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                <h3 className="mb-4 font-semibold text-gray-900 text-lg">
                   Your Review
                 </h3>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                  <label className="block mb-3 font-medium text-gray-700 text-sm">
                     Overall Rating *
                   </label>
                   <div className="flex items-center gap-2 mb-2">
@@ -504,7 +504,7 @@ export default function TestimonialSubmissionForm({
                         onClick={() => updateFormData('rating', rating)}
                         onMouseEnter={() => setHoveredRating(rating)}
                         onMouseLeave={() => setHoveredRating(0)}
-                        className="p-1 transition-transform hover:scale-110"
+                        className="p-1 hover:scale-110 transition-transform"
                       >
                         <Star
                           className={`h-8 w-8 ${
@@ -515,20 +515,20 @@ export default function TestimonialSubmissionForm({
                         />
                       </button>
                     ))}
-                    <span className="ml-3 text-sm text-gray-600">
+                    <span className="ml-3 text-gray-600 text-sm">
                       {formData.rating} of 5 stars
                     </span>
                   </div>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-gray-500 text-xs">
                     1 = Poor, 2 = Fair, 3 = Good, 4 = Very Good, 5 = Excellent
                   </p>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 font-medium text-gray-700 text-sm">
                     Your Testimonial *
                   </label>
-                  <p className="text-sm text-gray-600 mb-3">
+                  <p className="mb-3 text-gray-600 text-sm">
                     Share your experience working with MH Construction. What
                     made your project special?
                   </p>
@@ -542,7 +542,7 @@ export default function TestimonialSubmissionForm({
                     className="resize-none"
                     required
                   />
-                  <div className="flex justify-between text-xs text-gray-500 mt-1">
+                  <div className="flex justify-between mt-1 text-gray-500 text-xs">
                     <span>{formData.testimonialText.length} characters</span>
                     <span>Minimum 50 characters required</span>
                   </div>
@@ -557,11 +557,11 @@ export default function TestimonialSubmissionForm({
                       onChange={e =>
                         updateFormData('wouldRecommend', e.target.checked)
                       }
-                      className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                      className="border-gray-300 rounded focus:ring-blue-500 text-blue-600"
                     />
                     <label
                       htmlFor="recommend"
-                      className="text-sm text-gray-700"
+                      className="text-gray-700 text-sm"
                     >
                       I would recommend MH Construction to others
                     </label>
@@ -575,11 +575,11 @@ export default function TestimonialSubmissionForm({
                       onChange={e =>
                         updateFormData('allowContact', e.target.checked)
                       }
-                      className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                      className="border-gray-300 rounded focus:ring-blue-500 text-blue-600"
                     />
                     <label
                       htmlFor="allowContact"
-                      className="text-sm text-gray-700"
+                      className="text-gray-700 text-sm"
                     >
                       MH Construction may contact me about featuring this
                       testimonial
@@ -592,25 +592,25 @@ export default function TestimonialSubmissionForm({
             {/* Step 4: Photos and Submit */}
             {currentStep === 4 && (
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                <h3 className="mb-4 font-semibold text-gray-900 text-lg">
                   Photos & Submit
                 </h3>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    <Camera className="inline h-4 w-4 mr-1" />
+                  <label className="block mb-2 font-medium text-gray-700 text-sm">
+                    <Camera className="inline mr-1 w-4 h-4" />
                     Project Photos (Optional)
                   </label>
-                  <p className="text-sm text-gray-600 mb-4">
+                  <p className="mb-4 text-gray-600 text-sm">
                     Add up to 5 photos of your completed project. These help
                     showcase our work quality.
                   </p>
 
                   {(!formData.images || formData.images.length < 5) && (
-                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-                      <Camera className="h-8 w-8 text-gray-400 mx-auto mb-2" />
+                    <div className="p-6 border-2 border-gray-300 border-dashed rounded-lg text-center">
+                      <Camera className="mx-auto mb-2 w-8 h-8 text-gray-400" />
                       <label className="cursor-pointer">
-                        <span className="text-blue-600 hover:text-blue-700 font-medium">
+                        <span className="font-medium text-blue-600 hover:text-blue-700">
                           Click to upload photos
                         </span>
                         <input
@@ -621,27 +621,27 @@ export default function TestimonialSubmissionForm({
                           className="hidden"
                         />
                       </label>
-                      <p className="text-xs text-gray-500 mt-1">
+                      <p className="mt-1 text-gray-500 text-xs">
                         PNG, JPG, HEIC up to 10MB each
                       </p>
                     </div>
                   )}
 
                   {formData.images && formData.images.length > 0 && (
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+                    <div className="gap-4 grid grid-cols-2 md:grid-cols-3 mt-4">
                       {formData.images.map((image, index) => (
                         <div key={index} className="relative">
                           <img
                             src={URL.createObjectURL(image)}
                             alt={`Project photo ${index + 1}`}
-                            className="w-full h-32 object-cover rounded-lg"
+                            className="rounded-lg w-full h-32 object-cover"
                           />
                           <button
                             type="button"
                             onClick={() => removeImage(index)}
-                            className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full p-1 hover:bg-red-700"
+                            className="-top-2 -right-2 absolute bg-red-600 hover:bg-red-700 p-1 rounded-full text-white"
                           >
-                            <X className="h-4 w-4" />
+                            <X className="w-4 h-4" />
                           </button>
                         </div>
                       ))}
@@ -650,10 +650,10 @@ export default function TestimonialSubmissionForm({
                 </div>
 
                 <div className="bg-green-50 p-4 rounded-lg">
-                  <h4 className="font-medium text-green-900 mb-2">
+                  <h4 className="mb-2 font-medium text-green-900">
                     Review Summary
                   </h4>
-                  <div className="space-y-2 text-sm text-green-800">
+                  <div className="space-y-2 text-green-800 text-sm">
                     <div>
                       <strong>Client:</strong> {formData.clientName}
                     </div>
@@ -672,8 +672,8 @@ export default function TestimonialSubmissionForm({
 
                 <div className="bg-blue-50 p-4 rounded-lg">
                   <div className="flex items-start gap-2">
-                    <AlertCircle className="h-5 w-5 text-blue-600 mt-0.5" />
-                    <div className="text-sm text-blue-800">
+                    <AlertCircle className="mt-0.5 w-5 h-5 text-blue-600" />
+                    <div className="text-blue-800 text-sm">
                       <strong>Before you submit:</strong> Please review your
                       testimonial for accuracy. Once submitted, our team will
                       review your testimonial before it appears on our website.
@@ -685,10 +685,10 @@ export default function TestimonialSubmissionForm({
             )}
 
             {/* Navigation Buttons */}
-            <div className="flex justify-between pt-6 border-t border-gray-200 mt-8">
+            <div className="flex justify-between mt-8 pt-6 border-gray-200 border-t">
               <Button
                 type="button"
-                variant="secondary"
+                variant="outline"
                 onClick={prevStep}
                 disabled={currentStep === 1}
               >

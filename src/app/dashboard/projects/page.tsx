@@ -10,7 +10,7 @@ import { DashboardSidebar } from '../../../components/dashboard'
 
 export default function ProjectsPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="bg-gray-50 min-h-screen">
       <div className="flex">
         {/* Sidebar */}
         <DashboardSidebar />
@@ -20,9 +20,9 @@ export default function ProjectsPage() {
           {/* Header */}
           <header className="bg-white shadow-sm border-b">
             <div className="px-6 py-4">
-              <div className="flex items-center justify-between">
+              <div className="flex justify-between items-center">
                 <div>
-                  <h1 className="text-2xl font-tactic-bold text-brand-primary">
+                  <h1 className="font-tactic-bold text-brand-primary text-2xl">
                     Project Management
                   </h1>
                   <p className="text-gray-600">
@@ -31,10 +31,10 @@ export default function ProjectsPage() {
                   </p>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <Button variant="secondary" size="sm">
+                  <Button variant="outline" size="sm">
                     📊 Project Reports
                   </Button>
-                  <Button variant="secondary" size="sm">
+                  <Button variant="outline" size="sm">
                     📋 Export List
                   </Button>
                   <Button variant="primary" size="sm">
@@ -49,7 +49,7 @@ export default function ProjectsPage() {
           <main className="p-6">
             <div className="space-y-6">
               {/* Project Stats */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="gap-6 grid grid-cols-1 md:grid-cols-4">
                 {[
                   {
                     title: 'Active Projects',
@@ -84,18 +84,18 @@ export default function ProjectsPage() {
                             stat.color === 'blue'
                               ? 'text-blue-600'
                               : stat.color === 'green'
-                                ? 'text-green-600'
-                                : stat.color === 'purple'
-                                  ? 'text-purple-600'
-                                  : 'text-yellow-600'
+                              ? 'text-green-600'
+                              : stat.color === 'purple'
+                              ? 'text-purple-600'
+                              : 'text-yellow-600'
                           }`}
                         >
                           {stat.value}
                         </div>
-                        <div className="text-sm font-medium text-gray-900 mt-2">
+                        <div className="mt-2 font-medium text-gray-900 text-sm">
                           {stat.title}
                         </div>
-                        <div className="text-xs text-gray-500 mt-1">
+                        <div className="mt-1 text-gray-500 text-xs">
                           {stat.change}
                         </div>
                       </div>
@@ -110,16 +110,16 @@ export default function ProjectsPage() {
                   <CardTitle>Filter Projects</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+                  <div className="gap-4 grid grid-cols-1 md:grid-cols-5">
                     <Input
                       label="Search"
                       placeholder="Project name or client..."
                     />
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block mb-2 font-medium text-gray-700 text-sm">
                         Status
                       </label>
-                      <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary">
+                      <select className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary w-full">
                         <option value="">All Statuses</option>
                         <option value="planning">Planning</option>
                         <option value="in-progress">In Progress</option>
@@ -128,10 +128,10 @@ export default function ProjectsPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block mb-2 font-medium text-gray-700 text-sm">
                         Project Type
                       </label>
-                      <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary">
+                      <select className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary w-full">
                         <option value="">All Types</option>
                         <option value="residential">Residential</option>
                         <option value="commercial">Commercial</option>
@@ -140,10 +140,10 @@ export default function ProjectsPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block mb-2 font-medium text-gray-700 text-sm">
                         Team Lead
                       </label>
-                      <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary">
+                      <select className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary w-full">
                         <option value="">All Leads</option>
                         <option value="mark-harris">Mark Harris</option>
                         <option value="sarah-harris">Sarah Harris</option>
@@ -151,10 +151,10 @@ export default function ProjectsPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block mb-2 font-medium text-gray-700 text-sm">
                         Priority
                       </label>
-                      <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary">
+                      <select className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary w-full">
                         <option value="">All Priorities</option>
                         <option value="high">High</option>
                         <option value="medium">Medium</option>
@@ -175,28 +175,28 @@ export default function ProjectsPage() {
                     <table className="w-full text-sm">
                       <thead>
                         <tr className="border-b">
-                          <th className="text-left py-3 px-2 font-medium text-gray-900">
+                          <th className="px-2 py-3 font-medium text-gray-900 text-left">
                             Project
                           </th>
-                          <th className="text-left py-3 px-2 font-medium text-gray-900">
+                          <th className="px-2 py-3 font-medium text-gray-900 text-left">
                             Client
                           </th>
-                          <th className="text-left py-3 px-2 font-medium text-gray-900">
+                          <th className="px-2 py-3 font-medium text-gray-900 text-left">
                             Type
                           </th>
-                          <th className="text-left py-3 px-2 font-medium text-gray-900">
+                          <th className="px-2 py-3 font-medium text-gray-900 text-left">
                             Progress
                           </th>
-                          <th className="text-left py-3 px-2 font-medium text-gray-900">
+                          <th className="px-2 py-3 font-medium text-gray-900 text-left">
                             Team Lead
                           </th>
-                          <th className="text-left py-3 px-2 font-medium text-gray-900">
+                          <th className="px-2 py-3 font-medium text-gray-900 text-left">
                             Value
                           </th>
-                          <th className="text-left py-3 px-2 font-medium text-gray-900">
+                          <th className="px-2 py-3 font-medium text-gray-900 text-left">
                             Status
                           </th>
-                          <th className="text-left py-3 px-2 font-medium text-gray-900">
+                          <th className="px-2 py-3 font-medium text-gray-900 text-left">
                             Actions
                           </th>
                         </tr>
@@ -254,8 +254,8 @@ export default function ProjectsPage() {
                             priority: 'high',
                           },
                         ].map((project, index) => (
-                          <tr key={index} className="border-b hover:bg-gray-50">
-                            <td className="py-3 px-2">
+                          <tr key={index} className="hover:bg-gray-50 border-b">
+                            <td className="px-2 py-3">
                               <div>
                                 <div className="font-medium text-gray-900">
                                   {project.name}
@@ -265,72 +265,72 @@ export default function ProjectsPage() {
                                     project.priority === 'high'
                                       ? 'text-red-600'
                                       : project.priority === 'medium'
-                                        ? 'text-yellow-600'
-                                        : 'text-green-600'
+                                      ? 'text-yellow-600'
+                                      : 'text-green-600'
                                   }`}
                                 >
                                   {project.priority.toUpperCase()} PRIORITY
                                 </div>
                               </div>
                             </td>
-                            <td className="py-3 px-2 text-gray-700">
+                            <td className="px-2 py-3 text-gray-700">
                               {project.client}
                             </td>
-                            <td className="py-3 px-2">
+                            <td className="px-2 py-3">
                               <span
                                 className={`px-2 py-1 rounded-full text-xs font-medium ${
                                   project.type === 'Commercial'
                                     ? 'bg-blue-100 text-blue-800'
                                     : project.type === 'Residential'
-                                      ? 'bg-green-100 text-green-800'
-                                      : 'bg-purple-100 text-purple-800'
+                                    ? 'bg-green-100 text-green-800'
+                                    : 'bg-purple-100 text-purple-800'
                                 }`}
                               >
                                 {project.type}
                               </span>
                             </td>
-                            <td className="py-3 px-2">
-                              <div className="w-full bg-gray-200 rounded-full h-2">
+                            <td className="px-2 py-3">
+                              <div className="bg-gray-200 rounded-full w-full h-2">
                                 <div
                                   className={`h-2 rounded-full ${
                                     project.progress >= 80
                                       ? 'bg-green-500'
                                       : project.progress >= 50
-                                        ? 'bg-yellow-500'
-                                        : 'bg-blue-500'
+                                      ? 'bg-yellow-500'
+                                      : 'bg-blue-500'
                                   }`}
                                   style={{ width: `${project.progress}%` }}
                                 ></div>
                               </div>
-                              <div className="text-xs text-gray-600 mt-1">
+                              <div className="mt-1 text-gray-600 text-xs">
                                 {project.progress}%
                               </div>
                             </td>
-                            <td className="py-3 px-2 text-gray-700">
+                            <td className="px-2 py-3 text-gray-700">
                               {project.lead}
                             </td>
-                            <td className="py-3 px-2 font-medium text-gray-900">
+                            <td className="px-2 py-3 font-medium text-gray-900">
                               {project.value}
                             </td>
-                            <td className="py-3 px-2">
+                            <td className="px-2 py-3">
                               <span
                                 className={`px-2 py-1 rounded-full text-xs font-medium ${
                                   project.status === 'In Progress'
                                     ? 'bg-blue-100 text-blue-800'
                                     : project.status === 'Planning'
-                                      ? 'bg-yellow-100 text-yellow-800'
-                                      : 'bg-green-100 text-green-800'
+                                    ? 'bg-yellow-100 text-yellow-800'
+                                    : 'bg-green-100 text-green-800'
                                 }`}
                               >
                                 {project.status}
                               </span>
                             </td>
-                            <td className="py-3 px-2">
+                            <td className="px-2 py-3">
                               <div className="flex space-x-2">
-                                <Button variant="secondary" size="sm">
+                                <Button variant="outline" size="sm">
                                   View
                                 </Button>
-                                <Button variant="secondary" size="sm">
+                                <Button variant="primary" size="sm">
                                   Edit
                                 </Button>
                               </div>
@@ -350,8 +350,8 @@ export default function ProjectsPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="bg-gray-100 p-8 rounded-lg text-center">
-                    <div className="text-4xl mb-4">🗓️</div>
-                    <h3 className="text-lg font-semibold text-gray-700 mb-2">
+                    <div className="mb-4 text-4xl">🗓️</div>
+                    <h3 className="mb-2 font-semibold text-gray-700 text-lg">
                       Interactive Project Timeline
                     </h3>
                     <p className="text-gray-600">

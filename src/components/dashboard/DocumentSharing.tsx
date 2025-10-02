@@ -240,7 +240,7 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
   return (
     <Card className={className}>
       <CardHeader>
-        <div className="flex items-center justify-between">
+        <div className="flex justify-between items-center">
           <CardTitle>Shared Documents</CardTitle>
           {canUpload && (
             <div className="flex items-center space-x-2">
@@ -267,16 +267,16 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
       <CardContent>
         {/* Upload Progress */}
         {isUploading && (
-          <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-blue-800">
+          <div className="bg-blue-50 mb-6 p-4 border border-blue-200 rounded-lg">
+            <div className="flex justify-between items-center mb-2">
+              <span className="font-medium text-blue-800 text-sm">
                 Uploading...
               </span>
-              <span className="text-sm text-blue-600">{uploadProgress}%</span>
+              <span className="text-blue-600 text-sm">{uploadProgress}%</span>
             </div>
-            <div className="w-full bg-blue-200 rounded-full h-2">
+            <div className="bg-blue-200 rounded-full w-full h-2">
               <div
-                className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                className="bg-blue-600 rounded-full h-2 transition-all duration-300"
                 style={{ width: `${uploadProgress}%` }}
               ></div>
             </div>
@@ -306,12 +306,12 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
         {/* Documents List */}
         <div className="space-y-4">
           {filteredDocuments.length === 0 ? (
-            <div className="text-center py-8 text-gray-500">
-              <div className="text-4xl mb-4">📄</div>
+            <div className="py-8 text-gray-500 text-center">
+              <div className="mb-4 text-4xl">📄</div>
               <p>No documents found for the selected category</p>
               {canUpload && (
                 <Button
-                  variant="secondary"
+                  variant="outline"
                   className="mt-4"
                   onClick={() => fileInputRef.current?.click()}
                 >
@@ -320,29 +320,31 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
               )}
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {filteredDocuments.map(document => (
                 <div
                   key={document.id}
-                  className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                  className="hover:shadow-md p-4 border border-gray-200 rounded-lg transition-shadow"
                 >
                   {/* Document Header */}
-                  <div className="flex items-start justify-between mb-3">
+                  <div className="flex justify-between items-start mb-3">
                     <div className="flex items-center">
-                      <span className="text-2xl mr-3">
+                      <span className="mr-3 text-2xl">
                         {getDocumentIcon(document.type)}
                       </span>
                       <div className="flex-1">
                         <h4 className="font-medium text-gray-900 text-sm leading-tight">
                           {document.name}
                         </h4>
-                        <p className="text-xs text-gray-500 mt-1">
+                        <p className="mt-1 text-gray-500 text-xs">
                           v{document.version} • {document.size}
                         </p>
                       </div>
                     </div>
                     <span
-                      className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(document.status)}`}
+                      className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(
+                        document.status
+                      )}`}
                     >
                       {document.status}
                     </span>
@@ -350,13 +352,13 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
 
                   {/* Document Details */}
                   {document.description && (
-                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                    <p className="mb-3 text-gray-600 text-sm line-clamp-2">
                       {document.description}
                     </p>
                   )}
 
                   {/* Document Meta */}
-                  <div className="text-xs text-gray-500 space-y-1 mb-4">
+                  <div className="space-y-1 mb-4 text-gray-500 text-xs">
                     <div className="flex justify-between">
                       <span>Uploaded by:</span>
                       <span className="font-medium">{document.uploadedBy}</span>
@@ -384,7 +386,7 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
                       📥 Download
                     </Button>
                     <Button
-                      variant="secondary"
+                      variant="outline"
                       size="sm"
                       className="px-3"
                       onClick={() => console.log('Share:', document.id)}
@@ -399,25 +401,25 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
         </div>
 
         {/* Document Statistics */}
-        <div className="mt-8 pt-6 border-t border-gray-200">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div className="mt-8 pt-6 border-gray-200 border-t">
+          <div className="gap-4 grid grid-cols-2 md:grid-cols-4 text-center">
             <div>
-              <p className="text-2xl font-bold text-brand-primary">
+              <p className="font-bold text-brand-primary text-2xl">
                 {filteredDocuments.length}
               </p>
-              <p className="text-sm text-gray-600">Documents</p>
+              <p className="text-gray-600 text-sm">Documents</p>
             </div>
             <div>
-              <p className="text-2xl font-bold text-brand-primary">
+              <p className="font-bold text-brand-primary text-2xl">
                 {filteredDocuments.reduce(
                   (sum, doc) => sum + doc.downloadCount,
                   0
                 )}
               </p>
-              <p className="text-sm text-gray-600">Downloads</p>
+              <p className="text-gray-600 text-sm">Downloads</p>
             </div>
             <div>
-              <p className="text-2xl font-bold text-brand-primary">
+              <p className="font-bold text-brand-primary text-2xl">
                 {(
                   filteredDocuments.reduce(
                     (sum, doc) =>
@@ -426,16 +428,16 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
                   ) / 1024
                 ).toFixed(1)}
               </p>
-              <p className="text-sm text-gray-600">GB Total</p>
+              <p className="text-gray-600 text-sm">GB Total</p>
             </div>
             <div>
-              <p className="text-2xl font-bold text-brand-primary">
+              <p className="font-bold text-brand-primary text-2xl">
                 {
                   filteredDocuments.filter(doc => doc.status === 'active')
                     .length
                 }
               </p>
-              <p className="text-sm text-gray-600">Active</p>
+              <p className="text-gray-600 text-sm">Active</p>
             </div>
           </div>
         </div>
