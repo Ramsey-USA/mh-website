@@ -37,8 +37,8 @@ export function Navigation() {
         style={{ background: 'transparent', boxShadow: 'none' }}
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex justify-center lg:justify-between items-center py-2 h-20 sm:h-24">
-            {/* Logo - Centered on mobile/tablet, left-aligned on larger screens */}
+          <div className="flex justify-center items-center py-2 h-20 sm:h-24">
+            {/* Logo - Centered on all screens */}
             <div className="flex-shrink-0 py-2 sm:py-3">
               <Link
                 href="/"
@@ -50,96 +50,6 @@ export function Navigation() {
                   className="z-10 relative drop-shadow-lg w-auto h-16 sm:h-20 filter"
                 />
               </Link>
-            </div>
-
-            {/* Desktop Navigation Links - Hidden on mobile */}
-            <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
-              <Link
-                href="/about"
-                className="group relative drop-shadow-sm font-medium text-white hover:text-white/90 text-sm xl:text-base transition-all duration-300"
-              >
-                <div className="flex items-center space-x-2">
-                  <MaterialIcon
-                    icon="info"
-                    size="sm"
-                    className="text-white/80 group-hover:text-white transition-colors"
-                  />
-                  <span className="z-10 relative">About</span>
-                </div>
-              </Link>
-              <Link
-                href="/services"
-                className="group relative drop-shadow-sm font-medium text-white hover:text-white/90 text-sm xl:text-base transition-all duration-300"
-              >
-                <div className="flex items-center space-x-2">
-                  <MaterialIcon
-                    icon="build"
-                    size="sm"
-                    className="text-white/80 group-hover:text-white transition-colors"
-                  />
-                  <span className="z-10 relative">Services</span>
-                </div>
-              </Link>
-              <Link
-                href="/team"
-                className="group relative drop-shadow-sm font-medium text-white hover:text-white/90 text-sm xl:text-base transition-all duration-300"
-              >
-                <div className="flex items-center space-x-2">
-                  <MaterialIcon
-                    icon="groups"
-                    size="sm"
-                    className="text-white/80 group-hover:text-white transition-colors"
-                  />
-                  <span className="z-10 relative">Team</span>
-                </div>
-              </Link>
-              <Link
-                href="/projects"
-                className="group relative drop-shadow-sm font-medium text-white hover:text-white/90 text-sm xl:text-base transition-all duration-300"
-              >
-                <div className="flex items-center space-x-2">
-                  <MaterialIcon
-                    icon="photo_library"
-                    size="sm"
-                    className="text-white/80 group-hover:text-white transition-colors"
-                  />
-                  <span className="z-10 relative">Projects</span>
-                </div>
-              </Link>
-              <Link
-                href="/government"
-                className="group relative drop-shadow-sm font-medium text-white hover:text-white/90 text-sm xl:text-base transition-all duration-300"
-              >
-                <div className="flex items-center space-x-2">
-                  <MaterialIcon
-                    icon="account_balance"
-                    size="sm"
-                    className="text-white/80 group-hover:text-white transition-colors"
-                  />
-                  <span className="z-10 relative">Government</span>
-                </div>
-              </Link>
-            </div>
-
-            {/* Desktop Controls - Hidden on mobile */}
-            <div className="hidden lg:flex items-center space-x-2 lg:space-x-4">
-              <Link
-                href="/contact"
-                className="flex items-center space-x-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm px-3 lg:px-4 py-2 border border-white/30 hover:border-white/40 rounded-lg text-white hover:text-white text-xs lg:text-sm transition-all duration-300"
-              >
-                <MaterialIcon icon="contact_mail" size="sm" />
-                <span className="hidden lg:inline">Contact Us</span>
-                <span className="lg:hidden">Contact</span>
-              </Link>
-
-              <button
-                onClick={() => setIsQuickBookingOpen(true)}
-                className="flex items-center space-x-2 bg-brand-primary hover:bg-brand-primary/90 shadow-md hover:shadow-lg backdrop-blur-sm px-3 lg:px-4 py-2 border border-brand-primary/50 hover:border-brand-primary rounded-lg text-white text-xs lg:text-sm transition-all duration-300"
-              >
-                <MaterialIcon icon="request_quote" size="sm" />
-                <span className="hidden lg:inline">Get Quote</span>
-                <span className="lg:hidden">Quote</span>
-              </button>
             </div>
           </div>
         </div>

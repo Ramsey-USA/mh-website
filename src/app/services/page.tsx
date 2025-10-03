@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
+  PageHero,
 } from '../../components/ui'
 import { MaterialIcon } from '../../components/icons/MaterialIcon'
 import {
@@ -259,30 +260,12 @@ const whyChooseUs = [
 export default function ServicesPage() {
   return (
     <div className="bg-gradient-to-b from-white to-gray-50 min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-brand-primary-dark via-brand-primary to-brand-primary-light py-20 text-white">
-        <div className="mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mx-auto max-w-4xl text-center">
-              <MaterialIcon
-                icon="construction"
-                size="4xl"
-                className="mb-6 text-brand-secondary"
-              />
-              <h1 className="mb-6 font-bold text-5xl md:text-6xl">
-                Our Services
-              </h1>
-              <p className="mb-8 text-brand-accent text-xl md:text-2xl">
-                Expert Construction Management in the Pacific Northwest
-              </p>
-              <p className="text-white/90 text-lg">
-                <strong>Tri-Cities Headquarters:</strong> Pasco, WA |{' '}
-                <strong>Service Area:</strong> Washington, Oregon, Idaho
-              </p>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
+      <PageHero
+        title="Our Services"
+        subtitle="Expert Construction Management in the Pacific Northwest"
+        description="Tri-Cities Headquarters: Pasco, WA | Service Area: Washington, Oregon, Idaho"
+        icon="construction"
+      />
 
       {/* Construction Expertise Section */}
       <section className="bg-white dark:bg-gray-900 py-16">

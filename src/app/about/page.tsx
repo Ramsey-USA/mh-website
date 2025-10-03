@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
+  PageHero,
 } from '../../components/ui'
 import { MaterialIcon } from '../../components/icons/MaterialIcon'
 import {
@@ -158,82 +159,15 @@ const leadershipTeam = [
 export default function AboutPage() {
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-brand-primary-dark via-brand-primary to-brand-primary-light py-20 lg:py-32 overflow-hidden text-white">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="z-10 relative mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mx-auto max-w-5xl text-center">
-              {/* Veteran Badge */}
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm mb-6 px-4 py-2 rounded-full">
-                <MaterialIcon
-                  icon="military_tech"
-                  className="mr-2 text-yellow-300"
-                />
-                <span className="font-semibold text-white text-sm">
-                  Veteran-Owned & Operated
-                </span>
-              </div>
-
-              <h1 className="mb-6 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight">
-                About MH Construction
-              </h1>
-
-              {/* Primary Brand Tagline */}
-              <div className="bg-white/10 backdrop-blur-sm mb-8 p-6 border border-white/20 rounded-xl">
-                <p className="mb-2 font-bold text-yellow-300 text-2xl md:text-3xl">
-                  "Building for the Owner, NOT the Dollar"
-                </p>
-                <p className="text-green-100 text-lg">
-                  Veteran-owned excellence where your success comes first
-                </p>
-              </div>
-
-              <p className="mb-8 text-green-100 text-xl md:text-2xl">
-                "We Work With You" - Building Relationships, Strengthening
-                Communities
-              </p>
-
-              <p className="mx-auto max-w-3xl text-green-50 text-lg leading-relaxed">
-                Operating on a simple but powerful principle:
-                <strong className="text-white">
-                  {' '}
-                  every client is a partner, every project serves the community.
-                </strong>{' '}
-                Where military precision meets construction excellence.
-              </p>
-
-              {/* Quick Navigation */}
-              <div className="flex flex-wrap justify-center gap-4 mt-12">
-                <Button
-                  size="lg"
-                  className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white"
-                  onClick={() =>
-                    document
-                      .getElementById('values')
-                      ?.scrollIntoView({ behavior: 'smooth' })
-                  }
-                >
-                  <MaterialIcon icon="favorite" className="mr-2" />
-                  Our Values
-                </Button>
-                <Button
-                  size="lg"
-                  className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white"
-                  onClick={() =>
-                    document
-                      .getElementById('team')
-                      ?.scrollIntoView({ behavior: 'smooth' })
-                  }
-                >
-                  <MaterialIcon icon="group" className="mr-2" />
-                  Meet Our Team
-                </Button>
-              </div>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
+      <PageHero
+        title="About MH Construction"
+        subtitle='"Building for the Owner, NOT the Dollar"'
+        description="Operating on a simple but powerful principle: every client is a partner, every project serves the community. Where military precision meets construction excellence."
+        badge={{
+          text: 'Veteran-Owned & Operated',
+          icon: 'military_tech',
+        }}
+      />
 
       {/* Partnership Philosophy Section */}
       <section className="bg-white dark:bg-gray-900 py-16 lg:py-24">

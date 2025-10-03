@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
+  PageHero,
 } from '../components/ui'
 // import { PortfolioImage } from '../components/portfolio/ProjectImage'
 import { PortfolioService } from '../lib/services/portfolioService'
@@ -110,92 +111,11 @@ export default function Home() {
       {/* Add structured data for SEO */}
       <StructuredData data={generateOrganizationStructuredData()} />
 
-      {/* Enhanced Hero Section - Video Ready */}
-      <section className="relative h-screen overflow-hidden hero-section">
-        {/* Video Background Container */}
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-gray-900/80">
-          {/* Future video element will go here */}
-          {/* <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline>
-            <source src="/videos/hero-video.mp4" type="video/mp4" />
-          </video> */}
-
-          {/* Temporary background for now */}
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-gray-900 to-brand-secondary/20"></div>
-        </div>
-
-        {/* Content Overlay */}
-        <div className="z-10 relative flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full text-white">
-          <FadeInWhenVisible className="w-full text-center">
-            {/* Updated Hero Title */}
-            <h1 className="mb-6 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight">
-              <span className="block mb-2 font-semibold text-white/90 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                Commercial Construction
-              </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white drop-shadow-lg">
-                Management Experts
-              </span>
-            </h1>
-
-            {/* Updated Tagline */}
-            <p className="mx-auto mb-8 max-w-3xl text-white/90 text-xl sm:text-2xl md:text-3xl leading-relaxed">
-              Full Construction Management services throughout the Tri-Cities.
-              Serving Pasco, Kennewick, Richland & surrounding areas.
-            </p>
-
-            {/* Enhanced CTA with Phone Number */}
-            <div className="flex sm:flex-row flex-col justify-center items-center gap-4">
-              <Link href="/booking">
-                <HoverScale>
-                  <Button
-                    variant="primary"
-                    size="xl"
-                    className="group bg-white hover:bg-gray-50 shadow-2xl hover:shadow-3xl border-0 text-gray-900 hover:text-gray-800 hover:scale-105 transition-all duration-300 ease-out transform"
-                    onClick={() =>
-                      trackEvent('cta_click', {
-                        button_name: 'schedule_consultation',
-                        location: 'hero_section',
-                        page: 'homepage',
-                      })
-                    }
-                  >
-                    <MaterialIcon
-                      icon="event"
-                      size="2xl"
-                      className="mr-4 text-gray-800 group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <span className="font-semibold">
-                      Schedule a Consultation
-                    </span>
-                  </Button>
-                </HoverScale>
-              </Link>
-              <Link href="/estimator">
-                <HoverScale>
-                  <Button
-                    variant="outline"
-                    size="xl"
-                    className="group bg-transparent hover:bg-white shadow-2xl hover:shadow-3xl border-2 border-white text-white hover:text-gray-900 hover:scale-105 transition-all duration-300 ease-out transform"
-                    onClick={() =>
-                      trackEvent('cta_click', {
-                        button_name: 'ai_estimator',
-                        location: 'hero_section',
-                        page: 'homepage',
-                      })
-                    }
-                  >
-                    <MaterialIcon
-                      icon="smart_toy"
-                      size="2xl"
-                      className="mr-4 group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <span className="font-semibold">AI Estimator</span>
-                  </Button>
-                </HoverScale>
-              </Link>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
+      <PageHero
+        title="Commercial Construction Management Experts"
+        subtitle="Full Construction Management services throughout the Tri-Cities"
+        description="Serving Pasco, Kennewick, Richland & surrounding areas with expert construction management, cutting-edge technology, and veteran precision."
+      />
 
       {/* Revolutionary Features Section */}
       <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-12 lg:py-16 features-section">

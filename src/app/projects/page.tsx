@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
+  PageHero,
 } from '../../components/ui'
 import { MaterialIcon } from '../../components/icons/MaterialIcon'
 import {
@@ -81,68 +82,16 @@ export default function ProjectsPage() {
 
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-brand-primary-dark via-brand-primary to-brand-primary-light py-20 lg:py-32 overflow-hidden text-white">
-        <div className="mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mx-auto max-w-4xl text-center">
-              {/* Veteran Badge */}
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm mb-6 px-4 py-2 rounded-full">
-                <MaterialIcon
-                  icon="military_tech"
-                  className="mr-2 text-green-200 text-xl"
-                />
-                <span className="font-semibold text-green-100 text-sm">
-                  Veteran-Owned Construction Company
-                </span>
-              </div>
-
-              <h1 className="mb-6 font-bold text-5xl md:text-6xl lg:text-7xl">
-                Our Projects
-              </h1>
-              <p className="mb-8 text-green-100 text-xl md:text-2xl">
-                Building Excellence Across the Pacific Northwest
-              </p>
-
-              {/* Enhanced Description */}
-              <div className="bg-white/10 backdrop-blur-sm mb-8 p-6 border border-white/20 rounded-xl">
-                <p className="text-green-50 text-lg leading-relaxed">
-                  Explore our comprehensive portfolio showcasing decades of
-                  quality craftsmanship, innovative construction solutions, and
-                  unwavering commitment to client satisfaction throughout the
-                  Tri-Cities area.
-                </p>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex sm:flex-row flex-col justify-center gap-4">
-                <Link href="/contact">
-                  <Button
-                    size="xl"
-                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white"
-                  >
-                    <MaterialIcon icon="phone" className="mr-2" />
-                    Start Your Project
-                  </Button>
-                </Link>
-                <Button
-                  size="xl"
-                  variant="outline"
-                  className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white"
-                  onClick={() =>
-                    document
-                      .getElementById('project-stats')
-                      ?.scrollIntoView({ behavior: 'smooth' })
-                  }
-                >
-                  <MaterialIcon icon="arrow_downward" className="mr-2" />
-                  View Our Results
-                </Button>
-              </div>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
+      <PageHero
+        title="Our Projects"
+        subtitle="Building Excellence Across the Pacific Northwest"
+        description="Explore our comprehensive portfolio showcasing decades of quality craftsmanship, innovative construction solutions, and unwavering commitment to client satisfaction throughout the Tri-Cities area."
+        icon="work"
+        badge={{
+          text: 'Veteran-Owned Construction Company',
+          icon: 'military_tech',
+        }}
+      />
 
       {/* Project Stats */}
       <section

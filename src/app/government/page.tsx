@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
+  PageHero,
 } from '../../components/ui'
 import { MaterialIcon } from '../../components/icons/MaterialIcon'
 import {
@@ -267,80 +268,16 @@ export default function GovernmentGrantsPage() {
 
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-      {/* Hero Section - Government Themed */}
-      <section className="relative bg-gradient-to-r from-gray-900 via-black to-gray-900 py-24 overflow-hidden text-white">
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                'repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(255,255,255,0.1) 50px, rgba(255,255,255,0.1) 51px)',
-            }}
-          ></div>
-        </div>
-        <div className="z-10 relative mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mx-auto max-w-5xl text-center">
-              <div className="flex justify-center mb-8">
-                <div className="flex items-center space-x-4">
-                  <MaterialIcon
-                    icon="account_balance"
-                    size="4xl"
-                    className="text-gray-300"
-                  />
-                  <MaterialIcon
-                    icon="gavel"
-                    size="4xl"
-                    className="text-white"
-                  />
-                  <MaterialIcon
-                    icon="military_tech"
-                    size="4xl"
-                    className="text-gray-300"
-                  />
-                </div>
-              </div>
-              <h1 className="mb-6 font-bold text-5xl md:text-7xl">
-                Government & Grant Projects
-              </h1>
-              <div className="bg-gray-600 mx-auto mb-6 w-32 h-1"></div>
-              <p className="mb-8 font-light text-gray-200 text-2xl md:text-3xl">
-                Expert Construction Support for Federal, State, and Local Grant
-                Applications
-              </p>
-              <p className="mx-auto mb-8 max-w-4xl text-gray-100 text-xl">
-                MH Construction provides the detailed, verified construction
-                documentation you need to maximize your grant application
-                success. From DOE projects to community facilities, we deliver
-                military-grade precision for government work.
-              </p>
-              <div className="flex sm:flex-row flex-col justify-center gap-4">
-                <Button
-                  size="lg"
-                  className="bg-white hover:bg-gray-100 px-8 py-6 text-black text-lg"
-                >
-                  <MaterialIcon icon="phone" className="mr-2" size="md" />
-                  Call (509) 308-6489
-                </Button>
-                <Link href="/booking">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="hover:bg-gray-800 px-8 py-6 border-2 border-white text-white text-lg"
-                  >
-                    <MaterialIcon
-                      icon="description"
-                      className="mr-2"
-                      size="md"
-                    />
-                    Request Consultation
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
+      <PageHero
+        title="Government & Grant Projects"
+        subtitle="Expert Construction Support for Federal, State, and Local Grant Applications"
+        description="MH Construction provides the detailed, verified construction documentation you need to maximize your grant application success. From DOE projects to community facilities, we deliver military-grade precision for government work."
+        icon="account_balance"
+        badge={{
+          text: 'Veteran-Owned & Operated',
+          icon: 'military_tech',
+        }}
+      />
 
       {/* Veteran-Owned Badge Section */}
       <section className="bg-gradient-to-r from-gray-800 to-black py-8 text-white">

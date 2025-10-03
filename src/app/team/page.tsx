@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
+  PageHero,
 } from '../../components/ui'
 import { MaterialIcon } from '../../components/icons/MaterialIcon'
 import {
@@ -132,41 +133,16 @@ export default function TeamPage() {
 
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-brand-primary-dark via-brand-primary to-brand-primary-light py-20 text-white">
-        <div className="mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mx-auto max-w-4xl text-center">
-              {/* Veteran Badge */}
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm mb-6 px-6 py-3 border border-white/20 rounded-full">
-                <MaterialIcon
-                  icon="military_tech"
-                  size="md"
-                  className="mr-2 text-yellow-300"
-                />
-                <span className="font-semibold text-white text-sm">
-                  Veteran-Owned & Operated
-                </span>
-              </div>
-
-              <MaterialIcon
-                icon="groups"
-                size="4xl"
-                className="mb-6 text-brand-secondary"
-              />
-              <h1 className="mb-6 font-bold text-5xl md:text-6xl">Our Team</h1>
-              <p className="mb-8 text-brand-accent text-xl md:text-2xl">
-                "We Work With You" - Leadership Committed to Serving Clients and
-                Communities
-              </p>
-              <p className="text-white/90 text-lg">
-                Our people-centered culture starts with leadership committed to
-                excellence, integrity, and partnership in every project
-              </p>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
+      <PageHero
+        title="Our Team"
+        subtitle='"We Work With You" - Leadership Committed to Serving Clients and Communities'
+        description="Our people-centered culture starts with leadership committed to excellence, integrity, and partnership in every project"
+        icon="groups"
+        badge={{
+          text: 'Veteran-Owned & Operated',
+          icon: 'military_tech',
+        }}
+      />
 
       {/* Team Stats */}
       <section className="bg-white dark:bg-gray-900 py-16">

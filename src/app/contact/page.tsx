@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
+  PageHero,
 } from '../../components/ui'
 import { MaterialIcon } from '../../components/icons/MaterialIcon'
 import {
@@ -128,68 +129,16 @@ export default function ContactPage() {
 
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-brand-primary-dark via-brand-primary to-brand-primary-light py-20 lg:py-32 overflow-hidden text-white">
-        <div className="mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mx-auto max-w-4xl text-center">
-              {/* Veteran Badge */}
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm mb-6 px-4 py-2 rounded-full">
-                <MaterialIcon
-                  icon="military_tech"
-                  className="mr-2 text-brand-secondary text-xl"
-                />
-                <span className="font-semibold text-brand-accent text-sm">
-                  Veteran-Owned Construction Company
-                </span>
-              </div>
-
-              <h1 className="mb-6 font-bold text-5xl md:text-6xl lg:text-7xl">
-                Contact Us
-              </h1>
-              <p className="mb-8 text-brand-accent text-xl md:text-2xl">
-                Let's Build Your Vision Together
-              </p>
-
-              {/* Enhanced Description */}
-              <div className="bg-white/10 backdrop-blur-sm mb-8 p-6 border border-white/20 rounded-xl">
-                <p className="text-white/90 text-lg leading-relaxed">
-                  Ready to start your construction project? Get in touch with
-                  our experienced team for a free consultation, detailed project
-                  estimate, and personalized construction solutions throughout
-                  the Tri-Cities area.
-                </p>
-              </div>
-
-              {/* Quick Contact Buttons */}
-              <div className="flex sm:flex-row flex-col justify-center gap-4">
-                <a href="tel:+15093086489">
-                  <Button
-                    size="xl"
-                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white"
-                  >
-                    <MaterialIcon icon="phone" className="mr-2" />
-                    Call (509) 308-6489
-                  </Button>
-                </a>
-                <Button
-                  size="xl"
-                  variant="outline"
-                  className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white"
-                  onClick={() =>
-                    document
-                      .getElementById('contact-form')
-                      ?.scrollIntoView({ behavior: 'smooth' })
-                  }
-                >
-                  <MaterialIcon icon="email" className="mr-2" />
-                  Send Message
-                </Button>
-              </div>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
+      <PageHero
+        title="Contact Us"
+        subtitle="Let's Build Your Vision Together"
+        description="Ready to start your construction project? Get in touch with our experienced team for a free consultation, detailed project estimate, and personalized construction solutions throughout the Tri-Cities area."
+        icon="contact_mail"
+        badge={{
+          text: 'Veteran-Owned Construction Company',
+          icon: 'military_tech',
+        }}
+      />
 
       {/* Contact Methods */}
       <section className="bg-white dark:bg-gray-900 py-16 lg:py-24">
