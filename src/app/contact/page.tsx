@@ -133,11 +133,6 @@ export default function ContactPage() {
         title="Contact Us"
         subtitle="Let's Build Your Vision Together"
         description="Ready to start your construction project? Get in touch with our experienced team for a free consultation, detailed project estimate, and personalized construction solutions throughout the Tri-Cities area."
-        icon="contact_mail"
-        badge={{
-          text: 'Veteran-Owned Construction Company',
-          icon: 'military_tech',
-        }}
       />
 
       {/* Contact Methods */}

@@ -86,11 +86,6 @@ export default function ProjectsPage() {
         title="Our Projects"
         subtitle="Building Excellence Across the Pacific Northwest"
         description="Explore our comprehensive portfolio showcasing decades of quality craftsmanship, innovative construction solutions, and unwavering commitment to client satisfaction throughout the Tri-Cities area."
-        icon="work"
-        badge={{
-          text: 'Veteran-Owned Construction Company',
-          icon: 'military_tech',
-        }}
       />
 
       {/* Project Stats */}

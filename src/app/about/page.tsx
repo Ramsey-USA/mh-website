@@ -163,10 +163,6 @@ export default function AboutPage() {
         title="About MH Construction"
         subtitle='"Building for the Owner, NOT the Dollar"'
         description="Operating on a simple but powerful principle: every client is a partner, every project serves the community. Where military precision meets construction excellence."
-        badge={{
-          text: 'Veteran-Owned & Operated',
-          icon: 'military_tech',
-        }}
       />
 
       {/* Partnership Philosophy Section */}

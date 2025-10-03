@@ -137,11 +137,6 @@ export default function TeamPage() {
         title="Our Team"
         subtitle='"We Work With You" - Leadership Committed to Serving Clients and Communities'
         description="Our people-centered culture starts with leadership committed to excellence, integrity, and partnership in every project"
-        icon="groups"
-        badge={{
-          text: 'Veteran-Owned & Operated',
-          icon: 'military_tech',
-        }}
       />
 
       {/* Team Stats */}

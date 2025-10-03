@@ -272,11 +272,6 @@ export default function GovernmentGrantsPage() {
         title="Government & Grant Projects"
         subtitle="Expert Construction Support for Federal, State, and Local Grant Applications"
         description="MH Construction provides the detailed, verified construction documentation you need to maximize your grant application success. From DOE projects to community facilities, we deliver military-grade precision for government work."
-        icon="account_balance"
-        badge={{
-          text: 'Veteran-Owned & Operated',
-          icon: 'military_tech',
-        }}
       />
 
       {/* Veteran-Owned Badge Section */}

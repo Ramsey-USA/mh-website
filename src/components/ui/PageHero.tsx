@@ -8,11 +8,6 @@ interface PageHeroProps {
   title: string
   subtitle: string
   description: string
-  icon?: string
-  badge?: {
-    text: string
-    icon?: string
-  }
 }
 
 interface HeroNavItem {
@@ -31,13 +26,7 @@ const heroNavItems: HeroNavItem[] = [
   { href: '/contact', label: 'Contact', icon: 'contact_mail' },
 ]
 
-export function PageHero({
-  title,
-  subtitle,
-  description,
-  icon,
-  badge,
-}: PageHeroProps) {
+export function PageHero({ title, subtitle, description }: PageHeroProps) {
   return (
     <>
       {/* Consistent Hero Section */}
@@ -56,28 +45,6 @@ export function PageHero({
         {/* Content Overlay */}
         <div className="z-10 relative flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full text-white">
           <FadeInWhenVisible className="w-full text-center">
-            {/* Badge */}
-            {badge && (
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm mb-6 px-4 py-2 rounded-full">
-                {badge.icon && (
-                  <MaterialIcon
-                    icon={badge.icon}
-                    className="mr-2 text-yellow-300"
-                  />
-                )}
-                <span className="font-semibold text-white text-sm">
-                  {badge.text}
-                </span>
-              </div>
-            )}
-
-            {/* Icon */}
-            {icon && (
-              <div className="flex justify-center mb-8">
-                <MaterialIcon icon={icon} size="4xl" className="text-white" />
-              </div>
-            )}
-
             {/* Title */}
             <h1 className="mb-6 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight">
               <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white drop-shadow-lg">

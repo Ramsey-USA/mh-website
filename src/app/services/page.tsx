@@ -264,7 +264,6 @@ export default function ServicesPage() {
         title="Our Services"
         subtitle="Expert Construction Management in the Pacific Northwest"
         description="Tri-Cities Headquarters: Pasco, WA | Service Area: Washington, Oregon, Idaho"
-        icon="construction"
       />
 
       {/* Construction Expertise Section */}
