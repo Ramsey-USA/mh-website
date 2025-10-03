@@ -260,22 +260,22 @@ export default function ServicesPage() {
   return (
     <div className="bg-gradient-to-b from-white to-gray-50 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-[#2d5240] via-[#386851] to-[#4a7a63] py-20 text-white">
+      <section className="relative bg-gradient-to-r from-brand-primary-dark via-brand-primary to-brand-primary-light py-20 text-white">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl text-center">
               <MaterialIcon
                 icon="construction"
                 size="4xl"
-                className="mb-6 text-green-200"
+                className="mb-6 text-brand-secondary"
               />
               <h1 className="mb-6 font-bold text-5xl md:text-6xl">
                 Our Services
               </h1>
-              <p className="mb-8 text-green-100 text-xl md:text-2xl">
+              <p className="mb-8 text-brand-accent text-xl md:text-2xl">
                 Expert Construction Management in the Pacific Northwest
               </p>
-              <p className="text-green-50 text-lg">
+              <p className="text-white/90 text-lg">
                 <strong>Tri-Cities Headquarters:</strong> Pasco, WA |{' '}
                 <strong>Service Area:</strong> Washington, Oregon, Idaho
               </p>
@@ -285,26 +285,26 @@ export default function ServicesPage() {
       </section>
 
       {/* Construction Expertise Section */}
-      <section className="bg-white py-16">
+      <section className="bg-white dark:bg-gray-900 py-16">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto mb-12 max-w-4xl text-center">
               <MaterialIcon
                 icon="engineering"
                 size="3xl"
-                className="mb-4 text-[#386851]"
+                className="mb-4 text-brand-primary"
               />
-              <h2 className="mb-4 font-bold text-gray-900 text-4xl">
+              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
                 Commercial Construction Management
               </h2>
-              <p className="mb-4 text-gray-700 text-xl">
+              <p className="mb-4 text-gray-700 dark:text-gray-300 text-xl">
                 Planning a new commercial building demands intricate details and
                 expert oversight. Put your project in the right hands by hiring
                 MH Construction for comprehensive Construction Management (CM)
                 services throughout the Tri-Cities (Pasco, WA) area.
               </p>
-              <div className="bg-green-50 p-6 border-[#386851] border-l-4 rounded-lg">
-                <p className="text-gray-800 text-lg">
+              <div className="bg-brand-primary/5 dark:bg-gray-800 p-6 border-brand-primary border-l-4 rounded-lg">
+                <p className="text-gray-800 dark:text-gray-200 text-lg">
                   <strong>Our Priority:</strong> Delivering an exceptional
                   client experience from start to finish. Our commitment to
                   thorough communication and upfront planning is critical to
@@ -328,14 +328,14 @@ export default function ServicesPage() {
       </section>
 
       {/* Core Services Section */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 dark:bg-gray-800 py-16">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 text-4xl">
+              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
                 Core Services
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 text-xl">
+              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
                 Comprehensive construction management services designed to bring
                 your vision to life
               </p>
@@ -346,26 +346,28 @@ export default function ServicesPage() {
             {coreServices.map((service, index) => (
               <Card
                 key={index}
-                className="hover:shadow-xl transition-all hover:-translate-y-1"
+                className="bg-white dark:bg-gray-900 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-all hover:-translate-y-1"
               >
                 <CardHeader>
                   <MaterialIcon
                     icon={service.iconName}
                     size="3xl"
-                    className="mb-4 text-[#386851]"
+                    className="mb-4 text-brand-primary"
                   />
-                  <CardTitle className="mb-2 text-2xl">
+                  <CardTitle className="mb-2 text-gray-900 dark:text-white text-2xl">
                     {service.title}
                   </CardTitle>
-                  <p className="font-semibold text-gray-600 text-sm">
+                  <p className="font-semibold text-gray-600 dark:text-gray-400 text-sm">
                     {service.subtitle}
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <p className="mb-4 text-gray-700">{service.description}</p>
+                  <p className="mb-4 text-gray-700 dark:text-gray-300">
+                    {service.description}
+                  </p>
 
                   <div className="mb-4">
-                    <p className="mb-2 font-semibold text-gray-900 text-sm">
+                    <p className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
                       What's Included:
                     </p>
                     <ul className="space-y-2">
@@ -373,17 +375,19 @@ export default function ServicesPage() {
                         <li key={fIndex} className="flex items-start text-sm">
                           <MaterialIcon
                             icon="check_circle"
-                            className="flex-shrink-0 mt-0.5 mr-2 text-green-500"
+                            className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
                             size="sm"
                           />
-                          <span className="text-gray-600">{feature}</span>
+                          <span className="text-gray-600 dark:text-gray-300">
+                            {feature}
+                          </span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="pt-4 border-t">
-                    <p className="mb-2 font-semibold text-gray-900 text-sm">
+                  <div className="pt-4 border-gray-200 dark:border-gray-600 border-t">
+                    <p className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
                       Benefits:
                     </p>
                     <ul className="space-y-2">
@@ -391,10 +395,12 @@ export default function ServicesPage() {
                         <li key={bIndex} className="flex items-start text-sm">
                           <MaterialIcon
                             icon="stars"
-                            className="flex-shrink-0 mt-0.5 mr-2 text-[#BD9264]"
+                            className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
                             size="sm"
                           />
-                          <span className="text-gray-600">{benefit}</span>
+                          <span className="text-gray-600 dark:text-gray-300">
+                            {benefit}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -402,8 +408,8 @@ export default function ServicesPage() {
 
                   {/* CTA Text */}
                   {service.ctaText && (
-                    <div className="bg-green-50 mt-4 p-3 border-[#386851] border-l-2 rounded">
-                      <p className="font-medium text-gray-800 text-xs">
+                    <div className="bg-brand-primary/5 dark:bg-gray-700 mt-4 p-3 border-brand-primary border-l-2 rounded">
+                      <p className="font-medium text-gray-800 dark:text-gray-200 text-xs">
                         {service.ctaText}
                       </p>
                     </div>
@@ -416,14 +422,14 @@ export default function ServicesPage() {
       </section>
 
       {/* Specialty Services Section */}
-      <section className="bg-white py-16">
+      <section className="bg-white dark:bg-gray-900 py-16">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 text-4xl">
+              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
                 Specialty Services
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 text-xl">
+              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
                 Diverse commercial construction expertise across the Tri-Cities
                 and Pacific Northwest
               </p>
@@ -434,21 +440,23 @@ export default function ServicesPage() {
             {specialtyServices.map((service, index) => (
               <Card
                 key={index}
-                className="hover:shadow-lg transition-all hover:-translate-y-1"
+                className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-all hover:-translate-y-1"
               >
                 <CardHeader>
                   <MaterialIcon
                     icon={service.iconName}
                     size="2xl"
-                    className="mb-3 text-[#386851]"
+                    className="mb-3 text-brand-primary"
                   />
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                  <p className="mt-1 font-semibold text-gray-600 text-sm">
+                  <CardTitle className="text-gray-900 dark:text-white text-xl">
+                    {service.title}
+                  </CardTitle>
+                  <p className="mt-1 font-semibold text-gray-600 dark:text-gray-400 text-sm">
                     {service.subtitle}
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <p className="mb-4 text-gray-700 text-sm">
+                  <p className="mb-4 text-gray-700 dark:text-gray-300 text-sm">
                     {service.description}
                   </p>
 
@@ -459,10 +467,12 @@ export default function ServicesPage() {
                         <li key={mIndex} className="flex items-start text-sm">
                           <MaterialIcon
                             icon="check_circle"
-                            className="flex-shrink-0 mt-0.5 mr-2 text-green-500"
+                            className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
                             size="sm"
                           />
-                          <span className="text-gray-600">{market}</span>
+                          <span className="text-gray-600 dark:text-gray-300">
+                            {market}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -479,7 +489,7 @@ export default function ServicesPage() {
                           <li key={tIndex} className="flex items-start text-sm">
                             <MaterialIcon
                               icon="arrow_right"
-                              className="flex-shrink-0 mt-0.5 mr-2 text-[#7c9885]"
+                              className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
                               size="sm"
                             />
                             <span className="text-gray-600">{type}</span>
@@ -500,7 +510,7 @@ export default function ServicesPage() {
                           <li key={fIndex} className="flex items-start text-sm">
                             <MaterialIcon
                               icon="verified"
-                              className="flex-shrink-0 mt-0.5 mr-2 text-[#BD9264]"
+                              className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
                               size="sm"
                             />
                             <span className="text-gray-600">{feature}</span>
@@ -516,7 +526,7 @@ export default function ServicesPage() {
                         <li key={cIndex} className="flex items-start text-sm">
                           <MaterialIcon
                             icon="arrow_right"
-                            className="flex-shrink-0 mt-0.5 mr-2 text-[#7c9885]"
+                            className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
                             size="sm"
                           />
                           <span className="text-gray-600">{cap}</span>
@@ -534,8 +544,8 @@ export default function ServicesPage() {
 
                   {/* CTA */}
                   {service.ctaText && (
-                    <div className="bg-green-50 mt-4 p-3 border-[#386851] border-l-2 rounded">
-                      <p className="font-medium text-gray-800 text-xs">
+                    <div className="bg-brand-primary/5 dark:bg-gray-700 mt-4 p-3 border-brand-primary border-l-2 rounded">
+                      <p className="font-medium text-gray-800 dark:text-gray-200 text-xs">
                         {service.ctaText}
                       </p>
                     </div>
@@ -548,17 +558,17 @@ export default function ServicesPage() {
       </section>
 
       {/* Service Areas Section */}
-      <section className="bg-gradient-to-r from-[#386851] to-[#2d5240] py-16 text-white">
+      <section className="bg-gradient-to-r from-brand-primary to-brand-primary-dark py-16 text-white">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
               <MaterialIcon
                 icon="public"
                 size="3xl"
-                className="mb-4 text-green-200"
+                className="mb-4 text-brand-secondary"
               />
               <h2 className="mb-4 font-bold text-4xl">Service Areas</h2>
-              <p className="text-green-100 text-xl">
+              <p className="text-brand-accent text-xl">
                 Serving the Pacific Northwest with Excellence
               </p>
             </div>
@@ -573,7 +583,7 @@ export default function ServicesPage() {
                     <MaterialIcon
                       icon={area.iconName}
                       size="2xl"
-                      className="mb-3 text-green-200"
+                      className="mb-3 text-brand-secondary"
                     />
                     <CardTitle className="text-white text-2xl">
                       {area.title}
@@ -584,11 +594,11 @@ export default function ServicesPage() {
                       {area.areas.map((location, lIndex) => (
                         <li
                           key={lIndex}
-                          className="flex items-center text-green-50"
+                          className="flex items-center text-white/90"
                         >
                           <MaterialIcon
                             icon="location_on"
-                            className="mr-2 text-green-200"
+                            className="mr-2 text-brand-secondary"
                             size="sm"
                           />
                           <span>{location}</span>
@@ -628,7 +638,7 @@ export default function ServicesPage() {
                   <MaterialIcon
                     icon={reason.iconName}
                     size="2xl"
-                    className="mb-3 text-[#386851]"
+                    className="mb-3 text-brand-primary"
                   />
                   <CardTitle className="text-lg">{reason.title}</CardTitle>
                 </CardHeader>
@@ -642,7 +652,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Service Request Process Section */}
-      <section className="bg-white py-16">
+      <section className="bg-white dark:bg-gray-900 py-16">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl">
@@ -650,12 +660,12 @@ export default function ServicesPage() {
                 <MaterialIcon
                   icon="trending_up"
                   size="3xl"
-                  className="mb-4 text-blue-600"
+                  className="mb-4 text-brand-primary"
                 />
-                <h2 className="mb-4 font-bold text-gray-900 text-4xl">
+                <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
                   Our Service Request Process
                 </h2>
-                <p className="text-gray-600 text-xl">
+                <p className="text-gray-600 dark:text-gray-300 text-xl">
                   From initial consultation to project completion, we guide you
                   every step of the way
                 </p>
@@ -698,29 +708,29 @@ export default function ServicesPage() {
                 ].map((process, index) => (
                   <Card
                     key={index}
-                    className="hover:shadow-lg transition-shadow"
+                    className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-shadow"
                   >
                     <CardContent className="p-6">
                       <div className="flex items-start">
                         <div className="flex-shrink-0 mr-4">
-                          <div className="flex justify-center items-center bg-blue-600 rounded-full w-12 h-12 font-bold text-white text-xl">
+                          <div className="flex justify-center items-center bg-brand-primary rounded-full w-12 h-12 font-bold text-white text-xl">
                             {process.step}
                           </div>
                         </div>
                         <div className="flex-grow">
                           <div className="flex justify-between items-start">
                             <div>
-                              <h3 className="mb-2 font-bold text-gray-900 text-xl">
+                              <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl">
                                 {process.title}
                               </h3>
-                              <p className="text-gray-700">
+                              <p className="text-gray-700 dark:text-gray-300">
                                 {process.description}
                               </p>
                             </div>
                             <MaterialIcon
                               icon={process.icon}
                               size="xl"
-                              className="ml-4 text-blue-600"
+                              className="ml-4 text-brand-primary"
                             />
                           </div>
                         </div>
@@ -735,19 +745,19 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-700 to-blue-900 py-16 text-white">
+      <section className="bg-gradient-to-r from-brand-primary to-brand-primary-dark py-16 text-white">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-3xl text-center">
               <MaterialIcon
                 icon="phone_in_talk"
                 size="4xl"
-                className="mb-6 text-blue-200"
+                className="mb-6 text-brand-secondary"
               />
               <h2 className="mb-6 font-bold text-4xl">
                 Ready to Start Your Project?
               </h2>
-              <p className="mb-8 text-blue-100 text-xl">
+              <p className="mb-8 text-brand-accent text-xl">
                 Call us today for a free consultation and let's discuss how we
                 can bring your vision to life.
               </p>
@@ -755,7 +765,7 @@ export default function ServicesPage() {
                 <Link href="/contact">
                   <Button
                     size="lg"
-                    className="bg-white hover:bg-blue-50 text-blue-900"
+                    className="bg-white hover:bg-brand-secondary/10 text-brand-primary"
                   >
                     <MaterialIcon icon="email" className="mr-2" size="md" />
                     Contact Us Today
@@ -765,7 +775,7 @@ export default function ServicesPage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="hover:bg-blue-800 border-white text-white"
+                    className="hover:bg-brand-primary-dark border-white text-white"
                   >
                     <MaterialIcon
                       icon="photo_library"
@@ -776,7 +786,7 @@ export default function ServicesPage() {
                   </Button>
                 </Link>
               </div>
-              <div className="space-y-2 text-blue-200">
+              <div className="space-y-2 text-brand-secondary">
                 <p className="text-xl">
                   <MaterialIcon
                     icon="phone"

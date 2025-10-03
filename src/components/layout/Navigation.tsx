@@ -35,9 +35,9 @@ export function Navigation() {
         style={{ background: 'transparent', boxShadow: 'none' }}
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex justify-between items-center py-2 h-20 sm:h-24">
-            {/* Logo - Hidden on mobile since it's in hamburger menu */}
-            <div className="hidden sm:block flex-shrink-0 py-2 sm:py-3">
+          <div className="flex justify-center lg:justify-between items-center py-2 h-20 sm:h-24">
+            {/* Logo - Centered on mobile/tablet, left-aligned on larger screens */}
+            <div className="flex-shrink-0 py-2 sm:py-3">
               <Link
                 href="/"
                 className="group relative flex items-center hover:scale-105 transition-all duration-300"
@@ -50,7 +50,7 @@ export function Navigation() {
               </Link>
             </div>
 
-            {/* Desktop Navigation Links */}
+            {/* Desktop Navigation Links - Hidden on mobile */}
             <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
               <Link
                 href="/about"
@@ -119,8 +119,8 @@ export function Navigation() {
               </Link>
             </div>
 
-            {/* Desktop Controls */}
-            <div className="hidden sm:flex items-center space-x-2 lg:space-x-4">
+            {/* Desktop Controls - Hidden on mobile */}
+            <div className="hidden lg:flex items-center space-x-2 lg:space-x-4">
               <Link
                 href="/contact"
                 className="flex items-center space-x-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm px-3 lg:px-4 py-2 border border-white/30 hover:border-white/40 rounded-lg text-white hover:text-white text-xs lg:text-sm transition-all duration-300"

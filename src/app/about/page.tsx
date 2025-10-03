@@ -107,129 +107,243 @@ const companyStats = [
   { iconName: 'diversity_3', value: '70%', label: 'Referral Rate' },
 ]
 
+// Leadership Team Data
+const leadershipTeam = [
+  {
+    name: 'Jeremy Thamert',
+    role: 'Owner & General Manager',
+    experience: '2 years in current role',
+    status: 'Civilian Supporter',
+    specialties: [
+      'Strategic Vision & Business Development',
+      'Technology Integration & Innovation',
+      'AI Adoption & Digital Transformation',
+      'Operational Leadership & Team Management',
+    ],
+    philosophy: 'Bridging military precision with civilian innovation',
+    icon: 'person',
+  },
+  {
+    name: 'Arnold Garcia',
+    role: 'Vice President',
+    experience: '15 years with MH Construction',
+    status: 'Civilian Leadership',
+    specialties: [
+      'Client Relationships & Partnership Development',
+      'Strategic Operations & Business Growth',
+      'Service Excellence & Quality Assurance',
+      'Project Oversight & Risk Management',
+    ],
+    philosophy:
+      'Primary client liaison for major commercial and industrial projects',
+    icon: 'business',
+  },
+  {
+    name: 'Mike Holstein',
+    role: 'Founder (Retired)',
+    experience: '30+ years construction industry leadership',
+    status: 'Retired Leadership',
+    specialties: [
+      'Company Foundations & Core Values Establishment',
+      'Quality Standards Development',
+      'Client Trust & Reputation Building',
+      'Mentorship & Succession Planning',
+    ],
+    philosophy:
+      'Established the "We Work With You" partnership philosophy that defines MH Construction today',
+    icon: 'foundation',
+  },
+]
+
 export default function AboutPage() {
   return (
-    <div className="bg-gradient-to-b from-white to-gray-50 min-h-screen">
+    <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-[#2d5240] via-[#386851] to-[#4a7a63] py-20 text-white">
-        <div className="mx-auto px-4 container">
+      <section className="relative bg-gradient-to-r from-brand-primary-dark via-brand-primary to-brand-primary-light py-20 lg:py-32 overflow-hidden text-white">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="z-10 relative mx-auto px-4 container">
           <FadeInWhenVisible>
-            <div className="mx-auto max-w-4xl text-center">
-              <h1 className="mb-6 font-bold text-5xl md:text-6xl">
+            <div className="mx-auto max-w-5xl text-center">
+              {/* Veteran Badge */}
+              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm mb-6 px-4 py-2 rounded-full">
+                <MaterialIcon
+                  icon="military_tech"
+                  className="mr-2 text-yellow-300"
+                />
+                <span className="font-semibold text-white text-sm">
+                  Veteran-Owned & Operated
+                </span>
+              </div>
+
+              <h1 className="mb-6 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight">
                 About MH Construction
               </h1>
+
+              {/* Primary Brand Tagline */}
+              <div className="bg-white/10 backdrop-blur-sm mb-8 p-6 border border-white/20 rounded-xl">
+                <p className="mb-2 font-bold text-yellow-300 text-2xl md:text-3xl">
+                  "Building for the Owner, NOT the Dollar"
+                </p>
+                <p className="text-green-100 text-lg">
+                  Veteran-owned excellence where your success comes first
+                </p>
+              </div>
+
               <p className="mb-8 text-green-100 text-xl md:text-2xl">
                 "We Work With You" - Building Relationships, Strengthening
                 Communities
               </p>
-              <p className="mx-auto max-w-3xl text-green-50 text-lg">
-                Veteran-owned company operating on a simple but powerful
-                principle:
+
+              <p className="mx-auto max-w-3xl text-green-50 text-lg leading-relaxed">
+                Operating on a simple but powerful principle:
                 <strong className="text-white">
                   {' '}
-                  every client is a partner, every project serves the community
-                </strong>
+                  every client is a partner, every project serves the community.
+                </strong>{' '}
+                Where military precision meets construction excellence.
               </p>
+
+              {/* Quick Navigation */}
+              <div className="flex flex-wrap justify-center gap-4 mt-12">
+                <Button
+                  size="lg"
+                  className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white"
+                  onClick={() =>
+                    document
+                      .getElementById('values')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                >
+                  <MaterialIcon icon="favorite" className="mr-2" />
+                  Our Values
+                </Button>
+                <Button
+                  size="lg"
+                  className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white"
+                  onClick={() =>
+                    document
+                      .getElementById('team')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                >
+                  <MaterialIcon icon="group" className="mr-2" />
+                  Meet Our Team
+                </Button>
+              </div>
             </div>
           </FadeInWhenVisible>
         </div>
       </section>
 
       {/* Partnership Philosophy Section */}
-      <section className="bg-white py-16">
+      <section className="bg-white dark:bg-gray-900 py-16 lg:py-24">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl">
               <div className="mb-12 text-center">
                 <MaterialIcon
                   icon="handshake"
-                  className="mb-4 text-[#386851] text-6xl"
+                  className="mb-4 text-brand-primary text-6xl"
                 />
-                <h2 className="mb-4 font-bold text-gray-900 text-4xl">
+                <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
                   Our Partnership Philosophy
                 </h2>
-                <p className="text-gray-600 text-xl">
+                <p className="text-gray-600 dark:text-gray-300 text-xl">
                   At MH Construction, we don't just build structures - we build
                   relationships.
                 </p>
               </div>
 
               <div className="gap-8 grid md:grid-cols-2 mb-12">
-                <Card className="hover:shadow-lg transition-shadow">
+                <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-shadow">
                   <CardHeader>
                     <MaterialIcon
                       icon="favorite"
                       className="mb-3 text-red-500 text-4xl"
                     />
-                    <CardTitle>Client Partnership Approach</CardTitle>
+                    <CardTitle className="text-gray-900 dark:text-white">
+                      Client Partnership Approach
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-3">
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-2 text-green-500"
+                          className="flex-shrink-0 mt-1 mr-2 text-brand-accent"
                         />
-                        <span>
-                          <strong>Transparent Communication:</strong> Open
-                          dialogue from day one
+                        <span className="text-gray-700 dark:text-gray-300">
+                          <strong className="text-gray-900 dark:text-white">
+                            Transparent Communication:
+                          </strong>{' '}
+                          Open dialogue from day one
                         </span>
                       </li>
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-2 text-green-500"
+                          className="flex-shrink-0 mt-1 mr-2 text-brand-accent"
                         />
-                        <span>
-                          <strong>Collaborative Planning:</strong> Your vision +
-                          our expertise
+                        <span className="text-gray-700 dark:text-gray-300">
+                          <strong className="text-gray-900 dark:text-white">
+                            Collaborative Planning:
+                          </strong>{' '}
+                          Your vision + our expertise
                         </span>
                       </li>
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-2 text-green-500"
+                          className="flex-shrink-0 mt-1 mr-2 text-brand-accent"
                         />
-                        <span>
-                          <strong>Honest Pricing:</strong> No surprises, no
-                          hidden costs
+                        <span className="text-gray-700 dark:text-gray-300">
+                          <strong className="text-gray-900 dark:text-white">
+                            Honest Pricing:
+                          </strong>{' '}
+                          No surprises, no hidden costs
                         </span>
                       </li>
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-2 text-green-500"
+                          className="flex-shrink-0 mt-1 mr-2 text-brand-accent"
                         />
-                        <span>
-                          <strong>Shared Success:</strong> Your satisfaction is
-                          our success
+                        <span className="text-gray-700 dark:text-gray-300">
+                          <strong className="text-gray-900 dark:text-white">
+                            Shared Success:
+                          </strong>{' '}
+                          Your satisfaction is our success
                         </span>
                       </li>
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-2 text-green-500"
+                          className="flex-shrink-0 mt-1 mr-2 text-brand-accent"
                         />
-                        <span>
-                          <strong>Long-term Relationship:</strong> Partners
-                          beyond project completion
+                        <span className="text-gray-700 dark:text-gray-300">
+                          <strong className="text-gray-900 dark:text-white">
+                            Long-term Relationship:
+                          </strong>{' '}
+                          Partners beyond project completion
                         </span>
                       </li>
                     </ul>
                   </CardContent>
                 </Card>
 
-                <Card className="hover:shadow-lg transition-shadow">
+                <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-shadow">
                   <CardHeader>
                     <MaterialIcon
                       icon="public"
-                      className="mb-3 text-[#7c9885] text-4xl"
+                      className="mb-3 text-brand-secondary text-4xl"
                     />
-                    <CardTitle>Community-Centered Culture</CardTitle>
+                    <CardTitle className="text-gray-900 dark:text-white">
+                      Community-Centered Culture
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="mb-4 text-gray-700">
-                      <strong>
+                    <p className="mb-4 text-gray-700 dark:text-gray-300">
+                      <strong className="text-gray-900 dark:text-white">
                         MH Construction exists to strengthen Pacific Northwest
                         communities.
                       </strong>{' '}
@@ -240,30 +354,36 @@ export default function AboutPage() {
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="location_city"
-                          className="flex-shrink-0 mt-1 mr-2 text-blue-500"
+                          className="flex-shrink-0 mt-1 mr-2 text-brand-primary"
                         />
-                        <span>
-                          <strong>Local Investment:</strong> Hiring locally,
-                          supporting regional suppliers
+                        <span className="text-gray-700 dark:text-gray-300">
+                          <strong className="text-gray-900 dark:text-white">
+                            Local Investment:
+                          </strong>{' '}
+                          Hiring locally, supporting regional suppliers
                         </span>
                       </li>
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="military_tech"
-                          className="flex-shrink-0 mt-1 mr-2 text-blue-500"
+                          className="flex-shrink-0 mt-1 mr-2 text-brand-primary"
                         />
-                        <span>
-                          <strong>Veteran Support:</strong> Creating
-                          opportunities for military families
+                        <span className="text-gray-700 dark:text-gray-300">
+                          <strong className="text-gray-900 dark:text-white">
+                            Veteran Support:
+                          </strong>{' '}
+                          Creating opportunities for military families
                         </span>
                       </li>
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="eco"
-                          className="flex-shrink-0 mt-1 mr-2 text-blue-500"
+                          className="flex-shrink-0 mt-1 mr-2 text-brand-primary"
                         />
-                        <span>
-                          <strong>Environmental Stewardship:</strong>{' '}
+                        <span className="text-gray-700 dark:text-gray-300">
+                          <strong className="text-gray-900 dark:text-white">
+                            Environmental Stewardship:
+                          </strong>{' '}
                           Sustainable practices for future communities
                         </span>
                       </li>
@@ -272,19 +392,31 @@ export default function AboutPage() {
                 </Card>
               </div>
 
-              <div className="bg-green-50 p-8 border-[#386851] border-l-4 rounded-lg">
+              <div className="bg-brand-light dark:bg-gray-800 p-8 border-brand-primary border-l-4 rounded-lg">
                 <MaterialIcon
                   icon="format_quote"
-                  className="mb-4 text-[#386851] text-4xl"
+                  className="mb-4 text-brand-primary text-4xl"
                 />
-                <p className="mb-4 text-gray-800 text-lg italic">
+                <p className="mb-4 text-gray-800 dark:text-gray-200 text-lg italic leading-relaxed">
                   "When you choose MH Construction, you're not hiring a
                   contractor - you're gaining a partner who genuinely cares
-                  about your success and our community's future."
+                  about your success and our community's future. We believe in
+                  building for the owner, not the dollar."
                 </p>
-                <p className="font-semibold text-gray-700">
-                  - Jeremy Thamert, Owner & General Manager
-                </p>
+                <div className="flex items-center">
+                  <MaterialIcon
+                    icon="person"
+                    className="mr-3 text-brand-primary text-2xl"
+                  />
+                  <div>
+                    <p className="font-semibold text-gray-900 dark:text-white">
+                      Jeremy Thamert
+                    </p>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">
+                      Owner & General Manager
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </FadeInWhenVisible>
@@ -292,22 +424,29 @@ export default function AboutPage() {
       </section>
 
       {/* Company Stats */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 py-16 text-white">
+      <section className="bg-gradient-to-r from-brand-primary to-brand-primary-light py-16 text-white">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
-            <h2 className="mb-12 font-bold text-4xl text-center">
-              Our Track Record
-            </h2>
+            <div className="mb-12 text-center">
+              <MaterialIcon
+                icon="analytics"
+                className="mb-4 text-brand-secondary text-6xl"
+              />
+              <h2 className="mb-4 font-bold text-4xl">Our Track Record</h2>
+              <p className="text-green-100 text-xl">
+                Proven results from a veteran-owned team committed to excellence
+              </p>
+            </div>
             <div className="gap-8 grid grid-cols-2 md:grid-cols-4 mx-auto max-w-5xl">
               {companyStats.map((stat, index) => (
                 <HoverScale key={index}>
                   <div className="text-center">
                     <MaterialIcon
                       icon={stat.iconName}
-                      className="mb-4 text-blue-200 text-5xl"
+                      className="mb-4 text-brand-secondary text-5xl"
                     />
                     <div className="mb-2 font-bold text-4xl">{stat.value}</div>
-                    <div className="text-blue-100">{stat.label}</div>
+                    <div className="text-green-100">{stat.label}</div>
                   </div>
                 </HoverScale>
               ))}
@@ -317,50 +456,80 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values Section */}
-      <section className="bg-white py-16">
+      <section id="values" className="bg-white dark:bg-gray-900 py-16 lg:py-24">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
-            <div className="mb-12 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 text-4xl">
+            <div className="mb-16 text-center">
+              <MaterialIcon
+                icon="shield"
+                className="mb-6 text-brand-primary text-6xl"
+              />
+              <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl">
                 Our 6 Core Values
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 text-xl">
-                Trust-Centered Philosophy: "Trust as our ultimate goal and
-                measurable company foundation"
-              </p>
+              <div className="mx-auto max-w-4xl">
+                <p className="mb-4 text-gray-600 dark:text-gray-300 text-xl leading-relaxed">
+                  Trust-Centered Philosophy: "Trust as our ultimate goal and
+                  measurable company foundation"
+                </p>
+                <div className="bg-brand-light dark:bg-gray-800 p-6 border-brand-primary border-l-4 rounded-xl">
+                  <p className="font-medium text-brand-primary-dark dark:text-brand-primary text-lg">
+                    "Trust isn't just another value—it's the result when all
+                    other values are consistently demonstrated. It's our
+                    ultimate goal."
+                  </p>
+                </div>
+              </div>
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-8 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+          <StaggeredFadeIn className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
             {coreValues.map((value, index) => (
               <Card
                 key={index}
-                className="hover:shadow-xl transition-all hover:-translate-y-1"
+                className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-primary h-full transition-all hover:-translate-y-2 duration-300"
               >
-                <CardHeader>
-                  <MaterialIcon
-                    icon={value.iconName}
-                    className="mb-4 text-[#386851] text-5xl"
-                  />
-                  <CardTitle className="mb-2 text-2xl">{value.title}</CardTitle>
-                  <p className="font-semibold text-gray-600 text-sm">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center mb-4">
+                    <MaterialIcon
+                      icon={value.iconName}
+                      className="mr-3 text-brand-primary text-4xl"
+                    />
+                    <span className="bg-brand-primary px-3 py-1 rounded-full font-semibold text-white text-sm">
+                      {index + 1}
+                    </span>
+                  </div>
+                  <CardTitle className="mb-2 text-gray-900 dark:text-white text-xl">
+                    {value.title}
+                  </CardTitle>
+                  <p className="font-semibold text-brand-secondary text-sm">
                     {value.subtitle}
                   </p>
                 </CardHeader>
-                <CardContent>
-                  <p className="mb-4 text-gray-700">{value.description}</p>
-                  <div className="pt-4 border-t">
-                    <p className="mb-2 font-semibold text-gray-900 text-sm">
-                      In Practice:
-                    </p>
+                <CardContent className="pt-0">
+                  <p className="mb-6 text-gray-700 dark:text-gray-300 leading-relaxed">
+                    {value.description}
+                  </p>
+                  <div className="pt-4 border-gray-100 dark:border-gray-600 border-t">
+                    <div className="flex items-center mb-3">
+                      <MaterialIcon
+                        icon="checklist"
+                        className="mr-2 text-brand-primary"
+                      />
+                      <p className="font-semibold text-gray-900 dark:text-white text-sm">
+                        In Practice:
+                      </p>
+                    </div>
                     <ul className="space-y-2">
                       {value.practices.map((practice, pIndex) => (
                         <li key={pIndex} className="flex items-start text-sm">
                           <MaterialIcon
-                            icon="arrow_right"
-                            className="flex-shrink-0 mt-0.5 mr-2 text-blue-500 text-lg"
+                            icon="check_circle"
+                            className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-lg"
                           />
-                          <span className="text-gray-600">{practice}</span>
+                          <span className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            {practice}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -372,137 +541,252 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why Values Matter Section */}
-      <section className="bg-gray-50 py-16">
+      {/* Leadership Team Section */}
+      <section
+        id="team"
+        className="bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-16 lg:py-24"
+      >
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
-            <div className="mx-auto max-w-5xl">
-              <h2 className="mb-12 font-bold text-gray-900 text-4xl text-center">
+            <div className="mb-16 text-center">
+              <MaterialIcon
+                icon="groups"
+                className="mb-6 text-brand-primary text-6xl"
+              />
+              <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl">
+                Meet Our Leadership Team
+              </h2>
+              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl leading-relaxed">
+                People-centered culture starts with leadership committed to
+                serving both clients and communities
+              </p>
+            </div>
+          </FadeInWhenVisible>
+
+          <StaggeredFadeIn className="gap-8 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+            {leadershipTeam.map((member, index) => (
+              <Card
+                key={index}
+                className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-2 duration-300"
+              >
+                <CardHeader className="pb-6 text-center">
+                  <div className="flex justify-center items-center bg-brand-primary mx-auto mb-4 p-4 rounded-full w-20 h-20">
+                    <MaterialIcon
+                      icon={member.icon}
+                      className="text-white text-3xl"
+                    />
+                  </div>
+                  <CardTitle className="mb-2 text-gray-900 dark:text-white text-xl">
+                    {member.name}
+                  </CardTitle>
+                  <p className="font-semibold text-brand-primary text-lg">
+                    {member.role}
+                  </p>
+                  <div className="flex justify-center items-center mt-2">
+                    <MaterialIcon
+                      icon="schedule"
+                      className="mr-2 text-brand-accent text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-sm">
+                      {member.experience}
+                    </span>
+                  </div>
+                  <div className="inline-block bg-brand-secondary/10 mt-3 px-3 py-1 rounded-full">
+                    <span className="font-medium text-brand-secondary text-sm">
+                      {member.status}
+                    </span>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <div className="mb-6">
+                    <h4 className="flex items-center mb-3 font-semibold text-gray-900 dark:text-white text-sm">
+                      <MaterialIcon
+                        icon="star"
+                        className="mr-2 text-brand-primary"
+                      />
+                      Core Specialties
+                    </h4>
+                    <ul className="space-y-2">
+                      {member.specialties.map((specialty, sIndex) => (
+                        <li key={sIndex} className="flex items-start text-sm">
+                          <MaterialIcon
+                            icon="check_circle"
+                            className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                          />
+                          <span className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            {specialty}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="pt-4 border-gray-100 border-t">
+                    <p className="text-gray-700 text-sm italic leading-relaxed">
+                      "{member.philosophy}"
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </StaggeredFadeIn>
+        </div>
+      </section>
+
+      {/* Why Values Matter Section */}
+      <section className="bg-white dark:bg-gray-900 py-16 lg:py-24">
+        <div className="mx-auto px-4 container">
+          <FadeInWhenVisible>
+            <div className="mx-auto max-w-6xl">
+              <h2 className="mb-16 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl text-center">
                 Why Our Values Matter
               </h2>
 
               <div className="gap-8 grid md:grid-cols-3">
-                <Card className="bg-white hover:shadow-lg transition-shadow">
-                  <CardHeader>
+                <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-primary transition-all hover:-translate-y-2 duration-300">
+                  <CardHeader className="text-center">
                     <MaterialIcon
                       icon="people"
-                      className="mb-4 text-[#386851] text-5xl"
+                      className="mb-4 text-brand-primary text-5xl"
                     />
-                    <CardTitle>For Our Clients</CardTitle>
+                    <CardTitle className="text-gray-900 dark:text-white text-2xl">
+                      For Our Clients
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-3 text-gray-700">
+                    <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                       <li className="flex items-start">
                         <MaterialIcon
-                          icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent"
                         />
-                        <span>Predictable, consistent experience</span>
+                        <span className="leading-relaxed">
+                          Predictable, consistent experience
+                        </span>
                       </li>
                       <li className="flex items-start">
                         <MaterialIcon
-                          icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent"
                         />
-                        <span>Peace of mind and confidence</span>
+                        <span className="leading-relaxed">
+                          Peace of mind and confidence
+                        </span>
                       </li>
                       <li className="flex items-start">
                         <MaterialIcon
-                          icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent"
                         />
-                        <span>Long-term partnership</span>
+                        <span className="leading-relaxed">
+                          Long-term partnership
+                        </span>
                       </li>
                       <li className="flex items-start">
                         <MaterialIcon
-                          icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent"
                         />
-                        <span>Community impact</span>
+                        <span className="leading-relaxed">
+                          Community impact
+                        </span>
                       </li>
                     </ul>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-white hover:shadow-lg transition-shadow">
-                  <CardHeader>
+                <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-secondary transition-all hover:-translate-y-2 duration-300">
+                  <CardHeader className="text-center">
                     <MaterialIcon
                       icon="location_city"
-                      className="mb-4 text-[#7c9885] text-5xl"
+                      className="mb-4 text-brand-secondary text-5xl"
                     />
-                    <CardTitle>For Our Community</CardTitle>
+                    <CardTitle className="text-gray-900 dark:text-white text-2xl">
+                      For Our Community
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-3 text-gray-700">
+                    <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                       <li className="flex items-start">
                         <MaterialIcon
-                          icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent"
                         />
-                        <span>Economic development</span>
+                        <span className="leading-relaxed">
+                          Economic development
+                        </span>
                       </li>
                       <li className="flex items-start">
                         <MaterialIcon
-                          icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent"
                         />
-                        <span>Quality standards</span>
+                        <span className="leading-relaxed">
+                          Quality standards
+                        </span>
                       </li>
                       <li className="flex items-start">
                         <MaterialIcon
-                          icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent"
                         />
-                        <span>Veteran support</span>
+                        <span className="leading-relaxed">Veteran support</span>
                       </li>
                       <li className="flex items-start">
                         <MaterialIcon
-                          icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent"
                         />
-                        <span>Sustainable growth</span>
+                        <span className="leading-relaxed">
+                          Sustainable growth
+                        </span>
                       </li>
                     </ul>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-white hover:shadow-lg transition-shadow">
-                  <CardHeader>
+                <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-accent transition-all hover:-translate-y-2 duration-300">
+                  <CardHeader className="text-center">
                     <MaterialIcon
                       icon="engineering"
-                      className="mb-4 text-orange-600 text-5xl"
+                      className="mb-4 text-brand-accent text-5xl"
                     />
-                    <CardTitle>For Our Team</CardTitle>
+                    <CardTitle className="text-gray-900 dark:text-white text-2xl">
+                      For Our Team
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-3 text-gray-700">
+                    <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                       <li className="flex items-start">
                         <MaterialIcon
-                          icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent"
                         />
-                        <span>Professional pride</span>
+                        <span className="leading-relaxed">
+                          Professional pride
+                        </span>
                       </li>
                       <li className="flex items-start">
                         <MaterialIcon
-                          icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent"
                         />
-                        <span>Clear standards</span>
+                        <span className="leading-relaxed">Clear standards</span>
                       </li>
                       <li className="flex items-start">
                         <MaterialIcon
-                          icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent"
                         />
-                        <span>Personal growth</span>
+                        <span className="leading-relaxed">Personal growth</span>
                       </li>
                       <li className="flex items-start">
                         <MaterialIcon
-                          icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent"
                         />
-                        <span>Community connection</span>
+                        <span className="leading-relaxed">
+                          Community connection
+                        </span>
                       </li>
                     </ul>
                   </CardContent>
@@ -514,46 +798,78 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-700 to-blue-900 py-16 text-white">
-        <div className="mx-auto px-4 container">
+      <section className="relative bg-gradient-to-r from-brand-primary-dark via-brand-primary to-brand-primary-light py-16 lg:py-24 overflow-hidden text-white">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="z-10 relative mx-auto px-4 container">
           <FadeInWhenVisible>
-            <div className="mx-auto max-w-3xl text-center">
+            <div className="mx-auto max-w-4xl text-center">
+              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm mb-6 px-4 py-2 rounded-full">
+                <MaterialIcon
+                  icon="military_tech"
+                  className="mr-2 text-yellow-300"
+                />
+                <span className="font-semibold text-sm">
+                  Veteran-Owned Excellence
+                </span>
+              </div>
+
               <MaterialIcon
-                icon="construction"
-                className="mb-6 text-blue-200 text-6xl"
+                icon="handshake"
+                className="mb-6 text-brand-secondary text-6xl"
               />
-              <h2 className="mb-6 font-bold text-4xl">
-                Ready to Start Your Project?
+              <h2 className="mb-6 font-bold text-4xl lg:text-5xl">
+                Ready to Start Your Partnership?
               </h2>
-              <p className="mb-8 text-blue-100 text-xl">
-                Partner with a team that has made Trust our ultimate goal. Let's
-                discuss your vision and build something remarkable together.
-              </p>
-              <div className="flex sm:flex-row flex-col justify-center gap-4">
+
+              <div className="bg-white/10 backdrop-blur-sm mb-8 p-6 border border-white/20 rounded-xl">
+                <p className="mb-2 font-medium text-brand-secondary text-lg">
+                  "Building for the Owner, NOT the Dollar"
+                </p>
+                <p className="text-green-100 text-lg">
+                  Partner with a team that has made Trust our ultimate goal.
+                  Let's discuss your vision and build something remarkable
+                  together.
+                </p>
+              </div>
+
+              <div className="flex sm:flex-row flex-col justify-center gap-4 mb-8">
                 <Link href="/contact">
                   <Button
-                    size="lg"
-                    className="bg-white hover:bg-blue-50 text-blue-900"
+                    size="xl"
+                    className="bg-white hover:bg-brand-light dark:bg-gray-800 dark:hover:bg-gray-700 shadow-xl hover:shadow-2xl text-brand-primary-dark dark:text-white transition-all duration-300"
                   >
                     <MaterialIcon icon="phone" className="mr-2" />
-                    Contact Us Today
+                    Schedule Free Consultation
                   </Button>
                 </Link>
                 <Link href="/services">
                   <Button
-                    size="lg"
+                    size="xl"
                     variant="outline"
-                    className="hover:bg-blue-800 border-white text-white"
+                    className="hover:bg-white/10 dark:hover:bg-gray-800/50 shadow-xl hover:shadow-2xl border-white dark:border-gray-300 text-white dark:text-gray-200 transition-all duration-300"
                   >
                     <MaterialIcon icon="build" className="mr-2" />
                     View Our Services
                   </Button>
                 </Link>
               </div>
-              <p className="mt-6 text-blue-200">
-                <MaterialIcon icon="phone" className="inline mr-2" />
-                (509) 308-6489 | 3111 N. Capital Ave., Pasco, WA 99301
-              </p>
+
+              <div className="flex sm:flex-row flex-col justify-center items-center gap-6 text-green-100">
+                <div className="flex items-center">
+                  <MaterialIcon
+                    icon="phone"
+                    className="mr-2 text-brand-secondary"
+                  />
+                  <span className="font-medium">(509) 308-6489</span>
+                </div>
+                <div className="flex items-center">
+                  <MaterialIcon
+                    icon="location_on"
+                    className="mr-2 text-brand-secondary"
+                  />
+                  <span>3111 N. Capital Ave., Pasco, WA 99301</span>
+                </div>
+              </div>
             </div>
           </FadeInWhenVisible>
         </div>

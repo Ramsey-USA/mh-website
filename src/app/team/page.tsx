@@ -101,7 +101,7 @@ function getVeteranStatusBadge(status?: string) {
 
   if (status === 'Veteran') {
     return (
-      <span className="inline-flex items-center bg-green-100 px-3 py-1 rounded-full font-semibold text-[#2d5240] text-xs">
+      <span className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 px-3 py-1 rounded-full font-semibold text-brand-primary dark:text-brand-accent text-xs">
         <MaterialIcon icon="military_tech" size="sm" className="mr-1" />
         Veteran
       </span>
@@ -110,7 +110,7 @@ function getVeteranStatusBadge(status?: string) {
 
   if (status === 'Civilian Supporter') {
     return (
-      <span className="inline-flex items-center bg-green-100 px-3 py-1 rounded-full font-semibold text-green-800 text-xs">
+      <span className="inline-flex items-center bg-brand-accent/10 dark:bg-brand-accent/20 px-3 py-1 rounded-full font-semibold text-brand-accent dark:text-brand-secondary text-xs">
         <MaterialIcon icon="favorite" size="sm" className="mr-1" />
         Civilian Supporter
       </span>
@@ -131,25 +131,37 @@ export default function TeamPage() {
   }, {} as Record<string, TeamMember[]>)
 
   return (
-    <div className="bg-gradient-to-b from-white to-gray-50 min-h-screen">
+    <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-[#2d5240] via-[#386851] to-[#4a7a63] py-20 text-white">
+      <section className="relative bg-gradient-to-r from-brand-primary-dark via-brand-primary to-brand-primary-light py-20 text-white">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl text-center">
+              {/* Veteran Badge */}
+              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm mb-6 px-6 py-3 border border-white/20 rounded-full">
+                <MaterialIcon
+                  icon="military_tech"
+                  size="md"
+                  className="mr-2 text-yellow-300"
+                />
+                <span className="font-semibold text-white text-sm">
+                  Veteran-Owned & Operated
+                </span>
+              </div>
+
               <MaterialIcon
                 icon="groups"
                 size="4xl"
-                className="mb-6 text-green-200"
+                className="mb-6 text-brand-secondary"
               />
               <h1 className="mb-6 font-bold text-5xl md:text-6xl">Our Team</h1>
-              <p className="mb-8 text-green-100 text-xl md:text-2xl">
+              <p className="mb-8 text-brand-accent text-xl md:text-2xl">
                 "We Work With You" - Leadership Committed to Serving Clients and
                 Communities
               </p>
-              <p className="text-green-50 text-lg">
+              <p className="text-white/90 text-lg">
                 Our people-centered culture starts with leadership committed to
-                excellence, integrity, and partnership
+                excellence, integrity, and partnership in every project
               </p>
             </div>
           </FadeInWhenVisible>
@@ -157,7 +169,7 @@ export default function TeamPage() {
       </section>
 
       {/* Team Stats */}
-      <section className="bg-white py-16">
+      <section className="bg-white dark:bg-gray-900 py-16">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="gap-8 grid grid-cols-2 md:grid-cols-4 mx-auto max-w-5xl">
@@ -167,12 +179,14 @@ export default function TeamPage() {
                     <MaterialIcon
                       icon={stat.icon}
                       size="3xl"
-                      className="mb-4 text-[#386851]"
+                      className="mb-4 text-brand-primary"
                     />
-                    <div className="mb-2 font-bold text-gray-900 text-4xl">
+                    <div className="mb-2 font-bold text-gray-900 dark:text-white text-4xl">
                       {stat.value}
                     </div>
-                    <div className="text-gray-600">{stat.label}</div>
+                    <div className="text-gray-600 dark:text-gray-400">
+                      {stat.label}
+                    </div>
                   </div>
                 </HoverScale>
               ))}
@@ -182,7 +196,7 @@ export default function TeamPage() {
       </section>
 
       {/* Partnership Philosophy */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 dark:bg-gray-800 py-16">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl">
@@ -190,79 +204,79 @@ export default function TeamPage() {
                 <MaterialIcon
                   icon="handshake"
                   size="3xl"
-                  className="mb-4 text-[#386851]"
+                  className="mb-4 text-brand-primary"
                 />
-                <h2 className="mb-4 font-bold text-gray-900 text-4xl">
+                <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
                   "We Work With You" Philosophy
                 </h2>
-                <p className="text-gray-600 text-xl">
+                <p className="text-gray-600 dark:text-gray-300 text-xl">
                   Every team member embodies our core partnership approach
                 </p>
               </div>
 
               <div className="gap-6 grid md:grid-cols-2">
-                <Card className="hover:shadow-lg transition-shadow">
+                <Card className="dark:bg-gray-700 hover:shadow-lg dark:border-gray-600 transition-shadow">
                   <CardContent className="p-6">
                     <MaterialIcon
                       icon="chat"
                       size="xl"
-                      className="mb-4 text-[#386851]"
+                      className="mb-4 text-brand-primary"
                     />
-                    <h3 className="mb-3 font-bold text-gray-900 text-xl">
+                    <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl">
                       Transparent Communication
                     </h3>
-                    <p className="text-gray-700">
+                    <p className="text-gray-700 dark:text-gray-300">
                       Open, honest dialogue with clients and team members at
                       every stage
                     </p>
                   </CardContent>
                 </Card>
 
-                <Card className="hover:shadow-lg transition-shadow">
+                <Card className="dark:bg-gray-700 hover:shadow-lg dark:border-gray-600 transition-shadow">
                   <CardContent className="p-6">
                     <MaterialIcon
                       icon="psychology"
                       size="xl"
-                      className="mb-4 text-[#386851]"
+                      className="mb-4 text-brand-primary"
                     />
-                    <h3 className="mb-3 font-bold text-gray-900 text-xl">
+                    <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl">
                       Collaborative Problem-Solving
                     </h3>
-                    <p className="text-gray-700">
+                    <p className="text-gray-700 dark:text-gray-300">
                       Working together to find the best solutions for every
                       challenge
                     </p>
                   </CardContent>
                 </Card>
 
-                <Card className="hover:shadow-lg transition-shadow">
+                <Card className="dark:bg-gray-700 hover:shadow-lg dark:border-gray-600 transition-shadow">
                   <CardContent className="p-6">
                     <MaterialIcon
                       icon="school"
                       size="xl"
-                      className="mb-4 text-[#386851]"
+                      className="mb-4 text-brand-primary"
                     />
-                    <h3 className="mb-3 font-bold text-gray-900 text-xl">
+                    <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl">
                       Continuous Learning
                     </h3>
-                    <p className="text-gray-700">
+                    <p className="text-gray-700 dark:text-gray-300">
                       Staying current with industry best practices and
                       innovations
                     </p>
                   </CardContent>
                 </Card>
 
-                <Card className="hover:shadow-lg transition-shadow">
+                <Card className="dark:bg-gray-700 hover:shadow-lg dark:border-gray-600 transition-shadow">
                   <CardContent className="p-6">
                     <MaterialIcon
                       icon="location_city"
                       size="xl"
-                      className="mb-4 text-[#386851]"
+                      className="mb-4 text-brand-primary"
                     />
-                    <h3 className="mb-3 font-bold text-gray-900 text-xl">
+                    <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl">
                       Community Focus
                     </h3>
-                    <p className="text-gray-700">
+                    <p className="text-gray-700 dark:text-gray-300">
                       Understanding that every project serves the broader
                       community
                     </p>
@@ -280,7 +294,7 @@ export default function TeamPage() {
         if (members.length === 0) return null
 
         return (
-          <section key={department} className="bg-white py-16">
+          <section key={department} className="bg-white dark:bg-gray-900 py-16">
             <div className="mx-auto px-4 container">
               <FadeInWhenVisible>
                 <div className="mx-auto max-w-7xl">
@@ -288,12 +302,12 @@ export default function TeamPage() {
                     <MaterialIcon
                       icon={info.icon}
                       size="3xl"
-                      className="mb-4 text-[#386851]"
+                      className="mb-4 text-brand-primary"
                     />
-                    <h2 className="mb-4 font-bold text-gray-900 text-4xl">
+                    <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
                       {department}
                     </h2>
-                    <p className="mx-auto max-w-3xl text-gray-600 text-xl">
+                    <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
                       {info.description}
                     </p>
                   </div>
@@ -302,26 +316,26 @@ export default function TeamPage() {
                     {members.map((member, index) => (
                       <Card
                         key={index}
-                        className="hover:shadow-xl transition-all hover:-translate-y-1"
+                        className="dark:bg-gray-800 hover:shadow-xl dark:border-gray-700 transition-all hover:-translate-y-1"
                       >
                         <CardHeader>
                           <div className="flex justify-between items-start mb-4">
-                            <div className="flex justify-center items-center bg-green-100 rounded-full w-16 h-16">
+                            <div className="flex justify-center items-center bg-brand-primary/10 dark:bg-brand-primary/20 rounded-full w-16 h-16">
                               <MaterialIcon
                                 icon={getRoleIcon(member.role)}
                                 size="xl"
-                                className="text-[#386851]"
+                                className="text-brand-primary"
                               />
                             </div>
                             {getVeteranStatusBadge(member.veteranStatus)}
                           </div>
-                          <CardTitle className="mb-1 text-xl">
+                          <CardTitle className="mb-1 dark:text-white text-xl">
                             {member.name}
                           </CardTitle>
-                          <p className="mb-2 font-semibold text-blue-600 text-sm">
+                          <p className="mb-2 font-semibold text-brand-secondary text-sm">
                             {member.role}
                           </p>
-                          <p className="text-gray-600 text-sm">
+                          <p className="text-gray-600 dark:text-gray-400 text-sm">
                             <MaterialIcon
                               icon="schedule"
                               size="sm"
@@ -335,15 +349,15 @@ export default function TeamPage() {
                         </CardHeader>
                         <CardContent>
                           {member.bio && (
-                            <p className="mb-4 text-gray-700 text-sm">
+                            <p className="mb-4 text-gray-700 dark:text-gray-300 text-sm">
                               {member.bio}
                             </p>
                           )}
 
                           {member.specialties &&
                             member.specialties.length > 0 && (
-                              <div className="pt-4 border-t">
-                                <p className="mb-2 font-semibold text-gray-900 text-sm">
+                              <div className="pt-4 dark:border-gray-700 border-t">
+                                <p className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
                                   Specialties:
                                 </p>
                                 <div className="flex flex-wrap gap-2">
@@ -351,12 +365,12 @@ export default function TeamPage() {
                                     (specialty, sIndex) => (
                                       <span
                                         key={sIndex}
-                                        className="inline-flex items-center bg-gray-100 px-2 py-1 rounded-md text-gray-700 text-xs"
+                                        className="inline-flex items-center bg-brand-accent/10 dark:bg-brand-accent/20 px-2 py-1 rounded-md text-brand-primary dark:text-brand-accent text-xs"
                                       >
                                         <MaterialIcon
                                           icon="star"
                                           size="sm"
-                                          className="mr-1 text-gray-500"
+                                          className="mr-1 text-brand-accent"
                                         />
                                         {specialty}
                                       </span>
@@ -377,7 +391,7 @@ export default function TeamPage() {
       })}
 
       {/* Military Values Section */}
-      <section className="bg-gradient-to-r from-[#386851] to-[#2d5240] py-16 text-white">
+      <section className="bg-gradient-to-r from-brand-primary to-brand-primary-dark py-16 text-white">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-6xl">
@@ -385,14 +399,14 @@ export default function TeamPage() {
                 <MaterialIcon
                   icon="military_tech"
                   size="3xl"
-                  className="mb-4 text-green-200"
+                  className="mb-4 text-brand-secondary"
                 />
                 <h2 className="mb-4 font-bold text-4xl">
                   Military Values Integration
                 </h2>
-                <p className="text-green-100 text-xl">
+                <p className="text-brand-accent text-xl">
                   Bringing military precision and discipline to civilian
-                  construction
+                  construction excellence
                 </p>
               </div>
 
@@ -406,12 +420,12 @@ export default function TeamPage() {
                       <MaterialIcon
                         icon={value.icon}
                         size="2xl"
-                        className="mb-3 text-green-200"
+                        className="mb-3 text-brand-secondary"
                       />
                       <h3 className="mb-2 font-bold text-white text-lg">
                         {value.title}
                       </h3>
-                      <p className="text-green-100 text-sm">
+                      <p className="text-brand-accent text-sm">
                         {value.description}
                       </p>
                     </CardContent>
@@ -424,7 +438,7 @@ export default function TeamPage() {
       </section>
 
       {/* Team Culture Section */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 dark:bg-gray-800 py-16">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-5xl">
@@ -432,33 +446,35 @@ export default function TeamPage() {
                 <MaterialIcon
                   icon="diversity_3"
                   size="3xl"
-                  className="mb-4 text-[#386851]"
+                  className="mb-4 text-brand-primary"
                 />
-                <h2 className="mb-4 font-bold text-gray-900 text-4xl">
+                <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
                   Team Culture & Values
                 </h2>
-                <p className="text-gray-600 text-xl">
+                <p className="text-gray-600 dark:text-gray-300 text-xl">
                   Building a strong foundation through professional development
-                  and safety
+                  and safety excellence
                 </p>
               </div>
 
               <div className="gap-8 grid md:grid-cols-3">
-                <Card className="hover:shadow-lg transition-shadow">
+                <Card className="dark:bg-gray-700 hover:shadow-lg dark:border-gray-600 transition-shadow">
                   <CardHeader>
                     <MaterialIcon
                       icon="trending_up"
                       size="2xl"
-                      className="mb-3 text-[#386851]"
+                      className="mb-3 text-brand-primary"
                     />
-                    <CardTitle>Professional Development</CardTitle>
+                    <CardTitle className="dark:text-white">
+                      Professional Development
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-3 text-gray-700">
+                    <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          className="mt-1 mr-2 text-brand-accent"
                           size="sm"
                         />
                         <span>Ongoing training programs</span>
@@ -466,7 +482,7 @@ export default function TeamPage() {
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          className="mt-1 mr-2 text-brand-accent"
                           size="sm"
                         />
                         <span>Cross-training opportunities</span>
@@ -474,7 +490,7 @@ export default function TeamPage() {
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          className="mt-1 mr-2 text-brand-accent"
                           size="sm"
                         />
                         <span>Leadership development</span>
@@ -482,7 +498,7 @@ export default function TeamPage() {
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          className="mt-1 mr-2 text-brand-accent"
                           size="sm"
                         />
                         <span>Industry involvement</span>
@@ -491,21 +507,23 @@ export default function TeamPage() {
                   </CardContent>
                 </Card>
 
-                <Card className="hover:shadow-lg transition-shadow">
+                <Card className="dark:bg-gray-700 hover:shadow-lg dark:border-gray-600 transition-shadow">
                   <CardHeader>
                     <MaterialIcon
                       icon="health_and_safety"
                       size="2xl"
-                      className="mb-3 text-[#386851]"
+                      className="mb-3 text-brand-primary"
                     />
-                    <CardTitle>Safety Culture</CardTitle>
+                    <CardTitle className="dark:text-white">
+                      Safety Culture
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-3 text-gray-700">
+                    <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          className="mt-1 mr-2 text-brand-accent"
                           size="sm"
                         />
                         <span>Safety-first mindset</span>
@@ -513,7 +531,7 @@ export default function TeamPage() {
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          className="mt-1 mr-2 text-brand-accent"
                           size="sm"
                         />
                         <span>Regular safety training</span>
@@ -521,7 +539,7 @@ export default function TeamPage() {
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          className="mt-1 mr-2 text-brand-accent"
                           size="sm"
                         />
                         <span>Quality equipment standards</span>
@@ -529,7 +547,7 @@ export default function TeamPage() {
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          className="mt-1 mr-2 text-brand-accent"
                           size="sm"
                         />
                         <span>Proactive hazard prevention</span>
@@ -538,21 +556,23 @@ export default function TeamPage() {
                   </CardContent>
                 </Card>
 
-                <Card className="hover:shadow-lg transition-shadow">
+                <Card className="dark:bg-gray-700 hover:shadow-lg dark:border-gray-600 transition-shadow">
                   <CardHeader>
                     <MaterialIcon
                       icon="emoji_events"
                       size="2xl"
-                      className="mb-3 text-[#386851]"
+                      className="mb-3 text-brand-primary"
                     />
-                    <CardTitle>Team Performance</CardTitle>
+                    <CardTitle className="dark:text-white">
+                      Team Performance
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-3 text-gray-700">
+                    <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          className="mt-1 mr-2 text-brand-accent"
                           size="sm"
                         />
                         <span>98% client satisfaction</span>
@@ -560,7 +580,7 @@ export default function TeamPage() {
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          className="mt-1 mr-2 text-brand-accent"
                           size="sm"
                         />
                         <span>High employee retention</span>
@@ -568,7 +588,7 @@ export default function TeamPage() {
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          className="mt-1 mr-2 text-brand-accent"
                           size="sm"
                         />
                         <span>Current certifications</span>
@@ -576,7 +596,7 @@ export default function TeamPage() {
                       <li className="flex items-start">
                         <MaterialIcon
                           icon="check"
-                          className="mt-1 mr-2 text-green-500"
+                          className="mt-1 mr-2 text-brand-accent"
                           size="sm"
                         />
                         <span>Community involvement</span>
@@ -591,19 +611,19 @@ export default function TeamPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-white py-16">
+      <section className="bg-white dark:bg-gray-900 py-16">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-3xl text-center">
               <MaterialIcon
                 icon="construction"
                 size="4xl"
-                className="mb-6 text-[#386851]"
+                className="mb-6 text-brand-primary"
               />
-              <h2 className="mb-6 font-bold text-gray-900 text-4xl">
+              <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl">
                 Work With Our Team
               </h2>
-              <p className="mb-8 text-gray-700 text-xl">
+              <p className="mb-8 text-gray-700 dark:text-gray-300 text-xl">
                 Partner with experienced professionals who are committed to your
                 success and our community's future
               </p>
@@ -611,7 +631,7 @@ export default function TeamPage() {
                 <Link href="/contact">
                   <Button
                     size="lg"
-                    className="bg-blue-600 hover:bg-blue-700 text-white"
+                    className="bg-brand-primary hover:bg-brand-primary-dark text-white dark:text-white"
                   >
                     <MaterialIcon icon="phone" className="mr-2" size="md" />
                     Contact Our Team
@@ -621,14 +641,14 @@ export default function TeamPage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="hover:bg-green-50 border-[#386851] text-blue-600"
+                    className="hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10 border-brand-primary dark:border-brand-accent text-brand-primary dark:text-brand-accent"
                   >
                     <MaterialIcon icon="build" className="mr-2" size="md" />
                     View Our Services
                   </Button>
                 </Link>
               </div>
-              <p className="mt-6 text-gray-600">
+              <p className="mt-6 text-gray-600 dark:text-gray-400">
                 <MaterialIcon icon="phone" className="inline mr-2" size="md" />
                 (509) 308-6489 | 3111 N. Capital Ave., Pasco, WA 99301
               </p>

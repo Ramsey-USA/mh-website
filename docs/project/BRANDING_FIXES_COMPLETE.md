@@ -167,24 +167,25 @@ Successfully updated **all 6 main pages** to use proper MH Construction brand co
 
 ### 6. ✅ Government Page (`/government`)
 
-**Special Handling - Patriotic Theme Preserved:**
+**Updated Color Scheme - Monochrome Design:**
 
-The Government page intentionally uses a **patriotic blue theme** in the hero section to connect with government/veteran audiences. This is appropriate and should be maintained.
+The Government page has been updated to use a **professional monochrome color scheme** using only black, white, and gray colors to maintain a clean, government-appropriate aesthetic.
 
 **Changes Applied:**
 
-- ✅ Section icons in white backgrounds: `text-blue-600` → `text-[#386851]`
-- ✅ Badge backgrounds: `bg-blue-100` → `bg-green-100`
-- ✅ **Preserved:** Patriotic blue hero gradient and star decorations
-- ✅ **Preserved:** Blue/red color scheme for government context
-- ✅ Added Hunter Green brand elements in non-hero sections
+- ✅ **Updated:** Hero section now uses gray-900 to black gradient (was blue)
+- ✅ **Updated:** Veteran badge section now uses gray-800 to black (was red/blue)
+- ✅ **Updated:** Grant support cards now use grayscale backgrounds (was green/blue)
+- ✅ **Updated:** Process steps use gray-800 numbered circles (was blue)
+- ✅ **Updated:** All colored elements converted to grayscale equivalents
+- ✅ **Updated:** Professional monochrome design throughout
 
 **Why This Approach:**
 
-- Government/veteran audience expects patriotic colors
-- Blue hero represents American values and government service
-- Hunter Green in content sections maintains MH brand presence
-- Balance between patriotic context and brand consistency
+- Professional appearance suitable for government audiences
+- Monochrome design emphasizes content and credibility
+- Maintains clean, official appearance without distracting colors
+- Focus on expertise and qualifications rather than visual elements
 
 ---
 
