@@ -4,10 +4,12 @@ import Link from 'next/link'
 import { Button } from '../ui/Button'
 import { ThemeToggle } from '../ui/ThemeToggle'
 import { MaterialIcon } from '../icons/MaterialIcon'
+import { QuickBookingModal } from '../ui/QuickBookingModal'
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [isQuickBookingOpen, setIsQuickBookingOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -130,14 +132,14 @@ export function Navigation() {
                 <span className="lg:hidden">Contact</span>
               </Link>
 
-              <Link
-                href="/contact"
+              <button
+                onClick={() => setIsQuickBookingOpen(true)}
                 className="flex items-center space-x-2 bg-brand-primary hover:bg-brand-primary/90 shadow-md hover:shadow-lg backdrop-blur-sm px-3 lg:px-4 py-2 border border-brand-primary/50 hover:border-brand-primary rounded-lg text-white text-xs lg:text-sm transition-all duration-300"
               >
                 <MaterialIcon icon="request_quote" size="sm" />
                 <span className="hidden lg:inline">Get Quote</span>
                 <span className="lg:hidden">Quote</span>
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -201,9 +203,11 @@ export function Navigation() {
           <div className="z-10 relative space-y-6 px-6 py-6 pt-20">
             {/* Primary Action Buttons */}
             <div className="space-y-3">
-              <Link
-                href="/contact"
-                onClick={() => setIsMenuOpen(false)}
+              <button
+                onClick={() => {
+                  setIsMenuOpen(false)
+                  setIsQuickBookingOpen(true)
+                }}
                 className="group block bg-gradient-to-r from-brand-primary hover:from-brand-primary/90 to-brand-primary/90 hover:to-brand-primary shadow-md hover:shadow-lg px-4 py-3 border border-brand-primary/30 hover:border-brand-primary rounded-xl w-full text-white text-sm text-center transition-all duration-300"
               >
                 <div className="flex justify-center items-center space-x-2">
@@ -215,7 +219,7 @@ export function Navigation() {
                     className="opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300 transform"
                   />
                 </div>
-              </Link>
+              </button>
               <Link
                 href="/contact"
                 onClick={() => setIsMenuOpen(false)}
@@ -312,6 +316,12 @@ export function Navigation() {
           </div>
         </div>
       </div>
+
+      {/* Quick Booking Modal */}
+      <QuickBookingModal
+        isOpen={isQuickBookingOpen}
+        onClose={() => setIsQuickBookingOpen(false)}
+      />
     </>
   )
 }

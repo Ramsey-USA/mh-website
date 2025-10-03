@@ -833,7 +833,7 @@ export default function AboutPage() {
               </div>
 
               <div className="flex sm:flex-row flex-col justify-center gap-4 mb-8">
-                <Link href="/contact">
+                <Link href="/booking">
                   <Button
                     size="xl"
                     className="bg-white hover:bg-brand-light dark:bg-gray-800 dark:hover:bg-gray-700 shadow-xl hover:shadow-2xl text-brand-primary-dark dark:text-white transition-all duration-300"

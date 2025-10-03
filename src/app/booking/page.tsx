@@ -1,0 +1,706 @@
+'use client'
+
+import React, { useState } from 'react'
+import Link from 'next/link'
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from '../../components/ui'
+import { MaterialIcon } from '../../components/icons/MaterialIcon'
+import {
+  FadeInWhenVisible,
+  StaggeredFadeIn,
+  HoverScale,
+} from '../../components/animations/FramerMotionComponents'
+import { consultationService } from '../../lib/utils/firebase'
+
+// Available time slots
+const timeSlots = [
+  '8:00 AM',
+  '9:00 AM',
+  '10:00 AM',
+  '11:00 AM',
+  '1:00 PM',
+  '2:00 PM',
+  '3:00 PM',
+  '4:00 PM',
+]
+
+// Project types
+const projectTypes = [
+  'Custom Home',
+  'Home Addition',
+  'Kitchen Remodel',
+  'Bathroom Remodel',
+  'Commercial Building',
+  'Tenant Improvement',
+  'Industrial Facility',
+  'Religious Facility',
+  'Medical Facility',
+  'Government Project',
+  'Other',
+]
+
+interface BookingFormData {
+  clientName: string
+  email: string
+  phone: string
+  projectType: string
+  projectDescription: string
+  location: string
+  budget: string
+  selectedDate: string
+  selectedTime: string
+  additionalNotes: string
+}
+
+export default function BookingPage() {
+  const [step, setStep] = useState(1) // 1: Date/Time, 2: Details, 3: Confirmation
+  const [selectedDate, setSelectedDate] = useState('')
+  const [selectedTime, setSelectedTime] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'success' | 'error'
+  >('idle')
+
+  const [formData, setFormData] = useState<BookingFormData>({
+    clientName: '',
+    email: '',
+    phone: '',
+    projectType: '',
+    projectDescription: '',
+    location: '',
+    budget: '',
+    selectedDate: '',
+    selectedTime: '',
+    additionalNotes: '',
+  })
+
+  // Handle URL parameters for pre-filling data from quick booking modal
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search)
+      const prefilledData: Partial<BookingFormData> = {}
+
+      if (urlParams.get('date')) {
+        const date = urlParams.get('date')!
+        setSelectedDate(date)
+        prefilledData.selectedDate = date
+      }
+
+      if (urlParams.get('time')) {
+        const time = urlParams.get('time')!
+        setSelectedTime(time)
+        prefilledData.selectedTime = time
+      }
+
+      if (urlParams.get('name')) {
+        prefilledData.clientName = urlParams.get('name')!
+      }
+
+      if (urlParams.get('email')) {
+        prefilledData.email = urlParams.get('email')!
+      }
+
+      if (urlParams.get('phone')) {
+        prefilledData.phone = urlParams.get('phone')!
+      }
+
+      if (urlParams.get('projectType')) {
+        prefilledData.projectType = urlParams.get('projectType')!
+      }
+
+      // If we have date and time, skip to step 2
+      if (urlParams.get('date') && urlParams.get('time')) {
+        setStep(2)
+      }
+
+      // Update form data with prefilled values
+      if (Object.keys(prefilledData).length > 0) {
+        setFormData(prev => ({ ...prev, ...prefilledData }))
+      }
+    }
+  }, [])
+
+  // Generate next 30 days for calendar
+  const generateCalendarDays = () => {
+    const days = []
+    const today = new Date()
+
+    for (let i = 1; i <= 30; i++) {
+      const date = new Date(today)
+      date.setDate(today.getDate() + i)
+
+      // Skip weekends for business consultations
+      if (date.getDay() !== 0 && date.getDay() !== 6) {
+        days.push({
+          date: date.toISOString().split('T')[0],
+          displayDate: date.getDate(),
+          dayName: date.toLocaleDateString('en-US', { weekday: 'short' }),
+          fullDate: date.toLocaleDateString('en-US', {
+            weekday: 'long',
+            month: 'long',
+            day: 'numeric',
+          }),
+        })
+      }
+    }
+    return days
+  }
+
+  const calendarDays = generateCalendarDays()
+
+  const handleDateSelect = (date: string) => {
+    setSelectedDate(date)
+    setFormData(prev => ({ ...prev, selectedDate: date }))
+  }
+
+  const handleTimeSelect = (time: string) => {
+    setSelectedTime(time)
+    setFormData(prev => ({ ...prev, selectedTime: time }))
+  }
+
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    try {
+      // Create consultation record
+      const consultationData = {
+        clientName: formData.clientName,
+        email: formData.email,
+        phone: formData.phone,
+        projectType: formData.projectType as any,
+        projectDescription: formData.projectDescription,
+        location: formData.location,
+        budget: formData.budget ? parseInt(formData.budget) : undefined,
+        status: 'pending' as const,
+        scheduledDate: new Date(
+          `${formData.selectedDate}T${convertTo24Hour(formData.selectedTime)}`
+        ),
+        notes: formData.additionalNotes,
+      }
+
+      await consultationService.create(consultationData)
+      setSubmitStatus('success')
+      setStep(3)
+    } catch (error) {
+      console.error('Error booking consultation:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  const convertTo24Hour = (time12h: string) => {
+    const [time, modifier] = time12h.split(' ')
+    let [hours, minutes] = time.split(':')
+    if (hours === '12') {
+      hours = '00'
+    }
+    if (modifier === 'PM') {
+      hours = (parseInt(hours, 10) + 12).toString()
+    }
+    return `${hours}:${minutes || '00'}:00`
+  }
+
+  if (submitStatus === 'success') {
+    return (
+      <div className="bg-gradient-to-br from-white via-gray-50 to-gray-100 min-h-screen">
+        <div className="mx-auto px-4 py-20 max-w-4xl">
+          <FadeInWhenVisible>
+            <Card className="bg-green-50 shadow-xl border-green-200">
+              <CardContent className="p-12 text-center">
+                <div className="mb-6 text-green-600 text-6xl">✅</div>
+                <h1 className="mb-4 font-bold text-green-800 text-3xl">
+                  Consultation Scheduled!
+                </h1>
+                <div className="space-y-4 mb-8 text-green-700">
+                  <p className="text-xl">
+                    Thank you, <strong>{formData.clientName}</strong>!
+                  </p>
+                  <p className="text-lg">Your consultation is scheduled for:</p>
+                  <div className="bg-green-100 mx-auto p-4 border border-green-300 rounded-lg max-w-md">
+                    <p className="font-semibold text-green-800">
+                      📅{' '}
+                      {new Date(formData.selectedDate).toLocaleDateString(
+                        'en-US',
+                        {
+                          weekday: 'long',
+                          month: 'long',
+                          day: 'numeric',
+                          year: 'numeric',
+                        }
+                      )}
+                    </p>
+                    <p className="font-semibold text-green-800">
+                      🕐 {formData.selectedTime}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-3 mb-8 text-green-600 text-sm">
+                  <p>
+                    <strong>Next Steps:</strong>
+                  </p>
+                  <ul className="space-y-2 list-disc list-inside">
+                    <li>You'll receive a confirmation email shortly</li>
+                    <li>
+                      Our team will call you 24 hours before your appointment
+                    </li>
+                    <li>
+                      We'll come prepared with project insights and
+                      recommendations
+                    </li>
+                    <li>
+                      Free on-site estimate will be provided during the
+                      consultation
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="flex sm:flex-row flex-col justify-center gap-4">
+                  <Link href="/">
+                    <Button
+                      size="lg"
+                      className="bg-green-600 hover:bg-green-700"
+                    >
+                      <MaterialIcon icon="home" className="mr-2" />
+                      Return Home
+                    </Button>
+                  </Link>
+                  <Link href="/services">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="hover:bg-green-50 border-green-600 text-green-600"
+                    >
+                      <MaterialIcon icon="build" className="mr-2" />
+                      View Our Services
+                    </Button>
+                  </Link>
+                </div>
+
+                <div className="bg-green-100 mt-8 p-4 border border-green-300 rounded-lg">
+                  <p className="mb-2 font-semibold text-green-800">
+                    Need to reschedule?
+                  </p>
+                  <p className="text-green-700 text-sm">
+                    Call us at{' '}
+                    <a
+                      href="tel:+15093086489"
+                      className="font-semibold underline"
+                    >
+                      (509) 308-6489
+                    </a>{' '}
+                    or email{' '}
+                    <a
+                      href="mailto:info@mhconstruction.com"
+                      className="font-semibold underline"
+                    >
+                      info@mhconstruction.com
+                    </a>
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </FadeInWhenVisible>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="bg-gradient-to-br from-white via-gray-50 to-gray-100 min-h-screen">
+      {/* Header */}
+      <section className="bg-gradient-to-r from-brand-primary to-brand-primary-dark py-16 text-white">
+        <div className="mx-auto px-4 max-w-4xl text-center">
+          <FadeInWhenVisible>
+            <MaterialIcon
+              icon="event"
+              size="3xl"
+              className="mb-4 text-white/90"
+            />
+            <h1 className="mb-4 font-bold text-4xl md:text-5xl">
+              Schedule Your Free Consultation
+            </h1>
+            <p className="mx-auto max-w-2xl text-white/90 text-xl">
+              Meet with our expert team to discuss your project vision and get
+              professional insights
+            </p>
+          </FadeInWhenVisible>
+        </div>
+      </section>
+
+      {/* Progress Indicator */}
+      <div className="bg-white shadow-sm py-4">
+        <div className="mx-auto px-4 max-w-4xl">
+          <div className="flex justify-center items-center space-x-8">
+            <div
+              className={`flex items-center ${
+                step >= 1 ? 'text-brand-primary' : 'text-gray-400'
+              }`}
+            >
+              <div
+                className={`flex justify-center items-center mr-2 rounded-full w-8 h-8 text-sm font-bold ${
+                  step >= 1 ? 'bg-brand-primary text-white' : 'bg-gray-200'
+                }`}
+              >
+                1
+              </div>
+              <span className="font-medium text-sm">Date & Time</span>
+            </div>
+            <div
+              className={`w-16 h-0.5 ${
+                step >= 2 ? 'bg-brand-primary' : 'bg-gray-300'
+              }`}
+            />
+            <div
+              className={`flex items-center ${
+                step >= 2 ? 'text-brand-primary' : 'text-gray-400'
+              }`}
+            >
+              <div
+                className={`flex justify-center items-center mr-2 rounded-full w-8 h-8 text-sm font-bold ${
+                  step >= 2 ? 'bg-brand-primary text-white' : 'bg-gray-200'
+                }`}
+              >
+                2
+              </div>
+              <span className="font-medium text-sm">Your Details</span>
+            </div>
+            <div
+              className={`w-16 h-0.5 ${
+                step >= 3 ? 'bg-brand-primary' : 'bg-gray-300'
+              }`}
+            />
+            <div
+              className={`flex items-center ${
+                step >= 3 ? 'text-brand-primary' : 'text-gray-400'
+              }`}
+            >
+              <div
+                className={`flex justify-center items-center mr-2 rounded-full w-8 h-8 text-sm font-bold ${
+                  step >= 3 ? 'bg-brand-primary text-white' : 'bg-gray-200'
+                }`}
+              >
+                3
+              </div>
+              <span className="font-medium text-sm">Confirmation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="mx-auto px-4 py-12 max-w-4xl">
+        <StaggeredFadeIn>
+          {step === 1 && (
+            <Card className="shadow-xl">
+              <CardHeader>
+                <CardTitle className="flex items-center text-2xl">
+                  <MaterialIcon icon="calendar_month" className="mr-3" />
+                  Select Date & Time
+                </CardTitle>
+                <p className="text-gray-600">
+                  Choose your preferred date and time for the consultation
+                </p>
+              </CardHeader>
+              <CardContent className="space-y-8">
+                {/* Calendar */}
+                <div>
+                  <h3 className="mb-4 font-semibold text-lg">
+                    Available Dates
+                  </h3>
+                  <div className="gap-3 grid grid-cols-4 md:grid-cols-7">
+                    {calendarDays.map(day => (
+                      <button
+                        key={day.date}
+                        onClick={() => handleDateSelect(day.date)}
+                        className={`p-3 border rounded-lg text-center transition-all duration-200 ${
+                          selectedDate === day.date
+                            ? 'bg-brand-primary border-brand-primary text-white'
+                            : 'hover:bg-brand-primary/10 hover:border-brand-primary border-gray-200'
+                        }`}
+                      >
+                        <div className="font-medium text-xs">{day.dayName}</div>
+                        <div className="font-bold text-lg">
+                          {day.displayDate}
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Time Slots */}
+                {selectedDate && (
+                  <div>
+                    <h3 className="mb-4 font-semibold text-lg">
+                      Available Times
+                    </h3>
+                    <div className="gap-3 grid grid-cols-2 md:grid-cols-4">
+                      {timeSlots.map(time => (
+                        <button
+                          key={time}
+                          onClick={() => handleTimeSelect(time)}
+                          className={`p-3 border rounded-lg text-center transition-all duration-200 ${
+                            selectedTime === time
+                              ? 'bg-brand-primary border-brand-primary text-white'
+                              : 'hover:bg-brand-primary/10 hover:border-brand-primary border-gray-200'
+                          }`}
+                        >
+                          {time}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Continue Button */}
+                {selectedDate && selectedTime && (
+                  <div className="pt-6 border-t">
+                    <div className="bg-brand-primary/10 mb-4 p-4 border border-brand-primary/20 rounded-lg">
+                      <p className="font-semibold text-brand-primary">
+                        Selected:{' '}
+                        {
+                          calendarDays.find(d => d.date === selectedDate)
+                            ?.fullDate
+                        }{' '}
+                        at {selectedTime}
+                      </p>
+                    </div>
+                    <Button
+                      onClick={() => setStep(2)}
+                      size="lg"
+                      className="w-full"
+                    >
+                      <MaterialIcon icon="arrow_forward" className="mr-2" />
+                      Continue to Details
+                    </Button>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          )}
+
+          {step === 2 && (
+            <Card className="shadow-xl">
+              <CardHeader>
+                <CardTitle className="flex items-center text-2xl">
+                  <MaterialIcon icon="person" className="mr-3" />
+                  Your Information
+                </CardTitle>
+                <p className="text-gray-600">
+                  Tell us about yourself and your project
+                </p>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Personal Information */}
+                  <div className="gap-4 grid md:grid-cols-2">
+                    <div>
+                      <label className="block mb-2 font-medium text-gray-700 text-sm">
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="clientName"
+                        value={formData.clientName}
+                        onChange={handleInputChange}
+                        required
+                        className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                        placeholder="John Smith"
+                      />
+                    </div>
+                    <div>
+                      <label className="block mb-2 font-medium text-gray-700 text-sm">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                        placeholder="john@example.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="gap-4 grid md:grid-cols-2">
+                    <div>
+                      <label className="block mb-2 font-medium text-gray-700 text-sm">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                        className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                        placeholder="(509) 555-0123"
+                      />
+                    </div>
+                    <div>
+                      <label className="block mb-2 font-medium text-gray-700 text-sm">
+                        Project Type *
+                      </label>
+                      <select
+                        name="projectType"
+                        value={formData.projectType}
+                        onChange={handleInputChange}
+                        required
+                        className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                      >
+                        <option value="">Select project type</option>
+                        {projectTypes.map(type => (
+                          <option key={type} value={type}>
+                            {type}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="gap-4 grid md:grid-cols-2">
+                    <div>
+                      <label className="block mb-2 font-medium text-gray-700 text-sm">
+                        Project Location
+                      </label>
+                      <input
+                        type="text"
+                        name="location"
+                        value={formData.location}
+                        onChange={handleInputChange}
+                        className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                        placeholder="Pasco, WA"
+                      />
+                    </div>
+                    <div>
+                      <label className="block mb-2 font-medium text-gray-700 text-sm">
+                        Estimated Budget
+                      </label>
+                      <select
+                        name="budget"
+                        value={formData.budget}
+                        onChange={handleInputChange}
+                        className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                      >
+                        <option value="">Select budget range</option>
+                        <option value="50000">Under $50,000</option>
+                        <option value="100000">$50,000 - $100,000</option>
+                        <option value="250000">$100,000 - $250,000</option>
+                        <option value="500000">$250,000 - $500,000</option>
+                        <option value="1000000">$500,000 - $1,000,000</option>
+                        <option value="1000001">Over $1,000,000</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block mb-2 font-medium text-gray-700 text-sm">
+                      Project Description *
+                    </label>
+                    <textarea
+                      name="projectDescription"
+                      value={formData.projectDescription}
+                      onChange={handleInputChange}
+                      required
+                      rows={4}
+                      className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                      placeholder="Describe your project, including any specific requirements or goals..."
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block mb-2 font-medium text-gray-700 text-sm">
+                      Additional Notes
+                    </label>
+                    <textarea
+                      name="additionalNotes"
+                      value={formData.additionalNotes}
+                      onChange={handleInputChange}
+                      rows={3}
+                      className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                      placeholder="Any additional information you'd like us to know..."
+                    />
+                  </div>
+
+                  {/* Summary */}
+                  <div className="bg-gray-50 p-4 border rounded-lg">
+                    <h4 className="mb-2 font-semibold">
+                      Consultation Summary:
+                    </h4>
+                    <p className="text-gray-700 text-sm">
+                      📅{' '}
+                      {
+                        calendarDays.find(d => d.date === selectedDate)
+                          ?.fullDate
+                      }
+                      <br />
+                      🕐 {selectedTime}
+                      <br />
+                      📍 Free on-site consultation
+                      <br />
+                      ⏱️ Approximately 60 minutes
+                    </p>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setStep(1)}
+                      className="flex-1"
+                    >
+                      <MaterialIcon icon="arrow_back" className="mr-2" />
+                      Back to Date & Time
+                    </Button>
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="flex-1"
+                    >
+                      {isSubmitting ? (
+                        <MaterialIcon
+                          icon="hourglass_empty"
+                          className="mr-2 animate-spin"
+                        />
+                      ) : (
+                        <MaterialIcon icon="check" className="mr-2" />
+                      )}
+                      {isSubmitting ? 'Scheduling...' : 'Schedule Consultation'}
+                    </Button>
+                  </div>
+
+                  {submitStatus === 'error' && (
+                    <div className="bg-red-50 p-4 border border-red-200 rounded-lg">
+                      <p className="text-red-700">
+                        There was an error scheduling your consultation. Please
+                        try again or call us at (509) 308-6489.
+                      </p>
+                    </div>
+                  )}
+                </form>
+              </CardContent>
+            </Card>
+          )}
+        </StaggeredFadeIn>
+      </div>
+    </div>
+  )
+}

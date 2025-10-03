@@ -322,14 +322,20 @@ export default function GovernmentGrantsPage() {
                   <MaterialIcon icon="phone" className="mr-2" size="md" />
                   Call (509) 308-6489
                 </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="hover:bg-gray-800 px-8 py-6 border-2 border-white text-white text-lg"
-                >
-                  <MaterialIcon icon="description" className="mr-2" size="md" />
-                  Request Consultation
-                </Button>
+                <Link href="/booking">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="hover:bg-gray-800 px-8 py-6 border-2 border-white text-white text-lg"
+                  >
+                    <MaterialIcon
+                      icon="description"
+                      className="mr-2"
+                      size="md"
+                    />
+                    Request Consultation
+                  </Button>
+                </Link>
               </div>
             </div>
           </FadeInWhenVisible>
@@ -845,17 +851,19 @@ export default function GovernmentGrantsPage() {
               </div>
 
               <div className="flex sm:flex-row flex-col justify-center gap-4">
-                <Button
-                  size="lg"
-                  className="bg-white hover:bg-gray-100 px-10 py-7 text-black text-xl"
-                >
-                  <MaterialIcon
-                    icon="phone_in_talk"
-                    className="mr-3"
+                <Link href="/booking">
+                  <Button
                     size="lg"
-                  />
-                  Schedule Consultation
-                </Button>
+                    className="bg-white hover:bg-gray-100 px-10 py-7 text-black text-xl"
+                  >
+                    <MaterialIcon
+                      icon="phone_in_talk"
+                      className="mr-3"
+                      size="lg"
+                    />
+                    Schedule Consultation
+                  </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"
