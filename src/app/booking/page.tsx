@@ -218,22 +218,24 @@ export default function BookingPage() {
 
   if (submitStatus === 'success') {
     return (
-      <div className="bg-gradient-to-br from-white via-gray-50 to-gray-100 min-h-screen">
+      <div className="bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-900 to-gray-100 dark:to-gray-800 min-h-screen">
         <div className="mx-auto px-4 py-20 max-w-4xl">
           <FadeInWhenVisible>
-            <Card className="bg-green-50 shadow-xl border-green-200">
+            <Card className="bg-green-50 dark:bg-green-900/20 shadow-xl border-green-200 dark:border-green-800">
               <CardContent className="p-12 text-center">
-                <div className="mb-6 text-green-600 text-6xl">✅</div>
-                <h1 className="mb-4 font-bold text-green-800 text-3xl">
+                <div className="mb-6 text-green-600 dark:text-green-400 text-6xl">
+                  ✅
+                </div>
+                <h1 className="mb-4 font-bold text-green-800 dark:text-green-200 text-3xl">
                   Consultation Scheduled!
                 </h1>
-                <div className="space-y-4 mb-8 text-green-700">
+                <div className="space-y-4 mb-8 text-green-700 dark:text-green-300">
                   <p className="text-xl">
                     Thank you, <strong>{formData.clientName}</strong>!
                   </p>
                   <p className="text-lg">Your consultation is scheduled for:</p>
-                  <div className="bg-green-100 mx-auto p-4 border border-green-300 rounded-lg max-w-md">
-                    <p className="font-semibold text-green-800">
+                  <div className="bg-green-100 dark:bg-green-800/30 mx-auto p-4 border border-green-300 dark:border-green-700 rounded-lg max-w-md">
+                    <p className="font-semibold text-green-800 dark:text-green-200">
                       📅{' '}
                       {new Date(formData.selectedDate).toLocaleDateString(
                         'en-US',
@@ -245,13 +247,13 @@ export default function BookingPage() {
                         }
                       )}
                     </p>
-                    <p className="font-semibold text-green-800">
+                    <p className="font-semibold text-green-800 dark:text-green-200">
                       🕐 {formData.selectedTime}
                     </p>
                   </div>
                 </div>
 
-                <div className="space-y-3 mb-8 text-green-600 text-sm">
+                <div className="space-y-3 mb-8 text-green-600 dark:text-green-400 text-sm">
                   <p>
                     <strong>Next Steps:</strong>
                   </p>
@@ -275,7 +277,7 @@ export default function BookingPage() {
                   <Link href="/">
                     <Button
                       size="lg"
-                      className="bg-green-600 hover:bg-green-700"
+                      className="bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark text-white"
                     >
                       <MaterialIcon icon="home" className="mr-2" />
                       Return Home
@@ -284,8 +286,7 @@ export default function BookingPage() {
                   <Link href="/services">
                     <Button
                       size="lg"
-                      variant="outline"
-                      className="hover:bg-green-50 border-green-600 text-green-600"
+                      className="bg-brand-secondary hover:bg-brand-secondary-dark dark:bg-brand-secondary dark:hover:bg-brand-secondary-dark text-black dark:text-black"
                     >
                       <MaterialIcon icon="build" className="mr-2" />
                       View Our Services
@@ -293,11 +294,11 @@ export default function BookingPage() {
                   </Link>
                 </div>
 
-                <div className="bg-green-100 mt-8 p-4 border border-green-300 rounded-lg">
-                  <p className="mb-2 font-semibold text-green-800">
+                <div className="bg-green-100 dark:bg-green-800/30 mt-8 p-4 border border-green-300 dark:border-green-700 rounded-lg">
+                  <p className="mb-2 font-semibold text-green-800 dark:text-green-200">
                     Need to reschedule?
                   </p>
-                  <p className="text-green-700 text-sm">
+                  <p className="text-green-700 dark:text-green-300 text-sm">
                     Call us at{' '}
                     <a
                       href="tel:+15093086489"
@@ -323,16 +324,11 @@ export default function BookingPage() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-white via-gray-50 to-gray-100 min-h-screen">
+    <div className="bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-900 to-gray-100 dark:to-gray-800 min-h-screen">
       {/* Header */}
-      <section className="bg-gradient-to-r from-brand-primary to-brand-primary-dark py-16 text-white">
+      <section className="bg-gradient-to-br from-gray-800 dark:from-black via-gray-900 dark:via-gray-900 to-black dark:to-black pt-24 pb-16 text-white">
         <div className="mx-auto px-4 max-w-4xl text-center">
           <FadeInWhenVisible>
-            <MaterialIcon
-              icon="event"
-              size="3xl"
-              className="mb-4 text-white/90"
-            />
             <h1 className="mb-4 font-bold text-4xl md:text-5xl">
               Schedule Your Free Consultation
             </h1>
@@ -345,17 +341,21 @@ export default function BookingPage() {
       </section>
 
       {/* Progress Indicator */}
-      <div className="bg-white shadow-sm py-4">
+      <div className="bg-white dark:bg-gray-800 shadow-sm py-4">
         <div className="mx-auto px-4 max-w-4xl">
           <div className="flex justify-center items-center space-x-8">
             <div
               className={`flex items-center ${
-                step >= 1 ? 'text-brand-primary' : 'text-gray-400'
+                step >= 1
+                  ? 'text-brand-primary dark:text-brand-primary'
+                  : 'text-gray-400 dark:text-gray-500'
               }`}
             >
               <div
                 className={`flex justify-center items-center mr-2 rounded-full w-8 h-8 text-sm font-bold ${
-                  step >= 1 ? 'bg-brand-primary text-white' : 'bg-gray-200'
+                  step >= 1
+                    ? 'bg-brand-primary text-white'
+                    : 'bg-gray-200 dark:bg-gray-600 dark:text-gray-400'
                 }`}
               >
                 1
@@ -364,17 +364,21 @@ export default function BookingPage() {
             </div>
             <div
               className={`w-16 h-0.5 ${
-                step >= 2 ? 'bg-brand-primary' : 'bg-gray-300'
+                step >= 2 ? 'bg-brand-primary' : 'bg-gray-300 dark:bg-gray-600'
               }`}
             />
             <div
               className={`flex items-center ${
-                step >= 2 ? 'text-brand-primary' : 'text-gray-400'
+                step >= 2
+                  ? 'text-brand-primary dark:text-brand-primary'
+                  : 'text-gray-400 dark:text-gray-500'
               }`}
             >
               <div
                 className={`flex justify-center items-center mr-2 rounded-full w-8 h-8 text-sm font-bold ${
-                  step >= 2 ? 'bg-brand-primary text-white' : 'bg-gray-200'
+                  step >= 2
+                    ? 'bg-brand-primary text-white'
+                    : 'bg-gray-200 dark:bg-gray-600 dark:text-gray-400'
                 }`}
               >
                 2
@@ -383,17 +387,21 @@ export default function BookingPage() {
             </div>
             <div
               className={`w-16 h-0.5 ${
-                step >= 3 ? 'bg-brand-primary' : 'bg-gray-300'
+                step >= 3 ? 'bg-brand-primary' : 'bg-gray-300 dark:bg-gray-600'
               }`}
             />
             <div
               className={`flex items-center ${
-                step >= 3 ? 'text-brand-primary' : 'text-gray-400'
+                step >= 3
+                  ? 'text-brand-primary dark:text-brand-primary'
+                  : 'text-gray-400 dark:text-gray-500'
               }`}
             >
               <div
                 className={`flex justify-center items-center mr-2 rounded-full w-8 h-8 text-sm font-bold ${
-                  step >= 3 ? 'bg-brand-primary text-white' : 'bg-gray-200'
+                  step >= 3
+                    ? 'bg-brand-primary text-white'
+                    : 'bg-gray-200 dark:bg-gray-600 dark:text-gray-400'
                 }`}
               >
                 3
@@ -408,20 +416,20 @@ export default function BookingPage() {
       <div className="mx-auto px-4 py-12 max-w-4xl">
         <StaggeredFadeIn>
           {step === 1 && (
-            <Card className="shadow-xl">
+            <Card className="bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700">
               <CardHeader>
-                <CardTitle className="flex items-center text-2xl">
+                <CardTitle className="flex items-center text-gray-900 dark:text-white text-2xl">
                   <MaterialIcon icon="calendar_month" className="mr-3" />
                   Select Date & Time
                 </CardTitle>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-300">
                   Choose your preferred date and time for the consultation
                 </p>
               </CardHeader>
               <CardContent className="space-y-8">
                 {/* Calendar */}
                 <div>
-                  <h3 className="mb-4 font-semibold text-lg">
+                  <h3 className="mb-4 font-semibold text-gray-900 dark:text-white text-lg">
                     Available Dates
                   </h3>
                   <div className="gap-3 grid grid-cols-4 md:grid-cols-7">
@@ -432,7 +440,7 @@ export default function BookingPage() {
                         className={`p-3 border rounded-lg text-center transition-all duration-200 ${
                           selectedDate === day.date
                             ? 'bg-brand-primary border-brand-primary text-white'
-                            : 'hover:bg-brand-primary/10 hover:border-brand-primary border-gray-200'
+                            : 'hover:bg-brand-primary/10 hover:border-brand-primary border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white'
                         }`}
                       >
                         <div className="font-medium text-xs">{day.dayName}</div>
@@ -447,7 +455,7 @@ export default function BookingPage() {
                 {/* Time Slots */}
                 {selectedDate && (
                   <div>
-                    <h3 className="mb-4 font-semibold text-lg">
+                    <h3 className="mb-4 font-semibold text-gray-900 dark:text-white text-lg">
                       Available Times
                     </h3>
                     <div className="gap-3 grid grid-cols-2 md:grid-cols-4">
@@ -458,7 +466,7 @@ export default function BookingPage() {
                           className={`p-3 border rounded-lg text-center transition-all duration-200 ${
                             selectedTime === time
                               ? 'bg-brand-primary border-brand-primary text-white'
-                              : 'hover:bg-brand-primary/10 hover:border-brand-primary border-gray-200'
+                              : 'hover:bg-brand-primary/10 hover:border-brand-primary border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white'
                           }`}
                         >
                           {time}
@@ -470,9 +478,9 @@ export default function BookingPage() {
 
                 {/* Continue Button */}
                 {selectedDate && selectedTime && (
-                  <div className="pt-6 border-t">
-                    <div className="bg-brand-primary/10 mb-4 p-4 border border-brand-primary/20 rounded-lg">
-                      <p className="font-semibold text-brand-primary">
+                  <div className="pt-6 border-gray-200 dark:border-gray-600 border-t">
+                    <div className="bg-brand-primary/10 dark:bg-brand-primary/20 mb-4 p-4 border border-brand-primary/20 dark:border-brand-primary/30 rounded-lg">
+                      <p className="font-semibold text-brand-primary dark:text-brand-primary">
                         Selected:{' '}
                         {
                           calendarDays.find(d => d.date === selectedDate)
@@ -484,7 +492,7 @@ export default function BookingPage() {
                     <Button
                       onClick={() => setStep(2)}
                       size="lg"
-                      className="w-full"
+                      className="bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark w-full text-white"
                     >
                       <MaterialIcon icon="arrow_forward" className="mr-2" />
                       Continue to Details
@@ -496,13 +504,13 @@ export default function BookingPage() {
           )}
 
           {step === 2 && (
-            <Card className="shadow-xl">
+            <Card className="bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700">
               <CardHeader>
-                <CardTitle className="flex items-center text-2xl">
+                <CardTitle className="flex items-center text-gray-900 dark:text-white text-2xl">
                   <MaterialIcon icon="person" className="mr-3" />
                   Your Information
                 </CardTitle>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-300">
                   Tell us about yourself and your project
                 </p>
               </CardHeader>
@@ -511,7 +519,7 @@ export default function BookingPage() {
                   {/* Personal Information */}
                   <div className="gap-4 grid md:grid-cols-2">
                     <div>
-                      <label className="block mb-2 font-medium text-gray-700 text-sm">
+                      <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
                         Full Name *
                       </label>
                       <input
@@ -520,12 +528,12 @@ export default function BookingPage() {
                         value={formData.clientName}
                         onChange={handleInputChange}
                         required
-                        className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                        className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
                         placeholder="John Smith"
                       />
                     </div>
                     <div>
-                      <label className="block mb-2 font-medium text-gray-700 text-sm">
+                      <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
                         Email Address *
                       </label>
                       <input
@@ -534,7 +542,7 @@ export default function BookingPage() {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                        className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -542,7 +550,7 @@ export default function BookingPage() {
 
                   <div className="gap-4 grid md:grid-cols-2">
                     <div>
-                      <label className="block mb-2 font-medium text-gray-700 text-sm">
+                      <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
                         Phone Number *
                       </label>
                       <input
@@ -551,12 +559,12 @@ export default function BookingPage() {
                         value={formData.phone}
                         onChange={handleInputChange}
                         required
-                        className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                        className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
                         placeholder="(509) 555-0123"
                       />
                     </div>
                     <div>
-                      <label className="block mb-2 font-medium text-gray-700 text-sm">
+                      <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
                         Project Type *
                       </label>
                       <select
@@ -564,7 +572,7 @@ export default function BookingPage() {
                         value={formData.projectType}
                         onChange={handleInputChange}
                         required
-                        className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                        className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
                       >
                         <option value="">Select project type</option>
                         {projectTypes.map(type => (
@@ -578,7 +586,7 @@ export default function BookingPage() {
 
                   <div className="gap-4 grid md:grid-cols-2">
                     <div>
-                      <label className="block mb-2 font-medium text-gray-700 text-sm">
+                      <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
                         Project Location
                       </label>
                       <input
@@ -586,19 +594,19 @@ export default function BookingPage() {
                         name="location"
                         value={formData.location}
                         onChange={handleInputChange}
-                        className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                        className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
                         placeholder="Pasco, WA"
                       />
                     </div>
                     <div>
-                      <label className="block mb-2 font-medium text-gray-700 text-sm">
+                      <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
                         Estimated Budget
                       </label>
                       <select
                         name="budget"
                         value={formData.budget}
                         onChange={handleInputChange}
-                        className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                        className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
                       >
                         <option value="">Select budget range</option>
                         <option value="50000">Under $50,000</option>
@@ -612,7 +620,7 @@ export default function BookingPage() {
                   </div>
 
                   <div>
-                    <label className="block mb-2 font-medium text-gray-700 text-sm">
+                    <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
                       Project Description *
                     </label>
                     <textarea
@@ -621,13 +629,13 @@ export default function BookingPage() {
                       onChange={handleInputChange}
                       required
                       rows={4}
-                      className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                      className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
                       placeholder="Describe your project, including any specific requirements or goals..."
                     />
                   </div>
 
                   <div>
-                    <label className="block mb-2 font-medium text-gray-700 text-sm">
+                    <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
                       Additional Notes
                     </label>
                     <textarea
@@ -635,17 +643,17 @@ export default function BookingPage() {
                       value={formData.additionalNotes}
                       onChange={handleInputChange}
                       rows={3}
-                      className="px-4 py-3 border border-gray-300 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full"
+                      className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
                       placeholder="Any additional information you'd like us to know..."
                     />
                   </div>
 
                   {/* Summary */}
-                  <div className="bg-gray-50 p-4 border rounded-lg">
-                    <h4 className="mb-2 font-semibold">
+                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 border border-gray-200 dark:border-gray-600 rounded-lg">
+                    <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">
                       Consultation Summary:
                     </h4>
-                    <p className="text-gray-700 text-sm">
+                    <p className="text-gray-700 dark:text-gray-300 text-sm">
                       📅{' '}
                       {
                         calendarDays.find(d => d.date === selectedDate)
@@ -665,7 +673,7 @@ export default function BookingPage() {
                       type="button"
                       variant="outline"
                       onClick={() => setStep(1)}
-                      className="flex-1"
+                      className="flex-1 hover:bg-gray-50 dark:hover:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300"
                     >
                       <MaterialIcon icon="arrow_back" className="mr-2" />
                       Back to Date & Time
@@ -673,7 +681,7 @@ export default function BookingPage() {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="flex-1"
+                      className="flex-1 bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark text-white"
                     >
                       {isSubmitting ? (
                         <MaterialIcon
@@ -688,8 +696,8 @@ export default function BookingPage() {
                   </div>
 
                   {submitStatus === 'error' && (
-                    <div className="bg-red-50 p-4 border border-red-200 rounded-lg">
-                      <p className="text-red-700">
+                    <div className="bg-red-50 dark:bg-red-900/20 p-4 border border-red-200 dark:border-red-800 rounded-lg">
+                      <p className="text-red-700 dark:text-red-300">
                         There was an error scheduling your consultation. Please
                         try again or call us at (509) 308-6489.
                       </p>

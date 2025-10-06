@@ -557,6 +557,128 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Join Our Team CTA Section */}
+      <section className="bg-gradient-to-br from-brand-primary/5 dark:from-brand-primary/10 to-brand-secondary/5 dark:to-brand-secondary/10 py-16 lg:py-24">
+        <div className="mx-auto px-4 container">
+          <FadeInWhenVisible>
+            <div className="mx-auto max-w-4xl text-center">
+              <div className="mb-8">
+                <MaterialIcon
+                  icon="group_add"
+                  size="4xl"
+                  className="mb-6 text-brand-primary"
+                />
+                <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl">
+                  Ready to Join Our Team?
+                </h2>
+                <p className="mb-8 text-gray-700 dark:text-gray-300 text-xl leading-relaxed">
+                  We're always looking for skilled professionals who share our
+                  commitment to excellence. From seasoned construction veterans
+                  to emerging talent, we believe in growing together and
+                  building something extraordinary.
+                </p>
+              </div>
+
+              <div className="gap-8 grid grid-cols-1 md:grid-cols-3 mb-12">
+                <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-6 rounded-xl transition-shadow duration-300">
+                  <MaterialIcon
+                    icon="construction"
+                    size="2xl"
+                    className="mb-4 text-brand-primary"
+                  />
+                  <h3 className="mb-3 font-semibold text-gray-900 dark:text-white text-lg">
+                    Construction Professionals
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">
+                    Skilled tradespeople, equipment operators, and field
+                    supervisors
+                  </p>
+                </div>
+
+                <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-6 rounded-xl transition-shadow duration-300">
+                  <MaterialIcon
+                    icon="engineering"
+                    size="2xl"
+                    className="mb-4 text-brand-secondary"
+                  />
+                  <h3 className="mb-3 font-semibold text-gray-900 dark:text-white text-lg">
+                    Project Management
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">
+                    Project managers, estimators, and planning coordinators
+                  </p>
+                </div>
+
+                <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-6 rounded-xl transition-shadow duration-300">
+                  <MaterialIcon
+                    icon="business"
+                    size="2xl"
+                    className="mb-4 text-brand-accent"
+                  />
+                  <h3 className="mb-3 font-semibold text-gray-900 dark:text-white text-lg">
+                    Support & Admin
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">
+                    Administrative assistants, safety coordinators, and office
+                    support
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex sm:flex-row flex-col justify-center items-center gap-6">
+                <Link
+                  href="/team"
+                  className="inline-flex items-center bg-gradient-to-r from-brand-primary hover:from-brand-primary-dark to-brand-primary-dark hover:to-brand-primary shadow-lg px-8 py-4 rounded-lg font-semibold text-white hover:scale-105 transition-all duration-200 transform"
+                >
+                  <MaterialIcon icon="groups" className="mr-2" size="md" />
+                  Apply to Join Our Team
+                </Link>
+
+                <Link
+                  href="/team"
+                  className="inline-flex items-center hover:bg-brand-primary px-8 py-4 border-2 border-brand-primary rounded-lg font-semibold text-brand-primary hover:text-white transition-all duration-200"
+                >
+                  <MaterialIcon icon="visibility" className="mr-2" size="md" />
+                  Meet Our Team
+                </Link>
+              </div>
+
+              <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm mt-12 p-6 rounded-xl">
+                <div className="flex justify-center items-start space-x-4">
+                  <MaterialIcon
+                    icon="info"
+                    size="lg"
+                    className="flex-shrink-0 mt-1 text-brand-primary"
+                  />
+                  <div className="text-left">
+                    <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">
+                      Why Join MH Construction?
+                    </h4>
+                    <ul className="space-y-1 text-gray-600 dark:text-gray-300 text-sm">
+                      <li>• Competitive compensation and benefits package</li>
+                      <li>
+                        • Professional development and training opportunities
+                      </li>
+                      <li>
+                        • Veteran-friendly workplace with military precision
+                        values
+                      </li>
+                      <li>
+                        • Family-oriented culture that supports work-life
+                        balance
+                      </li>
+                      <li>
+                        • Opportunity to work on meaningful community projects
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </FadeInWhenVisible>
+        </div>
+      </section>
+
       {/* Map Section Placeholder */}
       <section className="bg-white dark:bg-gray-900 py-16 lg:py-24">
         <div className="mx-auto px-4 container">

@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { PageHero } from '../../components/ui'
 import { VintageBaseballCard } from '../../components/ui/VintageBaseballCard'
@@ -38,20 +38,20 @@ export default function TeamPage() {
   ]
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
       <PageHero
         title="Our Team"
         subtitle="Meet the professionals behind MH Construction"
         description="Discover our team through authentic vintage-style trading cards. Click on any card to flip it and explore professional statistics, career highlights, and personal stories."
       />
 
-      <div className="bg-gray-50 py-16">
+      <div className="bg-gray-50 dark:bg-gray-900 py-16">
         <div className="mx-auto px-4 max-w-7xl">
           <div className="mb-16 text-center">
-            <h2 className="mb-6 font-bold text-gray-900 text-4xl">
+            <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl">
               Professional Team Cards
             </h2>
-            <p className="mx-auto max-w-3xl text-gray-600 text-lg leading-relaxed">
+            <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
               Experience our team through vintage-style baseball cards featuring
               professional statistics, career achievements, and personal
               stories. Each card showcases the expertise and dedication that
@@ -68,14 +68,14 @@ export default function TeamPage() {
               return (
                 <FadeInWhenVisible key={department}>
                   <div className="relative">
-                    {/* Vintage-styled department header */}
+                    {/* MH-styled department header */}
                     <div className="mb-16 text-center">
-                      <div className="inline-block bg-gradient-to-r from-amber-800 to-amber-600 shadow-lg mb-6 px-12 py-4 rounded-lg">
+                      <div className="inline-block bg-gradient-to-r from-brand-primary to-brand-primary-dark shadow-lg mb-6 px-12 py-4 rounded-lg">
                         <h3 className="font-black text-white text-2xl uppercase tracking-wider">
                           {department}
                         </h3>
                       </div>
-                      <div className="bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto rounded-full w-48 h-1"></div>
+                      <div className="bg-gradient-to-r from-transparent via-brand-secondary to-transparent mx-auto rounded-full w-48 h-1"></div>
                     </div>
 
                     {/* Vintage cards grid */}
@@ -95,23 +95,293 @@ export default function TeamPage() {
             })}
           </div>
 
-          {/* Call to Action */}
+          {/* Life at MH Section */}
+          <div className="mt-24">
+            <FadeInWhenVisible>
+              <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 p-12 rounded-2xl">
+                <div className="mb-12 text-center">
+                  <h2 className="mb-6 font-bold text-brand-primary text-4xl">
+                    Life at MH Construction
+                  </h2>
+                  <p className="mx-auto max-w-3xl text-gray-700 dark:text-gray-300 text-xl leading-relaxed">
+                    "All for one, one for all" isn't just a motto—it's how we
+                    build, grow, and succeed together.
+                  </p>
+                </div>
+
+                <div className="gap-8 grid grid-cols-1 lg:grid-cols-3 mb-12">
+                  {/* Team Unity */}
+                  <FadeInWhenVisible>
+                    <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
+                      <div className="flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark mx-auto mb-6 rounded-full w-16 h-16">
+                        <svg
+                          className="w-8 h-8 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                          />
+                        </svg>
+                      </div>
+                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
+                        Team Unity
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
+                        From veterans to civilians, office to field—we're one
+                        team with shared values. Every project success belongs
+                        to all of us.
+                      </p>
+                    </div>
+                  </FadeInWhenVisible>
+
+                  {/* Mutual Support */}
+                  <FadeInWhenVisible>
+                    <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
+                      <div className="flex justify-center items-center bg-gradient-to-r from-brand-secondary to-brand-secondary-dark mx-auto mb-6 rounded-full w-16 h-16">
+                        <svg
+                          className="w-8 h-8 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                          />
+                        </svg>
+                      </div>
+                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
+                        Mutual Support
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
+                        We lift each other up, share knowledge freely, and
+                        ensure no one faces challenges alone. Your growth is our
+                        growth.
+                      </p>
+                    </div>
+                  </FadeInWhenVisible>
+
+                  {/* Shared Success */}
+                  <FadeInWhenVisible>
+                    <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
+                      <div className="flex justify-center items-center bg-gradient-to-r from-brand-accent mx-auto mb-6 rounded-full w-16 h-16 to-brand-accent-dark">
+                        <svg
+                          className="w-8 h-8 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                          />
+                        </svg>
+                      </div>
+                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
+                        Shared Success
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
+                        When one of us wins, we all win. Celebrating
+                        achievements together and learning from setbacks as a
+                        unified team.
+                      </p>
+                    </div>
+                  </FadeInWhenVisible>
+                </div>
+
+                {/* Culture Highlights */}
+                <div className="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-xl">
+                  <h3 className="mb-8 font-bold text-brand-primary text-2xl text-center">
+                    What Makes Our Culture Special
+                  </h3>
+                  <div className="gap-8 grid grid-cols-1 md:grid-cols-2">
+                    <div className="space-y-6">
+                      <div className="flex items-start space-x-4">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-brand-primary rounded-full w-8 h-8">
+                          <svg
+                            className="w-4 h-4 text-white"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
+                            Military Precision, Civilian Innovation
+                          </h4>
+                          <p className="text-gray-600 dark:text-gray-300">
+                            Combining disciplined excellence with creative
+                            problem-solving
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start space-x-4">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-brand-primary rounded-full w-8 h-8">
+                          <svg
+                            className="w-4 h-4 text-white"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
+                            Continuous Learning
+                          </h4>
+                          <p className="text-gray-600 dark:text-gray-300">
+                            We invest in each other's growth and development
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start space-x-4">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-brand-primary rounded-full w-8 h-8">
+                          <svg
+                            className="w-4 h-4 text-white"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
+                            Work-Life Balance
+                          </h4>
+                          <p className="text-gray-600 dark:text-gray-300">
+                            Supporting families and personal well-being
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-6">
+                      <div className="flex items-start space-x-4">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-brand-secondary rounded-full w-8 h-8">
+                          <svg
+                            className="w-4 h-4 text-white"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
+                            Open Communication
+                          </h4>
+                          <p className="text-gray-600 dark:text-gray-300">
+                            Every voice matters, from apprentice to owner
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start space-x-4">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-brand-secondary rounded-full w-8 h-8">
+                          <svg
+                            className="w-4 h-4 text-white"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
+                            Community Focused
+                          </h4>
+                          <p className="text-gray-600 dark:text-gray-300">
+                            Building stronger communities, one project at a time
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start space-x-4">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-brand-secondary rounded-full w-8 h-8">
+                          <svg
+                            className="w-4 h-4 text-white"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
+                            Safety First
+                          </h4>
+                          <p className="text-gray-600 dark:text-gray-300">
+                            Everyone goes home safe, every single day
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quote Section */}
+                <div className="mt-12 text-center">
+                  <blockquote className="mb-4 font-medium text-brand-primary text-2xl italic">
+                    "When you join MH Construction, you're not just getting a
+                    job—you're joining a family that believes in your potential
+                    and invests in your future."
+                  </blockquote>
+                  <cite className="font-semibold text-brand-secondary">
+                    — Jeremy Thamert, Owner & General Manager
+                  </cite>
+                </div>
+              </div>
+            </FadeInWhenVisible>
+          </div>
+
+          {/* Call to Action - Careers Link */}
           <div className="mt-20 text-center">
             <FadeInWhenVisible>
-              <div className="bg-white shadow-xl mx-auto p-8 border border-amber-200 rounded-lg max-w-2xl">
-                <h3 className="mb-4 font-bold text-gray-900 text-2xl">
-                  Ready to Work with Our Championship Team?
+              <div className="bg-white dark:bg-gray-800 shadow-xl mx-auto p-8 border border-brand-secondary rounded-lg max-w-2xl">
+                <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-2xl">
+                  Interested in Joining Our Team?
                 </h3>
-                <p className="mb-6 text-gray-600">
-                  Our experienced professionals are ready to bring your
-                  construction project to life. Contact us today to get started
-                  with a team that delivers results.
+                <p className="mb-6 text-gray-600 dark:text-gray-300">
+                  Explore career opportunities and learn more about what makes
+                  MH Construction a great place to work. View our current
+                  openings and discover the benefits of joining our
+                  veteran-owned company.
                 </p>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center bg-gradient-to-r from-amber-600 hover:from-amber-700 to-amber-700 hover:to-amber-800 shadow-lg px-8 py-3 rounded-lg font-semibold text-white transition-all duration-200"
-                >
-                  Contact Our Team
+                <Link href="/careers">
+                  <button className="inline-flex items-center bg-gradient-to-r from-brand-primary hover:from-brand-primary-dark to-brand-primary-dark hover:to-brand-primary shadow-lg px-8 py-3 rounded-lg font-semibold text-white transition-all duration-200">
+                    View Career Opportunities
+                  </button>
                 </Link>
               </div>
             </FadeInWhenVisible>

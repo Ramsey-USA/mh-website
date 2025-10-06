@@ -17,8 +17,8 @@ export default function Footer() {
               <Image
                 src="/images/logo/mh-logo.png"
                 alt="MH Construction Logo"
-                width={120}
-                height={60}
+                width={132}
+                height={66}
                 className="mx-auto lg:mx-0 mb-4"
               />
               <p className="mb-4 text-gray-400 text-sm">
@@ -105,6 +105,23 @@ export default function Footer() {
               </h4>
             </div>
             <nav className="space-y-2">
+              <Link
+                href="/booking"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary text-sm transition-all hover:translate-x-1 duration-300"
+              >
+                <MaterialIcon
+                  icon="event"
+                  size="sm"
+                  className="text-gray-500 group-hover:text-brand-primary transition-colors"
+                />
+                <span>Book Appointment</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
               <Link
                 href="/"
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary text-sm transition-all hover:translate-x-1 duration-300"
@@ -200,6 +217,40 @@ export default function Footer() {
                   className="text-gray-500 group-hover:text-brand-primary transition-colors"
                 />
                 <span>Government & Grants</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
+              <Link
+                href="/trade-partners"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary text-sm transition-all hover:translate-x-1 duration-300"
+              >
+                <MaterialIcon
+                  icon="handshake"
+                  size="sm"
+                  className="text-gray-500 group-hover:text-brand-primary transition-colors"
+                />
+                <span>Trade Partners</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
+              <Link
+                href="/careers"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary text-sm transition-all hover:translate-x-1 duration-300"
+              >
+                <MaterialIcon
+                  icon="work"
+                  size="sm"
+                  className="text-gray-500 group-hover:text-brand-primary transition-colors"
+                />
+                <span>Careers</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -311,8 +362,34 @@ export default function Footer() {
               </div>
             </div>
 
+            {/* Search Bar */}
+            <div className="space-y-3 pt-2 border-gray-700 border-t">
+              <div className="mb-2 text-gray-400 text-xs">Quick Search</div>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search our website..."
+                  className="bg-gray-700/50 hover:bg-gray-700 focus:bg-gray-700 px-4 py-3 pr-14 border border-gray-600 focus:border-brand-primary rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary/20 w-full text-gray-300 text-sm transition-all duration-300 placeholder-gray-500"
+                />
+                <button
+                  type="submit"
+                  className="top-1/2 right-1 absolute bg-brand-primary hover:bg-brand-primary/80 p-1.5 rounded-lg text-white hover:scale-105 transition-all -translate-y-1/2 duration-300 transform"
+                  aria-label="Search"
+                >
+                  <MaterialIcon
+                    icon="search"
+                    size="sm"
+                    className="text-white"
+                  />
+                </button>
+              </div>
+              <div className="text-gray-500 text-xs">
+                Search pages, services, team members, and more
+              </div>
+            </div>
+
             {/* Additional Resources */}
-            <div className="space-y-2 pt-2 border-gray-700 border-t">
+            <div className="space-y-2 pt-4">
               <div className="mb-2 text-gray-400 text-xs">Resources</div>
               <div className="flex items-center space-x-2 opacity-60 text-gray-500 text-xs cursor-not-allowed">
                 <MaterialIcon

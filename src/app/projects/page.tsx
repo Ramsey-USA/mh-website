@@ -41,42 +41,73 @@ const capabilities = [
   {
     icon: 'church',
     title: 'Religious Facilities',
-    description: 'Churches and community centers with thoughtful design',
+    description:
+      'Partnering with congregations to create churches and community centers with thoughtful design that serves your mission',
   },
   {
     icon: 'business',
     title: 'Commercial Buildings',
-    description: 'Office buildings, retail centers, and government facilities',
+    description:
+      'Collaborating on office buildings, retail centers, and government facilities that strengthen community infrastructure',
   },
   {
     icon: 'local_hospital',
     title: 'Medical Facilities',
-    description: 'Medical centers and clinics with specialized compliance',
+    description:
+      'Working with healthcare providers to build medical centers and clinics with specialized compliance and community focus',
   },
   {
     icon: 'wine_bar',
     title: 'Wineries & Vineyards',
-    description: 'Processing facilities and tasting rooms',
+    description:
+      'Partnering with vintners to create processing facilities and tasting rooms that celebrate Pacific Northwest heritage',
   },
   {
     icon: 'factory',
     title: 'Light Industrial',
-    description: 'Warehouses and processing plants',
+    description:
+      'Collaborating on warehouses and processing plants that support regional economic growth',
   },
   {
     icon: 'store',
     title: 'Tenant Improvements',
-    description: 'Commercial space transformations',
+    description:
+      'Working with businesses to transform commercial spaces that serve community needs',
   },
 ]
 
 export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState('all')
+  const [searchQuery, setSearchQuery] = useState('')
 
-  // Get projects based on selected category
+  // Get projects based on selected category and search query
   const projects = useMemo(() => {
-    return PortfolioService.getProjectsByCategory(selectedCategory)
-  }, [selectedCategory])
+    let filteredProjects =
+      PortfolioService.getProjectsByCategory(selectedCategory)
+
+    if (searchQuery.trim()) {
+      filteredProjects = filteredProjects.filter(
+        project =>
+          project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          project.description
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase()) ||
+          (project.subcategory &&
+            project.subcategory
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase())) ||
+          project.location.city
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase()) ||
+          (project.tags &&
+            project.tags.some(tag =>
+              tag.toLowerCase().includes(searchQuery.toLowerCase())
+            ))
+      )
+    }
+
+    return filteredProjects
+  }, [selectedCategory, searchQuery])
 
   const stats = PortfolioService.getPortfolioStats()
 
@@ -101,8 +132,9 @@ export default function ProjectsPage() {
                 Proven Track Record
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
-                Numbers that reflect our commitment to excellence and client
-                satisfaction
+                Building for the Owner, NOT the Dollar - Numbers that reflect
+                our veteran-owned commitment to excellence and client
+                partnerships
               </p>
             </div>
 
@@ -129,18 +161,86 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* Category Filter */}
+      {/* Veteran-Owned Benefits */}
+      <section className="bg-gradient-to-r from-brand-primary/10 dark:from-brand-primary/20 to-brand-primary/5 dark:to-brand-primary/10 py-12">
+        <div className="mx-auto px-4 container">
+          <FadeInWhenVisible>
+            <div className="flex md:flex-row flex-col justify-center items-center gap-8 mx-auto max-w-4xl">
+              <div className="flex items-center">
+                <MaterialIcon
+                  icon="military_tech"
+                  size="3xl"
+                  className="mr-4 text-brand-primary"
+                />
+                <div>
+                  <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl">
+                    Veteran-Owned Excellence
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Military precision meets construction expertise
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <MaterialIcon
+                  icon="verified"
+                  size="3xl"
+                  className="mr-4 text-brand-secondary"
+                />
+                <div>
+                  <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl">
+                    Certified & Trusted
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Licensed, bonded, and committed to quality
+                  </p>
+                </div>
+              </div>
+            </div>
+          </FadeInWhenVisible>
+        </div>
+      </section>
+
+      {/* Category Filter & Search */}
       <section className="bg-gray-50 dark:bg-gray-800 py-12 border-gray-200 border-y dark:border-gray-700">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-8 text-center">
               <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-2xl">
-                Filter by Project Type
+                Find Your Perfect Partnership
               </h3>
               <p className="text-gray-600 dark:text-gray-300">
-                Browse our diverse portfolio by construction category
+                Search our portfolio and filter by project type
               </p>
             </div>
+
+            {/* Search Bar */}
+            <div className="mx-auto mb-8 max-w-2xl">
+              <div className="relative">
+                <MaterialIcon
+                  icon="search"
+                  size="md"
+                  className="top-1/2 left-4 absolute text-gray-400 -translate-y-1/2 transform"
+                />
+                <input
+                  type="text"
+                  placeholder="Search projects by name, location, type, or features..."
+                  value={searchQuery}
+                  onChange={e => setSearchQuery(e.target.value)}
+                  className="bg-white dark:bg-gray-700 py-4 pr-4 pl-12 border border-gray-300 dark:border-gray-600 focus:border-brand-primary dark:focus:border-brand-primary rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary/20 w-full text-gray-900 dark:text-white"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="top-1/2 right-4 absolute hover:bg-gray-200 dark:hover:bg-gray-600 p-1 rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors -translate-y-1/2 transform"
+                  >
+                    <MaterialIcon icon="close" size="sm" />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Category Filters */}
             <div className="flex flex-wrap justify-center gap-4">
               {categories.map(category => (
                 <Button
@@ -177,14 +277,15 @@ export default function ProjectsPage() {
             <div className="mb-12 text-center">
               <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl">
                 {selectedCategory === 'all'
-                  ? 'All Projects'
+                  ? 'Partnership Success Stories'
                   : `${
                       categories.find(c => c.id === selectedCategory)?.label
-                    } Projects`}
+                    } Partnerships`}
               </h2>
               <p className="text-gray-600 dark:text-gray-300 text-xl">
                 {projects.length}{' '}
-                {projects.length === 1 ? 'project' : 'projects'} found
+                {projects.length === 1 ? 'collaboration' : 'collaborations'}{' '}
+                showcasing our commitment to working with clients
               </p>
             </div>
           </FadeInWhenVisible>
@@ -264,9 +365,21 @@ export default function ProjectsPage() {
                   </CardHeader>
 
                   <CardContent>
-                    <p className="mb-4 text-gray-700 line-clamp-3">
+                    <p className="mb-4 text-gray-700 dark:text-gray-300 line-clamp-3">
                       {project.description}
                     </p>
+
+                    {/* Community Impact Badge */}
+                    <div className="mb-4">
+                      <span className="inline-flex items-center bg-brand-secondary/10 dark:bg-brand-secondary/20 px-3 py-1 rounded-full font-medium text-brand-secondary text-xs">
+                        <MaterialIcon
+                          icon="groups"
+                          size="sm"
+                          className="mr-1"
+                        />
+                        Community Partnership
+                      </span>
+                    </div>
 
                     {project.details && (
                       <div className="space-y-2 mb-4 text-gray-600 text-sm">
@@ -357,18 +470,35 @@ export default function ProjectsPage() {
                 size="4xl"
                 className="mb-4 text-gray-400"
               />
-              <h3 className="mb-2 font-bold text-gray-900 text-2xl">
-                No projects found
+              <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-2xl">
+                No partnerships found
               </h3>
-              <p className="mb-6 text-gray-600">
-                Try selecting a different category
+              <p className="mb-6 text-gray-600 dark:text-gray-300">
+                {searchQuery
+                  ? `No projects match "${searchQuery}". Try adjusting your search or selecting a different category.`
+                  : 'Try selecting a different category'}
               </p>
-              <Button
-                onClick={() => setSelectedCategory('all')}
-                className="bg-[#386851] text-white"
-              >
-                View All Projects
-              </Button>
+              <div className="flex sm:flex-row flex-col justify-center gap-4">
+                {searchQuery && (
+                  <Button
+                    onClick={() => setSearchQuery('')}
+                    className="bg-brand-secondary hover:bg-brand-secondary-dark text-white"
+                  >
+                    <MaterialIcon icon="clear" className="mr-2" size="md" />
+                    Clear Search
+                  </Button>
+                )}
+                <Button
+                  onClick={() => {
+                    setSelectedCategory('all')
+                    setSearchQuery('')
+                  }}
+                  className="bg-brand-primary hover:bg-brand-primary-dark text-white"
+                >
+                  <MaterialIcon icon="view_list" className="mr-2" size="md" />
+                  View All Partnerships
+                </Button>
+              </div>
             </div>
           )}
         </div>
@@ -380,10 +510,12 @@ export default function ProjectsPage() {
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
               <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl">
-                Our Capabilities
+                Partnership Capabilities
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
-                Diverse expertise across multiple construction markets
+                Veteran-owned collaborative expertise across multiple
+                construction markets, working with you to strengthen Pacific
+                Northwest communities
               </p>
             </div>
           </FadeInWhenVisible>
@@ -392,21 +524,100 @@ export default function ProjectsPage() {
             {capabilities.map((capability, index) => (
               <Card
                 key={index}
-                className="bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-all hover:-translate-y-1"
+                className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
               >
-                <CardHeader>
+                <CardHeader className="flex-shrink-0">
                   <MaterialIcon
                     icon={capability.icon}
                     size="2xl"
                     className="mb-3 text-brand-primary"
                   />
-                  <CardTitle className="text-gray-900 dark:text-white text-lg">
+                  <CardTitle className="flex items-center min-h-[3rem] text-gray-900 dark:text-white text-lg">
                     {capability.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm">
+                <CardContent className="flex flex-grow items-start">
+                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                     {capability.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </StaggeredFadeIn>
+        </div>
+      </section>
+
+      {/* Why Choose MH Construction Section - Matching Services Page */}
+      <section className="bg-gray-50 dark:bg-gray-800 py-16">
+        <div className="mx-auto px-4 container">
+          <FadeInWhenVisible>
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
+                Why Choose MH Construction
+              </h2>
+              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
+                Your trusted partner for commercial construction in the Pacific
+                Northwest
+              </p>
+            </div>
+          </FadeInWhenVisible>
+
+          <StaggeredFadeIn className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+            {[
+              {
+                iconName: 'workspace_premium',
+                title: '150+ Years Combined Experience',
+                description:
+                  'Deep expertise across all construction disciplines, refined through decades of successful partnership projects.',
+              },
+              {
+                iconName: 'military_tech',
+                title: 'Veteran-Owned Excellence',
+                description:
+                  'Military precision and discipline applied to construction, ensuring attention to detail and reliable execution.',
+              },
+              {
+                iconName: 'handshake',
+                title: 'Community Partnership',
+                description:
+                  "We're community partners invested in Pacific Northwest success, not just contractors.",
+              },
+              {
+                iconName: 'verified',
+                title: 'Licensed & Insured',
+                description:
+                  'Fully licensed across WA, OR, and ID with comprehensive insurance coverage for your protection.',
+              },
+              {
+                iconName: 'high_quality',
+                title: 'Quality Assurance',
+                description:
+                  'Meticulous quality control at every project phase, ensuring work meets our high standards.',
+              },
+              {
+                iconName: 'support_agent',
+                title: '24/7 Emergency Support',
+                description:
+                  'Round-the-clock emergency support for urgent construction needs and project issues.',
+              },
+            ].map((reason, index) => (
+              <Card
+                key={index}
+                className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
+              >
+                <CardHeader className="flex-shrink-0">
+                  <MaterialIcon
+                    icon={reason.iconName}
+                    size="2xl"
+                    className="mb-3 text-brand-primary"
+                  />
+                  <CardTitle className="flex items-center min-h-[3rem] text-gray-900 dark:text-white text-lg">
+                    {reason.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-grow items-start">
+                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                    {reason.description}
                   </p>
                 </CardContent>
               </Card>
@@ -427,10 +638,10 @@ export default function ProjectsPage() {
                   className="mb-4 text-brand-primary"
                 />
                 <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl">
-                  What Our Clients Say
+                  Partnership Experiences
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 text-xl">
-                  Real feedback from real projects
+                  Hear how we work WITH our clients, not just for them
                 </p>
               </div>
 
@@ -441,10 +652,10 @@ export default function ProjectsPage() {
                   .map((project, index) => (
                     <Card
                       key={index}
-                      className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-shadow"
+                      className="flex flex-col bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-shadow"
                     >
-                      <CardContent className="p-6">
-                        <div className="flex items-center mb-4">
+                      <CardContent className="flex flex-col p-6 h-full">
+                        <div className="flex flex-shrink-0 items-center mb-4">
                           {[...Array(project.clientTestimonial!.rating)].map(
                             (_, i) => (
                               <MaterialIcon
@@ -456,10 +667,10 @@ export default function ProjectsPage() {
                             )
                           )}
                         </div>
-                        <p className="mb-4 text-gray-700 dark:text-gray-300 italic">
+                        <p className="flex-grow mb-4 text-gray-700 dark:text-gray-300 italic leading-relaxed">
                           "{project.clientTestimonial!.quote}"
                         </p>
-                        <div className="pt-4 border-gray-200 dark:border-gray-600 border-t">
+                        <div className="flex-shrink-0 pt-4 border-gray-200 dark:border-gray-600 border-t">
                           <p className="font-semibold text-gray-900 dark:text-white">
                             {project.clientTestimonial!.clientName}
                           </p>
@@ -476,47 +687,144 @@ export default function ProjectsPage() {
         </div>
       </section>
 
+      {/* Partnership Process Section - Matching Services Page */}
+      <section className="bg-white dark:bg-gray-900 py-16">
+        <div className="mx-auto px-4 container">
+          <FadeInWhenVisible>
+            <div className="mx-auto max-w-4xl">
+              <div className="mb-12 text-center">
+                <MaterialIcon
+                  icon="trending_up"
+                  size="3xl"
+                  className="mb-4 text-brand-primary"
+                />
+                <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
+                  Our Partnership Process
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 text-xl">
+                  From initial consultation to project completion, we work with
+                  you every step of the way
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                {[
+                  {
+                    step: 1,
+                    title: 'Initial Consultation',
+                    description:
+                      'Understanding your vision and requirements together',
+                    icon: 'chat',
+                  },
+                  {
+                    step: 2,
+                    title: 'Site Assessment',
+                    description:
+                      'Collaborative evaluation of location and project feasibility',
+                    icon: 'explore',
+                  },
+                  {
+                    step: 3,
+                    title: 'Master Planning',
+                    description:
+                      'Working together on detailed planning and timeline development',
+                    icon: 'event',
+                  },
+                  {
+                    step: 4,
+                    title: 'Partnership Proposal',
+                    description:
+                      'Comprehensive project proposal with transparent pricing and collaboration framework',
+                    icon: 'description',
+                  },
+                  {
+                    step: 5,
+                    title: 'Build Together',
+                    description:
+                      'Collaborative execution with regular communication and partnership approach',
+                    icon: 'handshake',
+                  },
+                ].map((process, index) => (
+                  <Card
+                    key={index}
+                    className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-shadow"
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex items-start min-h-[5rem]">
+                        <div className="flex-shrink-0 mr-4">
+                          <div className="flex justify-center items-center bg-brand-primary rounded-full w-12 h-12 font-bold text-white text-xl">
+                            {process.step}
+                          </div>
+                        </div>
+                        <div className="flex-grow">
+                          <div className="flex justify-between items-start">
+                            <div className="flex-grow pr-4">
+                              <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl leading-tight">
+                                {process.title}
+                              </h3>
+                              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                {process.description}
+                              </p>
+                            </div>
+                            <MaterialIcon
+                              icon={process.icon}
+                              size="xl"
+                              className="flex-shrink-0 ml-4 text-brand-primary"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </FadeInWhenVisible>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-[#386851] to-[#2d5240] py-16 text-white">
+      <section className="bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark to-brand-primary-dark dark:to-brand-primary py-16 text-white">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-3xl text-center">
               <MaterialIcon
-                icon="construction"
+                icon="handshake"
                 size="4xl"
-                className="mb-6 text-green-200"
+                className="mb-6 text-brand-secondary dark:text-brand-secondary"
               />
-              <h2 className="mb-6 font-bold text-4xl">
-                Ready to Start Your Project?
+              <h2 className="mb-6 font-bold text-white text-4xl">
+                Ready to Build Together?
               </h2>
-              <p className="mb-8 text-green-100 text-xl">
-                Let's bring your vision to life with the same quality and
-                dedication you see in our portfolio
+              <p className="mb-8 text-green-100 dark:text-green-200 text-xl">
+                Let's start our partnership and bring your vision to life with
+                the same veteran-owned dedication and quality you see in our
+                portfolio
               </p>
               <div className="flex sm:flex-row flex-col justify-center gap-4">
                 <Link href="/contact">
                   <Button
                     size="lg"
-                    className="bg-white hover:bg-green-50 text-[#1f3d2f]"
+                    className="bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark text-white"
                   >
                     <MaterialIcon icon="phone" className="mr-2" size="md" />
-                    Get Started Today
+                    Start Our Partnership
                   </Button>
                 </Link>
                 <Link href="/services">
                   <Button
                     size="lg"
-                    variant="outline"
-                    className="hover:bg-[#2d5240] border-white text-white"
+                    className="bg-brand-secondary hover:bg-brand-secondary-dark dark:bg-brand-secondary dark:hover:bg-brand-secondary-dark text-black dark:text-black"
                   >
                     <MaterialIcon icon="build" className="mr-2" size="md" />
-                    View Our Services
+                    Explore Capabilities
                   </Button>
                 </Link>
               </div>
-              <p className="mt-6 text-green-200">
+              <p className="mt-6 text-green-200 dark:text-green-300">
                 <MaterialIcon icon="phone" className="inline mr-2" size="md" />
-                (509) 308-6489 | 3111 N. Capital Ave., Pasco, WA 99301
+                Partnership Hotline: (509) 308-6489 | 3111 N. Capital Ave.,
+                Pasco, WA 99301
               </p>
             </div>
           </FadeInWhenVisible>

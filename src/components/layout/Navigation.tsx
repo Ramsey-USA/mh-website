@@ -47,7 +47,7 @@ export function Navigation() {
                 <img
                   src="/images/logo/mh-logo.png"
                   alt="MH Construction"
-                  className="z-10 relative drop-shadow-lg w-auto h-16 sm:h-20 filter"
+                  className="z-10 relative drop-shadow-lg w-auto h-[70.4px] sm:h-[88px] filter"
                 />
               </Link>
             </div>
@@ -55,22 +55,22 @@ export function Navigation() {
         </div>
       </header>
 
-      {/* Floating Theme Toggle - Scrolls with user (matches hamburger menu behavior) */}
-      <div className="hidden sm:block top-4 left-4 sm:left-6 z-50 fixed">
+      {/* Floating Theme Toggle - Always visible on all screens */}
+      <div className="top-4 left-4 z-50 fixed">
         <ThemeToggle compact size="sm" />
       </div>
 
-      {/* Floating Hamburger Menu - Scrolls with user */}
+      {/* Floating Hamburger Menu - Always visible on all screens */}
       <div className="top-4 right-4 z-50 fixed">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className={`relative bg-gradient-to-r from-[#386851] hover:from-[#2d5440] to-[#4a7c59] hover:to-[#3c6448] shadow-lg hover:shadow-xl p-3 rounded-xl focus:outline-none focus:ring-[#386851]/50 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 antialiased transform-gpu transition-all duration-300 ${
+          className={`relative bg-gradient-to-r from-[#386851] hover:from-[#2d5440] to-[#4a7c59] hover:to-[#3c6448] shadow-lg hover:shadow-xl p-2.5 sm:p-3 rounded-xl focus:outline-none focus:ring-[#386851]/50 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 antialiased transform-gpu transition-all duration-300 ${
             scrolled ? 'scale-90' : 'scale-100'
           }`}
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
         >
-          <div className="flex flex-col justify-center space-y-1 w-6 h-6">
+          <div className="flex flex-col justify-center space-y-1 w-5 sm:w-6 h-5 sm:h-6">
             <span
               className={`w-full h-0.5 bg-white transition-all duration-300 ease-in-out transform origin-center ${
                 isMenuOpen ? 'rotate-45 translate-y-2' : ''
@@ -95,11 +95,11 @@ export function Navigation() {
 
       {/* Enhanced Mobile Menu with Animation */}
       <div
-        className={`fixed top-0 left-0 right-0 z-40 overflow-hidden transition-all duration-500 ease-in-out ${
-          isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+        className={`fixed top-0 left-0 right-0 bottom-0 z-40 overflow-hidden transition-all duration-500 ease-in-out ${
+          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <div className="relative bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-800 to-white dark:to-gray-900 shadow-inner backdrop-blur-lg border-gray-200 dark:border-gray-700 border-b">
+        <div className="relative bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-800 to-white dark:to-gray-900 shadow-inner backdrop-blur-lg border-gray-200 dark:border-gray-700 border-b h-full">
           {/* Logo Background Watermark */}
           <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
             <img
@@ -110,118 +110,86 @@ export function Navigation() {
           </div>
 
           {/* Menu Content */}
-          <div className="z-10 relative space-y-6 px-6 py-6 pt-20">
-            {/* Primary Action Buttons */}
-            <div className="space-y-3">
-              <button
-                onClick={() => {
-                  setIsMenuOpen(false)
-                  setIsQuickBookingOpen(true)
-                }}
-                className="group block bg-gradient-to-r from-brand-primary hover:from-brand-primary/90 to-brand-primary/90 hover:to-brand-primary shadow-md hover:shadow-lg px-4 py-3 border border-brand-primary/30 hover:border-brand-primary rounded-xl w-full text-white text-sm text-center transition-all duration-300"
-              >
-                <div className="flex justify-center items-center space-x-2">
-                  <MaterialIcon icon="request_quote" size="sm" />
-                  <span className="font-medium">Get a Quote</span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300 transform"
-                  />
+          <div className="z-10 relative flex flex-col justify-center px-4 sm:px-6 py-2 sm:py-4 h-full">
+            {/* Navigation Links - Adaptive Grid System */}
+            <div className="flex flex-1 justify-center items-center">
+              <div className="w-full max-w-sm sm:max-w-md">
+                {/* Small screens: 3 columns, 4 rows (more compact) */}
+                {/* Medium+ screens: 2 columns, 5 rows (current layout) */}
+                <div className="gap-1.5 sm:gap-3 grid grid-cols-3 sm:grid-cols-2">
+                  {[
+                    {
+                      href: '/booking',
+                      label: 'Book Appt.',
+                      icon: 'event',
+                    },
+                    {
+                      href: '/',
+                      label: 'Home',
+                      icon: 'home',
+                    },
+                    {
+                      href: '/about',
+                      label: 'About',
+                      icon: 'info',
+                    },
+                    {
+                      href: '/services',
+                      label: 'Services',
+                      icon: 'build',
+                    },
+                    {
+                      href: '/team',
+                      label: 'Team',
+                      icon: 'groups',
+                    },
+                    {
+                      href: '/projects',
+                      label: 'Projects',
+                      icon: 'photo_library',
+                    },
+                    {
+                      href: '/government',
+                      label: 'Government',
+                      icon: 'account_balance',
+                    },
+                    {
+                      href: '/trade-partners',
+                      label: 'Partners',
+                      icon: 'handshake',
+                    },
+                    {
+                      href: '/careers',
+                      label: 'Careers',
+                      icon: 'work',
+                    },
+                    {
+                      href: '/contact',
+                      label: 'Contact',
+                      icon: 'contact_phone',
+                    },
+                  ].map((item, index) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="group flex flex-col items-center hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-sm px-1.5 sm:px-4 py-3 sm:py-6 rounded-lg sm:rounded-xl font-medium text-gray-900 hover:text-[#386851] dark:hover:text-[#4a7c59] dark:text-gray-100 text-center transition-all duration-300"
+                      onClick={() => setIsMenuOpen(false)}
+                      style={{ animationDelay: `${index * 30}ms` }}
+                    >
+                      <MaterialIcon
+                        icon={item.icon}
+                        size="sm"
+                        className="opacity-70 group-hover:opacity-100 mb-1.5 sm:mb-3 dark:group-hover:text-[#4a7c59] group-hover:text-[#386851] transition-all duration-300"
+                      />
+                      <div className="text-center">
+                        <div className="font-medium text-xs sm:text-sm leading-tight">
+                          {item.label}
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-              </button>
-              <Link
-                href="/contact"
-                onClick={() => setIsMenuOpen(false)}
-                className="group block bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 shadow-md px-4 py-3 border border-gray-200 dark:border-gray-600 hover:border-brand-primary/30 rounded-xl w-full text-gray-700 hover:text-brand-primary dark:hover:text-brand-primary dark:text-gray-300 text-sm text-center transition-all duration-300"
-              >
-                <div className="flex justify-center items-center space-x-2">
-                  <MaterialIcon
-                    icon="contact_mail"
-                    size="sm"
-                    className="group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="font-medium">Contact Us</span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300 transform"
-                  />
-                </div>
-              </Link>
-            </div>
-
-            {/* Navigation Links */}
-            <div className="space-y-1 pt-6 border-gray-200 dark:border-gray-700 border-t">
-              {[
-                {
-                  href: '/',
-                  label: 'Home',
-                  icon: 'home',
-                  description: 'Return to homepage',
-                },
-                {
-                  href: '/about',
-                  label: 'About Us',
-                  icon: 'info',
-                  description: 'Learn about our company',
-                },
-                {
-                  href: '/services',
-                  label: 'Services',
-                  icon: 'build',
-                  description: 'Our construction services',
-                },
-                {
-                  href: '/team',
-                  label: 'Our Team',
-                  icon: 'groups',
-                  description: 'Meet our expert team',
-                },
-                {
-                  href: '/projects',
-                  label: 'Projects',
-                  icon: 'photo_library',
-                  description: 'View our portfolio',
-                },
-                {
-                  href: '/government',
-                  label: 'Government & Grants',
-                  icon: 'account_balance',
-                  description: 'Government project expertise',
-                },
-                {
-                  href: '/contact',
-                  label: 'Contact',
-                  icon: 'contact_phone',
-                  description: 'Get in touch with us',
-                },
-              ].map((item, index) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="group flex items-center hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-sm px-4 py-3 rounded-xl font-medium text-gray-900 hover:text-[#386851] dark:hover:text-[#4a7c59] dark:text-gray-100 transition-all duration-300"
-                  onClick={() => setIsMenuOpen(false)}
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <MaterialIcon
-                    icon={item.icon}
-                    size="sm"
-                    className="opacity-70 group-hover:opacity-100 mr-3 dark:group-hover:text-[#4a7c59] group-hover:text-[#386851] transition-all duration-300"
-                  />
-                  <div className="flex-1">
-                    <div className="font-medium text-sm">{item.label}</div>
-                    <div className="text-gray-500 dark:text-gray-400 text-xs">
-                      {item.description}
-                    </div>
-                  </div>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 ml-2 text-[#386851] dark:text-[#4a7c59] transition-all group-hover:translate-x-1 duration-300 transform"
-                  />
-                </Link>
-              ))}
+              </div>
             </div>
           </div>
         </div>

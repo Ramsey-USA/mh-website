@@ -328,27 +328,27 @@ export default function ServicesPage() {
             {coreServices.map((service, index) => (
               <Card
                 key={index}
-                className="bg-white dark:bg-gray-900 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-all hover:-translate-y-1"
+                className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
               >
-                <CardHeader>
+                <CardHeader className="flex-shrink-0">
                   <MaterialIcon
                     icon={service.iconName}
                     size="3xl"
                     className="mb-4 text-brand-primary"
                   />
-                  <CardTitle className="mb-2 text-gray-900 dark:text-white text-2xl">
+                  <CardTitle className="flex items-center mb-2 min-h-[3rem] text-gray-900 dark:text-white text-2xl">
                     {service.title}
                   </CardTitle>
                   <p className="font-semibold text-gray-600 dark:text-gray-400 text-sm">
                     {service.subtitle}
                   </p>
                 </CardHeader>
-                <CardContent>
-                  <p className="mb-4 text-gray-700 dark:text-gray-300">
+                <CardContent className="flex flex-col flex-grow">
+                  <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
                     {service.description}
                   </p>
 
-                  <div className="mb-4">
+                  <div className="flex-grow mb-4">
                     <p className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
                       What's Included:
                     </p>
@@ -368,7 +368,7 @@ export default function ServicesPage() {
                     </ul>
                   </div>
 
-                  <div className="pt-4 border-gray-200 dark:border-gray-600 border-t">
+                  <div className="flex-shrink-0 pt-4 border-gray-200 dark:border-gray-600 border-t">
                     <p className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
                       Benefits:
                     </p>
@@ -390,7 +390,7 @@ export default function ServicesPage() {
 
                   {/* CTA Text */}
                   {service.ctaText && (
-                    <div className="bg-brand-primary/5 dark:bg-gray-700 mt-4 p-3 border-brand-primary border-l-2 rounded">
+                    <div className="flex-shrink-0 bg-brand-primary/5 dark:bg-gray-700 mt-4 p-3 border-brand-primary border-l-2 rounded">
                       <p className="font-medium text-gray-800 dark:text-gray-200 text-xs">
                         {service.ctaText}
                       </p>
@@ -422,111 +422,125 @@ export default function ServicesPage() {
             {specialtyServices.map((service, index) => (
               <Card
                 key={index}
-                className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-all hover:-translate-y-1"
+                className="flex flex-col bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
               >
-                <CardHeader>
+                <CardHeader className="flex-shrink-0">
                   <MaterialIcon
                     icon={service.iconName}
                     size="2xl"
                     className="mb-3 text-brand-primary"
                   />
-                  <CardTitle className="text-gray-900 dark:text-white text-xl">
+                  <CardTitle className="flex items-center min-h-[2.5rem] text-gray-900 dark:text-white text-xl">
                     {service.title}
                   </CardTitle>
                   <p className="mt-1 font-semibold text-gray-600 dark:text-gray-400 text-sm">
                     {service.subtitle}
                   </p>
                 </CardHeader>
-                <CardContent>
-                  <p className="mb-4 text-gray-700 dark:text-gray-300 text-sm">
+                <CardContent className="flex flex-col flex-grow">
+                  <p className="mb-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                     {service.description}
                   </p>
 
-                  {/* Markets List */}
-                  {service.markets && (
-                    <ul className="space-y-2">
-                      {service.markets.map((market, mIndex) => (
-                        <li key={mIndex} className="flex items-start text-sm">
-                          <MaterialIcon
-                            icon="check_circle"
-                            className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                            size="sm"
-                          />
-                          <span className="text-gray-600 dark:text-gray-300">
-                            {market}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  <div className="flex-grow">
+                    {/* Markets List */}
+                    {service.markets && (
+                      <ul className="space-y-2">
+                        {service.markets.map((market, mIndex) => (
+                          <li key={mIndex} className="flex items-start text-sm">
+                            <MaterialIcon
+                              icon="check_circle"
+                              className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                              size="sm"
+                            />
+                            <span className="text-gray-600 dark:text-gray-300">
+                              {market}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
 
-                  {/* Build Types List */}
-                  {service.buildTypes && (
-                    <>
-                      <div className="mb-2 font-semibold text-gray-900 text-sm">
-                        What We Build:
-                      </div>
+                    {/* Build Types List */}
+                    {service.buildTypes && (
+                      <>
+                        <div className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
+                          What We Build:
+                        </div>
+                        <ul className="space-y-2 mb-3">
+                          {service.buildTypes.map((type, tIndex) => (
+                            <li
+                              key={tIndex}
+                              className="flex items-start text-sm"
+                            >
+                              <MaterialIcon
+                                icon="arrow_right"
+                                className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                                size="sm"
+                              />
+                              <span className="text-gray-600 dark:text-gray-300">
+                                {type}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+
+                    {/* Features/Capabilities List */}
+                    {service.features && (
+                      <>
+                        <div className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
+                          High-Quality Materials:
+                        </div>
+                        <ul className="space-y-2 mb-3">
+                          {service.features.map((feature, fIndex) => (
+                            <li
+                              key={fIndex}
+                              className="flex items-start text-sm"
+                            >
+                              <MaterialIcon
+                                icon="verified"
+                                className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                                size="sm"
+                              />
+                              <span className="text-gray-600 dark:text-gray-300">
+                                {feature}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+
+                    {service.capabilities && !service.markets && (
                       <ul className="space-y-2 mb-3">
-                        {service.buildTypes.map((type, tIndex) => (
-                          <li key={tIndex} className="flex items-start text-sm">
+                        {service.capabilities.map((cap, cIndex) => (
+                          <li key={cIndex} className="flex items-start text-sm">
                             <MaterialIcon
                               icon="arrow_right"
                               className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
                               size="sm"
                             />
-                            <span className="text-gray-600">{type}</span>
+                            <span className="text-gray-600 dark:text-gray-300">
+                              {cap}
+                            </span>
                           </li>
                         ))}
                       </ul>
-                    </>
-                  )}
-
-                  {/* Features/Capabilities List */}
-                  {service.features && (
-                    <>
-                      <div className="mb-2 font-semibold text-gray-900 text-sm">
-                        High-Quality Materials:
-                      </div>
-                      <ul className="space-y-2 mb-3">
-                        {service.features.map((feature, fIndex) => (
-                          <li key={fIndex} className="flex items-start text-sm">
-                            <MaterialIcon
-                              icon="verified"
-                              className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
-                              size="sm"
-                            />
-                            <span className="text-gray-600">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
-
-                  {service.capabilities && !service.markets && (
-                    <ul className="space-y-2 mb-3">
-                      {service.capabilities.map((cap, cIndex) => (
-                        <li key={cIndex} className="flex items-start text-sm">
-                          <MaterialIcon
-                            icon="arrow_right"
-                            className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                            size="sm"
-                          />
-                          <span className="text-gray-600">{cap}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                    )}
+                  </div>
 
                   {/* Note */}
                   {service.note && (
-                    <p className="mt-3 pt-3 border-t text-gray-600 text-xs italic">
+                    <p className="flex-shrink-0 mt-3 pt-3 border-gray-200 dark:border-gray-600 border-t text-gray-600 dark:text-gray-400 text-xs italic">
                       {service.note}
                     </p>
                   )}
 
                   {/* CTA */}
                   {service.ctaText && (
-                    <div className="bg-brand-primary/5 dark:bg-gray-700 mt-4 p-3 border-brand-primary border-l-2 rounded">
+                    <div className="flex-shrink-0 bg-brand-primary/5 dark:bg-gray-700 mt-4 p-3 border-brand-primary border-l-2 rounded">
                       <p className="font-medium text-gray-800 dark:text-gray-200 text-xs">
                         {service.ctaText}
                       </p>
@@ -614,18 +628,22 @@ export default function ServicesPage() {
             {whyChooseUs.map((reason, index) => (
               <Card
                 key={index}
-                className="hover:shadow-lg transition-all hover:-translate-y-1"
+                className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
               >
-                <CardHeader>
+                <CardHeader className="flex-shrink-0">
                   <MaterialIcon
                     icon={reason.iconName}
                     size="2xl"
                     className="mb-3 text-brand-primary"
                   />
-                  <CardTitle className="text-lg">{reason.title}</CardTitle>
+                  <CardTitle className="flex items-center min-h-[3rem] text-gray-900 dark:text-white text-lg">
+                    {reason.title}
+                  </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 text-sm">{reason.description}</p>
+                <CardContent className="flex flex-grow items-start">
+                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                    {reason.description}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -693,7 +711,7 @@ export default function ServicesPage() {
                     className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-shadow"
                   >
                     <CardContent className="p-6">
-                      <div className="flex items-start">
+                      <div className="flex items-start min-h-[5rem]">
                         <div className="flex-shrink-0 mr-4">
                           <div className="flex justify-center items-center bg-brand-primary rounded-full w-12 h-12 font-bold text-white text-xl">
                             {process.step}
@@ -701,18 +719,18 @@ export default function ServicesPage() {
                         </div>
                         <div className="flex-grow">
                           <div className="flex justify-between items-start">
-                            <div>
-                              <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl">
+                            <div className="flex-grow pr-4">
+                              <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl leading-tight">
                                 {process.title}
                               </h3>
-                              <p className="text-gray-700 dark:text-gray-300">
+                              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                                 {process.description}
                               </p>
                             </div>
                             <MaterialIcon
                               icon={process.icon}
                               size="xl"
-                              className="ml-4 text-brand-primary"
+                              className="flex-shrink-0 ml-4 text-brand-primary"
                             />
                           </div>
                         </div>
@@ -747,7 +765,7 @@ export default function ServicesPage() {
                 <Link href="/contact">
                   <Button
                     size="lg"
-                    className="bg-white hover:bg-brand-secondary/10 text-brand-primary"
+                    className="bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark text-white"
                   >
                     <MaterialIcon icon="email" className="mr-2" size="md" />
                     Contact Us Today
@@ -756,8 +774,7 @@ export default function ServicesPage() {
                 <Link href="/projects">
                   <Button
                     size="lg"
-                    variant="outline"
-                    className="hover:bg-brand-primary-dark border-white text-white"
+                    className="bg-brand-secondary hover:bg-brand-secondary-dark dark:bg-brand-secondary dark:hover:bg-brand-secondary-dark text-black dark:text-black"
                   >
                     <MaterialIcon
                       icon="photo_library"

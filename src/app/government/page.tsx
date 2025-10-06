@@ -786,7 +786,7 @@ export default function GovernmentGrantsPage() {
                 <Link href="/booking">
                   <Button
                     size="lg"
-                    className="bg-white hover:bg-gray-100 px-10 py-7 text-black text-xl"
+                    className="bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark px-10 py-7 text-white text-xl"
                   >
                     <MaterialIcon
                       icon="phone_in_talk"
@@ -798,8 +798,7 @@ export default function GovernmentGrantsPage() {
                 </Link>
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="hover:bg-gray-800 px-10 py-7 border-2 border-white text-white text-xl"
+                  className="bg-brand-secondary hover:bg-brand-secondary-dark dark:bg-brand-secondary dark:hover:bg-brand-secondary-dark px-10 py-7 text-black dark:text-black text-xl"
                 >
                   <MaterialIcon icon="download" className="mr-3" size="lg" />
                   Download Capabilities

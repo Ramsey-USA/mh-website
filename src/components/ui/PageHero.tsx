@@ -17,12 +17,15 @@ interface HeroNavItem {
 }
 
 const heroNavItems: HeroNavItem[] = [
+  { href: '/booking', label: 'Book Appt.', icon: 'event' },
   { href: '/', label: 'Home', icon: 'home' },
   { href: '/about', label: 'About', icon: 'info' },
   { href: '/services', label: 'Services', icon: 'construction' },
   { href: '/projects', label: 'Projects', icon: 'work' },
   { href: '/team', label: 'Team', icon: 'group' },
   { href: '/government', label: 'Government', icon: 'account_balance' },
+  { href: '/trade-partners', label: 'Partners', icon: 'handshake' },
+  { href: '/careers', label: 'Careers', icon: 'work_outline' },
   { href: '/contact', label: 'Contact', icon: 'contact_mail' },
 ]
 
