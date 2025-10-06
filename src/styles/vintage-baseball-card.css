@@ -1,0 +1,579 @@
+/* ===== VINTAGE BASEBALL CARD STYLES ===== */
+
+/* Container and base structure */
+.vintage-card-container {
+  /* Standard vintage proportions - 5:7 aspect ratio */
+  width: 280px;
+  height: 392px;
+  perspective: 1000px;
+  cursor: pointer;
+  margin: 0 auto;
+
+  /* Vintage card handling feel */
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.vintage-card-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15),
+    0 0 0 2px rgba(255, 255, 255, 0.9);
+}
+
+/* 3D flip mechanism */
+.vintage-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+}
+
+.vintage-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Card face base */
+.vintage-card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.vintage-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ===== FRONT SIDE STYLING ===== */
+
+/* Outer aged border */
+.vintage-outer-border {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    145deg,
+    #f8f7f2 0%,
+    #efeae2 25%,
+    #e6ddd1 50%,
+    #ddd2c2 75%,
+    #d4c7b3 100%
+  );
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15),
+    inset 0 2px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* Color frame */
+.vintage-color-frame {
+  width: 100%;
+  height: 100%;
+  background: var(--card-color);
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.95),
+    inset 0 0 0 4px var(--card-color), 0 4px 12px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Card number badge */
+.vintage-card-number {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--card-color);
+  padding: 6px 10px;
+  border-radius: 50px;
+  font-family: 'Times New Roman', serif;
+  font-size: 16px;
+  font-weight: 900;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--card-color);
+}
+
+/* Company logo */
+.vintage-company-logo {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 32px;
+  height: 32px;
+  z-index: 8;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  padding: 4px;
+}
+
+.company-logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.vintage-company-logo::after {
+  display: none;
+}
+
+/* Veteran badge - Enhanced Shield design */
+.vintage-veteran-badge {
+  position: absolute;
+  top: 18px;
+  right: 65px;
+  width: 32px;
+  height: 38px;
+  z-index: 9;
+  color: #1a1a1a;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(
+    50% 0%,
+    85% 15%,
+    100% 35%,
+    85% 85%,
+    50% 100%,
+    15% 85%,
+    0% 35%,
+    15% 15%
+  );
+  border: 2px solid #b45309;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3), 0 0 12px rgba(251, 191, 36, 0.4);
+  animation: veteranShieldPulse 3s ease-in-out infinite;
+}
+
+@keyframes veteranShieldPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4),
+      inset 0 1px 2px rgba(255, 255, 255, 0.3), 0 0 12px rgba(251, 191, 36, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5),
+      inset 0 1px 3px rgba(255, 255, 255, 0.4), 0 0 20px rgba(251, 191, 36, 0.6),
+      0 0 30px rgba(245, 158, 11, 0.3);
+  }
+}
+
+.vintage-veteran-badge.veteran {
+  background: linear-gradient(
+    135deg,
+    #fbbf24 0%,
+    #f59e0b 25%,
+    #d97706 50%,
+    #f59e0b 75%,
+    #fbbf24 100%
+  );
+}
+
+.vintage-veteran-badge.mascot {
+  background: linear-gradient(135deg, #94a3b8 0%, #64748b 50%, #475569 100%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  clip-path: none;
+  font-size: 12px;
+  border: 2px solid #475569;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Photo container */
+.vintage-photo-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  height: 240px;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 6px;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2),
+    inset 0 1px 3px rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+}
+
+.vintage-player-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(15%) saturate(85%) contrast(105%);
+}
+
+.vintage-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgba(107, 114, 128, 0.02) 0%,
+    rgba(107, 114, 128, 0.05) 50%,
+    rgba(107, 114, 128, 0.02) 100%
+  );
+  color: var(--card-color);
+}
+
+/* Text overlay */
+.vintage-text-overlay {
+  position: absolute;
+  bottom: 80px;
+  left: 20px;
+  right: 20px;
+  z-index: 6;
+  text-align: center;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  padding: 12px 8px 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.vintage-player-name {
+  font-family: 'Times New Roman', serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--card-color);
+  margin-bottom: 4px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  line-height: 1.1;
+}
+
+.vintage-team-role {
+  font-family: 'Arial', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #666;
+  letter-spacing: 0.8px;
+  line-height: 1.2;
+}
+
+/* Set identifier */
+.vintage-set-id {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  right: 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 1.2px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  z-index: 7;
+}
+
+/* Flip indicator */
+.vintage-flip-indicator {
+  position: absolute;
+  bottom: 35px;
+  left: 20px;
+  right: 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.8px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  z-index: 7;
+}
+
+/* ===== BACK SIDE STYLING ===== */
+
+.vintage-card-back {
+  background: linear-gradient(
+    145deg,
+    #f8f7f2 0%,
+    #efeae2 25%,
+    #e6ddd1 50%,
+    #ddd2c2 75%,
+    #d4c7b3 100%
+  );
+}
+
+.vintage-back-content {
+  padding: 16px;
+  height: 100%;
+  color: #2c2c2c;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Header section */
+.vintage-back-header {
+  border-bottom: 2px solid var(--card-color);
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 32px;
+}
+
+/* Card number with logo container */
+.vintage-card-number-with-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vintage-mh-logo-small {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #374151;
+  padding: 3px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 24px;
+  box-shadow: 0 1px 2px rgba(55, 65, 81, 0.2);
+}
+
+.mh-logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.vintage-card-number-back {
+  background: var(--card-color);
+  color: #ffffff;
+  padding: 6px 10px;
+  border-radius: 50px;
+  font-family: 'Times New Roman', serif;
+  font-size: 16px;
+  font-weight: 900;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  min-width: 40px;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.vintage-player-name-back {
+  font-family: 'Inter', 'Times New Roman', serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #374151;
+  margin: 0;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.name-first {
+  font-size: 16px;
+  margin-bottom: 1px;
+}
+
+.name-last {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* About section */
+.vintage-about-section {
+  margin-top: 8px;
+  padding: 5px 7px;
+  background: rgba(107, 114, 128, 0.1);
+  border-radius: 3px;
+  border: 1px solid rgba(107, 114, 128, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.vintage-about-container {
+  position: relative;
+  z-index: 2;
+  min-height: 50px;
+}
+
+.vintage-about-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  border-radius: 2px;
+}
+
+.vintage-about-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 8px;
+  line-height: 1.1;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 4px 6px;
+  border-radius: 2px;
+  backdrop-filter: blur(1px);
+}
+
+.about-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 3px;
+  min-height: 10px;
+  flex-wrap: wrap;
+}
+
+.about-label {
+  font-weight: 600;
+  color: #4b5563;
+  flex-shrink: 0;
+  width: 28px;
+  font-size: 7px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.about-value {
+  color: #1a1a1a;
+  font-weight: 400;
+  flex: 1;
+  font-size: 7px;
+  line-height: 1.1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: calc(100% - 32px);
+}
+
+/* Responsive design */
+/* Quick highlights section */
+.vintage-quick-highlights {
+  margin: 4px 0 4px;
+  padding: 4px 6px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(248, 250, 252, 0.8)
+  );
+  border: 1px solid rgba(107, 114, 128, 0.3);
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.vintage-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.highlight-item {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 8px;
+  line-height: 1.2;
+  color: #4b5563;
+  padding: 1px 4px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  text-align: left;
+  position: relative;
+}
+
+.highlight-item:before {
+  content: '★';
+  color: #fbbf24;
+  font-weight: bold;
+  margin-right: 4px;
+  font-size: 8px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Fun fact styling */
+.vintage-fun-fact {
+  margin: 8px 0;
+  padding: 8px 10px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(251, 146, 60, 0.1)
+  );
+  border: 1px solid rgba(251, 146, 60, 0.3);
+  border-radius: 6px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 9px;
+  line-height: 1.4;
+  color: #7c2d12;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Footer and copyright */
+.vintage-card-footer {
+  margin-top: auto;
+  text-align: center;
+}
+
+.vintage-copyright {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 5px;
+  color: #9ca3af;
+  opacity: 0.6;
+  margin: 2px 0;
+  letter-spacing: 0.2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .vintage-card-container {
+    width: 260px;
+    height: 364px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vintage-card-container {
+    width: 200px;
+    height: 280px;
+  }
+
+  .vintage-photo-container {
+    height: 160px;
+  }
+
+  .vintage-player-name {
+    font-size: 16px;
+  }
+
+  .vintage-team-role {
+    font-size: 10px;
+  }
+}

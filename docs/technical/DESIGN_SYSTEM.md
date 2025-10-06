@@ -671,6 +671,245 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ---
 
+## 🃏 Baseball Card Component
+
+### **Purpose & Usage**
+
+The `BaseballCard` component creates engaging, interactive team member profiles with a professional baseball card aesthetic. Used primarily on the team page to showcase MH Construction staff in an memorable, branded format.
+
+### **Design Specifications**
+
+```css
+/* Card Dimensions */
+.baseball-card {
+  width: 100%;
+  max-width: 24rem;     /* 384px - Consistent card width */
+  height: 31.25rem;     /* 500px - Fixed height for alignment */
+  perspective: 1000px;  /* 3D perspective for flip effect */
+}
+
+/* Card States */
+.card-front, .card-back {
+  border-radius: 1rem;           /* Rounded corners */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);  /* Elevation */
+  transition: all 0.3s ease;     /* Smooth interactions */
+}
+
+.card-front:hover, .card-back:hover {
+  transform: scale(1.02);         /* Subtle hover growth */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+```
+
+### **Color Variants**
+
+#### **Standard Team Members**
+
+```css
+.baseball-card.standard {
+  /* Header gradient using brand primary */
+  background: linear-gradient(to right, var(--brand-primary), var(--brand-primary-dark));
+  
+  /* Photo ring with brand colors */
+  .photo-ring {
+    background: linear-gradient(45deg, var(--brand-primary-20), var(--brand-secondary-20));
+  }
+  
+  /* Role text in brand secondary */
+  .role-text { color: var(--brand-secondary); }
+  
+  /* Specialty tags */
+  .specialty-tag {
+    background-color: var(--brand-primary-10);
+    color: var(--brand-primary);
+  }
+}
+```
+
+#### **Mascot Variant (Trigger)**
+
+```css
+.baseball-card.mascot {
+  /* Special amber/orange theme for company mascot */
+  background: linear-gradient(to right, #f59e0b, #ea580c);
+  
+  /* Warm photo ring */
+  .photo-ring {
+    background: linear-gradient(45deg, rgba(252, 211, 77, 0.2), rgba(251, 146, 60, 0.2));
+  }
+  
+  /* Orange role text */
+  .role-text { color: #ea580c; }
+  
+  /* Amber specialty tags */
+  .specialty-tag {
+    background-color: #fde68a;
+    color: #92400e;
+  }
+}
+```
+
+### **Interactive Behaviors**
+
+#### **3D Flip Animation**
+
+```css
+/* Flip container with 3D transforms */
+.flip-container {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.flip-container.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Card faces positioned absolutely */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+```
+
+#### **Accessibility Features**
+
+```css
+/* Focus management for keyboard users */
+.baseball-card:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 4px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .flip-container {
+    transition: none;
+  }
+  
+  .baseball-card:hover {
+    transform: none;
+  }
+}
+```
+
+### **Typography Hierarchy**
+
+```css
+/* Team member name - Primary focus */
+.member-name {
+  font-size: 1.25rem;      /* text-xl */
+  font-weight: 900;        /* font-black */
+  letter-spacing: -0.025em; /* tracking-tight */
+  line-height: 1.2;
+}
+
+/* Role title - Secondary prominence */
+.member-role {
+  font-size: 0.875rem;     /* text-sm */
+  font-weight: 700;        /* font-bold */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;  /* tracking-wide */
+}
+
+/* Bio text - Readable body */
+.member-bio {
+  font-size: 0.875rem;     /* text-sm */
+  line-height: 1.625;      /* leading-relaxed */
+  text-align: center;
+}
+
+/* Specialty tags - Compact labels */
+.specialty-tag {
+  font-size: 0.75rem;      /* text-xs */
+  font-weight: 500;        /* font-medium */
+  padding: 0.25rem 0.75rem; /* px-3 py-1 */
+}
+
+/* Stats numbers - Prominent display */
+.stat-number {
+  font-size: 1.5rem;       /* text-2xl */
+  font-weight: 700;        /* font-bold */
+  color: var(--brand-primary);
+}
+```
+
+### **Component Integration**
+
+#### **Usage Example**
+
+```typescript
+import { BaseballCard } from '@/components/ui/BaseballCard'
+import type { TeamMember } from '@/lib/data/team'
+
+// Standard team member
+<BaseballCard member={teamMember} />
+
+// Mascot (automatically detects name === 'Trigger')
+<BaseballCard member={triggerMascot} />
+```
+
+#### **Grid Layout**
+
+```css
+/* Responsive team grid */
+.team-grid {
+  display: grid;
+  gap: 2.5rem;              /* gap-10 */
+  justify-items: center;
+  
+  /* Responsive columns */
+  grid-template-columns: 1fr;                    /* Mobile: 1 column */
+}
+
+@media (min-width: 768px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); } /* Tablet: 2 columns */
+}
+
+@media (min-width: 1024px) {
+  .team-grid { grid-template-columns: repeat(3, 1fr); } /* Desktop: 3 columns */
+}
+
+@media (min-width: 1280px) {
+  .team-grid { grid-template-columns: repeat(4, 1fr); } /* Large: 4 columns */
+}
+```
+
+### **Performance Considerations**
+
+```css
+/* Hardware acceleration for smooth animations */
+.baseball-card {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Optimize image rendering */
+.member-avatar {
+  image-rendering: optimizeQuality;
+  object-fit: cover;
+  width: 8rem;              /* w-32 */
+  height: 8rem;             /* h-32 */
+}
+```
+
+### **Design Tokens Used**
+
+- **Colors**: `--brand-primary`, `--brand-secondary`, `--brand-primary-dark`
+- **Spacing**: Standard scale (`0.25rem`, `0.5rem`, `1rem`, `1.5rem`, `2rem`)
+- **Typography**: Font weight scale (`400`, `500`, `700`, `900`)
+- **Border Radius**: `1rem` for cards, `9999px` for circular elements
+- **Shadows**: Tailwind elevation scale
+- **Transitions**: Standard `0.3s` and `0.7s` durations
+
+---
+
 ## 📋 Component Usage Guidelines
 
 ### **Do's**

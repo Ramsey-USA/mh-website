@@ -3,36 +3,19 @@
 import React from 'react'
 import Link from 'next/link'
 import { PageHero } from '../../components/ui'
-import { BaseballCard } from '../../components/ui/BaseballCard'
+import { VintageBaseballCard } from '../../components/ui/VintageBaseballCard'
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
 } from '../../components/animations/FramerMotionComponents'
-import { teamMembers, type TeamMember } from '../../lib/data/team'
-
-// Add Trigger the mascot to leadership team
-const triggerMascot: TeamMember = {
-  name: 'Trigger',
-  role: 'Chief Morale Officer',
-  department: 'Executive Leadership',
-  experienceYears: 'Good Boy',
-  specialties: ['Tail Wagging', 'Treat Evaluation', 'Security Patrol', 'Team Spirit'],
-  bio: 'Trigger is our beloved company mascot who keeps everyone in high spirits and ensures the highest standards of workplace happiness. Always ready with a friendly wag and expert treat quality control.',
-  slug: 'trigger-mascot',
-  active: true,
-  avatar: '/images/team/trigger.jpg'
-}
-
-// Combine team members with mascot, placing Trigger with leadership
-const allTeamMembers = [...teamMembers]
-const leadershipMembers = allTeamMembers.filter(member => member.department === 'Executive Leadership')
-const otherMembers = allTeamMembers.filter(member => member.department !== 'Executive Leadership')
-
-// Add Trigger to leadership team
-const teamWithMascot = [...leadershipMembers, triggerMascot, ...otherMembers]
+import {
+  vintageTeamMembers,
+  type VintageTeamMember,
+} from '../../lib/data/vintage-team'
+import '../../styles/vintage-baseball-card.css'
 
 // Group team members by department
-function groupByDepartment(members: TeamMember[]) {
+function groupByDepartment(members: VintageTeamMember[]) {
   return members.reduce((acc, member) => {
     const dept = member.department
     if (!acc[dept]) {
@@ -40,17 +23,17 @@ function groupByDepartment(members: TeamMember[]) {
     }
     acc[dept].push(member)
     return acc
-  }, {} as Record<string, TeamMember[]>)
+  }, {} as Record<string, VintageTeamMember[]>)
 }
 
 export default function TeamPage() {
-  const membersByDepartment = groupByDepartment(teamWithMascot)
-  
+  const membersByDepartment = groupByDepartment(vintageTeamMembers)
+
   // Define department order matching the actual data
   const departmentOrder = [
     'Executive Leadership',
     'Project Management & Estimating',
-    'Site & Field Operations', 
+    'Site & Field Operations',
     'Administration & Support',
   ]
 
@@ -58,47 +41,51 @@ export default function TeamPage() {
     <div className="bg-gray-50 min-h-screen">
       <PageHero
         title="Our Team"
-        subtitle="Meet the experienced professionals dedicated to excellence in construction"
-        description="Click on any team member card to flip it and learn more about their background, experience, and specialties."
+        subtitle="Meet the professionals behind MH Construction"
+        description="Discover our team through authentic vintage-style trading cards. Click on any card to flip it and explore professional statistics, career highlights, and personal stories."
       />
 
       <div className="bg-gray-50 py-16">
         <div className="mx-auto px-4 max-w-7xl">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 font-bold text-gray-900 text-4xl">
-              Our Professional Team
+          <div className="mb-16 text-center">
+            <h2 className="mb-6 font-bold text-gray-900 text-4xl">
+              Professional Team Cards
             </h2>
-            <p className="mx-auto max-w-3xl text-gray-600 text-lg">
-              Click on any team member card to flip it and learn more about
-              their background, experience, and specialties. Our diverse team
-              brings decades of construction expertise to every project.
+            <p className="mx-auto max-w-3xl text-gray-600 text-lg leading-relaxed">
+              Experience our team through vintage-style baseball cards featuring
+              professional statistics, career achievements, and personal
+              stories. Each card showcases the expertise and dedication that
+              makes MH Construction a leader in Pacific Northwest construction.
             </p>
           </div>
 
           {/* Team Members by Department */}
           <div className="space-y-24">
-            {departmentOrder.map((department) => {
+            {departmentOrder.map(department => {
               const members = membersByDepartment[department]
               if (!members || members.length === 0) return null
 
               return (
                 <FadeInWhenVisible key={department}>
                   <div className="relative">
-                    {/* Department Header */}
+                    {/* Vintage-styled department header */}
                     <div className="mb-16 text-center">
-                      <div className="inline-block bg-brand-primary mb-6 px-8 py-3 rounded-full">
-                        <h3 className="font-black text-white text-2xl uppercase tracking-wide">
+                      <div className="inline-block bg-gradient-to-r from-amber-800 to-amber-600 shadow-lg mb-6 px-12 py-4 rounded-lg">
+                        <h3 className="font-black text-white text-2xl uppercase tracking-wider">
                           {department}
                         </h3>
                       </div>
-                      <div className="bg-brand-accent mx-auto rounded-full w-32 h-1"></div>
+                      <div className="bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto rounded-full w-48 h-1"></div>
                     </div>
-                    
-                    {/* Team Members Grid */}
-                    <div className="justify-items-center gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                      {members.map((member, index) => (
-                        <div key={member.name + index} className="w-full max-w-md hover:scale-[1.02] transition-transform duration-300 transform">
-                          <BaseballCard member={member} />
+
+                    {/* Vintage cards grid */}
+                    <div className="justify-items-center gap-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                      {members.map(member => (
+                        <div
+                          key={member.cardNumber}
+                          className="hover:scale-[1.02] transition-transform duration-300 transform"
+                        >
+                          <VintageBaseballCard member={member} />
                         </div>
                       ))}
                     </div>
@@ -109,19 +96,20 @@ export default function TeamPage() {
           </div>
 
           {/* Call to Action */}
-          <div className="mt-16 text-center">
+          <div className="mt-20 text-center">
             <FadeInWhenVisible>
-              <div className="bg-white shadow-lg mx-auto p-8 rounded-lg max-w-2xl">
+              <div className="bg-white shadow-xl mx-auto p-8 border border-amber-200 rounded-lg max-w-2xl">
                 <h3 className="mb-4 font-bold text-gray-900 text-2xl">
-                  Ready to Work with Our Team?
+                  Ready to Work with Our Championship Team?
                 </h3>
                 <p className="mb-6 text-gray-600">
                   Our experienced professionals are ready to bring your
-                  construction project to life. Contact us today to get started.
+                  construction project to life. Contact us today to get started
+                  with a team that delivers results.
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center bg-brand-primary hover:bg-brand-primary-dark px-6 py-3 rounded-lg font-semibold text-white transition-colors duration-200"
+                  className="inline-flex items-center bg-gradient-to-r from-amber-600 hover:from-amber-700 to-amber-700 hover:to-amber-800 shadow-lg px-8 py-3 rounded-lg font-semibold text-white transition-all duration-200"
                 >
                   Contact Our Team
                 </Link>
