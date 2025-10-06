@@ -16,6 +16,7 @@ import {
   HoverScale,
 } from '../../components/animations/FramerMotionComponents'
 import { consultationService } from '../../lib/utils/firebase'
+import { useGlobalChatbot } from '../../providers/GlobalChatbotProvider'
 
 // Available time slots
 const timeSlots = [
@@ -58,6 +59,8 @@ interface BookingFormData {
 }
 
 export default function BookingPage() {
+  const { setFormData: setGlobalFormData } = useGlobalChatbot()
+
   const [step, setStep] = useState(1) // 1: Date/Time, 2: Details, 3: Confirmation
   const [selectedDate, setSelectedDate] = useState('')
   const [selectedTime, setSelectedTime] = useState('')
@@ -78,6 +81,11 @@ export default function BookingPage() {
     selectedTime: '',
     additionalNotes: '',
   })
+
+  // Sync local form data with global chatbot context
+  React.useEffect(() => {
+    setGlobalFormData(formData)
+  }, [formData, setGlobalFormData])
 
   // Handle URL parameters for pre-filling data from quick booking modal
   React.useEffect(() => {

@@ -72,9 +72,9 @@ export function GlobalChatbot({
     return () => window.removeEventListener('resize', updatePosition)
   }, [isOpen, isDragging])
 
-  // Enhanced AI Response System with page context
+  // Enhanced AI Response System with advanced lead qualification
   const generateArmyResponse = async (userMessage: string): Promise<string> => {
-    // Add page context to the response
+    // Add comprehensive context for advanced intelligence
     const pageContext = {
       ...estimatorData,
       currentPage,
@@ -84,8 +84,96 @@ export function GlobalChatbot({
       isProjectsPage: currentPage?.includes('/projects'),
       isAboutPage: currentPage?.includes('/about'),
       isContactPage: currentPage?.includes('/contact'),
+      isBookingPage: currentPage?.includes('/booking'),
     }
 
+    // Advanced lead qualification triggers
+    const businessKeywords = [
+      'project',
+      'estimate',
+      'cost',
+      'budget',
+      'build',
+      'construction',
+      'remodel',
+      'renovation',
+      'addition',
+      'kitchen',
+      'bathroom',
+      'commercial',
+      'consultation',
+      'quote',
+      'price',
+      'timeline',
+      'contractor',
+      'hire',
+      'service',
+      'work',
+      'job',
+    ]
+
+    const hasBusinessKeyword = businessKeywords.some(keyword =>
+      userMessage.toLowerCase().includes(keyword)
+    )
+
+    // Deploy advanced lead qualification for business inquiries
+    if (hasBusinessKeyword) {
+      const leadQualification =
+        militaryConstructionAI.getLeadQualificationGuidance(
+          userMessage,
+          pageContext
+        )
+
+      // Check for veteran status and apply priority processing
+      const veteranAnalysis =
+        militaryConstructionAI.analyzeVeteranStatus(userMessage)
+
+      if (veteranAnalysis.isVeteran) {
+        const veteranPriority = militaryConstructionAI.processVeteranPriority(
+          veteranAnalysis,
+          { message: userMessage, context: pageContext }
+        )
+
+        // Combine lead qualification with veteran priority information
+        return `${leadQualification}
+
+---
+
+${veteranPriority.processingProtocol}
+
+${veteranPriority.specialAssignment}
+
+**🎖️ VETERAN SUPPORT SERVICES:**
+${veteranPriority.supportServices.map(service => `• ${service}`).join('\n')}
+
+${veteranPriority.expeditedTimeline}
+
+---
+**Thank you for your service! 🇺🇸**
+*MH Construction is honored to serve those who served.*`
+      }
+
+      return leadQualification
+    }
+
+    // Specialized form assistance based on current page
+    if (pageContext.isContactPage) {
+      const formAssistance = militaryConstructionAI.getContactFormAssistance(
+        userMessage,
+        pageContext
+      )
+      return formAssistance
+    }
+
+    if (pageContext.isBookingPage) {
+      const bookingAssistance = militaryConstructionAI.getBookingFormAssistance(
+        userMessage,
+        pageContext
+      )
+      return bookingAssistance
+    }
+
+    // Standard military AI response for general inquiries
     return militaryConstructionAI.generateResponse(userMessage, pageContext)
   }
 
@@ -103,16 +191,68 @@ export function GlobalChatbot({
     setInputValue('')
     setIsTyping(true)
 
-    // Simulate AI thinking time
+    // Enhanced AI processing with lead intelligence
     setTimeout(async () => {
       const botResponse = await generateArmyResponse(inputValue)
+
+      // Analyze message for lead qualification metadata
+      const isBusinessInquiry = [
+        'project',
+        'estimate',
+        'cost',
+        'budget',
+        'build',
+        'construction',
+        'remodel',
+        'renovation',
+        'consultation',
+        'quote',
+        'price',
+      ].some(keyword => inputValue.toLowerCase().includes(keyword))
+
+      const isVeteranLead = [
+        'veteran',
+        'military',
+        'service',
+        'army',
+        'navy',
+        'marines',
+        'air force',
+        'coast guard',
+      ].some(keyword => inputValue.toLowerCase().includes(keyword))
+
+      const isUrgent = [
+        'urgent',
+        'emergency',
+        'asap',
+        'immediately',
+        'soon',
+        'quickly',
+      ].some(keyword => inputValue.toLowerCase().includes(keyword))
+
+      // Determine message priority based on lead qualification
+      let priority: 'low' | 'medium' | 'high' | 'critical' = 'medium'
+      if (isUrgent && isBusinessInquiry) priority = 'critical'
+      else if (isVeteranLead && isBusinessInquiry) priority = 'critical'
+      else if (isBusinessInquiry) priority = 'high'
+      else if (isVeteranLead) priority = 'high'
 
       const botMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         type: 'bot',
         content: botResponse,
         timestamp: new Date(),
-        metadata: { priority: 'medium' },
+        metadata: {
+          priority,
+          actionRequired: isBusinessInquiry || isVeteranLead,
+          estimateData: isBusinessInquiry
+            ? {
+                userInput: inputValue,
+                leadType: isVeteranLead ? 'veteran' : 'civilian',
+                urgency: isUrgent ? 'high' : 'normal',
+              }
+            : undefined,
+        },
       }
 
       setMessages(prev => [...prev, botMessage])

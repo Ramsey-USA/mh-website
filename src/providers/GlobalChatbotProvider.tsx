@@ -15,8 +15,10 @@ interface GlobalChatbotContextType {
   setIsVisible: (visible: boolean) => void
   currentPageData?: any
   setCurrentPageData: (data: any) => void
-  currentPage: string
+  currentPage?: string
   setCurrentPage: (page: string) => void
+  formData?: any
+  setFormData: (data: any) => void
 }
 
 const GlobalChatbotContext = createContext<
@@ -27,6 +29,7 @@ export function GlobalChatbotProvider({ children }: { children: ReactNode }) {
   const [isVisible, setIsVisible] = useState(true) // Always visible by default
   const [currentPageData, setCurrentPageData] = useState(null)
   const [currentPage, setCurrentPage] = useState('')
+  const [formData, setFormData] = useState(null)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -40,18 +43,15 @@ export function GlobalChatbotProvider({ children }: { children: ReactNode }) {
     setCurrentPageData,
     currentPage,
     setCurrentPage,
+    formData,
+    setFormData,
   }
 
   return (
     <GlobalChatbotContext.Provider value={value}>
       {children}
       {/* Global Chatbot - Always rendered when visible */}
-      {isVisible && (
-        <GlobalChatbot
-          estimatorData={currentPageData}
-          currentPage={currentPage}
-        />
-      )}
+      {isVisible && <GlobalChatbot estimatorData={currentPageData} />}
     </GlobalChatbotContext.Provider>
   )
 }

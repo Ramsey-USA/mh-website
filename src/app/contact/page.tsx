@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import {
   Button,
@@ -16,6 +16,7 @@ import {
   StaggeredFadeIn,
   HoverScale,
 } from '../../components/animations/FramerMotionComponents'
+import { useGlobalChatbot } from '../../providers/GlobalChatbotProvider'
 
 // Contact methods
 const contactMethods = [
@@ -75,6 +76,8 @@ const projectTypes = [
 ]
 
 export default function ContactPage() {
+  const { setFormData: setGlobalFormData } = useGlobalChatbot()
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -83,6 +86,11 @@ export default function ContactPage() {
     location: '',
     message: '',
   })
+
+  // Sync local form data with global chatbot context
+  useEffect(() => {
+    setGlobalFormData(formData)
+  }, [formData, setGlobalFormData])
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<

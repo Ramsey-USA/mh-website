@@ -753,6 +753,1935 @@ Your construction mission parameters are being analyzed through our **military-g
 
 **ORDERS:** Specify which operational zone requires immediate deployment!`
   }
+
+  /**
+   * Contact Form Assistance - Enhanced tactical guidance for mission coordination
+   */
+  public getContactFormAssistance(input: string, context?: any): string {
+    // Enhanced context awareness with intelligent analysis
+    const formAnalysis = this.analyzeFormCompletion(context?.formData)
+    const smartSuggestions = this.generateSmartSuggestions(
+      input,
+      context?.formData
+    )
+    const validationGuidance = this.getValidationGuidance(context?.formData)
+
+    if (context?.formData) {
+      const { name, email, phone, projectType, location, message } =
+        context.formData
+
+      return `**CONTACT FORM TACTICAL ASSISTANCE** 📋
+
+**MISSION READINESS ASSESSMENT:** ${formAnalysis.completionRate}% Complete (${
+        formAnalysis.quality
+      })
+
+**CURRENT FIELD STATUS:**
+
+${
+  name
+    ? `✅ **Personnel ID:** ${name} - Identity confirmed`
+    : '⚠️ **Personnel ID:** REQUIRED - Enter your full name for mission briefing'
+}
+
+${
+  email
+    ? `✅ **Communication Channel:** ${email} - ${
+        this.validateEmail(email)
+          ? 'Secure email established'
+          : '🔴 INVALID EMAIL FORMAT - Please verify'
+      }`
+    : '⚠️ **Communication Channel:** REQUIRED - Provide tactical email for mission updates'
+}
+
+${
+  phone
+    ? `✅ **Direct Contact Line:** ${phone} - ${
+        this.validatePhone(phone)
+          ? 'Emergency communication ready'
+          : '🔴 INVALID PHONE FORMAT - Use (XXX) XXX-XXXX'
+      }`
+    : '⚠️ **Direct Contact Line:** RECOMMENDED - Phone for urgent mission coordination'
+}
+
+${
+  projectType
+    ? `✅ **Mission Type:** ${projectType} - Objective classified`
+    : '⚠️ **Mission Type:** REQUIRED - Select construction mission category'
+}
+
+${
+  location
+    ? `✅ **Area of Operations:** ${location} - Tactical zone identified`
+    : '⚠️ **Area of Operations:** REQUIRED - Specify project location for deployment planning'
+}
+
+${
+  message
+    ? `✅ **Mission Brief:** ${message.length} characters - ${
+        message.length > 50
+          ? 'Detailed intel received'
+          : 'Brief message received'
+      }`
+    : '⚠️ **Mission Brief:** RECOMMENDED - Provide detailed mission objectives and requirements'
+}
+
+${smartSuggestions}
+
+${validationGuidance}
+
+**TACTICAL RECOMMENDATIONS:**
+• **Mission Success Rate:** Include specific project requirements and timeline
+• **Resource Planning:** Mention budget range for optimal tactical planning  
+• **Veteran Status:** Identify if you're a service member for **12% combat discount**
+• **Urgency Level:** Specify if this is an emergency construction operation
+
+**ORDERS:** Complete all required fields to initiate mission communication protocols!`
+    }
+
+    return `**CONTACT FORM COMMAND CENTER** 📞
+
+**MISSION COMMUNICATION PROTOCOLS** 📋
+
+Ready to establish **direct communication** with MH Construction command! Our **contact form** is your **primary communication channel** for:
+
+• **Mission Briefings** - Detailed project consultations
+• **Tactical Questions** - Construction intelligence requests  
+• **Resource Coordination** - Material and timeline planning
+• **Veteran Services** - Specialized support for service members
+• **Emergency Operations** - Urgent construction requirements
+
+**STRATEGIC INTEL:**
+• **Response Time:** All communications acknowledged within **24 hours**
+• **Priority Processing:** Veteran leads receive **expedited handling**
+• **Direct Line:** (509) 308-6489 for immediate tactical support
+• **Secure Channel:** info@mhconstruction.com for detailed mission briefs
+
+**INTELLIGENT FORM ASSISTANCE:**
+• **Auto-completion suggestions** based on your input
+• **Real-time validation** for optimal data quality
+• **Smart recommendations** for project type selection
+• **Context-aware guidance** throughout the form
+
+**TACTICAL ADVANTAGE:** Provide complete mission parameters for optimal resource deployment and strategic planning.
+
+**READY TO RECEIVE YOUR MISSION BRIEF!** 🎖️`
+  }
+
+  /**
+   * Booking Form Assistance - Strategic consultation scheduling protocols
+   */
+  public getBookingFormAssistance(input: string, context?: any): string {
+    // Enhanced booking form analysis
+    const bookingAnalysis = this.analyzeBookingCompletion(context?.formData)
+    const timeSlotSuggestions = this.generateTimeSlotSuggestions(
+      context?.formData
+    )
+    const bookingValidation = this.getBookingValidationGuidance(
+      context?.formData
+    )
+
+    if (context?.formData) {
+      const {
+        clientName,
+        email,
+        phone,
+        projectType,
+        selectedDate,
+        selectedTime,
+        budget,
+        projectDescription,
+        location,
+      } = context.formData
+
+      return `**BOOKING FORM TACTICAL ASSISTANCE** 📅
+
+**CONSULTATION READINESS:** ${
+        bookingAnalysis.completionRate
+      }% Mission Prep Complete (${bookingAnalysis.quality})
+
+**DEPLOYMENT SCHEDULE STATUS:**
+
+${
+  clientName
+    ? `✅ **Command Personnel:** ${clientName} - Identity confirmed`
+    : '⚠️ **Command Personnel:** REQUIRED - Enter full name for consultation briefing'
+}
+
+${
+  email
+    ? `✅ **Secure Communications:** ${email} - ${
+        this.validateEmail(email)
+          ? 'Channel established'
+          : '🔴 INVALID EMAIL - Please verify format'
+      }`
+    : '⚠️ **Secure Communications:** REQUIRED - Email for mission confirmation'
+}
+
+${
+  phone
+    ? `✅ **Direct Command Line:** ${phone} - ${
+        this.validatePhone(phone)
+          ? 'Ready for tactical coordination'
+          : '🔴 INVALID PHONE - Use (XXX) XXX-XXXX format'
+      }`
+    : '⚠️ **Direct Command Line:** RECOMMENDED - Phone for consultation coordination'
+}
+
+${
+  projectType
+    ? `✅ **Mission Category:** ${projectType} - Objective classified`
+    : '⚠️ **Mission Category:** REQUIRED - Select construction mission type'
+}
+
+${
+  selectedDate
+    ? `✅ **Operation Date:** ${selectedDate} - Mission scheduled`
+    : '⚠️ **Operation Date:** REQUIRED - Select consultation deployment date'
+}
+
+${
+  selectedTime
+    ? `✅ **Deployment Time:** ${selectedTime} - Tactical window secured`
+    : '⚠️ **Deployment Time:** REQUIRED - Choose optimal mission time'
+}
+
+${
+  budget
+    ? `✅ **Resource Allocation:** ${budget} - Budget parameters set`
+    : '⚠️ **Resource Allocation:** RECOMMENDED - Specify budget for strategic planning'
+}
+
+${
+  location
+    ? `✅ **Area of Operations:** ${location} - Zone identified`
+    : '⚠️ **Area of Operations:** RECOMMENDED - Project location for logistics'
+}
+
+${
+  projectDescription
+    ? `✅ **Mission Brief:** ${projectDescription.length} characters - ${
+        projectDescription.length > 100
+          ? 'Detailed intel received'
+          : 'Basic intel logged'
+      }`
+    : '⚠️ **Mission Brief:** RECOMMENDED - Project details for precise consultation'
+}
+
+${timeSlotSuggestions}
+
+${bookingValidation}
+
+**CONSULTATION PROTOCOLS:**
+• **Duration:** 60-90 minutes tactical assessment
+• **Preparation:** Site photos and requirements recommended
+• **Veteran Advantage:** Service members receive priority scheduling
+• **Follow-up:** Detailed estimate provided within 48 hours
+
+**ORDERS:** Complete all deployment parameters for optimal consultation mission success!`
+    }
+
+    return `**CONSULTATION BOOKING COMMAND** 📅
+
+**TACTICAL CONSULTATION PROTOCOLS** 🎯
+
+Ready to schedule **direct tactical consultation** with MH Construction command! Our **booking system** deploys expert assessment for:
+
+• **Site Reconnaissance** - Professional property evaluation
+• **Mission Planning** - Detailed project strategy development
+• **Resource Assessment** - Material and timeline coordination
+• **Cost Intelligence** - Precise budget and pricing analysis
+• **Veteran Operations** - Specialized service member consultations
+
+**DEPLOYMENT INTEL:**
+• **Response Time:** Consultation confirmation within **2 hours**
+• **Mission Duration:** 60-90 minutes comprehensive assessment
+• **Priority Scheduling:** Veterans receive **expedited booking**
+• **Direct Coordination:** (509) 308-6489 for schedule adjustments
+• **Secure Briefing:** Detailed follow-up estimate within 48 hours
+
+**INTELLIGENT BOOKING SYSTEM:**
+• **Smart scheduling** with optimal time recommendations
+• **Conflict detection** for seamless coordination
+• **Automated confirmations** with tactical precision
+• **Weather analysis** for outdoor consultations
+
+**TACTICAL ADVANTAGE:** Schedule strategic consultation for professional project assessment and mission-critical planning.
+
+**READY FOR CONSULTATION DEPLOYMENT!** 🎖️`
+  }
+
+  /**
+   * Lead Qualification Guidance - Enhanced intelligence gathering for project assessment
+   */
+  public getLeadQualificationGuidance(input: string, context?: any): string {
+    const leadIntelligence = this.performComprehensiveLeadAnalysis(
+      input,
+      context
+    )
+
+    return `**LEAD QUALIFICATION INTELLIGENCE COMMAND** 🎯
+
+**COMPREHENSIVE TACTICAL ASSESSMENT:**
+
+🔍 **MISSION INTELLIGENCE SUMMARY:**
+• **Lead Score:** ${leadIntelligence.totalScore}/100 (${leadIntelligence.scoreCategory})
+• **Project Type:** ${leadIntelligence.projectType}
+• **Urgency Level:** ${leadIntelligence.urgencyLevel}
+• **Budget Classification:** ${leadIntelligence.budgetRange}
+• **Veteran Status:** ${leadIntelligence.veteranStatus}
+• **Contact Quality:** ${leadIntelligence.contactQuality}
+• **Timeline Status:** ${leadIntelligence.timelineStatus}
+
+🎖️ **ADVANCED LEAD CLASSIFICATION:**
+
+${leadIntelligence.classification}
+
+📊 **SCORING BREAKDOWN:**
+${leadIntelligence.scoreBreakdown}
+
+🚀 **DEPLOYMENT RECOMMENDATIONS:**
+${leadIntelligence.actionPlan}
+
+🔄 **FOLLOW-UP PROTOCOLS:**
+${leadIntelligence.followUpStrategy}
+
+**STRATEGIC INTELLIGENCE:** Advanced qualification engine enables precision targeting and optimal resource deployment for maximum mission success rate!
+
+**COMMAND READY FOR TACTICAL LEAD PROCESSING!** 🎖️`
+  }
+
+  /**
+   * Advanced Lead Intelligence Analysis Engine
+   */
+  private performComprehensiveLeadAnalysis(input: string, context?: any): any {
+    const keywords = input.toLowerCase()
+
+    // Calculate comprehensive lead score (0-100)
+    const scoring = {
+      urgency: this.calculateUrgencyScore(keywords),
+      budget: this.calculateBudgetScore(keywords),
+      veteran: this.calculateVeteranScore(keywords),
+      projectClarity: this.calculateProjectClarityScore(keywords),
+      contactInfo: this.calculateContactInfoScore(context),
+      timeline: this.calculateTimelineScore(keywords),
+      engagement: this.calculateEngagementScore(keywords),
+    }
+
+    const totalScore = Object.values(scoring).reduce(
+      (sum, score) => sum + score,
+      0
+    )
+    const scoreCategory = this.categorizeLeadScore(totalScore)
+
+    return {
+      totalScore: Math.round(totalScore),
+      scoreCategory,
+      projectType: this.classifyProjectType(keywords),
+      urgencyLevel: this.assessUrgencyLevel(keywords),
+      budgetRange: this.estimateBudgetRange(keywords),
+      veteranStatus: this.detectVeteranStatus(keywords),
+      contactQuality: this.assessContactQuality(context),
+      timelineStatus: this.assessTimelineStatus(keywords),
+      classification: this.generateAdvancedLeadClassification(
+        totalScore,
+        scoring,
+        keywords
+      ),
+      scoreBreakdown: this.generateScoreBreakdown(scoring),
+      actionPlan: this.generateActionPlan(totalScore, scoring, keywords),
+      followUpStrategy: this.generateFollowUpStrategy(
+        totalScore,
+        scoring,
+        keywords
+      ),
+    }
+  }
+
+  /**
+   * Advanced Scoring Methods for Lead Qualification Engine
+   */
+  private calculateUrgencyScore(keywords: string): number {
+    let score = 0
+    if (
+      keywords.includes('emergency') ||
+      keywords.includes('urgent') ||
+      keywords.includes('asap')
+    )
+      score += 20
+    if (
+      keywords.includes('soon') ||
+      keywords.includes('quickly') ||
+      keywords.includes('fast')
+    )
+      score += 15
+    if (keywords.includes('planning') || keywords.includes('considering'))
+      score += 5
+    return Math.min(score, 20) // Max 20 points for urgency
+  }
+
+  private calculateBudgetScore(keywords: string): number {
+    let score = 0
+    if (
+      keywords.includes('luxury') ||
+      keywords.includes('high-end') ||
+      keywords.includes('premium')
+    )
+      score += 20
+    if (keywords.includes('major') || keywords.includes('large')) score += 15
+    if (
+      keywords.includes('budget') ||
+      keywords.includes('cost') ||
+      keywords.includes('price')
+    )
+      score += 10
+    if (keywords.includes('cheap') || keywords.includes('affordable'))
+      score += 5
+    return Math.min(score, 20) // Max 20 points for budget indicators
+  }
+
+  private calculateVeteranScore(keywords: string): number {
+    const veteranAnalysis = this.analyzeVeteranStatus(keywords)
+
+    // Enhanced scoring based on veteran analysis
+    let score = 0
+    if (veteranAnalysis.isVeteran) {
+      score = 15 // Base veteran score
+
+      // Service branch bonus points
+      if (veteranAnalysis.serviceBranch !== 'Unknown') score += 3
+
+      // Combat veteran bonus
+      if (veteranAnalysis.isCombatVeteran) score += 5
+
+      // Disabled veteran bonus
+      if (veteranAnalysis.isDisabledVeteran) score += 7
+
+      // Multiple tour bonus
+      if (veteranAnalysis.hasMultipleTours) score += 3
+    }
+
+    return Math.min(score, 30) // Max 30 points for veterans (increased from 15)
+  }
+
+  private calculateProjectClarityScore(keywords: string): number {
+    let score = 0
+    const projectTypes = [
+      'kitchen',
+      'bathroom',
+      'addition',
+      'remodel',
+      'renovation',
+      'commercial',
+      'custom',
+    ]
+    if (projectTypes.some(type => keywords.includes(type))) score += 10
+
+    const detailWords = [
+      'square',
+      'feet',
+      'size',
+      'timeline',
+      'materials',
+      'requirements',
+    ]
+    detailWords.forEach(word => {
+      if (keywords.includes(word)) score += 2
+    })
+
+    return Math.min(score, 15) // Max 15 points for project clarity
+  }
+
+  private calculateContactInfoScore(context?: any): number {
+    if (!context?.formData) return 0
+
+    let score = 0
+    if (context.formData.name) score += 3
+    if (context.formData.email && this.validateEmail(context.formData.email))
+      score += 5
+    if (context.formData.phone && this.validatePhone(context.formData.phone))
+      score += 4
+    if (context.formData.location) score += 3
+
+    return Math.min(score, 15) // Max 15 points for contact info
+  }
+
+  private calculateTimelineScore(keywords: string): number {
+    let score = 0
+    if (keywords.includes('start') || keywords.includes('begin')) score += 5
+    if (keywords.includes('month') || keywords.includes('week')) score += 8
+    if (keywords.includes('year') || keywords.includes('someday')) score += 2
+    return Math.min(score, 10) // Max 10 points for timeline clarity
+  }
+
+  private calculateEngagementScore(keywords: string): number {
+    let score = 0
+    const engagementWords = [
+      'questions',
+      'details',
+      'information',
+      'discuss',
+      'consultation',
+      'meeting',
+    ]
+    engagementWords.forEach(word => {
+      if (keywords.includes(word)) score += 1
+    })
+    return Math.min(score, 5) // Max 5 points for engagement level
+  }
+
+  private categorizeLeadScore(score: number): string {
+    if (score >= 80) return '🔥 **PRIME TARGET** - Maximum Priority'
+    if (score >= 65) return '🎯 **HIGH VALUE** - Priority Engagement'
+    if (score >= 50) return '🌡️ **WARM PROSPECT** - Active Follow-up'
+    if (score >= 35) return '❄️ **COLD LEAD** - Nurturing Required'
+    return '📋 **INFORMATION SEEKER** - Educational Phase'
+  }
+
+  private assessContactQuality(context?: any): string {
+    if (!context?.formData) return 'No contact data available'
+
+    const data = context.formData
+    if (data.name && data.email && data.phone && data.location) {
+      return '✅ **COMPLETE** - Full tactical contact established'
+    } else if (data.name && data.email) {
+      return '⚠️ **PARTIAL** - Basic communication channels secured'
+    } else {
+      return '🔴 **INCOMPLETE** - Contact intelligence insufficient'
+    }
+  }
+
+  private assessTimelineStatus(keywords: string): string {
+    if (keywords.includes('emergency') || keywords.includes('urgent')) {
+      return '🔴 **IMMEDIATE** - Emergency deployment required'
+    } else if (keywords.includes('soon') || keywords.includes('month')) {
+      return '🟡 **NEAR-TERM** - Active project timeline'
+    } else if (keywords.includes('year') || keywords.includes('planning')) {
+      return '🟢 **LONG-TERM** - Strategic planning phase'
+    }
+    return '❓ **UNDEFINED** - Timeline intelligence needed'
+  }
+
+  private generateAdvancedLeadClassification(
+    score: number,
+    scoring: any,
+    keywords: string
+  ): string {
+    if (score >= 80) {
+      return `🔥 **ALPHA PRIORITY LEAD** - Elite Deployment Required:
+• **Immediate tactical response** within 2 hours
+• **Senior project manager** assignment mandatory
+• **Veteran fast-track** protocols if applicable
+• **Full resource mobilization** authorized
+• **Conversion probability:** 85-95%`
+    } else if (score >= 65) {
+      return `🎯 **BRAVO HIGH-VALUE TARGET** - Priority Engagement:
+• **Response window:** 4-6 hours maximum
+• **Experienced team lead** assignment
+• **Comprehensive assessment** deployment
+• **Resource allocation:** High priority
+• **Conversion probability:** 70-85%`
+    } else if (score >= 50) {
+      return `🌡️ **CHARLIE WARM PROSPECT** - Strategic Follow-up:
+• **Response timeline:** 24-48 hours
+• **Standard consultation** protocols
+• **Information gathering** mission
+• **Resource allocation:** Standard
+• **Conversion probability:** 45-70%`
+    } else if (score >= 35) {
+      return `❄️ **DELTA COLD CONTACT** - Nurturing Campaign:
+• **Educational outreach** strategy
+• **Long-term relationship** building
+• **Information specialist** assignment
+• **Resource allocation:** Minimal
+• **Conversion probability:** 20-45%`
+    }
+    return `📋 **ECHO INFORMATION SEEKER** - Educational Support:
+• **Informational resources** deployment
+• **General guidance** provision
+• **Future opportunity** tracking
+• **Resource allocation:** Basic
+• **Conversion probability:** 5-20%`
+  }
+
+  private generateScoreBreakdown(scoring: any): string {
+    return `• **Urgency Factor:** ${scoring.urgency}/20 points
+• **Budget Indicators:** ${scoring.budget}/20 points  
+• **Veteran Bonus:** ${scoring.veteran}/15 points
+• **Project Clarity:** ${scoring.projectClarity}/15 points
+• **Contact Quality:** ${scoring.contactInfo}/15 points
+• **Timeline Status:** ${scoring.timeline}/10 points
+• **Engagement Level:** ${scoring.engagement}/5 points`
+  }
+
+  private generateActionPlan(
+    score: number,
+    scoring: any,
+    keywords: string
+  ): string {
+    if (score >= 80) {
+      return `🚀 **IMMEDIATE ACTION PROTOCOL:**
+• **Step 1:** Senior PM contact within 2 hours
+• **Step 2:** Same-day consultation scheduling
+• **Step 3:** Comprehensive site assessment deployment
+• **Step 4:** Detailed proposal delivery within 24 hours
+• **Step 5:** Contract negotiation initialization`
+    } else if (score >= 65) {
+      return `📞 **HIGH-PRIORITY ENGAGEMENT:**
+• **Step 1:** Team lead contact within 6 hours
+• **Step 2:** Consultation scheduling within 48 hours
+• **Step 3:** Professional assessment deployment
+• **Step 4:** Detailed estimate delivery
+• **Step 5:** Follow-up and relationship building`
+    } else if (score >= 50) {
+      return `📋 **STANDARD FOLLOW-UP PROTOCOL:**
+• **Step 1:** Initial contact within 24 hours
+• **Step 2:** Information gathering and qualification
+• **Step 3:** Consultation offer deployment
+• **Step 4:** Educational resource provision
+• **Step 5:** Ongoing relationship nurturing`
+    }
+    return `📚 **EDUCATIONAL OUTREACH STRATEGY:**
+• **Step 1:** Informational response within 48 hours
+• **Step 2:** Educational resource deployment
+• **Step 3:** Newsletter subscription offer
+• **Step 4:** Future project opportunity tracking
+• **Step 5:** Long-term relationship cultivation`
+  }
+
+  private generateFollowUpStrategy(
+    score: number,
+    scoring: any,
+    keywords: string
+  ): string {
+    if (score >= 80) {
+      return `🎖️ **ELITE FOLLOW-UP PROTOCOLS:**
+• **Immediate:** 2-hour response guarantee
+• **Day 1:** Consultation scheduling confirmation
+• **Day 2:** Pre-assessment intelligence gathering
+• **Week 1:** Detailed proposal and timeline
+• **Ongoing:** Weekly project status updates`
+    } else if (score >= 65) {
+      return `🎯 **PRIORITY FOLLOW-UP SEQUENCE:**
+• **Immediate:** 6-hour response commitment
+• **Day 1:** Project discussion and qualification
+• **Day 3:** Consultation scheduling
+• **Week 1:** Comprehensive estimate delivery
+• **Ongoing:** Bi-weekly relationship maintenance`
+    } else if (score >= 50) {
+      return `📅 **STANDARD FOLLOW-UP CADENCE:**
+• **Day 1:** Initial contact and information
+• **Week 1:** Project qualification discussion
+• **Week 2:** Educational resource sharing
+• **Month 1:** Consultation offer and relationship building
+• **Ongoing:** Monthly check-ins and updates`
+    }
+    return `📚 **EDUCATIONAL NURTURING CYCLE:**
+• **Week 1:** Informational resource delivery
+• **Month 1:** Educational content sharing
+• **Quarter 1:** Project planning guidance
+• **Ongoing:** Seasonal newsletters and updates
+• **Future:** Opportunity tracking and relationship maintenance`
+  }
+
+  /**
+   * Advanced Form Analysis Methods for Enhanced Intelligence
+   */
+  private analyzeFormCompletion(formData: any): {
+    completionRate: number
+    missingFields: string[]
+    quality: string
+  } {
+    if (!formData)
+      return {
+        completionRate: 0,
+        missingFields: ['All fields'],
+        quality: 'INSUFFICIENT',
+      }
+
+    const requiredFields = ['name', 'email', 'projectType', 'location']
+    const optionalFields = ['phone', 'message']
+    const allFields = [...requiredFields, ...optionalFields]
+
+    const completedFields = allFields.filter(field =>
+      formData[field]?.toString().trim()
+    )
+    const missingRequired = requiredFields.filter(
+      field => !formData[field]?.toString().trim()
+    )
+
+    const completionRate = Math.round(
+      (completedFields.length / allFields.length) * 100
+    )
+
+    let quality = 'INSUFFICIENT'
+    if (completionRate >= 80 && missingRequired.length === 0)
+      quality = 'MISSION READY'
+    else if (completionRate >= 60) quality = 'TACTICAL PROGRESS'
+    else if (completionRate >= 40) quality = 'OPERATIONAL'
+
+    return { completionRate, missingFields: missingRequired, quality }
+  }
+
+  private analyzeBookingCompletion(bookingData: any): {
+    completionRate: number
+    missingFields: string[]
+    quality: string
+  } {
+    if (!bookingData)
+      return {
+        completionRate: 0,
+        missingFields: ['All fields'],
+        quality: 'INSUFFICIENT',
+      }
+
+    const requiredFields = [
+      'clientName',
+      'email',
+      'projectType',
+      'selectedDate',
+      'selectedTime',
+    ]
+    const optionalFields = ['phone', 'projectDescription', 'location', 'budget']
+    const allFields = [...requiredFields, ...optionalFields]
+
+    const completedFields = allFields.filter(field =>
+      bookingData[field]?.toString().trim()
+    )
+    const missingRequired = requiredFields.filter(
+      field => !bookingData[field]?.toString().trim()
+    )
+
+    const completionRate = Math.round(
+      (completedFields.length / allFields.length) * 100
+    )
+
+    let quality = 'INSUFFICIENT'
+    if (completionRate >= 80 && missingRequired.length === 0)
+      quality = 'MISSION READY'
+    else if (completionRate >= 60) quality = 'TACTICAL PROGRESS'
+    else if (completionRate >= 40) quality = 'OPERATIONAL'
+
+    return { completionRate, missingFields: missingRequired, quality }
+  }
+
+  private generateSmartSuggestions(input: string, formData: any): string {
+    if (!formData) return ''
+
+    const suggestions: string[] = []
+
+    // Project type suggestions based on keywords
+    if (!formData.projectType && input) {
+      const keywords = input.toLowerCase()
+      if (keywords.includes('kitchen'))
+        suggestions.push(
+          '🎯 **SUGGESTION:** Consider "Kitchen Remodel" for mission type'
+        )
+      if (keywords.includes('bathroom'))
+        suggestions.push(
+          '🎯 **SUGGESTION:** Consider "Bathroom Remodel" for mission type'
+        )
+      if (keywords.includes('addition') || keywords.includes('expand'))
+        suggestions.push(
+          '🎯 **SUGGESTION:** Consider "Home Addition" for mission type'
+        )
+      if (keywords.includes('commercial') || keywords.includes('business'))
+        suggestions.push(
+          '🎯 **SUGGESTION:** Consider "Commercial Building" for mission type'
+        )
+    }
+
+    // Location suggestions for Pacific Northwest
+    if (!formData.location && input) {
+      const locationKeywords = input.toLowerCase()
+      if (locationKeywords.includes('seattle'))
+        suggestions.push(
+          '📍 **LOCATION INTEL:** Seattle area - Premium pricing zone'
+        )
+      if (locationKeywords.includes('spokane'))
+        suggestions.push(
+          '📍 **LOCATION INTEL:** Spokane area - Standard operational zone'
+        )
+      if (locationKeywords.includes('tacoma'))
+        suggestions.push(
+          '📍 **LOCATION INTEL:** Tacoma area - Active construction zone'
+        )
+    }
+
+    // Veteran recognition
+    if (
+      input.toLowerCase().includes('veteran') ||
+      input.toLowerCase().includes('military') ||
+      input.toLowerCase().includes('service')
+    ) {
+      suggestions.push(
+        '🎖️ **VETERAN DETECTED:** Mention your service branch for 12% combat discount!'
+      )
+    }
+
+    // Budget guidance
+    if (
+      input.toLowerCase().includes('cost') ||
+      input.toLowerCase().includes('budget') ||
+      input.toLowerCase().includes('price')
+    ) {
+      suggestions.push(
+        '💰 **BUDGET INTEL:** Include budget range in message for tactical resource planning'
+      )
+    }
+
+    return suggestions.length > 0
+      ? `\n**🎯 TACTICAL SUGGESTIONS:**\n${suggestions.join('\n')}\n`
+      : ''
+  }
+
+  private generateTimeSlotSuggestions(bookingData: any): string {
+    if (!bookingData) return ''
+
+    const suggestions: string[] = []
+
+    // Morning vs afternoon recommendations
+    if (!bookingData.selectedTime) {
+      suggestions.push(
+        '⏰ **OPTIMAL TIMES:** Morning slots (8-11 AM) for outdoor projects'
+      )
+      suggestions.push(
+        '⏰ **STRATEGIC PLANNING:** Afternoon slots (1-4 PM) for interior consultations'
+      )
+    }
+
+    // Date recommendations
+    if (!bookingData.selectedDate) {
+      const today = new Date()
+      const tomorrow = new Date(today)
+      tomorrow.setDate(tomorrow.getDate() + 1)
+      suggestions.push(
+        `📅 **EARLIEST DEPLOYMENT:** ${tomorrow.toLocaleDateString()} or later recommended`
+      )
+    }
+
+    return suggestions.length > 0
+      ? `\n**📅 SCHEDULING INTEL:**\n${suggestions.join('\n')}\n`
+      : ''
+  }
+
+  private getValidationGuidance(formData: any): string {
+    if (!formData) return ''
+
+    const issues: string[] = []
+
+    // Email validation guidance
+    if (formData.email && !this.validateEmail(formData.email)) {
+      issues.push(
+        '📧 **EMAIL FORMAT:** Use standard format (example@domain.com)'
+      )
+    }
+
+    // Phone validation guidance
+    if (formData.phone && !this.validatePhone(formData.phone)) {
+      issues.push(
+        '📞 **PHONE FORMAT:** Use (XXX) XXX-XXXX format for optimal communication'
+      )
+    }
+
+    // Message length guidance
+    if (formData.message) {
+      if (formData.message.length < 20) {
+        issues.push(
+          '📝 **MESSAGE BRIEF:** Consider adding more project details for better tactical planning'
+        )
+      } else if (formData.message.length > 500) {
+        issues.push(
+          '📝 **MESSAGE LENGTH:** Consider summarizing key points for efficient processing'
+        )
+      }
+    }
+
+    return issues.length > 0
+      ? `\n**⚠️ OPTIMIZATION RECOMMENDATIONS:**\n${issues.join('\n')}\n`
+      : ''
+  }
+
+  private getBookingValidationGuidance(bookingData: any): string {
+    if (!bookingData) return ''
+
+    const issues: string[] = []
+
+    // Email validation
+    if (bookingData.email && !this.validateEmail(bookingData.email)) {
+      issues.push(
+        '📧 **EMAIL FORMAT:** Use standard format (example@domain.com)'
+      )
+    }
+
+    // Phone validation
+    if (bookingData.phone && !this.validatePhone(bookingData.phone)) {
+      issues.push(
+        '📞 **PHONE FORMAT:** Use (XXX) XXX-XXXX format for coordination'
+      )
+    }
+
+    // Project description guidance
+    if (bookingData.projectDescription) {
+      if (bookingData.projectDescription.length < 30) {
+        issues.push(
+          '📝 **PROJECT BRIEF:** Add more details for better consultation preparation'
+        )
+      }
+    }
+
+    // Date validation
+    if (bookingData.selectedDate) {
+      const selectedDate = new Date(bookingData.selectedDate)
+      const today = new Date()
+      if (selectedDate <= today) {
+        issues.push(
+          '📅 **DATE VALIDATION:** Select future date for consultation scheduling'
+        )
+      }
+    }
+
+    return issues.length > 0
+      ? `\n**⚠️ SCHEDULING OPTIMIZATION:**\n${issues.join('\n')}\n`
+      : ''
+  }
+
+  private validateEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
+
+  private validatePhone(phone: string): boolean {
+    // Accepts formats: (XXX) XXX-XXXX, XXX-XXX-XXXX, XXX.XXX.XXXX, XXXXXXXXXX
+    const phoneRegex = /^(\(\d{3}\)\s?|\d{3}[-.]?)\d{3}[-.]?\d{4}$/
+    return phoneRegex.test(phone.replace(/\s/g, ''))
+  }
+
+  /**
+   * Lead Qualification Helper Methods
+   */
+  private assessUrgencyLevel(keywords: string): string {
+    if (
+      keywords.includes('emergency') ||
+      keywords.includes('urgent') ||
+      keywords.includes('asap') ||
+      keywords.includes('immediately')
+    ) {
+      return '🔴 **CRITICAL** - Emergency deployment required'
+    }
+    if (
+      keywords.includes('soon') ||
+      keywords.includes('quickly') ||
+      keywords.includes('fast')
+    ) {
+      return '🟡 **HIGH** - Priority tactical response'
+    }
+    if (
+      keywords.includes('planning') ||
+      keywords.includes('considering') ||
+      keywords.includes('thinking')
+    ) {
+      return '🟢 **MEDIUM** - Strategic planning phase'
+    }
+    return '🔵 **STANDARD** - Normal operational timeline'
+  }
+
+  private estimateBudgetRange(keywords: string): string {
+    if (
+      keywords.includes('luxury') ||
+      keywords.includes('high-end') ||
+      keywords.includes('premium')
+    ) {
+      return '💎 **PREMIUM** ($150K+ operational budget)'
+    }
+    if (
+      keywords.includes('major') ||
+      keywords.includes('large') ||
+      keywords.includes('addition')
+    ) {
+      return '💰 **SUBSTANTIAL** ($75K-$150K mission scope)'
+    }
+    if (
+      keywords.includes('remodel') ||
+      keywords.includes('renovation') ||
+      keywords.includes('update')
+    ) {
+      return '💵 **MODERATE** ($25K-$75K tactical budget)'
+    }
+    if (
+      keywords.includes('repair') ||
+      keywords.includes('fix') ||
+      keywords.includes('small')
+    ) {
+      return '💲 **STANDARD** (Under $25K operational cost)'
+    }
+    return '❓ **ASSESSMENT REQUIRED** - Budget intelligence needed'
+  }
+
+  private detectVeteranStatus(keywords: string): string {
+    const veteranAnalysis = this.analyzeVeteranStatus(keywords)
+
+    if (veteranAnalysis.isVeteran) {
+      let statusMessage = `🎖️ **VETERAN CONFIRMED** - ${veteranAnalysis.serviceBranch}`
+
+      if (veteranAnalysis.isCombatVeteran) {
+        statusMessage += ' (Combat Veteran)'
+      }
+
+      if (veteranAnalysis.isDisabledVeteran) {
+        statusMessage += ' (Service-Connected Disability)'
+      }
+
+      statusMessage += '\n• **Priority processing** with expedited response'
+      statusMessage += '\n• **12% combat discount** applied automatically'
+      statusMessage +=
+        '\n• **Veteran liaison** assigned for specialized support'
+
+      if (veteranAnalysis.eligibleForVABenefits) {
+        statusMessage += '\n• **VA benefits consultation** available'
+      }
+
+      return statusMessage
+    }
+
+    return '👤 **CIVILIAN** - Standard processing protocols'
+  }
+
+  /**
+   * Comprehensive Veteran Analysis System
+   */
+  analyzeVeteranStatus(keywords: string): {
+    isVeteran: boolean
+    serviceBranch: string
+    isCombatVeteran: boolean
+    isDisabledVeteran: boolean
+    hasMultipleTours: boolean
+    eligibleForVABenefits: boolean
+    veteranRank: string
+    serviceEra: string
+  } {
+    // Enhanced service branch detection
+    const serviceBranches = {
+      Army: [
+        'army',
+        'soldier',
+        'hooah',
+        'infantry',
+        'artillery',
+        'armor',
+        'airborne',
+        'ranger',
+      ],
+      Navy: [
+        'navy',
+        'sailor',
+        'shipmate',
+        'submarine',
+        'destroyer',
+        'carrier',
+        'seabee',
+      ],
+      Marines: [
+        'marines',
+        'marine',
+        'semper fi',
+        'devil dog',
+        'jarhead',
+        'oorah',
+        'usmc',
+      ],
+      'Air Force': [
+        'air force',
+        'airman',
+        'pilot',
+        'aircrew',
+        'airbase',
+        'squadron',
+        'usaf',
+      ],
+      'Coast Guard': [
+        'coast guard',
+        'coastie',
+        'semper paratus',
+        'uscg',
+        'cutter',
+      ],
+      'Space Force': ['space force', 'guardian', 'ussf', 'space operations'],
+    }
+
+    // Veteran keywords detection
+    const veteranKeywords = [
+      'veteran',
+      'vet',
+      'military',
+      'service',
+      'served',
+      'retired',
+      'active duty',
+      'reserve',
+      'national guard',
+    ]
+    const isVeteran =
+      veteranKeywords.some(keyword => keywords.includes(keyword)) ||
+      Object.values(serviceBranches)
+        .flat()
+        .some(keyword => keywords.includes(keyword))
+
+    let serviceBranch = 'Unknown'
+    if (isVeteran) {
+      for (const [branch, branchKeywords] of Object.entries(serviceBranches)) {
+        if (branchKeywords.some(keyword => keywords.includes(keyword))) {
+          serviceBranch = branch
+          break
+        }
+      }
+    }
+
+    // Combat veteran detection
+    const combatKeywords = [
+      'combat',
+      'deployment',
+      'iraq',
+      'afghanistan',
+      'oif',
+      'oef',
+      'gwot',
+      'theater',
+      'overseas',
+    ]
+    const isCombatVeteran = combatKeywords.some(keyword =>
+      keywords.includes(keyword)
+    )
+
+    // Disabled veteran detection
+    const disabilityKeywords = [
+      'disabled',
+      'disability',
+      'va rating',
+      'service connected',
+      'ptsd',
+      'tbi',
+      'wounded',
+    ]
+    const isDisabledVeteran = disabilityKeywords.some(keyword =>
+      keywords.includes(keyword)
+    )
+
+    // Multiple tours detection
+    const tourKeywords = [
+      'tours',
+      'deployments',
+      'multiple',
+      'second tour',
+      'third tour',
+    ]
+    const hasMultipleTours = tourKeywords.some(keyword =>
+      keywords.includes(keyword)
+    )
+
+    // VA benefits eligibility
+    const eligibleForVABenefits =
+      isVeteran &&
+      (isCombatVeteran || isDisabledVeteran || keywords.includes('va'))
+
+    // Rank detection (simplified)
+    const rankKeywords = {
+      Officer: [
+        'officer',
+        'captain',
+        'major',
+        'colonel',
+        'general',
+        'lieutenant',
+        'commander',
+      ],
+      'Senior NCO': ['sergeant', 'chief', 'master', 'senior', 'first sergeant'],
+      NCO: ['corporal', 'specialist', 'petty officer'],
+      Enlisted: ['private', 'seaman', 'airman', 'lance corporal'],
+    }
+
+    let veteranRank = 'Not Specified'
+    for (const [rank, rankWords] of Object.entries(rankKeywords)) {
+      if (rankWords.some(keyword => keywords.includes(keyword))) {
+        veteranRank = rank
+        break
+      }
+    }
+
+    // Service era detection
+    const eraKeywords = {
+      'GWOT (2001-Present)': [
+        'iraq',
+        'afghanistan',
+        'oif',
+        'oef',
+        'gwot',
+        '2000s',
+        '2010s',
+      ],
+      'Gulf War (1990-1991)': [
+        'gulf war',
+        'desert storm',
+        'desert shield',
+        '1990s',
+      ],
+      'Cold War Era': ['cold war', '1980s', '1970s', 'berlin', 'korea'],
+      'Vietnam Era': ['vietnam', 'southeast asia', '1960s', '1970s'],
+      'Korean War': ['korea', 'korean war', '1950s'],
+    }
+
+    let serviceEra = 'Not Specified'
+    for (const [era, eraWords] of Object.entries(eraKeywords)) {
+      if (eraWords.some(keyword => keywords.includes(keyword))) {
+        serviceEra = era
+        break
+      }
+    }
+
+    return {
+      isVeteran,
+      serviceBranch,
+      isCombatVeteran,
+      isDisabledVeteran,
+      hasMultipleTours,
+      eligibleForVABenefits,
+      veteranRank,
+      serviceEra,
+    }
+  }
+
+  private classifyProjectType(keywords: string): string {
+    if (keywords.includes('kitchen')) return 'Kitchen Remodel'
+    if (keywords.includes('bathroom')) return 'Bathroom Remodel'
+    if (keywords.includes('addition') || keywords.includes('expand'))
+      return 'Home Addition'
+    if (keywords.includes('commercial') || keywords.includes('business'))
+      return 'Commercial Building'
+    if (keywords.includes('custom') && keywords.includes('home'))
+      return 'Custom Home'
+    if (keywords.includes('tenant')) return 'Tenant Improvement'
+    if (keywords.includes('industrial')) return 'Industrial Facility'
+    if (keywords.includes('medical')) return 'Medical Facility'
+    if (keywords.includes('government')) return 'Government Project'
+    return 'Project Classification Required'
+  }
+
+  private generateLeadClassification(keywords: string, context?: any): string {
+    const urgency =
+      keywords.includes('emergency') || keywords.includes('urgent')
+    const budget = keywords.includes('budget') || keywords.includes('cost')
+    const timeline = keywords.includes('when') || keywords.includes('schedule')
+    const veteran =
+      keywords.includes('veteran') || keywords.includes('military')
+
+    if (veteran || urgency) {
+      return `🔥 **HOT LEAD** - Immediate Action Required:
+• **High conversion probability**
+• **Ready for project initiation**
+• **Immediate tactical response recommended**
+• **Resource deployment:** Senior project manager assignment`
+    }
+
+    if (budget && timeline) {
+      return `🌡️ **WARM LEAD** - Strategic Engagement:
+• **Active project planning phase**
+• **Budget considerations in progress**
+• **48-72 hour follow-up protocol**
+• **Resource deployment:** Project consultant assignment`
+    }
+
+    return `❄️ **COLD LEAD** - Information Gathering:
+• **Research phase inquiries**
+• **Long-term planning discussions**
+• **Educational nurturing required**
+• **Resource deployment:** Information specialist assignment`
+  }
+
+  /**
+   * Process veteran leads with priority handling and specialized protocols
+   */
+  processVeteranPriority(
+    veteranAnalysis: any,
+    leadData: any
+  ): {
+    priority: 'IMMEDIATE' | 'HIGH' | 'STANDARD'
+    processingProtocol: string
+    specialAssignment: string
+    supportServices: string[]
+    expeditedTimeline: string
+  } {
+    const {
+      isVeteran,
+      combatVeteran,
+      disabledVeteran,
+      vaBenefits,
+      serviceBranch,
+      rank,
+      serviceEra,
+    } = veteranAnalysis
+
+    // Determine priority level
+    let priority: 'IMMEDIATE' | 'HIGH' | 'STANDARD' = 'STANDARD'
+    if (disabledVeteran || combatVeteran) {
+      priority = 'IMMEDIATE'
+    } else if (isVeteran && vaBenefits) {
+      priority = 'HIGH'
+    } else if (isVeteran) {
+      priority = 'HIGH'
+    }
+
+    // Generate processing protocol
+    const processingProtocol = this.generateVeteranProtocol(
+      priority,
+      veteranAnalysis
+    )
+
+    // Assign specialized personnel
+    const specialAssignment = this.assignVeteranLiaison(veteranAnalysis)
+
+    // Determine support services
+    const supportServices = this.generateSupportServices(veteranAnalysis)
+
+    // Set expedited timeline
+    const expeditedTimeline = this.getExpeditedTimeline(
+      priority,
+      disabledVeteran
+    )
+
+    return {
+      priority,
+      processingProtocol,
+      specialAssignment,
+      supportServices,
+      expeditedTimeline,
+    }
+  }
+
+  /**
+   * Generate veteran-specific processing protocol
+   */
+  private generateVeteranProtocol(
+    priority: string,
+    veteranAnalysis: any
+  ): string {
+    const { serviceBranch, rank, combatVeteran, disabledVeteran } =
+      veteranAnalysis
+
+    if (priority === 'IMMEDIATE') {
+      return `🎖️ **IMMEDIATE VETERAN PRIORITY PROTOCOL**
+• **Direct commander escalation** - Skip standard intake
+• **24-hour response guarantee** 
+• **Senior project manager assignment**
+• **VA accessibility compliance review**
+• **Specialized veteran construction team**
+• **Branch: ${serviceBranch}** | **Rank: ${rank}**
+• **Combat/Disabled veteran expedited processing**`
+    }
+
+    if (priority === 'HIGH') {
+      return `🪖 **HIGH PRIORITY VETERAN PROTOCOL**
+• **48-hour response commitment**
+• **Veteran liaison direct assignment**
+• **Military discount pre-approval**
+• **Streamlined permit assistance**
+• **Branch: ${serviceBranch}** | **Rank: ${rank}**
+• **Thank you for your service priority handling**`
+    }
+
+    return `🇺🇸 **VETERAN RECOGNITION PROTOCOL**
+• **Military appreciation pricing**
+• **Veteran-friendly scheduling**
+• **Service branch acknowledgment**
+• **Standard response with veteran respect**`
+  }
+
+  /**
+   * Assign specialized veteran liaison
+   */
+  private assignVeteranLiaison(veteranAnalysis: any): string {
+    const { serviceBranch, combatVeteran, disabledVeteran, serviceEra } =
+      veteranAnalysis
+
+    if (disabledVeteran) {
+      return `👨‍⚕️ **DISABLED VETERAN SPECIALIST**
+• **ADA compliance expert**
+• **VA accessibility coordinator**
+• **Adaptive construction specialist**
+• **Medical equipment accommodation**`
+    }
+
+    if (combatVeteran) {
+      return `🎖️ **COMBAT VETERAN LIAISON**
+• **Fellow combat veteran on staff**
+• **Deployment experience understanding**
+• **Tactical project planning approach**
+• **Military precision execution**`
+    }
+
+    const branchSpecialist: { [key: string]: string } = {
+      Army: '🏛️ **ARMY VETERAN SPECIALIST**',
+      Navy: '⚓ **NAVY VETERAN SPECIALIST**',
+      Marines: '🦅 **MARINE VETERAN SPECIALIST**',
+      'Air Force': '✈️ **AIR FORCE VETERAN SPECIALIST**',
+      'Coast Guard': '🛟 **COAST GUARD VETERAN SPECIALIST**',
+      'Space Force': '🚀 **SPACE FORCE VETERAN SPECIALIST**',
+    }
+
+    return (
+      branchSpecialist[serviceBranch] ||
+      `🇺🇸 **VETERAN SERVICES COORDINATOR**
+• **Multi-branch experience**
+• **Military culture understanding**
+• **Service-focused approach**`
+    )
+  }
+
+  /**
+   * Generate veteran support services
+   */
+  private generateSupportServices(veteranAnalysis: any): string[] {
+    const { disabledVeteran, vaBenefits, combatVeteran, serviceEra } =
+      veteranAnalysis
+    const services: string[] = []
+
+    // Always include for veterans
+    services.push('Military Discount Application')
+    services.push('Veteran Appreciation Pricing')
+    services.push('Priority Scheduling')
+
+    if (disabledVeteran) {
+      services.push('ADA Compliance Consultation')
+      services.push('Accessibility Modification Specialists')
+      services.push('VA Grant Application Assistance')
+      services.push('Adaptive Construction Solutions')
+    }
+
+    if (vaBenefits) {
+      services.push('VA Home Loan Coordination')
+      services.push('VA Disability Rating Accommodations')
+      services.push('Benefits Navigation Support')
+    }
+
+    if (combatVeteran) {
+      services.push('PTSD-Aware Construction Scheduling')
+      services.push('Noise Sensitivity Accommodations')
+      services.push('Veteran Mental Health Resources')
+    }
+
+    if (serviceEra?.includes('GWOT')) {
+      services.push('Post-9/11 GI Bill Construction Benefits')
+      services.push('Modern Veteran Support Network')
+    }
+
+    return services
+  }
+
+  /**
+   * Get expedited timeline for veteran processing
+   */
+  private getExpeditedTimeline(
+    priority: string,
+    disabledVeteran: boolean
+  ): string {
+    if (priority === 'IMMEDIATE') {
+      return `⚡ **IMMEDIATE RESPONSE TIMELINE**
+• **Initial contact:** Within 4 hours
+• **Site assessment:** Within 24 hours  
+• **Project proposal:** Within 48 hours
+• **Construction start:** Priority scheduling
+• **Completion target:** Expedited delivery`
+    }
+
+    if (priority === 'HIGH') {
+      return `🚀 **EXPEDITED VETERAN TIMELINE**
+• **Initial contact:** Within 24 hours
+• **Site assessment:** Within 72 hours
+• **Project proposal:** Within 1 week
+• **Construction start:** Veteran priority queue
+• **Completion target:** Standard plus veteran care`
+    }
+
+    return `🇺🇸 **VETERAN APPRECIATION TIMELINE**
+• **Initial contact:** Within 48 hours
+• **Veteran recognition throughout process**
+• **Military-style communication and updates**
+• **Service-focused project management**`
+  }
+
+  /**
+   * Smart Form Auto-Completion with Predictive Intelligence
+   * Phase 4.4: Advanced form assistance with intelligent field suggestions
+   */
+  generateSmartFormSuggestions(
+    formData: any,
+    currentField: string,
+    userInput: string
+  ): {
+    suggestions: string[]
+    autoComplete: string
+    validation: {
+      isValid: boolean
+      feedback: string
+    }
+    militaryContext: {
+      isVeteran: boolean
+      suggestions: string[]
+      discounts: string[]
+    }
+  } {
+    const veteranAnalysis = this.analyzeVeteranStatus(userInput)
+
+    return {
+      suggestions: this.generateFieldSuggestions(
+        currentField,
+        userInput,
+        formData
+      ),
+      autoComplete: this.generateAutoComplete(
+        currentField,
+        userInput,
+        formData
+      ),
+      validation: this.validateField(currentField, userInput),
+      militaryContext: {
+        isVeteran: veteranAnalysis.isVeteran,
+        suggestions: this.generateVeteranSuggestions(
+          currentField,
+          veteranAnalysis
+        ),
+        discounts: this.getApplicableVeteranDiscounts(veteranAnalysis),
+      },
+    }
+  }
+
+  /**
+   * Generate intelligent field-specific suggestions
+   */
+  private generateFieldSuggestions(
+    field: string,
+    input: string,
+    formData: any
+  ): string[] {
+    const suggestions: string[] = []
+
+    switch (field) {
+      case 'projectType':
+        if (input.toLowerCase().includes('kitchen')) {
+          suggestions.push(
+            'Kitchen Remodel - Full Renovation',
+            'Kitchen Remodel - Partial Update',
+            'Kitchen Addition'
+          )
+        }
+        if (input.toLowerCase().includes('bathroom')) {
+          suggestions.push(
+            'Bathroom Remodel - Master Bath',
+            'Bathroom Remodel - Guest Bath',
+            'Bathroom Addition'
+          )
+        }
+        if (input.toLowerCase().includes('commercial')) {
+          suggestions.push(
+            'Commercial Building - New Construction',
+            'Commercial Renovation',
+            'Tenant Improvement'
+          )
+        }
+        if (input.toLowerCase().includes('home')) {
+          suggestions.push(
+            'Custom Home - New Construction',
+            'Home Addition',
+            'Home Renovation'
+          )
+        }
+        break
+
+      case 'location':
+        const triCitiesAreas = [
+          'Pasco, WA',
+          'Kennewick, WA',
+          'Richland, WA',
+          'West Richland, WA',
+          'Benton City, WA',
+          'Prosser, WA',
+          'Finley, WA',
+          'Burbank, WA',
+        ]
+        const matchingAreas = triCitiesAreas.filter(area =>
+          area.toLowerCase().includes(input.toLowerCase())
+        )
+        suggestions.push(...matchingAreas)
+        break
+
+      case 'budget':
+        if (input.includes('$') || input.match(/\d/)) {
+          suggestions.push(
+            '$10,000 - $25,000 (Minor Renovation)',
+            '$25,000 - $50,000 (Major Renovation)',
+            '$50,000 - $100,000 (Extensive Remodel)',
+            '$100,000 - $250,000 (Addition/New Construction)',
+            '$250,000+ (Custom/Commercial Project)'
+          )
+        }
+        break
+
+      case 'timeline':
+        suggestions.push(
+          'As soon as possible',
+          'Within 2-4 weeks',
+          'Within 1-3 months',
+          'Within 3-6 months',
+          'Flexible timeline'
+        )
+        break
+    }
+
+    return suggestions.slice(0, 5) // Limit to 5 suggestions
+  }
+
+  /**
+   * Generate auto-completion text
+   */
+  private generateAutoComplete(
+    field: string,
+    input: string,
+    formData: any
+  ): string {
+    const lowerInput = input.toLowerCase()
+
+    // Project type auto-completion
+    const projectMappings: { [key: string]: string } = {
+      kit: 'Kitchen Remodel',
+      bath: 'Bathroom Remodel',
+      home: 'Custom Home',
+      add: 'Home Addition',
+      comm: 'Commercial Building',
+      ten: 'Tenant Improvement',
+      ind: 'Industrial Facility',
+      med: 'Medical Facility',
+      rel: 'Religious Facility',
+      gov: 'Government Project',
+    }
+
+    // Location auto-completion
+    const locationMappings: { [key: string]: string } = {
+      pas: 'Pasco, WA',
+      ken: 'Kennewick, WA',
+      rich: 'Richland, WA',
+      west: 'West Richland, WA',
+      ben: 'Benton City, WA',
+      pro: 'Prosser, WA',
+    }
+
+    if (field === 'projectType') {
+      for (const [key, value] of Object.entries(projectMappings)) {
+        if (lowerInput.includes(key)) {
+          return value
+        }
+      }
+    }
+
+    if (field === 'location') {
+      for (const [key, value] of Object.entries(locationMappings)) {
+        if (lowerInput.includes(key)) {
+          return value
+        }
+      }
+    }
+
+    return ''
+  }
+
+  /**
+   * Validate field input with military-style feedback
+   */
+  private validateField(
+    field: string,
+    input: string
+  ): { isValid: boolean; feedback: string } {
+    switch (field) {
+      case 'name':
+        if (input.length < 2) {
+          return {
+            isValid: false,
+            feedback: '🎖️ Name requires at least 2 characters, soldier!',
+          }
+        }
+        return {
+          isValid: true,
+          feedback: '✅ Name confirmed and ready for action!',
+        }
+
+      case 'email':
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!emailRegex.test(input)) {
+          return {
+            isValid: false,
+            feedback: '📧 Invalid email format - check your intel!',
+          }
+        }
+        return {
+          isValid: true,
+          feedback: '✅ Email validated and ready for transmission!',
+        }
+
+      case 'phone':
+        const phoneRegex = /^[\d\s\-\(\)\+\.]{10,}$/
+        if (
+          !phoneRegex.test(input.replace(/\D/g, '')) ||
+          input.replace(/\D/g, '').length < 10
+        ) {
+          return {
+            isValid: false,
+            feedback: '📞 Phone number requires 10 digits minimum!',
+          }
+        }
+        return {
+          isValid: true,
+          feedback: '✅ Phone number confirmed - communications established!',
+        }
+
+      case 'projectType':
+        if (input.length < 3) {
+          return {
+            isValid: false,
+            feedback:
+              '🏗️ Project type requires more detail for mission planning!',
+          }
+        }
+        return {
+          isValid: true,
+          feedback: '✅ Project type identified - mission parameters set!',
+        }
+
+      case 'location':
+        if (input.length < 3) {
+          return {
+            isValid: false,
+            feedback: '📍 Location requires more specific coordinates!',
+          }
+        }
+        return {
+          isValid: true,
+          feedback: '✅ Location confirmed - deployment zone established!',
+        }
+
+      case 'budget':
+        if (input.length < 3) {
+          return {
+            isValid: false,
+            feedback: '💰 Budget estimation needed for resource allocation!',
+          }
+        }
+        return {
+          isValid: true,
+          feedback:
+            '✅ Budget parameters received - financial logistics confirmed!',
+        }
+
+      default:
+        return { isValid: true, feedback: '✅ Field validated!' }
+    }
+  }
+
+  /**
+   * Generate veteran-specific form suggestions
+   */
+  private generateVeteranSuggestions(
+    field: string,
+    veteranAnalysis: any
+  ): string[] {
+    const suggestions: string[] = []
+
+    if (!veteranAnalysis.isVeteran) return suggestions
+
+    switch (field) {
+      case 'projectType':
+        suggestions.push(
+          'Accessible Bathroom Remodel (VA Approved)',
+          'Wheelchair Accessible Home Modifications',
+          'Military Workshop/Den Addition',
+          'Flag Display Area Installation',
+          'Security System Integration'
+        )
+        break
+
+      case 'additionalNotes':
+        suggestions.push(
+          'Please apply veteran discount',
+          'Requires ADA compliance',
+          'VA benefits coordination needed',
+          'Deployment schedule accommodation',
+          'PTSD-friendly construction practices'
+        )
+        break
+
+      case 'timeline':
+        if (veteranAnalysis.combatVeteran || veteranAnalysis.disabledVeteran) {
+          suggestions.push(
+            'Veteran priority scheduling - ASAP',
+            'Between deployments',
+            'VA benefits approval pending'
+          )
+        }
+        break
+    }
+
+    return suggestions
+  }
+
+  /**
+   * Get applicable veteran discounts and benefits
+   */
+  private getApplicableVeteranDiscounts(veteranAnalysis: any): string[] {
+    const discounts: string[] = []
+
+    if (!veteranAnalysis.isVeteran) return discounts
+
+    // Base veteran discount
+    discounts.push('🎖️ Military Discount: 10% off total project cost')
+
+    if (veteranAnalysis.disabledVeteran) {
+      discounts.push('♿ Disabled Veteran: 15% off accessibility modifications')
+      discounts.push(
+        '🏥 VA Grant Assistance: Help applying for adaptation grants'
+      )
+    }
+
+    if (veteranAnalysis.combatVeteran) {
+      discounts.push(
+        '🎖️ Combat Veteran: Priority scheduling + 5% additional discount'
+      )
+    }
+
+    if (veteranAnalysis.vaBenefits) {
+      discounts.push('🏠 VA Home Loan: Specialized financing coordination')
+      discounts.push('📋 VA Benefits: Compliance assistance included')
+    }
+
+    // Service branch specific
+    if (veteranAnalysis.serviceBranch) {
+      discounts.push(
+        `${this.getBranchEmoji(veteranAnalysis.serviceBranch)} ${
+          veteranAnalysis.serviceBranch
+        } Veteran: Branch pride recognition`
+      )
+    }
+
+    return discounts
+  }
+
+  /**
+   * Get branch-specific emoji
+   */
+  private getBranchEmoji(branch: string): string {
+    const branchEmojis: { [key: string]: string } = {
+      Army: '🏛️',
+      Navy: '⚓',
+      Marines: '🦅',
+      'Air Force': '✈️',
+      'Coast Guard': '🛟',
+      'Space Force': '🚀',
+    }
+    return branchEmojis[branch] || '🇺🇸'
+  }
+
+  /**
+   * Generate predictive form completion based on partial data
+   */
+  generatePredictiveCompletion(formData: any): {
+    suggestions: { field: string; value: string; confidence: number }[]
+    autoFillRecommendations: string[]
+    nextStepGuidance: string
+  } {
+    const suggestions: { field: string; value: string; confidence: number }[] =
+      []
+    const autoFillRecommendations: string[] = []
+
+    // Analyze existing form data for patterns
+    if (formData.projectType?.toLowerCase().includes('kitchen')) {
+      if (!formData.budget) {
+        suggestions.push({
+          field: 'budget',
+          value: '$25,000 - $50,000',
+          confidence: 0.8,
+        })
+      }
+      if (!formData.timeline) {
+        suggestions.push({
+          field: 'timeline',
+          value: 'Within 1-3 months',
+          confidence: 0.7,
+        })
+      }
+    }
+
+    if (formData.projectType?.toLowerCase().includes('commercial')) {
+      if (!formData.budget) {
+        suggestions.push({
+          field: 'budget',
+          value: '$100,000+',
+          confidence: 0.9,
+        })
+      }
+    }
+
+    // Location-based suggestions
+    if (formData.location?.includes('Pasco')) {
+      autoFillRecommendations.push(
+        '✅ Service area confirmed - full MH Construction services available'
+      )
+    }
+
+    // Generate next step guidance
+    const nextStepGuidance = this.generateNextStepGuidance(formData)
+
+    return {
+      suggestions,
+      autoFillRecommendations,
+      nextStepGuidance,
+    }
+  }
+
+  /**
+   * Generate next step guidance based on form completion
+   */
+  private generateNextStepGuidance(formData: any): string {
+    const completedFields = Object.values(formData).filter(
+      value => value && typeof value === 'string' && value.trim().length > 0
+    ).length
+
+    const totalFields = Object.keys(formData).length
+    const completionPercentage = Math.round(
+      (completedFields / totalFields) * 100
+    )
+
+    if (completionPercentage < 30) {
+      return `🎯 **MISSION STATUS: INITIAL DEPLOYMENT** (${completionPercentage}% complete)
+• Focus on essential intel: Name, Contact, Project Type
+• Quick deployment recommended for maximum efficiency
+• Intelligence gathering phase - build the foundation!`
+    }
+
+    if (completionPercentage < 70) {
+      return `⚡ **MISSION STATUS: TACTICAL ADVANCEMENT** (${completionPercentage}% complete)
+• Core mission parameters established
+• Advance to secondary objectives: Budget, Timeline, Location
+• Strategic intelligence building - maintain momentum!`
+    }
+
+    if (completionPercentage < 90) {
+      return `🚀 **MISSION STATUS: FINAL APPROACH** (${completionPercentage}% complete)
+• Primary objectives secured - excellent work!
+• Complete final details and additional notes
+• Mission completion imminent - push forward!`
+    }
+
+    return `🎖️ **MISSION STATUS: READY FOR DEPLOYMENT** (${completionPercentage}% complete)
+• All critical intel acquired - outstanding execution!
+• Form ready for submission and immediate processing
+• Victory achieved - deploy when ready, soldier!`
+  }
 }
 
 export const militaryConstructionAI = new MilitaryConstructionAI()
