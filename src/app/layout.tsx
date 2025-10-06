@@ -6,6 +6,7 @@ import { Navigation, Footer } from '../components/layout'
 import FaviconLinks from '../components/layout/FaviconLinks'
 import { AuthProvider } from '../lib/auth/AuthContext'
 import { ThemeProvider } from '../contexts/ThemeContext'
+import { GlobalChatbotProvider } from '../providers/GlobalChatbotProvider'
 import { WebVitalsReporter } from '../components/performance/optimized-components'
 import { AnalyticsProvider } from '../components/analytics/enhanced-analytics'
 import PWAUpdate from '../components/pwa/PWAUpdate'
@@ -106,15 +107,17 @@ export default function RootLayout({
             storageKey="mh-construction-theme"
           >
             <AuthProvider>
-              <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
-                <Navigation />
-                <main className="flex-grow">{children}</main>
-                <Footer />
-              </div>
-              {/* PWA Components */}
-              <PWAUpdate />
-              <PWAInstall />
-              <PushNotifications />
+              <GlobalChatbotProvider>
+                <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
+                  <Navigation />
+                  <main className="flex-grow">{children}</main>
+                  <Footer />
+                </div>
+                {/* PWA Components */}
+                <PWAUpdate />
+                <PWAInstall />
+                <PushNotifications />
+              </GlobalChatbotProvider>
             </AuthProvider>
           </ThemeProvider>
         </AnalyticsProvider>

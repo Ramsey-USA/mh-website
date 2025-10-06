@@ -2,7 +2,20 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
+import dynamic from 'next/dynamic'
+
+// Dynamically import motion components to reduce bundle size
+const MotionButton = dynamic(
+  () => import('framer-motion').then(mod => mod.motion.button),
+  {
+    ssr: false,
+    loading: () => (
+      <button className="inline-flex justify-center items-center">
+        Loading...
+      </button>
+    ),
+  }
+)
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?:
@@ -107,7 +120,7 @@ export function Button({
     } = props
 
     return (
-      <motion.button
+      <MotionButton
         className={classes}
         whileHover={{ scale: 1.01 }}
         whileTap={{ scale: 0.99 }}
@@ -120,7 +133,7 @@ export function Button({
         {...motionProps}
       >
         {children}
-      </motion.button>
+      </MotionButton>
     )
   }
 

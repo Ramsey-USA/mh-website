@@ -32,7 +32,7 @@ import {
   limit,
   Timestamp,
 } from 'firebase/firestore'
-import { db } from '@/lib/firebase/config'
+import { getFirebaseDb } from '@/lib/firebase/config'
 
 interface DashboardStats {
   totalProjects: number
@@ -84,12 +84,12 @@ const AdminDashboard = () => {
         event_label: 'Dashboard accessed',
       })
     }
-  }, [user])
+  }, [user, trackEvent])
 
   const loadDashboardData = async () => {
     try {
       setLoading(true)
-      const firestore = db()
+      const firestore = getFirebaseDb()
 
       // Load projects count
       const projectsSnapshot = await getDocs(collection(firestore, 'projects'))

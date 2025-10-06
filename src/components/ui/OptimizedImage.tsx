@@ -2,7 +2,16 @@
 
 import React, { useState, useCallback } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import dynamic from 'next/dynamic'
+
+// Dynamically import motion components to reduce bundle size
+const MotionDiv = dynamic(
+  () => import('framer-motion').then(mod => mod.motion.div),
+  {
+    ssr: false,
+    loading: () => <div className="relative" />, // Fallback component
+  }
+)
 
 interface OptimizedImageProps {
   src: string
@@ -79,7 +88,7 @@ export function OptimizedImage({
 
   const imageProps = {
     src: hasError ? '/images/placeholder.jpg' : src,
-    alt,
+    alt: alt || 'Image', // Provide fallback alt text
     onLoad: handleLoad,
     onError: handleError,
     quality,
@@ -95,23 +104,23 @@ export function OptimizedImage({
 
   if (enableAnimation) {
     return (
-      <motion.div
+      <MotionDiv
         initial={{ opacity: 0, scale: 1.1 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="relative overflow-hidden"
       >
-        <Image {...imageProps} />
+        <Image {...imageProps} alt={imageProps.alt} />
         {!isLoaded && !hasError && (
           <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
         )}
-      </motion.div>
+      </MotionDiv>
     )
   }
 
   return (
     <div className="relative">
-      <Image {...imageProps} />
+      <Image {...imageProps} alt={imageProps.alt} />
       {!isLoaded && !hasError && (
         <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
       )}
@@ -156,7 +165,7 @@ export function GalleryImage({
   ...props
 }: GalleryImageProps) {
   return (
-    <motion.div
+    <MotionDiv
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
       className="group relative rounded-lg overflow-hidden cursor-pointer"
@@ -179,7 +188,7 @@ export function GalleryImage({
           {caption && <p className="font-medium text-sm">{caption}</p>}
         </div>
       </div>
-    </motion.div>
+    </MotionDiv>
   )
 }
 

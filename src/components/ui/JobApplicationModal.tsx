@@ -11,7 +11,7 @@ import {
   FileText,
   Briefcase,
 } from 'lucide-react'
-import { db } from '../../lib/firebase/config'
+import { getFirebaseDb } from '../../lib/firebase/config'
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 
 interface JobApplicationModalProps {
@@ -120,7 +120,10 @@ export function JobApplicationModal({
         status: 'new',
       }
 
-      await addDoc(collection(db(), 'jobApplications'), applicationData)
+      await addDoc(
+        collection(getFirebaseDb(), 'jobApplications'),
+        applicationData
+      )
 
       setSubmitSuccess(true)
       setTimeout(() => {

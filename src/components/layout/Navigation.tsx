@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '../ui/Button'
 import { ThemeToggle } from '../ui/ThemeToggle'
 import { MaterialIcon } from '../icons/MaterialIcon'
@@ -44,9 +45,12 @@ export function Navigation() {
                 href="/"
                 className="group relative flex items-center hover:scale-105 transition-all duration-300"
               >
-                <img
+                <Image
                   src="/images/logo/mh-logo.png"
                   alt="MH Construction"
+                  width={88}
+                  height={88}
+                  priority
                   className="z-10 relative drop-shadow-lg w-auto h-[70.4px] sm:h-[88px] filter"
                 />
               </Link>
@@ -102,10 +106,11 @@ export function Navigation() {
         <div className="relative bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-800 to-white dark:to-gray-900 shadow-inner backdrop-blur-lg border-gray-200 dark:border-gray-700 border-b h-full">
           {/* Logo Background Watermark */}
           <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-            <img
+            <Image
               src="/images/logo/mh-logo.png"
               alt=""
-              className="opacity-5 dark:opacity-10 grayscale w-[90vw] h-[90vh] object-contain filter"
+              fill
+              className="opacity-5 dark:opacity-10 grayscale object-contain filter"
             />
           </div>
 
@@ -122,6 +127,11 @@ export function Navigation() {
                       href: '/booking',
                       label: 'Book Appt.',
                       icon: 'event',
+                    },
+                    {
+                      href: '/estimator',
+                      label: 'AI Estimator',
+                      icon: 'calculate',
                     },
                     {
                       href: '/',

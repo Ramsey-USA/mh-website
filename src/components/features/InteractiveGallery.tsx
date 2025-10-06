@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import Image from 'next/image'
 import { Button } from '@/components/ui/Button'
 import { OptimizedImage } from '@/components/ui/OptimizedImage'
 import { FadeInWhenVisible } from '@/components/animations/FramerMotionComponents'
@@ -67,6 +68,30 @@ const InteractiveGallery = ({
   const [favorites, setFavorites] = useState<Set<string>>(new Set())
   const [viewMode, setViewMode] = useState<'grid' | 'masonry'>('grid')
 
+  // Filter images by category
+  const categories = Array.from(
+    new Set(images.map(img => img.category).filter(Boolean))
+  ) as string[]
+  const filteredImages = selectedCategory
+    ? images.filter(img => img.category === selectedCategory)
+    : images
+
+  // Navigation function wrapped in useCallback to prevent useEffect recreation
+  const navigateImage = useCallback(
+    (direction: 'prev' | 'next') => {
+      const newIndex =
+        direction === 'next'
+          ? (currentIndex + 1) % filteredImages.length
+          : (currentIndex - 1 + filteredImages.length) % filteredImages.length
+
+      setCurrentIndex(newIndex)
+      setSelectedImage(filteredImages[newIndex])
+      setZoom(1)
+      setRotation(0)
+    },
+    [currentIndex, filteredImages]
+  )
+
   // Auto-play functionality
   useEffect(() => {
     if (autoPlay && selectedImage && !isFullscreen) {
@@ -76,15 +101,13 @@ const InteractiveGallery = ({
 
       return () => clearInterval(interval)
     }
-  }, [autoPlay, selectedImage, isFullscreen, autoPlayInterval])
-
-  // Filter images by category
-  const categories = Array.from(
-    new Set(images.map(img => img.category).filter(Boolean))
-  ) as string[]
-  const filteredImages = selectedCategory
-    ? images.filter(img => img.category === selectedCategory)
-    : images
+  }, [
+    autoPlay,
+    selectedImage,
+    isFullscreen,
+    autoPlayInterval,
+    filteredImages.length,
+  ])
 
   // Keyboard navigation
   useEffect(() => {
@@ -116,7 +139,7 @@ const InteractiveGallery = ({
 
     window.addEventListener('keydown', handleKeyPress)
     return () => window.removeEventListener('keydown', handleKeyPress)
-  }, [selectedImage])
+  }, [selectedImage, navigateImage])
 
   const openImage = (image: GalleryImage, index: number) => {
     setSelectedImage(image)
@@ -134,18 +157,6 @@ const InteractiveGallery = ({
   const closeModal = () => {
     setSelectedImage(null)
     setIsFullscreen(false)
-    setZoom(1)
-    setRotation(0)
-  }
-
-  const navigateImage = (direction: 'prev' | 'next') => {
-    const newIndex =
-      direction === 'next'
-        ? (currentIndex + 1) % filteredImages.length
-        : (currentIndex - 1 + filteredImages.length) % filteredImages.length
-
-    setCurrentIndex(newIndex)
-    setSelectedImage(filteredImages[newIndex])
     setZoom(1)
     setRotation(0)
   }
@@ -319,6 +330,7 @@ const InteractiveGallery = ({
           <div className="flex items-center space-x-2">
             <button
               onClick={() => setViewMode('grid')}
+              aria-label="Switch to grid view"
               className={`p-2 rounded ${
                 viewMode === 'grid'
                   ? 'bg-primary-100 text-primary-700'
@@ -329,6 +341,7 @@ const InteractiveGallery = ({
             </button>
             <button
               onClick={() => setViewMode('masonry')}
+              aria-label="Switch to masonry view"
               className={`p-2 rounded ${
                 viewMode === 'masonry'
                   ? 'bg-primary-100 text-primary-700'
@@ -423,14 +436,18 @@ const InteractiveGallery = ({
             </div>
 
             {/* Main Image */}
-            <div className="max-w-full max-h-full overflow-hidden">
-              <img
+            <div
+              className="relative max-w-full max-h-full overflow-hidden transition-transform duration-300"
+              style={{
+                transform: `scale(${zoom}) rotate(${rotation}deg)`,
+              }}
+            >
+              <Image
                 src={selectedImage.src}
                 alt={selectedImage.alt}
-                className="max-w-full max-h-full object-contain transition-transform duration-300"
-                style={{
-                  transform: `scale(${zoom}) rotate(${rotation}deg)`,
-                }}
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
               />
             </div>
 
