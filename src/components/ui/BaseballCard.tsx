@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import Image from 'next/image'
 import { MaterialIcon } from '../icons/MaterialIcon'
 import { TeamMember } from '@/lib/data/team'
 
@@ -92,9 +93,11 @@ export function BaseballCard({ member }: BaseballCardProps) {
             >
               <div className="flex justify-between items-center">
                 <div className="flex items-center">
-                  <img
+                  <Image
                     src="/images/logo/mh-logo.png"
                     alt="MH Construction"
+                    width={32}
+                    height={32}
                     className="mr-2 w-8 h-8"
                   />
                   <span className="font-bold text-white text-sm uppercase tracking-wide">
@@ -119,10 +122,12 @@ export function BaseballCard({ member }: BaseballCardProps) {
                 } rounded-full w-32 h-32 overflow-hidden shadow-lg`}
               >
                 {member.avatar ? (
-                  <img
+                  <Image
                     src={member.avatar}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="128px"
                   />
                 ) : (
                   <div className="flex justify-center items-center w-full h-full">

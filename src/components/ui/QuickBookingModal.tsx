@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import Image from 'next/image'
 import { Button, Card, CardHeader, CardTitle, CardContent } from '../ui'
 import { MaterialIcon } from '../icons/MaterialIcon'
 
@@ -117,9 +118,11 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
             <div className="z-10 relative flex justify-between items-start">
               <div className="flex-1">
                 <CardTitle className="flex items-center mb-3 font-bold text-3xl">
-                  <img
+                  <Image
                     src="/images/logo/mh-logo.png"
                     alt="MH Construction"
+                    width={64}
+                    height={64}
                     className="mr-4 w-16 h-16 object-contain"
                   />
                   <div>

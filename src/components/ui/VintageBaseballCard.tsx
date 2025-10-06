@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import Image from 'next/image'
 import { MaterialIcon } from '../icons/MaterialIcon'
 
 // Enhanced interface for vintage baseball cards
@@ -154,9 +155,11 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
 
               {/* Company logo */}
               <div className="vintage-company-logo">
-                <img
+                <Image
                   src="/images/logo/mh-logo.png"
                   alt="MH Construction Logo"
+                  width={32}
+                  height={32}
                   className="company-logo-image"
                 />
               </div>
@@ -179,10 +182,12 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
               {/* Photo container */}
               <div className="vintage-photo-container">
                 {member.avatar ? (
-                  <img
+                  <Image
                     src={member.avatar}
                     alt={member.name}
+                    fill
                     className="vintage-player-image"
+                    sizes="200px"
                   />
                 ) : (
                   <div className="vintage-photo-placeholder">
@@ -218,9 +223,11 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
 
               <div className="vintage-card-number-with-logo">
                 <div className="vintage-mh-logo-small">
-                  <img
+                  <Image
                     src="/images/logo/mh-logo.png"
                     alt="MH Construction Logo"
+                    width={24}
+                    height={24}
                     className="mh-logo-image"
                   />
                 </div>

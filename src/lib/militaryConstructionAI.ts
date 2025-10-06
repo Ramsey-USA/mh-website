@@ -1,3 +1,15 @@
+import SmartRecommendationEngine, {
+  ProjectRecommendation,
+  UserProfile,
+} from './recommendations/SmartRecommendationEngine'
+import {
+  VeteranPersonalizationSystem,
+  VeteranProfile,
+  ComprehensiveVeteranExperience,
+  VeteranBenefitsAutomation,
+  enhanceAIWithVeteranPersonalization,
+} from './veteran'
+
 interface ConstructionIntel {
   projectTypes: Record<string, string>
   materialSpecs: Record<string, string>
@@ -8,8 +20,13 @@ interface ConstructionIntel {
 
 export class MilitaryConstructionAI {
   private constructionIntel: ConstructionIntel
+  private recommendationEngine: SmartRecommendationEngine
+  private veteranSystem: VeteranPersonalizationSystem
 
   constructor() {
+    this.recommendationEngine = new SmartRecommendationEngine()
+    this.recommendationEngine.setAIEngine(this) // Inject self to break circular dependency
+    this.veteranSystem = VeteranPersonalizationSystem.getInstance()
     this.constructionIntel = {
       projectTypes: {
         residential:
@@ -2681,6 +2698,490 @@ ${leadIntelligence.followUpStrategy}
 • All critical intel acquired - outstanding execution!
 • Form ready for submission and immediate processing
 • Victory achieved - deploy when ready, soldier!`
+  }
+
+  /**
+   * Phase 6.1: Smart Project Recommendations Integration
+   * Generate intelligent project recommendations using the advanced recommendation engine
+   */
+  async generateSmartProjectRecommendations(
+    userProfile: UserProfile,
+    context?: any
+  ): Promise<ProjectRecommendation[]> {
+    try {
+      return await this.recommendationEngine.generateRecommendations(
+        userProfile,
+        context
+      )
+    } catch (error) {
+      console.error('Error generating smart recommendations:', error)
+      return []
+    }
+  }
+
+  /**
+   * Create user profile from form data and behavior
+   */
+  createUserProfileFromData(formData: any, sessionData?: any): UserProfile {
+    const veteranAnalysis = this.analyzeVeteranStatus(
+      `${formData.name || ''} ${formData.message || ''} ${formData.projectType || ''}`
+    )
+
+    const preferences = {
+      budgetRange: this.extractBudgetRange(formData.budget),
+      projectTypes: this.extractProjectTypes(formData.projectType),
+      timeframe: formData.timeline || 'planned',
+      priorities: this.extractPriorities(formData, veteranAnalysis),
+      communicationStyle: veteranAnalysis.isVeteran
+        ? ('military' as const)
+        : ('casual' as const),
+    }
+
+    const profile: UserProfile = {
+      id: sessionData?.userId || `user-${Date.now()}`,
+      sessionId: sessionData?.sessionId || `session-${Date.now()}`,
+      isVeteran: veteranAnalysis.isVeteran,
+      veteranDetails: veteranAnalysis.isVeteran
+        ? {
+            serviceBranch: veteranAnalysis.serviceBranch,
+            serviceEra: veteranAnalysis.serviceEra || 'modern',
+            combatVeteran: veteranAnalysis.isCombatVeteran,
+            disabilityRating: veteranAnalysis.isDisabledVeteran
+              ? 30
+              : undefined, // Default rating if disabled
+            specialPrograms: veteranAnalysis.eligibleForVABenefits
+              ? ['va_benefits']
+              : [],
+            preferredSpecialist: undefined, // Will be assigned during processing
+          }
+        : undefined,
+      preferences,
+      behaviorHistory: sessionData?.behaviorHistory || [],
+      location: formData.location || undefined,
+      previousProjects: sessionData?.previousProjects || [],
+    }
+
+    return profile
+  }
+
+  /**
+   * Track user behavior for recommendations
+   */
+  trackUserBehavior(userId: string, action: string, data: any): void {
+    try {
+      const behavior = {
+        timestamp: new Date(),
+        action,
+        page: typeof window !== 'undefined' ? window.location.pathname : '',
+        data,
+        conversionEvent: ['estimate', 'contact', 'booking'].includes(action),
+      }
+
+      this.recommendationEngine.trackUserBehavior(userId, behavior)
+    } catch (error) {
+      console.error('Error tracking user behavior:', error)
+    }
+  }
+
+  /**
+   * Get recommendation metrics and performance
+   */
+  getRecommendationMetrics() {
+    try {
+      return this.recommendationEngine.getMetrics()
+    } catch (error) {
+      console.error('Error getting recommendation metrics:', error)
+      return null
+    }
+  }
+
+  /**
+   * Helper methods for profile creation
+   */
+  private extractBudgetRange(budget?: string): { min: number; max: number } {
+    if (!budget) return { min: 10000, max: 100000 }
+
+    // Extract numbers from budget string
+    const numbers = budget.match(/\d+/g)?.map(Number) || []
+
+    if (numbers.length >= 2) {
+      return { min: numbers[0], max: numbers[1] }
+    } else if (numbers.length === 1) {
+      const value = numbers[0]
+      if (value < 1000) {
+        // Assume it's in thousands
+        return { min: value * 1000, max: value * 1500 }
+      }
+      return { min: value * 0.8, max: value * 1.2 }
+    }
+
+    // Default based on budget keywords
+    if (budget.toLowerCase().includes('budget'))
+      return { min: 10000, max: 35000 }
+    if (budget.toLowerCase().includes('premium'))
+      return { min: 75000, max: 200000 }
+    if (budget.toLowerCase().includes('luxury'))
+      return { min: 150000, max: 500000 }
+
+    return { min: 25000, max: 75000 }
+  }
+
+  private extractProjectTypes(projectType?: string): string[] {
+    if (!projectType) return ['residential']
+
+    const types = []
+    const lowerType = projectType.toLowerCase()
+
+    if (lowerType.includes('kitchen')) types.push('kitchen')
+    if (lowerType.includes('bathroom')) types.push('bathroom')
+    if (lowerType.includes('commercial')) types.push('commercial')
+    if (lowerType.includes('renovation')) types.push('renovation')
+    if (lowerType.includes('addition')) types.push('addition')
+    if (lowerType.includes('deck')) types.push('deck')
+    if (lowerType.includes('residential') || lowerType.includes('home'))
+      types.push('residential')
+
+    return types.length > 0 ? types : ['residential']
+  }
+
+  private extractPriorities(formData: any, veteranAnalysis: any): string[] {
+    const priorities = []
+
+    // Veteran-specific priorities
+    if (veteranAnalysis.isVeteran) {
+      priorities.push('veteran_benefits')
+      if (veteranAnalysis.isDisabledVeteran) priorities.push('accessibility')
+      if (veteranAnalysis.isCombatVeteran) priorities.push('security')
+    }
+
+    // Project-specific priorities
+    const message = (formData.message || '').toLowerCase()
+    if (message.includes('energy') || message.includes('efficient'))
+      priorities.push('energy_efficiency')
+    if (message.includes('accessible') || message.includes('disability'))
+      priorities.push('accessibility')
+    if (message.includes('security') || message.includes('safe'))
+      priorities.push('security')
+    if (message.includes('fast') || message.includes('quick'))
+      priorities.push('speed')
+    if (message.includes('quality') || message.includes('premium'))
+      priorities.push('quality')
+
+    return priorities
+  }
+
+  /**
+   * Enhanced Construction Intelligence with Veteran Personalization
+   * Phase 6.4-6.6 Integration
+   */
+  async generateEnhancedVeteranResponse(
+    input: string,
+    formData?: any,
+    sessionId?: string
+  ): Promise<{
+    standardResponse: string
+    veteranExperience?: ComprehensiveVeteranExperience
+    enhancedResponse: string
+    veteranBenefits?: any
+    priorityHandling?: any
+    nextSteps: string[]
+  }> {
+    // Generate standard AI response
+    const standardResponse = this.generateResponse(input, formData)
+
+    try {
+      // Initialize veteran experience
+      const veteranExperience =
+        await this.veteranSystem.initializeVeteranExperience(
+          input,
+          formData,
+          sessionId
+        )
+
+      // Enhance the response with veteran personalization
+      const enhancedResponse = enhanceAIWithVeteranPersonalization(
+        standardResponse,
+        veteranExperience.profile
+      )
+
+      // Extract veteran benefits if applicable
+      let veteranBenefits
+      let priorityHandling
+      if (veteranExperience.profile.isVeteran) {
+        veteranBenefits = {
+          discounts: veteranExperience.benefitsPackage.discounts,
+          vaBenefits: veteranExperience.benefitsPackage.vaBenefits,
+          specialOffers:
+            veteranExperience.personalizedContent.pricing.specialOffers,
+        }
+
+        if (
+          veteranExperience.profile.priorityLevel === 'IMMEDIATE' ||
+          veteranExperience.profile.priorityLevel === 'HIGH'
+        ) {
+          priorityHandling = {
+            level: veteranExperience.profile.priorityLevel,
+            responseTime:
+              veteranExperience.benefitsPackage.timeline.initialResponse,
+            specialistAssigned:
+              veteranExperience.benefitsPackage.specialistAssignment
+                .assignedSpecialist,
+            emergencyAvailable:
+              veteranExperience.benefitsPackage.timeline.emergency.available,
+          }
+        }
+      }
+
+      // Generate enhanced next steps
+      const nextSteps = this.generateEnhancedNextSteps(veteranExperience)
+
+      return {
+        standardResponse,
+        veteranExperience,
+        enhancedResponse: enhancedResponse.veteranEnhanced
+          ? this.formatEnhancedResponse(enhancedResponse, veteranExperience)
+          : standardResponse,
+        veteranBenefits,
+        priorityHandling,
+        nextSteps,
+      }
+    } catch (error) {
+      // Fallback to standard response if veteran system fails
+      console.error('Veteran personalization error:', error)
+
+      return {
+        standardResponse,
+        enhancedResponse: standardResponse,
+        nextSteps: [
+          'Our team will review your request and contact you within 48 hours',
+          'Free consultation will be scheduled at your convenience',
+          'Detailed project proposal will be provided',
+        ],
+      }
+    }
+  }
+
+  /**
+   * Format enhanced response with veteran personalization
+   */
+  private formatEnhancedResponse(
+    enhancedResponse: any,
+    veteranExperience: ComprehensiveVeteranExperience
+  ): string {
+    const profile = veteranExperience.profile
+    const content = veteranExperience.personalizedContent
+
+    let response = `${content.greeting}\n\n`
+
+    // Add veteran-specific messaging
+    if (profile.isVeteran) {
+      response += `${content.messaging.respectMessage}\n\n`
+
+      // Priority handling message
+      if (profile.priorityLevel === 'IMMEDIATE') {
+        response += `🚨 **IMMEDIATE PRIORITY STATUS ACTIVATED**\n`
+        response += `Your status as a ${profile.disabledVeteran ? 'disabled' : 'combat'} veteran qualifies you for our highest priority response within 4 hours.\n\n`
+      } else if (profile.priorityLevel === 'HIGH') {
+        response += `⚡ **HIGH PRIORITY STATUS ACTIVATED**\n`
+        response += `As a veteran, you receive priority response within 24 hours and expedited project scheduling.\n\n`
+      }
+
+      // Discount information
+      if (content.pricing.baseDiscount > 0) {
+        response += `💰 **VETERAN BENEFITS ACTIVATED**\n`
+        response += `${content.pricing.totalSavings} automatically applied to your project.\n`
+        response += `Discounts include: ${content.pricing.additionalDiscounts.map(d => d.description).join(', ')}\n\n`
+      }
+
+      // Specialist assignment
+      const specialist =
+        veteranExperience.benefitsPackage.specialistAssignment
+          .assignedSpecialist
+      response += `👨‍💼 **VETERAN SPECIALIST ASSIGNED**\n`
+      response += `${specialist.name} (${specialist.title}) - ${specialist.branch} Veteran\n`
+      response += `Specializations: ${specialist.specializations.join(', ')}\n\n`
+
+      // Branch-specific message
+      if (content.messaging.branchSpecificMessage) {
+        response += `${content.messaging.branchSpecificMessage}\n\n`
+      }
+    }
+
+    // Add standard AI response content
+    response += enhancedResponse.message || enhancedResponse
+
+    // Add veteran notifications
+    if (veteranExperience.notifications.length > 0) {
+      response += `\n\n📋 **IMPORTANT NOTIFICATIONS:**\n`
+      veteranExperience.notifications.slice(0, 3).forEach(notification => {
+        const priorityIcon =
+          notification.priority === 'urgent'
+            ? '🚨'
+            : notification.priority === 'high'
+              ? '⚡'
+              : notification.priority === 'medium'
+                ? '📌'
+                : 'ℹ️'
+        response += `${priorityIcon} ${notification.title}: ${notification.message}\n`
+      })
+    }
+
+    return response
+  }
+
+  /**
+   * Generate enhanced next steps with veteran considerations
+   */
+  private generateEnhancedNextSteps(
+    veteranExperience: ComprehensiveVeteranExperience
+  ): string[] {
+    const profile = veteranExperience.profile
+    const steps: string[] = []
+
+    if (!profile.isVeteran) {
+      return [
+        'Our team will review your request and contact you within 48 hours',
+        'Free consultation will be scheduled at your convenience',
+        'Detailed project proposal will be provided',
+      ]
+    }
+
+    // Veteran-specific next steps
+    if (profile.priorityLevel === 'IMMEDIATE') {
+      steps.push(
+        '🚨 IMMEDIATE: Veteran specialist will contact you within 4 hours'
+      )
+      steps.push('Emergency accessibility assessment will be prioritized')
+      if (profile.disabledVeteran) {
+        steps.push('VA benefits coordination will be initiated immediately')
+      }
+    } else if (profile.priorityLevel === 'HIGH') {
+      steps.push(
+        '⚡ PRIORITY: Veteran specialist will contact you within 24 hours'
+      )
+      steps.push('Priority project scheduling will be arranged')
+    } else {
+      steps.push('🇺🇸 Veteran specialist will contact you within 48 hours')
+    }
+
+    // Benefits-related steps
+    if (profile.disabledVeteran) {
+      steps.push('Free accessibility compliance assessment will be scheduled')
+      steps.push('VA grant application assistance will be provided')
+    }
+
+    if (profile.combatVeteran) {
+      steps.push('Security enhancement consultation will be offered')
+    }
+
+    // Standard steps
+    steps.push(
+      'Veteran discounts will be automatically applied to your estimate'
+    )
+    steps.push(
+      'Detailed project proposal with veteran benefits will be provided'
+    )
+    steps.push('Your assigned specialist will coordinate all veteran services')
+
+    return steps
+  }
+
+  /**
+   * Get veteran discount estimate for a project
+   */
+  calculateVeteranDiscountEstimate(
+    baseEstimate: number,
+    veteranProfile?: VeteranProfile
+  ): {
+    originalAmount: number
+    discountedAmount: number
+    totalSavings: number
+    discountBreakdown: string[]
+  } {
+    if (!veteranProfile || !veteranProfile.isVeteran) {
+      return {
+        originalAmount: baseEstimate,
+        discountedAmount: baseEstimate,
+        totalSavings: 0,
+        discountBreakdown: [],
+      }
+    }
+
+    // Use the veteran benefits system to calculate discounts
+    const benefitsEngine = VeteranBenefitsAutomation.getInstance()
+    const discountResult = benefitsEngine.applyAutomaticDiscounts(
+      veteranProfile,
+      baseEstimate
+    )
+
+    return {
+      originalAmount: baseEstimate,
+      discountedAmount: discountResult.discountedAmount,
+      totalSavings: discountResult.totalSavings,
+      discountBreakdown: discountResult.appliedDiscounts.map(
+        (d: any) => `${d.name}: ${d.percentage}% (${d.description})`
+      ),
+    }
+  }
+
+  /**
+   * Enhanced form processing with veteran personalization
+   */
+  async processEnhancedForm(
+    formType: 'contact' | 'estimate' | 'booking',
+    formData: any,
+    sessionId?: string
+  ): Promise<{
+    response: any
+    veteranHandling?: any
+    discounts?: any
+    nextSteps: string[]
+  }> {
+    try {
+      // Process with veteran system if session exists
+      if (sessionId) {
+        const result = this.veteranSystem.processVeteranFormSubmission(
+          sessionId,
+          formType,
+          formData
+        )
+
+        return {
+          response: result.response,
+          veteranHandling: result.priorityHandling,
+          discounts: result.veteranBenefits,
+          nextSteps: result.nextSteps,
+        }
+      }
+
+      // Fallback to standard processing
+      return {
+        response: this.generateResponse(
+          `${formData.name || ''} ${formData.message || ''} ${formData.projectType || ''}`,
+          formData
+        ),
+        nextSteps: [
+          'Our team will review your request and contact you within 48 hours',
+          'Free consultation will be scheduled',
+          'Detailed proposal will be provided',
+        ],
+      }
+    } catch (error) {
+      console.error('Enhanced form processing error:', error)
+
+      // Fallback to standard processing
+      return {
+        response: this.generateResponse(
+          `${formData.name || ''} ${formData.message || ''} ${formData.projectType || ''}`,
+          formData
+        ),
+        nextSteps: [
+          'Our team will review your request and contact you within 48 hours',
+          'Free consultation will be scheduled',
+          'Detailed proposal will be provided',
+        ],
+      }
+    }
   }
 }
 

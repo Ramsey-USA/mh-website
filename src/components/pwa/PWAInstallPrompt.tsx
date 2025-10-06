@@ -103,7 +103,7 @@ export default function PWAInstallPrompt({
       )
       window.removeEventListener('appinstalled', handleAppInstalled)
     }
-  }, [showOnMobile, showOnDesktop, isMobile, isInstalled])
+  }, [showOnMobile, showOnDesktop, isMobile, isInstalled, isIOS])
 
   const handleInstallClick = async () => {
     if (!deferredPrompt) {
@@ -159,12 +159,12 @@ export default function PWAInstallPrompt({
       <div
         className={`fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 shadow-lg ${className}`}
       >
-        <div className="container mx-auto flex items-center justify-between">
+        <div className="flex justify-between items-center mx-auto container">
           <div className="flex items-center gap-4">
-            <Download className="h-6 w-6" />
+            <Download className="w-6 h-6" />
             <div>
               <div className="font-semibold">Install MH Construction App</div>
-              <div className="text-sm text-blue-100">
+              <div className="text-blue-100 text-sm">
                 Get faster access and offline capabilities
               </div>
             </div>
@@ -172,13 +172,13 @@ export default function PWAInstallPrompt({
 
           <div className="flex items-center gap-2">
             {isIOS ? (
-              <div className="text-sm text-blue-100">
+              <div className="text-blue-100 text-sm">
                 Tap the share button and select &quot;Add to Home Screen&quot;
               </div>
             ) : (
               <button
                 onClick={handleInstallClick}
-                className="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                className="bg-white hover:bg-gray-100 px-4 py-2 rounded-lg font-semibold text-blue-600 transition-colors"
               >
                 Install
               </button>
@@ -186,10 +186,10 @@ export default function PWAInstallPrompt({
 
             <button
               onClick={handleDismiss}
-              className="text-blue-100 hover:text-white p-1"
+              className="p-1 text-blue-100 hover:text-white"
               aria-label="Dismiss install prompt"
             >
-              <X className="h-5 w-5" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -202,14 +202,14 @@ export default function PWAInstallPrompt({
       <div
         className={`bg-white rounded-lg shadow-lg border border-gray-200 p-6 ${className}`}
       >
-        <div className="flex items-start justify-between mb-4">
+        <div className="flex justify-between items-start mb-4">
           <div className="flex items-center gap-3">
             <div className="bg-blue-100 p-2 rounded-lg">
-              <Download className="h-6 w-6 text-blue-600" />
+              <Download className="w-6 h-6 text-blue-600" />
             </div>
             <div>
               <h3 className="font-semibold text-gray-900">Install Our App</h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-gray-600 text-sm">
                 Enhanced mobile experience
               </p>
             </div>
@@ -220,7 +220,7 @@ export default function PWAInstallPrompt({
             className="text-gray-400 hover:text-gray-600"
             aria-label="Dismiss"
           >
-            <X className="h-5 w-5" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
@@ -228,9 +228,9 @@ export default function PWAInstallPrompt({
           {features.slice(0, 2).map((feature, index) => (
             <div
               key={index}
-              className="flex items-center gap-2 text-sm text-gray-700"
+              className="flex items-center gap-2 text-gray-700 text-sm"
             >
-              <feature.icon className="h-4 w-4 text-blue-600" />
+              <feature.icon className="w-4 h-4 text-blue-600" />
               <span>{feature.text}</span>
             </div>
           ))}
@@ -238,7 +238,7 @@ export default function PWAInstallPrompt({
 
         {isIOS ? (
           <div className="bg-blue-50 p-3 rounded-lg">
-            <p className="text-sm text-blue-800">
+            <p className="text-blue-800 text-sm">
               <strong>To install on iOS:</strong>
               <br />
               1. Tap the share button in Safari
@@ -251,9 +251,9 @@ export default function PWAInstallPrompt({
         ) : (
           <button
             onClick={handleInstallClick}
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+            className="flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg w-full font-semibold text-white transition-colors"
           >
-            <Download className="h-4 w-4" />
+            <Download className="w-4 h-4" />
             Install App
           </button>
         )}
@@ -263,17 +263,17 @@ export default function PWAInstallPrompt({
 
   if (variant === 'modal') {
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+      <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 p-4">
         <div
           className={`bg-white rounded-lg shadow-xl max-w-md w-full p-6 ${className}`}
         >
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex justify-between items-center mb-6">
             <div className="flex items-center gap-3">
               <div className="bg-blue-100 p-2 rounded-lg">
-                <Download className="h-6 w-6 text-blue-600" />
+                <Download className="w-6 h-6 text-blue-600" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-900">
+                <h3 className="font-semibold text-gray-900 text-xl">
                   Install MH Construction
                 </h3>
                 <p className="text-gray-600">Get the best mobile experience</p>
@@ -285,7 +285,7 @@ export default function PWAInstallPrompt({
               className="text-gray-400 hover:text-gray-600"
               aria-label="Close"
             >
-              <X className="h-6 w-6" />
+              <X className="w-6 h-6" />
             </button>
           </div>
 
@@ -295,18 +295,18 @@ export default function PWAInstallPrompt({
                 key={index}
                 className="flex items-center gap-3 text-gray-700"
               >
-                <feature.icon className="h-5 w-5 text-blue-600" />
+                <feature.icon className="w-5 h-5 text-blue-600" />
                 <span>{feature.text}</span>
               </div>
             ))}
           </div>
 
           {isIOS ? (
-            <div className="bg-blue-50 p-4 rounded-lg mb-4">
-              <h4 className="font-semibold text-blue-900 mb-2">
+            <div className="bg-blue-50 mb-4 p-4 rounded-lg">
+              <h4 className="mb-2 font-semibold text-blue-900">
                 Installation Instructions for iOS:
               </h4>
-              <ol className="text-sm text-blue-800 space-y-1">
+              <ol className="space-y-1 text-blue-800 text-sm">
                 <li>1. Open this site in Safari</li>
                 <li>2. Tap the share button (square with arrow)</li>
                 <li>3. Scroll down and tap &quot;Add to Home Screen&quot;</li>
@@ -316,16 +316,16 @@ export default function PWAInstallPrompt({
           ) : (
             <button
               onClick={handleInstallClick}
-              className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 mb-4"
+              className="flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-700 mb-4 px-4 py-3 rounded-lg w-full font-semibold text-white transition-colors"
             >
-              <Download className="h-5 w-5" />
+              <Download className="w-5 h-5" />
               Install Now
             </button>
           )}
 
           <button
             onClick={handleDismiss}
-            className="w-full bg-gray-200 text-gray-800 py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
+            className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-lg w-full font-semibold text-gray-800 transition-colors"
           >
             Maybe Later
           </button>

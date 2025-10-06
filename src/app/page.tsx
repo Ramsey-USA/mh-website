@@ -18,6 +18,7 @@ import {
   StructuredData,
 } from '../components/seo/seo-meta'
 import TestimonialsWidget from '../components/testimonials/TestimonialsWidget'
+import SmartRecommendations from '../components/recommendations/SmartRecommendations'
 // import BlogNewsCarousel from '../components/blog/BlogNewsCarousel'
 import Head from 'next/head'
 import { MaterialIcon } from '../components/icons/MaterialIcon'
@@ -951,6 +952,52 @@ export default function Home() {
               </Button>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Smart Project Recommendations */}
+      <section className="relative bg-white dark:bg-gray-900 py-12 lg:py-16">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <FadeInWhenVisible>
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-3xl">
+                🎖️ Popular Project Ideas
+              </h2>
+              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
+                Discover intelligent project recommendations based on Pacific Northwest trends and veteran preferences
+              </p>
+            </div>
+            
+            <SmartRecommendations
+              variant="compact"
+              maxRecommendations={6}
+              showVeteranBenefits={true}
+              onRecommendationClick={(recommendation) => {
+                // Track recommendation click on homepage
+                if (typeof window !== 'undefined' && window.gtag) {
+                  window.gtag('event', 'homepage_recommendation_click', {
+                    project_type: recommendation.projectType,
+                    confidence: recommendation.confidence
+                  })
+                }
+              }}
+              onGetEstimate={(recommendation) => {
+                // Navigate to estimator with pre-filled data
+                if (typeof window !== 'undefined') {
+                  window.location.href = `/estimator?project=${encodeURIComponent(recommendation.projectType)}&title=${encodeURIComponent(recommendation.title)}`
+                }
+                
+                // Track estimate request from homepage recommendation
+                if (typeof window !== 'undefined' && window.gtag) {
+                  window.gtag('event', 'homepage_recommendation_estimate', {
+                    project_type: recommendation.projectType,
+                    estimated_value: recommendation.estimatedCost.min
+                  })
+                }
+              }}
+              className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-700 rounded-xl shadow-lg p-8"
+            />
+          </FadeInWhenVisible>
         </div>
       </section>
 

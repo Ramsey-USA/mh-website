@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+// Temporarily disabled font import due to Babel conflict
+// import { Inter } from 'next/font/google'
 // @ts-ignore
 import './globals.css'
 import { Navigation, Footer } from '../components/layout'
@@ -19,9 +20,13 @@ import {
 } from '../components/seo/enhanced-seo'
 import { useCriticalResourcePreloader } from '../hooks/usePerformanceOptimization'
 
-const inter = Inter({ subsets: ['latin'] })
+// Temporarily disabled font due to Babel conflict
+// const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL || 'https://mh-construction.com'
+  ),
   title: "MH Construction - Building Tomorrow with Today's Technology",
   description:
     'Veteran-owned construction excellence powered by cutting-edge AI technology. Serving the Pacific Northwest with military precision and construction expertise.',
@@ -95,7 +100,7 @@ export default function RootLayout({
           data={[generateEnhancedOrganizationSchema(), generateWebsiteSchema()]}
         />
       </head>
-      <body className={inter.className}>
+      <body className="font-sans">
         <WebVitalsReporter />
         <AnalyticsProvider
           measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}

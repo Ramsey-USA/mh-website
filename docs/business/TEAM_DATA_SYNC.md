@@ -168,14 +168,14 @@ When adding new team members:
 - ✅ Complete MD files for all 16 team members
 - ✅ Baseball card integration
 - ✅ Awards and nickname system
-- ✅ New team member additions (Derek Parks, Lisa)
+- ✅ New team member additions (Derek Parks, Lisa Kandle)
 
 ### Recent Updates
 
 **October 2025**: Added new team members:
 
 - **Derek Parks** - Superintendent with 10 years experience in Site & Field Operations
-- **Lisa** - Administrative Assistant in Administration & Support
+- **Lisa Kandle** - Administrative Assistant in Administration & Support
 
 ### Next Steps
 

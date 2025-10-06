@@ -11,6 +11,7 @@ import {
   PageHero,
 } from '../../components/ui'
 import { MaterialIcon } from '../../components/icons/MaterialIcon'
+import SmartRecommendations from '../../components/recommendations/SmartRecommendations'
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -683,6 +684,64 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
+          </FadeInWhenVisible>
+        </div>
+      </section>
+
+      {/* Project Inspiration & Recommendations */}
+      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-700 py-16">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <FadeInWhenVisible>
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-3xl">
+                🎖️ Popular Project Ideas
+              </h2>
+              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
+                Not sure what project to discuss? Explore these popular construction projects from our Pacific Northwest clients
+              </p>
+            </div>
+            
+            <SmartRecommendations
+              variant="compact"
+              maxRecommendations={6}
+              showVeteranBenefits={true}
+              onRecommendationClick={(recommendation) => {
+                // Pre-fill contact form with project details
+                const projectField = document.querySelector('textarea[name="message"]') as HTMLTextAreaElement
+                if (projectField) {
+                  const currentValue = projectField.value
+                  const projectInfo = `I'm interested in: ${recommendation.title}\n\nEstimated Budget: ${Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(recommendation.estimatedCost.min)} - ${Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(recommendation.estimatedCost.max)}\n\n${currentValue}`
+                  projectField.value = projectInfo
+                  projectField.focus()
+                  
+                  // Scroll to form
+                  document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })
+                }
+                
+                // Track contact form pre-fill
+                if (typeof window !== 'undefined' && window.gtag) {
+                  window.gtag('event', 'contact_recommendation_prefill', {
+                    project_type: recommendation.projectType,
+                    confidence: recommendation.confidence
+                  })
+                }
+              }}
+              onGetEstimate={(recommendation) => {
+                // Navigate to estimator
+                if (typeof window !== 'undefined') {
+                  window.location.href = `/estimator?project=${encodeURIComponent(recommendation.projectType)}&title=${encodeURIComponent(recommendation.title)}`
+                }
+                
+                // Track estimate request from contact page
+                if (typeof window !== 'undefined' && window.gtag) {
+                  window.gtag('event', 'contact_recommendation_estimate', {
+                    project_type: recommendation.projectType,
+                    estimated_value: recommendation.estimatedCost.min
+                  })
+                }
+              }}
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8"
+            />
           </FadeInWhenVisible>
         </div>
       </section>

@@ -1,6 +1,7 @@
 'use client'
 
 import React, { Suspense, lazy } from 'react'
+import Image from 'next/image'
 import {
   PortfolioCardSkeleton,
   LoadingPlaceholder,
@@ -29,11 +30,13 @@ export function OptimizedPortfolioCard({
   return (
     <div className="group cursor-pointer">
       <div className="relative mb-4 rounded-lg h-64 overflow-hidden">
-        <img
+        <Image
           src={project.images[0]?.url || '/placeholder-construction.jpg'}
           alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          loading="lazy"
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-300"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={priority}
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -76,11 +79,13 @@ export function OptimizedGallery({
     <div className="gap-8 grid grid-cols-1 lg:grid-cols-2">
       {/* Main Image */}
       <div className="relative rounded-lg h-96 lg:h-[500px] overflow-hidden">
-        <img
+        <Image
           src={images[activeIndex]?.url || '/placeholder-construction.jpg'}
           alt={images[activeIndex]?.caption || 'Project image'}
-          className="w-full h-full object-cover"
-          loading="lazy"
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          priority
         />
       </div>
 
@@ -98,11 +103,12 @@ export function OptimizedGallery({
               }`}
               onClick={() => onImageClick(index)}
             >
-              <img
+              <Image
                 src={image.url}
                 alt={image.caption || `Project image ${index + 1}`}
-                className="rounded w-full h-full object-cover"
-                loading="lazy"
+                fill
+                className="rounded object-cover"
+                sizes="80px"
               />
             </div>
           ))}

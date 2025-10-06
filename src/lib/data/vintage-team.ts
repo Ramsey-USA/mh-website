@@ -943,7 +943,7 @@ export const vintageTeamMembers: VintageTeamMember[] = [
 
   // Additional Administration & Support
   {
-    name: 'Lisa',
+    name: 'Lisa Kandle',
     role: 'Administrative Assistant',
     department: 'Administration & Support',
     cardNumber: 15,
@@ -995,7 +995,7 @@ export const vintageTeamMembers: VintageTeamMember[] = [
     avatar: '/images/team/lisa.jpg',
     veteranStatus: 'Civilian Professional',
     active: true,
-    slug: 'lisa',
+    slug: 'lisa-kandle',
   },
 ]
 

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '../ui'
 
 export function DashboardSidebar() {
@@ -95,11 +96,13 @@ export function DashboardSidebar() {
       {/* Logo */}
       <div className="p-6 border-b">
         <Link href="/dashboard" className="flex items-center">
-          <img
+          <Image
             src="/images/logo/mh-logo.png"
             alt="MH Construction Logo"
+            width={32}
+            height={32}
             className="mr-3 w-auto h-8"
-            loading="eager"
+            priority
           />
           <div className="flex flex-col">
             <div className="font-tactic-bold text-brand-primary text-lg">
