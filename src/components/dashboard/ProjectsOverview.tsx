@@ -108,7 +108,7 @@ export function ProjectsOverview() {
             <Button variant="outline" size="sm">
               📊 Project Reports
             </Button>
-            <Button variant="primary" size="sm">
+            <Button variant="default" size="sm">
               + New Project
             </Button>
           </div>

@@ -765,7 +765,7 @@ export default function AboutPage() {
               <div className="flex sm:flex-row flex-col justify-center gap-4 mb-8">
                 <Link href="/booking">
                   <Button
-                    size="xl"
+                    size="lg"
                     className="bg-white hover:bg-brand-light dark:bg-gray-800 dark:hover:bg-gray-700 shadow-xl hover:shadow-2xl text-brand-primary-dark dark:text-white transition-all duration-300"
                   >
                     <MaterialIcon icon="phone" className="mr-2" />
@@ -774,7 +774,7 @@ export default function AboutPage() {
                 </Link>
                 <Link href="/services">
                   <Button
-                    size="xl"
+                    size="lg"
                     variant="outline"
                     className="hover:bg-white/10 dark:hover:bg-gray-800/50 shadow-xl hover:shadow-2xl border-white dark:border-gray-300 text-white dark:text-gray-200 transition-all duration-300"
                   >

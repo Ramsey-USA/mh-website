@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/ui/button'
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -227,8 +227,8 @@ const ContentManagement = () => {
           {activeTab === 'blog'
             ? 'Title'
             : activeTab === 'portfolio'
-            ? 'Project Title'
-            : 'Testimonial Content'}
+              ? 'Project Title'
+              : 'Testimonial Content'}
         </label>
         {activeTab === 'testimonials' ? (
           <textarea
@@ -365,8 +365,8 @@ const ContentManagement = () => {
           {activeTab === 'blog'
             ? 'Post'
             : activeTab === 'portfolio'
-            ? 'Project'
-            : 'Testimonial'}
+              ? 'Project'
+              : 'Testimonial'}
         </Button>
       </div>
 
@@ -398,8 +398,8 @@ const ContentManagement = () => {
                   {activeTab === 'blog'
                     ? 'Blog Post'
                     : activeTab === 'portfolio'
-                    ? 'Portfolio Project'
-                    : 'Testimonial'}
+                      ? 'Portfolio Project'
+                      : 'Testimonial'}
                 </h2>
                 <Button variant="outline" onClick={resetForm}>
                   <X className="w-4 h-4" />

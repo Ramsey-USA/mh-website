@@ -232,7 +232,7 @@ export function TeamSchedule() {
         {/* Team Actions */}
         <div className="mt-6 pt-4 border-t">
           <div className="gap-3 grid grid-cols-2">
-            <Button variant="primary" size="sm" className="w-full">
+            <Button variant="default" size="sm" className="w-full">
               📅 Schedule Meeting
             </Button>
             <Button variant="outline" size="sm" className="w-full">

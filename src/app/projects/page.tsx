@@ -247,7 +247,7 @@ export default function ProjectsPage() {
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
                   variant={
-                    selectedCategory === category.id ? 'primary' : 'outline'
+                    selectedCategory === category.id ? 'default' : 'outline'
                   }
                   className={`
                     ${
@@ -768,7 +768,7 @@ export default function ProjectsPage() {
                             </div>
                             <MaterialIcon
                               icon={process.icon}
-                              size="xl"
+                              size="lg"
                               className="flex-shrink-0 ml-4 text-brand-primary"
                             />
                           </div>

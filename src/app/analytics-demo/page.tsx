@@ -5,7 +5,7 @@
 
 'use client'
 
-import React from 'react'
+import React, { Suspense } from 'react'
 import AnalyticsDashboard from '@/components/analytics/AnalyticsDashboard'
 import AnalyticsProvider, {
   useAnalyticsContext,
@@ -116,22 +116,30 @@ function AnalyticsDemo() {
 // Main Demo Page Component
 export default function AnalyticsDemoPage() {
   return (
-    <AnalyticsProvider enableAutoTracking={true}>
-      <div className="bg-gray-50 min-h-screen">
-        <div className="mx-auto py-8 container">
-          <div className="mb-8 text-center">
-            <h1 className="mb-4 font-bold text-gray-900 text-4xl">
-              Advanced Analytics Dashboard
-            </h1>
-            <p className="mx-auto max-w-3xl text-gray-600 text-xl">
-              Real-time insights into user behavior, performance metrics, and
-              veteran engagement for MH Construction's digital platform.
-            </p>
-          </div>
-
-          <AnalyticsDemo />
+    <Suspense
+      fallback={
+        <div className="flex justify-center items-center min-h-screen">
+          Loading...
         </div>
-      </div>
-    </AnalyticsProvider>
+      }
+    >
+      <AnalyticsProvider enableAutoTracking={true}>
+        <div className="bg-gray-50 min-h-screen">
+          <div className="mx-auto py-8 container">
+            <div className="mb-8 text-center">
+              <h1 className="mb-4 font-bold text-gray-900 text-4xl">
+                Advanced Analytics Dashboard
+              </h1>
+              <p className="mx-auto max-w-3xl text-gray-600 text-xl">
+                Real-time insights into user behavior, performance metrics, and
+                veteran engagement for MH Construction's digital platform.
+              </p>
+            </div>
+
+            <AnalyticsDemo />
+          </div>
+        </div>
+      </AnalyticsProvider>
+    </Suspense>
   )
 }

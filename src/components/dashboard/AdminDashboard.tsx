@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/ui/button'
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -327,8 +327,8 @@ const AdminDashboard = () => {
                       content.type === 'blog'
                         ? 'bg-green-100 text-green-800'
                         : content.type === 'project'
-                        ? 'bg-blue-100 text-blue-800'
-                        : 'bg-yellow-100 text-yellow-800'
+                          ? 'bg-blue-100 text-blue-800'
+                          : 'bg-yellow-100 text-yellow-800'
                     }`}
                   >
                     {content.type}

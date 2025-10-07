@@ -145,7 +145,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           </p>
           <div className="space-y-2">
             <Button
-              variant="primary"
+              variant="default"
               onClick={handleCallOffice}
               className="w-full sm:w-auto"
             >
@@ -199,7 +199,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   </p>
                   <div className="gap-2 grid grid-cols-2 max-w-md">
                     <Button
-                      variant="primary"
+                      variant="default"
                       size="sm"
                       onClick={() => handleGetDirections(officeLocation)}
                     >
@@ -276,7 +276,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Button
-                    variant="primary"
+                    variant="default"
                     onClick={() => handleGetDirections(selectedLocation)}
                   >
                     🧭 Get Directions

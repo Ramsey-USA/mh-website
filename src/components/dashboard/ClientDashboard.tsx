@@ -531,7 +531,7 @@ export const ClientDashboard: React.FC = () => {
                               {project.nextMilestone}
                             </p>
                           </div>
-                          <Button variant="primary" size="sm">
+                          <Button variant="default" size="sm">
                             View Details
                           </Button>
                         </div>
@@ -584,7 +584,7 @@ export const ClientDashboard: React.FC = () => {
                       </div>
 
                       <div className="pt-4 border-t">
-                        <Button variant="primary" className="mb-2 w-full">
+                        <Button variant="default" className="mb-2 w-full">
                           📞 Contact Team
                         </Button>
                         <Button variant="outline" className="w-full">
@@ -684,7 +684,7 @@ export const ClientDashboard: React.FC = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <Button variant="primary" className="w-full">
+                  <Button variant="default" className="w-full">
                     📞 Schedule Team Call
                   </Button>
                   <Button variant="outline" className="w-full">

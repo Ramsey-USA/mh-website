@@ -280,7 +280,7 @@ export default function GovernmentGrantsPage() {
           <FadeInWhenVisible>
             <div className="flex flex-wrap justify-center items-center gap-8 text-center">
               <div className="flex items-center">
-                <MaterialIcon icon="military_tech" size="xl" className="mr-3" />
+                <MaterialIcon icon="military_tech" size="lg" className="mr-3" />
                 <div className="text-left">
                   <p className="font-bold text-lg">Veteran-Owned</p>
                   <p className="text-gray-300 text-sm">
@@ -290,7 +290,7 @@ export default function GovernmentGrantsPage() {
               </div>
               <div className="hidden md:block bg-gray-600 w-px h-12"></div>
               <div className="flex items-center">
-                <MaterialIcon icon="verified" size="xl" className="mr-3" />
+                <MaterialIcon icon="verified" size="lg" className="mr-3" />
                 <div className="text-left">
                   <p className="font-bold text-lg">Licensed in WA, OR, ID</p>
                   <p className="text-gray-300 text-sm">Tri-State Coverage</p>
@@ -298,7 +298,7 @@ export default function GovernmentGrantsPage() {
               </div>
               <div className="hidden md:block bg-gray-600 w-px h-12"></div>
               <div className="flex items-center">
-                <MaterialIcon icon="science" size="xl" className="mr-3" />
+                <MaterialIcon icon="science" size="lg" className="mr-3" />
                 <div className="text-left">
                   <p className="font-bold text-lg">DOE & Hanford Experience</p>
                   <p className="text-gray-300 text-sm">
@@ -683,7 +683,7 @@ export default function GovernmentGrantsPage() {
                         <div className="flex flex-shrink-0 justify-center items-center bg-gray-200 dark:bg-gray-700 mr-6 rounded-full w-14 h-14">
                           <MaterialIcon
                             icon={factor.icon}
-                            size="xl"
+                            size="lg"
                             className="text-gray-700 dark:text-gray-300"
                           />
                         </div>

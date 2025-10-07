@@ -138,7 +138,7 @@ function UnauthorizedScreen({
             </Button>
             <Button
               onClick={() => router.push('/')}
-              variant="primary"
+              variant="default"
               className="w-full"
             >
               Return Home

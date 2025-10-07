@@ -1,6 +1,12 @@
 // Export all UI components for easy imports
-export { Button } from './Button'
-export { Card, CardHeader, CardTitle, CardContent } from './Card'
+export { Button } from './button'
+export {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardDescription,
+} from './card'
 export { Input, Textarea } from './Input'
 export { ThemeToggle } from './ThemeToggle'
 export { QuickBookingModal } from './QuickBookingModal'

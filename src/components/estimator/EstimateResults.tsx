@@ -254,7 +254,7 @@ export function EstimateResults({
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
-                <Button variant="primary" className="w-full">
+                <Button variant="default" className="w-full">
                   Schedule Free Consultation
                 </Button>
                 <Button variant="outline" className="w-full">
@@ -304,7 +304,7 @@ export function EstimateResults({
                   who served. Your 10% discount has been applied.
                 </p>
                 <Button
-                  variant="primary"
+                  variant="default"
                   size="sm"
                   className="bg-blue-600 hover:bg-blue-700 w-full"
                 >

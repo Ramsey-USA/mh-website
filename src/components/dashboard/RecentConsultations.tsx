@@ -168,7 +168,7 @@ export function RecentConsultations() {
                     <Button variant="outline" size="sm">
                       Reschedule
                     </Button>
-                    <Button variant="primary" size="sm">
+                    <Button variant="default" size="sm">
                       View Details
                     </Button>
                   </div>
@@ -181,7 +181,7 @@ export function RecentConsultations() {
         {/* Quick Actions */}
         <div className="mt-6 pt-4 border-t">
           <div className="flex space-x-3">
-            <Button variant="primary" size="sm" className="flex-1">
+            <Button variant="default" size="sm" className="flex-1">
               + Schedule New Consultation
             </Button>
             <Button variant="outline" size="sm">

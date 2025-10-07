@@ -253,7 +253,7 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
                 accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.dwg,.zip"
               />
               <Button
-                variant="primary"
+                variant="default"
                 size="sm"
                 onClick={() => fileInputRef.current?.click()}
                 disabled={isUploading}
@@ -378,7 +378,7 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
                   {/* Document Actions */}
                   <div className="flex space-x-2">
                     <Button
-                      variant="primary"
+                      variant="default"
                       size="sm"
                       className="flex-1"
                       onClick={() => handleDownload(document)}

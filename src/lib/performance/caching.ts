@@ -89,7 +89,13 @@ class CacheManager {
     data: T,
     config: CacheConfig = { ttl: 300000, version: '1.0' }
   ): Promise<void> {
-    const { ttl, version, tags = [], priority = 'medium', storage = 'memory' } = config
+    const {
+      ttl,
+      version,
+      tags = [],
+      priority = 'medium',
+      storage = 'memory',
+    } = config
 
     // Always store in memory for fastest access
     this.setInMemory(key, data, config)
@@ -127,7 +133,7 @@ class CacheManager {
 
   private setInMemory<T>(key: string, data: T, config: CacheConfig): void {
     const size = this.estimateSize(data)
-    
+
     // Check if we need to evict items
     this.ensureCapacity(size)
 
@@ -148,7 +154,10 @@ class CacheManager {
     this.updateStats()
   }
 
-  private async getFromBrowser<T>(key: string, version: string): Promise<CacheEntry<T> | null> {
+  private async getFromBrowser<T>(
+    key: string,
+    version: string
+  ): Promise<CacheEntry<T> | null> {
     if (typeof window === 'undefined') return null
 
     try {
@@ -183,7 +192,6 @@ class CacheManager {
       // Try IndexedDB for larger items
       const idbEntry = await this.getFromIndexedDB<T>(key, version)
       if (idbEntry) return idbEntry
-
     } catch (error) {
       console.warn('Browser cache read error:', error)
     }
@@ -212,7 +220,7 @@ class CacheManager {
 
     try {
       const serialized = JSON.stringify(entry)
-      
+
       switch (storage) {
         case 'local':
           localStorage.setItem(`cache_${key}`, serialized)
@@ -229,23 +237,26 @@ class CacheManager {
     }
   }
 
-  private async getFromIndexedDB<T>(key: string, version: string): Promise<CacheEntry<T> | null> {
-    return new Promise((resolve) => {
+  private async getFromIndexedDB<T>(
+    key: string,
+    version: string
+  ): Promise<CacheEntry<T> | null> {
+    return new Promise(resolve => {
       if (!window.indexedDB) {
         resolve(null)
         return
       }
 
       const request = indexedDB.open('PerformanceCache', 1)
-      
+
       request.onerror = () => resolve(null)
-      
+
       request.onsuccess = () => {
         const db = request.result
         const transaction = db.transaction(['cache'], 'readonly')
         const store = transaction.objectStore('cache')
         const getRequest = store.get(key)
-        
+
         getRequest.onsuccess = () => {
           const entry = getRequest.result as CacheEntry<T>
           if (
@@ -264,10 +275,10 @@ class CacheManager {
             resolve(null)
           }
         }
-        
+
         getRequest.onerror = () => resolve(null)
       }
-      
+
       request.onupgradeneeded = () => {
         const db = request.result
         if (!db.objectStoreNames.contains('cache')) {
@@ -277,7 +288,10 @@ class CacheManager {
     })
   }
 
-  private async setInIndexedDB<T>(key: string, entry: CacheEntry<T>): Promise<void> {
+  private async setInIndexedDB<T>(
+    key: string,
+    entry: CacheEntry<T>
+  ): Promise<void> {
     return new Promise((resolve, reject) => {
       if (!window.indexedDB) {
         resolve()
@@ -285,19 +299,19 @@ class CacheManager {
       }
 
       const request = indexedDB.open('PerformanceCache', 1)
-      
+
       request.onerror = () => reject(request.error)
-      
+
       request.onsuccess = () => {
         const db = request.result
         const transaction = db.transaction(['cache'], 'readwrite')
         const store = transaction.objectStore('cache')
         const putRequest = store.put(entry, key)
-        
+
         putRequest.onsuccess = () => resolve()
         putRequest.onerror = () => reject(putRequest.error)
       }
-      
+
       request.onupgradeneeded = () => {
         const db = request.result
         if (!db.objectStoreNames.contains('cache')) {
@@ -311,7 +325,7 @@ class CacheManager {
     // Check memory limits
     while (
       (this.stats.totalSize + newItemSize > this.maxMemorySize ||
-       this.stats.itemCount >= this.maxItems) &&
+        this.stats.itemCount >= this.maxItems) &&
       this.memoryCache.size > 0
     ) {
       this.evictLeastRecentlyUsed()
@@ -322,12 +336,12 @@ class CacheManager {
     let oldestKey = ''
     let oldestTime = Date.now()
 
-    for (const [key, entry] of this.memoryCache) {
+    this.memoryCache.forEach((entry, key) => {
       if (entry.lastAccessed < oldestTime) {
         oldestTime = entry.lastAccessed
         oldestKey = key
       }
-    }
+    })
 
     if (oldestKey) {
       const entry = this.memoryCache.get(oldestKey)
@@ -344,11 +358,11 @@ class CacheManager {
     const now = Date.now()
     const keysToDelete: string[] = []
 
-    for (const [key, entry] of this.memoryCache) {
+    this.memoryCache.forEach((entry, key) => {
       if (now - entry.timestamp > entry.ttl) {
         keysToDelete.push(key)
       }
-    }
+    })
 
     keysToDelete.forEach(key => {
       const entry = this.memoryCache.get(key)
@@ -386,11 +400,11 @@ class CacheManager {
   async invalidateByTag(tag: string): Promise<void> {
     const keysToDelete: string[] = []
 
-    for (const [key, entry] of this.memoryCache) {
+    this.memoryCache.forEach((entry, key) => {
       if (entry.tags.includes(tag)) {
         keysToDelete.push(key)
       }
-    }
+    })
 
     keysToDelete.forEach(key => {
       const entry = this.memoryCache.get(key)
@@ -453,7 +467,7 @@ class CacheManager {
           localStorage.removeItem(key)
         }
       })
-      
+
       Object.keys(sessionStorage).forEach(key => {
         if (key.startsWith('cache_')) {
           sessionStorage.removeItem(key)
@@ -473,9 +487,12 @@ export class APICache {
   ): Promise<T> {
     const { cacheConfig, ...fetchOptions } = options
     const cacheKey = this.generateCacheKey(url, fetchOptions)
-    
+
     // Try to get from cache first
-    const cached = await this.cacheManager.get<T>(cacheKey, cacheConfig?.version || '1.0')
+    const cached = await this.cacheManager.get<T>(
+      cacheKey,
+      cacheConfig?.version || '1.0'
+    )
     if (cached) {
       return cached
     }
@@ -484,7 +501,7 @@ export class APICache {
     const startTime = performance.now()
     try {
       const response = await fetch(url, fetchOptions)
-      
+
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`)
       }
@@ -521,8 +538,11 @@ export class APICache {
       headers: options.headers ? JSON.stringify(options.headers) : '',
       body: options.body || '',
     }
-    
-    return btoa(`${url}_${JSON.stringify(sortedOptions)}`).replace(/[/+=]/g, '_')
+
+    return btoa(`${url}_${JSON.stringify(sortedOptions)}`).replace(
+      /[/+=]/g,
+      '_'
+    )
   }
 
   private extractDomainFromUrl(url: string): string {
@@ -552,12 +572,18 @@ export class DatabaseCache {
       dependencies?: string[]
     } = {}
   ): Promise<T> {
-    const { ttl = 600000, version = '1.0', tags = ['database'], dependencies = [] } = options
-    
+    const {
+      ttl = 600000,
+      version = '1.0',
+      tags = ['database'],
+      dependencies = [],
+    } = options
+
     // Generate cache key with dependencies
-    const fullKey = dependencies.length > 0 
-      ? `${queryKey}_${dependencies.sort().join('_')}`
-      : queryKey
+    const fullKey =
+      dependencies.length > 0
+        ? `${queryKey}_${dependencies.sort().join('_')}`
+        : queryKey
 
     // Try cache first
     const cached = await this.cacheManager.get<T>(fullKey, version)
@@ -567,7 +593,7 @@ export class DatabaseCache {
 
     // Execute query
     const result = await queryOptimizer.cacheQuery(fullKey, queryFn, ttl)
-    
+
     // Cache the result
     await this.cacheManager.set(fullKey, result, {
       ttl,

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/ui/button'
 import { OptimizedImage } from '@/components/ui/OptimizedImage'
 import { FadeInWhenVisible } from '@/components/animations/FramerMotionComponents'
 import { useAnalytics } from '@/components/analytics/enhanced-analytics'

@@ -507,25 +507,22 @@ export function useOrientation() {
     }
   }, [])
 
-  const lockOrientation = useCallback(
-    async (orientation: OrientationLockType) => {
-      if (
-        'screen' in window &&
-        'orientation' in window.screen &&
-        'lock' in window.screen.orientation
-      ) {
-        try {
-          await window.screen.orientation.lock(orientation)
-          return true
-        } catch (error) {
-          console.warn('Failed to lock orientation:', error)
-          return false
-        }
+  const lockOrientation = useCallback(async (orientation: string) => {
+    if (
+      'screen' in window &&
+      'orientation' in window.screen &&
+      'lock' in window.screen.orientation
+    ) {
+      try {
+        await (window.screen.orientation as any).lock(orientation)
+        return true
+      } catch (error) {
+        console.warn('Failed to lock orientation:', error)
+        return false
       }
-      return false
-    },
-    []
-  )
+    }
+    return false
+  }, [])
 
   const unlockOrientation = useCallback(() => {
     if (

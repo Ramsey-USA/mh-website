@@ -286,7 +286,7 @@ export default function Home() {
                     <div className="flex flex-col h-full text-white text-center">
                       <div className="flex flex-col flex-grow">
                         <feature.icon
-                          size="xl"
+                          size="lg"
                           primaryColor="white"
                           className="mx-auto mb-3"
                         />
@@ -334,7 +334,7 @@ export default function Home() {
                 title: 'Try AI Estimator',
                 description: 'Get instant project estimates',
                 href: '/estimator',
-                variant: 'primary' as const,
+                variant: 'default' as const,
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="smart_toy"
@@ -391,7 +391,7 @@ export default function Home() {
                   onClick={() => (window.location.href = cta.href)}
                 >
                   <cta.icon
-                    size="xl"
+                    size="lg"
                     className="mr-3 group-hover:scale-110 transition-transform duration-300"
                   />
                   <span className="font-semibold">{cta.title}</span>
@@ -584,7 +584,7 @@ export default function Home() {
                       <div className="flex flex-col justify-between h-full text-white text-center">
                         <div className="flex-shrink-0">
                           <IconComponent
-                            size="xl"
+                            size="lg"
                             primaryColor="white"
                             className="mx-auto mb-3"
                           />
@@ -652,7 +652,7 @@ export default function Home() {
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
                   <MaterialIcon
                     icon="explore"
-                    size="xl"
+                    size="lg"
                     className="text-brand-primary"
                   />
                 </div>
@@ -682,7 +682,7 @@ export default function Home() {
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
                   <MaterialIcon
                     icon="architecture"
-                    size="xl"
+                    size="lg"
                     className="text-brand-primary"
                   />
                 </div>
@@ -711,7 +711,7 @@ export default function Home() {
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
                   <MaterialIcon
                     icon="build"
-                    size="xl"
+                    size="lg"
                     className="text-brand-primary"
                   />
                 </div>
@@ -740,7 +740,7 @@ export default function Home() {
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
                   <MaterialIcon
                     icon="straighten"
-                    size="xl"
+                    size="lg"
                     className="text-brand-primary"
                   />
                 </div>
@@ -769,7 +769,7 @@ export default function Home() {
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
                   <MaterialIcon
                     icon="construction"
-                    size="xl"
+                    size="lg"
                     className="text-brand-primary"
                   />
                 </div>
@@ -798,7 +798,7 @@ export default function Home() {
                 <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
                   <MaterialIcon
                     icon="gps_fixed"
-                    size="xl"
+                    size="lg"
                     className="text-brand-primary"
                   />
                 </div>
@@ -943,7 +943,7 @@ export default function Home() {
             <Link href="/testimonials">
               <Button
                 variant="outline"
-                size="xl"
+                size="lg"
                 className="group shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-out transform"
               >
                 <span className="z-10 relative group-hover:scale-105 transition-transform duration-300">
@@ -964,38 +964,39 @@ export default function Home() {
                 🎖️ Popular Project Ideas
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
-                Discover intelligent project recommendations based on Pacific Northwest trends and veteran preferences
+                Discover intelligent project recommendations based on Pacific
+                Northwest trends and veteran preferences
               </p>
             </div>
-            
+
             <SmartRecommendations
               variant="compact"
               maxRecommendations={6}
               showVeteranBenefits={true}
-              onRecommendationClick={(recommendation) => {
+              onRecommendationClick={recommendation => {
                 // Track recommendation click on homepage
                 if (typeof window !== 'undefined' && window.gtag) {
                   window.gtag('event', 'homepage_recommendation_click', {
                     project_type: recommendation.projectType,
-                    confidence: recommendation.confidence
+                    confidence: recommendation.confidence,
                   })
                 }
               }}
-              onGetEstimate={(recommendation) => {
+              onGetEstimate={recommendation => {
                 // Navigate to estimator with pre-filled data
                 if (typeof window !== 'undefined') {
                   window.location.href = `/estimator?project=${encodeURIComponent(recommendation.projectType)}&title=${encodeURIComponent(recommendation.title)}`
                 }
-                
+
                 // Track estimate request from homepage recommendation
                 if (typeof window !== 'undefined' && window.gtag) {
                   window.gtag('event', 'homepage_recommendation_estimate', {
                     project_type: recommendation.projectType,
-                    estimated_value: recommendation.estimatedCost.min
+                    estimated_value: recommendation.estimatedCost.min,
                   })
                 }
               }}
-              className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-700 rounded-xl shadow-lg p-8"
+              className="bg-gradient-to-br from-blue-50 dark:from-gray-800 to-indigo-100 dark:to-gray-700 shadow-lg p-8 rounded-xl"
             />
           </FadeInWhenVisible>
         </div>
@@ -1062,7 +1063,7 @@ export default function Home() {
                     <div className="mb-3">
                       <MaterialIcon
                         icon="security"
-                        size="xl"
+                        size="lg"
                         className="mx-auto text-white"
                       />
                     </div>
@@ -1107,7 +1108,7 @@ export default function Home() {
                     <div className="mb-3">
                       <MaterialIcon
                         icon="favorite"
-                        size="xl"
+                        size="lg"
                         className="mx-auto text-brand-secondary"
                       />
                     </div>
@@ -1151,7 +1152,7 @@ export default function Home() {
                     <div className="mb-3">
                       <MaterialIcon
                         icon="visibility"
-                        size="xl"
+                        size="lg"
                         className="mx-auto text-brand-secondary"
                       />
                     </div>
@@ -1195,7 +1196,7 @@ export default function Home() {
                     <div className="mb-3">
                       <MaterialIcon
                         icon="handshake"
-                        size="xl"
+                        size="lg"
                         className="mx-auto text-brand-secondary"
                       />
                     </div>

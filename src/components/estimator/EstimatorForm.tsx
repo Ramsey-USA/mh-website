@@ -788,7 +788,7 @@ export function EstimatorForm() {
                 </div>
               ) : (
                 <Button
-                  variant="primary"
+                  variant="default"
                   size="lg"
                   className="w-full"
                   onClick={calculateEstimate}
@@ -890,7 +890,7 @@ export function EstimatorForm() {
                         </div>
                       )}
                       <Button
-                        variant="primary"
+                        variant="default"
                         onClick={() =>
                           setCurrentStep(Math.min(3, currentStep + 1))
                         }

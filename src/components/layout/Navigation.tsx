@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Button } from '../ui/Button'
+import { Button } from '../ui/button'
 import { ThemeToggle } from '../ui/ThemeToggle'
 import { MaterialIcon } from '../icons/MaterialIcon'
 import { QuickBookingModal } from '../ui/QuickBookingModal'

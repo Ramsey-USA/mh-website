@@ -729,7 +729,7 @@ export default function ServicesPage() {
                             </div>
                             <MaterialIcon
                               icon={process.icon}
-                              size="xl"
+                              size="lg"
                               className="flex-shrink-0 ml-4 text-brand-primary"
                             />
                           </div>

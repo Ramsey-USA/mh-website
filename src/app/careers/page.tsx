@@ -227,7 +227,7 @@ export default function CareersPage() {
                   >
                     <MaterialIcon
                       icon={value.icon}
-                      size="xl"
+                      size="lg"
                       className="text-white"
                     />
                   </div>

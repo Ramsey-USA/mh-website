@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useMemo } from 'react'
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/ui/button'
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -190,10 +190,10 @@ const DynamicSearch = ({
                     item.type === 'blog'
                       ? 'bg-green-100 text-green-800'
                       : item.type === 'project'
-                      ? 'bg-blue-100 text-blue-800'
-                      : item.type === 'service'
-                      ? 'bg-purple-100 text-purple-800'
-                      : 'bg-yellow-100 text-yellow-800'
+                        ? 'bg-blue-100 text-blue-800'
+                        : item.type === 'service'
+                          ? 'bg-purple-100 text-purple-800'
+                          : 'bg-yellow-100 text-yellow-800'
                   }`}
                 >
                   {item.type}
@@ -247,10 +247,10 @@ const DynamicSearch = ({
                       item.type === 'blog'
                         ? 'bg-green-100 text-green-800'
                         : item.type === 'project'
-                        ? 'bg-blue-100 text-blue-800'
-                        : item.type === 'service'
-                        ? 'bg-purple-100 text-purple-800'
-                        : 'bg-yellow-100 text-yellow-800'
+                          ? 'bg-blue-100 text-blue-800'
+                          : item.type === 'service'
+                            ? 'bg-purple-100 text-purple-800'
+                            : 'bg-yellow-100 text-yellow-800'
                     }`}
                   >
                     {item.type}

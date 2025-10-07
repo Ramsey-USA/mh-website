@@ -341,7 +341,7 @@ export const ProjectNotifications: React.FC = () => {
               </div>
             ))}
           </div>
-          <Button variant="primary" size="sm" className="mt-3 w-full">
+          <Button variant="default" size="sm" className="mt-3 w-full">
             View All Updates
           </Button>
         </CardContent>

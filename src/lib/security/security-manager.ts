@@ -193,11 +193,11 @@ class RateLimitStore {
 
   cleanup(): void {
     const now = Date.now()
-    for (const [key, entry] of this.store.entries()) {
+    this.store.forEach((entry, key) => {
       if (entry.resetTime < now) {
         this.store.delete(key)
       }
-    }
+    })
   }
 
   destroy(): void {
@@ -286,7 +286,9 @@ export class RateLimiter {
       return realIP
     }
 
-    return request.ip || 'unknown'
+    // Fallback - try to get from the request URL or use unknown
+    const url = new URL(request.url)
+    return url.hostname === 'localhost' ? '127.0.0.1' : 'unknown'
   }
 
   /**
@@ -740,4 +742,4 @@ export class SecurityManager {
 export const securityManager = new SecurityManager()
 
 // Types for external use
-export type { SecurityConfig, RateLimitEntry }
+export type { RateLimitEntry }

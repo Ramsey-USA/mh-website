@@ -199,7 +199,7 @@ export function UserProfile() {
             {isEditing ? (
               <>
                 <Button
-                  variant="primary"
+                  variant="default"
                   onClick={handleSave}
                   disabled={loading}
                 >

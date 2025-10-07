@@ -186,7 +186,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
           <MaterialIcon
             icon="science"
             className="text-brand-primary"
-            size="xl"
+            size="lg"
           />
           <div>
             <h2 className="font-bold text-gray-800 text-2xl">

@@ -244,8 +244,8 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
 
           <Button
             type="submit"
-            variant="primary"
-            size={compact ? 'md' : 'lg'}
+            variant="default"
+            size={compact ? 'default' : 'lg'}
             className="w-full"
             disabled={isSubmitting}
           >
@@ -279,7 +279,7 @@ export const QuickLeadCapture: React.FC = () => {
       <div className="right-6 bottom-6 z-50 fixed">
         <Button
           onClick={() => setIsExpanded(true)}
-          variant="primary"
+          variant="default"
           size="lg"
           className="shadow-lg hover:shadow-xl transition-all duration-200"
         >
