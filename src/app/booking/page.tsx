@@ -234,8 +234,11 @@ export default function BookingPage() {
                 <div className="mb-6 text-green-600 dark:text-green-400 text-6xl">
                   ✅
                 </div>
-                <h1 className="mb-4 font-bold text-green-800 dark:text-green-200 text-3xl">
-                  Consultation Scheduled!
+                <h1 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                  <span className="text-gray-300">Consultation</span>{' '}
+                  <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
+                    Scheduled!
+                  </span>
                 </h1>
                 <div className="space-y-4 mb-8 text-green-700 dark:text-green-300">
                   <p className="text-xl">
@@ -337,8 +340,11 @@ export default function BookingPage() {
       <section className="bg-gradient-to-br from-gray-800 dark:from-black via-gray-900 dark:via-gray-900 to-black dark:to-black pt-24 pb-16 text-white">
         <div className="mx-auto px-4 max-w-4xl text-center">
           <FadeInWhenVisible>
-            <h1 className="mb-4 font-bold text-4xl md:text-5xl">
-              Schedule Your Free Consultation
+            <h1 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+              <span className="text-white/90">Schedule Your Free</span>{' '}
+              <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
+                Consultation
+              </span>
             </h1>
             <p className="mx-auto max-w-2xl text-white/90 text-xl">
               Meet with our expert team to discuss your project vision and get

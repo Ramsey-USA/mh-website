@@ -276,10 +276,15 @@ export default function ServicesPage() {
                 size="3xl"
                 className="mb-4 text-brand-primary"
               />
-              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
-                Commercial Construction Management
+              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                  Commercial Construction
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                  Management
+                </span>
               </h2>
-              <p className="mb-4 text-gray-700 dark:text-gray-300 text-xl">
+              <p className="mb-4 font-light text-gray-700 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 Planning a new commercial building demands intricate details and
                 expert oversight. Put your project in the right hands by hiring
                 MH Construction for comprehensive Construction Management (CM)
@@ -314,10 +319,15 @@ export default function ServicesPage() {
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
-                Core Services
+              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                  Core
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                  Services
+                </span>
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
+              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 Comprehensive construction management services designed to bring
                 your vision to life
               </p>
@@ -408,10 +418,15 @@ export default function ServicesPage() {
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
-                Specialty Services
+              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                  Specialty
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                  Services
+                </span>
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
+              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 Diverse commercial construction expertise across the Tri-Cities
                 and Pacific Northwest
               </p>
@@ -563,8 +578,15 @@ export default function ServicesPage() {
                 size="3xl"
                 className="mb-4 text-brand-secondary"
               />
-              <h2 className="mb-4 font-bold text-4xl">Service Areas</h2>
-              <p className="text-brand-accent text-xl">
+              <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                  Service
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
+                  Areas
+                </span>
+              </h2>
+              <p className="font-light text-brand-accent text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 Serving the Pacific Northwest with Excellence
               </p>
             </div>
@@ -614,10 +636,15 @@ export default function ServicesPage() {
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 text-4xl">
-                Why Choose MH Construction
+              <h2 className="mb-6 font-black text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-gray-700 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                  Why Choose
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                  MH Construction
+                </span>
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 text-xl">
+              <p className="mx-auto max-w-3xl font-light text-gray-600 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 Your trusted partner for commercial construction in the Pacific
                 Northwest
               </p>
@@ -662,10 +689,15 @@ export default function ServicesPage() {
                   size="3xl"
                   className="mb-4 text-brand-primary"
                 />
-                <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
-                  Our Service Request Process
+                <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                    Our Service Request
+                  </span>
+                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                    Process
+                  </span>
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 text-xl">
+                <p className="font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                   From initial consultation to project completion, we guide you
                   every step of the way
                 </p>
@@ -754,8 +786,13 @@ export default function ServicesPage() {
                 size="4xl"
                 className="mb-6 text-brand-secondary"
               />
-              <h2 className="mb-6 font-bold text-4xl">
-                Ready to Start Your Project?
+              <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                  Ready to Start Your
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
+                  Project?
+                </span>
               </h2>
               <p className="mb-8 text-brand-accent text-xl">
                 Call us today for a free consultation and let's discuss how we

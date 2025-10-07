@@ -149,10 +149,15 @@ export default function ContactPage() {
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-16 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl">
-                Get In Touch
+              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                  Get In
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                  Touch
+                </span>
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 text-xl">
+              <p className="font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 Multiple ways to reach our experienced construction team
               </p>
             </div>
@@ -531,12 +536,12 @@ export default function ContactPage() {
 
                 {/* Emergency Contact */}
                 <FadeInWhenVisible>
-                  <Card className="bg-gradient-to-r from-orange-50 dark:from-orange-900/20 to-red-50 dark:to-red-900/20 hover:shadow-lg dark:hover:shadow-gray-600/50 border-orange-200 dark:border-orange-700 transition-shadow">
+                  <Card className="bg-gradient-to-r from-amber-50 dark:from-amber-900/20 to-orange-50 dark:to-orange-900/20 hover:shadow-lg dark:hover:shadow-gray-600/50 border-amber-200 dark:border-amber-700 transition-shadow">
                     <CardHeader>
                       <MaterialIcon
                         icon="emergency"
                         size="2xl"
-                        className="mb-3 text-orange-600 dark:text-orange-400"
+                        className="mb-3 text-amber-600 dark:text-amber-400"
                       />
                       <CardTitle className="text-gray-900 dark:text-white text-2xl">
                         Emergency Support
@@ -549,7 +554,7 @@ export default function ContactPage() {
                       </p>
                       <a
                         href="tel:+15093086489"
-                        className="inline-flex justify-center items-center bg-orange-600 hover:bg-orange-700 px-6 py-3 rounded-lg w-full font-semibold text-white transition-colors"
+                        className="inline-flex justify-center items-center bg-amber-600 hover:bg-amber-700 px-6 py-3 rounded-lg w-full font-semibold text-white transition-colors"
                       >
                         <MaterialIcon icon="phone" className="mr-2" size="md" />
                         Call (509) 308-6489
@@ -577,8 +582,13 @@ export default function ContactPage() {
                   size="4xl"
                   className="mb-6 text-brand-primary"
                 />
-                <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl">
-                  Ready to Join Our Team?
+                <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                    Ready to Join Our
+                  </span>
+                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                    Team?
+                  </span>
                 </h2>
                 <p className="mb-8 text-gray-700 dark:text-gray-300 text-xl leading-relaxed">
                   We're always looking for skilled professionals who share our
@@ -689,58 +699,68 @@ export default function ContactPage() {
       </section>
 
       {/* Project Inspiration & Recommendations */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-700 py-16">
+      <section className="bg-gradient-to-br from-blue-50 dark:from-gray-800 to-indigo-100 dark:to-gray-700 py-16">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-3xl">
-                🎖️ Popular Project Ideas
+              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                  🎖️ Popular Project
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                  Ideas
+                </span>
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
-                Not sure what project to discuss? Explore these popular construction projects from our Pacific Northwest clients
+              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+                Not sure what project to discuss? Explore these popular
+                construction projects from our Pacific Northwest clients
               </p>
             </div>
-            
+
             <SmartRecommendations
               variant="compact"
               maxRecommendations={6}
               showVeteranBenefits={true}
-              onRecommendationClick={(recommendation) => {
+              onRecommendationClick={recommendation => {
                 // Pre-fill contact form with project details
-                const projectField = document.querySelector('textarea[name="message"]') as HTMLTextAreaElement
+                const projectField = document.querySelector(
+                  'textarea[name="message"]'
+                ) as HTMLTextAreaElement
                 if (projectField) {
                   const currentValue = projectField.value
                   const projectInfo = `I'm interested in: ${recommendation.title}\n\nEstimated Budget: ${Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(recommendation.estimatedCost.min)} - ${Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(recommendation.estimatedCost.max)}\n\n${currentValue}`
                   projectField.value = projectInfo
                   projectField.focus()
-                  
+
                   // Scroll to form
-                  document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })
+                  document
+                    .getElementById('contact-form')
+                    ?.scrollIntoView({ behavior: 'smooth' })
                 }
-                
+
                 // Track contact form pre-fill
                 if (typeof window !== 'undefined' && window.gtag) {
                   window.gtag('event', 'contact_recommendation_prefill', {
                     project_type: recommendation.projectType,
-                    confidence: recommendation.confidence
+                    confidence: recommendation.confidence,
                   })
                 }
               }}
-              onGetEstimate={(recommendation) => {
+              onGetEstimate={recommendation => {
                 // Navigate to estimator
                 if (typeof window !== 'undefined') {
                   window.location.href = `/estimator?project=${encodeURIComponent(recommendation.projectType)}&title=${encodeURIComponent(recommendation.title)}`
                 }
-                
+
                 // Track estimate request from contact page
                 if (typeof window !== 'undefined' && window.gtag) {
                   window.gtag('event', 'contact_recommendation_estimate', {
                     project_type: recommendation.projectType,
-                    estimated_value: recommendation.estimatedCost.min
+                    estimated_value: recommendation.estimatedCost.min,
                   })
                 }
               }}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8"
+              className="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-xl"
             />
           </FadeInWhenVisible>
         </div>
@@ -757,10 +777,15 @@ export default function ContactPage() {
                   size="3xl"
                   className="mb-4 text-brand-primary"
                 />
-                <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl">
-                  Visit Our Office
+                <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                    Visit Our
+                  </span>
+                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                    Office
+                  </span>
                 </h2>
-                <p className="mb-2 text-gray-600 dark:text-gray-300 text-xl">
+                <p className="mb-2 font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                   3111 N. Capital Ave., Pasco, WA 99301
                 </p>
                 <p className="text-gray-600 dark:text-gray-400">

@@ -100,7 +100,7 @@ export default function EstimatorPage() {
                     <div className="flex items-start gap-3">
                       <MaterialIcon
                         icon="flash_on"
-                        className="mt-1 w-5 h-5 text-blue-500"
+                        className="mt-1 w-5 h-5 text-brand-primary"
                       />
                       <div>
                         <p className="font-semibold">Instant Results</p>
@@ -112,7 +112,7 @@ export default function EstimatorPage() {
                     <div className="flex items-start gap-3">
                       <MaterialIcon
                         icon="precision_manufacturing"
-                        className="mt-1 w-5 h-5 text-blue-500"
+                        className="mt-1 w-5 h-5 text-brand-primary"
                       />
                       <div>
                         <p className="font-semibold">95% Accuracy</p>
@@ -124,7 +124,7 @@ export default function EstimatorPage() {
                     <div className="flex items-start gap-3">
                       <MaterialIcon
                         icon="smartphone"
-                        className="mt-1 w-5 h-5 text-blue-500"
+                        className="mt-1 w-5 h-5 text-brand-primary"
                       />
                       <div>
                         <p className="font-semibold">24/7 Available</p>
@@ -136,7 +136,7 @@ export default function EstimatorPage() {
                     <div className="flex items-start gap-3">
                       <MaterialIcon
                         icon="military_tech"
-                        className="mt-1 w-5 h-5 text-blue-500"
+                        className="mt-1 w-5 h-5 text-brand-primary"
                       />
                       <div>
                         <p className="font-semibold">Veteran Discounts</p>
@@ -151,19 +151,21 @@ export default function EstimatorPage() {
 
               {/* Human Consultation */}
               <Card className="bg-white shadow-md hover:shadow-lg border border-gray-200 transition-shadow">
-                <CardHeader className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-center">
+                <CardHeader className="bg-gradient-to-r from-brand-accent text-white text-center to-brand-accent-dark">
                   <div className="flex justify-center items-center mb-2">
                     <MaterialIcon icon="people" className="mr-2 w-6 h-6" />
                     <CardTitle>Human Consultation</CardTitle>
                   </div>
-                  <p className="text-green-100">For complex projects</p>
+                  <p className="text-brand-accent-light">
+                    For complex projects
+                  </p>
                 </CardHeader>
                 <CardContent className="p-6">
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">
                       <MaterialIcon
                         icon="schedule"
-                        className="mt-1 w-5 h-5 text-green-500"
+                        className="mt-1 w-5 h-5 text-brand-accent"
                       />
                       <div>
                         <p className="font-semibold">Detailed Site Visit</p>
@@ -175,7 +177,7 @@ export default function EstimatorPage() {
                     <div className="flex items-start gap-3">
                       <MaterialIcon
                         icon="engineering"
-                        className="mt-1 w-5 h-5 text-green-500"
+                        className="mt-1 w-5 h-5 text-brand-accent"
                       />
                       <div>
                         <p className="font-semibold">Expert Analysis</p>
@@ -187,7 +189,7 @@ export default function EstimatorPage() {
                     <div className="flex items-start gap-3">
                       <MaterialIcon
                         icon="architecture"
-                        className="mt-1 w-5 h-5 text-green-500"
+                        className="mt-1 w-5 h-5 text-brand-accent"
                       />
                       <div>
                         <p className="font-semibold">Custom Solutions</p>
@@ -199,7 +201,7 @@ export default function EstimatorPage() {
                     <div className="flex items-start gap-3">
                       <MaterialIcon
                         icon="handshake"
-                        className="mt-1 w-5 h-5 text-green-500"
+                        className="mt-1 w-5 h-5 text-brand-accent"
                       />
                       <div>
                         <p className="font-semibold">Personal Service</p>
@@ -211,7 +213,7 @@ export default function EstimatorPage() {
                   </div>
                   <div className="mt-6 pt-4 border-t">
                     <Link href="/booking">
-                      <Button className="bg-green-600 hover:bg-green-700 w-full">
+                      <Button className="bg-brand-accent w-full hover:bg-brand-accent-dark">
                         Schedule Free Consultation
                       </Button>
                     </Link>
@@ -228,8 +230,11 @@ export default function EstimatorPage() {
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 text-3xl">
-                Why Use Our AI Estimator?
+              <h2 className="mb-4 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+                <span className="text-gray-700">Why Use Our</span>{' '}
+                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  AI Estimator?
+                </span>
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 text-xl">
                 Get reliable construction estimates instantly, backed by decades
@@ -263,10 +268,10 @@ export default function EstimatorPage() {
               <HoverScale>
                 <Card className="text-center">
                   <CardContent className="p-6">
-                    <div className="flex justify-center items-center bg-purple-100 mx-auto mb-4 rounded-full w-16 h-16">
+                    <div className="flex justify-center items-center bg-brand-secondary/10 mx-auto mb-4 rounded-full w-16 h-16">
                       <MaterialIcon
                         icon="analytics"
-                        className="w-8 h-8 text-purple-600"
+                        className="w-8 h-8 text-brand-secondary"
                       />
                     </div>
                     <h3 className="mb-2 font-semibold text-xl">
@@ -283,10 +288,10 @@ export default function EstimatorPage() {
               <HoverScale>
                 <Card className="text-center">
                   <CardContent className="p-6">
-                    <div className="flex justify-center items-center bg-green-100 mx-auto mb-4 rounded-full w-16 h-16">
+                    <div className="flex justify-center items-center bg-brand-accent/10 mx-auto mb-4 rounded-full w-16 h-16">
                       <MaterialIcon
                         icon="savings"
-                        className="w-8 h-8 text-green-600"
+                        className="w-8 h-8 text-brand-accent"
                       />
                     </div>
                     <h3 className="mb-2 font-semibold text-xl">
@@ -309,8 +314,11 @@ export default function EstimatorPage() {
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-8 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 text-3xl">
-                Start Your AI Estimate
+              <h2 className="mb-4 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+                <span className="text-gray-700">Start Your</span>{' '}
+                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  AI Estimate
+                </span>
               </h2>
               <p className="text-gray-600 text-lg">
                 Answer a few questions and get your detailed construction
@@ -334,31 +342,32 @@ export default function EstimatorPage() {
               variant="compact"
               maxRecommendations={6}
               showVeteranBenefits={true}
-              onRecommendationClick={(recommendation) => {
+              onRecommendationClick={recommendation => {
                 // Track recommendation click
                 if (typeof window !== 'undefined' && window.gtag) {
                   window.gtag('event', 'estimator_recommendation_click', {
                     project_type: recommendation.projectType,
-                    confidence: recommendation.confidence
+                    confidence: recommendation.confidence,
                   })
                 }
               }}
-              onGetEstimate={(recommendation) => {
+              onGetEstimate={recommendation => {
                 // Scroll back to estimator form and pre-fill
-                const estimatorSection = document.querySelector('.estimator-form')
+                const estimatorSection =
+                  document.querySelector('.estimator-form')
                 if (estimatorSection) {
                   estimatorSection.scrollIntoView({ behavior: 'smooth' })
                 }
-                
+
                 // Track estimate request from recommendation
                 if (typeof window !== 'undefined' && window.gtag) {
                   window.gtag('event', 'recommendation_estimate_request', {
                     project_type: recommendation.projectType,
-                    estimated_value: recommendation.estimatedCost.min
+                    estimated_value: recommendation.estimatedCost.min,
                   })
                 }
               }}
-              className="bg-white rounded-xl shadow-lg p-8"
+              className="bg-white shadow-lg p-8 rounded-xl"
             />
           </FadeInWhenVisible>
         </div>
@@ -398,8 +407,11 @@ export default function EstimatorPage() {
       <section className="bg-gradient-to-r from-gray-900 to-blue-900 py-16 text-white">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
           <FadeInWhenVisible>
-            <h2 className="mb-4 font-bold text-3xl">
-              Need a More Detailed Analysis?
+            <h2 className="mb-4 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+              <span className="text-white/90">Need a More</span>{' '}
+              <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
+                Detailed Analysis?
+              </span>
             </h2>
             <p className="mx-auto mb-8 max-w-3xl text-blue-100 text-xl">
               For complex projects, unique sites, or custom architectural

@@ -254,8 +254,13 @@ export default function TradePartnersPage() {
         <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
             <div className="mb-12 lg:mb-16 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl xl:text-6xl">
-                Partnership Philosophy
+              <h2 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+                <span className="text-gray-700 dark:text-gray-300">
+                  Partnership
+                </span>{' '}
+                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  Philosophy
+                </span>
               </h2>
               <p className="mx-auto max-w-4xl text-gray-600 dark:text-gray-300 text-xl">
                 "Great construction isn't built by one company—it's built by a
@@ -300,8 +305,13 @@ export default function TradePartnersPage() {
         <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
             <div className="mb-12 lg:mb-16 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl xl:text-6xl">
-                Our Trade Partner Network
+              <h2 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+                <span className="text-gray-700 dark:text-gray-300">
+                  Our Trade Partner
+                </span>{' '}
+                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  Network
+                </span>
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
                 Meet the skilled professionals who help us bring every project
@@ -384,8 +394,13 @@ export default function TradePartnersPage() {
         <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
             <div className="mb-12 lg:mb-16 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl xl:text-6xl">
-                Partnership Benefits
+              <h2 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+                <span className="text-gray-700 dark:text-gray-300">
+                  Partnership
+                </span>{' '}
+                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  Benefits
+                </span>
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
                 We believe in creating mutually beneficial relationships that
@@ -431,8 +446,13 @@ export default function TradePartnersPage() {
                 size="4xl"
                 className="mb-6 text-brand-primary"
               />
-              <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl xl:text-6xl">
-                Interested in Partnering With Us?
+              <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+                <span className="text-gray-700 dark:text-gray-300">
+                  Interested in Partnering
+                </span>{' '}
+                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  With Us?
+                </span>
               </h2>
               <p className="mx-auto mb-8 max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
                 We're always looking for reliable, skilled trade partners who

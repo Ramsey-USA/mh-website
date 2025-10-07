@@ -175,10 +175,15 @@ export default function AboutPage() {
                   icon="handshake"
                   className="mb-4 text-brand-primary text-6xl"
                 />
-                <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
-                  Our Partnership Philosophy
+                <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                    Our Partnership
+                  </span>
+                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                    Philosophy
+                  </span>
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 text-xl">
+                <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                   At MH Construction, we don't just build structures - we build
                   relationships.
                 </p>
@@ -189,7 +194,7 @@ export default function AboutPage() {
                   <CardHeader>
                     <MaterialIcon
                       icon="favorite"
-                      className="mb-3 text-red-500 text-4xl"
+                      className="mb-3 text-veteran-red text-4xl"
                     />
                     <CardTitle className="text-gray-900 dark:text-white">
                       Client Partnership Approach
@@ -357,13 +362,20 @@ export default function AboutPage() {
       <section className="bg-gradient-to-r from-brand-primary to-brand-primary-light py-16 text-white">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
-            <div className="mb-12 text-center">
+            <div className="mb-16 text-center">
               <MaterialIcon
                 icon="analytics"
-                className="mb-4 text-brand-secondary text-6xl"
+                className="mb-6 text-brand-secondary text-6xl"
               />
-              <h2 className="mb-4 font-bold text-4xl">Our Track Record</h2>
-              <p className="text-green-100 text-xl">
+              <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                  Our Track
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
+                  Record
+                </span>
+              </h2>
+              <p className="mx-auto max-w-5xl font-light text-green-100 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 Proven results from a veteran-owned team committed to excellence
               </p>
             </div>
@@ -394,11 +406,16 @@ export default function AboutPage() {
                 icon="shield"
                 className="mb-6 text-brand-primary text-6xl"
               />
-              <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl">
-                Our 6 Core Values
+              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                  Our 6 Core
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                  Values
+                </span>
               </h2>
               <div className="mx-auto max-w-4xl">
-                <p className="mb-4 text-gray-600 dark:text-gray-300 text-xl leading-relaxed">
+                <p className="mb-4 font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                   Trust-Centered Philosophy: "Trust as our ultimate goal and
                   measurable company foundation"
                 </p>
@@ -425,7 +442,7 @@ export default function AboutPage() {
                       icon={value.iconName}
                       className="mr-3 text-brand-primary text-4xl"
                     />
-                    <span className="bg-brand-primary px-3 py-1 rounded-full font-semibold text-white text-sm">
+                    <span className="font-bold text-brand-primary text-lg">
                       {index + 1}
                     </span>
                   </div>
@@ -483,10 +500,15 @@ export default function AboutPage() {
                 icon="groups"
                 className="mb-6 text-brand-primary text-6xl"
               />
-              <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl">
-                Meet Our Leadership Team
+              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                  Meet Our Leadership
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                  Team
+                </span>
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl leading-relaxed">
+              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 People-centered culture starts with leadership committed to
                 serving both clients and communities
               </p>
@@ -521,8 +543,8 @@ export default function AboutPage() {
                       {member.experience}
                     </span>
                   </div>
-                  <div className="inline-block bg-brand-secondary/10 mt-3 px-3 py-1 rounded-full">
-                    <span className="font-medium text-brand-secondary text-sm">
+                  <div className="mt-3">
+                    <span className="pl-3 border-brand-secondary border-l-4 font-medium text-brand-secondary text-sm">
                       {member.status}
                     </span>
                   </div>
@@ -567,8 +589,13 @@ export default function AboutPage() {
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-6xl">
-              <h2 className="mb-16 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl text-center">
-                Why Our Values Matter
+              <h2 className="mb-16 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                  Why Our Values
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                  Matter
+                </span>
               </h2>
 
               <div className="gap-8 grid md:grid-cols-3">
@@ -733,7 +760,7 @@ export default function AboutPage() {
         <div className="z-10 relative mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl text-center">
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm mb-6 px-4 py-2 rounded-full">
+              <div className="inline-flex items-center mb-6 px-2 py-1 border-yellow-300 border-l-4">
                 <MaterialIcon
                   icon="military_tech"
                   className="mr-2 text-yellow-300"
@@ -747,8 +774,13 @@ export default function AboutPage() {
                 icon="handshake"
                 className="mb-6 text-brand-secondary text-6xl"
               />
-              <h2 className="mb-6 font-bold text-4xl lg:text-5xl">
-                Ready to Start Your Partnership?
+              <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                  Ready to Start Your
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
+                  Partnership?
+                </span>
               </h2>
 
               <div className="bg-white/10 backdrop-blur-sm mb-8 p-6 border border-white/20 rounded-xl">

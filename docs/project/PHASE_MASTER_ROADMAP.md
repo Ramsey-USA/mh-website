@@ -2,7 +2,8 @@
 
 ## Executive Summary
 
-Comprehensive project roadmap for MH Construction's platform development, from foundational implementation through future innovation initiatives.
+Comprehensive project roadmap for MH Construction's platform development, from
+foundational implementation through future innovation initiatives.
 
 ---
 

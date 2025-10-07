@@ -205,8 +205,13 @@ export default function CareersPage() {
         <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
             <div className="mb-12 lg:mb-16 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl xl:text-6xl">
-                Why Choose MH Construction?
+              <h2 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+                <span className="text-gray-700 dark:text-gray-300">
+                  Why Choose
+                </span>{' '}
+                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  MH Construction?
+                </span>
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
                 We're more than just a construction company—we're a family that
@@ -247,8 +252,13 @@ export default function CareersPage() {
         <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
             <div className="mb-12 lg:mb-16 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl xl:text-6xl">
-                Benefits & Perks
+              <h2 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+                <span className="text-gray-700 dark:text-gray-300">
+                  Benefits &
+                </span>{' '}
+                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  Perks
+                </span>
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
                 We believe in taking care of our team members with comprehensive
@@ -289,8 +299,13 @@ export default function CareersPage() {
         <section id="positions" className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
             <div className="mb-12 lg:mb-16 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl xl:text-6xl">
-                Current Openings
+              <h2 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+                <span className="text-gray-700 dark:text-gray-300">
+                  Current
+                </span>{' '}
+                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  Openings
+                </span>
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
                 Explore our current job opportunities and find the perfect role
@@ -417,8 +432,13 @@ export default function CareersPage() {
                 size="4xl"
                 className="mb-6 text-brand-primary"
               />
-              <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl xl:text-6xl">
-                Don't See the Perfect Role?
+              <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+                <span className="text-gray-700 dark:text-gray-300">
+                  Don't See the
+                </span>{' '}
+                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  Perfect Role?
+                </span>
               </h2>
               <p className="mx-auto mb-8 max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
                 We're always looking for talented individuals to join our team.

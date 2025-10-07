@@ -16,14 +16,17 @@ import '../../styles/vintage-baseball-card.css'
 
 // Group team members by department
 function groupByDepartment(members: VintageTeamMember[]) {
-  return members.reduce((acc, member) => {
-    const dept = member.department
-    if (!acc[dept]) {
-      acc[dept] = []
-    }
-    acc[dept].push(member)
-    return acc
-  }, {} as Record<string, VintageTeamMember[]>)
+  return members.reduce(
+    (acc, member) => {
+      const dept = member.department
+      if (!acc[dept]) {
+        acc[dept] = []
+      }
+      acc[dept].push(member)
+      return acc
+    },
+    {} as Record<string, VintageTeamMember[]>
+  )
 }
 
 export default function TeamPage() {
@@ -48,8 +51,13 @@ export default function TeamPage() {
       <div className="bg-gray-50 dark:bg-gray-900 py-16">
         <div className="mx-auto px-4 max-w-7xl">
           <div className="mb-16 text-center">
-            <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl">
-              Professional Team Cards
+            <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+              <span className="text-gray-700 dark:text-gray-300">
+                Professional
+              </span>{' '}
+              <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                Team Cards
+              </span>
             </h2>
             <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
               Experience our team through vintage-style baseball cards featuring
@@ -70,11 +78,9 @@ export default function TeamPage() {
                   <div className="relative">
                     {/* MH-styled department header */}
                     <div className="mb-16 text-center">
-                      <div className="inline-block bg-gradient-to-r from-brand-primary to-brand-primary-dark shadow-lg mb-6 px-12 py-4 rounded-lg">
-                        <h3 className="font-black text-white text-2xl uppercase tracking-wider">
-                          {department}
-                        </h3>
-                      </div>
+                      <h3 className="bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary mb-6 font-black text-transparent text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider">
+                        {department}
+                      </h3>
                       <div className="bg-gradient-to-r from-transparent via-brand-secondary to-transparent mx-auto rounded-full w-48 h-1"></div>
                     </div>
 
@@ -100,8 +106,13 @@ export default function TeamPage() {
             <FadeInWhenVisible>
               <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 p-12 rounded-2xl">
                 <div className="mb-12 text-center">
-                  <h2 className="mb-6 font-bold text-brand-primary text-4xl">
-                    Life at MH Construction
+                  <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                    <span className="text-gray-700 dark:text-gray-300">
+                      Life at
+                    </span>{' '}
+                    <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                      MH Construction
+                    </span>
                   </h2>
                   <p className="mx-auto max-w-3xl text-gray-700 dark:text-gray-300 text-xl leading-relaxed">
                     "All for one, one for all" isn't just a motto—it's how we
@@ -200,8 +211,13 @@ export default function TeamPage() {
 
                 {/* Culture Highlights */}
                 <div className="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-xl">
-                  <h3 className="mb-8 font-bold text-brand-primary text-2xl text-center">
-                    What Makes Our Culture Special
+                  <h3 className="mb-8 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center">
+                    <span className="text-gray-700 dark:text-gray-300">
+                      What Makes Our
+                    </span>{' '}
+                    <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                      Culture Special
+                    </span>
                   </h3>
                   <div className="gap-8 grid grid-cols-1 md:grid-cols-2">
                     <div className="space-y-6">
@@ -369,8 +385,13 @@ export default function TeamPage() {
           <div className="mt-20 text-center">
             <FadeInWhenVisible>
               <div className="bg-white dark:bg-gray-800 shadow-xl mx-auto p-8 border border-brand-secondary rounded-lg max-w-2xl">
-                <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-2xl">
-                  Interested in Joining Our Team?
+                <h3 className="mb-4 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+                  <span className="text-gray-700 dark:text-gray-300">
+                    Interested in Joining
+                  </span>{' '}
+                  <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                    Our Team?
+                  </span>
                 </h3>
                 <p className="mb-6 text-gray-600 dark:text-gray-300">
                   Explore career opportunities and learn more about what makes

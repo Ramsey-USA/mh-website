@@ -321,8 +321,13 @@ export default function GovernmentGrantsPage() {
                 size="3xl"
                 className="mb-4 text-gray-700 dark:text-gray-300"
               />
-              <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl md:text-5xl">
-                How We Support Your Grant Application
+              <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                <span className="text-gray-700 dark:text-gray-300">
+                  How We Support Your
+                </span>{' '}
+                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  Grant Application
+                </span>
               </h2>
               <p className="mx-auto max-w-4xl text-gray-600 dark:text-gray-300 text-xl">
                 Our experienced Tri-Cities team provides essential technical
@@ -391,8 +396,11 @@ export default function GovernmentGrantsPage() {
                   size="4xl"
                   className="mb-6 text-gray-300"
                 />
-                <h2 className="mb-6 font-bold text-4xl md:text-5xl">
-                  Hanford & Department of Energy Expertise
+                <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                  <span className="text-gray-300">Hanford & Department of</span>{' '}
+                  <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
+                    Energy Expertise
+                  </span>
                 </h2>
                 <p className="mx-auto max-w-3xl text-gray-200 text-xl">
                   Extensive experience working in the Hanford area with deep
@@ -477,8 +485,13 @@ export default function GovernmentGrantsPage() {
                 size="3xl"
                 className="mb-4 text-gray-700 dark:text-gray-300"
               />
-              <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl md:text-5xl">
-                Grant Programs We Support
+              <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                <span className="text-gray-700 dark:text-gray-300">
+                  Grant Programs
+                </span>{' '}
+                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  We Support
+                </span>
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
                 Experience with federal, state, local, and specialized grant
@@ -544,8 +557,13 @@ export default function GovernmentGrantsPage() {
                   size="3xl"
                   className="mb-4 text-gray-700 dark:text-gray-300"
                 />
-                <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl md:text-5xl">
-                  Our Grant Application Support Process
+                <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                  <span className="text-gray-700 dark:text-gray-300">
+                    Our Grant Application
+                  </span>{' '}
+                  <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                    Support Process
+                  </span>
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 text-xl">
                   Five-phase approach to maximize your grant success
@@ -602,8 +620,13 @@ export default function GovernmentGrantsPage() {
                 size="3xl"
                 className="mb-4 text-gray-700 dark:text-gray-300"
               />
-              <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl md:text-5xl">
-                Government Project Types
+              <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                <span className="text-gray-700 dark:text-gray-300">
+                  Government
+                </span>{' '}
+                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  Project Types
+                </span>
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
                 Licensed and experienced across diverse government and community
@@ -664,8 +687,13 @@ export default function GovernmentGrantsPage() {
                   size="3xl"
                   className="mb-4 text-gray-700 dark:text-gray-300"
                 />
-                <h2 className="mb-6 font-bold text-gray-900 dark:text-white text-4xl md:text-5xl">
-                  Maximizing Your Grant Success
+                <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                  <span className="text-gray-700 dark:text-gray-300">
+                    Maximizing Your
+                  </span>{' '}
+                  <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                    Grant Success
+                  </span>
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 text-xl">
                   What makes a strong grant application and how we deliver
@@ -724,8 +752,11 @@ export default function GovernmentGrantsPage() {
                 size="4xl"
                 className="mb-8 text-gray-300"
               />
-              <h2 className="mb-6 font-bold text-4xl md:text-5xl">
-                Ready to Start Your Grant Application?
+              <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                <span className="text-gray-300">Ready to Start Your</span>{' '}
+                <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
+                  Grant Application?
+                </span>
               </h2>
               <p className="mb-8 text-gray-200 text-2xl">
                 Partner with a veteran-owned construction team that understands

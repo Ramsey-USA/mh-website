@@ -22,7 +22,7 @@ export default function SecurityPage() {
         <div className="mb-8">
           <div className="bg-white shadow-sm p-6 border rounded-lg">
             <div className="flex items-center space-x-3">
-              <div className="bg-green-500 rounded-full w-3 h-3 animate-pulse"></div>
+              <div className="bg-brand-accent rounded-full w-3 h-3 animate-pulse"></div>
               <h1 className="font-bold text-gray-900 text-2xl">
                 MH Construction Security Center
               </h1>
