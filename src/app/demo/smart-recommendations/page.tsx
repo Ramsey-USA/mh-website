@@ -6,7 +6,9 @@
 'use client'
 
 import React, { useState } from 'react'
+import { Award, Rocket } from 'lucide-react'
 import { MaterialIcon } from '../../../components/icons/MaterialIcon'
+import { Button } from '../../../components/ui'
 import SmartRecommendations from '../../../components/recommendations/SmartRecommendations'
 import type { UserProfile } from '../../../lib/recommendations/SmartRecommendationEngine'
 
@@ -72,8 +74,9 @@ export default function SmartRecommendationsDemo() {
               className="text-brand-primary"
               size="3xl"
             />
-            <h1 className="font-bold text-gray-800 text-4xl">
-              🎖️ Smart Recommendations Demo
+            <h1 className="flex items-center gap-3 font-bold text-gray-800 text-4xl">
+              <Award className="text-brand-primary" size={40} />
+              Smart Recommendations Demo
             </h1>
           </div>
           <p className="mx-auto max-w-2xl text-gray-600 text-lg">
@@ -112,7 +115,10 @@ export default function SmartRecommendationsDemo() {
                     onChange={() => setIsVeteran(true)}
                     className="mr-2"
                   />
-                  🎖️ Veteran
+                  <span className="flex items-center gap-2">
+                    <Award className="text-brand-primary" size={16} />
+                    Veteran
+                  </span>
                 </label>
               </div>
             </div>
@@ -166,13 +172,15 @@ export default function SmartRecommendationsDemo() {
 
             {/* Generate Button */}
             <div className="flex items-end">
-              <button
+              <Button
                 onClick={generateTestProfile}
-                className="flex justify-center items-center space-x-2 bg-brand-primary hover:bg-brand-dark px-6 py-3 rounded-lg w-full font-semibold text-white transition-colors duration-200"
+                variant="primary"
+                size="lg"
+                className="gap-2 w-full"
               >
                 <MaterialIcon icon="auto_awesome" size="sm" />
                 <span>Generate Recommendations</span>
-              </button>
+              </Button>
             </div>
           </div>
 
@@ -185,7 +193,14 @@ export default function SmartRecommendationsDemo() {
               <div className="gap-4 grid grid-cols-1 md:grid-cols-3 text-sm">
                 <div>
                   <span className="font-medium">Status:</span>{' '}
-                  {userProfile.isVeteran ? '🎖️ Veteran' : 'Civilian'}
+                  {userProfile.isVeteran ? (
+                    <span className="inline-flex items-center gap-1">
+                      <Award className="text-brand-primary" size={14} />
+                      Veteran
+                    </span>
+                  ) : (
+                    'Civilian'
+                  )}
                   {userProfile.isVeteran && userProfile.veteranDetails && (
                     <div className="ml-4 text-blue-700 text-xs">
                       {userProfile.veteranDetails.serviceBranch} •{' '}
@@ -290,8 +305,9 @@ export default function SmartRecommendationsDemo() {
 
         {/* Features Overview */}
         <div className="bg-white shadow-lg mt-8 p-6 rounded-lg">
-          <h2 className="mb-6 font-semibold text-gray-800 text-2xl text-center">
-            🚀 Phase 6.1 Features Implemented
+          <h2 className="flex justify-center items-center gap-3 mb-6 font-semibold text-gray-800 text-2xl text-center">
+            <Rocket className="text-brand-primary" size={28} />
+            Phase 6.1 Features Implemented
           </h2>
           <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <div className="text-center">

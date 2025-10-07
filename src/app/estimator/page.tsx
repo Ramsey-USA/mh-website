@@ -213,7 +213,7 @@ export default function EstimatorPage() {
                   </div>
                   <div className="mt-6 pt-4 border-t">
                     <Link href="/booking">
-                      <Button className="bg-brand-accent w-full hover:bg-brand-accent-dark">
+                      <Button variant="cta" className="w-full">
                         Schedule Free Consultation
                       </Button>
                     </Link>
@@ -420,7 +420,7 @@ export default function EstimatorPage() {
             </p>
             <div className="flex sm:flex-row flex-col justify-center gap-4">
               <Link href="/booking">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700">
+                <Button variant="cta" size="lg">
                   <MaterialIcon
                     icon="calendar_today"
                     className="mr-2 w-5 h-5"

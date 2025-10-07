@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import { CheckCircle, Target } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle, Button, Input } from '../ui'
 import { analytics } from '../analytics/google-analytics'
 
@@ -125,7 +126,9 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
     return (
       <Card className={`${className} border-green-200 bg-green-50`}>
         <CardContent className="p-6 text-center">
-          <div className="mb-3 text-green-600 text-4xl">✅</div>
+          <div className="flex justify-center mb-3 text-green-600 text-4xl">
+            <CheckCircle className="w-16 h-16" />
+          </div>
           <h3 className="mb-2 font-semibold text-green-800 text-xl">
             Thank You!
           </h3>
@@ -227,7 +230,9 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
 
           <div className="bg-blue-50 p-4 border border-blue-200 rounded-lg">
             <div className="flex items-start">
-              <div className="mr-3 text-blue-500 text-xl">🎯</div>
+              <div className="flex items-center mr-3 text-blue-500 text-xl">
+                <Target className="w-5 h-5" />
+              </div>
               <div>
                 <h4 className="mb-1 font-semibold text-blue-800">
                   What You Get:
@@ -244,7 +249,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
 
           <Button
             type="submit"
-            variant="default"
+            variant="cta"
             size={compact ? 'default' : 'lg'}
             className="w-full"
             disabled={isSubmitting}
@@ -279,9 +284,9 @@ export const QuickLeadCapture: React.FC = () => {
       <div className="right-6 bottom-6 z-50 fixed">
         <Button
           onClick={() => setIsExpanded(true)}
-          variant="default"
+          variant="primary"
           size="lg"
-          className="shadow-lg hover:shadow-xl transition-all duration-200"
+          className="shadow-lg hover:shadow-xl"
         >
           💬 Free Consultation
         </Button>

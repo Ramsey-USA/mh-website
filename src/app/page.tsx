@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { Award } from 'lucide-react'
 import {
   Button,
   Card,
@@ -960,8 +961,9 @@ export default function Home() {
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
-              <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-3xl">
-                🎖️ Popular Project Ideas
+              <h2 className="flex justify-center items-center gap-3 mb-4 font-bold text-gray-900 dark:text-white text-3xl">
+                <Award className="text-brand-primary" size={32} />
+                Popular Project Ideas
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
                 Discover intelligent project recommendations based on Pacific
@@ -1305,7 +1307,7 @@ export default function Home() {
             {/* Commercial CTA Buttons - 4 Button Grid */}
             <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto mb-6 max-w-6xl">
               <a href="tel:5093086489">
-                <button className="group relative bg-white hover:bg-gray-50 shadow-2xl hover:shadow-3xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-brand-primary text-base hover:scale-105 transition-all duration-300 ease-out transform">
+                <Button variant="phone" size="phone" className="group">
                   <div className="flex justify-center items-center">
                     <MaterialIcon
                       icon="phone"
@@ -1318,11 +1320,11 @@ export default function Home() {
                       (509) 308-6489
                     </span>
                   </div>
-                </button>
+                </Button>
               </a>
 
               <Link href="/estimator">
-                <button className="group relative bg-brand-primary hover:bg-brand-primary-dark shadow-2xl hover:shadow-3xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-white text-base hover:scale-105 transition-all duration-300 ease-out transform">
+                <Button variant="phonePrimary" size="phone" className="group">
                   <div className="flex justify-center items-center">
                     <MaterialIcon
                       icon="smart_toy"
@@ -1333,11 +1335,11 @@ export default function Home() {
                       Project Estimator
                     </span>
                   </div>
-                </button>
+                </Button>
               </Link>
 
               <Link href="/portfolio">
-                <button className="group relative bg-white hover:bg-gray-50 shadow-2xl hover:shadow-3xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-brand-primary text-base hover:scale-105 transition-all duration-300 ease-out transform">
+                <Button variant="phone" size="phone" className="group">
                   <div className="flex justify-center items-center">
                     <MaterialIcon
                       icon="visibility"
@@ -1348,11 +1350,11 @@ export default function Home() {
                       View Projects
                     </span>
                   </div>
-                </button>
+                </Button>
               </Link>
 
               <Link href="/booking">
-                <button className="group relative bg-brand-primary hover:bg-brand-primary-dark shadow-2xl hover:shadow-3xl border-2 border-white rounded-full focus:outline-none focus:ring-4 focus:ring-white/50 w-full h-16 font-bold text-white text-base hover:scale-105 transition-all duration-300 ease-out transform">
+                <Button variant="phonePrimary" size="phone" className="group">
                   <div className="flex justify-center items-center">
                     <MaterialIcon
                       icon="event"
@@ -1365,7 +1367,7 @@ export default function Home() {
                       Consultation
                     </span>
                   </div>
-                </button>
+                </Button>
               </Link>
             </div>
           </FadeInWhenVisible>

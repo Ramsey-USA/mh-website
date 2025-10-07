@@ -1,8 +1,9 @@
 'use client'
 
 import React from 'react'
+import { Award, Rocket, Target, Flag } from 'lucide-react'
 import { MaterialIcon } from '../icons/MaterialIcon'
-import { Card, CardContent } from '../ui'
+import { Card, CardContent, Button } from '../ui'
 import { motion, AnimatePresence } from 'framer-motion'
 
 interface SmartFormAssistantProps {
@@ -41,21 +42,25 @@ export function SmartFormAssistant({
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2">
               <MaterialIcon icon="psychology" className="text-blue-600" />
-              <h3 className="font-semibold text-gray-800 text-lg">
-                🎖️ Smart Form Assistant
+              <h3 className="flex items-center gap-2 font-semibold text-gray-800 text-lg">
+                <Award className="w-5 h-5 text-yellow-600" />
+                Smart Form Assistant
               </h3>
               {isVeteranDetected && (
-                <span className="bg-blue-100 px-2 py-1 rounded-full font-medium text-blue-800 text-xs">
-                  🇺🇸 Veteran Detected
+                <span className="flex items-center gap-1 bg-blue-100 px-2 py-1 rounded-full font-medium text-blue-800 text-xs">
+                  <Flag className="w-3 h-3" />
+                  Veteran Detected
                 </span>
               )}
             </div>
-            <button
+            <Button
               onClick={onToggleSuggestions}
-              className="text-gray-500 hover:text-gray-700 transition-colors"
+              variant="ghost"
+              size="icon"
+              className="text-gray-500 hover:text-gray-700"
             >
               <MaterialIcon icon="close" />
-            </button>
+            </Button>
           </div>
 
           {/* Progress Bar */}
@@ -110,18 +115,19 @@ export function SmartFormAssistant({
                           Smart Completion
                         </span>
                       </div>
-                      <button
+                      <Button
                         onClick={onAutoCompleteClick}
-                        className="bg-green-50 hover:bg-green-100 p-3 border border-green-200 rounded-lg w-full text-left transition-colors"
+                        variant="ghost"
+                        className="justify-start bg-green-50 hover:bg-green-100 p-3 border border-green-200 rounded-lg w-full text-left"
                       >
                         <span className="font-medium text-green-800">
                           {fieldSuggestions.autoComplete}
                         </span>
                         <MaterialIcon
                           icon="keyboard_tab"
-                          className="float-right text-green-600"
+                          className="ml-auto text-green-600"
                         />
-                      </button>
+                      </Button>
                     </div>
                   )}
 
@@ -141,19 +147,20 @@ export function SmartFormAssistant({
                         <div className="space-y-2">
                           {fieldSuggestions.suggestions.map(
                             (suggestion: string, index: number) => (
-                              <button
+                              <Button
                                 key={index}
                                 onClick={() => onSuggestionClick(suggestion)}
-                                className="bg-yellow-50 hover:bg-yellow-100 p-3 border border-yellow-200 rounded-lg w-full text-left transition-colors"
+                                variant="ghost"
+                                className="justify-start bg-yellow-50 hover:bg-yellow-100 p-3 border border-yellow-200 rounded-lg w-full text-left"
                               >
                                 <span className="text-yellow-800">
                                   {suggestion}
                                 </span>
                                 <MaterialIcon
                                   icon="arrow_forward"
-                                  className="float-right text-yellow-600"
+                                  className="ml-auto text-yellow-600"
                                 />
-                              </button>
+                              </Button>
                             )
                           )}
                         </div>
@@ -209,8 +216,9 @@ export function SmartFormAssistant({
                       icon="military_tech"
                       className="text-blue-600"
                     />
-                    <h4 className="font-semibold text-blue-800 text-lg">
-                      🎖️ Veteran Benefits & Discounts
+                    <h4 className="flex items-center gap-2 font-semibold text-blue-800 text-lg">
+                      <Award className="w-5 h-5 text-yellow-600" />
+                      Veteran Benefits & Discounts
                     </h4>
                   </div>
                   <div className="space-y-2">
@@ -232,8 +240,9 @@ export function SmartFormAssistant({
                     )}
                   </div>
                   <div className="bg-blue-100 mt-4 p-3 rounded-lg">
-                    <p className="font-medium text-blue-800 text-sm">
-                      🇺🇸 Thank you for your service! These benefits will be
+                    <p className="flex items-center gap-2 font-medium text-blue-800 text-sm">
+                      <Flag className="w-4 h-4" />
+                      Thank you for your service! These benefits will be
                       automatically applied to your project.
                     </p>
                   </div>
@@ -248,24 +257,26 @@ export function SmartFormAssistant({
                 <CardContent className="p-4">
                   <div className="flex items-center space-x-2 mb-3">
                     <MaterialIcon icon="recommend" className="text-green-600" />
-                    <h4 className="font-semibold text-green-800 text-lg">
-                      🎖️ Veteran-Specific Recommendations
+                    <h4 className="flex items-center gap-2 font-semibold text-green-800 text-lg">
+                      <Award className="w-5 h-5 text-yellow-600" />
+                      Veteran-Specific Recommendations
                     </h4>
                   </div>
                   <div className="space-y-2">
                     {fieldSuggestions.militaryContext.suggestions.map(
                       (suggestion: string, index: number) => (
-                        <button
+                        <Button
                           key={index}
                           onClick={() => onSuggestionClick(suggestion)}
-                          className="bg-white hover:bg-green-100 p-3 border border-green-200 rounded-lg w-full text-left transition-colors"
+                          variant="ghost"
+                          className="justify-start bg-white hover:bg-green-100 p-3 border border-green-200 rounded-lg w-full text-left"
                         >
                           <span className="text-green-800">{suggestion}</span>
                           <MaterialIcon
                             icon="arrow_forward"
-                            className="float-right text-green-600"
+                            className="ml-auto text-green-600"
                           />
-                        </button>
+                        </Button>
                       )
                     )}
                   </div>
@@ -282,8 +293,9 @@ export function SmartFormAssistant({
                     icon="auto_awesome"
                     className="text-purple-600"
                   />
-                  <h4 className="font-semibold text-gray-800 text-lg">
-                    🚀 Smart Recommendations
+                  <h4 className="flex items-center gap-2 font-semibold text-gray-800 text-lg">
+                    <Rocket className="w-5 h-5 text-blue-600" />
+                    Smart Recommendations
                   </h4>
                 </div>
                 <div className="space-y-2">

@@ -5,6 +5,7 @@
 
 import React from 'react'
 import { Metadata } from 'next'
+import { Shield, BarChart3, Search, Check } from 'lucide-react'
 import SecurityDashboard from '@/components/security/SecurityDashboard'
 
 export const metadata: Metadata = {
@@ -40,8 +41,9 @@ export default function SecurityPage() {
         {/* Security Features Info */}
         <div className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 mt-8">
           <div className="bg-white shadow-sm p-6 border rounded-lg">
-            <h3 className="mb-3 font-semibold text-lg">
-              🛡️ Real-time Protection
+            <h3 className="flex items-center gap-2 mb-3 font-semibold text-lg">
+              <Shield className="text-blue-600" size={20} />
+              Real-time Protection
             </h3>
             <ul className="space-y-2 text-gray-600 text-sm">
               <li>• Rate limiting and DDoS protection</li>
@@ -52,8 +54,9 @@ export default function SecurityPage() {
           </div>
 
           <div className="bg-white shadow-sm p-6 border rounded-lg">
-            <h3 className="mb-3 font-semibold text-lg">
-              📊 Advanced Analytics
+            <h3 className="flex items-center gap-2 mb-3 font-semibold text-lg">
+              <BarChart3 className="text-blue-600" size={20} />
+              Advanced Analytics
             </h3>
             <ul className="space-y-2 text-gray-600 text-sm">
               <li>• Security event tracking</li>
@@ -64,7 +67,10 @@ export default function SecurityPage() {
           </div>
 
           <div className="bg-white shadow-sm p-6 border rounded-lg">
-            <h3 className="mb-3 font-semibold text-lg">🔍 Threat Detection</h3>
+            <h3 className="flex items-center gap-2 mb-3 font-semibold text-lg">
+              <Search className="text-blue-600" size={20} />
+              Threat Detection
+            </h3>
             <ul className="space-y-2 text-gray-600 text-sm">
               <li>• Automated vulnerability scanning</li>
               <li>• Anomaly detection</li>
@@ -81,19 +87,27 @@ export default function SecurityPage() {
           </h3>
           <div className="gap-4 grid md:grid-cols-4">
             <div className="text-center">
-              <div className="font-bold text-green-600 text-2xl">✓</div>
+              <div className="flex justify-center font-bold text-green-600 text-2xl">
+                <Check size={32} />
+              </div>
               <div className="text-gray-600 text-sm">SSL/TLS Secured</div>
             </div>
             <div className="text-center">
-              <div className="font-bold text-green-600 text-2xl">✓</div>
+              <div className="flex justify-center font-bold text-green-600 text-2xl">
+                <Check size={32} />
+              </div>
               <div className="text-gray-600 text-sm">Security Headers</div>
             </div>
             <div className="text-center">
-              <div className="font-bold text-green-600 text-2xl">✓</div>
+              <div className="flex justify-center font-bold text-green-600 text-2xl">
+                <Check size={32} />
+              </div>
               <div className="text-gray-600 text-sm">Input Validation</div>
             </div>
             <div className="text-center">
-              <div className="font-bold text-green-600 text-2xl">✓</div>
+              <div className="flex justify-center font-bold text-green-600 text-2xl">
+                <Check size={32} />
+              </div>
               <div className="text-gray-600 text-sm">Audit Logging</div>
             </div>
           </div>

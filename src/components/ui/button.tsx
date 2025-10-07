@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  'inline-flex justify-center items-center disabled:opacity-50 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ring-offset-background focus-visible:ring-offset-2 font-medium text-sm transition-colors disabled:pointer-events-none',
+  'inline-flex justify-center items-center disabled:opacity-50 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ring-offset-background focus-visible:ring-offset-2 font-medium text-sm transition-all duration-200 disabled:pointer-events-none',
   {
     variants: {
       variant: {
@@ -17,12 +17,23 @@ const buttonVariants = cva(
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
+        primary:
+          'bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark text-white shadow-lg hover:shadow-xl hover:scale-105 transform',
+        brand:
+          'bg-brand-secondary hover:bg-brand-secondary-dark dark:bg-brand-secondary dark:hover:bg-brand-secondary-dark text-black dark:text-black shadow-lg hover:shadow-xl hover:scale-105 transform',
+        cta: 'bg-gradient-to-r from-brand-primary to-brand-primary-dark hover:from-brand-primary-dark hover:to-brand-primary text-white shadow-2xl hover:shadow-3xl hover:scale-105 transform font-semibold',
+        phone:
+          'bg-white hover:bg-gray-50 shadow-2xl hover:shadow-3xl border-2 border-white rounded-full focus:ring-4 focus:ring-white/50 text-brand-primary font-bold text-base hover:scale-105 transform',
+        phonePrimary:
+          'bg-brand-primary hover:bg-brand-primary-dark shadow-2xl hover:shadow-3xl border-2 border-white rounded-full focus:ring-4 focus:ring-white/50 text-white font-bold text-base hover:scale-105 transform',
       },
       size: {
         default: 'h-10 px-4 py-2',
         sm: 'h-9 rounded-md px-3',
         lg: 'h-11 rounded-md px-8',
+        xl: 'h-14 rounded-lg px-10 text-base',
         icon: 'h-10 w-10',
+        phone: 'h-16 w-full px-4',
       },
     },
     defaultVariants: {

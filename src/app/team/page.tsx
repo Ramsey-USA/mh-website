@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { PageHero } from '../../components/ui'
+import { PageHero, Button } from '../../components/ui'
 import { VintageBaseballCard } from '../../components/ui/VintageBaseballCard'
 import {
   FadeInWhenVisible,
@@ -400,9 +400,9 @@ export default function TeamPage() {
                   veteran-owned company.
                 </p>
                 <Link href="/careers">
-                  <button className="inline-flex items-center bg-gradient-to-r from-brand-primary hover:from-brand-primary-dark to-brand-primary-dark hover:to-brand-primary shadow-lg px-8 py-3 rounded-lg font-semibold text-white transition-all duration-200">
+                  <Button variant="cta" size="lg">
                     View Career Opportunities
-                  </button>
+                  </Button>
                 </Link>
               </div>
             </FadeInWhenVisible>
