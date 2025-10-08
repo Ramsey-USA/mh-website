@@ -9,7 +9,7 @@ import {
 } from '@/components/animations/FramerMotionComponents'
 import { OptimizedImage } from '@/components/ui/OptimizedImage'
 import { useAnalytics } from '@/components/analytics/enhanced-analytics'
-import { Search, Filter, X, Grid, List, ArrowRight } from 'lucide-react'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
 
 interface SearchableItem {
   id: string
@@ -200,7 +200,10 @@ const DynamicSearch = ({
                 </span>
                 <span className="text-gray-500 text-xs">{item.category}</span>
               </div>
-              <ArrowRight className="w-4 h-4 text-gray-400" />
+              <MaterialIcon
+                icon="arrow_forward"
+                className="w-4 h-4 text-gray-400"
+              />
             </div>
           </div>
         </div>
@@ -262,7 +265,10 @@ const DynamicSearch = ({
                     </span>
                   )}
                 </div>
-                <ArrowRight className="w-4 h-4 text-gray-400" />
+                <MaterialIcon
+                  icon="arrow_forward"
+                  className="w-4 h-4 text-gray-400"
+                />
               </div>
             </div>
           </div>
@@ -278,7 +284,10 @@ const DynamicSearch = ({
         <div className="flex sm:flex-row flex-col gap-4 mb-4">
           {/* Search Input */}
           <div className="relative flex-1">
-            <Search className="top-1/2 left-3 absolute w-4 h-4 text-gray-400 -translate-y-1/2 transform" />
+            <MaterialIcon
+              icon="search"
+              className="top-1/2 left-3 absolute w-4 h-4 text-gray-400 -translate-y-1/2 transform"
+            />
             <input
               type="text"
               value={searchQuery}
@@ -291,7 +300,7 @@ const DynamicSearch = ({
                 onClick={() => setSearchQuery('')}
                 className="top-1/2 right-3 absolute text-gray-400 hover:text-gray-600 -translate-y-1/2 transform"
               >
-                <X className="w-4 h-4" />
+                <MaterialIcon icon="close" className="w-4 h-4" />
               </button>
             )}
           </div>
@@ -304,7 +313,7 @@ const DynamicSearch = ({
                 onClick={() => setShowFiltersPanel(!showFiltersPanel)}
                 className={showFiltersPanel ? 'bg-primary-50' : ''}
               >
-                <Filter className="mr-2 w-4 h-4" />
+                <MaterialIcon icon="filter_list" className="mr-2 w-4 h-4" />
                 Filters
               </Button>
             )}
@@ -319,7 +328,7 @@ const DynamicSearch = ({
                       : 'bg-white text-gray-600'
                   }`}
                 >
-                  <Grid className="w-4 h-4" />
+                  <MaterialIcon icon="grid_view" className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
@@ -329,7 +338,7 @@ const DynamicSearch = ({
                       : 'bg-white text-gray-600'
                   }`}
                 >
-                  <List className="w-4 h-4" />
+                  <MaterialIcon icon="list" className="w-4 h-4" />
                 </button>
               </div>
             )}
@@ -426,7 +435,10 @@ const DynamicSearch = ({
       {/* Results */}
       {filteredItems.length === 0 ? (
         <div className="py-12 text-center">
-          <Search className="mx-auto mb-4 w-12 h-12 text-gray-400" />
+          <MaterialIcon
+            icon="search"
+            className="mx-auto mb-4 w-12 h-12 text-gray-400"
+          />
           <h3 className="mb-2 font-medium text-gray-900 text-lg">
             No results found
           </h3>

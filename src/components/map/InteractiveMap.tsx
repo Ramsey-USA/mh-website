@@ -135,7 +135,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     return (
       <Card className={className}>
         <CardContent className="p-8 text-center">
-          <div className="mb-4 text-gray-400 text-4xl">🗺️</div>
+          <div className="mb-4 text-gray-400 text-4xl">[MAP]</div>
           <h3 className="mb-2 font-semibold text-xl">
             Map Temporarily Unavailable
           </h3>
@@ -149,7 +149,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               onClick={handleCallOffice}
               className="w-full sm:w-auto"
             >
-              📞 Call (509) 308-6489
+              [PHONE] Call (509) 308-6489
             </Button>
             <Button
               variant="outline"
@@ -171,7 +171,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           <CardTitle className="flex justify-between items-center">
             <span>Our Location & Service Areas</span>
             <Button variant="outline" size="sm" onClick={handleCallOffice}>
-              📞 Call Us
+              [PHONE] Call Us
             </Button>
           </CardTitle>
         </CardHeader>
@@ -190,7 +190,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               // Interactive Map Placeholder (replace with actual Google Maps)
               <div className="absolute inset-0 flex justify-center items-center bg-gradient-to-br from-blue-50 to-green-50">
                 <div className="text-center">
-                  <div className="mb-4 text-6xl">🗺️</div>
+                  <div className="mb-4 text-6xl">[MAP]</div>
                   <h3 className="mb-2 font-semibold text-gray-800 text-xl">
                     Interactive Map
                   </h3>
@@ -203,14 +203,14 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                       size="sm"
                       onClick={() => handleGetDirections(officeLocation)}
                     >
-                      📍 Office Directions
+                      [LOCATION_ON] Office Directions
                     </Button>
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={handleCallOffice}
                     >
-                      📞 Contact
+                      [PHONE] Contact
                     </Button>
                   </div>
                 </div>
@@ -234,10 +234,10 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   <div className="flex items-start">
                     <div className="mr-3 text-2xl">
                       {location.type === 'office'
-                        ? '🏢'
+                        ? '[APARTMENT]'
                         : location.type === 'project'
-                        ? '🏗️'
-                        : '📍'}
+                        ? '[CONSTRUCTION]'
+                        : '[LOCATION_ON]'}
                     </div>
                     <div className="flex-1">
                       <h4 className="mb-1 font-semibold text-gray-900">
@@ -283,7 +283,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   </Button>
                   {selectedLocation.type === 'office' && (
                     <Button variant="outline" onClick={handleCallOffice}>
-                      📞 Call Office
+                      [PHONE] Call Office
                     </Button>
                   )}
                   <Button
@@ -312,7 +312,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   onClick={handleCallOffice}
                   className="bg-white hover:bg-gray-100 text-brand-primary"
                 >
-                  📞 (509) 308-6489
+                  [PHONE] (509) 308-6489
                 </Button>
                 <Button
                   variant="outline"

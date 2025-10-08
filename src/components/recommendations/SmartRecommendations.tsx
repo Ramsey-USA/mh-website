@@ -273,7 +273,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
                     size="sm"
                     className="mr-1"
                   />
-                  🎖️ Veteran Benefits
+                  [MILITARY_TECH] Veteran Benefits
                 </h4>
                 <div className="space-y-2">
                   {recommendation.veteranBenefits.map((benefit, index) => (
@@ -450,7 +450,7 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
           />
           <div>
             <h2 className="font-bold text-gray-800 text-2xl">
-              🎖️ Smart Project Recommendations
+              [MILITARY_TECH] Smart Project Recommendations
             </h2>
             <p className="text-gray-600">
               AI-powered suggestions tailored to your needs

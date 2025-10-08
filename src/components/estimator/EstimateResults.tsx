@@ -295,7 +295,7 @@ export function EstimateResults({
             <Card className="bg-blue-50 border-blue-200">
               <CardHeader>
                 <CardTitle className="text-blue-800">
-                  🎖️ Thank You for Your Service
+                  [MILITARY_TECH] Thank You for Your Service
                 </CardTitle>
               </CardHeader>
               <CardContent>

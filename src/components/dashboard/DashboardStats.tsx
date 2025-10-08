@@ -10,7 +10,7 @@ export function DashboardStats() {
       value: '8',
       change: '+2 this month',
       changeType: 'positive',
-      icon: '🏗️',
+      icon: '[CONSTRUCTION]',
       color: 'bg-blue-500',
     },
     {
@@ -18,7 +18,7 @@ export function DashboardStats() {
       value: '3',
       change: 'Next: Tomorrow 9AM',
       changeType: 'neutral',
-      icon: '📅',
+      icon: '[EVENT]',
       color: 'bg-green-500',
     },
     {
@@ -26,7 +26,7 @@ export function DashboardStats() {
       value: '$847K',
       change: '+15% vs last month',
       changeType: 'positive',
-      icon: '💰',
+      icon: '[ATTACH_MONEY]',
       color: 'bg-yellow-500',
     },
     {
@@ -34,7 +34,7 @@ export function DashboardStats() {
       value: '142',
       change: '+28 this week',
       changeType: 'positive',
-      icon: '🎯',
+      icon: '[GPS_FIXED]',
       color: 'bg-purple-500',
     },
     {
@@ -42,7 +42,7 @@ export function DashboardStats() {
       value: '5',
       change: 'Wounded Warrior: 2',
       changeType: 'neutral',
-      icon: '🎖️',
+      icon: '[MILITARY_TECH]',
       color: 'bg-red-500',
     },
     {
@@ -50,7 +50,7 @@ export function DashboardStats() {
       value: '87%',
       change: 'Optimal range',
       changeType: 'positive',
-      icon: '👥',
+      icon: '[GROUPS]',
       color: 'bg-indigo-500',
     },
   ]

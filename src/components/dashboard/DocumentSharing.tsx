@@ -140,27 +140,27 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
 
   const categories = [
     { value: 'all', label: 'All Documents', icon: '📄' },
-    { value: 'project', label: 'Project Files', icon: '🏗️' },
-    { value: 'legal', label: 'Legal Documents', icon: '📋' },
-    { value: 'financial', label: 'Financial', icon: '💰' },
-    { value: 'progress', label: 'Progress Reports', icon: '📈' },
+    { value: 'project', label: 'Project Files', icon: '[CONSTRUCTION]' },
+    { value: 'legal', label: 'Legal Documents', icon: '[ASSIGNMENT]' },
+    { value: 'financial', label: 'Financial', icon: '[ATTACH_MONEY]' },
+    { value: 'progress', label: 'Progress Reports', icon: '[TRENDING_UP]' },
     { value: 'reference', label: 'Reference', icon: '📚' },
   ]
 
   const getDocumentIcon = (type: SharedDocument['type']) => {
     switch (type) {
       case 'contract':
-        return '📋'
+        return '[ASSIGNMENT]'
       case 'permit':
         return '📜'
       case 'invoice':
-        return '💰'
+        return '[ATTACH_MONEY]'
       case 'photo':
-        return '📸'
+        return '[PHOTO_CAMERA]'
       case 'plan':
         return '📐'
       case 'report':
-        return '📊'
+        return '[ANALYTICS]'
       default:
         return '📄'
     }

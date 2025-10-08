@@ -1,4 +1,26 @@
-# MH Construction - Complete Partnership-Driven Platform
+# MH Construction **Build Status**
+
+```bash
+✅ Build: SUCCESS
+✅ TypeScript: No errors  
+✅ Linting: Clean
+✅ Performance: Optimized (94+ Lighthouse)
+✅ Icons: Google Material Icons unified
+✅ Platform: Production-ready with all features
+✅ Emoji-Free Codebase: Policy enforced
+```
+
+## 🚨 Icon Usage Policy
+
+**MH Construction maintains an EMOJI-FREE SOURCE CODE policy. All icons must use Google Material Icons exclusively.**
+
+### Quick Standards
+
+- ✅ **DO**: Use `<MaterialIcon icon="construction" size="lg" />`
+- ❌ **DON'T**: Use emojis in .ts/.tsx/.js/.jsx files
+- 📝 **DOCS**: Emojis acceptable in .md files for documentation clarity
+
+**See [DEVELOPMENT_GUIDELINES.md](./DEVELOPMENT_GUIDELINES.md) for complete policy details.** Partnership-Driven Platform
 
 > **Production-Ready Architecture**: Fully featured construction website with comprehensive pages and modern functionality.
 

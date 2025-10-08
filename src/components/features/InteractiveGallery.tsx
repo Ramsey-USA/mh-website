@@ -6,19 +6,7 @@ import { Button } from '@/components/ui/button'
 import { OptimizedImage } from '@/components/ui/OptimizedImage'
 import { FadeInWhenVisible } from '@/components/animations/FramerMotionComponents'
 import { useAnalytics } from '@/components/analytics/enhanced-analytics'
-import {
-  X,
-  ChevronLeft,
-  ChevronRight,
-  Download,
-  Share2,
-  ZoomIn,
-  ZoomOut,
-  RotateCw,
-  Heart,
-  Grid3x3,
-  Maximize,
-} from 'lucide-react'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
 
 interface GalleryImage {
   id: string
@@ -255,7 +243,7 @@ const InteractiveGallery = ({
           {/* Overlay */}
           <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300">
             <div className="opacity-0 group-hover:opacity-100 p-4 text-white text-center transition-opacity duration-300">
-              <Maximize className="mx-auto mb-2 w-8 h-8" />
+              <MaterialIcon icon="zoom_in" className="mx-auto mb-2 w-8 h-8" />
               {image.title && (
                 <h3 className="font-semibold text-sm">{image.title}</h3>
               )}
@@ -270,7 +258,8 @@ const InteractiveGallery = ({
             }}
             className="top-2 right-2 absolute bg-white bg-opacity-80 opacity-0 group-hover:opacity-100 p-1.5 rounded-full transition-opacity duration-300"
           >
-            <Heart
+            <MaterialIcon
+              icon="favorite"
               className={`h-4 w-4 ${
                 favorites.has(image.id)
                   ? 'fill-red-500 text-red-500'
@@ -337,7 +326,7 @@ const InteractiveGallery = ({
                   : 'text-gray-600'
               }`}
             >
-              <Grid3x3 className="w-4 h-4" />
+              <MaterialIcon icon="grid_view" className="w-4 h-4" />
             </button>
             <button
               onClick={() => setViewMode('masonry')}
@@ -379,7 +368,7 @@ const InteractiveGallery = ({
               onClick={closeModal}
               className="top-4 right-4 z-10 absolute bg-black bg-opacity-50 hover:bg-opacity-70 p-2 rounded-full text-white transition-all"
             >
-              <X className="w-6 h-6" />
+              <MaterialIcon icon="close" className="w-6 h-6" />
             </button>
 
             {/* Navigation Buttons */}
@@ -387,14 +376,14 @@ const InteractiveGallery = ({
               onClick={() => navigateImage('prev')}
               className="top-1/2 left-4 z-10 absolute bg-black bg-opacity-50 hover:bg-opacity-70 p-2 rounded-full text-white transition-all -translate-y-1/2 transform"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <MaterialIcon icon="chevron_left" className="w-6 h-6" />
             </button>
 
             <button
               onClick={() => navigateImage('next')}
               className="top-1/2 right-4 z-10 absolute bg-black bg-opacity-50 hover:bg-opacity-70 p-2 rounded-full text-white transition-all -translate-y-1/2 transform"
             >
-              <ChevronRight className="w-6 h-6" />
+              <MaterialIcon icon="chevron_right" className="w-6 h-6" />
             </button>
 
             {/* Controls */}
@@ -403,26 +392,26 @@ const InteractiveGallery = ({
                 onClick={() => setZoom(prev => Math.max(prev - 0.25, 0.5))}
                 className="bg-black bg-opacity-50 hover:bg-opacity-70 p-2 rounded-full text-white transition-all"
               >
-                <ZoomOut className="w-4 h-4" />
+                <MaterialIcon icon="zoom_out" className="w-4 h-4" />
               </button>
               <button
                 onClick={() => setZoom(prev => Math.min(prev + 0.25, 3))}
                 className="bg-black bg-opacity-50 hover:bg-opacity-70 p-2 rounded-full text-white transition-all"
               >
-                <ZoomIn className="w-4 h-4" />
+                <MaterialIcon icon="zoom_in" className="w-4 h-4" />
               </button>
               <button
                 onClick={() => setRotation(prev => prev + 90)}
                 className="bg-black bg-opacity-50 hover:bg-opacity-70 p-2 rounded-full text-white transition-all"
               >
-                <RotateCw className="w-4 h-4" />
+                <MaterialIcon icon="rotate_right" className="w-4 h-4" />
               </button>
               {enableDownload && (
                 <button
                   onClick={() => downloadImage(selectedImage)}
                   className="bg-black bg-opacity-50 hover:bg-opacity-70 p-2 rounded-full text-white transition-all"
                 >
-                  <Download className="w-4 h-4" />
+                  <MaterialIcon icon="download" className="w-4 h-4" />
                 </button>
               )}
               {enableSharing && (
@@ -430,7 +419,7 @@ const InteractiveGallery = ({
                   onClick={() => shareImage(selectedImage)}
                   className="bg-black bg-opacity-50 hover:bg-opacity-70 p-2 rounded-full text-white transition-all"
                 >
-                  <Share2 className="w-4 h-4" />
+                  <MaterialIcon icon="share" className="w-4 h-4" />
                 </button>
               )}
             </div>

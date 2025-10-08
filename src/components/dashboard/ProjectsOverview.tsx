@@ -106,7 +106,7 @@ export function ProjectsOverview() {
           <CardTitle>Active Projects</CardTitle>
           <div className="flex space-x-2">
             <Button variant="outline" size="sm">
-              📊 Project Reports
+              [ANALYTICS] Project Reports
             </Button>
             <Button variant="default" size="sm">
               + New Project
@@ -153,7 +153,7 @@ export function ProjectsOverview() {
                         </span>
                         {project.isVeteran && (
                           <span className="bg-blue-100 ml-2 px-2 py-1 rounded-full text-blue-800 text-xs">
-                            🎖️
+                            [MILITARY_TECH]
                           </span>
                         )}
                       </div>

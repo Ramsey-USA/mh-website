@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { Button, Card, CardHeader, CardContent, Input } from '../ui'
-import { Send, X, Bot, Minimize2, Maximize2 } from 'lucide-react'
+import { MaterialIcon } from '../icons/MaterialIcon'
 import { militaryConstructionAI } from '../../lib/militaryConstructionAI'
 
 interface ChatMessage {
@@ -38,7 +38,7 @@ export function GlobalChatbot({
       id: '1',
       type: 'bot',
       content:
-        "**General MH** reporting for duty! 🎖️\n\nI'm your **AI construction intelligence officer**, ready to provide **tactical guidance** on your building missions. Whether you need **reconnaissance** on materials, **strategic planning** for timelines, or **intel** on costs - I've got your six.\n\n**What's your mission objective today, soldier?**",
+        "**General MH** reporting for duty! [MILITARY_TECH]\n\nI'm your **AI construction intelligence officer**, ready to provide **tactical guidance** on your building missions. Whether you need **reconnaissance** on materials, **strategic planning** for timelines, or **intel** on costs - I've got your six.\n\n**What's your mission objective today, soldier?**",
       timestamp: new Date(),
       metadata: { priority: 'high' },
     },
@@ -143,13 +143,13 @@ ${veteranPriority.processingProtocol}
 
 ${veteranPriority.specialAssignment}
 
-**🎖️ VETERAN SUPPORT SERVICES:**
+**[MILITARY_TECH] VETERAN SUPPORT SERVICES:**
 ${veteranPriority.supportServices.map(service => `• ${service}`).join('\n')}
 
 ${veteranPriority.expeditedTimeline}
 
 ---
-**Thank you for your service! 🇺🇸**
+**Thank you for your service! [FLAG]**
 *MH Construction is honored to serve those who served.*`
       }
 
@@ -337,7 +337,11 @@ ${veteranPriority.expeditedTimeline}
           className="group flex justify-center items-center bg-gradient-to-r from-green-600 hover:from-green-700 to-green-800 hover:to-green-900 shadow-2xl rounded-full w-16 h-16 hover:scale-110 transition-all duration-300"
           aria-label="Open General MH - AI Construction Assistant"
         >
-          <Bot className="w-8 h-8 text-white group-hover:animate-pulse" />
+          <MaterialIcon
+            icon="smart_toy"
+            size="xl"
+            className="text-white group-hover:animate-pulse"
+          />
           <div className="-top-2 -right-2 absolute bg-green-400 rounded-full w-4 h-4 animate-pulse"></div>
         </Button>
         {/* Tooltip */}
@@ -367,7 +371,11 @@ ${veteranPriority.expeditedTimeline}
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <Bot className="w-8 h-8 text-green-300" />
+                <MaterialIcon
+                  icon="smart_toy"
+                  size="xl"
+                  className="text-green-300"
+                />
                 <div className="-top-1 -right-1 absolute bg-green-400 rounded-full w-3 h-3 animate-pulse"></div>
               </div>
               <div>
@@ -386,9 +394,9 @@ ${veteranPriority.expeditedTimeline}
                 className="hover:bg-white/20 p-0 w-8 h-8 text-white"
               >
                 {isMinimized ? (
-                  <Maximize2 className="w-4 h-4" />
+                  <MaterialIcon icon="open_in_full" size="sm" />
                 ) : (
-                  <Minimize2 className="w-4 h-4" />
+                  <MaterialIcon icon="close_fullscreen" size="sm" />
                 )}
               </Button>
               <Button
@@ -400,7 +408,7 @@ ${veteranPriority.expeditedTimeline}
                 }}
                 className="hover:bg-white/20 p-0 w-8 h-8 text-white"
               >
-                <X className="w-4 h-4" />
+                <MaterialIcon icon="close" size="sm" />
               </Button>
             </div>
           </div>
@@ -517,11 +525,11 @@ ${veteranPriority.expeditedTimeline}
                   disabled={!inputValue.trim() || isTyping}
                   className="bg-green-600 hover:bg-green-700 px-3"
                 >
-                  <Send className="w-4 h-4" />
+                  <MaterialIcon icon="send" size="sm" />
                 </Button>
               </div>
               <div className="mt-2 text-gray-500 text-xs text-center">
-                🎖️ **Tactical AI** - Powered by military precision • Drag to
+                [MILITARY_TECH] **Tactical AI** - Powered by military precision • Drag to
                 move
               </div>
             </div>

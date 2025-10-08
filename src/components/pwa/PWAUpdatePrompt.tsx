@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { RefreshCw, Download, X, AlertCircle } from 'lucide-react'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
 
 interface PWAUpdatePromptProps {
   className?: string
@@ -104,25 +104,25 @@ export default function PWAUpdatePrompt({
       className={`fixed top-4 right-4 z-50 bg-white border border-gray-200 rounded-lg shadow-lg p-4 max-w-sm ${className}`}
     >
       <div className="flex items-start gap-3">
-        <div className="bg-green-100 p-2 rounded-lg flex-shrink-0">
-          <Download className="h-5 w-5 text-green-600" />
+        <div className="flex-shrink-0 bg-green-100 p-2 rounded-lg">
+          <MaterialIcon icon="download" className="w-5 h-5 text-green-600" />
         </div>
 
         <div className="flex-1 min-w-0">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex justify-between items-center mb-2">
             <h3 className="font-semibold text-gray-900 text-sm">
               Update Available
             </h3>
             <button
-              onClick={handleDismiss}
+              onClick={() => setUpdateAvailable(false)}
               className="text-gray-400 hover:text-gray-600"
               aria-label="Dismiss"
             >
-              <X className="h-4 w-4" />
+              <MaterialIcon icon="close" className="w-4 h-4" />
             </button>
           </div>
 
-          <p className="text-sm text-gray-600 mb-3">
+          <p className="mb-3 text-gray-600 text-sm">
             A new version of MH Construction is available with improvements and
             bug fixes.
           </p>
@@ -131,16 +131,19 @@ export default function PWAUpdatePrompt({
             <button
               onClick={handleUpdate}
               disabled={isUpdating}
-              className="bg-blue-600 text-white px-3 py-1.5 rounded text-sm font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1"
+              className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 px-3 py-1.5 rounded font-semibold text-white text-sm transition-colors disabled:cursor-not-allowed"
             >
               {isUpdating ? (
                 <>
-                  <RefreshCw className="h-3 w-3 animate-spin" />
+                  <MaterialIcon
+                    icon="refresh"
+                    className="w-3 h-3 animate-spin"
+                  />
                   Updating...
                 </>
               ) : (
                 <>
-                  <RefreshCw className="h-3 w-3" />
+                  <MaterialIcon icon="refresh" className="w-3 h-3" />
                   Update
                 </>
               )}
@@ -148,7 +151,7 @@ export default function PWAUpdatePrompt({
 
             <button
               onClick={handleDismiss}
-              className="bg-gray-200 text-gray-800 px-3 py-1.5 rounded text-sm font-semibold hover:bg-gray-300 transition-colors"
+              className="bg-gray-200 hover:bg-gray-300 px-3 py-1.5 rounded font-semibold text-gray-800 text-sm transition-colors"
             >
               Later
             </button>
@@ -245,9 +248,9 @@ export function OfflineIndicator() {
   if (isOnline) return null
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-yellow-500 text-white p-2 text-center text-sm font-medium">
-      <div className="flex items-center justify-center gap-2">
-        <AlertCircle className="h-4 w-4" />
+    <div className="top-0 right-0 left-0 z-50 fixed bg-yellow-500 p-2 font-medium text-white text-sm text-center">
+      <div className="flex justify-center items-center gap-2">
+        <MaterialIcon icon="warning" className="w-4 h-4" />
         You are currently offline. Some features may be limited.
       </div>
     </div>

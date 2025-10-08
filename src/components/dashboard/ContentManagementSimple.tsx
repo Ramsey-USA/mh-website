@@ -8,7 +8,7 @@ import {
 } from '@/components/animations/FramerMotionComponents'
 import { useAuth } from '@/lib/auth/AuthContext'
 import { useAnalytics } from '@/components/analytics/enhanced-analytics'
-import { Loader2, Plus, Edit, Trash2, Save, X } from 'lucide-react'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
 
 // Mock data for demonstration
 const mockBlogPosts = [
@@ -180,7 +180,7 @@ const ContentManagement = () => {
                   )}
                   {activeTab === 'testimonials' && (
                     <>
-                      <span>{item.rating} ⭐</span>
+                      <span>{item.rating} [STAR]</span>
                       {item.featured && (
                         <span className="text-primary-600">Featured</span>
                       )}
@@ -202,7 +202,7 @@ const ContentManagement = () => {
                   size="sm"
                   onClick={() => startEdit(item)}
                 >
-                  <Edit className="w-4 h-4" />
+                  <MaterialIcon icon="edit" className="w-4 h-4" />
                 </Button>
                 <Button
                   variant="outline"
@@ -210,7 +210,7 @@ const ContentManagement = () => {
                   onClick={() => handleDelete(item)}
                   className="text-red-600 hover:text-red-700"
                 >
-                  <Trash2 className="w-4 h-4" />
+                  <MaterialIcon icon="delete" className="w-4 h-4" />
                 </Button>
               </div>
             </div>
@@ -360,7 +360,7 @@ const ContentManagement = () => {
       <div className="flex justify-between items-center">
         <h1 className="font-bold text-3xl">Content Management</h1>
         <Button onClick={() => setShowForm(true)}>
-          <Plus className="mr-2 w-4 h-4" />
+          <MaterialIcon icon="add" className="mr-2 w-4 h-4" />
           Add{' '}
           {activeTab === 'blog'
             ? 'Post'
@@ -402,7 +402,7 @@ const ContentManagement = () => {
                       : 'Testimonial'}
                 </h2>
                 <Button variant="outline" onClick={resetForm}>
-                  <X className="w-4 h-4" />
+                  <MaterialIcon icon="close" className="w-4 h-4" />
                 </Button>
               </div>
 
@@ -414,7 +414,7 @@ const ContentManagement = () => {
                   Cancel
                 </Button>
                 <Button onClick={handleSave}>
-                  <Save className="mr-2 w-4 h-4" />
+                  <MaterialIcon icon="save" className="mr-2 w-4 h-4" />
                   {editingItem ? 'Update' : 'Create'}
                 </Button>
               </div>

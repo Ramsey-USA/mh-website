@@ -245,9 +245,9 @@ export const ClientDashboard: React.FC = () => {
       <div className="mb-8 border-gray-200 border-b">
         <nav className="flex space-x-8 -mb-px">
           {[
-            { id: 'overview', label: 'Overview', icon: '📊' },
-            { id: 'projects', label: 'Projects', icon: '🏗️' },
-            { id: 'tracking', label: 'Live Updates', icon: '📈' },
+            { id: 'overview', label: 'Overview', icon: '[ANALYTICS]' },
+            { id: 'projects', label: 'Projects', icon: '[CONSTRUCTION]' },
+            { id: 'tracking', label: 'Live Updates', icon: '[TRENDING_UP]' },
             { id: 'communications', label: 'Communications', icon: '💬' },
             { id: 'documents', label: 'Documents', icon: '📄' },
           ].map(tab => (
@@ -289,7 +289,7 @@ export const ClientDashboard: React.FC = () => {
             <Card>
               <CardContent className="p-6">
                 <div className="flex items-center">
-                  <div className="mr-4 text-3xl">🏗️</div>
+                  <div className="mr-4 text-3xl">[CONSTRUCTION]</div>
                   <div>
                     <p className="font-bold text-gray-900 text-2xl">
                       {stats.activeProjects}
@@ -303,7 +303,7 @@ export const ClientDashboard: React.FC = () => {
             <Card>
               <CardContent className="p-6">
                 <div className="flex items-center">
-                  <div className="mr-4 text-3xl">✅</div>
+                  <div className="mr-4 text-3xl">[CHECK_CIRCLE]</div>
                   <div>
                     <p className="font-bold text-gray-900 text-2xl">
                       {stats.completedProjects}
@@ -317,7 +317,7 @@ export const ClientDashboard: React.FC = () => {
             <Card>
               <CardContent className="p-6">
                 <div className="flex items-center">
-                  <div className="mr-4 text-3xl">💰</div>
+                  <div className="mr-4 text-3xl">[ATTACH_MONEY]</div>
                   <div>
                     <p className="font-bold text-gray-900 text-2xl">
                       ${stats.totalBudget.toLocaleString()}
@@ -585,7 +585,7 @@ export const ClientDashboard: React.FC = () => {
 
                       <div className="pt-4 border-t">
                         <Button variant="default" className="mb-2 w-full">
-                          📞 Contact Team
+                          [PHONE] Contact Team
                         </Button>
                         <Button variant="outline" className="w-full">
                           📄 View All Documents
@@ -597,7 +597,7 @@ export const ClientDashboard: React.FC = () => {
               ) : (
                 <Card>
                   <CardContent className="p-8 text-gray-500 text-center">
-                    <div className="mb-4 text-4xl">🏗️</div>
+                    <div className="mb-4 text-4xl">[CONSTRUCTION]</div>
                     <p>Select a project to view details</p>
                   </CardContent>
                 </Card>
@@ -631,10 +631,10 @@ export const ClientDashboard: React.FC = () => {
                           {comm.type === 'update'
                             ? '📢'
                             : comm.type === 'milestone'
-                            ? '🎯'
-                            : comm.type === 'issue'
-                            ? '⚠️'
-                            : '💬'}
+                              ? '[GPS_FIXED]'
+                              : comm.type === 'issue'
+                                ? '[WARNING]'
+                                : '💬'}
                         </span>
                         <h3 className="font-semibold text-gray-900 text-lg">
                           {comm.title}
@@ -685,7 +685,7 @@ export const ClientDashboard: React.FC = () => {
               <CardContent>
                 <div className="space-y-4">
                   <Button variant="default" className="w-full">
-                    📞 Schedule Team Call
+                    [PHONE] Schedule Team Call
                   </Button>
                   <Button variant="outline" className="w-full">
                     💬 Send Message to Team
@@ -694,7 +694,7 @@ export const ClientDashboard: React.FC = () => {
                     📄 Request Progress Report
                   </Button>
                   <Button variant="outline" className="w-full">
-                    📋 View Change Orders
+                    [ASSIGNMENT] View Change Orders
                   </Button>
                 </div>
               </CardContent>
@@ -725,12 +725,12 @@ export const ClientDashboard: React.FC = () => {
                       <div className="flex items-center mb-2">
                         <span className="mr-2 text-lg">
                           {comm.type === 'update'
-                            ? '�'
+                            ? '[INFO]'
                             : comm.type === 'milestone'
-                            ? '🎯'
-                            : comm.type === 'issue'
-                            ? '⚠️'
-                            : '�'}
+                              ? '[GPS_FIXED]'
+                              : comm.type === 'issue'
+                                ? '[WARNING]'
+                                : '[NOTIFICATIONS]'}
                         </span>
                         <h3 className="font-semibold text-gray-900 text-lg">
                           {comm.title}

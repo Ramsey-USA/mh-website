@@ -400,7 +400,7 @@ export default function TeamPage() {
                   veteran-owned company.
                 </p>
                 <Link href="/careers">
-                  <Button variant="cta" size="lg">
+                  <Button variant="primary" size="lg">
                     View Career Opportunities
                   </Button>
                 </Link>

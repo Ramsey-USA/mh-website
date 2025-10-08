@@ -1,18 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import {
-  Bell,
-  BellOff,
-  Check,
-  X,
-  Settings,
-  AlertCircle,
-  CheckCircle,
-  Calendar,
-  MessageSquare,
-  Hammer,
-} from 'lucide-react'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
 
 interface PushNotification {
   id: string
@@ -265,13 +254,13 @@ export default function PushNotifications({
   const getNotificationIcon = (type: string) => {
     switch (type) {
       case 'project':
-        return <Hammer className="h-4 w-4" />
+        return <MaterialIcon icon="construction" className="w-4 h-4" />
       case 'appointment':
-        return <Calendar className="h-4 w-4" />
+        return <MaterialIcon icon="event" className="w-4 h-4" />
       case 'message':
-        return <MessageSquare className="h-4 w-4" />
+        return <MaterialIcon icon="message" className="w-4 h-4" />
       default:
-        return <Bell className="h-4 w-4" />
+        return <MaterialIcon icon="notifications" className="w-4 h-4" />
     }
   }
 
@@ -288,13 +277,13 @@ export default function PushNotifications({
         title="Notifications"
       >
         {isSubscribed ? (
-          <Bell className="h-5 w-5" />
+          <MaterialIcon icon="notifications" className="w-5 h-5" />
         ) : (
-          <BellOff className="h-5 w-5" />
+          <MaterialIcon icon="notifications_off" className="w-5 h-5" />
         )}
 
         {unreadCount > 0 && (
-          <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+          <span className="-top-1 -right-1 absolute flex justify-center items-center bg-red-500 rounded-full w-5 h-5 text-white text-xs">
             {unreadCount > 9 ? '9+' : unreadCount}
           </span>
         )}
@@ -302,15 +291,15 @@ export default function PushNotifications({
 
       {/* Notifications Panel */}
       {showSettings && (
-        <div className="absolute right-0 top-full mt-2 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
-          <div className="p-4 border-b border-gray-200">
-            <div className="flex items-center justify-between mb-3">
+        <div className="top-full right-0 z-50 absolute bg-white shadow-lg mt-2 border border-gray-200 rounded-lg w-80">
+          <div className="p-4 border-gray-200 border-b">
+            <div className="flex justify-between items-center mb-3">
               <h3 className="font-semibold text-gray-900">Notifications</h3>
               <button
                 onClick={() => setShowSettings(false)}
                 className="text-gray-400 hover:text-gray-600"
               >
-                <X className="h-4 w-4" />
+                <MaterialIcon icon="close" className="w-4 h-4" />
               </button>
             </div>
 
@@ -325,7 +314,7 @@ export default function PushNotifications({
                       : 'bg-yellow-500'
                 }`}
               ></div>
-              <span className="text-sm text-gray-600">
+              <span className="text-gray-600 text-sm">
                 {permission === 'granted'
                   ? 'Enabled'
                   : permission === 'denied'
@@ -339,7 +328,7 @@ export default function PushNotifications({
               {permission !== 'granted' && (
                 <button
                   onClick={requestPermission}
-                  className="w-full bg-blue-600 text-white py-2 px-3 rounded text-sm font-medium hover:bg-blue-700 transition-colors"
+                  className="bg-blue-600 hover:bg-blue-700 px-3 py-2 rounded w-full font-medium text-white text-sm transition-colors"
                 >
                   Enable Notifications
                 </button>
@@ -348,7 +337,7 @@ export default function PushNotifications({
               {isSubscribed && (
                 <button
                   onClick={unsubscribeFromPush}
-                  className="w-full bg-gray-600 text-white py-2 px-3 rounded text-sm font-medium hover:bg-gray-700 transition-colors"
+                  className="bg-gray-600 hover:bg-gray-700 px-3 py-2 rounded w-full font-medium text-white text-sm transition-colors"
                 >
                   Disable Notifications
                 </button>
@@ -358,7 +347,7 @@ export default function PushNotifications({
               {permission === 'granted' && (
                 <button
                   onClick={addTestNotification}
-                  className="w-full bg-green-600 text-white py-2 px-3 rounded text-sm font-medium hover:bg-green-700 transition-colors"
+                  className="bg-green-600 hover:bg-green-700 px-3 py-2 rounded w-full font-medium text-white text-sm transition-colors"
                 >
                   Test Notification
                 </button>
@@ -369,7 +358,7 @@ export default function PushNotifications({
           {/* Notifications List */}
           <div className="max-h-64 overflow-y-auto">
             {notifications.length === 0 ? (
-              <div className="p-4 text-center text-gray-500 text-sm">
+              <div className="p-4 text-gray-500 text-sm text-center">
                 No notifications yet
               </div>
             ) : (
@@ -395,13 +384,13 @@ export default function PushNotifications({
                       </div>
 
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-gray-900 truncate">
+                        <p className="font-medium text-gray-900 text-sm truncate">
                           {notification.title}
                         </p>
-                        <p className="text-xs text-gray-600 line-clamp-2">
+                        <p className="text-gray-600 text-xs line-clamp-2">
                           {notification.body}
                         </p>
-                        <p className="text-xs text-gray-400 mt-1">
+                        <p className="mt-1 text-gray-400 text-xs">
                           {new Date(notification.timestamp).toLocaleString()}
                         </p>
                       </div>
@@ -410,18 +399,18 @@ export default function PushNotifications({
                         {!notification.read && (
                           <button
                             onClick={() => markAsRead(notification.id)}
-                            className="text-blue-600 hover:text-blue-700 p-1"
+                            className="p-1 text-blue-600 hover:text-blue-700"
                             title="Mark as read"
                           >
-                            <Check className="h-3 w-3" />
+                            <MaterialIcon icon="check" className="w-3 h-3" />
                           </button>
                         )}
                         <button
                           onClick={() => deleteNotification(notification.id)}
-                          className="text-red-600 hover:text-red-700 p-1"
+                          className="p-1 text-red-600 hover:text-red-700"
                           title="Delete"
                         >
-                          <X className="h-3 w-3" />
+                          <MaterialIcon icon="close" className="w-3 h-3" />
                         </button>
                       </div>
                     </div>
@@ -433,10 +422,10 @@ export default function PushNotifications({
 
           {/* Clear All */}
           {notifications.length > 0 && (
-            <div className="p-3 border-t border-gray-200">
+            <div className="p-3 border-gray-200 border-t">
               <button
                 onClick={clearAllNotifications}
-                className="w-full text-red-600 hover:text-red-700 text-sm font-medium"
+                className="w-full font-medium text-red-600 hover:text-red-700 text-sm"
               >
                 Clear All Notifications
               </button>

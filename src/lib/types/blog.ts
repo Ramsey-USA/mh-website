@@ -109,7 +109,7 @@ export const mockBlogCategories: BlogCategory[] = [
     slug: 'home-improvement',
     description: 'DIY guides and home renovation insights',
     color: '#10B981',
-    icon: '🏠',
+    icon: 'home',
     postCount: 8,
   },
   {
@@ -127,7 +127,7 @@ export const mockBlogCategories: BlogCategory[] = [
     slug: 'veteran-spotlight',
     description: 'Stories from our veteran team and community',
     color: '#EF4444',
-    icon: '🇺🇸',
+    icon: '[FLAG]',
     postCount: 7,
   },
   {

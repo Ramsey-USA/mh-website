@@ -599,12 +599,12 @@ export function EstimatorForm() {
                 </div>
                 {projectData.size && parseInt(projectData.size) < 100 && (
                   <div className="mt-1 text-red-600 text-xs">
-                    ⚠️ Minimum project size is 100 sq ft
+                    [WARNING] Minimum project size is 100 sq ft
                   </div>
                 )}
                 {projectData.size && parseInt(projectData.size) > 50000 && (
                   <div className="mt-1 text-red-600 text-xs">
-                    ⚠️ For projects over 50,000 sq ft, please contact us
+                    [WARNING] For projects over 50,000 sq ft, please contact us
                     directly
                   </div>
                 )}
@@ -808,7 +808,7 @@ export function EstimatorForm() {
                   <div className="flex justify-between items-center">
                     <div>
                       <h4 className="mb-1 font-semibold text-gray-700 text-sm">
-                        📊 Real-time Estimate Preview
+                        [ANALYTICS] Real-time Estimate Preview
                       </h4>
                       <p className="text-gray-600 text-xs">
                         Based on current selections • Final estimate will be
@@ -829,13 +829,13 @@ export function EstimatorForm() {
                   </div>
                   {currentStep === 1 && (
                     <div className="mt-2 text-blue-600 text-xs">
-                      💡 Add materials and features in the next step for more
+                      [LIGHTBULB] Add materials and features in the next step for more
                       accuracy
                     </div>
                   )}
                   {currentStep === 2 && (
                     <div className="mt-2 text-blue-600 text-xs">
-                      ✨ Estimate will be refined with seasonal and complexity
+                      [AUTO_AWESOME] Estimate will be refined with seasonal and complexity
                       factors
                     </div>
                   )}
@@ -853,7 +853,7 @@ export function EstimatorForm() {
                   {!validation.isValid && validation.issues.length > 0 && (
                     <div className="bg-yellow-50 mb-4 p-3 border border-yellow-200 rounded-lg">
                       <div className="flex items-start">
-                        <div className="mr-2 text-yellow-600">⚠️</div>
+                        <div className="mr-2 text-yellow-600">[WARNING]</div>
                         <div>
                           <div className="mb-1 font-medium text-yellow-800 text-sm">
                             Please complete the following:

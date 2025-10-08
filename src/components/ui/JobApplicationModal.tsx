@@ -1,16 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import {
-  X,
-  Upload,
-  User,
-  Mail,
-  Phone,
-  MapPin,
-  FileText,
-  Briefcase,
-} from 'lucide-react'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
 import { getFirebaseDb } from '../../lib/firebase/config'
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 
@@ -192,14 +183,14 @@ export function JobApplicationModal({
         <div className="bg-gradient-to-r from-brand-primary to-brand-primary-dark p-6 text-white">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-3">
-              <Briefcase className="w-6 h-6" />
+              <MaterialIcon icon="work" className="w-6 h-6" />
               <h2 className="font-bold text-2xl">Join Our Team</h2>
             </div>
             <button
               onClick={onClose}
               className="text-white hover:text-gray-200 transition-colors"
             >
-              <X className="w-6 h-6" />
+              <MaterialIcon icon="close" className="w-6 h-6" />
             </button>
           </div>
           <p className="mt-2 text-white/90">
@@ -214,7 +205,10 @@ export function JobApplicationModal({
             {/* Personal Information */}
             <div>
               <h3 className="flex items-center mb-4 font-semibold text-gray-900 text-lg">
-                <User className="mr-2 w-5 h-5 text-brand-primary" />
+                <MaterialIcon
+                  icon="person"
+                  className="mr-2 w-5 h-5 text-brand-primary"
+                />
                 Personal Information
               </h3>
               <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
@@ -250,7 +244,10 @@ export function JobApplicationModal({
             {/* Contact Information */}
             <div>
               <h3 className="flex items-center mb-4 font-semibold text-gray-900 text-lg">
-                <Mail className="mr-2 w-5 h-5 text-brand-primary" />
+                <MaterialIcon
+                  icon="email"
+                  className="mr-2 w-5 h-5 text-brand-primary"
+                />
                 Contact Information
               </h3>
               <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
@@ -286,7 +283,10 @@ export function JobApplicationModal({
             {/* Address */}
             <div>
               <h3 className="flex items-center mb-4 font-semibold text-gray-900 text-lg">
-                <MapPin className="mr-2 w-5 h-5 text-brand-primary" />
+                <MaterialIcon
+                  icon="place"
+                  className="mr-2 w-5 h-5 text-brand-primary"
+                />
                 Address
               </h3>
               <div className="space-y-4">
@@ -346,7 +346,10 @@ export function JobApplicationModal({
             {/* Position Information */}
             <div>
               <h3 className="flex items-center mb-4 font-semibold text-gray-900 text-lg">
-                <Briefcase className="mr-2 w-5 h-5 text-brand-primary" />
+                <MaterialIcon
+                  icon="work"
+                  className="mr-2 w-5 h-5 text-brand-primary"
+                />
                 Position Information
               </h3>
               <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
@@ -453,7 +456,10 @@ export function JobApplicationModal({
               </label>
               <div className="flex justify-center mt-1 px-6 pt-5 pb-6 border-2 border-gray-300 hover:border-brand-primary border-dashed rounded-md transition-colors">
                 <div className="space-y-1 text-center">
-                  <Upload className="mx-auto w-12 h-12 text-gray-400" />
+                  <MaterialIcon
+                    icon="upload"
+                    className="mx-auto w-12 h-12 text-gray-400"
+                  />
                   <div className="flex text-gray-600 text-sm">
                     <label className="relative bg-white rounded-md font-medium text-brand-primary hover:text-brand-primary-dark cursor-pointer">
                       <span>Upload a file</span>

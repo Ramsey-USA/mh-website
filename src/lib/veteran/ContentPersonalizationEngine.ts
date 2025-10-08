@@ -200,14 +200,14 @@ export class ContentPersonalizationEngine {
 
     // Add respect level modifier
     if (profile.respectLevel === 'High Honors') {
-      return `🎖️ ${baseGreeting} Thank you for your extraordinary service and sacrifice.`
+      return `[MILITARY_TECH] ${baseGreeting} Thank you for your extraordinary service and sacrifice.`
     } else if (profile.respectLevel === 'Combat Valor') {
-      return `🎖️ ${baseGreeting} Thank you for your combat service and valor.`
+      return `[MILITARY_TECH] ${baseGreeting} Thank you for your combat service and valor.`
     } else if (profile.combatVeteran) {
-      return `🎖️ ${baseGreeting} Thank you for your service in harm's way.`
+      return `[MILITARY_TECH] ${baseGreeting} Thank you for your service in harm's way.`
     }
 
-    return `🇺🇸 ${baseGreeting} Thank you for your service!`
+    return `[FLAG] ${baseGreeting} Thank you for your service!`
   }
 
   /**
@@ -284,10 +284,10 @@ export class ContentPersonalizationEngine {
     // Priority-based urgency messaging
     if (profile.priorityLevel === 'IMMEDIATE') {
       messaging.urgencyMessage =
-        '🚨 IMMEDIATE PRIORITY STATUS: Expedited response within 4 hours guaranteed'
+        '[EMERGENCY] IMMEDIATE PRIORITY STATUS: Expedited response within 4 hours guaranteed'
     } else if (profile.priorityLevel === 'HIGH') {
       messaging.urgencyMessage =
-        '⚡ HIGH PRIORITY STATUS: Priority scheduling and 24-hour response'
+        '[BOLT] HIGH PRIORITY STATUS: Priority scheduling and 24-hour response'
     }
 
     // Disability-focused messaging

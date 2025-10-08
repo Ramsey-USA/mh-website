@@ -185,7 +185,7 @@ export class AuditLogger {
 
     // Log to console in development
     if (process.env.NODE_ENV === 'development') {
-      console.log('🔒 Security Audit Event:', {
+      console.log('[LOCK] Security Audit Event:', {
         type: event.eventType,
         risk: event.riskLevel,
         outcome: event.outcome,

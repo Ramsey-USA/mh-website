@@ -279,7 +279,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                         </span>
                       </div>
                       <p className="font-semibold text-white text-lg">
-                        📅{' '}
+                        [EVENT]{' '}
                         {quickDays.find(d => d.date === selectedDate)?.fullDate}{' '}
                         at {selectedTime}
                       </p>
@@ -348,7 +348,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                         </span>
                       </div>
                       <p className="font-semibold text-white text-lg">
-                        📅{' '}
+                        [EVENT]{' '}
                         {quickDays.find(d => d.date === selectedDate)?.fullDate}{' '}
                         at {selectedTime}
                       </p>
@@ -450,7 +450,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                           className="bg-gray-700 px-4 py-3 border border-gray-600 focus:border-brand-primary rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-white transition-all duration-200"
                         >
                           <option value="">Select project type</option>
-                          <option value="Custom Home">🏠 Custom Home</option>
+                          <option value="Custom Home">[HOME] Custom Home</option>
                           <option value="Home Addition">
                             🏡 Home Addition
                           </option>
@@ -461,9 +461,9 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                             🛁 Bathroom Remodel
                           </option>
                           <option value="Commercial Building">
-                            🏢 Commercial Building
+                            [APARTMENT] Commercial Building
                           </option>
-                          <option value="Other">🔧 Other</option>
+                          <option value="Other">[BUILD] Other</option>
                         </select>
                       </div>
                     </div>

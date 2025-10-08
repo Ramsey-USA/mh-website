@@ -132,7 +132,7 @@ export function RecentConsultations() {
                       </h4>
                       {consultation.isVeteran && (
                         <span className="bg-blue-100 ml-2 px-2 py-1 rounded-full text-blue-800 text-xs">
-                          🎖️ Veteran
+                          [MILITARY_TECH] Veteran
                         </span>
                       )}
                     </div>
@@ -159,9 +159,9 @@ export function RecentConsultations() {
 
                 <div className="flex justify-between items-center mt-3">
                   <div className="flex items-center text-gray-600 text-sm">
-                    <span className="mr-4">📅 {consultation.date}</span>
+                    <span className="mr-4">[EVENT] {consultation.date}</span>
                     <span className="mr-4">🕐 {consultation.time}</span>
-                    <span>👨‍💼 {consultation.teamMember}</span>
+                    <span>person {consultation.teamMember}</span>
                   </div>
 
                   <div className="flex space-x-2">
@@ -185,10 +185,10 @@ export function RecentConsultations() {
               + Schedule New Consultation
             </Button>
             <Button variant="outline" size="sm">
-              📊 Consultation Reports
+              [ANALYTICS] Consultation Reports
             </Button>
             <Button variant="outline" size="sm">
-              📧 Send Reminders
+              [EMAIL] Send Reminders
             </Button>
           </div>
         </div>

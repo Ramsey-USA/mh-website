@@ -46,13 +46,13 @@ export class MilitaryConstructionAI {
 
       materialSpecs: {
         standard:
-          '**STANDARD ISSUE MATERIALS** 🏗️\n• Field-grade lumber and basic fixtures\n• Reliable performance for standard operations\n• Cost-effective tactical solution',
+          '**STANDARD ISSUE MATERIALS** [CONSTRUCTION]\n• Field-grade lumber and basic fixtures\n• Reliable performance for standard operations\n• Cost-effective tactical solution',
         enhanced:
-          '**ENHANCED GRADE ARSENAL** 🛡️\n• Superior tactical equipment and materials\n• Improved durability and performance\n• Recommended for extended deployments',
+          '**ENHANCED GRADE ARSENAL** [SECURITY]\n• Superior tactical equipment and materials\n• Improved durability and performance\n• Recommended for extended deployments',
         premium:
-          '**PREMIUM MILITARY SPEC** ⭐\n• Top-tier operational supplies\n• Maximum performance and longevity\n• Elite command center standards',
+          '**PREMIUM MILITARY SPEC** [STAR]\n• Top-tier operational supplies\n• Maximum performance and longevity\n• Elite command center standards',
         elite:
-          '**ELITE COMMAND MATERIALS** 💎\n• Maximum performance specifications\n• Highest quality operational equipment\n• Built for commanding officer standards',
+          '**ELITE COMMAND MATERIALS** [DIAMOND]\n• Maximum performance specifications\n• Highest quality operational equipment\n• Built for commanding officer standards',
       },
 
       locationIntel: {
@@ -75,27 +75,27 @@ export class MilitaryConstructionAI {
       },
 
       veteranProtocols: {
-        army: '**HOOAH, SOLDIER!** 🇺🇸 Army strong - we build with the same precision you served with',
-        navy: '**ANCHORS AWEIGH!** ⚓ Navy precision meets construction excellence',
+        army: '**HOOAH, SOLDIER!** [FLAG] Army strong - we build with the same precision you served with',
+        navy: '**ANCHORS AWEIGH!** [ANCHOR] Navy precision meets construction excellence',
         marines:
-          '**SEMPER FI!** 🦅 Marine Corps standards - built tough, built right',
+          '**SEMPER FI!** [SPA] Marine Corps standards - built tough, built right',
         airforce:
-          '**AIM HIGH!** ✈️ Air Force precision engineering in every project',
+          '**AIM HIGH!** [FLIGHT] Air Force precision engineering in every project',
         coastguard:
-          '**SEMPER PARATUS!** 🚢 Coast Guard ready - always prepared for any challenge',
+          '**SEMPER PARATUS!** [DIRECTIONS_BOAT] Coast Guard ready - always prepared for any challenge',
         general:
-          '**THANK YOU FOR YOUR SERVICE!** 🎖️ Veteran recognition protocol active',
+          '**THANK YOU FOR YOUR SERVICE!** [MILITARY_TECH] Veteran recognition protocol active',
       },
 
       timelineStrategies: {
         urgent:
-          '**RAPID DEPLOYMENT MISSION** ⚡\n• Emergency response protocols\n• Accelerated tactical timeline\n• Priority resource allocation',
+          '**RAPID DEPLOYMENT MISSION** [BOLT]\n• Emergency response protocols\n• Accelerated tactical timeline\n• Priority resource allocation',
         standard:
-          '**STANDARD OPERATIONS TEMPO** 📅\n• Regular mission timeline\n• Balanced resource deployment\n• Quality assurance protocols',
+          '**STANDARD OPERATIONS TEMPO** [EVENT]\n• Regular mission timeline\n• Balanced resource deployment\n• Quality assurance protocols',
         extended:
-          '**STRATEGIC CAMPAIGN TIMELINE** 🎯\n• Extended operation planning\n• Comprehensive resource strategy\n• Maximum quality standards',
+          '**STRATEGIC CAMPAIGN TIMELINE** [GPS_FIXED]\n• Extended operation planning\n• Comprehensive resource strategy\n• Maximum quality standards',
         complex:
-          '**MAJOR INSTALLATION PROJECT** 🏛️\n• Large-scale operational planning\n• Multi-phase deployment strategy\n• Full command oversight',
+          '**MAJOR INSTALLATION PROJECT** [ACCOUNT_BALANCE]\n• Large-scale operational planning\n• Multi-phase deployment strategy\n• Full command oversight',
       },
     }
   }
@@ -243,9 +243,9 @@ export class MilitaryConstructionAI {
   }
 
   private getCostIntelligence(input: string, context?: any): string {
-    return `**COST RECONNAISSANCE MISSION** 💰
+    return `**COST RECONNAISSANCE MISSION** [ATTACH_MONEY]
 
-**TACTICAL ASSESSMENT INITIATED** 🎯
+**TACTICAL ASSESSMENT INITIATED** [GPS_FIXED]
 
 To provide precise **financial intelligence**, I need your operational parameters:
 
@@ -256,7 +256,7 @@ To provide precise **financial intelligence**, I need your operational parameter
 • **Mission Timeline** (when needed)
 • **Resource Requirements** (materials/features)
 
-**VETERAN STATUS CHECK:** 🎖️
+**VETERAN STATUS CHECK:** [MILITARY_TECH]
 Confirm veteran status for **12% combat discount** activation.
 
 **INTEL ADVANTAGE:** Our **AI estimation algorithms** factor in:
@@ -269,9 +269,9 @@ Confirm veteran status for **12% combat discount** activation.
   }
 
   private getMaterialIntelligence(input: string): string {
-    return `**MATERIAL SUPPLY INTELLIGENCE** 📦
+    return `**MATERIAL SUPPLY INTELLIGENCE** [INVENTORY_2]
 
-**SUPPLY CHAIN ANALYSIS COMPLETE** 📊
+**SUPPLY CHAIN ANALYSIS COMPLETE** [ANALYTICS]
 
 **TACTICAL MATERIAL GRADES:**
 
@@ -296,7 +296,7 @@ ${Object.entries(this.constructionIntel.materialSpecs)
     ).find(loc => input.includes(loc))
 
     if (detectedLocation) {
-      return `**LOCATION INTELLIGENCE REPORT** 📍
+      return `**LOCATION INTELLIGENCE REPORT** [LOCATION_ON]
 
 **TARGET ZONE:** ${this.constructionIntel.locationIntel[detectedLocation]}
 
@@ -315,7 +315,7 @@ ${Object.entries(this.constructionIntel.materialSpecs)
 **MISSION STATUS:** Ready to deploy tactical construction operations in your AO!`
     }
 
-    return `**AREA OF OPERATIONS INTELLIGENCE** 🗺️
+    return `**AREA OF OPERATIONS INTELLIGENCE** [MAP]
 
 **PACIFIC NORTHWEST COMMAND ZONES:**
 
@@ -329,7 +329,7 @@ ${Object.entries(this.constructionIntel.locationIntel)
   }
 
   private getTimelineIntelligence(input: string): string {
-    return `**MISSION TIMELINE ANALYSIS** ⏱️
+    return `**MISSION TIMELINE ANALYSIS** [TIMER]
 
 **OPERATIONAL TEMPO OPTIONS:**
 
@@ -359,7 +359,7 @@ ${Object.entries(this.constructionIntel.timelineStrategies)
 
     return `${greeting}
 
-**VETERAN TACTICAL ADVANTAGE PACKAGE** 🎖️
+**VETERAN TACTICAL ADVANTAGE PACKAGE** [MILITARY_TECH]
 
 **ACTIVE PROTOCOLS:**
 • **12% Combat Veteran Discount** - Automatic activation
@@ -385,7 +385,7 @@ ${Object.entries(this.constructionIntel.timelineStrategies)
     )
 
     if (projectType) {
-      return `**PROJECT INTELLIGENCE BRIEFING** 📋
+      return `**PROJECT INTELLIGENCE BRIEFING** [ASSIGNMENT]
 
 **MISSION TYPE:** ${this.constructionIntel.projectTypes[projectType]}
 
@@ -405,7 +405,7 @@ ${Object.entries(this.constructionIntel.timelineStrategies)
 **READY TO INITIATE MISSION PLANNING?**`
     }
 
-    return `**CONSTRUCTION MISSION TYPES** 🏗️
+    return `**CONSTRUCTION MISSION TYPES** [CONSTRUCTION]
 
 **AVAILABLE OPERATIONS:**
 
@@ -420,44 +420,44 @@ ${Object.entries(this.constructionIntel.projectTypes)
     if (context) {
       const { projectType, location, size, materials, isVeteran } = context
 
-      return `**ESTIMATOR TACTICAL GUIDANCE** 🎯
+      return `**ESTIMATOR TACTICAL GUIDANCE** [GPS_FIXED]
 
 **CURRENT MISSION STATUS ANALYSIS:**
 
 ${
   projectType
-    ? `✅ **Mission Type:** ${
+    ? `[CHECK_CIRCLE] **Mission Type:** ${
         this.constructionIntel.projectTypes[projectType] ||
         projectType.toUpperCase()
       }`
-    : '⚠️ **Mission Type:** AWAITING ORDERS - Select your construction objective'
+    : '[WARNING] **Mission Type:** AWAITING ORDERS - Select your construction objective'
 }
 
 ${
   location
-    ? `✅ **Area of Operations:** ${
+    ? `[CHECK_CIRCLE] **Area of Operations:** ${
         this.constructionIntel.locationIntel[location.toLowerCase()] ||
         location.toUpperCase()
       }`
-    : '⚠️ **Location Intel:** REQUIRED - Specify your operational zone'
+    : '[WARNING] **Location Intel:** REQUIRED - Specify your operational zone'
 }
 
 ${
   size
-    ? `✅ **Mission Scale:** ${size} square feet - Tactical scope confirmed`
-    : '⚠️ **Mission Scale:** PENDING - Define operational parameters'
+    ? `[CHECK_CIRCLE] **Mission Scale:** ${size} square feet - Tactical scope confirmed`
+    : '[WARNING] **Mission Scale:** PENDING - Define operational parameters'
 }
 
 ${
   materials && materials.length > 0
-    ? `✅ **Supply Chain:** ${materials.length} material(s) requisitioned`
-    : '⚠️ **Materials:** SUPPLY REQUEST NEEDED - Select tactical equipment'
+    ? `[CHECK_CIRCLE] **Supply Chain:** ${materials.length} material(s) requisitioned`
+    : '[WARNING] **Materials:** SUPPLY REQUEST NEEDED - Select tactical equipment'
 }
 
 ${
   isVeteran
-    ? '🎖️ **VETERAN STATUS CONFIRMED** - 12% combat discount activated'
-    : '🇺🇸 **Veteran Status:** Check if applicable for combat discount'
+    ? '[MILITARY_TECH] **VETERAN STATUS CONFIRMED** - 12% combat discount activated'
+    : '[FLAG] **Veteran Status:** Check if applicable for combat discount'
 }
 
 **NEXT TACTICAL OBJECTIVES:**
@@ -469,9 +469,9 @@ ${
 **ORDERS:** Continue with mission briefing to receive full tactical estimate!`
     }
 
-    return `**ESTIMATOR COMMAND CENTER** 📋
+    return `**ESTIMATOR COMMAND CENTER** [ASSIGNMENT]
 
-**TACTICAL ESTIMATION SYSTEM READY** 🎯
+**TACTICAL ESTIMATION SYSTEM READY** [GPS_FIXED]
 
 Our **AI estimation algorithms** provide:
 
@@ -489,22 +489,22 @@ Our **AI estimation algorithms** provide:
 5. **Timeline Planning** - Define operational schedule
 6. **Intelligence Report** - Receive precise cost reconnaissance
 
-**STANDING BY FOR MISSION PARAMETERS** 🎖️
+**STANDING BY FOR MISSION PARAMETERS** [MILITARY_TECH]
 
 **What construction objective requires immediate tactical assessment?**`
   }
 
   private getOperationalGuidance(): string {
-    return `**OPERATIONAL COMMAND CENTER** 🎯
+    return `**OPERATIONAL COMMAND CENTER** [GPS_FIXED]
 
 **AVAILABLE TACTICAL OPERATIONS:**
 
-🏗️ **PROJECT INTELLIGENCE** - Mission type analysis and planning
-💰 **COST RECONNAISSANCE** - Financial intelligence and estimates  
-📦 **SUPPLY CHAIN INTEL** - Material recommendations and specs
-📍 **LOCATION ANALYSIS** - Area of operations assessment
-⏱️ **TIMELINE STRATEGY** - Mission scheduling and planning
-🎖️ **VETERAN PROTOCOLS** - Special service member operations
+[CONSTRUCTION] **PROJECT INTELLIGENCE** - Mission type analysis and planning
+[ATTACH_MONEY] **COST RECONNAISSANCE** - Financial intelligence and estimates  
+[INVENTORY_2] **SUPPLY CHAIN INTEL** - Material recommendations and specs
+[LOCATION_ON] **LOCATION ANALYSIS** - Area of operations assessment
+[TIMER] **TIMELINE STRATEGY** - Mission scheduling and planning
+[MILITARY_TECH] **VETERAN PROTOCOLS** - Special service member operations
 
 **DEPLOYMENT COMMAND:**
 1. **State your mission objective**
@@ -518,26 +518,26 @@ Our **AI estimation algorithms** provide:
   }
 
   private getVeteranAccessibilityAdvice(input: string): string {
-    return `**VETERAN ACCESSIBILITY OPERATIONS** ♿
+    return `**VETERAN ACCESSIBILITY OPERATIONS** [ACCESSIBLE]
 
-**WOUNDED WARRIOR CONSTRUCTION PROTOCOLS** 🎖️
+**WOUNDED WARRIOR CONSTRUCTION PROTOCOLS** [MILITARY_TECH]
 
 **TACTICAL ACCESSIBILITY ENHANCEMENTS:**
 
-🏠 **RESIDENTIAL FORTIFICATIONS:**
+[HOME] **RESIDENTIAL FORTIFICATIONS:**
 • **Zero-step entries** - Tactical ingress/egress solutions
 • **Widened doorways** - Wheelchair deployment corridors (36" minimum)
 • **Bathroom modifications** - ADA-compliant tactical facilities
 • **Ramp installations** - Strategic access routes with proper grades
 • **Lever-style hardware** - Easy-operation tactical controls
 
-🔧 **SPECIALIZED EQUIPMENT:**
+[BUILD] **SPECIALIZED EQUIPMENT:**
 • **Roll-in showers** - Barrier-free sanitation facilities
 • **Grab bar installations** - Strategic support positioning
 • **Lower counter heights** - Accessible command surfaces
 • **Voice-activated systems** - Smart home tactical integration
 
-💰 **FUNDING INTELLIGENCE:**
+[ATTACH_MONEY] **FUNDING INTELLIGENCE:**
 • **VA Specially Adapted Housing (SAH) Grant** - Up to $109,986
 • **Special Housing Adaptation (SHA) Grant** - Up to $21,647  
 • **Temporary Residence Adaptation (TRA)** - Available for temporary housing
@@ -548,31 +548,31 @@ Our **AI estimation algorithms** provide:
   }
 
   private getVeteranEnergyAdvice(input: string): string {
-    return `**VETERAN ENERGY EFFICIENCY OPERATIONS** ⚡
+    return `**VETERAN ENERGY EFFICIENCY OPERATIONS** [BOLT]
 
-**TACTICAL COST-SAVINGS MISSION** 💡
+**TACTICAL COST-SAVINGS MISSION** [LIGHTBULB]
 
 **ENERGY WARFARE STRATEGIES:**
 
-🏠 **THERMAL FORTIFICATION:**
+[HOME] **THERMAL FORTIFICATION:**
 • **High-performance insulation** - R-49 attic, R-21 walls minimum
 • **Energy-efficient windows** - Double/triple-pane tactical glazing
 • **Air sealing protocols** - Eliminate energy infiltration points
 • **Smart thermostats** - Tactical climate control systems
 
-⚡ **POWER GENERATION OPERATIONS:**
+[BOLT] **POWER GENERATION OPERATIONS:**
 • **Solar panel installations** - Energy independence missions
 • **Battery backup systems** - Grid-down operational readiness
 • **LED lighting conversion** - 75% reduction in power consumption
 • **Energy Star appliances** - Maximum operational efficiency
 
-💰 **VETERAN ENERGY BENEFITS:**
+[ATTACH_MONEY] **VETERAN ENERGY BENEFITS:**
 • **Federal Solar Tax Credit** - 30% of installation costs
 • **State energy rebates** - Additional tactical savings
 • **Utility company incentives** - Local energy warfare support
 • **VA Energy Efficient Mortgage** - Financing for green upgrades
 
-📊 **OPERATIONAL SAVINGS:**
+[ANALYTICS] **OPERATIONAL SAVINGS:**
 • **Average 30-50% utility cost reduction**
 • **Increased property value** by $15,000-$25,000
 • **Long-term mission sustainability**
@@ -583,32 +583,32 @@ Our **AI estimation algorithms** provide:
   }
 
   private getVeteranSecurityAdvice(input: string): string {
-    return `**VETERAN SECURITY OPERATIONS** 🛡️
+    return `**VETERAN SECURITY OPERATIONS** [SECURITY]
 
-**TACTICAL PERIMETER DEFENSE PLANNING** 🔒
+**TACTICAL PERIMETER DEFENSE PLANNING** [LOCK]
 
 **HOME SECURITY FORTIFICATION:**
 
-🏠 **PERIMETER DEFENSE:**
+[HOME] **PERIMETER DEFENSE:**
 • **Security camera systems** - 360-degree tactical surveillance
 • **Motion-activated lighting** - Automatic threat illumination
 • **Reinforced entry points** - Steel doors with deadbolt systems
 • **Window security film** - Anti-intrusion tactical glazing
 • **Smart doorbell systems** - Real-time visitor intelligence
 
-🔧 **ADVANCED TACTICAL SYSTEMS:**
+[BUILD] **ADVANCED TACTICAL SYSTEMS:**
 • **Alarm system integration** - Multi-zone security protocols
 • **Safe room construction** - Secure tactical retreat spaces
 • **Garage security upgrades** - Vehicle protection operations
 • **Landscape defensive positioning** - Strategic vegetation placement
 
-📱 **SMART HOME SECURITY:**
+[SMARTPHONE] **SMART HOME SECURITY:**
 • **Mobile app control** - Remote tactical command
 • **Automated security routines** - Scheduled defensive protocols
 • **Integration with emergency services** - Rapid response connectivity
 • **Veteran-friendly monitoring** - PTSD-aware security solutions
 
-💰 **VETERAN SECURITY BENEFITS:**
+[ATTACH_MONEY] **VETERAN SECURITY BENEFITS:**
 • **Home security tax deductions** - Business use qualifications
 • **Insurance premium reductions** - Up to 20% tactical savings
 • **Veteran installer networks** - Brother/sister contractor preference
@@ -623,7 +623,7 @@ Our **AI estimation algorithms** provide:
   }
 
   private getDefaultResponse(): string {
-    return `**MESSAGE RECEIVED AND ACKNOWLEDGED** 📡
+    return `**MESSAGE RECEIVED AND ACKNOWLEDGED** [SIGNAL_CELLULAR_ALT]
 
 **PROCESSING TACTICAL INTELLIGENCE...**
 
@@ -633,12 +633,12 @@ Your construction mission parameters are being analyzed through our **military-g
 
 **STRATEGIC ADVANTAGE:** The more mission parameters you provide, the better I can deploy appropriate **tactical solutions**!
 
-    **STANDING BY FOR FURTHER ORDERS** 🎖️`
+    **STANDING BY FOR FURTHER ORDERS** [MILITARY_TECH]`
   }
 
   private getPageSpecificGuidance(currentPage: string, input: string): string {
     if (currentPage?.includes('/estimator')) {
-      return `**ESTIMATOR PAGE TACTICAL BRIEFING** 🎯
+      return `**ESTIMATOR PAGE TACTICAL BRIEFING** [GPS_FIXED]
 
 **CURRENT OPERATIONAL ZONE:** AI Construction Estimator Command Center
 
@@ -655,16 +655,16 @@ Your construction mission parameters are being analyzed through our **military-g
     }
 
     if (currentPage === '/') {
-      return `**HOME BASE INTELLIGENCE BRIEFING** 🏠
+      return `**HOME BASE INTELLIGENCE BRIEFING** [HOME]
 
 **CURRENT OPERATIONAL ZONE:** MH Construction Command Headquarters
 
 **AVAILABLE TACTICAL OPERATIONS:**
-• **🎯 AI Estimator** - Navigate to /estimator for instant cost intelligence
-• **📋 Services Intelligence** - Review our tactical capabilities
-• **🏗️ Project Gallery** - Inspect completed military-grade operations
-• **👥 Team Roster** - Meet your veteran construction officers
-• **📞 Mission Planning** - Book tactical consultation
+• **[GPS_FIXED] AI Estimator** - Navigate to /estimator for instant cost intelligence
+• **[ASSIGNMENT] Services Intelligence** - Review our tactical capabilities
+• **[CONSTRUCTION] Project Gallery** - Inspect completed military-grade operations
+• **[GROUPS] Team Roster** - Meet your veteran construction officers
+• **[PHONE] Mission Planning** - Book tactical consultation
 
 **STRATEGIC ASSETS:**
 • **Veteran-owned excellence** with military precision
@@ -676,7 +676,7 @@ Your construction mission parameters are being analyzed through our **military-g
     }
 
     if (currentPage?.includes('/services')) {
-      return `**SERVICES TACTICAL CAPABILITIES** 🔧
+      return `**SERVICES TACTICAL CAPABILITIES** [BUILD]
 
 **CURRENT OPERATIONAL ZONE:** Service Capabilities Command Center
 
@@ -697,7 +697,7 @@ Your construction mission parameters are being analyzed through our **military-g
     }
 
     if (currentPage?.includes('/projects')) {
-      return `**PROJECT GALLERY INTELLIGENCE** 📸
+      return `**PROJECT GALLERY INTELLIGENCE** [PHOTO_CAMERA]
 
 **CURRENT OPERATIONAL ZONE:** Completed Missions Archive
 
@@ -717,7 +717,7 @@ Your construction mission parameters are being analyzed through our **military-g
     }
 
     if (currentPage?.includes('/about')) {
-      return `**ABOUT US INTELLIGENCE DOSSIER** 📋
+      return `**ABOUT US INTELLIGENCE DOSSIER** [ASSIGNMENT]
 
 **CURRENT OPERATIONAL ZONE:** Company Intelligence Archives
 
@@ -737,7 +737,7 @@ Your construction mission parameters are being analyzed through our **military-g
     }
 
     if (currentPage?.includes('/contact')) {
-      return `**CONTACT OPERATIONS CENTER** 📞
+      return `**CONTACT OPERATIONS CENTER** [PHONE]
 
 **CURRENT OPERATIONAL ZONE:** Communication Command Hub
 
@@ -756,17 +756,17 @@ Your construction mission parameters are being analyzed through our **military-g
 **STANDING BY** for your communication preferences and mission requirements!`
     }
 
-    return `**NAVIGATION INTELLIGENCE** 🗺️
+    return `**NAVIGATION INTELLIGENCE** [MAP]
 
 **CURRENT POSITION:** ${currentPage || 'Unknown operational zone'}
 
 **AVAILABLE TACTICAL ZONES:**
-• **🏠 Home Base** - Main command center
-• **🎯 AI Estimator** - Cost intelligence facility
-• **🔧 Services** - Capability assessment center
-• **🏗️ Projects** - Completed missions gallery
-• **👥 About** - Company intelligence dossier
-• **📞 Contact** - Communication command hub
+• **[HOME] Home Base** - Main command center
+• **[GPS_FIXED] AI Estimator** - Cost intelligence facility
+• **[BUILD] Services** - Capability assessment center
+• **[CONSTRUCTION] Projects** - Completed missions gallery
+• **[GROUPS] About** - Company intelligence dossier
+• **[PHONE] Contact** - Communication command hub
 
 **ORDERS:** Specify which operational zone requires immediate deployment!`
   }
@@ -787,7 +787,7 @@ Your construction mission parameters are being analyzed through our **military-g
       const { name, email, phone, projectType, location, message } =
         context.formData
 
-      return `**CONTACT FORM TACTICAL ASSISTANCE** 📋
+      return `**CONTACT FORM TACTICAL ASSISTANCE** [ASSIGNMENT]
 
 **MISSION READINESS ASSESSMENT:** ${formAnalysis.completionRate}% Complete (${
         formAnalysis.quality
@@ -797,50 +797,50 @@ Your construction mission parameters are being analyzed through our **military-g
 
 ${
   name
-    ? `✅ **Personnel ID:** ${name} - Identity confirmed`
-    : '⚠️ **Personnel ID:** REQUIRED - Enter your full name for mission briefing'
+    ? `[CHECK_CIRCLE] **Personnel ID:** ${name} - Identity confirmed`
+    : '[WARNING] **Personnel ID:** REQUIRED - Enter your full name for mission briefing'
 }
 
 ${
   email
-    ? `✅ **Communication Channel:** ${email} - ${
+    ? `[CHECK_CIRCLE] **Communication Channel:** ${email} - ${
         this.validateEmail(email)
           ? 'Secure email established'
-          : '🔴 INVALID EMAIL FORMAT - Please verify'
+          : '[ERROR] INVALID EMAIL FORMAT - Please verify'
       }`
-    : '⚠️ **Communication Channel:** REQUIRED - Provide tactical email for mission updates'
+    : '[WARNING] **Communication Channel:** REQUIRED - Provide tactical email for mission updates'
 }
 
 ${
   phone
-    ? `✅ **Direct Contact Line:** ${phone} - ${
+    ? `[CHECK_CIRCLE] **Direct Contact Line:** ${phone} - ${
         this.validatePhone(phone)
           ? 'Emergency communication ready'
-          : '🔴 INVALID PHONE FORMAT - Use (XXX) XXX-XXXX'
+          : '[ERROR] INVALID PHONE FORMAT - Use (XXX) XXX-XXXX'
       }`
-    : '⚠️ **Direct Contact Line:** RECOMMENDED - Phone for urgent mission coordination'
+    : '[WARNING] **Direct Contact Line:** RECOMMENDED - Phone for urgent mission coordination'
 }
 
 ${
   projectType
-    ? `✅ **Mission Type:** ${projectType} - Objective classified`
-    : '⚠️ **Mission Type:** REQUIRED - Select construction mission category'
+    ? `[CHECK_CIRCLE] **Mission Type:** ${projectType} - Objective classified`
+    : '[WARNING] **Mission Type:** REQUIRED - Select construction mission category'
 }
 
 ${
   location
-    ? `✅ **Area of Operations:** ${location} - Tactical zone identified`
-    : '⚠️ **Area of Operations:** REQUIRED - Specify project location for deployment planning'
+    ? `[CHECK_CIRCLE] **Area of Operations:** ${location} - Tactical zone identified`
+    : '[WARNING] **Area of Operations:** REQUIRED - Specify project location for deployment planning'
 }
 
 ${
   message
-    ? `✅ **Mission Brief:** ${message.length} characters - ${
+    ? `[CHECK_CIRCLE] **Mission Brief:** ${message.length} characters - ${
         message.length > 50
           ? 'Detailed intel received'
           : 'Brief message received'
       }`
-    : '⚠️ **Mission Brief:** RECOMMENDED - Provide detailed mission objectives and requirements'
+    : '[WARNING] **Mission Brief:** RECOMMENDED - Provide detailed mission objectives and requirements'
 }
 
 ${smartSuggestions}
@@ -856,9 +856,9 @@ ${validationGuidance}
 **ORDERS:** Complete all required fields to initiate mission communication protocols!`
     }
 
-    return `**CONTACT FORM COMMAND CENTER** 📞
+    return `**CONTACT FORM COMMAND CENTER** [PHONE]
 
-**MISSION COMMUNICATION PROTOCOLS** 📋
+**MISSION COMMUNICATION PROTOCOLS** [ASSIGNMENT]
 
 Ready to establish **direct communication** with MH Construction command! Our **contact form** is your **primary communication channel** for:
 
@@ -882,7 +882,7 @@ Ready to establish **direct communication** with MH Construction command! Our **
 
 **TACTICAL ADVANTAGE:** Provide complete mission parameters for optimal resource deployment and strategic planning.
 
-**READY TO RECEIVE YOUR MISSION BRIEF!** 🎖️`
+**READY TO RECEIVE YOUR MISSION BRIEF!** [MILITARY_TECH]`
   }
 
   /**
@@ -911,7 +911,7 @@ Ready to establish **direct communication** with MH Construction command! Our **
         location,
       } = context.formData
 
-      return `**BOOKING FORM TACTICAL ASSISTANCE** 📅
+      return `**BOOKING FORM TACTICAL ASSISTANCE** [EVENT]
 
 **CONSULTATION READINESS:** ${
         bookingAnalysis.completionRate
@@ -921,68 +921,68 @@ Ready to establish **direct communication** with MH Construction command! Our **
 
 ${
   clientName
-    ? `✅ **Command Personnel:** ${clientName} - Identity confirmed`
-    : '⚠️ **Command Personnel:** REQUIRED - Enter full name for consultation briefing'
+    ? `[CHECK_CIRCLE] **Command Personnel:** ${clientName} - Identity confirmed`
+    : '[WARNING] **Command Personnel:** REQUIRED - Enter full name for consultation briefing'
 }
 
 ${
   email
-    ? `✅ **Secure Communications:** ${email} - ${
+    ? `[CHECK_CIRCLE] **Secure Communications:** ${email} - ${
         this.validateEmail(email)
           ? 'Channel established'
-          : '🔴 INVALID EMAIL - Please verify format'
+          : '[ERROR] INVALID EMAIL - Please verify format'
       }`
-    : '⚠️ **Secure Communications:** REQUIRED - Email for mission confirmation'
+    : '[WARNING] **Secure Communications:** REQUIRED - Email for mission confirmation'
 }
 
 ${
   phone
-    ? `✅ **Direct Command Line:** ${phone} - ${
+    ? `[CHECK_CIRCLE] **Direct Command Line:** ${phone} - ${
         this.validatePhone(phone)
           ? 'Ready for tactical coordination'
-          : '🔴 INVALID PHONE - Use (XXX) XXX-XXXX format'
+          : '[ERROR] INVALID PHONE - Use (XXX) XXX-XXXX format'
       }`
-    : '⚠️ **Direct Command Line:** RECOMMENDED - Phone for consultation coordination'
+    : '[WARNING] **Direct Command Line:** RECOMMENDED - Phone for consultation coordination'
 }
 
 ${
   projectType
-    ? `✅ **Mission Category:** ${projectType} - Objective classified`
-    : '⚠️ **Mission Category:** REQUIRED - Select construction mission type'
+    ? `[CHECK_CIRCLE] **Mission Category:** ${projectType} - Objective classified`
+    : '[WARNING] **Mission Category:** REQUIRED - Select construction mission type'
 }
 
 ${
   selectedDate
-    ? `✅ **Operation Date:** ${selectedDate} - Mission scheduled`
-    : '⚠️ **Operation Date:** REQUIRED - Select consultation deployment date'
+    ? `[CHECK_CIRCLE] **Operation Date:** ${selectedDate} - Mission scheduled`
+    : '[WARNING] **Operation Date:** REQUIRED - Select consultation deployment date'
 }
 
 ${
   selectedTime
-    ? `✅ **Deployment Time:** ${selectedTime} - Tactical window secured`
-    : '⚠️ **Deployment Time:** REQUIRED - Choose optimal mission time'
+    ? `[CHECK_CIRCLE] **Deployment Time:** ${selectedTime} - Tactical window secured`
+    : '[WARNING] **Deployment Time:** REQUIRED - Choose optimal mission time'
 }
 
 ${
   budget
-    ? `✅ **Resource Allocation:** ${budget} - Budget parameters set`
-    : '⚠️ **Resource Allocation:** RECOMMENDED - Specify budget for strategic planning'
+    ? `[CHECK_CIRCLE] **Resource Allocation:** ${budget} - Budget parameters set`
+    : '[WARNING] **Resource Allocation:** RECOMMENDED - Specify budget for strategic planning'
 }
 
 ${
   location
-    ? `✅ **Area of Operations:** ${location} - Zone identified`
-    : '⚠️ **Area of Operations:** RECOMMENDED - Project location for logistics'
+    ? `[CHECK_CIRCLE] **Area of Operations:** ${location} - Zone identified`
+    : '[WARNING] **Area of Operations:** RECOMMENDED - Project location for logistics'
 }
 
 ${
   projectDescription
-    ? `✅ **Mission Brief:** ${projectDescription.length} characters - ${
+    ? `[CHECK_CIRCLE] **Mission Brief:** ${projectDescription.length} characters - ${
         projectDescription.length > 100
           ? 'Detailed intel received'
           : 'Basic intel logged'
       }`
-    : '⚠️ **Mission Brief:** RECOMMENDED - Project details for precise consultation'
+    : '[WARNING] **Mission Brief:** RECOMMENDED - Project details for precise consultation'
 }
 
 ${timeSlotSuggestions}
@@ -998,9 +998,9 @@ ${bookingValidation}
 **ORDERS:** Complete all deployment parameters for optimal consultation mission success!`
     }
 
-    return `**CONSULTATION BOOKING COMMAND** 📅
+    return `**CONSULTATION BOOKING COMMAND** [EVENT]
 
-**TACTICAL CONSULTATION PROTOCOLS** 🎯
+**TACTICAL CONSULTATION PROTOCOLS** [GPS_FIXED]
 
 Ready to schedule **direct tactical consultation** with MH Construction command! Our **booking system** deploys expert assessment for:
 
@@ -1025,7 +1025,7 @@ Ready to schedule **direct tactical consultation** with MH Construction command!
 
 **TACTICAL ADVANTAGE:** Schedule strategic consultation for professional project assessment and mission-critical planning.
 
-**READY FOR CONSULTATION DEPLOYMENT!** 🎖️`
+**READY FOR CONSULTATION DEPLOYMENT!** [MILITARY_TECH]`
   }
 
   /**
@@ -1037,11 +1037,11 @@ Ready to schedule **direct tactical consultation** with MH Construction command!
       context
     )
 
-    return `**LEAD QUALIFICATION INTELLIGENCE COMMAND** 🎯
+    return `**LEAD QUALIFICATION INTELLIGENCE COMMAND** [GPS_FIXED]
 
 **COMPREHENSIVE TACTICAL ASSESSMENT:**
 
-🔍 **MISSION INTELLIGENCE SUMMARY:**
+[SEARCH] **MISSION INTELLIGENCE SUMMARY:**
 • **Lead Score:** ${leadIntelligence.totalScore}/100 (${leadIntelligence.scoreCategory})
 • **Project Type:** ${leadIntelligence.projectType}
 • **Urgency Level:** ${leadIntelligence.urgencyLevel}
@@ -1050,22 +1050,22 @@ Ready to schedule **direct tactical consultation** with MH Construction command!
 • **Contact Quality:** ${leadIntelligence.contactQuality}
 • **Timeline Status:** ${leadIntelligence.timelineStatus}
 
-🎖️ **ADVANCED LEAD CLASSIFICATION:**
+[MILITARY_TECH] **ADVANCED LEAD CLASSIFICATION:**
 
 ${leadIntelligence.classification}
 
-📊 **SCORING BREAKDOWN:**
+[ANALYTICS] **SCORING BREAKDOWN:**
 ${leadIntelligence.scoreBreakdown}
 
-🚀 **DEPLOYMENT RECOMMENDATIONS:**
+[ROCKET_LAUNCH] **DEPLOYMENT RECOMMENDATIONS:**
 ${leadIntelligence.actionPlan}
 
-🔄 **FOLLOW-UP PROTOCOLS:**
+[REFRESH] **FOLLOW-UP PROTOCOLS:**
 ${leadIntelligence.followUpStrategy}
 
 **STRATEGIC INTELLIGENCE:** Advanced qualification engine enables precision targeting and optimal resource deployment for maximum mission success rate!
 
-**COMMAND READY FOR TACTICAL LEAD PROCESSING!** 🎖️`
+**COMMAND READY FOR TACTICAL LEAD PROCESSING!** [MILITARY_TECH]`
   }
 
   /**
@@ -1248,11 +1248,11 @@ ${leadIntelligence.followUpStrategy}
   }
 
   private categorizeLeadScore(score: number): string {
-    if (score >= 80) return '🔥 **PRIME TARGET** - Maximum Priority'
-    if (score >= 65) return '🎯 **HIGH VALUE** - Priority Engagement'
-    if (score >= 50) return '🌡️ **WARM PROSPECT** - Active Follow-up'
-    if (score >= 35) return '❄️ **COLD LEAD** - Nurturing Required'
-    return '📋 **INFORMATION SEEKER** - Educational Phase'
+    if (score >= 80) return '[WHATSHOT] **PRIME TARGET** - Maximum Priority'
+    if (score >= 65) return '[GPS_FIXED] **HIGH VALUE** - Priority Engagement'
+    if (score >= 50) return '[THERMOSTAT] **WARM PROSPECT** - Active Follow-up'
+    if (score >= 35) return '[AC_UNIT] **COLD LEAD** - Nurturing Required'
+    return '[ASSIGNMENT] **INFORMATION SEEKER** - Educational Phase'
   }
 
   private assessContactQuality(context?: any): string {
@@ -1260,23 +1260,23 @@ ${leadIntelligence.followUpStrategy}
 
     const data = context.formData
     if (data.name && data.email && data.phone && data.location) {
-      return '✅ **COMPLETE** - Full tactical contact established'
+      return '[CHECK_CIRCLE] **COMPLETE** - Full tactical contact established'
     } else if (data.name && data.email) {
-      return '⚠️ **PARTIAL** - Basic communication channels secured'
+      return '[WARNING] **PARTIAL** - Basic communication channels secured'
     } else {
-      return '🔴 **INCOMPLETE** - Contact intelligence insufficient'
+      return '[ERROR] **INCOMPLETE** - Contact intelligence insufficient'
     }
   }
 
   private assessTimelineStatus(keywords: string): string {
     if (keywords.includes('emergency') || keywords.includes('urgent')) {
-      return '🔴 **IMMEDIATE** - Emergency deployment required'
+      return '[ERROR] **IMMEDIATE** - Emergency deployment required'
     } else if (keywords.includes('soon') || keywords.includes('month')) {
-      return '🟡 **NEAR-TERM** - Active project timeline'
+      return '[PRIORITY_HIGH] **NEAR-TERM** - Active project timeline'
     } else if (keywords.includes('year') || keywords.includes('planning')) {
-      return '🟢 **LONG-TERM** - Strategic planning phase'
+      return '[CHECK_CIRCLE] **LONG-TERM** - Strategic planning phase'
     }
-    return '❓ **UNDEFINED** - Timeline intelligence needed'
+    return '[HELP] **UNDEFINED** - Timeline intelligence needed'
   }
 
   private generateAdvancedLeadClassification(
@@ -1285,35 +1285,35 @@ ${leadIntelligence.followUpStrategy}
     keywords: string
   ): string {
     if (score >= 80) {
-      return `🔥 **ALPHA PRIORITY LEAD** - Elite Deployment Required:
+      return `[WHATSHOT] **ALPHA PRIORITY LEAD** - Elite Deployment Required:
 • **Immediate tactical response** within 2 hours
 • **Senior project manager** assignment mandatory
 • **Veteran fast-track** protocols if applicable
 • **Full resource mobilization** authorized
 • **Conversion probability:** 85-95%`
     } else if (score >= 65) {
-      return `🎯 **BRAVO HIGH-VALUE TARGET** - Priority Engagement:
+      return `[GPS_FIXED] **BRAVO HIGH-VALUE TARGET** - Priority Engagement:
 • **Response window:** 4-6 hours maximum
 • **Experienced team lead** assignment
 • **Comprehensive assessment** deployment
 • **Resource allocation:** High priority
 • **Conversion probability:** 70-85%`
     } else if (score >= 50) {
-      return `🌡️ **CHARLIE WARM PROSPECT** - Strategic Follow-up:
+      return `[THERMOSTAT] **CHARLIE WARM PROSPECT** - Strategic Follow-up:
 • **Response timeline:** 24-48 hours
 • **Standard consultation** protocols
 • **Information gathering** mission
 • **Resource allocation:** Standard
 • **Conversion probability:** 45-70%`
     } else if (score >= 35) {
-      return `❄️ **DELTA COLD CONTACT** - Nurturing Campaign:
+      return `[AC_UNIT] **DELTA COLD CONTACT** - Nurturing Campaign:
 • **Educational outreach** strategy
 • **Long-term relationship** building
 • **Information specialist** assignment
 • **Resource allocation:** Minimal
 • **Conversion probability:** 20-45%`
     }
-    return `📋 **ECHO INFORMATION SEEKER** - Educational Support:
+    return `[ASSIGNMENT] **ECHO INFORMATION SEEKER** - Educational Support:
 • **Informational resources** deployment
 • **General guidance** provision
 • **Future opportunity** tracking
@@ -1337,21 +1337,21 @@ ${leadIntelligence.followUpStrategy}
     keywords: string
   ): string {
     if (score >= 80) {
-      return `🚀 **IMMEDIATE ACTION PROTOCOL:**
+      return `[ROCKET_LAUNCH] **IMMEDIATE ACTION PROTOCOL:**
 • **Step 1:** Senior PM contact within 2 hours
 • **Step 2:** Same-day consultation scheduling
 • **Step 3:** Comprehensive site assessment deployment
 • **Step 4:** Detailed proposal delivery within 24 hours
 • **Step 5:** Contract negotiation initialization`
     } else if (score >= 65) {
-      return `📞 **HIGH-PRIORITY ENGAGEMENT:**
+      return `[PHONE] **HIGH-PRIORITY ENGAGEMENT:**
 • **Step 1:** Team lead contact within 6 hours
 • **Step 2:** Consultation scheduling within 48 hours
 • **Step 3:** Professional assessment deployment
 • **Step 4:** Detailed estimate delivery
 • **Step 5:** Follow-up and relationship building`
     } else if (score >= 50) {
-      return `📋 **STANDARD FOLLOW-UP PROTOCOL:**
+      return `[ASSIGNMENT] **STANDARD FOLLOW-UP PROTOCOL:**
 • **Step 1:** Initial contact within 24 hours
 • **Step 2:** Information gathering and qualification
 • **Step 3:** Consultation offer deployment
@@ -1372,21 +1372,21 @@ ${leadIntelligence.followUpStrategy}
     keywords: string
   ): string {
     if (score >= 80) {
-      return `🎖️ **ELITE FOLLOW-UP PROTOCOLS:**
+      return `[MILITARY_TECH] **ELITE FOLLOW-UP PROTOCOLS:**
 • **Immediate:** 2-hour response guarantee
 • **Day 1:** Consultation scheduling confirmation
 • **Day 2:** Pre-assessment intelligence gathering
 • **Week 1:** Detailed proposal and timeline
 • **Ongoing:** Weekly project status updates`
     } else if (score >= 65) {
-      return `🎯 **PRIORITY FOLLOW-UP SEQUENCE:**
+      return `[GPS_FIXED] **PRIORITY FOLLOW-UP SEQUENCE:**
 • **Immediate:** 6-hour response commitment
 • **Day 1:** Project discussion and qualification
 • **Day 3:** Consultation scheduling
 • **Week 1:** Comprehensive estimate delivery
 • **Ongoing:** Bi-weekly relationship maintenance`
     } else if (score >= 50) {
-      return `📅 **STANDARD FOLLOW-UP CADENCE:**
+      return `[EVENT] **STANDARD FOLLOW-UP CADENCE:**
 • **Day 1:** Initial contact and information
 • **Week 1:** Project qualification discussion
 • **Week 2:** Educational resource sharing
@@ -1492,19 +1492,19 @@ ${leadIntelligence.followUpStrategy}
       const keywords = input.toLowerCase()
       if (keywords.includes('kitchen'))
         suggestions.push(
-          '🎯 **SUGGESTION:** Consider "Kitchen Remodel" for mission type'
+          '[GPS_FIXED] **SUGGESTION:** Consider "Kitchen Remodel" for mission type'
         )
       if (keywords.includes('bathroom'))
         suggestions.push(
-          '🎯 **SUGGESTION:** Consider "Bathroom Remodel" for mission type'
+          '[GPS_FIXED] **SUGGESTION:** Consider "Bathroom Remodel" for mission type'
         )
       if (keywords.includes('addition') || keywords.includes('expand'))
         suggestions.push(
-          '🎯 **SUGGESTION:** Consider "Home Addition" for mission type'
+          '[GPS_FIXED] **SUGGESTION:** Consider "Home Addition" for mission type'
         )
       if (keywords.includes('commercial') || keywords.includes('business'))
         suggestions.push(
-          '🎯 **SUGGESTION:** Consider "Commercial Building" for mission type'
+          '[GPS_FIXED] **SUGGESTION:** Consider "Commercial Building" for mission type'
         )
     }
 
@@ -1513,15 +1513,15 @@ ${leadIntelligence.followUpStrategy}
       const locationKeywords = input.toLowerCase()
       if (locationKeywords.includes('seattle'))
         suggestions.push(
-          '📍 **LOCATION INTEL:** Seattle area - Premium pricing zone'
+          '[LOCATION_ON] **LOCATION INTEL:** Seattle area - Premium pricing zone'
         )
       if (locationKeywords.includes('spokane'))
         suggestions.push(
-          '📍 **LOCATION INTEL:** Spokane area - Standard operational zone'
+          '[LOCATION_ON] **LOCATION INTEL:** Spokane area - Standard operational zone'
         )
       if (locationKeywords.includes('tacoma'))
         suggestions.push(
-          '📍 **LOCATION INTEL:** Tacoma area - Active construction zone'
+          '[LOCATION_ON] **LOCATION INTEL:** Tacoma area - Active construction zone'
         )
     }
 
@@ -1532,7 +1532,7 @@ ${leadIntelligence.followUpStrategy}
       input.toLowerCase().includes('service')
     ) {
       suggestions.push(
-        '🎖️ **VETERAN DETECTED:** Mention your service branch for 12% combat discount!'
+        '[MILITARY_TECH] **VETERAN DETECTED:** Mention your service branch for 12% combat discount!'
       )
     }
 
@@ -1543,12 +1543,12 @@ ${leadIntelligence.followUpStrategy}
       input.toLowerCase().includes('price')
     ) {
       suggestions.push(
-        '💰 **BUDGET INTEL:** Include budget range in message for tactical resource planning'
+        '[ATTACH_MONEY] **BUDGET INTEL:** Include budget range in message for tactical resource planning'
       )
     }
 
     return suggestions.length > 0
-      ? `\n**🎯 TACTICAL SUGGESTIONS:**\n${suggestions.join('\n')}\n`
+      ? `\n**[GPS_FIXED] TACTICAL SUGGESTIONS:**\n${suggestions.join('\n')}\n`
       : ''
   }
 
@@ -1560,10 +1560,10 @@ ${leadIntelligence.followUpStrategy}
     // Morning vs afternoon recommendations
     if (!bookingData.selectedTime) {
       suggestions.push(
-        '⏰ **OPTIMAL TIMES:** Morning slots (8-11 AM) for outdoor projects'
+        '[ALARM] **OPTIMAL TIMES:** Morning slots (8-11 AM) for outdoor projects'
       )
       suggestions.push(
-        '⏰ **STRATEGIC PLANNING:** Afternoon slots (1-4 PM) for interior consultations'
+        '[ALARM] **STRATEGIC PLANNING:** Afternoon slots (1-4 PM) for interior consultations'
       )
     }
 
@@ -1573,12 +1573,12 @@ ${leadIntelligence.followUpStrategy}
       const tomorrow = new Date(today)
       tomorrow.setDate(tomorrow.getDate() + 1)
       suggestions.push(
-        `📅 **EARLIEST DEPLOYMENT:** ${tomorrow.toLocaleDateString()} or later recommended`
+        `[EVENT] **EARLIEST DEPLOYMENT:** ${tomorrow.toLocaleDateString()} or later recommended`
       )
     }
 
     return suggestions.length > 0
-      ? `\n**📅 SCHEDULING INTEL:**\n${suggestions.join('\n')}\n`
+      ? `\n**[EVENT] SCHEDULING INTEL:**\n${suggestions.join('\n')}\n`
       : ''
   }
 
@@ -1590,14 +1590,14 @@ ${leadIntelligence.followUpStrategy}
     // Email validation guidance
     if (formData.email && !this.validateEmail(formData.email)) {
       issues.push(
-        '📧 **EMAIL FORMAT:** Use standard format (example@domain.com)'
+        '[EMAIL] **EMAIL FORMAT:** Use standard format (example@domain.com)'
       )
     }
 
     // Phone validation guidance
     if (formData.phone && !this.validatePhone(formData.phone)) {
       issues.push(
-        '📞 **PHONE FORMAT:** Use (XXX) XXX-XXXX format for optimal communication'
+        '[PHONE] **PHONE FORMAT:** Use (XXX) XXX-XXXX format for optimal communication'
       )
     }
 
@@ -1605,17 +1605,17 @@ ${leadIntelligence.followUpStrategy}
     if (formData.message) {
       if (formData.message.length < 20) {
         issues.push(
-          '📝 **MESSAGE BRIEF:** Consider adding more project details for better tactical planning'
+          '[EDIT_NOTE] **MESSAGE BRIEF:** Consider adding more project details for better tactical planning'
         )
       } else if (formData.message.length > 500) {
         issues.push(
-          '📝 **MESSAGE LENGTH:** Consider summarizing key points for efficient processing'
+          '[EDIT_NOTE] **MESSAGE LENGTH:** Consider summarizing key points for efficient processing'
         )
       }
     }
 
     return issues.length > 0
-      ? `\n**⚠️ OPTIMIZATION RECOMMENDATIONS:**\n${issues.join('\n')}\n`
+      ? `\n**[WARNING] OPTIMIZATION RECOMMENDATIONS:**\n${issues.join('\n')}\n`
       : ''
   }
 
@@ -1627,14 +1627,14 @@ ${leadIntelligence.followUpStrategy}
     // Email validation
     if (bookingData.email && !this.validateEmail(bookingData.email)) {
       issues.push(
-        '📧 **EMAIL FORMAT:** Use standard format (example@domain.com)'
+        '[EMAIL] **EMAIL FORMAT:** Use standard format (example@domain.com)'
       )
     }
 
     // Phone validation
     if (bookingData.phone && !this.validatePhone(bookingData.phone)) {
       issues.push(
-        '📞 **PHONE FORMAT:** Use (XXX) XXX-XXXX format for coordination'
+        '[PHONE] **PHONE FORMAT:** Use (XXX) XXX-XXXX format for coordination'
       )
     }
 
@@ -1642,7 +1642,7 @@ ${leadIntelligence.followUpStrategy}
     if (bookingData.projectDescription) {
       if (bookingData.projectDescription.length < 30) {
         issues.push(
-          '📝 **PROJECT BRIEF:** Add more details for better consultation preparation'
+          '[EDIT_NOTE] **PROJECT BRIEF:** Add more details for better consultation preparation'
         )
       }
     }
@@ -1653,13 +1653,13 @@ ${leadIntelligence.followUpStrategy}
       const today = new Date()
       if (selectedDate <= today) {
         issues.push(
-          '📅 **DATE VALIDATION:** Select future date for consultation scheduling'
+          '[EVENT] **DATE VALIDATION:** Select future date for consultation scheduling'
         )
       }
     }
 
     return issues.length > 0
-      ? `\n**⚠️ SCHEDULING OPTIMIZATION:**\n${issues.join('\n')}\n`
+      ? `\n**[WARNING] SCHEDULING OPTIMIZATION:**\n${issues.join('\n')}\n`
       : ''
   }
 
@@ -1684,23 +1684,23 @@ ${leadIntelligence.followUpStrategy}
       keywords.includes('asap') ||
       keywords.includes('immediately')
     ) {
-      return '🔴 **CRITICAL** - Emergency deployment required'
+      return '[ERROR] **CRITICAL** - Emergency deployment required'
     }
     if (
       keywords.includes('soon') ||
       keywords.includes('quickly') ||
       keywords.includes('fast')
     ) {
-      return '🟡 **HIGH** - Priority tactical response'
+      return '[PRIORITY_HIGH] **HIGH** - Priority tactical response'
     }
     if (
       keywords.includes('planning') ||
       keywords.includes('considering') ||
       keywords.includes('thinking')
     ) {
-      return '🟢 **MEDIUM** - Strategic planning phase'
+      return '[CHECK_CIRCLE] **MEDIUM** - Strategic planning phase'
     }
-    return '🔵 **STANDARD** - Normal operational timeline'
+    return '[INFO] **STANDARD** - Normal operational timeline'
   }
 
   private estimateBudgetRange(keywords: string): string {
@@ -1709,37 +1709,37 @@ ${leadIntelligence.followUpStrategy}
       keywords.includes('high-end') ||
       keywords.includes('premium')
     ) {
-      return '💎 **PREMIUM** ($150K+ operational budget)'
+      return '[DIAMOND] **PREMIUM** ($150K+ operational budget)'
     }
     if (
       keywords.includes('major') ||
       keywords.includes('large') ||
       keywords.includes('addition')
     ) {
-      return '💰 **SUBSTANTIAL** ($75K-$150K mission scope)'
+      return '[ATTACH_MONEY] **SUBSTANTIAL** ($75K-$150K mission scope)'
     }
     if (
       keywords.includes('remodel') ||
       keywords.includes('renovation') ||
       keywords.includes('update')
     ) {
-      return '💵 **MODERATE** ($25K-$75K tactical budget)'
+      return '[PAYMENTS] **MODERATE** ($25K-$75K tactical budget)'
     }
     if (
       keywords.includes('repair') ||
       keywords.includes('fix') ||
       keywords.includes('small')
     ) {
-      return '💲 **STANDARD** (Under $25K operational cost)'
+      return '[MONETIZATION_ON] **STANDARD** (Under $25K operational cost)'
     }
-    return '❓ **ASSESSMENT REQUIRED** - Budget intelligence needed'
+    return '[HELP] **ASSESSMENT REQUIRED** - Budget intelligence needed'
   }
 
   private detectVeteranStatus(keywords: string): string {
     const veteranAnalysis = this.analyzeVeteranStatus(keywords)
 
     if (veteranAnalysis.isVeteran) {
-      let statusMessage = `🎖️ **VETERAN CONFIRMED** - ${veteranAnalysis.serviceBranch}`
+      let statusMessage = `[MILITARY_TECH] **VETERAN CONFIRMED** - ${veteranAnalysis.serviceBranch}`
 
       if (veteranAnalysis.isCombatVeteran) {
         statusMessage += ' (Combat Veteran)'
@@ -1992,7 +1992,7 @@ ${leadIntelligence.followUpStrategy}
       keywords.includes('veteran') || keywords.includes('military')
 
     if (veteran || urgency) {
-      return `🔥 **HOT LEAD** - Immediate Action Required:
+      return `[WHATSHOT] **HOT LEAD** - Immediate Action Required:
 • **High conversion probability**
 • **Ready for project initiation**
 • **Immediate tactical response recommended**
@@ -2000,14 +2000,14 @@ ${leadIntelligence.followUpStrategy}
     }
 
     if (budget && timeline) {
-      return `🌡️ **WARM LEAD** - Strategic Engagement:
+      return `[THERMOSTAT] **WARM LEAD** - Strategic Engagement:
 • **Active project planning phase**
 • **Budget considerations in progress**
 • **48-72 hour follow-up protocol**
 • **Resource deployment:** Project consultant assignment`
     }
 
-    return `❄️ **COLD LEAD** - Information Gathering:
+    return `[AC_UNIT] **COLD LEAD** - Information Gathering:
 • **Research phase inquiries**
 • **Long-term planning discussions**
 • **Educational nurturing required**
@@ -2085,7 +2085,7 @@ ${leadIntelligence.followUpStrategy}
       veteranAnalysis
 
     if (priority === 'IMMEDIATE') {
-      return `🎖️ **IMMEDIATE VETERAN PRIORITY PROTOCOL**
+      return `[MILITARY_TECH] **IMMEDIATE VETERAN PRIORITY PROTOCOL**
 • **Direct commander escalation** - Skip standard intake
 • **24-hour response guarantee** 
 • **Senior project manager assignment**
@@ -2105,7 +2105,7 @@ ${leadIntelligence.followUpStrategy}
 • **Thank you for your service priority handling**`
     }
 
-    return `🇺🇸 **VETERAN RECOGNITION PROTOCOL**
+    return `[FLAG] **VETERAN RECOGNITION PROTOCOL**
 • **Military appreciation pricing**
 • **Veteran-friendly scheduling**
 • **Service branch acknowledgment**
@@ -2120,7 +2120,7 @@ ${leadIntelligence.followUpStrategy}
       veteranAnalysis
 
     if (disabledVeteran) {
-      return `👨‍⚕️ **DISABLED VETERAN SPECIALIST**
+      return `[MEDICAL_SERVICES] **DISABLED VETERAN SPECIALIST**
 • **ADA compliance expert**
 • **VA accessibility coordinator**
 • **Adaptive construction specialist**
@@ -2128,7 +2128,7 @@ ${leadIntelligence.followUpStrategy}
     }
 
     if (combatVeteran) {
-      return `🎖️ **COMBAT VETERAN LIAISON**
+      return `[MILITARY_TECH] **COMBAT VETERAN LIAISON**
 • **Fellow combat veteran on staff**
 • **Deployment experience understanding**
 • **Tactical project planning approach**
@@ -2136,17 +2136,17 @@ ${leadIntelligence.followUpStrategy}
     }
 
     const branchSpecialist: { [key: string]: string } = {
-      Army: '🏛️ **ARMY VETERAN SPECIALIST**',
-      Navy: '⚓ **NAVY VETERAN SPECIALIST**',
-      Marines: '🦅 **MARINE VETERAN SPECIALIST**',
-      'Air Force': '✈️ **AIR FORCE VETERAN SPECIALIST**',
-      'Coast Guard': '🛟 **COAST GUARD VETERAN SPECIALIST**',
-      'Space Force': '🚀 **SPACE FORCE VETERAN SPECIALIST**',
+      Army: '[ACCOUNT_BALANCE] **ARMY VETERAN SPECIALIST**',
+      Navy: '[ANCHOR] **NAVY VETERAN SPECIALIST**',
+      Marines: '[SPA] **MARINE VETERAN SPECIALIST**',
+      'Air Force': '[FLIGHT] **AIR FORCE VETERAN SPECIALIST**',
+      'Coast Guard': '[SAFETY_RING] **COAST GUARD VETERAN SPECIALIST**',
+      'Space Force': '[ROCKET_LAUNCH] **SPACE FORCE VETERAN SPECIALIST**',
     }
 
     return (
       branchSpecialist[serviceBranch] ||
-      `🇺🇸 **VETERAN SERVICES COORDINATOR**
+      `[FLAG] **VETERAN SERVICES COORDINATOR**
 • **Multi-branch experience**
 • **Military culture understanding**
 • **Service-focused approach**`
@@ -2201,7 +2201,7 @@ ${leadIntelligence.followUpStrategy}
     disabledVeteran: boolean
   ): string {
     if (priority === 'IMMEDIATE') {
-      return `⚡ **IMMEDIATE RESPONSE TIMELINE**
+      return `[BOLT] **IMMEDIATE RESPONSE TIMELINE**
 • **Initial contact:** Within 4 hours
 • **Site assessment:** Within 24 hours  
 • **Project proposal:** Within 48 hours
@@ -2210,7 +2210,7 @@ ${leadIntelligence.followUpStrategy}
     }
 
     if (priority === 'HIGH') {
-      return `🚀 **EXPEDITED VETERAN TIMELINE**
+      return `[ROCKET_LAUNCH] **EXPEDITED VETERAN TIMELINE**
 • **Initial contact:** Within 24 hours
 • **Site assessment:** Within 72 hours
 • **Project proposal:** Within 1 week
@@ -2218,7 +2218,7 @@ ${leadIntelligence.followUpStrategy}
 • **Completion target:** Standard plus veteran care`
     }
 
-    return `🇺🇸 **VETERAN APPRECIATION TIMELINE**
+    return `[FLAG] **VETERAN APPRECIATION TIMELINE**
 • **Initial contact:** Within 48 hours
 • **Veteran recognition throughout process**
 • **Military-style communication and updates**
@@ -2421,12 +2421,13 @@ ${leadIntelligence.followUpStrategy}
         if (input.length < 2) {
           return {
             isValid: false,
-            feedback: '🎖️ Name requires at least 2 characters, soldier!',
+            feedback:
+              '[MILITARY_TECH] Name requires at least 2 characters, soldier!',
           }
         }
         return {
           isValid: true,
-          feedback: '✅ Name confirmed and ready for action!',
+          feedback: '[CHECK_CIRCLE] Name confirmed and ready for action!',
         }
 
       case 'email':
@@ -2434,12 +2435,13 @@ ${leadIntelligence.followUpStrategy}
         if (!emailRegex.test(input)) {
           return {
             isValid: false,
-            feedback: '📧 Invalid email format - check your intel!',
+            feedback: '[EMAIL] Invalid email format - check your intel!',
           }
         }
         return {
           isValid: true,
-          feedback: '✅ Email validated and ready for transmission!',
+          feedback:
+            '[CHECK_CIRCLE] Email validated and ready for transmission!',
         }
 
       case 'phone':
@@ -2450,12 +2452,13 @@ ${leadIntelligence.followUpStrategy}
         ) {
           return {
             isValid: false,
-            feedback: '📞 Phone number requires 10 digits minimum!',
+            feedback: '[PHONE] Phone number requires 10 digits minimum!',
           }
         }
         return {
           isValid: true,
-          feedback: '✅ Phone number confirmed - communications established!',
+          feedback:
+            '[CHECK_CIRCLE] Phone number confirmed - communications established!',
         }
 
       case 'projectType':
@@ -2463,41 +2466,45 @@ ${leadIntelligence.followUpStrategy}
           return {
             isValid: false,
             feedback:
-              '🏗️ Project type requires more detail for mission planning!',
+              '[CONSTRUCTION] Project type requires more detail for mission planning!',
           }
         }
         return {
           isValid: true,
-          feedback: '✅ Project type identified - mission parameters set!',
+          feedback:
+            '[CHECK_CIRCLE] Project type identified - mission parameters set!',
         }
 
       case 'location':
         if (input.length < 3) {
           return {
             isValid: false,
-            feedback: '📍 Location requires more specific coordinates!',
+            feedback:
+              '[LOCATION_ON] Location requires more specific coordinates!',
           }
         }
         return {
           isValid: true,
-          feedback: '✅ Location confirmed - deployment zone established!',
+          feedback:
+            '[CHECK_CIRCLE] Location confirmed - deployment zone established!',
         }
 
       case 'budget':
         if (input.length < 3) {
           return {
             isValid: false,
-            feedback: '💰 Budget estimation needed for resource allocation!',
+            feedback:
+              '[ATTACH_MONEY] Budget estimation needed for resource allocation!',
           }
         }
         return {
           isValid: true,
           feedback:
-            '✅ Budget parameters received - financial logistics confirmed!',
+            '[CHECK_CIRCLE] Budget parameters received - financial logistics confirmed!',
         }
 
       default:
-        return { isValid: true, feedback: '✅ Field validated!' }
+        return { isValid: true, feedback: '[CHECK_CIRCLE] Field validated!' }
     }
   }
 
@@ -2556,10 +2563,14 @@ ${leadIntelligence.followUpStrategy}
     if (!veteranAnalysis.isVeteran) return discounts
 
     // Base veteran discount
-    discounts.push('🎖️ Military Discount: 10% off total project cost')
+    discounts.push(
+      '[MILITARY_TECH] Military Discount: 10% off total project cost'
+    )
 
     if (veteranAnalysis.disabledVeteran) {
-      discounts.push('♿ Disabled Veteran: 15% off accessibility modifications')
+      discounts.push(
+        '[ACCESSIBLE] Disabled Veteran: 15% off accessibility modifications'
+      )
       discounts.push(
         '🏥 VA Grant Assistance: Help applying for adaptation grants'
       )
@@ -2567,13 +2578,13 @@ ${leadIntelligence.followUpStrategy}
 
     if (veteranAnalysis.combatVeteran) {
       discounts.push(
-        '🎖️ Combat Veteran: Priority scheduling + 5% additional discount'
+        '[MILITARY_TECH] Combat Veteran: Priority scheduling + 5% additional discount'
       )
     }
 
     if (veteranAnalysis.vaBenefits) {
-      discounts.push('🏠 VA Home Loan: Specialized financing coordination')
-      discounts.push('📋 VA Benefits: Compliance assistance included')
+      discounts.push('[HOME] VA Home Loan: Specialized financing coordination')
+      discounts.push('[ASSIGNMENT] VA Benefits: Compliance assistance included')
     }
 
     // Service branch specific
@@ -2593,14 +2604,14 @@ ${leadIntelligence.followUpStrategy}
    */
   private getBranchEmoji(branch: string): string {
     const branchEmojis: { [key: string]: string } = {
-      Army: '🏛️',
-      Navy: '⚓',
-      Marines: '🦅',
-      'Air Force': '✈️',
-      'Coast Guard': '🛟',
-      'Space Force': '🚀',
+      Army: '[ACCOUNT_BALANCE]',
+      Navy: '[ANCHOR]',
+      Marines: '[SPA]',
+      'Air Force': '[FLIGHT]',
+      'Coast Guard': '[SAFETY_RING]',
+      'Space Force': '[ROCKET_LAUNCH]',
     }
-    return branchEmojis[branch] || '🇺🇸'
+    return branchEmojis[branch] || '[FLAG]'
   }
 
   /**
@@ -2646,7 +2657,7 @@ ${leadIntelligence.followUpStrategy}
     // Location-based suggestions
     if (formData.location?.includes('Pasco')) {
       autoFillRecommendations.push(
-        '✅ Service area confirmed - full MH Construction services available'
+        '[CHECK_CIRCLE] Service area confirmed - full MH Construction services available'
       )
     }
 
@@ -2674,27 +2685,27 @@ ${leadIntelligence.followUpStrategy}
     )
 
     if (completionPercentage < 30) {
-      return `🎯 **MISSION STATUS: INITIAL DEPLOYMENT** (${completionPercentage}% complete)
+      return `[GPS_FIXED] **MISSION STATUS: INITIAL DEPLOYMENT** (${completionPercentage}% complete)
 • Focus on essential intel: Name, Contact, Project Type
 • Quick deployment recommended for maximum efficiency
 • Intelligence gathering phase - build the foundation!`
     }
 
     if (completionPercentage < 70) {
-      return `⚡ **MISSION STATUS: TACTICAL ADVANCEMENT** (${completionPercentage}% complete)
+      return `[BOLT] **MISSION STATUS: TACTICAL ADVANCEMENT** (${completionPercentage}% complete)
 • Core mission parameters established
 • Advance to secondary objectives: Budget, Timeline, Location
 • Strategic intelligence building - maintain momentum!`
     }
 
     if (completionPercentage < 90) {
-      return `🚀 **MISSION STATUS: FINAL APPROACH** (${completionPercentage}% complete)
+      return `[ROCKET_LAUNCH] **MISSION STATUS: FINAL APPROACH** (${completionPercentage}% complete)
 • Primary objectives secured - excellent work!
 • Complete final details and additional notes
 • Mission completion imminent - push forward!`
     }
 
-    return `🎖️ **MISSION STATUS: READY FOR DEPLOYMENT** (${completionPercentage}% complete)
+    return `[MILITARY_TECH] **MISSION STATUS: READY FOR DEPLOYMENT** (${completionPercentage}% complete)
 • All critical intel acquired - outstanding execution!
 • Form ready for submission and immediate processing
 • Victory achieved - deploy when ready, soldier!`
@@ -2979,16 +2990,16 @@ ${leadIntelligence.followUpStrategy}
 
       // Priority handling message
       if (profile.priorityLevel === 'IMMEDIATE') {
-        response += `🚨 **IMMEDIATE PRIORITY STATUS ACTIVATED**\n`
+        response += `[EMERGENCY] **IMMEDIATE PRIORITY STATUS ACTIVATED**\n`
         response += `Your status as a ${profile.disabledVeteran ? 'disabled' : 'combat'} veteran qualifies you for our highest priority response within 4 hours.\n\n`
       } else if (profile.priorityLevel === 'HIGH') {
-        response += `⚡ **HIGH PRIORITY STATUS ACTIVATED**\n`
+        response += `[BOLT] **HIGH PRIORITY STATUS ACTIVATED**\n`
         response += `As a veteran, you receive priority response within 24 hours and expedited project scheduling.\n\n`
       }
 
       // Discount information
       if (content.pricing.baseDiscount > 0) {
-        response += `💰 **VETERAN BENEFITS ACTIVATED**\n`
+        response += `[ATTACH_MONEY] **VETERAN BENEFITS ACTIVATED**\n`
         response += `${content.pricing.totalSavings} automatically applied to your project.\n`
         response += `Discounts include: ${content.pricing.additionalDiscounts.map(d => d.description).join(', ')}\n\n`
       }
@@ -2997,7 +3008,7 @@ ${leadIntelligence.followUpStrategy}
       const specialist =
         veteranExperience.benefitsPackage.specialistAssignment
           .assignedSpecialist
-      response += `👨‍💼 **VETERAN SPECIALIST ASSIGNED**\n`
+      response += `[PERSON] **VETERAN SPECIALIST ASSIGNED**\n`
       response += `${specialist.name} (${specialist.title}) - ${specialist.branch} Veteran\n`
       response += `Specializations: ${specialist.specializations.join(', ')}\n\n`
 
@@ -3012,16 +3023,16 @@ ${leadIntelligence.followUpStrategy}
 
     // Add veteran notifications
     if (veteranExperience.notifications.length > 0) {
-      response += `\n\n📋 **IMPORTANT NOTIFICATIONS:**\n`
+      response += `\n\n[ASSIGNMENT] **IMPORTANT NOTIFICATIONS:**\n`
       veteranExperience.notifications.slice(0, 3).forEach(notification => {
         const priorityIcon =
           notification.priority === 'urgent'
-            ? '🚨'
+            ? '[EMERGENCY]'
             : notification.priority === 'high'
-              ? '⚡'
+              ? '[BOLT]'
               : notification.priority === 'medium'
                 ? '📌'
-                : 'ℹ️'
+                : '[INFO]'
         response += `${priorityIcon} ${notification.title}: ${notification.message}\n`
       })
     }
@@ -3049,7 +3060,7 @@ ${leadIntelligence.followUpStrategy}
     // Veteran-specific next steps
     if (profile.priorityLevel === 'IMMEDIATE') {
       steps.push(
-        '🚨 IMMEDIATE: Veteran specialist will contact you within 4 hours'
+        '[EMERGENCY] IMMEDIATE: Veteran specialist will contact you within 4 hours'
       )
       steps.push('Emergency accessibility assessment will be prioritized')
       if (profile.disabledVeteran) {
@@ -3057,11 +3068,11 @@ ${leadIntelligence.followUpStrategy}
       }
     } else if (profile.priorityLevel === 'HIGH') {
       steps.push(
-        '⚡ PRIORITY: Veteran specialist will contact you within 24 hours'
+        '[BOLT] PRIORITY: Veteran specialist will contact you within 24 hours'
       )
       steps.push('Priority project scheduling will be arranged')
     } else {
-      steps.push('🇺🇸 Veteran specialist will contact you within 48 hours')
+      steps.push('[FLAG] Veteran specialist will contact you within 48 hours')
     }
 
     // Benefits-related steps

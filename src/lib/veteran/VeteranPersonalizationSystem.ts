@@ -872,7 +872,7 @@ export class VeteranPersonalizationSystem {
       .map((d: any) => d.name)
       .join(', ')
 
-    let message = `🇺🇸 Thank you for your service, ${branch} veteran! `
+    let message = `[FLAG] Thank you for your service, ${branch} veteran! `
     message += `You've saved $${savings.toFixed(2)} with your veteran benefits: ${discountText}.`
 
     if (profile.combatVeteran) {

@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { Check, Calendar, Clock, MapPin } from 'lucide-react'
 import {
   Button,
   Card,
@@ -233,7 +232,7 @@ export default function BookingPage() {
             <Card className="bg-green-50 dark:bg-green-900/20 shadow-xl border-green-200 dark:border-green-800">
               <CardContent className="p-12 text-center">
                 <div className="flex justify-center mb-6 text-green-600 dark:text-green-400">
-                  <Check size={80} />
+                  <MaterialIcon icon="check_circle" size="4xl" />
                 </div>
                 <h1 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                   <span className="text-gray-300">Consultation</span>{' '}
@@ -248,7 +247,7 @@ export default function BookingPage() {
                   <p className="text-lg">Your consultation is scheduled for:</p>
                   <div className="bg-green-100 dark:bg-green-800/30 mx-auto p-4 border border-green-300 dark:border-green-700 rounded-lg max-w-md">
                     <p className="flex items-center gap-2 font-semibold text-green-800 dark:text-green-200">
-                      <Calendar size={18} />
+                      <MaterialIcon icon="event" size="sm" />
                       {new Date(formData.selectedDate).toLocaleDateString(
                         'en-US',
                         {
@@ -260,7 +259,7 @@ export default function BookingPage() {
                       )}
                     </p>
                     <p className="flex items-center gap-2 font-semibold text-green-800 dark:text-green-200">
-                      <Clock size={18} />
+                      <MaterialIcon icon="schedule" size="sm" />
                       {formData.selectedTime}
                     </p>
                   </div>
@@ -294,7 +293,7 @@ export default function BookingPage() {
                     </Button>
                   </Link>
                   <Link href="/services">
-                    <Button variant="brand" size="lg">
+                    <Button variant="primary" size="lg">
                       <MaterialIcon icon="build" className="mr-2" />
                       View Our Services
                     </Button>
@@ -666,23 +665,23 @@ export default function BookingPage() {
                     </h4>
                     <p className="text-gray-700 dark:text-gray-300 text-sm">
                       <span className="flex items-center gap-2 mb-1">
-                        <Calendar size={16} />
+                        <MaterialIcon icon="event" size="sm" />
                         {
                           calendarDays.find(d => d.date === selectedDate)
                             ?.fullDate
                         }
                       </span>
                       <span className="flex items-center gap-2 mb-1">
-                        <Clock size={16} />
+                        <MaterialIcon icon="schedule" size="sm" />
                         {selectedTime}
                       </span>
                       <span className="flex items-center gap-2">
-                        <MapPin size={16} />
+                        <MaterialIcon icon="place" size="sm" />
                         Free on-site consultation
                       </span>
                       <br />
                       <span className="flex items-center gap-1">
-                        <Clock size={16} />
+                        <MaterialIcon icon="schedule" size="sm" />
                         Approximately 60 minutes
                       </span>
                     </p>
@@ -700,7 +699,7 @@ export default function BookingPage() {
                     </Button>
                     <Button
                       type="submit"
-                      variant="cta"
+                      variant="primary"
                       disabled={isSubmitting}
                       className="flex-1"
                     >

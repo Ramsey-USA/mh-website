@@ -99,7 +99,7 @@ export function UserProfile() {
                 </span>
                 {userProfile.isVeteran && (
                   <span className="bg-veteran-red/10 px-2 py-1 rounded-full font-medium text-veteran-red text-xs">
-                    🇺🇸 Veteran
+                    [FLAG] Veteran
                   </span>
                 )}
               </div>
@@ -188,7 +188,7 @@ export function UserProfile() {
                   className="border-gray-300 rounded focus:ring-brand-primary w-4 h-4 text-brand-primary"
                 />
                 <span className="font-medium text-gray-700 text-sm">
-                  I am a military veteran 🇺🇸
+                  I am a military veteran [FLAG]
                 </span>
               </label>
             </div>

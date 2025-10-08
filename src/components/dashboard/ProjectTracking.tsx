@@ -99,17 +99,17 @@ export const ProjectTracking: React.FC<ProjectTimelineProps> = ({
   const getUpdateIcon = (type: ProjectUpdate['type']) => {
     switch (type) {
       case 'milestone':
-        return '🎯'
+        return '[GPS_FIXED]'
       case 'progress':
-        return '📈'
+        return '[TRENDING_UP]'
       case 'issue':
-        return '⚠️'
+        return '[WARNING]'
       case 'completion':
-        return '✅'
+        return '[CHECK_CIRCLE]'
       case 'photo':
-        return '📸'
+        return '[PHOTO_CAMERA]'
       default:
-        return '📋'
+        return '[ASSIGNMENT]'
     }
   }
 
@@ -176,7 +176,7 @@ export const ProjectTracking: React.FC<ProjectTimelineProps> = ({
         <div className="space-y-6">
           {updates.length === 0 ? (
             <div className="py-8 text-gray-500 text-center">
-              <div className="mb-4 text-4xl">📋</div>
+              <div className="mb-4 text-4xl">[ASSIGNMENT]</div>
               <p>No updates available for this project</p>
             </div>
           ) : (
@@ -234,7 +234,7 @@ export const ProjectTracking: React.FC<ProjectTimelineProps> = ({
                                 key={imgIndex}
                                 className="flex justify-center items-center bg-gray-200 rounded-lg aspect-square text-gray-400"
                               >
-                                <span className="text-2xl">📸</span>
+                                <span className="text-2xl">[PHOTO_CAMERA]</span>
                               </div>
                             ))}
                           </div>

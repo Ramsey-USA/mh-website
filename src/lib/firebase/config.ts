@@ -71,7 +71,7 @@ function initializeFirebase() {
 
     // Setup development emulators if using demo config
     if (!hasValidConfig && typeof window !== 'undefined') {
-      console.log('🔧 Firebase: Using demo configuration for development')
+      console.log('[BUILD] Firebase: Using demo configuration for development')
 
       try {
         // Connect to emulators (will fail silently if already connected)
@@ -83,14 +83,14 @@ function initializeFirebase() {
         connectFunctionsEmulator(functions, 'localhost', 5001)
       } catch {
         // Emulators not available or already connected
-        console.log('📝 Firebase: Demo mode (emulators not connected)')
+        console.log('[EDIT_NOTE] Firebase: Demo mode (emulators not connected)')
       }
     }
 
     return app
   } catch (error) {
     initializationError = error as Error
-    console.error('🚨 Firebase initialization error:', error)
+    console.error('[EMERGENCY] Firebase initialization error:', error)
     return null
   }
 }

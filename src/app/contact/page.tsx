@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Award } from 'lucide-react'
 import {
   Button,
   Card,
@@ -393,7 +392,7 @@ export default function ContactPage() {
                       <Button
                         type="submit"
                         variant="primary"
-                        size="xl"
+                        size="lg"
                         disabled={isSubmitting}
                         className="py-6 w-full text-lg"
                       >
@@ -708,7 +707,11 @@ export default function ContactPage() {
             <div className="mb-12 text-center">
               <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
                 <span className="flex justify-center items-center gap-3 mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  <Award className="text-brand-primary" size={36} />
+                  <MaterialIcon
+                    icon="workspace_premium"
+                    size="xl"
+                    className="text-brand-primary"
+                  />
                   Popular Project
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">

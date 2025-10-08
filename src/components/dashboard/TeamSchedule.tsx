@@ -10,7 +10,7 @@ export function TeamSchedule() {
       id: 'mark-harris',
       name: 'Mark Harris',
       title: 'Founder & Lead',
-      avatar: '👨‍💼',
+      avatar: 'person',
       status: 'available',
       currentTask: 'Mitchell Home Site Visit',
       nextAppointment: {
@@ -33,7 +33,7 @@ export function TeamSchedule() {
       id: 'sarah-harris',
       name: 'Sarah Harris',
       title: 'Design Director',
-      avatar: '👩‍💼',
+      avatar: 'person',
       status: 'busy',
       currentTask: 'Chen Kitchen Design Review',
       nextAppointment: {
@@ -55,7 +55,7 @@ export function TeamSchedule() {
       id: 'jim-rodriguez',
       name: 'Jim Rodriguez',
       title: 'Project Manager',
-      avatar: '👨‍🔧',
+      avatar: 'person',
       status: 'on-site',
       currentTask: 'Downtown Complex Inspection',
       nextAppointment: {
@@ -94,15 +94,15 @@ export function TeamSchedule() {
   const getTaskTypeIcon = (type: string) => {
     switch (type) {
       case 'consultation':
-        return '👥'
+        return '[GROUPS]'
       case 'site-visit':
-        return '🏗️'
+        return '[CONSTRUCTION]'
       case 'internal':
-        return '🏢'
+        return '[APARTMENT]'
       case 'external':
-        return '🤝'
+        return '[HANDSHAKE]'
       default:
-        return '📋'
+        return '[ASSIGNMENT]'
     }
   }
 
@@ -112,7 +112,7 @@ export function TeamSchedule() {
         <div className="flex justify-between items-center">
           <CardTitle>Team Schedule</CardTitle>
           <Button variant="outline" size="sm">
-            📅 Full Calendar
+            [EVENT] Full Calendar
           </Button>
         </div>
         <p className="text-gray-600 text-sm">
@@ -213,10 +213,10 @@ export function TeamSchedule() {
                           item.type === 'consultation'
                             ? 'bg-green-100 text-green-800'
                             : item.type === 'site-visit'
-                            ? 'bg-blue-100 text-blue-800'
-                            : item.type === 'internal'
-                            ? 'bg-gray-100 text-gray-800'
-                            : 'bg-purple-100 text-purple-800'
+                              ? 'bg-blue-100 text-blue-800'
+                              : item.type === 'internal'
+                                ? 'bg-gray-100 text-gray-800'
+                                : 'bg-purple-100 text-purple-800'
                         }`}
                       >
                         {item.type}
@@ -233,10 +233,10 @@ export function TeamSchedule() {
         <div className="mt-6 pt-4 border-t">
           <div className="gap-3 grid grid-cols-2">
             <Button variant="default" size="sm" className="w-full">
-              📅 Schedule Meeting
+              [EVENT] Schedule Meeting
             </Button>
             <Button variant="outline" size="sm" className="w-full">
-              👥 Team Chat
+              [GROUPS] Team Chat
             </Button>
           </div>
         </div>

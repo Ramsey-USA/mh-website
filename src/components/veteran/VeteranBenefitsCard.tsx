@@ -1,15 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import {
-  Shield,
-  CheckCircle,
-  AlertCircle,
-  ExternalLink,
-  DollarSign,
-  Clock,
-  FileText,
-} from 'lucide-react'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
 import { VeteranBenefit } from '@/lib/recommendations/SmartRecommendationEngine'
 
 interface VeteranBenefitsCardProps {
@@ -38,13 +30,27 @@ export default function VeteranBenefitsCard({
   const getIconForType = (type: string) => {
     switch (type) {
       case 'grant':
-        return <DollarSign className="w-4 h-4 text-green-600" />
+        return (
+          <MaterialIcon
+            icon="attach_money"
+            className="w-4 h-4 text-green-600"
+          />
+        )
       case 'loan':
-        return <Clock className="w-4 h-4 text-blue-600" />
+        return (
+          <MaterialIcon icon="schedule" className="w-4 h-4 text-blue-600" />
+        )
       case 'tax-credit':
-        return <FileText className="w-4 h-4 text-purple-600" />
+        return (
+          <MaterialIcon
+            icon="description"
+            className="w-4 h-4 text-purple-600"
+          />
+        )
       default:
-        return <Shield className="w-4 h-4 text-slate-600" />
+        return (
+          <MaterialIcon icon="security" className="w-4 h-4 text-slate-600" />
+        )
     }
   }
 
@@ -67,7 +73,7 @@ export default function VeteranBenefitsCard({
     >
       <div className="flex justify-between items-start mb-4">
         <div className="flex items-center gap-2">
-          <Shield className="w-5 h-5 text-blue-600" />
+          <MaterialIcon icon="security" className="w-5 h-5 text-blue-600" />
           <h3 className="font-semibold text-blue-900">
             Veteran Benefits Available
           </h3>

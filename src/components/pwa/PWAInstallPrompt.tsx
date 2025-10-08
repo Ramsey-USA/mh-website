@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Download, X, Smartphone, Monitor, Zap, Wifi } from 'lucide-react'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
 
 interface PWAInstallPromptProps {
   className?: string
@@ -148,10 +148,10 @@ export default function PWAInstallPrompt({
   }
 
   const features = [
-    { icon: Zap, text: 'Faster loading and performance' },
-    { icon: Wifi, text: 'Works offline with cached content' },
-    { icon: Smartphone, text: 'Full-screen mobile experience' },
-    { icon: Monitor, text: 'Desktop shortcut access' },
+    { icon: 'bolt', text: 'Faster loading and performance' },
+    { icon: 'wifi', text: 'Works offline with cached content' },
+    { icon: 'phone_android', text: 'Full-screen mobile experience' },
+    { icon: 'computer', text: 'Desktop shortcut access' },
   ]
 
   if (variant === 'banner') {
@@ -161,7 +161,7 @@ export default function PWAInstallPrompt({
       >
         <div className="flex justify-between items-center mx-auto container">
           <div className="flex items-center gap-4">
-            <Download className="w-6 h-6" />
+            <MaterialIcon icon="download" className="w-6 h-6" />
             <div>
               <div className="font-semibold">Install MH Construction App</div>
               <div className="text-blue-100 text-sm">
@@ -189,7 +189,7 @@ export default function PWAInstallPrompt({
               className="p-1 text-blue-100 hover:text-white"
               aria-label="Dismiss install prompt"
             >
-              <X className="w-5 h-5" />
+              <MaterialIcon icon="close" className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -205,7 +205,7 @@ export default function PWAInstallPrompt({
         <div className="flex justify-between items-start mb-4">
           <div className="flex items-center gap-3">
             <div className="bg-blue-100 p-2 rounded-lg">
-              <Download className="w-6 h-6 text-blue-600" />
+              <MaterialIcon icon="download" className="w-6 h-6 text-blue-600" />
             </div>
             <div>
               <h3 className="font-semibold text-gray-900">Install Our App</h3>
@@ -220,7 +220,7 @@ export default function PWAInstallPrompt({
             className="text-gray-400 hover:text-gray-600"
             aria-label="Dismiss"
           >
-            <X className="w-5 h-5" />
+            <MaterialIcon icon="close" className="w-5 h-5" />
           </button>
         </div>
 
@@ -230,7 +230,10 @@ export default function PWAInstallPrompt({
               key={index}
               className="flex items-center gap-2 text-gray-700 text-sm"
             >
-              <feature.icon className="w-4 h-4 text-blue-600" />
+              <MaterialIcon
+                icon={feature.icon}
+                className="w-4 h-4 text-blue-600"
+              />
               <span>{feature.text}</span>
             </div>
           ))}
@@ -253,7 +256,7 @@ export default function PWAInstallPrompt({
             onClick={handleInstallClick}
             className="flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg w-full font-semibold text-white transition-colors"
           >
-            <Download className="w-4 h-4" />
+            <MaterialIcon icon="download" className="w-4 h-4" />
             Install App
           </button>
         )}
@@ -270,7 +273,10 @@ export default function PWAInstallPrompt({
           <div className="flex justify-between items-center mb-6">
             <div className="flex items-center gap-3">
               <div className="bg-blue-100 p-2 rounded-lg">
-                <Download className="w-6 h-6 text-blue-600" />
+                <MaterialIcon
+                  icon="download"
+                  className="w-6 h-6 text-blue-600"
+                />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 text-xl">
@@ -285,7 +291,7 @@ export default function PWAInstallPrompt({
               className="text-gray-400 hover:text-gray-600"
               aria-label="Close"
             >
-              <X className="w-6 h-6" />
+              <MaterialIcon icon="close" className="w-6 h-6" />
             </button>
           </div>
 
@@ -295,7 +301,10 @@ export default function PWAInstallPrompt({
                 key={index}
                 className="flex items-center gap-3 text-gray-700"
               >
-                <feature.icon className="w-5 h-5 text-blue-600" />
+                <MaterialIcon
+                  icon={feature.icon}
+                  className="w-5 h-5 text-blue-600"
+                />
                 <span>{feature.text}</span>
               </div>
             ))}
@@ -318,7 +327,7 @@ export default function PWAInstallPrompt({
               onClick={handleInstallClick}
               className="flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-700 mb-4 px-4 py-3 rounded-lg w-full font-semibold text-white transition-colors"
             >
-              <Download className="w-5 h-5" />
+              <MaterialIcon icon="download" className="w-5 h-5" />
               Install Now
             </button>
           )}

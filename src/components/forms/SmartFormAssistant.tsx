@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { Award, Rocket, Target, Flag } from 'lucide-react'
 import { MaterialIcon } from '../icons/MaterialIcon'
 import { Card, CardContent, Button } from '../ui'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -43,12 +42,16 @@ export function SmartFormAssistant({
             <div className="flex items-center space-x-2">
               <MaterialIcon icon="psychology" className="text-blue-600" />
               <h3 className="flex items-center gap-2 font-semibold text-gray-800 text-lg">
-                <Award className="w-5 h-5 text-yellow-600" />
+                <MaterialIcon
+                  icon="workspace_premium"
+                  size="md"
+                  className="text-yellow-600"
+                />
                 Smart Form Assistant
               </h3>
               {isVeteranDetected && (
                 <span className="flex items-center gap-1 bg-blue-100 px-2 py-1 rounded-full font-medium text-blue-800 text-xs">
-                  <Flag className="w-3 h-3" />
+                  <MaterialIcon icon="flag" size="sm" />
                   Veteran Detected
                 </span>
               )}
@@ -217,7 +220,11 @@ export function SmartFormAssistant({
                       className="text-blue-600"
                     />
                     <h4 className="flex items-center gap-2 font-semibold text-blue-800 text-lg">
-                      <Award className="w-5 h-5 text-yellow-600" />
+                      <MaterialIcon
+                        icon="workspace_premium"
+                        size="md"
+                        className="text-yellow-600"
+                      />
                       Veteran Benefits & Discounts
                     </h4>
                   </div>
@@ -241,7 +248,7 @@ export function SmartFormAssistant({
                   </div>
                   <div className="bg-blue-100 mt-4 p-3 rounded-lg">
                     <p className="flex items-center gap-2 font-medium text-blue-800 text-sm">
-                      <Flag className="w-4 h-4" />
+                      <MaterialIcon icon="flag" size="md" />
                       Thank you for your service! These benefits will be
                       automatically applied to your project.
                     </p>
@@ -258,7 +265,11 @@ export function SmartFormAssistant({
                   <div className="flex items-center space-x-2 mb-3">
                     <MaterialIcon icon="recommend" className="text-green-600" />
                     <h4 className="flex items-center gap-2 font-semibold text-green-800 text-lg">
-                      <Award className="w-5 h-5 text-yellow-600" />
+                      <MaterialIcon
+                        icon="workspace_premium"
+                        size="md"
+                        className="text-yellow-600"
+                      />
                       Veteran-Specific Recommendations
                     </h4>
                   </div>
@@ -294,7 +305,11 @@ export function SmartFormAssistant({
                     className="text-purple-600"
                   />
                   <h4 className="flex items-center gap-2 font-semibold text-gray-800 text-lg">
-                    <Rocket className="w-5 h-5 text-blue-600" />
+                    <MaterialIcon
+                      icon="rocket_launch"
+                      size="md"
+                      className="text-blue-600"
+                    />
                     Smart Recommendations
                   </h4>
                 </div>

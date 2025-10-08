@@ -10,19 +10,7 @@ import {
 import ContentManagement from '@/components/dashboard/ContentManagementSimple'
 import { useAuth } from '@/lib/auth/AuthContext'
 import { useAnalytics } from '@/components/analytics/enhanced-analytics'
-import {
-  BarChart3,
-  Users,
-  FileText,
-  MessageSquare,
-  Calendar,
-  TrendingUp,
-  Eye,
-  Clock,
-  Star,
-  Settings,
-  Activity,
-} from 'lucide-react'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
 import {
   collection,
   getDocs,
@@ -185,13 +173,13 @@ const AdminDashboard = () => {
   const StatCard = ({
     title,
     value,
-    icon: Icon,
+    icon,
     trend,
     color = 'primary',
   }: {
     title: string
     value: number
-    icon: any
+    icon: string
     trend?: string
     color?: string
   }) => (
@@ -204,13 +192,16 @@ const AdminDashboard = () => {
           <p className="font-bold text-gray-900 text-3xl">{value}</p>
           {trend && (
             <p className="mt-1 text-green-600 text-sm">
-              <TrendingUp className="inline mr-1 w-4 h-4" />
+              <MaterialIcon
+                icon="trending_up"
+                className="inline mr-1 w-4 h-4"
+              />
               {trend}
             </p>
           )}
         </div>
         <div className={`p-3 bg-${color}-100 rounded-lg`}>
-          <Icon className={`h-6 w-6 text-${color}-600`} />
+          <MaterialIcon icon={icon} className={`h-6 w-6 text-${color}-600`} />
         </div>
       </div>
     </HoverScale>
@@ -227,28 +218,28 @@ const AdminDashboard = () => {
         <StatCard
           title="Total Projects"
           value={stats.totalProjects}
-          icon={BarChart3}
+          icon="bar_chart"
           trend="+12% this month"
           color="blue"
         />
         <StatCard
           title="Published Posts"
           value={stats.totalBlogPosts}
-          icon={FileText}
+          icon="description"
           trend="+5% this month"
           color="green"
         />
         <StatCard
           title="Total Testimonials"
           value={stats.totalTestimonials}
-          icon={Star}
+          icon="star"
           trend="+8% this month"
           color="yellow"
         />
         <StatCard
           title="Pending Reviews"
           value={stats.pendingTestimonials}
-          icon={Clock}
+          icon="schedule"
           color="red"
         />
       </StaggeredFadeIn>
@@ -257,7 +248,7 @@ const AdminDashboard = () => {
         {/* Recent Activity */}
         <FadeInWhenVisible className="bg-white shadow-sm p-6 rounded-lg">
           <h3 className="flex items-center mb-4 font-semibold text-lg">
-            <Activity className="mr-2 w-5 h-5" />
+            <MaterialIcon icon="timeline" className="mr-2 w-5 h-5" />
             Recent Activity
           </h3>
           <div className="space-y-4">
@@ -266,17 +257,26 @@ const AdminDashboard = () => {
                 <div className="flex-shrink-0">
                   {activity.type === 'project_added' && (
                     <div className="bg-blue-100 p-1.5 rounded-full">
-                      <BarChart3 className="w-4 h-4 text-blue-600" />
+                      <MaterialIcon
+                        icon="bar_chart"
+                        className="w-4 h-4 text-blue-600"
+                      />
                     </div>
                   )}
                   {activity.type === 'blog_published' && (
                     <div className="bg-green-100 p-1.5 rounded-full">
-                      <FileText className="w-4 h-4 text-green-600" />
+                      <MaterialIcon
+                        icon="description"
+                        className="w-4 h-4 text-green-600"
+                      />
                     </div>
                   )}
                   {activity.type === 'testimonial_received' && (
                     <div className="bg-yellow-100 p-1.5 rounded-full">
-                      <Star className="w-4 h-4 text-yellow-600" />
+                      <MaterialIcon
+                        icon="star"
+                        className="w-4 h-4 text-yellow-600"
+                      />
                     </div>
                   )}
                 </div>
@@ -297,7 +297,7 @@ const AdminDashboard = () => {
         {/* Popular Content */}
         <FadeInWhenVisible className="bg-white shadow-sm p-6 rounded-lg">
           <h3 className="flex items-center mb-4 font-semibold text-lg">
-            <TrendingUp className="mr-2 w-5 h-5" />
+            <MaterialIcon icon="trending_up" className="mr-2 w-5 h-5" />
             Popular Content
           </h3>
           <div className="space-y-4">
@@ -312,11 +312,17 @@ const AdminDashboard = () => {
                   </p>
                   <div className="flex items-center space-x-4 text-gray-500 text-xs">
                     <span className="flex items-center">
-                      <Eye className="mr-1 w-3 h-3" />
+                      <MaterialIcon
+                        icon="visibility"
+                        className="mr-1 w-3 h-3"
+                      />
                       {content.views} views
                     </span>
                     <span className="flex items-center">
-                      <TrendingUp className="mr-1 w-3 h-3" />
+                      <MaterialIcon
+                        icon="trending_up"
+                        className="mr-1 w-3 h-3"
+                      />
                       {content.engagement}% engagement
                     </span>
                   </div>
@@ -490,10 +496,10 @@ const AdminDashboard = () => {
           <div className="border-gray-200 border-b">
             <nav className="flex space-x-8">
               {[
-                { id: 'overview', label: 'Overview', icon: BarChart3 },
-                { id: 'content', label: 'Content', icon: FileText },
-                { id: 'analytics', label: 'Analytics', icon: TrendingUp },
-                { id: 'settings', label: 'Settings', icon: Settings },
+                { id: 'overview', label: 'Overview', icon: 'bar_chart' },
+                { id: 'content', label: 'Content', icon: 'description' },
+                { id: 'analytics', label: 'Analytics', icon: 'trending_up' },
+                { id: 'settings', label: 'Settings', icon: 'settings' },
               ].map(tab => (
                 <button
                   key={tab.id}
@@ -504,7 +510,7 @@ const AdminDashboard = () => {
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                   }`}
                 >
-                  <tab.icon className="mr-2 w-4 h-4" />
+                  <MaterialIcon icon={tab.icon} className="mr-2 w-4 h-4" />
                   {tab.label}
                 </button>
               ))}

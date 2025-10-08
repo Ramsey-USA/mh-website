@@ -3,16 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import {
-  Star,
-  Quote,
-  ChevronLeft,
-  ChevronRight,
-  Award,
-  MapPin,
-  Calendar,
-  ExternalLink,
-} from 'lucide-react'
+import { MaterialIcon } from '../icons/MaterialIcon'
 import {
   mockTestimonials,
   type ClientTestimonial,
@@ -135,14 +126,14 @@ export default function TestimonialsWidget({
                   className="top-1/2 left-4 absolute bg-white/90 hover:bg-white shadow-lg p-3 rounded-full text-gray-800 transition-all -translate-y-1/2 duration-200 transform"
                   aria-label="Previous testimonial"
                 >
-                  <ChevronLeft className="w-6 h-6" />
+                  <MaterialIcon icon="chevron_left" size="lg" />
                 </button>
                 <button
                   onClick={goToNext}
                   className="top-1/2 right-4 absolute bg-white/90 hover:bg-white shadow-lg p-3 rounded-full text-gray-800 transition-all -translate-y-1/2 duration-200 transform"
                   aria-label="Next testimonial"
                 >
-                  <ChevronRight className="w-6 h-6" />
+                  <MaterialIcon icon="chevron_right" size="lg" />
                 </button>
               </>
             )}
@@ -175,7 +166,7 @@ export default function TestimonialsWidget({
               className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-bold text-white transition-colors duration-200"
             >
               View All Testimonials
-              <ExternalLink className="w-5 h-5" />
+              <MaterialIcon icon="open_in_new" className="w-5 h-5" />
             </Link>
           </div>
         )}
@@ -198,7 +189,10 @@ function TestimonialSlide({ testimonial }: { testimonial: ClientTestimonial }) {
           />
         ) : (
           <div className="absolute inset-0 flex justify-center items-center bg-gradient-to-br from-blue-500 to-blue-700">
-            <Quote className="w-24 h-24 text-white/30" />
+            <MaterialIcon
+              icon="format_quote"
+              className="w-24 h-24 text-white/30"
+            />
           </div>
         )}
 
@@ -210,7 +204,7 @@ function TestimonialSlide({ testimonial }: { testimonial: ClientTestimonial }) {
         {/* Featured Badge */}
         {testimonial.featured && (
           <div className="top-4 right-4 absolute flex items-center gap-1 bg-yellow-500 px-3 py-1 rounded-full font-medium text-white text-sm">
-            <Award className="w-4 h-4" />
+            <MaterialIcon icon="workspace_premium" className="w-4 h-4" />
             Featured
           </div>
         )}
@@ -221,8 +215,9 @@ function TestimonialSlide({ testimonial }: { testimonial: ClientTestimonial }) {
         {/* Rating */}
         <div className="flex items-center gap-1 mb-6">
           {[...Array(5)].map((_, i) => (
-            <Star
+            <MaterialIcon
               key={i}
+              icon="star"
               className={`h-6 w-6 ${
                 i < testimonial.rating
                   ? 'fill-yellow-400 text-yellow-400'
@@ -242,7 +237,10 @@ function TestimonialSlide({ testimonial }: { testimonial: ClientTestimonial }) {
 
         {/* Testimonial Text */}
         <blockquote className="relative mb-6 text-gray-700 text-lg leading-relaxed">
-          <Quote className="-top-2 -left-2 absolute w-8 h-8 text-blue-200" />
+          <MaterialIcon
+            icon="format_quote"
+            className="-top-2 -left-2 absolute w-8 h-8 text-blue-200"
+          />
           <span className="pl-6 italic">
             &quot;{testimonial.testimonialText}&quot;
           </span>
@@ -266,11 +264,11 @@ function TestimonialSlide({ testimonial }: { testimonial: ClientTestimonial }) {
             </div>
             <div className="flex items-center gap-4 text-gray-600">
               <div className="flex items-center gap-1">
-                <MapPin className="w-4 h-4" />
+                <MaterialIcon icon="place" className="w-4 h-4" />
                 <span>{testimonial.clientLocation}</span>
               </div>
               <div className="flex items-center gap-1">
-                <Calendar className="w-4 h-4" />
+                <MaterialIcon icon="event" className="w-4 h-4" />
                 <span>{formatDate(testimonial.completionDate)}</span>
               </div>
             </div>
@@ -301,15 +299,16 @@ function CompactTestimonialsWidget({
   return (
     <div className="bg-white shadow-sm p-6 border rounded-lg">
       <div className="flex items-center gap-2 mb-4">
-        <Quote className="w-5 h-5 text-blue-600" />
+        <MaterialIcon icon="format_quote" className="w-5 h-5 text-blue-600" />
         <h3 className="font-semibold text-gray-900">Client Testimonial</h3>
       </div>
 
       <div className="mb-4">
         <div className="flex items-center gap-1 mb-2">
           {[...Array(5)].map((_, i) => (
-            <Star
+            <MaterialIcon
               key={i}
+              icon="star"
               className={`h-4 w-4 ${
                 i < currentTestimonial.rating
                   ? 'fill-yellow-400 text-yellow-400'
@@ -401,8 +400,9 @@ function CardsTestimonialsWidget({
                 {/* Rating */}
                 <div className="flex items-center gap-1 mb-3">
                   {[...Array(5)].map((_, i) => (
-                    <Star
+                    <MaterialIcon
                       key={i}
+                      icon="star"
                       className={`h-4 w-4 ${
                         i < testimonial.rating
                           ? 'fill-yellow-400 text-yellow-400'
@@ -456,7 +456,7 @@ function CardsTestimonialsWidget({
               className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-bold text-white transition-colors duration-200"
             >
               View All Testimonials
-              <ExternalLink className="w-5 h-5" />
+              <MaterialIcon icon="open_in_new" className="w-5 h-5" />
             </Link>
           </div>
         )}

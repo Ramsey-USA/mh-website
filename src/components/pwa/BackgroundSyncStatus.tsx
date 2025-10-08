@@ -1,14 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import {
-  Wifi,
-  WifiOff,
-  Clock,
-  CheckCircle,
-  AlertCircle,
-  RefreshCw,
-} from 'lucide-react'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
 import {
   getPendingSyncCount,
   getBackgroundSyncManager,
@@ -81,14 +74,18 @@ export default function BackgroundSyncStatus({
 
   const getStatusIcon = () => {
     if (!isOnline) {
-      return <WifiOff className="h-4 w-4 text-red-500" />
+      return <MaterialIcon icon="wifi_off" className="w-4 h-4 text-red-500" />
     }
 
     if (pendingCount > 0) {
-      return <Clock className="h-4 w-4 text-yellow-500" />
+      return (
+        <MaterialIcon icon="schedule" className="w-4 h-4 text-yellow-500" />
+      )
     }
 
-    return <CheckCircle className="h-4 w-4 text-green-500" />
+    return (
+      <MaterialIcon icon="check_circle" className="w-4 h-4 text-green-500" />
+    )
   }
 
   const getStatusText = () => {
@@ -130,10 +127,11 @@ export default function BackgroundSyncStatus({
         <button
           onClick={handleManualSync}
           disabled={isManualSync}
-          className="p-1 text-gray-400 hover:text-gray-600 disabled:opacity-50"
+          className="disabled:opacity-50 p-1 text-gray-400 hover:text-gray-600"
           title="Sync now"
         >
-          <RefreshCw
+          <MaterialIcon
+            icon="refresh"
             className={`h-4 w-4 ${isManualSync ? 'animate-spin' : ''}`}
           />
         </button>
@@ -141,15 +139,15 @@ export default function BackgroundSyncStatus({
 
       {/* Last Sync Time */}
       {lastSync && isOnline && pendingCount === 0 && (
-        <span className="text-xs text-gray-500">
+        <span className="text-gray-500 text-xs">
           Last synced: {lastSync.toLocaleTimeString()}
         </span>
       )}
 
       {/* Offline Indicator */}
       {!isOnline && (
-        <div className="flex items-center gap-1 text-xs text-gray-500">
-          <AlertCircle className="h-3 w-3" />
+        <div className="flex items-center gap-1 text-gray-500 text-xs">
+          <MaterialIcon icon="warning" className="w-3 h-3" />
           <span>Changes will sync when online</span>
         </div>
       )}

@@ -1,14 +1,16 @@
 'use client'
 
 import { useState } from 'react'
-import { Shield, Star, MapPin, Phone, Mail, ExternalLink } from 'lucide-react'
+import { MaterialIcon } from '../icons/MaterialIcon'
 import VeteranBadge from './VeteranBadge'
 
 interface VeteranSpecialistCardProps {
   className?: string
 }
 
-export default function VeteranSpecialistCard({ className = '' }: VeteranSpecialistCardProps) {
+export default function VeteranSpecialistCard({
+  className = '',
+}: VeteranSpecialistCardProps) {
   const [isContactVisible, setIsContactVisible] = useState(false)
 
   // Mock veteran specialist data - in real app, this would come from CMS/API
@@ -21,14 +23,14 @@ export default function VeteranSpecialistCard({ className = '' }: VeteranSpecial
       disabilityRating: 20,
       serviceEra: '2001-Present' as const,
       activeDuty: false,
-      dischargeBBStatus: 'Honorable' as const
+      dischargeBBStatus: 'Honorable' as const,
     },
     experience: '15+ years in construction',
     specialties: [
       'VA Home Loan Projects',
       'Accessibility Modifications',
       'Energy Efficiency Grants',
-      'Historic Renovation Tax Credits'
+      'Historic Renovation Tax Credits',
     ],
     location: 'Omaha, NE',
     phone: '(402) 555-0123',
@@ -36,37 +38,42 @@ export default function VeteranSpecialistCard({ className = '' }: VeteranSpecial
     certifications: [
       'Certified Aging-in-Place Specialist',
       'VA Loan Specialist',
-      'Energy Efficiency Expert'
-    ]
+      'Energy Efficiency Expert',
+    ],
   }
 
   return (
-    <div className={`bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-lg p-6 ${className}`}>
+    <div
+      className={`bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-lg p-6 ${className}`}
+    >
       <div className="flex items-start gap-4 mb-4">
         <div className="relative">
           <div className="flex justify-center items-center bg-emerald-100 rounded-full w-16 h-16">
-            <Shield className="w-8 h-8 text-emerald-600" />
-          </div>
-          <div className="-right-1 -bottom-1 absolute">
-            <VeteranBadge 
-              veteranStatus={specialist.veteranStatus} 
-              size="sm" 
+            <MaterialIcon
+              icon="security"
+              size="lg"
+              className="text-emerald-600"
             />
           </div>
+          <div className="-right-1 -bottom-1 absolute">
+            <VeteranBadge veteranStatus={specialist.veteranStatus} size="sm" />
+          </div>
         </div>
-        
+
         <div className="flex-1">
-          <h3 className="font-bold text-emerald-900 text-lg">{specialist.name}</h3>
+          <h3 className="font-bold text-emerald-900 text-lg">
+            {specialist.name}
+          </h3>
           <p className="font-medium text-emerald-700">{specialist.title}</p>
           <p className="text-emerald-600 text-sm">{specialist.experience}</p>
           <div className="flex items-center gap-1 mt-1 text-emerald-600 text-sm">
-            <MapPin className="w-3 h-3" />
+            <MaterialIcon icon="place" size="sm" />
             {specialist.location}
           </div>
         </div>
 
         <div className="flex flex-col items-center gap-1">
-          <Star className="fill-current w-5 h-5 text-amber-500" />
+          <MaterialIcon icon="star" size="md" className="text-amber-500" />
           <span className="font-medium text-slate-600 text-xs">Veteran</span>
           <span className="font-medium text-slate-600 text-xs">Specialist</span>
         </div>
@@ -76,7 +83,7 @@ export default function VeteranSpecialistCard({ className = '' }: VeteranSpecial
         <h4 className="mb-2 font-semibold text-emerald-900">Specializes In:</h4>
         <div className="flex flex-wrap gap-2">
           {specialist.specialties.map((specialty, index) => (
-            <span 
+            <span
               key={index}
               className="bg-emerald-100 px-2 py-1 border border-emerald-200 rounded-full text-emerald-800 text-xs"
             >
@@ -103,15 +110,19 @@ export default function VeteranSpecialistCard({ className = '' }: VeteranSpecial
           onClick={() => setIsContactVisible(!isContactVisible)}
           className="flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-md w-full font-medium text-white transition-colors"
         >
-          <Shield className="w-4 h-4" />
+          <MaterialIcon icon="security" size="md" />
           {isContactVisible ? 'Hide Contact Info' : 'Get Veteran Support'}
         </button>
 
         {isContactVisible && (
           <div className="space-y-2 bg-white p-3 border border-emerald-200 rounded-md">
             <div className="flex items-center gap-2 text-sm">
-              <Phone className="w-4 h-4 text-emerald-600" />
-              <a 
+              <MaterialIcon
+                icon="phone"
+                size="md"
+                className="text-emerald-600"
+              />
+              <a
                 href={`tel:${specialist.phone}`}
                 className="text-emerald-700 hover:text-emerald-900 hover:underline"
               >
@@ -119,8 +130,12 @@ export default function VeteranSpecialistCard({ className = '' }: VeteranSpecial
               </a>
             </div>
             <div className="flex items-center gap-2 text-sm">
-              <Mail className="w-4 h-4 text-emerald-600" />
-              <a 
+              <MaterialIcon
+                icon="email"
+                size="md"
+                className="text-emerald-600"
+              />
+              <a
                 href={`mailto:${specialist.email}`}
                 className="text-emerald-700 hover:text-emerald-900 hover:underline"
               >
@@ -129,8 +144,10 @@ export default function VeteranSpecialistCard({ className = '' }: VeteranSpecial
             </div>
             <div className="pt-2 border-emerald-100 border-t">
               <p className="text-emerald-600 text-xs">
-                <strong>Best Contact:</strong> Call or email to discuss your project and available veteran benefits. 
-                Sarah specializes in helping veterans navigate construction financing and benefit programs.
+                <strong>Best Contact:</strong> Call or email to discuss your
+                project and available veteran benefits. Sarah specializes in
+                helping veterans navigate construction financing and benefit
+                programs.
               </p>
             </div>
           </div>
@@ -139,8 +156,9 @@ export default function VeteranSpecialistCard({ className = '' }: VeteranSpecial
 
       <div className="bg-emerald-100 mt-4 p-3 rounded-md">
         <p className="text-emerald-800 text-xs">
-          <strong>Veteran to Veteran:</strong> As a fellow veteran, Sarah understands the unique challenges 
-          and opportunities that come with veteran benefits. She'll ensure you get the maximum value from 
+          <strong>Veteran to Veteran:</strong> As a fellow veteran, Sarah
+          understands the unique challenges and opportunities that come with
+          veteran benefits. She'll ensure you get the maximum value from
           available programs.
         </p>
       </div>

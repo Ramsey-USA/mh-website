@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { CheckCircle, Target } from 'lucide-react'
+import { MaterialIcon } from '../icons/MaterialIcon'
 import { Card, CardContent, CardHeader, CardTitle, Button, Input } from '../ui'
 import { analytics } from '../analytics/google-analytics'
 
@@ -127,7 +127,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
       <Card className={`${className} border-green-200 bg-green-50`}>
         <CardContent className="p-6 text-center">
           <div className="flex justify-center mb-3 text-green-600 text-4xl">
-            <CheckCircle className="w-16 h-16" />
+            <MaterialIcon icon="check_circle" size="4xl" />
           </div>
           <h3 className="mb-2 font-semibold text-green-800 text-xl">
             Thank You!
@@ -231,7 +231,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
           <div className="bg-blue-50 p-4 border border-blue-200 rounded-lg">
             <div className="flex items-start">
               <div className="flex items-center mr-3 text-blue-500 text-xl">
-                <Target className="w-5 h-5" />
+                <MaterialIcon icon="target" size="md" />
               </div>
               <div>
                 <h4 className="mb-1 font-semibold text-blue-800">
@@ -249,7 +249,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
 
           <Button
             type="submit"
-            variant="cta"
+            variant="primary"
             size={compact ? 'default' : 'lg'}
             className="w-full"
             disabled={isSubmitting}

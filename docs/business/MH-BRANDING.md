@@ -2,12 +2,52 @@
 
 ## Complete brand identity, design system, and implementation guidelines for MH Construction LLC
 
-> **📅 Last Updated:** October 2, 2025  
-> **🎨 Brand Version:** 3.7.1  
+> **📅 Last Updated:** October 8, 2025  
+> **🎨 Brand Version:** 3.7.2  
 > **👥 Authority:** MH Construction Leadership Team  
 > **💻 Implementation:** Foundation-Only Architecture with Google Material Icons  
 > **🌙 Theme Support:** Complete light/dark mode with optimized theme toggle  
 > **🚀 Architecture:** Clean Slate Foundation, Google Material Icons, ready for creative expansion
+
+## 🚨 **CRITICAL POLICY: EMOJI-FREE CODEBASE (v3.7.2)**
+
+### **Icon Standards Enforcement**
+
+**MH Construction maintains a strict EMOJI-FREE source code policy. All visual indicators must use Google Material Icons exclusively.**
+
+#### **✅ APPROVED: Material Icons Only**
+
+```tsx
+// ✅ Correct - Use MaterialIcon component
+<MaterialIcon icon="construction" size="lg" className="text-brand-primary" />
+<MaterialIcon icon="military_tech" size="md" />
+<MaterialIcon icon="event" size="sm" />
+```
+
+#### **❌ PROHIBITED: Emojis in Source Code**
+
+```tsx
+// ❌ Never use emojis in source code
+<span>🏗️ Construction Project</span>
+<button>📅 Schedule</button>
+title: 'Update 🎯'
+```
+
+#### **Policy Rationale**
+
+- **Cross-platform consistency**: Material Icons render identically across all devices
+- **Professional branding**: Maintains cohesive visual identity
+- **Accessibility compliance**: Screen readers handle Material Icons properly
+- **Performance optimization**: No emoji rendering dependencies
+- **Maintainability**: Centralized icon system with semantic naming
+
+#### **Exception: Documentation Files**
+
+- **Markdown files**: Emojis acceptable for documentation clarity
+- **README files**: Visual enhancement for developer experience
+- **Project planning**: Emojis help organize and communicate project status
+
+---
 
 ## Core Brand Taglines
 
@@ -62,15 +102,15 @@
   </span>
 </h1>
 
-// Standardized CTA Buttons
-<Button variant="primary" size="xl" className="shadow-xl">
-  <CalendarIcon size="sm" primaryColor="currentColor" className="mr-3" />
-  <span className="z-10 relative tracking-wide">Schedule Free Consultation</span>
+// Standardized CTA Buttons (v3.7.1) - Content Section Implementation
+<Button variant="primary" size="lg" className="transition-all duration-300">
+  <MaterialIcon icon="event" size="lg" className="mr-3" />
+  <span className="font-medium">Schedule Free Consultation</span>
 </Button>
 
-<Button variant="outline" size="xl" className="shadow-xl">
-  <BoltIcon size="sm" primaryColor="currentColor" className="mr-3" />
-  <span className="z-10 relative tracking-wide">Get AI Estimate</span>
+<Button variant="secondary" size="lg" className="transition-all duration-300">
+  <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
+  <span className="font-medium">Get AI Estimate</span>
 </Button>
 
 // Consistent Section Spacing
@@ -83,17 +123,16 @@
 </section>
 ```markdown
 
-### **Latest Brand Improvements (v2.6.1):**
+### **Latest Brand Improvements (v3.7.1):**
 
 - ✅ **Enhanced Typography**: Responsive clamp() scaling from text-4xl to text-8xl
-- ✅ **Consistent CTAs**: Standardized Button variants with proper dark mode support
-- ✅ **Optimized Spacing**: Uniform section padding py-20 lg:py-32 xl:py-40
-- ✅ **Card Consistency**: All cards use h-full for uniform heights
-- ✅ **Grid Improvements**: Enhanced responsive layouts for better visual balance
-- ✅ **Shimmer Effects Removed**: All shimmer/glimmer effects removed for cleaner professional appearance
-- ✅ **Button Optimization**: Simplified button interactions without distracting animations
-- ✅ **Dark Mode Excellence**: Proper theme support without custom overrides
-- ✅ **Accessibility**: Improved focus states and contrast ratios
+- ✅ **Unified Button Standards**: Outlined buttons with rounded-xl corners, MH brand colors, consistent sizing and icons
+- ✅ **Consistent Rounded Corners**: All buttons use rounded-xl to match card styling
+- ✅ **MaterialIcon Integration**: Exclusively Google Material Icons throughout entire website
+- ✅ **Theme-Aware Design**: Proper light/dark mode support across all components
+- ✅ **Professional Color Palette**: Hunter green, black, white, and grays with proper contrast
+- ✅ **Accessibility Standards**: WCAG 2.1 compliance with comprehensive testing guidelines
+- ✅ **Clean Interactions**: 300ms transitions with hover color changes
 
 ---
 
@@ -472,32 +511,541 @@ export function Button({ variant, children, ...props }) {
 
 ---
 
+## 🔘 MH Construction Button Standards & Implementation Guide
+
+### **Unified Button Design System**
+
+MH Construction uses a standardized button system with consistent MH branding, focusing on outlined buttons with rounded corners that match our card styling. All buttons maintain accessibility, proper contrast, and responsive behavior across the platform.
+
+#### **Core Design Principles**
+
+- **No Hero Section Buttons**: Hero sections contain only navigation elements, no CTA buttons
+- **Consistent Rounded Corners**: `rounded-xl` to match card styling throughout the site
+- **Outlined Design**: All buttons use outline styling for professional, clean appearance
+- **MH Brand Colors**: Hunter green (#386851), black, white, and appropriate grays
+- **Icon Integration**: Every button includes a relevant MaterialIcon
+- **Size Consistency**: Uniform sizing within each section
+- **Hover Color Changes**: All buttons change background and border colors on hover
+- **Theme Awareness**: Proper light/dark mode support
+
+#### **Button Variants & Usage Guidelines**
+
+| Variant | Usage Context | Color Scheme | When to Use |
+|---------|---------------|--------------|-------------|
+| `primary` | Main CTAs, primary actions | Hunter green outline, white background | Primary conversions, main actions |
+| `secondary` | Supporting actions | Gray outline, white background | Secondary navigation, supporting actions |
+| `neutral` | Default interactions | Black/white outline based on theme | Standard interactions, content navigation |
+
+#### **Button Sizes & Section Standards**
+
+| Size | Height | Padding | Icon Size | Usage Context |
+|------|--------|---------|-----------|---------------|
+| `lg` | 48px | 24px horizontal | `lg` (24px) | Hero sections, main CTAs |
+| `md` | 40px | 16px horizontal | `md` (20px) | Content sections, cards |
+| `sm` | 32px | 12px horizontal | `sm` (18px) | Compact areas, inline actions |
+
+### **Implementation Examples**
+
+#### **Primary Actions (Main CTAs)**
+
+```tsx
+// Content section primary action with hover color change
+<Button 
+  variant="primary" 
+  size="lg" 
+  className="transition-all duration-300"
+>
+  <MaterialIcon icon="event" size="lg" className="mr-3" />
+  Schedule Free Consultation
+</Button>
+
+// Standard primary button with hover effects
+<Button 
+  variant="primary" 
+  size="default" 
+  className="transition-all duration-300"
+>
+  <MaterialIcon icon="smart_toy" size="md" className="mr-2" />
+  Get AI Estimate
+</Button>
+```
+
+#### **Secondary Actions**
+
+```tsx
+// Supporting navigation actions with hover color change
+<Button 
+  variant="secondary" 
+  size="lg" 
+  className="transition-all duration-300"
+>
+  <MaterialIcon icon="visibility" size="lg" className="mr-3" />
+  View Portfolio
+</Button>
+
+// Alternative content actions
+<Button 
+  variant="secondary" 
+  size="default" 
+  className="transition-all duration-300"
+>
+  <MaterialIcon icon="arrow_forward" size="md" className="mr-2" />
+  Learn More
+</Button>
+```
+
+#### **Contact & Communication Actions**
+
+```tsx
+// Phone/contact buttons with hover effects
+<Button 
+  variant="primary" 
+  size="lg" 
+  className="w-full transition-all duration-300"
+>
+  <MaterialIcon icon="phone" size="lg" className="mr-3" />
+  <span className="text-center">
+    Call Now<br />
+    (509) 308-6489
+  </span>
+</Button>
+```
+
+### **Standardized Button Styling**
+
+#### **Base Button Classes**
+
+```scss
+// Core button styling - applies to all variants
+.mh-button-base {
+  @apply inline-flex items-center justify-center;
+  @apply rounded-xl border-2;
+  @apply font-medium transition-all duration-300;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+// Primary variant (Hunter Green) with hover color changes
+.mh-button-primary {
+  @apply border-brand-primary bg-white text-brand-primary;
+  @apply hover:bg-brand-primary hover:text-white hover:border-brand-primary-dark;
+  @apply dark:bg-gray-900 dark:text-brand-primary-light;
+  @apply focus:ring-brand-primary;
+}
+
+// Secondary variant (Gray) with hover color changes
+.mh-button-secondary {
+  @apply border-gray-300 bg-white text-gray-700;
+  @apply hover:bg-gray-100 hover:border-gray-400;
+  @apply dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300;
+  @apply dark:hover:bg-gray-800 dark:hover:border-gray-500;
+  @apply focus:ring-gray-500;
+}
+
+// Neutral variant (Theme-based) with hover color changes
+.mh-button-neutral {
+  @apply border-gray-800 bg-white text-gray-800;
+  @apply hover:bg-gray-800 hover:text-white hover:border-gray-900;
+  @apply dark:border-gray-200 dark:bg-gray-900 dark:text-gray-200;
+  @apply dark:hover:bg-gray-200 dark:hover:text-gray-900 dark:hover:border-gray-100;
+  @apply focus:ring-gray-500;
+}
+```
+
+#### **Size Specifications**
+
+```scss
+// Large buttons (Hero sections)
+.mh-button-lg {
+  @apply h-12 px-6 text-base;
+}
+
+// Medium buttons (Content sections)
+.mh-button-md {
+  @apply h-10 px-4 text-sm;
+}
+
+// Small buttons (Compact areas)
+.mh-button-sm {
+  @apply h-8 px-3 text-xs;
+}
+```
+
+### **Section-Specific Implementation Standards**
+
+#### **Content Section Buttons**
+
+- **Size**: `lg` (48px height) for main CTAs, `default` (40px height) for secondary actions
+- **Layout**: Responsive grid with consistent spacing
+- **Variants**: Primary for main actions, secondary for supporting actions
+- **Icons**: `lg` size (24px) for large buttons, `md` size (20px) for default buttons
+- **Hover Effects**: Background and border color changes with smooth transitions
+
+```tsx
+<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+  <Button variant="primary" size="lg" className="transition-all duration-300">
+    <MaterialIcon icon="event" size="lg" className="mr-3" />
+    Schedule Consultation
+  </Button>
+  <Button variant="secondary" size="lg" className="transition-all duration-300">
+    <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
+    Get AI Estimate
+  </Button>
+</div>
+```
+
+#### **Navigation Section Buttons**
+
+- **Size**: `default` (40px height)
+- **Layout**: Responsive grid with consistent spacing
+- **Variants**: Secondary for most navigation actions
+- **Icons**: `md` size (20px)
+- **Hover Effects**: Subtle background color changes
+
+#### **Contact Section Buttons**
+
+- **Size**: `lg` (48px height)
+- **Layout**: 4-column grid on desktop, stacked on mobile
+- **Variants**: Alternating primary/secondary for visual balance
+- **Icons**: `lg` size (24px)
+- **Special Styling**: Custom height (`h-16`) for contact grid buttons
+
+### **Accessibility Standards**
+
+#### **Required Attributes**
+
+```tsx
+<Button
+  variant="primary"
+  size="md"
+  aria-label="Schedule a free consultation with MH Construction"
+  role="button"
+  tabIndex={0}
+  className="mh-button-primary mh-button-md focus:ring-2 focus:ring-brand-primary focus:ring-offset-2"
+>
+  <MaterialIcon icon="event" size="md" className="mr-2" />
+  Schedule Consultation
+</Button>
+```
+
+#### **Keyboard Navigation**
+
+- **Tab Order**: Logical sequence through page content
+- **Enter/Space**: Activates button action
+- **Focus Indicators**: Visible ring with brand colors
+- **Screen Reader**: Descriptive aria-labels
+
+#### **Touch Targets**
+
+- **Minimum Size**: 44px × 44px (WCAG guidelines)
+- **Mobile Spacing**: 8px minimum between interactive elements
+- **Full-Width Mobile**: Buttons expand to full width on small screens
+
+### **Responsive Behavior**
+
+#### **Mobile-First Implementation**
+
+```tsx
+<Button 
+  variant="primary" 
+  size="md"
+  className="
+    w-full sm:w-auto 
+    mh-button-primary mh-button-md
+    mb-4 sm:mb-0
+  "
+>
+  <MaterialIcon icon="phone" size="md" className="mr-2" />
+  Contact Us
+</Button>
+```
+
+#### **Breakpoint Adjustments**
+
+- **Mobile (< 640px)**: Full-width buttons, stacked layout
+- **Tablet (640px - 1024px)**: 2-column grid for button groups
+- **Desktop (> 1024px)**: Multi-column layouts with proper spacing
+
+### **Dark Mode Standards**
+
+#### **Color Adaptations with Hover Effects**
+
+- **Backgrounds**: White → Gray-100 on hover (light mode), Gray-900 → Gray-800 on hover (dark mode)
+- **Borders**: Subtle color intensification on hover for better visual feedback
+- **Text**: Maintains readability with appropriate contrast during color transitions
+- **Hunter Green**: Primary buttons invert colors on hover (green background, white text)
+
+#### **Implementation Example**
+
+```tsx
+<Button className="
+  border-2 border-brand-primary 
+  bg-white dark:bg-gray-900 
+  text-brand-primary dark:text-brand-primary-light 
+  hover:bg-brand-primary hover:text-white hover:border-brand-primary-dark
+  transition-all duration-300
+">
+  Dark Mode Compatible Button with Hover Effects
+</Button>
+```
+
+---
+
 ## Icon System (Google Material Icons v3.7.0)
 
 ### **Complete Migration to Google Material Icons**
 
-**MH Construction has migrated from complex custom icon systems to industry-standard Google Material Icons for consistency, maintainability, and universal recognition.**
+**MH Construction uses exclusively Google Material Icons throughout the entire website for consistency, maintainability, and universal recognition.**
 
 #### **MaterialIcon Component Implementation**
 
 ```tsx
-// Single unified icon component
+// Single unified icon component used everywhere
 import { MaterialIcon } from '@/components/icons/MaterialIcon';
 
 // Usage examples
-<MaterialIcon name="smart_toy" size="xl" style="text-blue-600" />
-<MaterialIcon name="event" size="lg" />
-<MaterialIcon name="construction" size="2xl" style="text-orange-500" />
+<MaterialIcon icon="smart_toy" size="xl" className="text-blue-600" />
+<MaterialIcon icon="event" size="lg" />
+<MaterialIcon icon="construction" size="2xl" className="text-orange-500" />
 ```
+
+#### **Consistent Icon Standards**
+
+**✅ DO:**
+
+- Use `MaterialIcon` component for all icons
+- Choose semantic icon names that match functionality
+- Use consistent sizing within sections
+- Apply proper theme-aware styling
+
+**❌ DON'T:**
+
+- Mix different icon libraries (lucide-react, react-icons, etc.)
+- Use custom SVG icons unless absolutely necessary
+- Inconsistent sizing within the same section
+- Hard-coded colors that don't support dark mode
+
+#### **Standard Icon Mappings**
+
+| Function | Material Icon | Usage Context |
+|----------|---------------|---------------|
+| Calendar/Events | `event` | Scheduling, appointments |
+| Time/Duration | `schedule` | Time slots, duration |
+| Location | `place` | Addresses, locations |
+| Phone | `phone` | Contact numbers |
+| Email | `email` | Email addresses |
+| AI/Smart Features | `smart_toy` | AI estimator, chatbot |
+| Projects/Portfolio | `visibility` | View projects, gallery |
+| Awards/Recognition | `workspace_premium` | Awards, achievements |
+| Security | `security` | Security features |
+| Success/Completion | `check_circle` | Success states |
+| Construction | `construction` | Building, projects |
+| Menu/Navigation | `menu` | Mobile menu, navigation |
+| Search | `search` | Search functionality |
+| Settings | `settings` | Configuration |
+| Home | `home` | Home page navigation |
+| Info | `info` | Information, about |
+| Work | `work` | Projects, portfolio |
+| Team | `group` | Team, people |
+| Government | `account_balance` | Government services |
+| Partnerships | `handshake` | Partners, relationships |
+| Careers | `work_outline` | Job opportunities |
+| Contact | `contact_mail` | Contact forms |
 
 #### **Size System**
 
 | Size | Tailwind Class | Pixel Size | Usage Context |
 |------|----------------|------------|---------------|
-| `sm` | `text-lg` | 18px | Inline text icons |
-| `md` | `text-xl` | 20px | Button icons |
-| `lg` | `text-2xl` | 24px | Card headers |
-| `xl` | `text-3xl` | 30px | Feature highlights |
+| `sm` | `text-lg` | 18px | Inline text icons, small buttons |
+| `md` | `text-xl` | 20px | Standard button icons, content |
+| `lg` | `text-2xl` | 24px | Large buttons, card headers |
+| `xl` | `text-3xl` | 30px | Section headers, feature highlights |
+| `2xl` | `text-4xl` | 36px | Hero sections, major features |
+| `3xl` | `text-5xl` | 48px | Large displays, special emphasis |
+| `4xl` | `text-6xl` | 60px | Extra large displays, success states |
+
+#### **Primary Action Examples**
+
+```tsx
+// Button with icon (standard pattern)
+<Button variant="primary" size="lg">
+  <MaterialIcon icon="event" size="lg" className="mr-3" />
+  Schedule Consultation
+</Button>
+
+// Section header with icon
+<h2 className="flex items-center gap-3">
+  <MaterialIcon icon="workspace_premium" size="xl" className="text-brand-primary" />
+  Popular Projects
+</h2>
+
+// Success state with large icon
+<div className="text-center">
+  <MaterialIcon icon="check_circle" size="4xl" className="text-green-600 mb-4" />
+  <h3>Success!</h3>
+</div>
+
+// Navigation item with icon
+<a href="/contact" className="flex items-center gap-2">
+  <MaterialIcon icon="contact_mail" size="md" />
+  Contact Us
+</a>
+```
+
+#### **Theme Support**
+
+```tsx
+// Theme-aware icon styling
+<MaterialIcon 
+  icon="construction" 
+  size="lg" 
+  className="text-brand-primary dark:text-brand-primary-light" 
+/>
+
+// Conditional icon colors
+<MaterialIcon 
+  icon="security" 
+  size="md" 
+  className="text-green-600 dark:text-green-400" 
+/>
+```
+
+#### **Migration from Other Icon Libraries**
+
+**Before (Lucide React):**
+
+```tsx
+import { Award, Calendar, Clock } from 'lucide-react'
+
+<Award size={24} className="text-brand-primary" />
+<Calendar size={18} />
+<Clock size={16} />
+```
+
+**After (Material Icons):**
+
+```tsx
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
+
+<MaterialIcon icon="workspace_premium" size="lg" className="text-brand-primary" />
+<MaterialIcon icon="event" size="md" />
+<MaterialIcon icon="schedule" size="sm" />
+```
+
+#### **Icon Library Standards**
+
+- **Primary Library**: Google Material Icons only
+- **Fallback**: None - all icons must use MaterialIcon component
+- **Custom Icons**: Only for brand-specific elements (logo, etc.)
+- **Consistency**: Same icon for same function across entire site
+
+---
+
+### **📋 Comprehensive Icon Migration Guide**
+
+**The following table provides exact MaterialIcon replacements for all lucide-react icons currently used in the MH Construction codebase:**
+
+| Lucide Icon | MaterialIcon Replacement | Usage Context |
+|-------------|-------------------------|---------------|
+| `Award` | `workspace_premium` | Awards, achievements, recognition |
+| `ArrowRight` | `arrow_forward` | Next, continue, forward navigation |
+| `ArrowLeft` | `arrow_back` | Previous, back navigation |
+| `Calendar` | `event` | Dates, scheduling, appointments |
+| `Clock` | `schedule` | Time, duration, timing |
+| `Check` | `check` | Confirmation, success, completion |
+| `CheckCircle` | `check_circle` | Success states, completion |
+| `ChevronLeft` | `chevron_left` | Previous navigation, back |
+| `ChevronRight` | `chevron_right` | Next navigation, forward |
+| `Download` | `download` | Download actions, file downloads |
+| `Edit` | `edit` | Edit actions, modify content |
+| `ExternalLink` | `open_in_new` | External links, new window |
+| `Filter` | `filter_list` | Filtering, sorting options |
+| `Grid` | `grid_view` | Grid layout, gallery view |
+| `List` | `list` | List view, linear layout |
+| `Mail` | `email` | Email, contact, messages |
+| `MapPin` | `place` | Location, address, map markers |
+| `Monitor` | `computer` | Desktop, computer, device |
+| `Phone` | `phone` | Phone numbers, calls |
+| `Plus` | `add` | Add, create, new items |
+| `Quote` | `format_quote` | Quotes, testimonials |
+| `RefreshCw` | `refresh` | Refresh, reload, update |
+| `Save` | `save` | Save actions, store data |
+| `Search` | `search` | Search functionality |
+| `Settings` | `settings` | Configuration, preferences |
+| `Shield` | `security` | Security, protection |
+| `Smartphone` | `phone_android` | Mobile devices, phones |
+| `Star` | `star` | Ratings, favorites, reviews |
+| `Target` | `center_focus_strong` | Goals, targeting, focus |
+| `Trash2` | `delete` | Delete, remove, trash |
+| `User` | `person` | Users, accounts, profiles |
+| `Users` | `group` | Multiple users, teams |
+| `Wifi` | `wifi` | Network, connectivity |
+| `X` | `close` | Close, cancel, dismiss |
+| `Zap` | `bolt` | Power, energy, fast actions |
+
+#### **Priority Component Updates Required**
+
+**High Priority (Used on main pages):**
+
+1. ✅ **TestimonialsWidget** - Homepage testimonials section *(COMPLETED)*
+2. ✅ **DynamicSearch** - Search and filtering features *(COMPLETED)*
+3. **PWA Components** - App installation features *(2/6 completed)*
+
+**Medium Priority (Feature components):**
+
+1. ✅ **InteractiveGallery** - Portfolio and project galleries *(COMPLETED)*
+2. ✅ **VeteranBenefitsCard** - Veteran services features *(COMPLETED)*
+3. **AdminDashboard** - Administrative interfaces
+
+#### **Recently Completed Components**
+
+**✅ PWA Components (2/6 completed):**
+
+- ✅ **PWAUpdate.tsx** *(COMPLETED)* - App update notifications
+- ✅ **PWAInstall.tsx** *(COMPLETED)* - App installation prompts
+
+**✅ Page Components:**
+
+- ✅ **security/page.tsx** *(COMPLETED)* - Security dashboard page
+
+#### **Remaining Components Requiring Updates**
+
+**PWA Components (4 files remaining):**
+
+- PushNotifications.tsx
+- PWAInstallPrompt.tsx
+- PWAUpdatePrompt.tsx
+- BackgroundSyncStatus.tsx
+
+**Dashboard Components (3 files):**
+
+- AdminDashboard.tsx
+- AnalyticsDashboard.tsx
+- ContentManagementSimple.tsx
+
+**Other Components (3 files):**
+
+- JobApplicationModal.tsx
+- TestimonialsDashboard.tsx
+- SecurityDashboard.tsx
+
+#### **Implementation Commands**
+
+```tsx
+// Before (Lucide React)
+import { Award, Calendar, Search } from 'lucide-react'
+<Award className="w-6 h-6 text-brand-primary" />
+<Calendar size={18} />
+<Search className="w-4 h-4 text-gray-400" />
+
+// After (MaterialIcon)
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
+<MaterialIcon icon="workspace_premium" size="lg" className="text-brand-primary" />
+<MaterialIcon icon="event" size="sm" />
+<MaterialIcon icon="search" size="sm" className="text-gray-400" />
+```
+
+---
 | `2xl` | `text-4xl` | 36px | Section headers |
 | `3xl` | `text-5xl` | 48px | Hero sections |
 | `4xl` | `text-6xl` | 60px | Large displays |

@@ -34,28 +34,7 @@ import {
   Area,
   AreaChart,
 } from 'recharts'
-import {
-  Shield,
-  AlertTriangle,
-  CheckCircle,
-  XCircle,
-  Activity,
-  Eye,
-  Download,
-  RefreshCw,
-  Clock,
-  Users,
-  Globe,
-  Lock,
-  Unlock,
-  Bug,
-  Zap,
-  TrendingUp,
-  TrendingDown,
-  FileText,
-  Search,
-  Filter,
-} from 'lucide-react'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
 
 // Mock data types (in real app, these would come from security services)
 interface SecurityMetrics {
@@ -221,20 +200,35 @@ export default function SecurityDashboard() {
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'secure':
-        return <CheckCircle className="w-5 h-5 text-green-500" />
+        return (
+          <MaterialIcon
+            icon="check_circle"
+            className="w-5 h-5 text-green-500"
+          />
+        )
       case 'warning':
-        return <AlertTriangle className="w-5 h-5 text-yellow-500" />
+        return (
+          <MaterialIcon icon="warning" className="w-5 h-5 text-yellow-500" />
+        )
       case 'critical':
-        return <XCircle className="w-5 h-5 text-red-500" />
+        return <MaterialIcon icon="cancel" className="w-5 h-5 text-red-500" />
       default:
-        return <Activity className="w-5 h-5 text-gray-500" />
+        return (
+          <MaterialIcon icon="show_chart" className="w-5 h-5 text-gray-500" />
+        )
     }
   }
 
   const getTrendIcon = (trend: number) => {
-    if (trend > 0) return <TrendingUp className="w-4 h-4 text-red-500" />
-    if (trend < 0) return <TrendingDown className="w-4 h-4 text-green-500" />
-    return <Activity className="w-4 h-4 text-gray-500" />
+    if (trend > 0)
+      return (
+        <MaterialIcon icon="trending_up" className="w-4 h-4 text-red-500" />
+      )
+    if (trend < 0)
+      return (
+        <MaterialIcon icon="trending_down" className="w-4 h-4 text-green-500" />
+      )
+    return <MaterialIcon icon="show_chart" className="w-4 h-4 text-gray-500" />
   }
 
   const vulnerabilityData = [
@@ -264,18 +258,21 @@ export default function SecurityDashboard() {
           >
             {isScanning ? (
               <>
-                <RefreshCw className="mr-2 w-4 h-4 animate-spin" />
+                <MaterialIcon
+                  icon="refresh"
+                  className="mr-2 w-4 h-4 animate-spin"
+                />
                 Scanning...
               </>
             ) : (
               <>
-                <Search className="mr-2 w-4 h-4" />
+                <MaterialIcon icon="search" className="mr-2 w-4 h-4" />
                 Start Scan
               </>
             )}
           </Button>
           <Button variant="outline">
-            <Download className="mr-2 w-4 h-4" />
+            <MaterialIcon icon="download" className="mr-2 w-4 h-4" />
             Export Report
           </Button>
         </div>
@@ -290,7 +287,7 @@ export default function SecurityDashboard() {
               : 'border-yellow-200 bg-yellow-50'
           }
         >
-          <AlertTriangle className="w-4 h-4" />
+          <MaterialIcon icon="warning" className="w-4 h-4" />
           <AlertTitle>
             {metrics.systemStatus === 'critical'
               ? 'Critical Security Issues Detected'
@@ -332,7 +329,10 @@ export default function SecurityDashboard() {
             <CardTitle className="font-medium text-sm">
               Security Events
             </CardTitle>
-            <Activity className="w-4 h-4 text-muted-foreground" />
+            <MaterialIcon
+              icon="show_chart"
+              className="w-4 h-4 text-muted-foreground"
+            />
           </CardHeader>
           <CardContent>
             <div className="font-bold text-2xl">
@@ -353,7 +353,10 @@ export default function SecurityDashboard() {
             <CardTitle className="font-medium text-sm">
               Vulnerabilities
             </CardTitle>
-            <Bug className="w-4 h-4 text-muted-foreground" />
+            <MaterialIcon
+              icon="bug_report"
+              className="w-4 h-4 text-muted-foreground"
+            />
           </CardHeader>
           <CardContent>
             <div className="font-bold text-2xl">
@@ -375,7 +378,10 @@ export default function SecurityDashboard() {
         <Card>
           <CardHeader className="flex flex-row justify-between items-center space-y-0 pb-2">
             <CardTitle className="font-medium text-sm">Risk Score</CardTitle>
-            <Shield className="w-4 h-4 text-muted-foreground" />
+            <MaterialIcon
+              icon="security"
+              className="w-4 h-4 text-muted-foreground"
+            />
           </CardHeader>
           <CardContent>
             <div className="font-bold text-2xl">{metrics.riskScore}/100</div>
@@ -497,11 +503,17 @@ export default function SecurityDashboard() {
                           </p>
                           <div className="flex items-center space-x-4 mt-1 text-muted-foreground text-xs">
                             <span className="flex items-center">
-                              <Globe className="mr-1 w-3 h-3" />
+                              <MaterialIcon
+                                icon="language"
+                                className="mr-1 w-3 h-3"
+                              />
                               {event.source}
                             </span>
                             <span className="flex items-center">
-                              <Clock className="mr-1 w-3 h-3" />
+                              <MaterialIcon
+                                icon="schedule"
+                                className="mr-1 w-3 h-3"
+                              />
                               {event.timestamp.toLocaleTimeString()}
                             </span>
                           </div>
@@ -524,7 +536,7 @@ export default function SecurityDashboard() {
                 </div>
                 <div className="mt-4 pt-4 border-t">
                   <Button variant="outline" className="w-full">
-                    <Eye className="mr-2 w-4 h-4" />
+                    <MaterialIcon icon="visibility" className="mr-2 w-4 h-4" />
                     View All Events
                   </Button>
                 </div>
@@ -608,11 +620,11 @@ export default function SecurityDashboard() {
             <h3 className="font-medium text-lg">Security Events</h3>
             <div className="flex items-center space-x-2">
               <Button variant="outline" size="sm">
-                <Filter className="mr-2 w-4 h-4" />
+                <MaterialIcon icon="filter_alt" className="mr-2 w-4 h-4" />
                 Filter
               </Button>
               <Button variant="outline" size="sm">
-                <Download className="mr-2 w-4 h-4" />
+                <MaterialIcon icon="download" className="mr-2 w-4 h-4" />
                 Export
               </Button>
             </div>
@@ -810,33 +822,36 @@ export default function SecurityDashboard() {
                     {
                       control: 'Access Controls',
                       status: 'implemented',
-                      icon: Lock,
+                      icon: 'lock',
                     },
                     {
                       control: 'Encryption',
                       status: 'implemented',
-                      icon: Shield,
+                      icon: 'security',
                     },
-                    { control: 'Monitoring', status: 'implemented', icon: Eye },
+                    {
+                      control: 'Monitoring',
+                      status: 'implemented',
+                      icon: 'visibility',
+                    },
                     {
                       control: 'Incident Response',
                       status: 'partial',
-                      icon: AlertTriangle,
+                      icon: 'warning',
                     },
                     {
                       control: 'Business Continuity',
                       status: 'pending',
-                      icon: Unlock,
+                      icon: 'lock_open',
                     },
                   ].map(item => {
-                    const Icon = item.icon
                     return (
                       <div
                         key={item.control}
                         className="flex justify-between items-center"
                       >
                         <div className="flex items-center space-x-2">
-                          <Icon className="w-4 h-4" />
+                          <MaterialIcon icon={item.icon} className="w-4 h-4" />
                           <span className="text-sm">{item.control}</span>
                         </div>
                         <Badge

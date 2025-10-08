@@ -5,7 +5,7 @@
 
 import React from 'react'
 import { Metadata } from 'next'
-import { Shield, BarChart3, Search, Check } from 'lucide-react'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
 import SecurityDashboard from '@/components/security/SecurityDashboard'
 
 export const metadata: Metadata = {
@@ -42,7 +42,11 @@ export default function SecurityPage() {
         <div className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 mt-8">
           <div className="bg-white shadow-sm p-6 border rounded-lg">
             <h3 className="flex items-center gap-2 mb-3 font-semibold text-lg">
-              <Shield className="text-blue-600" size={20} />
+              <MaterialIcon
+                icon="security"
+                size="md"
+                className="text-blue-600"
+              />
               Real-time Protection
             </h3>
             <ul className="space-y-2 text-gray-600 text-sm">
@@ -55,7 +59,11 @@ export default function SecurityPage() {
 
           <div className="bg-white shadow-sm p-6 border rounded-lg">
             <h3 className="flex items-center gap-2 mb-3 font-semibold text-lg">
-              <BarChart3 className="text-blue-600" size={20} />
+              <MaterialIcon
+                icon="bar_chart"
+                className="text-blue-600"
+                size="sm"
+              />
               Advanced Analytics
             </h3>
             <ul className="space-y-2 text-gray-600 text-sm">
@@ -68,7 +76,7 @@ export default function SecurityPage() {
 
           <div className="bg-white shadow-sm p-6 border rounded-lg">
             <h3 className="flex items-center gap-2 mb-3 font-semibold text-lg">
-              <Search className="text-blue-600" size={20} />
+              <MaterialIcon icon="search" className="text-blue-600" size="sm" />
               Threat Detection
             </h3>
             <ul className="space-y-2 text-gray-600 text-sm">
@@ -88,25 +96,25 @@ export default function SecurityPage() {
           <div className="gap-4 grid md:grid-cols-4">
             <div className="text-center">
               <div className="flex justify-center font-bold text-green-600 text-2xl">
-                <Check size={32} />
+                <MaterialIcon icon="check" size="xl" />
               </div>
               <div className="text-gray-600 text-sm">SSL/TLS Secured</div>
             </div>
             <div className="text-center">
               <div className="flex justify-center font-bold text-green-600 text-2xl">
-                <Check size={32} />
+                <MaterialIcon icon="check" size="xl" />
               </div>
               <div className="text-gray-600 text-sm">Security Headers</div>
             </div>
             <div className="text-center">
               <div className="flex justify-center font-bold text-green-600 text-2xl">
-                <Check size={32} />
+                <MaterialIcon icon="check" size="xl" />
               </div>
               <div className="text-gray-600 text-sm">Input Validation</div>
             </div>
             <div className="text-center">
               <div className="flex justify-center font-bold text-green-600 text-2xl">
-                <Check size={32} />
+                <MaterialIcon icon="check" size="xl" />
               </div>
               <div className="text-gray-600 text-sm">Audit Logging</div>
             </div>

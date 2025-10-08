@@ -836,7 +836,7 @@ export class VeteranBenefitsAutomation {
       // Priority response times
       if (profile.priorityLevel === 'IMMEDIATE') {
         responseTime = '4 hours'
-        priorityIndicators.push('🚨 IMMEDIATE PRIORITY')
+        priorityIndicators.push('[EMERGENCY] IMMEDIATE PRIORITY')
         priorityIndicators.push('Disabled/Combat Veteran')
 
         escalationProcedure.push({
@@ -848,7 +848,7 @@ export class VeteranBenefitsAutomation {
         })
       } else if (profile.priorityLevel === 'HIGH') {
         responseTime = '24 hours'
-        priorityIndicators.push('⚡ HIGH PRIORITY')
+        priorityIndicators.push('[BOLT] HIGH PRIORITY')
         priorityIndicators.push('Veteran Status')
       }
 

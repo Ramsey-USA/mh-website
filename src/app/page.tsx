@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { Award } from 'lucide-react'
 import {
   Button,
   Card,
@@ -335,7 +334,7 @@ export default function Home() {
                 title: 'Try AI Estimator',
                 description: 'Get instant project estimates',
                 href: '/estimator',
-                variant: 'default' as const,
+                variant: 'primary' as const,
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="smart_toy"
@@ -348,7 +347,7 @@ export default function Home() {
                 title: 'Book Meeting',
                 description: 'Schedule your free consultation',
                 href: '/booking',
-                variant: 'outline' as const,
+                variant: 'secondary' as const,
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="event"
@@ -361,7 +360,7 @@ export default function Home() {
                 title: 'View Projects',
                 description: 'Explore our 3D gallery',
                 href: '/portfolio',
-                variant: 'outline' as const,
+                variant: 'secondary' as const,
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="visibility"
@@ -374,7 +373,7 @@ export default function Home() {
                 title: 'Chat with AI',
                 description: 'Get instant support',
                 href: '/contact',
-                variant: 'outline' as const,
+                variant: 'secondary' as const,
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="support_agent"
@@ -388,14 +387,11 @@ export default function Home() {
                 <Button
                   variant={cta.variant}
                   size="lg"
-                  className="group shadow-lg hover:shadow-xl mb-3 w-full h-12 hover:scale-105 transition-all duration-300 ease-out transform"
+                  className="group mb-3 w-full transition-all duration-300"
                   onClick={() => (window.location.href = cta.href)}
                 >
-                  <cta.icon
-                    size="lg"
-                    className="mr-3 group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <span className="font-semibold">{cta.title}</span>
+                  <cta.icon size="lg" className="mr-3" />
+                  <span className="font-medium">{cta.title}</span>
                 </Button>
                 <p className="font-light text-text-secondary dark:text-text-secondary-dark text-sm">
                   {cta.description}
@@ -943,13 +939,12 @@ export default function Home() {
           <div className="text-center scroll-reveal">
             <Link href="/testimonials">
               <Button
-                variant="outline"
+                variant="secondary"
                 size="lg"
-                className="group shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-out transform"
+                className="group transition-all duration-300"
               >
-                <span className="z-10 relative group-hover:scale-105 transition-transform duration-300">
-                  View All Testimonials
-                </span>
+                <MaterialIcon icon="rate_review" size="lg" className="mr-3" />
+                <span className="font-medium">View All Testimonials</span>
               </Button>
             </Link>
           </div>
@@ -962,7 +957,11 @@ export default function Home() {
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
               <h2 className="flex justify-center items-center gap-3 mb-4 font-bold text-gray-900 dark:text-white text-3xl">
-                <Award className="text-brand-primary" size={32} />
+                <MaterialIcon
+                  icon="workspace_premium"
+                  size="xl"
+                  className="text-brand-primary"
+                />
                 Popular Project Ideas
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
@@ -1258,30 +1257,22 @@ export default function Home() {
           <div className="flex sm:flex-row flex-col justify-center items-center gap-6 mt-12 text-center">
             <Link href="/blog">
               <Button
-                variant="outline"
+                variant="secondary"
                 size="lg"
-                className="group shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out transform"
+                className="group transition-all duration-300"
               >
-                <span className="mr-2">View All Blog Posts</span>
-                <MaterialIcon
-                  icon="arrow_forward"
-                  size="lg"
-                  className="transition-transform group-hover:translate-x-1 duration-300"
-                />
+                <MaterialIcon icon="article" size="lg" className="mr-3" />
+                <span className="font-medium">View All Blog Posts</span>
               </Button>
             </Link>
             <Link href="/news">
               <Button
-                variant="outline"
+                variant="secondary"
                 size="lg"
-                className="group shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out transform"
+                className="group transition-all duration-300"
               >
-                <span className="mr-2">View All News</span>
-                <MaterialIcon
-                  icon="arrow_forward"
-                  size="lg"
-                  className="transition-transform group-hover:translate-x-1 duration-300"
-                />
+                <MaterialIcon icon="newspaper" size="lg" className="mr-3" />
+                <span className="font-medium">View All News</span>
               </Button>
             </Link>
           </div>
@@ -1307,14 +1298,18 @@ export default function Home() {
             {/* Commercial CTA Buttons - 4 Button Grid */}
             <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto mb-6 max-w-6xl">
               <a href="tel:5093086489">
-                <Button variant="phone" size="phone" className="group">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="group w-full h-16 transition-all duration-300"
+                >
                   <div className="flex justify-center items-center">
                     <MaterialIcon
                       icon="phone"
                       size="lg"
-                      className="flex-shrink-0 mr-2 group-hover:scale-110 transition-transform duration-300"
+                      className="flex-shrink-0 mr-3"
                     />
-                    <span className="text-center leading-tight">
+                    <span className="font-medium text-center leading-tight">
                       Call Now
                       <br />
                       (509) 308-6489
@@ -1324,14 +1319,18 @@ export default function Home() {
               </a>
 
               <Link href="/estimator">
-                <Button variant="phonePrimary" size="phone" className="group">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="group w-full h-16 transition-all duration-300"
+                >
                   <div className="flex justify-center items-center">
                     <MaterialIcon
                       icon="smart_toy"
                       size="lg"
-                      className="flex-shrink-0 mr-2 group-hover:scale-110 transition-transform duration-300"
+                      className="flex-shrink-0 mr-3"
                     />
-                    <span className="text-center leading-tight">
+                    <span className="font-medium text-center leading-tight">
                       Project Estimator
                     </span>
                   </div>
@@ -1339,14 +1338,18 @@ export default function Home() {
               </Link>
 
               <Link href="/portfolio">
-                <Button variant="phone" size="phone" className="group">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="group w-full h-16 transition-all duration-300"
+                >
                   <div className="flex justify-center items-center">
                     <MaterialIcon
                       icon="visibility"
                       size="lg"
-                      className="flex-shrink-0 mr-2 group-hover:scale-110 transition-transform duration-300"
+                      className="flex-shrink-0 mr-3"
                     />
-                    <span className="text-center leading-tight">
+                    <span className="font-medium text-center leading-tight">
                       View Projects
                     </span>
                   </div>
@@ -1354,14 +1357,18 @@ export default function Home() {
               </Link>
 
               <Link href="/booking">
-                <Button variant="phonePrimary" size="phone" className="group">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="group w-full h-16 transition-all duration-300"
+                >
                   <div className="flex justify-center items-center">
                     <MaterialIcon
                       icon="event"
                       size="lg"
-                      className="flex-shrink-0 mr-2 group-hover:scale-110 transition-transform duration-300"
+                      className="flex-shrink-0 mr-3"
                     />
-                    <span className="text-center leading-tight">
+                    <span className="font-medium text-center leading-tight">
                       Free
                       <br />
                       Consultation

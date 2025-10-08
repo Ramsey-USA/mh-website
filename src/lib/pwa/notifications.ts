@@ -258,7 +258,7 @@ export class PushNotificationManager {
     clientName: string
   }): Promise<void> {
     await this.showNotification({
-      title: 'Your Estimate is Ready! 📋',
+      title: 'Your Estimate is Ready! [ASSIGNMENT]',
       body: `${estimate.type} estimate for ${estimate.clientName}: $${estimate.total.toLocaleString()}`,
       tag: `estimate-${estimate.id}`,
       url: `/estimator/results/${estimate.id}`,
@@ -294,7 +294,7 @@ export class PushNotificationManager {
     address: string
   }): Promise<void> {
     await this.showNotification({
-      title: 'Upcoming Appointment Reminder 📅',
+      title: 'Upcoming Appointment Reminder [EVENT]',
       body: `${appointment.service} scheduled for ${appointment.date} at ${appointment.time}`,
       tag: `appointment-${appointment.id}`,
       url: `/appointments/${appointment.id}`,
@@ -329,7 +329,7 @@ export class PushNotificationManager {
     message: string
   }): Promise<void> {
     await this.showNotification({
-      title: `Project Update: ${project.title} 🏗️`,
+      title: `Project Update: ${project.title} [CONSTRUCTION]`,
       body: `${project.status} - ${project.progress}% complete. ${project.message}`,
       tag: `project-${project.id}`,
       url: `/projects/${project.id}`,
@@ -361,7 +361,7 @@ export class PushNotificationManager {
       : benefit.description
 
     await this.showNotification({
-      title: `Veteran Benefit Available: ${benefit.title} 🇺🇸`,
+      title: `Veteran Benefit Available: ${benefit.title} [FLAG]`,
       body,
       tag: 'veteran-benefit',
       url: '/veterans',
@@ -395,7 +395,7 @@ export class PushNotificationManager {
     affectedServices: string[]
   }): Promise<void> {
     await this.showNotification({
-      title: `Scheduled Maintenance: ${maintenance.title} ⚙️`,
+      title: `Scheduled Maintenance: ${maintenance.title} [BUILD]`,
       body: `${maintenance.startTime} - ${maintenance.endTime}. Affected: ${maintenance.affectedServices.join(', ')}`,
       tag: 'maintenance',
       url: '/status',

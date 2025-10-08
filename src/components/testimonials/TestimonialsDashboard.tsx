@@ -2,25 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import Image from 'next/image'
-import {
-  Star,
-  Eye,
-  Edit3,
-  Trash2,
-  Check,
-  X,
-  Filter,
-  Search,
-  Calendar,
-  MapPin,
-  Users,
-  Award,
-  MessageCircle,
-  TrendingUp,
-  AlertCircle,
-  ChevronDown,
-  ChevronUp,
-} from 'lucide-react'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
 import {
   ClientTestimonial,
   TestimonialStatus,
@@ -39,10 +21,10 @@ const statusColors = {
 }
 
 const statusIcons = {
-  pending: AlertCircle,
-  approved: Check,
-  rejected: X,
-  featured: Award,
+  pending: 'info',
+  approved: 'check',
+  rejected: 'close',
+  featured: 'emoji_events',
 }
 
 export default function TestimonialsDashboard() {
@@ -153,21 +135,21 @@ export default function TestimonialsDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="bg-gray-50 min-h-screen">
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
+        <div className="mx-auto px-4 py-6 max-w-7xl">
+          <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">
+              <h1 className="font-bold text-gray-900 text-3xl">
                 Testimonials Dashboard
               </h1>
-              <p className="text-gray-600 mt-1">
+              <p className="mt-1 text-gray-600">
                 Manage client testimonials and reviews
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+              <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-medium text-white transition-colors">
                 Add Testimonial
               </button>
             </div>
@@ -175,109 +157,121 @@ export default function TestimonialsDashboard() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="mx-auto px-4 py-8 max-w-7xl">
         {/* Statistics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-lg shadow-sm border">
-            <div className="flex items-center justify-between">
+        <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-8">
+          <div className="bg-white shadow-sm p-6 border rounded-lg">
+            <div className="flex justify-between items-center">
               <div>
-                <p className="text-sm text-gray-600">Total Reviews</p>
-                <p className="text-3xl font-bold text-gray-900">
+                <p className="text-gray-600 text-sm">Total Reviews</p>
+                <p className="font-bold text-gray-900 text-3xl">
                   {reviewStats.totalReviews}
                 </p>
               </div>
-              <MessageCircle className="h-8 w-8 text-blue-500" />
+              <MaterialIcon icon="chat" className="w-8 h-8 text-blue-500" />
             </div>
-            <div className="mt-4 flex items-center text-sm text-green-600">
-              <TrendingUp className="h-4 w-4 mr-1" />
+            <div className="flex items-center mt-4 text-green-600 text-sm">
+              <MaterialIcon icon="trending_up" className="mr-1 w-4 h-4" />
               <span>+{reviewStats.recentReviews} this month</span>
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-sm border">
-            <div className="flex items-center justify-between">
+          <div className="bg-white shadow-sm p-6 border rounded-lg">
+            <div className="flex justify-between items-center">
               <div>
-                <p className="text-sm text-gray-600">Average Rating</p>
+                <p className="text-gray-600 text-sm">Average Rating</p>
                 <div className="flex items-center gap-2">
-                  <p className="text-3xl font-bold text-gray-900">
+                  <p className="font-bold text-gray-900 text-3xl">
                     {reviewStats.averageRating}
                   </p>
-                  <Star className="h-6 w-6 fill-yellow-400 text-yellow-400" />
+                  <MaterialIcon
+                    icon="star"
+                    className="fill-yellow-400 w-6 h-6 text-yellow-400"
+                  />
                 </div>
               </div>
-              <Award className="h-8 w-8 text-yellow-500" />
+              <MaterialIcon
+                icon="emoji_events"
+                className="w-8 h-8 text-yellow-500"
+              />
             </div>
-            <div className="mt-4 text-sm text-gray-600">
+            <div className="mt-4 text-gray-600 text-sm">
               Based on {reviewStats.totalReviews} reviews
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-sm border">
-            <div className="flex items-center justify-between">
+          <div className="bg-white shadow-sm p-6 border rounded-lg">
+            <div className="flex justify-between items-center">
               <div>
-                <p className="text-sm text-gray-600">Pending Review</p>
-                <p className="text-3xl font-bold text-yellow-600">
+                <p className="text-gray-600 text-sm">Pending Review</p>
+                <p className="font-bold text-yellow-600 text-3xl">
                   {statusStats.pending}
                 </p>
               </div>
-              <AlertCircle className="h-8 w-8 text-yellow-500" />
+              <MaterialIcon icon="info" className="w-8 h-8 text-yellow-500" />
             </div>
-            <div className="mt-4 text-sm text-yellow-600">Need approval</div>
+            <div className="mt-4 text-yellow-600 text-sm">Need approval</div>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-sm border">
-            <div className="flex items-center justify-between">
+          <div className="bg-white shadow-sm p-6 border rounded-lg">
+            <div className="flex justify-between items-center">
               <div>
-                <p className="text-sm text-gray-600">Featured</p>
-                <p className="text-3xl font-bold text-blue-600">
+                <p className="text-gray-600 text-sm">Featured</p>
+                <p className="font-bold text-blue-600 text-3xl">
                   {statusStats.featured}
                 </p>
               </div>
-              <Award className="h-8 w-8 text-blue-500" />
+              <MaterialIcon
+                icon="emoji_events"
+                className="w-8 h-8 text-blue-500"
+              />
             </div>
-            <div className="mt-4 text-sm text-blue-600">
+            <div className="mt-4 text-blue-600 text-sm">
               Highlighted reviews
             </div>
           </div>
         </div>
 
         {/* Filters and Search */}
-        <div className="bg-white rounded-lg shadow-sm border p-6 mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-gray-900">
+        <div className="bg-white shadow-sm mb-6 p-6 border rounded-lg">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="font-semibold text-gray-900 text-lg">
               Filter & Search
             </h3>
             <button
               onClick={() => setShowFilters(!showFilters)}
               className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
             >
-              <Filter className="h-4 w-4" />
+              <MaterialIcon icon="filter_alt" className="w-4 h-4" />
               {showFilters ? 'Hide Filters' : 'Show Filters'}
               {showFilters ? (
-                <ChevronUp className="h-4 w-4" />
+                <MaterialIcon icon="expand_less" className="w-4 h-4" />
               ) : (
-                <ChevronDown className="h-4 w-4" />
+                <MaterialIcon icon="expand_more" className="w-4 h-4" />
               )}
             </button>
           </div>
 
           {/* Search */}
           <div className="relative mb-4">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+            <MaterialIcon
+              icon="search"
+              className="top-1/2 left-3 absolute w-4 h-4 text-gray-400 -translate-y-1/2 transform"
+            />
             <input
               type="text"
               placeholder="Search testimonials by client, project, content..."
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="py-3 pr-4 pl-10 border border-gray-300 focus:border-transparent rounded-lg focus:ring-2 focus:ring-blue-500 w-full"
             />
           </div>
 
           {showFilters && (
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="gap-4 grid grid-cols-1 md:grid-cols-4">
               {/* Status Filter */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block mb-2 font-medium text-gray-700 text-sm">
                   Status
                 </label>
                 <select
@@ -285,7 +279,7 @@ export default function TestimonialsDashboard() {
                   onChange={e =>
                     setStatusFilter(e.target.value as TestimonialStatus | 'all')
                   }
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="px-3 py-2 border border-gray-300 focus:border-transparent rounded-lg focus:ring-2 focus:ring-blue-500 w-full"
                 >
                   <option value="all">All Status</option>
                   <option value="pending">Pending</option>
@@ -297,13 +291,13 @@ export default function TestimonialsDashboard() {
 
               {/* Sort By */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block mb-2 font-medium text-gray-700 text-sm">
                   Sort By
                 </label>
                 <select
                   value={sortBy}
                   onChange={e => setSortBy(e.target.value as SortOption)}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="px-3 py-2 border border-gray-300 focus:border-transparent rounded-lg focus:ring-2 focus:ring-blue-500 w-full"
                 >
                   <option value="newest">Newest First</option>
                   <option value="oldest">Oldest First</option>
@@ -314,7 +308,7 @@ export default function TestimonialsDashboard() {
 
               {/* View Mode */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block mb-2 font-medium text-gray-700 text-sm">
                   View Mode
                 </label>
                 <div className="flex gap-2">
@@ -349,7 +343,7 @@ export default function TestimonialsDashboard() {
                     setStatusFilter('all')
                     setSortBy('newest')
                   }}
-                  className="w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium"
+                  className="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg w-full font-medium text-gray-700 text-sm transition-colors"
                 >
                   Clear Filters
                 </button>
@@ -360,10 +354,10 @@ export default function TestimonialsDashboard() {
 
         {/* Bulk Actions */}
         {selectedTestimonials.length > 0 && (
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-            <div className="flex items-center justify-between">
+          <div className="bg-blue-50 mb-6 p-4 border border-blue-200 rounded-lg">
+            <div className="flex justify-between items-center">
               <div className="flex items-center gap-4">
-                <span className="text-sm text-blue-900 font-medium">
+                <span className="font-medium text-blue-900 text-sm">
                   {selectedTestimonials.length} testimonial
                   {selectedTestimonials.length > 1 ? 's' : ''} selected
                 </span>
@@ -371,25 +365,25 @@ export default function TestimonialsDashboard() {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => handleBulkAction('approve')}
-                  className="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition-colors"
+                  className="bg-green-600 hover:bg-green-700 px-3 py-1 rounded text-white text-sm transition-colors"
                 >
                   Approve
                 </button>
                 <button
                   onClick={() => handleBulkAction('feature')}
-                  className="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700 transition-colors"
+                  className="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-white text-sm transition-colors"
                 >
                   Feature
                 </button>
                 <button
                   onClick={() => handleBulkAction('reject')}
-                  className="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700 transition-colors"
+                  className="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white text-sm transition-colors"
                 >
                   Reject
                 </button>
                 <button
                   onClick={() => handleBulkAction('delete')}
-                  className="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
+                  className="bg-gray-600 hover:bg-gray-700 px-3 py-1 rounded text-white text-sm transition-colors"
                 >
                   Delete
                 </button>
@@ -399,13 +393,13 @@ export default function TestimonialsDashboard() {
         )}
 
         {/* Results Summary */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex justify-between items-center mb-6">
           <p className="text-gray-600">
             Showing {filteredTestimonials.length} of {mockTestimonials.length}{' '}
             testimonials
           </p>
           <div className="flex items-center gap-4">
-            <label className="flex items-center gap-2 text-sm text-gray-600">
+            <label className="flex items-center gap-2 text-gray-600 text-sm">
               <input
                 type="checkbox"
                 checked={
@@ -413,7 +407,7 @@ export default function TestimonialsDashboard() {
                   filteredTestimonials.length > 0
                 }
                 onChange={handleSelectAll}
-                className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                className="border-gray-300 rounded focus:ring-blue-500 text-blue-600"
               />
               Select All
             </label>
@@ -422,12 +416,12 @@ export default function TestimonialsDashboard() {
 
         {/* Testimonials List/Grid */}
         {viewMode === 'list' ? (
-          <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
+          <div className="bg-white shadow-sm border rounded-lg overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-gray-50">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 font-medium text-gray-500 text-xs text-left uppercase tracking-wider">
                       <input
                         type="checkbox"
                         checked={
@@ -436,22 +430,22 @@ export default function TestimonialsDashboard() {
                           filteredTestimonials.length > 0
                         }
                         onChange={handleSelectAll}
-                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        className="border-gray-300 rounded focus:ring-blue-500 text-blue-600"
                       />
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 font-medium text-gray-500 text-xs text-left uppercase tracking-wider">
                       Client & Project
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 font-medium text-gray-500 text-xs text-left uppercase tracking-wider">
                       Rating
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 font-medium text-gray-500 text-xs text-left uppercase tracking-wider">
                       Status
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 font-medium text-gray-500 text-xs text-left uppercase tracking-wider">
                       Submitted
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 font-medium text-gray-500 text-xs text-left uppercase tracking-wider">
                       Actions
                     </th>
                   </tr>
@@ -473,7 +467,7 @@ export default function TestimonialsDashboard() {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {filteredTestimonials.map(testimonial => (
               <TestimonialCard
                 key={testimonial.id}
@@ -490,9 +484,12 @@ export default function TestimonialsDashboard() {
 
         {/* No Results */}
         {filteredTestimonials.length === 0 && (
-          <div className="text-center py-12">
-            <MessageCircle className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+          <div className="py-12 text-center">
+            <MaterialIcon
+              icon="chat"
+              className="mx-auto mb-4 w-16 h-16 text-gray-300"
+            />
+            <h3 className="mb-2 font-semibold text-gray-900 text-lg">
               No testimonials found
             </h3>
             <p className="text-gray-600">
@@ -518,7 +515,7 @@ function TestimonialRow({
   onSelect: () => void
   onStatusChange: (status: TestimonialStatus) => void
 }) {
-  const StatusIcon = statusIcons[testimonial.status]
+  const statusIconName = statusIcons[testimonial.status]
 
   return (
     <tr className={`hover:bg-gray-50 ${selected ? 'bg-blue-50' : ''}`}>
@@ -527,13 +524,13 @@ function TestimonialRow({
           type="checkbox"
           checked={selected}
           onChange={onSelect}
-          className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+          className="border-gray-300 rounded focus:ring-blue-500 text-blue-600"
         />
       </td>
       <td className="px-6 py-4">
         <div className="flex items-start gap-3">
           {testimonial.images?.client && (
-            <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+            <div className="relative flex-shrink-0 rounded-full w-10 h-10 overflow-hidden">
               <Image
                 src={testimonial.images.client}
                 alt={testimonial.clientName}
@@ -542,15 +539,15 @@ function TestimonialRow({
               />
             </div>
           )}
-          <div className="min-w-0 flex-1">
+          <div className="flex-1 min-w-0">
             <div className="font-medium text-gray-900">
               {testimonial.clientName}
             </div>
-            <div className="text-sm text-gray-600 truncate">
+            <div className="text-gray-600 text-sm truncate">
               {testimonial.projectTitle}
             </div>
-            <div className="flex items-center gap-2 text-xs text-gray-500 mt-1">
-              <MapPin className="h-3 w-3" />
+            <div className="flex items-center gap-2 mt-1 text-gray-500 text-xs">
+              <MaterialIcon icon="location_on" className="w-3 h-3" />
               <span>{testimonial.clientLocation}</span>
               <span>•</span>
               <span className="capitalize">{testimonial.projectType}</span>
@@ -561,8 +558,9 @@ function TestimonialRow({
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="flex items-center gap-1">
           {[...Array(5)].map((_, i) => (
-            <Star
+            <MaterialIcon
               key={i}
+              icon="star"
               className={`h-4 w-4 ${
                 i < testimonial.rating
                   ? 'fill-yellow-400 text-yellow-400'
@@ -570,7 +568,7 @@ function TestimonialRow({
               }`}
             />
           ))}
-          <span className="ml-1 text-sm text-gray-600">
+          <span className="ml-1 text-gray-600 text-sm">
             ({testimonial.rating})
           </span>
         </div>
@@ -579,34 +577,34 @@ function TestimonialRow({
         <div
           className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium border ${statusColors[testimonial.status]}`}
         >
-          <StatusIcon className="h-3 w-3" />
+          <MaterialIcon icon={statusIconName} className="w-3 h-3" />
           <span className="capitalize">{testimonial.status}</span>
         </div>
       </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+      <td className="px-6 py-4 text-gray-600 text-sm whitespace-nowrap">
         <div className="flex items-center gap-1">
-          <Calendar className="h-3 w-3" />
+          <MaterialIcon icon="event" className="w-3 h-3" />
           <span>{formatDate(testimonial.submissionDate)}</span>
         </div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="flex items-center gap-2">
           <button
-            className="text-blue-600 hover:text-blue-700 p-1"
+            className="p-1 text-blue-600 hover:text-blue-700"
             title="View Details"
           >
-            <Eye className="h-4 w-4" />
+            <MaterialIcon icon="visibility" className="w-4 h-4" />
           </button>
           <button
-            className="text-gray-600 hover:text-gray-700 p-1"
+            className="p-1 text-gray-600 hover:text-gray-700"
             title="Edit"
           >
-            <Edit3 className="h-4 w-4" />
+            <MaterialIcon icon="edit" className="w-4 h-4" />
           </button>
           <select
             value={testimonial.status}
             onChange={e => onStatusChange(e.target.value as TestimonialStatus)}
-            className="text-xs border border-gray-300 rounded px-2 py-1 focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+            className="px-2 py-1 border border-gray-300 focus:border-transparent rounded focus:ring-1 focus:ring-blue-500 text-xs"
           >
             <option value="pending">Pending</option>
             <option value="approved">Approved</option>
@@ -630,23 +628,23 @@ function TestimonialCard({
   onSelect: () => void
   onStatusChange: (status: TestimonialStatus) => void
 }) {
-  const StatusIcon = statusIcons[testimonial.status]
+  const statusIconName = statusIcons[testimonial.status]
 
   return (
     <div
       className={`bg-white rounded-lg shadow-sm border p-6 ${selected ? 'ring-2 ring-blue-500' : ''}`}
     >
       {/* Header */}
-      <div className="flex items-start justify-between mb-4">
+      <div className="flex justify-between items-start mb-4">
         <div className="flex items-center gap-3">
           <input
             type="checkbox"
             checked={selected}
             onChange={onSelect}
-            className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+            className="border-gray-300 rounded focus:ring-blue-500 text-blue-600"
           />
           {testimonial.images?.client && (
-            <div className="relative w-10 h-10 rounded-full overflow-hidden">
+            <div className="relative rounded-full w-10 h-10 overflow-hidden">
               <Image
                 src={testimonial.images.client}
                 alt={testimonial.clientName}
@@ -659,7 +657,7 @@ function TestimonialCard({
             <div className="font-medium text-gray-900">
               {testimonial.clientName}
             </div>
-            <div className="text-sm text-gray-600">
+            <div className="text-gray-600 text-sm">
               {testimonial.clientLocation}
             </div>
           </div>
@@ -667,25 +665,26 @@ function TestimonialCard({
         <div
           className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium border ${statusColors[testimonial.status]}`}
         >
-          <StatusIcon className="h-3 w-3" />
+          <MaterialIcon icon={statusIconName} className="w-3 h-3" />
           <span className="capitalize">{testimonial.status}</span>
         </div>
       </div>
 
       {/* Project Info */}
       <div className="mb-4">
-        <h3 className="font-semibold text-gray-900 mb-2">
+        <h3 className="mb-2 font-semibold text-gray-900">
           {testimonial.projectTitle}
         </h3>
-        <div className="flex items-center gap-4 text-sm text-gray-600 mb-2">
+        <div className="flex items-center gap-4 mb-2 text-gray-600 text-sm">
           <span className="capitalize">{testimonial.projectType}</span>
           <span>•</span>
           <span>{formatDate(testimonial.completionDate)}</span>
         </div>
         <div className="flex items-center gap-1 mb-3">
           {[...Array(5)].map((_, i) => (
-            <Star
+            <MaterialIcon
               key={i}
+              icon="star"
               className={`h-4 w-4 ${
                 i < testimonial.rating
                   ? 'fill-yellow-400 text-yellow-400'
@@ -693,43 +692,43 @@ function TestimonialCard({
               }`}
             />
           ))}
-          <span className="ml-1 text-sm text-gray-600">
+          <span className="ml-1 text-gray-600 text-sm">
             ({testimonial.rating})
           </span>
         </div>
       </div>
 
       {/* Testimonial Text */}
-      <blockquote className="text-sm text-gray-700 mb-4 line-clamp-3 italic">
+      <blockquote className="mb-4 text-gray-700 text-sm italic line-clamp-3">
         &quot;{testimonial.testimonialText}&quot;
       </blockquote>
 
       {/* Actions */}
-      <div className="flex items-center justify-between">
+      <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <button
-            className="text-blue-600 hover:text-blue-700 p-1"
+            className="p-1 text-blue-600 hover:text-blue-700"
             title="View Details"
           >
-            <Eye className="h-4 w-4" />
+            <MaterialIcon icon="visibility" className="w-4 h-4" />
           </button>
           <button
-            className="text-gray-600 hover:text-gray-700 p-1"
+            className="p-1 text-gray-600 hover:text-gray-700"
             title="Edit"
           >
-            <Edit3 className="h-4 w-4" />
+            <MaterialIcon icon="edit" className="w-4 h-4" />
           </button>
           <button
-            className="text-red-600 hover:text-red-700 p-1"
+            className="p-1 text-red-600 hover:text-red-700"
             title="Delete"
           >
-            <Trash2 className="h-4 w-4" />
+            <MaterialIcon icon="delete" className="w-4 h-4" />
           </button>
         </div>
         <select
           value={testimonial.status}
           onChange={e => onStatusChange(e.target.value as TestimonialStatus)}
-          className="text-xs border border-gray-300 rounded px-2 py-1 focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+          className="px-2 py-1 border border-gray-300 focus:border-transparent rounded focus:ring-1 focus:ring-blue-500 text-xs"
         >
           <option value="pending">Pending</option>
           <option value="approved">Approved</option>

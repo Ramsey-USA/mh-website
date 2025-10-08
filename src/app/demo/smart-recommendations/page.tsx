@@ -6,7 +6,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Award, Rocket } from 'lucide-react'
 import { MaterialIcon } from '../../../components/icons/MaterialIcon'
 import { Button } from '../../../components/ui'
 import SmartRecommendations from '../../../components/recommendations/SmartRecommendations'
@@ -75,7 +74,11 @@ export default function SmartRecommendationsDemo() {
               size="3xl"
             />
             <h1 className="flex items-center gap-3 font-bold text-gray-800 text-4xl">
-              <Award className="text-brand-primary" size={40} />
+              <MaterialIcon
+                icon="workspace_premium"
+                size="2xl"
+                className="text-brand-primary"
+              />
               Smart Recommendations Demo
             </h1>
           </div>
@@ -116,7 +119,11 @@ export default function SmartRecommendationsDemo() {
                     className="mr-2"
                   />
                   <span className="flex items-center gap-2">
-                    <Award className="text-brand-primary" size={16} />
+                    <MaterialIcon
+                      icon="military_tech"
+                      size="sm"
+                      className="text-brand-primary"
+                    />
                     Veteran
                   </span>
                 </label>
@@ -195,7 +202,11 @@ export default function SmartRecommendationsDemo() {
                   <span className="font-medium">Status:</span>{' '}
                   {userProfile.isVeteran ? (
                     <span className="inline-flex items-center gap-1">
-                      <Award className="text-brand-primary" size={14} />
+                      <MaterialIcon
+                        icon="military_tech"
+                        size="sm"
+                        className="text-brand-primary"
+                      />
                       Veteran
                     </span>
                   ) : (
@@ -306,7 +317,11 @@ export default function SmartRecommendationsDemo() {
         {/* Features Overview */}
         <div className="bg-white shadow-lg mt-8 p-6 rounded-lg">
           <h2 className="flex justify-center items-center gap-3 mb-6 font-semibold text-gray-800 text-2xl text-center">
-            <Rocket className="text-brand-primary" size={28} />
+            <MaterialIcon
+              icon="rocket_launch"
+              size="xl"
+              className="text-brand-primary"
+            />
             Phase 6.1 Features Implemented
           </h2>
           <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

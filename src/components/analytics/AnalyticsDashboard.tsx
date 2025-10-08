@@ -23,29 +23,7 @@ import {
   AreaChart,
   Area,
 } from 'recharts'
-import {
-  TrendingUp,
-  TrendingDown,
-  Users,
-  Eye,
-  Clock,
-  Target,
-  Activity,
-  AlertTriangle,
-  CheckCircle,
-  BarChart3,
-  Calendar,
-  Download,
-  RefreshCw,
-  Filter,
-  Search,
-  Star,
-  Medal,
-  Globe,
-  Smartphone,
-  Monitor,
-  Tablet,
-} from 'lucide-react'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
 import {
   analyticsEngine,
   type AnalyticsDashboardData,
@@ -337,14 +315,15 @@ export function AnalyticsDashboard() {
             onClick={loadDashboardData}
             disabled={loading}
           >
-            <RefreshCw
+            <MaterialIcon
+              icon="refresh"
               className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`}
             />
             Refresh
           </Button>
 
           <Button variant="outline" size="sm" onClick={exportData}>
-            <Download className="mr-2 w-4 h-4" />
+            <MaterialIcon icon="download" className="mr-2 w-4 h-4" />
             Export
           </Button>
         </div>
@@ -467,28 +446,28 @@ function OverviewDashboard({ data }: { data: any }) {
           title="Total Users"
           value={data.totalUsers.toLocaleString()}
           change={+12.5}
-          icon={Users}
+          icon="group"
           color="primary"
         />
         <MetricCard
           title="Page Views"
           value={data.pageViews.toLocaleString()}
           change={+8.2}
-          icon={Eye}
+          icon="visibility"
           color="secondary"
         />
         <MetricCard
           title="Avg. Session"
           value={`${Math.round(data.averageSessionDuration / 1000 / 60)}m`}
           change={-2.1}
-          icon={Clock}
+          icon="schedule"
           color="info"
         />
         <MetricCard
           title="Conversion Rate"
           value={`${data.conversionRate.toFixed(1)}%`}
           change={+5.7}
-          icon={Target}
+          icon="track_changes"
           color="success"
         />
       </div>
@@ -581,7 +560,7 @@ function OverviewDashboard({ data }: { data: any }) {
             </div>
             <Progress value={data.veteranUserPercentage} className="mt-2" />
             <Badge variant="secondary" className="mt-2">
-              <Medal className="mr-1 w-3 h-3" />
+              <MaterialIcon icon="military_tech" className="mr-1 w-3 h-3" />
               Military Focus
             </Badge>
           </CardContent>
@@ -596,7 +575,10 @@ function OverviewDashboard({ data }: { data: any }) {
               {data.totalSessions.toLocaleString()}
             </div>
             <div className="flex items-center mt-2">
-              <TrendingUp className="mr-1 w-4 h-4 text-green-500" />
+              <MaterialIcon
+                icon="trending_up"
+                className="mr-1 w-4 h-4 text-green-500"
+              />
               <span className="text-green-500 text-sm">
                 +15.3% from last period
               </span>
@@ -622,7 +604,10 @@ function UserBehaviorDashboard({ data }: { data: any }) {
             <div className="space-y-4">
               <div className="flex justify-between items-center">
                 <div className="flex items-center">
-                  <Monitor className="mr-2 w-4 h-4" />
+                  <MaterialIcon
+                    icon="desktop_windows"
+                    className="mr-2 w-4 h-4"
+                  />
                   <span>Desktop</span>
                 </div>
                 <span className="font-medium">
@@ -633,7 +618,7 @@ function UserBehaviorDashboard({ data }: { data: any }) {
 
               <div className="flex justify-between items-center">
                 <div className="flex items-center">
-                  <Smartphone className="mr-2 w-4 h-4" />
+                  <MaterialIcon icon="smartphone" className="mr-2 w-4 h-4" />
                   <span>Mobile</span>
                 </div>
                 <span className="font-medium">
@@ -644,7 +629,7 @@ function UserBehaviorDashboard({ data }: { data: any }) {
 
               <div className="flex justify-between items-center">
                 <div className="flex items-center">
-                  <Tablet className="mr-2 w-4 h-4" />
+                  <MaterialIcon icon="tablet" className="mr-2 w-4 h-4" />
                   <span>Tablet</span>
                 </div>
                 <span className="font-medium">
@@ -816,9 +801,9 @@ function PerformanceDashboard({ data }: { data: any }) {
               className="ml-2"
             >
               {data.coreWebVitals.trend === 'improving' ? (
-                <TrendingUp className="mr-1 w-3 h-3" />
+                <MaterialIcon icon="trending_up" className="mr-1 w-3 h-3" />
               ) : (
-                <TrendingDown className="mr-1 w-3 h-3" />
+                <MaterialIcon icon="trending_down" className="mr-1 w-3 h-3" />
               )}
               {data.coreWebVitals.trend}
             </Badge>
@@ -923,28 +908,28 @@ function ConversionsDashboard({ data }: { data: any }) {
           title="Total Conversions"
           value={data.veteranConversions.totalConversions}
           change={+18.2}
-          icon={Target}
+          icon="track_changes"
           color="success"
         />
         <MetricCard
           title="Conversion Rate"
           value={`${data.veteranConversions.conversionRate}%`}
           change={+3.1}
-          icon={TrendingUp}
+          icon="trending_up"
           color="primary"
         />
         <MetricCard
           title="Avg. Project Value"
           value={`$${data.veteranConversions.averageProjectValue?.toLocaleString() || 0}`}
           change={+12.5}
-          icon={Activity}
+          icon="show_chart"
           color="info"
         />
         <MetricCard
           title="Estimator → Contact"
           value={`${data.estimatorToContact}%`}
           change={+5.8}
-          icon={BarChart3}
+          icon="bar_chart"
           color="secondary"
         />
       </div>
@@ -1013,28 +998,28 @@ function VeteransDashboard({ data }: { data: any }) {
           title="Veteran Users"
           value={data.veteranUsers}
           change={+8.3}
-          icon={Medal}
+          icon="military_tech"
           color="primary"
         />
         <MetricCard
           title="Conversion Rate"
           value={`${data.conversionRates.overall}%`}
           change={+12.1}
-          icon={Target}
+          icon="track_changes"
           color="success"
         />
         <MetricCard
           title="Specialist Contacts"
           value={data.specialistEngagement.contacts}
           change={+25.7}
-          icon={Users}
+          icon="group"
           color="info"
         />
         <MetricCard
           title="Benefits Utilization"
           value={`${data.conversionRates.withBenefits}%`}
           change={+15.2}
-          icon={Star}
+          icon="star"
           color="warning"
         />
       </div>
@@ -1124,7 +1109,10 @@ function VeteransDashboard({ data }: { data: any }) {
               <div className="flex justify-between items-center">
                 <span>Satisfaction</span>
                 <div className="flex items-center">
-                  <Star className="mr-1 w-4 h-4 text-yellow-500" />
+                  <MaterialIcon
+                    icon="star"
+                    className="mr-1 w-4 h-4 text-yellow-500"
+                  />
                   <span className="font-bold">
                     {data.specialistEngagement.satisfaction}/5
                   </span>
@@ -1175,14 +1163,14 @@ function RealTimeDashboard({ data }: { data: any }) {
         <MetricCard
           title="Active Users"
           value={data.activeUsers}
-          icon={Users}
+          icon="group"
           color="success"
           realTime
         />
         <MetricCard
           title="Current Sessions"
           value={data.currentSessions.length}
-          icon={Activity}
+          icon="show_chart"
           color="primary"
           realTime
         />
@@ -1190,7 +1178,7 @@ function RealTimeDashboard({ data }: { data: any }) {
           title="System Status"
           value={data.systemHealth.status}
           icon={
-            data.systemHealth.status === 'healthy' ? CheckCircle : AlertTriangle
+            data.systemHealth.status === 'healthy' ? 'check_circle' : 'warning'
           }
           color={data.systemHealth.status === 'healthy' ? 'success' : 'warning'}
           realTime
@@ -1198,7 +1186,7 @@ function RealTimeDashboard({ data }: { data: any }) {
         <MetricCard
           title="Response Time"
           value={`${data.systemHealth.responseTime}ms`}
-          icon={Clock}
+          icon="schedule"
           color="info"
           realTime
         />
@@ -1229,7 +1217,10 @@ function RealTimeDashboard({ data }: { data: any }) {
                 </div>
                 {event.properties.isVeteran && (
                   <Badge variant="secondary">
-                    <Medal className="mr-1 w-3 h-3" />
+                    <MaterialIcon
+                      icon="military_tech"
+                      className="mr-1 w-3 h-3"
+                    />
                     Veteran
                   </Badge>
                 )}
@@ -1263,7 +1254,10 @@ function RealTimeDashboard({ data }: { data: any }) {
                 <div className="flex items-center space-x-2">
                   {session.isVeteran && (
                     <Badge variant="secondary">
-                      <Medal className="mr-1 w-3 h-3" />
+                      <MaterialIcon
+                        icon="military_tech"
+                        className="mr-1 w-3 h-3"
+                      />
                       Veteran
                     </Badge>
                   )}
@@ -1291,14 +1285,14 @@ function MetricCard({
   title,
   value,
   change,
-  icon: Icon,
+  icon,
   color = 'primary',
   realTime = false,
 }: {
   title: string
   value: string | number
   change?: number
-  icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>
+  icon: string
   color?: keyof typeof COLORS
   realTime?: boolean
 }) {
@@ -1321,15 +1315,19 @@ function MetricCard({
                 }`}
               >
                 {change >= 0 ? (
-                  <TrendingUp className="mr-1 w-4 h-4" />
+                  <MaterialIcon icon="trending_up" className="mr-1 w-4 h-4" />
                 ) : (
-                  <TrendingDown className="mr-1 w-4 h-4" />
+                  <MaterialIcon icon="trending_down" className="mr-1 w-4 h-4" />
                 )}
                 {Math.abs(change)}% from last period
               </div>
             )}
           </div>
-          <Icon className="w-8 h-8" style={{ color: COLORS[color] }} />
+          <MaterialIcon
+            icon={icon}
+            className="w-8 h-8"
+            style={{ color: COLORS[color] }}
+          />
         </div>
       </CardContent>
     </Card>

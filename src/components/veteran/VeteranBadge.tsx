@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Star, Shield, Award } from 'lucide-react'
+import { MaterialIcon } from '../icons/MaterialIcon'
 import { VeteranStatus } from '@/lib/recommendations/SmartRecommendationEngine'
 
 interface VeteranBadgeProps {
@@ -46,13 +46,15 @@ export default function VeteranBadge({
   }
 
   const getIcon = () => {
+    const iconSize = size === 'sm' ? 'sm' : size === 'lg' ? 'lg' : 'md'
+
     if (veteranStatus.combatVeteran) {
-      return <Star className={getSizeClasses()} />
+      return <MaterialIcon icon="military_tech" size={iconSize} />
     }
     if (veteranStatus.disabilityRating && veteranStatus.disabilityRating > 0) {
-      return <Award className={getSizeClasses()} />
+      return <MaterialIcon icon="workspace_premium" size={iconSize} />
     }
-    return <Shield className={getSizeClasses()} />
+    return <MaterialIcon icon="security" size={iconSize} />
   }
 
   const getBadgeTitle = () => {
@@ -82,14 +84,14 @@ export default function VeteranBadge({
           <div className="flex gap-2 text-slate-600 text-xs">
             {veteranStatus.combatVeteran && (
               <span className="flex items-center gap-1">
-                <Star className="w-3 h-3" />
+                <MaterialIcon icon="military_tech" size="sm" />
                 Combat
               </span>
             )}
             {veteranStatus.disabilityRating &&
               veteranStatus.disabilityRating > 0 && (
                 <span className="flex items-center gap-1">
-                  <Award className="w-3 h-3" />
+                  <MaterialIcon icon="workspace_premium" size="sm" />
                   {veteranStatus.disabilityRating}% Service-Connected
                 </span>
               )}

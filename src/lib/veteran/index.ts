@@ -213,38 +213,38 @@ export const VETERAN_SYSTEM_CONFIG = {
  * Veteran Branch Emoji Map
  */
 export const VETERAN_BRANCH_EMOJIS = {
-  Army: '🏛️',
-  Navy: '⚓',
-  Marines: '🦅',
-  'Air Force': '✈️',
-  'Coast Guard': '🛟',
-  'Space Force': '🚀',
-  Unknown: '🇺🇸',
+  Army: '[ACCOUNT_BALANCE]',
+  Navy: '[ANCHOR]',
+  Marines: '[SPA]',
+  'Air Force': '[FLIGHT]',
+  'Coast Guard': '[SAFETY_RING]',
+  'Space Force': '[ROCKET_LAUNCH]',
+  Unknown: '[FLAG]',
 }
 
 /**
  * Veteran Priority Icons
  */
 export const VETERAN_PRIORITY_ICONS = {
-  IMMEDIATE: '🚨',
-  HIGH: '⚡',
-  STANDARD: '🇺🇸',
-  FAMILY: '👨‍👩‍👧‍👦',
+  IMMEDIATE: '[EMERGENCY]',
+  HIGH: '[BOLT]',
+  STANDARD: '[FLAG]',
+  FAMILY: 'family_restroom',
 }
 
 /**
  * Service Era Icons
  */
 export const SERVICE_ERA_ICONS = {
-  'GWOT (2001-Present)': '🎖️',
-  'Post-9/11': '🗽',
-  'Gulf War (1990-1991)': '🏜️',
-  'Cold War Era (1945-1991)': '❄️',
-  'Vietnam Era (1964-1975)': '🌴',
-  'Korean War (1950-1953)': '⛰️',
-  'WWII (1941-1945)': '🌍',
-  'Multiple Eras': '📅',
-  Unknown: '❓',
+  'GWOT (2001-Present)': '[MILITARY_TECH]',
+  'Post-9/11': 'monument',
+  'Gulf War (1990-1991)': 'landscape',
+  'Cold War Era (1945-1991)': '[AC_UNIT]',
+  'Vietnam Era (1964-1975)': 'nature',
+  'Korean War (1950-1953)': 'terrain',
+  'WWII (1941-1945)': 'public',
+  'Multiple Eras': '[EVENT]',
+  Unknown: '[HELP]',
 }
 
 /**
@@ -374,8 +374,8 @@ export const PHASE_6_STATUS = {
 }
 
 console.log(
-  '✅ Enhanced Veteran Personalization System (Phase 6.4-6.6) - COMPLETE'
+  '[CHECK_CIRCLE] Enhanced Veteran Personalization System (Phase 6.4-6.6) - COMPLETE'
 )
 console.log(
-  '🎖️ All veteran-focused features are operational and ready for deployment'
+  '[MILITARY_TECH] All veteran-focused features are operational and ready for deployment'
 )

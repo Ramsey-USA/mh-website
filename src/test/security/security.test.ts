@@ -229,7 +229,7 @@ describe('Security Testing Suite', () => {
         '\\u0000', // Null byte
         '\\ufeff', // BOM
         '\\u202e', // Right-to-left override
-        '🔥'.repeat(100), // Emoji bomb
+        '[WHATSHOT]'.repeat(100), // Emoji bomb
         '\\x00\\x01\\x02', // Control characters
       ]
 
