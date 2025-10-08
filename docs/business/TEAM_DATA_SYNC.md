@@ -11,7 +11,7 @@ This document establishes a systematic approach to ensure team member informatio
 All team member information originates from the `VintageTeamMember` interface in the vintage team data file. This centralized approach ensures:
 
 - **Single Source Updates**: Changes made in one location propagate to all displays
-- **Data Consistency**: Identical information across baseball cards and documentation  
+- **Data Consistency**: Identical information across baseball cards and documentation
 - **Validation**: Type-safe data structure prevents inconsistencies
 - **Maintainability**: Easier to update and manage team information
 
@@ -41,7 +41,7 @@ When updating team member information:
 1. Update vintage-team.ts (Source of Truth)
    ↓
 2. Generate/Update individual MD file
-   ↓  
+   ↓
 3. Update centralized TEAM_ROSTER.md if needed
    ↓
 4. Validate baseball card display

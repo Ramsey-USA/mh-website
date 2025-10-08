@@ -35,6 +35,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Additional build artifacts
+.next/cache/
+dist/
+build/
+out/
+
 # Firebase
 firebase-debug.log
 firestore-debug.log
@@ -48,6 +54,11 @@ functions/lib/
 .idea/
 *.swp
 *.swo
+
+# Backup directories (created by scripts)
+backups/
+docs/.markdown-lint-backup-*/
+docs/.naming-backup-*/
 
 # OS
 Thumbs.db

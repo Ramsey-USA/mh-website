@@ -175,5 +175,5 @@ When adding new documentation:
 
 ---
 
-**Last Updated:** October 2, 2025  
+**Last Updated:** October 2, 2025
 **Maintained by:** MH Construction Development Team

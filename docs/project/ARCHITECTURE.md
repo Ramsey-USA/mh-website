@@ -1,5 +1,18 @@
 # MH Construction - Architecture Documentation
 
+## Table of Contents
+
+- [🎯 CURRENT STATE: Complete Production Platform](#-current-state-complete-production-platform)
+  - [Live Production Pages](#live-production-pages)
+  - [Advanced Platform Features](#advanced-platform-features)
+- [🏗️ Complete Production Architecture](#-complete-production-architecture)
+  - [Core Technologies](#core-technologies)
+  - [Complete Component Architecture](#complete-component-architecture)
+- [✨ Advanced Features Implementation Status](#-advanced-features-implementation-status)
+  - [🎬 Animation System - ✅ COMPLETE](#-animation-system---complete)
+  - [📊 Analytics & SEO - ✅ COMPLETE](#-analytics--seo---complete)
+  - [🎛️ Content Management System - ✅ COMPLETE](#-content-management-system---complete)
+
 ## 🎯 **CURRENT STATE: Complete Production Platform**
 
 ### **Live Production Pages**

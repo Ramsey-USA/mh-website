@@ -28,9 +28,9 @@ For icons that animate, change, or respond to user interaction:
 
 ```tsx
 {/* Hover animations */}
-<MaterialIcon 
-  icon="arrow_forward" 
-  size="lg" 
+<MaterialIcon
+  icon="arrow_forward"
+  size="lg"
   interactive={true}
   className="group-hover:translate-x-2 transition-transform"
 />
@@ -42,8 +42,8 @@ For icons that animate, change, or respond to user interaction:
 </button>
 
 {/* Spin animations */}
-<MaterialIcon 
-  icon="refresh" 
+<MaterialIcon
+  icon="refresh"
   interactive={true}
   className="animate-spin"
 />
@@ -145,9 +145,9 @@ For icons that never change:
 
 ```tsx
 <Button className="group">
-  <MaterialIcon 
-    icon="calendar" 
-    size="md" 
+  <MaterialIcon
+    icon="calendar"
+    size="md"
     interactive={true}
     className="mr-2 group-hover:scale-110 transition-transform"
   />
@@ -170,16 +170,16 @@ For icons that never change:
 
 ```tsx
 <Link href="/" className="group flex items-center">
-  <MaterialIcon 
-    icon="home" 
-    size="sm" 
+  <MaterialIcon
+    icon="home"
+    size="sm"
     interactive={true}
     className="mr-2 group-hover:text-brand-primary transition-colors"
   />
   <span>Home</span>
-  <MaterialIcon 
-    icon="arrow_forward" 
-    size="sm" 
+  <MaterialIcon
+    icon="arrow_forward"
+    size="sm"
     interactive={true}
     className="ml-auto group-hover:translate-x-1 transition-transform"
   />
@@ -240,5 +240,5 @@ For icons that never change:
 
 ---
 
-**Updated:** October 2, 2025  
+**Updated:** October 2, 2025
 **Version:** 3.7.3

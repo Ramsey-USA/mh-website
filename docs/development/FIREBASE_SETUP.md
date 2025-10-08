@@ -48,36 +48,36 @@ service cloud.firestore {
     // Users can read/write their own profile
     match /users/{userId} {
       allow read, write: if request.auth != null && request.auth.uid == userId;
-      allow read: if request.auth != null && 
+      allow read: if request.auth != null &&
                      resource.data.role in ['admin', 'team_member'];
     }
-    
+
     // Consultations
     match /consultations/{consultId} {
       allow create: if request.auth != null;
-      allow read, write: if request.auth != null && 
+      allow read, write: if request.auth != null &&
                             (request.auth.uid == resource.data.userId ||
                              get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'team_member']);
     }
-    
+
     // Project estimates
     match /estimates/{estimateId} {
       allow create: if request.auth != null;
-      allow read, write: if request.auth != null && 
+      allow read, write: if request.auth != null &&
                             (request.auth.uid == resource.data.userId ||
                              get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'team_member']);
     }
-    
+
     // Notifications
     match /notifications/{notificationId} {
-      allow read, write: if request.auth != null && 
+      allow read, write: if request.auth != null &&
                             (request.auth.uid == resource.data.userId ||
                              get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'team_member']);
     }
-    
+
     // Team data (admin/team_member only)
     match /team/{teamId} {
-      allow read, write: if request.auth != null && 
+      allow read, write: if request.auth != null &&
                             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'team_member'];
     }
   }

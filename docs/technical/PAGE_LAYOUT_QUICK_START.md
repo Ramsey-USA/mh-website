@@ -17,7 +17,7 @@ export default function YourPage() {
 
         {/* Content */}
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          
+
           {/* Header */}
           <div className="mb-10 lg:mb-12 text-center">
             <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
@@ -49,23 +49,23 @@ export default function YourPage() {
 ```tsx
 <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
   <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
-  
+
   <div className="relative flex flex-col h-full">
     {/* Icon */}
     <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
       <MaterialIcon icon="your_icon" size="xl" className="text-brand-primary" />
     </div>
-    
+
     {/* Title */}
     <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 text-2xl">
       Card Title
     </h3>
-    
+
     {/* Description */}
     <p className="mb-6 text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">
       Description content
     </p>
-    
+
     {/* CTA */}
     <div className="flex items-center font-semibold text-brand-primary mt-auto">
       <span className="mr-2">Learn More</span>
@@ -199,9 +199,9 @@ gap-6 lg:gap-8
 
 ### Touch-Friendly Standards
 
-✅ **Minimum button height:** `h-12` (48px)  
-✅ **Minimum touch target:** `w-12 h-12`  
-✅ **Mobile-first approach:** Start with mobile, add larger breakpoints  
+✅ **Minimum button height:** `h-12` (48px)
+✅ **Minimum touch target:** `w-12 h-12`
+✅ **Mobile-first approach:** Start with mobile, add larger breakpoints
 ✅ **Test on real devices:** iPhone, iPad, Android
 
 ### Quick Test Checklist

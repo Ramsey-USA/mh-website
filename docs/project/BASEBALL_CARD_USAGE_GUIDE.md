@@ -1,8 +1,8 @@
 # Baseball Card Team Page - Usage & Maintenance Guide
 
-**Component**: Baseball Card Team Display  
-**Page**: `/team`  
-**Last Updated**: October 2025  
+**Component**: Baseball Card Team Display
+**Page**: `/team`
+**Last Updated**: October 2025
 **Maintainer**: MH Construction Development Team
 
 ---
@@ -30,7 +30,7 @@ Create a new team member object in `/src/lib/data/team.ts`:
 ```typescript
 {
   name: "John Smith",
-  role: "Project Manager", 
+  role: "Project Manager",
   department: "Project Management & Estimating",
   experienceYears: 8,
   specialties: ["Commercial Construction", "Project Planning", "Client Relations"],
@@ -82,7 +82,7 @@ The page automatically updates with new team members. No additional code changes
 role: "Site Supervisor",
 department: "Site & Field Operations",
 
-// After  
+// After
 role: "Project Superintendent",
 department: "Project Management & Estimating",
 ```text
@@ -92,8 +92,8 @@ department: "Project Management & Estimating",
 ```typescript
 // Add new skills to existing array
 specialties: [
-  "Commercial Construction", 
-  "Project Planning", 
+  "Commercial Construction",
+  "Project Planning",
   "Client Relations",
   "Safety Management"  // New specialty
 ]
@@ -128,7 +128,7 @@ Add military service recognition:
 
 ```typescript
 veteranStatus: "Army Veteran"        // Green badge with military icon
-veteranStatus: "Navy Veteran"        // Blue badge with anchor icon  
+veteranStatus: "Navy Veteran"        // Blue badge with anchor icon
 veteranStatus: "Air Force Veteran"   // Sky blue with flight icon
 veteranStatus: "Marine Veteran"      // Red badge with shield icon
 veteranStatus: "Coast Guard Veteran" // Cyan badge with waves icon
@@ -141,7 +141,7 @@ veteranStatus: "Retired Leadership"  // Purple badge with premium icon
 Team members are automatically grouped by department:
 
 1. **Executive Leadership**
-2. **Project Management & Estimating**  
+2. **Project Management & Estimating**
 3. **Site & Field Operations**
 4. **Administration & Support**
 
@@ -233,7 +233,7 @@ ls -lh /public/images/team/
 #### New Team Member Checklist
 
 - ✅ Name displays correctly
-- ✅ Role and department are accurate  
+- ✅ Role and department are accurate
 - ✅ Photo loads (or fallback icon appears)
 - ✅ Bio text fits within card back
 - ✅ Specialties display as tags
@@ -402,5 +402,5 @@ console.log('Veteran status:', member.veteranStatus)
 
 ---
 
-**Guide Complete** ✅  
+**Guide Complete** ✅
 *This guide provides comprehensive information for maintaining and expanding the baseball card team page feature.*

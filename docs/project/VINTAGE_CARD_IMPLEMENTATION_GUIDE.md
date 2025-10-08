@@ -1,8 +1,8 @@
 # Vintage Baseball Card - Implementation Guide
 
-**Project**: MH Construction Vintage Baseball Cards  
-**Type**: Technical Implementation Document  
-**Phase**: Development Ready  
+**Project**: MH Construction Vintage Baseball Cards
+**Type**: Technical Implementation Document
+**Phase**: Development Ready
 **Date**: October 2025
 
 ---
@@ -37,7 +37,7 @@ interface VintageTeamMember {
   name: string
   role: string
   department: string
-  
+
   // Vintage-specific fields
   cardNumber: number
   position: string
@@ -45,7 +45,7 @@ interface VintageTeamMember {
   height?: string
   hometown?: string
   education?: string
-  
+
   // Stats
   currentYearStats: {
     projectsCompleted: number
@@ -53,19 +53,19 @@ interface VintageTeamMember {
     safetyRecord: string
     teamCollaborations: number
   }
-  
+
   careerStats: {
     totalProjects: number
     yearsExperience: number
     specialtyAreas: number
     mentorships: number
   }
-  
+
   // Content
   bio: string
   careerHighlights: string[]
   funFact?: string
-  
+
   // Optional fields
   avatar?: string
   veteranStatus?: string
@@ -79,51 +79,51 @@ interface VintageBaseballCardProps {
 
 export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   const [isFlipped, setIsFlipped] = useState(false)
-  
+
   // Get department color scheme
   const getCardColors = (department: string) => {
     const colorMap = {
-      'Executive Leadership': { 
-        primary: '#8B0000', 
+      'Executive Leadership': {
+        primary: '#8B0000',
         rgb: '139, 0, 0',
-        name: 'EXECUTIVE RED' 
+        name: 'EXECUTIVE RED'
       },
-      'Project Management & Estimating': { 
-        primary: '#1e3a8a', 
+      'Project Management & Estimating': {
+        primary: '#1e3a8a',
         rgb: '30, 58, 138',
-        name: 'PROJECT BLUE' 
+        name: 'PROJECT BLUE'
       },
-      'Site & Field Operations': { 
-        primary: '#166534', 
+      'Site & Field Operations': {
+        primary: '#166534',
         rgb: '22, 101, 52',
-        name: 'FIELD GREEN' 
+        name: 'FIELD GREEN'
       },
-      'Administration & Support': { 
-        primary: '#7c2d12', 
+      'Administration & Support': {
+        primary: '#7c2d12',
         rgb: '124, 45, 18',
-        name: 'ADMIN ORANGE' 
+        name: 'ADMIN ORANGE'
       }
     }
-    
+
     return colorMap[department] || colorMap['Administration & Support']
   }
-  
+
   const cardColors = getCardColors(member.department)
   const isMascot = member.name === 'Trigger'
-  
+
   // Mascot gets special golden theme
-  const finalColors = isMascot ? 
-    { primary: '#a16207', rgb: '161, 98, 7', name: 'MASCOT GOLD' } : 
+  const finalColors = isMascot ?
+    { primary: '#a16207', rgb: '161, 98, 7', name: 'MASCOT GOLD' } :
     cardColors
 
   return (
     <div className="vintage-card-container">
-      <div 
+      <div
         className="vintage-card-inner"
         onClick={() => setIsFlipped(!isFlipped)}
-        style={{ 
+        style={{
           '--card-color': finalColors.primary,
-          '--card-color-rgb': finalColors.rgb 
+          '--card-color-rgb': finalColors.rgb
         } as React.CSSProperties}
       >
         {/* FRONT SIDE */}
@@ -132,22 +132,22 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
           <div className="vintage-outer-border">
             {/* Color frame */}
             <div className="vintage-color-frame">
-              
+
               {/* Card number badge */}
               <div className="vintage-card-number">
                 {member.cardNumber}
               </div>
-              
+
               {/* Company logo */}
               <div className="vintage-company-logo">
                 <img src="/images/logo/mh-logo.png" alt="MH" />
               </div>
-              
+
               {/* Photo container */}
               <div className="vintage-photo-container">
                 {member.avatar ? (
-                  <img 
-                    src={member.avatar} 
+                  <img
+                    src={member.avatar}
                     alt={member.name}
                     className="vintage-player-image"
                   />
@@ -157,7 +157,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
                   </div>
                 )}
               </div>
-              
+
               {/* Text overlay */}
               <div className="vintage-text-overlay">
                 <div className="vintage-player-name">
@@ -167,12 +167,12 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
                   {member.position} • MH CONSTRUCTION
                 </div>
               </div>
-              
+
               {/* Set identifier */}
               <div className="vintage-set-id">
                 2025 MH CONSTRUCTION
               </div>
-              
+
               {/* Flip indicator */}
               <div className="vintage-flip-indicator">
                 Click to flip
@@ -184,7 +184,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
         {/* BACK SIDE */}
         <div className={`vintage-card-face vintage-card-back ${isFlipped ? 'flipped' : ''}`}>
           <div className="vintage-back-content">
-            
+
             {/* Header with card number and name */}
             <div className="vintage-back-header">
               <div className="vintage-card-number-back">
@@ -193,7 +193,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
               <div className="vintage-player-name-back">
                 {member.name}
               </div>
-              
+
               {/* Player vitals */}
               <div className="vintage-player-vitals">
                 <div className="vital-row">
@@ -216,13 +216,13 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
                 )}
               </div>
             </div>
-            
+
             {/* Statistics section */}
             <div className="vintage-stats-section">
               <div className="vintage-stats-title">
                 PROFESSIONAL STATISTICS
               </div>
-              
+
               <table className="vintage-stats-table">
                 <thead>
                   <tr>
@@ -251,14 +251,14 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
                 </tbody>
               </table>
             </div>
-            
+
             {/* Biography section */}
             <div className="vintage-bio-section">
               <div className="vintage-bio-title">CAREER HIGHLIGHTS</div>
               <div className="vintage-bio-text">
                 {member.bio}
               </div>
-              
+
               {member.careerHighlights.length > 0 && (
                 <div className="vintage-highlights">
                   {member.careerHighlights.map((highlight, index) => (
@@ -269,14 +269,14 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
                 </div>
               )}
             </div>
-            
+
             {/* Fun fact */}
             {member.funFact && (
               <div className="vintage-fun-fact">
                 <strong>Did you know?</strong> {member.funFact}
               </div>
             )}
-            
+
             {/* Footer */}
             <div className="vintage-card-footer">
               <div className="vintage-copyright">
@@ -286,7 +286,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
                 <img src="/images/logo/mh-logo.png" alt="MH" />
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -312,7 +312,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   perspective: 1000px;
   cursor: pointer;
   margin: 0 auto;
-  
+
   /* Vintage card handling feel */
   transition: all 0.3s ease;
   transform-style: preserve-3d;
@@ -320,7 +320,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
 
 .vintage-card-container:hover {
   transform: translateY(-3px);
-  box-shadow: 
+  box-shadow:
     0 12px 25px rgba(0,0,0,0.15),
     0 0 0 2px rgba(255,255,255,0.9);
 }
@@ -357,19 +357,19 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
 .vintage-outer-border {
   width: 100%;
   height: 100%;
-  
+
   /* Aged white frame */
   border: 4px solid #f8f6f0;
   border-radius: 8px;
-  
+
   /* Vintage aging effects */
-  box-shadow: 
+  box-shadow:
     0 0 0 1px #e8e4dc,
     3px 3px 12px rgba(0,0,0,0.25),
     inset 0 0 30px rgba(0,0,0,0.05);
-    
+
   /* Subtle paper texture */
-  background-image: 
+  background-image:
     radial-gradient(circle at 25% 25%, rgba(255,255,255,0.2) 0%, transparent 60%),
     linear-gradient(45deg, transparent 25%, rgba(0,0,0,0.02) 25%, rgba(0,0,0,0.02) 50%, transparent 50%);
   background-size: 60px 60px, 12px 12px;
@@ -382,9 +382,9 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   border: 6px solid var(--card-color);
   border-radius: 4px;
   position: relative;
-  
+
   /* Subtle color variations */
-  background-image: 
+  background-image:
     radial-gradient(circle at 50% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
     linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.05) 100%);
 }
@@ -395,23 +395,23 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   top: 12px;
   right: 12px;
   z-index: 10;
-  
+
   background: #ffffff;
   border: 2px solid var(--card-color);
   border-radius: 50%;
   width: 36px;
   height: 36px;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   font-family: 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 700;
   color: var(--card-color);
-  
-  box-shadow: 
+
+  box-shadow:
     0 3px 6px rgba(0,0,0,0.2),
     inset 0 1px 2px rgba(255,255,255,0.8);
 }
@@ -442,13 +442,13 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   right: 20px;
   height: 240px;
   z-index: 5;
-  
+
   background: #ffffff;
   border: 3px solid #e8e4dc;
   border-radius: 2px;
-  
+
   /* Photo frame shadow */
-  box-shadow: 
+  box-shadow:
     inset 0 0 15px rgba(0,0,0,0.1),
     0 2px 8px rgba(0,0,0,0.15);
 }
@@ -458,16 +458,16 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  
+
   /* Vintage photo treatment */
-  filter: 
+  filter:
     contrast(1.15)
     saturate(1.1)
     sepia(0.08)
     brightness(1.02);
-    
+
   /* Subtle halftone effect */
-  background-image: 
+  background-image:
     radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px);
   background-size: 4px 4px;
   background-blend-mode: overlay;
@@ -490,14 +490,14 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   left: 0;
   right: 0;
   z-index: 10;
-  
+
   background: linear-gradient(
-    to top, 
-    rgba(0,0,0,0.8) 0%, 
-    rgba(0,0,0,0.4) 70%, 
+    to top,
+    rgba(0,0,0,0.8) 0%,
+    rgba(0,0,0,0.4) 70%,
     transparent 100%
   );
-  
+
   padding: 20px 20px 25px 20px;
 }
 
@@ -511,11 +511,11 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   color: #ffffff;
   text-align: center;
   margin-bottom: 6px;
-  
-  text-shadow: 
+
+  text-shadow:
     2px 2px 4px rgba(0,0,0,0.9),
     1px 1px 2px rgba(0,0,0,0.7);
-    
+
   /* Handle long names */
   hyphens: auto;
   word-wrap: break-word;
@@ -529,8 +529,8 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   letter-spacing: 1.2px;
   color: #ffffff;
   text-align: center;
-  
-  text-shadow: 
+
+  text-shadow:
     1px 1px 3px rgba(0,0,0,0.9),
     1px 1px 1px rgba(0,0,0,0.7);
 }
@@ -541,14 +541,14 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   bottom: 8px;
   left: 20px;
   z-index: 6;
-  
+
   font-family: 'Arial', sans-serif;
   font-size: 8px;
   font-weight: 600;
   color: rgba(255,255,255,0.8);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  
+
   text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
 }
 
@@ -558,12 +558,12 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   bottom: 8px;
   right: 12px;
   z-index: 6;
-  
+
   font-family: 'Arial', sans-serif;
   font-size: 8px;
   font-style: italic;
   color: rgba(255,255,255,0.7);
-  
+
   text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
   pointer-events: none;
 }
@@ -572,9 +572,9 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
 
 .vintage-card-back {
   background: #f6f4e8;
-  
+
   /* Vintage cardstock texture */
-  background-image: 
+  background-image:
     radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, transparent 60%),
     linear-gradient(0deg, transparent 24%, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.06) 26%, transparent 27%),
     radial-gradient(circle at 70% 70%, rgba(139,69,19,0.02) 0%, transparent 50%);
@@ -586,7 +586,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   padding: 18px;
   font-family: 'Times New Roman', serif;
   color: #2c2c2c;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -609,7 +609,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   font-size: 12px;
   font-weight: 700;
   margin-bottom: 8px;
-  
+
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
@@ -716,7 +716,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   text-justify: inter-word;
   hyphens: auto;
   margin-bottom: 6px;
-  
+
   /* Classic indented paragraph */
   text-indent: 12px;
 }
@@ -781,15 +781,15 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
     width: 240px;
     height: 336px;
   }
-  
+
   .vintage-player-name {
     font-size: 16px;
   }
-  
+
   .vintage-team-role {
     font-size: 10px;
   }
-  
+
   .vintage-photo-container {
     height: 200px;
   }
@@ -800,15 +800,15 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
     width: 200px;
     height: 280px;
   }
-  
+
   .vintage-player-name {
     font-size: 14px;
   }
-  
+
   .vintage-photo-container {
     height: 160px;
   }
-  
+
   .vintage-stats-table {
     font-size: 8px;
   }
@@ -820,7 +820,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   .vintage-card-inner {
     transition: none;
   }
-  
+
   .vintage-card-container:hover {
     transform: none;
   }
@@ -830,7 +830,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   .vintage-color-frame {
     border: 4px solid currentColor;
   }
-  
+
   .vintage-player-name {
     background: rgba(0,0,0,0.9);
     padding: 4px 8px;
@@ -855,13 +855,13 @@ export interface VintageTeamMember {
   department: string
   cardNumber: number
   position: string // Simplified role for card
-  
+
   // Personal details
   yearsWithCompany: number
   height?: string
   hometown?: string
   education?: string
-  
+
   // Current year performance
   currentYearStats: {
     projectsCompleted: number
@@ -869,7 +869,7 @@ export interface VintageTeamMember {
     safetyRecord: string
     teamCollaborations: number
   }
-  
+
   // Career totals
   careerStats: {
     totalProjects: number
@@ -877,12 +877,12 @@ export interface VintageTeamMember {
     specialtyAreas: number
     mentorships: number
   }
-  
+
   // Content
   bio: string
   careerHighlights: string[]
   funFact?: string
-  
+
   // Existing fields
   specialties: string[]
   avatar?: string
@@ -895,47 +895,47 @@ export interface VintageTeamMember {
 export const vintageTeamMembers: VintageTeamMember[] = [
   {
     name: "Jeremy Thamert",
-    role: "Owner & General Manager", 
+    role: "Owner & General Manager",
     department: "Executive Leadership",
     cardNumber: 1,
     position: "General Manager",
-    
+
     yearsWithCompany: 2,
     hometown: "Tri-Cities, WA",
     education: "Business Management",
-    
+
     currentYearStats: {
       projectsCompleted: 45,
       clientSatisfaction: 98,
       safetyRecord: "EXCELLENT",
       teamCollaborations: 25
     },
-    
+
     careerStats: {
       totalProjects: 85,
       yearsExperience: 2,
       specialtyAreas: 5,
       mentorships: 8
     },
-    
+
     bio: "Jeremy brings innovative leadership to MH Construction, focusing on technology integration and strategic growth. His vision drives the company's commitment to excellence in construction services.",
-    
+
     careerHighlights: [
       "Led digital transformation initiative",
-      "Expanded service territories", 
+      "Expanded service territories",
       "Implemented AI-powered project management",
       "Achieved 98% client satisfaction rating"
     ],
-    
+
     funFact: "Jeremy was the first construction company owner in the region to implement AI-powered estimating tools.",
-    
+
     specialties: ["Strategic Vision", "Technology Integration", "Business Development"],
     avatar: "/images/team/jeremy-thamert.jpg",
     veteranStatus: "Civilian Supporter",
     active: true,
     slug: "jeremy-thamert"
   },
-  
+
   // Add more team members with vintage data...
 ]
 ```text
@@ -955,7 +955,7 @@ import { vintageTeamMembers } from '../../lib/data/team'
 export default function TeamPage() {
   // Group by department
   const membersByDepartment = groupByDepartment(vintageTeamMembers)
-  
+
   return (
     <div className="bg-gray-50 min-h-screen">
       <PageHero
@@ -972,9 +972,9 @@ export default function TeamPage() {
               Professional Team Cards
             </h2>
             <p className="mx-auto max-w-3xl text-gray-600 text-lg leading-relaxed">
-              Discover our team through authentic vintage-style trading cards. 
-              Each card features professional statistics, career highlights, and 
-              the unique story of the dedicated individuals who make MH Construction 
+              Discover our team through authentic vintage-style trading cards.
+              Each card features professional statistics, career highlights, and
+              the unique story of the dedicated individuals who make MH Construction
               a leader in Pacific Northwest construction.
             </p>
           </div>
@@ -997,7 +997,7 @@ export default function TeamPage() {
                       </div>
                       <div className="bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto rounded-full w-48 h-1"></div>
                     </div>
-                    
+
                     {/* Vintage cards grid */}
                     <div className="justify-items-center gap-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                       {members.map((member, index) => (
@@ -1071,7 +1071,7 @@ export default function TeamPage() {
 
 ---
 
-**Implementation Status**: Ready for Development  
-**Estimated Effort**: 3-4 weeks  
-**Priority**: High  
+**Implementation Status**: Ready for Development
+**Estimated Effort**: 3-4 weeks
+**Priority**: High
 **Dependencies**: Design approval, content gathering for enhanced team data

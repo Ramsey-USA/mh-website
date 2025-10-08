@@ -176,13 +176,13 @@ Every decision we make, every process we follow, and every interaction we have i
 
 ---
 
-> *"These values aren't just our company culture - they're our commitment to every client, every project, and every community we have the privilege to serve."*  
+> *"These values aren't just our company culture - they're our commitment to every client, every project, and every community we have the privilege to serve."*
 > **- Jeremy Thamert, Owner & General Manager**
 
 ---
 
-**Partnership Philosophy**: "We Work With You" - These values in action  
-**Community Focus**: Serving Pacific Northwest Communities Since 1995  
+**Partnership Philosophy**: "We Work With You" - These values in action
+**Community Focus**: Serving Pacific Northwest Communities Since 1995
 **Contact**: (509) 308-6489 | <info@mhconstruction.com>
 
 ---

@@ -1,10 +1,26 @@
 # Contributing to MH Construction Website
 
-We welcome contributions to the MH Construction website! This document provides guidelines for developers working on this project.
+## Table of Contents
+
+- [🏗️ Project Overview](#️-project-overview)
+  - [Current Status](#current-status)
+- [🚀 Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Development Setup](#development-setup)
+- [📋 Development Workflow](#-development-workflow)
+  - [Branch Strategy](#branch-strategy)
+  - [Creating a Feature](#creating-a-feature)
+- [💻 Code Standards](#-code-standards)
+  - [TypeScript Guidelines](#typescript-guidelines)
+
+We welcome contributions to the MH Construction website! This document provides guidelines for
+developers working on this project.
 
 ## 🏗️ Project Overview
 
-This is a partnership-driven foundation platform for MH Construction, a veteran-owned company serving the Pacific Northwest. The platform emphasizes community partnership, transparent communication, and veteran excellence.
+This is a partnership-driven foundation platform for MH Construction, a veteran-owned company serving the
+Pacific Northwest. The platform emphasizes community partnership, transparent communication, and veteran
+excellence.
 
 ### Current Status
 
@@ -122,7 +138,7 @@ interface ButtonProps {
 
 // Avoid
 const Button = (props: any) => { ... }
-```
+```text
 
 ### React Best Practices
 
@@ -141,14 +157,14 @@ const Component: React.FC<ComponentProps> = ({ prop1, prop2 }) => {
   // Hooks
   // Event handlers
   // Render logic
-  
+
   return (
     // JSX
   );
 };
 
 export default Component;
-```
+```text
 
 ### CSS and Tailwind
 
@@ -167,7 +183,7 @@ export default Component;
 <div className="custom-complex-layout">
   {/* Complex layout requiring custom CSS */}
 </div>
-```
+```text
 
 ### File Organization
 
@@ -230,7 +246,7 @@ npm run type-check        # TypeScript validation
 
 # Building
 npm run build            # Production build test
-```
+```text
 
 ### Testing Standards
 
@@ -244,7 +260,7 @@ npm run build            # Production build test
 npm run test             # Run all tests
 npm run test:watch       # Watch mode
 npm run test:coverage    # Coverage report
-```
+```text
 
 ### Performance Standards
 
@@ -289,7 +305,7 @@ npm run test:coverage    # Coverage report
 ```bash
 # Accessibility testing tools
 npm run test:a11y        # (When implemented)
-```
+```text
 
 ### Implementation Checklist
 
@@ -346,7 +362,7 @@ firebase deploy
 # Specific deployments
 firebase deploy --only hosting
 firebase deploy --only firestore:rules
-```
+```text
 
 ## 🐛 Bug Reports
 
@@ -368,14 +384,14 @@ What should happen
 What actually happens
 
 ## Environment
-- Browser: 
-- OS: 
-- Node version: 
-- Build version: 
+- Browser:
+- OS:
+- Node version:
+- Build version:
 
 ## Screenshots
 If applicable
-```
+```text
 
 ### Priority Levels
 
@@ -407,7 +423,7 @@ npm run analyze
 
 # Performance audits
 npm run lighthouse    # (When implemented)
-```
+```text
 
 ## 🤝 Community Guidelines
 
@@ -449,7 +465,7 @@ Brief description of changes
 - [ ] Self-review completed
 - [ ] Documentation updated
 - [ ] No new warnings/errors
-```
+```text
 
 ### Review Process
 

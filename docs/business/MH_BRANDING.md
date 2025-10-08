@@ -2,11 +2,11 @@
 
 ## Complete brand identity, design system, and implementation guidelines for MH Construction LLC
 
-> **📅 Last Updated:** October 8, 2025  
-> **🎨 Brand Version:** 3.7.2  
-> **👥 Authority:** MH Construction Leadership Team  
-> **💻 Implementation:** Foundation-Only Architecture with Google Material Icons  
-> **🌙 Theme Support:** Complete light/dark mode with optimized theme toggle  
+> **📅 Last Updated:** October 8, 2025
+> **🎨 Brand Version:** 3.7.2
+> **👥 Authority:** MH Construction Leadership Team
+> **💻 Implementation:** Foundation-Only Architecture with Google Material Icons
+> **🌙 Theme Support:** Complete light/dark mode with optimized theme toggle
 > **🚀 Architecture:** Clean Slate Foundation, Google Material Icons, ready for creative expansion
 
 ## 🚨 **CRITICAL POLICY: EMOJI-FREE CODEBASE (v3.7.2)**
@@ -53,7 +53,7 @@ title: 'Update 🎯'
 
 ### Primary Partnership Message
 
-**"Building for the Owner, NOT the Dollar"**  
+**"Building for the Owner, NOT the Dollar"**
 *Veteran-owned excellence where your success comes first*
 
 ### Supporting Taglines
@@ -77,7 +77,7 @@ title: 'Update 🎯'
 
 - **Home** - Active and functional
 - **About Us (Coming Soon)** - Future development
-- **Services (Coming Soon)** - Future development  
+- **Services (Coming Soon)** - Future development
 - **Portfolio (Coming Soon)** - Future development
 - **Contact (Coming Soon)** - Future development
 
@@ -175,7 +175,7 @@ title: 'Update 🎯'
         <span className="text-brand-primary text-sm">Click for details</span>
       </div>
     </div>
-    
+
     {/* Back: Detailed Information */}
     <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
       <div className="bg-gradient-to-br from-brand-primary to-brand-secondary rounded-xl p-6 shadow-lg text-white">
@@ -296,11 +296,11 @@ export default {
           'accent-dark': '#5a7363',    // Darker sage
           'light': '#f7f9f7',          // Very light brand background
         },
-        
+
         // Quick access aliases
         'mh-primary': '#386851',       // Hunter Green
         'mh-secondary': '#BD9264',     // Leather Tan
-        
+
         // Semantic theme colors
         'surface': {
           DEFAULT: '#f8fafc',          // Light mode surface
@@ -308,7 +308,7 @@ export default {
           'dark': '#1e293b',           // Dark mode surface
           'dark-secondary': '#334155', // Dark mode secondary surface
         },
-        
+
         'text': {
           'primary': '#1e293b',        // Light mode primary text
           'secondary': '#64748b',      // Light mode secondary text
@@ -317,14 +317,14 @@ export default {
           'secondary-dark': '#cbd5e1', // Dark mode secondary text
           'muted-dark': '#64748b',     // Dark mode muted text
         },
-        
+
         'border': {
           DEFAULT: '#e2e8f0',          // Light mode borders
           'light': '#f1f5f9',          // Light mode subtle borders
           'dark': '#334155',           // Dark mode borders
           'dark-light': '#475569',     // Dark mode subtle borders
         },
-        
+
         // Veteran recognition colors
         'veteran': {
           'red': '#dc2626',
@@ -346,7 +346,7 @@ export default {
 - **Active states**: `bg-brand-primary-dark` for pressed states
 - **Logo applications**: `text-brand-primary` for brand elements with enhanced animations
 
-#### Leather Tan (`bg-brand-secondary`, `text-brand-secondary`) - Secondary  
+#### Leather Tan (`bg-brand-secondary`, `text-brand-secondary`) - Secondary
 
 - **Secondary CTAs**: `<Button variant="secondary">` components with `.btn-secondary` styling
 - **Accent elements**: `bg-brand-secondary` backgrounds with custom enhancements
@@ -356,15 +356,15 @@ export default {
 #### Veteran Colors (Enhanced Classes)
 
 - **Red**: `bg-veteran-red` + `.btn-veteran` for veteran badges with animations
-- **Blue**: `bg-veteran-blue` + `.btn-dashboard` for program elements with effects  
+- **Blue**: `bg-veteran-blue` + `.btn-dashboard` for program elements with effects
 - **Gold**: `bg-veteran-gold` + `.veteran-badge` for achievements
 
 #### Usage Examples with Hybrid Approach
 
 ```tsx
 // Primary button with brand colors and enhancements
-<Button 
-  variant="primary" 
+<Button
+  variant="primary"
   className="btn-primary bg-brand-primary hover:bg-brand-primary-dark focus:ring-brand-primary/50"
 >
   Get Quote
@@ -444,8 +444,8 @@ export default {
 ```tsx
 <nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark border-b border-border dark:border-border-dark backdrop-blur-sm nav-primary">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <Link 
-      href="/" 
+    <Link
+      href="/"
       className="flex items-center transition-all duration-300 hover:scale-105 relative overflow-hidden group mh-logo-enhanced"
     >
       MH Logo with enhanced effects
@@ -460,15 +460,15 @@ export default {
 export function Button({ variant, children, ...props }) {
   const variants = {
     primary: `
-      bg-brand-primary hover:bg-brand-primary-dark text-white 
+      bg-brand-primary hover:bg-brand-primary-dark text-white
       btn-primary // Custom MH class for enhanced styling
       px-6 py-3 rounded-full font-bold transition-all duration-300
       focus:outline-none focus:ring-2 focus:ring-brand-primary/50
     `
   }
-  
+
   return (
-    <button 
+    <button
       className={`btn-base ${variants[variant]} ${className}`}
       {...props}
     >
@@ -548,8 +548,8 @@ MH Construction migrated from a hybrid custom CSS + Tailwind approach to a pure 
 ```tsx
 <nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark border-b border-border dark:border-border-dark backdrop-blur-sm">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <Link 
-      href="/" 
+    <Link
+      href="/"
       className="text-text-primary dark:text-text-primary-dark hover:text-brand-primary transition-colors"
     >
       Home
@@ -581,9 +581,9 @@ export function Button({ variant, children, ...props }) {
       focus:ring-2 focus:ring-brand-primary/50
     `
   }
-  
+
   return (
-    <button 
+    <button
       className={`${variants[variant]} px-6 py-3 rounded-full font-bold transition-all duration-300`}
       {...props}
     >
@@ -648,9 +648,9 @@ MH Construction uses a standardized button system with consistent MH branding, f
 
 ```tsx
 // Content section primary action with hover color change
-<Button 
-  variant="primary" 
-  size="lg" 
+<Button
+  variant="primary"
+  size="lg"
   className="transition-all duration-300"
 >
   <MaterialIcon icon="event" size="lg" className="mr-3" />
@@ -658,9 +658,9 @@ MH Construction uses a standardized button system with consistent MH branding, f
 </Button>
 
 // Standard primary button with hover effects
-<Button 
-  variant="primary" 
-  size="default" 
+<Button
+  variant="primary"
+  size="default"
   className="transition-all duration-300"
 >
   <MaterialIcon icon="smart_toy" size="md" className="mr-2" />
@@ -672,9 +672,9 @@ MH Construction uses a standardized button system with consistent MH branding, f
 
 ```tsx
 // Supporting navigation actions with hover color change
-<Button 
-  variant="secondary" 
-  size="lg" 
+<Button
+  variant="secondary"
+  size="lg"
   className="transition-all duration-300"
 >
   <MaterialIcon icon="visibility" size="lg" className="mr-3" />
@@ -682,9 +682,9 @@ MH Construction uses a standardized button system with consistent MH branding, f
 </Button>
 
 // Alternative content actions
-<Button 
-  variant="secondary" 
-  size="default" 
+<Button
+  variant="secondary"
+  size="default"
   className="transition-all duration-300"
 >
   <MaterialIcon icon="arrow_forward" size="md" className="mr-2" />
@@ -696,9 +696,9 @@ MH Construction uses a standardized button system with consistent MH branding, f
 
 ```tsx
 // Phone/contact buttons with hover effects
-<Button 
-  variant="primary" 
-  size="lg" 
+<Button
+  variant="primary"
+  size="lg"
   className="w-full transition-all duration-300"
 >
   <MaterialIcon icon="phone" size="lg" className="mr-3" />
@@ -844,11 +844,11 @@ MH Construction uses a standardized button system with consistent MH branding, f
 #### **Mobile-First Implementation**
 
 ```tsx
-<Button 
-  variant="primary" 
+<Button
+  variant="primary"
   size="md"
   className="
-    w-full sm:w-auto 
+    w-full sm:w-auto
     mh-button-primary mh-button-md
     mb-4 sm:mb-0
   "
@@ -877,9 +877,9 @@ MH Construction uses a standardized button system with consistent MH branding, f
 
 ```tsx
 <Button className="
-  border-2 border-brand-primary 
-  bg-white dark:bg-gray-900 
-  text-brand-primary dark:text-brand-primary-light 
+  border-2 border-brand-primary
+  bg-white dark:bg-gray-900
+  text-brand-primary dark:text-brand-primary-light
   hover:bg-brand-primary hover:text-white hover:border-brand-primary-dark
   transition-all duration-300
 ">
@@ -994,17 +994,17 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 
 ```tsx
 // Theme-aware icon styling
-<MaterialIcon 
-  icon="construction" 
-  size="lg" 
-  className="text-brand-primary dark:text-brand-primary-light" 
+<MaterialIcon
+  icon="construction"
+  size="lg"
+  className="text-brand-primary dark:text-brand-primary-light"
 />
 
 // Conditional icon colors
-<MaterialIcon 
-  icon="security" 
-  size="md" 
-  className="text-green-600 dark:text-green-400" 
+<MaterialIcon
+  icon="security"
+  size="md"
+  className="text-green-600 dark:text-green-400"
 />
 ```text
 
@@ -1168,7 +1168,7 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon'
 ```tsx
 // Core company values with semantic accuracy
 <MaterialIcon name="visibility" size="3xl" style="text-brand-primary" />        // Transparency
-<MaterialIcon name="balance" size="3xl" style="text-brand-primary" />           // Integrity  
+<MaterialIcon name="balance" size="3xl" style="text-brand-primary" />           // Integrity
 <MaterialIcon name="precision_manufacturing" size="3xl" style="text-brand-primary" /> // Precision
 <MaterialIcon name="favorite" size="3xl" style="text-brand-primary" />          // Client-First
 <MaterialIcon name="engineering" size="3xl" style="text-brand-primary" />       // Professionalism
@@ -1259,7 +1259,7 @@ export default {
 #### Font Weight Guidelines
 
 - **font-black**: Main headlines, primary emphasis
-- **font-semibold**: Secondary text, subheadings  
+- **font-semibold**: Secondary text, subheadings
 - **font-light**: Body text, descriptions
 - **font-medium**: Buttons, labels, navigation
 
@@ -1294,13 +1294,13 @@ export default {
 
 ```tsx
 // Logo with hover effects using pure Tailwind
-<Link 
-  href="/" 
+<Link
+  href="/"
   className="flex items-center transition-opacity hover:opacity-80"
 >
-  <img 
-    src="/images/logo/mh-logo.png" 
-    alt="MH Construction" 
+  <img
+    src="/images/logo/mh-logo.png"
+    alt="MH Construction"
     className="h-20 w-auto"
   />
 </Link>
@@ -1310,13 +1310,13 @@ export default {
 
 ```tsx
 <div className="flex-shrink-0 py-3">
-  <Link 
-    href="/" 
+  <Link
+    href="/"
     className="flex items-center transition-all duration-300 hover:scale-105"
   >
-    <img 
-      src="/images/logo/mh-logo.png" 
-      alt="MH Construction" 
+    <img
+      src="/images/logo/mh-logo.png"
+      alt="MH Construction"
       className="h-20 w-auto filter drop-shadow-lg"
     />
   </Link>
@@ -1350,21 +1350,21 @@ All buttons use the reusable `Button` component with pure Tailwind styling that 
 
 ```tsx
 // /src/components/ui/Button.tsx
-export function Button({ 
-  variant = 'primary', 
-  size = 'md', 
+export function Button({
+  variant = 'primary',
+  size = 'md',
   withRing = true,
-  children, 
-  className = '', 
-  ...props 
+  children,
+  className = '',
+  ...props
 }) {
   const baseClasses = 'font-bold rounded-full transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 relative group'
-  
+
   const variantClasses = {
     primary: `
       bg-brand-primary border-2 border-brand-primary text-white
       shadow-[0_4px_16px_rgba(56,104,81,0.2)] dark:shadow-[0_4px_16px_rgba(74,122,99,0.3)]
-      hover:bg-brand-primary-dark hover:-translate-y-1 
+      hover:bg-brand-primary-dark hover:-translate-y-1
       hover:shadow-[0_0_0_3px_rgba(56,104,81,0.3),0_8px_25px_rgba(56,104,81,0.35)]
       focus:ring-2 focus:ring-brand-primary/50
     `,
@@ -1382,16 +1382,16 @@ export function Button({
       hover:-translate-y-0.5 focus:ring-2 focus:ring-brand-primary/50
     `
   }
-  
+
   const sizeClasses = {
     sm: 'px-3 py-1.5 text-sm min-h-[36px]',
     md: 'px-4 py-2 text-base min-h-[44px]',
     lg: 'px-6 py-3 text-lg min-h-[52px]',
     xl: 'px-8 py-4 text-xl min-h-[60px]'
   }
-  
+
   return (
-    <button 
+    <button
       className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`.replace(/\s+/g, ' ').trim()}
       {...props}
     >
@@ -1420,8 +1420,8 @@ export function Button({
 </Button>
 
 // Custom styling with Tailwind classes
-<Button 
-  variant="primary" 
+<Button
+  variant="primary"
   className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-brand-primary"
 >
   Custom Styled Button
@@ -1432,7 +1432,7 @@ export function Button({
 
 ```tsx
 // Veteran program button
-<Button 
+<Button
   variant="primary"
   className="bg-veteran-red border-veteran-red hover:bg-red-700"
 >
@@ -1440,7 +1440,7 @@ export function Button({
 </Button>
 
 // Dashboard access button
-<Button 
+<Button
   variant="primary"
   className="bg-veteran-blue border-veteran-blue hover:bg-blue-700"
 >
@@ -1490,7 +1490,7 @@ Our CTA system ensures consistency across all pages and proper dark/light mode s
 #### CTA Consistency Rules
 
 - **Always use Button component**: Never create custom button styling
-- **Standard variants**: Use `primary`, `secondary`, or `outline` variants only  
+- **Standard variants**: Use `primary`, `secondary`, or `outline` variants only
 - **Size consistency**: Use `xl` for main CTAs, `lg` for secondary actions
 - **Shadow effects**: Add `shadow-xl` for elevation consistency
 - **Icon spacing**: Use `mr-3` for icon-text spacing
@@ -1574,7 +1574,7 @@ The new hero section standard ensures complete visibility on all screen sizes wi
   {/* Main Content Container */}
   <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full flex items-center justify-center pt-32 pb-8">
     <FadeInWhenVisible className="text-center w-full">
-      
+
       {/* Veteran Badge */}
       <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
         <ShieldIcon size="sm" primaryColor="currentColor" className="text-brand-primary dark:text-brand-primary-light" />
@@ -1608,7 +1608,7 @@ The new hero section standard ensures complete visibility on all screen sizes wi
       <div className="flex flex-wrap justify-center items-center gap-10 font-medium text-gray-700 dark:text-gray-300 text-base">
         {/* Trust indicator badges */}
       </div>
-      
+
     </FadeInWhenVisible>
   </div>
 </section>
@@ -1618,7 +1618,7 @@ The new hero section standard ensures complete visibility on all screen sizes wi
 
 - **Full Viewport Height**: `h-screen` ensures the hero uses the complete screen height
 - **Navigation Offset**: `pt-32` provides proper clearance for the fixed navigation (h-24)
-- **Perfect Centering**: `flex items-center justify-center` centers content both vertically and horizontally  
+- **Perfect Centering**: `flex items-center justify-center` centers content both vertically and horizontally
 - **Optimized Spacing**: Reduced margins for better content fit while maintaining visual hierarchy
 - **Responsive Design**: Scales perfectly across all device sizes
 - **Accessibility**: Maintains proper contrast and text sizing
@@ -1645,30 +1645,30 @@ The new hero section standard ensures complete visibility on all screen sizes wi
       {/* Logo */}
       <div className="flex-shrink-0 py-3">
         <Link href="/" className="flex items-center transition-opacity hover:opacity-80">
-          <img 
-            src="/images/logo/mh-logo.png" 
-            alt="MH Construction" 
+          <img
+            src="/images/logo/mh-logo.png"
+            alt="MH Construction"
             className="h-20 w-auto"
           />
         </Link>
       </div>
-      
+
       {/* Navigation Links */}
       <div className="hidden md:flex items-center space-x-8">
-        <Link 
-          href="/about" 
+        <Link
+          href="/about"
           className="text-text-primary dark:text-text-primary-dark hover:text-brand-primary transition-colors"
         >
           About
         </Link>
-        <Link 
-          href="/services" 
+        <Link
+          href="/services"
           className="text-text-primary dark:text-text-primary-dark hover:text-brand-primary transition-colors"
         >
           Services
         </Link>
       </div>
-      
+
       {/* CTA Buttons */}
       <div className="flex items-center space-x-4">
         <Button variant="outline">Get Quote</Button>
@@ -1692,7 +1692,7 @@ The new hero section standard ensures complete visibility on all screen sizes wi
       Detailed project description with automatic theme adaptation
     </p>
   </div>
-  
+
   <div className="flex items-center justify-between">
     <span className="text-text-muted dark:text-text-muted-dark text-sm">
       Completed 2024
@@ -1710,8 +1710,8 @@ The new hero section standard ensures complete visibility on all screen sizes wi
 // Form inputs with complete theme support
 <div className="space-y-4">
   <div>
-    <label 
-      htmlFor="email" 
+    <label
+      htmlFor="email"
       className="block text-sm font-medium text-text-primary dark:text-text-primary-dark mb-2"
     >
       Email Address
@@ -1723,10 +1723,10 @@ The new hero section standard ensures complete visibility on all screen sizes wi
       placeholder="Enter your email"
     />
   </div>
-  
+
   <div>
-    <label 
-      htmlFor="message" 
+    <label
+      htmlFor="message"
       className="block text-sm font-medium text-text-primary dark:text-text-primary-dark mb-2"
     >
       Message
@@ -1738,7 +1738,7 @@ The new hero section standard ensures complete visibility on all screen sizes wi
       placeholder="Tell us about your project"
     />
   </div>
-  
+
   <Button variant="primary" className="w-full">
     Send Message
   </Button>
@@ -1754,10 +1754,10 @@ The footer system showcases comprehensive MH branding with sharp-edged logo, org
 ```tsx
 // Clean Footer with MH Branding
 <footer className="bg-gradient-to-br from-gray-800 via-gray-900 to-black dark:from-black dark:via-gray-900 dark:to-black pt-16 pb-6 text-gray-300 border-t border-brand-primary/20">
-  
+
   {/* Four-Column Layout */}
   <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-    
+
     {/* Column 1: Sharp-Edged Logo & Contact with Icons */}
     <div className="space-y-6">
       <Image
@@ -1770,17 +1770,17 @@ The footer system showcases comprehensive MH branding with sharp-edged logo, org
       />
       {/* Contact info with brand icons (PhoneIcon, EmailIcon, LocationIcon) */}
     </div>
-    
+
     {/* Column 2: Main Navigation (No Icons) */}
     {/* Clean text-only navigation links */}
-    
+
     {/* Column 3: Resources & Programs (No Icons) */}
     {/* Clean text-only resource links */}
-    
+
     {/* Column 4: Enhanced Social Media */}
     {/* Single row of icon-only social media links (Facebook, Instagram, LinkedIn, X, YouTube) */}
   </div>
-  
+
   {/* Clean Bottom Bar */}
   <div className="pt-8 pb-6 border-t border-brand-primary/30">
     {/* Copyright, legal links, veteran badge - no team portal duplication */}
@@ -1836,7 +1836,7 @@ The footer system showcases comprehensive MH branding with sharp-edged logo, org
 
 ```tsx
 // High contrast button for accessibility
-<Button 
+<Button
   variant="primary"
   className="contrast-more:bg-black contrast-more:border-black contrast-more:text-white"
 >
@@ -1849,7 +1849,7 @@ The footer system showcases comprehensive MH branding with sharp-edged logo, org
 ```tsx
 // Respect user motion preferences with Tailwind
 <div className="transition-all duration-300 motion-reduce:transition-none">
-  <Button 
+  <Button
     variant="primary"
     className="hover:scale-105 motion-reduce:hover:scale-100 hover:-translate-y-1 motion-reduce:hover:translate-y-0"
   >
@@ -1858,7 +1858,7 @@ The footer system showcases comprehensive MH branding with sharp-edged logo, org
 </div>
 
 // Logo with respectful animations
-<img 
+<img
   className="transition-transform duration-500 hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-100"
   src="/images/logo/mh-logo.png"
   alt="MH Construction"
@@ -1869,7 +1869,7 @@ The footer system showcases comprehensive MH branding with sharp-edged logo, org
 
 ```tsx
 // Theme-aware focus indicators using Tailwind
-<Button 
+<Button
   variant="primary"
   className="focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-surface-dark"
 >
@@ -1884,7 +1884,7 @@ The footer system showcases comprehensive MH branding with sharp-edged logo, org
 />
 
 // Navigation links with focus support
-<Link 
+<Link
   href="/about"
   className="focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-md px-2 py-1"
 >
@@ -1896,7 +1896,7 @@ The footer system showcases comprehensive MH branding with sharp-edged logo, org
 
 ```tsx
 // Proper ARIA labels and semantic HTML
-<Button 
+<Button
   variant="primary"
   aria-label="Schedule a free consultation with MH Construction"
   className="focus:ring-2 focus:ring-brand-primary"
@@ -1976,7 +1976,7 @@ import { Button } from '@/components/ui/Button'
 export function ProjectCard({ project }) {
   return (
     <div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/10 transition-all duration-300 p-6">
-      
+
       {/* Header with theme-aware text */}
       <div className="mb-4">
         <h3 className="text-brand-primary dark:text-brand-primary-light text-xl font-tactic-bold mb-2">
@@ -1986,14 +1986,14 @@ export function ProjectCard({ project }) {
           {project.description}
         </p>
       </div>
-      
+
       {/* Status badge */}
       <div className="mb-4">
         <span className="px-3 py-1 bg-success-light text-success-dark border border-success rounded-full text-sm font-medium">
           ✅ {project.status}
         </span>
       </div>
-      
+
       {/* Action buttons */}
       <div className="flex items-center justify-between">
         <span className="text-text-muted dark:text-text-muted-dark text-sm">
@@ -2021,13 +2021,13 @@ import { useTheme } from '@/contexts/ThemeContext'
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
-  
+
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
-  
+
   return (
-    <button 
+    <button
       onClick={toggleTheme}
       className="p-2 rounded-lg border border-border dark:border-border-dark bg-surface hover:bg-surface-secondary dark:bg-surface-dark dark:hover:bg-surface-dark-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary"
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}

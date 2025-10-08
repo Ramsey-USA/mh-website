@@ -98,7 +98,10 @@
 
 ## 🏗️ Project Overview
 
-MH Construction's website is a comprehensive digital platform showcasing veteran-owned excellence in the Pacific Northwest. Built with **Next.js 15.5.2** and **modern web technologies**, this platform delivers authentic relationships, transparent communication, and community impact through a complete suite of construction industry features.
+MH Construction's website is a comprehensive digital platform showcasing veteran-owned excellence in the Pacific
+Northwest. Built with **Next.js 15.5.2** and **modern web technologies**, this platform delivers authentic
+relationships, transparent communication, and community impact through a complete suite of construction industry
+features.
 
 ## ✨ Current Platform Status
 
@@ -122,7 +125,9 @@ MH Construction's website is a comprehensive digital platform showcasing veteran
 
 ### Revolutionary AI Implementation
 
-**MH Construction now features the most advanced AI-powered construction assistance system in the industry**, combining military precision with cutting-edge artificial intelligence to serve our clients and the veteran community.
+**MH Construction now features the most advanced AI-powered construction assistance system in the industry**,
+combining military precision with cutting-edge artificial intelligence to serve our clients and the veteran
+community.
 
 #### 🎖️ General MH - Military AI Assistant
 

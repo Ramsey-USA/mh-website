@@ -258,25 +258,25 @@ This audit reviews all 6 pages of the MH Construction website to ensure consiste
 
 ### 1. **Hero Gradients (All Pages)**
 
-**Current:** `from-blue-900 to-blue-700`  
+**Current:** `from-blue-900 to-blue-700`
 **Should be:** `from-[#2d5240] to-[#386851]` (Hunter Green gradient)
 
 **Affected Pages:** About, Services, Team, Projects, Contact
 
 ### 2. **Missing Primary Tagline (5 of 6 Pages)**
 
-**Primary Tagline:** "Building for the Owner, NOT the Dollar"  
-**Missing on:** About, Services, Team, Projects, Contact  
+**Primary Tagline:** "Building for the Owner, NOT the Dollar"
+**Missing on:** About, Services, Team, Projects, Contact
 **Present on:** Government (partial)
 
 ### 3. **Veteran-Owned Prominence**
 
-**Strong on:** Government page  
+**Strong on:** Government page
 **Needs Enhancement:** All other pages
 
 ### 4. **Brand Color Usage**
 
-**Issue:** Over-reliance on generic blues  
+**Issue:** Over-reliance on generic blues
 **Solution:** Integrate Hunter Green (#386851) and Leather Tan (#BD9264) consistently
 
 ---
@@ -328,12 +328,12 @@ Create a reusable component for consistent tagline display:
 
 ```tsx
 // components/brand/BrandTagline.tsx
-export function BrandTagline({ 
-  variant = 'primary', 
-  showSubtitle = true 
-}: { 
-  variant?: 'primary' | 'compact', 
-  showSubtitle?: boolean 
+export function BrandTagline({
+  variant = 'primary',
+  showSubtitle = true
+}: {
+  variant?: 'primary' | 'compact',
+  showSubtitle?: boolean
 }) {
   return (
     <div className="text-center">
@@ -420,7 +420,7 @@ export function VeteranBadge({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
 
 ---
 
-**Prepared By:** Development Team  
-**Date:** October 2, 2025  
-**Status:** Ready for Implementation  
+**Prepared By:** Development Team
+**Date:** October 2, 2025
+**Status:** Ready for Implementation
 **Estimated Time:** 3 weeks for full compliance

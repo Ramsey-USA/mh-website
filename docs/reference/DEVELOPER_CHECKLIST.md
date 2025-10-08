@@ -5,7 +5,7 @@
 ### ✅ Required Checks
 
 - [ ] **No emojis in source code**: Scan .ts, .tsx, .js, .jsx files
-- [ ] **Material Icons only**: All UI icons use `<MaterialIcon />` component  
+- [ ] **Material Icons only**: All UI icons use `<MaterialIcon />` component
 - [ ] **Proper sizing**: Icons include appropriate `size` prop
 - [ ] **Theme compatibility**: Dark mode styles included where needed
 - [ ] **Accessibility**: `aria-label` added for standalone icons
@@ -47,7 +47,7 @@ console.log('Debug 🔧')
 **Emojis ARE allowed in:**
 
 - README.md files
-- Documentation (.md) files  
+- Documentation (.md) files
 - Commit messages (optional)
 - Comments explaining emoji removal
 

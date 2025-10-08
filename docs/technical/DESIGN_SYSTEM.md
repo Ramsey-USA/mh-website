@@ -1,5 +1,18 @@
 # MH Construction Design System
 
+## Table of Contents
+
+- [Brand Guidelines & Component Standards](#brand-guidelines--component-standards)
+- [🎨 Brand Identity](#-brand-identity)
+  - [Primary Brand Colors](#primary-brand-colors)
+  - [Neutral Colors - Light/Dark Mode Compatible](#neutral-colors--lightdark-mode-compatible)
+  - [Status & Accent Colors](#status--accent-colors)
+- [📝 Typography System](#-typography-system)
+  - [Font Families](#font-families)
+  - [Responsive Typography Scale](#responsive-typography-scale)
+  - [Line Heights & Spacing](#line-heights--spacing)
+- [🔲 Component Standards](#-component-standards)
+
 ## Brand Guidelines & Component Standards
 
 **Foundation-Only Architecture**: Clean design system optimized for scalable expansion and consistent user experience.
@@ -12,75 +25,75 @@
 
 ### **Primary Brand Colors**
 
-```css
-/* MH Construction Brand Palette */
+ `` `css
+/*MH Construction Brand Palette */
 :root {
   /* Primary Brand Colors */
   --brand-primary: #386851;           /* Hunter Green - Primary actions, headers */
   --brand-primary-light: #4a7a63;     /* Lighter hunter green for hover states */
-  --brand-primary-dark: #2d5240;      /* Darker hunter green for active states */
-  
-  --brand-secondary: #BD9264;         /* Leather Tan - Secondary actions, accents */
+  --brand-primary-dark: #2d5240;      /* Darker hunter green for active states*/
+
+  --brand-secondary: #BD9264;         /*Leather Tan - Secondary actions, accents */
   --brand-secondary-light: #c9a176;   /* Lighter tan for hover states */
-  --brand-secondary-dark: #a67d52;    /* Darker tan for active states */
+  --brand-secondary-dark: #a67d52;    /* Darker tan for active states*/
 }
-```text
+ `` `text
 
 ### **Neutral Colors - Light/Dark Mode Compatible**
 
-```css
-/* Light Mode */
+ `` `css
+/*Light Mode */
 :root {
   --color-background: #ffffff;        /* Main background */
   --color-surface: #f8fafc;          /* Card backgrounds */
-  --color-surface-secondary: #f1f5f9; /* Alternate backgrounds */
-  
-  --color-text-primary: #1e293b;     /* Primary text */
+  --color-surface-secondary: #f1f5f9; /* Alternate backgrounds*/
+
+  --color-text-primary: #1e293b;     /*Primary text */
   --color-text-secondary: #64748b;   /* Secondary text */
-  --color-text-muted: #94a3b8;       /* Muted text */
-  
-  --color-border: #e2e8f0;           /* Borders and dividers */
-  --color-border-light: #f1f5f9;     /* Light borders */
+  --color-text-muted: #94a3b8;       /* Muted text*/
+
+  --color-border: #e2e8f0;           /*Borders and dividers */
+  --color-border-light: #f1f5f9;     /* Light borders*/
 }
 
-/* Dark Mode */
+/*Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: #0f172a;      /* Main background */
     --color-surface: #1e293b;         /* Card backgrounds */
-    --color-surface-secondary: #334155; /* Alternate backgrounds */
-    
+    --color-surface-secondary: #334155; /* Alternate backgrounds*/
+
     --color-text-primary: #f8fafc;    /* Primary text */
     --color-text-secondary: #cbd5e1;  /* Secondary text */
     --color-text-muted: #64748b;      /* Muted text */
-    
+
     --color-border: #334155;          /* Borders and dividers */
     --color-border-light: #475569;    /* Light borders */
   }
 }
-```text
+ `` `text
 
 ### **Status & Accent Colors**
 
-```css
-/* Status Colors */
+ `` `css
+/*Status Colors */
 --color-success: #10b981;          /* Success states */
---color-success-light: #d1fae5;    /* Success backgrounds */
+--color-success-light: #d1fae5;    /* Success backgrounds*/
 
---color-warning: #f59e0b;          /* Warning states */
---color-warning-light: #fef3c7;    /* Warning backgrounds */
+--color-warning: #f59e0b;          /*Warning states */
+--color-warning-light: #fef3c7;    /* Warning backgrounds*/
 
---color-error: #ef4444;            /* Error states */
---color-error-light: #fee2e2;      /* Error backgrounds */
+--color-error: #ef4444;            /*Error states */
+--color-error-light: #fee2e2;      /* Error backgrounds*/
 
---color-info: #3b82f6;             /* Info states */
---color-info-light: #dbeafe;       /* Info backgrounds */
+--color-info: #3b82f6;             /*Info states */
+--color-info-light: #dbeafe;       /* Info backgrounds*/
 
-/* Veteran Recognition Colors */
+/*Veteran Recognition Colors */
 --veteran-red: #dc2626;            /* Red for veteran badges */
 --veteran-blue: #1d4ed8;           /* Blue for veteran elements */
---veteran-gold: #ca8a04;           /* Gold for veteran honors */
-```text
+--veteran-gold: #ca8a04;           /* Gold for veteran honors*/
+ `` `text
 
 ---
 
@@ -88,16 +101,16 @@
 
 ### **Font Families**
 
-```css
+ `` `css
 /* Font Stack */
 --font-heading: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
 --font-body: 'Inter', 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
 --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', monospace;
-```text
+ `` `text
 
 ### **Responsive Typography Scale**
 
-```css
+ `` `css
 /* Desktop-Optimized Typography */
 --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.8rem);     /* 12px-13px */
 --text-sm: clamp(0.875rem, 0.8rem + 0.3vw, 0.95rem);   /* 14px-15px */
@@ -109,29 +122,29 @@
 --text-4xl: clamp(2.25rem, 1.9rem + 1.2vw, 2.75rem);   /* 36px-44px */
 --text-5xl: clamp(2.5rem, 2.1rem + 1.4vw, 3.25rem);    /* 40px-52px */
 --text-6xl: clamp(3rem, 2.4rem + 1.6vw, 3.75rem);      /* 48px-60px - Maximum */
-```text
+ `` `text
 
 ### **Line Heights & Spacing**
 
-```css
-/* Line Heights */
+ `` `css
+/*Line Heights*/
 --leading-tight: 1.25;
 --leading-normal: 1.5;
 --leading-relaxed: 1.75;
 
-/* Letter Spacing */
+/*Letter Spacing*/
 --tracking-tight: -0.025em;
 --tracking-normal: 0em;
 --tracking-wide: 0.025em;
 
-/* Text Weights */
+/*Text Weights*/
 --font-light: 300;
 --font-normal: 400;
 --font-medium: 500;
 --font-semibold: 600;
 --font-bold: 700;
 --font-black: 900;
-```text
+ `` `text
 
 ---
 
@@ -141,7 +154,7 @@
 
 #### **Primary Button (Hunter Green)**
 
-```css
+ `` `css
 .btn-primary {
   background: var(--brand-primary);
   color: white;
@@ -163,11 +176,11 @@
   outline: none;
   box-shadow: 0 0 0 3px rgba(56, 104, 81, 0.3);
 }
-```text
+ `` `text
 
 #### **Secondary Button (Leather Tan)**
 
-```css
+ `` `css
 .btn-secondary {
   background: var(--brand-secondary);
   color: white;
@@ -184,11 +197,11 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(189, 146, 100, 0.35);
 }
-```text
+ `` `text
 
 #### **Outline Buttons**
 
-```css
+ `` `css
 .btn-outline {
   background: transparent;
   color: var(--brand-primary);
@@ -205,20 +218,20 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(56, 104, 81, 0.2);
 }
-```text
+ `` `text
 
 #### **Button Sizes**
 
-```css
+ `` `css
 .btn-sm { padding: 0.5rem 1rem; font-size: 0.875rem; }
 .btn-md { padding: 0.75rem 1.5rem; font-size: 1rem; }     /* Default */
 .btn-lg { padding: 1rem 2rem; font-size: 1.125rem; }
 .btn-xl { padding: 1.25rem 2.5rem; font-size: 1.25rem; }
-```text
+ `` `text
 
 ### **Card Components**
 
-```css
+ `` `css
 .card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -245,11 +258,11 @@
   color: var(--color-text-primary);
   margin: 0;
 }
-```text
+ `` `text
 
 ### **Form Elements**
 
-```css
+ `` `css
 .form-input {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -279,7 +292,7 @@
   font-size: var(--text-sm);
   margin-top: 0.25rem;
 }
-```text
+ `` `text
 
 ---
 
@@ -287,7 +300,7 @@
 
 ### **Google Material Icons Integration**
 
-```tsx
+ `` `tsx
 // Universal MaterialIcon Component
 interface MaterialIconProps {
   name: string;
@@ -295,10 +308,10 @@ interface MaterialIconProps {
   className?: string;
 }
 
-const MaterialIcon: React.FC<MaterialIconProps> = ({ 
-  name, 
-  size = 'md', 
-  className = '' 
+const MaterialIcon: React.FC<MaterialIconProps> = ({
+  name,
+  size = 'md',
+  className = ''
 }) => {
   const sizeClasses = {
     sm: 'text-sm',      // 14px
@@ -309,19 +322,19 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
   };
 
   return (
-    <span 
-      className={`material-icons ${sizeClasses[size]} ${className}`}
+    <span
+      className={ `material-icons ${sizeClasses[size]} ${className}` }
       aria-hidden="true"
     >
       {name}
     </span>
   );
 };
-```text
+ `` `text
 
 ### **Icon Usage Examples**
 
-```tsx
+ `` `tsx
 // Navigation
 <MaterialIcon name="menu" size="lg" />
 <MaterialIcon name="close" size="lg" />
@@ -335,7 +348,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 <MaterialIcon name="check_circle" size="sm" className="text-green-500" />
 <MaterialIcon name="error" size="sm" className="text-red-500" />
 <MaterialIcon name="info" size="sm" className="text-blue-500" />
-```text
+ `` `text
 
 ---
 
@@ -343,7 +356,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **Spacing Scale**
 
-```css
+ `` `css
 /* Spacing System */
 --space-px: 1px;
 --space-0: 0;
@@ -365,11 +378,11 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 --space-20: 5rem;         /* 80px */
 --space-24: 6rem;         /* 96px */
 --space-32: 8rem;         /* 128px */
-```text
+ `` `text
 
 ### **Responsive Container System**
 
-```css
+ `` `css
 .container {
   width: 100%;
   margin-left: auto;
@@ -378,7 +391,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
   padding-right: 1rem;
 }
 
-/* Breakpoint Containers */
+/*Breakpoint Containers*/
 @media (min-width: 640px) {
   .container { max-width: 640px; }
 }
@@ -398,37 +411,37 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 @media (min-width: 1536px) {
   .container { max-width: 1536px; }
 }
-```text
+ `` `text
 
 ### **Section Layouts**
 
-```css
-/* Standard Section Spacing */
+ `` `css
+/*Standard Section Spacing */
 .section {
-  padding-top: 4rem;    /* py-16 */
+  padding-top: 4rem;    /* py-16*/
   padding-bottom: 4rem;
 }
 
 @media (min-width: 1024px) {
   .section {
-    padding-top: 6rem;    /* lg:py-24 */
+    padding-top: 6rem;    /*lg:py-24*/
     padding-bottom: 6rem;
   }
 }
 
-/* Compact Section (Desktop Optimized) */
+/*Compact Section (Desktop Optimized) */
 .section-compact {
-  padding-top: 3rem;    /* py-12 */
+  padding-top: 3rem;    /* py-12*/
   padding-bottom: 3rem;
 }
 
 @media (min-width: 1024px) {
   .section-compact {
-    padding-top: 4rem;    /* lg:py-16 */
+    padding-top: 4rem;    /*lg:py-16*/
     padding-bottom: 4rem;
   }
 }
-```text
+ `` `text
 
 ---
 
@@ -436,8 +449,8 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **Transition System**
 
-```css
-/* Standard Transitions */
+ `` `css
+/*Standard Transitions*/
 .transition-base {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -450,32 +463,32 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Easing Functions */
+/*Easing Functions*/
 --ease-out: cubic-bezier(0, 0, 0.2, 1);
 --ease-in: cubic-bezier(0.4, 0, 1, 1);
 --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-```text
+ `` `text
 
 ### **Hover Effects**
 
-```css
-/* Standard Hover Lift */
+ `` `css
+/*Standard Hover Lift*/
 .hover-lift:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Scale Effect */
+/*Scale Effect*/
 .hover-scale:hover {
   transform: scale(1.05);
 }
 
-/* Subtle Glow */
+/*Subtle Glow*/
 .hover-glow:hover {
   box-shadow: 0 0 20px rgba(56, 104, 81, 0.3);
 }
-```text
+ `` `text
 
 ---
 
@@ -483,8 +496,8 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **Dark Mode Implementation**
 
-```css
-/* Theme Toggle */
+ `` `css
+/*Theme Toggle*/
 .theme-toggle {
   background: var(--color-surface);
   border: 2px solid var(--color-border);
@@ -504,7 +517,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
   transform: scale(1.1);
 }
 
-/* Theme-aware Components */
+/*Theme-aware Components*/
 .card-dark {
   background: var(--color-surface);
   border-color: var(--color-border);
@@ -516,7 +529,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
   color: var(--color-text-primary);
   border-color: var(--color-border);
 }
-```text
+ `` `text
 
 ---
 
@@ -524,14 +537,14 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **Focus Management**
 
-```css
-/* Focus Visible */
+ `` `css
+/*Focus Visible*/
 .focus-visible:focus-visible {
   outline: 2px solid var(--brand-primary);
   outline-offset: 2px;
 }
 
-/* Skip Links */
+/*Skip Links*/
 .skip-link {
   position: absolute;
   top: -40px;
@@ -547,7 +560,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 .skip-link:focus {
   top: 6px;
 }
-```text
+ `` `text
 
 ### **Color Contrast Requirements**
 
@@ -558,7 +571,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **Screen Reader Support**
 
-```html
+ `` `html
 <!-- Semantic HTML Structure -->
 <main role="main">
   <section aria-labelledby="services-heading">
@@ -574,7 +587,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 <!-- Live Regions -->
 <div aria-live="polite" id="status-message"></div>
-```text
+ `` `text
 
 ---
 
@@ -582,36 +595,36 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **Breakpoint System**
 
-```css
-/* Mobile First Breakpoints */
+ `` `css
+/*Mobile First Breakpoints */
 /* xs: 0px - 640px (default) */
 /* sm: 640px and up */
-@media (min-width: 640px) { /* Small tablets */ }
+@media (min-width: 640px) { /* Small tablets*/ }
 
-/* md: 768px and up */
-@media (min-width: 768px) { /* Tablets */ }
+/*md: 768px and up */
+@media (min-width: 768px) { /* Tablets*/ }
 
-/* lg: 1024px and up */
-@media (min-width: 1024px) { /* Small desktops */ }
+/*lg: 1024px and up */
+@media (min-width: 1024px) { /* Small desktops*/ }
 
-/* xl: 1280px and up */
-@media (min-width: 1280px) { /* Large desktops */ }
+/*xl: 1280px and up */
+@media (min-width: 1280px) { /* Large desktops*/ }
 
-/* 2xl: 1536px and up */
-@media (min-width: 1536px) { /* Extra large screens */ }
-```text
+/*2xl: 1536px and up */
+@media (min-width: 1536px) { /* Extra large screens*/ }
+ `` `text
 
 ### **Mobile Optimization**
 
-```css
-/* Touch Targets */
+ `` `css
+/*Touch Targets */
 .touch-target {
-  min-height: 44px;    /* iOS guideline */
+  min-height: 44px;    /* iOS guideline*/
   min-width: 44px;
   padding: 0.75rem;
 }
 
-/* Mobile Navigation */
+/*Mobile Navigation*/
 .mobile-nav {
   position: fixed;
   top: 0;
@@ -622,13 +635,13 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
   z-index: 50;
 }
 
-/* Responsive Images */
+/*Responsive Images*/
 .responsive-image {
   width: 100%;
   height: auto;
   max-width: 100%;
 }
-```text
+ `` `text
 
 ---
 
@@ -636,27 +649,27 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **CSS Optimization**
 
-```css
-/* Critical CSS - Above the fold */
+ `` `css
+/*Critical CSS - Above the fold */
 .critical {
-  /* Inline critical styles for fast initial render */
+  /* Inline critical styles for fast initial render*/
 }
 
-/* Non-critical CSS - Lazy loaded */
+/*Non-critical CSS - Lazy loaded */
 @media print {
-  /* Print styles separated */
+  /* Print styles separated*/
 }
 
-/* Reduce Paint Complexity */
+/*Reduce Paint Complexity */
 .optimized-animation {
   will-change: transform;
-  transform: translateZ(0); /* Force hardware acceleration */
+  transform: translateZ(0); /* Force hardware acceleration*/
 }
-```text
+ `` `text
 
 ### **Loading States**
 
-```css
+ `` `css
 .skeleton {
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
@@ -667,7 +680,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
-```text
+ `` `text
 
 ---
 
@@ -675,86 +688,86 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **Purpose & Usage**
 
-The `BaseballCard` component creates engaging, interactive team member profiles with a professional baseball card aesthetic. Used primarily on the team page to showcase MH Construction staff in an memorable, branded format.
+The  `BaseballCard`  component creates engaging, interactive team member profiles with a professional baseball card aesthetic. Used primarily on the team page to showcase MH Construction staff in an memorable, branded format.
 
 ### **Design Specifications**
 
-```css
-/* Card Dimensions */
+ `` `css
+/*Card Dimensions */
 .baseball-card {
   width: 100%;
   max-width: 24rem;     /* 384px - Consistent card width */
   height: 31.25rem;     /* 500px - Fixed height for alignment */
-  perspective: 1000px;  /* 3D perspective for flip effect */
+  perspective: 1000px;  /* 3D perspective for flip effect*/
 }
 
-/* Card States */
+/*Card States */
 .card-front, .card-back {
   border-radius: 1rem;           /* Rounded corners */
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);  /* Elevation */
-  transition: all 0.3s ease;     /* Smooth interactions */
+  transition: all 0.3s ease;     /* Smooth interactions*/
 }
 
 .card-front:hover, .card-back:hover {
-  transform: scale(1.02);         /* Subtle hover growth */
+  transform: scale(1.02);         /*Subtle hover growth*/
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
-```text
+ `` `text
 
 ### **Color Variants**
 
 #### **Standard Team Members**
 
-```css
+ `` `css
 .baseball-card.standard {
-  /* Header gradient using brand primary */
+  /*Header gradient using brand primary*/
   background: linear-gradient(to right, var(--brand-primary), var(--brand-primary-dark));
-  
-  /* Photo ring with brand colors */
+
+  /*Photo ring with brand colors*/
   .photo-ring {
     background: linear-gradient(45deg, var(--brand-primary-20), var(--brand-secondary-20));
   }
-  
-  /* Role text in brand secondary */
+
+  /*Role text in brand secondary*/
   .role-text { color: var(--brand-secondary); }
-  
-  /* Specialty tags */
+
+  /*Specialty tags*/
   .specialty-tag {
     background-color: var(--brand-primary-10);
     color: var(--brand-primary);
   }
 }
-```text
+ `` `text
 
 #### **Mascot Variant (Trigger)**
 
-```css
+ `` `css
 .baseball-card.mascot {
-  /* Special amber/orange theme for company mascot */
+  /*Special amber/orange theme for company mascot*/
   background: linear-gradient(to right, #f59e0b, #ea580c);
-  
-  /* Warm photo ring */
+
+  /*Warm photo ring*/
   .photo-ring {
     background: linear-gradient(45deg, rgba(252, 211, 77, 0.2), rgba(251, 146, 60, 0.2));
   }
-  
-  /* Orange role text */
+
+  /*Orange role text*/
   .role-text { color: #ea580c; }
-  
-  /* Amber specialty tags */
+
+  /*Amber specialty tags*/
   .specialty-tag {
     background-color: #fde68a;
     color: #92400e;
   }
 }
-```text
+ `` `text
 
 ### **Interactive Behaviors**
 
 #### **3D Flip Animation**
 
-```css
-/* Flip container with 3D transforms */
+ `` `css
+/*Flip container with 3D transforms*/
 .flip-container {
   position: relative;
   transform-style: preserve-3d;
@@ -765,7 +778,7 @@ The `BaseballCard` component creates engaging, interactive team member profiles 
   transform: rotateY(180deg);
 }
 
-/* Card faces positioned absolutely */
+/*Card faces positioned absolutely*/
 .card-front, .card-back {
   position: absolute;
   width: 100%;
@@ -776,75 +789,75 @@ The `BaseballCard` component creates engaging, interactive team member profiles 
 .card-back {
   transform: rotateY(180deg);
 }
-```text
+ `` `text
 
 #### **Accessibility Features**
 
-```css
-/* Focus management for keyboard users */
+ `` `css
+/*Focus management for keyboard users*/
 .baseball-card:focus-visible {
   outline: 2px solid var(--brand-primary);
   outline-offset: 4px;
 }
 
-/* Reduced motion support */
+/*Reduced motion support*/
 @media (prefers-reduced-motion: reduce) {
   .flip-container {
     transition: none;
   }
-  
+
   .baseball-card:hover {
     transform: none;
   }
 }
-```text
+ `` `text
 
 ### **Typography Hierarchy**
 
-```css
-/* Team member name - Primary focus */
+ `` `css
+/*Team member name - Primary focus */
 .member-name {
   font-size: 1.25rem;      /* text-xl */
   font-weight: 900;        /* font-black */
-  letter-spacing: -0.025em; /* tracking-tight */
+  letter-spacing: -0.025em; /* tracking-tight*/
   line-height: 1.2;
 }
 
-/* Role title - Secondary prominence */
+/*Role title - Secondary prominence */
 .member-role {
   font-size: 0.875rem;     /* text-sm */
   font-weight: 700;        /* font-bold */
   text-transform: uppercase;
-  letter-spacing: 0.05em;  /* tracking-wide */
+  letter-spacing: 0.05em;  /* tracking-wide*/
 }
 
-/* Bio text - Readable body */
+/*Bio text - Readable body */
 .member-bio {
   font-size: 0.875rem;     /* text-sm */
-  line-height: 1.625;      /* leading-relaxed */
+  line-height: 1.625;      /* leading-relaxed*/
   text-align: center;
 }
 
-/* Specialty tags - Compact labels */
+/*Specialty tags - Compact labels */
 .specialty-tag {
   font-size: 0.75rem;      /* text-xs */
   font-weight: 500;        /* font-medium */
-  padding: 0.25rem 0.75rem; /* px-3 py-1 */
+  padding: 0.25rem 0.75rem; /* px-3 py-1*/
 }
 
-/* Stats numbers - Prominent display */
+/*Stats numbers - Prominent display */
 .stat-number {
   font-size: 1.5rem;       /* text-2xl */
-  font-weight: 700;        /* font-bold */
+  font-weight: 700;        /* font-bold*/
   color: var(--brand-primary);
 }
-```text
+ `` `text
 
 ### **Component Integration**
 
 #### **Usage Example**
 
-```typescript
+ `` `typescript
 import { BaseballCard } from '@/components/ui/BaseballCard'
 import type { TeamMember } from '@/lib/data/team'
 
@@ -853,60 +866,60 @@ import type { TeamMember } from '@/lib/data/team'
 
 // Mascot (automatically detects name === 'Trigger')
 <BaseballCard member={triggerMascot} />
-```text
+ `` `text
 
 #### **Grid Layout**
 
-```css
-/* Responsive team grid */
+ `` `css
+/*Responsive team grid */
 .team-grid {
   display: grid;
-  gap: 2.5rem;              /* gap-10 */
+  gap: 2.5rem;              /* gap-10*/
   justify-items: center;
-  
-  /* Responsive columns */
-  grid-template-columns: 1fr;                    /* Mobile: 1 column */
+
+  /*Responsive columns */
+  grid-template-columns: 1fr;                    /* Mobile: 1 column*/
 }
 
 @media (min-width: 768px) {
-  .team-grid { grid-template-columns: repeat(2, 1fr); } /* Tablet: 2 columns */
+  .team-grid { grid-template-columns: repeat(2, 1fr); } /*Tablet: 2 columns*/
 }
 
 @media (min-width: 1024px) {
-  .team-grid { grid-template-columns: repeat(3, 1fr); } /* Desktop: 3 columns */
+  .team-grid { grid-template-columns: repeat(3, 1fr); } /*Desktop: 3 columns*/
 }
 
 @media (min-width: 1280px) {
-  .team-grid { grid-template-columns: repeat(4, 1fr); } /* Large: 4 columns */
+  .team-grid { grid-template-columns: repeat(4, 1fr); } /*Large: 4 columns*/
 }
-```text
+ `` `text
 
 ### **Performance Considerations**
 
-```css
-/* Hardware acceleration for smooth animations */
+ `` `css
+/*Hardware acceleration for smooth animations*/
 .baseball-card {
   transform: translateZ(0);
   will-change: transform;
 }
 
-/* Optimize image rendering */
+/*Optimize image rendering */
 .member-avatar {
   image-rendering: optimizeQuality;
   object-fit: cover;
   width: 8rem;              /* w-32 */
-  height: 8rem;             /* h-32 */
+  height: 8rem;             /* h-32*/
 }
-```text
+ `` `text
 
 ### **Design Tokens Used**
 
-- **Colors**: `--brand-primary`, `--brand-secondary`, `--brand-primary-dark`
-- **Spacing**: Standard scale (`0.25rem`, `0.5rem`, `1rem`, `1.5rem`, `2rem`)
-- **Typography**: Font weight scale (`400`, `500`, `700`, `900`)
-- **Border Radius**: `1rem` for cards, `9999px` for circular elements
+- **Colors**:  `--brand-primary` ,  `--brand-secondary` ,  `--brand-primary-dark`
+- **Spacing**: Standard scale ( `0.25rem` ,  `0.5rem` ,  `1rem` ,  `1.5rem` ,  `2rem` )
+- **Typography**: Font weight scale ( `400` ,  `500` ,  `700` ,  `900` )
+- **Border Radius**:  `1rem`  for cards,  `9999px`  for circular elements
 - **Shadows**: Tailwind elevation scale
-- **Transitions**: Standard `0.3s` and `0.7s` durations
+- **Transitions**: Standard  `0.3s`  and  `0.7s`  durations
 
 ---
 
@@ -931,8 +944,8 @@ import type { TeamMember } from '@/lib/data/team'
 
 ---
 
-**Design System Status**: Foundation-ready with scalable architecture  
-**Last Updated**: October 2025  
+**Design System Status**: Foundation-ready with scalable architecture
+**Last Updated**: October 2025
 **Maintained By**: MH Construction Development Team
 
 ---

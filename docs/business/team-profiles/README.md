@@ -1,7 +1,7 @@
 # MH Construction Team Profiles
 
-**Location:** `docs/business/team-profiles/`  
-**Purpose:** Individual team member profiles and information  
+**Location:** `docs/business/team-profiles/`
+**Purpose:** Individual team member profiles and information
 **Maintained by:** HR and team leads
 
 ---
@@ -93,6 +93,6 @@
 
 ---
 
-**Total Team Members:** 16 active profiles  
-**Last Updated:** October 8, 2025  
+**Total Team Members:** 16 active profiles
+**Last Updated:** October 8, 2025
 **Maintained by:** HR Department

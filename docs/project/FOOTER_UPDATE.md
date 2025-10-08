@@ -94,17 +94,17 @@ className="group flex items-center space-x-2 text-gray-300 hover:text-brand-prim
   <div className="max-w-7xl mx-auto">
     {/* 3 Column Layout */}
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      
+
       {/* Column 1: Company Info & Contact */}
       <div>Logo, Tagline, Phone, Address, Email</div>
-      
+
       {/* Column 2: Quick Links (UPDATED) */}
       <div>7 Active Navigation Links</div>
-      
+
       {/* Column 3: Social Media & Resources */}
       <div>Social icons, Resources (Coming Soon)</div>
     </div>
-    
+
     {/* Bottom Bar (UPDATED) */}
     <div>Copyright, Veteran-owned, Additional Info</div>
   </div>
@@ -321,6 +321,6 @@ Add email capture in Column 3:
 - Accessible and responsive
 - SEO-friendly internal linking
 
-**Last Updated:** October 2, 2025  
-**Updated By:** Development Team  
+**Last Updated:** October 2, 2025
+**Updated By:** Development Team
 **Status:** ✅ Complete - Ready for Production

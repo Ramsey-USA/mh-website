@@ -69,23 +69,23 @@ service cloud.firestore {
     // Users can read/write their own profile
     match /users/{userId} {
       allow read, write: if request.auth != null && request.auth.uid == userId;
-      
+
       // Team members and admins can read all user profiles
-      allow read: if request.auth != null && 
+      allow read: if request.auth != null &&
         resource.data.role in ['team_member', 'admin'];
     }
-    
+
     // Consultations - clients can create, team members can manage
     match /consultations/{consultationId} {
       allow create: if request.auth != null;
-      allow read, update, delete: if request.auth != null && 
+      allow read, update, delete: if request.auth != null &&
         (resource.data.clientId == request.auth.uid ||
          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['team_member', 'admin']);
     }
-    
+
     // Projects - team members and admins only
     match /projects/{projectId} {
-      allow read, write: if request.auth != null && 
+      allow read, write: if request.auth != null &&
         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['team_member', 'admin'];
     }
   }

@@ -1,0 +1,81 @@
+name: Markdown Quality Check
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "**/*.md"
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - "**/*.md"
+
+jobs:
+  markdown-lint:
+    name: Markdown Linting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run markdownlint-cli2
+        run: |
+          npm run lint:markdown
+
+      - name: Check for broken links
+        run: |
+          chmod +x scripts/validate-markdown-links.sh
+          bash scripts/validate-markdown-links.sh
+        continue-on-error: true
+
+      - name: Analyze content quality
+        run: |
+          chmod +x scripts/analyze-content-quality.sh
+          bash scripts/analyze-content-quality.sh
+        continue-on-error: true
+
+  markdown-formatting:
+    name: Auto-format Markdown
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Auto-fix markdown issues
+        run: |
+          npm run lint:markdown:fix
+
+      - name: Commit fixes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          if git diff --staged --quiet; then
+            echo "No markdown changes to commit"
+          else
+            git commit -m "🔧 Auto-fix markdown formatting issues"
+            git push
+          fi

@@ -5,7 +5,7 @@ This directory contains planning documents for future development phases.
 ## Planned Phases
 
 - **Phase 8:** Security & Compliance (Q1 2026)
-- **Phase 9:** Scalability & Infrastructure (Q2 2026)  
+- **Phase 9:** Scalability & Infrastructure (Q2 2026)
 - **Phase 10:** Innovation & Future Features (Q3 2026+)
 
 ## Status

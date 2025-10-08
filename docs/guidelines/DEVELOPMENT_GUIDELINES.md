@@ -2,8 +2,8 @@
 
 ## Icon Usage Policy - Material Icons Only
 
-**Effective Date:** October 8, 2025  
-**Policy Version:** 1.0  
+**Effective Date:** October 8, 2025
+**Policy Version:** 1.0
 **Authority:** MH Construction Leadership Team
 
 ### 🚨 EMOJI-FREE SOURCE CODE POLICY
@@ -83,7 +83,7 @@ import { FaHammer } from 'react-icons/fa'
 #### Documentation Files Only
 
 - **Markdown files** (.md): Emojis enhance readability and organization
-- **README files**: Visual indicators improve developer experience  
+- **README files**: Visual indicators improve developer experience
 - **Project planning**: Status indicators and visual hierarchy
 - **Commit messages**: Brief visual context (optional)
 
@@ -116,10 +116,10 @@ import { FaHammer } from 'react-icons/fa'
 ```tsx
 
 // ✅ Always include dark mode support
-<MaterialIcon 
-  icon="construction" 
-  size="lg" 
-  className="text-brand-primary dark:text-brand-primary-light" 
+<MaterialIcon
+  icon="construction"
+  size="lg"
+  className="text-brand-primary dark:text-brand-primary-light"
 />
 ```text
 
@@ -127,10 +127,10 @@ import { FaHammer } from 'react-icons/fa'
 
 ```tsx
 // ✅ Include proper accessibility attributes
-<MaterialIcon 
+<MaterialIcon
 
-  icon="phone" 
-  size="md" 
+  icon="phone"
+  size="md"
   className="text-blue-600"
   aria-label="Contact phone number"
 />
@@ -164,7 +164,7 @@ import { FaHammer } from 'react-icons/fa'
 - **Accessibility compliance**: Screen reader compatibility
 - **Maintainability**: Centralized icon management
 
-#### Brand Advantages  
+#### Brand Advantages
 
 - **Professional appearance**: Cohesive visual identity
 
@@ -178,7 +178,7 @@ import { FaHammer } from 'react-icons/fa'
 
 1. **Business justification**: Document specific need
 2. **Technical review**: Assess alternatives
-3. **Leadership approval**: Get written authorization  
+3. **Leadership approval**: Get written authorization
 4. **Implementation plan**: Define scope and timeline
 5. **Documentation update**: Record approved exception
 
@@ -206,7 +206,7 @@ import { FaHammer } from 'react-icons/fa'
 - Test dark mode compatibility
 - Include accessibility attributes
 
-### ❌ DON'T  
+### ❌ DON'T
 
 - Use emojis in .ts, .tsx, .js, .jsx files
 - Mix different icon libraries
@@ -221,8 +221,8 @@ import { FaHammer } from 'react-icons/fa'
 
 ### 🚫 **NO BUBBLE HEADINGS POLICY**
 
-**Effective Date:** October 8, 2025  
-**Policy Version:** 1.1  
+**Effective Date:** October 8, 2025
+**Policy Version:** 1.1
 **Authority:** MH Construction Design Team
 
 #### Bubble Headings Policy Statement
@@ -276,8 +276,8 @@ MH Construction maintains a strict policy prohibiting bubble-style headings in a
 
 ### 🎴 **CARD FLIPPING STANDARDS**
 
-**Effective Date:** October 8, 2025  
-**Policy Version:** 1.0  
+**Effective Date:** October 8, 2025
+**Policy Version:** 1.0
 **Authority:** MH Construction Development Team
 
 #### Card Flipping Policy Statement
@@ -290,7 +290,7 @@ All cards showing additional information must utilize card flipping animations t
 // ✅ Standard card flip structure
 <div className="group perspective-1000 cursor-pointer" onClick={handleFlip}>
   <div className={`relative w-full h-full transition-transform duration-700 preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
-    
+
     {/* Front of Card */}
     <div className="absolute inset-0 w-full h-full backface-hidden">
       <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
@@ -349,8 +349,8 @@ All cards showing additional information must utilize card flipping animations t
 
 ### 🦸 **HERO SECTION CONSISTENCY POLICY**
 
-**Effective Date:** October 8, 2025  
-**Policy Version:** 1.0  
+**Effective Date:** October 8, 2025
+**Policy Version:** 1.0
 **Authority:** MH Construction Design Team
 
 #### Hero Section Policy Statement

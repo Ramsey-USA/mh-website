@@ -33,7 +33,7 @@ Client Experience Journey:
 // Our Community Impact Focus
 Community Values:
 ├── Local Investment: Hiring locally, supporting regional suppliers
-├── Veteran Support: Creating opportunities for military families  
+├── Veteran Support: Creating opportunities for military families
 ├── Quality Craftsmanship: Building structures that last generations
 ├── Environmental Stewardship: Sustainable practices for future communities
 └── Neighbor-to-Neighbor: Treating every client like family
@@ -49,12 +49,12 @@ Regional Commitment:
 #### **💡 Why Partnership Matters**
 
 - **Better Results**: Collaboration leads to solutions that truly fit your needs
-- **Shared Investment**: When we work together, both parties are committed to success  
+- **Shared Investment**: When we work together, both parties are committed to success
 - **Community Impact**: Your project becomes part of strengthening our shared region
 - **Lasting Relationships**: Many clients become lifelong friends and community connections
 - **Authentic Experience**: No sales pressure, just honest conversation about your goals
 
-> *"When you choose MH Construction, you're not hiring a contractor - you're gaining a partner who genuinely cares about your success and our community's future."*  
+> *"When you choose MH Construction, you're not hiring a contractor - you're gaining a partner who genuinely cares about your success and our community's future."*
 > **- Jeremy Thamert, Owner & General Manager**
 
 ---

@@ -30,7 +30,7 @@ This file demonstrates proper implementation of the cohesive button system acros
       <span className="text-sm opacity-90">(509) 308-6489</span>
     </span>
   </Button>
-  
+
   <Button variant="secondary" size="lg" className="w-full">
     <MaterialIcon icon="email" className="mr-3 w-6 h-6" />
     Send Email
@@ -47,7 +47,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     <MaterialIcon icon="calendar_today" className="mr-3 w-6 h-6" />
     Schedule Consultation
   </Button>
-  
+
   <Button variant="outline" size="lg" className="w-full">
     <MaterialIcon icon="assessment" className="mr-3 w-6 h-6" />
     Get Instant Estimate
@@ -82,12 +82,12 @@ This file demonstrates proper implementation of the cohesive button system acros
     <MaterialIcon icon="construction" className="mr-3 w-6 h-6" />
     Our Services
   </Button>
-  
+
   <Button variant="secondary" size="lg" className="w-full">
     <MaterialIcon icon="photo_library" className="mr-3 w-6 h-6" />
     Portfolio
   </Button>
-  
+
   <Button variant="outline" size="lg" className="w-full">
     <MaterialIcon icon="group" className="mr-3 w-6 h-6" />
     About Us
@@ -124,7 +124,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     <MaterialIcon icon="calculate" className="mr-3 w-6 h-6" />
     Calculate Estimate
   </Button>
-  
+
   <div className="flex gap-3">
     <Button variant="outline" size="default" className="flex-1">
       <MaterialIcon icon="arrow_back" className="mr-2 w-5 h-5" />
@@ -147,7 +147,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     <MaterialIcon icon="person" className="mr-2 w-5 h-5" />
     View Profile
   </Button>
-  
+
   <div className="flex gap-2 justify-center">
     <Button variant="outline" size="icon-sm" aria-label="LinkedIn profile">
       <MaterialIcon icon="business" className="w-4 h-4" />
@@ -168,7 +168,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     <MaterialIcon icon="account_balance" className="mr-3 w-6 h-6" />
     Government Projects
   </Button>
-  
+
   <Button variant="secondary" size="lg" className="w-full">
     <MaterialIcon icon="business" className="mr-3 w-6 h-6" />
     Commercial Services
@@ -185,12 +185,12 @@ This file demonstrates proper implementation of the cohesive button system acros
     <MaterialIcon icon="filter_list" className="mr-2 w-5 h-5" />
     Filter Projects
   </Button>
-  
+
   <Button variant="outline" size="default">
     <MaterialIcon icon="view_module" className="mr-2 w-5 h-5" />
     Grid View
   </Button>
-  
+
   <Button variant="primary" size="default">
     <MaterialIcon icon="add" className="mr-2 w-5 h-5" />
     View All Projects
@@ -207,12 +207,12 @@ This file demonstrates proper implementation of the cohesive button system acros
     <MaterialIcon icon="settings" className="mr-3 w-5 h-5" />
     Account Settings
   </Button>
-  
+
   <Button variant="neutral" size="default" className="w-full justify-start">
     <MaterialIcon icon="security" className="mr-3 w-5 h-5" />
     Security
   </Button>
-  
+
   <Button variant="destructive" size="default" className="w-full justify-start">
     <MaterialIcon icon="logout" className="mr-3 w-5 h-5" />
     Sign Out
@@ -226,7 +226,7 @@ This file demonstrates proper implementation of the cohesive button system acros
 // Theme-aware button example
 <div className="flex items-center gap-4">
   <ThemeToggle size="md" showLabel />
-  
+
   <Button variant="neutral" size="default">
     <MaterialIcon icon="palette" className="mr-2 w-5 h-5" />
     Customize
@@ -246,7 +246,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     <span className="hidden sm:inline">Schedule Consultation</span>
     <span className="sm:hidden">Call Us</span>
   </Button>
-  
+
   <Button variant="outline" size="lg" className="w-full sm:w-auto">
     <MaterialIcon icon="email" className="mr-2 sm:mr-3 w-5 sm:w-6 h-5 sm:h-6" />
     <span className="hidden sm:inline">Send Message</span>

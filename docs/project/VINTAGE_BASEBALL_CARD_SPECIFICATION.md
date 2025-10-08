@@ -1,8 +1,8 @@
 # Vintage Baseball Card Design Specification
 
-**Project**: MH Construction Team Cards - Vintage Style Implementation  
-**Design Period**: Late 1950s - Early 1970s Aesthetic (Topps-inspired)  
-**Date**: October 2025  
+**Project**: MH Construction Team Cards - Vintage Style Implementation
+**Design Period**: Late 1950s - Early 1970s Aesthetic (Topps-inspired)
+**Date**: October 2025
 **Type**: Technical Design Document
 
 ---
@@ -32,7 +32,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   width: 280px;                /* Base width for desktop */
   height: 392px;               /* Calculated height (280 * 1.4) */
   border-radius: 8px;          /* Subtle rounded corners */
-  
+
   /* Responsive scaling */
   max-width: 100%;
   min-width: 240px;            /* Minimum readable size */
@@ -53,7 +53,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
 /* Outer border - aged white frame */
 .card-outer-border {
   border: 4px solid #f8f6f0;   /* Aged white */
-  box-shadow: 
+  box-shadow:
     0 0 0 1px #e8e4dc,         /* Inner shadow for depth */
     2px 2px 8px rgba(0,0,0,0.2), /* Drop shadow */
     inset 0 0 20px rgba(0,0,0,0.05); /* Subtle inner aging */
@@ -93,7 +93,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
 /* Layer 1: Background texture */
 .card-background {
   z-index: 1;
-  background-image: 
+  background-image:
     radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
     linear-gradient(45deg, transparent 25%, rgba(0,0,0,0.02) 25%, rgba(0,0,0,0.02) 50%, transparent 50%);
   background-size: 40px 40px, 8px 8px;
@@ -138,16 +138,16 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  
+
   /* Vintage photo effects */
-  filter: 
+  filter:
     contrast(1.1)
     saturate(1.2)
     sepia(0.1)
     brightness(1.05);
-    
+
   /* Subtle halftone/grain effect */
-  background-image: 
+  background-image:
     radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
   background-size: 3px 3px;
   background-blend-mode: overlay;
@@ -177,14 +177,14 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   letter-spacing: 0.5px;
   color: #ffffff;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-  
+
   /* Text positioning */
   position: absolute;
   bottom: 45px;
   left: 20px;
   right: 20px;
   text-align: center;
-  
+
   /* Multi-line handling */
   hyphens: auto;
   word-wrap: break-word;
@@ -199,7 +199,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   letter-spacing: 1px;
   color: #ffffff;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-  
+
   position: absolute;
   bottom: 25px;
   left: 20px;
@@ -217,12 +217,12 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   font-family: 'Arial', sans-serif;
   font-size: 12px;
   font-weight: 700;
   color: var(--card-color);
-  
+
   /* Vintage number styling */
   text-shadow: none;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -240,7 +240,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   width: 24px;
   height: 24px;
   opacity: 0.9;
-  
+
   /* Vintage logo treatment */
   filter: brightness(0) invert(1);
   mix-blend-mode: screen;
@@ -273,9 +273,9 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   padding: 16px;
   font-family: 'Times New Roman', serif;
   color: #2c2c2c;
-  
+
   /* Vintage paper texture */
-  background-image: 
+  background-image:
     radial-gradient(circle at 25% 25%, rgba(255,255,255,0.3) 0%, transparent 50%),
     linear-gradient(0deg, transparent 24%, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.05) 26%, transparent 27%);
   background-size: 60px 60px, 4px 4px;
@@ -403,7 +403,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
-  
+
   /* Classic justified text appearance */
   text-indent: 8px;
 }
@@ -467,7 +467,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
 .card-container {
   perspective: 1000px;
   transform-style: preserve-3d;
-  
+
   /* Vintage card handling effect */
   cursor: pointer;
   transition: all 0.3s ease;
@@ -475,7 +475,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
 
 .card-container:hover {
   transform: translateY(-2px);
-  box-shadow: 
+  box-shadow:
     0 8px 25px rgba(0,0,0,0.15),
     0 0 0 1px rgba(255,255,255,0.8);
 }
@@ -526,7 +526,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
 ```typescript
 interface VintageTeamMember extends TeamMember {
   // Existing fields...
-  
+
   // Vintage card specific fields
   cardNumber: number;           // Unique card identifier
   position: string;             // Job position for card
@@ -562,13 +562,13 @@ const VINTAGE_CARD_COLORS = {
     name: 'EXECUTIVE RED'
   },
   'Project Management & Estimating': {
-    primary: '#1e3a8a',      // Royal Blue  
+    primary: '#1e3a8a',      // Royal Blue
     rgb: '30, 58, 138',
     name: 'PROJECT BLUE'
   },
   'Site & Field Operations': {
     primary: '#166534',      // Forest Green
-    rgb: '22, 101, 52', 
+    rgb: '22, 101, 52',
     name: 'FIELD GREEN'
   },
   'Administration & Support': {
@@ -671,7 +671,7 @@ const VINTAGE_CARD_COLORS = {
 
 ---
 
-**Specification Status**: Ready for Implementation  
-**Design Authenticity**: Late 1950s-Early 1970s Topps Style  
-**Technical Complexity**: Moderate to High  
+**Specification Status**: Ready for Implementation
+**Design Authenticity**: Late 1950s-Early 1970s Topps Style
+**Technical Complexity**: Moderate to High
 **Implementation Timeline**: 2-3 Development Sprints

@@ -1,7 +1,7 @@
 # MH Construction - Page Layout Standards
 
-**Version:** 1.0  
-**Last Updated:** October 2, 2025  
+**Version:** 1.0
+**Last Updated:** October 2, 2025
 **Status:** ✅ Active Standard
 
 > **Purpose:** This document defines the spacing, padding, typography, and layout standards extracted from the home page to ensure visual consistency across all website pages.
@@ -20,7 +20,7 @@ Every major section should follow this structure:
   <div className="absolute inset-0 bg-[GRADIENT]"></div>
   <div className="top-20 right-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
   <div className="bottom-20 left-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-40 h-40"></div>
-  
+
   {/* Content container */}
   <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
     {/* Section content */}
@@ -283,24 +283,24 @@ Every major section should follow this structure:
 <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
   {/* Hover gradient overlay */}
   <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
-  
+
   {/* Card content with flex layout for bottom-aligned CTA */}
   <div className="relative flex flex-col h-full">
     {/* Icon */}
     <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
       <MaterialIcon icon="icon_name" size="xl" className="text-brand-primary" />
     </div>
-    
+
     {/* Title */}
     <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 text-2xl transition-colors">
       Card Title
     </h3>
-    
+
     {/* Description (flex-grow pushes CTA to bottom) */}
     <p className="mb-6 text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">
       Card description content.
     </p>
-    
+
     {/* CTA (mt-auto keeps at bottom) */}
     <div className="flex items-center font-semibold text-brand-primary mt-auto">
       <span className="mr-2">Learn More</span>
@@ -408,7 +408,7 @@ group-hover:translate-x-2
 
   {/* Content Container */}
   <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-    
+
     {/* Section Header */}
     <div className="mb-10 lg:mb-12 text-center">
       <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
@@ -642,5 +642,5 @@ When creating a new page, ensure:
 
 ---
 
-**Maintained by:** MH Construction Development Team  
+**Maintained by:** MH Construction Development Team
 **Questions?** Refer to home page (`src/app/page.tsx`) for live examples

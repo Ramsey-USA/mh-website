@@ -8,7 +8,7 @@ This guide provides specific messaging patterns to implement MH Construction's p
 
 #### **🏗️ Primary Brand Message**
 
-**"Building for the Owner, NOT the Dollar"**  
+**"Building for the Owner, NOT the Dollar"**
 *This tagline emphasizes our commitment to client success over profit maximization - the heart of veteran-owned business values.*
 
 ---
@@ -363,5 +363,5 @@ Before launching any content, verify:
 
 ---
 
-**Partnership Implementation Guide** | **Version 1.0** | **October 1, 2025**  
+**Partnership Implementation Guide** | **Version 1.0** | **October 1, 2025**
 *Working with development teams to implement MH's community-centered culture*

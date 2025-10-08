@@ -78,7 +78,7 @@ Describe any potential solutions or workarounds you've identified.
 **How critical is this issue?**
 
 - [ ] Critical - Breaks core functionality, production impact
-- [ ] High - Significant feature impact, affects user experience  
+- [ ] High - Significant feature impact, affects user experience
 - [ ] Medium - Minor functionality issues, workarounds available
 - [ ] Low - Cosmetic issues, enhancements
 
