@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import Link from 'next/link'
+import React, { useState } from "react";
+import Link from "next/link";
 import {
   Button,
   Card,
@@ -9,262 +9,262 @@ import {
   CardTitle,
   CardContent,
   PageHero,
-} from '../../components/ui'
-import { MaterialIcon } from '../../components/icons/MaterialIcon'
+} from "../../components/ui";
+import { MaterialIcon } from "../../components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from '../../components/animations/FramerMotionComponents'
+} from "../../components/animations/DynamicAnimations";
 
 // Grant Support Services
 const grantSupportServices = [
   {
-    icon: 'calculate',
-    title: 'Accurate Cost Estimation',
+    icon: "calculate",
+    title: "Accurate Cost Estimation",
     description:
-      'Professional-grade cost estimates ensuring reliable numbers for your budget pitch',
+      "Professional-grade cost estimates ensuring reliable numbers for your budget pitch",
     features: [
-      'Detailed line-item cost breakdowns',
-      'Material cost projections with market analysis',
-      'Labor cost estimates based on current rates',
-      'Contingency planning and risk assessment',
-      'Professional documentation meeting grant standards',
+      "Detailed line-item cost breakdowns",
+      "Material cost projections with market analysis",
+      "Labor cost estimates based on current rates",
+      "Contingency planning and risk assessment",
+      "Professional documentation meeting grant standards",
     ],
   },
   {
-    icon: 'architecture',
-    title: 'Design & Schedule Validation',
+    icon: "architecture",
+    title: "Design & Schedule Validation",
     description:
-      'Comprehensive documentation on project design, feasibility, and realistic timelines',
+      "Comprehensive documentation on project design, feasibility, and realistic timelines",
     features: [
-      'Constructability review and analysis',
-      'Feasibility studies and site assessments',
-      'Realistic project timeline development',
-      'Phase-by-phase scheduling documentation',
-      'Critical path analysis and design validation',
+      "Constructability review and analysis",
+      "Feasibility studies and site assessments",
+      "Realistic project timeline development",
+      "Phase-by-phase scheduling documentation",
+      "Critical path analysis and design validation",
     ],
   },
   {
-    icon: 'verified',
-    title: 'Compliance Assurance',
-    description: 'Navigate complex grant specifications with expert guidance',
+    icon: "verified",
+    title: "Compliance Assurance",
+    description: "Navigate complex grant specifications with expert guidance",
     features: [
-      'Grant specification review and interpretation',
-      'Compliance documentation preparation',
-      'Building code verification (WA, OR, ID)',
-      'Environmental and safety compliance support',
-      'Regulatory requirement coordination',
+      "Grant specification review and interpretation",
+      "Compliance documentation preparation",
+      "Building code verification (WA, OR, ID)",
+      "Environmental and safety compliance support",
+      "Regulatory requirement coordination",
     ],
   },
-]
+];
 
 // Government project types
 const governmentProjects = [
   {
-    icon: 'school',
-    title: 'Educational Facilities',
+    icon: "school",
+    title: "Educational Facilities",
     examples: [
-      'K-12 Schools',
-      'Community Colleges',
-      'Training Facilities',
-      'Libraries',
+      "K-12 Schools",
+      "Community Colleges",
+      "Training Facilities",
+      "Libraries",
     ],
   },
   {
-    icon: 'account_balance',
-    title: 'Government Buildings',
+    icon: "account_balance",
+    title: "Government Buildings",
     examples: [
-      'Municipal Offices',
-      'Public Safety Facilities',
-      'Courthouses',
-      'Civic Centers',
+      "Municipal Offices",
+      "Public Safety Facilities",
+      "Courthouses",
+      "Civic Centers",
     ],
   },
   {
-    icon: 'church',
-    title: 'Religious Facilities',
+    icon: "church",
+    title: "Religious Facilities",
     examples: [
-      'Worship Centers',
-      'Religious Education',
-      'Community Spaces',
-      'Renovations',
+      "Worship Centers",
+      "Religious Education",
+      "Community Spaces",
+      "Renovations",
     ],
   },
   {
-    icon: 'groups',
-    title: 'Community Projects',
+    icon: "groups",
+    title: "Community Projects",
     examples: [
-      'Recreation Centers',
-      'Public Health Facilities',
-      'Senior Centers',
-      'Community Hubs',
+      "Recreation Centers",
+      "Public Health Facilities",
+      "Senior Centers",
+      "Community Hubs",
     ],
   },
   {
-    icon: 'engineering',
-    title: 'Infrastructure',
+    icon: "engineering",
+    title: "Infrastructure",
     examples: [
-      'Public Works',
-      'Utility Buildings',
-      'Maintenance Facilities',
-      'Emergency Services',
+      "Public Works",
+      "Utility Buildings",
+      "Maintenance Facilities",
+      "Emergency Services",
     ],
   },
   {
-    icon: 'science',
-    title: 'DOE & Hanford Support',
+    icon: "science",
+    title: "DOE & Hanford Support",
     examples: [
-      'Support Facilities',
-      'Administrative Buildings',
-      'Training Centers',
-      'Safety Systems',
+      "Support Facilities",
+      "Administrative Buildings",
+      "Training Centers",
+      "Safety Systems",
     ],
   },
-]
+];
 
 // Grant types
 const grantTypes = [
   {
-    category: 'Federal Grants',
-    icon: 'flag',
+    category: "Federal Grants",
+    icon: "flag",
     programs: [
-      'Department of Energy (DOE)',
-      'General Services Administration (GSA)',
-      'FEMA Emergency Management',
-      'Department of Defense (DoD)',
-      'Small Business Administration (SBA)',
+      "Department of Energy (DOE)",
+      "General Services Administration (GSA)",
+      "FEMA Emergency Management",
+      "Department of Defense (DoD)",
+      "Small Business Administration (SBA)",
     ],
   },
   {
-    category: 'State & Local Grants',
-    icon: 'location_city',
+    category: "State & Local Grants",
+    icon: "location_city",
     programs: [
-      'Washington State Programs',
-      'Oregon State Funding',
-      'Idaho Construction Grants',
-      'County and Municipal Grants',
-      'Community Development (CDBG)',
+      "Washington State Programs",
+      "Oregon State Funding",
+      "Idaho Construction Grants",
+      "County and Municipal Grants",
+      "Community Development (CDBG)",
     ],
   },
   {
-    category: 'Specialized Grants',
-    icon: 'star',
+    category: "Specialized Grants",
+    icon: "star",
     programs: [
-      'Educational Facility Grants',
-      'Religious Organization Funding',
-      'Non-Profit Construction',
-      'Historic Preservation',
-      'Environmental & Sustainability',
+      "Educational Facility Grants",
+      "Religious Organization Funding",
+      "Non-Profit Construction",
+      "Historic Preservation",
+      "Environmental & Sustainability",
     ],
   },
-]
+];
 
 // Process steps
 const processSteps = [
   {
     step: 1,
-    title: 'Initial Consultation',
+    title: "Initial Consultation",
     description:
-      'Review grant requirements, assess feasibility, and establish documentation timeline',
-    icon: 'chat',
+      "Review grant requirements, assess feasibility, and establish documentation timeline",
+    icon: "chat",
   },
   {
     step: 2,
-    title: 'Cost Estimation',
+    title: "Cost Estimation",
     description:
-      'Develop detailed estimates and prepare comprehensive financial documentation',
-    icon: 'calculate',
+      "Develop detailed estimates and prepare comprehensive financial documentation",
+    icon: "calculate",
   },
   {
     step: 3,
-    title: 'Technical Support',
+    title: "Technical Support",
     description:
-      'Validate design specifications and provide constructability analysis',
-    icon: 'engineering',
+      "Validate design specifications and provide constructability analysis",
+    icon: "engineering",
   },
   {
     step: 4,
-    title: 'Compliance Review',
+    title: "Compliance Review",
     description:
-      'Ensure all regulatory requirements and grant specifications are met',
-    icon: 'fact_check',
+      "Ensure all regulatory requirements and grant specifications are met",
+    icon: "fact_check",
   },
   {
     step: 5,
-    title: 'Submission Support',
-    description: 'Final documentation review and ongoing clarification support',
-    icon: 'send',
+    title: "Submission Support",
+    description: "Final documentation review and ongoing clarification support",
+    icon: "send",
   },
-]
+];
 
 // Hanford capabilities
 const hanfordCapabilities = [
   {
-    icon: 'security',
-    title: 'Security Coordination',
+    icon: "security",
+    title: "Security Coordination",
     description:
-      'Clearance coordination and DOE security protocol understanding',
+      "Clearance coordination and DOE security protocol understanding",
   },
   {
-    icon: 'gavel',
-    title: 'DOE Compliance',
-    description: 'Department of Energy documentation and compliance expertise',
+    icon: "gavel",
+    title: "DOE Compliance",
+    description: "Department of Energy documentation and compliance expertise",
   },
   {
-    icon: 'health_and_safety',
-    title: 'Safety Protocols',
+    icon: "health_and_safety",
+    title: "Safety Protocols",
     description:
-      'Radiation safety and Hanford-specific safety system knowledge',
+      "Radiation safety and Hanford-specific safety system knowledge",
   },
   {
-    icon: 'handshake',
-    title: 'Contractor Network',
-    description: 'Established relationships with Hanford-area subcontractors',
+    icon: "handshake",
+    title: "Contractor Network",
+    description: "Established relationships with Hanford-area subcontractors",
   },
   {
-    icon: 'emergency',
-    title: 'Emergency Response',
-    description: '24/7 emergency response capabilities for critical projects',
+    icon: "emergency",
+    title: "Emergency Response",
+    description: "24/7 emergency response capabilities for critical projects",
   },
   {
-    icon: 'workspace_premium',
-    title: 'Quality Systems',
-    description: 'Comprehensive quality control meeting federal standards',
+    icon: "workspace_premium",
+    title: "Quality Systems",
+    description: "Comprehensive quality control meeting federal standards",
   },
-]
+];
 
 // Success factors
 const successFactors = [
   {
-    icon: 'assignment',
-    title: 'Professional Documentation',
+    icon: "assignment",
+    title: "Professional Documentation",
     description:
-      'Industry-standard formatting and complete technical specifications',
+      "Industry-standard formatting and complete technical specifications",
   },
   {
-    icon: 'schedule',
-    title: 'Realistic Timelines',
+    icon: "schedule",
+    title: "Realistic Timelines",
     description:
-      'Achievable schedules with contingencies and detailed planning',
+      "Achievable schedules with contingencies and detailed planning",
   },
   {
-    icon: 'verified_user',
-    title: 'Compliance Verification',
+    icon: "verified_user",
+    title: "Compliance Verification",
     description:
-      'All requirements clearly addressed with supporting documentation',
+      "All requirements clearly addressed with supporting documentation",
   },
   {
-    icon: 'business_center',
-    title: 'Qualified Contractor',
-    description: 'Experienced team with proven capabilities and licensing',
+    icon: "business_center",
+    title: "Qualified Contractor",
+    description: "Experienced team with proven capabilities and licensing",
   },
-]
+];
 
 export default function GovernmentGrantsPage() {
   const [selectedGrantType, setSelectedGrantType] = useState<string | null>(
     null
-  )
+  );
 
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
@@ -324,7 +324,7 @@ export default function GovernmentGrantsPage() {
               <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                 <span className="text-gray-700 dark:text-gray-300">
                   How We Support Your
-                </span>{' '}
+                </span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                   Grant Application
                 </span>
@@ -397,7 +397,7 @@ export default function GovernmentGrantsPage() {
                   className="mb-6 text-gray-300"
                 />
                 <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                  <span className="text-gray-300">Hanford & Department of</span>{' '}
+                  <span className="text-gray-300">Hanford & Department of</span>{" "}
                   <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
                     Energy Expertise
                   </span>
@@ -446,12 +446,12 @@ export default function GovernmentGrantsPage() {
                       </h3>
                       <div className="gap-4 grid md:grid-cols-2">
                         {[
-                          'Support facility construction',
-                          'Administrative building renovations',
-                          'Training facility development',
-                          'Infrastructure improvements',
-                          'Safety system installations',
-                          'Emergency response projects',
+                          "Support facility construction",
+                          "Administrative building renovations",
+                          "Training facility development",
+                          "Infrastructure improvements",
+                          "Safety system installations",
+                          "Emergency response projects",
                         ].map((item, idx) => (
                           <div
                             key={idx}
@@ -488,7 +488,7 @@ export default function GovernmentGrantsPage() {
               <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                 <span className="text-gray-700 dark:text-gray-300">
                   Grant Programs
-                </span>{' '}
+                </span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                   We Support
                 </span>
@@ -560,7 +560,7 @@ export default function GovernmentGrantsPage() {
                 <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                   <span className="text-gray-700 dark:text-gray-300">
                     Our Grant Application
-                  </span>{' '}
+                  </span>{" "}
                   <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                     Support Process
                   </span>
@@ -623,7 +623,7 @@ export default function GovernmentGrantsPage() {
               <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                 <span className="text-gray-700 dark:text-gray-300">
                   Government
-                </span>{' '}
+                </span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                   Project Types
                 </span>
@@ -690,7 +690,7 @@ export default function GovernmentGrantsPage() {
                 <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                   <span className="text-gray-700 dark:text-gray-300">
                     Maximizing Your
-                  </span>{' '}
+                  </span>{" "}
                   <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                     Grant Success
                   </span>
@@ -740,7 +740,7 @@ export default function GovernmentGrantsPage() {
             className="absolute inset-0"
             style={{
               backgroundImage:
-                'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.1) 35px, rgba(255,255,255,0.1) 36px)',
+                "repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.1) 35px, rgba(255,255,255,0.1) 36px)",
             }}
           ></div>
         </div>
@@ -753,7 +753,7 @@ export default function GovernmentGrantsPage() {
                 className="mb-8 text-gray-300"
               />
               <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                <span className="text-gray-300">Ready to Start Your</span>{' '}
+                <span className="text-gray-300">Ready to Start Your</span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
                   Grant Application?
                 </span>
@@ -849,5 +849,5 @@ export default function GovernmentGrantsPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

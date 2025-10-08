@@ -1,13 +1,9 @@
-'use client'
+"use client";
 
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  useInView,
-} from 'framer-motion'
-import { useRef, ReactNode } from 'react'
+// Optimized imports - only import what we need to reduce bundle size
+import { motion } from "framer-motion";
+import { useScroll, useTransform, useSpring, useInView } from "framer-motion";
+import { useRef, ReactNode } from "react";
 
 // Fade in animation variants
 export const fadeInVariants = {
@@ -23,7 +19,7 @@ export const fadeInVariants = {
       ease: [0.25, 0.25, 0, 1],
     },
   },
-}
+};
 
 // Staggered container for animating children
 export const staggerContainer = {
@@ -35,7 +31,7 @@ export const staggerContainer = {
       delayChildren: 0.1,
     },
   },
-}
+};
 
 // Scale in animation
 export const scaleInVariants = {
@@ -48,10 +44,10 @@ export const scaleInVariants = {
     opacity: 1,
     transition: {
       duration: 0.5,
-      ease: 'easeOut',
+      ease: "easeOut",
     },
   },
-}
+};
 
 // Slide in from left
 export const slideInLeft = {
@@ -64,10 +60,10 @@ export const slideInLeft = {
     opacity: 1,
     transition: {
       duration: 0.6,
-      ease: 'easeOut',
+      ease: "easeOut",
     },
   },
-}
+};
 
 // Slide in from right
 export const slideInRight = {
@@ -80,10 +76,10 @@ export const slideInRight = {
     opacity: 1,
     transition: {
       duration: 0.6,
-      ease: 'easeOut',
+      ease: "easeOut",
     },
   },
-}
+};
 
 // Float animation for continuous motion
 export const floatAnimation = {
@@ -91,9 +87,9 @@ export const floatAnimation = {
   transition: {
     duration: 4,
     repeat: Infinity,
-    ease: 'easeInOut',
+    ease: "easeInOut",
   },
-}
+};
 
 // Pulse animation for attention
 export const pulseAnimation = {
@@ -101,26 +97,26 @@ export const pulseAnimation = {
   transition: {
     duration: 2,
     repeat: Infinity,
-    ease: 'easeInOut',
+    ease: "easeInOut",
   },
-}
+};
 
 // Component for automatic fade-in when in view
 interface FadeInWhenVisibleProps {
-  children: ReactNode
-  className?: string
-  delay?: number
-  duration?: number
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  duration?: number;
 }
 
 export function FadeInWhenVisible({
   children,
-  className = '',
+  className = "",
   delay = 0,
   duration = 0.6,
 }: FadeInWhenVisibleProps) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <motion.div
@@ -136,58 +132,58 @@ export function FadeInWhenVisible({
     >
       {children}
     </motion.div>
-  )
+  );
 }
 
 // Parallax scroll component
 interface ParallaxScrollProps {
-  children: ReactNode
-  offset?: number
-  className?: string
+  children: ReactNode;
+  offset?: number;
+  className?: string;
 }
 
 export function ParallaxScroll({
   children,
   offset = 50,
-  className = '',
+  className = "",
 }: ParallaxScrollProps) {
-  const ref = useRef(null)
+  const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start end', 'end start'],
-  })
+    offset: ["start end", "end start"],
+  });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, offset])
-  const smoothY = useSpring(y, { stiffness: 100, damping: 30 })
+  const y = useTransform(scrollYProgress, [0, 1], [0, offset]);
+  const smoothY = useSpring(y, { stiffness: 100, damping: 30 });
 
   return (
     <motion.div ref={ref} style={{ y: smoothY }} className={className}>
       {children}
     </motion.div>
-  )
+  );
 }
 
 // Staggered fade in for lists
 interface StaggeredFadeInProps {
-  children: ReactNode[]
-  className?: string
-  staggerDelay?: number
+  children: ReactNode[];
+  className?: string;
+  staggerDelay?: number;
 }
 
 export function StaggeredFadeIn({
   children,
-  className = '',
+  className = "",
   staggerDelay = 0.1,
 }: StaggeredFadeInProps) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-50px' })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
     <motion.div
       ref={ref}
       variants={staggerContainer}
       initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
+      animate={isInView ? "visible" : "hidden"}
       className={className}
     >
       {children.map((child, index) => (
@@ -210,38 +206,38 @@ export function StaggeredFadeIn({
         </motion.div>
       ))}
     </motion.div>
-  )
+  );
 }
 
 // Hover scale animation wrapper
 interface HoverScaleProps {
-  children: ReactNode
-  scale?: number
-  className?: string
+  children: ReactNode;
+  scale?: number;
+  className?: string;
 }
 
 export function HoverScale({
   children,
   scale = 1.05,
-  className = '',
+  className = "",
 }: HoverScaleProps) {
   return (
     <motion.div
       whileHover={{ scale }}
       whileTap={{ scale: 0.95 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
       className={`${className} hover-scale`}
       style={{
-        WebkitFontSmoothing: 'antialiased',
-        MozOsxFontSmoothing: 'grayscale',
-        transform: 'translateZ(0)',
-        backfaceVisibility: 'hidden',
-        willChange: 'transform',
+        WebkitFontSmoothing: "antialiased",
+        MozOsxFontSmoothing: "grayscale",
+        transform: "translateZ(0)",
+        backfaceVisibility: "hidden",
+        willChange: "transform",
       }}
     >
       {children}
     </motion.div>
-  )
+  );
 }
 
 // Page transition wrapper
@@ -258,7 +254,7 @@ export function PageTransition({ children }: { children: ReactNode }) {
     >
       {children}
     </motion.div>
-  )
+  );
 }
 
 // Loading animation component
@@ -270,22 +266,22 @@ export function LoadingSpinner() {
       transition={{
         duration: 1,
         repeat: Infinity,
-        ease: 'linear',
+        ease: "linear",
       }}
     />
-  )
+  );
 }
 
 // Button press animation wrapper
 interface AnimatedButtonProps {
-  children: ReactNode
-  className?: string
-  onClick?: () => void
+  children: ReactNode;
+  className?: string;
+  onClick?: () => void;
 }
 
 export function AnimatedButton({
   children,
-  className = '',
+  className = "",
   onClick,
 }: AnimatedButtonProps) {
   return (
@@ -293,7 +289,7 @@ export function AnimatedButton({
       whileHover={{ scale: 1.01 }}
       whileTap={{ scale: 0.99 }}
       transition={{
-        type: 'spring',
+        type: "spring",
         stiffness: 500,
         damping: 25,
       }}
@@ -302,25 +298,25 @@ export function AnimatedButton({
     >
       {children}
     </motion.button>
-  )
+  );
 }
 
 // Counter animation for numbers
 interface AnimatedCounterProps {
-  from: number
-  to: number
-  duration?: number
-  className?: string
+  from: number;
+  to: number;
+  duration?: number;
+  className?: string;
 }
 
 export function AnimatedCounter({
   from,
   to,
   duration = 2,
-  className = '',
+  className = "",
 }: AnimatedCounterProps) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   return (
     <motion.span
@@ -332,10 +328,10 @@ export function AnimatedCounter({
       <motion.span
         initial={{ scale: from }}
         animate={isInView ? { scale: to } : { scale: from }}
-        transition={{ duration, ease: 'easeOut' }}
+        transition={{ duration, ease: "easeOut" }}
       >
         {isInView ? to : from}
       </motion.span>
     </motion.span>
-  )
+  );
 }

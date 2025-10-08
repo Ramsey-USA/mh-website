@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 import {
   Button,
   Card,
@@ -9,152 +9,152 @@ import {
   CardTitle,
   CardContent,
   PageHero,
-} from '../../components/ui'
-import { MaterialIcon } from '../../components/icons/MaterialIcon'
+} from "../../components/ui";
+import { MaterialIcon } from "../../components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from '../../components/animations/FramerMotionComponents'
-import { OptimizedImage } from '../../components/ui/OptimizedImage'
+} from "../../components/animations/DynamicAnimations";
+import { OptimizedImage } from "../../components/ui/OptimizedImage";
 
 // Core Values Data
 const coreValues = [
   {
-    iconName: 'visibility',
-    title: 'Honesty & Transparency',
-    subtitle: 'Full-disclosure approach in all communications',
+    iconName: "visibility",
+    title: "Honesty & Transparency",
+    subtitle: "Full-disclosure approach in all communications",
     description:
-      'No hidden costs, surprise changes, or unclear timelines. We provide transparent pricing with detailed breakdowns of every cost component.',
+      "No hidden costs, surprise changes, or unclear timelines. We provide transparent pricing with detailed breakdowns of every cost component.",
     practices: [
-      'Pre-construction meetings with complete cost breakdowns',
-      'Regular project updates with photo documentation',
-      'Open-book approach to material costs and labor',
-      'Immediate notification of any project changes or delays',
+      "Pre-construction meetings with complete cost breakdowns",
+      "Regular project updates with photo documentation",
+      "Open-book approach to material costs and labor",
+      "Immediate notification of any project changes or delays",
     ],
   },
   {
-    iconName: 'verified_user',
-    title: 'Integrity',
+    iconName: "verified_user",
+    title: "Integrity",
     subtitle: "Unwavering commitment to what's right",
     description:
-      'Ethical business practices, quality workmanship, and promise keeping. We never cut corners, even when no one is watching.',
+      "Ethical business practices, quality workmanship, and promise keeping. We never cut corners, even when no one is watching.",
     practices: [
-      'Recommending solutions that benefit you, not just our profit margin',
-      'Using specified materials and methods, never substituting without approval',
-      'Standing behind our work with comprehensive warranties',
+      "Recommending solutions that benefit you, not just our profit margin",
+      "Using specified materials and methods, never substituting without approval",
+      "Standing behind our work with comprehensive warranties",
       "Treating your property with the same care we'd want for our own",
     ],
   },
   {
-    iconName: 'precision_manufacturing',
-    title: 'Precision & Experience',
-    subtitle: '150+ years combined team expertise',
+    iconName: "precision_manufacturing",
+    title: "Precision & Experience",
+    subtitle: "150+ years combined team expertise",
     description:
-      'Deep technical knowledge across all construction disciplines with a military-precision approach to every project aspect.',
+      "Deep technical knowledge across all construction disciplines with a military-precision approach to every project aspect.",
     practices: [
-      'Detailed project planning with multiple contingency scenarios',
-      'Precise measurements, calculations, and material estimates',
-      'Quality control checkpoints at every project phase',
-      'Expert problem-solving when unexpected challenges arise',
+      "Detailed project planning with multiple contingency scenarios",
+      "Precise measurements, calculations, and material estimates",
+      "Quality control checkpoints at every project phase",
+      "Expert problem-solving when unexpected challenges arise",
     ],
   },
   {
-    iconName: 'handshake',
-    title: 'Client-First Ethics',
-    subtitle: 'Small-town values with big-city capabilities',
+    iconName: "handshake",
+    title: "Client-First Ethics",
+    subtitle: "Small-town values with big-city capabilities",
     description:
-      'Your vision comes first. We adapt our expertise to serve your goals and build lasting relationships, not just structures.',
+      "Your vision comes first. We adapt our expertise to serve your goals and build lasting relationships, not just structures.",
     practices: [
-      'Initial consultations focused on understanding your unique needs',
-      'Flexible scheduling that works with your timeline',
-      'Multiple communication channels (phone, email, text, in-person)',
-      'Solutions scaled to your budget without compromising quality',
+      "Initial consultations focused on understanding your unique needs",
+      "Flexible scheduling that works with your timeline",
+      "Multiple communication channels (phone, email, text, in-person)",
+      "Solutions scaled to your budget without compromising quality",
     ],
   },
   {
-    iconName: 'settings',
-    title: 'Professionalism & Control',
+    iconName: "settings",
+    title: "Professionalism & Control",
     subtitle: '"You control it, we manage it"',
     description:
-      'Shared decision making where you maintain control while we provide expert guidance and handle all logistics.',
+      "Shared decision making where you maintain control while we provide expert guidance and handle all logistics.",
     practices: [
-      'Decision points clearly identified and explained before work proceeds',
-      'Daily briefings on progress and upcoming decisions needed',
-      'Professional appearance and conduct on your property',
-      'Coordination of all subcontractors and material deliveries',
+      "Decision points clearly identified and explained before work proceeds",
+      "Daily briefings on progress and upcoming decisions needed",
+      "Professional appearance and conduct on your property",
+      "Coordination of all subcontractors and material deliveries",
     ],
   },
   {
-    iconName: 'shield',
-    title: 'Trust',
-    subtitle: 'The culmination of all other values',
+    iconName: "shield",
+    title: "Trust",
+    subtitle: "The culmination of all other values",
     description:
       "Trust isn't just another value—it's the result when all other values are consistently demonstrated. It's our ultimate goal.",
     practices: [
-      'Consistency: Delivering the same high standards on every project',
+      "Consistency: Delivering the same high standards on every project",
       "Reliability: Being where we say we'll be, when we say we'll be there",
-      'Competence: Demonstrating expertise through quality results',
+      "Competence: Demonstrating expertise through quality results",
       "Character: Doing the right thing, especially when it's difficult",
     ],
   },
-]
+];
 
 // Company Stats
 const companyStats = [
-  { iconName: 'calendar_today', value: '30+', label: 'Years in Business' },
-  { iconName: 'groups', value: '150+', label: 'Years Combined Experience' },
-  { iconName: 'star', value: '98%', label: 'Client Satisfaction' },
-  { iconName: 'diversity_3', value: '70%', label: 'Referral Rate' },
-]
+  { iconName: "calendar_today", value: "30+", label: "Years in Business" },
+  { iconName: "groups", value: "150+", label: "Years Combined Experience" },
+  { iconName: "star", value: "98%", label: "Client Satisfaction" },
+  { iconName: "diversity_3", value: "70%", label: "Referral Rate" },
+];
 
 // Leadership Team Data
 const leadershipTeam = [
   {
-    name: 'Jeremy Thamert',
-    role: 'Owner & General Manager',
-    experience: '2 years in current role',
-    status: 'Civilian Supporter',
+    name: "Jeremy Thamert",
+    role: "Owner & General Manager",
+    experience: "2 years in current role",
+    status: "Civilian Supporter",
     specialties: [
-      'Strategic Vision & Business Development',
-      'Technology Integration & Innovation',
-      'AI Adoption & Digital Transformation',
-      'Operational Leadership & Team Management',
+      "Strategic Vision & Business Development",
+      "Technology Integration & Innovation",
+      "AI Adoption & Digital Transformation",
+      "Operational Leadership & Team Management",
     ],
-    philosophy: 'Bridging military precision with civilian innovation',
-    icon: 'person',
+    philosophy: "Bridging military precision with civilian innovation",
+    icon: "person",
   },
   {
-    name: 'Arnold Garcia',
-    role: 'Vice President',
-    experience: '15 years with MH Construction',
-    status: 'Civilian Leadership',
+    name: "Arnold Garcia",
+    role: "Vice President",
+    experience: "15 years with MH Construction",
+    status: "Civilian Leadership",
     specialties: [
-      'Client Relationships & Partnership Development',
-      'Strategic Operations & Business Growth',
-      'Service Excellence & Quality Assurance',
-      'Project Oversight & Risk Management',
+      "Client Relationships & Partnership Development",
+      "Strategic Operations & Business Growth",
+      "Service Excellence & Quality Assurance",
+      "Project Oversight & Risk Management",
     ],
     philosophy:
-      'Primary client liaison for major commercial and industrial projects',
-    icon: 'business',
+      "Primary client liaison for major commercial and industrial projects",
+    icon: "business",
   },
   {
-    name: 'Mike Holstein',
-    role: 'Founder (Retired)',
-    experience: '30+ years construction industry leadership',
-    status: 'Retired Leadership',
+    name: "Mike Holstein",
+    role: "Founder (Retired)",
+    experience: "30+ years construction industry leadership",
+    status: "Retired Leadership",
     specialties: [
-      'Company Foundations & Core Values Establishment',
-      'Quality Standards Development',
-      'Client Trust & Reputation Building',
-      'Mentorship & Succession Planning',
+      "Company Foundations & Core Values Establishment",
+      "Quality Standards Development",
+      "Client Trust & Reputation Building",
+      "Mentorship & Succession Planning",
     ],
     philosophy:
       'Established the "We Work With You" partnership philosophy that defines MH Construction today',
-    icon: 'foundation',
+    icon: "foundation",
   },
-]
+];
 
 export default function AboutPage() {
   return (
@@ -210,7 +210,7 @@ export default function AboutPage() {
                         <span className="text-gray-700 dark:text-gray-300">
                           <strong className="text-gray-900 dark:text-white">
                             Transparent Communication:
-                          </strong>{' '}
+                          </strong>{" "}
                           Open dialogue from day one
                         </span>
                       </li>
@@ -222,7 +222,7 @@ export default function AboutPage() {
                         <span className="text-gray-700 dark:text-gray-300">
                           <strong className="text-gray-900 dark:text-white">
                             Collaborative Planning:
-                          </strong>{' '}
+                          </strong>{" "}
                           Your vision + our expertise
                         </span>
                       </li>
@@ -234,7 +234,7 @@ export default function AboutPage() {
                         <span className="text-gray-700 dark:text-gray-300">
                           <strong className="text-gray-900 dark:text-white">
                             Honest Pricing:
-                          </strong>{' '}
+                          </strong>{" "}
                           No surprises, no hidden costs
                         </span>
                       </li>
@@ -246,7 +246,7 @@ export default function AboutPage() {
                         <span className="text-gray-700 dark:text-gray-300">
                           <strong className="text-gray-900 dark:text-white">
                             Shared Success:
-                          </strong>{' '}
+                          </strong>{" "}
                           Your satisfaction is our success
                         </span>
                       </li>
@@ -258,7 +258,7 @@ export default function AboutPage() {
                         <span className="text-gray-700 dark:text-gray-300">
                           <strong className="text-gray-900 dark:text-white">
                             Long-term Relationship:
-                          </strong>{' '}
+                          </strong>{" "}
                           Partners beyond project completion
                         </span>
                       </li>
@@ -281,7 +281,7 @@ export default function AboutPage() {
                       <strong className="text-gray-900 dark:text-white">
                         MH Construction exists to strengthen Pacific Northwest
                         communities.
-                      </strong>{' '}
+                      </strong>{" "}
                       Every project contributes to a stronger, more connected
                       region.
                     </p>
@@ -294,7 +294,7 @@ export default function AboutPage() {
                         <span className="text-gray-700 dark:text-gray-300">
                           <strong className="text-gray-900 dark:text-white">
                             Local Investment:
-                          </strong>{' '}
+                          </strong>{" "}
                           Hiring locally, supporting regional suppliers
                         </span>
                       </li>
@@ -306,7 +306,7 @@ export default function AboutPage() {
                         <span className="text-gray-700 dark:text-gray-300">
                           <strong className="text-gray-900 dark:text-white">
                             Veteran Support:
-                          </strong>{' '}
+                          </strong>{" "}
                           Creating opportunities for military families
                         </span>
                       </li>
@@ -318,7 +318,7 @@ export default function AboutPage() {
                         <span className="text-gray-700 dark:text-gray-300">
                           <strong className="text-gray-900 dark:text-white">
                             Environmental Stewardship:
-                          </strong>{' '}
+                          </strong>{" "}
                           Sustainable practices for future communities
                         </span>
                       </li>
@@ -837,5 +837,5 @@ export default function AboutPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

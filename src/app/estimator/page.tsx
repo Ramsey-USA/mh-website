@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import React from 'react'
-import Link from 'next/link'
-import dynamic from 'next/dynamic'
+import React from "react";
+import Link from "next/link";
+import dynamic from "next/dynamic";
 import {
   PageHero,
   Card,
@@ -10,63 +10,76 @@ import {
   CardTitle,
   CardContent,
   Button,
-} from '../../components/ui'
-import { MaterialIcon } from '../../components/icons/MaterialIcon'
+} from "../../components/ui";
+import { MaterialIcon } from "../../components/icons/MaterialIcon";
 // Dynamically import heavy components
-const EstimatorForm = dynamic(() => import('../../components/estimator').then(mod => ({ default: mod.EstimatorForm })), {
-  loading: () => <div className="h-96 bg-muted animate-pulse rounded-lg"></div>,
-  ssr: false
-});
-const SmartRecommendations = dynamic(() => import('../../components/recommendations/SmartRecommendations'), {
-  loading: () => <div className="h-64 bg-muted animate-pulse rounded-lg"></div>,
-  ssr: false
-});
+const EstimatorForm = dynamic(
+  () =>
+    import("../../components/estimator").then((mod) => ({
+      default: mod.EstimatorForm,
+    })),
+  {
+    loading: () => (
+      <div className="bg-muted rounded-lg h-96 animate-pulse"></div>
+    ),
+    ssr: false,
+  }
+);
+const SmartRecommendations = dynamic(
+  () => import("../../components/recommendations/SmartRecommendations"),
+  {
+    loading: () => (
+      <div className="bg-muted rounded-lg h-64 animate-pulse"></div>
+    ),
+    ssr: false,
+  }
+);
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from '../../components/animations/FramerMotionComponents'
+} from "../../components/animations/DynamicAnimations";
 
 // Structured data for SEO
 const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'MH Construction AI Estimator',
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "MH Construction AI Estimator",
   description:
-    'AI-powered construction estimator providing instant, accurate cost estimates with 95% accuracy guarantee for Pacific Northwest construction projects.',
-  url: 'https://mhconstruction.com/estimator',
-  applicationCategory: 'BusinessApplication',
-  operatingSystem: 'Web',
+    "AI-powered construction estimator providing instant, accurate cost estimates with 95% accuracy guarantee for Pacific Northwest construction projects.",
+  url: "https://mhconstruction.com/estimator",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
   offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-    description: 'Free AI-powered construction estimates',
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+    description: "Free AI-powered construction estimates",
   },
   provider: {
-    '@type': 'Organization',
-    name: 'MH Construction',
-    url: 'https://mhconstruction.com',
-    logo: 'https://mhconstruction.com/images/logo/mh-logo.png',
+    "@type": "Organization",
+    name: "MH Construction",
+    url: "https://mhconstruction.com",
+    logo: "https://mhconstruction.com/images/logo/mh-logo.png",
     sameAs: [
-      'https://www.facebook.com/MHConstructionNW',
-      'https://www.linkedin.com/company/mh-construction',
+      "https://www.facebook.com/MHConstructionNW",
+      "https://www.linkedin.com/company/mh-construction",
     ],
   },
   aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '150',
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "150",
   },
   featureList: [
-    'Instant cost estimates',
-    '95% accuracy guarantee',
-    'Veteran discounts',
-    'Pacific Northwest pricing',
-    'No registration required',
-    '24/7 availability',
+    "Instant cost estimates",
+    "95% accuracy guarantee",
+    "Veteran discounts",
+    "Pacific Northwest pricing",
+    "No registration required",
+    "24/7 availability",
   ],
-}
+};
 
 export default function EstimatorPage() {
   return (
@@ -239,7 +252,7 @@ export default function EstimatorPage() {
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
               <h2 className="mb-4 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
-                <span className="text-gray-700">Why Use Our</span>{' '}
+                <span className="text-gray-700">Why Use Our</span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                   AI Estimator?
                 </span>
@@ -323,7 +336,7 @@ export default function EstimatorPage() {
           <FadeInWhenVisible>
             <div className="mb-8 text-center">
               <h2 className="mb-4 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
-                <span className="text-gray-700">Start Your</span>{' '}
+                <span className="text-gray-700">Start Your</span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                   AI Estimate
                 </span>
@@ -350,29 +363,29 @@ export default function EstimatorPage() {
               variant="compact"
               maxRecommendations={6}
               showVeteranBenefits={true}
-              onRecommendationClick={recommendation => {
+              onRecommendationClick={(recommendation) => {
                 // Track recommendation click
-                if (typeof window !== 'undefined' && window.gtag) {
-                  window.gtag('event', 'estimator_recommendation_click', {
+                if (typeof window !== "undefined" && window.gtag) {
+                  window.gtag("event", "estimator_recommendation_click", {
                     project_type: recommendation.projectType,
                     confidence: recommendation.confidence,
-                  })
+                  });
                 }
               }}
-              onGetEstimate={recommendation => {
+              onGetEstimate={(recommendation) => {
                 // Scroll back to estimator form and pre-fill
                 const estimatorSection =
-                  document.querySelector('.estimator-form')
+                  document.querySelector(".estimator-form");
                 if (estimatorSection) {
-                  estimatorSection.scrollIntoView({ behavior: 'smooth' })
+                  estimatorSection.scrollIntoView({ behavior: "smooth" });
                 }
 
                 // Track estimate request from recommendation
-                if (typeof window !== 'undefined' && window.gtag) {
-                  window.gtag('event', 'recommendation_estimate_request', {
+                if (typeof window !== "undefined" && window.gtag) {
+                  window.gtag("event", "recommendation_estimate_request", {
                     project_type: recommendation.projectType,
                     estimated_value: recommendation.estimatedCost.min,
-                  })
+                  });
                 }
               }}
               className="bg-white shadow-lg p-8 rounded-xl"
@@ -416,7 +429,7 @@ export default function EstimatorPage() {
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
           <FadeInWhenVisible>
             <h2 className="mb-4 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
-              <span className="text-white/90">Need a More</span>{' '}
+              <span className="text-white/90">Need a More</span>{" "}
               <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
                 Detailed Analysis?
               </span>
@@ -451,5 +464,5 @@ export default function EstimatorPage() {
         </div>
       </section>
     </>
-  )
+  );
 }

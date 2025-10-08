@@ -19,14 +19,24 @@ import {
   StructuredData,
 } from "../components/seo/seo-meta";
 // Dynamically import below-the-fold components
-const TestimonialsWidget = dynamic(() => import("../components/testimonials/TestimonialsWidget"), {
-  loading: () => <div className="h-96 bg-muted animate-pulse rounded-lg"></div>,
-  ssr: false
-});
-const SmartRecommendations = dynamic(() => import("../components/recommendations/SmartRecommendations"), {
-  loading: () => <div className="h-64 bg-muted animate-pulse rounded-lg"></div>,
-  ssr: false
-});
+const TestimonialsWidget = dynamic(
+  () => import("../components/testimonials/TestimonialsWidget"),
+  {
+    loading: () => (
+      <div className="bg-muted rounded-lg h-96 animate-pulse"></div>
+    ),
+    ssr: false,
+  }
+);
+const SmartRecommendations = dynamic(
+  () => import("../components/recommendations/SmartRecommendations"),
+  {
+    loading: () => (
+      <div className="bg-muted rounded-lg h-64 animate-pulse"></div>
+    ),
+    ssr: false,
+  }
+);
 // import BlogNewsCarousel from '../components/blog/BlogNewsCarousel'
 import Head from "next/head";
 import { MaterialIcon } from "../components/icons/MaterialIcon";
@@ -34,7 +44,7 @@ import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from "../components/animations/FramerMotionComponents";
+} from "../components/animations/DynamicAnimations";
 import { useAnalytics } from "../components/analytics/enhanced-analytics";
 import { OptimizedImage } from "../components/ui/OptimizedImage";
 import {
