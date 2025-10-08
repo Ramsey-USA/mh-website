@@ -136,6 +136,104 @@ title: 'Update 🎯'
 
 ---
 
+## 🚨 **UPDATED DESIGN ENFORCEMENT POLICIES - October 8, 2025**
+
+### **CRITICAL UI COMPONENT STANDARDS**
+
+#### 🚫 **NO BUBBLE HEADINGS POLICY**
+
+**ENFORCED STANDARD:** MH Construction prohibits bubble-style decorative headings to maintain professional visual hierarchy.
+
+```tsx
+// ❌ PROHIBITED - Bubble/pill-shaped header decorations
+<div className="inline-flex items-center bg-brand-primary/10 shadow-lg mb-8 px-8 py-4 border border-brand-primary/20 rounded-full">
+  <MaterialIcon icon="construction" size="md" />
+  <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider">
+    Section Label
+  </span>
+</div>
+
+// ✅ REQUIRED - Clean, direct section headers
+<h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+  Section Title
+</h2>
+```
+
+#### 🎴 **MANDATORY CARD FLIPPING INTERACTION**
+
+**ENFORCED STANDARD:** All informational cards must use 3D flip animations for detailed descriptions.
+
+```tsx
+// ✅ REQUIRED - Standard card flip implementation
+<div className="group perspective-1000 cursor-pointer">
+  <div className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
+    {/* Front: Overview */}
+    <div className="absolute inset-0 w-full h-full backface-hidden">
+      <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+        <h3 className="font-bold text-xl">{title}</h3>
+        <p className="text-gray-600">{overview}</p>
+        <span className="text-brand-primary text-sm">Click for details</span>
+      </div>
+    </div>
+    
+    {/* Back: Detailed Information */}
+    <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
+      <div className="bg-gradient-to-br from-brand-primary to-brand-secondary rounded-xl p-6 shadow-lg text-white">
+        <h3 className="font-bold text-xl mb-4">{title}</h3>
+        <p>{detailedDescription}</p>
+        <ul className="mt-4 space-y-2">
+          {features.map(feature => (
+            <li className="flex items-center">
+              <MaterialIcon icon="check_circle" size="sm" className="mr-2" />
+              {feature}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+#### 🦸 **HERO SECTION CONSISTENCY REQUIREMENT**
+
+**ENFORCED STANDARD:** All hero sections must follow the home page pattern using the `PageHero` component.
+
+```tsx
+// ✅ REQUIRED - Standard hero implementation
+<PageHero
+  title="Clear Page Identifier"
+  subtitle="Supporting context or value proposition"
+  description="Detailed explanation of page purpose and visitor benefits."
+/>
+
+// ❌ PROHIBITED - Custom hero variations
+<section className="custom-hero-layout py-20">
+  <h1>Custom Title Implementation</h1>
+</section>
+```
+
+**Essential CSS Classes for Card Flipping:**
+
+```css
+.perspective-1000 { perspective: 1000px; }
+.preserve-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+.rotate-y-180 { transform: rotateY(180deg); }
+```
+
+**Benefits of These Standards:**
+
+- **Professional Consistency**: Uniform experience across all pages
+- **Brand Recognition**: Immediate visual consistency strengthens brand identity
+- **User Experience**: Familiar interaction patterns improve usability
+- **Maintenance Efficiency**: Standardized components reduce development overhead
+- **Performance**: Consistent animations and loading patterns
+
+**Reference Documentation:** See `DEVELOPMENT_GUIDELINES.md` for complete implementation details.
+
+---
+
 ## 🏢 Brand Identity
 
 ### Company Information

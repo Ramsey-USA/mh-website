@@ -6,6 +6,54 @@
 
 ---
 
+## 🚨 **UPDATED DESIGN RULES - October 8, 2025**
+
+### **NEW ENFORCEMENT POLICIES**
+
+#### 🚫 **NO BUBBLE HEADINGS**
+
+- **PROHIBITED**: Decorative pill-shaped containers above section headers
+- **REQUIRED**: Clean, direct section headers using established typography hierarchy
+- **Reference**: See DEVELOPMENT_GUIDELINES.md for complete implementation
+
+#### 🎴 **MANDATORY CARD FLIPPING**
+
+- **REQUIRED**: All informational cards must use 3D flip animations for descriptions
+- **IMPLEMENTATION**: Front shows overview, back shows detailed content
+- **CSS Classes**: `perspective-1000`, `preserve-3d`, `backface-hidden`, `rotate-y-180`
+
+#### 🦸 **HERO SECTION CONSISTENCY**
+
+- **REQUIRED**: All pages must use `PageHero` component following home page pattern
+- **STANDARDIZATION**: Consistent title/subtitle/description structure
+- **NO VARIATIONS**: Custom hero layouts are prohibited
+
+#### **Quick Reference Implementation**
+
+```tsx
+// ✅ Correct section header (no bubbles)
+<h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+  Section Title
+</h2>
+
+// ✅ Required card flip structure
+<div className="group perspective-1000 cursor-pointer">
+  <div className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
+    <div className="absolute inset-0 backface-hidden">{/* Front */}</div>
+    <div className="absolute inset-0 backface-hidden rotate-y-180">{/* Back */}</div>
+  </div>
+</div>
+
+// ✅ Required hero implementation
+<PageHero
+  title="Page Title"
+  subtitle="Supporting context"
+  description="Detailed value proposition"
+/>
+```
+
+---
+
 ## 🎯 Mission Accomplished
 
 Successfully extracted and documented all spacing, padding, and typography patterns from the MH Construction home page to create consistent standards for the entire website.
