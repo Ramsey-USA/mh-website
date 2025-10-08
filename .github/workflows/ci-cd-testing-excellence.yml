@@ -131,15 +131,15 @@ jobs:
               run: npx audit-ci --config audit-ci.json
 
             - name: 🔐 CodeQL Analysis
-              uses: github/codeql-action/init@v2
+              uses: github/codeql-action/init@v4
               with:
                   languages: javascript
 
             - name: 🏗️ Autobuild
-              uses: github/codeql-action/autobuild@v2
+              uses: github/codeql-action/autobuild@v4
 
             - name: 🎯 Perform CodeQL Analysis
-              uses: github/codeql-action/analyze@v2
+              uses: github/codeql-action/analyze@v4
 
     # Phase 7.4: Deployment Pipeline
     deploy-staging:
