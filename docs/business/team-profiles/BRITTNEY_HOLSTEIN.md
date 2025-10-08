@@ -47,12 +47,12 @@ Brittney focuses on building a strong team culture that supports both employee g
 
 ## Certifications
 
-*Information not specified in current data*
+Information not specified in current data
 
 ## Personal Interests
 
-- **Hobbies**: *Information not specified in current data*
-- **Special Interests**: *Information not specified in current data*
+- **Hobbies**: Information not specified in current data
+- **Special Interests**: Information not specified in current data
 
 ## Fun Fact
 

@@ -2,59 +2,59 @@
 
 > **Card #2** | **Executive Leadership** | **Retired Leadership**
 
-## <span style="color: #2D5016;">📋 Quick Facts</span>
+## 📋 Quick Facts
 
 - **Role**: Founder (Retired)
 - **Years with Company**: 30
 - **Hometown**: Pacific Northwest
 - **Education**: Construction Management
 
-## <span style="color: #D2B48C;">📊 2025 Performance Statistics</span>
+## 📊 2025 Performance Statistics
 
 - **Projects Completed**: 12
 - **Client Satisfaction**: 99%
 - **Safety Record**: PERFECT
 - **Team Collaborations**: 15
 
-## <span style="color: #2D5016;">🏆 Career Statistics</span>
+## 🏆 Career Statistics
 
 - **Total Projects**: 500
 - **Years Experience**: 30
 - **Specialty Areas**: 8
 - **Mentorships**: 25
 
-## <span style="color: #D2B48C;">🎖️ Awards & Recognition</span>
+## 🎖️ Awards & Recognition
 
 Lifetime Achievement Award, Regional Business Excellence Award
 
-## <span style="color: #2D5016;">👤 Biography</span>
+## 👤 Biography
 
 Mike Holstein founded MH Construction and established its reputation for integrity, quality, and military-grade precision. His leadership and vision established the "We Work With You" partnership philosophy that defines MH Construction today.
 
-## <span style="color: #D2B48C;">⭐ Career Highlights</span>
+## ⭐ Career Highlights
 
 - Founded MH Construction
 - Established company core values
 - Built reputation for quality excellence
 - Mentored next generation of leaders
 
-## <span style="color: #2D5016;">🔧 Professional Specialties</span>
+## 🔧 Professional Specialties
 
 - Company Foundations & Core Values Establishment
 - Quality Standards Development
 - Client Trust & Reputation Building
 - Mentorship & Succession Planning
 
-## <span style="color: #D2B48C;">📜 Certifications</span>
+## 📜 Certifications
 
 CCM, CPM
 
-## <span style="color: #2D5016;">🎯 Personal Interests</span>
+## 🎯 Personal Interests
 
 - **Hobbies**: Woodworking, Fishing
 - **Special Interests**: Mentoring Youth
 
-## <span style="color: #D2B48C;">💡 Fun Fact</span>
+## 💡 Fun Fact
 
 Mike started the company with just a pickup truck and a toolbox, growing it into a regional construction leader.
 

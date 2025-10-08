@@ -1,58 +1,112 @@
-#!/bin/bash
+#!/bin/bash#!/bin/bash
 
-# Markdown Linting Fix Script
-# Fixes common markdown linting issues across the documentation
 
-echo "🔧 MH Construction Documentation - Markdown Linting Fixes"
+
+# Fix Markdown Linting Issues in Team Profile Files# Markdown Linting Fix Script
+
+echo "🔧 Fixing markdown linting issues in team profile files..."# Fixes common markdown linting issues across the documentation
+
+
+
+cd /workspaces/mh-websiteecho "🔧 MH Construction Documentation - Markdown Linting Fixes"
+
 echo "========================================================="
-echo ""
 
-cd /workspaces/mh-website
+# Function to remove inline HTML span tags from headingsecho ""
 
-# Create backup for safety
-backup_dir="docs/.markdown-lint-backup-$(date +%Y%m%d-%H%M%S)"
-echo "💾 Creating backup at: $backup_dir"
-mkdir -p "$backup_dir"
+fix_inline_html() {
 
-# Function to backup and fix a file
-fix_markdown_file() {
-    local file="$1"
-    
-    if [ ! -f "$file" ]; then
-        return
-    fi
-    
+    local file="$1"cd /workspaces/mh-website
+
+    echo "  Fixing inline HTML in: $(basename "$file")"
+
+    # Create backup for safety
+
+    # Remove colored span tags from headingsbackup_dir="docs/.markdown-lint-backup-$(date +%Y%m%d-%H%M%S)"
+
+    sed -i 's/<span style="color: #[^"]*;">\([^<]*\)<\/span>/\1/g' "$file"echo "💾 Creating backup at: $backup_dir"
+
+}mkdir -p "$backup_dir"
+
+
+
+# Function to fix emphasis used as heading# Function to backup and fix a file
+
+fix_emphasis_heading() {fix_markdown_file() {
+
+    local file="$1"    local file="$1"
+
+    echo "  Fixing emphasis headings in: $(basename "$file")"    
+
+        if [ ! -f "$file" ]; then
+
+    # Replace *Information not specified in current data* with proper text        return
+
+    sed -i 's/\*Information not specified in current data\*/Information not specified in current data/g' "$file"    fi
+
+}    
+
     echo "🔧 Fixing: $(basename "$file")"
-    
-    # Create backup
-    backup_path="$backup_dir/${file#docs/}"
-    backup_parent=$(dirname "$backup_path")
-    mkdir -p "$backup_parent"
-    cp "$file" "$backup_path"
-    
-    # Create temporary file for processing
-    temp_file=$(mktemp)
-    
-    # Fix MD040: Add language to fenced code blocks
-    # Look for ``` without language and add 'text' as default
-    sed 's/^```$/```text/' "$file" > "$temp_file"
-    
-    # Fix MD036: Convert bold text that should be headings
-    # This is more complex, so we'll do specific replacements
-    sed -i 's/^\*\*\([0-9]\+\. [^*]*\)\*\*$/### \1/' "$temp_file"
-    sed -i 's/^\*\*\([^*]*\)\*\*$/### \1/' "$temp_file"
-    
-    # Copy back to original
-    cp "$temp_file" "$file"
-    rm "$temp_file"
-}
 
-# Function to fix duplicate headings
-fix_duplicate_headings() {
-    local file="$1"
+# List of files with inline HTML issues    
+
+files_with_html=(    # Create backup
+
+    "docs/business/team-profiles/DEREK_PARKS.md"    backup_path="$backup_dir/${file#docs/}"
+
+    "docs/business/team-profiles/JEREMY_THAMERT.md"    backup_parent=$(dirname "$backup_path")
+
+    "docs/business/team-profiles/MIKE_HOLSTEIN.md"    mkdir -p "$backup_parent"
+
+)    cp "$file" "$backup_path"
+
     
-    if [ ! -f "$file" ]; then
-        return
+
+# List of files with emphasis heading issues    # Create temporary file for processing
+
+files_with_emphasis=(    temp_file=$(mktemp)
+
+    "docs/business/team-profiles/BRITTNEY_HOLSTEIN.md"    
+
+    "docs/business/team-profiles/JENNIFER_TENEHUERTA.md"    # Fix MD040: Add language to fenced code blocks
+
+)    # Look for ``` without language and add 'text' as default
+
+    sed 's/^```$/```text/' "$file" > "$temp_file"
+
+echo "📝 Fixing inline HTML issues..."    
+
+for file in "${files_with_html[@]}"; do    # Fix MD036: Convert bold text that should be headings
+
+    if [ -f "$file" ]; then    # This is more complex, so we'll do specific replacements
+
+        fix_inline_html "$file"    sed -i 's/^\*\*\([0-9]\+\. [^*]*\)\*\*$/### \1/' "$temp_file"
+
+    fi    sed -i 's/^\*\*\([^*]*\)\*\*$/### \1/' "$temp_file"
+
+done    
+
+    # Copy back to original
+
+echo "📝 Fixing emphasis heading issues..."    cp "$temp_file" "$file"
+
+for file in "${files_with_emphasis[@]}"; do    rm "$temp_file"
+
+    if [ -f "$file" ]; then}
+
+        fix_emphasis_heading "$file"
+
+    fi# Function to fix duplicate headings
+
+donefix_duplicate_headings() {
+
+    local file="$1"
+
+echo "✅ Markdown linting fixes completed!"    
+
+echo ""    if [ ! -f "$file" ]; then
+
+echo "🔍 Checking results..."        return
     fi
     
     # Create a more specific heading for duplicate "Health Score Impact"

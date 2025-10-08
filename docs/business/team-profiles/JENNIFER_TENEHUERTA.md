@@ -47,12 +47,12 @@ Jennifer serves as the central coordination point ensuring smooth communication 
 
 ## Certifications
 
-*Information not specified in current data*
+Information not specified in current data
 
 ## Personal Interests
 
-- **Hobbies**: *Information not specified in current data*
-- **Special Interests**: *Information not specified in current data*
+- **Hobbies**: Information not specified in current data
+- **Special Interests**: Information not specified in current data
 
 ## Fun Fact
 
