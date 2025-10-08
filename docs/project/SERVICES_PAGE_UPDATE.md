@@ -87,7 +87,7 @@ Comprehensive update to the Services page and SERVICES.md documentation to refle
   benefits: [3 key benefits],
   ctaText: 'Call 509-308-6489 today...'
 }
-```
+```text
 
 **Updated Existing Services:**
 
@@ -124,7 +124,7 @@ Now: `specialtyServices` (5 items with rich metadata)
   note?: string,               // Additional context
   ctaText?: string            // Call to action
 }
-```
+```text
 
 **Enhanced Rendering:**
 

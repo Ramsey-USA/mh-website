@@ -95,7 +95,7 @@ const nextConfig = {
     return config;
   },
 }
-```
+```text
 
 #### **1.2 Lazy Loading Heavy Components**
 
@@ -116,7 +116,7 @@ export const EstimateResults = lazy(() => import('../estimator/EstimateResults')
 // Analytics components (heavy)
 export const AnalyticsDashboard = lazy(() => import('../analytics/AnalyticsDashboard'));
 export const PerformanceMonitor = lazy(() => import('../performance/PerformanceMonitor'));
-```
+```text
 
 #### **1.3 Tree Shaking Optimization**
 
@@ -130,7 +130,7 @@ export { validateEmail } from './validation';
 
 // Remove unused utility functions
 // Audit and remove dead code
-```
+```text
 
 **Expected Impact**: Bundle reduction from 283kB to ~220kB
 
@@ -158,7 +158,7 @@ const nextConfig = {
     ignoreBuildErrors: false, // Ensure type safety
   },
 }
-```
+```text
 
 **Action Items**:
 
@@ -193,7 +193,7 @@ images: {
   path: '/_next/image',
   unoptimized: false,
 }
-```
+```text
 
 #### **2.3 Performance Monitoring Setup** ✅ **COMPLETE**
 
@@ -362,7 +362,7 @@ export default function EstimatorPage() {
     </>
   )
 }
-```
+```text
 
 #### **2.2 Estimator Metadata & SEO**
 
@@ -396,7 +396,7 @@ export const metadata: Metadata = {
     images: ['/images/og/estimator.jpg'],
   }
 }
-```
+```text
 
 #### **2.3 Enhanced Estimator Components**
 
@@ -433,7 +433,7 @@ const enhancedFeatures = {
     fall: 1.0     // Standard rates
   }
 }
-```
+```text
 
 **Expected Impact**: Dedicated estimator page with enhanced SEO and user experience
 
@@ -674,7 +674,7 @@ export function ChatWidget({
     </div>
   )
 }
-```
+```text
 
 #### **3.2 AI Service Integration**
 
@@ -775,7 +775,7 @@ Always be helpful, professional, and guide users toward our AI estimator or book
     }
   }
 }
-```
+```text
 
 ### **Week 5: AI Service Backend**
 
@@ -840,7 +840,7 @@ export async function POST(request: NextRequest) {
     }, { status: 500 })
   }
 }
-```
+```text
 
 #### **3.4 Integration with Existing Components**
 
@@ -877,7 +877,7 @@ export default function RootLayout({
     </html>
   )
 }
-```
+```text
 
 **Expected Phase 3 Results**:
 
@@ -905,7 +905,7 @@ export function EstimatorChat() {
   // Pre-filled responses about estimation process
   // Direct integration with EstimatorForm
 }
-```
+```text
 
 #### **4.2 Advanced Chat Features**
 
@@ -946,7 +946,7 @@ export const chatAnalytics = {
     })
   }
 }
-```
+```text
 
 **Expected Phase 4 Results**:
 
@@ -976,7 +976,7 @@ npm run lighthouse:audit
 
 # Bundle size monitoring
 npm run bundle:monitor
-```
+```text
 
 #### **5.2 Caching Strategy**
 
@@ -1003,7 +1003,7 @@ const nextConfig = {
     ]
   }
 }
-```
+```text
 
 #### **5.3 Error Monitoring**
 
@@ -1019,7 +1019,7 @@ export class ErrorTracker {
     // Performance metric tracking
   }
 }
-```
+```text
 
 **Expected Phase 5 Results**:
 
@@ -1106,7 +1106,7 @@ export class ErrorTracker {
     "jest": "^29.7.0"
   }
 }
-```
+```text
 
 ### **Environment Variables**
 
@@ -1121,7 +1121,7 @@ NEXT_PUBLIC_CHAT_ANALYTICS_ENABLED=true
 
 # Performance Monitoring
 NEXT_PUBLIC_PERFORMANCE_MONITORING=true
-```
+```text
 
 ### **Team Requirements**
 

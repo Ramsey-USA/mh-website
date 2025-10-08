@@ -50,7 +50,7 @@
   subtitle="Supporting context"
   description="Detailed value proposition"
 />
-```
+```text
 
 ---
 
@@ -142,7 +142,7 @@ Successfully extracted and documented all spacing, padding, and typography patte
     </div>
   </div>
 </section>
-```
+```text
 
 ### Copy Card Template
 
@@ -155,7 +155,7 @@ Successfully extracted and documented all spacing, padding, and typography patte
     <div className="mt-auto">{/* CTA */}</div>
   </div>
 </div>
-```
+```text
 
 ---
 
@@ -169,7 +169,7 @@ Successfully extracted and documented all spacing, padding, and typography patte
 🔗 **[PAGE_LAYOUT_STANDARDS.md](../technical/PAGE_LAYOUT_STANDARDS.md)**  
 → Complete reference guide
 
-🔗 **[docs/README.md](../README.md)**  
+🔗 **[docs/NAVIGATION.md](../NAVIGATION.md)**  
 → Master documentation index
 
 ### Supporting Resources
@@ -319,7 +319,7 @@ Check PRs for:
 | Grid Systems | ✅ Complete | PAGE_LAYOUT_STANDARDS.md |
 | Icon Standards | ✅ Complete | ICON-SYSTEM-QUICK-REFERENCE.md |
 | Templates | ✅ Complete | PAGE_LAYOUT_QUICK_START.md |
-| Index | ✅ Complete | docs/README.md |
+| Index | ✅ Complete | docs/NAVIGATION.md |
 
 ---
 

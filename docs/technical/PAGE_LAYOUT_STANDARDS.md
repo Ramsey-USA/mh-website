@@ -26,7 +26,7 @@ Every major section should follow this structure:
     {/* Section content */}
   </div>
 </section>
-```
+```text
 
 ### **Key Layout Classes**
 
@@ -53,7 +53,7 @@ Every major section should follow this structure:
     Main Headline
   </span>
 </h1>
-```
+```text
 
 **Breakdown:**
 
@@ -75,7 +75,7 @@ Every major section should follow this structure:
     Section Title
   </span>
 </h2>
-```
+```text
 
 **Breakdown:**
 
@@ -93,7 +93,7 @@ Every major section should follow this structure:
 <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 text-2xl transition-colors">
   Card Title
 </h3>
-```
+```text
 
 **Breakdown:**
 
@@ -110,7 +110,7 @@ Every major section should follow this structure:
     gradient highlights
   </span>.
 </p>
-```
+```text
 
 **Breakdown:**
 
@@ -127,7 +127,7 @@ Every major section should follow this structure:
 <p className="mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
   Standard body text for card content.
 </p>
-```
+```text
 
 **Breakdown:**
 
@@ -141,7 +141,7 @@ Every major section should follow this structure:
 <div className="font-semibold text-brand-primary text-xs uppercase tracking-wider">
   Label or Category
 </div>
-```
+```text
 
 **Breakdown:**
 
@@ -161,7 +161,7 @@ Every major section should follow this structure:
   <h2>{/* Section heading */}</h2>
   <p>{/* Section description */}</p>
 </div>
-```
+```text
 
 **Spacing:**
 
@@ -174,7 +174,7 @@ Every major section should follow this structure:
 <div className="mb-16 lg:mb-20">
   {/* Card grid */}
 </div>
-```
+```text
 
 **Spacing:**
 
@@ -198,7 +198,7 @@ Every major section should follow this structure:
 <div className="w-16 h-16 mb-6 p-2">
   <MaterialIcon size="xl" />  {/* 48px icon */}
 </div>
-```
+```text
 
 **Spacing:**
 
@@ -220,7 +220,7 @@ Every major section should follow this structure:
 
 {/* Radial overlay for depth */}
 <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(56,104,81,0.05)_0%,transparent_50%)] opacity-60"></div>
-```
+```text
 
 ### **Decorative Blur Elements**
 
@@ -230,7 +230,7 @@ Every major section should follow this structure:
 
 {/* Bottom left blur */}
 <div className="bottom-20 left-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-40 h-40"></div>
-```
+```text
 
 **Pattern:**
 
@@ -249,7 +249,7 @@ Every major section should follow this structure:
 <div className="gap-6 lg:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
   {/* Cards */}
 </div>
-```
+```text
 
 **Breakpoints:**
 
@@ -264,7 +264,7 @@ Every major section should follow this structure:
 <div className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
   {/* Feature cards */}
 </div>
-```
+```text
 
 **Breakpoints:**
 
@@ -308,7 +308,7 @@ Every major section should follow this structure:
     </div>
   </div>
 </div>
-```
+```text
 
 **Key Classes:**
 
@@ -335,7 +335,7 @@ Every major section should follow this structure:
   <MaterialIcon icon="icon_name" size="2xl" className="mr-4 group-hover:scale-110" />
   <span className="font-semibold">Button Text</span>
 </Button>
-```
+```text
 
 ### **Secondary/Outline Button**
 
@@ -348,7 +348,7 @@ Every major section should follow this structure:
   <MaterialIcon icon="icon_name" size="2xl" className="mr-4 group-hover:scale-110" />
   <span className="font-semibold">Button Text</span>
 </Button>
-```
+```text
 
 **Standard Icon Spacing:** `mr-2` (small), `mr-4` (large)
 
@@ -376,7 +376,7 @@ transition-opacity duration-300
 
 {/* Shadow transitions */}
 transition-shadow duration-300
-```
+```text
 
 ### **Hover Effects**
 
@@ -392,7 +392,7 @@ group-hover:scale-110
 
 {/* Translate (arrows, etc.) */}
 group-hover:translate-x-2
-```
+```text
 
 ---
 
@@ -437,7 +437,7 @@ group-hover:translate-x-2
     </div>
   </div>
 </section>
-```
+```text
 
 ---
 
@@ -462,7 +462,7 @@ All layouts use Tailwind's mobile-first breakpoint system:
 
 ```tsx
 px-4 sm:px-6 lg:px-8
-```
+```text
 
 - Mobile (< 640px): `1rem` (16px) padding
 - Tablet (≥ 640px): `1.5rem` (24px) padding
@@ -472,7 +472,7 @@ px-4 sm:px-6 lg:px-8
 
 ```tsx
 py-12 lg:py-16
-```
+```text
 
 - Mobile/Tablet: `3rem` (48px) vertical padding
 - Desktop: `4rem` (64px) vertical padding
@@ -488,7 +488,7 @@ text-2xl sm:text-3xl md:text-4xl lg:text-5xl
 
 {/* Body - Scales from mobile to desktop */}
 text-lg md:text-xl lg:text-2xl
-```
+```text
 
 #### **Grid Layouts (All Devices)**
 
@@ -498,7 +498,7 @@ grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
 
 {/* 4-column responsive grid */}
 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
-```
+```text
 
 - Mobile: Single column (stacked)
 - Tablet: 2 columns
@@ -512,7 +512,7 @@ flex flex-col sm:flex-row
 
 {/* Center on mobile, justify on desktop */}
 flex justify-center items-center sm:justify-between
-```
+```text
 
 ### **Touch-Friendly Standards**
 
@@ -533,7 +533,7 @@ size="lg"  // 52px height
 
 {/* XL - Hero CTAs */}
 size="xl"  // 60px height
-```
+```text
 
 ### **Device-Specific Optimizations**
 

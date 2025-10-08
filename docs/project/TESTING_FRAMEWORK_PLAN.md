@@ -51,13 +51,13 @@ This document outlines the complete testing strategy for the MH Construction web
     }
   }
 }
-```
+```text
 
 ### Required Dependencies
 
 ```bash
 npm install --save-dev @testing-library/jest-dom @testing-library/react @testing-library/user-event @playwright/test @types/jest jest jest-environment-jsdom msw
-```
+```text
 
 ## Component Testing Strategy
 
@@ -97,7 +97,7 @@ describe('VeteranBadge', () => {
   it('handles different size variants')
   it('shows/hides details based on showDetails prop')
 })
-```
+```text
 
 #### Recommendation Engine Tests
 
@@ -109,7 +109,7 @@ describe('ProjectRecommendationEngine', () => {
   it('tracks user behavior and preferences')
   it('handles empty user profiles gracefully')
 })
-```
+```text
 
 ### Integration Test Examples
 
@@ -122,7 +122,7 @@ describe('Estimator Integration', () => {
   it('saves user preferences and behavior')
   it('handles form validation and error states')
 })
-```
+```text
 
 #### API Integration Tests
 
@@ -133,7 +133,7 @@ describe('API Integration', () => {
   it('handles authentication and authorization')
   it('manages rate limiting and retries')
 })
-```
+```text
 
 ### E2E Test Examples
 
@@ -155,7 +155,7 @@ test('Mobile navigation and responsiveness', async ({ page }) => {
   // Test touch interactions
   // Validate accessibility
 })
-```
+```text
 
 ## Testing Best Practices
 
@@ -228,7 +228,7 @@ jobs:
         run: npm run test:e2e
       - name: Upload coverage
         uses: codecov/codecov-action@v3
-```
+```text
 
 ### Quality Gates
 

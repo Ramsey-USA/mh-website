@@ -84,7 +84,7 @@ src/
 │   ├── utils/                      # Utility functions
 │   └── types/                      # TypeScript types
 └── hooks/                          # Custom React hooks
-```
+```text
 
 ---
 

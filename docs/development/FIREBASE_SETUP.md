@@ -82,7 +82,7 @@ service cloud.firestore {
     }
   }
 }
-```
+```text
 
 ## Step 4: Get Configuration Keys
 

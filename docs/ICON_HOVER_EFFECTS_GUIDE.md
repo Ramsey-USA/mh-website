@@ -215,7 +215,7 @@ All service icons now use `xl` size in 16×16 containers for 75% fill ratio:
   hoverEffect="glow" 
   className="hover:drop-shadow-xl"
 />
-```
+```text
 
 ---
 
@@ -256,7 +256,7 @@ All service icons now use `xl` size in 16×16 containers for 75% fill ratio:
 .hover-glow { 
   transition: filter 300ms ease, drop-shadow 300ms ease; 
 }
-```
+```text
 
 ### **Accessibility Compliance**
 
@@ -269,7 +269,7 @@ const respectsMotion = {
     transition: 'none'
   }
 }
-```
+```text
 
 ---
 
@@ -324,7 +324,7 @@ Here's the complete list of all implemented custom icons with their recommended 
 <MHCalendarIcon size="md" hoverEffect="scale" />      // Booking/scheduling
 <MHArrowRightIcon size="sm" hoverEffect="slide" />    // Navigation/next
 <MHCheckIcon size="sm" hoverEffect="scale" />         // Completion/success
-```
+```text
 
 ### **Hover Effect Type Guide**
 

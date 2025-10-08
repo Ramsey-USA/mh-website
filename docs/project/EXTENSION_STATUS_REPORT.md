@@ -73,7 +73,7 @@
 code --install-extension GoogleChrome.lighthouse
 code --install-extension LaurentTreguier.vscode-image-optimizer
 code --install-extension jsayol.firebase-explorer
-```
+```text
 
 ---
 
@@ -89,7 +89,7 @@ Your `.vscode/settings.json` has been updated with optimal settings for all your
 "importCost.largePackageSize": 50,
 "importCost.mediumPackageSize": 20,
 "importCost.smallPackageSize": 10
-```
+```text
 
 → Now shows red warning for packages > 50KB
 
@@ -98,7 +98,7 @@ Your `.vscode/settings.json` has been updated with optimal settings for all your
 ```json
 "errorLens.followCursor": "activeLine",
 "errorLens.gutterIconsEnabled": true
-```
+```text
 
 → Better error visibility with gutter icons
 
@@ -107,7 +107,7 @@ Your `.vscode/settings.json` has been updated with optimal settings for all your
 ```json
 "gitlens.currentLine.enabled": true,
 "gitlens.codeLens.enabled": true
-```
+```text
 
 → See who changed code inline
 
@@ -116,7 +116,7 @@ Your `.vscode/settings.json` has been updated with optimal settings for all your
 ```json
 "typescript.updateImportsOnFileMove.enabled": "always",
 "typescript.preferences.importModuleSpecifier": "relative"
-```
+```text
 
 → Auto-update imports when moving files
 
@@ -127,7 +127,7 @@ Your `.vscode/settings.json` has been updated with optimal settings for all your
   ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
   ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
 ]
-```
+```text
 
 → Autocomplete works in `cn()` and `cva()` functions
 
@@ -137,7 +137,7 @@ Your `.vscode/settings.json` has been updated with optimal settings for all your
 "emmet.includeLanguages": {
   "typescript": "typescriptreact"
 }
-```
+```text
 
 → Use Emmet abbreviations in TSX files
 
@@ -212,7 +212,7 @@ import Link from 'next/link'           // 0KB (Next.js)
 import TestimonialsWidget from '...'   // Check component size
 import { MaterialIcon } from '...'     // Check icon bundle
 import { OptimizedImage } from '...'   // Good practice!
-```
+```text
 
 **Import Cost extension will now show:**
 
@@ -240,7 +240,7 @@ const ServiceCard = () => {
 }
 
 export default ServiceCard
-```
+```text
 
 ### **2. Tailwind Autocomplete**
 
@@ -250,7 +250,7 @@ export default ServiceCard
 
 // Advanced: Works in cn() too!
 <div className={cn("bg-blue-500", isActive && "bg-red-500")}>
-```
+```text
 
 ### **3. Check Import Costs**
 
@@ -258,7 +258,7 @@ export default ServiceCard
 // Your imports now show sizes:
 import { motion } from 'framer-motion'  // 📦 79.8KB (gzipped: 25.3KB)
 import { useState } from 'react'        // 📦 0KB
-```
+```text
 
 ### **4. View Git History**
 
@@ -273,7 +273,7 @@ import { useState } from 'react'        // 📦 0KB
 // Create a responsive service card component with icon and CTA
 
 // Copilot will suggest complete component!
-```
+```text
 
 ### **6. Check Accessibility**
 
@@ -291,7 +291,7 @@ import { useState } from 'react'        // 📦 0KB
 >
   <span className="icon-only"></span>
 </button>
-```
+```text
 
 ---
 
@@ -365,7 +365,7 @@ Your `.vscode/settings.json` now includes:
 
 ```bash
 code --install-extension GoogleChrome.lighthouse
-```
+```text
 
 **Use when:** Running performance audits  
 **Benefit:** Test without leaving VS Code
@@ -374,7 +374,7 @@ code --install-extension GoogleChrome.lighthouse
 
 ```bash
 code --install-extension LaurentTreguier.vscode-image-optimizer
-```
+```text
 
 **Use when:** Adding images to `public/images/`  
 **Benefit:** Right-click → Optimize Image
@@ -383,7 +383,7 @@ code --install-extension LaurentTreguier.vscode-image-optimizer
 
 ```bash
 code --install-extension jsayol.firebase-explorer
-```
+```text
 
 **Use when:** Debugging Firebase data  
 **Benefit:** Browse collections in VS Code
@@ -402,7 +402,7 @@ If you install Lighthouse, add:
     "seo"
   ]
 }
-```
+```text
 
 ---
 
@@ -416,7 +416,7 @@ If you install Lighthouse, add:
 // Use Tailwind classes from PAGE_LAYOUT_STANDARDS.md
 
 // Copilot will generate the entire grid!
-```
+```text
 
 ### **2. Keyboard Shortcuts**
 
@@ -477,7 +477,7 @@ All extension documentation is current:
 - ✅ [VSCODE_EXTENSIONS_SETUP_SUMMARY.md](./VSCODE_EXTENSIONS_SETUP_SUMMARY.md) - Quick summary
 - ✅ `.vscode/extensions.json` - Team recommendations
 - ✅ `.vscode/settings.json` - **OPTIMIZED** (just updated!)
-- ✅ [docs/README.md](../README.md) - Master index
+- ✅ [docs/NAVIGATION.md](../NAVIGATION.md) - Master navigation index
 
 ---
 

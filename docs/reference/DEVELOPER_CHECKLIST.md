@@ -21,7 +21,7 @@ npm run build
 
 # Check linting
 npm run lint
-```
+```text
 
 ### ✅ Approved Icon Usage
 
@@ -30,7 +30,7 @@ npm run lint
 <MaterialIcon icon="construction" size="lg" className="text-brand-primary" />
 <MaterialIcon icon="military_tech" size="md" />
 <MaterialIcon icon="event" size="sm" className="text-blue-600" />
-```
+```text
 
 ### ❌ Policy Violations
 
@@ -40,7 +40,7 @@ npm run lint
 <button>📅 Schedule</button>
 title: 'Update 🎯'
 console.log('Debug 🔧')
-```
+```text
 
 ### 📝 Exception: Documentation
 

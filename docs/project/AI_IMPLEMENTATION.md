@@ -36,7 +36,7 @@
 - Enhanced Progress Bars with Visual Indicators
 - Form Validation with Helpful Error Messages
 - Size Input Formatting and Real-time Validation
-```
+```text
 
 **Performance Impact**:
 
@@ -67,7 +67,7 @@
 - "Mission Timeline Planning" (scheduling)
 - "Tactical Assessment" (project analysis)
 - "Combat Veteran Protocols" (veteran services)
-```
+```text
 
 **Advanced Features**:
 
@@ -86,7 +86,7 @@
 - Draggable Interface with Boundaries
 - Real-time Message Processing
 - Veteran Recognition Protocols
-```
+```text
 
 ### ✅ Phase 4: Business Integration & Lead Generation (v4.0.0)
 
@@ -110,7 +110,7 @@
 - Predictive form completion (context-aware suggestions)
 - Advanced validation system (real-time feedback)
 - useSmartFormAssistant hook (form intelligence integration)
-```
+```text
 
 **Business Impact**:
 
@@ -224,7 +224,7 @@
   </div>
   {/* Global AI Assistant - Always Available */}
 </GlobalChatbotProvider>
-```
+```text
 
 ### AI Response Generation
 
@@ -239,7 +239,7 @@ export class MilitaryConstructionAI {
     return militaryStyledResponse
   }
 }
-```
+```text
 
 ### Real-Time Pricing Engine
 
@@ -261,7 +261,7 @@ const enhancedFeatures = {
     spring: 1.05, summer: 1.10, fall: 1.0, winter: 0.95
   }
 }
-```
+```text
 
 ## 🎖️ Veteran Recognition System
 
@@ -275,7 +275,7 @@ const veteranProtocols = {
   airforce: "**AIM HIGH!** ✈️ Air Force precision engineering",
   coastguard: "**SEMPER PARATUS!** 🚢 Coast Guard ready - always prepared"
 }
-```
+```text
 
 ### Automatic Benefits Application
 
@@ -307,7 +307,7 @@ const veteranProtocols = {
 - Veteran analysis with service branch detection
 - Predictive form completion with context sync
 - Advanced validation with real-time feedback
-```
+```text
 
 **Performance Impact**:
 

@@ -54,7 +54,7 @@ nvm alias default 18
 # Verify installation
 node --version    # Should show v18.x.x
 npm --version     # Should show 8.x.x or higher
-```
+```text
 
 **Direct Installation:**
 
@@ -75,7 +75,7 @@ sudo apt update && sudo apt install git
 
 # Windows
 # Download from https://git-scm.com/download/win
-```
+```text
 
 **Configuration:**
 
@@ -83,7 +83,7 @@ sudo apt update && sudo apt install git
 git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
 git config --global init.defaultBranch main
-```
+```text
 
 ### 3. Code Editor
 
@@ -115,14 +115,14 @@ git clone git@github.com:Ramsey-USA/mh-website.git
 
 # Navigate to project directory
 cd mh-website
-```
+```text
 
 **Verify repository structure:**
 
 ```bash
 ls -la
 # Should show: package.json, src/, docs/, public/, etc.
-```
+```text
 
 ### 2. Environment Configuration
 
@@ -136,7 +136,7 @@ cp .env.example .env.local
 code .env.local
 # or
 nano .env.local
-```
+```text
 
 **Required environment variables:**
 
@@ -156,7 +156,7 @@ NEXT_PUBLIC_ENVIRONMENT=development
 
 # Optional: Analytics
 NEXT_PUBLIC_GA_MEASUREMENT_ID=your_ga_measurement_id
-```
+```text
 
 ### 3. Dependencies Installation
 
@@ -168,7 +168,7 @@ npm install
 
 # Verify installation
 npm list --depth=0
-```
+```text
 
 **Common installation issues:**
 
@@ -180,7 +180,7 @@ npm install
 
 # For permission issues on macOS/Linux
 sudo chown -R $(whoami) ~/.npm
-```
+```text
 
 ### 4. Development Server
 
@@ -192,7 +192,7 @@ npm run dev
 
 # Server should start at http://localhost:3000
 # Open browser and navigate to the URL
-```
+```text
 
 **Verify development setup:**
 
@@ -205,7 +205,7 @@ npm run lint
 
 # Run type checking
 npm run type-check
-```
+```text
 
 ---
 
@@ -237,7 +237,7 @@ firebase login
 
 # Test authentication
 firebase projects:list
-```
+```text
 
 ### 3. Firebase Configuration
 
@@ -257,7 +257,7 @@ firebase init
 # - Use default Firestore rules
 # - Choose 'out' as public directory for hosting
 # - Don't rewrite all URLs to index.html
-```
+```text
 
 ### 4. Environment Variables
 
@@ -277,7 +277,7 @@ firebase emulators:start --only firestore
 # Test hosting emulator
 npm run build
 firebase serve
-```
+```text
 
 ---
 
@@ -299,7 +299,7 @@ firebase serve
     "christian-kohler.path-intellisense"
   ]
 }
-```
+```text
 
 ### Recommended Extensions
 
@@ -314,7 +314,7 @@ firebase serve
     "github.copilot"
   ]
 }
-```
+```text
 
 ### VSCode Settings
 
@@ -337,7 +337,7 @@ firebase serve
     ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ]
 }
-```
+```text
 
 ---
 
@@ -361,7 +361,7 @@ npm run type-check      # TypeScript validation
 # Firebase
 npm run firebase:serve  # Local Firebase hosting
 npm run firebase:deploy # Deploy to Firebase
-```
+```text
 
 ### 2. Debugging Setup
 
@@ -397,7 +397,7 @@ Create `.vscode/launch.json`:
     }
   ]
 }
-```
+```text
 
 ### 3. Git Hooks (Optional)
 
@@ -412,7 +412,7 @@ npx husky install
 
 # Add pre-commit hook
 npx husky add .husky/pre-commit "npm run lint && npm run type-check"
-```
+```text
 
 ---
 
@@ -423,7 +423,7 @@ npx husky add .husky/pre-commit "npm run lint && npm run type-check"
 ```bash
 # Install testing dependencies (when implemented)
 npm install --save-dev jest @testing-library/react @testing-library/jest-dom
-```
+```text
 
 ### Test Configuration
 
@@ -446,7 +446,7 @@ const customJestConfig = {
 }
 
 module.exports = createJestConfig(customJestConfig)
-```
+```text
 
 ---
 
@@ -473,7 +473,7 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
-```
+```text
 
 ### Build Performance
 
@@ -485,7 +485,7 @@ npm run build -- --analyze
 
 # Check build performance
 time npm run build
-```
+```text
 
 ---
 
@@ -504,7 +504,7 @@ kill $(lsof -ti:3000)
 
 # Or use different port
 npm run dev -- -p 3001
-```
+```text
 
 **2. Node version issues:**
 
@@ -517,7 +517,7 @@ nvm use 18
 
 # Set as default
 nvm alias default 18
-```
+```text
 
 **3. Permission errors:**
 
@@ -531,7 +531,7 @@ mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.profile
 source ~/.profile
-```
+```text
 
 **4. Firebase connection issues:**
 
@@ -545,7 +545,7 @@ firebase use --add
 
 # Test connection
 firebase projects:list
-```
+```text
 
 **5. TypeScript errors:**
 
@@ -556,7 +556,7 @@ npx tsc --build --clean
 
 # Restart TypeScript server in VSCode
 # Cmd/Ctrl + Shift + P → "TypeScript: Restart TS Server"
-```
+```text
 
 ### Performance Issues
 
@@ -569,7 +569,7 @@ npm install
 
 # Check for large dependencies
 npm ls --depth=0 --long
-```
+```text
 
 **2. Memory issues:**
 
@@ -577,7 +577,7 @@ npm ls --depth=0 --long
 # Increase Node memory limit
 export NODE_OPTIONS="--max-old-space-size=4096"
 npm run build
-```
+```text
 
 ### Network Issues
 
@@ -590,7 +590,7 @@ npm config set https-proxy http://proxy.company.com:8080
 
 # Use different registry
 npm config set registry https://registry.npmmirror.com/
-```
+```text
 
 ---
 
@@ -620,7 +620,7 @@ After completing setup, verify everything works:
 $ npm run dev
 ready - started server on 0.0.0.0:3000, url: http://localhost:3000
 event - compiled client and server successfully
-```
+```text
 
 **Browser should display:**
 

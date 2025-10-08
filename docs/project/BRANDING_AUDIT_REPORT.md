@@ -91,7 +91,7 @@ This audit reviews all 6 pages of the MH Construction website to ensure consiste
     Veteran-owned excellence where your success comes first
   </p>
 </section>
-```
+```text
 
 ---
 
@@ -348,7 +348,7 @@ export function BrandTagline({
     </div>
   )
 }
-```
+```text
 
 ### **Veteran Badge Component**
 
@@ -362,7 +362,7 @@ export function VeteranBadge({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
     </div>
   )
 }
-```
+```text
 
 ---
 

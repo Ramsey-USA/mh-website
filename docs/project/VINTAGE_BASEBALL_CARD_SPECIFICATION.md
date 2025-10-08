@@ -45,7 +45,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
     height: 336px;
   }
 }
-```
+```text
 
 ### **Border & Frame System**
 
@@ -74,7 +74,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   --admin-card-color: #7c2d12;          /* Burnt Orange */
   --mascot-card-color: #a16207;         /* Golden Brown */
 }
-```
+```text
 
 ---
 
@@ -128,7 +128,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   top: 12px;
   right: 12px;
 }
-```
+```text
 
 ### **Player Image Styling**
 
@@ -162,7 +162,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   color: #888;
   font-size: 48px;
 }
-```
+```text
 
 ### **Typography System - Front**
 
@@ -227,7 +227,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   text-shadow: none;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
-```
+```text
 
 ### **MH Construction Branding Integration**
 
@@ -258,7 +258,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-```
+```text
 
 ---
 
@@ -286,7 +286,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
 .back-stats      { height: 120px; }  /* Statistics table */
 .back-bio        { height: 140px; }  /* Biography text */
 .back-footer     { height: 40px; }   /* Branding/copyright */
-```
+```text
 
 ### **Header Section - Player Vitals**
 
@@ -329,7 +329,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
 .vital-value {
   font-weight: 400;
 }
-```
+```text
 
 ### **Statistics Section**
 
@@ -380,7 +380,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   background: rgba(var(--card-color-rgb), 0.1);
   font-weight: 600;
 }
-```
+```text
 
 ### **Biography Section**
 
@@ -416,7 +416,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
 .bio-text p:last-child {
   margin-bottom: 0;
 }
-```
+```text
 
 ### **Footer Branding**
 
@@ -454,7 +454,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   background: rgba(255,255,255,0.3);
   border-radius: 2px;
 }
-```
+```text
 
 ---
 
@@ -515,7 +515,7 @@ Transform the current modern baseball cards into authentic vintage-style cards t
   font-style: italic;
   pointer-events: none;
 }
-```
+```text
 
 ---
 
@@ -550,7 +550,7 @@ interface VintageTeamMember extends TeamMember {
   };
   funFact?: string;             // Vintage card "fun fact"
 }
-```
+```text
 
 ### **Department Card Colors**
 
@@ -582,7 +582,7 @@ const VINTAGE_CARD_COLORS = {
     name: 'MASCOT GOLD'
   }
 } as const;
-```
+```text
 
 ---
 
@@ -635,7 +635,7 @@ const VINTAGE_CARD_COLORS = {
   background-repeat: repeat;
   mix-blend-mode: overlay;
 }
-```
+```text
 
 ### **Accessibility Enhancements**
 
@@ -651,7 +651,7 @@ const VINTAGE_CARD_COLORS = {
   .card-inner { transition: none; }
   .card-container:hover { transform: none; }
 }
-```
+```text
 
 ### **Responsive Breakpoints**
 
@@ -667,7 +667,7 @@ const VINTAGE_CARD_COLORS = {
 @media (min-width: 768px) and (max-width: 1024px) {
   .vintage-baseball-card { width: 260px; height: 364px; }
 }
-```
+```text
 
 ---
 

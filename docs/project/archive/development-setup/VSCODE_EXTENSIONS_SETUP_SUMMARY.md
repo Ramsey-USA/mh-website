@@ -29,7 +29,7 @@
 
 ### **3. Documentation Updated**
 
-📄 **`docs/README.md`**
+📄 **`docs/NAVIGATION.md`**
 
 - Added link to extensions guide in Development section
 - Marked as ⭐ NEW for visibility
@@ -185,7 +185,7 @@ Edit `.vscode/settings.json` to add:
   "gitlens.currentLine.enabled": true,
   "gitlens.codeLens.enabled": true
 }
-```
+```text
 
 ---
 
@@ -207,21 +207,21 @@ const ComponentName = () => {
 }
 
 export default ComponentName
-```
+```text
 
 ### **2. Tailwind Autocomplete**
 
 ```tsx
 <div className="bg-|">  // Press Ctrl+Space
 // Suggestions: bg-red-500, bg-blue-600, bg-gray-100, etc.
-```
+```text
 
 ### **3. Check Bundle Size**
 
 ```tsx
 import { motion } from 'framer-motion'  // Shows: 📦 79.8KB
 import { useState } from 'react'        // Shows: 📦 0KB
-```
+```text
 
 ### **4. View Firebase Data**
 

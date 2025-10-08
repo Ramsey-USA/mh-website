@@ -33,7 +33,7 @@
 - React useEffect dependencies: Complete hook dependency arrays
 - metadataBase: Configured for social media image resolution
 - Next.js Image optimization: 9 components migrated
-```
+```text
 
 ### 📦 **5.2: Bundle Optimization & Code Splitting**
 
@@ -66,7 +66,7 @@ export const createLazyComponent = <T extends React.ComponentType<any>>(
 - loadAIEstimator(): On-demand AI estimator loading
 - loadFormAssistantModule(): Smart form assistant loading
 - LazySmartFormAssistant: Lazy-loaded form component
-```
+```text
 
 **Performance Impact**:
 
@@ -100,7 +100,7 @@ export const createLazyComponent = <T extends React.ComponentType<any>>(
   priority // For above-the-fold images
   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 />
-```
+```text
 
 **Performance Benefits**:
 
@@ -140,7 +140,7 @@ export class FormDataCache {
   - Form-specific data isolation
   - Recovery mechanisms for incomplete forms
 }
-```
+```text
 
 **Caching Features**:
 
@@ -180,7 +180,7 @@ export class PerformanceMonitor {
 - Form completion rate monitoring
 - Error tracking with severity levels
 - Performance report generation
-```
+```text
 
 **Monitoring Capabilities**:
 
@@ -238,7 +238,7 @@ src/lib/performance/
 ├── caching-system.ts         // AI response & form data caching
 ├── performance-monitoring.ts // Web Vitals & analytics
 └── index.ts                 // Combined performance utilities
-```
+```text
 
 ### Integration Points
 
@@ -259,7 +259,7 @@ tracker.finish(true, false) // success, cache hit
 
 // Form Data Persistence
 const { saveFormData, loadFormData } = useFormPersistence('contact-form')
-```
+```text
 
 ### Key Performance Features
 

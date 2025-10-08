@@ -154,7 +154,7 @@ specialty-tags: amber-200 background, amber-800 textfront/back: amber-50 via ora
 
 stats: amber-600 colorborder: amber-300
 
-```
+```text
 
 /*Card Background*/
 
@@ -230,7 +230,7 @@ type TeamMember = {  bio: string
 
 ```function getRoleIcon(role: string): string
 
-```
+```text
 
 ### Key Functions- Maps job titles to Material Design icons
 
@@ -244,7 +244,7 @@ function getRoleIcon(role: string): string```typescript
 
 ```function getVeteranStatusBadge(status?: string)
 
-```
+```text
 
 - Maps job titles to Material Design icons- Displays appropriate military branch icons
 

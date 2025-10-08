@@ -16,7 +16,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     View Our Work
   </Button>
 </div>
-```
+```text
 
 ## 📞 **Contact Sections**
 
@@ -36,7 +36,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     Send Email
   </Button>
 </div>
-```
+```text
 
 ## 📅 **Booking/Scheduling**
 
@@ -53,7 +53,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     Get Instant Estimate
   </Button>
 </div>
-```
+```text
 
 ## 🏗️ **Service Cards**
 
@@ -71,7 +71,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     <MaterialIcon icon="share" className="w-5 h-5" />
   </Button>
 </div>
-```
+```text
 
 ## 📱 **Mobile Navigation**
 
@@ -93,7 +93,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     About Us
   </Button>
 </div>
-```
+```text
 
 ## 📝 **Form Actions**
 
@@ -113,7 +113,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     Submit
   </Button>
 </div>
-```
+```text
 
 ## 🎯 **Project Estimation**
 
@@ -136,7 +136,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     </Button>
   </div>
 </div>
-```
+```text
 
 ## 👥 **Team/About Section**
 
@@ -157,7 +157,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     </Button>
   </div>
 </div>
-```
+```text
 
 ## 🏢 **Government/Commercial**
 
@@ -174,7 +174,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     Commercial Services
   </Button>
 </div>
-```
+```text
 
 ## 🎨 **Portfolio/Gallery**
 
@@ -196,7 +196,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     View All Projects
   </Button>
 </div>
-```
+```text
 
 ## 🔧 **Settings/Admin**
 
@@ -218,7 +218,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     Sign Out
   </Button>
 </div>
-```
+```text
 
 ## 🌙 **Theme Toggle Integration**
 
@@ -232,7 +232,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     Customize
   </Button>
 </div>
-```
+```text
 
 ## 📱 **Responsive Patterns**
 
@@ -253,7 +253,7 @@ This file demonstrates proper implementation of the cohesive button system acros
     <span className="sm:hidden">Email</span>
   </Button>
 </div>
-```
+```text
 
 ---
 

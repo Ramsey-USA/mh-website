@@ -24,7 +24,7 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon'
 <MaterialIcon icon="military_tech" size="md" />
 <MaterialIcon icon="event" size="sm" />
 <MaterialIcon icon="phone" size="xl" className="text-blue-600" />
-```
+```text
 
 #### Semantic Icon Mapping
 
@@ -48,7 +48,7 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon'
 const response = `**TACTICAL ASSESSMENT** [GPS_FIXED]
 Mission parameters received [CHECK_CIRCLE]
 Veteran status confirmed [MILITARY_TECH]`
-```
+```text
 
 ### ❌ PROHIBITED PRACTICES
 
@@ -61,7 +61,7 @@ Veteran status confirmed [MILITARY_TECH]`
 title: 'Project Update 🎯'
 
 console.log('🔧 Debug message')
-```
+```text
 
 #### Invalid Icon Approaches
 
@@ -76,7 +76,7 @@ import { FaHammer } from 'react-icons/fa'
 // ❌ Don't use emoji unicode
 <span>&#x1F3D7;</span>
 
-```
+```text
 
 ### 📋 ACCEPTABLE EMOJI USAGE
 
@@ -96,7 +96,7 @@ import { FaHammer } from 'react-icons/fa'
 
 - 🎯 Deploy to production
 - 📊 Monitor performance
-```
+```text
 
 ### 🔧 IMPLEMENTATION STANDARDS
 
@@ -121,7 +121,7 @@ import { FaHammer } from 'react-icons/fa'
   size="lg" 
   className="text-brand-primary dark:text-brand-primary-light" 
 />
-```
+```text
 
 #### Accessibility Requirements
 
@@ -135,7 +135,7 @@ import { FaHammer } from 'react-icons/fa'
   aria-label="Contact phone number"
 />
 
-```
+```text
 
 ### 🎯 ENFORCEMENT
 
@@ -246,7 +246,7 @@ MH Construction maintains a strict policy prohibiting bubble-style headings in a
     Main Title
   </span>
 </h2>
-```
+```text
 
 #### ❌ PROHIBITED BUBBLE STYLES
 
@@ -263,7 +263,7 @@ MH Construction maintains a strict policy prohibiting bubble-style headings in a
 <div className="bg-gradient-to-r from-brand-primary/20 to-brand-secondary/20 rounded-full px-6 py-2">
   Section Badge
 </div>
-```
+```text
 
 #### Benefits of Clean Headers
 
@@ -325,7 +325,7 @@ All cards showing additional information must utilize card flipping animations t
     </div>
   </div>
 </div>
-```
+```text
 
 #### Required CSS Classes
 
@@ -335,7 +335,7 @@ All cards showing additional information must utilize card flipping animations t
 .preserve-3d { transform-style: preserve-3d; }
 .backface-hidden { backface-visibility: hidden; }
 .rotate-y-180 { transform: rotateY(180deg); }
-```
+```text
 
 #### Card Flip Guidelines
 
@@ -366,7 +366,7 @@ All Hero sections across the website must follow the current state of the home p
   subtitle="Supporting subtitle that explains the page focus"
   description="Detailed description providing context and value proposition for the visitor."
 />
-```
+```text
 
 #### PageHero Component Features
 
@@ -391,7 +391,7 @@ interface PageHeroProps {
 title: "text-4xl sm:text-5xl md:text-6xl lg:text-7xl" // Large, bold statement
 subtitle: "text-xl sm:text-2xl md:text-3xl" // Supporting context
 description: "text-lg md:text-xl" // Detailed explanation
-```
+```text
 
 #### Hero Content Guidelines
 
@@ -417,7 +417,7 @@ description: "text-lg md:text-xl" // Detailed explanation
 // ❌ Don't use different typography scales
 <h1 className="text-2xl">Small Title</h1> // Too small
 <h1 className="text-9xl">Huge Title</h1>  // Too large
-```
+```text
 
 #### Benefits of Hero Consistency
 
@@ -442,7 +442,7 @@ description: "text-lg md:text-xl" // Detailed explanation
 <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
   Section Title
 </h2>
-```
+```text
 
 ### **✅ INFORMATIONAL CARDS** (Must Flip)
 
@@ -454,7 +454,7 @@ description: "text-lg md:text-xl" // Detailed explanation
     <div className="absolute inset-0 backface-hidden rotate-y-180">{/* Back */}</div>
   </div>
 </div>
-```
+```text
 
 ### **✅ HERO SECTIONS** (Consistent Pattern)
 
@@ -465,7 +465,7 @@ description: "text-lg md:text-xl" // Detailed explanation
   subtitle="Supporting context"
   description="Detailed value proposition"
 />
-```
+```text
 
 ### **❌ PROHIBITED PATTERNS**
 
@@ -478,7 +478,7 @@ description: "text-lg md:text-xl" // Detailed explanation
 
 // ❌ No custom hero layouts
 <section className="py-20"><h1>Custom Hero</h1></section>
-```
+```text
 
 ### **📚 REFERENCE DOCUMENTS**
 

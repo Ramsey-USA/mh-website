@@ -40,7 +40,7 @@ Complete update to the Footer component to activate all new pages and remove "Co
 
 ```tsx
 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary text-sm transition-all hover:translate-x-1 duration-300"
-```
+```text
 
 **Hover Effects:**
 
@@ -60,7 +60,7 @@ className="group flex items-center space-x-2 text-gray-300 hover:text-brand-prim
   <MaterialIcon icon="schedule" size="sm" className="text-gray-500" />
   <span>Website updates coming soon</span>
 </div>
-```
+```text
 
 **Added:**
 
@@ -69,7 +69,7 @@ className="group flex items-center space-x-2 text-gray-300 hover:text-brand-prim
   <MaterialIcon icon="location_on" size="sm" className="text-brand-primary" />
   <span>Serving WA, OR, & ID</span>
 </div>
-```
+```text
 
 **New Bottom Bar Items:**
 
@@ -109,7 +109,7 @@ className="group flex items-center space-x-2 text-gray-300 hover:text-brand-prim
     <div>Copyright, Veteran-owned, Additional Info</div>
   </div>
 </footer>
-```
+```text
 
 ### Responsive Behavior
 
@@ -195,7 +195,7 @@ className="group flex items-center space-x-2 text-gray-300 hover:text-brand-prim
   <span>About Us</span>
   <MaterialIcon icon="schedule" />
 </div>
-```
+```text
 
 **After:**
 
@@ -205,7 +205,7 @@ className="group flex items-center space-x-2 text-gray-300 hover:text-brand-prim
   <span>About Us</span>
   <MaterialIcon icon="arrow_forward" />
 </Link>
-```
+```text
 
 ### Schedule Icons Removed
 
@@ -308,7 +308,7 @@ Add email capture in Column 3:
 ```tsx
 <input type="email" placeholder="Subscribe to updates" />
 <button>Subscribe</button>
-```
+```text
 
 ---
 

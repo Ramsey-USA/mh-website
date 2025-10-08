@@ -23,7 +23,7 @@ Client Experience Journey:
 ├── Partnership: Building side-by-side with constant communication
 ├── Celebration: Sharing in the joy of your completed project
 └── Community: Becoming part of the extended MH family
-```
+```text
 
 #### **🌍 Community-Centered Culture**
 
@@ -44,7 +44,7 @@ Regional Commitment:
 ├── Community Projects: Supporting local nonprofits and organizations
 ├── Skill Development: Training the next generation of craftspeople
 └── Economic Growth: Contributing to regional prosperity and stability
-```
+```text
 
 #### **💡 Why Partnership Matters**
 

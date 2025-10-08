@@ -24,7 +24,7 @@
   --brand-secondary-light: #c9a176;   /* Lighter tan for hover states */
   --brand-secondary-dark: #a67d52;    /* Darker tan for active states */
 }
-```
+```text
 
 ### **Neutral Colors - Light/Dark Mode Compatible**
 
@@ -58,7 +58,7 @@
     --color-border-light: #475569;    /* Light borders */
   }
 }
-```
+```text
 
 ### **Status & Accent Colors**
 
@@ -80,7 +80,7 @@
 --veteran-red: #dc2626;            /* Red for veteran badges */
 --veteran-blue: #1d4ed8;           /* Blue for veteran elements */
 --veteran-gold: #ca8a04;           /* Gold for veteran honors */
-```
+```text
 
 ---
 
@@ -93,7 +93,7 @@
 --font-heading: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
 --font-body: 'Inter', 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
 --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', monospace;
-```
+```text
 
 ### **Responsive Typography Scale**
 
@@ -109,7 +109,7 @@
 --text-4xl: clamp(2.25rem, 1.9rem + 1.2vw, 2.75rem);   /* 36px-44px */
 --text-5xl: clamp(2.5rem, 2.1rem + 1.4vw, 3.25rem);    /* 40px-52px */
 --text-6xl: clamp(3rem, 2.4rem + 1.6vw, 3.75rem);      /* 48px-60px - Maximum */
-```
+```text
 
 ### **Line Heights & Spacing**
 
@@ -131,7 +131,7 @@
 --font-semibold: 600;
 --font-bold: 700;
 --font-black: 900;
-```
+```text
 
 ---
 
@@ -163,7 +163,7 @@
   outline: none;
   box-shadow: 0 0 0 3px rgba(56, 104, 81, 0.3);
 }
-```
+```text
 
 #### **Secondary Button (Leather Tan)**
 
@@ -184,7 +184,7 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(189, 146, 100, 0.35);
 }
-```
+```text
 
 #### **Outline Buttons**
 
@@ -205,7 +205,7 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(56, 104, 81, 0.2);
 }
-```
+```text
 
 #### **Button Sizes**
 
@@ -214,7 +214,7 @@
 .btn-md { padding: 0.75rem 1.5rem; font-size: 1rem; }     /* Default */
 .btn-lg { padding: 1rem 2rem; font-size: 1.125rem; }
 .btn-xl { padding: 1.25rem 2.5rem; font-size: 1.25rem; }
-```
+```text
 
 ### **Card Components**
 
@@ -245,7 +245,7 @@
   color: var(--color-text-primary);
   margin: 0;
 }
-```
+```text
 
 ### **Form Elements**
 
@@ -279,7 +279,7 @@
   font-size: var(--text-sm);
   margin-top: 0.25rem;
 }
-```
+```text
 
 ---
 
@@ -317,7 +317,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
     </span>
   );
 };
-```
+```text
 
 ### **Icon Usage Examples**
 
@@ -335,7 +335,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 <MaterialIcon name="check_circle" size="sm" className="text-green-500" />
 <MaterialIcon name="error" size="sm" className="text-red-500" />
 <MaterialIcon name="info" size="sm" className="text-blue-500" />
-```
+```text
 
 ---
 
@@ -365,7 +365,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 --space-20: 5rem;         /* 80px */
 --space-24: 6rem;         /* 96px */
 --space-32: 8rem;         /* 128px */
-```
+```text
 
 ### **Responsive Container System**
 
@@ -398,7 +398,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 @media (min-width: 1536px) {
   .container { max-width: 1536px; }
 }
-```
+```text
 
 ### **Section Layouts**
 
@@ -428,7 +428,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
     padding-bottom: 4rem;
   }
 }
-```
+```text
 
 ---
 
@@ -455,7 +455,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 --ease-in: cubic-bezier(0.4, 0, 1, 1);
 --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-```
+```text
 
 ### **Hover Effects**
 
@@ -475,7 +475,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 .hover-glow:hover {
   box-shadow: 0 0 20px rgba(56, 104, 81, 0.3);
 }
-```
+```text
 
 ---
 
@@ -516,7 +516,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
   color: var(--color-text-primary);
   border-color: var(--color-border);
 }
-```
+```text
 
 ---
 
@@ -547,7 +547,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 .skip-link:focus {
   top: 6px;
 }
-```
+```text
 
 ### **Color Contrast Requirements**
 
@@ -574,7 +574,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 <!-- Live Regions -->
 <div aria-live="polite" id="status-message"></div>
-```
+```text
 
 ---
 
@@ -599,7 +599,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 /* 2xl: 1536px and up */
 @media (min-width: 1536px) { /* Extra large screens */ }
-```
+```text
 
 ### **Mobile Optimization**
 
@@ -628,7 +628,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
   height: auto;
   max-width: 100%;
 }
-```
+```text
 
 ---
 
@@ -652,7 +652,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
   will-change: transform;
   transform: translateZ(0); /* Force hardware acceleration */
 }
-```
+```text
 
 ### **Loading States**
 
@@ -667,7 +667,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
-```
+```text
 
 ---
 
@@ -699,7 +699,7 @@ The `BaseballCard` component creates engaging, interactive team member profiles 
   transform: scale(1.02);         /* Subtle hover growth */
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
-```
+```text
 
 ### **Color Variants**
 
@@ -724,7 +724,7 @@ The `BaseballCard` component creates engaging, interactive team member profiles 
     color: var(--brand-primary);
   }
 }
-```
+```text
 
 #### **Mascot Variant (Trigger)**
 
@@ -747,7 +747,7 @@ The `BaseballCard` component creates engaging, interactive team member profiles 
     color: #92400e;
   }
 }
-```
+```text
 
 ### **Interactive Behaviors**
 
@@ -776,7 +776,7 @@ The `BaseballCard` component creates engaging, interactive team member profiles 
 .card-back {
   transform: rotateY(180deg);
 }
-```
+```text
 
 #### **Accessibility Features**
 
@@ -797,7 +797,7 @@ The `BaseballCard` component creates engaging, interactive team member profiles 
     transform: none;
   }
 }
-```
+```text
 
 ### **Typography Hierarchy**
 
@@ -838,7 +838,7 @@ The `BaseballCard` component creates engaging, interactive team member profiles 
   font-weight: 700;        /* font-bold */
   color: var(--brand-primary);
 }
-```
+```text
 
 ### **Component Integration**
 
@@ -853,7 +853,7 @@ import type { TeamMember } from '@/lib/data/team'
 
 // Mascot (automatically detects name === 'Trigger')
 <BaseballCard member={triggerMascot} />
-```
+```text
 
 #### **Grid Layout**
 
@@ -879,7 +879,7 @@ import type { TeamMember } from '@/lib/data/team'
 @media (min-width: 1280px) {
   .team-grid { grid-template-columns: repeat(4, 1fr); } /* Large: 4 columns */
 }
-```
+```text
 
 ### **Performance Considerations**
 
@@ -897,7 +897,7 @@ import type { TeamMember } from '@/lib/data/team'
   width: 8rem;              /* w-32 */
   height: 8rem;             /* h-32 */
 }
-```
+```text
 
 ### **Design Tokens Used**
 

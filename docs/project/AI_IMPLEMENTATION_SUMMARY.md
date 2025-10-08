@@ -133,7 +133,7 @@ AI IMPLEMENTATION STACK:
     ├── Progress Tracking System
     ├── Form Validation Framework
     └── Veteran Benefits Calculator
-```
+```text
 
 ### Global Deployment
 

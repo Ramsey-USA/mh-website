@@ -43,7 +43,7 @@ xl: 1280px  /* xl: prefix */
 
 /* 2X large devices */
 2xl: 1536px  /* 2xl: prefix */
-```
+```text
 
 ### **Usage Example**
 
@@ -52,7 +52,7 @@ xl: 1280px  /* xl: prefix */
 <p className="text-base md:text-lg lg:text-xl">
   Text that scales responsively
 </p>
-```
+```text
 
 ---
 
@@ -126,7 +126,7 @@ Test at these specific widths:
 6. Test landscape orientation at each size
 7. Check dark mode at each size
 8. Verify no console errors
-```
+```text
 
 ---
 
@@ -138,7 +138,7 @@ Test at these specific widths:
 
 ```tsx
 <h2 className="text-5xl">Title</h2>
-```
+```text
 
 → 48px on mobile is huge!
 
@@ -146,7 +146,7 @@ Test at these specific widths:
 
 ```tsx
 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Title</h2>
-```
+```text
 
 → Scales from 24px (mobile) to 48px (desktop)
 
@@ -156,7 +156,7 @@ Test at these specific widths:
 
 ```tsx
 <div className="grid grid-cols-3">
-```
+```text
 
 → Forces 3 columns on mobile (too narrow!)
 
@@ -164,7 +164,7 @@ Test at these specific widths:
 
 ```tsx
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-```
+```text
 
 → 1 column mobile, 2 tablet, 3 desktop
 
@@ -174,7 +174,7 @@ Test at these specific widths:
 
 ```tsx
 <button className="h-8 px-2">Click</button>
-```
+```text
 
 → 32px height, too small for touch!
 
@@ -182,7 +182,7 @@ Test at these specific widths:
 
 ```tsx
 <button className="h-12 px-6">Click</button>
-```
+```text
 
 → 48px minimum height for accessibility
 
@@ -192,7 +192,7 @@ Test at these specific widths:
 
 ```tsx
 <div className="w-screen px-0">
-```
+```text
 
 → No padding, content touches edges!
 
@@ -200,7 +200,7 @@ Test at these specific widths:
 
 ```tsx
 <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-```
+```text
 
 → Proper padding and max width
 
@@ -210,7 +210,7 @@ Test at these specific widths:
 
 ```tsx
 <img src="..." className="w-96" />
-```
+```text
 
 → Fixed 384px width breaks mobile!
 
@@ -218,7 +218,7 @@ Test at these specific widths:
 
 ```tsx
 <img src="..." className="w-full md:w-1/2 lg:w-1/3" />
-```
+```text
 
 → Responsive width with breakpoints
 
@@ -232,7 +232,7 @@ Test at these specific widths:
 <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
   {/* Content */}
 </div>
-```
+```text
 
 - Centers content
 - Adds responsive padding
@@ -246,7 +246,7 @@ Test at these specific widths:
 
 {/* Body */}
 <p className="text-base md:text-lg lg:text-xl">
-```
+```text
 
 - Starts smaller on mobile
 - Scales up at each breakpoint
@@ -257,7 +257,7 @@ Test at these specific widths:
 <div className="gap-6 lg:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
   {/* Cards */}
 </div>
-```
+```text
 
 - Mobile: Single column
 - Tablet: 2 columns
@@ -270,7 +270,7 @@ Test at these specific widths:
 <div className="flex flex-col sm:flex-row gap-4 items-center">
   {/* Items */}
 </div>
-```
+```text
 
 - Mobile: Stacked vertically
 - Desktop: Horizontal row
@@ -283,7 +283,7 @@ Test at these specific widths:
 
 {/* Card Grid */}
 <div className="mb-10 lg:mb-12">
-```
+```text
 
 - Smaller spacing on mobile
 - Larger spacing on desktop
@@ -310,14 +310,14 @@ text-gray-900 dark:text-gray-100
 
 {/* Borders */}
 border-gray-200 dark:border-gray-700
-```
+```text
 
 ### **Toggle Dark Mode**
 
 ```javascript
 // In browser console
 document.documentElement.classList.toggle('dark')
-```
+```text
 
 ---
 
@@ -419,7 +419,7 @@ npm run test:visual
 
 # Accessibility testing
 npm run test:a11y
-```
+```text
 
 ---
 

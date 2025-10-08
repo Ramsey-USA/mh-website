@@ -113,7 +113,7 @@ Complete update to the Navigation component including new pages, hamburger menu 
 // Active Link components
 <Link href="/contact">Contact Us</Link>
 <Link href="/contact">Get Quote</Link>
-```
+```text
 
 **Button Styles:**
 
@@ -153,7 +153,7 @@ Complete update to the Navigation component including new pages, hamburger menu 
   - Shadow: shadow-md hover:shadow-lg
   - Text: White, font-medium
   - Icon: request_quote + arrow_forward (on hover)
-```
+```text
 
 **Button 2: Contact Us** (Secondary)
 
@@ -162,7 +162,7 @@ Complete update to the Navigation component including new pages, hamburger menu 
   - Background: gray-50 hover:gray-100 (light) / gray-700 hover:gray-600 (dark)
   - Text: gray-700 hover:brand-primary
   - Icon: contact_mail + arrow_forward (on hover)
-```
+```text
 
 ---
 
@@ -262,14 +262,14 @@ Complete update to the Navigation component including new pages, hamburger menu 
 text-white/40  /* Very faded */
 text-white/60  /* Somewhat faded */
 cursor-not-allowed
-```
+```text
 
 **After:** Full brightness with clean hover states
 
 ```css
 text-white hover:text-white/90  /* Bright and active */
 text-white/80 group-hover:text-white  /* Icons */
-```
+```text
 
 ### Icon Updates
 
@@ -405,7 +405,7 @@ Consider adding active page highlighting:
 ```tsx
 const pathname = usePathname()
 className={pathname === '/services' ? 'text-white font-bold' : 'text-white'}
-```
+```text
 
 ### Dropdown Menus
 
@@ -427,7 +427,7 @@ Consider adding search to hamburger menu:
 
 ```tsx
 <input type="search" placeholder="Search pages..." />
-```
+```text
 
 ---
 

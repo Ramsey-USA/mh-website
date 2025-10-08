@@ -40,7 +40,7 @@ Create a new team member object in `/src/lib/data/team.ts`:
   avatar: "/images/team/john-smith.jpg",          // Optional
   veteranStatus: "Army Veteran"                   // Optional
 }
-```
+```text
 
 ### Step 2: Add Member Photo (Optional)
 
@@ -85,7 +85,7 @@ department: "Site & Field Operations",
 // After  
 role: "Project Superintendent",
 department: "Project Management & Estimating",
-```
+```text
 
 #### Adding Specialties
 
@@ -97,14 +97,14 @@ specialties: [
   "Client Relations",
   "Safety Management"  // New specialty
 ]
-```
+```text
 
 #### Updating Experience Years
 
 ```typescript
 // Increment as time passes
 experienceYears: 9  // Was 8, now 9
-```
+```text
 
 ---
 
@@ -120,7 +120,7 @@ const isMascot = member.name === 'Trigger'
 
 // Mascot gets special amber/orange theme
 // All other team members get standard brand colors
-```
+```text
 
 ### Veteran Status Badges
 
@@ -134,7 +134,7 @@ veteranStatus: "Marine Veteran"      // Red badge with shield icon
 veteranStatus: "Coast Guard Veteran" // Cyan badge with waves icon
 veteranStatus: "Civilian Supporter"  // Amber badge with handshake icon
 veteranStatus: "Retired Leadership"  // Purple badge with premium icon
-```
+```text
 
 ### Department Organization
 
@@ -159,7 +159,7 @@ Team Page Components:
 ├── /src/components/ui/BaseballCard.tsx  # Individual card component
 ├── /src/lib/data/team.ts            # Team member data
 └── /public/images/team/             # Member photos
-```
+```text
 
 ### Key Files to Monitor
 
@@ -191,7 +191,7 @@ ls -lh /public/images/team/
 
 # Optimize large images if needed
 # Target: Under 200KB per image
-```
+```text
 
 #### Component Performance
 
@@ -306,7 +306,7 @@ For development troubleshooting, you can add temporary logging:
 console.log('Rendering card for:', member.name)
 console.log('Mascot status:', member.name === 'Trigger')
 console.log('Veteran status:', member.veteranStatus)
-```
+```text
 
 ---
 

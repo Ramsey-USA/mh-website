@@ -42,7 +42,7 @@ export default function YourPage() {
     </>
   )
 }
-```
+```text
 
 ## 📦 Standard Card Template
 
@@ -73,7 +73,7 @@ export default function YourPage() {
     </div>
   </div>
 </div>
-```
+```text
 
 ## 🎯 Common Classes - Cheat Sheet
 
@@ -132,7 +132,7 @@ export default function YourPage() {
 
 {/* Section 4 - Gradient */}
 <section className="bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900">
-```
+```text
 
 ## 📐 Grid Breakpoints
 
@@ -145,7 +145,7 @@ export default function YourPage() {
 
 {/* 2 columns */}
 <div className="gap-6 grid grid-cols-1 md:grid-cols-2">
-```
+```text
 
 ## 🎨 Gradient Text Effect
 
@@ -153,7 +153,7 @@ export default function YourPage() {
 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
   Gradient Text
 </span>
-```
+```text
 
 ## ✨ Icon Sizes
 
@@ -195,7 +195,7 @@ flex flex-col sm:flex-row
 {/* Spacing - smaller mobile, larger desktop */}
 py-12 lg:py-16
 gap-6 lg:gap-8
-```
+```text
 
 ### Touch-Friendly Standards
 

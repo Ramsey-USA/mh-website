@@ -83,7 +83,7 @@ Created comprehensive documentation extracting spacing, padding, typography, and
     {/* Content */}
   </div>
 </section>
-```
+```text
 
 ### Typography Hierarchy
 
@@ -129,7 +129,7 @@ font-light leading-relaxed tracking-wide
     <div className="mt-auto">{/* CTA */}</div>
   </div>
 </div>
-```
+```text
 
 ### Grid Systems
 
@@ -196,7 +196,7 @@ export default function ServicesPage() {
     </section>
   )
 }
-```
+```text
 
 ### Creating a New Card
 
@@ -204,7 +204,7 @@ export default function ServicesPage() {
 // Just copy the card template from PAGE_LAYOUT_QUICK_START.md
 // Replace icon, title, description, and CTA text
 // Everything else stays the same!
-```
+```text
 
 ---
 

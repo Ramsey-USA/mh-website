@@ -21,7 +21,7 @@ Ensure all MH Construction website pages work flawlessly on every screen size an
 | **PAGE_LAYOUT_STANDARDS.md** | Added comprehensive responsive section | 🔴 Critical |
 | **PAGE_LAYOUT_QUICK_START.md** | Added responsive quick tips & checklist | 🟡 High |
 | **RESPONSIVE_TESTING_GUIDE.md** | NEW - Complete testing guide | 🔴 Critical |
-| **docs/README.md** | Added responsive guide link | 🟢 Medium |
+| **docs/NAVIGATION.md** | Added responsive guide link | 🟢 Medium |
 
 ---
 
@@ -44,7 +44,7 @@ Ensure all MH Construction website pages work flawlessly on every screen size an
 
 ```tsx
 px-4 sm:px-6 lg:px-8
-```
+```text
 
 - Mobile: 16px
 - Tablet: 24px
@@ -54,7 +54,7 @@ px-4 sm:px-6 lg:px-8
 
 ```tsx
 py-12 lg:py-16
-```
+```text
 
 - Mobile/Tablet: 48px
 - Desktop: 64px
@@ -63,7 +63,7 @@ py-12 lg:py-16
 
 ```tsx
 text-2xl sm:text-3xl md:text-4xl lg:text-5xl
-```
+```text
 
 - Scales from 24px (mobile) to 48px (desktop)
 
@@ -71,7 +71,7 @@ text-2xl sm:text-3xl md:text-4xl lg:text-5xl
 
 ```tsx
 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
-```
+```text
 
 - Mobile: 1 column
 - Tablet: 2 columns
@@ -127,7 +127,7 @@ All layouts start with mobile and scale up:
   
 {/* Add larger breakpoints */}
 <div className="text-base md:text-lg lg:text-xl py-4 lg:py-6">
-```
+```text
 
 ### **Touch-Friendly Design**
 
@@ -218,7 +218,7 @@ Desktop (≥ 1024px):
 <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
   {/* Content */}
 </div>
-```
+```text
 
 → Centers, adds padding, limits width
 
@@ -228,7 +228,7 @@ Desktop (≥ 1024px):
 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
   Title
 </h2>
-```
+```text
 
 → Scales from 24px to 48px
 
@@ -238,7 +238,7 @@ Desktop (≥ 1024px):
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
   {/* Cards */}
 </div>
-```
+```text
 
 → 1 column → 2 columns → 3 columns
 
@@ -248,7 +248,7 @@ Desktop (≥ 1024px):
 <div className="flex flex-col sm:flex-row gap-4">
   {/* Items */}
 </div>
-```
+```text
 
 → Vertical on mobile, horizontal on desktop
 
@@ -257,7 +257,7 @@ Desktop (≥ 1024px):
 ```tsx
 <section className="py-12 lg:py-16">
 <div className="mb-10 lg:mb-12">
-```
+```text
 
 → Smaller mobile, larger desktop
 
@@ -327,7 +327,7 @@ A page is fully responsive when:
 ✅ Responsive section added to PAGE_LAYOUT_STANDARDS.md  
 ✅ Quick tips added to PAGE_LAYOUT_QUICK_START.md  
 ✅ Complete RESPONSIVE_TESTING_GUIDE.md created  
-✅ docs/README.md updated with links  
+✅ docs/NAVIGATION.md updated with links  
 
 ### **Standards Defined**
 
@@ -391,7 +391,7 @@ Every template, pattern, and component documented includes:
 - [RESPONSIVE_TESTING_GUIDE.md](../technical/RESPONSIVE_TESTING_GUIDE.md)
 - [PAGE_LAYOUT_STANDARDS.md](../technical/PAGE_LAYOUT_STANDARDS.md)
 - [PAGE_LAYOUT_QUICK_START.md](../technical/PAGE_LAYOUT_QUICK_START.md)
-- [docs/README.md](../README.md)
+- [docs/NAVIGATION.md](../NAVIGATION.md)
 
 ### **Live Examples**
 

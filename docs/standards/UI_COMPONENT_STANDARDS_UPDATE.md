@@ -129,7 +129,7 @@
 .text-5xl { font-size: 3rem; }
 .text-6xl { font-size: 3.75rem; }
 .text-7xl { font-size: 4.5rem; }
-```
+```text
 
 ### **Component Dependencies**
 

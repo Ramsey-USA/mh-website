@@ -112,7 +112,7 @@ cp docs/business/team/TEMPLATE.md docs/business/team/[slug].md
 
 # Update with actual data from vintage-team.ts
 # Follow field mapping table above
-```
+```text
 
 ### Manual Updates
 

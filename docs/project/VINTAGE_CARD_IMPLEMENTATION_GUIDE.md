@@ -293,7 +293,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
     </div>
   )
 }
-```
+```text
 
 ---
 
@@ -837,7 +837,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
     border-radius: 2px;
   }
 }
-```
+```text
 
 ---
 
@@ -938,7 +938,7 @@ export const vintageTeamMembers: VintageTeamMember[] = [
   
   // Add more team members with vintage data...
 ]
-```
+```text
 
 ---
 
@@ -1016,7 +1016,7 @@ export default function TeamPage() {
     </div>
   )
 }
-```
+```text
 
 ---
 

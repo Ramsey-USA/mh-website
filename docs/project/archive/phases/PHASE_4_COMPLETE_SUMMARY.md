@@ -34,7 +34,7 @@
 - Real-time field validation with military-style feedback
 - Context-aware suggestions based on user input
 - Progress tracking with completion percentage
-```
+```text
 
 ### 🎯 **4.2: Lead Qualification Engine**
 
@@ -81,7 +81,7 @@
 - Disabled veteran recognition (VA ratings, disabilities)
 - Multiple tour detection and rank identification
 - Service era classification (GWOT, Gulf War, Cold War, etc.)
-```
+```text
 
 **Priority Processing Matrix**:
 
@@ -194,7 +194,7 @@ Phase 4 Implementation:
 ├── src/components/chatbot/GlobalChatbot.tsx (enhanced)
 ├── src/app/contact/page.tsx (integrated)
 └── src/app/booking/page.tsx (integrated)
-```
+```text
 
 ### Enhanced AI Methods
 
@@ -207,7 +207,7 @@ Phase 4 Implementation:
 - generateSmartFormSuggestions(): Intelligent suggestions
 - processVeteranPriority(): Priority processing
 - generatePredictiveCompletion(): Smart completion
-```
+```text
 
 ---
 

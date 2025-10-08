@@ -207,7 +207,7 @@
 <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
   Enhanced description text with automatic theme adaptation
 </p>
-```
+```text
 
 #### **Standardized CTAs**
 
@@ -228,7 +228,7 @@
 <Button variant="outline" size="xl" className="shadow-xl bg-transparent border-white text-white hover:bg-white hover:text-brand-primary">
   <span className="z-10 relative tracking-wide">Get Free Estimate</span>
 </Button>
-```
+```text
 
 #### **Optimized Spacing**
 
@@ -244,7 +244,7 @@
     </div>
   </div>
 </section>
-```
+```text
 
 ### 🚀 **Performance Metrics (v3.1.0)**
 
@@ -300,7 +300,7 @@ src/
 └── lib/
     ├── analytics/                 # ✅ NEW - Analytics utilities
     └── schema/                    # ✅ NEW - Schema markup
-```
+```text
 
 ### 🎯 **CSS Migration Status**
 

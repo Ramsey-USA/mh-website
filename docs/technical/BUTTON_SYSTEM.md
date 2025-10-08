@@ -25,7 +25,7 @@ This document establishes a cohesive button system for MH Construction's website
   <MaterialIcon icon="calendar_today" className="mr-2 w-5 h-5" />
   Schedule Consultation
 </Button>
-```
+```text
 
 ### **Secondary Buttons (Leather Tan)**
 
@@ -38,7 +38,7 @@ This document establishes a cohesive button system for MH Construction's website
   <MaterialIcon icon="download" className="mr-2 w-5 h-5" />
   Download Brochure
 </Button>
-```
+```text
 
 ### **Outline Buttons**
 
@@ -51,7 +51,7 @@ This document establishes a cohesive button system for MH Construction's website
   <MaterialIcon icon="arrow_back" className="mr-2 w-5 h-5" />
   Go Back
 </Button>
-```
+```text
 
 ### **Neutral Buttons**
 
@@ -64,7 +64,7 @@ This document establishes a cohesive button system for MH Construction's website
   <MaterialIcon icon="settings" className="mr-2 w-5 h-5" />
   Settings
 </Button>
-```
+```text
 
 ---
 
@@ -110,7 +110,7 @@ This document establishes a cohesive button system for MH Construction's website
 
 ```css
 transition-all duration-300
-```
+```text
 
 ### **Movement Effects**
 
@@ -153,7 +153,7 @@ transition-all duration-300
   <MaterialIcon icon="calendar_today" className="mr-2 w-6 h-6" />
   Schedule
 </Button>
-```
+```text
 
 ---
 
@@ -193,7 +193,7 @@ transition-all duration-300
   <MaterialIcon icon="help" className="mr-2 w-5 h-5" />
   Need Help?
 </Button>
-```
+```text
 
 ---
 
@@ -216,7 +216,7 @@ transition-all duration-300
   <MaterialIcon icon="email" className="mr-2 w-6 h-6" />
   Send Email
 </Button>
-```
+```text
 
 ### **Navigation Buttons**
 
@@ -232,7 +232,7 @@ transition-all duration-300
   <MaterialIcon icon="arrow_back" className="mr-2 w-5 h-5" />
   Go Back
 </Button>
-```
+```text
 
 ### **Action Buttons**
 
@@ -248,7 +248,7 @@ transition-all duration-300
   <MaterialIcon icon="share" className="mr-2 w-5 h-5" />
   Share Project
 </Button>
-```
+```text
 
 ---
 
@@ -267,7 +267,7 @@ transition-all duration-300
     View Portfolio
   </Button>
 </div>
-```
+```text
 
 ### **Form Actions**
 
@@ -281,7 +281,7 @@ transition-all duration-300
     Submit Form
   </Button>
 </div>
-```
+```text
 
 ### **Card Actions**
 
@@ -295,7 +295,7 @@ transition-all duration-300
     <MaterialIcon icon="favorite_border" className="w-4 h-4" />
   </Button>
 </div>
-```
+```text
 
 ---
 

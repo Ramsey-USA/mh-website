@@ -40,7 +40,7 @@ Or install manually via:
 ```tsx
 import { motion } from 'framer-motion'  // 📦 79.8KB (gzipped: 25.3KB)
 import { useState } from 'react'        // 📦 0KB (already in bundle)
-```
+```text
 
 **Usage:**
 
@@ -74,7 +74,7 @@ const name: string = 123;
 
 // After: Error shown inline ❌
 const name: string = 123; // Type 'number' is not assignable to type 'string'
-```
+```text
 
 **Usage:**
 
@@ -139,7 +139,7 @@ After: Clear formatted breakdown with highlighting showing:
 
 ```tsx
 <div className="bg-| ">  // Auto-suggests: bg-red-500, bg-blue-600, etc.
-```
+```text
 
 **Usage:**
 
@@ -155,7 +155,7 @@ After: Clear formatted breakdown with highlighting showing:
   "tailwind-sorter.autoSort": true,
   "tailwind-sorter.sortOnSave": true
 }
-```
+```text
 
 **Benefits for our site:**
 
@@ -202,7 +202,7 @@ const ComponentName = () => {
 }
 
 export default ComponentName
-```
+```text
 
 **Usage:**
 
@@ -246,7 +246,7 @@ export default ComponentName
 {
   "lighthouse.url": "http://localhost:3000"
 }
-```
+```text
 
 **Targets for our site:**
 
@@ -365,7 +365,7 @@ import Image from 'next/image'
   alt="Hero image"
   priority
 />
-```
+```text
 
 ---
 
@@ -402,7 +402,7 @@ import Image from 'next/image'
 <button onClick={handleClick} aria-label="Submit form">
   <span className="icon-only"></span>
 </button>
-```
+```text
 
 **Critical for our site:**
 
@@ -447,7 +447,7 @@ import Image from 'next/image'
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
-```
+```text
 
 ---
 
@@ -469,7 +469,7 @@ import Image from 'next/image'
     "source.fixAll.eslint": "explicit"
   }
 }
-```
+```text
 
 ---
 
@@ -494,7 +494,7 @@ import Image from 'next/image'
     "source.fixAll.markdownlint": "explicit"
   }
 }
-```
+```text
 
 ---
 
@@ -518,7 +518,7 @@ import Image from 'next/image'
 
 ```tsx
 const HomePage = () => {  // John Doe, 2 days ago: Added responsive layout
-```
+```text
 
 **2. File History:**
 
@@ -575,7 +575,7 @@ You already have `tailwind-sorter` configured. Choose ONE:
 {
   "headwind.runOnSave": true
 }
-```
+```text
 
 **Recommendation:** Keep current `tailwind-sorter` unless you have issues.
 
@@ -625,7 +625,7 @@ Add to `.vscode/settings.json`:
   "importCost.smallPackageSize": 10,
   "importCost.showCalculatingDecoration": true
 }
-```
+```text
 
 ### **2. Error Lens Settings**
 
@@ -641,7 +641,7 @@ Add to `.vscode/settings.json`:
     "cSpell"
   ]
 }
-```
+```text
 
 ### **3. Lighthouse Settings**
 
@@ -657,7 +657,7 @@ Add to `.vscode/settings.json`:
     "seo"
   ]
 }
-```
+```text
 
 ### **4. GitLens Settings**
 
@@ -669,7 +669,7 @@ GitLens works great out-of-the-box, but you can customize:
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.codeLens.enabled": true
 }
-```
+```text
 
 ---
 
@@ -736,7 +736,7 @@ Keep extensions updated for best performance:
 {
   "extensions.autoUpdate": true
 }
-```
+```text
 
 ---
 

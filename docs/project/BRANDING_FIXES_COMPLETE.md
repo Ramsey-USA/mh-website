@@ -214,7 +214,7 @@ s/text-blue-50/text-green-50/g
 s/text-blue-600/text-[#386851]/g
 s/text-blue-500/text-[#7c9885]/g
 s/bg-blue-600/bg-[#386851]/g
-```
+```text
 
 ---
 
@@ -289,7 +289,7 @@ className="bg-gradient-to-r from-blue-900 to-blue-700"
 
 // AFTER
 className="bg-gradient-to-r from-[#2d5240] via-[#386851] to-[#4a7a63]"
-```
+```text
 
 ### Icon Colors
 
@@ -299,7 +299,7 @@ className="mb-4 text-blue-600"
 
 // AFTER
 className="mb-4 text-[#386851]"
-```
+```text
 
 ### Button Styles
 
@@ -309,7 +309,7 @@ className="bg-blue-600 hover:bg-blue-700 text-white"
 
 // AFTER
 className="bg-[#386851] hover:bg-[#2d5240] text-white"
-```
+```text
 
 ---
 

@@ -151,18 +151,18 @@ This policy reflects the military values of precision, consistency, and attentio
 
 ```tsx
 <MaterialIcon icon="construction" size="lg" className="text-brand-primary" />
-```
+```text
 
 ### ❌ Policy Violation
 
 ```tsx
 <span>🏗️ Construction</span>
-```
+```text
 
 ### 📝 Documentation Exception
 
 ```markdown
 ## 🚀 Getting Started (acceptable in .md files)
-```
+```text
 
 **Questions?** Reference [DEVELOPMENT_GUIDELINES.md](./DEVELOPMENT_GUIDELINES.md) for complete details.

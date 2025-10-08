@@ -31,7 +31,7 @@ config/
 └── monitoring/
     ├── audit-ci.json           # Audit configuration
     └── lighthouserc.json       # Lighthouse CI config
-```
+```text
 
 ### **Implementation Benefits**
 

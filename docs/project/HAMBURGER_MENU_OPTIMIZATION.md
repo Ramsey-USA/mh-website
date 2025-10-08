@@ -27,7 +27,7 @@ Implemented an adaptive grid system that automatically adjusts between 3-column 
     </div>
   </div>
 </div>
-```
+```text
 
 **Responsive Grid System:**
 
@@ -216,7 +216,7 @@ Implemented an adaptive grid system that automatically adjusts between 3-column 
 /* Hover States */
 .hover:bg-gray-100.dark:hover:bg-gray-800
 .hover:text-[#386851].dark:hover:text-[#4a7c59]
-```
+```text
 
 ### Icon Specifications
 
@@ -250,7 +250,7 @@ Implemented an adaptive grid system that automatically adjusts between 3-column 
 /* Control Classes */
 .p-2.5.sm:p-3                    /* Responsive button padding */
 .w-5.h-5.sm:w-6.sm:h-6          /* Responsive button icon size */
-```
+```text
 
 ---
 

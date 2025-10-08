@@ -32,7 +32,7 @@ Instead of contractor/client language, use partnership terminology:
 build, create, develop → collaborate, partner, work together
 provide, deliver, offer → share, contribute, co-create
 handle, manage, control → guide, support, facilitate
-```
+```text
 
 ### **2. Community-Centered Focus**
 
@@ -46,7 +46,7 @@ Every project serves the broader Pacific Northwest community:
 "Creating lasting value for our neighborhood"
 "Pacific Northwest neighbors helping neighbors"
 "Local investment in local communities"
-```
+```text
 
 ### **3. Veteran Values Applied Civilly**
 
@@ -59,7 +59,7 @@ Military precision serving civilian community building:
 "Service-before-self approach to construction"
 "Honor, integrity, community commitment"
 "Leadership that serves others first"
-```
+```text
 
 ---
 
@@ -78,7 +78,7 @@ CTA Examples:
 - "Start Our Partnership" (instead of "Get Quote")
 - "Partner With Us" (instead of "Contact Us")
 - "Begin Your Journey" (instead of "Start Project")
-```
+```text
 
 ### **📞 Contact Page**
 
@@ -94,7 +94,7 @@ Contact Methods:
 - "Partnership Hotline: (509) 308-6489"
 - "collaboration@mhconstruction.com"
 - "Schedule Partnership Consultation"
-```
+```text
 
 ### **🛠️ Services Page**
 
@@ -111,7 +111,7 @@ Service Descriptions Pattern:
 Examples:
 - "Working with you to create your dream home while strengthening neighborhoods through quality craftsmanship."
 - "Partnering on commercial projects that serve both your business goals and community economic growth."
-```
+```text
 
 ### **📊 About Page**
 
@@ -132,7 +132,7 @@ Section 3: "Community Impact"
 - How each partnership strengthens Pacific Northwest
 - Local hiring, regional suppliers, community investment
 - Economic and social contributions
-```
+```text
 
 ### **🎯 Portfolio/Projects Page**
 
@@ -151,7 +151,7 @@ Emphasize collaborative language from client testimonials:
 - "MH truly worked WITH us, not just for us"
 - "They became our partners, not just our contractors"
 - "Our vision became their mission"
-```
+```text
 
 ---
 
@@ -177,7 +177,7 @@ Form Submissions:
 - "Share Your Vision"
 - "Begin Our Conversation"
 - "Start Partnership Process"
-```
+```text
 
 ### **Navigation and Menu Items**
 
@@ -189,7 +189,7 @@ Form Submissions:
 "Portfolio" → "Partnership Success Stories"
 "Team" → "Your Partners"
 "Testimonials" → "Partnership Experiences"
-```
+```text
 
 ### **Footer Messaging**
 
@@ -201,7 +201,7 @@ Company Description:
 Contact Section Header: "Let's Connect"
 Quick Links: "Partnership Resources"
 Newsletter: "Community Partnership Updates"
-```
+```text
 
 ---
 
@@ -222,7 +222,7 @@ Form Field Labels:
 
 Submission Confirmations:
 "Thank you for starting our partnership! We'll be in touch within 24 hours to begin our collaboration."
-```
+```text
 
 ### **Chat/AI Assistant**
 
@@ -234,7 +234,7 @@ Common Responses:
 - "Let me connect you with your future construction partner"
 - "I'd love to help you understand our collaborative approach"
 - "Together, we can explore the best solution for your project"
-```
+```text
 
 ---
 
@@ -250,7 +250,7 @@ Genuine: Authentic stories, real community impact
 Professional: Veteran excellence without intimidation
 Community-Minded: Local focus, neighborhood awareness
 Transparent: Honest about process, pricing, challenges
-```
+```text
 
 ### **Language Patterns**
 
@@ -272,7 +272,7 @@ Transparent: Honest about process, pricing, challenges
 "Industry standard"
 "Standard customer service"
 "Typical contractor approach"
-```
+```text
 
 ---
 
@@ -294,7 +294,7 @@ A/B Testing Opportunities:
 ├── "Our Services" vs. "Partnership Approach" navigation
 ├── Traditional vs. collaborative form language
 └── Individual vs. community-focused testimonials
-```
+```text
 
 ### **Client Feedback Integration**
 
@@ -312,7 +312,7 @@ Focus on partnership language in client stories:
 - Community impact awareness
 - Long-term relationship development
 - Trust and transparency experiences
-```
+```text
 
 ---
 
