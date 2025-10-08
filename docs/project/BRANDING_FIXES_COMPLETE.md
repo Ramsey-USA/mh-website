@@ -375,12 +375,12 @@ className="bg-[#386851] hover:bg-[#2d5240] text-white"
    }
    ```
 
-2. **Create Brand Color Components:** Reusable components with brand colors built-in
+1. **Create Brand Color Components:** Reusable components with brand colors built-in
    - `<BrandButton />` - Always uses Hunter Green
    - `<BrandIcon />` - Automatically applies brand colors
    - `<BrandHero />` - Consistent hero section styling
 
-3. **Documentation:** Create visual style guide showing all brand color applications
+2. **Documentation:** Create visual style guide showing all brand color applications
 
 ### Why Not Done Now
 

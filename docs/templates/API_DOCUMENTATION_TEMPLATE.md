@@ -47,13 +47,13 @@ npm run start
    npm install
    ```
 
-2. **Configure environment**:
+1. **Configure environment**:
 
    ```bash
    cp .env.example .env
    ```
 
-3. **Start development server**:
+2. **Start development server**:
 
    ```bash
    npm run dev

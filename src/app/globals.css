@@ -2,24 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import CSS variables for cohesive design system */
+@import "../styles/variables.css";
+
 /* Import vintage baseball card styles */
-@import '../styles/vintage-baseball-card.css';
+@import "../styles/vintage-baseball-card.css";
 
 /* ============================================
    PERFORMANCE-OPTIMIZED GOOGLE MATERIAL ICONS
    ============================================ */
 
 @font-face {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-style: normal;
   font-weight: 400;
   font-display: swap; /* Prevents FOIT (Flash of Invisible Text) */
   src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2)
-    format('woff2');
+    format("woff2");
 }
 
 .material-icons {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -29,9 +32,9 @@
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  -webkit-font-feature-settings: 'liga';
+  -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
-  font-feature-settings: 'liga';
+  font-feature-settings: "liga";
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-smooth: always;
@@ -54,14 +57,14 @@
   }
 
   .icon-interactive {
-    will-change: transform, opacity;
+    will-change: var(--will-change-transform);
     transition:
-      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transform var(--duration-200) var(--ease-in-out),
+      opacity var(--duration-200) var(--ease-in-out);
   }
 
   .icon-static {
-    will-change: auto;
+    will-change: var(--will-change-auto);
     transform: none;
   }
 
@@ -71,11 +74,11 @@
   }
 
   .preserve-3d {
-    transform-style: preserve-3d;
+    transform-style: var(--transform-style-preserve-3d);
   }
 
   .backface-hidden {
-    backface-visibility: hidden;
+    backface-visibility: var(--backface-hidden);
   }
 
   .rotate-y-180 {
@@ -84,9 +87,9 @@
 
   /* GPU acceleration utility */
   .animate-gpu {
-    transform: translateZ(0);
-    will-change: transform;
-    backface-visibility: hidden;
+    transform: var(--gpu-acceleration);
+    will-change: var(--will-change-transform);
+    backface-visibility: var(--backface-hidden);
   }
 
   /* Focus styling for accessibility */
@@ -94,11 +97,67 @@
     @apply focus-visible:outline-2 focus-visible:outline-brand-primary focus-visible:outline-offset-2;
   }
 
+  /* Brand utilities using CSS variables */
+  .bg-brand-primary-var {
+    background-color: var(--color-brand-primary);
+  }
+
+  .text-brand-primary-var {
+    color: var(--color-brand-primary);
+  }
+
+  .border-brand-primary-var {
+    border-color: var(--color-brand-primary);
+  }
+
+  .shadow-brand-var {
+    box-shadow: var(--shadow-brand);
+  }
+
+  .shadow-brand-lg-var {
+    box-shadow: var(--shadow-brand-lg);
+  }
+
+  /* Performance utilities */
+  .contain-layout {
+    contain: layout;
+  }
+
+  .contain-style {
+    contain: style;
+  }
+
+  .contain-paint {
+    contain: paint;
+  }
+
+  .contain-strict {
+    contain: strict;
+  }
+
   /* Brand glow effect */
   .btn-glow:hover {
     box-shadow:
-      0 10px 25px -5px theme('colors.brand.primary' / 0.4),
-      0 10px 10px -5px theme('colors.brand.primary' / 0.04);
+      0 10px 25px -5px theme("colors.brand.primary" / 0.4),
+      0 10px 10px -5px theme("colors.brand.primary" / 0.04);
+  }
+
+  /* Smooth scrolling */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn var(--duration-500) var(--ease-out);
+  }
+
+  .animate-slide-up {
+    animation: slideUp var(--duration-300) var(--ease-out);
+  }
+
+  .animate-scale-in {
+    animation: scaleIn var(--duration-200) var(--ease-out);
   }
 }
 /* ============================================
@@ -138,16 +197,16 @@
 @layer components {
   /* MH Construction Button System Enhancements */
   .mh-button-glow {
-    box-shadow: 0 0 20px rgba(56, 104, 81, 0.3);
+    box-shadow: var(--shadow-brand);
   }
 
   .mh-button-glow-secondary {
-    box-shadow: 0 0 20px rgba(189, 146, 100, 0.3);
+    box-shadow: var(--shadow-bronze);
   }
 
   /* Enhanced button interactions */
   .button-lift {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform var(--duration-300) var(--ease-bounce);
   }
 
   .button-lift:hover {
@@ -158,6 +217,48 @@
     transform: translateY(0);
   }
 
+  /* Consistent button base styles */
+  .btn-base {
+    @apply inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    padding: var(--button-padding-y) var(--button-padding-x);
+    border-radius: var(--button-radius);
+    transition: var(--button-transition);
+  }
+
+  .btn-primary {
+    @apply btn-base bg-brand-primary text-white hover:bg-brand-accent focus:ring-brand-primary;
+    box-shadow: var(--shadow-brand);
+  }
+
+  .btn-secondary {
+    @apply btn-base border border-brand-primary text-brand-primary bg-transparent hover:bg-brand-primary hover:text-white focus:ring-brand-primary;
+  }
+
+  /* Card components */
+  .card-base {
+    @apply bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden;
+    padding: var(--card-padding);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+  }
+
+  .card-hover {
+    transition: all var(--duration-300) var(--ease-out);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Input components */
+  .input-base {
+    @apply block w-full border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-brand-primary focus:border-brand-primary;
+    padding: var(--input-padding-y) var(--input-padding-x);
+    border-radius: var(--input-radius);
+    border-width: var(--input-border-width);
+  }
+
   /* Group hover effects for card flips */
   .group:hover .group-hover\:rotate-y-180 {
     @apply rotate-y-180;
@@ -165,11 +266,11 @@
 
   /* Enhanced modal animations */
   .animate-modal-backdrop {
-    animation: modal-backdrop-in 0.3s ease-out;
+    animation: modal-backdrop-in var(--duration-300) var(--ease-out);
   }
 
   .animate-modal-slide {
-    animation: modal-slide-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: modal-slide-in 0.4s var(--ease-bounce);
   }
 
   .animate-pulse-glow {
@@ -236,9 +337,9 @@
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 0 0 theme('colors.brand.primary' / 0.4);
+    box-shadow: 0 0 0 0 theme("colors.brand.primary" / 0.4);
   }
   50% {
-    box-shadow: 0 0 0 20px theme('colors.brand.primary' / 0);
+    box-shadow: 0 0 0 20px theme("colors.brand.primary" / 0);
   }
 }

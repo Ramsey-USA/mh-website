@@ -47,12 +47,12 @@ Reagan brings 12 years of on-site operations experience with a proactive managem
 
 ## Certifications
 
-*Information not specified in current data*
+Information not specified in current data
 
 ## Personal Interests
 
-- **Hobbies**: *Information not specified in current data*
-- **Special Interests**: *Information not specified in current data*
+- **Hobbies**: Information not specified in current data
+- **Special Interests**: Information not specified in current data
 
 ## Fun Fact
 

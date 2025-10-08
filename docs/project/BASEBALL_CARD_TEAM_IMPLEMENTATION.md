@@ -10,13 +10,15 @@
 
 ------
 
-## 🎯 Overview## 🎯 Overview
+## 🎯 Overview
 
-The baseball card theme transforms the traditional team page into an interactive, engaging experience that showcases MH Construction team members in a professional yet memorable format. Each team member is displayed as a flippable baseball card with company branding and detailed profile information.The baseball card theme transforms the traditional team page into an interactive, engaging experience that showcases MH Construction team members in a professional yet memorable format. Each team member is displayed as a flippable baseball card with company branding and detailed profile information.
+The baseball card theme transforms the traditional team page into an interactive, engaging experience that showcases
+MH Construction team members in a professional yet memorable format. Each team member is displayed as a flippable
+baseball card with company branding and detailed profile information.
 
-### Key Features### Key Features
+### Key Features
 
-- **Interactive Flip Cards**: Click to reveal detailed member information- **Interactive Flip Cards**: Click to reveal detailed member information
+- **Interactive Flip Cards**: Click to reveal detailed member information
 
 - **Department Organization**: Team members grouped by department with branded headers- **Department Organization**: Team members grouped by department with branded headers
 

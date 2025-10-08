@@ -47,12 +47,12 @@ Trigger is our beloved company mascot who keeps everyone in high spirits and ens
 
 ## Certifications
 
-*Certified Good Boy*
+Certified Good Boy
 
 ## Personal Interests
 
-- **Hobbies**: *Treats, Belly Rubs, Playing Fetch*
-- **Special Interests**: *Quality Control, Team Morale*
+- **Hobbies**: Treats, Belly Rubs, Playing Fetch
+- **Special Interests**: Quality Control, Team Morale
 
 ## Fun Fact
 

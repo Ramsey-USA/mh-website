@@ -26,7 +26,11 @@ Trust our experienced team to manage the intricate details, allowing you to focu
 
 #### Streamline Your Project Success with Construction Management in the Tri-Cities
 
-Planning a new commercial building demands intricate details and expert oversight. Put your project in the right hands by hiring MH Construction for comprehensive Construction Management (CM) services throughout the Tri-Cities (Pasco, WA) area. Our priority is delivering an exceptional client experience from start to finish. Our commitment to thorough communication and upfront planning is critical to streamlining the process, preventing costly on-the-fly decisions later on.
+Planning a new commercial building demands intricate details and expert oversight. Put your project in the right hands
+by hiring MH Construction for comprehensive Construction Management (CM) services throughout the Tri-Cities (Pasco, WA)
+area. Our priority is delivering an exceptional client experience from start to finish. Our commitment to thorough
+communication and upfront planning is critical to streamlining the process, preventing costly on-the-fly decisions
+later on.
 
 #### **Make Your Vision a Reality**
 
@@ -64,7 +68,10 @@ Our skilled team ensures zero gaps in scope coverage during your construction pl
 
 #### Reliable Construction Material Procurement and Vendor Management
 
-Navigating the logistics of construction requires extensive planning and coordination. At MH Construction, we offer Construction Vendor Management services throughout the Tri-Cities that specialize in sourcing quality materials tailored to your project goals. Our reliable Master Planning gives vendors the advanced notice necessary to streamline procurement and proactively manage long lead item delays, ensuring timely delivery and installation.
+Navigating the logistics of construction requires extensive planning and coordination. At MH Construction, we offer
+Construction Vendor Management services throughout the Tri-Cities that specialize in sourcing quality materials
+tailored to your project goals. Our reliable Master Planning gives vendors the advanced notice necessary to
+streamline procurement and proactively manage long lead item delays, ensuring timely delivery and installation.
 
 #### **What Our Service Provides**
 

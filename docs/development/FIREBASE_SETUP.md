@@ -100,7 +100,7 @@ service cloud.firestore {
    cp .env.local.example .env.local
    ```
 
-2. Edit `.env.local` with your Firebase config:
+1. Edit `.env.local` with your Firebase config:
 
    ```env
    NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key_here

@@ -1,53 +1,52 @@
-import type { Metadata, Viewport } from 'next'
+import type { Metadata, Viewport } from "next";
 // Temporarily disabled font import due to Babel conflict
 // import { Inter } from 'next/font/google'
-// @ts-ignore
-import './globals.css'
-import { Navigation, Footer } from '../components/layout'
-import FaviconLinks from '../components/layout/FaviconLinks'
-import { AuthProvider } from '../lib/auth/AuthContext'
-import { ThemeProvider } from '../contexts/ThemeContext'
-import { GlobalChatbotProvider } from '../providers/GlobalChatbotProvider'
-import { WebVitalsReporter } from '../components/performance/optimized-components'
-import { AnalyticsProvider } from '../components/analytics/enhanced-analytics'
-import PWAUpdate from '../components/pwa/PWAUpdate'
-import PWAInstall from '../components/pwa/PWAInstall'
-import PushNotifications from '../components/pwa/PushNotifications'
+import "./globals.css";
+import { Navigation, Footer } from "../components/layout";
+import FaviconLinks from "../components/layout/FaviconLinks";
+import { AuthProvider } from "../lib/auth/AuthContext";
+import { ThemeProvider } from "../contexts/ThemeContext";
+import { GlobalChatbotProvider } from "../providers/GlobalChatbotProvider";
+import { WebVitalsReporter } from "../components/performance/optimized-components";
+import { AnalyticsProvider } from "../components/analytics/enhanced-analytics";
+import PWAUpdate from "../components/pwa/PWAUpdate";
+import PWAInstall from "../components/pwa/PWAInstall";
+import PushNotifications from "../components/pwa/PushNotifications";
 import {
   StructuredData,
   generateEnhancedOrganizationSchema,
   generateWebsiteSchema,
-} from '../components/seo/enhanced-seo'
-import { useCriticalResourcePreloader } from '../hooks/usePerformanceOptimization'
+} from "../components/seo/enhanced-seo";
+import { useCriticalResourcePreloader } from "../hooks/usePerformanceOptimization";
 
 // Temporarily disabled font due to Babel conflict
 // const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_BASE_URL || 'https://mh-construction.com'
+    process.env.NEXT_PUBLIC_BASE_URL || "https://mh-construction.com"
   ),
   title: "MH Construction - Building Tomorrow with Today's Technology",
   description:
-    'Veteran-owned construction excellence powered by cutting-edge AI technology. Serving the Pacific Northwest with military precision and construction expertise.',
+    "Veteran-owned construction excellence powered by cutting-edge AI technology. Serving the Pacific Northwest with military precision and construction expertise.",
   keywords: [
-    'construction',
-    'veteran-owned',
-    'Pacific Northwest',
-    'Pasco WA',
-    'building',
-    'AI estimator',
+    "construction",
+    "veteran-owned",
+    "Pacific Northwest",
+    "Pasco WA",
+    "building",
+    "AI estimator",
   ],
-  authors: [{ name: 'MH Construction Team' }],
-  manifest: '/manifest.json',
+  authors: [{ name: "MH Construction Team" }],
+  manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
-    statusBarStyle: 'default',
-    title: 'MH Construction',
+    statusBarStyle: "default",
+    title: "MH Construction",
     startupImage: [
       {
-        url: '/icons/icon-512x512.png',
-        media: '(device-width: 768px) and (device-height: 1024px)',
+        url: "/icons/icon-512x512.png",
+        media: "(device-width: 768px) and (device-height: 1024px)",
       },
     ],
   },
@@ -56,28 +55,28 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
-      { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
+      { url: "/icons/icon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icons/icon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
-    shortcut: [{ url: '/favicon.ico' }],
+    shortcut: [{ url: "/favicon.ico" }],
     apple: [
-      { url: '/icons/icon-180x180.png', sizes: '180x180', type: 'image/png' },
+      { url: "/icons/icon-180x180.png", sizes: "180x180", type: "image/png" },
     ],
   },
-}
+};
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
-  themeColor: '#386851',
-  colorScheme: 'light dark',
-}
+  themeColor: "#386851",
+  colorScheme: "light dark",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -128,5 +127,5 @@ export default function RootLayout({
         </AnalyticsProvider>
       </body>
     </html>
-  )
+  );
 }

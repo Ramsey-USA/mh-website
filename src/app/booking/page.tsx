@@ -214,7 +214,8 @@ export default function BookingPage() {
 
   const convertTo24Hour = (time12h: string) => {
     const [time, modifier] = time12h.split(" ");
-    let [hours, minutes] = time.split(":");
+    const [hoursStr, minutes] = time.split(":");
+    let hours = hoursStr;
     if (hours === "12") {
       hours = "00";
     }
