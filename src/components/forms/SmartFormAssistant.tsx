@@ -1,9 +1,19 @@
 'use client'
 
 import React from 'react'
+import dynamic from 'next/dynamic'
 import { MaterialIcon } from '../icons/MaterialIcon'
 import { Card, CardContent, Button } from '../ui'
-import { motion, AnimatePresence } from 'framer-motion'
+
+// Dynamic import for Framer Motion to reduce bundle size
+const MotionDiv = dynamic(
+  () => import('framer-motion').then(mod => mod.motion.div),
+  { ssr: false }
+)
+const AnimatePresence = dynamic(
+  () => import('framer-motion').then(mod => mod.AnimatePresence),
+  { ssr: false }
+)
 
 interface SmartFormAssistantProps {
   fieldSuggestions: any
@@ -31,7 +41,7 @@ export function SmartFormAssistant({
   return (
     <AnimatePresence>
       {showSmartSuggestions && (
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
@@ -78,7 +88,7 @@ export function SmartFormAssistant({
                 </span>
               </div>
               <div className="bg-gray-200 rounded-full w-full h-2">
-                <motion.div
+                <MotionDiv
                   className="bg-blue-600 rounded-full h-2"
                   initial={{ width: 0 }}
                   animate={{ width: `${completionProgress}%` }}
@@ -330,7 +340,7 @@ export function SmartFormAssistant({
               </CardContent>
             </Card>
           )}
-        </motion.div>
+        </MotionDiv>
       )}
     </AnimatePresence>
   )

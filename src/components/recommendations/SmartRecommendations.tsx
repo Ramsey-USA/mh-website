@@ -6,7 +6,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import dynamic from 'next/dynamic'
 import { MaterialIcon } from '../icons/MaterialIcon'
 import { Card, CardContent } from '../ui'
 import useSmartRecommendations, {
@@ -18,6 +18,16 @@ import type {
   UserProfile,
   VeteranBenefit,
 } from '../../lib/recommendations/SmartRecommendationEngine'
+
+// Dynamic imports for Framer Motion
+const MotionDiv = dynamic(
+  () => import('framer-motion').then(mod => mod.motion.div),
+  { ssr: false }
+)
+const AnimatePresence = dynamic(
+  () => import('framer-motion').then(mod => mod.AnimatePresence),
+  { ssr: false }
+)
 
 interface SmartRecommendationsProps {
   userProfile?: UserProfile
@@ -104,7 +114,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
 
   if (variant === 'compact') {
     return (
-      <motion.div
+      <MotionDiv
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         whileHover={{ y: -2 }}
@@ -143,12 +153,12 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
             </div>
           </CardContent>
         </Card>
-      </motion.div>
+      </MotionDiv>
     )
   }
 
   return (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -4 }}
@@ -327,7 +337,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
           )}
         </CardContent>
       </Card>
-    </motion.div>
+    </MotionDiv>
   )
 }
 
@@ -484,7 +494,7 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
       >
         <AnimatePresence>
           {displayRecommendations.map((recommendation, index) => (
-            <motion.div
+            <MotionDiv
               key={recommendation.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -503,7 +513,7 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
                 onTrackView={trackView}
                 onTrackClick={trackClick}
               />
-            </motion.div>
+            </MotionDiv>
           ))}
         </AnimatePresence>
       </div>

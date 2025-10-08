@@ -1,7 +1,8 @@
-'use client'
+"use client";
 
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
+import dynamic from "next/dynamic";
 import {
   Button,
   Card,
@@ -9,53 +10,60 @@ import {
   CardTitle,
   CardContent,
   PageHero,
-} from '../components/ui'
+} from "../components/ui";
 // import { PortfolioImage } from '../components/portfolio/ProjectImage'
-import { PortfolioService } from '../lib/services/portfolioService'
+import { PortfolioService } from "../lib/services/portfolioService";
 import {
   generateSEOMetadata,
   generateOrganizationStructuredData,
   StructuredData,
-} from '../components/seo/seo-meta'
-import TestimonialsWidget from '../components/testimonials/TestimonialsWidget'
-import SmartRecommendations from '../components/recommendations/SmartRecommendations'
+} from "../components/seo/seo-meta";
+// Dynamically import below-the-fold components
+const TestimonialsWidget = dynamic(() => import("../components/testimonials/TestimonialsWidget"), {
+  loading: () => <div className="h-96 bg-muted animate-pulse rounded-lg"></div>,
+  ssr: false
+});
+const SmartRecommendations = dynamic(() => import("../components/recommendations/SmartRecommendations"), {
+  loading: () => <div className="h-64 bg-muted animate-pulse rounded-lg"></div>,
+  ssr: false
+});
 // import BlogNewsCarousel from '../components/blog/BlogNewsCarousel'
-import Head from 'next/head'
-import { MaterialIcon } from '../components/icons/MaterialIcon'
+import Head from "next/head";
+import { MaterialIcon } from "../components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from '../components/animations/FramerMotionComponents'
-import { useAnalytics } from '../components/analytics/enhanced-analytics'
-import { OptimizedImage } from '../components/ui/OptimizedImage'
+} from "../components/animations/FramerMotionComponents";
+import { useAnalytics } from "../components/analytics/enhanced-analytics";
+import { OptimizedImage } from "../components/ui/OptimizedImage";
 import {
   useIntersectionObserver,
   useImagePreloader,
-} from '../hooks/usePerformanceOptimization'
+} from "../hooks/usePerformanceOptimization";
 
 export default function Home() {
   // Initialize analytics
-  const { trackEvent } = useAnalytics()
+  const { trackEvent } = useAnalytics();
 
   // Preload critical images for better performance
   const criticalImages = [
-    '/images/placeholder.jpg',
-    '/images/placeholder-project.jpg',
-    '/images/projects/project-default.png',
-    '/images/logo/mh-logo.png',
-  ]
+    "/images/placeholder.jpg",
+    "/images/placeholder-project.jpg",
+    "/images/projects/project-default.png",
+    "/images/logo/mh-logo.png",
+  ];
 
-  const preloadedImages = useImagePreloader(criticalImages)
+  const preloadedImages = useImagePreloader(criticalImages);
 
   // Track page view
   React.useEffect(() => {
-    trackEvent('page_view', {
-      page_name: 'homepage',
-      page_location: '/',
-      content_group1: 'marketing',
-    })
-  }, [trackEvent])
+    trackEvent("page_view", {
+      page_name: "homepage",
+      page_location: "/",
+      content_group1: "marketing",
+    });
+  }, [trackEvent]);
 
   // Track scroll depth for engagement analytics
   React.useEffect(() => {
@@ -63,25 +71,25 @@ export default function Home() {
       const scrollPercent = Math.round(
         (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
           100
-      )
+      );
 
-      if (scrollPercent >= 25 && !sessionStorage.getItem('scroll_25')) {
-        sessionStorage.setItem('scroll_25', 'true')
-        trackEvent('scroll_depth', { percent: 25, page: 'homepage' })
+      if (scrollPercent >= 25 && !sessionStorage.getItem("scroll_25")) {
+        sessionStorage.setItem("scroll_25", "true");
+        trackEvent("scroll_depth", { percent: 25, page: "homepage" });
       }
-      if (scrollPercent >= 50 && !sessionStorage.getItem('scroll_50')) {
-        sessionStorage.setItem('scroll_50', 'true')
-        trackEvent('scroll_depth', { percent: 50, page: 'homepage' })
+      if (scrollPercent >= 50 && !sessionStorage.getItem("scroll_50")) {
+        sessionStorage.setItem("scroll_50", "true");
+        trackEvent("scroll_depth", { percent: 50, page: "homepage" });
       }
-      if (scrollPercent >= 75 && !sessionStorage.getItem('scroll_75')) {
-        sessionStorage.setItem('scroll_75', 'true')
-        trackEvent('scroll_depth', { percent: 75, page: 'homepage' })
+      if (scrollPercent >= 75 && !sessionStorage.getItem("scroll_75")) {
+        sessionStorage.setItem("scroll_75", "true");
+        trackEvent("scroll_depth", { percent: 75, page: "homepage" });
       }
-    }
+    };
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [trackEvent])
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [trackEvent]);
 
   return (
     <>
@@ -135,12 +143,12 @@ export default function Home() {
               </span>
             </h2>
             <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-              Where{' '}
+              Where{" "}
               <span className="font-medium text-gray-800 dark:text-gray-200">
                 military discipline meets cutting-edge AI
               </span>
               . Our veteran-led team combines decades of service experience with
-              revolutionary technology to deliver construction management that{' '}
+              revolutionary technology to deliver construction management that{" "}
               <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
                 honors your mission
               </span>
@@ -158,20 +166,20 @@ export default function Home() {
                     className="text-white"
                   />
                 ),
-                title: 'AI Project Estimator',
+                title: "AI Project Estimator",
                 description:
-                  'Revolutionary AI-powered cost calculator with ±15% precision guarantee for accurate project planning and budgeting.',
+                  "Revolutionary AI-powered cost calculator with ±15% precision guarantee for accurate project planning and budgeting.",
                 details:
-                  'Our proprietary AI analyzes thousands of projects, material costs, and labor factors to provide industry-leading estimate accuracy. Get instant quotes with confidence.',
+                  "Our proprietary AI analyzes thousands of projects, material costs, and labor factors to provide industry-leading estimate accuracy. Get instant quotes with confidence.",
                 features: [
-                  '±15% Accuracy Guarantee',
-                  'Real-time Material Pricing',
-                  'Labor Cost Analysis',
-                  'PDF Export',
+                  "±15% Accuracy Guarantee",
+                  "Real-time Material Pricing",
+                  "Labor Cost Analysis",
+                  "PDF Export",
                 ],
-                color: 'from-brand-primary to-brand-primary-dark',
-                bgColor: 'bg-brand-primary/5',
-                delay: '0s',
+                color: "from-brand-primary to-brand-primary-dark",
+                bgColor: "bg-brand-primary/5",
+                delay: "0s",
               },
               {
                 icon: ({ size }: any) => (
@@ -181,20 +189,20 @@ export default function Home() {
                     className="text-white"
                   />
                 ),
-                title: 'Smart Scheduling',
+                title: "Smart Scheduling",
                 description:
-                  'Visual calendar system with real-time availability and instant confirmations for seamless booking experience.',
+                  "Visual calendar system with real-time availability and instant confirmations for seamless booking experience.",
                 details:
-                  'Intelligent scheduling considers team availability, project timelines, and weather patterns to optimize booking efficiency and reduce delays.',
+                  "Intelligent scheduling considers team availability, project timelines, and weather patterns to optimize booking efficiency and reduce delays.",
                 features: [
-                  'Real-time Availability',
-                  'Automated Confirmations',
-                  'Weather Integration',
-                  'Team Optimization',
+                  "Real-time Availability",
+                  "Automated Confirmations",
+                  "Weather Integration",
+                  "Team Optimization",
                 ],
-                color: 'from-brand-secondary to-brand-secondary-dark',
-                bgColor: 'bg-brand-secondary/5',
-                delay: '0.1s',
+                color: "from-brand-secondary to-brand-secondary-dark",
+                bgColor: "bg-brand-secondary/5",
+                delay: "0.1s",
               },
               {
                 icon: ({ size }: any) => (
@@ -204,20 +212,20 @@ export default function Home() {
                     className="text-white"
                   />
                 ),
-                title: '3D Project Explorer',
+                title: "3D Project Explorer",
                 description:
-                  'Immersive HD visualization with real-time builder insights to bring your vision to life before construction begins.',
+                  "Immersive HD visualization with real-time builder insights to bring your vision to life before construction begins.",
                 details:
-                  'Walk through your project in photorealistic 3D, make changes in real-time, and see exactly how your finished project will look.',
+                  "Walk through your project in photorealistic 3D, make changes in real-time, and see exactly how your finished project will look.",
                 features: [
-                  'Photorealistic Rendering',
-                  'Virtual Walkthrough',
-                  'Real-time Changes',
-                  'Material Previews',
+                  "Photorealistic Rendering",
+                  "Virtual Walkthrough",
+                  "Real-time Changes",
+                  "Material Previews",
                 ],
-                color: 'from-brand-accent to-brand-accent-dark',
-                bgColor: 'bg-brand-accent/5',
-                delay: '0.2s',
+                color: "from-brand-accent to-brand-accent-dark",
+                bgColor: "bg-brand-accent/5",
+                delay: "0.2s",
               },
               {
                 icon: ({ size }: any) => (
@@ -225,24 +233,24 @@ export default function Home() {
                     icon="security"
                     size={size}
                     className="text-white"
-                    style={{ color: '#4CAF50' }}
+                    style={{ color: "#4CAF50" }}
                   />
                 ),
-                title: '24/7 AI Assistant',
+                title: "24/7 AI Assistant",
                 description:
-                  'Military-grade support with enhanced chatbot providing context-aware veteran assistance and instant responses.',
+                  "Military-grade support with enhanced chatbot providing context-aware veteran assistance and instant responses.",
                 details:
-                  'Our AI assistant understands construction terminology, veteran benefits, and project specifics to provide personalized, accurate assistance.',
+                  "Our AI assistant understands construction terminology, veteran benefits, and project specifics to provide personalized, accurate assistance.",
                 features: [
-                  'Veteran-Aware Support',
-                  'Construction Expertise',
-                  'Instant Responses',
-                  'Project Context',
+                  "Veteran-Aware Support",
+                  "Construction Expertise",
+                  "Instant Responses",
+                  "Project Context",
                 ],
-                color: 'from-brand-primary to-brand-secondary',
+                color: "from-brand-primary to-brand-secondary",
                 bgColor:
-                  'bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5',
-                delay: '0.3s',
+                  "bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5",
+                delay: "0.3s",
               },
             ].map((feature, index) => (
               <div key={index} className="group perspective-1000 feature-card">
@@ -331,10 +339,10 @@ export default function Home() {
           <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-12">
             {[
               {
-                title: 'Try AI Estimator',
-                description: 'Get instant project estimates',
-                href: '/estimator',
-                variant: 'primary' as const,
+                title: "Try AI Estimator",
+                description: "Get instant project estimates",
+                href: "/estimator",
+                variant: "primary" as const,
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="smart_toy"
@@ -344,10 +352,10 @@ export default function Home() {
                 ),
               },
               {
-                title: 'Book Meeting',
-                description: 'Schedule your free consultation',
-                href: '/booking',
-                variant: 'secondary' as const,
+                title: "Book Meeting",
+                description: "Schedule your free consultation",
+                href: "/booking",
+                variant: "secondary" as const,
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="event"
@@ -357,10 +365,10 @@ export default function Home() {
                 ),
               },
               {
-                title: 'View Projects',
-                description: 'Explore our 3D gallery',
-                href: '/portfolio',
-                variant: 'secondary' as const,
+                title: "View Projects",
+                description: "Explore our 3D gallery",
+                href: "/portfolio",
+                variant: "secondary" as const,
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="visibility"
@@ -370,10 +378,10 @@ export default function Home() {
                 ),
               },
               {
-                title: 'Chat with AI',
-                description: 'Get instant support',
-                href: '/contact',
-                variant: 'secondary' as const,
+                title: "Chat with AI",
+                description: "Get instant support",
+                href: "/contact",
+                variant: "secondary" as const,
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="support_agent"
@@ -420,12 +428,12 @@ export default function Home() {
               </span>
             </h2>
             <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-              Our foundation rests on{' '}
+              Our foundation rests on{" "}
               <span className="font-medium text-gray-800 dark:text-gray-200">
                 six core principles
-              </span>{' '}
+              </span>{" "}
               that guide every project, every decision, and every client
-              relationship we build with{' '}
+              relationship we build with{" "}
               <span className="bg-clip-text bg-gradient-to-r from-veteran-red to-brand-primary font-semibold text-transparent">
                 trust as our ultimate goal
               </span>
@@ -436,7 +444,7 @@ export default function Home() {
           <div className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                value: 'Honesty & Transparency',
+                value: "Honesty & Transparency",
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="visibility"
@@ -445,15 +453,15 @@ export default function Home() {
                   />
                 ),
                 description:
-                  'We provide full-disclosure transparency from day one. Our open-dialogue progress meetings include all stakeholders, ensuring every topic is vetted and documented.',
+                  "We provide full-disclosure transparency from day one. Our open-dialogue progress meetings include all stakeholders, ensuring every topic is vetted and documented.",
                 details:
-                  'We believe you, the client, should have the most complete and up-to-date information—good or bad—to make truly educated decisions. We manage the project; you control it.',
-                color: 'from-brand-primary to-brand-primary-dark',
-                bgColor: 'bg-brand-primary/5',
-                stats: 'Open-Book Progress Meetings',
+                  "We believe you, the client, should have the most complete and up-to-date information—good or bad—to make truly educated decisions. We manage the project; you control it.",
+                color: "from-brand-primary to-brand-primary-dark",
+                bgColor: "bg-brand-primary/5",
+                stats: "Open-Book Progress Meetings",
               },
               {
-                value: 'Integrity',
+                value: "Integrity",
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="balance"
@@ -462,15 +470,15 @@ export default function Home() {
                   />
                 ),
                 description:
-                  'Integrity is the unwavering commitment to our word. As a team built on principles of accountability and trust, we view our business conduct as a direct reflection of our personal character.',
+                  "Integrity is the unwavering commitment to our word. As a team built on principles of accountability and trust, we view our business conduct as a direct reflection of our personal character.",
                 details:
-                  'Our conversation, character, and conduct are consistently diligent, ensuring our actions on your project transcend the transactional relationship.',
-                color: 'from-veteran-blue to-veteran-blue-light',
-                bgColor: 'bg-veteran-blue/5',
-                stats: 'Character-Driven Conduct',
+                  "Our conversation, character, and conduct are consistently diligent, ensuring our actions on your project transcend the transactional relationship.",
+                color: "from-veteran-blue to-veteran-blue-light",
+                bgColor: "bg-veteran-blue/5",
+                stats: "Character-Driven Conduct",
               },
               {
-                value: 'Precision & Experience',
+                value: "Precision & Experience",
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="precision_manufacturing"
@@ -479,15 +487,15 @@ export default function Home() {
                   />
                 ),
                 description:
-                  'With over 150 years of combined experience in commercial construction, we offer a project team that has seen and managed virtually every challenge.',
+                  "With over 150 years of combined experience in commercial construction, we offer a project team that has seen and managed virtually every challenge.",
                 details:
-                  'This collective wisdom is delivered in a neat, engineer-driven project package, providing the reliable foresight necessary to keep your project on track and minimize risk.',
-                color: 'from-brand-secondary to-brand-secondary-light',
-                bgColor: 'bg-brand-secondary/5',
-                stats: '150+ Years Combined Experience',
+                  "This collective wisdom is delivered in a neat, engineer-driven project package, providing the reliable foresight necessary to keep your project on track and minimize risk.",
+                color: "from-brand-secondary to-brand-secondary-light",
+                bgColor: "bg-brand-secondary/5",
+                stats: "150+ Years Combined Experience",
               },
               {
-                value: 'Client-First Ethics',
+                value: "Client-First Ethics",
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="favorite"
@@ -498,13 +506,13 @@ export default function Home() {
                 description:
                   'Our foundation is built on small-town values: we are a "client" focused company, not just a "project" focused one.',
                 details:
-                  'This means we are committed to acting solely in your best interest. We operate with discipline—staying organized, concise, and direct—so that your valuable time is respected and your decisions are always well-informed.',
-                color: 'from-brand-accent to-brand-accent-dark',
-                bgColor: 'bg-brand-accent/5',
-                stats: 'Client-Focused Approach',
+                  "This means we are committed to acting solely in your best interest. We operate with discipline—staying organized, concise, and direct—so that your valuable time is respected and your decisions are always well-informed.",
+                color: "from-brand-accent to-brand-accent-dark",
+                bgColor: "bg-brand-accent/5",
+                stats: "Client-Focused Approach",
               },
               {
-                value: 'Professionalism & Control',
+                value: "Professionalism & Control",
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="engineering"
@@ -513,16 +521,16 @@ export default function Home() {
                   />
                 ),
                 description:
-                  'Professionalism here is the confident, controlled ability to navigate complex projects.',
+                  "Professionalism here is the confident, controlled ability to navigate complex projects.",
                 details:
-                  'We leverage decades of commercial and logistical experience to course the rough waters of construction through levelheaded management. This creates a coordinated, harmonious workflow that provides unmatched confidence to owners, subcontractors, and project peers.',
-                color: 'from-veteran-red to-brand-primary',
+                  "We leverage decades of commercial and logistical experience to course the rough waters of construction through levelheaded management. This creates a coordinated, harmonious workflow that provides unmatched confidence to owners, subcontractors, and project peers.",
+                color: "from-veteran-red to-brand-primary",
                 bgColor:
-                  'bg-gradient-to-br from-veteran-red/5 to-brand-primary/5',
-                stats: 'Harmonious Workflow Management',
+                  "bg-gradient-to-br from-veteran-red/5 to-brand-primary/5",
+                stats: "Harmonious Workflow Management",
               },
               {
-                value: 'Trust (The Culmination)',
+                value: "Trust (The Culmination)",
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="verified"
@@ -531,16 +539,16 @@ export default function Home() {
                   />
                 ),
                 description:
-                  'Earning your trust is not a starting point; it is the culmination of our consistent performance in all other core values.',
+                  "Earning your trust is not a starting point; it is the culmination of our consistent performance in all other core values.",
                 details:
-                  'Trust is the measurable result that your project is on track, flowing smoothly, and supported by open, honest communication. We understand that your trust is the foundation upon which MH Construction exists.',
-                color: 'from-brand-primary to-brand-secondary',
+                  "Trust is the measurable result that your project is on track, flowing smoothly, and supported by open, honest communication. We understand that your trust is the foundation upon which MH Construction exists.",
+                color: "from-brand-primary to-brand-secondary",
                 bgColor:
-                  'bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5',
-                stats: 'Foundation of Our Existence',
+                  "bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5",
+                stats: "Foundation of Our Existence",
               },
             ].map((item, index) => {
-              const IconComponent = item.icon
+              const IconComponent = item.icon;
               return (
                 <div
                   key={item.value}
@@ -561,7 +569,7 @@ export default function Home() {
                             className={`w-24 h-24 bg-gradient-to-br ${item.color} rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg p-3`}
                           >
                             <IconComponent size="3xl" primaryColor="white" />
-                          </div>{' '}
+                          </div>{" "}
                           <h3 className="mb-4 font-black text-text-primary dark:text-text-primary-dark text-2xl md:text-3xl leading-tight tracking-tight">
                             {item.value}
                           </h3>
@@ -603,7 +611,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
@@ -627,15 +635,15 @@ export default function Home() {
             </h2>
             <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
               Discover our comprehensive construction management and commercial
-              services throughout the{' '}
+              services throughout the{" "}
               <span className="font-medium text-gray-800 dark:text-gray-200">
                 Tri-Cities area
-              </span>{' '}
+              </span>{" "}
               (Pasco, Kennewick, Richland). Each service represents our
-              commitment to{' '}
+              commitment to{" "}
               <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
                 professional excellence
-              </span>{' '}
+              </span>{" "}
               and client partnership.
             </p>
           </FadeInWhenVisible>
@@ -838,14 +846,14 @@ export default function Home() {
               </span>
             </h2>
             <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-              Read testimonials from{' '}
+              Read testimonials from{" "}
               <span className="font-medium text-gray-800 dark:text-gray-200">
                 satisfied customers
-              </span>{' '}
-              across the Pacific Northwest who have experienced our{' '}
+              </span>{" "}
+              across the Pacific Northwest who have experienced our{" "}
               <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
                 veteran excellence
-              </span>{' '}
+              </span>{" "}
               firsthand.
             </p>
           </div>
@@ -853,31 +861,31 @@ export default function Home() {
           <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-12">
             {[
               {
-                name: 'Sarah Thompson',
-                location: 'Spokane, WA',
-                project: 'Historic Home Renovation',
+                name: "Sarah Thompson",
+                location: "Spokane, WA",
+                project: "Historic Home Renovation",
                 rating: 5,
                 review:
-                  'MH Construction transformed our 1920s home with incredible attention to detail. Their military precision and professionalism made the entire process seamless. The AI estimate was spot-on, and they finished ahead of schedule!',
-                image: '/images/testimonials/sarah-t.jpg',
+                  "MH Construction transformed our 1920s home with incredible attention to detail. Their military precision and professionalism made the entire process seamless. The AI estimate was spot-on, and they finished ahead of schedule!",
+                image: "/images/testimonials/sarah-t.jpg",
               },
               {
-                name: 'Mike Chen',
-                location: 'Yakima, WA',
-                project: 'Modern Kitchen Remodel',
+                name: "Mike Chen",
+                location: "Yakima, WA",
+                project: "Modern Kitchen Remodel",
                 rating: 5,
                 review:
                   "The AI cost estimator was revolutionary - accurate to the dollar! The quality of work exceeded our expectations. Their veteran-owned approach brings a level of discipline and excellence you won't find elsewhere.",
-                image: '/images/testimonials/mike-c.jpg',
+                image: "/images/testimonials/mike-c.jpg",
               },
               {
-                name: 'Jessica Rodriguez',
-                location: 'Spokane, WA',
-                project: 'Luxury Bathroom Addition',
+                name: "Jessica Rodriguez",
+                location: "Spokane, WA",
+                project: "Luxury Bathroom Addition",
                 rating: 5,
                 review:
-                  'As a fellow veteran, I appreciated their understanding of our needs. The team went above and beyond to deliver exceptional results. Their 24/7 support gave us peace of mind throughout the entire project.',
-                image: '/images/testimonials/jessica-r.jpg',
+                  "As a fellow veteran, I appreciated their understanding of our needs. The team went above and beyond to deliver exceptional results. Their 24/7 support gave us peace of mind throughout the entire project.",
+                image: "/images/testimonials/jessica-r.jpg",
               },
             ].map((testimonial, index) => (
               <div
@@ -908,7 +916,7 @@ export default function Home() {
                         {testimonial.name}
                       </h3>
                       <p className="mb-3 font-medium text-gray-600 dark:text-gray-400 text-sm md:text-base tracking-wide">
-                        {testimonial.location} •{' '}
+                        {testimonial.location} •{" "}
                         <span className="font-bold text-brand-primary">
                           {testimonial.project}
                         </span>
@@ -974,27 +982,27 @@ export default function Home() {
               variant="compact"
               maxRecommendations={6}
               showVeteranBenefits={true}
-              onRecommendationClick={recommendation => {
+              onRecommendationClick={(recommendation) => {
                 // Track recommendation click on homepage
-                if (typeof window !== 'undefined' && window.gtag) {
-                  window.gtag('event', 'homepage_recommendation_click', {
+                if (typeof window !== "undefined" && window.gtag) {
+                  window.gtag("event", "homepage_recommendation_click", {
                     project_type: recommendation.projectType,
                     confidence: recommendation.confidence,
-                  })
+                  });
                 }
               }}
-              onGetEstimate={recommendation => {
+              onGetEstimate={(recommendation) => {
                 // Navigate to estimator with pre-filled data
-                if (typeof window !== 'undefined') {
-                  window.location.href = `/estimator?project=${encodeURIComponent(recommendation.projectType)}&title=${encodeURIComponent(recommendation.title)}`
+                if (typeof window !== "undefined") {
+                  window.location.href = `/estimator?project=${encodeURIComponent(recommendation.projectType)}&title=${encodeURIComponent(recommendation.title)}`;
                 }
 
                 // Track estimate request from homepage recommendation
-                if (typeof window !== 'undefined' && window.gtag) {
-                  window.gtag('event', 'homepage_recommendation_estimate', {
+                if (typeof window !== "undefined" && window.gtag) {
+                  window.gtag("event", "homepage_recommendation_estimate", {
                     project_type: recommendation.projectType,
                     estimated_value: recommendation.estimatedCost.min,
-                  })
+                  });
                 }
               }}
               className="bg-gradient-to-br from-blue-50 dark:from-gray-800 to-indigo-100 dark:to-gray-700 shadow-lg p-8 rounded-xl"
@@ -1025,10 +1033,10 @@ export default function Home() {
             {/* Core Philosophy Tagline */}
             <div className="mt-6 mb-2">
               <p className="mx-auto max-w-2xl font-bold text-white text-base sm:text-lg text-center leading-snug">
-                "Building for the Owner,{' '}
+                "Building for the Owner,{" "}
                 <span className="font-black text-veteran-red text-lg sm:text-xl">
                   NOT
-                </span>{' '}
+                </span>{" "}
                 the Dollar"
               </p>
             </div>
@@ -1239,11 +1247,11 @@ export default function Home() {
               </span>
             </h2>
             <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-              Stay informed with{' '}
+              Stay informed with{" "}
               <span className="font-medium text-gray-800 dark:text-gray-200">
                 construction industry insights
-              </span>{' '}
-              and the latest news from our veteran-owned team in the{' '}
+              </span>{" "}
+              and the latest news from our veteran-owned team in the{" "}
               <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
                 Pacific Northwest
               </span>
@@ -1289,8 +1297,8 @@ export default function Home() {
               Ready to Start Your Commercial Project?
             </h2>
             <p className="mx-auto mb-12 max-w-4xl font-light text-white/90 text-xl md:text-2xl leading-relaxed">
-              Join business owners across the{' '}
-              <span className="font-medium text-white">Tri-Cities area</span>{' '}
+              Join business owners across the{" "}
+              <span className="font-medium text-white">Tri-Cities area</span>{" "}
               who chose expert construction management for their commercial,
               industrial, and medical facility projects.
             </p>
@@ -1381,5 +1389,5 @@ export default function Home() {
         </div>
       </section>
     </>
-  )
+  );
 }

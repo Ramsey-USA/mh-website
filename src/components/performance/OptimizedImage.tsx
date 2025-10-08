@@ -6,6 +6,7 @@
 'use client'
 
 import React, { useState, useRef, useEffect } from 'react'
+import Image from 'next/image'
 import { useLazyImage, usePerformanceTiming } from '@/lib/performance/hooks'
 import { ImageOptimizer } from '@/lib/performance/performance-manager'
 import { cn } from '@/lib/utils'
@@ -164,16 +165,17 @@ export function OptimizedImage({
   }
 
   const imageElement = (
-    <img
-      ref={!lazy || priority ? undefined : imgRef}
-      src={(!lazy || priority || inView) ? optimizedSrc : undefined}
-      srcSet={(!lazy || priority || inView) ? srcSet : undefined}
-      sizes={(!lazy || priority || inView) ? imageSizes : undefined}
+    <Image
+      src={(!lazy || priority || inView) ? optimizedSrc : src}
       alt={alt}
-      width={!fill ? width : undefined}
-      height={!fill ? height : undefined}
-      loading={lazy && !priority ? 'lazy' : 'eager'}
-      decoding="async"
+      width={!fill ? width || 500 : undefined}
+      height={!fill ? height || 300 : undefined}
+      sizes={(!lazy || priority || inView) ? imageSizes : undefined}
+      priority={priority}
+      quality={quality}
+      placeholder={placeholder}
+      blurDataURL={blurDataURL}
+      fill={fill}
       className={cn(
         'transition-opacity duration-300',
         !isLoaded && placeholder === 'blur' ? 'opacity-0' : '',
@@ -186,7 +188,18 @@ export function OptimizedImage({
         ...blurStyle,
       }}
       onClick={handleClick}
-      {...props}
+      onLoad={() => {
+        if (loadStartTime.current && trackPerformance) {
+          const loadTime = performance.now() - loadStartTime.current
+          console.log(`Image ${src} loaded in ${loadTime.toFixed(2)}ms`)
+        }
+        setIsLoaded(true)
+        onLoad?.()
+      }}
+      onError={() => {
+        setImageError(true)
+        onError?.()
+      }}
     />
   )
 
@@ -293,7 +306,7 @@ export function preloadImages(imageSrcs: string[], quality: number = 75) {
 
   imageSrcs.forEach(src => {
     const optimizedSrc = `${src}${src.includes('?') ? '&' : '?'}q=${quality}`
-    const img = new Image()
+    const img = new globalThis.Image()
     img.src = optimizedSrc
   })
 }

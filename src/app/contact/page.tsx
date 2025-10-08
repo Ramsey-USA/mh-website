@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   Button,
   Card,
@@ -9,121 +9,121 @@ import {
   CardTitle,
   CardContent,
   PageHero,
-} from '../../components/ui'
-import { MaterialIcon } from '../../components/icons/MaterialIcon'
-import SmartRecommendations from '../../components/recommendations/SmartRecommendations'
+} from "../../components/ui";
+import { MaterialIcon } from "../../components/icons/MaterialIcon";
+import SmartRecommendations from "../../components/recommendations/SmartRecommendations";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from '../../components/animations/FramerMotionComponents'
-import { useGlobalChatbot } from '../../providers/GlobalChatbotProvider'
+} from "../../components/animations/FramerMotionComponents";
+import { useGlobalChatbot } from "../../providers/GlobalChatbotProvider";
 
 // Contact methods
 const contactMethods = [
   {
-    icon: 'phone',
-    title: 'Phone',
-    value: '(509) 308-6489',
-    description: 'Mon-Fri: 8:00 AM - 5:00 PM PST',
-    link: 'tel:+15093086489',
+    icon: "phone",
+    title: "Phone",
+    value: "(509) 308-6489",
+    description: "Mon-Fri: 8:00 AM - 5:00 PM PST",
+    link: "tel:+15093086489",
   },
   {
-    icon: 'email',
-    title: 'Email',
-    value: 'info@mhconstruction.com',
+    icon: "email",
+    title: "Email",
+    value: "info@mhconstruction.com",
     description: "We'll respond within 24 hours",
-    link: 'mailto:info@mhconstruction.com',
+    link: "mailto:info@mhconstruction.com",
   },
   {
-    icon: 'location_on',
-    title: 'Office',
-    value: '3111 N. Capital Ave.',
-    description: 'Pasco, WA 99301',
-    link: 'https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301',
+    icon: "location_on",
+    title: "Office",
+    value: "3111 N. Capital Ave.",
+    description: "Pasco, WA 99301",
+    link: "https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301",
   },
   {
-    icon: 'schedule',
-    title: 'Business Hours',
-    value: 'Monday - Friday',
-    description: '8:00 AM - 5:00 PM PST',
+    icon: "schedule",
+    title: "Business Hours",
+    value: "Monday - Friday",
+    description: "8:00 AM - 5:00 PM PST",
     link: null,
   },
-]
+];
 
 // Service areas
 const serviceAreas = [
-  { name: 'Pasco, WA', icon: 'location_city' },
-  { name: 'Kennewick, WA', icon: 'location_city' },
-  { name: 'Richland, WA', icon: 'location_city' },
-  { name: 'Benton County, WA', icon: 'map' },
-  { name: 'Franklin County, WA', icon: 'map' },
-  { name: 'Washington State', icon: 'public' },
-  { name: 'Oregon (Licensed)', icon: 'public' },
-  { name: 'Idaho (Licensed)', icon: 'public' },
-]
+  { name: "Pasco, WA", icon: "location_city" },
+  { name: "Kennewick, WA", icon: "location_city" },
+  { name: "Richland, WA", icon: "location_city" },
+  { name: "Benton County, WA", icon: "map" },
+  { name: "Franklin County, WA", icon: "map" },
+  { name: "Washington State", icon: "public" },
+  { name: "Oregon (Licensed)", icon: "public" },
+  { name: "Idaho (Licensed)", icon: "public" },
+];
 
 // Project types
 const projectTypes = [
-  'Commercial Construction',
-  'Residential Construction',
-  'Industrial Construction',
-  'Tenant Improvements',
-  'Medical Facilities',
-  'Religious Facilities',
-  'Wineries & Vineyards',
-  'Renovations',
-  'Other',
-]
+  "Commercial Construction",
+  "Residential Construction",
+  "Industrial Construction",
+  "Tenant Improvements",
+  "Medical Facilities",
+  "Religious Facilities",
+  "Wineries & Vineyards",
+  "Renovations",
+  "Other",
+];
 
 export default function ContactPage() {
-  const { setFormData: setGlobalFormData } = useGlobalChatbot()
+  const { setFormData: setGlobalFormData } = useGlobalChatbot();
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    projectType: '',
-    location: '',
-    message: '',
-  })
+    name: "",
+    email: "",
+    phone: "",
+    projectType: "",
+    location: "",
+    message: "",
+  });
 
   // Sync local form data with global chatbot context
   useEffect(() => {
-    setGlobalFormData(formData)
-  }, [formData, setGlobalFormData])
+    setGlobalFormData(formData);
+  }, [formData, setGlobalFormData]);
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
-    'idle' | 'success' | 'error'
-  >('idle')
+    "idle" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     // Simulate form submission
     // In production, this would send to your backend/Firebase
     setTimeout(() => {
-      setIsSubmitting(false)
-      setSubmitStatus('success')
+      setIsSubmitting(false);
+      setSubmitStatus("success");
 
       // Reset form
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        projectType: '',
-        location: '',
-        message: '',
-      })
+        name: "",
+        email: "",
+        phone: "",
+        projectType: "",
+        location: "",
+        message: "",
+      });
 
       // Reset success message after 5 seconds
       setTimeout(() => {
-        setSubmitStatus('idle')
-      }, 5000)
-    }, 1500)
-  }
+        setSubmitStatus("idle");
+      }, 5000);
+    }, 1500);
+  };
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -133,8 +133,8 @@ export default function ContactPage() {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
@@ -180,11 +180,11 @@ export default function ContactPage() {
                       <a
                         href={method.link}
                         target={
-                          method.link.startsWith('http') ? '_blank' : undefined
+                          method.link.startsWith("http") ? "_blank" : undefined
                         }
                         rel={
-                          method.link.startsWith('http')
-                            ? 'noopener noreferrer'
+                          method.link.startsWith("http")
+                            ? "noopener noreferrer"
                             : undefined
                         }
                         className="block mb-1 font-semibold text-brand-primary hover:text-brand-primary-dark hover:underline transition-colors"
@@ -308,7 +308,7 @@ export default function ContactPage() {
                           className="bg-white dark:bg-gray-800 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-lg focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
                         >
                           <option value="">Select a project type...</option>
-                          {projectTypes.map(type => (
+                          {projectTypes.map((type) => (
                             <option key={type} value={type}>
                               {type}
                             </option>
@@ -353,7 +353,7 @@ export default function ContactPage() {
                         />
                       </div>
 
-                      {submitStatus === 'success' && (
+                      {submitStatus === "success" && (
                         <div className="flex items-start bg-brand-accent/10 dark:bg-brand-accent/20 p-4 border border-brand-accent/30 dark:border-brand-accent/40 rounded-lg">
                           <MaterialIcon
                             icon="check_circle"
@@ -371,7 +371,7 @@ export default function ContactPage() {
                         </div>
                       )}
 
-                      {submitStatus === 'error' && (
+                      {submitStatus === "error" && (
                         <div className="flex items-start bg-red-50 dark:bg-red-900/20 p-4 border border-red-200 dark:border-red-700 rounded-lg">
                           <MaterialIcon
                             icon="error"
@@ -728,43 +728,43 @@ export default function ContactPage() {
               variant="compact"
               maxRecommendations={6}
               showVeteranBenefits={true}
-              onRecommendationClick={recommendation => {
+              onRecommendationClick={(recommendation) => {
                 // Pre-fill contact form with project details
                 const projectField = document.querySelector(
                   'textarea[name="message"]'
-                ) as HTMLTextAreaElement
+                ) as HTMLTextAreaElement;
                 if (projectField) {
-                  const currentValue = projectField.value
-                  const projectInfo = `I'm interested in: ${recommendation.title}\n\nEstimated Budget: ${Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(recommendation.estimatedCost.min)} - ${Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(recommendation.estimatedCost.max)}\n\n${currentValue}`
-                  projectField.value = projectInfo
-                  projectField.focus()
+                  const currentValue = projectField.value;
+                  const projectInfo = `I'm interested in: ${recommendation.title}\n\nEstimated Budget: ${Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0 }).format(recommendation.estimatedCost.min)} - ${Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0 }).format(recommendation.estimatedCost.max)}\n\n${currentValue}`;
+                  projectField.value = projectInfo;
+                  projectField.focus();
 
                   // Scroll to form
                   document
-                    .getElementById('contact-form')
-                    ?.scrollIntoView({ behavior: 'smooth' })
+                    .getElementById("contact-form")
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }
 
                 // Track contact form pre-fill
-                if (typeof window !== 'undefined' && window.gtag) {
-                  window.gtag('event', 'contact_recommendation_prefill', {
+                if (typeof window !== "undefined" && window.gtag) {
+                  window.gtag("event", "contact_recommendation_prefill", {
                     project_type: recommendation.projectType,
                     confidence: recommendation.confidence,
-                  })
+                  });
                 }
               }}
-              onGetEstimate={recommendation => {
+              onGetEstimate={(recommendation) => {
                 // Navigate to estimator
-                if (typeof window !== 'undefined') {
-                  window.location.href = `/estimator?project=${encodeURIComponent(recommendation.projectType)}&title=${encodeURIComponent(recommendation.title)}`
+                if (typeof window !== "undefined") {
+                  window.location.href = `/estimator?project=${encodeURIComponent(recommendation.projectType)}&title=${encodeURIComponent(recommendation.title)}`;
                 }
 
                 // Track estimate request from contact page
-                if (typeof window !== 'undefined' && window.gtag) {
-                  window.gtag('event', 'contact_recommendation_estimate', {
+                if (typeof window !== "undefined" && window.gtag) {
+                  window.gtag("event", "contact_recommendation_estimate", {
                     project_type: recommendation.projectType,
                     estimated_value: recommendation.estimatedCost.min,
-                  })
+                  });
                 }
               }}
               className="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-xl"
@@ -831,5 +831,5 @@ export default function ContactPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

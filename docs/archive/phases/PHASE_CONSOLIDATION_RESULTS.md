@@ -42,7 +42,7 @@ docs/project/
 ├── PHASE_CONSOLIDATION_PLAN.md                  # 📋 Original consolidation plan
 ├── PHASE_CONSOLIDATION_STRATEGY.md              # 📋 Strategy document
 └── PHASE_CONSOLIDATION_RESULTS.md               # 📊 This document
-```
+```text
 
 ### Future Planning Directory
 
@@ -51,7 +51,7 @@ docs/project/planning/
 ├── PHASE_8_SECURITY_COMPLIANCE.md               # ✅ Updated to Phase 8.5
 ├── PHASE_9_SCALABILITY_INFRASTRUCTURE.md        # 📋 Q2 2026
 └── PHASE_10_INNOVATION_FUTURE.md                # 📋 Q3 2026+
-```
+```text
 
 ---
 

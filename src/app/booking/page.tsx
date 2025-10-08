@@ -1,188 +1,188 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import Link from 'next/link'
+import React, { useState } from "react";
+import Link from "next/link";
 import {
   Button,
   Card,
   CardHeader,
   CardTitle,
   CardContent,
-} from '../../components/ui'
-import { MaterialIcon } from '../../components/icons/MaterialIcon'
+} from "../../components/ui";
+import { MaterialIcon } from "../../components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from '../../components/animations/FramerMotionComponents'
-import { consultationService } from '../../lib/utils/firebase'
-import { useGlobalChatbot } from '../../providers/GlobalChatbotProvider'
+} from "../../components/animations/FramerMotionComponents";
+import { consultationService } from "../../lib/utils/firebase";
+import { useGlobalChatbot } from "../../providers/GlobalChatbotProvider";
 
 // Available time slots
 const timeSlots = [
-  '8:00 AM',
-  '9:00 AM',
-  '10:00 AM',
-  '11:00 AM',
-  '1:00 PM',
-  '2:00 PM',
-  '3:00 PM',
-  '4:00 PM',
-]
+  "8:00 AM",
+  "9:00 AM",
+  "10:00 AM",
+  "11:00 AM",
+  "1:00 PM",
+  "2:00 PM",
+  "3:00 PM",
+  "4:00 PM",
+];
 
 // Project types
 const projectTypes = [
-  'Custom Home',
-  'Home Addition',
-  'Kitchen Remodel',
-  'Bathroom Remodel',
-  'Commercial Building',
-  'Tenant Improvement',
-  'Industrial Facility',
-  'Religious Facility',
-  'Medical Facility',
-  'Government Project',
-  'Other',
-]
+  "Custom Home",
+  "Home Addition",
+  "Kitchen Remodel",
+  "Bathroom Remodel",
+  "Commercial Building",
+  "Tenant Improvement",
+  "Industrial Facility",
+  "Religious Facility",
+  "Medical Facility",
+  "Government Project",
+  "Other",
+];
 
 interface BookingFormData {
-  clientName: string
-  email: string
-  phone: string
-  projectType: string
-  projectDescription: string
-  location: string
-  budget: string
-  selectedDate: string
-  selectedTime: string
-  additionalNotes: string
+  clientName: string;
+  email: string;
+  phone: string;
+  projectType: string;
+  projectDescription: string;
+  location: string;
+  budget: string;
+  selectedDate: string;
+  selectedTime: string;
+  additionalNotes: string;
 }
 
 export default function BookingPage() {
-  const { setFormData: setGlobalFormData } = useGlobalChatbot()
+  const { setFormData: setGlobalFormData } = useGlobalChatbot();
 
-  const [step, setStep] = useState(1) // 1: Date/Time, 2: Details, 3: Confirmation
-  const [selectedDate, setSelectedDate] = useState('')
-  const [selectedTime, setSelectedTime] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [step, setStep] = useState(1); // 1: Date/Time, 2: Details, 3: Confirmation
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedTime, setSelectedTime] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
-    'idle' | 'success' | 'error'
-  >('idle')
+    "idle" | "success" | "error"
+  >("idle");
 
   const [formData, setFormData] = useState<BookingFormData>({
-    clientName: '',
-    email: '',
-    phone: '',
-    projectType: '',
-    projectDescription: '',
-    location: '',
-    budget: '',
-    selectedDate: '',
-    selectedTime: '',
-    additionalNotes: '',
-  })
+    clientName: "",
+    email: "",
+    phone: "",
+    projectType: "",
+    projectDescription: "",
+    location: "",
+    budget: "",
+    selectedDate: "",
+    selectedTime: "",
+    additionalNotes: "",
+  });
 
   // Sync local form data with global chatbot context
   React.useEffect(() => {
-    setGlobalFormData(formData)
-  }, [formData, setGlobalFormData])
+    setGlobalFormData(formData);
+  }, [formData, setGlobalFormData]);
 
   // Handle URL parameters for pre-filling data from quick booking modal
   React.useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search)
-      const prefilledData: Partial<BookingFormData> = {}
+    if (typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const prefilledData: Partial<BookingFormData> = {};
 
-      if (urlParams.get('date')) {
-        const date = urlParams.get('date')!
-        setSelectedDate(date)
-        prefilledData.selectedDate = date
+      if (urlParams.get("date")) {
+        const date = urlParams.get("date")!;
+        setSelectedDate(date);
+        prefilledData.selectedDate = date;
       }
 
-      if (urlParams.get('time')) {
-        const time = urlParams.get('time')!
-        setSelectedTime(time)
-        prefilledData.selectedTime = time
+      if (urlParams.get("time")) {
+        const time = urlParams.get("time")!;
+        setSelectedTime(time);
+        prefilledData.selectedTime = time;
       }
 
-      if (urlParams.get('name')) {
-        prefilledData.clientName = urlParams.get('name')!
+      if (urlParams.get("name")) {
+        prefilledData.clientName = urlParams.get("name")!;
       }
 
-      if (urlParams.get('email')) {
-        prefilledData.email = urlParams.get('email')!
+      if (urlParams.get("email")) {
+        prefilledData.email = urlParams.get("email")!;
       }
 
-      if (urlParams.get('phone')) {
-        prefilledData.phone = urlParams.get('phone')!
+      if (urlParams.get("phone")) {
+        prefilledData.phone = urlParams.get("phone")!;
       }
 
-      if (urlParams.get('projectType')) {
-        prefilledData.projectType = urlParams.get('projectType')!
+      if (urlParams.get("projectType")) {
+        prefilledData.projectType = urlParams.get("projectType")!;
       }
 
       // If we have date and time, skip to step 2
-      if (urlParams.get('date') && urlParams.get('time')) {
-        setStep(2)
+      if (urlParams.get("date") && urlParams.get("time")) {
+        setStep(2);
       }
 
       // Update form data with prefilled values
       if (Object.keys(prefilledData).length > 0) {
-        setFormData(prev => ({ ...prev, ...prefilledData }))
+        setFormData((prev) => ({ ...prev, ...prefilledData }));
       }
     }
-  }, [])
+  }, []);
 
   // Generate next 30 days for calendar
   const generateCalendarDays = () => {
-    const days = []
-    const today = new Date()
+    const days = [];
+    const today = new Date();
 
     for (let i = 1; i <= 30; i++) {
-      const date = new Date(today)
-      date.setDate(today.getDate() + i)
+      const date = new Date(today);
+      date.setDate(today.getDate() + i);
 
       // Skip weekends for business consultations
       if (date.getDay() !== 0 && date.getDay() !== 6) {
         days.push({
-          date: date.toISOString().split('T')[0],
+          date: date.toISOString().split("T")[0],
           displayDate: date.getDate(),
-          dayName: date.toLocaleDateString('en-US', { weekday: 'short' }),
-          fullDate: date.toLocaleDateString('en-US', {
-            weekday: 'long',
-            month: 'long',
-            day: 'numeric',
+          dayName: date.toLocaleDateString("en-US", { weekday: "short" }),
+          fullDate: date.toLocaleDateString("en-US", {
+            weekday: "long",
+            month: "long",
+            day: "numeric",
           }),
-        })
+        });
       }
     }
-    return days
-  }
+    return days;
+  };
 
-  const calendarDays = generateCalendarDays()
+  const calendarDays = generateCalendarDays();
 
   const handleDateSelect = (date: string) => {
-    setSelectedDate(date)
-    setFormData(prev => ({ ...prev, selectedDate: date }))
-  }
+    setSelectedDate(date);
+    setFormData((prev) => ({ ...prev, selectedDate: date }));
+  };
 
   const handleTimeSelect = (time: string) => {
-    setSelectedTime(time)
-    setFormData(prev => ({ ...prev, selectedTime: time }))
-  }
+    setSelectedTime(time);
+    setFormData((prev) => ({ ...prev, selectedTime: time }));
+  };
 
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >
   ) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     try {
       // Create consultation record
@@ -194,37 +194,37 @@ export default function BookingPage() {
         projectDescription: formData.projectDescription,
         location: formData.location,
         budget: formData.budget ? parseInt(formData.budget) : undefined,
-        status: 'pending' as const,
+        status: "pending" as const,
         scheduledDate: new Date(
           `${formData.selectedDate}T${convertTo24Hour(formData.selectedTime)}`
         ),
         notes: formData.additionalNotes,
-      }
+      };
 
-      await consultationService.create(consultationData)
-      setSubmitStatus('success')
-      setStep(3)
+      await consultationService.create(consultationData);
+      setSubmitStatus("success");
+      setStep(3);
     } catch (error) {
-      console.error('Error booking consultation:', error)
-      setSubmitStatus('error')
+      console.error("Error booking consultation:", error);
+      setSubmitStatus("error");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const convertTo24Hour = (time12h: string) => {
-    const [time, modifier] = time12h.split(' ')
-    let [hours, minutes] = time.split(':')
-    if (hours === '12') {
-      hours = '00'
+    const [time, modifier] = time12h.split(" ");
+    let [hours, minutes] = time.split(":");
+    if (hours === "12") {
+      hours = "00";
     }
-    if (modifier === 'PM') {
-      hours = (parseInt(hours, 10) + 12).toString()
+    if (modifier === "PM") {
+      hours = (parseInt(hours, 10) + 12).toString();
     }
-    return `${hours}:${minutes || '00'}:00`
-  }
+    return `${hours}:${minutes || "00"}:00`;
+  };
 
-  if (submitStatus === 'success') {
+  if (submitStatus === "success") {
     return (
       <div className="bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-900 to-gray-100 dark:to-gray-800 min-h-screen">
         <div className="mx-auto px-4 py-20 max-w-4xl">
@@ -235,7 +235,7 @@ export default function BookingPage() {
                   <MaterialIcon icon="check_circle" size="4xl" />
                 </div>
                 <h1 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                  <span className="text-gray-300">Consultation</span>{' '}
+                  <span className="text-gray-300">Consultation</span>{" "}
                   <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
                     Scheduled!
                   </span>
@@ -249,12 +249,12 @@ export default function BookingPage() {
                     <p className="flex items-center gap-2 font-semibold text-green-800 dark:text-green-200">
                       <MaterialIcon icon="event" size="sm" />
                       {new Date(formData.selectedDate).toLocaleDateString(
-                        'en-US',
+                        "en-US",
                         {
-                          weekday: 'long',
-                          month: 'long',
-                          day: 'numeric',
-                          year: 'numeric',
+                          weekday: "long",
+                          month: "long",
+                          day: "numeric",
+                          year: "numeric",
                         }
                       )}
                     </p>
@@ -305,14 +305,14 @@ export default function BookingPage() {
                     Need to reschedule?
                   </p>
                   <p className="text-green-700 dark:text-green-300 text-sm">
-                    Call us at{' '}
+                    Call us at{" "}
                     <a
                       href="tel:+15093086489"
                       className="font-semibold underline"
                     >
                       (509) 308-6489
-                    </a>{' '}
-                    or email{' '}
+                    </a>{" "}
+                    or email{" "}
                     <a
                       href="mailto:info@mhconstruction.com"
                       className="font-semibold underline"
@@ -326,7 +326,7 @@ export default function BookingPage() {
           </FadeInWhenVisible>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -336,13 +336,14 @@ export default function BookingPage() {
         <div className="mx-auto px-4 max-w-4xl text-center">
           <FadeInWhenVisible>
             <h1 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              <span className="text-white/90">Deploy Your</span>{' '}
+              <span className="text-white/90">Deploy Your</span>{" "}
               <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
                 Strategic Consultation
               </span>
             </h1>
             <p className="mx-auto max-w-2xl text-white/90 text-xl">
-              Connect with our veteran-led team for a precision-focused mission briefing on your construction project
+              Connect with our veteran-led team for a precision-focused mission
+              briefing on your construction project
             </p>
           </FadeInWhenVisible>
         </div>
@@ -355,15 +356,15 @@ export default function BookingPage() {
             <div
               className={`flex items-center ${
                 step >= 1
-                  ? 'text-brand-primary dark:text-brand-primary'
-                  : 'text-gray-400 dark:text-gray-500'
+                  ? "text-brand-primary dark:text-brand-primary"
+                  : "text-gray-400 dark:text-gray-500"
               }`}
             >
               <div
                 className={`flex justify-center items-center mr-2 rounded-full w-8 h-8 text-sm font-bold ${
                   step >= 1
-                    ? 'bg-brand-primary text-white'
-                    : 'bg-gray-200 dark:bg-gray-600 dark:text-gray-400'
+                    ? "bg-brand-primary text-white"
+                    : "bg-gray-200 dark:bg-gray-600 dark:text-gray-400"
                 }`}
               >
                 1
@@ -372,21 +373,21 @@ export default function BookingPage() {
             </div>
             <div
               className={`w-16 h-0.5 ${
-                step >= 2 ? 'bg-brand-primary' : 'bg-gray-300 dark:bg-gray-600'
+                step >= 2 ? "bg-brand-primary" : "bg-gray-300 dark:bg-gray-600"
               }`}
             />
             <div
               className={`flex items-center ${
                 step >= 2
-                  ? 'text-brand-primary dark:text-brand-primary'
-                  : 'text-gray-400 dark:text-gray-500'
+                  ? "text-brand-primary dark:text-brand-primary"
+                  : "text-gray-400 dark:text-gray-500"
               }`}
             >
               <div
                 className={`flex justify-center items-center mr-2 rounded-full w-8 h-8 text-sm font-bold ${
                   step >= 2
-                    ? 'bg-brand-primary text-white'
-                    : 'bg-gray-200 dark:bg-gray-600 dark:text-gray-400'
+                    ? "bg-brand-primary text-white"
+                    : "bg-gray-200 dark:bg-gray-600 dark:text-gray-400"
                 }`}
               >
                 2
@@ -395,21 +396,21 @@ export default function BookingPage() {
             </div>
             <div
               className={`w-16 h-0.5 ${
-                step >= 3 ? 'bg-brand-primary' : 'bg-gray-300 dark:bg-gray-600'
+                step >= 3 ? "bg-brand-primary" : "bg-gray-300 dark:bg-gray-600"
               }`}
             />
             <div
               className={`flex items-center ${
                 step >= 3
-                  ? 'text-brand-primary dark:text-brand-primary'
-                  : 'text-gray-400 dark:text-gray-500'
+                  ? "text-brand-primary dark:text-brand-primary"
+                  : "text-gray-400 dark:text-gray-500"
               }`}
             >
               <div
                 className={`flex justify-center items-center mr-2 rounded-full w-8 h-8 text-sm font-bold ${
                   step >= 3
-                    ? 'bg-brand-primary text-white'
-                    : 'bg-gray-200 dark:bg-gray-600 dark:text-gray-400'
+                    ? "bg-brand-primary text-white"
+                    : "bg-gray-200 dark:bg-gray-600 dark:text-gray-400"
                 }`}
               >
                 3
@@ -441,14 +442,14 @@ export default function BookingPage() {
                     Available Dates
                   </h3>
                   <div className="gap-3 grid grid-cols-4 md:grid-cols-7">
-                    {calendarDays.map(day => (
+                    {calendarDays.map((day) => (
                       <button
                         key={day.date}
                         onClick={() => handleDateSelect(day.date)}
                         className={`p-3 border rounded-lg text-center transition-all duration-200 ${
                           selectedDate === day.date
-                            ? 'bg-brand-primary border-brand-primary text-white'
-                            : 'hover:bg-brand-primary/10 hover:border-brand-primary border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white'
+                            ? "bg-brand-primary border-brand-primary text-white"
+                            : "hover:bg-brand-primary/10 hover:border-brand-primary border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                         }`}
                       >
                         <div className="font-medium text-xs">{day.dayName}</div>
@@ -467,14 +468,14 @@ export default function BookingPage() {
                       Available Times
                     </h3>
                     <div className="gap-3 grid grid-cols-2 md:grid-cols-4">
-                      {timeSlots.map(time => (
+                      {timeSlots.map((time) => (
                         <button
                           key={time}
                           onClick={() => handleTimeSelect(time)}
                           className={`p-3 border rounded-lg text-center transition-all duration-200 ${
                             selectedTime === time
-                              ? 'bg-brand-primary border-brand-primary text-white'
-                              : 'hover:bg-brand-primary/10 hover:border-brand-primary border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white'
+                              ? "bg-brand-primary border-brand-primary text-white"
+                              : "hover:bg-brand-primary/10 hover:border-brand-primary border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                           }`}
                         >
                           {time}
@@ -489,11 +490,11 @@ export default function BookingPage() {
                   <div className="pt-6 border-gray-200 dark:border-gray-600 border-t">
                     <div className="bg-brand-primary/10 dark:bg-brand-primary/20 mb-4 p-4 border border-brand-primary/20 dark:border-brand-primary/30 rounded-lg">
                       <p className="font-semibold text-brand-primary dark:text-brand-primary">
-                        Selected:{' '}
+                        Selected:{" "}
                         {
-                          calendarDays.find(d => d.date === selectedDate)
+                          calendarDays.find((d) => d.date === selectedDate)
                             ?.fullDate
-                        }{' '}
+                        }{" "}
                         at {selectedTime}
                       </p>
                     </div>
@@ -584,7 +585,7 @@ export default function BookingPage() {
                         className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
                       >
                         <option value="">Select project type</option>
-                        {projectTypes.map(type => (
+                        {projectTypes.map((type) => (
                           <option key={type} value={type}>
                             {type}
                           </option>
@@ -666,7 +667,7 @@ export default function BookingPage() {
                       <span className="flex items-center gap-2 mb-1">
                         <MaterialIcon icon="event" size="sm" />
                         {
-                          calendarDays.find(d => d.date === selectedDate)
+                          calendarDays.find((d) => d.date === selectedDate)
                             ?.fullDate
                         }
                       </span>
@@ -710,11 +711,11 @@ export default function BookingPage() {
                       ) : (
                         <MaterialIcon icon="check" className="mr-2" />
                       )}
-                      {isSubmitting ? 'Scheduling...' : 'Schedule Consultation'}
+                      {isSubmitting ? "Scheduling..." : "Schedule Consultation"}
                     </Button>
                   </div>
 
-                  {submitStatus === 'error' && (
+                  {submitStatus === "error" && (
                     <div className="bg-red-50 dark:bg-red-900/20 p-4 border border-red-200 dark:border-red-800 rounded-lg">
                       <p className="text-red-700 dark:text-red-300">
                         There was an error scheduling your consultation. Please
@@ -729,5 +730,5 @@ export default function BookingPage() {
         </StaggeredFadeIn>
       </div>
     </div>
-  )
+  );
 }

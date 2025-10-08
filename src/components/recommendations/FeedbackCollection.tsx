@@ -9,7 +9,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import dynamic from 'next/dynamic'
 import { MaterialIcon } from '../icons/MaterialIcon'
 import { Card, CardContent } from '../ui'
 import useSmartRecommendations from '../../hooks/useSmartRecommendations'
@@ -17,6 +17,16 @@ import type {
   ProjectRecommendation,
   RecommendationFeedback,
 } from '../../lib/recommendations/SmartRecommendationEngine'
+
+// Dynamic imports for Framer Motion
+const MotionDiv = dynamic(
+  () => import('framer-motion').then(mod => mod.motion.div),
+  { ssr: false }
+)
+const AnimatePresence = dynamic(
+  () => import('framer-motion').then(mod => mod.AnimatePresence),
+  { ssr: false }
+)
 
 interface FeedbackCollectionProps {
   recommendation: ProjectRecommendation
@@ -221,19 +231,19 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
 
         <AnimatePresence>
           {isOpen && (
-            <motion.div
+            <MotionDiv
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50"
               onClick={() => setIsOpen(false)}
             >
-              <motion.div
+              <MotionDiv
                 initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.95, opacity: 0 }}
                 className="bg-white mx-4 p-6 rounded-lg w-full max-w-md"
-                onClick={e => e.stopPropagation()}
+                onClick={(e: React.MouseEvent) => e.stopPropagation()}
               >
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="font-semibold text-gray-800 text-lg">
@@ -299,8 +309,8 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
                     </span>
                   </button>
                 </div>
-              </motion.div>
-            </motion.div>
+              </MotionDiv>
+            </MotionDiv>
           )}
         </AnimatePresence>
       </>

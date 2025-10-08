@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import {
   PageHero,
   Card,
@@ -10,9 +11,16 @@ import {
   CardContent,
   Button,
 } from '../../components/ui'
-import { EstimatorForm } from '../../components/estimator'
 import { MaterialIcon } from '../../components/icons/MaterialIcon'
-import SmartRecommendations from '../../components/recommendations/SmartRecommendations'
+// Dynamically import heavy components
+const EstimatorForm = dynamic(() => import('../../components/estimator').then(mod => ({ default: mod.EstimatorForm })), {
+  loading: () => <div className="h-96 bg-muted animate-pulse rounded-lg"></div>,
+  ssr: false
+});
+const SmartRecommendations = dynamic(() => import('../../components/recommendations/SmartRecommendations'), {
+  loading: () => <div className="h-64 bg-muted animate-pulse rounded-lg"></div>,
+  ssr: false
+});
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,

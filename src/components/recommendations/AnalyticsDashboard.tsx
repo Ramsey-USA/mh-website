@@ -9,10 +9,16 @@
 'use client'
 
 import React, { useState, useEffect, useMemo } from 'react'
-import { motion } from 'framer-motion'
+import dynamic from 'next/dynamic'
 import { MaterialIcon } from '../icons/MaterialIcon'
 import { Card, CardContent } from '../ui'
 import useSmartRecommendations from '../../hooks/useSmartRecommendations'
+
+// Dynamic import for Framer Motion
+const MotionDiv = dynamic(
+  () => import('framer-motion').then(mod => mod.motion.div),
+  { ssr: false }
+)
 
 interface ExperimentResultsProps {
   experimentId?: string
@@ -23,6 +29,7 @@ interface MetricCard {
   title: string
   value: string | number
   change?: number
+  trend?: 'up' | 'down' | 'neutral'
   icon: string
   color: string
   format?: 'percentage' | 'number' | 'currency'
@@ -248,7 +255,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
           {/* Summary Metrics */}
           <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {summaryMetrics.map((metric, index) => (
-              <motion.div
+              <MotionDiv
                 key={metric.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -258,24 +265,23 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
                   <CardContent className="p-6">
                     <div className="flex justify-between items-center">
                       <div>
-                        <p className="mb-1 font-medium text-gray-600 text-sm">
+                        <p className="text-sm font-medium text-gray-600">
                           {metric.title}
                         </p>
-                        <p className="font-bold text-gray-800 text-2xl">
-                          {formatValue(metric.value, metric.format)}
+                        <p className="text-2xl font-bold">
+                          {metric.value}
                         </p>
-                        {metric.change && (
-                          <p
-                            className={`text-sm mt-1 ${
-                              metric.change > 0
-                                ? 'text-green-600'
-                                : 'text-red-600'
-                            }`}
-                          >
-                            {metric.change > 0 ? '+' : ''}
-                            {metric.change.toFixed(1)}% vs control
-                          </p>
-                        )}
+                        <p
+                          className={`text-sm ${
+                            metric.trend === 'up'
+                              ? 'text-green-600'
+                              : metric.trend === 'down'
+                              ? 'text-red-600'
+                              : 'text-gray-600'
+                          }`}
+                        >
+                          {metric.change}
+                        </p>
                       </div>
                       <div
                         className={`p-3 rounded-lg ${getColorClasses(metric.color)}`}
@@ -285,7 +291,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
 

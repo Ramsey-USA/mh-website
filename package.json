@@ -55,7 +55,6 @@
   "license": "MIT",
   "dependencies": {
     "@emotion/is-prop-valid": "^1.4.0",
-    "@next/bundle-analyzer": "^15.5.3",
     "@radix-ui/react-alert-dialog": "^1.1.15",
     "@radix-ui/react-progress": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
@@ -95,6 +94,7 @@
     "@axe-core/playwright": "^4.8.2",
     "@eslint/eslintrc": "^3.3.1",
     "@lhci/cli": "^0.12.0",
+    "@next/bundle-analyzer": "^15.5.4",
     "@playwright/test": "^1.40.1",
     "@swc/jest": "^0.2.39",
     "@testing-library/jest-dom": "^6.1.4",
