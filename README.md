@@ -1,16 +1,29 @@
 # MH Construction - Veteran-Owned Partnership-Driven Platform
 
+## Table of Contents
+
+- [Build Status](#build-status)
+- [🔘 MH Construction Button System](#-mh-construction-button-system)
+  - [Button Variants](#button-variants)
+  - [Implementation Standards](#implementation-standards)
+  - [Features](#features)
+- [💻 Development](#-development)
+  - [Current Development Status](#current-development-status)
+- [🚨 Icon Usage Policy](#-icon-usage-policy)
+  - [Quick Standards](#quick-standards)
+- [🏗️ Project Overview](#️-project-overview)
+
 ## Build Status
 
-```bash
+ `` `bash
 ✅ Build: SUCCESS
-✅ TypeScript: No errors  
+✅ TypeScript: No errors
 ✅ Linting: Clean
 ✅ Performance: Optimized (94+ Lighthouse)
 ✅ Icons: Google Material Icons unified
 ✅ Platform: Production-ready with all features
 ✅ Emoji-Free Codebase: Policy enforced
-```
+ `` `
 
 ## 🔘 **MH Construction Button System**
 
@@ -19,13 +32,13 @@
 ### Button Variants
 
 - **Primary** (Hunter Green): Main CTAs and primary actions
-- **Secondary** (Leather Tan): Supporting actions and alternatives  
+- **Secondary** (Leather Tan): Supporting actions and alternatives
 - **Outline**: Subtle actions with transparent backgrounds
 - **Neutral**: Theme-aware buttons for utility functions
 
 ### Implementation Standards
 
-```tsx
+ `` `tsx
 // Primary action with icon
 <Button variant="primary" size="lg">
   <MaterialIcon icon="build" className="mr-3 w-6 h-6" />
@@ -40,7 +53,7 @@
     <span className="text-sm opacity-90">(509) 308-6489</span>
   </span>
 </Button>
-```
+ `` `
 
 ### Features
 
@@ -59,15 +72,15 @@
 
 ### Current Development Status
 
-```bash
+ `` `bash
 ✅ Build: SUCCESS
-✅ TypeScript: No errors  
+✅ TypeScript: No errors
 ✅ Linting: Clean
 ✅ Performance: Optimized (94+ Lighthouse)
 ✅ Icons: Google Material Icons unified
 ✅ Platform: Production-ready with all features
 ✅ Emoji-Free Codebase: Policy enforced
-```
+ `` `
 
 ## 🚨 Icon Usage Policy
 
@@ -75,7 +88,7 @@
 
 ### Quick Standards
 
-- ✅ **DO**: Use `<MaterialIcon icon="construction" size="lg" />`
+- ✅ **DO**: Use  `<MaterialIcon icon="construction" size="lg" />`
 - ❌ **DON'T**: Use emojis in .ts/.tsx/.js/.jsx files
 - 📝 **DOCS**: Emojis acceptable in .md files for documentation clarity
 
@@ -89,21 +102,21 @@ MH Construction's website is a comprehensive digital platform showcasing veteran
 
 ## ✨ Current Platform Status
 
-**Complete Website Implementation**: ✅ **LIVE**  
-**Google Material Icons Migration**: ✅ **COMPLETE**  
-**Modern Architecture**: ✅ **COMPLETE**  
-**Production Deployment**: ✅ **READY**  
+**Complete Website Implementation**: ✅ **LIVE**
+**Google Material Icons Migration**: ✅ **COMPLETE**
+**Modern Architecture**: ✅ **COMPLETE**
+**Production Deployment**: ✅ **READY**
 
 ### Platform Status Overview
 
-```bash
+ `` `bash
 ✅ Build: SUCCESS
-✅ TypeScript: No errors  
+✅ TypeScript: No errors
 ✅ Linting: Clean
 ✅ Performance: Optimized (94+ Lighthouse)
 ✅ Icons: Google Material Icons unified
 ✅ Platform: Production-ready with all features
-```
+ `` `
 
 ## 🤖 AI-Powered Construction Intelligence
 
@@ -144,7 +157,7 @@ MH Construction's website is a comprehensive digital platform showcasing veteran
 
 ### AI Technical Implementation
 
-```text
+ `` `text
 ✅ AI FEATURES IMPLEMENTED:
 ├── Global Military Chatbot        # Available on all pages
 ├── Advanced Cost Estimator        # Real-time pricing intelligence
@@ -164,49 +177,50 @@ MH Construction's website is a comprehensive digital platform showcasing veteran
 ├── Smart Form Assistant System    # Intelligent form completion
 ├── Lead Qualification Engine       # 0-100 scoring with military assessment
 └── Contextual Response System     # Page-aware assistance
-```
+ `` `
 
 #### Performance Metrics
 
-| AI Feature | Performance | Status |
-|------------|-------------|--------|
-| **Response Time** | <1.5 seconds | ✅ Optimized |
-| **Accuracy Rate** | 95%+ estimates | ✅ Military Precision |
-| **Availability** | 24/7 Global | ✅ All Pages |
-| **Veteran Recognition** | Auto-detect | ✅ Service-Specific |
-| **Bundle Impact** | +35kB total | ✅ Efficient |
-| **User Experience** | Draggable UI | ✅ Interactive |
-| **Form Intelligence** | Smart Assist | ✅ AI-Powered |
-| **Lead Qualification** | 0-100 Score | ✅ Military Precision |
+ | AI Feature | Performance | Status |
+ | ------------ | ------------- | -------- |
+ | **Response Time** | <1.5 seconds | ✅ Optimized |
+ | **Accuracy Rate** | 95%+ estimates | ✅ Military Precision |
+ | **Availability** | 24/7 Global | ✅ All Pages |
+ | **Veteran Recognition** | Auto-detect | ✅ Service-Specific |
+ | **Bundle Impact** | +35kB total | ✅ Efficient |
+ | **User Experience** | Draggable UI | ✅ Interactive |
+ | **Form Intelligence** | Smart Assist | ✅ AI-Powered |
+ | **Lead Qualification** | 0-100 Score | ✅ Military Precision |
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-```bash
+ `` `bash
 Node.js >= 18.0.0
 npm >= 8.0.0
 Git
 Firebase CLI (optional)
-```
+ `` `
 
 ### Setup
 
 ```bash
-# Clone and install
-git clone https://github.com/Ramsey-USA/mh-website.git
+## Clone and install
+git clone <https://github.com/Ramsey-USA/mh-website.git>
 cd mh-website
 npm install
 
-# Environment setup
+## Environment setup
 cp .env.example .env.local
-# Edit .env.local with Firebase configuration
 
-# Start development
-npm run dev            # http://localhost:3000 (Full website)
+## Edit .env.local with Firebase configuration
+
+## Start development
+npm run dev            # <http://localhost:3000> (Full website)
 npm run build          # Production build - CONFIRMED WORKING
 npm run lint           # Code quality check
-```
+```text
 
 ## 🏗️ Complete Website Architecture
 
@@ -225,7 +239,7 @@ npm run lint           # Code quality check
 
 ### Implemented Pages & Features
 
-```text
+ `` `text
 ✅ LIVE PAGES:
 ├── Homepage (/)                 # Partnership-focused landing
 ├── About (/about)              # Core values & company story
@@ -248,11 +262,11 @@ npm run lint           # Code quality check
 ├── PWA Features            # Offline functionality
 ├── SEO Optimization        # Enhanced search presence
 └── Performance Monitoring  # Real-time optimization
-```
+ `` `
 
 ### Complete Component Architecture
 
-```text
+ `` `text
 src/
 ├── app/
 │   ├── page.tsx                    # Homepage (Complete)
@@ -289,11 +303,11 @@ src/
 │   ├── utils/                      # Utility functions
 │   └── types/                      # TypeScript types
 └── hooks/                          # Custom React hooks
-```
+ `` `
 
 ## 📚 Documentation
 
-**📖 [Complete Documentation Index](./docs/DOCUMENTATION_INDEX.md)** - Navigate all project documentation
+**📖 [Complete Documentation Index](./docs/MANIFEST.md)** - Navigate all project documentation
 
 ### Quick Access
 
@@ -347,16 +361,16 @@ At MH Construction, we don't just build structures - we build relationships. Our
 
 ## 🏢 Company Information
 
-| Information | Details |
-|-------------|---------|
-| **Business Name** | MH Construction LLC (Veteran-Owned) |
-| **Partnership Philosophy** | "We Work With You" - Collaborative Construction Partners |
-| **Community Focus** | Serving Pacific Northwest Communities Since 1995 |
-| **Phone** | (509) 308-6489 |
-| **Address** | 3111 N. Capital Ave., Pasco, WA 99301 |
-| **Service Area** | Pacific Northwest (WA, OR, ID) |
-| **Email** | <info@mhconstruction.com> |
-| **Website** | [mhconstruction.com](https://mhconstruction.com) |
+ | Information | Details |
+ | ------------- | --------- |
+ | **Business Name** | MH Construction LLC (Veteran-Owned) |
+ | **Partnership Philosophy** | "We Work With You" - Collaborative Construction Partners |
+ | **Community Focus** | Serving Pacific Northwest Communities Since 1995 |
+ | **Phone** | (509) 308-6489 |
+ | **Address** | 3111 N. Capital Ave., Pasco, WA 99301 |
+ | **Service Area** | Pacific Northwest (WA, OR, ID) |
+ | **Email** | <info@mhconstruction.com> |
+ | **Website** | [mhconstruction.com](https://mhconstruction.com) |
 
 ### Our Partnership Approach
 
@@ -367,32 +381,32 @@ At MH Construction, we don't just build structures - we build relationships. Our
 ### Available Scripts
 
 ```bash
-# Development
+## Development
 npm run dev              # Start dev server (full website)
 npm run build           # Production build
 npm run start           # Start production server
 
-# Code Quality
+## Code Quality
 npm run lint            # ESLint check
 npm run lint:fix        # Fix ESLint issues
 npm run type-check      # TypeScript validation
 
-# Firebase
+## Firebase
 npm run firebase:deploy # Deploy to Firebase
 npm run firebase:emulate # Local Firebase emulators
 
-# Testing
+## Testing
 npm run test            # Run Jest tests
 npm run test:watch      # Watch mode testing
 npm run test:coverage   # Coverage reports
-```
+```text
 
 ### Development Workflow
 
-1. Create feature branch: `git checkout -b feature/name`
-2. Make changes and test: `npm run dev`
-3. Quality checks: `npm run lint && npm run type-check`
-4. Build test: `npm run build`
+1. Create feature branch:  `git checkout -b feature/name`
+2. Make changes and test:  `npm run dev`
+3. Quality checks:  `npm run lint && npm run type-check`
+4. Build test:  `npm run build`
 5. Commit and push for PR
 
 ## 🚀 Deployment
@@ -403,17 +417,17 @@ npm run test:coverage   # Coverage reports
 npm run build
 firebase deploy
 
-# Specific targets
+## Specific targets
 firebase deploy --only hosting
 firebase deploy --only firestore:rules
-```
+```text
 
 ## ⚙️ Configuration
 
 ### Environment Variables (.env.local)
 
 ```env
-# Firebase Configuration
+## Firebase Configuration
 NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
 NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
@@ -421,10 +435,10 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 
-# Site Configuration
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
+## Site Configuration
+NEXT_PUBLIC_SITE_URL=<http://localhost:3000>
 NEXT_PUBLIC_GA_MEASUREMENT_ID=your_ga_id
-```
+```text
 
 ## 📈 Recent Platform Milestones
 
@@ -530,16 +544,16 @@ With the complete implementation, the platform now includes:
 
 ### Performance Targets - ACHIEVED
 
-| Metric | Target | Current Status |
-|--------|--------|----------------|
-| **Page Load Speed** | <3 seconds | ✅ 2.1s |
-| **Lighthouse Performance** | 90+ | ✅ 94+ |
-| **TypeScript Errors** | 0 | ✅ 0 |
-| **Build Success** | 100% | ✅ 100% |
-| **Mobile Responsive** | All devices | ✅ 100% |
-| **SEO Score** | 90+ | ✅ 95+ |
-| **Bundle Optimization** | Efficient chunks | ✅ Phase 1 Complete |
-| **Dynamic Loading** | Heavy components | ✅ Implemented |
+ | Metric | Target | Current Status |
+ | -------- | -------- | ---------------- |
+ | **Page Load Speed** | <3 seconds | ✅ 2.1s |
+ | **Lighthouse Performance** | 90+ | ✅ 94+ |
+ | **TypeScript Errors** | 0 | ✅ 0 |
+ | **Build Success** | 100% | ✅ 100% |
+ | **Mobile Responsive** | All devices | ✅ 100% |
+ | **SEO Score** | 90+ | ✅ 95+ |
+ | **Bundle Optimization** | Efficient chunks | ✅ Phase 1 Complete |
+ | **Dynamic Loading** | Heavy components | ✅ Implemented |
 
 ## 📞 Contact Information
 

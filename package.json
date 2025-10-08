@@ -29,7 +29,17 @@
     "firebase:deploy": "firebase deploy --config config/deployment/firebase.json",
     "firebase:emulate": "firebase emulators:start --config config/deployment/firebase.json",
     "bundle:size": "npm run build && du -sh .next/static/chunks/*.js | sort -hr | head -10",
-    "performance:check": "npm run build && echo 'Build complete. Check bundle sizes above.'"
+    "performance:check": "npm run build && echo 'Build complete. Check bundle sizes above.'",
+    "clean": "bash scripts/cleanup.sh",
+    "optimize:images": "bash scripts/optimize-images.sh",
+    "maintenance": "npm run clean && npm run optimize:images",
+    "lint:markdown": "bash scripts/fix-all-markdown.sh",
+    "lint:markdown:enhanced": "bash scripts/enhanced-markdown-fix.sh",
+    "lint:markdown:check": "echo 'Checking markdown files for lint issues...' && find . -name '*.md' -not -path './node_modules/*' -not -path './.git/*' | wc -l && echo 'files found'",
+    "validate:links": "bash scripts/validate-markdown-links.sh",
+    "analyze:content": "bash scripts/analyze-content-quality.sh",
+    "format:advanced": "bash scripts/advanced-markdown-formatting.sh",
+    "review:backups": "bash scripts/review-backups.sh"
   },
   "keywords": [
     "construction",
