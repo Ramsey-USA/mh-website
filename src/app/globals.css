@@ -55,7 +55,8 @@
 
   .icon-interactive {
     will-change: transform, opacity;
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transition:
+      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
       opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -95,7 +96,8 @@
 
   /* Brand glow effect */
   .btn-glow:hover {
-    box-shadow: 0 10px 25px -5px theme('colors.brand.primary' / 0.4),
+    box-shadow:
+      0 10px 25px -5px theme('colors.brand.primary' / 0.4),
       0 10px 10px -5px theme('colors.brand.primary' / 0.04);
   }
 }
@@ -134,6 +136,28 @@
    ============================================ */
 
 @layer components {
+  /* MH Construction Button System Enhancements */
+  .mh-button-glow {
+    box-shadow: 0 0 20px rgba(56, 104, 81, 0.3);
+  }
+
+  .mh-button-glow-secondary {
+    box-shadow: 0 0 20px rgba(189, 146, 100, 0.3);
+  }
+
+  /* Enhanced button interactions */
+  .button-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .button-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .button-lift:active {
+    transform: translateY(0);
+  }
+
   /* Group hover effects for card flips */
   .group:hover .group-hover\:rotate-y-180 {
     @apply rotate-y-180;

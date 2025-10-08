@@ -3,11 +3,60 @@
 ```bash
 ✅ Build: SUCCESS
 ✅ TypeScript: No errors  
-✅ Linting: Clean
+✅ Lin├── Security Dashboard       # Security monitoring
+└── Theme System            # Dark/light mode switching
+```
+
+## 🔘 **MH Construction Button System**
+
+**NEW**: Cohesive button system with brand-compliant styling, icon integration, and accessibility features.
+
+### Button Variants
+
+- **Primary** (Hunter Green): Main CTAs and primary actions
+- **Secondary** (Leather Tan): Supporting actions and alternatives  
+- **Outline**: Subtle actions with transparent backgrounds
+- **Neutral**: Theme-aware buttons for utility functions
+
+### Implementation Standards
+
+```tsx
+// Primary action with icon
+<Button variant="primary" size="lg">
+  <MaterialIcon icon="build" className="mr-3 w-6 h-6" />
+  Start Your Project
+</Button>
+
+// Contact button with phone number
+<Button variant="primary" size="lg" className="w-full">
+  <MaterialIcon icon="phone" className="mr-3 w-6 h-6" />
+  <span className="text-center">
+    Call Now<br />
+    <span className="text-sm opacity-90">(509) 308-6489</span>
+  </span>
+</Button>
+```
+
+### Features
+
+- **Consistent naming** across all variants
+- **Icon integration** with proper sizing and spacing
+- **Light/dark mode** compatibility
+- **Hover effects** with smooth transitions (-translate-y-0.5)
+- **Accessibility** with proper focus states and ARIA labels
+- **Responsive design** with mobile-optimized touch targets
+
+**Documentation**: See [BUTTON_SYSTEM.md](./docs/technical/BUTTON_SYSTEM.md) for complete implementation guide.
+
+---
+
+## 💻 Developmentng: Clean
+
 ✅ Performance: Optimized (94+ Lighthouse)
 ✅ Icons: Google Material Icons unified
 ✅ Platform: Production-ready with all features
 ✅ Emoji-Free Codebase: Policy enforced
+
 ```
 
 ## 🚨 Icon Usage Policy
@@ -250,6 +299,7 @@ For detailed information, see our modular documentation:
 
 - **[Platform Features](./docs/technical/FEATURES.md)** - Complete platform capabilities, PWA features, and technical highlights
 - **[Design System](./docs/technical/DESIGN_SYSTEM.md)** - Brand colors, typography, and component standards
+- **[Button System](./docs/technical/BUTTON_SYSTEM.md)** - Cohesive button implementation with icon integration and accessibility
 - **[Technical Architecture](./docs/project/ARCHITECTURE.md)** - Complete system architecture and technical details
 
 ### Development Information
