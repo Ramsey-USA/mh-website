@@ -336,14 +336,13 @@ export default function BookingPage() {
         <div className="mx-auto px-4 max-w-4xl text-center">
           <FadeInWhenVisible>
             <h1 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              <span className="text-white/90">Schedule Your Free</span>{' '}
+              <span className="text-white/90">Deploy Your</span>{' '}
               <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
-                Consultation
+                Strategic Consultation
               </span>
             </h1>
             <p className="mx-auto max-w-2xl text-white/90 text-xl">
-              Meet with our expert team to discuss your project vision and get
-              professional insights
+              Connect with our veteran-led team for a precision-focused mission briefing on your construction project
             </p>
           </FadeInWhenVisible>
         </div>

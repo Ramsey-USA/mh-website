@@ -139,9 +139,9 @@ export default function ContactPage() {
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       <PageHero
-        title="Contact Us"
-        subtitle="Let's Build Your Vision Together"
-        description="Ready to start your construction project? Get in touch with our experienced team for a free consultation, detailed project estimate, and personalized construction solutions throughout the Tri-Cities area."
+        title="Ready to Deploy Your Project?"
+        subtitle="Connect with Our Veteran-Led Team"
+        description="Experience the difference military precision makes. Get in touch with our veteran-led team for a strategic consultation, detailed mission-ready estimate, and construction solutions that honor your vision throughout the Tri-Cities area."
       />
 
       {/* Contact Methods */}

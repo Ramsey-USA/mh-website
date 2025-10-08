@@ -87,23 +87,23 @@ export default function Home() {
     <>
       <Head>
         <title>
-          MH Construction - Commercial Construction Management | Tri-Cities WA
+          MH Construction - Veteran-Led Construction Management | Tri-Cities WA
         </title>
         <meta
           name="description"
-          content="Expert Commercial Construction Management in Pasco, Kennewick, Richland WA. Full CM services for commercial, medical, and industrial projects. Call (509) 308-6489 today."
+          content="Veteran-owned Commercial Construction Management in Pasco, Kennewick, Richland WA. Military precision meets AI technology for superior CM services. Call (509) 308-6489 today."
         />
         <meta
           name="keywords"
-          content="commercial construction management, Tri-Cities construction, Pasco construction, Kennewick construction, Richland construction, construction management services, medical facilities construction, industrial construction, tenant improvements"
+          content="veteran-owned construction, military precision construction, commercial construction management, Tri-Cities construction, Pasco construction, Kennewick construction, Richland construction, veteran business, AI-powered construction, construction management services"
         />
         <meta
           property="og:title"
-          content="MH Construction - Commercial Construction Management | Tri-Cities WA"
+          content="MH Construction - Veteran-Led Construction Management | Tri-Cities WA"
         />
         <meta
           property="og:description"
-          content="Expert Commercial Construction Management services throughout the Tri-Cities area. Call (509) 308-6489 to begin your commercial project."
+          content="Veteran-led Commercial Construction Management with military precision and AI technology. Serving the Tri-Cities area. Call (509) 308-6489."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://mhconstruction.com" />
@@ -113,9 +113,9 @@ export default function Home() {
       <StructuredData data={generateOrganizationStructuredData()} />
 
       <PageHero
-        title="Commercial Construction Management Experts"
-        subtitle="Full Construction Management services throughout the Tri-Cities"
-        description="Serving Pasco, Kennewick, Richland & surrounding areas with expert construction management, cutting-edge technology, and veteran precision."
+        title="Veteran-Led Construction Management Experts"
+        subtitle="Military Precision. Advanced Technology. Tri-Cities Excellence."
+        description="Serving Pasco, Kennewick, Richland & surrounding areas with veteran-led construction management, AI-powered tools, and the precision that only military experience can deliver."
       />
 
       {/* Revolutionary Features Section */}
@@ -135,14 +135,14 @@ export default function Home() {
               </span>
             </h2>
             <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-              Experience{' '}
+              Where{' '}
               <span className="font-medium text-gray-800 dark:text-gray-200">
-                cutting-edge technology
-              </span>{' '}
-              combined with decades of expertise. Our AI-powered tools and
-              veteran precision deliver results that{' '}
+                military discipline meets cutting-edge AI
+              </span>
+              . Our veteran-led team combines decades of service experience with
+              revolutionary technology to deliver construction management that{' '}
               <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
-                exceed expectations
+                honors your mission
               </span>
               .
             </p>
