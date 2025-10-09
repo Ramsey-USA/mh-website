@@ -1,6 +1,7 @@
 # Firebase Setup Guide for MH Construction Website
 
-This guide walks you through setting up Firebase for the MH Construction website authentication and database functionality.
+This guide walks you through setting up Firebase for the MH Construction website  
+authentication and database functionality.
 
 ## 🔥 Firebase Project Setup
 

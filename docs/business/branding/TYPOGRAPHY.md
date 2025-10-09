@@ -18,7 +18,9 @@
 
 ### Primary Typeface: Inter
 
-**Inter** is the primary typeface for all MH Construction digital communications, chosen for its excellent readability, modern appearance, and professional character that aligns with our military precision values.
+**Inter** is the primary typeface for all MH Construction digital communications,  
+chosen for its excellent readability, modern appearance, and professional character  
+that aligns with our military precision values.
 
 #### Font Family Stack
 

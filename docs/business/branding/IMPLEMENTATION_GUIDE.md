@@ -313,7 +313,8 @@ Licensed in WA, OR, ID | Veteran-Owned & Operated
 **Business Name**: MH Construction LLC
 
 **Bio/Description**:
-> "Building for the Owner, NOT the Dollar. Veteran-owned construction management serving the Tri-Cities and Pacific Northwest. Licensed in WA, OR, ID."
+> "Building for the Owner, NOT the Dollar. Veteran-owned construction management  
+> serving the Tri-Cities and Pacific Northwest. Licensed in WA, OR, ID."
 
 **Profile Image**: Company logo or professional construction imagery
 

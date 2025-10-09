@@ -29,7 +29,9 @@ Best in Show Recognition, Perfect Attendance Award
 
 ## Biography
 
-Trigger is our beloved company mascot who keeps everyone in high spirits and ensures the highest standards of workplace happiness. Always ready with a friendly wag and expert treat quality control.
+Trigger is our beloved company mascot who keeps everyone in high spirits and ensures  
+the highest standards of workplace happiness. Always ready with a friendly wag and  
+expert treat quality control.
 
 ## Career Highlights
 

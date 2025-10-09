@@ -13,7 +13,8 @@
 
 ## Brand Documentation System
 
-This modular brand documentation replaces the previous single 2,120-line file with focused, navigable components:
+This modular brand documentation replaces the previous single 2,120-line file with  
+focused, navigable components:
 
 ### 📋 [Brand Overview](./BRAND_OVERVIEW.md)
 
@@ -105,4 +106,5 @@ Technical implementation and quality standards
 
 ---
 
-**Note**: This brand documentation was reorganized from a single 2,120-line file into focused, manageable modules for better navigation and maintenance.
+**Note**: This brand documentation was reorganized from a single 2,120-line file  
+into focused, manageable modules for better navigation and maintenance.

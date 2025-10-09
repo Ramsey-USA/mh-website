@@ -4,12 +4,15 @@
 
 ### 🎯 **Core Messaging Framework**
 
-This guide provides specific messaging patterns to implement MH Construction's partnership-centered culture throughout the website. Every piece of content should reinforce our core belief: **we work WITH clients, not just FOR them**.
+This guide provides specific messaging patterns to implement MH Construction's  
+partnership-centered culture throughout the website. Every piece of content should  
+reinforce our core belief: **we work WITH clients, not just FOR them**.
 
 #### **🏗️ Primary Brand Message**
 
-**"Building for the Owner, NOT the Dollar"**
-*This tagline emphasizes our commitment to client success over profit maximization - the heart of veteran-owned business values.*
+**"Building for the Owner, NOT the Dollar"**  
+*This tagline emphasizes our commitment to client success over profit maximization  
+— the heart of veteran-owned business values.*
 
 ---
 
