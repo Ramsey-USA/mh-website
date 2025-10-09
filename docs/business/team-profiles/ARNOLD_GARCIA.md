@@ -29,7 +29,10 @@ Excellence in Client Relations Award, Outstanding VP Achievement
 
 ## Biography
 
-As Vice President, Arnold is the key to client relationships and strategic operations. He specializes in high-level relationship building and serves as primary client liaison for major commercial and industrial projects. Arnold embodies the "We Work With You" philosophy that defines MH Construction's approach to partnership-driven construction.
+As Vice President, Arnold is the key to client relationships and strategic operations. He
+specializes in high-level relationship building and serves as primary client liaison for
+major commercial and industrial projects. Arnold embodies the "We Work With You" philosophy
+that defines MH Construction's approach to partnership-driven construction.
 
 ## Career Highlights
 
