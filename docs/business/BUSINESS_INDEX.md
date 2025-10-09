@@ -9,25 +9,20 @@
 ### 🏢 Core Business Information
 
 - [**Services Overview**](./SERVICES.md) - Complete service offerings and capabilities
-- [**Contact Information**](../README.md#contact-information) - Phone, address, and licensing
-  details  
-- [**Business Hours & Operations**](./BUSINESS_HOURS.md) - Operating schedule and availability
+- [**Core Values**](./CORE_VALUES.md) - Company principles and values
+- [**Government Grant Projects**](./GOVERNMENT_GRANT_PROJECTS.md) - Government and grant project expertise
+- [**Team Roster**](./TEAM_ROSTER.md) - Complete team information and profiles
+- [**Team Data Sync**](./TEAM_DATA_SYNC.md) - Team information synchronization
 
 ### 🎨 Brand & Marketing
 
 - [**Brand Guidelines Hub**](./branding/BRANDING_INDEX.md) - Complete brand documentation system
-- [**Brand Overview**](./branding/BRAND_OVERVIEW.md) - Core identity and positioning  
-- [**Color System**](./branding/COLOR_SYSTEM.md) - Brand colors and usage guidelines
-- [**Typography Standards**](./branding/TYPOGRAPHY.md) - Font system and text guidelines
-- [**Messaging Guidelines**](./branding/MESSAGING.md) - Voice, tone, and content standards
-- [**Icon Policy**](./branding/ICON_POLICY.md) - Material Icons and emoji-free standards
-- [**Implementation Guide**](./branding/IMPLEMENTATION_GUIDE.md) - Technical brand implementation
+- [**MH Branding**](./MH_BRANDING.md) - Comprehensive brand guidelines and implementation
 
-### 📋 Strategic Planning
+### 📋 Business Documentation
 
-- [**Business Strategy**](./BUSINESS_STRATEGY.md) - Core strategy and positioning
-- [**Market Analysis**](./MARKET_ANALYSIS.md) - Industry and competitive analysis
-- [**Partnership Strategy**](./PARTNERSHIP_STRATEGY.md) - Partnership approach and frameworks
+This hub contains all business-related documentation including services, team information,
+branding guidelines, and strategic documents. All files are current and actively maintained.
 
 ### 📊 Performance & Metrics
 

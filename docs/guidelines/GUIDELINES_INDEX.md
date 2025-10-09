@@ -8,15 +8,13 @@
 
 ### 📋 Development Standards
 
-- [**Coding Standards**](./CODING_STANDARDS.md) - Code style and quality guidelines
-- [**Documentation Standards**](./DOCUMENTATION_STANDARDS.md) - Documentation best practices
-- [**Testing Standards**](./TESTING_STANDARDS.md) - Testing requirements and practices
+- [**Development Guidelines**](./DEVELOPMENT_GUIDELINES.md) - Complete development standards and practices
+- [**Markdown Style Guide**](./MARKDOWN_STYLE_GUIDE.md.original) - Markdown formatting standards
 
-### 🎨 Design Guidelines
+### 📚 Guidelines Resources
 
-- [**UI/UX Guidelines**](./UI_UX_GUIDELINES.md) - User interface and experience standards
-- [**Accessibility Guidelines**](./ACCESSIBILITY_GUIDELINES.md) - WCAG compliance and standards
-- [**Performance Guidelines**](./PERFORMANCE_GUIDELINES.md) - Performance optimization standards
+This hub contains development guidelines, standards, and best practices for the
+MH Construction project. All files are current and actively maintained.
 
 ### 🔐 Security & Compliance
 

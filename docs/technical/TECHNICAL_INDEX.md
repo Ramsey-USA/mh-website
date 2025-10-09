@@ -6,28 +6,21 @@
 
 ## Quick Navigation
 
-### 🏗️ System Architecture
+### 🏗️ System Architecture & Design
 
 - [**Design System**](./DESIGN_SYSTEM.md) - UI components and design standards
-- [**Security Framework**](./SECURITY_FRAMEWORK.md) - Security implementation and policies
-- [**Performance Metrics**](./PERFORMANCE_METRICS.md) - System performance and optimization
+- [**Features Documentation**](./FEATURES.md) - Complete feature specifications
+- [**Page Layout Quick Start**](./PAGE_LAYOUT_QUICK_START.md) - Copy-paste templates for new pages
+- [**Page Layout Standards**](./PAGE_LAYOUT_STANDARDS.md) - Complete spacing, padding, typography reference
+- [**Icon System Quick Reference**](./ICON_SYSTEM_QUICK_REFERENCE.md) - Icon usage guide
 
-### 🛠️ Development Infrastructure
+### 🛠️ Development & Implementation
 
-- [**API Documentation**](./API_DOCUMENTATION.md) - API endpoints and specifications
-- [**Database Schema**](./DATABASE_SCHEMA.md) - Data structure and relationships
-- [**Build System**](./BUILD_SYSTEM.md) - Build process and deployment pipeline
-
-### 🔧 Configuration & Setup
-
-- [**Environment Configuration**](./ENVIRONMENT_CONFIG.md) - Environment setup and variables
-- [**Deployment Guide**](./DEPLOYMENT_GUIDE.md) - Production deployment procedures
-- [**Monitoring Setup**](./MONITORING_SETUP.md) - System monitoring and alerting
-
-### 📊 Technical Specifications
-
-- [**System Requirements**](./SYSTEM_REQUIREMENTS.md) - Hardware and software requirements
-- [**Integration Standards**](./INTEGRATION_STANDARDS.md) - Third-party integration guidelines
+- [**Button System**](./BUTTON_SYSTEM.md) - Button variants and implementation
+- [**Button Examples**](./BUTTON_EXAMPLES.md) - Button usage examples
+- [**CSS JS Cohesion**](./CSS_JS_COHESION.md) - CSS and JavaScript integration
+- [**Phase 5 Performance Implementation**](./PHASE_5_PERFORMANCE_IMPLEMENTATION.md) -  
+  Performance monitoring implementation
 - [**Testing Framework**](./TESTING_FRAMEWORK.md) - Testing strategies and implementation
 
 ## Directory Structure
