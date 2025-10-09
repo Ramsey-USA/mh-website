@@ -1,63 +1,93 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { useTheme } from '../../contexts/ThemeContext'
-import { MaterialIcon } from '../icons/MaterialIcon'
+import React from "react";
+import { useTheme } from "../../contexts/ThemeContext";
+import { MaterialIcon } from "../icons/MaterialIcon";
 
 interface ThemeToggleProps {
-  size?: 'sm' | 'md' | 'lg'
-  showLabel?: boolean
-  className?: string
-  compact?: boolean
+  size?: "sm" | "md" | "lg";
+  showLabel?: boolean;
+  className?: string;
+  compact?: boolean;
 }
 
 export function ThemeToggle({
-  size = 'md',
+  size = "md",
   showLabel = false,
-  className = '',
+  className = "",
   compact = false,
 }: ThemeToggleProps) {
-  const { theme, setTheme, isDarkMode } = useTheme()
+  const { theme, setTheme, isDarkMode } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  // Prevent hydration mismatch
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    // Return a placeholder during hydration
+    return (
+      <div className={`flex items-center ${className}`}>
+        <div
+          className={`
+            relative inline-flex items-center justify-center
+            ${size === "sm" ? "h-8 w-20" : size === "md" ? "h-10 w-24" : "h-12 w-28"} rounded-full
+            bg-gradient-to-r from-gray-200 to-gray-300 
+            border-2 border-gray-300
+            transition-all duration-300 ease-in-out
+            animate-pulse
+          `}
+        />
+      </div>
+    );
+  }
+
+  const handleThemeToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setTheme(isDarkMode ? "light" : "dark");
+  };
 
   const themes = [
     {
-      key: 'light' as const,
-      label: 'Light',
-      icon: 'light_mode',
-      colors: 'text-yellow-500',
+      key: "light" as const,
+      label: "Light",
+      icon: "light_mode",
+      colors: "text-yellow-500",
     },
     {
-      key: 'dark' as const,
-      label: 'Dark',
-      icon: 'dark_mode',
-      colors: 'text-blue-400',
+      key: "dark" as const,
+      label: "Dark",
+      icon: "dark_mode",
+      colors: "text-blue-400",
     },
     {
-      key: 'system' as const,
-      label: 'System',
-      icon: 'computer',
-      colors: 'text-gray-500',
+      key: "system" as const,
+      label: "System",
+      icon: "computer",
+      colors: "text-gray-500",
     },
-  ]
+  ];
 
   const sizeClasses = {
-    sm: 'h-8 w-20',
-    md: 'h-10 w-24',
-    lg: 'h-12 w-28',
-  }
+    sm: "h-8 w-20",
+    md: "h-10 w-24",
+    lg: "h-12 w-28",
+  };
 
   const iconSizes = {
-    sm: 'sm' as const,
-    md: 'md' as const,
-    lg: 'lg' as const,
-  }
+    sm: "sm" as const,
+    md: "md" as const,
+    lg: "lg" as const,
+  };
 
   if (compact) {
     // Compact toggle for mobile/header use
     return (
       <div className={`flex items-center ${className}`}>
         <button
-          onClick={() => setTheme(isDarkMode ? 'light' : 'dark')}
+          onClick={handleThemeToggle}
           className={`
             relative inline-flex items-center justify-center
             ${sizeClasses[size]} rounded-full
@@ -68,8 +98,10 @@ export function ThemeToggle({
             hover:shadow-lg
             focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2
             group overflow-hidden
+            pointer-events-auto cursor-pointer
           `}
-          aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
+          aria-label={`Switch to ${isDarkMode ? "light" : "dark"} mode`}
+          type="button"
         >
           {/* Sliding Background */}
           <div
@@ -77,9 +109,9 @@ export function ThemeToggle({
               absolute inset-1 rounded-full 
               bg-gradient-to-r from-red-400 to-red-500
               transition-transform duration-300 ease-in-out
-              ${isDarkMode ? 'translate-x-0' : 'translate-x-full'}
+              ${isDarkMode ? "translate-x-0" : "translate-x-full"}
             `}
-            style={{ width: '40%' }}
+            style={{ width: "40%" }}
           />
 
           {/* Icons */}
@@ -88,14 +120,14 @@ export function ThemeToggle({
               icon="dark_mode"
               size={iconSizes[size]}
               className={`transition-colors duration-300 ${
-                isDarkMode ? 'text-white' : 'text-gray-500'
+                isDarkMode ? "text-white" : "text-gray-500"
               }`}
             />
             <MaterialIcon
               icon="light_mode"
               size={iconSizes[size]}
               className={`transition-colors duration-300 ${
-                !isDarkMode ? 'text-white' : 'text-gray-500'
+                !isDarkMode ? "text-white" : "text-gray-500"
               }`}
             />
           </div>
@@ -103,11 +135,11 @@ export function ThemeToggle({
 
         {showLabel && (
           <span className="ml-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
-            {isDarkMode ? 'Dark' : 'Light'}
+            {isDarkMode ? "Dark" : "Light"}
           </span>
         )}
       </div>
-    )
+    );
   }
 
   // Full theme selector with 3 options
@@ -130,8 +162,8 @@ export function ThemeToggle({
               focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2
               ${
                 theme === key
-                  ? 'bg-gradient-to-r from-red-400 to-red-500 text-white shadow-md transform scale-105'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-white dark:hover:bg-gray-700'
+                  ? "bg-gradient-to-r from-red-400 to-red-500 text-white shadow-md transform scale-105"
+                  : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-white dark:hover:bg-gray-700"
               }
             `}
             aria-label={`Switch to ${label.toLowerCase()} mode`}
@@ -140,14 +172,14 @@ export function ThemeToggle({
             <MaterialIcon
               icon={icon}
               size={iconSizes[size]}
-              className={`${theme === key ? 'text-white' : colors}`}
+              className={`${theme === key ? "text-white" : colors}`}
             />
-            {size === 'lg' && (
+            {size === "lg" && (
               <span className="ml-2 font-medium text-xs">{label}</span>
             )}
           </button>
         ))}
       </div>
     </div>
-  )
+  );
 }

@@ -1,41 +1,59 @@
-'use client'
-import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { Button } from '../ui/button'
-import { ThemeToggle } from '../ui/ThemeToggle'
-import { MaterialIcon } from '../icons/MaterialIcon'
-import { QuickBookingModal } from '../ui/QuickBookingModal'
+"use client";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "../ui/button";
+import { ThemeToggle } from "../ui/ThemeToggle";
+import { MaterialIcon } from "../icons/MaterialIcon";
+import { QuickBookingModal } from "../ui/QuickBookingModal";
 
 export function Navigation() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const [isQuickBookingOpen, setIsQuickBookingOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [isQuickBookingOpen, setIsQuickBookingOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 50
-      setScrolled(isScrolled)
-    }
+      const isScrolled = window.scrollY > 50;
+      setScrolled(isScrolled);
+    };
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleMenuToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleMenuClose = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsMenuOpen(false);
+  };
+
+  if (!mounted) {
+    return null; // Prevent hydration issues
+  }
 
   return (
     <>
       {/* Backdrop overlay when menu is open */}
       {isMenuOpen && (
         <div
-          className="z-40 fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-300"
-          onClick={() => setIsMenuOpen(false)}
+          className="z-40 fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-300 cursor-pointer pointer-events-auto"
+          onClick={handleMenuClose}
         />
       )}
 
       {/* Main Header - Transparent and absolute, does not scroll. Only hamburger menu scrolls. */}
       <header
         className="top-0 right-0 left-0 z-40 absolute bg-transparent transition-all duration-300"
-        style={{ background: 'transparent', boxShadow: 'none' }}
+        style={{ background: "transparent", boxShadow: "none" }}
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex justify-center items-center py-2 h-20 sm:h-24">
@@ -60,34 +78,35 @@ export function Navigation() {
       </header>
 
       {/* Floating Theme Toggle - Always visible on all screens */}
-      <div className="top-4 left-4 z-50 fixed">
+      <div className="top-4 left-4 z-50 fixed pointer-events-auto">
         <ThemeToggle compact size="sm" />
       </div>
 
       {/* Floating Hamburger Menu - Always visible on all screens */}
-      <div className="top-4 right-4 z-50 fixed">
+      <div className="top-4 right-4 z-50 fixed pointer-events-auto">
         <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className={`relative bg-gradient-to-r from-[#386851] hover:from-[#2d5440] to-[#4a7c59] hover:to-[#3c6448] shadow-lg hover:shadow-xl p-2.5 sm:p-3 rounded-xl focus:outline-none focus:ring-[#386851]/50 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 antialiased transform-gpu transition-all duration-300 ${
-            scrolled ? 'scale-90' : 'scale-100'
+          onClick={handleMenuToggle}
+          className={`relative bg-gradient-to-r from-[#386851] hover:from-[#2d5440] to-[#4a7c59] hover:to-[#3c6448] shadow-lg hover:shadow-xl p-2.5 sm:p-3 rounded-xl focus:outline-none focus:ring-[#386851]/50 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 antialiased transform-gpu transition-all duration-300 pointer-events-auto cursor-pointer ${
+            scrolled ? "scale-90" : "scale-100"
           }`}
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMenuOpen}
+          type="button"
         >
           <div className="flex flex-col justify-center space-y-1 w-5 sm:w-6 h-5 sm:h-6">
             <span
               className={`w-full h-0.5 bg-white transition-all duration-300 ease-in-out transform origin-center ${
-                isMenuOpen ? 'rotate-45 translate-y-2' : ''
+                isMenuOpen ? "rotate-45 translate-y-2" : ""
               }`}
             />
             <span
               className={`w-full h-0.5 bg-white transition-all duration-300 ${
-                isMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100 scale-x-100'
+                isMenuOpen ? "opacity-0 scale-x-0" : "opacity-100 scale-x-100"
               }`}
             />
             <span
               className={`w-full h-0.5 bg-white transition-all duration-300 ease-in-out transform origin-center ${
-                isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                isMenuOpen ? "-rotate-45 -translate-y-2" : ""
               }`}
             />
           </div>
@@ -100,7 +119,7 @@ export function Navigation() {
       {/* Enhanced Mobile Menu with Animation */}
       <div
         className={`fixed top-0 left-0 right-0 bottom-0 z-40 overflow-hidden transition-all duration-500 ease-in-out ${
-          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="relative bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-800 to-white dark:to-gray-900 shadow-inner backdrop-blur-lg border-gray-200 dark:border-gray-700 border-b h-full">
@@ -124,59 +143,59 @@ export function Navigation() {
                 <div className="gap-1.5 sm:gap-3 grid grid-cols-3 sm:grid-cols-2">
                   {[
                     {
-                      href: '/booking',
-                      label: 'Book Appt.',
-                      icon: 'event',
+                      href: "/booking",
+                      label: "Book Appt.",
+                      icon: "event",
                     },
                     {
-                      href: '/estimator',
-                      label: 'AI Estimator',
-                      icon: 'calculate',
+                      href: "/estimator",
+                      label: "AI Estimator",
+                      icon: "calculate",
                     },
                     {
-                      href: '/',
-                      label: 'Home',
-                      icon: 'home',
+                      href: "/",
+                      label: "Home",
+                      icon: "home",
                     },
                     {
-                      href: '/about',
-                      label: 'About',
-                      icon: 'info',
+                      href: "/about",
+                      label: "About",
+                      icon: "info",
                     },
                     {
-                      href: '/services',
-                      label: 'Services',
-                      icon: 'build',
+                      href: "/services",
+                      label: "Services",
+                      icon: "build",
                     },
                     {
-                      href: '/team',
-                      label: 'Team',
-                      icon: 'groups',
+                      href: "/team",
+                      label: "Team",
+                      icon: "groups",
                     },
                     {
-                      href: '/projects',
-                      label: 'Projects',
-                      icon: 'photo_library',
+                      href: "/projects",
+                      label: "Projects",
+                      icon: "photo_library",
                     },
                     {
-                      href: '/government',
-                      label: 'Government',
-                      icon: 'account_balance',
+                      href: "/government",
+                      label: "Government",
+                      icon: "account_balance",
                     },
                     {
-                      href: '/trade-partners',
-                      label: 'Partners',
-                      icon: 'handshake',
+                      href: "/trade-partners",
+                      label: "Partners",
+                      icon: "handshake",
                     },
                     {
-                      href: '/careers',
-                      label: 'Careers',
-                      icon: 'work',
+                      href: "/careers",
+                      label: "Careers",
+                      icon: "work",
                     },
                     {
-                      href: '/contact',
-                      label: 'Contact',
-                      icon: 'contact_phone',
+                      href: "/contact",
+                      label: "Contact",
+                      icon: "contact_phone",
                     },
                   ].map((item, index) => (
                     <Link
@@ -211,5 +230,5 @@ export function Navigation() {
         onClose={() => setIsQuickBookingOpen(false)}
       />
     </>
-  )
+  );
 }

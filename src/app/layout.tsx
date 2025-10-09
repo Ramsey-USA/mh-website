@@ -1,26 +1,22 @@
 import type { Metadata, Viewport } from "next";
-// Temporarily disabled font import due to Babel conflict
-// import { Inter } from 'next/font/google'
 import "./globals.css";
 import { Navigation, Footer } from "../components/layout";
+// Temporarily disable imports to fix syntax errors
 import FaviconLinks from "../components/layout/FaviconLinks";
 import { AuthProvider } from "../lib/auth/AuthContext";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import { GlobalChatbotProvider } from "../providers/GlobalChatbotProvider";
 import { WebVitalsReporter } from "../components/performance/optimized-components";
-import { AnalyticsProvider } from "../components/analytics/enhanced-analytics";
-import PWAUpdate from "../components/pwa/PWAUpdate";
-import PWAInstall from "../components/pwa/PWAInstall";
-import PushNotifications from "../components/pwa/PushNotifications";
+// import { AnalyticsProvider } from "../components/analytics/enhanced-analytics";
+// import PWAUpdate from "../components/pwa/PWAUpdate";
+// import PWAInstall from "../components/pwa/PWAInstall";
+// import PushNotifications from "../components/pwa/PushNotifications";
 import {
   StructuredData,
   generateEnhancedOrganizationSchema,
   generateWebsiteSchema,
 } from "../components/seo/enhanced-seo";
 // import { useCriticalResourcePreloader } from "../hooks/usePerformanceOptimization";
-
-// Temporarily disabled font due to Babel conflict
-// const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -79,7 +75,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="font-sans">
       <head>
         <FaviconLinks />
         {/* Preconnect to Google Fonts for faster loading */}
@@ -101,30 +97,27 @@ export default function RootLayout({
       </head>
       <body className="font-sans">
         <WebVitalsReporter />
-        <AnalyticsProvider
+        {/* <AnalyticsProvider
           measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
           enableScrollTracking={true}
           enableTimeTracking={true}
-        >
-          <ThemeProvider
-            defaultTheme="light"
-            storageKey="mh-construction-theme"
-          >
-            <AuthProvider>
-              <GlobalChatbotProvider>
-                <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
-                  <Navigation />
-                  <main className="flex-grow">{children}</main>
-                  <Footer />
-                </div>
-                {/* PWA Components */}
-                <PWAUpdate />
+        > */}
+        <ThemeProvider defaultTheme="light" storageKey="mh-construction-theme">
+          <AuthProvider>
+            <GlobalChatbotProvider>
+              <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
+                <Navigation />
+                <main className="flex-grow">{children}</main>
+                <Footer />
+              </div>
+              {/* PWA Components */}
+              {/* <PWAUpdate />
                 <PWAInstall />
-                <PushNotifications />
-              </GlobalChatbotProvider>
-            </AuthProvider>
-          </ThemeProvider>
-        </AnalyticsProvider>
+                <PushNotifications /> */}
+            </GlobalChatbotProvider>
+          </AuthProvider>
+        </ThemeProvider>
+        {/* </AnalyticsProvider> */}
       </body>
     </html>
   );
