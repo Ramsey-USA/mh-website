@@ -42,7 +42,7 @@ MH Construction has proven experience with construction management for all types
 - **Churches & Religious Facilities**
 - **Wineries & Vineyards**
 
-**Call to Action**: Call 509-308-6489 today to take the first step toward your new building construction.
+**Call to Action**: Call (509) 308-6489 today to take the first step toward your new building construction.
 
 ---
 

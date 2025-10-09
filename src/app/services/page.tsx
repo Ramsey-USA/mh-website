@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 import {
   Button,
   Card,
@@ -9,253 +9,253 @@ import {
   CardTitle,
   CardContent,
   PageHero,
-} from '../../components/ui'
-import { MaterialIcon } from '../../components/icons/MaterialIcon'
+} from "../../components/ui";
+import { MaterialIcon } from "../../components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from '../../components/animations/FramerMotionComponents'
+} from "../../components/animations/FramerMotionComponents";
 
 // Core Services Data
 const coreServices = [
   {
-    iconName: 'engineering',
-    title: 'Commercial Construction Management',
-    subtitle: 'Streamline Your Project Success',
+    iconName: "engineering",
+    title: "Commercial Construction Management",
+    subtitle: "Streamline Your Project Success",
     description:
-      'Planning a new commercial building demands intricate details and expert oversight. Put your project in the right hands with comprehensive Construction Management services throughout the Tri-Cities area. Our commitment to thorough communication and upfront planning prevents costly on-the-fly decisions later on.',
+      "Planning a new commercial building demands intricate details and expert oversight. Put your project in the right hands with comprehensive Construction Management services throughout the Tri-Cities area. Our commitment to thorough communication and upfront planning prevents costly on-the-fly decisions later on.",
     features: [
-      'Commercial Businesses (Retail, Offices)',
-      'Medical Facilities',
-      'Industrial Buildings',
-      'Churches & Religious Facilities',
-      'Wineries & Vineyards',
+      "Commercial Businesses (Retail, Offices)",
+      "Medical Facilities",
+      "Industrial Buildings",
+      "Churches & Religious Facilities",
+      "Wineries & Vineyards",
     ],
     benefits: [
-      'Exceptional client experience from start to finish',
-      'Streamlined process with upfront planning',
-      'Expert oversight and intricate detail management',
+      "Exceptional client experience from start to finish",
+      "Streamlined process with upfront planning",
+      "Expert oversight and intricate detail management",
     ],
     ctaText:
-      'Call 509-308-6489 today to take the first step toward your new building construction.',
+      "Call (509) 308-6489 today to take the first step toward your new building construction.",
   },
   {
-    iconName: 'architecture',
-    title: 'Master Planning',
-    subtitle: 'Pre-Construction Excellence',
+    iconName: "architecture",
+    title: "Master Planning",
+    subtitle: "Pre-Construction Excellence",
     description:
       "We're passionate about transforming your vision into reality through detailed Master Planning. We strategize and coordinate every component of your building construction from concept through the finishing touches. Our team works closely with you to prevent last-minute changes and scope creep in later stages.",
     features: [
-      'Building Location and Surrounding Infrastructure',
-      'Local and State Building Codes (WA, OR, ID)',
-      'Detailed Budget Constraints and Cost Control',
-      'Project Timeline and Sequencing',
-      'Owner Design Preferences',
+      "Building Location and Surrounding Infrastructure",
+      "Local and State Building Codes (WA, OR, ID)",
+      "Detailed Budget Constraints and Cost Control",
+      "Project Timeline and Sequencing",
+      "Owner Design Preferences",
     ],
     benefits: [
-      'Zero gaps in scope coverage',
-      'Comprehensive planning prevents changes',
-      'Realistic timelines and expectations',
+      "Zero gaps in scope coverage",
+      "Comprehensive planning prevents changes",
+      "Realistic timelines and expectations",
     ],
   },
   {
-    iconName: 'inventory',
-    title: 'Procurement & Vendor Management',
-    subtitle: 'Reliable Material Sourcing',
+    iconName: "inventory",
+    title: "Procurement & Vendor Management",
+    subtitle: "Reliable Material Sourcing",
     description:
-      'Navigating the logistics of construction requires extensive planning and coordination. We specialize in sourcing quality materials tailored to your project goals. Our reliable Master Planning gives vendors the advanced notice necessary to streamline procurement and proactively manage long lead item delays.',
+      "Navigating the logistics of construction requires extensive planning and coordination. We specialize in sourcing quality materials tailored to your project goals. Our reliable Master Planning gives vendors the advanced notice necessary to streamline procurement and proactively manage long lead item delays.",
     features: [
-      'Material Sourcing and Vetting',
-      'Supplier Management and Communication',
-      'Budget Negotiation and Pricing',
-      'Purchase Orders and Documentation',
-      'Contract Management',
-      'Coordination of Deliveries',
+      "Material Sourcing and Vetting",
+      "Supplier Management and Communication",
+      "Budget Negotiation and Pricing",
+      "Purchase Orders and Documentation",
+      "Contract Management",
+      "Coordination of Deliveries",
     ],
     benefits: [
-      'Meticulous attention to detail',
-      'Timely delivery and installation',
-      'Proactive delay management',
+      "Meticulous attention to detail",
+      "Timely delivery and installation",
+      "Proactive delay management",
     ],
   },
   {
-    iconName: 'fact_check',
-    title: 'Constructability & Budget Control',
-    subtitle: 'Proactive Feasibility Analysis',
+    iconName: "fact_check",
+    title: "Constructability & Budget Control",
+    subtitle: "Proactive Feasibility Analysis",
     description:
       "Is your project possible? And if so, how can it be cost-effective? We're committed to improving project planning and execution by conducting early-stage analysis of construction feasibility and cost considerations. We offer these critical services to clients throughout Washington, Oregon, and Idaho.",
     features: [
-      'Most efficient construction sequence and assembly',
-      'Logistics for specialty items (equipment and infrastructure)',
-      'Precise parts ordering, timing, and cost control',
+      "Most efficient construction sequence and assembly",
+      "Logistics for specialty items (equipment and infrastructure)",
+      "Precise parts ordering, timing, and cost control",
     ],
     benefits: [
-      'Collaboration with key subcontractors',
-      'Eliminates guesswork early',
-      'Cost-effective project execution',
+      "Collaboration with key subcontractors",
+      "Eliminates guesswork early",
+      "Cost-effective project execution",
     ],
   },
   {
-    iconName: 'view_module',
-    title: 'Modularization',
-    subtitle: 'Advanced Subproject Management',
+    iconName: "view_module",
+    title: "Modularization",
+    subtitle: "Advanced Subproject Management",
     description:
-      'Project Modularization involves strategically dividing a project into smaller, more manageable subprojects. This process simplifies design, execution, and maintenance. We focus on Subproject Management to help clients complete large, complex projects more efficiently and consistently meet schedules.',
+      "Project Modularization involves strategically dividing a project into smaller, more manageable subprojects. This process simplifies design, execution, and maintenance. We focus on Subproject Management to help clients complete large, complex projects more efficiently and consistently meet schedules.",
     features: [
-      'Streamlined transitions between construction phases',
-      'Improved resource allocation and communication efficiency',
-      'Leverage expertise specifically at each stage',
+      "Streamlined transitions between construction phases",
+      "Improved resource allocation and communication efficiency",
+      "Leverage expertise specifically at each stage",
     ],
     benefits: [
-      'New era of project management',
-      'Team of phase specialists vs. single PM',
-      'Increased efficiency for complex builds',
+      "New era of project management",
+      "Team of phase specialists vs. single PM",
+      "Increased efficiency for complex builds",
     ],
   },
-]
+];
 
 // Specialty Services & Markets
 const specialtyServices = [
   {
-    iconName: 'business',
-    title: 'Markets',
-    subtitle: 'Diverse Business Solutions',
+    iconName: "business",
+    title: "Markets",
+    subtitle: "Diverse Business Solutions",
     description:
-      'We complete projects for a wide range of businesses throughout the Tri-Cities (Kennewick, Richland, Pasco) and the wider region. With over 150 years of construction experience, trust us to bring your unique vision to life—from specialty religious facilities to complex industrial centers.',
+      "We complete projects for a wide range of businesses throughout the Tri-Cities (Kennewick, Richland, Pasco) and the wider region. With over 150 years of construction experience, trust us to bring your unique vision to life—from specialty religious facilities to complex industrial centers.",
     markets: [
-      'Religious Facilities (Churches, Centers)',
-      'Commercial Buildings (Retail, Offices)',
-      'Government Buildings and Grant Projects',
-      'Educational Buildings (Schools, Training Centers)',
-      'Medical Centers and Clinics',
-      'Wineries and Vineyards',
+      "Religious Facilities (Churches, Centers)",
+      "Commercial Buildings (Retail, Offices)",
+      "Government Buildings and Grant Projects",
+      "Educational Buildings (Schools, Training Centers)",
+      "Medical Centers and Clinics",
+      "Wineries and Vineyards",
     ],
   },
   {
-    iconName: 'store',
-    title: 'Tenant Improvements',
-    subtitle: 'Commercial Space Transformation',
+    iconName: "store",
+    title: "Tenant Improvements",
+    subtitle: "Commercial Space Transformation",
     description:
       "If you've recently purchased a commercial building in the Tri-Cities, we can help you transform it. We have decades of experience providing Tenant Improvement (TI) Services and are licensed to complete commercial renovation projects throughout Washington, Oregon, and Idaho.",
     capabilities: [
-      'Recent purchase building conversion',
-      'Quick and efficient execution',
-      'Vision brought to life',
-      'Fast turnaround times',
+      "Recent purchase building conversion",
+      "Quick and efficient execution",
+      "Vision brought to life",
+      "Fast turnaround times",
     ],
-    ctaText: 'Call us right away to schedule tenant improvement services.',
+    ctaText: "Call us right away to schedule tenant improvement services.",
   },
   {
-    iconName: 'apartment',
-    title: 'Commercial New Build-Outs',
-    subtitle: 'Build Your Business Right',
+    iconName: "apartment",
+    title: "Commercial New Build-Outs",
+    subtitle: "Build Your Business Right",
     description:
-      'Looking for a committed, quality construction partner? We offer comprehensive Commercial Construction Services to business owners throughout Kennewick, WA and the entire Tri-Cities area. Whether you need a small office or a large dealership, we construct a space where your business can thrive.',
+      "Looking for a committed, quality construction partner? We offer comprehensive Commercial Construction Services to business owners throughout Kennewick, WA and the entire Tri-Cities area. Whether you need a small office or a large dealership, we construct a space where your business can thrive.",
     buildTypes: [
-      'Retail Construction',
-      'Medical Office Construction',
-      'Winery Construction',
-      'Car Dealership Construction',
-      'Boutique & Specialty Spaces',
+      "Retail Construction",
+      "Medical Office Construction",
+      "Winery Construction",
+      "Car Dealership Construction",
+      "Boutique & Specialty Spaces",
     ],
-    note: 'Using top-grade materials and partnering with the best architects.',
+    note: "Using top-grade materials and partnering with the best architects.",
   },
   {
-    iconName: 'factory',
-    title: 'Light Industrial',
-    subtitle: 'Functional & Safe Industrial Facilities',
+    iconName: "factory",
+    title: "Light Industrial",
+    subtitle: "Functional & Safe Industrial Facilities",
     description:
-      'When choosing a contractor for light industrial facilities, experience is the most important factor. We have been providing Light Industrial Construction Services for over 13 years to business owners in the Tri-Cities and surrounding states. Count on us to create a safe and functional building.',
+      "When choosing a contractor for light industrial facilities, experience is the most important factor. We have been providing Light Industrial Construction Services for over 13 years to business owners in the Tri-Cities and surrounding states. Count on us to create a safe and functional building.",
     features: [
-      'Fire Protection Systems',
-      'Commercial Doors and Windows',
-      'Locker Rooms and Offices',
-      'Structural Metal Studs and Sheetrock',
-      'Safety Hand Railings',
+      "Fire Protection Systems",
+      "Commercial Doors and Windows",
+      "Locker Rooms and Offices",
+      "Structural Metal Studs and Sheetrock",
+      "Safety Hand Railings",
     ],
-    note: 'From warehouses to processing plants—all built to your precise specifications.',
+    note: "From warehouses to processing plants—all built to your precise specifications.",
   },
   {
-    iconName: 'church',
-    title: 'Religious Facilities',
-    subtitle: 'Specialized Construction for Sacred Spaces',
+    iconName: "church",
+    title: "Religious Facilities",
+    subtitle: "Specialized Construction for Sacred Spaces",
     description:
-      'We provide dedicated commercial construction services for Churches, Community Centers, and Religious Facilities across Washington, Oregon, and Idaho. We understand that these spaces require thoughtful design, careful budgeting, and a deep respect for the community they serve.',
+      "We provide dedicated commercial construction services for Churches, Community Centers, and Religious Facilities across Washington, Oregon, and Idaho. We understand that these spaces require thoughtful design, careful budgeting, and a deep respect for the community they serve.",
     capabilities: [
-      'Thoughtful design',
-      'Careful budgeting',
-      'Community respect',
-      'Renovation or new construction',
+      "Thoughtful design",
+      "Careful budgeting",
+      "Community respect",
+      "Renovation or new construction",
     ],
-    note: 'Trust our experienced team to manage every detail of your project.',
+    note: "Trust our experienced team to manage every detail of your project.",
   },
-]
+];
 
 // Service Areas
 const serviceAreas = [
   {
-    iconName: 'location_city',
-    title: 'Tri-Cities Primary',
+    iconName: "location_city",
+    title: "Tri-Cities Primary",
     areas: [
-      'Pasco, WA',
-      'Kennewick, WA',
-      'Richland, WA',
-      'Benton County',
-      'Franklin County',
+      "Pasco, WA",
+      "Kennewick, WA",
+      "Richland, WA",
+      "Benton County",
+      "Franklin County",
     ],
   },
   {
-    iconName: 'map',
-    title: 'Extended Coverage',
+    iconName: "map",
+    title: "Extended Coverage",
     areas: [
-      'Washington State',
-      'Oregon (Licensed)',
-      'Idaho (Licensed)',
-      'Pacific Northwest Region',
+      "Washington State",
+      "Oregon (Licensed)",
+      "Idaho (Licensed)",
+      "Pacific Northwest Region",
     ],
   },
-]
+];
 
 // Why Choose Us
 const whyChooseUs = [
   {
-    iconName: 'workspace_premium',
-    title: '150+ Years Combined Experience',
+    iconName: "workspace_premium",
+    title: "150+ Years Combined Experience",
     description:
-      'Deep expertise across all construction disciplines, refined through decades of successful projects.',
+      "Deep expertise across all construction disciplines, refined through decades of successful projects.",
   },
   {
-    iconName: 'military_tech',
-    title: 'Veteran-Owned Excellence',
+    iconName: "military_tech",
+    title: "Veteran-Owned Excellence",
     description:
-      'Military precision and discipline applied to construction, ensuring attention to detail and reliable execution.',
+      "Military precision and discipline applied to construction, ensuring attention to detail and reliable execution.",
   },
   {
-    iconName: 'handshake',
-    title: 'Community Partnership',
+    iconName: "handshake",
+    title: "Community Partnership",
     description:
       "We're community partners invested in Pacific Northwest success, not just contractors.",
   },
   {
-    iconName: 'verified',
-    title: 'Licensed & Insured',
+    iconName: "verified",
+    title: "Licensed & Insured",
     description:
-      'Fully licensed across WA, OR, and ID with comprehensive insurance coverage for your protection.',
+      "Fully licensed across WA, OR, and ID with comprehensive insurance coverage for your protection.",
   },
   {
-    iconName: 'high_quality',
-    title: 'Quality Assurance',
+    iconName: "high_quality",
+    title: "Quality Assurance",
     description:
-      'Meticulous quality control at every project phase, ensuring work meets our high standards.',
+      "Meticulous quality control at every project phase, ensuring work meets our high standards.",
   },
   {
-    iconName: 'support_agent',
-    title: '24/7 Emergency Support',
+    iconName: "support_agent",
+    title: "24/7 Emergency Support",
     description:
-      'Round-the-clock emergency support for urgent construction needs and project issues.',
+      "Round-the-clock emergency support for urgent construction needs and project issues.",
   },
-]
+];
 
 export default function ServicesPage() {
   return (
@@ -305,7 +305,7 @@ export default function ServicesPage() {
                 <Link href="/contact">
                   <Button size="lg" className="gap-2">
                     <MaterialIcon icon="phone" size="sm" />
-                    Call 509-308-6489 Today
+                    Call (509) 308-6489 Today
                   </Button>
                 </Link>
               </div>
@@ -707,35 +707,35 @@ export default function ServicesPage() {
                 {[
                   {
                     step: 1,
-                    title: 'Initial Consultation',
-                    description: 'Understanding your vision and requirements',
-                    icon: 'chat',
+                    title: "Initial Consultation",
+                    description: "Understanding your vision and requirements",
+                    icon: "chat",
                   },
                   {
                     step: 2,
-                    title: 'Site Assessment',
-                    description: 'Evaluating location and project feasibility',
-                    icon: 'explore',
+                    title: "Site Assessment",
+                    description: "Evaluating location and project feasibility",
+                    icon: "explore",
                   },
                   {
                     step: 3,
-                    title: 'Master Planning',
-                    description: 'Detailed planning and timeline development',
-                    icon: 'event',
+                    title: "Master Planning",
+                    description: "Detailed planning and timeline development",
+                    icon: "event",
                   },
                   {
                     step: 4,
-                    title: 'Proposal',
+                    title: "Proposal",
                     description:
-                      'Comprehensive project proposal with transparent pricing',
-                    icon: 'description',
+                      "Comprehensive project proposal with transparent pricing",
+                    icon: "description",
                   },
                   {
                     step: 5,
-                    title: 'Partnership',
+                    title: "Partnership",
                     description:
-                      'Collaborative execution with regular communication',
-                    icon: 'handshake',
+                      "Collaborative execution with regular communication",
+                    icon: "handshake",
                   },
                 ].map((process, index) => (
                   <Card
@@ -853,5 +853,5 @@ export default function ServicesPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

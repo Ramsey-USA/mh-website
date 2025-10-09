@@ -1315,7 +1315,7 @@ export default function Home() {
 
             {/* Commercial CTA Buttons - 4 Button Grid */}
             <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto mb-6 max-w-6xl">
-              <a href="tel:5093086489">
+              <a href="tel:+15093086489">
                 <Button
                   variant="primary"
                   size="lg"

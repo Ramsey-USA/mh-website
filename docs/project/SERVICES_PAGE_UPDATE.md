@@ -18,7 +18,7 @@ Comprehensive update to the Services page and SERVICES.md documentation to refle
   - Headline: "Streamline Your Project Success with Construction Management in the Tri-Cities"
   - Focus on expert oversight and client experience
   - Lists 5 key business types served
-  - Includes CTA: Call 509-308-6489
+  - Includes CTA: Call (509) 308-6489
 
 **Updated Services (now 2-5):**
 
@@ -85,7 +85,7 @@ Comprehensive update to the Services page and SERVICES.md documentation to refle
   description: '...',
   features: [5 business types],
   benefits: [3 key benefits],
-  ctaText: 'Call 509-308-6489 today...'
+  ctaText: 'Call (509) 308-6489 today...'
 }
 ```text
 
@@ -158,7 +158,7 @@ Now: `specialtyServices` (5 items with rich metadata)
 
 ### New CTAs Added
 
-1. **Commercial CM:** "Call 509-308-6489 today to take the first step toward your new building construction."
+1. **Commercial CM:** "Call (509) 308-6489 today to take the first step toward your new building construction."
 2. **Tenant Improvements:** "Call us right away to schedule tenant improvement services."
 3. **Hero Section:** Prominent button linking to contact page
 
@@ -210,7 +210,7 @@ Now: `specialtyServices` (5 items with rich metadata)
 
 - Headquarters: Pasco, WA (emphasized)
 - Service Area: Tri-Cities + Pacific Northwest
-- Phone number prominently featured: 509-308-6489
+- Phone number prominently featured: (509) 308-6489
 
 ### Service Specificity
 

@@ -29,7 +29,7 @@ cacheAIResponse('user-query-123', 'AI response content', 300000) // 5 min
 
 // Retrieve cached response
 const cached = getCachedAIResponse('user-query-123')
-```
+```text
 
 ### 📊 Performance Monitoring Dashboard
 
@@ -87,7 +87,7 @@ interface CacheStats {
   aiCacheSize: number
   formCacheSize: number
 }
-```
+```text
 
 ### Performance Thresholds
 
@@ -99,7 +99,7 @@ const thresholds = {
   cumulativeLayoutShift: 0.1,     // 0.1
   timeToInteractive: 3800         // 3.8s
 }
-```
+```text
 
 ## Build Results
 
@@ -115,7 +115,7 @@ const thresholds = {
 First Load JS shared by all: 494 kB
 Largest page: 561kB (contact page)
 Smallest pages: ~494kB
-```
+```text
 
 ### Bundle Analysis
 
@@ -170,7 +170,7 @@ import { PerformanceDashboard } from '@/components/performance/PerformanceDashbo
 
 // In admin or development environment
 <PerformanceDashboard />
-```
+```text
 
 ### Implementing Caching
 
@@ -187,7 +187,7 @@ if (cached) return cached
 // Process and cache result
 const response = await processAIRequest(userInput)
 cacheAIResponse(key, response)
-```
+```text
 
 ### Monitoring Performance
 
@@ -199,7 +199,7 @@ const { metrics, report, clearMetrics } = usePerformanceMetrics(5000)
 // Access real-time metrics
 console.log('Web Vitals:', report?.summary)
 console.log('Cache Stats:', report?.cacheStats)
-```
+```text
 
 ## Conclusion
 

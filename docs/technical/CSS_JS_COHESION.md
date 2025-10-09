@@ -74,7 +74,7 @@ This document outlines the cohesive implementation of global CSS, Tailwind CSS, 
 @layer utilities { /* Custom utility extensions */ }
 @layer components { /* Custom component patterns */ }
 @layer base { /* Global base improvements */ }
-```
+```text
 
 ### 4. Enhanced Utility Functions
 
@@ -144,7 +144,7 @@ import { cn, brandClasses } from '@/lib/utils'
 <div className={brandClasses.card.hover}>
   Card content
 </div>
-```
+```text
 
 ### Using CSS Variables
 
@@ -155,7 +155,7 @@ import { cn, brandClasses } from '@/lib/utils'
   border-radius: var(--border-radius-lg);
   transition: all var(--duration-300) var(--ease-out);
 }
-```
+```text
 
 ### Using 3D Effects
 
@@ -165,7 +165,7 @@ import { cn, brandClasses } from '@/lib/utils'
     {/* 3D flip card content */}
   </div>
 </div>
-```
+```text
 
 ## Development Workflow
 
@@ -173,19 +173,19 @@ import { cn, brandClasses } from '@/lib/utils'
 
 ```bash
 npm run dev  # Starts development server with hot reload
-```
+```text
 
 ### Building for Production
 
 ```bash
 npm run build  # Optimized production build
-```
+```text
 
 ### Validation
 
 ```bash
 ./scripts/validate-css-js-cohesion.sh  # Comprehensive setup validation
-```
+```text
 
 ## Browser Support
 
@@ -216,7 +216,7 @@ npm run build  # Optimized production build
 npm run build  # Check for build errors
 npm run type-check  # TypeScript validation
 npm run lint  # ESLint validation
-```
+```text
 
 ## Maintenance Notes
 
