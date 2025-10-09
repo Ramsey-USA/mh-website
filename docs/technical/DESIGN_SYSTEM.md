@@ -5,7 +5,7 @@
 - [Brand Guidelines & Component Standards](#brand-guidelines--component-standards)
 - [🎨 Brand Identity](#-brand-identity)
   - [Primary Brand Colors](#primary-brand-colors)
-  - [Neutral Colors - Light/Dark Mode Compatible](#neutral-colors--lightdark-mode-compatible)
+  - [Neutral Colors - Light/Dark Mode Compatible](#neutral-colors---lightdark-mode-compatible)
   - [Status & Accent Colors](#status--accent-colors)
 - [📝 Typography System](#-typography-system)
   - [Font Families](#font-families)
@@ -15,9 +15,11 @@
 
 ## Brand Guidelines & Component Standards
 
-**Foundation-Only Architecture**: Clean design system optimized for scalable expansion and consistent user experience.
+**Foundation-Only Architecture**: Clean design system optimized for scalable expansion  
+and consistent user experience.
 
-> **📐 For Page Layout Templates:** See [PAGE_LAYOUT_STANDARDS.md](./PAGE_LAYOUT_STANDARDS.md) for complete spacing, padding, and typography standards extracted from the home page.
+> **📐 For Page Layout Templates:** See [PAGE_LAYOUT_STANDARDS.md](./PAGE_LAYOUT_STANDARDS.md)  
+> for complete spacing, padding, and typography standards extracted from the home page.
 
 ---
 
@@ -688,7 +690,9 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **Purpose & Usage**
 
-The  `BaseballCard`  component creates engaging, interactive team member profiles with a professional baseball card aesthetic. Used primarily on the team page to showcase MH Construction staff in an memorable, branded format.
+The `BaseballCard` component creates engaging, interactive team member profiles with a  
+professional baseball card aesthetic. Used primarily on the team page to showcase MH  
+Construction staff in an memorable, branded format.
 
 ### **Design Specifications**
 
@@ -950,4 +954,5 @@ import type { TeamMember } from '@/lib/data/team'
 
 ---
 
-*This design system serves as the foundation for consistent, accessible, and maintainable UI components across the MH Construction platform.*
+*This design system serves as the foundation for consistent, accessible, and  
+maintainable UI components across the MH Construction platform.*

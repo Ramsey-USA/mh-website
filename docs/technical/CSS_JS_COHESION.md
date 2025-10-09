@@ -2,7 +2,9 @@
 
 ## Overview
 
-This document outlines the cohesive implementation of global CSS, Tailwind CSS, and JavaScript that ensures optimal performance and maintainability for the MH Construction website.
+This document outlines the cohesive implementation of global CSS, Tailwind CSS,  
+and JavaScript that ensures optimal performance and maintainability for the MH  
+Construction website.
 
 ## File Structure
 

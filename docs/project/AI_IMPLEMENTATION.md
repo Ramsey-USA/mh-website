@@ -1,6 +1,8 @@
 # AI-Powered Construction Intelligence Implementation
 
-> **Revolutionary AI System**: MH Construction's comprehensive AI implementation featuring military-grade precision, veteran-focused assistance, and advanced business integration.
+> **Revolutionary AI System**: MH Construction's comprehensive AI implementation  
+> featuring military-grade precision, veteran-focused assistance, and advanced  
+> business integration.
 
 ## 📊 Implementation Overview
 

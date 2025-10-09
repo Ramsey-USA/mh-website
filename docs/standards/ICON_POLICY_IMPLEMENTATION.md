@@ -10,7 +10,8 @@
 
 ### **Emoji-Free Source Code Standard**
 
-MH Construction now enforces a strict **EMOJI-FREE SOURCE CODE** policy. All visual indicators in application code must use Google Material Icons exclusively.
+MH Construction now enforces a strict **EMOJI-FREE SOURCE CODE** policy. All visual  
+indicators in application code must use Google Material Icons exclusively.
 
 ### **Policy Scope**
 
@@ -129,19 +130,25 @@ MH Construction now enforces a strict **EMOJI-FREE SOURCE CODE** policy. All vis
 
 ### **Brand Consistency**
 
-The emoji-free policy ensures MH Construction maintains professional, military-precision standards across all digital platforms while preserving flexibility for enhanced documentation clarity.
+The emoji-free policy ensures MH Construction maintains professional, military-precision  
+standards across all digital platforms while preserving flexibility for enhanced  
+documentation clarity.
 
 ### **Technical Excellence**
 
-By standardizing on Material Icons, the development team can focus on functionality and user experience rather than managing inconsistent icon implementations across different browsers and devices.
+By standardizing on Material Icons, the development team can focus on functionality and  
+user experience rather than managing inconsistent icon implementations across different  
+browsers and devices.
 
 ### **Veteran Values**
 
-This policy reflects the military values of precision, consistency, and attention to detail that define MH Construction's veteran-owned identity.
+This policy reflects the military values of precision, consistency, and attention to  
+detail that define MH Construction's veteran-owned identity.
 
 ---
 
-**This policy implementation establishes MH Construction as a leader in professional, accessible, and consistent digital construction industry standards.**
+**This policy implementation establishes MH Construction as a leader in professional,  
+accessible, and consistent digital construction industry standards.**
 
 ---
 

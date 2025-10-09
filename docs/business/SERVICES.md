@@ -10,9 +10,14 @@
 
 ### **Commercial Construction Management**
 
-Put your commercial building project in the right hands. MH Construction delivers full Construction Management (CM) services throughout the Tri-Cities area, including Pasco, Kennewick, and Richland, WA. Our priority is delivering an exceptional client experience from concept through completion.
+Put your commercial building project in the right hands. MH Construction delivers full  
+Construction Management (CM) services throughout the Tri-Cities area, including Pasco,  
+Kennewick, and Richland, WA. Our priority is delivering an exceptional client experience  
+from concept through completion.
 
-**Key Focus**: We believe meticulous Master Planning and thorough communication are critical to streamlining the process in later stages, which is why we minimize "on-the-fly" decisions.
+**Key Focus**: We believe meticulous Master Planning and thorough communication are  
+critical to streamlining the process in later stages, which is why we minimize  
+"on-the-fly" decisions.
 
 ### **Service Philosophy**
 
@@ -26,15 +31,17 @@ Trust our experienced team to manage the intricate details, allowing you to focu
 
 #### Streamline Your Project Success with Construction Management in the Tri-Cities
 
-Planning a new commercial building demands intricate details and expert oversight. Put your project in the right hands
-by hiring MH Construction for comprehensive Construction Management (CM) services throughout the Tri-Cities (Pasco, WA)
-area. Our priority is delivering an exceptional client experience from start to finish. Our commitment to thorough
-communication and upfront planning is critical to streamlining the process, preventing costly on-the-fly decisions
-later on.
+Planning a new commercial building demands intricate details and expert oversight. Put your  
+project in the right hands by hiring MH Construction for comprehensive Construction  
+Management (CM) services throughout the Tri-Cities (Pasco, WA) area. Our priority is  
+delivering an exceptional client experience from start to finish. Our commitment to  
+thorough communication and upfront planning is critical to streamlining the process,  
+preventing costly on-the-fly decisions later on.
 
 #### **Make Your Vision a Reality**
 
-MH Construction has proven experience with construction management for all types of commercial, industrial, and specialty businesses, including:
+MH Construction has proven experience with construction management for all types of  
+commercial, industrial, and specialty businesses, including:
 
 - **Commercial Businesses** (Retail, Offices)
 - **Medical Facilities**
@@ -50,11 +57,16 @@ MH Construction has proven experience with construction management for all types
 
 #### Unlock Your Building's Potential with Comprehensive Master Planning in the Tri-Cities
 
-At MH Construction, we're passionate about transforming your vision into a reality through detailed Master Planning. We strategize and coordinate every component of your building construction from concept through the finishing touches. Our team works closely with you to create a comprehensive plan designed to prevent last-minute changes and scope creep in later stages of construction.
+At MH Construction, we're passionate about transforming your vision into a reality through  
+detailed Master Planning. We strategize and coordinate every component of your building  
+construction from concept through the finishing touches. Our team works closely with you  
+to create a comprehensive plan designed to prevent last-minute changes and scope creep  
+in later stages of construction.
 
 #### **Navigating the Intricacies of Your Project**
 
-Our skilled team ensures zero gaps in scope coverage during your construction planning. We meticulously consider:
+Our skilled team ensures zero gaps in scope coverage during your construction planning.  
+We meticulously consider:
 
 - **Building Location and Surrounding Infrastructure**
 - **Local and State Building Codes** (WA, OR, ID)
@@ -68,10 +80,12 @@ Our skilled team ensures zero gaps in scope coverage during your construction pl
 
 #### Reliable Construction Material Procurement and Vendor Management
 
-Navigating the logistics of construction requires extensive planning and coordination. At MH Construction, we offer
-Construction Vendor Management services throughout the Tri-Cities that specialize in sourcing quality materials
-tailored to your project goals. Our reliable Master Planning gives vendors the advanced notice necessary to
-streamline procurement and proactively manage long lead item delays, ensuring timely delivery and installation.
+Navigating the logistics of construction requires extensive planning and coordination.  
+At MH Construction, we offer Construction Vendor Management services throughout the  
+Tri-Cities that specialize in sourcing quality materials tailored to your project goals.  
+Our reliable Master Planning gives vendors the advanced notice necessary to streamline  
+procurement and proactively manage long lead item delays, ensuring timely delivery and  
+installation.
 
 #### **What Our Service Provides**
 
@@ -90,11 +104,16 @@ We pay meticulous attention to detail throughout the entire procurement process.
 
 #### Constructability Review and Proactive Budget Control Services
 
-Is your project possible? And if so, how can it be cost-effective? MH Construction is committed to improving project planning and execution by conducting early-stage analysis of construction feasibility and cost considerations. We offer these critical Constructability and Budget Control Services to clients throughout Washington, Oregon, and Idaho.
+Is your project possible? And if so, how can it be cost-effective? MH Construction is  
+committed to improving project planning and execution by conducting early-stage analysis  
+of construction feasibility and cost considerations. We offer these critical  
+Constructability and Budget Control Services to clients throughout Washington, Oregon,  
+and Idaho.
 
 #### **Collaboration Makes the Process Possible**
 
-Our proactive approach involves collaborating closely with key subcontractors. This eliminates guesswork and allows us to determine:
+Our proactive approach involves collaborating closely with key subcontractors. This  
+eliminates guesswork and allows us to determine:
 
 - **The most efficient construction sequence and assembly**
 - **Logistics for specialty items** (like equipment and infrastructure)
@@ -106,11 +125,16 @@ Our proactive approach involves collaborating closely with key subcontractors. T
 
 #### Project Modularization: Advanced Subproject Management for Complex Builds
 
-Project Modularization involves strategically dividing a project into smaller, more manageable subprojects. This process simplifies design, execution, and maintenance. MH Construction focuses on Subproject Management to help clients complete large, complex projects more efficiently and consistently meet schedules across the Tri-Cities and the Northwest.
+Project Modularization involves strategically dividing a project into smaller, more  
+manageable subprojects. This process simplifies design, execution, and maintenance.  
+MH Construction focuses on Subproject Management to help clients complete large, complex  
+projects more efficiently and consistently meet schedules across the Tri-Cities and the  
+Northwest.
 
 #### **Ushering in a New Era of Project Management**
 
-Replacing a single project manager with a team of phase specialists is the smartest decision you can make. Our subproject management services help to:
+Replacing a single project manager with a team of phase specialists is the smartest  
+decision you can make. Our subproject management services help to:
 
 - **Streamline the transitions** between different construction phases
 - **Improve resource allocation** and communication efficiency
@@ -124,7 +148,10 @@ Replacing a single project manager with a team of phase specialists is the smart
 
 #### Explore the Diverse Businesses We Work With | Tri-Cities, WA, OR, ID
 
-At MH Construction, we complete projects for a wide range of businesses throughout the Tri-Cities (Kennewick, Richland, Pasco) and the wider region. With over 150 years of construction experience, you can trust us to bring your unique vision to life—from specialty religious facilities to complex industrial centers.
+At MH Construction, we complete projects for a wide range of businesses throughout the  
+Tri-Cities (Kennewick, Richland, Pasco) and the wider region. With over 150 years of  
+construction experience, you can trust us to bring your unique vision to life—from  
+specialty religious facilities to complex industrial centers.
 
 #### **What Businesses Can We Work With?**
 
@@ -143,7 +170,11 @@ We serve a wide range of markets across Washington, Idaho, and Oregon, including
 
 #### Transform Your Commercial Space with Expert Tenant Improvement Services in the Tri-Cities
 
-If you've recently purchased a commercial building in the Tri-Cities (Kennewick, WA), MH Construction can help you transform it. We have decades of experience providing Tenant Improvement (TI) Services and are licensed to complete commercial renovation projects throughout Washington, Oregon, and Idaho. We'll help you bring your vision to life quickly and efficiently.
+If you've recently purchased a commercial building in the Tri-Cities (Kennewick, WA),  
+MH Construction can help you transform it. We have decades of experience providing Tenant  
+Improvement (TI) Services and are licensed to complete commercial renovation projects  
+throughout Washington, Oregon, and Idaho. We'll help you bring your vision to life  
+quickly and efficiently.
 
 **Call to Action**: Call us right away to schedule tenant improvement services.
 
@@ -153,11 +184,16 @@ If you've recently purchased a commercial building in the Tri-Cities (Kennewick,
 
 #### Build Your Business Right: New Commercial Construction in the Tri-Cities
 
-If you're looking for a committed, quality construction partner, look no further. We offer comprehensive Commercial Construction Services to business owners throughout Kennewick, WA and the entire Tri-Cities area. Whether you need a small office or a large dealership, we construct a space where your business can thrive, using top-grade materials and partnering with the best architects.
+If you're looking for a committed, quality construction partner, look no further. We offer  
+comprehensive Commercial Construction Services to business owners throughout Kennewick, WA  
+and the entire Tri-Cities area. Whether you need a small office or a large dealership,  
+we construct a space where your business can thrive, using top-grade materials and  
+partnering with the best architects.
 
 #### **What We Build**
 
-With over 150 years of combined experience, our crew provides a range of commercial construction services, including:
+With over 150 years of combined experience, our crew provides a range of commercial  
+construction services, including:
 
 - **Retail Construction**
 - **Medical Office Construction**
@@ -171,11 +207,16 @@ With over 150 years of combined experience, our crew provides a range of commerc
 
 #### Functional & Safe Light Industrial Construction Services | Tri-Cities, WA
 
-When choosing a contractor for light industrial facilities, experience is the most important factor. MH Construction has been providing Light Industrial Construction Services for over 13 years to business owners in the Tri-Cities (Kennewick, WA) and surrounding states. Count on us to create a safe and functional building—from warehouses to processing plants—all built to your precise specifications.
+When choosing a contractor for light industrial facilities, experience is the most important  
+factor. MH Construction has been providing Light Industrial Construction Services for over  
+13 years to business owners in the Tri-Cities (Kennewick, WA) and surrounding states.  
+Count on us to create a safe and functional building—from warehouses to processing  
+plants—all built to your precise specifications.
 
 #### **Equipping Your Building with High-Quality Materials**
 
-Light industrial facilities demand durability, accessibility, and reliability. We use industry-leading materials for all critical features, including:
+Light industrial facilities demand durability, accessibility, and reliability. We use  
+industry-leading materials for all critical features, including:
 
 - **Fire Protection Systems**
 - **Commercial Doors and Windows**
@@ -189,7 +230,11 @@ Light industrial facilities demand durability, accessibility, and reliability. W
 
 #### Specialized Construction for Religious Facilities | WA, OR, ID
 
-MH Construction provides dedicated commercial construction services for Churches, Community Centers, and Religious Facilities across Washington, Oregon, and Idaho. We understand that these spaces require thoughtful design, careful budgeting, and a deep respect for the community they serve. Trust our experienced team to manage every detail of your renovation or new construction project.
+MH Construction provides dedicated commercial construction services for Churches, Community  
+Centers, and Religious Facilities across Washington, Oregon, and Idaho. We understand that  
+these spaces require thoughtful design, careful budgeting, and a deep respect for the  
+community they serve. Trust our experienced team to manage every detail of your renovation  
+or new construction project.
 
 ---
 
@@ -220,23 +265,28 @@ MH Construction provides dedicated commercial construction services for Churches
 
 ### **150+ Years Combined Experience**
 
-Our team brings deep expertise across all construction disciplines, refined through decades of successful projects.
+Our team brings deep expertise across all construction disciplines, refined through decades  
+of successful projects.
 
 ### **Veteran-Owned Excellence**
 
-Military precision and discipline applied to civilian construction projects, ensuring attention to detail and reliable execution.
+Military precision and discipline applied to civilian construction projects, ensuring  
+attention to detail and reliable execution.
 
 ### **Community Partnership**
 
-We're not just contractors - we're community partners invested in the success of the Pacific Northwest region.
+We're not just contractors - we're community partners invested in the success of the  
+Pacific Northwest region.
 
 ### **Licensed & Insured**
 
-Fully licensed across Washington, Oregon, and Idaho with comprehensive insurance coverage for your protection.
+Fully licensed across Washington, Oregon, and Idaho with comprehensive insurance coverage  
+for your protection.
 
 ### **Quality Assurance**
 
-Meticulous quality control processes at every project phase, ensuring work meets our high standards and your expectations.
+Meticulous quality control processes at every project phase, ensuring work meets our high  
+standards and your expectations.
 
 ---
 
@@ -244,7 +294,8 @@ Meticulous quality control processes at every project phase, ensuring work meets
 
 ### **Free Consultation**
 
-Call (509) 308-6489 today to begin planning your new commercial, industrial, or medical construction project in Benton or Franklin County.
+Call (509) 308-6489 today to begin planning your new commercial, industrial, or medical  
+construction project in Benton or Franklin County.
 
 ### **Service Request Process**
 

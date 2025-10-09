@@ -1,6 +1,7 @@
 # MH Construction Button System - Implementation Examples
 
-This file demonstrates proper implementation of the cohesive button system across different components and pages.
+This file demonstrates proper implementation of the cohesive button system across  
+different components and pages.
 
 ## 🏠 **Homepage Hero Section**
 

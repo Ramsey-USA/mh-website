@@ -4,7 +4,9 @@
 **Last Updated:** October 2, 2025
 **Status:** ✅ Active Standard
 
-> **Purpose:** This document defines the spacing, padding, typography, and layout standards extracted from the home page to ensure visual consistency across all website pages.
+> **Purpose:** This document defines the spacing, padding, typography, and layout  
+> standards extracted from the home page to ensure visual consistency across all  
+> website pages.
 
 ---
 

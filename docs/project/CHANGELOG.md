@@ -30,7 +30,8 @@
 
 #### 🎖️ **Revolutionary AI Implementation - Military-Grade Construction Intelligence with Business Integration**
 
-Complete AI ecosystem featuring "General MH" - Army General construction intelligence officer with advanced business capabilities
+Complete AI ecosystem featuring "General MH" - Army General construction intelligence  
+officer with advanced business capabilities
 
 - **Global Military Chatbot**: Available on ALL pages with authentic Army terminology
 - **Advanced AI Estimator**: Real-time pricing with 95% accuracy guarantee
@@ -194,7 +195,8 @@ Complete AI ecosystem featuring "General MH" - Army General construction intelli
 
 #### ️**Core Values System Overhaul**
 
-- **6-Value Professional Foundation**: Evolved from 4 simplified values to comprehensive 6-principle system
+- **6-Value Professional Foundation**: Evolved from 4 simplified values to  
+  comprehensive 6-principle system
   - **Honesty & Transparency** (TransparencyIcon) - Full-disclosure approach in all communications
   - **Integrity** (ScaleIcon - retained) - Unwavering commitment to what's right
   - **Precision & Experience** (PrecisionIcon) - 150+ years combined team expertise
@@ -204,7 +206,8 @@ Complete AI ecosystem featuring "General MH" - Army General construction intelli
 
 ### **Icon System Redesign (v3.5.0)**
 
-- **Value Icon Alignment**: Teamwork (handshake), Leadership (star), Integrity (scales), Accountability (badge)
+- **Value Icon Alignment**: Teamwork (handshake), Leadership (star), Integrity  
+  (scales), Accountability (badge)
 - **Specialized Icons**: Enhanced AI, scheduling, and 3D exploration iconography
 - **Size Optimization**: 25-60% larger icons for better visibility and container utilization
 - **Construction Theme**: Cohesive iconography aligned with construction industry standards

@@ -294,7 +294,7 @@ This document outlines potential future development phases for continued innovat
 ### Technical References
 
 - **[Current Architecture Documentation](../technical/)**: System design and API specs
-- **[Performance Baselines](../PROJECT_COMPLETION_SUMMARY.md)**: Current metrics and benchmarks
+- **[Performance Baselines](./CURRENT_STATUS.md)**: Current metrics and benchmarks
 - **[Development Guidelines](../guidelines/)**: Coding standards and best practices
 
 ### Business Resources

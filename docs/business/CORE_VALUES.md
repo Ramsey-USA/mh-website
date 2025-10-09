@@ -8,7 +8,9 @@
 
 ## Our Professional Foundation
 
-MH Construction operates on a comprehensive 6-principle system that evolved from our original values to reflect our growth as a construction industry leader. Each value builds toward our ultimate goal: **Trust** - the culmination of all other values working together.
+MH Construction operates on a comprehensive 6-principle system that evolved from our  
+original values to reflect our growth as a construction industry leader. Each value builds  
+toward our ultimate goal: **Trust** - the culmination of all other values working together.
 
 ---
 
@@ -118,7 +120,8 @@ MH Construction operates on a comprehensive 6-principle system that evolved from
 
 ### What Trust Means
 
-Trust isn't just another value - it's the result when all other values are consistently demonstrated. Trust is:
+Trust isn't just another value - it's the result when all other values are consistently  
+demonstrated. Trust is:
 
 - **Earned**: Through consistent demonstration of our other five values
 - **Measurable**: Reflected in client satisfaction, referrals, and repeat business
@@ -170,13 +173,17 @@ Trust isn't just another value - it's the result when all other values are consi
 
 ## 🎯 Our Promise
 
-**When you choose MH Construction, you're not just hiring a contractor - you're partnering with a team that has made Trust our ultimate goal.**
+**When you choose MH Construction, you're not just hiring a contractor - you're  
+partnering with a team that has made Trust our ultimate goal.**
 
-Every decision we make, every process we follow, and every interaction we have is measured against these six values. They're not just words on a wall - they're the foundation of how we do business and the promise we make to every client and community we serve.
+Every decision we make, every process we follow, and every interaction we have is measured  
+against these six values. They're not just words on a wall - they're the foundation of  
+how we do business and the promise we make to every client and community we serve.
 
 ---
 
-> *"These values aren't just our company culture - they're our commitment to every client, every project, and every community we have the privilege to serve."*
+> *"These values aren't just our company culture - they're our commitment to every  
+> client, every project, and every community we have the privilege to serve."*
 > **- Jeremy Thamert, Owner & General Manager**
 
 ---

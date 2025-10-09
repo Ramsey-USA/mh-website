@@ -2,11 +2,18 @@
 
 ## Problem Statement
 
-The original hamburger menu used a single-column vertical layout that caused navigation links to run off the bottom of laptop screens, creating poor user experience and limiting accessibility to all navigation options. Even with the initial two-column layout, very small screens still experienced vertical overflow issues.
+The original hamburger menu used a single-column vertical layout that caused  
+navigation links to run off the bottom of laptop screens, creating poor user  
+experience and limiting accessibility to all navigation options. Even with the  
+initial two-column layout, very small screens still experienced vertical overflow  
+issues.
 
 ## Solution Overview
 
-Implemented an adaptive grid system that automatically adjusts between 3-column (small screens) and 2-column (medium+ screens) layouts to efficiently utilize screen space while ensuring all navigation links remain visible without scrolling on any device size.
+Implemented an adaptive grid system that automatically adjusts between 3-column  
+(small screens) and 2-column (medium+ screens) layouts to efficiently utilize  
+screen space while ensuring all navigation links remain visible without scrolling  
+on any device size.
 
 ---
 

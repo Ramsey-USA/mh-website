@@ -2,7 +2,8 @@
 
 ## Overview
 
-Successfully created a comprehensive set of new pages for the MH Construction website based on the markdown documentation files.
+Successfully created a comprehensive set of new pages for the MH Construction  
+website based on the markdown documentation files.
 
 ## Created Pages
 

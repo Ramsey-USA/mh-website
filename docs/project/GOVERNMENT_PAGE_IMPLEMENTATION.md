@@ -2,7 +2,10 @@
 
 ## Overview
 
-Created an immersive, government-focused page specifically designed for Hanford users, DOE contractors, and government grant applicants. **Updated with monochrome color scheme using only black, white, and gray colors for professional government appearance.**
+Created an immersive, government-focused page specifically designed for Hanford  
+users, DOE contractors, and government grant applicants. **Updated with monochrome  
+color scheme using only black, white, and gray colors for professional government  
+appearance.**
 
 ## Page URL
 
@@ -166,7 +169,9 @@ Created an immersive, government-focused page specifically designed for Hanford 
 
 ### Meta Description
 
-"Expert construction support for federal, state, and local grant applications. DOE and Hanford experience. Veteran-owned with military precision for government projects in the Tri-Cities, WA."
+"Expert construction support for federal, state, and local grant applications.  
+DOE and Hanford experience. Veteran-owned with military precision for government  
+projects in the Tri-Cities, WA."
 
 ## Conversion Points
 

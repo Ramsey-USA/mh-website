@@ -13,7 +13,8 @@
 
 ### **Icon Standards Enforcement**
 
-**MH Construction maintains a strict EMOJI-FREE source code policy. All visual indicators must use Google Material Icons exclusively.**
+**MH Construction maintains a strict EMOJI-FREE source code policy. All visual  
+indicators must use Google Material Icons exclusively.**
 
 #### **✅ APPROVED: Material Icons Only**
 

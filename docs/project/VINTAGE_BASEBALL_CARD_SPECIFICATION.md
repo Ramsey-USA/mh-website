@@ -9,7 +9,10 @@
 
 ## 🎯 Design Overview
 
-Transform the current modern baseball cards into authentic vintage-style cards that capture the classic aesthetic of late 1950s to early 1970s baseball cards. This specification focuses on creating an authentic paper-based trading card experience with digital precision.
+Transform the current modern baseball cards into authentic vintage-style cards that  
+capture the classic aesthetic of late 1950s to early 1970s baseball cards. This  
+specification focuses on creating an authentic paper-based trading card experience  
+with digital precision.
 
 ### **Authentic Vintage Characteristics**
 

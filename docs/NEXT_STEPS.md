@@ -73,7 +73,7 @@ The MH Construction website is now:
 
 **For Deployment:**
 
-- **[PROJECT_COMPLETION_SUMMARY.md](./PROJECT_COMPLETION_SUMMARY.md)** - Status
+- **[Current Status](./project/CURRENT_STATUS.md)** - Status
 - **[Production Deployment Guide](./technical/)** - Deployment procedures
 
 **For Future Development:**

@@ -4,7 +4,9 @@
 
 ### **"We Work With You" - Our Foundation**
 
-At MH Construction, we don't just build structures - we build relationships. Our veteran-owned company operates on a simple but powerful principle: **every client is a partner, every project serves the community**.
+At MH Construction, we don't just build structures - we build relationships. Our  
+veteran-owned company operates on a simple but powerful principle: **every client is  
+a partner, every project serves the community**.
 
 #### **🏡 Client Partnership Approach**
 

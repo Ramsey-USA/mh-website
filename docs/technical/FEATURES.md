@@ -2,7 +2,8 @@
 
 ## Advanced Digital Platform Capabilities
 
-**Complete Production Platform**: Fully implemented construction website with comprehensive pages, advanced features, and modern functionality.
+**Complete Production Platform**: Fully implemented construction website with  
+comprehensive pages, advanced features, and modern functionality.
 
 ---
 

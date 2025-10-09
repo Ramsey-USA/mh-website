@@ -1,40 +1,45 @@
-# Baseball Card Team Page Implementation# Baseball Card Team Page Implementation
+# Baseball Card Team Page Implementation
 
-**Status**: ✅ **COMPLETED** - Baseball card theme successfully implemented for team page  **Status**: ✅ **COMPLETED** - Baseball card theme successfully implemented for team page
+**Status**: ✅ **COMPLETED** - Baseball card theme successfully implemented for  
+team page
 
-**Date**: October 2025  **Date**: October 2025
+**Date**: October 2025
 
-**Component**: `BaseballCard.tsx` + Team Page Integration  **Component**: `BaseballCard.tsx` + Team Page Integration
+**Component**: `BaseballCard.tsx` + Team Page Integration
 
-**Purpose**: Interactive, engaging team member display with professional baseball card aesthetic**Purpose**: Interactive, engaging team member display with professional baseball card aesthetic
+**Purpose**: Interactive, engaging team member display with professional baseball  
+card aesthetic
 
 ------
 
 ## 🎯 Overview
 
-The baseball card theme transforms the traditional team page into an interactive, engaging experience that showcases
-MH Construction team members in a professional yet memorable format. Each team member is displayed as a flippable
-baseball card with company branding and detailed profile information.
+The baseball card theme transforms the traditional team page into an interactive,  
+engaging experience that showcases MH Construction team members in a professional  
+yet memorable format. Each team member is displayed as a flippable baseball card  
+with company branding and detailed profile information.
 
 ### Key Features
 
 - **Interactive Flip Cards**: Click to reveal detailed member information
 
-- **Department Organization**: Team members grouped by department with branded headers- **Department Organization**: Team members grouped by department with branded headers
+- **Department Organization**: Team members grouped by department with branded  
+  headers
 
-- **Mascot Integration**: Special styling for "Trigger" the company mascot- **Mascot Integration**: Special styling for "Trigger" the company mascot
+- **Mascot Integration**: Special styling for "Trigger" the company mascot
 
-- **Veteran Status Badges**: Visual recognition for military service- **Veteran Status Badges**: Visual recognition for military service
+- **Veteran Status Badges**: Visual recognition for military service
 
-- **Responsive Design**: Works seamlessly across all device sizes- **Responsive Design**: Works seamlessly across all device sizes
+- **Responsive Design**: Works seamlessly across all device sizes
 
-- **Brand Consistency**: Aligned with MH Construction color palette and typography- **Brand Consistency**: Aligned with MH Construction color palette and typography
+- **Brand Consistency**: Aligned with MH Construction color palette and  
+  typography
 
 ------
 
-## 🏗️ Technical Implementation## 🏗️ Technical Implementation
+## 🏗️ Technical Implementation
 
-### Core Components### **Core Components**
+### Core Components
 
 #### 1. BaseballCard Component (`/src/components/ui/BaseballCard.tsx`)#### 1. **BaseballCard Component** (`/src/components/ui/BaseballCard.tsx`)
 
@@ -58,15 +63,15 @@ baseball card with company branding and detailed profile information.
 
 #### 2. **Team Page** (`/src/app/team/page.tsx`)
 
-#### 2. Team Page (`/src/app/team/page.tsx`)- **Layout**: Department-based grouping with responsive grid
+#### 2. Team Page (`/src/app/team/page.tsx`)
+
+- **Layout**: Department-based grouping with responsive grid
 
 - **Integration**: Uses `BaseballCard` component for each team member
 
-- **Layout**: Department-based grouping with responsive grid- **Mascot Logic**: Adds Trigger to Executive Leadership section
-
-- **Integration**: Uses `BaseballCard` component for each team member- **Animations**: Framer Motion fade-in effects
-
 - **Mascot Logic**: Adds Trigger to Executive Leadership section
+
+- **Animations**: Framer Motion fade-in effects
 
 - **Animations**: Framer Motion fade-in effects### **Visual Structure**
 

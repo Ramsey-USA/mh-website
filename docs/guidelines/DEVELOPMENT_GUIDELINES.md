@@ -10,7 +10,8 @@
 
 #### Core Policy Statement
 
-MH Construction maintains a strict policy prohibiting emojis in all source code files (.ts, .tsx, .js, .jsx, .vue, etc.)
+MH Construction maintains a strict policy prohibiting emojis in all source code  
+files (.ts, .tsx, .js, .jsx, .vue, etc.)
 
 ### ✅ APPROVED PRACTICES
 

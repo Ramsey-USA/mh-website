@@ -9,7 +9,9 @@
 
 ## 🚀 Implementation Roadmap
 
-This document provides specific code examples and step-by-step implementation instructions for transforming the current baseball cards into authentic vintage-style trading cards.
+This document provides specific code examples and step-by-step implementation  
+instructions for transforming the current baseball cards into authentic  
+vintage-style trading cards.
 
 ### Key Changes Required
 

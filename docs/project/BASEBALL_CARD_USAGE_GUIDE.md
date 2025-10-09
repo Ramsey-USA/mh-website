@@ -9,7 +9,9 @@
 
 ## 📖 Quick Start Guide
 
-The baseball card team page provides an interactive, engaging way to showcase MH Construction team members. This guide covers everything you need to know for using and maintaining the system.
+The baseball card team page provides an interactive, engaging way to showcase MH  
+Construction team members. This guide covers everything you need to know for using  
+and maintaining the system.
 
 ### What Users See
 
