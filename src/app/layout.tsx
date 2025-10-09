@@ -17,7 +17,7 @@ import {
   generateEnhancedOrganizationSchema,
   generateWebsiteSchema,
 } from "../components/seo/enhanced-seo";
-import { useCriticalResourcePreloader } from "../hooks/usePerformanceOptimization";
+// import { useCriticalResourcePreloader } from "../hooks/usePerformanceOptimization";
 
 // Temporarily disabled font due to Babel conflict
 // const inter = Inter({ subsets: ['latin'] })
