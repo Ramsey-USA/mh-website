@@ -19,9 +19,9 @@
 - [**Button System**](./BUTTON_SYSTEM.md) - Button variants and implementation
 - [**Button Examples**](./BUTTON_EXAMPLES.md) - Button usage examples
 - [**CSS JS Cohesion**](./CSS_JS_COHESION.md) - CSS and JavaScript integration
+- [**Icon Hover Effects Guide**](./ICON_HOVER_EFFECTS_GUIDE.md) - Custom icon system and hover effects
 - [**Phase 5 Performance Implementation**](./PHASE_5_PERFORMANCE_IMPLEMENTATION.md) -  
   Performance monitoring implementation
-- [**Testing Framework**](./TESTING_FRAMEWORK.md) - Testing strategies and implementation
 
 ## Directory Structure
 

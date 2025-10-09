@@ -18,7 +18,8 @@
 
 - **[ARCHITECTURE.md](./ARCHITECTURE.md)** - System architecture overview
 - **[DEVELOPMENT_HISTORY.md](./DEVELOPMENT_HISTORY.md)** - Project history and decisions
-- **[IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md)** - What's been built
+- **[COMPLETE_IMPLEMENTATION_GUIDE.md](./COMPLETE_IMPLEMENTATION_GUIDE.md)** -  
+  ⭐ **Complete implementation reference**
 - **[COMPANY_PROFILE.md](./COMPANY_PROFILE.md)** - Company profile documentation
 
 ---
@@ -27,16 +28,12 @@
 
 ### AI & Features
 
-- **[AI_IMPLEMENTATION.md](./AI_IMPLEMENTATION.md)** - AI features and implementation
 - **[FUTURE_PHASES_ROADMAP.md](./FUTURE_PHASES_ROADMAP.md)** - Phase 6+ planning
 
 ### Team & Design Implementation
 
-- **[BASEBALL_CARD_TEAM_IMPLEMENTATION.md](./BASEBALL_CARD_TEAM_IMPLEMENTATION.md)** - Team card system
-- **[BASEBALL_CARD_USAGE_GUIDE.md](./BASEBALL_CARD_USAGE_GUIDE.md)** - Team card usage
-- **[VINTAGE_BASEBALL_CARD_SPECIFICATION.md](./VINTAGE_BASEBALL_CARD_SPECIFICATION.md)** - Card specifications
-- **[VINTAGE_CARD_IMPLEMENTATION_GUIDE.md](./VINTAGE_CARD_IMPLEMENTATION_GUIDE.md)** -  
-  Implementation guide
+- **[BASEBALL_CARD_SYSTEM_COMPLETE.md](./BASEBALL_CARD_SYSTEM_COMPLETE.md)** -  
+  ⭐ **Complete baseball card system**
 - **[TEAM_ORGANIZATION_RESULTS.md](./TEAM_ORGANIZATION_RESULTS.md)** - Team organization results
 
 ### Page Implementation
