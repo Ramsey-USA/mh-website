@@ -88,7 +88,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
               className={`${
                 isMascot
                   ? 'bg-gradient-to-r from-amber-500 to-orange-500'
-                  : 'bg-gradient-to-r from-brand-primary to-brand-primary-dark'
+                  : 'bg-gradient-to-r from-[#386851] to-[#2D5443]'
               } px-6 py-4`}
             >
               <div className="flex justify-between items-center">
@@ -118,7 +118,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
                 className={`relative ${
                   isMascot
                     ? 'bg-gradient-to-br from-amber-300/20 to-orange-300/20'
-                    : 'bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20'
+                    : 'bg-gradient-to-br from-[#386851]/20 to-[#BD9264]/20'
                 } rounded-full w-32 h-32 overflow-hidden shadow-lg`}
               >
                 {member.avatar ? (
@@ -135,7 +135,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
                       icon={getRoleIcon(member.role)}
                       size="4xl"
                       className={
-                        isMascot ? 'text-amber-600' : 'text-brand-primary'
+                        isMascot ? 'text-amber-600' : 'text-[#386851]'
                       }
                     />
                   </div>
@@ -154,7 +154,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
               </h3>
               <p
                 className={`mb-3 font-bold text-sm uppercase tracking-wide ${
-                  isMascot ? 'text-orange-600' : 'text-brand-secondary'
+                  isMascot ? 'text-orange-600' : 'text-[#BD9264]'
                 }`}
               >
                 {member.role}
@@ -180,7 +180,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
             <div className="bottom-4 left-1/2 absolute -translate-x-1/2 transform">
               <div
                 className={`flex items-center ${
-                  isMascot ? 'text-amber-600' : 'text-brand-primary'
+                  isMascot ? 'text-amber-600' : 'text-[#386851]'
                 } text-xs`}
               >
                 <MaterialIcon icon="flip" size="sm" className="mr-1" />
@@ -202,7 +202,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
               className={`${
                 isMascot
                   ? 'bg-gradient-to-r from-amber-500 to-orange-500'
-                  : 'bg-gradient-to-r from-brand-primary to-brand-primary-dark'
+                  : 'bg-gradient-to-r from-[#386851] to-[#2D5443]'
               } px-6 py-4`}
             >
               <div className="text-center">
@@ -253,7 +253,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
                       className={`${
                         isMascot
                           ? 'bg-amber-200 text-amber-800'
-                          : 'bg-brand-primary/10 text-brand-primary'
+                          : 'bg-[#386851]/10 text-[#386851]'
                       } px-3 py-1 rounded-md text-xs font-medium`}
                     >
                       {specialty}
@@ -268,7 +268,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
                   <div>
                     <div
                       className={`text-2xl font-bold ${
-                        isMascot ? 'text-amber-600' : 'text-brand-primary'
+                        isMascot ? 'text-amber-600' : 'text-[#386851]'
                       }`}
                     >
                       {typeof member.experienceYears === 'number'
@@ -287,7 +287,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
                   <div>
                     <div
                       className={`text-2xl font-bold ${
-                        isMascot ? 'text-amber-600' : 'text-brand-primary'
+                        isMascot ? 'text-amber-600' : 'text-[#386851]'
                       }`}
                     >
                       {member.specialties?.length || 0}
@@ -307,7 +307,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
               <div className="mt-4 text-center">
                 <div
                   className={`flex items-center justify-center ${
-                    isMascot ? 'text-amber-600' : 'text-brand-primary'
+                    isMascot ? 'text-amber-600' : 'text-[#386851]'
                   } text-xs`}
                 >
                   <MaterialIcon icon="flip" size="sm" className="mr-1" />

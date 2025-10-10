@@ -32,7 +32,7 @@ indicators must use Google Material Icons exclusively.**
 <MaterialIcon icon="event" size="sm" />
 <MaterialIcon icon="phone" className="mr-2" />
 <MaterialIcon icon="email" size="sm" className="text-gray-600" />
-```
+```text
 
 ## ❌ PROHIBITED: Emojis in Source Code
 
@@ -44,7 +44,7 @@ indicators must use Google Material Icons exclusively.**
 <button>📅 Schedule</button>
 <div className="title">🎯 Project Goals</div>
 const title = 'Update 🎯'
-```
+```text
 
 ## Policy Rationale
 
@@ -84,7 +84,7 @@ const title = 'Update 🎯'
 ### 🚨 Critical Items
 - ⚠️ High priority task
 - 💡 Enhancement idea
-```
+```text
 
 ## Implementation Standards
 
@@ -94,13 +94,13 @@ const title = 'Update 🎯'
 
 ```tsx
 <MaterialIcon icon="icon_name" />
-```
+```text
 
 **With Size:**
 
 ```tsx
 <MaterialIcon icon="construction" size="lg" />
-```
+```text
 
 **With Styling:**
 
@@ -110,7 +110,7 @@ const title = 'Update 🎯'
   size="md" 
   className="text-brand-primary hover:text-brand-secondary" 
 />
-```
+```text
 
 **In Buttons:**
 
@@ -119,7 +119,7 @@ const title = 'Update 🎯'
   <MaterialIcon icon="event" className="mr-3" />
   Schedule Consultation
 </Button>
-```
+```text
 
 ### Common Icon Names
 
@@ -170,7 +170,7 @@ grep -r "[\u{1F600}-\u{1F64F}]" src/ --exclude="*.md"
 
 # Verify MaterialIcon usage
 grep -r "<MaterialIcon" src/ | wc -l
-```
+```text
 
 ## Browser Support
 

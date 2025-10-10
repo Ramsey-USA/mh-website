@@ -86,7 +86,7 @@ export function Navigation() {
       <div className="top-4 right-4 z-50 fixed pointer-events-auto">
         <button
           onClick={handleMenuToggle}
-          className={`relative bg-gradient-to-r from-[#386851] hover:from-[#2d5440] to-[#4a7c59] hover:to-[#3c6448] shadow-lg hover:shadow-xl p-2.5 sm:p-3 rounded-xl focus:outline-none focus:ring-[#386851]/50 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 antialiased transform-gpu transition-all duration-300 pointer-events-auto cursor-pointer ${
+          className={`relative bg-gradient-to-r from-brand-primary hover:from-brand-accent to-forest-600 hover:to-forest-700 shadow-lg hover:shadow-xl p-2.5 sm:p-3 rounded-xl focus:outline-none focus:ring-brand-primary/50 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 antialiased transform-gpu transition-all duration-300 pointer-events-auto cursor-pointer ${
             scrolled ? "scale-90" : "scale-100"
           }`}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -144,8 +144,8 @@ export function Navigation() {
                   {[
                     {
                       href: "/booking",
-                      label: "Book Appt.",
-                      icon: "event",
+                      label: "Start Partnership",
+                      icon: "handshake",
                     },
                     {
                       href: "/estimator",
@@ -159,22 +159,22 @@ export function Navigation() {
                     },
                     {
                       href: "/about",
-                      label: "About",
+                      label: "Our Story",
                       icon: "info",
                     },
                     {
                       href: "/services",
-                      label: "Services",
+                      label: "Partnership Approach",
                       icon: "build",
                     },
                     {
                       href: "/team",
-                      label: "Team",
+                      label: "Your Partners",
                       icon: "groups",
                     },
                     {
                       href: "/projects",
-                      label: "Projects",
+                      label: "Success Stories",
                       icon: "photo_library",
                     },
                     {
@@ -184,31 +184,31 @@ export function Navigation() {
                     },
                     {
                       href: "/trade-partners",
-                      label: "Partners",
+                      label: "Trade Partners",
                       icon: "handshake",
                     },
                     {
                       href: "/careers",
-                      label: "Careers",
+                      label: "Join Our Team",
                       icon: "work",
                     },
                     {
                       href: "/contact",
-                      label: "Contact",
+                      label: "Connect With Us",
                       icon: "contact_phone",
                     },
                   ].map((item, index) => (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="group flex flex-col items-center hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-sm px-1.5 sm:px-4 py-3 sm:py-6 rounded-lg sm:rounded-xl font-medium text-gray-900 hover:text-[#386851] dark:hover:text-[#4a7c59] dark:text-gray-100 text-center transition-all duration-300"
+                      className="group flex flex-col items-center hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-sm px-1.5 sm:px-4 py-3 sm:py-6 rounded-lg sm:rounded-xl font-medium text-gray-900 hover:text-brand-primary dark:hover:text-bronze-400 dark:text-gray-100 text-center transition-all duration-300"
                       onClick={() => setIsMenuOpen(false)}
                       style={{ animationDelay: `${index * 30}ms` }}
                     >
                       <MaterialIcon
                         icon={item.icon}
                         size="sm"
-                        className="opacity-70 group-hover:opacity-100 mb-1.5 sm:mb-3 dark:group-hover:text-[#4a7c59] group-hover:text-[#386851] transition-all duration-300"
+                        className="opacity-70 group-hover:opacity-100 mb-1.5 sm:mb-3 dark:group-hover:text-bronze-400 group-hover:text-brand-primary transition-all duration-300"
                       />
                       <div className="text-center">
                         <div className="font-medium text-xs sm:text-sm leading-tight">

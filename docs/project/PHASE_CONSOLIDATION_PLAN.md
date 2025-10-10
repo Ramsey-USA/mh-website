@@ -80,7 +80,7 @@ and future development.
   Complete Phase 6+ roadmap & timeline
 - **[COMPLETE_OPTIMIZATION_ROADMAP.md](../COMPLETE_OPTIMIZATION_ROADMAP.md)** - 
   Comprehensive optimization summary and roadmap
-```
+```text
 
 ### Action 2: Create Archive Structure
 
@@ -103,7 +103,7 @@ docs/project/archive/
     ├── naming-changes/
     ├── reorganizations/
     └── old-structures/
-```
+```text
 
 ### Action 3: Move Existing Files
 
@@ -155,7 +155,7 @@ complete roadmap, see the master roadmap document.
 
 **Archived:** October 9, 2025  
 **Replaced by:** PHASE_MASTER_ROADMAP.md
-```
+```text
 
 ### Step 2: Update NAVIGATION.md
 
@@ -171,7 +171,7 @@ Replace the outdated phase section with streamlined references to:
 mkdir -p docs/project/archive/phases/completed/{phase-1-foundation,phase-2-architecture,phase-3-features,phase-4-ux,phase-5-performance}
 mkdir -p docs/project/archive/phases/planning/{phase-6-advanced,phase-7-enterprise,phase-8-innovation}
 mkdir -p docs/project/archive/historical/{naming-changes,reorganizations,old-structures}
-```
+```text
 
 ### Step 4: Move and Archive Files
 

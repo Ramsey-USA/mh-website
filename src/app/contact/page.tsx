@@ -139,9 +139,9 @@ export default function ContactPage() {
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       <PageHero
-        title="Ready to Deploy Your Project?"
-        subtitle="Connect with Our Veteran-Led Team"
-        description="Experience the difference military precision makes. Get in touch with our veteran-led team for a strategic consultation, detailed mission-ready estimate, and construction solutions that honor your vision throughout the Tri-Cities area."
+        title="Let's Start Our Partnership"
+        subtitle="Connect with Your Partnership Team"
+        description="Experience the difference true collaboration makes. Begin our conversation with your partnership-focused team for a strategic consultation, detailed project estimate, and construction solutions that honor your vision throughout the Pacific Northwest."
       />
 
       {/* Contact Methods */}
@@ -151,14 +151,15 @@ export default function ContactPage() {
             <div className="mb-16 text-center">
               <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Get In
+                  Begin Our
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
-                  Touch
+                  Conversation
                 </span>
               </h2>
               <p className="font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                Multiple ways to reach our experienced construction team
+                Multiple ways to connect with your partnership-focused
+                construction team
               </p>
             </div>
           </FadeInWhenVisible>
@@ -187,7 +188,7 @@ export default function ContactPage() {
                             ? "noopener noreferrer"
                             : undefined
                         }
-                        className="block mb-1 font-semibold text-brand-primary hover:text-brand-primary-dark hover:underline transition-colors"
+                        className="block mb-1 font-semibold text-brand-primary hover:text-brand-accent hover:underline transition-colors"
                       >
                         {method.value}
                       </a>
@@ -225,11 +226,11 @@ export default function ContactPage() {
                       className="mb-3 text-brand-primary"
                     />
                     <CardTitle className="text-gray-900 dark:text-white text-3xl">
-                      Send Us a Message
+                      Share Your Vision
                     </CardTitle>
                     <p className="text-gray-600 dark:text-gray-300">
-                      Fill out the form below and we'll get back to you within
-                      24 hours
+                      Tell us about your project and we'll begin our partnership
+                      conversation within 24 hours
                     </p>
                   </CardHeader>
                   <CardContent>
@@ -339,7 +340,7 @@ export default function ContactPage() {
                           htmlFor="message"
                           className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-sm"
                         >
-                          Message *
+                          Tell Us About Your Vision *
                         </label>
                         <textarea
                           id="message"
@@ -349,7 +350,7 @@ export default function ContactPage() {
                           value={formData.message}
                           onChange={handleChange}
                           className="bg-white dark:bg-gray-800 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-lg focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white resize-none"
-                          placeholder="Tell us about your project..."
+                          placeholder="Share your project vision with us..."
                         />
                       </div>
 
@@ -362,10 +363,11 @@ export default function ContactPage() {
                           />
                           <div>
                             <p className="font-semibold text-brand-primary dark:text-brand-accent">
-                              Message sent successfully!
+                              Vision shared successfully!
                             </p>
                             <p className="text-brand-primary/80 dark:text-brand-accent/80 text-sm">
-                              We'll get back to you within 24 hours.
+                              We'll begin our partnership conversation within 24
+                              hours.
                             </p>
                           </div>
                         </div>
@@ -412,7 +414,7 @@ export default function ContactPage() {
                               className="mr-2"
                               size="md"
                             />
-                            Send Message
+                            Share Your Vision
                           </>
                         )}
                       </Button>
@@ -586,7 +588,7 @@ export default function ContactPage() {
                 />
                 <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
                   <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                    Ready to Join Our
+                    Ready to Join Our Partnership
                   </span>
                   <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                     Team?
@@ -594,9 +596,9 @@ export default function ContactPage() {
                 </h2>
                 <p className="mb-8 text-gray-700 dark:text-gray-300 text-xl leading-relaxed">
                   We're always looking for skilled professionals who share our
-                  commitment to excellence. From seasoned construction veterans
-                  to emerging talent, we believe in growing together and
-                  building something extraordinary.
+                  commitment to partnership excellence. From seasoned
+                  construction partners to emerging talent, we believe in
+                  growing together and building something extraordinary.
                 </p>
               </div>
 
@@ -649,10 +651,10 @@ export default function ContactPage() {
               <div className="flex sm:flex-row flex-col justify-center items-center gap-6">
                 <Link
                   href="/team"
-                  className="inline-flex items-center bg-gradient-to-r from-brand-primary hover:from-brand-primary-dark to-brand-primary-dark hover:to-brand-primary shadow-lg px-8 py-4 rounded-lg font-semibold text-white hover:scale-105 transition-all duration-200 transform"
+                  className="inline-flex items-center bg-gradient-to-r from-brand-primary hover:from-brand-accent to-brand-accent hover:to-brand-primary shadow-lg px-8 py-4 rounded-lg font-semibold text-white hover:scale-105 transition-all duration-200 transform"
                 >
                   <MaterialIcon icon="groups" className="mr-2" size="md" />
-                  Apply to Join Our Team
+                  Join Our Partnership Team
                 </Link>
 
                 <Link
@@ -660,7 +662,7 @@ export default function ContactPage() {
                   className="inline-flex items-center hover:bg-brand-primary px-8 py-4 border-2 border-brand-primary rounded-lg font-semibold text-brand-primary hover:text-white transition-all duration-200"
                 >
                   <MaterialIcon icon="visibility" className="mr-2" size="md" />
-                  Meet Our Team
+                  Meet Your Partners
                 </Link>
               </div>
 
@@ -815,7 +817,7 @@ export default function ContactPage() {
                     href="https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center mt-4 text-brand-primary hover:text-brand-primary-dark hover:underline transition-colors"
+                    className="inline-flex items-center mt-4 text-brand-primary hover:text-brand-accent hover:underline transition-colors"
                   >
                     <MaterialIcon
                       icon="open_in_new"

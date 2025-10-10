@@ -62,7 +62,7 @@ docs/
 │   └── [other technical docs]           🛠️ Technical guides
 ├── business/                            💼 Business documentation
 └── development/                         🔧 Development setup
-```
+```text
 
 ---
 

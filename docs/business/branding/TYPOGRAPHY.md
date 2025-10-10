@@ -26,7 +26,7 @@ that aligns with our military precision values.
 
 ```css
 font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-```
+```text
 
 #### Key Characteristics
 
@@ -61,7 +61,7 @@ h6 { font-weight: 500; }
 body { font-weight: 400; }
 strong { font-weight: 600; }
 .emphasis { font-weight: 500; }
-```
+```text
 
 ## Typography Scale
 
@@ -81,7 +81,7 @@ h1 {
   line-height: 1.2;
   letter-spacing: -0.025em;
 }
-```
+```text
 
 #### H2 - Section Headlines
 
@@ -97,7 +97,7 @@ h2 {
   line-height: 1.3;
   letter-spacing: -0.025em;
 }
-```
+```text
 
 #### H3 - Subsection Headlines
 
@@ -112,7 +112,7 @@ h3 {
   font-weight: 600;
   line-height: 1.4;
 }
-```
+```text
 
 #### H4 - Minor Headlines
 
@@ -127,7 +127,7 @@ h4 {
   font-weight: 500;
   line-height: 1.5;
 }
-```
+```text
 
 #### H5 - Supporting Headlines
 
@@ -142,7 +142,7 @@ h5 {
   font-weight: 500;
   line-height: 1.6;
 }
-```
+```text
 
 #### H6 - Caption Headlines
 
@@ -159,7 +159,7 @@ h6 {
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
-```
+```text
 
 ### Body Text Styles
 
@@ -176,7 +176,7 @@ h6 {
   font-weight: 400;
   line-height: 1.7;
 }
-```
+```text
 
 #### Body Default
 
@@ -191,7 +191,7 @@ body, p {
   font-weight: 400;
   line-height: 1.6;
 }
-```
+```text
 
 #### Body Small
 
@@ -206,7 +206,7 @@ body, p {
   font-weight: 400;
   line-height: 1.5;
 }
-```
+```text
 
 #### Caption Text
 
@@ -222,7 +222,7 @@ body, p {
   line-height: 1.4;
   color: var(--color-text-secondary);
 }
-```
+```text
 
 ## Special Typography Elements
 
@@ -241,7 +241,7 @@ body, p {
   font-weight: 500;
   letter-spacing: 0.025em;
 }
-```
+```text
 
 #### Secondary Buttons
 
@@ -256,7 +256,7 @@ body, p {
   font-weight: 500;
   letter-spacing: 0.025em;
 }
-```
+```text
 
 ### Navigation Text
 
@@ -272,7 +272,7 @@ body, p {
   font-size: 1rem;
   font-weight: 500;
 }
-```
+```text
 
 #### Breadcrumbs
 
@@ -286,7 +286,7 @@ body, p {
   font-size: 0.875rem;
   font-weight: 400;
 }
-```
+```text
 
 ### Form Elements
 
@@ -302,7 +302,7 @@ label {
   font-size: 0.875rem;
   font-weight: 500;
 }
-```
+```text
 
 #### Input Text
 
@@ -316,7 +316,7 @@ input, textarea {
   font-weight: 400;
   line-height: 1.5;
 }
-```
+```text
 
 #### Placeholder Text
 
@@ -330,7 +330,7 @@ input, textarea {
   font-weight: 400;
   color: var(--color-text-secondary);
 }
-```
+```text
 
 ## Typography Implementation
 
@@ -367,7 +367,7 @@ input, textarea {
   --leading-loose: 1.6;
   --leading-extra-loose: 1.7;
 }
-```
+```text
 
 ### Tailwind Typography Configuration
 
@@ -397,7 +397,7 @@ module.exports = {
     }
   }
 }
-```
+```text
 
 ## Typography Usage Guidelines
 
@@ -443,7 +443,7 @@ module.exports = {
   
   body { font-size: 1rem; }   /* 16px - maintain for readability */
 }
-```
+```text
 
 #### Large Screen Enhancements
 
@@ -454,7 +454,7 @@ module.exports = {
   
   .text-large { font-size: 1.25rem; } /* 20px */
 }
-```
+```text
 
 ## Accessibility Guidelines
 

@@ -1,29 +1,29 @@
-'use client'
+"use client";
 
-import React from 'react'
-import dynamic from 'next/dynamic'
-import { MaterialIcon } from '../icons/MaterialIcon'
-import { Card, CardContent, Button } from '../ui'
+import React from "react";
+import dynamic from "next/dynamic";
+import { MaterialIcon } from "../icons/MaterialIcon";
+import { Card, CardContent, Button } from "../ui";
 
 // Dynamic import for Framer Motion to reduce bundle size
 const MotionDiv = dynamic(
-  () => import('framer-motion').then(mod => mod.motion.div),
+  () => import("framer-motion").then((mod) => mod.motion.div),
   { ssr: false }
-)
+);
 const AnimatePresence = dynamic(
-  () => import('framer-motion').then(mod => mod.AnimatePresence),
+  () => import("framer-motion").then((mod) => mod.AnimatePresence),
   { ssr: false }
-)
+);
 
 interface SmartFormAssistantProps {
-  fieldSuggestions: any
-  predictiveCompletion: any
-  isVeteranDetected: boolean
-  showSmartSuggestions: boolean
-  onSuggestionClick: (suggestion: string) => void
-  onAutoCompleteClick: () => void
-  onToggleSuggestions: () => void
-  getCompletionProgress: () => number
+  fieldSuggestions: any;
+  predictiveCompletion: any;
+  isVeteranDetected: boolean;
+  showSmartSuggestions: boolean;
+  onSuggestionClick: (suggestion: string) => void;
+  onAutoCompleteClick: () => void;
+  onToggleSuggestions: () => void;
+  getCompletionProgress: () => number;
 }
 
 export function SmartFormAssistant({
@@ -36,7 +36,7 @@ export function SmartFormAssistant({
   onToggleSuggestions,
   getCompletionProgress,
 }: SmartFormAssistantProps) {
-  const completionProgress = getCompletionProgress()
+  const completionProgress = getCompletionProgress();
 
   return (
     <AnimatePresence>
@@ -50,19 +50,19 @@ export function SmartFormAssistant({
           {/* Smart Assistant Header */}
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2">
-              <MaterialIcon icon="psychology" className="text-blue-600" />
-              <h3 className="flex items-center gap-2 font-semibold text-gray-800 text-lg">
+              <MaterialIcon icon="psychology" className="text-brand-primary" />
+              <h3 className="flex items-center gap-2 font-semibold text-gray-800 dark:text-gray-100 text-lg">
                 <MaterialIcon
                   icon="workspace_premium"
                   size="md"
-                  className="text-yellow-600"
+                  className="text-bronze-500"
                 />
-                Smart Form Assistant
+                Partnership Form Assistant
               </h3>
               {isVeteranDetected && (
-                <span className="flex items-center gap-1 bg-blue-100 px-2 py-1 rounded-full font-medium text-blue-800 text-xs">
+                <span className="flex items-center gap-1 bg-brand-primary/10 px-2 py-1 rounded-full font-medium text-brand-primary text-xs">
                   <MaterialIcon icon="flag" size="sm" />
-                  Veteran Detected
+                  Partnership Ready
                 </span>
               )}
             </div>
@@ -80,29 +80,29 @@ export function SmartFormAssistant({
           <Card>
             <CardContent className="p-4">
               <div className="flex justify-between items-center mb-2">
-                <span className="font-medium text-gray-700 text-sm">
-                  Mission Progress
+                <span className="font-medium text-gray-700 dark:text-gray-300 text-sm">
+                  Partnership Progress
                 </span>
-                <span className="text-gray-600 text-sm">
+                <span className="text-gray-600 dark:text-gray-400 text-sm">
                   {completionProgress}%
                 </span>
               </div>
-              <div className="bg-gray-200 rounded-full w-full h-2">
+              <div className="bg-gray-200 dark:bg-gray-600 rounded-full w-full h-2">
                 <MotionDiv
-                  className="bg-blue-600 rounded-full h-2"
+                  className="bg-brand-primary rounded-full h-2"
                   initial={{ width: 0 }}
                   animate={{ width: `${completionProgress}%` }}
                   transition={{ duration: 0.5 }}
                 />
               </div>
               {predictiveCompletion?.nextStepGuidance && (
-                <div className="bg-blue-50 mt-3 p-3 rounded-lg">
+                <div className="bg-brand-primary/5 dark:bg-brand-primary/10 mt-3 p-3 rounded-lg">
                   <div
-                    className="text-blue-800 text-sm whitespace-pre-line"
+                    className="text-brand-primary dark:text-brand-primary text-sm whitespace-pre-line"
                     dangerouslySetInnerHTML={{
                       __html: predictiveCompletion.nextStepGuidance.replace(
                         /\\n/g,
-                        '<br/>'
+                        "<br/>"
                       ),
                     }}
                   />
@@ -122,23 +122,23 @@ export function SmartFormAssistant({
                       <div className="flex items-center space-x-2 mb-2">
                         <MaterialIcon
                           icon="auto_fix_high"
-                          className="text-green-600"
+                          className="text-brand-secondary"
                         />
-                        <span className="font-medium text-gray-700 text-sm">
-                          Smart Completion
+                        <span className="font-medium text-gray-700 dark:text-gray-300 text-sm">
+                          Partnership Completion
                         </span>
                       </div>
                       <Button
                         onClick={onAutoCompleteClick}
                         variant="ghost"
-                        className="justify-start bg-green-50 hover:bg-green-100 p-3 border border-green-200 rounded-lg w-full text-left"
+                        className="justify-start bg-brand-secondary/5 hover:bg-brand-secondary/10 p-3 border border-brand-secondary/20 rounded-lg w-full text-left"
                       >
-                        <span className="font-medium text-green-800">
+                        <span className="font-medium text-brand-secondary">
                           {fieldSuggestions.autoComplete}
                         </span>
                         <MaterialIcon
                           icon="keyboard_tab"
-                          className="ml-auto text-green-600"
+                          className="ml-auto text-brand-secondary"
                         />
                       </Button>
                     </div>
@@ -185,28 +185,28 @@ export function SmartFormAssistant({
                     <div
                       className={`p-3 rounded-lg border ${
                         fieldSuggestions.validation.isValid
-                          ? 'bg-green-50 border-green-200'
-                          : 'bg-red-50 border-red-200'
+                          ? "bg-green-50 border-green-200"
+                          : "bg-red-50 border-red-200"
                       }`}
                     >
                       <div className="flex items-center space-x-2">
                         <MaterialIcon
                           icon={
                             fieldSuggestions.validation.isValid
-                              ? 'check_circle'
-                              : 'error'
+                              ? "check_circle"
+                              : "error"
                           }
                           className={
                             fieldSuggestions.validation.isValid
-                              ? 'text-green-600'
-                              : 'text-red-600'
+                              ? "text-green-600"
+                              : "text-red-600"
                           }
                         />
                         <span
                           className={`text-sm font-medium ${
                             fieldSuggestions.validation.isValid
-                              ? 'text-green-800'
-                              : 'text-red-800'
+                              ? "text-green-800"
+                              : "text-red-800"
                           }`}
                         >
                           {fieldSuggestions.validation.feedback}
@@ -343,7 +343,7 @@ export function SmartFormAssistant({
         </MotionDiv>
       )}
     </AnimatePresence>
-  )
+  );
 }
 
-export default SmartFormAssistant
+export default SmartFormAssistant;

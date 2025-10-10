@@ -127,7 +127,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
               <div className="flex-shrink-0">
                 <MaterialIcon
                   icon={getProjectIcon(recommendation.projectType)}
-                  className="text-brand-primary"
+                  className="text-[#386851]"
                   size="lg"
                 />
               </div>
@@ -139,7 +139,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
                   {recommendation.description}
                 </p>
                 <div className="flex justify-between items-center mt-2">
-                  <span className="font-medium text-brand-primary text-sm">
+                  <span className="font-medium text-[#386851] text-sm">
                     {formatCurrency(recommendation.estimatedCost.min)} -{' '}
                     {formatCurrency(recommendation.estimatedCost.max)}
                   </span>
@@ -171,7 +171,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
             <div className="absolute inset-0 flex justify-center items-center">
               <MaterialIcon
                 icon={getProjectIcon(recommendation.projectType)}
-                className="opacity-20 text-brand-primary"
+                className="opacity-20 text-[#386851]"
                 size="4xl"
               />
             </div>
@@ -190,7 +190,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
             <div className="flex items-center space-x-2">
               <MaterialIcon
                 icon={getProjectIcon(recommendation.projectType)}
-                className="text-brand-primary"
+                className="text-[#386851]"
                 size="lg"
               />
               <span className="font-medium text-gray-500 text-xs uppercase tracking-wider">
@@ -313,7 +313,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
           <div className="flex space-x-3 mb-4">
             <button
               onClick={handleEstimateClick}
-              className="flex flex-1 justify-center items-center space-x-2 bg-brand-primary hover:bg-brand-dark px-4 py-2 rounded-lg font-semibold text-white transition-colors duration-200"
+              className="flex flex-1 justify-center items-center space-x-2 bg-[#386851] hover:bg-[#2D5443] px-4 py-2 rounded-lg font-semibold text-white transition-colors duration-200"
             >
               <MaterialIcon icon="calculate" size="sm" />
               <span>Get Estimate</span>
@@ -407,7 +407,7 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
         <div className="py-8 text-center">
           <MaterialIcon
             icon="psychology"
-            className="mb-4 text-brand-primary animate-pulse"
+            className="mb-4 text-[#386851] animate-pulse"
             size="3xl"
           />
           <p className="text-gray-600">
@@ -455,7 +455,7 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
         <div className="flex items-center space-x-3">
           <MaterialIcon
             icon="psychology"
-            className="text-brand-primary"
+            className="text-[#386851]"
             size="lg"
           />
           <div>
@@ -471,7 +471,7 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
         {recommendations.length > 3 && (
           <button
             onClick={() => setShowAll(!showAll)}
-            className="flex items-center space-x-1 font-semibold text-brand-primary hover:text-brand-dark text-sm"
+            className="flex items-center space-x-1 font-semibold text-[#386851] hover:text-[#2D5443] text-sm"
           >
             <span>
               {showAll ? 'Show Less' : `Show All (${recommendations.length})`}
@@ -527,7 +527,7 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
           <div className="flex justify-center space-x-4">
             <button
               onClick={() => onGetEstimate(recommendations[0])}
-              className="flex items-center space-x-2 bg-brand-primary hover:bg-brand-dark px-6 py-3 rounded-lg font-semibold text-white transition-colors duration-200"
+              className="flex items-center space-x-2 bg-[#386851] hover:bg-[#2D5443] px-6 py-3 rounded-lg font-semibold text-white transition-colors duration-200"
             >
               <MaterialIcon icon="calculate" size="sm" />
               <span>Get Free Estimate</span>

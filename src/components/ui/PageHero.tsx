@@ -1,33 +1,33 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { MaterialIcon } from '../icons/MaterialIcon'
-import { FadeInWhenVisible } from '../animations/FramerMotionComponents'
+import React from "react";
+import { MaterialIcon } from "../icons/MaterialIcon";
+import { FadeInWhenVisible } from "../animations/FramerMotionComponents";
 
 interface PageHeroProps {
-  title: string
-  subtitle: string
-  description: string
+  title: string;
+  subtitle: string;
+  description: string;
 }
 
 interface HeroNavItem {
-  href: string
-  label: string
-  icon: string
+  href: string;
+  label: string;
+  icon: string;
 }
 
 const heroNavItems: HeroNavItem[] = [
-  { href: '/booking', label: 'Book Appt.', icon: 'event' },
-  { href: '/', label: 'Home', icon: 'home' },
-  { href: '/about', label: 'About', icon: 'info' },
-  { href: '/services', label: 'Services', icon: 'construction' },
-  { href: '/projects', label: 'Projects', icon: 'work' },
-  { href: '/team', label: 'Team', icon: 'group' },
-  { href: '/government', label: 'Government', icon: 'account_balance' },
-  { href: '/trade-partners', label: 'Partners', icon: 'handshake' },
-  { href: '/careers', label: 'Careers', icon: 'work_outline' },
-  { href: '/contact', label: 'Contact', icon: 'contact_mail' },
-]
+  { href: "/booking", label: "Start Partnership", icon: "handshake" },
+  { href: "/", label: "Home", icon: "home" },
+  { href: "/about", label: "Our Story", icon: "info" },
+  { href: "/services", label: "Partnership Approach", icon: "construction" },
+  { href: "/projects", label: "Success Stories", icon: "work" },
+  { href: "/team", label: "Your Partners", icon: "group" },
+  { href: "/government", label: "Government", icon: "account_balance" },
+  { href: "/trade-partners", label: "Trade Partners", icon: "handshake" },
+  { href: "/careers", label: "Join Our Team", icon: "work_outline" },
+  { href: "/contact", label: "Connect With Us", icon: "contact_mail" },
+];
 
 export function PageHero({ title, subtitle, description }: PageHeroProps) {
   return (
@@ -42,7 +42,7 @@ export function PageHero({ title, subtitle, description }: PageHeroProps) {
           </video> */}
 
           {/* Temporary background for now */}
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-gray-900 to-brand-secondary/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/20 via-gray-900 to-[#BD9264]/20"></div>
         </div>
 
         {/* Content Overlay */}
@@ -68,22 +68,22 @@ export function PageHero({ title, subtitle, description }: PageHeroProps) {
         </div>
 
         {/* Comprehensive Navigation Bar - Overlaid at bottom of hero */}
-        <nav className="right-0 bottom-0 left-0 z-20 absolute bg-white/95 dark:bg-gray-900/95 shadow-lg backdrop-blur-md border-t-4 border-brand-primary">
+        <nav className="right-0 bottom-0 left-0 z-20 absolute bg-white/95 dark:bg-gray-900/95 shadow-lg backdrop-blur-md border-t-4 border-[#386851]">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="flex justify-center">
               <div className="flex space-x-1 overflow-x-auto">
-                {heroNavItems.map(item => (
+                {heroNavItems.map((item) => (
                   <a
                     key={item.href}
                     href={item.href}
-                    className="group flex flex-col items-center hover:bg-brand-primary/10 px-4 py-4 min-w-[80px] transition-colors duration-200"
+                    className="group flex flex-col items-center hover:bg-[#386851]/10 px-4 py-4 min-w-[80px] transition-colors duration-200"
                   >
                     <MaterialIcon
                       icon={item.icon}
                       size="md"
-                      className="mb-1 text-gray-600 dark:text-gray-400 group-hover:text-brand-primary transition-colors duration-200"
+                      className="mb-1 text-gray-600 dark:text-gray-400 group-hover:text-[#386851] transition-colors duration-200"
                     />
-                    <span className="font-medium text-gray-700 dark:text-gray-300 group-hover:text-brand-primary text-xs transition-colors duration-200">
+                    <span className="font-medium text-gray-700 dark:text-gray-300 group-hover:text-[#386851] text-xs transition-colors duration-200">
                       {item.label}
                     </span>
                   </a>
@@ -94,5 +94,5 @@ export function PageHero({ title, subtitle, description }: PageHeroProps) {
         </nav>
       </section>
     </>
-  )
+  );
 }

@@ -205,7 +205,7 @@ export default function BookingPage() {
       setSubmitStatus("success");
       setStep(3);
     } catch (error) {
-      console.error("Error booking consultation:", error);
+      console.error("Error booking partnership discussion:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -236,7 +236,7 @@ export default function BookingPage() {
                   <MaterialIcon icon="check_circle" size="4xl" />
                 </div>
                 <h1 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                  <span className="text-gray-300">Consultation</span>{" "}
+                  <span className="text-gray-300">Partnership Discussion</span>{" "}
                   <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
                     Scheduled!
                   </span>
@@ -245,7 +245,9 @@ export default function BookingPage() {
                   <p className="text-xl">
                     Thank you, <strong>{formData.clientName}</strong>!
                   </p>
-                  <p className="text-lg">Your consultation is scheduled for:</p>
+                  <p className="text-lg">
+                    Your partnership discussion is scheduled for:
+                  </p>
                   <div className="bg-green-100 dark:bg-green-800/30 mx-auto p-4 border border-green-300 dark:border-green-700 rounded-lg max-w-md">
                     <p className="flex items-center gap-2 font-semibold text-green-800 dark:text-green-200">
                       <MaterialIcon icon="event" size="sm" />
@@ -271,17 +273,20 @@ export default function BookingPage() {
                     <strong>Next Steps:</strong>
                   </p>
                   <ul className="space-y-2 list-disc list-inside">
-                    <li>You'll receive a confirmation email shortly</li>
                     <li>
-                      Our team will call you 24 hours before your appointment
+                      You'll receive a partnership confirmation email shortly
+                    </li>
+                    <li>
+                      Your partnership team will call you 24 hours before our
+                      discussion
                     </li>
                     <li>
                       We'll come prepared with project insights and
-                      recommendations
+                      collaborative recommendations
                     </li>
                     <li>
-                      Free on-site estimate will be provided during the
-                      consultation
+                      Free on-site partnership estimate will be provided during
+                      our discussion
                     </li>
                   </ul>
                 </div>
@@ -296,7 +301,7 @@ export default function BookingPage() {
                   <Link href="/services">
                     <Button variant="primary" size="lg">
                       <MaterialIcon icon="build" className="mr-2" />
-                      View Our Services
+                      View Our Partnership Approach
                     </Button>
                   </Link>
                 </div>
@@ -337,14 +342,14 @@ export default function BookingPage() {
         <div className="mx-auto px-4 max-w-4xl text-center">
           <FadeInWhenVisible>
             <h1 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              <span className="text-white/90">Deploy Your</span>{" "}
+              <span className="text-white/90">Schedule Our</span>{" "}
               <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
-                Strategic Consultation
+                Partnership Discussion
               </span>
             </h1>
             <p className="mx-auto max-w-2xl text-white/90 text-xl">
-              Connect with our veteran-led team for a precision-focused mission
-              briefing on your construction project
+              Connect with your partnership-focused team for a collaborative
+              consultation on your construction vision
             </p>
           </FadeInWhenVisible>
         </div>
@@ -519,10 +524,10 @@ export default function BookingPage() {
               <CardHeader>
                 <CardTitle className="flex items-center text-gray-900 dark:text-white text-2xl">
                   <MaterialIcon icon="person" className="mr-3" />
-                  Your Information
+                  Partnership Information
                 </CardTitle>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Tell us about yourself and your project
+                  Share your details so we can begin our collaboration
                 </p>
               </CardHeader>
               <CardContent>
@@ -632,7 +637,7 @@ export default function BookingPage() {
 
                   <div>
                     <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
-                      Project Description *
+                      Your Partnership Vision *
                     </label>
                     <textarea
                       name="projectDescription"
@@ -641,13 +646,13 @@ export default function BookingPage() {
                       required
                       rows={4}
                       className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
-                      placeholder="Describe your project, including any specific requirements or goals..."
+                      placeholder="Share your vision and goals - we'll work together to bring them to life..."
                     />
                   </div>
 
                   <div>
                     <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
-                      Additional Notes
+                      Partnership Notes
                     </label>
                     <textarea
                       name="additionalNotes"
@@ -655,14 +660,14 @@ export default function BookingPage() {
                       onChange={handleInputChange}
                       rows={3}
                       className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
-                      placeholder="Any additional information you'd like us to know..."
+                      placeholder="Anything else you'd like to share about our upcoming partnership..."
                     />
                   </div>
 
                   {/* Summary */}
                   <div className="bg-gray-50 dark:bg-gray-700/50 p-4 border border-gray-200 dark:border-gray-600 rounded-lg">
                     <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">
-                      Consultation Summary:
+                      Partnership Discussion Summary:
                     </h4>
                     <p className="text-gray-700 dark:text-gray-300 text-sm">
                       <span className="flex items-center gap-2 mb-1">
@@ -712,15 +717,18 @@ export default function BookingPage() {
                       ) : (
                         <MaterialIcon icon="check" className="mr-2" />
                       )}
-                      {isSubmitting ? "Scheduling..." : "Schedule Consultation"}
+                      {isSubmitting
+                        ? "Scheduling..."
+                        : "Schedule Partnership Discussion"}
                     </Button>
                   </div>
 
                   {submitStatus === "error" && (
                     <div className="bg-red-50 dark:bg-red-900/20 p-4 border border-red-200 dark:border-red-800 rounded-lg">
                       <p className="text-red-700 dark:text-red-300">
-                        There was an error scheduling your consultation. Please
-                        try again or call us at (509) 308-6489.
+                        There was an error scheduling your partnership
+                        discussion. Please try again or call us at (509)
+                        308-6489.
                       </p>
                     </div>
                   )}

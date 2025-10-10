@@ -259,11 +259,11 @@ const whyChooseUs = [
 
 export default function ServicesPage() {
   return (
-    <div className="bg-gradient-to-b from-white to-gray-50 min-h-screen">
+    <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       <PageHero
-        title="Our Services"
-        subtitle="Expert Construction Management in the Pacific Northwest"
-        description="Tri-Cities Headquarters: Pasco, WA | Service Area: Washington, Oregon, Idaho"
+        title="Our Partnership Approach"
+        subtitle="Collaborative Construction Management in the Pacific Northwest"
+        description="Tri-Cities Headquarters: Pasco, WA | Partnership Area: Washington, Oregon, Idaho"
       />
 
       {/* Construction Expertise Section */}
@@ -278,7 +278,7 @@ export default function ServicesPage() {
               />
               <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Commercial Construction
+                  Partnership-Focused Construction
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                   Management
@@ -286,17 +286,17 @@ export default function ServicesPage() {
               </h2>
               <p className="mb-4 font-light text-gray-700 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 Planning a new commercial building demands intricate details and
-                expert oversight. Put your project in the right hands by hiring
-                MH Construction for comprehensive Construction Management (CM)
-                services throughout the Tri-Cities (Pasco, WA) area.
+                expert partnership oversight. Work with us through comprehensive
+                Partnership-Focused Construction Management services throughout
+                the Tri-Cities (Pasco, WA) area.
               </p>
               <div className="bg-brand-primary/5 dark:bg-gray-800 p-6 border-brand-primary border-l-4 rounded-lg">
                 <p className="text-gray-800 dark:text-gray-200 text-lg">
-                  <strong>Our Priority:</strong> Delivering an exceptional
-                  client experience from start to finish. Our commitment to
-                  thorough communication and upfront planning is critical to
-                  streamlining the process, preventing costly on-the-fly
-                  decisions later on.
+                  <strong>Our Partnership Priority:</strong> Delivering an
+                  exceptional partnership experience from start to finish. Our
+                  commitment to thorough communication and upfront collaboration
+                  is critical to streamlining the process, preventing costly
+                  on-the-fly decisions later on.
                 </p>
               </div>
 
@@ -321,15 +321,15 @@ export default function ServicesPage() {
             <div className="mb-12 text-center">
               <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Core
+                  Partnership
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                   Services
                 </span>
               </h2>
               <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                Comprehensive construction management services designed to bring
-                your vision to life
+                Comprehensive partnership-focused management services designed
+                to bring your vision to life through collaboration
               </p>
             </div>
           </FadeInWhenVisible>
@@ -420,15 +420,15 @@ export default function ServicesPage() {
             <div className="mb-12 text-center">
               <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Specialty
+                  Partnership
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
-                  Services
+                  Specialties
                 </span>
               </h2>
               <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                Diverse commercial construction expertise across the Tri-Cities
-                and Pacific Northwest
+                Diverse collaborative construction expertise across the
+                Tri-Cities and Pacific Northwest
               </p>
             </div>
           </FadeInWhenVisible>
@@ -569,7 +569,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Service Areas Section */}
-      <section className="bg-gradient-to-r from-brand-primary to-brand-primary-dark py-16 text-white">
+      <section className="bg-gradient-to-r from-brand-primary dark:from-forest-700 to-brand-accent dark:to-forest-800 py-16 text-white">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
@@ -580,13 +580,13 @@ export default function ServicesPage() {
               />
               <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Service
+                  Partnership
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
                   Areas
                 </span>
               </h2>
-              <p className="font-light text-brand-accent text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+              <p className="font-light text-forest-100 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 Serving the Pacific Northwest with Excellence
               </p>
             </div>
@@ -632,19 +632,19 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 dark:bg-gray-800 py-16">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
-              <h2 className="mb-6 font-black text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Why Choose
+              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                  Why Partner With
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                   MH Construction
                 </span>
               </h2>
-              <p className="mx-auto max-w-3xl font-light text-gray-600 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 Your trusted partner for commercial construction in the Pacific
                 Northwest
               </p>
@@ -691,15 +691,15 @@ export default function ServicesPage() {
                 />
                 <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
                   <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                    Our Service Request
+                    Our Partnership
                   </span>
                   <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                     Process
                   </span>
                 </h2>
                 <p className="font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                  From initial consultation to project completion, we guide you
-                  every step of the way
+                  From initial partnership conversation to project completion,
+                  we collaborate with you every step of the way
                 </p>
               </div>
 
@@ -707,34 +707,37 @@ export default function ServicesPage() {
                 {[
                   {
                     step: 1,
-                    title: "Initial Consultation",
-                    description: "Understanding your vision and requirements",
+                    title: "Partnership Consultation",
+                    description:
+                      "Understanding your vision through collaborative discussion",
                     icon: "chat",
                   },
                   {
                     step: 2,
                     title: "Site Assessment",
-                    description: "Evaluating location and project feasibility",
+                    description:
+                      "Evaluating location and project feasibility together",
                     icon: "explore",
                   },
                   {
                     step: 3,
-                    title: "Master Planning",
-                    description: "Detailed planning and timeline development",
+                    title: "Collaborative Planning",
+                    description:
+                      "Detailed planning and timeline development with your input",
                     icon: "event",
                   },
                   {
                     step: 4,
-                    title: "Proposal",
+                    title: "Partnership Proposal",
                     description:
-                      "Comprehensive project proposal with transparent pricing",
+                      "Comprehensive project proposal with transparent partnership pricing",
                     icon: "description",
                   },
                   {
                     step: 5,
-                    title: "Partnership",
+                    title: "Partnership Execution",
                     description:
-                      "Collaborative execution with regular communication",
+                      "Collaborative execution with regular communication and updates",
                     icon: "handshake",
                   },
                 ].map((process, index) => (
@@ -777,7 +780,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-brand-primary to-brand-primary-dark py-16 text-white">
+      <section className="bg-gradient-to-r from-brand-primary dark:from-forest-700 to-brand-accent dark:to-forest-800 py-16 text-white">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-3xl text-center">
@@ -788,37 +791,37 @@ export default function ServicesPage() {
               />
               <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Ready to Start Your
+                  Ready to Start Our
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
-                  Project?
+                  Partnership?
                 </span>
               </h2>
-              <p className="mb-8 text-brand-accent text-xl">
+              <p className="mb-8 text-forest-100 text-xl">
                 Call us today for a free consultation and let's discuss how we
-                can bring your vision to life.
+                can bring your vision to life through partnership.
               </p>
               <div className="flex sm:flex-row flex-col justify-center gap-4 mb-8">
                 <Link href="/contact">
                   <Button
                     size="lg"
-                    className="bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark text-white"
+                    className="bg-white hover:bg-brand-light dark:bg-gray-800 dark:hover:bg-gray-700 text-brand-accent dark:text-white"
                   >
-                    <MaterialIcon icon="email" className="mr-2" size="md" />
-                    Contact Us Today
+                    <MaterialIcon icon="handshake" className="mr-2" size="md" />
+                    Start Our Partnership
                   </Button>
                 </Link>
                 <Link href="/projects">
                   <Button
                     size="lg"
-                    className="bg-brand-secondary hover:bg-brand-secondary-dark dark:bg-brand-secondary dark:hover:bg-brand-secondary-dark text-black dark:text-black"
+                    className="bg-brand-secondary hover:bg-bronze-600 dark:bg-brand-secondary dark:hover:bg-bronze-600 text-black dark:text-black"
                   >
                     <MaterialIcon
                       icon="photo_library"
                       className="mr-2"
                       size="md"
                     />
-                    View Our Projects
+                    Partnership Success Stories
                   </Button>
                 </Link>
               </div>

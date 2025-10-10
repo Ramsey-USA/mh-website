@@ -45,7 +45,7 @@ docs/guidelines/
 ├── PROJECT_MANAGEMENT.md       # Project workflow standards
 ├── VERSION_CONTROL.md          # Git workflow guidelines
 └── QUALITY_ASSURANCE.md        # QA process standards
-```
+```text
 
 ## Current Standards Overview
 

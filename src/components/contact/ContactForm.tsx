@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import {
   Button,
   Card,
@@ -9,27 +9,27 @@ import {
   CardTitle,
   Input,
   Textarea,
-} from '../ui'
-import { analytics } from '../analytics/google-analytics'
+} from "../ui";
+import { analytics } from "../analytics/google-analytics";
 
 interface ContactFormData {
-  firstName: string
-  lastName: string
-  email: string
-  phone: string
-  projectType: string
-  projectLocation: string
-  budget: string
-  timeline: string
-  message: string
-  urgency: 'low' | 'medium' | 'high'
-  preferredContact: 'email' | 'phone' | 'either'
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  projectType: string;
+  projectLocation: string;
+  budget: string;
+  timeline: string;
+  message: string;
+  urgency: "low" | "medium" | "high";
+  preferredContact: "email" | "phone" | "either";
 }
 
 interface ContactFormProps {
-  formType: 'general' | 'project' | 'emergency'
-  title: string
-  description?: string
+  formType: "general" | "project" | "emergency";
+  title: string;
+  description?: string;
 }
 
 export function ContactForm({
@@ -38,309 +38,313 @@ export function ContactForm({
   description,
 }: ContactFormProps) {
   const [formData, setFormData] = useState<ContactFormData>({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    projectType: '',
-    projectLocation: '',
-    budget: '',
-    timeline: '',
-    message: '',
-    urgency: 'medium',
-    preferredContact: 'either',
-  })
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    projectType: "",
+    projectLocation: "",
+    budget: "",
+    timeline: "",
+    message: "",
+    urgency: "medium",
+    preferredContact: "either",
+  });
 
-  const [errors, setErrors] = useState<Partial<ContactFormData>>({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [errors, setErrors] = useState<Partial<ContactFormData>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const projectTypes = [
-    'Custom Home Construction',
-    'Home Addition/Extension',
-    'Kitchen Remodeling',
-    'Bathroom Remodeling',
-    'Commercial Construction',
-    'Industrial Project',
-    'Renovation/Restoration',
-    'Emergency Repair',
-    'Other',
-  ]
+    "Custom Home Construction",
+    "Home Addition/Extension",
+    "Kitchen Remodeling",
+    "Bathroom Remodeling",
+    "Commercial Construction",
+    "Industrial Project",
+    "Renovation/Restoration",
+    "Emergency Repair",
+    "Other",
+  ];
 
   const budgetRanges = [
-    'Under $25,000',
-    '$25,000 - $50,000',
-    '$50,000 - $100,000',
-    '$100,000 - $250,000',
-    '$250,000 - $500,000',
-    '$500,000 - $1,000,000',
-    'Over $1,000,000',
-    'Not Sure Yet',
-  ]
+    "Under $25,000",
+    "$25,000 - $50,000",
+    "$50,000 - $100,000",
+    "$100,000 - $250,000",
+    "$250,000 - $500,000",
+    "$500,000 - $1,000,000",
+    "Over $1,000,000",
+    "Not Sure Yet",
+  ];
 
   const timelineOptions = [
-    'ASAP',
-    'Within 1 month',
-    '1-3 months',
-    '3-6 months',
-    '6-12 months',
-    'Over 1 year',
-    'Just Planning',
-  ]
+    "ASAP",
+    "Within 1 month",
+    "1-3 months",
+    "3-6 months",
+    "6-12 months",
+    "Over 1 year",
+    "Just Planning",
+  ];
 
   const validateForm = (): boolean => {
-    const newErrors: Partial<ContactFormData> = {}
+    const newErrors: Partial<ContactFormData> = {};
 
     // Required fields
     if (!formData.firstName.trim())
-      newErrors.firstName = 'First name is required'
-    if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required'
-    if (!formData.email.trim()) newErrors.email = 'Email is required'
-    if (!formData.message.trim()) newErrors.message = 'Message is required'
+      newErrors.firstName = "First name is required";
+    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    if (!formData.message.trim()) newErrors.message = "Message is required";
 
     // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (formData.email && !emailRegex.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address'
+      newErrors.email = "Please enter a valid email address";
     }
 
     // Phone validation (if provided)
     if (formData.phone) {
-      const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/
-      if (!phoneRegex.test(formData.phone.replace(/[\s\-\(\)]/g, ''))) {
-        newErrors.phone = 'Please enter a valid phone number'
+      const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+      if (!phoneRegex.test(formData.phone.replace(/[\s\-\(\)]/g, ""))) {
+        newErrors.phone = "Please enter a valid phone number";
       }
     }
 
     // Project-specific validation
-    if (formType === 'project') {
+    if (formType === "project") {
       if (!formData.projectType)
-        newErrors.projectType = 'Please select a project type'
+        newErrors.projectType = "Please select a project type";
       if (!formData.projectLocation.trim())
-        newErrors.projectLocation = 'Project location is required'
+        newErrors.projectLocation = "Project location is required";
     }
 
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (!validateForm()) return
+    if (!validateForm()) return;
 
-    setIsSubmitting(true)
+    setIsSubmitting(true);
 
     try {
       // Track form submission
-      analytics.contactForm(formType, formData.projectType)
+      analytics.contactForm(formType, formData.projectType);
 
       // Here you would typically send to your backend API
       // For now, we'll simulate the submission
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      console.log('Form submitted:', formData)
+      console.log("Form submitted:", formData);
 
-      setIsSubmitted(true)
+      setIsSubmitted(true);
 
       // Reset form after successful submission
       setTimeout(() => {
-        setIsSubmitted(false)
+        setIsSubmitted(false);
         setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          projectType: '',
-          projectLocation: '',
-          budget: '',
-          timeline: '',
-          message: '',
-          urgency: 'medium',
-          preferredContact: 'either',
-        })
-      }, 3000)
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          projectType: "",
+          projectLocation: "",
+          budget: "",
+          timeline: "",
+          message: "",
+          urgency: "medium",
+          preferredContact: "either",
+        });
+      }, 3000);
     } catch (error) {
-      console.error('Form submission error:', error)
+      console.error("Form submission error:", error);
       // Handle error (show error message)
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const handleInputChange = (field: keyof ContactFormData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }))
+    setFormData((prev) => ({ ...prev, [field]: value }));
     // Clear error when user starts typing
     if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: undefined }))
+      setErrors((prev) => ({ ...prev, [field]: undefined }));
     }
-  }
+  };
 
   if (isSubmitted) {
     return (
       <Card className="p-8 text-center">
-        <div className="text-green-600 text-6xl mb-4">✓</div>
-        <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-          Thank You!
+        <div className="mb-4 text-green-600 text-6xl">✓</div>
+        <h3 className="mb-2 font-semibold text-gray-900 dark:text-white text-2xl">
+          Partnership Initiated!
         </h3>
-        <p className="text-gray-600 mb-4">
-          Your message has been sent successfully. We&apos;ll get back to you
-          within 24 hours.
+        <p className="mb-4 text-gray-600 dark:text-gray-300">
+          Your partnership request has been received. We&apos;ll reach out
+          within 24 hours to begin our collaboration.
         </p>
-        <div className="text-sm text-gray-500">
-          For urgent matters, please call us directly at{' '}
+        <div className="text-gray-500 dark:text-gray-400 text-sm">
+          For urgent matters, please call us directly at{" "}
           <strong>(509) 308-6489</strong>
         </div>
       </Card>
-    )
+    );
   }
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-xl text-gray-900">{title}</CardTitle>
-        {description && <p className="text-gray-600">{description}</p>}
+        <CardTitle className="text-gray-900 dark:text-white text-xl">
+          {title}
+        </CardTitle>
+        {description && (
+          <p className="text-gray-600 dark:text-gray-300">{description}</p>
+        )}
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name Fields */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
                 First Name *
               </label>
               <Input
                 value={formData.firstName}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  handleInputChange('firstName', e.target.value)
+                  handleInputChange("firstName", e.target.value)
                 }
-                className={errors.firstName ? 'border-red-500' : ''}
+                className={errors.firstName ? "border-red-500" : ""}
                 placeholder="John"
               />
               {errors.firstName && (
-                <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>
+                <p className="mt-1 text-red-500 text-sm">{errors.firstName}</p>
               )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
                 Last Name *
               </label>
               <Input
                 value={formData.lastName}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  handleInputChange('lastName', e.target.value)
+                  handleInputChange("lastName", e.target.value)
                 }
-                className={errors.lastName ? 'border-red-500' : ''}
+                className={errors.lastName ? "border-red-500" : ""}
                 placeholder="Smith"
               />
               {errors.lastName && (
-                <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>
+                <p className="mt-1 text-red-500 text-sm">{errors.lastName}</p>
               )}
             </div>
           </div>
 
           {/* Contact Information */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
                 Email Address *
               </label>
               <Input
                 type="email"
                 value={formData.email}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  handleInputChange('email', e.target.value)
+                  handleInputChange("email", e.target.value)
                 }
-                className={errors.email ? 'border-red-500' : ''}
+                className={errors.email ? "border-red-500" : ""}
                 placeholder="john@example.com"
               />
               {errors.email && (
-                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                <p className="mt-1 text-red-500 text-sm">{errors.email}</p>
               )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block mb-2 font-medium text-gray-700 text-sm">
                 Phone Number
               </label>
               <Input
                 type="tel"
                 value={formData.phone}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  handleInputChange('phone', e.target.value)
+                  handleInputChange("phone", e.target.value)
                 }
-                className={errors.phone ? 'border-red-500' : ''}
+                className={errors.phone ? "border-red-500" : ""}
                 placeholder="(509) 555-0123"
               />
               {errors.phone && (
-                <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                <p className="mt-1 text-red-500 text-sm">{errors.phone}</p>
               )}
             </div>
           </div>
 
           {/* Project-specific fields */}
-          {formType === 'project' && (
+          {formType === "project" && (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 font-medium text-gray-700 text-sm">
                     Project Type *
                   </label>
                   <select
                     value={formData.projectType}
                     onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                      handleInputChange('projectType', e.target.value)
+                      handleInputChange("projectType", e.target.value)
                     }
                     className={`w-full border border-gray-300 rounded-md px-3 py-2 ${
-                      errors.projectType ? 'border-red-500' : ''
+                      errors.projectType ? "border-red-500" : ""
                     }`}
                   >
                     <option value="">Select project type</option>
-                    {projectTypes.map(type => (
+                    {projectTypes.map((type) => (
                       <option key={type} value={type}>
                         {type}
                       </option>
                     ))}
                   </select>
                   {errors.projectType && (
-                    <p className="text-red-500 text-sm mt-1">
+                    <p className="mt-1 text-red-500 text-sm">
                       {errors.projectType}
                     </p>
                   )}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 font-medium text-gray-700 text-sm">
                     Project Location *
                   </label>
                   <Input
                     value={formData.projectLocation}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                      handleInputChange('projectLocation', e.target.value)
+                      handleInputChange("projectLocation", e.target.value)
                     }
-                    className={errors.projectLocation ? 'border-red-500' : ''}
+                    className={errors.projectLocation ? "border-red-500" : ""}
                     placeholder="Seattle, WA"
                   />
                   {errors.projectLocation && (
-                    <p className="text-red-500 text-sm mt-1">
+                    <p className="mt-1 text-red-500 text-sm">
                       {errors.projectLocation}
                     </p>
                   )}
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 font-medium text-gray-700 text-sm">
                     Budget Range
                   </label>
                   <select
                     value={formData.budget}
                     onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                      handleInputChange('budget', e.target.value)
+                      handleInputChange("budget", e.target.value)
                     }
-                    className="w-full border border-gray-300 rounded-md px-3 py-2"
+                    className="px-3 py-2 border border-gray-300 rounded-md w-full"
                   >
                     <option value="">Select budget range</option>
-                    {budgetRanges.map(range => (
+                    {budgetRanges.map((range) => (
                       <option key={range} value={range}>
                         {range}
                       </option>
@@ -348,18 +352,18 @@ export function ContactForm({
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 font-medium text-gray-700 text-sm">
                     Timeline
                   </label>
                   <select
                     value={formData.timeline}
                     onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                      handleInputChange('timeline', e.target.value)
+                      handleInputChange("timeline", e.target.value)
                     }
-                    className="w-full border border-gray-300 rounded-md px-3 py-2"
+                    className="px-3 py-2 border border-gray-300 rounded-md w-full"
                   >
                     <option value="">Select timeline</option>
-                    {timelineOptions.map(option => (
+                    {timelineOptions.map((option) => (
                       <option key={option} value={option}>
                         {option}
                       </option>
@@ -371,42 +375,42 @@ export function ContactForm({
           )}
 
           {/* Urgency and Contact Preference */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block mb-2 font-medium text-gray-700 text-sm">
                 Urgency Level
               </label>
               <div className="flex gap-2">
                 {[
                   {
-                    value: 'low',
-                    label: 'Low',
-                    color: 'bg-green-100 text-green-800',
+                    value: "low",
+                    label: "Low",
+                    color: "bg-green-100 text-green-800",
                   },
                   {
-                    value: 'medium',
-                    label: 'Medium',
-                    color: 'bg-yellow-100 text-yellow-800',
+                    value: "medium",
+                    label: "Medium",
+                    color: "bg-yellow-100 text-yellow-800",
                   },
                   {
-                    value: 'high',
-                    label: 'High',
-                    color: 'bg-red-100 text-red-800',
+                    value: "high",
+                    label: "High",
+                    color: "bg-red-100 text-red-800",
                   },
-                ].map(urgency => (
+                ].map((urgency) => (
                   <button
                     key={urgency.value}
                     type="button"
                     onClick={() =>
                       handleInputChange(
-                        'urgency',
-                        urgency.value as 'low' | 'medium' | 'high'
+                        "urgency",
+                        urgency.value as "low" | "medium" | "high"
                       )
                     }
                     className={`px-3 py-1 rounded-full text-sm transition-colors ${
                       formData.urgency === urgency.value
                         ? urgency.color
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                     }`}
                   >
                     {urgency.label}
@@ -415,28 +419,28 @@ export function ContactForm({
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block mb-2 font-medium text-gray-700 text-sm">
                 Preferred Contact Method
               </label>
               <div className="flex gap-2">
                 {[
-                  { value: 'email', label: 'Email' },
-                  { value: 'phone', label: 'Phone' },
-                  { value: 'either', label: 'Either' },
-                ].map(method => (
+                  { value: "email", label: "Email" },
+                  { value: "phone", label: "Phone" },
+                  { value: "either", label: "Either" },
+                ].map((method) => (
                   <button
                     key={method.value}
                     type="button"
                     onClick={() =>
                       handleInputChange(
-                        'preferredContact',
-                        method.value as 'email' | 'phone' | 'either'
+                        "preferredContact",
+                        method.value as "email" | "phone" | "either"
                       )
                     }
                     className={`px-3 py-1 rounded-full text-sm transition-colors ${
                       formData.preferredContact === method.value
-                        ? 'bg-primary-100 text-primary-800'
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        ? "bg-primary-100 text-primary-800"
+                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                     }`}
                   >
                     {method.label}
@@ -448,20 +452,20 @@ export function ContactForm({
 
           {/* Message */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Message *
+            <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
+              Share Your Vision *
             </label>
             <Textarea
               value={formData.message}
               onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-                handleInputChange('message', e.target.value)
+                handleInputChange("message", e.target.value)
               }
-              className={errors.message ? 'border-red-500' : ''}
+              className={errors.message ? "border-red-500" : ""}
               rows={4}
-              placeholder="Please describe your project or inquiry in detail..."
+              placeholder="Tell us about your vision and how we can work together to bring it to life..."
             />
             {errors.message && (
-              <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+              <p className="mt-1 text-red-500 text-sm">{errors.message}</p>
             )}
           </div>
 
@@ -472,15 +476,15 @@ export function ContactForm({
             className="w-full"
             size="lg"
           >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
+            {isSubmitting ? "Connecting..." : "Begin Our Partnership"}
           </Button>
 
-          <p className="text-sm text-gray-500 text-center">
-            By submitting this form, you agree to be contacted by MH
-            Construction regarding your inquiry.
+          <p className="text-gray-500 dark:text-gray-400 text-sm text-center">
+            By submitting this form, you're taking the first step in our
+            partnership journey. We look forward to working together with you!
           </p>
         </form>
       </CardContent>
     </Card>
-  )
+  );
 }

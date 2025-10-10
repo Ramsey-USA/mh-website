@@ -68,7 +68,7 @@
   --color-text-primary: #FFFFFF;
   --color-background: #121212;
 }
-```
+```text
 
 **Tailwind Configuration**:
 
@@ -84,7 +84,7 @@ module.exports = {
     }
   }
 }
-```
+```text
 
 #### Typography Implementation
 
@@ -96,7 +96,7 @@ module.exports = {
 body {
   font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
-```
+```text
 
 **Responsive Typography**:
 
@@ -104,7 +104,7 @@ body {
 h1 { font-size: clamp(2.25rem, 5vw, 3rem); }
 h2 { font-size: clamp(1.875rem, 4vw, 2.25rem); }
 body { font-size: clamp(1rem, 2vw, 1.125rem); }
-```
+```text
 
 #### Icon System Implementation
 
@@ -112,7 +112,7 @@ body { font-size: clamp(1rem, 2vw, 1.125rem); }
 
 ```html
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-```
+```text
 
 **React Component Usage**:
 
@@ -120,7 +120,7 @@ body { font-size: clamp(1rem, 2vw, 1.125rem); }
 import { MaterialIcon } from '@/components/ui/icons';
 
 <MaterialIcon name="construction" size="24" />
-```
+```text
 
 ### Navigation Implementation
 
@@ -158,7 +158,7 @@ const Navigation = () => {
     </nav>
   );
 };
-```
+```text
 
 ### Content Implementation Standards
 
@@ -183,7 +183,7 @@ export default function StandardPage() {
     </Layout>
   );
 }
-```
+```text
 
 #### Hero Section Implementation
 
@@ -201,7 +201,7 @@ const Hero = ({ title, subtitle, cta }) => {
     </section>
   );
 };
-```
+```text
 
 #### Partnership Messaging Components
 
@@ -218,7 +218,7 @@ const PartnershipMessage = () => {
     </div>
   );
 };
-```
+```text
 
 ## Digital Asset Implementation
 
@@ -253,7 +253,7 @@ Back:
 - Full contact information
 - Service areas: "Licensed in WA, OR, ID"
 - "Veteran-owned and operated"
-```
+```text
 
 ### Letterhead Implementation
 
@@ -272,7 +272,7 @@ Email: [professional email]
 Website: [current domain]
 
 Licensed in WA, OR, ID | Veteran-Owned & Operated
-```
+```text
 
 **Color Application**: Header uses primary blue, body text in dark gray
 
@@ -304,7 +304,7 @@ Licensed in WA, OR, ID | Veteran-Owned & Operated
     Licensed in WA, OR, ID | Veteran-Owned & Operated
   </div>
 </div>
-```
+```text
 
 ### Social Media Implementation
 

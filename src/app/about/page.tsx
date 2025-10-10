@@ -61,40 +61,40 @@ const coreValues = [
   },
   {
     iconName: "handshake",
-    title: "Client-First Ethics",
+    title: "Partnership-First Ethics",
     subtitle: "Small-town values with big-city capabilities",
     description:
-      "Your vision comes first. We adapt our expertise to serve your goals and build lasting relationships, not just structures.",
+      "Your vision comes first. We adapt our expertise to serve your goals and build lasting partnerships, not just structures.",
     practices: [
-      "Initial consultations focused on understanding your unique needs",
-      "Flexible scheduling that works with your timeline",
+      "Initial consultations focused on understanding your unique partnership needs",
+      "Flexible scheduling that works with your timeline and priorities",
       "Multiple communication channels (phone, email, text, in-person)",
-      "Solutions scaled to your budget without compromising quality",
+      "Solutions scaled to your budget without compromising partnership quality",
     ],
   },
   {
     iconName: "settings",
-    title: "Professionalism & Control",
+    title: "Partnership & Control",
     subtitle: '"You control it, we manage it"',
     description:
-      "Shared decision making where you maintain control while we provide expert guidance and handle all logistics.",
+      "Shared decision making where you maintain control while we provide expert guidance and handle all logistics through true partnership.",
     practices: [
       "Decision points clearly identified and explained before work proceeds",
-      "Daily briefings on progress and upcoming decisions needed",
+      "Daily briefings on progress and upcoming partnership decisions needed",
       "Professional appearance and conduct on your property",
       "Coordination of all subcontractors and material deliveries",
     ],
   },
   {
     iconName: "shield",
-    title: "Trust",
+    title: "Partnership Trust",
     subtitle: "The culmination of all other values",
     description:
-      "Trust isn't just another value—it's the result when all other values are consistently demonstrated. It's our ultimate goal.",
+      "Trust isn't just another value—it's the result when all other values are consistently demonstrated. It's our ultimate partnership goal.",
     practices: [
-      "Consistency: Delivering the same high standards on every project",
+      "Consistency: Delivering the same high standards on every partnership project",
       "Reliability: Being where we say we'll be, when we say we'll be there",
-      "Competence: Demonstrating expertise through quality results",
+      "Competence: Demonstrating expertise through quality partnership results",
       "Character: Doing the right thing, especially when it's difficult",
     ],
   },
@@ -161,8 +161,8 @@ export default function AboutPage() {
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       <PageHero
         title="About MH Construction"
-        subtitle='"Building for the Owner, NOT the Dollar"'
-        description="Operating on a simple but powerful principle: every client is a partner, every project serves the community. Where military precision meets construction excellence."
+        subtitle='"We Work With You Every Step of the Way"'
+        description="Operating on a simple but powerful principle: every client is a partner, every project serves the community. Where military precision meets construction excellence through genuine partnership."
       />
 
       {/* Partnership Philosophy Section */}
@@ -194,7 +194,7 @@ export default function AboutPage() {
                   <CardHeader>
                     <MaterialIcon
                       icon="favorite"
-                      className="mb-3 text-veteran-red text-4xl"
+                      className="mb-3 text-bronze-400 text-4xl"
                     />
                     <CardTitle className="text-gray-900 dark:text-white">
                       Client Partnership Approach
@@ -359,7 +359,7 @@ export default function AboutPage() {
       </section>
 
       {/* Company Stats */}
-      <section className="bg-gradient-to-r from-brand-primary to-brand-primary-light py-16 text-white">
+      <section className="bg-gradient-to-r from-brand-primary dark:from-forest-700 to-forest-600 dark:to-forest-800 py-16 text-white">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-16 text-center">
@@ -375,7 +375,7 @@ export default function AboutPage() {
                   Record
                 </span>
               </h2>
-              <p className="mx-auto max-w-5xl font-light text-green-100 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+              <p className="mx-auto max-w-5xl font-light text-forest-100 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 Proven results from a veteran-owned team committed to excellence
               </p>
             </div>
@@ -388,7 +388,7 @@ export default function AboutPage() {
                       className="mb-4 text-brand-secondary text-5xl"
                     />
                     <div className="mb-2 font-bold text-4xl">{stat.value}</div>
-                    <div className="text-green-100">{stat.label}</div>
+                    <div className="text-forest-100">{stat.label}</div>
                   </div>
                 </HoverScale>
               ))}
@@ -420,7 +420,7 @@ export default function AboutPage() {
                   measurable company foundation"
                 </p>
                 <div className="bg-brand-light dark:bg-gray-800 p-6 border-brand-primary border-l-4 rounded-xl">
-                  <p className="font-medium text-brand-primary-dark dark:text-brand-primary text-lg">
+                  <p className="font-medium text-brand-accent dark:text-brand-primary text-lg">
                     "Trust isn't just another value—it's the result when all
                     other values are consistently demonstrated. It's our
                     ultimate goal."
@@ -502,15 +502,15 @@ export default function AboutPage() {
               />
               <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Meet Our Leadership
+                  Meet Your Partnership
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                   Team
                 </span>
               </h2>
               <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                People-centered culture starts with leadership committed to
-                serving both clients and communities
+                Your partnership starts with leaders committed to serving both
+                clients and communities through collaborative excellence
               </p>
             </div>
           </FadeInWhenVisible>
@@ -755,7 +755,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative bg-gradient-to-r from-brand-primary-dark via-brand-primary to-brand-primary-light py-16 lg:py-24 overflow-hidden text-white">
+      <section className="relative bg-gradient-to-r from-brand-accent dark:from-forest-800 via-brand-primary dark:via-forest-700 to-forest-600 dark:to-forest-600 py-16 lg:py-24 overflow-hidden text-white">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="z-10 relative mx-auto px-4 container">
           <FadeInWhenVisible>
@@ -776,7 +776,7 @@ export default function AboutPage() {
               />
               <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Ready to Start Your
+                  Ready to Start Our
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
                   Partnership?
@@ -787,7 +787,7 @@ export default function AboutPage() {
                 <p className="mb-2 font-medium text-brand-secondary text-lg">
                   "Building for the Owner, NOT the Dollar"
                 </p>
-                <p className="text-green-100 text-lg">
+                <p className="text-forest-100 text-lg">
                   Partner with a team that has made Trust our ultimate goal.
                   Let's discuss your vision and build something remarkable
                   together.
@@ -798,10 +798,10 @@ export default function AboutPage() {
                 <Link href="/booking">
                   <Button
                     size="lg"
-                    className="bg-white hover:bg-brand-light dark:bg-gray-800 dark:hover:bg-gray-700 shadow-xl hover:shadow-2xl text-brand-primary-dark dark:text-white transition-all duration-300"
+                    className="bg-white hover:bg-brand-light dark:bg-gray-800 dark:hover:bg-gray-700 shadow-xl hover:shadow-2xl text-brand-accent dark:text-white transition-all duration-300"
                   >
-                    <MaterialIcon icon="phone" className="mr-2" />
-                    Schedule Free Consultation
+                    <MaterialIcon icon="handshake" className="mr-2" />
+                    Start Our Partnership
                   </Button>
                 </Link>
                 <Link href="/services">
@@ -811,12 +811,12 @@ export default function AboutPage() {
                     className="hover:bg-white/10 dark:hover:bg-gray-800/50 shadow-xl hover:shadow-2xl border-white dark:border-gray-300 text-white dark:text-gray-200 transition-all duration-300"
                   >
                     <MaterialIcon icon="build" className="mr-2" />
-                    View Our Services
+                    Explore Partnership Approach
                   </Button>
                 </Link>
               </div>
 
-              <div className="flex sm:flex-row flex-col justify-center items-center gap-6 text-green-100">
+              <div className="flex sm:flex-row flex-col justify-center items-center gap-6 text-forest-100">
                 <div className="flex items-center">
                   <MaterialIcon
                     icon="phone"

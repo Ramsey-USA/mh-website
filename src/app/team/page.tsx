@@ -1,51 +1,51 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import Link from 'next/link'
-import { PageHero, Button } from '../../components/ui'
-import { VintageBaseballCard } from '../../components/ui/VintageBaseballCard'
+import React, { useState } from "react";
+import Link from "next/link";
+import { PageHero, Button } from "../../components/ui";
+import { VintageBaseballCard } from "../../components/ui/VintageBaseballCard";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
-} from '../../components/animations/FramerMotionComponents'
+} from "../../components/animations/FramerMotionComponents";
 import {
   vintageTeamMembers,
   type VintageTeamMember,
-} from '../../lib/data/vintage-team'
-import '../../styles/vintage-baseball-card.css'
+} from "../../lib/data/vintage-team";
+import "../../styles/vintage-baseball-card.css";
 
 // Group team members by department
 function groupByDepartment(members: VintageTeamMember[]) {
   return members.reduce(
     (acc, member) => {
-      const dept = member.department
+      const dept = member.department;
       if (!acc[dept]) {
-        acc[dept] = []
+        acc[dept] = [];
       }
-      acc[dept].push(member)
-      return acc
+      acc[dept].push(member);
+      return acc;
     },
     {} as Record<string, VintageTeamMember[]>
-  )
+  );
 }
 
 export default function TeamPage() {
-  const membersByDepartment = groupByDepartment(vintageTeamMembers)
+  const membersByDepartment = groupByDepartment(vintageTeamMembers);
 
   // Define department order matching the actual data
   const departmentOrder = [
-    'Executive Leadership',
-    'Project Management & Estimating',
-    'Site & Field Operations',
-    'Administration & Support',
-  ]
+    "Executive Leadership",
+    "Project Management & Estimating",
+    "Site & Field Operations",
+    "Administration & Support",
+  ];
 
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
       <PageHero
-        title="Our Team"
-        subtitle="Meet the professionals behind MH Construction"
-        description="Discover our team through authentic vintage-style trading cards. Click on any card to flip it and explore professional statistics, career highlights, and personal stories."
+        title="Your Partners"
+        subtitle="Meet the partnership team behind MH Construction"
+        description="Discover your dedicated partners through authentic vintage-style trading cards. Click on any card to flip it and explore professional statistics, career highlights, and personal stories of the team working with you."
       />
 
       <div className="bg-gray-50 dark:bg-gray-900 py-16">
@@ -54,8 +54,8 @@ export default function TeamPage() {
             <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
               <span className="text-gray-700 dark:text-gray-300">
                 Professional
-              </span>{' '}
-              <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+              </span>{" "}
+              <span className="bg-clip-text bg-gradient-to-r from-[#386851] to-[#BD9264] text-transparent">
                 Team Cards
               </span>
             </h2>
@@ -69,24 +69,24 @@ export default function TeamPage() {
 
           {/* Team Members by Department */}
           <div className="space-y-24">
-            {departmentOrder.map(department => {
-              const members = membersByDepartment[department]
-              if (!members || members.length === 0) return null
+            {departmentOrder.map((department) => {
+              const members = membersByDepartment[department];
+              if (!members || members.length === 0) return null;
 
               return (
                 <FadeInWhenVisible key={department}>
                   <div className="relative">
                     {/* MH-styled department header */}
                     <div className="mb-16 text-center">
-                      <h3 className="bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary mb-6 font-black text-transparent text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider">
+                      <h3 className="bg-clip-text bg-gradient-to-r from-[#386851] via-[#BD9264] to-brand-primary mb-6 font-black text-transparent text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider">
                         {department}
                       </h3>
-                      <div className="bg-gradient-to-r from-transparent via-brand-secondary to-transparent mx-auto rounded-full w-48 h-1"></div>
+                      <div className="bg-gradient-to-r from-transparent via-[#BD9264] to-transparent mx-auto rounded-full w-48 h-1"></div>
                     </div>
 
                     {/* Vintage cards grid */}
                     <div className="justify-items-center gap-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                      {members.map(member => (
+                      {members.map((member) => (
                         <div
                           key={member.cardNumber}
                           className="hover:scale-[1.02] transition-transform duration-300 transform"
@@ -97,26 +97,26 @@ export default function TeamPage() {
                     </div>
                   </div>
                 </FadeInWhenVisible>
-              )
+              );
             })}
           </div>
 
           {/* Life at MH Section */}
           <div className="mt-24">
             <FadeInWhenVisible>
-              <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 p-12 rounded-2xl">
+              <div className="bg-gradient-to-br from-[#386851]/5 to-[#BD9264]/5 p-12 rounded-2xl">
                 <div className="mb-12 text-center">
                   <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                     <span className="text-gray-700 dark:text-gray-300">
-                      Life at
-                    </span>{' '}
-                    <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                      Partnership Life at
+                    </span>{" "}
+                    <span className="bg-clip-text bg-gradient-to-r from-[#386851] to-[#BD9264] text-transparent">
                       MH Construction
                     </span>
                   </h2>
                   <p className="mx-auto max-w-3xl text-gray-700 dark:text-gray-300 text-xl leading-relaxed">
                     "All for one, one for all" isn't just a motto—it's how we
-                    build, grow, and succeed together.
+                    partner, grow, and succeed together with our clients.
                   </p>
                 </div>
 
@@ -124,7 +124,7 @@ export default function TeamPage() {
                   {/* Team Unity */}
                   <FadeInWhenVisible>
                     <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark mx-auto mb-6 rounded-full w-16 h-16">
+                      <div className="flex justify-center items-center bg-gradient-to-r from-[#386851] to-[#2D5443] mx-auto mb-6 rounded-full w-16 h-16">
                         <svg
                           className="w-8 h-8 text-white"
                           fill="none"
@@ -140,12 +140,12 @@ export default function TeamPage() {
                         </svg>
                       </div>
                       <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
-                        Team Unity
+                        Partnership Unity
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
                         From veterans to civilians, office to field—we're one
-                        team with shared values. Every project success belongs
-                        to all of us.
+                        partnership team with shared values. Every client
+                        success belongs to all of us.
                       </p>
                     </div>
                   </FadeInWhenVisible>
@@ -153,7 +153,7 @@ export default function TeamPage() {
                   {/* Mutual Support */}
                   <FadeInWhenVisible>
                     <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-brand-secondary to-brand-secondary-dark mx-auto mb-6 rounded-full w-16 h-16">
+                      <div className="flex justify-center items-center bg-gradient-to-r from-[#BD9264] to-[#BD9264]-dark mx-auto mb-6 rounded-full w-16 h-16">
                         <svg
                           className="w-8 h-8 text-white"
                           fill="none"
@@ -182,7 +182,7 @@ export default function TeamPage() {
                   {/* Shared Success */}
                   <FadeInWhenVisible>
                     <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-brand-accent mx-auto mb-6 rounded-full w-16 h-16 to-brand-accent-dark">
+                      <div className="flex justify-center items-center bg-gradient-to-r from-[#2D5443] mx-auto mb-6 rounded-full w-16 h-16 to-[#2D5443]-dark">
                         <svg
                           className="w-8 h-8 text-white"
                           fill="none"
@@ -198,12 +198,12 @@ export default function TeamPage() {
                         </svg>
                       </div>
                       <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
-                        Shared Success
+                        Partnership Success
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
-                        When one of us wins, we all win. Celebrating
-                        achievements together and learning from setbacks as a
-                        unified team.
+                        When our clients win, we all win. Celebrating
+                        partnership achievements together and learning from
+                        setbacks as a unified team.
                       </p>
                     </div>
                   </FadeInWhenVisible>
@@ -213,16 +213,16 @@ export default function TeamPage() {
                 <div className="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-xl">
                   <h3 className="mb-8 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center">
                     <span className="text-gray-700 dark:text-gray-300">
-                      What Makes Our
-                    </span>{' '}
-                    <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                      What Makes Our Partnership
+                    </span>{" "}
+                    <span className="bg-clip-text bg-gradient-to-r from-[#386851] to-[#BD9264] text-transparent">
                       Culture Special
                     </span>
                   </h3>
                   <div className="gap-8 grid grid-cols-1 md:grid-cols-2">
                     <div className="space-y-6">
                       <div className="flex items-start space-x-4">
-                        <div className="flex flex-shrink-0 justify-center items-center bg-brand-primary rounded-full w-8 h-8">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-[#386851] rounded-full w-8 h-8">
                           <svg
                             className="w-4 h-4 text-white"
                             fill="currentColor"
@@ -246,7 +246,7 @@ export default function TeamPage() {
                         </div>
                       </div>
                       <div className="flex items-start space-x-4">
-                        <div className="flex flex-shrink-0 justify-center items-center bg-brand-primary rounded-full w-8 h-8">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-[#386851] rounded-full w-8 h-8">
                           <svg
                             className="w-4 h-4 text-white"
                             fill="currentColor"
@@ -269,7 +269,7 @@ export default function TeamPage() {
                         </div>
                       </div>
                       <div className="flex items-start space-x-4">
-                        <div className="flex flex-shrink-0 justify-center items-center bg-brand-primary rounded-full w-8 h-8">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-[#386851] rounded-full w-8 h-8">
                           <svg
                             className="w-4 h-4 text-white"
                             fill="currentColor"
@@ -388,20 +388,20 @@ export default function TeamPage() {
                 <h3 className="mb-4 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
                   <span className="text-gray-700 dark:text-gray-300">
                     Interested in Joining
-                  </span>{' '}
-                  <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
-                    Our Team?
+                  </span>{" "}
+                  <span className="bg-clip-text bg-gradient-to-r from-[#386851] to-[#BD9264] text-transparent">
+                    Our Partnership Team?
                   </span>
                 </h3>
                 <p className="mb-6 text-gray-600 dark:text-gray-300">
-                  Explore career opportunities and learn more about what makes
-                  MH Construction a great place to work. View our current
+                  Explore partnership opportunities and learn more about what
+                  makes MH Construction a great place to work. View our current
                   openings and discover the benefits of joining our
-                  veteran-owned company.
+                  veteran-owned partnership company.
                 </p>
                 <Link href="/careers">
                   <Button variant="primary" size="lg">
-                    View Career Opportunities
+                    View Partnership Opportunities
                   </Button>
                 </Link>
               </div>
@@ -410,5 +410,5 @@ export default function TeamPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

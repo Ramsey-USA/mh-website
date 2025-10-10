@@ -33,8 +33,8 @@ export function ThemeToggle({
           className={`
             relative inline-flex items-center justify-center
             ${size === "sm" ? "h-8 w-20" : size === "md" ? "h-10 w-24" : "h-12 w-28"} rounded-full
-            bg-gradient-to-r from-gray-200 to-gray-300 
-            border-2 border-gray-300
+            bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600
+            border-2 border-gray-300 dark:border-gray-500
             transition-all duration-300 ease-in-out
             animate-pulse
           `}
@@ -54,13 +54,13 @@ export function ThemeToggle({
       key: "light" as const,
       label: "Light",
       icon: "light_mode",
-      colors: "text-yellow-500",
+      colors: "text-[#BD9264]",
     },
     {
       key: "dark" as const,
       label: "Dark",
       icon: "dark_mode",
-      colors: "text-blue-400",
+      colors: "text-[#386851]",
     },
     {
       key: "system" as const,
@@ -95,8 +95,8 @@ export function ThemeToggle({
             dark:from-gray-700 dark:to-gray-600
             border-2 border-gray-300 dark:border-gray-500
             transition-all duration-300 ease-in-out
-            hover:shadow-lg
-            focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2
+            hover:shadow-lg hover:shadow-[#386851]/20
+            focus:outline-none focus:ring-2 focus:ring-[#386851] focus:ring-offset-2
             group overflow-hidden
             pointer-events-auto cursor-pointer
           `}
@@ -107,7 +107,7 @@ export function ThemeToggle({
           <div
             className={`
               absolute inset-1 rounded-full 
-              bg-gradient-to-r from-red-400 to-red-500
+              bg-gradient-to-r from-[#386851] to-[#2D5443]
               transition-transform duration-300 ease-in-out
               ${isDarkMode ? "translate-x-0" : "translate-x-full"}
             `}
@@ -159,11 +159,11 @@ export function ThemeToggle({
             className={`
               relative flex items-center justify-center px-3 py-2 rounded-md
               transition-all duration-200 ease-in-out
-              focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2
+              focus:outline-none focus:ring-2 focus:ring-[#386851] focus:ring-offset-2
               ${
                 theme === key
-                  ? "bg-gradient-to-r from-red-400 to-red-500 text-white shadow-md transform scale-105"
-                  : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-white dark:hover:bg-gray-700"
+                  ? "bg-gradient-to-r from-[#386851] to-[#2D5443] text-white shadow-md transform scale-105"
+                  : "text-gray-600 dark:text-gray-400 hover:text-[#386851] dark:hover:text-[#BD9264] hover:bg-white dark:hover:bg-gray-700"
               }
             `}
             aria-label={`Switch to ${label.toLowerCase()} mode`}

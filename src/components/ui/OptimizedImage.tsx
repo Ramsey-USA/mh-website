@@ -181,7 +181,7 @@ export function GalleryImage({
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="bottom-4 left-4 absolute text-white">
           {category && (
-            <span className="inline-block bg-brand-primary mb-2 px-2 py-1 rounded font-semibold text-xs">
+            <span className="inline-block bg-[#386851] mb-2 px-2 py-1 rounded font-semibold text-xs">
               {category}
             </span>
           )}
@@ -222,9 +222,9 @@ export function AvatarImage({
   if (!src || hasError) {
     return (
       <div
-        className={`${sizeClasses[size]} bg-brand-primary/20 rounded-full flex items-center justify-center ${className}`}
+        className={`${sizeClasses[size]} bg-[#386851]/20 rounded-full flex items-center justify-center ${className}`}
       >
-        <span className="font-semibold text-brand-primary text-sm">
+        <span className="font-semibold text-[#386851] text-sm">
           {fallback || alt.charAt(0).toUpperCase()}
         </span>
       </div>

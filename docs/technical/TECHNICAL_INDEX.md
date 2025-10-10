@@ -40,7 +40,7 @@ docs/technical/
 ├── SYSTEM_REQUIREMENTS.md      # Technical requirements
 ├── INTEGRATION_STANDARDS.md    # Integration guidelines
 └── TESTING_FRAMEWORK.md        # Testing implementation
-```
+```text
 
 ## Current Technical Status (v3.7.2)
 

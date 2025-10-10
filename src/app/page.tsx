@@ -131,9 +131,9 @@ export default function Home() {
       <StructuredData data={generateOrganizationStructuredData()} />
 
       <PageHero
-        title="Veteran-Led Construction Management Experts"
-        subtitle="Military Precision. Advanced Technology. Tri-Cities Excellence."
-        description="Serving Pasco, Kennewick, Richland & surrounding areas with veteran-led construction management, AI-powered tools, and the precision that only military experience can deliver."
+        title="Your Partnership in Construction Excellence"
+        subtitle="We Work With You Every Step. Military Precision. Advanced Technology."
+        description="Partnering with Tri-Cities communities since 1995 - where veteran values meet collaborative construction management for extraordinary results."
       />
 
       {/* Revolutionary Features Section */}
@@ -155,12 +155,13 @@ export default function Home() {
             <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
               Where{" "}
               <span className="font-medium text-gray-800 dark:text-gray-200">
-                military discipline meets cutting-edge AI
+                collaborative partnership meets cutting-edge AI
               </span>
-              . Our veteran-led team combines decades of service experience with
-              revolutionary technology to deliver construction management that{" "}
+              . Our veteran-led team works with you to combine decades of
+              service experience with revolutionary technology to deliver
+              construction management that{" "}
               <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
-                honors your mission
+                serves your vision
               </span>
               .
             </p>
@@ -187,7 +188,7 @@ export default function Home() {
                   "Labor Cost Analysis",
                   "PDF Export",
                 ],
-                color: "from-brand-primary to-brand-primary-dark",
+                color: "from-brand-primary to-brand-accent",
                 bgColor: "bg-brand-primary/5",
                 delay: "0s",
               },
@@ -210,7 +211,7 @@ export default function Home() {
                   "Weather Integration",
                   "Team Optimization",
                 ],
-                color: "from-brand-secondary to-brand-secondary-dark",
+                color: "from-brand-secondary to-bronze-700",
                 bgColor: "bg-brand-secondary/5",
                 delay: "0.1s",
               },
@@ -233,7 +234,7 @@ export default function Home() {
                   "Real-time Changes",
                   "Material Previews",
                 ],
-                color: "from-brand-accent to-brand-accent-dark",
+                color: "from-brand-accent to-forest-800",
                 bgColor: "bg-brand-accent/5",
                 delay: "0.2s",
               },
@@ -266,7 +267,7 @@ export default function Home() {
               <div key={index} className="group perspective-1000 feature-card">
                 <div className="relative w-full h-[520px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                   {/* Front of Card */}
-                  <div className="absolute inset-0 bg-surface dark:bg-surface-dark shadow-lg hover:shadow-brand-primary/10 hover:shadow-xl p-8 border border-border dark:border-border-dark rounded-3xl overflow-hidden transition-all duration-300 backface-hidden">
+                  <div className="absolute inset-0 bg-white dark:bg-gray-800 shadow-lg hover:shadow-brand-primary/10 hover:shadow-xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden transition-all duration-300 backface-hidden">
                     {/* Gradient Background */}
                     <div
                       className={`absolute inset-0 ${feature.bgColor} rounded-3xl`}
@@ -281,17 +282,17 @@ export default function Home() {
                           <feature.icon size="2xl" primaryColor="white" />
                         </div>
 
-                        <h3 className="mb-4 font-black text-text-primary dark:text-text-primary-dark text-2xl md:text-3xl leading-tight tracking-tight">
+                        <h3 className="mb-4 font-black text-gray-900 dark:text-gray-100 text-2xl md:text-3xl leading-tight tracking-tight">
                           {feature.title}
                         </h3>
 
-                        <p className="font-light text-text-secondary dark:text-text-secondary-dark text-base md:text-lg leading-relaxed">
+                        <p className="font-light text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
                           {feature.description}
                         </p>
                       </div>
 
                       {/* Pin to bottom */}
-                      <div className="mt-auto pt-6 font-semibold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider">
+                      <div className="mt-auto pt-6 font-semibold text-brand-primary dark:text-bronze-400 text-xs uppercase tracking-wider">
                         Hover for details
                       </div>
                     </div>
@@ -350,7 +351,7 @@ export default function Home() {
             {[
               {
                 title: "Try AI Estimator",
-                description: "Get instant project estimates",
+                description: "Start partnership planning",
                 href: "/estimator",
                 variant: "primary" as const,
                 icon: ({ size }: any) => (
@@ -362,21 +363,21 @@ export default function Home() {
                 ),
               },
               {
-                title: "Book Meeting",
-                description: "Schedule your free consultation",
+                title: "Begin Partnership",
+                description: "Schedule your consultation",
                 href: "/booking",
                 variant: "secondary" as const,
                 icon: ({ size }: any) => (
                   <MaterialIcon
-                    icon="event"
+                    icon="handshake"
                     size={size}
                     className="text-current"
                   />
                 ),
               },
               {
-                title: "View Projects",
-                description: "Explore our 3D gallery",
+                title: "Partnership Stories",
+                description: "Explore our collaborations",
                 href: "/portfolio",
                 variant: "secondary" as const,
                 icon: ({ size }: any) => (
@@ -388,8 +389,8 @@ export default function Home() {
                 ),
               },
               {
-                title: "Chat with AI",
-                description: "Get instant support",
+                title: "Chat with Us",
+                description: "Start our conversation",
                 href: "/contact",
                 variant: "secondary" as const,
                 icon: ({ size }: any) => (
@@ -411,7 +412,7 @@ export default function Home() {
                   <cta.icon size="lg" className="mr-3" />
                   <span className="font-medium">{cta.title}</span>
                 </Button>
-                <p className="font-light text-text-secondary dark:text-text-secondary-dark text-sm">
+                <p className="font-light text-gray-600 dark:text-gray-300 text-sm">
                   {cta.description}
                 </p>
               </div>
@@ -442,9 +443,9 @@ export default function Home() {
               <span className="font-medium text-gray-800 dark:text-gray-200">
                 six core principles
               </span>{" "}
-              that guide every project, every decision, and every client
-              relationship we build with{" "}
-              <span className="bg-clip-text bg-gradient-to-r from-veteran-red to-brand-primary font-semibold text-transparent">
+              that guide every partnership, every decision, and every
+              collaborative relationship we build with{" "}
+              <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
                 trust as our ultimate goal
               </span>
               .
@@ -466,7 +467,7 @@ export default function Home() {
                   "We provide full-disclosure transparency from day one. Our open-dialogue progress meetings include all stakeholders, ensuring every topic is vetted and documented.",
                 details:
                   "We believe you, the client, should have the most complete and up-to-date information—good or bad—to make truly educated decisions. We manage the project; you control it.",
-                color: "from-brand-primary to-brand-primary-dark",
+                color: "from-brand-primary to-brand-accent",
                 bgColor: "bg-brand-primary/5",
                 stats: "Open-Book Progress Meetings",
               },
@@ -483,8 +484,8 @@ export default function Home() {
                   "Integrity is the unwavering commitment to our word. As a team built on principles of accountability and trust, we view our business conduct as a direct reflection of our personal character.",
                 details:
                   "Our conversation, character, and conduct are consistently diligent, ensuring our actions on your project transcend the transactional relationship.",
-                color: "from-veteran-blue to-veteran-blue-light",
-                bgColor: "bg-veteran-blue/5",
+                color: "from-forest-600 to-forest-800",
+                bgColor: "bg-forest-100 dark:bg-forest-900",
                 stats: "Character-Driven Conduct",
               },
               {
@@ -500,7 +501,7 @@ export default function Home() {
                   "With over 150 years of combined experience in commercial construction, we offer a project team that has seen and managed virtually every challenge.",
                 details:
                   "This collective wisdom is delivered in a neat, engineer-driven project package, providing the reliable foresight necessary to keep your project on track and minimize risk.",
-                color: "from-brand-secondary to-brand-secondary-light",
+                color: "from-brand-secondary to-bronze-700",
                 bgColor: "bg-brand-secondary/5",
                 stats: "150+ Years Combined Experience",
               },
@@ -517,7 +518,7 @@ export default function Home() {
                   'Our foundation is built on small-town values: we are a "client" focused company, not just a "project" focused one.',
                 details:
                   "This means we are committed to acting solely in your best interest. We operate with discipline—staying organized, concise, and direct—so that your valuable time is respected and your decisions are always well-informed.",
-                color: "from-brand-accent to-brand-accent-dark",
+                color: "from-brand-accent to-forest-800",
                 bgColor: "bg-brand-accent/5",
                 stats: "Client-Focused Approach",
               },
@@ -534,9 +535,8 @@ export default function Home() {
                   "Professionalism here is the confident, controlled ability to navigate complex projects.",
                 details:
                   "We leverage decades of commercial and logistical experience to course the rough waters of construction through levelheaded management. This creates a coordinated, harmonious workflow that provides unmatched confidence to owners, subcontractors, and project peers.",
-                color: "from-veteran-red to-brand-primary",
-                bgColor:
-                  "bg-gradient-to-br from-veteran-red/5 to-brand-primary/5",
+                color: "from-bronze-600 to-bronze-800",
+                bgColor: "bg-bronze-100 dark:bg-bronze-900",
                 stats: "Harmonious Workflow Management",
               },
               {
@@ -567,7 +567,7 @@ export default function Home() {
                 >
                   <div className="relative w-full h-[480px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                     {/* Front of Card */}
-                    <div className="absolute inset-0 bg-surface dark:bg-surface-dark shadow-lg hover:shadow-brand-primary/10 hover:shadow-xl p-8 border border-border dark:border-border-dark rounded-3xl overflow-hidden transition-all duration-300 backface-hidden">
+                    <div className="absolute inset-0 bg-white dark:bg-gray-800 shadow-lg hover:shadow-brand-primary/10 hover:shadow-xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden transition-all duration-300 backface-hidden">
                       {/* Gradient Overlay */}
                       <div
                         className={`absolute inset-0 ${item.bgColor} rounded-3xl`}
@@ -580,15 +580,15 @@ export default function Home() {
                           >
                             <IconComponent size="3xl" primaryColor="white" />
                           </div>{" "}
-                          <h3 className="mb-4 font-black text-text-primary dark:text-text-primary-dark text-2xl md:text-3xl leading-tight tracking-tight">
+                          <h3 className="mb-4 font-black text-gray-900 dark:text-gray-100 text-2xl md:text-3xl leading-tight tracking-tight">
                             {item.value}
                           </h3>
-                          <p className="font-light text-text-secondary dark:text-text-secondary-dark text-sm md:text-base leading-relaxed">
+                          <p className="font-light text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">
                             {item.description}
                           </p>
                         </div>
 
-                        <div className="mt-4 font-semibold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider">
+                        <div className="mt-4 font-semibold text-brand-primary dark:text-bronze-400 text-xs uppercase tracking-wider">
                           Hover to learn more
                         </div>
                       </div>
@@ -652,9 +652,9 @@ export default function Home() {
               (Pasco, Kennewick, Richland). Each service represents our
               commitment to{" "}
               <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
-                professional excellence
+                partnership excellence
               </span>{" "}
-              and client partnership.
+              and collaborative success.
             </p>
           </FadeInWhenVisible>
 
@@ -858,11 +858,11 @@ export default function Home() {
             <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
               Read testimonials from{" "}
               <span className="font-medium text-gray-800 dark:text-gray-200">
-                satisfied customers
+                valued partners
               </span>{" "}
               across the Pacific Northwest who have experienced our{" "}
               <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
-                veteran excellence
+                collaborative excellence
               </span>{" "}
               firsthand.
             </p>
@@ -876,7 +876,7 @@ export default function Home() {
                 project: "Historic Home Renovation",
                 rating: 5,
                 review:
-                  "MH Construction transformed our 1920s home with incredible attention to detail. Their military precision and professionalism made the entire process seamless. The AI estimate was spot-on, and they finished ahead of schedule!",
+                  "MH Construction truly worked WITH us, not just for us. Their collaborative approach and attention to detail made our 1920s home renovation extraordinary. The partnership felt genuine, and they finished ahead of schedule!",
                 image: "/images/testimonials/sarah-t.jpg",
               },
               {
@@ -885,7 +885,7 @@ export default function Home() {
                 project: "Modern Kitchen Remodel",
                 rating: 5,
                 review:
-                  "The AI cost estimator was revolutionary - accurate to the dollar! The quality of work exceeded our expectations. Their veteran-owned approach brings a level of discipline and excellence you won't find elsewhere.",
+                  "The partnership approach made all the difference. They listened to our vision and made it better. Their veteran-owned values and collaborative planning exceeded our expectations in every way.",
                 image: "/images/testimonials/mike-c.jpg",
               },
               {
@@ -894,7 +894,7 @@ export default function Home() {
                 project: "Luxury Bathroom Addition",
                 rating: 5,
                 review:
-                  "As a fellow veteran, I appreciated their understanding of our needs. The team went above and beyond to deliver exceptional results. Their 24/7 support gave us peace of mind throughout the entire project.",
+                  "As a fellow veteran, I appreciated their 'we work with you' philosophy. The partnership felt authentic - they became our advocates throughout the project. True collaboration that delivered exceptional results.",
                 image: "/images/testimonials/jessica-r.jpg",
               },
             ].map((testimonial, index) => (
@@ -962,7 +962,9 @@ export default function Home() {
                 className="group transition-all duration-300"
               >
                 <MaterialIcon icon="rate_review" size="lg" className="mr-3" />
-                <span className="font-medium">View All Testimonials</span>
+                <span className="font-medium">
+                  View All Partnership Stories
+                </span>
               </Button>
             </Link>
           </div>
@@ -1022,7 +1024,7 @@ export default function Home() {
       </section>
 
       {/* Why Partner With MH Construction Section */}
-      <section className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900 py-12 lg:py-16 text-white">
+      <section className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-gray-900 py-12 lg:py-16 text-white">
         <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
           <div className="mb-10 lg:mb-12 text-center scroll-reveal">
@@ -1044,7 +1046,7 @@ export default function Home() {
             <div className="mt-6 mb-2">
               <p className="mx-auto max-w-2xl font-bold text-white text-base sm:text-lg text-center leading-snug">
                 "Building for the Owner,{" "}
-                <span className="font-black text-veteran-red text-lg sm:text-xl">
+                <span className="font-black text-bronze-300 text-lg sm:text-xl">
                   NOT
                 </span>{" "}
                 the Dollar"
@@ -1298,19 +1300,19 @@ export default function Home() {
       </section>
 
       {/* Enhanced Partnership Call to Action Section */}
-      <section className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary py-16 lg:py-24 cta-section">
+      <section className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-brand-secondary py-16 lg:py-24 cta-section">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
           <FadeInWhenVisible>
             <h2 className="mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-              Ready to Start Your Commercial Project?
+              Ready to Start Our Partnership?
             </h2>
             <p className="mx-auto mb-12 max-w-4xl font-light text-white/90 text-xl md:text-2xl leading-relaxed">
-              Join business owners across the{" "}
+              Join business partners across the{" "}
               <span className="font-medium text-white">Tri-Cities area</span>{" "}
-              who chose expert construction management for their commercial,
-              industrial, and medical facility projects.
+              who chose collaborative construction management for their
+              commercial, industrial, and medical facility projects.
             </p>
 
             {/* Commercial CTA Buttons - 4 Button Grid */}
@@ -1368,7 +1370,7 @@ export default function Home() {
                       className="flex-shrink-0 mr-3"
                     />
                     <span className="font-medium text-center leading-tight">
-                      View Projects
+                      Partnership Stories
                     </span>
                   </div>
                 </Button>
@@ -1382,14 +1384,14 @@ export default function Home() {
                 >
                   <div className="flex justify-center items-center">
                     <MaterialIcon
-                      icon="event"
+                      icon="handshake"
                       size="lg"
                       className="flex-shrink-0 mr-3"
                     />
                     <span className="font-medium text-center leading-tight">
-                      Free
+                      Start Our
                       <br />
-                      Consultation
+                      Partnership
                     </span>
                   </div>
                 </Button>

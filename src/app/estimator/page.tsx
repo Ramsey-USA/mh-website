@@ -20,7 +20,7 @@ const EstimatorForm = dynamic(
     })),
   {
     loading: () => (
-      <div className="bg-muted rounded-lg h-96 animate-pulse"></div>
+      <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-96 animate-pulse"></div>
     ),
     ssr: false,
   }
@@ -29,7 +29,7 @@ const SmartRecommendations = dynamic(
   () => import("../../components/recommendations/SmartRecommendations"),
   {
     loading: () => (
-      <div className="bg-muted rounded-lg h-64 animate-pulse"></div>
+      <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-64 animate-pulse"></div>
     ),
     ssr: false,
   }
@@ -94,9 +94,9 @@ export default function EstimatorPage() {
 
       {/* Hero Section */}
       <PageHero
-        title="AI Construction Estimator"
-        subtitle="Get instant, accurate cost estimates powered by artificial intelligence"
-        description="Revolutionary AI technology delivers precise construction estimates in minutes, not days. Backed by 30+ years of Pacific Northwest construction experience."
+        title="Partnership Cost Estimator"
+        subtitle="Get instant, accurate cost estimates through our collaborative AI technology"
+        description="Revolutionary AI technology delivers precise construction estimates in minutes, not days. Backed by 30+ years of Pacific Northwest partnership experience."
       />
 
       {/* Key Differences Banner */}
@@ -112,7 +112,7 @@ export default function EstimatorPage() {
                       icon="auto_awesome"
                       className="mr-2 w-6 h-6"
                     />
-                    <CardTitle>AI-Powered Estimates</CardTitle>
+                    <CardTitle>Partnership AI Estimates</CardTitle>
                   </div>
                   <p className="text-blue-100">You're here now!</p>
                 </CardHeader>
@@ -225,9 +225,9 @@ export default function EstimatorPage() {
                         className="mt-1 w-5 h-5 text-brand-accent"
                       />
                       <div>
-                        <p className="font-semibold">Personal Service</p>
+                        <p className="font-semibold">Partnership Service</p>
                         <p className="text-gray-600 text-sm">
-                          Direct access to project manager
+                          Direct access to your project partner
                         </p>
                       </div>
                     </div>
@@ -235,7 +235,7 @@ export default function EstimatorPage() {
                   <div className="mt-6 pt-4 border-t">
                     <Link href="/booking">
                       <Button variant="primary" className="w-full">
-                        Schedule Free Consultation
+                        Schedule Partnership Discussion
                       </Button>
                     </Link>
                   </div>
@@ -252,14 +252,16 @@ export default function EstimatorPage() {
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
               <h2 className="mb-4 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
-                <span className="text-gray-700">Why Use Our</span>{" "}
+                <span className="text-gray-700 dark:text-gray-300">
+                  Why Use Our Partnership
+                </span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                   AI Estimator?
                 </span>
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 text-xl">
-                Get reliable construction estimates instantly, backed by decades
-                of project data and machine learning algorithms
+              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
+                Get reliable partnership estimates instantly, backed by decades
+                of collaborative project data and machine learning algorithms
               </p>
             </div>
           </FadeInWhenVisible>

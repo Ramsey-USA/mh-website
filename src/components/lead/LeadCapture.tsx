@@ -1,126 +1,126 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import { MaterialIcon } from '../icons/MaterialIcon'
-import { Card, CardContent, CardHeader, CardTitle, Button, Input } from '../ui'
-import { analytics } from '../analytics/google-analytics'
+import React, { useState } from "react";
+import { MaterialIcon } from "../icons/MaterialIcon";
+import { Card, CardContent, CardHeader, CardTitle, Button, Input } from "../ui";
+import { analytics } from "../analytics/google-analytics";
 
 interface LeadCaptureProps {
-  source?: string
-  className?: string
-  title?: string
-  subtitle?: string
-  compact?: boolean
+  source?: string;
+  className?: string;
+  title?: string;
+  subtitle?: string;
+  compact?: boolean;
 }
 
 interface QuickLeadData {
-  name: string
-  email: string
-  phone: string
-  projectType: string
-  location: string
-  source: string
+  name: string;
+  email: string;
+  phone: string;
+  projectType: string;
+  location: string;
+  source: string;
 }
 
 export const LeadCapture: React.FC<LeadCaptureProps> = ({
-  source = 'website',
-  className = '',
-  title = 'Get Your Free Consultation',
-  subtitle = 'Start your construction project with expert guidance',
+  source = "website",
+  className = "",
+  title = "Begin Our Partnership",
+  subtitle = "Start your construction journey with experienced partners",
   compact = false,
 }) => {
   const [formData, setFormData] = useState<QuickLeadData>({
-    name: '',
-    email: '',
-    phone: '',
-    projectType: '',
-    location: '',
+    name: "",
+    email: "",
+    phone: "",
+    projectType: "",
+    location: "",
     source,
-  })
+  });
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [errors, setErrors] = useState<Partial<QuickLeadData>>({})
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState<Partial<QuickLeadData>>({});
 
   const projectTypes = [
-    'Custom Home',
-    'Home Renovation',
-    'Commercial Building',
-    'Kitchen Remodel',
-    'Bathroom Remodel',
-    'Addition/Extension',
-    'Emergency Repair',
-    'Other',
-  ]
+    "Custom Home",
+    "Home Renovation",
+    "Commercial Building",
+    "Kitchen Remodel",
+    "Bathroom Remodel",
+    "Addition/Extension",
+    "Emergency Repair",
+    "Other",
+  ];
 
   const validateForm = (): boolean => {
-    const newErrors: Partial<QuickLeadData> = {}
+    const newErrors: Partial<QuickLeadData> = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required'
+      newErrors.name = "Name is required";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required'
+      newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Valid email is required'
+      newErrors.email = "Valid email is required";
     }
 
     if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required'
+      newErrors.phone = "Phone number is required";
     }
 
     if (!formData.projectType) {
-      newErrors.projectType = 'Project type is required'
+      newErrors.projectType = "Project type is required";
     }
 
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!validateForm()) {
-      return
+      return;
     }
 
-    setIsSubmitting(true)
+    setIsSubmitting(true);
 
     try {
       // Track lead capture event
-      analytics.event('lead_capture', {
+      analytics.event("lead_capture", {
         source: formData.source,
         project_type: formData.projectType,
-        location: formData.location || 'not_specified',
-      })
+        location: formData.location || "not_specified",
+      });
 
       // Simulate API call (replace with actual lead capture API)
-      await new Promise(resolve => setTimeout(resolve, 1500))
+      await new Promise((resolve) => setTimeout(resolve, 1500));
 
-      console.log('Lead captured:', formData)
+      console.log("Lead captured:", formData);
 
-      setIsSubmitted(true)
+      setIsSubmitted(true);
 
       // Track successful lead submission
-      analytics.event('lead_submitted', {
+      analytics.event("lead_submitted", {
         source: formData.source,
         project_type: formData.projectType,
-      })
+      });
     } catch (error) {
-      console.error('Lead submission error:', error)
-      setErrors({ email: 'Submission failed. Please try again.' })
+      console.error("Lead submission error:", error);
+      setErrors({ email: "Submission failed. Please try again." });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const handleInputChange = (field: keyof QuickLeadData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }))
+    setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: undefined }))
+      setErrors((prev) => ({ ...prev, [field]: undefined }));
     }
-  }
+  };
 
   if (isSubmitted) {
     return (
@@ -129,42 +129,44 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
           <div className="flex justify-center mb-3 text-green-600 text-4xl">
             <MaterialIcon icon="check_circle" size="4xl" />
           </div>
-          <h3 className="mb-2 font-semibold text-green-800 text-xl">
-            Thank You!
+          <h3 className="mb-2 font-semibold text-green-800 dark:text-green-100 text-xl">
+            Partnership Initiated!
           </h3>
-          <p className="mb-4 text-green-700">
+          <p className="mb-4 text-green-700 dark:text-green-200">
             We&apos;ve received your information and will contact you within 24
-            hours to schedule your free consultation.
+            hours to begin our partnership discussion.
           </p>
-          <div className="text-green-600 text-sm">
+          <div className="text-green-600 dark:text-green-300 text-sm">
             <p>
               <strong>Next Steps:</strong>
             </p>
             <ul className="space-y-1 mt-2 list-disc list-inside">
-              <li>Our team will review your project requirements</li>
-              <li>We&apos;ll call to schedule your consultation</li>
-              <li>Free on-site estimate within 48 hours</li>
+              <li>Our partnership team will review your vision</li>
+              <li>We&apos;ll call to schedule our initial discussion</li>
+              <li>Free on-site partnership consultation within 48 hours</li>
             </ul>
           </div>
         </CardContent>
       </Card>
-    )
+    );
   }
 
   return (
     <Card className={className}>
-      <CardHeader className={compact ? 'pb-4' : ''}>
-        <CardTitle className={compact ? 'text-lg' : 'text-xl'}>
+      <CardHeader className={compact ? "pb-4" : ""}>
+        <CardTitle className={compact ? "text-lg" : "text-xl"}>
           {title}
         </CardTitle>
-        {subtitle && <p className="text-gray-600 text-sm">{subtitle}</p>}
+        {subtitle && (
+          <p className="text-gray-600 dark:text-gray-300 text-sm">{subtitle}</p>
+        )}
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input
             label="Full Name"
             value={formData.name}
-            onChange={e => handleInputChange('name', e.target.value)}
+            onChange={(e) => handleInputChange("name", e.target.value)}
             placeholder="Enter your full name"
             error={errors.name}
             required
@@ -175,7 +177,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
               label="Email"
               type="email"
               value={formData.email}
-              onChange={e => handleInputChange('email', e.target.value)}
+              onChange={(e) => handleInputChange("email", e.target.value)}
               placeholder="your.email@example.com"
               error={errors.email}
               required
@@ -185,7 +187,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
               label="Phone"
               type="tel"
               value={formData.phone}
-              onChange={e => handleInputChange('phone', e.target.value)}
+              onChange={(e) => handleInputChange("phone", e.target.value)}
               placeholder="(509) 555-0123"
               error={errors.phone}
               required
@@ -199,14 +201,16 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
               </label>
               <select
                 value={formData.projectType}
-                onChange={e => handleInputChange('projectType', e.target.value)}
+                onChange={(e) =>
+                  handleInputChange("projectType", e.target.value)
+                }
                 className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent ${
-                  errors.projectType ? 'border-red-300' : 'border-gray-300'
+                  errors.projectType ? "border-red-300" : "border-gray-300"
                 }`}
                 required
               >
                 <option value="">Select project type</option>
-                {projectTypes.map(type => (
+                {projectTypes.map((type) => (
                   <option key={type} value={type}>
                     {type}
                   </option>
@@ -222,7 +226,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
             <Input
               label="Project Location"
               value={formData.location}
-              onChange={e => handleInputChange('location', e.target.value)}
+              onChange={(e) => handleInputChange("location", e.target.value)}
               placeholder="City, State"
               helperText="Where is your project located?"
             />
@@ -234,14 +238,16 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
                 <MaterialIcon icon="target" size="md" />
               </div>
               <div>
-                <h4 className="mb-1 font-semibold text-blue-800">
-                  What You Get:
+                <h4 className="mb-1 font-semibold text-blue-800 dark:text-blue-100">
+                  Partnership Benefits:
                 </h4>
-                <ul className="space-y-1 text-blue-700 text-sm">
-                  <li>• Free consultation and project assessment</li>
-                  <li>• Detailed written estimate within 48 hours</li>
-                  <li>• Veteran-owned company with 20+ years experience</li>
-                  <li>• Licensed, bonded, and fully insured</li>
+                <ul className="space-y-1 text-blue-700 dark:text-blue-200 text-sm">
+                  <li>• Free partnership consultation and vision assessment</li>
+                  <li>• Detailed collaboration plan within 48 hours</li>
+                  <li>
+                    • Experienced partners with 20+ years building together
+                  </li>
+                  <li>• Licensed, bonded, and fully insured partnership</li>
                 </ul>
               </div>
             </div>
@@ -250,7 +256,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
           <Button
             type="submit"
             variant="primary"
-            size={compact ? 'default' : 'lg'}
+            size={compact ? "default" : "lg"}
             className="w-full"
             disabled={isSubmitting}
           >
@@ -260,24 +266,23 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
                 Submitting...
               </>
             ) : (
-              'Get Free Consultation'
+              "Begin Our Partnership"
             )}
           </Button>
 
-          <p className="text-gray-500 text-xs text-center">
-            By submitting this form, you agree to be contacted about your
-            construction project. We respect your privacy and will never spam
-            you.
+          <p className="text-gray-500 dark:text-gray-400 text-xs text-center">
+            By submitting this form, you're taking the first step toward our
+            partnership. We respect your privacy and will never spam you.
           </p>
         </form>
       </CardContent>
     </Card>
-  )
-}
+  );
+};
 
 // Quick Lead Capture for sticky/floating elements
 export const QuickLeadCapture: React.FC = () => {
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false);
 
   if (!isExpanded) {
     return (
@@ -288,10 +293,10 @@ export const QuickLeadCapture: React.FC = () => {
           size="lg"
           className="shadow-lg hover:shadow-xl"
         >
-          💬 Free Consultation
+          💬 Partnership Discussion
         </Button>
       </div>
-    )
+    );
   }
 
   return (
@@ -312,5 +317,5 @@ export const QuickLeadCapture: React.FC = () => {
         ×
       </Button>
     </div>
-  )
-}
+  );
+};

@@ -51,7 +51,7 @@ docs/business/
     ├── MESSAGING.md            # Brand messaging guidelines
     ├── ICON_POLICY.md          # Icon usage standards
     └── IMPLEMENTATION_GUIDE.md # Technical implementation
-```
+```text
 
 ## Related Documentation Categories
 

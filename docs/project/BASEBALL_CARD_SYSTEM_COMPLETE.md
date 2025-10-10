@@ -53,7 +53,7 @@ yet memorable format.
   image="/images/team/member.jpg"
   vintage={true}
 />
-```
+```text
 
 ### **Styling System**
 
@@ -96,7 +96,7 @@ yet memorable format.
   "contact": "contact@mhconstruction.com",
   "image": "/images/team/member.jpg"
 }
-```
+```text
 
 ### **Content Guidelines**
 

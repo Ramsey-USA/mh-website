@@ -1,192 +1,192 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { MaterialIcon } from '@/components/icons/MaterialIcon'
+import { useState, useEffect } from "react";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 interface PWAInstallPromptProps {
-  className?: string
-  variant?: 'banner' | 'card' | 'modal'
-  showOnMobile?: boolean
-  showOnDesktop?: boolean
+  className?: string;
+  variant?: "banner" | "card" | "modal";
+  showOnMobile?: boolean;
+  showOnDesktop?: boolean;
 }
 
 export default function PWAInstallPrompt({
-  className = '',
-  variant = 'banner',
+  className = "",
+  variant = "banner",
   showOnMobile = true,
   showOnDesktop = true,
 }: PWAInstallPromptProps) {
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
-  const [isVisible, setIsVisible] = useState(false)
-  const [isInstalled, setIsInstalled] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
-  const [isIOS, setIsIOS] = useState(false)
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isInstalled, setIsInstalled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isIOS, setIsIOS] = useState(false);
 
   useEffect(() => {
     // Check if PWA is already installed
     const checkIfInstalled = () => {
       if (
-        window.matchMedia('(display-mode: standalone)').matches ||
+        window.matchMedia("(display-mode: standalone)").matches ||
         (window.navigator as any).standalone
       ) {
-        setIsInstalled(true)
-        return
+        setIsInstalled(true);
+        return;
       }
-    }
+    };
 
     // Detect mobile and iOS
     const checkDevice = () => {
-      const userAgent = window.navigator.userAgent.toLowerCase()
+      const userAgent = window.navigator.userAgent.toLowerCase();
       const mobile =
         /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
           userAgent
-        )
-      const ios = /iphone|ipad|ipod/i.test(userAgent)
+        );
+      const ios = /iphone|ipad|ipod/i.test(userAgent);
 
-      setIsMobile(mobile)
-      setIsIOS(ios)
-    }
+      setIsMobile(mobile);
+      setIsIOS(ios);
+    };
 
     // Check if user has dismissed the prompt recently
     const checkDismissed = () => {
-      const dismissed = localStorage.getItem('pwa-install-dismissed')
-      const dismissedTime = dismissed ? parseInt(dismissed) : 0
-      const dayInMs = 24 * 60 * 60 * 1000
+      const dismissed = localStorage.getItem("pwa-install-dismissed");
+      const dismissedTime = dismissed ? parseInt(dismissed) : 0;
+      const dayInMs = 24 * 60 * 60 * 1000;
 
       // Show again after 7 days
-      return Date.now() - dismissedTime < 7 * dayInMs
-    }
+      return Date.now() - dismissedTime < 7 * dayInMs;
+    };
 
-    checkIfInstalled()
-    checkDevice()
+    checkIfInstalled();
+    checkDevice();
 
     if (isInstalled || checkDismissed()) {
-      return
+      return;
     }
 
     // Listen for the beforeinstallprompt event
     const handleBeforeInstallPrompt = (e: Event) => {
-      console.log('[PWA] Install prompt event triggered')
-      e.preventDefault()
-      setDeferredPrompt(e)
+      console.log("[PWA] Install prompt event triggered");
+      e.preventDefault();
+      setDeferredPrompt(e);
 
       // Show install prompt based on device preferences
       if ((isMobile && showOnMobile) || (!isMobile && showOnDesktop)) {
-        setIsVisible(true)
+        setIsVisible(true);
       }
-    }
+    };
 
     // Listen for app installed event
     const handleAppInstalled = () => {
-      console.log('[PWA] App was installed')
-      setIsInstalled(true)
-      setIsVisible(false)
-      setDeferredPrompt(null)
-    }
+      console.log("[PWA] App was installed");
+      setIsInstalled(true);
+      setIsVisible(false);
+      setDeferredPrompt(null);
+    };
 
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
-    window.addEventListener('appinstalled', handleAppInstalled)
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    window.addEventListener("appinstalled", handleAppInstalled);
 
     // For iOS, show manual install instructions
     if (isIOS && !isInstalled && !checkDismissed()) {
       setTimeout(() => {
         if (showOnMobile) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
-      }, 3000) // Show after 3 seconds on iOS
+      }, 3000); // Show after 3 seconds on iOS
     }
 
     return () => {
       window.removeEventListener(
-        'beforeinstallprompt',
+        "beforeinstallprompt",
         handleBeforeInstallPrompt
-      )
-      window.removeEventListener('appinstalled', handleAppInstalled)
-    }
-  }, [showOnMobile, showOnDesktop, isMobile, isInstalled, isIOS])
+      );
+      window.removeEventListener("appinstalled", handleAppInstalled);
+    };
+  }, [showOnMobile, showOnDesktop, isMobile, isInstalled, isIOS]);
 
   const handleInstallClick = async () => {
     if (!deferredPrompt) {
       if (isIOS) {
         // Show iOS install instructions
-        setIsVisible(true)
-        return
+        setIsVisible(true);
+        return;
       }
-      return
+      return;
     }
 
     try {
       // Show the install prompt
-      deferredPrompt.prompt()
+      deferredPrompt.prompt();
 
       // Wait for the user to respond to the prompt
-      const { outcome } = await deferredPrompt.userChoice
+      const { outcome } = await deferredPrompt.userChoice;
 
-      console.log('[PWA] User choice:', outcome)
+      console.log("[PWA] User choice:", outcome);
 
-      if (outcome === 'accepted') {
-        console.log('[PWA] User accepted the install prompt')
+      if (outcome === "accepted") {
+        console.log("[PWA] User accepted the install prompt");
       } else {
-        console.log('[PWA] User dismissed the install prompt')
+        console.log("[PWA] User dismissed the install prompt");
       }
 
       // Clear the prompt
-      setDeferredPrompt(null)
-      setIsVisible(false)
+      setDeferredPrompt(null);
+      setIsVisible(false);
     } catch (error) {
-      console.error('[PWA] Install prompt error:', error)
+      console.error("[PWA] Install prompt error:", error);
     }
-  }
+  };
 
   const handleDismiss = () => {
-    setIsVisible(false)
-    localStorage.setItem('pwa-install-dismissed', Date.now().toString())
-  }
+    setIsVisible(false);
+    localStorage.setItem("pwa-install-dismissed", Date.now().toString());
+  };
 
   if (!isVisible || isInstalled) {
-    return null
+    return null;
   }
 
   const features = [
-    { icon: 'bolt', text: 'Faster loading and performance' },
-    { icon: 'wifi', text: 'Works offline with cached content' },
-    { icon: 'phone_android', text: 'Full-screen mobile experience' },
-    { icon: 'computer', text: 'Desktop shortcut access' },
-  ]
+    { icon: "bolt", text: "Faster access to your partnership" },
+    { icon: "wifi", text: "Works offline with cached partnership info" },
+    { icon: "phone_android", text: "Full-screen partnership experience" },
+    { icon: "computer", text: "Desktop shortcut for quick partnership access" },
+  ];
 
-  if (variant === 'banner') {
+  if (variant === "banner") {
     return (
       <div
-        className={`fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 shadow-lg ${className}`}
+        className={`fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-r from-brand-primary to-brand-accent text-white p-4 shadow-lg ${className}`}
       >
         <div className="flex justify-between items-center mx-auto container">
           <div className="flex items-center gap-4">
             <MaterialIcon icon="download" className="w-6 h-6" />
             <div>
-              <div className="font-semibold">Install MH Construction App</div>
-              <div className="text-blue-100 text-sm">
-                Get faster access and offline capabilities
+              <div className="font-semibold">Install Your Partnership App</div>
+              <div className="text-forest-100 text-sm">
+                Get faster access and offline partnership capabilities
               </div>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
             {isIOS ? (
-              <div className="text-blue-100 text-sm">
+              <div className="text-forest-100 text-sm">
                 Tap the share button and select &quot;Add to Home Screen&quot;
               </div>
             ) : (
               <button
                 onClick={handleInstallClick}
-                className="bg-white hover:bg-gray-100 px-4 py-2 rounded-lg font-semibold text-blue-600 transition-colors"
+                className="bg-white hover:bg-gray-100 px-4 py-2 rounded-lg font-semibold text-brand-primary transition-colors"
               >
-                Install
+                Install Partnership App
               </button>
             )}
 
             <button
               onClick={handleDismiss}
-              className="p-1 text-blue-100 hover:text-white"
+              className="p-1 text-forest-100 hover:text-white"
               aria-label="Dismiss install prompt"
             >
               <MaterialIcon icon="close" className="w-5 h-5" />
@@ -194,30 +194,35 @@ export default function PWAInstallPrompt({
           </div>
         </div>
       </div>
-    )
+    );
   }
 
-  if (variant === 'card') {
+  if (variant === "card") {
     return (
       <div
-        className={`bg-white rounded-lg shadow-lg border border-gray-200 p-6 ${className}`}
+        className={`bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 p-6 ${className}`}
       >
         <div className="flex justify-between items-start mb-4">
           <div className="flex items-center gap-3">
-            <div className="bg-blue-100 p-2 rounded-lg">
-              <MaterialIcon icon="download" className="w-6 h-6 text-blue-600" />
+            <div className="bg-brand-primary/10 p-2 rounded-lg">
+              <MaterialIcon
+                icon="download"
+                className="w-6 h-6 text-brand-primary"
+              />
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900">Install Our App</h3>
-              <p className="text-gray-600 text-sm">
-                Enhanced mobile experience
+              <h3 className="font-semibold text-gray-900 dark:text-gray-100">
+                Install Partnership App
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                Enhanced partnership experience
               </p>
             </div>
           </div>
 
           <button
             onClick={handleDismiss}
-            className="text-gray-400 hover:text-gray-600"
+            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-400 dark:text-gray-500"
             aria-label="Dismiss"
           >
             <MaterialIcon icon="close" className="w-5 h-5" />
@@ -228,11 +233,11 @@ export default function PWAInstallPrompt({
           {features.slice(0, 2).map((feature, index) => (
             <div
               key={index}
-              className="flex items-center gap-2 text-gray-700 text-sm"
+              className="flex items-center gap-2 text-gray-700 dark:text-gray-300 text-sm"
             >
               <MaterialIcon
                 icon={feature.icon}
-                className="w-4 h-4 text-blue-600"
+                className="w-4 h-4 text-brand-primary"
               />
               <span>{feature.text}</span>
             </div>
@@ -240,55 +245,57 @@ export default function PWAInstallPrompt({
         </div>
 
         {isIOS ? (
-          <div className="bg-blue-50 p-3 rounded-lg">
-            <p className="text-blue-800 text-sm">
-              <strong>To install on iOS:</strong>
+          <div className="bg-brand-primary/5 dark:bg-brand-primary/10 p-3 rounded-lg">
+            <p className="text-brand-primary dark:text-brand-primary text-sm">
+              <strong>To install Partnership App on iOS:</strong>
               <br />
               1. Tap the share button in Safari
               <br />
               2. Select &quot;Add to Home Screen&quot;
               <br />
-              3. Tap &quot;Add&quot; to install
+              3. Tap &quot;Add&quot; to install partnership app
             </p>
           </div>
         ) : (
           <button
             onClick={handleInstallClick}
-            className="flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg w-full font-semibold text-white transition-colors"
+            className="flex justify-center items-center gap-2 bg-brand-primary hover:bg-brand-accent px-4 py-2 rounded-lg w-full font-semibold text-white transition-colors"
           >
             <MaterialIcon icon="download" className="w-4 h-4" />
-            Install App
+            Install Partnership App
           </button>
         )}
       </div>
-    )
+    );
   }
 
-  if (variant === 'modal') {
+  if (variant === "modal") {
     return (
       <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 p-4">
         <div
-          className={`bg-white rounded-lg shadow-xl max-w-md w-full p-6 ${className}`}
+          className={`bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full p-6 ${className}`}
         >
           <div className="flex justify-between items-center mb-6">
             <div className="flex items-center gap-3">
-              <div className="bg-blue-100 p-2 rounded-lg">
+              <div className="bg-brand-primary/10 p-2 rounded-lg">
                 <MaterialIcon
                   icon="download"
-                  className="w-6 h-6 text-blue-600"
+                  className="w-6 h-6 text-brand-primary"
                 />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 text-xl">
-                  Install MH Construction
+                <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-xl">
+                  Install Your Partnership App
                 </h3>
-                <p className="text-gray-600">Get the best mobile experience</p>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Get the best partnership experience
+                </p>
               </div>
             </div>
 
             <button
               onClick={handleDismiss}
-              className="text-gray-400 hover:text-gray-600"
+              className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-400 dark:text-gray-500"
               aria-label="Close"
             >
               <MaterialIcon icon="close" className="w-6 h-6" />
@@ -299,11 +306,11 @@ export default function PWAInstallPrompt({
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 text-gray-700"
+                className="flex items-center gap-3 text-gray-700 dark:text-gray-300"
               >
                 <MaterialIcon
                   icon={feature.icon}
-                  className="w-5 h-5 text-blue-600"
+                  className="w-5 h-5 text-brand-primary"
                 />
                 <span>{feature.text}</span>
               </div>
@@ -311,37 +318,37 @@ export default function PWAInstallPrompt({
           </div>
 
           {isIOS ? (
-            <div className="bg-blue-50 mb-4 p-4 rounded-lg">
-              <h4 className="mb-2 font-semibold text-blue-900">
+            <div className="bg-brand-primary/5 dark:bg-brand-primary/10 mb-4 p-4 rounded-lg">
+              <h4 className="mb-2 font-semibold text-brand-primary dark:text-brand-primary">
                 Installation Instructions for iOS:
               </h4>
-              <ol className="space-y-1 text-blue-800 text-sm">
+              <ol className="space-y-1 text-brand-primary dark:text-brand-primary text-sm">
                 <li>1. Open this site in Safari</li>
                 <li>2. Tap the share button (square with arrow)</li>
                 <li>3. Scroll down and tap &quot;Add to Home Screen&quot;</li>
-                <li>4. Tap &quot;Add&quot; to install the app</li>
+                <li>4. Tap &quot;Add&quot; to install your partnership app</li>
               </ol>
             </div>
           ) : (
             <button
               onClick={handleInstallClick}
-              className="flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-700 mb-4 px-4 py-3 rounded-lg w-full font-semibold text-white transition-colors"
+              className="flex justify-center items-center gap-2 bg-brand-primary hover:bg-brand-accent mb-4 px-4 py-3 rounded-lg w-full font-semibold text-white transition-colors"
             >
               <MaterialIcon icon="download" className="w-5 h-5" />
-              Install Now
+              Install Partnership App
             </button>
           )}
 
           <button
             onClick={handleDismiss}
-            className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-lg w-full font-semibold text-gray-800 transition-colors"
+            className="bg-gray-200 hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500 px-4 py-2 rounded-lg w-full font-semibold text-gray-800 dark:text-gray-200 transition-colors"
           >
             Maybe Later
           </button>
         </div>
       </div>
-    )
+    );
   }
 
-  return null
+  return null;
 }

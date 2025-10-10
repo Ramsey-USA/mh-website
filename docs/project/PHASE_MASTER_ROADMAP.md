@@ -194,7 +194,7 @@ docs/
 │   └── [other technical docs]
 └── business/
     └── [business documentation]
-```
+```text
 
 ### Archive Structure (Recommended)
 
@@ -207,7 +207,7 @@ docs/project/archive/
 │   ├── phase-4-ux/             📚 UX improvements
 │   └── phase-5-performance/     📚 Performance optimization
 └── historical/                  📚 Legacy documentation
-```
+```text
 
 ---
 

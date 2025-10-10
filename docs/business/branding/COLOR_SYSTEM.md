@@ -254,7 +254,7 @@
   --color-error: #EF5350;
   --color-info: #42A5F5;
 }
-```
+```text
 
 ### Tailwind Configuration
 
@@ -288,7 +288,7 @@ module.exports = {
     }
   }
 }
-```
+```text
 
 ## Brand Color Consistency
 
