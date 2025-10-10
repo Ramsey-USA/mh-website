@@ -43,7 +43,7 @@ export default function TeamPage() {
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
       <PageHero
-        title="Your Partners"
+        title="Our Team"
         subtitle="Meet the partnership team behind MH Construction"
         description="Discover your dedicated partners through authentic vintage-style trading cards. Click on any card to flip it and explore professional statistics, career highlights, and personal stories of the team working with you."
       />
@@ -78,18 +78,18 @@ export default function TeamPage() {
                   <div className="relative">
                     {/* MH-styled department header */}
                     <div className="mb-16 text-center">
-                      <h3 className="bg-clip-text bg-gradient-to-r from-[#386851] via-[#BD9264] to-brand-primary mb-6 font-black text-transparent text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider">
+                      <h3 className="bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent mb-6 font-black text-transparent text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider">
                         {department}
                       </h3>
-                      <div className="bg-gradient-to-r from-transparent via-[#BD9264] to-transparent mx-auto rounded-full w-48 h-1"></div>
+                      <div className="bg-gradient-to-r from-transparent via-brand-secondary to-transparent mx-auto rounded-full w-48 h-1"></div>
                     </div>
 
                     {/* Vintage cards grid */}
                     <div className="justify-items-center gap-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                      {members.map((member) => (
+                      {members.map((member, index) => (
                         <div
-                          key={member.cardNumber}
-                          className="hover:scale-[1.02] transition-transform duration-300 transform"
+                          key={`${department}-${member.cardNumber || index}`}
+                          className="transition-none"
                         >
                           <VintageBaseballCard member={member} />
                         </div>
@@ -182,7 +182,7 @@ export default function TeamPage() {
                   {/* Shared Success */}
                   <FadeInWhenVisible>
                     <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-[#2D5443] mx-auto mb-6 rounded-full w-16 h-16 to-[#2D5443]-dark">
+                      <div className="flex justify-center items-center bg-gradient-to-r from-[#2D5443] to-[#2D5443]-dark mx-auto mb-6 rounded-full w-16 h-16">
                         <svg
                           className="w-8 h-8 text-white"
                           fill="none"

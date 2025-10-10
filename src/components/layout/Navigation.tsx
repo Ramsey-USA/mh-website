@@ -169,8 +169,8 @@ export function Navigation() {
                     },
                     {
                       href: "/team",
-                      label: "Your Partners",
-                      icon: "groups",
+                      label: "Our Team",
+                      icon: "people",
                     },
                     {
                       href: "/projects",
@@ -185,12 +185,12 @@ export function Navigation() {
                     {
                       href: "/trade-partners",
                       label: "Trade Partners",
-                      icon: "handshake",
+                      icon: "business",
                     },
                     {
                       href: "/careers",
                       label: "Join Our Team",
-                      icon: "work",
+                      icon: "badge",
                     },
                     {
                       href: "/contact",

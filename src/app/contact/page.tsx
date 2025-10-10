@@ -662,7 +662,7 @@ export default function ContactPage() {
                   className="inline-flex items-center hover:bg-brand-primary px-8 py-4 border-2 border-brand-primary rounded-lg font-semibold text-brand-primary hover:text-white transition-all duration-200"
                 >
                   <MaterialIcon icon="visibility" className="mr-2" size="md" />
-                  Meet Your Partners
+                  Meet Our Team
                 </Link>
               </div>
 

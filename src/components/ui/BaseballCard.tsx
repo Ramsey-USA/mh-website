@@ -1,56 +1,65 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import Image from 'next/image'
-import { MaterialIcon } from '../icons/MaterialIcon'
-import { TeamMember } from '@/lib/data/team'
+import React, { useState } from "react";
+import Image from "next/image";
+import { MaterialIcon } from "../icons/MaterialIcon";
+import { TeamMember } from "@/lib/data/team";
+
+/**
+ * @deprecated This component has been replaced by VintageBaseballCard.tsx
+ * Please use VintageBaseballCard with VintageTeamMember interface instead.
+ * This file is kept for reference but should not be used in new development.
+ *
+ * @see VintageBaseballCard.tsx
+ * @see /src/lib/data/vintage-team.ts
+ */
 
 interface BaseballCardProps {
-  member: TeamMember
+  member: TeamMember;
 }
 
 export function BaseballCard({ member }: BaseballCardProps) {
-  const [isFlipped, setIsFlipped] = useState(false)
+  const [isFlipped, setIsFlipped] = useState(false);
   // Get role icon based on role
   function getRoleIcon(role: string): string {
-    if (role.includes('Owner') || role.includes('General Manager'))
-      return 'account_balance'
-    if (role.includes('Founder')) return 'foundation'
-    if (role.includes('Vice President')) return 'business_center'
-    if (role.includes('Project Manager')) return 'assignment_ind'
-    if (role.includes('Estimator')) return 'calculate'
-    if (role.includes('Superintendent')) return 'construction'
-    if (role.includes('Accountant')) return 'account_balance_wallet'
-    if (role.includes('HR')) return 'people'
-    if (role.includes('Marketing')) return 'campaign'
-    if (role.includes('Administrative')) return 'admin_panel_settings'
-    if (role.includes('Expert')) return 'handyman'
-    if (role.includes('Chief Morale Officer')) return 'pets'
-    return 'person'
+    if (role.includes("Owner") || role.includes("General Manager"))
+      return "account_balance";
+    if (role.includes("Founder")) return "foundation";
+    if (role.includes("Vice President")) return "business_center";
+    if (role.includes("Project Manager")) return "assignment_ind";
+    if (role.includes("Estimator")) return "calculate";
+    if (role.includes("Superintendent")) return "construction";
+    if (role.includes("Accountant")) return "account_balance_wallet";
+    if (role.includes("HR")) return "people";
+    if (role.includes("Marketing")) return "campaign";
+    if (role.includes("Administrative")) return "admin_panel_settings";
+    if (role.includes("Expert")) return "handyman";
+    if (role.includes("Chief Morale Officer")) return "pets";
+    return "person";
   }
 
   // Check if this is Trigger the mascot
-  const isMascot = member.name === 'Trigger'
+  const isMascot = member.name === "Trigger";
 
   // Get veteran status badge
   function getVeteranStatusBadge(status?: string) {
-    if (!status) return null
+    if (!status) return null;
 
     const badgeConfig = {
-      'Army Veteran': { icon: 'military_tech', color: 'text-green-600' },
-      'Navy Veteran': { icon: 'anchor', color: 'text-blue-600' },
-      'Air Force Veteran': { icon: 'flight', color: 'text-sky-600' },
-      'Marine Veteran': { icon: 'shield', color: 'text-red-600' },
-      'Coast Guard Veteran': { icon: 'waves', color: 'text-cyan-600' },
-      'Civilian Supporter': { icon: 'handshake', color: 'text-amber-600' },
-      'Retired Leadership': {
-        icon: 'workspace_premium',
-        color: 'text-purple-600',
+      "Army Veteran": { icon: "military_tech", color: "text-green-600" },
+      "Navy Veteran": { icon: "anchor", color: "text-blue-600" },
+      "Air Force Veteran": { icon: "flight", color: "text-sky-600" },
+      "Marine Veteran": { icon: "shield", color: "text-red-600" },
+      "Coast Guard Veteran": { icon: "waves", color: "text-cyan-600" },
+      "Civilian Supporter": { icon: "handshake", color: "text-amber-600" },
+      "Retired Leadership": {
+        icon: "workspace_premium",
+        color: "text-purple-600",
       },
-    }
+    };
 
-    const config = badgeConfig[status as keyof typeof badgeConfig]
-    if (!config) return null
+    const config = badgeConfig[status as keyof typeof badgeConfig];
+    if (!config) return null;
 
     return (
       <div className="flex items-center bg-white/90 px-2 py-1 rounded-full text-xs">
@@ -61,7 +70,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
         />
         <span className="font-medium text-gray-800">{status}</span>
       </div>
-    )
+    );
   }
 
   return (
@@ -72,23 +81,23 @@ export function BaseballCard({ member }: BaseballCardProps) {
       >
         <div
           className={`absolute inset-0 w-full h-full transition-transform duration-700 preserve-3d ${
-            isFlipped ? 'rotate-y-180' : ''
+            isFlipped ? "rotate-y-180" : ""
           }`}
         >
           {/* FRONT OF CARD */}
           <div
             className={`absolute inset-0 w-full h-full backface-hidden ${
               isMascot
-                ? 'bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 border-amber-300'
-                : 'bg-gradient-to-br from-white via-gray-50 to-gray-100 border-gray-200'
+                ? "bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 border-amber-300"
+                : "bg-gradient-to-br from-white via-gray-50 to-gray-100 border-gray-200"
             } shadow-lg hover:shadow-xl border-2 rounded-2xl overflow-hidden`}
           >
             {/* Card Header with Team Branding */}
             <div
               className={`${
                 isMascot
-                  ? 'bg-gradient-to-r from-amber-500 to-orange-500'
-                  : 'bg-gradient-to-r from-[#386851] to-[#2D5443]'
+                  ? "bg-gradient-to-r from-amber-500 to-orange-500"
+                  : "bg-gradient-to-r from-[#386851] to-[#2D5443]"
               } px-6 py-4`}
             >
               <div className="flex justify-between items-center">
@@ -111,14 +120,14 @@ export function BaseballCard({ member }: BaseballCardProps) {
             {/* Photo Section */}
             <div
               className={`flex justify-center items-center ${
-                isMascot ? 'bg-amber-100' : 'bg-gray-100'
+                isMascot ? "bg-amber-100" : "bg-gray-100"
               } py-8`}
             >
               <div
                 className={`relative ${
                   isMascot
-                    ? 'bg-gradient-to-br from-amber-300/20 to-orange-300/20'
-                    : 'bg-gradient-to-br from-[#386851]/20 to-[#BD9264]/20'
+                    ? "bg-gradient-to-br from-amber-300/20 to-orange-300/20"
+                    : "bg-gradient-to-br from-[#386851]/20 to-[#BD9264]/20"
                 } rounded-full w-32 h-32 overflow-hidden shadow-lg`}
               >
                 {member.avatar ? (
@@ -134,9 +143,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
                     <MaterialIcon
                       icon={getRoleIcon(member.role)}
                       size="4xl"
-                      className={
-                        isMascot ? 'text-amber-600' : 'text-[#386851]'
-                      }
+                      className={isMascot ? "text-amber-600" : "text-[#386851]"}
                     />
                   </div>
                 )}
@@ -147,21 +154,21 @@ export function BaseballCard({ member }: BaseballCardProps) {
             <div className="px-6 py-4 text-center">
               <h3
                 className={`mb-2 font-black text-xl tracking-tight ${
-                  isMascot ? 'text-amber-900' : 'text-gray-900'
+                  isMascot ? "text-amber-900" : "text-gray-900"
                 }`}
               >
                 {member.name}
               </h3>
               <p
                 className={`mb-3 font-bold text-sm uppercase tracking-wide ${
-                  isMascot ? 'text-orange-600' : 'text-[#BD9264]'
+                  isMascot ? "text-orange-600" : "text-[#BD9264]"
                 }`}
               >
                 {member.role}
               </p>
               <p
                 className={`text-xs font-medium ${
-                  isMascot ? 'text-amber-700' : 'text-gray-600'
+                  isMascot ? "text-amber-700" : "text-gray-600"
                 }`}
               >
                 <MaterialIcon
@@ -169,10 +176,10 @@ export function BaseballCard({ member }: BaseballCardProps) {
                   size="sm"
                   className="inline mr-1"
                 />
-                {typeof member.experienceYears === 'number'
+                {typeof member.experienceYears === "number"
                   ? `${member.experienceYears}+`
-                  : member.experienceYears}{' '}
-                {isMascot ? 'years of service' : 'years experience'}
+                  : member.experienceYears}{" "}
+                {isMascot ? "years of service" : "years experience"}
               </p>
             </div>
 
@@ -180,7 +187,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
             <div className="bottom-4 left-1/2 absolute -translate-x-1/2 transform">
               <div
                 className={`flex items-center ${
-                  isMascot ? 'text-amber-600' : 'text-[#386851]'
+                  isMascot ? "text-amber-600" : "text-[#386851]"
                 } text-xs`}
               >
                 <MaterialIcon icon="flip" size="sm" className="mr-1" />
@@ -193,16 +200,16 @@ export function BaseballCard({ member }: BaseballCardProps) {
           <div
             className={`absolute inset-0 w-full h-full backface-hidden rotate-y-180 ${
               isMascot
-                ? 'bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 border-amber-300'
-                : 'bg-gradient-to-br from-white via-gray-50 to-gray-100 border-gray-200'
+                ? "bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 border-amber-300"
+                : "bg-gradient-to-br from-white via-gray-50 to-gray-100 border-gray-200"
             } shadow-lg border-2 rounded-2xl overflow-hidden`}
           >
             {/* Back Header */}
             <div
               className={`${
                 isMascot
-                  ? 'bg-gradient-to-r from-amber-500 to-orange-500'
-                  : 'bg-gradient-to-r from-[#386851] to-[#2D5443]'
+                  ? "bg-gradient-to-r from-amber-500 to-orange-500"
+                  : "bg-gradient-to-r from-[#386851] to-[#2D5443]"
               } px-6 py-4`}
             >
               <div className="text-center">
@@ -219,7 +226,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
                   <div className="mb-3 text-center">
                     <span
                       className={`font-bold text-xs tracking-wide uppercase ${
-                        isMascot ? 'text-amber-800' : 'text-gray-700'
+                        isMascot ? "text-amber-800" : "text-gray-700"
                       }`}
                     >
                       PROFILE
@@ -227,7 +234,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
                   </div>
                   <p
                     className={`text-sm leading-relaxed text-center ${
-                      isMascot ? 'text-amber-800' : 'text-gray-600'
+                      isMascot ? "text-amber-800" : "text-gray-600"
                     }`}
                   >
                     {member.bio}
@@ -240,10 +247,10 @@ export function BaseballCard({ member }: BaseballCardProps) {
                 <div className="mb-3 text-center">
                   <span
                     className={`font-bold text-xs tracking-wide uppercase ${
-                      isMascot ? 'text-amber-800' : 'text-gray-700'
+                      isMascot ? "text-amber-800" : "text-gray-700"
                     }`}
                   >
-                    {isMascot ? 'SPECIAL SKILLS' : 'SPECIALTIES'}
+                    {isMascot ? "SPECIAL SKILLS" : "SPECIALTIES"}
                   </span>
                 </div>
                 <div className="flex flex-wrap justify-center gap-2">
@@ -252,8 +259,8 @@ export function BaseballCard({ member }: BaseballCardProps) {
                       key={index}
                       className={`${
                         isMascot
-                          ? 'bg-amber-200 text-amber-800'
-                          : 'bg-[#386851]/10 text-[#386851]'
+                          ? "bg-amber-200 text-amber-800"
+                          : "bg-[#386851]/10 text-[#386851]"
                       } px-3 py-1 rounded-md text-xs font-medium`}
                     >
                       {specialty}
@@ -268,17 +275,17 @@ export function BaseballCard({ member }: BaseballCardProps) {
                   <div>
                     <div
                       className={`text-2xl font-bold ${
-                        isMascot ? 'text-amber-600' : 'text-[#386851]'
+                        isMascot ? "text-amber-600" : "text-[#386851]"
                       }`}
                     >
-                      {typeof member.experienceYears === 'number'
+                      {typeof member.experienceYears === "number"
                         ? member.experienceYears
-                        : '5'}
+                        : "5"}
                       +
                     </div>
                     <div
                       className={`text-xs uppercase tracking-wide ${
-                        isMascot ? 'text-amber-700' : 'text-gray-600'
+                        isMascot ? "text-amber-700" : "text-gray-600"
                       }`}
                     >
                       Years Exp
@@ -287,14 +294,14 @@ export function BaseballCard({ member }: BaseballCardProps) {
                   <div>
                     <div
                       className={`text-2xl font-bold ${
-                        isMascot ? 'text-amber-600' : 'text-[#386851]'
+                        isMascot ? "text-amber-600" : "text-[#386851]"
                       }`}
                     >
                       {member.specialties?.length || 0}
                     </div>
                     <div
                       className={`text-xs uppercase tracking-wide ${
-                        isMascot ? 'text-amber-700' : 'text-gray-600'
+                        isMascot ? "text-amber-700" : "text-gray-600"
                       }`}
                     >
                       Specialties
@@ -307,7 +314,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
               <div className="mt-4 text-center">
                 <div
                   className={`flex items-center justify-center ${
-                    isMascot ? 'text-amber-600' : 'text-[#386851]'
+                    isMascot ? "text-amber-600" : "text-[#386851]"
                   } text-xs`}
                 >
                   <MaterialIcon icon="flip" size="sm" className="mr-1" />
@@ -319,5 +326,5 @@ export function BaseballCard({ member }: BaseballCardProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }

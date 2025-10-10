@@ -475,15 +475,15 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 ### **Hover Effects**
 
  `` `css
-/*Standard Hover Lift*/
+/*Standard Hover Lift - Simplified for crisp rendering*/
 .hover-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
-/*Scale Effect*/
+/*Scale Effect - Use sparingly to avoid fuzziness*/
 .hover-scale:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 /*Subtle Glow*/
@@ -686,37 +686,34 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ---
 
-## 🃏 Baseball Card Component
+## 🃏 Vintage Baseball Card Component
 
 ### **Purpose & Usage**
 
-The `BaseballCard` component creates engaging, interactive team member profiles with a  
-professional baseball card aesthetic. Used primarily on the team page to showcase MH  
-Construction staff in an memorable, branded format.
+The `VintageBaseballCard` component creates engaging, interactive team member profiles with a  
+professional vintage baseball card aesthetic. Used primarily on the team page to showcase MH  
+Construction staff in a memorable, branded format with authentic vintage card styling.
 
 ### **Design Specifications**
 
- `` `css
-/*Card Dimensions */
-.baseball-card {
-  width: 100%;
-  max-width: 24rem;     /* 384px - Consistent card width */
-  height: 31.25rem;     /* 500px - Fixed height for alignment */
-  perspective: 1000px;  /* 3D perspective for flip effect*/
-}
+    /* Vintage Card Dimensions */
+    .vintage-card-container {
+      width: 280px;         /* Standard vintage proportions */
+      height: 392px;        /* 5:7 aspect ratio */
+      perspective: 1000px;  /* 3D perspective for flip effect */
+    }
 
-/*Card States */
-.card-front, .card-back {
-  border-radius: 1rem;           /* Rounded corners */
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);  /* Elevation */
-  transition: all 0.3s ease;     /* Smooth interactions*/
-}
+    /* Vintage Card States */
+    .vintage-card-face {
+      border-radius: 8px;   /* Vintage rounded corners */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);  /* Vintage elevation */
+      transition: all 0.3s ease;     /* Smooth interactions */
+    }
 
-.card-front:hover, .card-back:hover {
-  transform: scale(1.02);         /*Subtle hover growth*/
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-}
- `` `text
+    .vintage-card-container:hover {
+      transform: scale(1.02);         /*Subtle hover growth*/
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
 
 ### **Color Variants**
 
@@ -861,16 +858,14 @@ Construction staff in an memorable, branded format.
 
 #### **Usage Example**
 
- `` `typescript
-import { BaseballCard } from '@/components/ui/BaseballCard'
-import type { TeamMember } from '@/lib/data/team'
+    import { VintageBaseballCard } from '@/components/ui/VintageBaseballCard'
+    import type { VintageTeamMember } from '@/lib/data/vintage-team'
 
-// Standard team member
-<BaseballCard member={teamMember} />
+    // Standard team member
+    <VintageBaseballCard member={teamMember} />
 
-// Mascot (automatically detects name === 'Trigger')
-<BaseballCard member={triggerMascot} />
- `` `text
+    // Mascot (automatically detects card number 99)
+    <VintageBaseballCard member={triggerMascot} />
 
 #### **Grid Layout**
 
@@ -900,21 +895,18 @@ import type { TeamMember } from '@/lib/data/team'
 
 ### **Performance Considerations**
 
- `` `css
-/*Hardware acceleration for smooth animations*/
-.baseball-card {
-  transform: translateZ(0);
-  will-change: transform;
-}
+    /* Simple hardware acceleration for smooth vintage card animations */
+    .vintage-card-container {
+      transform: translateZ(0);
+      transition: all 0.3s ease;
+    }
 
-/*Optimize image rendering */
-.member-avatar {
-  image-rendering: optimizeQuality;
-  object-fit: cover;
-  width: 8rem;              /* w-32 */
-  height: 8rem;             /* h-32*/
-}
- `` `text
+    /* Clean image rendering without filters for crisp display */
+    .vintage-player-image {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      object-fit: cover;
+    }
 
 ### **Design Tokens Used**
 

@@ -1,140 +1,146 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import Image from 'next/image'
-import { MaterialIcon } from '../icons/MaterialIcon'
+import React, { useState } from "react";
+import Image from "next/image";
+import { MaterialIcon } from "../icons/MaterialIcon";
 
 // Enhanced interface for vintage baseball cards
 export interface VintageTeamMember {
   // Basic identification
-  name: string
-  role: string
-  department: string
-  cardNumber: number
-  position: string // Simplified role for card display
-  nickname?: string // Baseball-style nickname
+  name: string;
+  role: string;
+  department: string;
+  cardNumber: number;
+  position: string; // Simplified role for card display
+  nickname?: string; // Baseball-style nickname
 
   // Personal details
-  yearsWithCompany: number
-  height?: string
-  hometown?: string
-  education?: string
-  veteranStatus?: string
+  yearsWithCompany: number;
+  height?: string;
+  hometown?: string;
+  education?: string;
+  veteranStatus?: string;
 
   // Current year performance (2025)
   currentYearStats: {
-    projectsCompleted: number
-    clientSatisfaction: number
-    safetyRecord: string
-    teamCollaborations: number
-  }
+    projectsCompleted: number;
+    clientSatisfaction: number;
+    safetyRecord: string;
+    teamCollaborations: number;
+  };
 
   // Career totals
   careerStats: {
-    totalProjects: number
-    yearsExperience: number
-    specialtyAreas: number
-    mentorships: number
-  }
+    totalProjects: number;
+    yearsExperience: number;
+    specialtyAreas: number;
+    mentorships: number;
+  };
 
   // Military/Professional awards
-  awards?: string
+  awards?: string;
 
   // Content
-  bio: string
-  careerHighlights: string[]
-  funFact?: string
-  certifications?: string
-  hobbies?: string
-  specialInterests?: string
-  avatar?: string
+  bio: string;
+  careerHighlights: string[];
+  funFact?: string;
+  certifications?: string;
+  hobbies?: string;
+  specialInterests?: string;
+  avatar?: string;
 
   // Additional fields from data
-  specialties: string[]
-  active: boolean
-  slug: string
+  specialties: string[];
+  active: boolean;
+  slug: string;
 }
 
 interface VintageBaseballCardProps {
-  member: VintageTeamMember
+  member: VintageTeamMember;
 }
 
 export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
-  const [isFlipped, setIsFlipped] = useState(false)
+  const [isFlipped, setIsFlipped] = useState(false);
 
   // Helper function to split name into first and last
   const formatNameForCard = (fullName: string) => {
-    const nameParts = fullName.trim().split(' ')
+    const nameParts = fullName.trim().split(" ");
     if (nameParts.length >= 2) {
-      const firstName = nameParts[0]
-      const lastName = nameParts.slice(1).join(' ')
-      return { firstName, lastName }
+      const firstName = nameParts[0];
+      const lastName = nameParts.slice(1).join(" ");
+      return { firstName, lastName };
     }
-    return { firstName: fullName, lastName: '' }
-  }
+    return { firstName: fullName, lastName: "" };
+  };
 
   // Get department-specific colors - monochrome style
   const getCardColors = (department: string) => {
     const colorMap = {
-      'Executive Leadership': {
-        primary: '#1f2937',
-        secondary: '#4b5563',
-        rgb: '31, 41, 55',
+      "Executive Leadership": {
+        primary: "#1f2937",
+        secondary: "#4b5563",
+        rgb: "31, 41, 55",
       },
-      'Project Management & Estimating': {
-        primary: '#374151',
-        secondary: '#6b7280',
-        rgb: '55, 65, 81',
+      "Project Management & Estimating": {
+        primary: "#374151",
+        secondary: "#6b7280",
+        rgb: "55, 65, 81",
       },
-      'Site & Field Operations': {
-        primary: '#4b5563',
-        secondary: '#9ca3af',
-        rgb: '75, 85, 99',
+      "Site & Field Operations": {
+        primary: "#4b5563",
+        secondary: "#9ca3af",
+        rgb: "75, 85, 99",
       },
-      'Administration & Support': {
-        primary: '#6b7280',
-        secondary: '#d1d5db',
-        rgb: '107, 114, 128',
+      "Administration & Support": {
+        primary: "#6b7280",
+        secondary: "#d1d5db",
+        rgb: "107, 114, 128",
       },
-    }
+    };
 
     return (
       colorMap[department as keyof typeof colorMap] || {
-        primary: '#374151',
-        secondary: '#6b7280',
-        rgb: '55, 65, 81',
+        primary: "#374151",
+        secondary: "#6b7280",
+        rgb: "55, 65, 81",
       }
-    )
-  }
+    );
+  };
 
   const getRoleIcon = (role: string) => {
-    if (role.toLowerCase().includes('project')) return 'engineering'
-    if (role.toLowerCase().includes('estimat')) return 'calculate'
-    if (role.toLowerCase().includes('superintend')) return 'construction'
-    if (role.toLowerCase().includes('foreman')) return 'build'
-    if (role.toLowerCase().includes('safety')) return 'security'
+    if (role.toLowerCase().includes("project")) return "engineering";
+    if (role.toLowerCase().includes("estimat")) return "calculate";
+    if (role.toLowerCase().includes("superintend")) return "construction";
+    if (role.toLowerCase().includes("foreman")) return "build";
+    if (role.toLowerCase().includes("safety")) return "security";
     if (
-      role.toLowerCase().includes('ceo') ||
-      role.toLowerCase().includes('president')
+      role.toLowerCase().includes("ceo") ||
+      role.toLowerCase().includes("president")
     )
-      return 'business'
-    if (role.toLowerCase().includes('admin')) return 'admin_panel_settings'
-    if (role.toLowerCase().includes('sales')) return 'handshake'
-    return 'person'
-  }
+      return "business";
+    if (role.toLowerCase().includes("admin")) return "admin_panel_settings";
+    if (role.toLowerCase().includes("sales")) return "handshake";
+    return "person";
+  };
 
-  const finalColors = getCardColors(member.department)
-  const { firstName, lastName } = formatNameForCard(member.name)
+  const finalColors = getCardColors(member.department);
+  const { firstName, lastName } = formatNameForCard(member.name);
+
+  // Enhanced click handler
+  const handleCardClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsFlipped(!isFlipped);
+  };
 
   return (
-    <div className="vintage-card-container">
+    <div className="vintage-card-container" onClick={handleCardClick}>
       <div
-        className={`vintage-card-inner ${isFlipped ? 'flipped' : ''}`}
-        onClick={() => setIsFlipped(!isFlipped)}
+        className={`vintage-card-inner ${isFlipped ? "flipped" : ""}`}
         style={
           {
-            '--card-color': finalColors.primary,
-            '--card-color-rgb': finalColors.rgb,
+            "--card-color": finalColors.primary,
+            "--card-color-rgb": finalColors.rgb,
           } as React.CSSProperties
         }
       >
@@ -146,11 +152,11 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
             <div className="vintage-color-frame">
               {/* Card number badge */}
               <div className="vintage-card-number">
-                {member.name === 'Mike Holstein'
-                  ? 'RET'
+                {member.name === "Mike Holstein"
+                  ? "RET"
                   : member.cardNumber === 0
-                  ? '00'
-                  : member.cardNumber}
+                    ? "00"
+                    : member.cardNumber}
               </div>
 
               {/* Company logo */}
@@ -166,16 +172,16 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
 
               {/* Veteran status badge */}
               {member.veteranStatus &&
-                (member.veteranStatus.includes('Veteran') ||
-                  member.veteranStatus.includes('Good Boy')) && (
+                (member.veteranStatus.includes("Veteran") ||
+                  member.veteranStatus.includes("Good Boy")) && (
                   <div
                     className={`vintage-veteran-badge ${
-                      member.veteranStatus.includes('Veteran')
-                        ? 'veteran'
-                        : 'mascot'
+                      member.veteranStatus.includes("Veteran")
+                        ? "veteran"
+                        : "mascot"
                     }`}
                   >
-                    {member.veteranStatus.includes('Veteran') ? 'VET' : '🐕'}
+                    {member.veteranStatus.includes("Veteran") ? "VET" : "🐕"}
                   </div>
                 )}
 
@@ -232,11 +238,11 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
                   />
                 </div>
                 <div className="vintage-card-number-back">
-                  {member.name === 'Mike Holstein'
-                    ? 'RET'
+                  {member.name === "Mike Holstein"
+                    ? "RET"
                     : member.cardNumber === 0
-                    ? '00'
-                    : member.cardNumber}
+                      ? "00"
+                      : member.cardNumber}
                 </div>
               </div>
             </div>
@@ -277,7 +283,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
                   <div className="about-item">
                     <span className="about-label">Years:</span>
                     <span className="about-value">
-                      {member.yearsWithCompany} at MH,{' '}
+                      {member.yearsWithCompany} at MH,{" "}
                       {member.careerStats.yearsExperience} total
                     </span>
                   </div>
@@ -301,7 +307,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
                     <span className="about-label">Certs:</span>
                     <span className="about-value">
                       {member.certifications ||
-                        'Various construction certifications'}
+                        "Various construction certifications"}
                     </span>
                   </div>
 
@@ -319,7 +325,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
                     </div>
                   )}
                   {member.veteranStatus &&
-                    member.veteranStatus !== 'Civilian' && (
+                    member.veteranStatus !== "Civilian" && (
                       <div className="about-item">
                         <span className="about-label">Svc:</span>
                         <span className="about-value">
@@ -332,14 +338,14 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
                   <div className="about-item">
                     <span className="about-label">Hobbies:</span>
                     <span className="about-value">
-                      {member.hobbies || 'Construction and building'}
+                      {member.hobbies || "Construction and building"}
                     </span>
                   </div>
                   <div className="about-item">
                     <span className="about-label">Focus:</span>
                     <span className="about-value">
                       {member.specialInterests ||
-                        'Quality construction projects'}
+                        "Quality construction projects"}
                     </span>
                   </div>
                 </div>
@@ -371,5 +377,5 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }

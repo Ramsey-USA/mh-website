@@ -190,9 +190,18 @@ Form Submissions:
 "Contact" → "Start Partnership"
 "About" → "Our Story & Values"
 "Portfolio" → "Partnership Success Stories"
-"Team" → "Your Partners"
+"Team" → "Our Team"  // CRITICAL: Internal employees, NOT external partners
+"Trade Partners" → "Trade Partners"  // External subcontractors & vendors
 "Testimonials" → "Partnership Experiences"
-```text
+```
+
+**IMPORTANT TERMINOLOGY DISTINCTION:**
+
+- **"Our Team"** = Internal MH Construction employees, staff, and leadership
+- **"Trade Partners"** = External subcontractors, vendors, and business partnerships
+- **"Your Partnership Team"** = How we refer to the combined client + MH team working together
+
+This distinction prevents confusion between internal staff and external business relationships.text
 
 ### **Footer Messaging**
 
@@ -332,7 +341,7 @@ Focus on partnership language in client stories:
 
 - [ ] Services page collaboration focus
 - [ ] Portfolio partnership success stories
-- [ ] Team introductions as "your partners"
+- [x] **Team terminology clarification**: "Our Team" for internal staff vs "Trade Partners" for external relationships
 - [ ] Testimonials with partnership emphasis
 
 ### **Phase 3: Interactive Elements (Week 3)**

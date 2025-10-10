@@ -48,6 +48,7 @@
 ### **Design System**
 
 - **[DESIGN_SYSTEM.md](./technical/DESIGN_SYSTEM.md)** - Brand colors, typography, component standards
+- **[TERMINOLOGY_GUIDE.md](./development/TERMINOLOGY_GUIDE.md)** - ⭐ **CRITICAL:** "Our Team" vs "Trade Partners" distinction
 - **[MH-BRANDING.md](./business/MH-BRANDING.md)** - Brand guidelines and messaging
 
 ### **Icon System**

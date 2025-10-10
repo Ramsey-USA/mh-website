@@ -20,13 +20,13 @@ const heroNavItems: HeroNavItem[] = [
   { href: "/booking", label: "Start Partnership", icon: "handshake" },
   { href: "/", label: "Home", icon: "home" },
   { href: "/about", label: "Our Story", icon: "info" },
-  { href: "/services", label: "Partnership Approach", icon: "construction" },
-  { href: "/projects", label: "Success Stories", icon: "work" },
-  { href: "/team", label: "Your Partners", icon: "group" },
+  { href: "/services", label: "Partnership Approach", icon: "build" },
+  { href: "/projects", label: "Success Stories", icon: "photo_library" },
+  { href: "/team", label: "Our Team", icon: "people" },
   { href: "/government", label: "Government", icon: "account_balance" },
-  { href: "/trade-partners", label: "Trade Partners", icon: "handshake" },
-  { href: "/careers", label: "Join Our Team", icon: "work_outline" },
-  { href: "/contact", label: "Connect With Us", icon: "contact_mail" },
+  { href: "/trade-partners", label: "Trade Partners", icon: "business" },
+  { href: "/careers", label: "Join Our Team", icon: "badge" },
+  { href: "/contact", label: "Connect With Us", icon: "contact_phone" },
 ];
 
 export function PageHero({ title, subtitle, description }: PageHeroProps) {
@@ -68,7 +68,7 @@ export function PageHero({ title, subtitle, description }: PageHeroProps) {
         </div>
 
         {/* Comprehensive Navigation Bar - Overlaid at bottom of hero */}
-        <nav className="right-0 bottom-0 left-0 z-20 absolute bg-white/95 dark:bg-gray-900/95 shadow-lg backdrop-blur-md border-t-4 border-[#386851]">
+        <nav className="right-0 bottom-0 left-0 z-20 absolute bg-white/95 dark:bg-gray-900/95 shadow-lg backdrop-blur-md border-t-4 border-brand-primary">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="flex justify-center">
               <div className="flex space-x-1 overflow-x-auto">
@@ -76,14 +76,14 @@ export function PageHero({ title, subtitle, description }: PageHeroProps) {
                   <a
                     key={item.href}
                     href={item.href}
-                    className="group flex flex-col items-center hover:bg-[#386851]/10 px-4 py-4 min-w-[80px] transition-colors duration-200"
+                    className="group flex flex-col items-center hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 px-4 py-4 min-w-[80px] transition-colors duration-200"
                   >
                     <MaterialIcon
                       icon={item.icon}
                       size="md"
-                      className="mb-1 text-gray-600 dark:text-gray-400 group-hover:text-[#386851] transition-colors duration-200"
+                      className="mb-1 text-gray-600 dark:text-gray-400 group-hover:text-brand-primary transition-colors duration-200"
                     />
-                    <span className="font-medium text-gray-700 dark:text-gray-300 group-hover:text-[#386851] text-xs transition-colors duration-200">
+                    <span className="font-medium text-gray-700 dark:text-gray-300 group-hover:text-brand-primary text-xs transition-colors duration-200">
                       {item.label}
                     </span>
                   </a>

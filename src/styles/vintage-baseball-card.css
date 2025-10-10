@@ -5,19 +5,26 @@
   /* Standard vintage proportions - 5:7 aspect ratio */
   width: 280px;
   height: 392px;
-  perspective: 1000px;
   cursor: pointer;
   margin: 0 auto;
+  /* Restore perspective for 3D flip to work */
+  perspective: 1000px;
 
-  /* Vintage card handling feel */
+  /* Simple transitions for hover effects */
   transition: all 0.3s ease;
-  transform-style: preserve-3d;
+  /* Simplified hardware acceleration */
+  transform: translateZ(0);
 }
 
 .vintage-card-container:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15),
-    0 0 0 2px rgba(255, 255, 255, 0.9);
+  /* Simple transform without scaling to prevent fuzziness */
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 25px rgba(0, 0, 0, 0.2),
+    0 4px 15px rgba(0, 0, 0, 0.1);
+  /* Maintain crisp rendering */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* 3D flip mechanism */
@@ -27,6 +34,12 @@
   height: 100%;
   transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform-style: preserve-3d;
+  /* Ensure 3D transforms work properly for flip */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Ensure click events work properly */
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .vintage-card-inner.flipped {
@@ -39,6 +52,7 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -63,7 +77,8 @@
   );
   padding: 8px;
   border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15),
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.15),
     inset 0 2px 4px rgba(255, 255, 255, 0.6);
 }
 
@@ -76,8 +91,10 @@
   background-position: center;
   border-radius: 4px;
   position: relative;
-  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.95),
-    inset 0 0 0 4px var(--card-color), 0 4px 12px rgba(0, 0, 0, 0.2),
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 255, 255, 0.95),
+    inset 0 0 0 4px var(--card-color),
+    0 4px 12px rgba(0, 0, 0, 0.2),
     inset 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
@@ -90,12 +107,17 @@
   color: var(--card-color);
   padding: 6px 10px;
   border-radius: 50px;
-  font-family: 'Times New Roman', serif;
+  font-family: "Times New Roman", serif;
   font-size: 16px;
   font-weight: 900;
   z-index: 10;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   border: 2px solid var(--card-color);
+  /* Optimize text rendering for crisp display */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
 }
 
 /* Company logo */
@@ -153,22 +175,31 @@
     15% 15%
   );
   border: 2px solid #b45309;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4),
-    inset 0 1px 2px rgba(255, 255, 255, 0.3), 0 0 12px rgba(251, 191, 36, 0.4);
-  animation: veteranShieldPulse 3s ease-in-out infinite;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 0 12px rgba(251, 191, 36, 0.4);
+  /* Removed scaling animation to prevent fuzziness */
+  /* Add font smoothing for crisp text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
+/* Simplified pulse animation without scaling */
 @keyframes veteranShieldPulse {
   0%,
   100% {
-    transform: scale(1);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4),
-      inset 0 1px 2px rgba(255, 255, 255, 0.3), 0 0 12px rgba(251, 191, 36, 0.4);
+    box-shadow:
+      0 3px 8px rgba(0, 0, 0, 0.4),
+      inset 0 1px 2px rgba(255, 255, 255, 0.3),
+      0 0 12px rgba(251, 191, 36, 0.4);
   }
   50% {
-    transform: scale(1.08);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5),
-      inset 0 1px 3px rgba(255, 255, 255, 0.4), 0 0 20px rgba(251, 191, 36, 0.6),
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.5),
+      inset 0 1px 3px rgba(255, 255, 255, 0.4),
+      0 0 20px rgba(251, 191, 36, 0.6),
       0 0 30px rgba(245, 158, 11, 0.3);
   }
 }
@@ -192,7 +223,8 @@
   clip-path: none;
   font-size: 12px;
   border: 2px solid #475569;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3),
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.3),
     inset 0 1px 2px rgba(255, 255, 255, 0.2);
 }
 
@@ -207,7 +239,8 @@
   background: rgba(255, 255, 255, 0.95);
   border-radius: 6px;
   border: 3px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2),
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.2),
     inset 0 1px 3px rgba(255, 255, 255, 0.8);
   overflow: hidden;
 }
@@ -216,7 +249,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: sepia(15%) saturate(85%) contrast(105%);
+  /* Removed filters to prevent blurriness - keeping crisp, clean rendering */
+  /* Optimize image rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .vintage-photo-placeholder {
@@ -253,24 +291,35 @@
 }
 
 .vintage-player-name {
-  font-family: 'Times New Roman', serif;
+  font-family: "Times New Roman", serif;
   font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--card-color);
   margin-bottom: 4px;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  /* Reduced text-shadow for sharper text */
+  text-shadow: 0 0.5px 1px rgba(255, 255, 255, 0.6);
   line-height: 1.1;
+  /* Optimize text rendering for crisp display */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
 }
 
 .vintage-team-role {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   color: #666;
   letter-spacing: 0.8px;
   line-height: 1.2;
+  /* Optimize text rendering for crisp display */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
 }
 
 /* Set identifier */
@@ -280,14 +329,19 @@
   left: 20px;
   right: 20px;
   text-align: center;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 9px;
   font-weight: 800;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.9);
   letter-spacing: 1.2px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  /* Reduced text-shadow for sharper text */
+  text-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.6);
   z-index: 7;
+  /* Optimize text rendering for crisp display */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Flip indicator */
@@ -297,14 +351,19 @@
   left: 20px;
   right: 20px;
   text-align: center;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 8px;
   font-weight: 600;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
   letter-spacing: 0.8px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  /* Reduced text-shadow for sharper text */
+  text-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.4);
   z-index: 7;
+  /* Optimize text rendering for crisp display */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* ===== BACK SIDE STYLING ===== */
@@ -371,24 +430,31 @@
   color: #ffffff;
   padding: 6px 10px;
   border-radius: 50px;
-  font-family: 'Times New Roman', serif;
+  font-family: "Times New Roman", serif;
   font-size: 16px;
   font-weight: 900;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   min-width: 40px;
   text-align: center;
   border: 2px solid rgba(255, 255, 255, 0.2);
+  /* Add font smoothing for crisp text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .vintage-player-name-back {
-  font-family: 'Inter', 'Times New Roman', serif;
+  font-family: "Inter", "Times New Roman", serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.6px;
-  color: #374151;
-  margin: 0;
-  line-height: 1.1;
-  text-align: left;
+  color: var(--card-color);
+  font-size: 14px;
+  line-height: 1.2;
+  /* Add font smoothing for crisp text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .name-first {
@@ -440,10 +506,17 @@
   gap: 3px;
   font-size: 8px;
   line-height: 1.1;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   padding: 4px 6px;
   border-radius: 2px;
-  backdrop-filter: blur(1px);
+  /* Removed backdrop-filter to prevent text blurriness */
+  /* Optimize rendering */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Add font smoothing for crisp text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .about-item {
@@ -462,6 +535,10 @@
   font-size: 7px;
   line-height: 1.1;
   text-transform: uppercase;
+  /* Add font smoothing for crisp text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .about-value {
@@ -473,6 +550,10 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
   max-width: calc(100% - 32px);
+  /* Add font smoothing for crisp text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Responsive design */
@@ -497,7 +578,7 @@
 }
 
 .highlight-item {
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   font-size: 8px;
   line-height: 1.2;
   color: #4b5563;
@@ -506,10 +587,14 @@
   border-radius: 2px;
   text-align: left;
   position: relative;
+  /* Add font smoothing for crisp text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .highlight-item:before {
-  content: '★';
+  content: "★";
   color: #fbbf24;
   font-weight: bold;
   margin-right: 4px;
@@ -528,12 +613,16 @@
   );
   border: 1px solid rgba(251, 146, 60, 0.3);
   border-radius: 6px;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   font-size: 9px;
   line-height: 1.4;
   color: #7c2d12;
   font-style: italic;
   text-align: center;
+  /* Add font smoothing for crisp text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Footer and copyright */
@@ -543,12 +632,16 @@
 }
 
 .vintage-copyright {
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   font-size: 5px;
   color: #9ca3af;
-  opacity: 0.6;
-  margin: 2px 0;
-  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+  /* Add font smoothing for crisp text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Responsive adjustments */
