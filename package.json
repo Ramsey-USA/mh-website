@@ -7,8 +7,6 @@
     "dev": "next dev",
     "dev:turbo": "next dev --turbo",
     "build": "next build",
-    "build:analyze": "ANALYZE=true npm run build",
-    "analyze": "ANALYZE=true npm run build",
     "start": "next start",
     "export": "next build && next export",
     "lint": "next lint",
@@ -16,16 +14,6 @@
     "type-check": "tsc --noEmit --project config/quality/tsconfig.json",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "test:unit": "jest --testPathPattern=__tests__",
-    "test:integration": "jest --testPathPattern=integration",
-    "test:e2e": "playwright test --config config/testing/playwright.config.ts",
-    "test:e2e:ui": "playwright test --ui --config config/testing/playwright.config.ts",
-    "test:all": "npm run test:unit && npm run test:integration && npm run test:e2e",
-    "test:ci": "jest --coverage --watchAll=false && playwright test --config config/testing/playwright.config.ts",
-    "test:smoke": "playwright test --grep=@smoke --config config/testing/playwright.config.ts",
     "firebase:deploy": "firebase deploy --config config/deployment/firebase.json",
     "firebase:emulate": "firebase emulators:start --config config/deployment/firebase.json",
     "bundle:size": "npm run build && du -sh .next/static/chunks/*.js | sort -hr | head -10",
@@ -94,91 +82,9 @@
     "web-vitals": "^5.1.0"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.8.2",
     "@eslint/eslintrc": "^3.3.1",
     "@lhci/cli": "^0.12.0",
-    "@next/bundle-analyzer": "^15.5.4",
-    "@playwright/test": "^1.40.1",
-    "@swc/jest": "^0.2.39",
-    "@testing-library/jest-dom": "^6.1.4",
-    "@testing-library/react": "^14.1.2",
-    "@testing-library/user-event": "^14.5.1",
-    "@types/jest": "^29.5.8",
-    "audit-ci": "^6.6.1",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "jest-junit": "^16.0.0",
     "lighthouse": "^12.8.2",
-    "markdownlint-cli2": "^0.18.1",
-    "msw": "^2.0.8",
-    "prettier": "^3.1.0",
-    "ts-jest": "^29.1.1",
-    "webpack-bundle-analyzer": "^4.10.2"
-  },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/test/setup.ts"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "<rootDir>"
-    ],
-    "moduleNameMapper": {
-      "^@/(.*)$": "<rootDir>/src/$1",
-      "^@/components/(.*)$": "<rootDir>/src/components/$1",
-      "^@/lib/(.*)$": "<rootDir>/src/lib/$1",
-      "^@/hooks/(.*)$": "<rootDir>/src/hooks/$1",
-      "^@/types/(.*)$": "<rootDir>/src/types/$1",
-      "^@/test/(.*)$": "<rootDir>/src/test/$1",
-      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
-    },
-    "transform": {
-      "^.+\\.(ts|tsx|js|jsx)$": "@swc/jest"
-    },
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{ts,tsx}",
-      "<rootDir>/src/**/*.{test,spec}.{ts,tsx}"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{ts,tsx}",
-      "!src/**/*.d.ts",
-      "!src/test/**/*",
-      "!src/stories/**/*",
-      "!**/*.stories.*",
-      "!src/app/**/layout.tsx",
-      "!src/app/**/page.tsx",
-      "!src/app/globals.css"
-    ],
-    "coverageDirectory": "coverage",
-    "coverageReporters": [
-      "text",
-      "lcov",
-      "html"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
-        "statements": 80
-      }
-    },
-    "testPathIgnorePatterns": [
-      "<rootDir>/.next/",
-      "<rootDir>/node_modules/",
-      "<rootDir>/e2e/"
-    ],
-    "transformIgnorePatterns": [
-      "node_modules/(?!(.*\\.mjs$))"
-    ]
+    "prettier": "^3.1.0"
   }
 }
