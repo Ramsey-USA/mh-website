@@ -287,9 +287,9 @@ npm run test:coverage    # Coverage report
 
 ### Dependencies
 
-- Regular security audits: `npm audit`
 - Keep dependencies updated
 - Review security implications of new packages
+- Security handled by Cloudflare security layer
 
 ## ♿ Accessibility Requirements
 

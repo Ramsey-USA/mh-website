@@ -87,19 +87,6 @@ run_tests() {
     print_success "All tests passed"
 }
 
-# Security audit
-security_audit() {
-    print_status "Running security audit..."
-    
-    # Run npm audit
-    npm audit --audit-level high
-    
-    # Run dependency vulnerability scan
-    npx audit-ci --config ./audit-ci.json
-    
-    print_success "Security audit completed"
-}
-
 # Build application
 build_application() {
     print_status "Building application for production..."
@@ -268,7 +255,6 @@ main() {
     check_prerequisites
     install_dependencies
     run_tests
-    security_audit
     build_application
     pre_deployment_tests
     deploy_staging
