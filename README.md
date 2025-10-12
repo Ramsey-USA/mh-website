@@ -502,12 +502,6 @@ npm run type-check      # TypeScript validation
 npm run firebase:deploy # Deploy to Firebase
 npm run firebase:emulate # Local Firebase emulators
 
-## Testing
-npm run test            # Run Jest tests
-npm run test:watch      # Watch mode testing
-npm run test:coverage   # Coverage reports
-```text
-
 ### Development Workflow
 
 1. Create feature branch:  `git checkout -b feature/name`

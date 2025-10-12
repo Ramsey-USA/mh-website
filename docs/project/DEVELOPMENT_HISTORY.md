@@ -63,7 +63,7 @@
 ### **Quality Assurance (Phase 7)**
 
 - Comprehensive testing framework
-- End-to-end testing with Playwright
+- Performance monitoring with Lighthouse
 - Performance monitoring systems
 - Production deployment pipeline
 

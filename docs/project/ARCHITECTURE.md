@@ -148,5 +148,5 @@ src/
 
 - **Component Library**: Reusable, documented components for rapid development
 - **Design System**: Comprehensive style guide with Figma integration
-- **Testing Strategy**: Unit, integration, and E2E testing with Playwright
+- **Testing Strategy**: Lighthouse performance monitoring and code quality checks
 - **CI/CD Pipeline**: Automated testing, building, and deployment workflows

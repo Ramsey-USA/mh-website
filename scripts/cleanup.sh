@@ -47,12 +47,6 @@ if [ -d "test-results" ]; then
     echo "   ✅ Cleaned test-results ($TEST_SIZE)"
 fi
 
-if [ -d "playwright-report" ]; then
-    PLAYWRIGHT_SIZE=$(check_size "playwright-report")
-    rm -rf playwright-report/*
-    echo "   ✅ Cleaned playwright-report ($PLAYWRIGHT_SIZE)"
-fi
-
 # Clean coverage reports
 echo "🔄 Cleaning coverage reports..."
 if [ -d "coverage" ]; then

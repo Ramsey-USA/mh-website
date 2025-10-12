@@ -102,7 +102,7 @@ docs/technical/
 - **Package Manager**: npm with optimized dependencies
 - **Code Quality**: ESLint and TypeScript strict mode
 - **Build Tools**: Next.js built-in optimization
-- **Testing**: Playwright for end-to-end testing
+- **Testing**: Lighthouse for performance monitoring
 
 ### 🔐 Security Standards
 
