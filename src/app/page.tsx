@@ -9,7 +9,6 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
-  PageHero,
 } from "../components/ui";
 // import { PortfolioImage } from '../components/portfolio/ProjectImage'
 import { PortfolioService } from "../lib/services/portfolioService";
@@ -130,11 +129,97 @@ export default function Home() {
       {/* Add structured data for SEO */}
       <StructuredData data={generateOrganizationStructuredData()} />
 
-      <PageHero
-        title="Your Partnership in Construction Excellence"
-        subtitle="We Work With You Every Step. Military Precision. Advanced Technology."
-        description="Partnering with Tri-Cities communities since 1995 - where veteran values meet collaborative construction management for extraordinary results."
-      />
+      {/* Home Page Hero Section */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="space-y-8">
+            {/* Main Title */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+                Your Partnership in Construction Excellence
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+              We Work With You Every Step. Military Precision. Advanced
+              Technology.
+            </p>
+
+            {/* Description */}
+            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+              Partnering with Tri-Cities communities since 1995 - where veteran
+              values meet collaborative construction management for
+              extraordinary results.
+            </p>
+
+            {/* Call to Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+              <Button
+                size="xl"
+                className="bg-brand-secondary hover:bg-brand-secondary/90 text-gray-900 font-bold"
+              >
+                <MaterialIcon icon="handshake" className="mr-3 w-7 h-7" />
+                Start Your Project
+              </Button>
+              <Button
+                variant="outline"
+                size="xl"
+                className="border-white text-white hover:bg-white hover:text-gray-900"
+              >
+                <MaterialIcon icon="visibility" className="mr-3 w-7 h-7" />
+                View Our Work
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Simple Navigation Bar at Bottom */}
+        <nav className="absolute bottom-0 left-0 right-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t-4 border-brand-primary">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-center py-4">
+              <div className="flex space-x-1 overflow-x-auto">
+                {[
+                  {
+                    href: "/booking",
+                    label: "Start Partnership",
+                    icon: "handshake",
+                  },
+                  { href: "/", label: "Home", icon: "home" },
+                  { href: "/about", label: "Our Story", icon: "info" },
+                  { href: "/services", label: "Services", icon: "build" },
+                  {
+                    href: "/projects",
+                    label: "Projects",
+                    icon: "photo_library",
+                  },
+                  { href: "/team", label: "Team", icon: "people" },
+                  { href: "/contact", label: "Contact", icon: "contact_phone" },
+                ].map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="group flex flex-col items-center hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 px-4 py-4 min-w-[80px] transition-colors duration-200 rounded-lg"
+                  >
+                    <MaterialIcon
+                      icon={item.icon}
+                      size="md"
+                      className="mb-1 text-gray-600 dark:text-gray-400 group-hover:text-brand-primary transition-colors duration-200"
+                    />
+                    <span className="text-xs text-gray-700 dark:text-gray-300 group-hover:text-brand-primary font-medium transition-colors duration-200">
+                      {item.label}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </nav>
+      </section>
 
       {/* Revolutionary Features Section */}
       <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-12 lg:py-16 features-section">

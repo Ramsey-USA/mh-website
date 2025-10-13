@@ -53,6 +53,14 @@
    ============================================ */
 
 @layer utilities {
+  /* Mobile viewport fixes */
+  .hero-section {
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile */
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
   /* Icon performance utilities */
   .icon-container {
     @apply flex items-center justify-center;

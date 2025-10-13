@@ -105,8 +105,8 @@ export default function RootLayout({
         <ThemeProvider defaultTheme="light" storageKey="mh-construction-theme">
           <AuthProvider>
             <GlobalChatbotProvider>
+              <Navigation />
               <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
-                <Navigation />
                 <main className="flex-grow">{children}</main>
                 <Footer />
               </div>

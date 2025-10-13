@@ -3,7 +3,7 @@
 // Optimized imports - only import what we need to reduce bundle size
 import { motion } from "framer-motion";
 import { useScroll, useTransform, useSpring, useInView } from "framer-motion";
-import { useRef, ReactNode } from "react";
+import { useRef, ReactNode, useState, useEffect } from "react";
 
 // Fade in animation variants
 export const fadeInVariants = {
@@ -116,16 +116,39 @@ export function FadeInWhenVisible({
   duration = 0.6,
 }: FadeInWhenVisibleProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  // Use more generous margin for mobile compatibility
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
+
+  // Always show content for elements that are initially visible
+  const [shouldForceShow, setShouldForceShow] = useState(false);
+  useEffect(() => {
+    // Check if element is initially in viewport
+    const checkInitialVisibility = () => {
+      if (ref.current) {
+        const rect = (ref.current as HTMLElement).getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          setShouldForceShow(true);
+        }
+      }
+    };
+
+    // Check immediately and after a short delay
+    checkInitialVisibility();
+    const timer = setTimeout(checkInitialVisibility, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const shouldShow = isInView || shouldForceShow;
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={shouldShow ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{
-        duration,
-        delay,
+        duration: shouldForceShow ? 0.3 : duration,
+        delay: shouldForceShow ? 0 : delay,
         ease: [0.25, 0.25, 0, 1],
       }}
       className={className}
@@ -176,7 +199,7 @@ export function StaggeredFadeIn({
   staggerDelay = 0.1,
 }: StaggeredFadeInProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "-10px" });
 
   return (
     <motion.div

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test Hero Visibility</title>
+    <style>
+        .test-hero {
+            height: 100vh;
+            height: 100dvh;
+            background: linear-gradient(45deg, #386851, #bd9264);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: system-ui;
+        }
+        .test-content {
+            text-align: center;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-hero">
+        <div class="test-content">
+            <h1>Test Hero Section</h1>
+            <p>This tests if hero sections display correctly</p>
+        </div>
+    </div>
+    <script>
+        console.log('Hero height:', document.querySelector('.test-hero').clientHeight);
+        console.log('Viewport height:', window.innerHeight);
+        console.log('Document height:', document.documentElement.clientHeight);
+    </script>
+</body>
+</html>

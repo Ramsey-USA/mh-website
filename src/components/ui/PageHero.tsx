@@ -33,7 +33,10 @@ export function PageHero({ title, subtitle, description }: PageHeroProps) {
   return (
     <>
       {/* Consistent Hero Section */}
-      <section className="relative h-screen overflow-hidden hero-section">
+      <section
+        className="relative min-h-screen h-screen overflow-hidden hero-section"
+        style={{ height: "100vh" }}
+      >
         {/* Video/Image Background Container */}
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-gray-900/80">
           {/* Future video element will go here */}

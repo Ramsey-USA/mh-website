@@ -18,27 +18,12 @@ export function ThemeToggle({
   compact = false,
 }: ThemeToggleProps) {
   const { theme, setTheme, isDarkMode } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
 
-  // Prevent hydration mismatch
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    // Return a placeholder during hydration
+  if (!theme) {
+    // Return a simple fallback if theme is not available
     return (
       <div className={`flex items-center ${className}`}>
-        <div
-          className={`
-            relative inline-flex items-center justify-center
-            ${size === "sm" ? "h-8 w-20" : size === "md" ? "h-10 w-24" : "h-12 w-28"} rounded-full
-            bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600
-            border-2 border-gray-300 dark:border-gray-500
-            transition-all duration-300 ease-in-out
-            animate-pulse
-          `}
-        />
+        <div className="bg-gray-200 rounded-full w-20 h-8 animate-pulse" />
       </div>
     );
   }
