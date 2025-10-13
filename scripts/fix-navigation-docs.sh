@@ -1,3 +1,10 @@
+#!/bin/bash
+
+# Fix line length issues in navigation documentation
+cd /workspaces/mh-website
+
+# Create temp files with corrected content
+cat > /tmp/nav_arch_fix.md << 'EOF'
 # Navigation Architecture Documentation
 
 ## Overview
@@ -22,6 +29,7 @@ purposes:
 
 #### **Category Structure**
 
+```
 Main Pages
 ├── Home
 ├── Team  
@@ -36,6 +44,7 @@ Services
 About
 ├── Company Profile
 ├── Service Overview
+```
 
 #### **Navigation Patterns**
 
@@ -217,3 +226,9 @@ All navigation configurations are centralized in
 
 *This document serves as the authoritative guide for navigation
 architecture and should be updated whenever navigation changes are made.*
+EOF
+
+# Apply the fixed content
+mv /tmp/nav_arch_fix.md docs/technical/NAVIGATION_ARCHITECTURE.md
+
+echo "Navigation architecture documentation fixed!"

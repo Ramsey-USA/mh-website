@@ -9,10 +9,12 @@
 ## 🎯 Quick Implementation Reference
 
 ### **Step 1: Understanding the System**
+
 - **Global Hamburger Menu**: Fixed position, universal navigation between pages
 - **Page Sectional Navigation**: Contextual navigation for page sections and related content
 
 ### **Step 2: Implementation Checklist**
+
 - [ ] Global hamburger menu is imported in `layout.tsx`
 - [ ] Page navigation is added after hero section on each page
 - [ ] Navigation config exists for each page in `navigationConfigs.ts`
@@ -464,12 +466,14 @@ const MaterialIcon = lazy(() => import('../icons/MaterialIcon'));
 ## 📚 References
 
 ### **Related Documentation**
+
 - **[Navigation Architecture](./NAVIGATION_ARCHITECTURE.md)** - System overview and design principles
 - **[Material Design Icons](https://fonts.google.com/icons)** - Icon reference
 - **[Component Documentation](../../src/components/README.md)** - Component API reference
 - **[Design System](./DESIGN_SYSTEM.md)** - Visual design standards
 
 ### **Code References**
+
 - **Navigation Component**: `/src/components/layout/Navigation.tsx`
 - **PageNavigation Component**: `/src/components/navigation/PageNavigation.tsx`
 - **Navigation Configs**: `/src/components/navigation/navigationConfigs.ts`
