@@ -22,7 +22,8 @@ const isProduction = process.env.NODE_ENV === "production";
 const hasValidConfig =
   process.env.NEXT_PUBLIC_FIREBASE_API_KEY &&
   process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID &&
-  process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID !== "demo-project";
+  process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID !== "demo-project" &&
+  process.env.NEXT_PUBLIC_FIREBASE_API_KEY !== "demo-api-key";
 
 // Firebase configuration with fallbacks for development
 const firebaseConfig = {
@@ -54,9 +55,12 @@ function initializeFirebase() {
   if (app) return app;
 
   try {
-    // Only initialize if we have valid config or we're in development
+    // Initialize Firebase even with fallback values if necessary
+    // Log warning in production if using fallback config
     if (!hasValidConfig && isProduction) {
-      throw new Error("Firebase configuration missing in production");
+      console.warn(
+        "[WARNING] Firebase: Using fallback configuration in production. Please set proper environment variables."
+      );
     }
 
     app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
@@ -65,7 +69,7 @@ function initializeFirebase() {
     auth = getAuth(app);
     db = getFirestore(app);
     storage = getStorage(app);
-    
+
     // Firebase Functions are not initialized in the client-side app
     // They should be called via API routes or server actions
     functions = null;
@@ -81,7 +85,7 @@ function initializeFirebase() {
         });
         connectFirestoreEmulator(db, "localhost", 8080);
         connectStorageEmulator(storage, "localhost", 9199);
-        
+
         // Functions emulator connection not needed for client-side app
       } catch {
         // Emulators not available or already connected
@@ -102,7 +106,13 @@ function initializeFirebase() {
 // Getter functions that initialize Firebase when needed
 export function getFirebaseAuth(): Auth {
   if (initializationError) {
-    throw initializationError;
+    console.warn(
+      "[WARNING] Firebase Auth initialization failed:",
+      initializationError
+    );
+    // Try to re-initialize once more
+    initializationError = null;
+    initializeFirebase();
   }
 
   if (!auth) {
@@ -110,7 +120,9 @@ export function getFirebaseAuth(): Auth {
   }
 
   if (!auth) {
-    throw new Error("Firebase Auth could not be initialized");
+    throw new Error(
+      "Firebase Auth could not be initialized - check environment variables"
+    );
   }
 
   return auth;
@@ -118,7 +130,13 @@ export function getFirebaseAuth(): Auth {
 
 export function getFirebaseDb(): Firestore {
   if (initializationError) {
-    throw initializationError;
+    console.warn(
+      "[WARNING] Firebase Firestore initialization failed:",
+      initializationError
+    );
+    // Try to re-initialize once more
+    initializationError = null;
+    initializeFirebase();
   }
 
   if (!db) {
@@ -126,7 +144,9 @@ export function getFirebaseDb(): Firestore {
   }
 
   if (!db) {
-    throw new Error("Firebase Firestore could not be initialized");
+    throw new Error(
+      "Firebase Firestore could not be initialized - check environment variables"
+    );
   }
 
   return db;
@@ -134,7 +154,13 @@ export function getFirebaseDb(): Firestore {
 
 export function getFirebaseStorage(): FirebaseStorage {
   if (initializationError) {
-    throw initializationError;
+    console.warn(
+      "[WARNING] Firebase Storage initialization failed:",
+      initializationError
+    );
+    // Try to re-initialize once more
+    initializationError = null;
+    initializeFirebase();
   }
 
   if (!storage) {
@@ -142,14 +168,18 @@ export function getFirebaseStorage(): FirebaseStorage {
   }
 
   if (!storage) {
-    throw new Error("Firebase Storage could not be initialized");
+    throw new Error(
+      "Firebase Storage could not be initialized - check environment variables"
+    );
   }
 
   return storage;
 }
 
 export function getFirebaseFunctions(): Functions {
-  throw new Error("Firebase Functions should be called via API routes, not directly from the client");
+  throw new Error(
+    "Firebase Functions should be called via API routes, not directly from the client"
+  );
 }
 
 // Legacy exports for backward compatibility
