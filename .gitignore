@@ -45,9 +45,13 @@ out/
 firebase-debug.log
 firestore-debug.log
 ui-debug.log
+storage-debug.log
 functions/node_modules/
 functions/lib/
+firebase/functions/node_modules/
+firebase/functions/lib/
 .firebase/
+.firebaserc.bak
 
 # IDE
 .vscode/
@@ -62,3 +66,20 @@ docs/.naming-backup-*/
 
 # OS
 Thumbs.db
+
+# Test results and reports
+test-results/
+playwright-report/
+coverage/
+*.lcov
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Package manager locks (consider excluding to prevent bloat)
+# Uncomment if you want to exclude lock files from version control
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
