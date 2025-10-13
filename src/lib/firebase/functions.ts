@@ -23,7 +23,7 @@ export class FirebaseFunctionsClient {
   ): Promise<T> {
     const { requireAuth = false, timeout = 30000 } = options;
 
-    let headers: HeadersInit = {
+    const headers: HeadersInit = {
       "Content-Type": "application/json",
     };
 
