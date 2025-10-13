@@ -29,7 +29,9 @@
     "validate:links": "bash scripts/validate-markdown-links.sh",
     "analyze:content": "bash scripts/analyze-content-quality.sh",
     "format:advanced": "bash scripts/advanced-markdown-formatting.sh",
-    "review:backups": "bash scripts/review-backups.sh"
+    "review:backups": "bash scripts/review-backups.sh",
+    "cspell:sync-db": "node scripts/add-cspell-words-to-db.js",
+    "cspell:sync-db:ts": "tsx src/lib/utils/cspell-database.ts"
   },
   "keywords": [
     "construction",
@@ -85,6 +87,7 @@
     "@eslint/eslintrc": "^3.3.1",
     "@lhci/cli": "^0.12.0",
     "lighthouse": "^12.8.2",
+    "markdownlint-cli2": "^0.18.1",
     "prettier": "^3.1.0"
   }
 }

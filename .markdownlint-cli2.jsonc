@@ -55,11 +55,16 @@
     "MD047": true, // Files should end with newline
     "MD048": true, // Code fence style
     "MD049": true, // Emphasis style
-    "MD050": true // Strong style
+    "MD050": true  // Strong style
   },
 
   // Files to lint
-  "globs": ["**/*.md", "!node_modules/**", "!.git/**"],
+  "globs": [
+    "**/*.md",
+    "!node_modules/**",
+    "!firebase/functions/node_modules/**",
+    "!.git/**"
+  ],
 
   // Fix what can be auto-fixed
   "fix": false

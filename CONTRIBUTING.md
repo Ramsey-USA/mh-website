@@ -53,11 +53,12 @@ Git
    npm install
    ```
 
-3. **Environment setup**
+3. **Environment setup** (✅ Firebase Active)
 
    ```bash
    cp .env.example .env.local
-   # Add your Firebase configuration to .env.local
+   # Firebase configuration is already active in .env.local
+   # Project: mhc-gc-website (Live Firebase project)
    ```
 
 4. **Start development server**
@@ -279,11 +280,12 @@ npm run test:coverage    # Coverage report
 - Use `NEXT_PUBLIC_` prefix for client-side variables
 - Store sensitive data in secure environment management
 
-### Firebase Security
+### Firebase Security (✅ Active & Configured)
 
-- Follow Firebase Security Rules best practices
-- Validate all user inputs
-- Implement proper authentication checks
+- ✅ **Security Rules Deployed**: Firestore and Storage rules active
+- ✅ **Authentication Checks**: Role-based access control implemented
+- ✅ **Input Validation**: All user inputs properly validated
+- ✅ **Production Ready**: Security rules tested and deployed
 
 ### Dependencies
 
@@ -350,18 +352,24 @@ docs/
 - [ ] Environment variables configured
 - [ ] Performance metrics within targets
 
-### Deployment Commands
+### Deployment Commands (✅ Firebase Integration Active)
 
 ```bash
 # Production build
 npm run build
 
-# Deploy to Firebase
+# Full Firebase deployment (all services)
 firebase deploy
 
-# Specific deployments
-firebase deploy --only hosting
-firebase deploy --only firestore:rules
+# Specific service deployments
+firebase deploy --only hosting        # Static site hosting
+firebase deploy --only firestore:rules # Database security rules
+firebase deploy --only functions      # Cloud Functions API
+firebase deploy --only storage        # File storage rules
+
+# NPM scripts for convenience
+npm run firebase:deploy   # Deploy all services
+npm run firebase:emulate  # Local development with emulators
 ```text
 
 ## 🐛 Bug Reports
