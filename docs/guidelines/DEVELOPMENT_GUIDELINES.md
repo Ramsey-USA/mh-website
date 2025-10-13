@@ -358,41 +358,20 @@ All cards showing additional information must utilize card flipping animations t
 
 All Hero sections across the website must follow the current state of the home page hero section to maintain visual consistency and professional branding.
 
-#### ✅ STANDARD HERO IMPLEMENTATION
+#### ✅ UPDATED HERO IMPLEMENTATION
 
-```tsx
-// ✅ Required hero structure using PageHero component
-<PageHero
-  title="Page Title Here"
-  subtitle="Supporting subtitle that explains the page focus"
-  description="Detailed description providing context and value proposition for the visitor."
-/>
-```text
+**Note:** The standalone `PageHero` component has been removed. Hero sections are now integrated into each page's layout.
 
-#### PageHero Component Features
-
-- **Full-screen height**: `h-screen` for impactful presence
-- **Video/background support**: Ready for future video background integration
+- Hero content is integrated with the transparent header design
+- Each page implements its own hero section as needed
+- Content spacing remains consistent (py-16 lg:py-24 for standard sections)
+- The home page features a dedicated custom hero implementation
 - **Gradient overlay**: Professional dark overlay for text readability
 - **Responsive typography**: Scales from mobile to desktop seamlessly
 - **Navigation integration**: Bottom navigation bar for site-wide navigation
 - **Animation support**: Built-in `FadeInWhenVisible` animations
 
 #### Required Hero Structure
-
-```tsx
-// Current implementation pattern
-interface PageHeroProps {
-  title: string      // Main page title
-  subtitle: string   // Supporting context
-  description: string // Detailed value proposition
-}
-
-// Typography hierarchy
-title: "text-4xl sm:text-5xl md:text-6xl lg:text-7xl" // Large, bold statement
-subtitle: "text-xl sm:text-2xl md:text-3xl" // Supporting context
-description: "text-lg md:text-xl" // Detailed explanation
-```text
 
 #### Hero Content Guidelines
 
@@ -405,15 +384,10 @@ description: "text-lg md:text-xl" // Detailed explanation
 #### ❌ PROHIBITED HERO VARIATIONS
 
 ```tsx
-// ❌ Don't create custom hero layouts
+// ❌ Don't create inconsistent hero layouts
 <section className="custom-hero-different-height">
-  {/* Custom implementation */}
+  {/* Inconsistent spacing and styling */}
 </section>
-
-// ❌ Don't skip the PageHero component
-<div className="py-20 bg-gray-900">
-  <h1>Direct Title Without Component</h1>
-</div>
 
 // ❌ Don't use different typography scales
 <h1 className="text-2xl">Small Title</h1> // Too small
@@ -457,16 +431,12 @@ description: "text-lg md:text-xl" // Detailed explanation
 </div>
 ```text
 
-### **✅ HERO SECTIONS** (Consistent Pattern)
+### **✅ HERO SECTIONS** (Integrated Pattern)
 
-```tsx
-// ✅ Required PageHero component
-<PageHero
-  title="Clear Page Identifier"
-  subtitle="Supporting context"
-  description="Detailed value proposition"
-/>
-```text
+Hero sections are now integrated into each page's layout with consistent spacing and styling:
+- Standard section padding: `py-16 lg:py-24`
+- Typography follows brand hierarchy
+- Content integrates with transparent header designtext
 
 ### **❌ PROHIBITED PATTERNS**
 

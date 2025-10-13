@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
-  PageHero,
 } from "../../components/ui";
 import { MaterialIcon } from "../../components/icons/MaterialIcon";
 import {
@@ -268,11 +267,37 @@ export default function GovernmentGrantsPage() {
 
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-      <PageHero
-        title="Government & Grant Projects"
-        subtitle="Expert Construction Support for Federal, State, and Local Grant Applications"
-        description="MH Construction provides the detailed, verified construction documentation you need to maximize your grant application success. From DOE projects to community facilities, we deliver military-grade precision for government work."
-      />
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="space-y-8">
+            {/* Main Title */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+                Government & Grant Projects
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+              Expert Construction Support for Federal, State, and Local Grant
+              Applications
+            </p>
+
+            {/* Description */}
+            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+              MH Construction provides the detailed, verified construction
+              documentation you need to maximize your grant application success.
+              From DOE projects to community facilities, we deliver
+              military-grade precision for government work.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Veteran-Owned Badge Section */}
       <section className="bg-gradient-to-r from-gray-800 to-black py-8 text-white">

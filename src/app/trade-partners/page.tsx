@@ -1,253 +1,276 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import Link from 'next/link'
+import React, { useState } from "react";
+import Link from "next/link";
 import {
   Button,
   Card,
   CardHeader,
   CardTitle,
   CardContent,
-  PageHero,
-} from '../../components/ui'
-import { MaterialIcon } from '../../components/icons/MaterialIcon'
+} from "../../components/ui";
+import { MaterialIcon } from "../../components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from '../../components/animations/FramerMotionComponents'
+} from "../../components/animations/FramerMotionComponents";
 
 // Trade Partner Categories
 const partnerCategories = [
   {
-    category: 'Electrical Contractors',
-    icon: 'electrical_services',
+    category: "Electrical Contractors",
+    icon: "electrical_services",
     description:
-      'Licensed electrical professionals providing safe, code-compliant installations',
+      "Licensed electrical professionals providing safe, code-compliant installations",
     partners: [
       {
-        name: 'Pacific Northwest Electric',
-        specialty: 'Commercial & Industrial Electrical',
-        yearsWorking: '8+ years',
-        location: 'Tri-Cities, WA',
+        name: "Pacific Northwest Electric",
+        specialty: "Commercial & Industrial Electrical",
+        yearsWorking: "8+ years",
+        location: "Tri-Cities, WA",
         description:
-          'Specializing in high-voltage commercial installations and industrial electrical systems.',
+          "Specializing in high-voltage commercial installations and industrial electrical systems.",
       },
       {
-        name: 'Columbia Basin Electrical',
-        specialty: 'Residential & Light Commercial',
-        yearsWorking: '5+ years',
-        location: 'Pasco, WA',
+        name: "Columbia Basin Electrical",
+        specialty: "Residential & Light Commercial",
+        yearsWorking: "5+ years",
+        location: "Pasco, WA",
         description:
-          'Expert residential electrical work and light commercial electrical installations.',
+          "Expert residential electrical work and light commercial electrical installations.",
       },
     ],
   },
   {
-    category: 'Plumbing Contractors',
-    icon: 'plumbing',
+    category: "Plumbing Contractors",
+    icon: "plumbing",
     description:
-      'Expert plumbing professionals for all water, sewer, and gas line needs',
+      "Expert plumbing professionals for all water, sewer, and gas line needs",
     partners: [
       {
-        name: 'Tri-Cities Plumbing Solutions',
-        specialty: 'Commercial Plumbing Systems',
-        yearsWorking: '6+ years',
-        location: 'Richland, WA',
+        name: "Tri-Cities Plumbing Solutions",
+        specialty: "Commercial Plumbing Systems",
+        yearsWorking: "6+ years",
+        location: "Richland, WA",
         description:
-          'Commercial plumbing specialists with expertise in large-scale water and sewer systems.',
+          "Commercial plumbing specialists with expertise in large-scale water and sewer systems.",
       },
       {
-        name: 'Desert Plumbing & Heating',
-        specialty: 'HVAC & Plumbing Integration',
-        yearsWorking: '4+ years',
-        location: 'Kennewick, WA',
+        name: "Desert Plumbing & Heating",
+        specialty: "HVAC & Plumbing Integration",
+        yearsWorking: "4+ years",
+        location: "Kennewick, WA",
         description:
-          'Combined plumbing and HVAC services for comprehensive building system solutions.',
+          "Combined plumbing and HVAC services for comprehensive building system solutions.",
       },
     ],
   },
   {
-    category: 'HVAC Specialists',
-    icon: 'hvac',
+    category: "HVAC Specialists",
+    icon: "hvac",
     description:
-      'Climate control experts ensuring comfortable, efficient building environments',
+      "Climate control experts ensuring comfortable, efficient building environments",
     partners: [
       {
-        name: 'Columbia River HVAC',
-        specialty: 'Commercial Climate Systems',
-        yearsWorking: '7+ years',
-        location: 'Tri-Cities, WA',
+        name: "Columbia River HVAC",
+        specialty: "Commercial Climate Systems",
+        yearsWorking: "7+ years",
+        location: "Tri-Cities, WA",
         description:
-          'Large-scale commercial HVAC installations and energy-efficient climate solutions.',
+          "Large-scale commercial HVAC installations and energy-efficient climate solutions.",
       },
       {
-        name: 'Valley Air Systems',
-        specialty: 'Industrial HVAC Solutions',
-        yearsWorking: '5+ years',
-        location: 'Pasco, WA',
+        name: "Valley Air Systems",
+        specialty: "Industrial HVAC Solutions",
+        yearsWorking: "5+ years",
+        location: "Pasco, WA",
         description:
-          'Industrial-grade heating, ventilation, and air conditioning for specialized facilities.',
+          "Industrial-grade heating, ventilation, and air conditioning for specialized facilities.",
       },
     ],
   },
   {
-    category: 'Concrete & Masonry',
-    icon: 'foundation',
+    category: "Concrete & Masonry",
+    icon: "foundation",
     description:
-      'Foundation and structural concrete experts building solid foundations',
+      "Foundation and structural concrete experts building solid foundations",
     partners: [
       {
-        name: 'Northwest Concrete Works',
-        specialty: 'Foundation & Structural Concrete',
-        yearsWorking: '10+ years',
-        location: 'Tri-Cities, WA',
+        name: "Northwest Concrete Works",
+        specialty: "Foundation & Structural Concrete",
+        yearsWorking: "10+ years",
+        location: "Tri-Cities, WA",
         description:
-          'Premier concrete contractors specializing in foundations, slabs, and structural elements.',
+          "Premier concrete contractors specializing in foundations, slabs, and structural elements.",
       },
       {
-        name: 'Columbia Masonry',
-        specialty: 'Decorative & Structural Masonry',
-        yearsWorking: '6+ years',
-        location: 'Richland, WA',
+        name: "Columbia Masonry",
+        specialty: "Decorative & Structural Masonry",
+        yearsWorking: "6+ years",
+        location: "Richland, WA",
         description:
-          'Expert masonry work including brick, block, and stone for both aesthetic and structural applications.',
+          "Expert masonry work including brick, block, and stone for both aesthetic and structural applications.",
       },
     ],
   },
   {
-    category: 'Roofing Specialists',
-    icon: 'roofing',
+    category: "Roofing Specialists",
+    icon: "roofing",
     description:
-      'Professional roofing contractors protecting every project from the elements',
+      "Professional roofing contractors protecting every project from the elements",
     partners: [
       {
-        name: 'Pacific Roofing Solutions',
-        specialty: 'Commercial & Industrial Roofing',
-        yearsWorking: '9+ years',
-        location: 'Tri-Cities, WA',
+        name: "Pacific Roofing Solutions",
+        specialty: "Commercial & Industrial Roofing",
+        yearsWorking: "9+ years",
+        location: "Tri-Cities, WA",
         description:
-          'Commercial roofing specialists with expertise in flat, metal, and specialty roofing systems.',
+          "Commercial roofing specialists with expertise in flat, metal, and specialty roofing systems.",
       },
       {
-        name: 'Desert Shield Roofing',
-        specialty: 'Weather-Resistant Systems',
-        yearsWorking: '4+ years',
-        location: 'Pasco, WA',
+        name: "Desert Shield Roofing",
+        specialty: "Weather-Resistant Systems",
+        yearsWorking: "4+ years",
+        location: "Pasco, WA",
         description:
-          'Specialized in durable roofing solutions designed for the Pacific Northwest climate.',
+          "Specialized in durable roofing solutions designed for the Pacific Northwest climate.",
       },
     ],
   },
   {
-    category: 'Material Suppliers',
-    icon: 'local_shipping',
+    category: "Material Suppliers",
+    icon: "local_shipping",
     description:
-      'Reliable suppliers providing quality materials for every construction need',
+      "Reliable suppliers providing quality materials for every construction need",
     partners: [
       {
-        name: 'Columbia Building Supply',
-        specialty: 'Lumber & Building Materials',
-        yearsWorking: '12+ years',
-        location: 'Tri-Cities, WA',
+        name: "Columbia Building Supply",
+        specialty: "Lumber & Building Materials",
+        yearsWorking: "12+ years",
+        location: "Tri-Cities, WA",
         description:
-          'Full-service building supply with lumber, hardware, and construction materials.',
+          "Full-service building supply with lumber, hardware, and construction materials.",
       },
       {
-        name: 'Northwest Steel & Supply',
-        specialty: 'Structural Steel & Metal',
-        yearsWorking: '8+ years',
-        location: 'Richland, WA',
+        name: "Northwest Steel & Supply",
+        specialty: "Structural Steel & Metal",
+        yearsWorking: "8+ years",
+        location: "Richland, WA",
         description:
-          'Industrial steel supplier providing structural steel, metal fabrication, and welding materials.',
+          "Industrial steel supplier providing structural steel, metal fabrication, and welding materials.",
       },
     ],
   },
-]
+];
 
 // Partnership values
 const partnershipValues = [
   {
-    icon: 'handshake',
-    title: 'Mutual Respect',
+    icon: "handshake",
+    title: "Mutual Respect",
     description:
-      'We treat our trade partners as valued team members, fostering relationships built on trust and professional respect.',
-    color: 'from-brand-primary to-brand-primary-dark',
+      "We treat our trade partners as valued team members, fostering relationships built on trust and professional respect.",
+    color: "from-brand-primary to-brand-primary-dark",
   },
   {
-    icon: 'schedule',
-    title: 'Reliable Scheduling',
+    icon: "schedule",
+    title: "Reliable Scheduling",
     description:
-      'Clear communication and dependable scheduling ensure our partners can plan effectively and deliver quality work.',
-    color: 'from-brand-secondary to-brand-secondary-dark',
+      "Clear communication and dependable scheduling ensure our partners can plan effectively and deliver quality work.",
+    color: "from-brand-secondary to-brand-secondary-dark",
   },
   {
-    icon: 'payments',
-    title: 'Fair & Prompt Payment',
+    icon: "payments",
+    title: "Fair & Prompt Payment",
     description:
       "We believe in fair compensation and prompt payment schedules that support our partners' business success.",
-    color: 'from-brand-accent to-brand-accent-dark',
+    color: "from-brand-accent to-brand-accent-dark",
   },
   {
-    icon: 'support',
-    title: 'Collaborative Support',
+    icon: "support",
+    title: "Collaborative Support",
     description:
-      'Working together to solve challenges and achieve exceptional results for every project.',
-    color: 'from-brand-primary-light to-brand-primary',
+      "Working together to solve challenges and achieve exceptional results for every project.",
+    color: "from-brand-primary-light to-brand-primary",
   },
-]
+];
 
 // Partnership benefits
 const partnershipBenefits = [
   {
-    icon: 'trending_up',
-    title: 'Steady Work Opportunities',
+    icon: "trending_up",
+    title: "Steady Work Opportunities",
     description:
-      'Consistent project pipeline providing reliable business opportunities for established partners.',
+      "Consistent project pipeline providing reliable business opportunities for established partners.",
   },
   {
-    icon: 'groups',
-    title: 'Professional Network',
+    icon: "groups",
+    title: "Professional Network",
     description:
-      'Access to our network of trusted professionals and potential collaboration opportunities.',
+      "Access to our network of trusted professionals and potential collaboration opportunities.",
   },
   {
-    icon: 'verified',
-    title: 'Quality Standards',
+    icon: "verified",
+    title: "Quality Standards",
     description:
-      'Clear expectations and quality standards that help partners deliver their best work.',
+      "Clear expectations and quality standards that help partners deliver their best work.",
   },
   {
-    icon: 'school',
-    title: 'Knowledge Sharing',
+    icon: "school",
+    title: "Knowledge Sharing",
     description:
-      'Collaborative learning environment where we share best practices and industry insights.',
+      "Collaborative learning environment where we share best practices and industry insights.",
   },
   {
-    icon: 'security',
-    title: 'Insurance Support',
+    icon: "security",
+    title: "Insurance Support",
     description:
-      'Guidance on insurance requirements and support in meeting project-specific coverage needs.',
+      "Guidance on insurance requirements and support in meeting project-specific coverage needs.",
   },
   {
-    icon: 'workspace_premium',
-    title: 'Professional Growth',
+    icon: "workspace_premium",
+    title: "Professional Growth",
     description:
-      'Opportunities to work on diverse, challenging projects that enhance skills and capabilities.',
+      "Opportunities to work on diverse, challenging projects that enhance skills and capabilities.",
   },
-]
+];
 
 export default function TradePartnersPage() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       {/* Hero Section */}
-      <PageHero
-        title="Our Trade Partners"
-        subtitle="Building Excellence Together"
-        description="MH Construction succeeds because of our exceptional trade partners. We're grateful for the skilled subcontractors and reliable vendors who help us deliver outstanding results on every project."
-      />
+      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="space-y-8">
+            {/* Main Title */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+                Our Trade Partners
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+              Building Excellence Together
+            </p>
+
+            {/* Description */}
+            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+              MH Construction succeeds because of our exceptional trade
+              partners. We're grateful for the skilled subcontractors and
+              reliable vendors who help us deliver outstanding results on every
+              project.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl">
         {/* Partnership Philosophy */}
@@ -257,7 +280,7 @@ export default function TradePartnersPage() {
               <h2 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                 <span className="text-gray-700 dark:text-gray-300">
                   Partnership
-                </span>{' '}
+                </span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                   Philosophy
                 </span>
@@ -308,7 +331,7 @@ export default function TradePartnersPage() {
               <h2 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                 <span className="text-gray-700 dark:text-gray-300">
                   Our Trade Partner
-                </span>{' '}
+                </span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                   Network
                 </span>
@@ -397,7 +420,7 @@ export default function TradePartnersPage() {
               <h2 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                 <span className="text-gray-700 dark:text-gray-300">
                   Partnership
-                </span>{' '}
+                </span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                   Benefits
                 </span>
@@ -449,7 +472,7 @@ export default function TradePartnersPage() {
               <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                 <span className="text-gray-700 dark:text-gray-300">
                   Interested in Partnering
-                </span>{' '}
+                </span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                   With Us?
                 </span>
@@ -490,5 +513,5 @@ export default function TradePartnersPage() {
         </section>
       </div>
     </div>
-  )
+  );
 }

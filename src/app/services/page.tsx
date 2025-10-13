@@ -8,14 +8,15 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
-  PageHero,
 } from "../../components/ui";
 import { MaterialIcon } from "../../components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from "../../components/animations/FramerMotionComponents";
+} from "../../components/animations/DynamicAnimations";
+import { PageNavigation } from "../../components/navigation/PageNavigation";
+import { navigationConfigs } from "../../components/navigation/navigationConfigs";
 
 // Core Services Data
 const coreServices = [
@@ -260,11 +261,40 @@ const whyChooseUs = [
 export default function ServicesPage() {
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-      <PageHero
-        title="Our Partnership Approach"
-        subtitle="Collaborative Construction Management in the Pacific Northwest"
-        description="Tri-Cities Headquarters: Pasco, WA | Partnership Area: Washington, Oregon, Idaho"
-      />
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="space-y-8">
+            {/* Main Title */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+                Our Partnership Approach
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+              Collaborative Construction Management in the Pacific Northwest
+            </p>
+
+            {/* Description */}
+            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+              Tri-Cities Headquarters: Pasco, WA | Partnership Area: Washington,
+              Oregon, Idaho
+            </p>
+          </div>
+        </div>
+
+        {/* Page-Specific Navigation Bar */}
+        <PageNavigation
+          items={navigationConfigs.services}
+          className="absolute bottom-0 left-0 right-0"
+        />
+      </section>
 
       {/* Construction Expertise Section */}
       <section className="bg-white dark:bg-gray-900 py-16">
@@ -315,7 +345,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Core Services Section */}
-      <section className="bg-gray-50 dark:bg-gray-800 py-16">
+      <section id="core-services" className="bg-gray-50 dark:bg-gray-800 py-16">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
@@ -338,6 +368,10 @@ export default function ServicesPage() {
             {coreServices.map((service, index) => (
               <Card
                 key={index}
+                id={service.title
+                  .toLowerCase()
+                  .replace(/[^a-z0-9]+/g, "-")
+                  .replace(/(^-|-$)/g, "")}
                 className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
               >
                 <CardHeader className="flex-shrink-0">

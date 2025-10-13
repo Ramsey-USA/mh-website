@@ -8,14 +8,15 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
-  PageHero,
 } from "../../components/ui";
 import { MaterialIcon } from "../../components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from "../../components/animations/FramerMotionComponents";
+} from "../../components/animations/DynamicAnimations";
+import { PageNavigation } from "../../components/navigation/PageNavigation";
+import { navigationConfigs } from "../../components/navigation/navigationConfigs";
 import { PortfolioService } from "../../lib/services/portfolioService";
 import { OptimizedImage } from "../../components/ui/OptimizedImage";
 
@@ -113,11 +114,42 @@ export default function ProjectsPage() {
 
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-      <PageHero
-        title="Our Partnership Success Stories"
-        subtitle="Building Excellence Together Across the Pacific Northwest"
-        description="Explore our comprehensive portfolio showcasing decades of collaborative partnerships, innovative construction solutions, and unwavering commitment to client success throughout the Tri-Cities area."
-      />
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="space-y-8">
+            {/* Main Title */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+                Our Partnership Success Stories
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+              Building Excellence Together Across the Pacific Northwest
+            </p>
+
+            {/* Description */}
+            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+              Explore our comprehensive portfolio showcasing decades of
+              collaborative partnerships, innovative construction solutions, and
+              unwavering commitment to client success throughout the Tri-Cities
+              area.
+            </p>
+          </div>
+        </div>
+
+        {/* Page-Specific Navigation Bar */}
+        <PageNavigation
+          items={navigationConfigs.projects}
+          className="absolute bottom-0 left-0 right-0"
+        />
+      </section>
 
       {/* Project Stats */}
       <section
@@ -167,7 +199,10 @@ export default function ProjectsPage() {
       </section>
 
       {/* Veteran-Owned Benefits */}
-      <section className="bg-gradient-to-r from-[#386851]/10 dark:from-[#386851]/20 to-brand-primary/5 dark:to-brand-primary/10 py-12">
+      <section
+        id="veteran-owned"
+        className="bg-gradient-to-r from-[#386851]/10 dark:from-[#386851]/20 to-brand-primary/5 dark:to-brand-primary/10 py-12"
+      >
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="flex md:flex-row flex-col justify-center items-center gap-8 mx-auto max-w-4xl">
@@ -282,7 +317,10 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="bg-white dark:bg-gray-900 py-16 lg:py-24">
+      <section
+        id="portfolio"
+        className="bg-white dark:bg-gray-900 py-16 lg:py-24"
+      >
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-12 text-center">

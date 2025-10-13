@@ -4,7 +4,6 @@ import React from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import {
-  PageHero,
   Card,
   CardHeader,
   CardTitle,
@@ -93,11 +92,35 @@ export default function EstimatorPage() {
       />
 
       {/* Hero Section */}
-      <PageHero
-        title="Partnership Cost Estimator"
-        subtitle="Get instant, accurate cost estimates through our collaborative AI technology"
-        description="Revolutionary AI technology delivers precise construction estimates in minutes, not days. Backed by 30+ years of Pacific Northwest partnership experience."
-      />
+      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="space-y-8">
+            {/* Main Title */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+                Partnership Cost Estimator
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+              Get instant, accurate cost estimates through our collaborative AI
+              technology
+            </p>
+
+            {/* Description */}
+            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+              Revolutionary AI technology delivers precise construction
+              estimates in minutes, not days. Backed by 30+ years of Pacific
+              Northwest partnership experience.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Key Differences Banner */}
       <section className="bg-gradient-to-r from-blue-50 to-indigo-50 py-12">

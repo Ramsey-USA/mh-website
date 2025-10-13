@@ -198,21 +198,12 @@ title: 'Update 🎯'
 
 #### 🦸 **HERO SECTION CONSISTENCY REQUIREMENT**
 
-**ENFORCED STANDARD:** All hero sections must follow the home page pattern using the `PageHero` component.
+**UPDATED STANDARD:** Hero sections have been integrated into each page's layout and no longer use the standalone `PageHero` component.
 
-```tsx
-// ✅ REQUIRED - Standard hero implementation
-<PageHero
-  title="Clear Page Identifier"
-  subtitle="Supporting context or value proposition"
-  description="Detailed explanation of page purpose and visitor benefits."
-/>
-
-// ❌ PROHIBITED - Custom hero variations
-<section className="custom-hero-layout py-20">
-  <h1>Custom Title Implementation</h1>
-</section>
-```text
+- Each page now implements its own custom hero section
+- Heroes are integrated with the new transparent header design
+- Content spacing and styling remain consistent across pages
+- The home page features a dedicated hero implementation
 
 **Essential CSS Classes for Card Flipping:**
 

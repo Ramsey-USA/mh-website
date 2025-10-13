@@ -12,4 +12,3 @@ export { Input, Textarea } from "./Input";
 export { ThemeToggle } from "./ThemeToggle";
 export { QuickBookingModal } from "./QuickBookingModal";
 export { JobApplicationModal } from "./JobApplicationModal";
-export { PageHero } from "./PageHero";

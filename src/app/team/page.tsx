@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { PageHero, Button } from "../../components/ui";
+import { Button } from "../../components/ui";
 import { VintageBaseballCard } from "../../components/ui/VintageBaseballCard";
 import {
   FadeInWhenVisible,
@@ -42,11 +42,36 @@ export default function TeamPage() {
 
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
-      <PageHero
-        title="Our Team"
-        subtitle="Meet the partnership team behind MH Construction"
-        description="Discover your dedicated partners through authentic vintage-style trading cards. Click on any card to flip it and explore professional statistics, career highlights, and personal stories of the team working with you."
-      />
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="space-y-8">
+            {/* Main Title */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+                Our Team
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+              Meet the partnership team behind MH Construction
+            </p>
+
+            {/* Description */}
+            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+              Discover your dedicated partners through authentic vintage-style
+              trading cards. Click on any card to flip it and explore
+              professional statistics, career highlights, and personal stories
+              of the team working with you.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <div className="bg-gray-50 dark:bg-gray-900 py-16">
         <div className="mx-auto px-4 max-w-7xl">

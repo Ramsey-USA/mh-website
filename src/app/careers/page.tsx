@@ -1,204 +1,226 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import Link from 'next/link'
+import React, { useState } from "react";
+import Link from "next/link";
 import {
   Button,
   Card,
   CardHeader,
   CardTitle,
   CardContent,
-  PageHero,
   JobApplicationModal,
-} from '../../components/ui'
-import { MaterialIcon } from '../../components/icons/MaterialIcon'
+} from "../../components/ui";
+import { MaterialIcon } from "../../components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from '../../components/animations/FramerMotionComponents'
+} from "../../components/animations/FramerMotionComponents";
 
 // Available positions
 const openPositions = [
   {
-    title: 'Project Manager',
-    department: 'Construction Management',
-    location: 'Pasco, WA',
-    type: 'Full-time',
-    experience: '3-5 years',
+    title: "Project Manager",
+    department: "Construction Management",
+    location: "Pasco, WA",
+    type: "Full-time",
+    experience: "3-5 years",
     description:
-      'Lead construction projects from inception to completion, managing timelines, budgets, and client relationships.',
+      "Lead construction projects from inception to completion, managing timelines, budgets, and client relationships.",
     requirements: [
       "Bachelor's degree in Construction Management or related field",
-      '3+ years of project management experience',
-      'Strong communication and leadership skills',
-      'Knowledge of construction codes and regulations',
-      'PMP certification preferred',
+      "3+ years of project management experience",
+      "Strong communication and leadership skills",
+      "Knowledge of construction codes and regulations",
+      "PMP certification preferred",
     ],
     benefits: [
-      'Competitive salary with performance bonuses',
-      'Health, dental, and vision insurance',
-      'Retirement plan with company matching',
-      'Professional development opportunities',
+      "Competitive salary with performance bonuses",
+      "Health, dental, and vision insurance",
+      "Retirement plan with company matching",
+      "Professional development opportunities",
     ],
   },
   {
-    title: 'Site Supervisor',
-    department: 'Field Operations',
-    location: 'Tri-Cities Area',
-    type: 'Full-time',
-    experience: '5+ years',
+    title: "Site Supervisor",
+    department: "Field Operations",
+    location: "Tri-Cities Area",
+    type: "Full-time",
+    experience: "5+ years",
     description:
-      'Oversee daily construction activities, ensure safety compliance, and coordinate with subcontractors.',
+      "Oversee daily construction activities, ensure safety compliance, and coordinate with subcontractors.",
     requirements: [
-      '5+ years of construction supervision experience',
-      'OSHA 30 certification required',
-      'Strong problem-solving abilities',
-      'Experience with commercial construction',
+      "5+ years of construction supervision experience",
+      "OSHA 30 certification required",
+      "Strong problem-solving abilities",
+      "Experience with commercial construction",
       "Valid driver's license and reliable transportation",
     ],
     benefits: [
-      'Competitive hourly rate with overtime opportunities',
-      'Company vehicle and equipment provided',
-      'Health insurance package',
-      'Safety incentive programs',
+      "Competitive hourly rate with overtime opportunities",
+      "Company vehicle and equipment provided",
+      "Health insurance package",
+      "Safety incentive programs",
     ],
   },
   {
-    title: 'Estimator',
-    department: 'Pre-Construction',
-    location: 'Pasco, WA (Remote flexibility)',
-    type: 'Full-time',
-    experience: '2-4 years',
+    title: "Estimator",
+    department: "Pre-Construction",
+    location: "Pasco, WA (Remote flexibility)",
+    type: "Full-time",
+    experience: "2-4 years",
     description:
-      'Prepare accurate cost estimates for commercial and residential projects using industry software.',
+      "Prepare accurate cost estimates for commercial and residential projects using industry software.",
     requirements: [
-      'Experience with estimating software (ProEst, PlanSwift, etc.)',
-      '2+ years of construction estimating experience',
-      'Strong analytical and mathematical skills',
-      'Attention to detail and accuracy',
-      'Understanding of construction methods and materials',
+      "Experience with estimating software (ProEst, PlanSwift, etc.)",
+      "2+ years of construction estimating experience",
+      "Strong analytical and mathematical skills",
+      "Attention to detail and accuracy",
+      "Understanding of construction methods and materials",
     ],
     benefits: [
-      'Competitive salary based on experience',
-      'Remote work flexibility',
-      'Professional software and training provided',
-      'Career advancement opportunities',
+      "Competitive salary based on experience",
+      "Remote work flexibility",
+      "Professional software and training provided",
+      "Career advancement opportunities",
     ],
   },
   {
-    title: 'Administrative Assistant',
-    department: 'Office Administration',
-    location: 'Pasco, WA',
-    type: 'Full-time',
-    experience: 'Entry Level Welcome',
+    title: "Administrative Assistant",
+    department: "Office Administration",
+    location: "Pasco, WA",
+    type: "Full-time",
+    experience: "Entry Level Welcome",
     description:
-      'Support daily operations with scheduling, documentation, and client communication.',
+      "Support daily operations with scheduling, documentation, and client communication.",
     requirements: [
-      'High school diploma or equivalent',
-      'Excellent communication skills',
-      'Proficiency in Microsoft Office Suite',
-      'Strong organizational abilities',
-      'Customer service orientation',
+      "High school diploma or equivalent",
+      "Excellent communication skills",
+      "Proficiency in Microsoft Office Suite",
+      "Strong organizational abilities",
+      "Customer service orientation",
     ],
     benefits: [
-      'Competitive starting salary',
-      'Comprehensive training program',
-      'Health and dental insurance',
-      'Growth opportunities within the company',
+      "Competitive starting salary",
+      "Comprehensive training program",
+      "Health and dental insurance",
+      "Growth opportunities within the company",
     ],
   },
-]
+];
 
 // Company benefits
 const companyBenefits = [
   {
-    icon: 'health_and_safety',
-    title: 'Comprehensive Health Coverage',
+    icon: "health_and_safety",
+    title: "Comprehensive Health Coverage",
     description:
-      'Medical, dental, and vision insurance with competitive premiums and low deductibles.',
+      "Medical, dental, and vision insurance with competitive premiums and low deductibles.",
   },
   {
-    icon: 'savings',
-    title: 'Retirement Planning',
+    icon: "savings",
+    title: "Retirement Planning",
     description:
-      '401(k) plan with generous company matching to help secure your financial future.',
+      "401(k) plan with generous company matching to help secure your financial future.",
   },
   {
-    icon: 'school',
-    title: 'Professional Development',
+    icon: "school",
+    title: "Professional Development",
     description:
-      'Continuing education, certifications, and training opportunities to advance your career.',
+      "Continuing education, certifications, and training opportunities to advance your career.",
   },
   {
-    icon: 'work_history',
-    title: 'Work-Life Balance',
+    icon: "work_history",
+    title: "Work-Life Balance",
     description:
-      'Flexible scheduling and time off policies that respect your personal life.',
+      "Flexible scheduling and time off policies that respect your personal life.",
   },
   {
-    icon: 'local_hospital',
-    title: 'Safety First Culture',
+    icon: "local_hospital",
+    title: "Safety First Culture",
     description:
-      'Industry-leading safety training and equipment to ensure everyone goes home safe.',
+      "Industry-leading safety training and equipment to ensure everyone goes home safe.",
   },
   {
-    icon: 'military_tech',
-    title: 'Veteran-Friendly Workplace',
+    icon: "military_tech",
+    title: "Veteran-Friendly Workplace",
     description:
-      'Special recognition and support for military veterans transitioning to civilian careers.',
+      "Special recognition and support for military veterans transitioning to civilian careers.",
   },
-]
+];
 
 // Company culture values
 const cultureValues = [
   {
-    icon: 'handshake',
-    title: 'Integrity & Trust',
+    icon: "handshake",
+    title: "Integrity & Trust",
     description:
-      'We build relationships based on honesty, transparency, and mutual respect.',
-    color: 'from-brand-primary to-brand-primary-dark',
+      "We build relationships based on honesty, transparency, and mutual respect.",
+    color: "from-brand-primary to-brand-primary-dark",
   },
   {
-    icon: 'emoji_people',
-    title: 'Team Unity',
+    icon: "emoji_people",
+    title: "Team Unity",
     description:
       "From veterans to civilians, office to field—we're one team with shared values.",
-    color: 'from-brand-secondary to-brand-secondary-dark',
+    color: "from-brand-secondary to-brand-secondary-dark",
   },
   {
-    icon: 'trending_up',
-    title: 'Excellence & Growth',
+    icon: "trending_up",
+    title: "Excellence & Growth",
     description:
-      'We pursue continuous improvement in everything we do, personally and professionally.',
-    color: 'from-brand-accent to-brand-accent-dark',
+      "We pursue continuous improvement in everything we do, personally and professionally.",
+    color: "from-brand-accent to-brand-accent-dark",
   },
   {
-    icon: 'favorite',
-    title: 'Community Impact',
+    icon: "favorite",
+    title: "Community Impact",
     description:
-      'Building stronger communities, one project and one relationship at a time.',
-    color: 'from-brand-primary-light to-brand-primary',
+      "Building stronger communities, one project and one relationship at a time.",
+    color: "from-brand-primary-light to-brand-primary",
   },
-]
+];
 
 export default function CareersPage() {
-  const [showApplicationModal, setShowApplicationModal] = useState(false)
-  const [selectedPosition, setSelectedPosition] = useState<string>('')
+  const [showApplicationModal, setShowApplicationModal] = useState(false);
+  const [selectedPosition, setSelectedPosition] = useState<string>("");
 
   const handleApplyNow = (positionTitle: string) => {
-    setSelectedPosition(positionTitle)
-    setShowApplicationModal(true)
-  }
+    setSelectedPosition(positionTitle);
+    setShowApplicationModal(true);
+  };
 
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       {/* Hero Section */}
-      <PageHero
-        title="Join Our Team"
-        subtitle="Build Your Career with MH Construction"
-        description="Join a veteran-owned company that values integrity, excellence, and community. We're looking for dedicated professionals to help us build the future of the Pacific Northwest."
-      />
+      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="space-y-8">
+            {/* Main Title */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+                Join Our Team
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+              Build Your Career with MH Construction
+            </p>
+
+            {/* Description */}
+            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+              Join a veteran-owned company that values integrity, excellence,
+              and community. We're looking for dedicated professionals to help
+              us build the future of the Pacific Northwest.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl">
         {/* Why Work With Us */}
@@ -208,7 +230,7 @@ export default function CareersPage() {
               <h2 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                 <span className="text-gray-700 dark:text-gray-300">
                   Why Choose
-                </span>{' '}
+                </span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                   MH Construction?
                 </span>
@@ -255,7 +277,7 @@ export default function CareersPage() {
               <h2 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                 <span className="text-gray-700 dark:text-gray-300">
                   Benefits &
-                </span>{' '}
+                </span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                   Perks
                 </span>
@@ -302,7 +324,7 @@ export default function CareersPage() {
               <h2 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                 <span className="text-gray-700 dark:text-gray-300">
                   Current
-                </span>{' '}
+                </span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                   Openings
                 </span>
@@ -435,7 +457,7 @@ export default function CareersPage() {
               <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                 <span className="text-gray-700 dark:text-gray-300">
                   Don't See the
-                </span>{' '}
+                </span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                   Perfect Role?
                 </span>
@@ -447,7 +469,7 @@ export default function CareersPage() {
               </p>
               <div className="flex sm:flex-row flex-col justify-center gap-4">
                 <Button
-                  onClick={() => handleApplyNow('General Application')}
+                  onClick={() => handleApplyNow("General Application")}
                   size="lg"
                   className="bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark shadow-xl text-white"
                 >
@@ -479,5 +501,5 @@ export default function CareersPage() {
         onClose={() => setShowApplicationModal(false)}
       />
     </div>
-  )
+  );
 }

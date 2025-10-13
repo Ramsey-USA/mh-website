@@ -17,6 +17,8 @@ import {
   generateOrganizationStructuredData,
   StructuredData,
 } from "../components/seo/seo-meta";
+import { PageNavigation } from "../components/navigation/PageNavigation";
+import { navigationConfigs } from "../components/navigation/navigationConfigs";
 // Dynamically import below-the-fold components
 const TestimonialsWidget = dynamic(
   () => import("../components/testimonials/TestimonialsWidget"),
@@ -178,47 +180,11 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Simple Navigation Bar at Bottom */}
-        <nav className="absolute bottom-0 left-0 right-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t-4 border-brand-primary">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-center py-4">
-              <div className="flex space-x-1 overflow-x-auto">
-                {[
-                  {
-                    href: "/booking",
-                    label: "Start Partnership",
-                    icon: "handshake",
-                  },
-                  { href: "/", label: "Home", icon: "home" },
-                  { href: "/about", label: "Our Story", icon: "info" },
-                  { href: "/services", label: "Services", icon: "build" },
-                  {
-                    href: "/projects",
-                    label: "Projects",
-                    icon: "photo_library",
-                  },
-                  { href: "/team", label: "Team", icon: "people" },
-                  { href: "/contact", label: "Contact", icon: "contact_phone" },
-                ].map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="group flex flex-col items-center hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 px-4 py-4 min-w-[80px] transition-colors duration-200 rounded-lg"
-                  >
-                    <MaterialIcon
-                      icon={item.icon}
-                      size="md"
-                      className="mb-1 text-gray-600 dark:text-gray-400 group-hover:text-brand-primary transition-colors duration-200"
-                    />
-                    <span className="text-xs text-gray-700 dark:text-gray-300 group-hover:text-brand-primary font-medium transition-colors duration-200">
-                      {item.label}
-                    </span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </nav>
+        {/* Page-Specific Navigation Bar */}
+        <PageNavigation
+          items={navigationConfigs.home}
+          className="absolute bottom-0 left-0 right-0"
+        />
       </section>
 
       {/* Revolutionary Features Section */}

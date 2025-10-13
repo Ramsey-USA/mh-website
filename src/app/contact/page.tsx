@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
-  PageHero,
 } from "../../components/ui";
 import { MaterialIcon } from "../../components/icons/MaterialIcon";
 import SmartRecommendations from "../../components/recommendations/SmartRecommendations";
@@ -18,6 +17,8 @@ import {
   HoverScale,
 } from "../../components/animations/FramerMotionComponents";
 import { useGlobalChatbot } from "../../providers/GlobalChatbotProvider";
+import { PageNavigation } from "../../components/navigation/PageNavigation";
+import { navigationConfigs } from "../../components/navigation/navigationConfigs";
 
 // Contact methods
 const contactMethods = [
@@ -138,11 +139,42 @@ export default function ContactPage() {
 
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-      <PageHero
-        title="Let's Start Our Partnership"
-        subtitle="Connect with Your Partnership Team"
-        description="Experience the difference true collaboration makes. Begin our conversation with your partnership-focused team for a strategic consultation, detailed project estimate, and construction solutions that honor your vision throughout the Pacific Northwest."
-      />
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="space-y-8">
+            {/* Main Title */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+                Let's Start Our Partnership
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+              Connect with Your Partnership Team
+            </p>
+
+            {/* Description */}
+            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+              Experience the difference true collaboration makes. Begin our
+              conversation with your partnership-focused team for a strategic
+              consultation, detailed project estimate, and construction
+              solutions that honor your vision throughout the Pacific Northwest.
+            </p>
+          </div>
+        </div>
+
+        {/* Page-Specific Navigation Bar */}
+        <PageNavigation
+          items={navigationConfigs.contact}
+          className="absolute bottom-0 left-0 right-0"
+        />
+      </section>
 
       {/* Contact Methods */}
       <section className="bg-white dark:bg-gray-900 py-16 lg:py-24">

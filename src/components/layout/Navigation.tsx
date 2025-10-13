@@ -62,7 +62,8 @@ export function Navigation() {
             />
             <span
               className={`w-full h-0.5 bg-white transition-all duration-300 ${
-                isMenuOpen ? "opacity-0" : "opacity-100"}
+                isMenuOpen ? "opacity-0" : "opacity-100"
+              }
               `}
             />
             <span
@@ -92,7 +93,8 @@ export function Navigation() {
           </div>
 
           {/* Menu Content */}
-          <div className="z-10 relative flex flex-col justify-center px-4 sm:px-6 py-4 h-full">
+          <div className="z-10 relative flex flex-col px-4 sm:px-6 py-4 h-full">
+            {/* Main Navigation Links */}
             <div className="flex flex-1 justify-center items-center">
               <div className="w-full max-w-sm sm:max-w-md">
                 <div className="gap-3 grid grid-cols-2 sm:grid-cols-2">
@@ -100,11 +102,33 @@ export function Navigation() {
                     { href: "/", label: "Home", icon: "home" },
                     { href: "/about", label: "Our Story", icon: "info" },
                     { href: "/services", label: "Services", icon: "build" },
-                    { href: "/projects", label: "Projects", icon: "photo_library" },
+                    {
+                      href: "/projects",
+                      label: "Projects",
+                      icon: "photo_library",
+                    },
                     { href: "/team", label: "Our Team", icon: "people" },
                     { href: "/careers", label: "Careers", icon: "badge" },
-                    { href: "/contact", label: "Contact", icon: "contact_phone" },
-                    { href: "/estimator", label: "AI Estimator", icon: "calculate" },
+                    {
+                      href: "/contact",
+                      label: "Contact",
+                      icon: "contact_phone",
+                    },
+                    {
+                      href: "/estimator",
+                      label: "AI Estimator",
+                      icon: "calculate",
+                    },
+                    {
+                      href: "/government",
+                      label: "Government",
+                      icon: "account_balance",
+                    },
+                    {
+                      href: "/trade-partners",
+                      label: "Partners",
+                      icon: "handshake",
+                    },
                   ].map((item, index) => (
                     <Link
                       key={item.href}
@@ -123,6 +147,73 @@ export function Navigation() {
                     </Link>
                   ))}
                 </div>
+              </div>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+              <div className="mb-4 text-center">
+                <h4 className="font-medium text-gray-700 dark:text-gray-300 text-sm">
+                  Follow Our Partnership Journey
+                </h4>
+              </div>
+              <div className="flex justify-center gap-4">
+                <a
+                  href="https://facebook.com/mhconstruction"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex justify-center items-center bg-gray-100 hover:bg-blue-600 dark:bg-gray-700 hover:shadow-lg p-3 rounded-xl hover:scale-105 transition-all duration-300"
+                  title="Follow us on Facebook"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <MaterialIcon
+                    icon="thumb_up"
+                    size="md"
+                    className="text-gray-600 group-hover:text-white dark:text-gray-400 transition-colors"
+                  />
+                </a>
+                <a
+                  href="https://instagram.com/mhconstruction"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex justify-center items-center bg-gray-100 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 dark:bg-gray-700 hover:shadow-lg p-3 rounded-xl hover:scale-105 transition-all duration-300"
+                  title="See our projects on Instagram"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <MaterialIcon
+                    icon="photo_camera"
+                    size="md"
+                    className="text-gray-600 group-hover:text-white dark:text-gray-400 transition-colors"
+                  />
+                </a>
+                <a
+                  href="https://linkedin.com/company/mhconstruction"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex justify-center items-center bg-gray-100 hover:bg-blue-700 dark:bg-gray-700 hover:shadow-lg p-3 rounded-xl hover:scale-105 transition-all duration-300"
+                  title="Connect on LinkedIn"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <MaterialIcon
+                    icon="work"
+                    size="md"
+                    className="text-gray-600 group-hover:text-white dark:text-gray-400 transition-colors"
+                  />
+                </a>
+                <a
+                  href="https://youtube.com/@mhconstruction"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex justify-center items-center bg-gray-100 hover:bg-red-600 dark:bg-gray-700 hover:shadow-lg p-3 rounded-xl hover:scale-105 transition-all duration-300"
+                  title="Watch our videos on YouTube"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <MaterialIcon
+                    icon="play_circle"
+                    size="md"
+                    className="text-gray-600 group-hover:text-white dark:text-gray-400 transition-colors"
+                  />
+                </a>
               </div>
             </div>
           </div>
