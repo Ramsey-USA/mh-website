@@ -15,6 +15,8 @@ import {
   StaggeredFadeIn,
   HoverScale,
 } from "../../components/animations/DynamicAnimations";
+import { PageNavigation } from "../../components/navigation/PageNavigation";
+import { navigationConfigs } from "../../components/navigation/navigationConfigs";
 
 // Grant Support Services
 const grantSupportServices = [
@@ -297,6 +299,12 @@ export default function GovernmentGrantsPage() {
             </p>
           </div>
         </div>
+
+        {/* Page-Specific Navigation Bar */}
+        <PageNavigation
+          items={navigationConfigs.government}
+          className="absolute bottom-0 left-0 right-0"
+        />
       </section>
 
       {/* Veteran-Owned Badge Section */}

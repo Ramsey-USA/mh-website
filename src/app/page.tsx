@@ -188,7 +188,7 @@ export default function Home() {
       </section>
 
       {/* Revolutionary Features Section */}
-      <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-12 lg:py-16 features-section">
+      <section id="revolutionary-features" className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-12 lg:py-16 features-section">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(56,104,81,0.05)_0%,transparent_50%)] opacity-60"></div>
         <div className="top-20 right-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
         <div className="bottom-20 left-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-40 h-40"></div>
@@ -314,8 +314,10 @@ export default function Home() {
                   "bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5",
                 delay: "0.3s",
               },
-            ].map((feature, index) => (
-              <div key={index} className="group perspective-1000 feature-card">
+            ].map((feature, index) => {
+              const featureIds = ['ai-estimator', 'smart-scheduling', '3d-explorer', 'ai-assistant'];
+              return (
+              <div key={index} id={`feature-${featureIds[index]}`} className="group perspective-1000 feature-card">
                 <div className="relative w-full h-[520px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                   {/* Front of Card */}
                   <div className="absolute inset-0 bg-white dark:bg-gray-800 shadow-lg hover:shadow-brand-primary/10 hover:shadow-xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden transition-all duration-300 backface-hidden">
@@ -394,11 +396,12 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </StaggeredFadeIn>
 
           {/* AI Feature CTAs */}
-          <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-12">
+          <div id="ai-features-cta" className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-12">
             {[
               {
                 title: "Try AI Estimator",
@@ -473,7 +476,7 @@ export default function Home() {
       </section>
 
       {/* Core Values Section */}
-      <section className="relative bg-white dark:bg-gray-900 py-12 lg:py-16 values-section">
+      <section id="core-values" className="relative bg-white dark:bg-gray-900 py-12 lg:py-16 values-section">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.05)_0%,transparent_50%)]"></div>
         <div className="top-40 left-10 absolute bg-brand-secondary/10 blur-2xl rounded-full w-24 h-24"></div>
@@ -1351,7 +1354,7 @@ export default function Home() {
       </section>
 
       {/* Enhanced Partnership Call to Action Section */}
-      <section className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-brand-secondary py-16 lg:py-24 cta-section">
+      <section id="partnership-cta" className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-brand-secondary py-16 lg:py-24 cta-section">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">

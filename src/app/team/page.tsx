@@ -12,6 +12,8 @@ import {
   vintageTeamMembers,
   type VintageTeamMember,
 } from "../../lib/data/vintage-team";
+import { PageNavigation } from "../../components/navigation/PageNavigation";
+import { navigationConfigs } from "../../components/navigation/navigationConfigs";
 import "../../styles/vintage-baseball-card.css";
 
 // Group team members by department
@@ -71,6 +73,12 @@ export default function TeamPage() {
             </p>
           </div>
         </div>
+
+        {/* Page-Specific Navigation Bar */}
+        <PageNavigation
+          items={navigationConfigs.team}
+          className="absolute bottom-0 left-0 right-0"
+        />
       </section>
 
       <div className="bg-gray-50 dark:bg-gray-900 py-16">

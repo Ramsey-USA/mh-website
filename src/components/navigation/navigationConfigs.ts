@@ -2,23 +2,35 @@
 export const navigationConfigs = {
   home: [
     {
-      href: "/services#modularization",
-      label: "Modularization",
-      icon: "precision_manufacturing",
-    },
-    { href: "/estimator", label: "AI Estimator", icon: "calculate" },
-    { href: "/government", label: "Government", icon: "account_balance" },
-    {
-      href: "/services#procurement-vendor-management",
-      label: "Procurement",
-      icon: "inventory",
+      href: "/#feature-ai-estimator",
+      label: "AI Estimator",
+      icon: "smart_toy",
     },
     {
-      href: "/services#constructability-budget-control",
-      label: "Constructability",
-      icon: "engineering",
+      href: "/#feature-3d-explorer", 
+      label: "3D Explorer",
+      icon: "visibility",
     },
-    { href: "/booking", label: "Start Partnership", icon: "handshake" },
+    {
+      href: "/#core-values",
+      label: "Our Values",
+      icon: "shield",
+    },
+    {
+      href: "/#ai-features-cta",
+      label: "Get Started",
+      icon: "handshake",
+    },
+    {
+      href: "/estimator", 
+      label: "Try Estimator", 
+      icon: "calculate"
+    },
+    {
+      href: "/#partnership-cta",
+      label: "Start Partnership", 
+      icon: "launch"
+    },
     { href: "/contact", label: "Contact", icon: "contact_phone" },
   ],
 

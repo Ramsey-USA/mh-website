@@ -38,6 +38,8 @@ import {
   StaggeredFadeIn,
   HoverScale,
 } from "../../components/animations/DynamicAnimations";
+import { PageNavigation } from "../../components/navigation/PageNavigation";
+import { navigationConfigs } from "../../components/navigation/navigationConfigs";
 
 // Structured data for SEO
 const structuredData = {
@@ -120,6 +122,12 @@ export default function EstimatorPage() {
             </p>
           </div>
         </div>
+
+        {/* Page-Specific Navigation Bar */}
+        <PageNavigation
+          items={navigationConfigs.estimator}
+          className="absolute bottom-0 left-0 right-0"
+        />
       </section>
 
       {/* Key Differences Banner */}

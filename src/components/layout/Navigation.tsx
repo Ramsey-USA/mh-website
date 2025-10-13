@@ -5,6 +5,48 @@ import Image from "next/image";
 import { ThemeToggle } from "../ui/ThemeToggle";
 import { MaterialIcon } from "../icons/MaterialIcon";
 
+/**
+ * Global Hamburger Navigation Component
+ *
+ * Provides the main site navigation through a fixed-position hamburger menu.
+ * This component handles page-to-page navigation and should appear on every page.
+ *
+ * Features:
+ * - Fixed position hamburger menu button
+ * - Full-screen overlay navigation when opened
+ * - Centered logo with brand navigation
+ * - Social media integration
+ * - Theme toggle integration
+ * - Responsive design with mobile-first approach
+ * - Smooth animations and transitions
+ * - Auto-close on navigation selection
+ *
+ * Navigation Structure:
+ * - Primary pages: Home, About, Services, Projects, Team, Careers, Contact
+ * - Special features: AI Estimator, Government Services, Trade Partners
+ * - Social links: Facebook, Instagram, LinkedIn, YouTube
+ *
+ * @component
+ * @example
+ * ```tsx
+ * // Automatically included in layout.tsx - no manual implementation needed
+ * import { Navigation } from "../components/layout";
+ *
+ * export default function RootLayout({ children }) {
+ *   return (
+ *     <html>
+ *       <body>
+ *         <Navigation />
+ *         {children}
+ *       </body>
+ *     </html>
+ *   );
+ * }
+ * ```
+ *
+ * @see {@link /docs/technical/NAVIGATION_ARCHITECTURE.md} - Complete navigation system documentation
+ * @see {@link /docs/technical/NAVIGATION_TECHNICAL_GUIDE.md} - Implementation guide
+ */
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

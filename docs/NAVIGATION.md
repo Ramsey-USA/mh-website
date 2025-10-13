@@ -6,6 +6,19 @@
 
 ---
 
+## 🧭 Navigation Systems
+
+### **⭐ CRITICAL: Dual Navigation Architecture**
+
+- **[NAVIGATION_ARCHITECTURE.md](./technical/NAVIGATION_ARCHITECTURE.md)** - 🎯 **MASTER GUIDE**  
+  Complete dual navigation system documentation: Global hamburger menu vs Page-specific sectional navigation
+- **Navigation Components:**
+  - **Global Hamburger Menu** (`/src/components/layout/Navigation.tsx`) - Page-to-page navigation
+  - **Page Sectional Navigation** (`/src/components/navigation/PageNavigation.tsx`) - Within-page section navigation
+- **Configuration:** `/src/components/navigation/navigationConfigs.ts` - All page-specific navigation setups
+
+---
+
 ## 🏆 Project Completion ✅
 
 ### **Final Results** ⭐ START HERE

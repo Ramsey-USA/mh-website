@@ -16,6 +16,8 @@ import {
   StaggeredFadeIn,
   HoverScale,
 } from "../../components/animations/FramerMotionComponents";
+import { PageNavigation } from "../../components/navigation/PageNavigation";
+import { navigationConfigs } from "../../components/navigation/navigationConfigs";
 
 // Available positions
 const openPositions = [
@@ -220,6 +222,12 @@ export default function CareersPage() {
             </p>
           </div>
         </div>
+
+        {/* Page-Specific Navigation Bar */}
+        <PageNavigation
+          items={navigationConfigs.careers}
+          className="absolute bottom-0 left-0 right-0"
+        />
       </section>
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl">
