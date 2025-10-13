@@ -15,10 +15,10 @@
 
 ## Brand Guidelines & Component Standards
 
-**Foundation-Only Architecture**: Clean design system optimized for scalable expansion
+**Foundation-Only Architecture**: Clean design system optimized for scalable expansion  
 and consistent user experience.
 
-> **📐 For Page Layout Templates:** See [PAGE_LAYOUT_STANDARDS.md](./PAGE_LAYOUT_STANDARDS.md)
+> **📐 For Page Layout Templates:** See [PAGE_LAYOUT_STANDARDS.md](./PAGE_LAYOUT_STANDARDS.md)  
 > for complete spacing, padding, and typography standards extracted from the home page.
 
 ---
@@ -27,7 +27,7 @@ and consistent user experience.
 
 ### **Primary Brand Colors**
 
-   ```css
+  ``  `css
 /*MH Construction Brand Palette */
 :root {
   /* Primary Brand Colors */
@@ -39,11 +39,11 @@ and consistent user experience.
   --brand-secondary-light: #c9a176;   /* Lighter tan for hover states */
   --brand-secondary-dark: #a67d52;    /* Darker tan for active states*/
 }
-   ```text
+  ``  `text
 
 ### **Neutral Colors - Light/Dark Mode Compatible**
 
-   ```css
+  ``  `css
 /*Light Mode */
 :root {
   --color-background: #ffffff;        /* Main background */
@@ -73,11 +73,11 @@ and consistent user experience.
     --color-border-light: #475569;    /* Light borders */
   }
 }
-   ```text
+  ``  `text
 
 ### **Status & Accent Colors**
 
-   ```css
+  ``  `css
 /*Status Colors */
 --color-success: #10b981;          /* Success states */
 --color-success-light: #d1fae5;    /* Success backgrounds*/
@@ -95,7 +95,7 @@ and consistent user experience.
 --veteran-red: #dc2626;            /* Red for veteran badges */
 --veteran-blue: #1d4ed8;           /* Blue for veteran elements */
 --veteran-gold: #ca8a04;           /* Gold for veteran honors*/
-   ```text
+  ``  `text
 
 ---
 
@@ -103,16 +103,16 @@ and consistent user experience.
 
 ### **Font Families**
 
-   ```css
+  ``  `css
 /* Font Stack */
 --font-heading: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
 --font-body: 'Inter', 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
 --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', monospace;
-   ```text
+  ``  `text
 
 ### **Responsive Typography Scale**
 
-   ```css
+  ``  `css
 /* Desktop-Optimized Typography */
 --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.8rem);     /* 12px-13px */
 --text-sm: clamp(0.875rem, 0.8rem + 0.3vw, 0.95rem);   /* 14px-15px */
@@ -124,11 +124,11 @@ and consistent user experience.
 --text-4xl: clamp(2.25rem, 1.9rem + 1.2vw, 2.75rem);   /* 36px-44px */
 --text-5xl: clamp(2.5rem, 2.1rem + 1.4vw, 3.25rem);    /* 40px-52px */
 --text-6xl: clamp(3rem, 2.4rem + 1.6vw, 3.75rem);      /* 48px-60px - Maximum */
-   ```text
+  ``  `text
 
 ### **Line Heights & Spacing**
 
-   ```css
+  ``  `css
 /*Line Heights*/
 --leading-tight: 1.25;
 --leading-normal: 1.5;
@@ -146,7 +146,7 @@ and consistent user experience.
 --font-semibold: 600;
 --font-bold: 700;
 --font-black: 900;
-   ```text
+  ``  `text
 
 ---
 
@@ -156,7 +156,7 @@ and consistent user experience.
 
 #### **Primary Button (Hunter Green)**
 
-   ```css
+  ``  `css
 .btn-primary {
   background: var(--brand-primary);
   color: white;
@@ -178,11 +178,11 @@ and consistent user experience.
   outline: none;
   box-shadow: 0 0 0 3px rgba(56, 104, 81, 0.3);
 }
-   ```text
+  ``  `text
 
 #### **Secondary Button (Leather Tan)**
 
-   ```css
+  ``  `css
 .btn-secondary {
   background: var(--brand-secondary);
   color: white;
@@ -199,11 +199,11 @@ and consistent user experience.
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(189, 146, 100, 0.35);
 }
-   ```text
+  ``  `text
 
 #### **Outline Buttons**
 
-   ```css
+  ``  `css
 .btn-outline {
   background: transparent;
   color: var(--brand-primary);
@@ -220,20 +220,20 @@ and consistent user experience.
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(56, 104, 81, 0.2);
 }
-   ```text
+  ``  `text
 
 #### **Button Sizes**
 
-   ```css
+  ``  `css
 .btn-sm { padding: 0.5rem 1rem; font-size: 0.875rem; }
 .btn-md { padding: 0.75rem 1.5rem; font-size: 1rem; }     /* Default */
 .btn-lg { padding: 1rem 2rem; font-size: 1.125rem; }
 .btn-xl { padding: 1.25rem 2.5rem; font-size: 1.25rem; }
-   ```text
+  ``  `text
 
 ### **Card Components**
 
-   ```css
+  ``  `css
 .card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -260,11 +260,11 @@ and consistent user experience.
   color: var(--color-text-primary);
   margin: 0;
 }
-   ```text
+  ``  `text
 
 ### **Form Elements**
 
-   ```css
+  ``  `css
 .form-input {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -294,7 +294,7 @@ and consistent user experience.
   font-size: var(--text-sm);
   margin-top: 0.25rem;
 }
-   ```text
+  ``  `text
 
 ---
 
@@ -302,7 +302,7 @@ and consistent user experience.
 
 ### **Google Material Icons Integration**
 
-   ```tsx
+  ``  `tsx
 // Universal MaterialIcon Component
 interface MaterialIconProps {
   name: string;
@@ -325,18 +325,18 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
   return (
     <span
-      className={   `material-icons ${sizeClasses[size]} ${className}`   }
+      className={  `material-icons ${sizeClasses[size]} ${className}`  }
       aria-hidden="true"
     >
       {name}
     </span>
   );
 };
-   ```text
+  ``  `text
 
 ### **Icon Usage Examples**
 
-   ```tsx
+  ``  `tsx
 // Navigation
 <MaterialIcon name="menu" size="lg" />
 <MaterialIcon name="close" size="lg" />
@@ -350,7 +350,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 <MaterialIcon name="check_circle" size="sm" className="text-green-500" />
 <MaterialIcon name="error" size="sm" className="text-red-500" />
 <MaterialIcon name="info" size="sm" className="text-blue-500" />
-   ```text
+  ``  `text
 
 ---
 
@@ -358,7 +358,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **Spacing Scale**
 
-   ```css
+  ``  `css
 /* Spacing System */
 --space-px: 1px;
 --space-0: 0;
@@ -380,11 +380,11 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 --space-20: 5rem;         /* 80px */
 --space-24: 6rem;         /* 96px */
 --space-32: 8rem;         /* 128px */
-   ```text
+  ``  `text
 
 ### **Responsive Container System**
 
-   ```css
+  ``  `css
 .container {
   width: 100%;
   margin-left: auto;
@@ -413,11 +413,11 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 @media (min-width: 1536px) {
   .container { max-width: 1536px; }
 }
-   ```text
+  ``  `text
 
 ### **Section Layouts**
 
-   ```css
+  ``  `css
 /*Standard Section Spacing */
 .section {
   padding-top: 4rem;    /* py-16*/
@@ -443,7 +443,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
     padding-bottom: 4rem;
   }
 }
-   ```text
+  ``  `text
 
 ---
 
@@ -451,7 +451,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **Transition System**
 
-   ```css
+  ``  `css
 /*Standard Transitions*/
 .transition-base {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -470,11 +470,11 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 --ease-in: cubic-bezier(0.4, 0, 1, 1);
 --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-   ```text
+  ``  `text
 
 ### **Hover Effects**
 
-   ```css
+  ``  `css
 /*Standard Hover Lift - Simplified for crisp rendering*/
 .hover-lift:hover {
   transform: translateY(-4px);
@@ -490,7 +490,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 .hover-glow:hover {
   box-shadow: 0 0 20px rgba(56, 104, 81, 0.3);
 }
-   ```text
+  ``  `text
 
 ---
 
@@ -498,7 +498,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **Dark Mode Implementation**
 
-   ```css
+  ``  `css
 /*Theme Toggle*/
 .theme-toggle {
   background: var(--color-surface);
@@ -531,7 +531,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
   color: var(--color-text-primary);
   border-color: var(--color-border);
 }
-   ```text
+  ``  `text
 
 ---
 
@@ -539,7 +539,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **Focus Management**
 
-   ```css
+  ``  `css
 /*Focus Visible*/
 .focus-visible:focus-visible {
   outline: 2px solid var(--brand-primary);
@@ -562,7 +562,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 .skip-link:focus {
   top: 6px;
 }
-   ```text
+  ``  `text
 
 ### **Color Contrast Requirements**
 
@@ -573,7 +573,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **Screen Reader Support**
 
-   ```html
+  ``  `html
 <!-- Semantic HTML Structure -->
 <main role="main">
   <section aria-labelledby="services-heading">
@@ -589,7 +589,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 <!-- Live Regions -->
 <div aria-live="polite" id="status-message"></div>
-   ```text
+  ``  `text
 
 ---
 
@@ -597,7 +597,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **Breakpoint System**
 
-   ```css
+  ``  `css
 /*Mobile First Breakpoints */
 /* xs: 0px - 640px (default) */
 /* sm: 640px and up */
@@ -614,11 +614,11 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 /*2xl: 1536px and up */
 @media (min-width: 1536px) { /* Extra large screens*/ }
-   ```text
+  ``  `text
 
 ### **Mobile Optimization**
 
-   ```css
+  ``  `css
 /*Touch Targets */
 .touch-target {
   min-height: 44px;    /* iOS guideline*/
@@ -643,7 +643,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
   height: auto;
   max-width: 100%;
 }
-   ```text
+  ``  `text
 
 ---
 
@@ -651,7 +651,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **CSS Optimization**
 
-   ```css
+  ``  `css
 /*Critical CSS - Above the fold */
 .critical {
   /* Inline critical styles for fast initial render*/
@@ -667,11 +667,11 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
   will-change: transform;
   transform: translateZ(0); /* Force hardware acceleration*/
 }
-   ```text
+  ``  `text
 
 ### **Loading States**
 
-   ```css
+  ``  `css
 .skeleton {
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
@@ -682,7 +682,7 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
-   ```text
+  ``  `text
 
 ---
 
@@ -690,8 +690,8 @@ const MaterialIcon: React.FC<MaterialIconProps> = ({
 
 ### **Purpose & Usage**
 
-The   `VintageBaseballCard`   component creates engaging, interactive team member profiles with a
-professional vintage baseball card aesthetic. Used primarily on the team page to showcase MH
+The  `VintageBaseballCard`  component creates engaging, interactive team member profiles with a  
+professional vintage baseball card aesthetic. Used primarily on the team page to showcase MH  
 Construction staff in a memorable, branded format with authentic vintage card styling.
 
 ### **Design Specifications**
@@ -719,7 +719,7 @@ Construction staff in a memorable, branded format with authentic vintage card st
 
 #### **Standard Team Members**
 
-   ```css
+  ``  `css
 .baseball-card.standard {
   /*Header gradient using brand primary*/
   background: linear-gradient(to right, var(--brand-primary), var(--brand-primary-dark));
@@ -738,11 +738,11 @@ Construction staff in a memorable, branded format with authentic vintage card st
     color: var(--brand-primary);
   }
 }
-   ```text
+  ``  `text
 
 #### **Mascot Variant (Trigger)**
 
-   ```css
+  ``  `css
 .baseball-card.mascot {
   /*Special amber/orange theme for company mascot*/
   background: linear-gradient(to right, #f59e0b, #ea580c);
@@ -761,13 +761,13 @@ Construction staff in a memorable, branded format with authentic vintage card st
     color: #92400e;
   }
 }
-   ```text
+  ``  `text
 
 ### **Interactive Behaviors**
 
 #### **3D Flip Animation**
 
-   ```css
+  ``  `css
 /*Flip container with 3D transforms*/
 .flip-container {
   position: relative;
@@ -790,11 +790,11 @@ Construction staff in a memorable, branded format with authentic vintage card st
 .card-back {
   transform: rotateY(180deg);
 }
-   ```text
+  ``  `text
 
 #### **Accessibility Features**
 
-   ```css
+  ``  `css
 /*Focus management for keyboard users*/
 .baseball-card:focus-visible {
   outline: 2px solid var(--brand-primary);
@@ -811,11 +811,11 @@ Construction staff in a memorable, branded format with authentic vintage card st
     transform: none;
   }
 }
-   ```text
+  ``  `text
 
 ### **Typography Hierarchy**
 
-   ```css
+  ``  `css
 /*Team member name - Primary focus */
 .member-name {
   font-size: 1.25rem;      /* text-xl */
@@ -852,7 +852,7 @@ Construction staff in a memorable, branded format with authentic vintage card st
   font-weight: 700;        /* font-bold*/
   color: var(--brand-primary);
 }
-   ```text
+  ``  `text
 
 ### **Component Integration**
 
@@ -869,7 +869,7 @@ Construction staff in a memorable, branded format with authentic vintage card st
 
 #### **Grid Layout**
 
-   ```css
+  ``  `css
 /*Responsive team grid */
 .team-grid {
   display: grid;
@@ -891,7 +891,7 @@ Construction staff in a memorable, branded format with authentic vintage card st
 @media (min-width: 1280px) {
   .team-grid { grid-template-columns: repeat(4, 1fr); } /*Large: 4 columns*/
 }
-   ```text
+  ``  `text
 
 ### **Performance Considerations**
 
@@ -910,12 +910,12 @@ Construction staff in a memorable, branded format with authentic vintage card st
 
 ### **Design Tokens Used**
 
-- **Colors**:    `--brand-primary`,  `--brand-secondary`,  `--brand-primary-dark  `
-- **Spacing**: Standard scale (   `0.25rem`,  `0.5rem`,  `1rem`,  `1.5rem`,  `2rem`   )
-- **Typography**: Font weight scale (   `400`,  `500`,  `700`,  `900`   )
-- **Border Radius**:    `1rem`for cards,  `9999px`    for circular elements
+- **Colors**:   `--brand-primary`  ,   `--brand-secondary`  ,   `--brand-primary-dark `
+- **Spacing**: Standard scale (  `0.25rem`  ,   `0.5rem`  ,   `1rem`  ,   `1.5rem`  ,   `2rem`  )
+- **Typography**: Font weight scale (  `400`  ,   `500`  ,   `700`  ,   `900`  )
+- **Border Radius**:   `1rem`   for cards,   `9999px`   for circular elements
 - **Shadows**: Tailwind elevation scale
-- **Transitions**: Standard    `0.3s`and  `0.7s`    durations
+- **Transitions**: Standard   `0.3s`   and   `0.7s`   durations
 
 ---
 
@@ -946,5 +946,5 @@ Construction staff in a memorable, branded format with authentic vintage card st
 
 ---
 
-*This design system serves as the foundation for consistent, accessible, and
+*This design system serves as the foundation for consistent, accessible, and  
 maintainable UI components across the MH Construction platform.*

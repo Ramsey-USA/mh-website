@@ -71,7 +71,7 @@ This guide establishes the critical terminology distinctions used throughout the
 ❌ INCORRECT USAGE:
 "Your Partners" → /team (Confusing - implies external relationship)
 "Our Partners" → /trade-partners (Unclear ownership)
-```
+```text
 
 ### **Page Content**
 
@@ -86,7 +86,7 @@ This guide establishes the critical terminology distinctions used throughout the
 - "Meet Your Partners" (confusing for internal team)
 - "Our Partners" (ambiguous about internal vs external)
 - "The Team" (too generic, lacks ownership clarity)
-```
+```text
 
 ### **Call-to-Action Buttons**
 
@@ -100,7 +100,7 @@ This guide establishes the critical terminology distinctions used throughout the
 ❌ INCORRECT CTAs:
 - "Meet Your Partners" (confusing terminology)
 - "See Our Partners" (ambiguous)
-```
+```text
 
 ---
 

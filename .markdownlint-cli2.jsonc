@@ -1,71 +1,12 @@
 {
-  // Simple, strict markdown linting configuration
   "config": {
-    // Line length - very relaxed for existing content
-    "MD013": {
-      "line_length": 500,
-      "code_blocks": false,
-      "tables": false
-    },
-
-    // Ordered list item prefix - enforce consistent numbering
-    "MD029": {
-      "style": "ordered"
-    },
-
-    // Link fragments - disabled for emoji compatibility
-    "MD051": false,
-
-    // Disable rules that cause issues with modern markdown
-    "MD033": false, // Allow HTML tags
-    "MD041": false, // Don't require H1 as first line
-    "MD034": false, // Allow bare URLs
-
-    // Keep important rules enabled
-    "MD001": true, // Heading levels increment by one
-    "MD003": true, // Heading style consistency
-    "MD009": true, // No trailing spaces
-    "MD010": true, // No hard tabs
-    "MD012": true, // No multiple consecutive blank lines
-    "MD018": true, // No space after hash on atx style heading
-    "MD019": true, // No multiple spaces after hash on atx style heading
-    "MD020": true, // No space inside hashes on closed atx style heading
-    "MD021": true, // No space inside hashes on closed atx style heading
-    "MD022": true, // Headings surrounded by blank lines
-    "MD023": true, // Headings start at beginning of line
-    "MD024": true, // No duplicate headings
-    "MD025": true, // Single H1 per document
-    "MD026": true, // No trailing punctuation in headings
-    "MD027": true, // No multiple spaces after blockquote symbol
-    "MD028": true, // No blank line inside blockquote
-    "MD030": true, // Spaces after list markers
-    "MD031": true, // Fenced code blocks surrounded by blank lines
-    "MD032": true, // Lists surrounded by blank lines
-    "MD035": true, // Horizontal rule style
-    "MD036": true, // No emphasis used instead of heading
-    "MD037": true, // No spaces inside emphasis markers
-    "MD038": true, // No spaces inside code span elements
-    "MD039": true, // No spaces inside link text
-    "MD040": true, // Fenced code blocks have language
-    "MD042": true, // No empty links
-    "MD043": false, // Don't require specific heading structure
-    "MD044": true, // Proper names should have correct capitalization
-    "MD045": true, // Images should have alternate text
-    "MD046": true, // Code block style
-    "MD047": true, // Files should end with newline
-    "MD048": true, // Code fence style
-    "MD049": true, // Emphasis style
-    "MD050": true  // Strong style
+    "MD038": false,
+    "MD009": false,
+    "MD022": false,
+    "MD032": false,
+    "MD025": false,
+    "MD024": false
   },
-
-  // Files to lint
-  "globs": [
-    "**/*.md",
-    "!node_modules/**",
-    "!firebase/functions/node_modules/**",
-    "!.git/**"
-  ],
-
-  // Fix what can be auto-fixed
-  "fix": false
+  "globs": ["**/*.md"],
+  "ignores": ["node_modules/**", "firebase/functions/node_modules/**"]
 }

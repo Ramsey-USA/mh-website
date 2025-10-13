@@ -23,7 +23,7 @@ className="hover:scale-[1.02] transition-transform duration-300 transform"
 
 // AFTER (clean state)
 className="transition-none"
-```
+```text
 
 ### 2. Optimized CSS Hover Effect
 
@@ -43,7 +43,7 @@ className="transition-none"
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-```
+```text
 
 ### 3. Added Hardware Acceleration Properties
 
@@ -67,7 +67,7 @@ className="transition-none"
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-```
+```text
 
 ### 4. Optimized Image Rendering
 
@@ -79,7 +79,7 @@ className="transition-none"
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-```
+```text
 
 ### 5. Reduced Backdrop Filter Blur
 
@@ -92,7 +92,7 @@ className="transition-none"
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-```
+```text
 
 ## Technical Benefits
 

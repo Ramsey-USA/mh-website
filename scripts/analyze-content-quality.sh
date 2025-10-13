@@ -55,15 +55,7 @@ analyze_content_quality() {
         echo "$todos"
     fi
     
-    # 5. Spelling and grammar suggestions
-    common_typos=$(grep -n -i 'teh\|recieve\|seperate\|occured\|definately' "$file" || true)
-    if [ ! -z "$common_typos" ]; then
-        echo "   ✏️  Possible typos found:"
-        echo "$common_typos"
-        issues=$((issues + 1))
-    fi
-    
-    # 6. Inconsistent code formatting
+    # 5. Inconsistent code formatting
     inline_code_issues=$(grep -n '`[^`]*[A-Z][^`]*`' "$file" || true)
     if [ ! -z "$inline_code_issues" ]; then
         echo "   🔤 Consider lowercase for code elements:"

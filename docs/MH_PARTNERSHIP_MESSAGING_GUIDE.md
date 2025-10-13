@@ -193,7 +193,7 @@ Form Submissions:
 "Team" → "Our Team"  // CRITICAL: Internal employees, NOT external partners
 "Trade Partners" → "Trade Partners"  // External subcontractors & vendors
 "Testimonials" → "Partnership Experiences"
-```
+```text
 
 **IMPORTANT TERMINOLOGY DISTINCTION:**
 

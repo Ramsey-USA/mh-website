@@ -20,13 +20,17 @@ improve_table_formatting() {
         return
     fi
     
-    # Improve table formatting (basic approach)
+    # Improve table formatting (corrected approach)
     awk '
     /^\|.*\|$/ {
-        # This is a table row
-        gsub(/^ *\| */, "|")
-        gsub(/ *\| *$/, "|")
-        gsub(/ *\| */, " | ")
+        # This is a table row - standardize spacing around pipes
+        # Remove all spaces around pipes first
+        gsub(/ *\| */, "|")
+        # Then add consistent spacing
+        gsub(/\|/, " | ")
+        # Clean up the edges
+        gsub(/^ \| /, "| ")
+        gsub(/ \| $/, " |")
         print
         next
     }
@@ -41,7 +45,7 @@ standardize_emphasis() {
     local file="$1"
     local temp_file="${file}.emphasis_temp"
     
-    echo "**📝 Standardizing emphasis formatting in: $file"
+    echo "📝 Standardizing emphasis formatting in: $file"
     
     # Standardize bold formatting (prefer ** over __)
     sed 's/__\([^_]*\)__/**\1**/g' "$file" > "$temp_file.1"

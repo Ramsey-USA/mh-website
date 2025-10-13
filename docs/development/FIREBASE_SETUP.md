@@ -311,7 +311,7 @@ npm run firebase:emulate
 # 5. Test production deployment
 npm run build
 npm run firebase:deploy
-```
+```text
 
 ### Integration Benefits
 
