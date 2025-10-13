@@ -1,88 +1,88 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { MaterialIcon } from '../icons/MaterialIcon'
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { MaterialIcon } from "../icons/MaterialIcon";
 import {
   mockTestimonials,
   type ClientTestimonial,
-} from '@/lib/types/testimonials'
-import { formatDate } from '@/lib/utils/dateUtils'
+} from "@/lib/types/testimonials";
+import { formatDate } from "@/lib/utils/dateUtils";
 
 interface TestimonialsWidgetProps {
-  title?: string
-  subtitle?: string
-  showViewAll?: boolean
-  autoSlide?: boolean
-  slideDuration?: number
-  maxTestimonials?: number
-  variant?: 'default' | 'compact' | 'cards'
+  title?: string;
+  subtitle?: string;
+  showViewAll?: boolean;
+  autoSlide?: boolean;
+  slideDuration?: number;
+  maxTestimonials?: number;
+  variant?: "default" | "compact" | "cards";
 }
 
 export default function TestimonialsWidget({
-  title = 'What Our Clients Say',
-  subtitle = 'Read testimonials from satisfied customers across the Pacific Northwest',
+  title = "What Our Clients Say",
+  subtitle = "Read testimonials from satisfied customers across the Pacific Northwest",
   showViewAll = true,
   autoSlide = true,
   slideDuration = 5000,
   maxTestimonials = 6,
-  variant = 'default',
+  variant = "default",
 }: TestimonialsWidgetProps) {
   // Get featured and approved testimonials
   const featuredTestimonials = mockTestimonials
     .filter(
-      testimonial =>
-        (testimonial.status === 'featured' ||
-          testimonial.status === 'approved') &&
+      (testimonial) =>
+        (testimonial.status === "featured" ||
+          testimonial.status === "approved") &&
         testimonial.featured
     )
-    .slice(0, maxTestimonials)
+    .slice(0, maxTestimonials);
 
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(autoSlide)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(autoSlide);
 
   // Auto-slide functionality
   useEffect(() => {
-    if (!isAutoPlaying || featuredTestimonials.length <= 1) return
+    if (!isAutoPlaying || featuredTestimonials.length <= 1) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex(prev => (prev + 1) % featuredTestimonials.length)
-    }, slideDuration)
+      setCurrentIndex((prev) => (prev + 1) % featuredTestimonials.length);
+    }, slideDuration);
 
-    return () => clearInterval(interval)
-  }, [isAutoPlaying, featuredTestimonials.length, slideDuration])
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, featuredTestimonials.length, slideDuration]);
 
   const goToSlide = (index: number) => {
-    setCurrentIndex(index)
-    setIsAutoPlaying(false)
-    setTimeout(() => setIsAutoPlaying(autoSlide), 3000) // Resume auto-play after 3 seconds
-  }
+    setCurrentIndex(index);
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(autoSlide), 3000); // Resume auto-play after 3 seconds
+  };
 
   const goToPrevious = () => {
     setCurrentIndex(
-      prev =>
+      (prev) =>
         (prev - 1 + featuredTestimonials.length) % featuredTestimonials.length
-    )
-    setIsAutoPlaying(false)
-    setTimeout(() => setIsAutoPlaying(autoSlide), 3000)
-  }
+    );
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(autoSlide), 3000);
+  };
 
   const goToNext = () => {
-    setCurrentIndex(prev => (prev + 1) % featuredTestimonials.length)
-    setIsAutoPlaying(false)
-    setTimeout(() => setIsAutoPlaying(autoSlide), 3000)
-  }
+    setCurrentIndex((prev) => (prev + 1) % featuredTestimonials.length);
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(autoSlide), 3000);
+  };
 
   if (featuredTestimonials.length === 0) {
-    return null
+    return null;
   }
 
-  if (variant === 'compact') {
-    return <CompactTestimonialsWidget testimonials={featuredTestimonials} />
+  if (variant === "compact") {
+    return <CompactTestimonialsWidget testimonials={featuredTestimonials} />;
   }
 
-  if (variant === 'cards') {
+  if (variant === "cards") {
     return (
       <CardsTestimonialsWidget
         testimonials={featuredTestimonials}
@@ -90,7 +90,7 @@ export default function TestimonialsWidget({
         subtitle={subtitle}
         showViewAll={showViewAll}
       />
-    )
+    );
   }
 
   return (
@@ -105,12 +105,12 @@ export default function TestimonialsWidget({
         {/* Testimonial Slider */}
         <div className="relative mx-auto max-w-6xl">
           <div className="bg-white shadow-xl rounded-2xl overflow-hidden">
-            <div className="relative min-h-[400px]">
+            <div className="relative min-h-[180px] sm:min-h-[280px] md:min-h-[340px] lg:min-h-[400px]">
               {featuredTestimonials.map((testimonial, index) => (
                 <div
                   key={testimonial.id}
                   className={`absolute inset-0 transition-opacity duration-500 ${
-                    index === currentIndex ? 'opacity-100' : 'opacity-0'
+                    index === currentIndex ? "opacity-100" : "opacity-0"
                   }`}
                 >
                   <TestimonialSlide testimonial={testimonial} />
@@ -148,8 +148,8 @@ export default function TestimonialsWidget({
                   onClick={() => goToSlide(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-200 ${
                     index === currentIndex
-                      ? 'bg-blue-600 scale-125'
-                      : 'bg-gray-300 hover:bg-gray-400'
+                      ? "bg-blue-600 scale-125"
+                      : "bg-gray-300 hover:bg-gray-400"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -172,12 +172,12 @@ export default function TestimonialsWidget({
         )}
       </div>
     </section>
-  )
+  );
 }
 
 function TestimonialSlide({ testimonial }: { testimonial: ClientTestimonial }) {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[400px]">
+    <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[180px] sm:min-h-[280px] md:min-h-[340px] lg:min-h-[400px]">
       {/* Image Section */}
       <div className="relative overflow-hidden">
         {testimonial.images?.after && testimonial.images.after[0] ? (
@@ -220,8 +220,8 @@ function TestimonialSlide({ testimonial }: { testimonial: ClientTestimonial }) {
               icon="star"
               className={`h-6 w-6 ${
                 i < testimonial.rating
-                  ? 'fill-yellow-400 text-yellow-400'
-                  : 'text-gray-300'
+                  ? "fill-yellow-400 text-yellow-400"
+                  : "text-gray-300"
               }`}
             />
           ))}
@@ -276,25 +276,25 @@ function TestimonialSlide({ testimonial }: { testimonial: ClientTestimonial }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function CompactTestimonialsWidget({
   testimonials,
 }: {
-  testimonials: ClientTestimonial[]
+  testimonials: ClientTestimonial[];
 }) {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex(prev => (prev + 1) % testimonials.length)
-    }, 4000)
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 4000);
 
-    return () => clearInterval(interval)
-  }, [testimonials.length])
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
 
-  const currentTestimonial = testimonials[currentIndex]
+  const currentTestimonial = testimonials[currentIndex];
 
   return (
     <div className="bg-white shadow-sm p-6 border rounded-lg">
@@ -311,8 +311,8 @@ function CompactTestimonialsWidget({
               icon="star"
               className={`h-4 w-4 ${
                 i < currentTestimonial.rating
-                  ? 'fill-yellow-400 text-yellow-400'
-                  : 'text-gray-300'
+                  ? "fill-yellow-400 text-yellow-400"
+                  : "text-gray-300"
               }`}
             />
           ))}
@@ -347,14 +347,14 @@ function CompactTestimonialsWidget({
             <div
               key={index}
               className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentIndex ? 'bg-blue-600' : 'bg-gray-300'
+                index === currentIndex ? "bg-blue-600" : "bg-gray-300"
               }`}
             />
           ))}
         </div>
       )}
     </div>
-  )
+  );
 }
 
 function CardsTestimonialsWidget({
@@ -363,10 +363,10 @@ function CardsTestimonialsWidget({
   subtitle,
   showViewAll,
 }: {
-  testimonials: ClientTestimonial[]
-  title: string
-  subtitle: string
-  showViewAll: boolean
+  testimonials: ClientTestimonial[];
+  title: string;
+  subtitle: string;
+  showViewAll: boolean;
 }) {
   return (
     <section className="bg-white py-16">
@@ -379,7 +379,7 @@ function CardsTestimonialsWidget({
 
         {/* Cards Grid */}
         <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
-          {testimonials.slice(0, 3).map(testimonial => (
+          {testimonials.slice(0, 3).map((testimonial) => (
             <div
               key={testimonial.id}
               className="bg-white shadow-lg hover:shadow-xl border rounded-lg overflow-hidden transition-shadow duration-300"
@@ -405,8 +405,8 @@ function CardsTestimonialsWidget({
                       icon="star"
                       className={`h-4 w-4 ${
                         i < testimonial.rating
-                          ? 'fill-yellow-400 text-yellow-400'
-                          : 'text-gray-300'
+                          ? "fill-yellow-400 text-yellow-400"
+                          : "text-gray-300"
                       }`}
                     />
                   ))}
@@ -462,5 +462,5 @@ function CardsTestimonialsWidget({
         )}
       </div>
     </section>
-  )
+  );
 }

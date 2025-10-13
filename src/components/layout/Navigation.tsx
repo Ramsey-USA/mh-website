@@ -76,7 +76,7 @@ export function Navigation() {
                   width={88}
                   height={88}
                   priority
-                  className="drop-shadow-lg w-auto h-[70px] sm:h-[88px]"
+                  className="drop-shadow-lg w-auto h-[56px] sm:h-[70px] md:h-[88px]"
                 />
               </Link>
             </div>

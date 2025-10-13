@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MH Website Responsive Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-section h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        .viewport-sizes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .viewport-box {
+            border: 2px solid #007acc;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            background: #f8f9fa;
+        }
+        .test-button {
+            background: #007acc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #005a99;
+        }
+        .test-results {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MH Website Responsive Design Test</h1>
+        
+        <div class="test-section">
+            <h2>🔧 Quick Device Simulation</h2>
+            <p>Test different viewport sizes to check responsive behavior:</p>
+            
+            <div class="viewport-sizes">
+                <div class="viewport-box">
+                    <h3>📱 Mobile Portrait</h3>
+                    <p>375 × 667px</p>
+                    <button class="test-button" onclick="openTestWindow(375, 667)">Test Mobile</button>
+                </div>
+                <div class="viewport-box">
+                    <h3>📱 Mobile Landscape</h3>
+                    <p>667 × 375px</p>
+                    <button class="test-button" onclick="openTestWindow(667, 375)">Test Landscape</button>
+                </div>
+                <div class="viewport-box">
+                    <h3>📟 Tablet</h3>
+                    <p>768 × 1024px</p>
+                    <button class="test-button" onclick="openTestWindow(768, 1024)">Test Tablet</button>
+                </div>
+                <div class="viewport-box">
+                    <h3>💻 Desktop</h3>
+                    <p>1200 × 800px</p>
+                    <button class="test-button" onclick="openTestWindow(1200, 800)">Test Desktop</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>🎯 Live Website Preview</h2>
+            <p>Current website running on localhost:3001:</p>
+            <iframe src="http://localhost:3001" id="websiteFrame" title="MH Website Live Preview"></iframe>
+            
+            <div style="margin-top: 10px;">
+                <button class="test-button" onclick="changeFrameSize('375px', '667px')">Mobile View</button>
+                <button class="test-button" onclick="changeFrameSize('768px', '1024px')">Tablet View</button>
+                <button class="test-button" onclick="changeFrameSize('100%', '500px')">Full Width</button>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>📋 Responsive Checklist</h2>
+            
+            <h3>✅ Items to Test:</h3>
+            <ul>
+                <li><label><input type="checkbox" aria-label="Navigation menu works on mobile"> Navigation menu works on mobile</label></li>
+                <li><label><input type="checkbox" aria-label="Hero section scales properly"> Hero section scales properly</label></li>
+                <li><label><input type="checkbox" aria-label="Card layouts stack correctly on mobile"> Card layouts stack correctly on mobile</label></li>
+                <li><label><input type="checkbox" aria-label="Text is readable on all screen sizes"> Text is readable on all screen sizes</label></li>
+                <li><label><input type="checkbox" aria-label="Images scale and don't overflow"> Images scale and don't overflow</label></li>
+                <li><label><input type="checkbox" aria-label="Footer adapts to different widths"> Footer adapts to different widths</label></li>
+                <li><label><input type="checkbox" aria-label="Forms are usable on mobile"> Forms are usable on mobile</label></li>
+                <li><label><input type="checkbox" aria-label="No horizontal scrolling on any screen size"> No horizontal scrolling on any screen size</label></li>
+                <li><label><input type="checkbox" aria-label="Touch targets are at least 44px on mobile"> Touch targets are at least 44px on mobile</label></li>
+                <li><label><input type="checkbox" aria-label="Content is accessible and readable"> Content is accessible and readable</label></li>
+            </ul>
+
+            <h3>🚨 Common Issues to Look For:</h3>
+            <ul>
+                <li>Fixed heights causing content cutoff on mobile</li>
+                <li>Horizontal scrolling (overflow-x issues)</li>
+                <li>Text too small to read on mobile</li>
+                <li>Buttons/links too small to tap easily</li>
+                <li>Images not scaling properly</li>
+                <li>Grid layouts not stacking on mobile</li>
+                <li>Navigation not accessible on small screens</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>🛠️ Developer Tools Instructions</h2>
+            <p><strong>To test with browser developer tools:</strong></p>
+            <ol>
+                <li>Open the website in a new tab: <a href="http://localhost:3001" target="_blank">http://localhost:3001</a></li>
+                <li>Press F12 or right-click → "Inspect Element"</li>
+                <li>Click the device toggle icon (📱) or press Ctrl+Shift+M</li>
+                <li>Select different devices from the dropdown or set custom dimensions</li>
+                <li>Test touch interactions by enabling touch simulation</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        function openTestWindow(width, height) {
+            const url = 'http://localhost:3001';
+            const features = `width=${width},height=${height},scrollbars=yes,resizable=yes`;
+            window.open(url, 'ResponsiveTest', features);
+        }
+
+        function changeFrameSize(width, height) {
+            const frame = document.getElementById('websiteFrame');
+            frame.style.width = width;
+            frame.style.height = height;
+            frame.style.border = '2px solid #007acc';
+            frame.style.transition = 'all 0.3s ease';
+        }
+
+        // Auto-refresh iframe every 30 seconds to see changes
+        setInterval(function() {
+            const frame = document.getElementById('websiteFrame');
+            if (frame.src) {
+                frame.src = frame.src;
+            }
+        }, 30000);
+    </script>
+</body>
+</html>

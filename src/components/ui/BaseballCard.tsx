@@ -74,7 +74,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
   }
 
   return (
-    <div className="mx-auto w-full max-w-sm h-[500px]">
+    <div className="mx-auto w-full max-w-sm min-h-[220px] sm:min-h-[320px] md:min-h-[400px] lg:min-h-[500px]">
       <div
         className="relative w-full h-full perspective-1000 cursor-pointer"
         onClick={() => setIsFlipped(!isFlipped)}

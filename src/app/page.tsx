@@ -188,7 +188,10 @@ export default function Home() {
       </section>
 
       {/* Revolutionary Features Section */}
-      <section id="revolutionary-features" className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-12 lg:py-16 features-section">
+      <section
+        id="revolutionary-features"
+        className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-12 lg:py-16 features-section"
+      >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(56,104,81,0.05)_0%,transparent_50%)] opacity-60"></div>
         <div className="top-20 right-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
         <div className="bottom-20 left-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-40 h-40"></div>
@@ -315,93 +318,105 @@ export default function Home() {
                 delay: "0.3s",
               },
             ].map((feature, index) => {
-              const featureIds = ['ai-estimator', 'smart-scheduling', '3d-explorer', 'ai-assistant'];
+              const featureIds = [
+                "ai-estimator",
+                "smart-scheduling",
+                "3d-explorer",
+                "ai-assistant",
+              ];
               return (
-              <div key={index} id={`feature-${featureIds[index]}`} className="group perspective-1000 feature-card">
-                <div className="relative w-full h-[520px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
-                  {/* Front of Card */}
-                  <div className="absolute inset-0 bg-white dark:bg-gray-800 shadow-lg hover:shadow-brand-primary/10 hover:shadow-xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden transition-all duration-300 backface-hidden">
-                    {/* Gradient Background */}
-                    <div
-                      className={`absolute inset-0 ${feature.bgColor} rounded-3xl`}
-                    ></div>
+                <div
+                  key={index}
+                  id={`feature-${featureIds[index]}`}
+                  className="group perspective-1000 feature-card"
+                >
+                  <div className="relative w-full min-h-[220px] sm:min-h-[320px] md:min-h-[380px] lg:min-h-[420px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
+                    {/* Front of Card */}
+                    <div className="absolute inset-0 bg-white dark:bg-gray-800 shadow-lg hover:shadow-brand-primary/10 hover:shadow-xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden transition-all duration-300 backface-hidden">
+                      {/* Gradient Background */}
+                      <div
+                        className={`absolute inset-0 ${feature.bgColor} rounded-3xl`}
+                      ></div>
 
-                    <div className="z-10 relative flex flex-col h-full">
-                      <div className="flex-grow">
-                        {/* Icon Container - Maximized Space Utilization */}
-                        <div
-                          className={`w-20 h-20 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg p-2`}
-                        >
-                          <feature.icon size="2xl" primaryColor="white" />
+                      <div className="z-10 relative flex flex-col h-full">
+                        <div className="flex-grow">
+                          {/* Icon Container - Maximized Space Utilization */}
+                          <div
+                            className={`w-20 h-20 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg p-2`}
+                          >
+                            <feature.icon size="2xl" primaryColor="white" />
+                          </div>
+
+                          <h3 className="mb-4 font-black text-gray-900 dark:text-gray-100 text-2xl md:text-3xl leading-tight tracking-tight">
+                            {feature.title}
+                          </h3>
+
+                          <p className="font-light text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
+                            {feature.description}
+                          </p>
                         </div>
 
-                        <h3 className="mb-4 font-black text-gray-900 dark:text-gray-100 text-2xl md:text-3xl leading-tight tracking-tight">
-                          {feature.title}
-                        </h3>
-
-                        <p className="font-light text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
-                          {feature.description}
-                        </p>
-                      </div>
-
-                      {/* Pin to bottom */}
-                      <div className="mt-auto pt-6 font-semibold text-brand-primary dark:text-bronze-400 text-xs uppercase tracking-wider">
-                        Hover for details
+                        {/* Pin to bottom */}
+                        <div className="mt-auto pt-6 font-semibold text-brand-primary dark:text-bronze-400 text-xs uppercase tracking-wider">
+                          Hover for details
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Back of Card */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${feature.color} shadow-xl hover:shadow-2xl transition-shadow duration-300 p-8 rounded-3xl backface-hidden rotate-y-180 overflow-hidden`}
-                  >
-                    <div className="flex flex-col h-full text-white text-center">
-                      <div className="flex flex-col flex-grow">
-                        <feature.icon
-                          size="lg"
-                          primaryColor="white"
-                          className="mx-auto mb-3"
-                        />
-                        <h3 className="mb-3 font-black text-xl">
-                          {feature.title}
-                        </h3>
-                        <p className="mb-4 font-light text-white/90 text-base leading-snug">
-                          {feature.details}
-                        </p>
-                      </div>
-
-                      <div className="bg-white/20 backdrop-blur-sm mt-auto p-3 border border-white/10 rounded-xl">
-                        <div className="mb-2 font-medium text-white/80 text-xs uppercase tracking-wider">
-                          Key Features
+                    {/* Back of Card */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${feature.color} shadow-xl hover:shadow-2xl transition-shadow duration-300 p-8 rounded-3xl backface-hidden rotate-y-180 overflow-hidden`}
+                    >
+                      <div className="flex flex-col h-full text-white text-center">
+                        <div className="flex flex-col flex-grow">
+                          <feature.icon
+                            size="lg"
+                            primaryColor="white"
+                            className="mx-auto mb-3"
+                          />
+                          <h3 className="mb-3 font-black text-xl">
+                            {feature.title}
+                          </h3>
+                          <p className="mb-4 font-light text-white/90 text-base leading-snug">
+                            {feature.details}
+                          </p>
                         </div>
-                        <ul className="space-y-1 text-xs">
-                          {feature.features.map((feat, idx) => (
-                            <li
-                              key={idx}
-                              className="flex items-start text-left"
-                            >
-                              <MaterialIcon
-                                icon="check_circle"
-                                size="md"
-                                className="flex-shrink-0 mt-0.5 mr-2 text-white/80"
-                              />
-                              <span className="font-light leading-snug">
-                                {feat}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
+
+                        <div className="bg-white/20 backdrop-blur-sm mt-auto p-3 border border-white/10 rounded-xl">
+                          <div className="mb-2 font-medium text-white/80 text-xs uppercase tracking-wider">
+                            Key Features
+                          </div>
+                          <ul className="space-y-1 text-xs">
+                            {feature.features.map((feat, idx) => (
+                              <li
+                                key={idx}
+                                className="flex items-start text-left"
+                              >
+                                <MaterialIcon
+                                  icon="check_circle"
+                                  size="md"
+                                  className="flex-shrink-0 mt-0.5 mr-2 text-white/80"
+                                />
+                                <span className="font-light leading-snug">
+                                  {feat}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
               );
             })}
           </StaggeredFadeIn>
 
           {/* AI Feature CTAs */}
-          <div id="ai-features-cta" className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-12">
+          <div
+            id="ai-features-cta"
+            className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-12"
+          >
             {[
               {
                 title: "Try AI Estimator",
@@ -476,7 +491,10 @@ export default function Home() {
       </section>
 
       {/* Core Values Section */}
-      <section id="core-values" className="relative bg-white dark:bg-gray-900 py-12 lg:py-16 values-section">
+      <section
+        id="core-values"
+        className="relative bg-white dark:bg-gray-900 py-12 lg:py-16 values-section"
+      >
         {/* Background Elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.05)_0%,transparent_50%)]"></div>
         <div className="top-40 left-10 absolute bg-brand-secondary/10 blur-2xl rounded-full w-24 h-24"></div>
@@ -619,7 +637,7 @@ export default function Home() {
                   className="group perspective-1000 scroll-reveal value-card"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="relative w-full h-[480px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
+                  <div className="relative w-full min-h-[180px] sm:min-h-[280px] md:min-h-[340px] lg:min-h-[380px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                     {/* Front of Card */}
                     <div className="absolute inset-0 bg-white dark:bg-gray-800 shadow-lg hover:shadow-brand-primary/10 hover:shadow-xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden transition-all duration-300 backface-hidden">
                       {/* Gradient Overlay */}
@@ -1354,7 +1372,10 @@ export default function Home() {
       </section>
 
       {/* Enhanced Partnership Call to Action Section */}
-      <section id="partnership-cta" className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-brand-secondary py-16 lg:py-24 cta-section">
+      <section
+        id="partnership-cta"
+        className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-brand-secondary py-16 lg:py-24 cta-section"
+      >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
