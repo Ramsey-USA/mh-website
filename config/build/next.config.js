@@ -115,6 +115,13 @@ const nextConfig = {
     config,
     { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
   ) => {
+    // Exclude Firebase functions from Next.js build
+    config.externals = config.externals || [];
+    if (isServer) {
+      config.externals.push('firebase-functions');
+      config.externals.push('firebase-admin');
+    }
+
     // Optimize bundle splitting
     if (!dev && !isServer) {
       config.optimization = {
