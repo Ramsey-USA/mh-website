@@ -7,8 +7,8 @@
     "MD025": false,
     "MD024": false,
     "MD013": false,
-    "line-length": false,
+    "line-length": false
   },
   "globs": ["**/*.md"],
-  "ignores": ["node_modules/**", "firebase/functions/node_modules/**"],
+  "ignores": ["node_modules/**", "firebase/functions/node_modules/**"]
 }
