@@ -1,15 +1,15 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { ServiceRenderer } from "../../components/content/ServiceRenderer";
-import { TeamRenderer } from "../../components/content/TeamRenderer";
-import { MarkdownContent } from "../../lib/content/markdownLoader";
+import { ServiceRenderer } from "@/components/content/ServiceRenderer";
+import { TeamRenderer } from "@/components/content/TeamRenderer";
+import { MarkdownContent } from "@/lib/content/markdownLoader";
 import {
   validateBrandCompliance,
   BrandValidationResult,
-} from "../../lib/content/BrandingValidator";
-import { MaterialIcon } from "../../components/icons/MaterialIcon";
-import { Card, CardHeader, CardTitle, CardContent } from "../../components/ui";
+} from "@/lib/content/BrandingValidator";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 
 interface ContentData {
   services: MarkdownContent | null;

@@ -11,13 +11,13 @@ import { MaterialIcon } from '../icons/MaterialIcon'
 import { Card, CardContent } from '../ui'
 import useSmartRecommendations, {
   useRecommendationTracking,
-} from '../../hooks/useSmartRecommendations'
+} from '@/hooks/useSmartRecommendations'
 import FeedbackCollection from './FeedbackCollection'
 import type {
   ProjectRecommendation,
   UserProfile,
   VeteranBenefit,
-} from '../../lib/recommendations/SmartRecommendationEngine'
+} from '@/lib/recommendations/SmartRecommendationEngine'
 
 // Dynamic imports for Framer Motion
 const MotionDiv = dynamic(

@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { useIntersectionObserver } from '../../hooks/usePerformanceOptimization'
+import { useIntersectionObserver } from '@/hooks/usePerformanceOptimization'
 
 // Lazy loading component wrapper
 interface LazyWrapperProps {

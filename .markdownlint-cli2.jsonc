@@ -8,9 +8,6 @@
     "MD024": true,
     "MD013": {
       "line_length": 100
-    },
-    "line-length": {
-      "line_length": 100
     }
   },
   "globs": ["**/*.md"],

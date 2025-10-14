@@ -9,8 +9,8 @@ import {
   CardTitle,
   CardContent,
   Button,
-} from "../../components/ui";
-import { MaterialIcon } from "../../components/icons/MaterialIcon";
+} from "@/components/ui";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 // Dynamically import heavy components
 const EstimatorForm = dynamic(
   () =>
@@ -37,9 +37,9 @@ import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from "../../components/animations/DynamicAnimations";
-import { PageNavigation } from "../../components/navigation/PageNavigation";
-import { navigationConfigs } from "../../components/navigation/navigationConfigs";
+} from "@/components/animations/FramerMotionComponents";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
 // Structured data for SEO
 const structuredData = {

@@ -12,11 +12,11 @@ import React, { useState, useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import { MaterialIcon } from '../icons/MaterialIcon'
 import { Card, CardContent } from '../ui'
-import useSmartRecommendations from '../../hooks/useSmartRecommendations'
+import useSmartRecommendations from '@/hooks/useSmartRecommendations'
 import type {
   ProjectRecommendation,
   RecommendationFeedback,
-} from '../../lib/recommendations/SmartRecommendationEngine'
+} from '@/lib/recommendations/SmartRecommendationEngine'
 
 // Dynamic imports for Framer Motion
 const MotionDiv = dynamic(

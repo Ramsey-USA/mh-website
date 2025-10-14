@@ -20,12 +20,12 @@ import {
   performanceMonitor,
   getPerformanceSummary,
   type PerformanceMetrics,
-} from "../../lib/performance/PerformanceMonitor";
-import { aiCache } from "../../lib/cache/AIResponseCache";
+} from "@/lib/performance/PerformanceMonitor";
+import { aiCache } from "@/lib/cache/AIResponseCache";
 import {
   usePerformanceMetrics,
   useBundleAnalysis,
-} from "../../hooks/usePerformance";
+} from "@/hooks/usePerformance";
 
 // Mock performance manager
 const performanceManager = {

@@ -6,10 +6,10 @@
 'use client'
 
 import React, { useState } from 'react'
-import { MaterialIcon } from '../../../components/icons/MaterialIcon'
-import { Button } from '../../../components/ui'
-import SmartRecommendations from '../../../components/recommendations/SmartRecommendations'
-import type { UserProfile } from '../../../lib/recommendations/SmartRecommendationEngine'
+import { MaterialIcon } from '@/components/icons/MaterialIcon'
+import { Button } from '@/components/ui'
+import SmartRecommendations from '@/components/recommendations/SmartRecommendations'
+import type { UserProfile } from '@/lib/recommendations/SmartRecommendationEngine'
 
 export default function SmartRecommendationsDemo() {
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null)

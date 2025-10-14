@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { MarkdownRenderer } from "../../components/content/MarkdownRenderer";
-import { MarkdownContent } from "../../lib/content/markdownLoader";
+import { MarkdownRenderer } from "@/components/content/MarkdownRenderer";
+import { MarkdownContent } from "@/lib/content/markdownLoader";
 
 export default function TestMarkdownPage() {
   const [coreValues, setCoreValues] = useState<MarkdownContent | null>(null);

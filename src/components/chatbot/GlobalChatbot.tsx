@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { Button, Card, CardHeader, CardContent, Input } from '../ui'
 import { MaterialIcon } from '../icons/MaterialIcon'
-import { militaryConstructionAI } from '../../lib/militaryConstructionAI'
+import { militaryConstructionAI } from '@/lib/militaryConstructionAI'
 
 interface ChatMessage {
   id: string

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { loadMarkdownContent } from "../../../../lib/content/markdownLoader";
+import { loadMarkdownContent } from "@/lib/content/markdownLoader";
 
 export async function GET() {
   try {

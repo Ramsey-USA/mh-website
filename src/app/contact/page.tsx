@@ -8,17 +8,17 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
-} from "../../components/ui";
-import { MaterialIcon } from "../../components/icons/MaterialIcon";
-import SmartRecommendations from "../../components/recommendations/SmartRecommendations";
+} from "@/components/ui";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import SmartRecommendations from "@/components/recommendations/SmartRecommendations";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from "../../components/animations/FramerMotionComponents";
+} from "@/components/animations/FramerMotionComponents";
 import { useGlobalChatbot } from "../../providers/GlobalChatbotProvider";
-import { PageNavigation } from "../../components/navigation/PageNavigation";
-import { navigationConfigs } from "../../components/navigation/navigationConfigs";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
 // Contact methods
 const contactMethods = [

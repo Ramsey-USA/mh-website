@@ -2,7 +2,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { useAuth } from '../../lib/auth/AuthContext'
+import { useAuth } from '@/lib/auth/AuthContext'
 import { Button, Card, CardContent, CardHeader, CardTitle, Input } from '../ui'
 
 export function UserProfile() {

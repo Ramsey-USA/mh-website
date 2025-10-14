@@ -1,22 +1,22 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Navigation, Footer } from "../components/layout";
+import { Navigation, Footer } from "@/components/layout";
 // Temporarily disable imports to fix syntax errors
-import FaviconLinks from "../components/layout/FaviconLinks";
-import { AuthProvider } from "../lib/auth/AuthContext";
-import { ThemeProvider } from "../contexts/ThemeContext";
+import FaviconLinks from "@/components/layout/FaviconLinks";
+import { AuthProvider } from "@/lib/auth/AuthContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import { GlobalChatbotProvider } from "../providers/GlobalChatbotProvider";
-import { WebVitalsReporter } from "../components/performance/optimized-components";
-// import { AnalyticsProvider } from "../components/analytics/enhanced-analytics";
-// import PWAUpdate from "../components/pwa/PWAUpdate";
-// import PWAInstall from "../components/pwa/PWAInstall";
-// import PushNotifications from "../components/pwa/PushNotifications";
+import { WebVitalsReporter } from "@/components/performance/optimized-components";
+// import { AnalyticsProvider } from "@/components/analytics/enhanced-analytics";
+// import PWAUpdate from "@/components/pwa/PWAUpdate";
+// import PWAInstall from "@/components/pwa/PWAInstall";
+// import PushNotifications from "@/components/pwa/PushNotifications";
 import {
   StructuredData,
   generateEnhancedOrganizationSchema,
   generateWebsiteSchema,
-} from "../components/seo/enhanced-seo";
-// import { useCriticalResourcePreloader } from "../hooks/usePerformanceOptimization";
+} from "@/components/seo/enhanced-seo";
+// import { useCriticalResourcePreloader } from "@/hooks/usePerformanceOptimization";
 
 export const metadata: Metadata = {
   metadataBase: new URL(

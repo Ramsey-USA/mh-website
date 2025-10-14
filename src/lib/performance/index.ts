@@ -19,8 +19,8 @@ export {
 } from './hooks'
 
 // Optimized components
-export { PerformanceDashboard } from '../../components/performance/PerformanceDashboard'
-export { OptimizedImage } from '../../components/performance/OptimizedImage'
+export { PerformanceDashboard } from '@/components/performance/PerformanceDashboard'
+export { OptimizedImage } from '@/components/performance/OptimizedImage'
 
 // Code splitting utilities
 export {

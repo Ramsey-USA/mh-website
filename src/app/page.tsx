@@ -9,16 +9,16 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
-} from "../components/ui";
-// import { PortfolioImage } from '../components/portfolio/ProjectImage'
-import { PortfolioService } from "../lib/services/portfolioService";
+} from "@/components/ui";
+// import { PortfolioImage } from '@/components/portfolio/ProjectImage'
+import { PortfolioService } from "@/lib/services/portfolioService";
 import {
   generateSEOMetadata,
   generateOrganizationStructuredData,
   StructuredData,
-} from "../components/seo/seo-meta";
-import { PageNavigation } from "../components/navigation/PageNavigation";
-import { navigationConfigs } from "../components/navigation/navigationConfigs";
+} from "@/components/seo/seo-meta";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 // Dynamically import below-the-fold components
 const TestimonialsWidget = dynamic(
   () => import("../components/testimonials/TestimonialsWidget"),
@@ -38,20 +38,20 @@ const SmartRecommendations = dynamic(
     ssr: false,
   }
 );
-// import BlogNewsCarousel from '../components/blog/BlogNewsCarousel'
+// import BlogNewsCarousel from '@/components/blog/BlogNewsCarousel'
 import Head from "next/head";
-import { MaterialIcon } from "../components/icons/MaterialIcon";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from "../components/animations/DynamicAnimations";
-import { useAnalytics } from "../components/analytics/enhanced-analytics";
-import { OptimizedImage } from "../components/ui/OptimizedImage";
+} from "@/components/animations/FramerMotionComponents";
+import { useAnalytics } from "@/components/analytics/enhanced-analytics";
+import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import {
   useIntersectionObserver,
   useImagePreloader,
-} from "../hooks/usePerformanceOptimization";
+} from "@/hooks/usePerformanceOptimization";
 
 export default function Home() {
   // Initialize analytics

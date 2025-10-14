@@ -7,7 +7,7 @@ import React, {
   ReactNode,
   useEffect,
 } from 'react'
-import { GlobalChatbot } from '../components/chatbot/GlobalChatbot'
+import { GlobalChatbot } from '@/components/chatbot/GlobalChatbot'
 import { usePathname } from 'next/navigation'
 
 interface GlobalChatbotContextType {

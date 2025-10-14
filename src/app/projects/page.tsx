@@ -8,17 +8,17 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
-} from "../../components/ui";
-import { MaterialIcon } from "../../components/icons/MaterialIcon";
+} from "@/components/ui";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from "../../components/animations/DynamicAnimations";
-import { PageNavigation } from "../../components/navigation/PageNavigation";
-import { navigationConfigs } from "../../components/navigation/navigationConfigs";
-import { PortfolioService } from "../../lib/services/portfolioService";
-import { OptimizedImage } from "../../components/ui/OptimizedImage";
+} from "@/components/animations/FramerMotionComponents";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { PortfolioService } from "@/lib/services/portfolioService";
+import { OptimizedImage } from "@/components/ui/OptimizedImage";
 
 // Category definitions
 const categories = [

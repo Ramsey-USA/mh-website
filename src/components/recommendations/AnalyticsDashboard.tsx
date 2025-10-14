@@ -12,7 +12,7 @@ import React, { useState, useEffect, useMemo } from 'react'
 import dynamic from 'next/dynamic'
 import { MaterialIcon } from '../icons/MaterialIcon'
 import { Card, CardContent } from '../ui'
-import useSmartRecommendations from '../../hooks/useSmartRecommendations'
+import useSmartRecommendations from '@/hooks/useSmartRecommendations'
 
 // Dynamic import for Framer Motion
 const MotionDiv = dynamic(

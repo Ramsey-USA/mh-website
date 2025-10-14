@@ -4,9 +4,9 @@ import React, { useEffect, useState } from "react";
 import {
   validateBrandCompliance,
   BrandValidationResult,
-} from "../../lib/content/BrandingValidator";
-import { MaterialIcon } from "../../components/icons/MaterialIcon";
-import { Card, CardHeader, CardTitle, CardContent } from "../../components/ui";
+} from "@/lib/content/BrandingValidator";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 
 export default function Phase2TestPage() {
   const [validationResults, setValidationResults] = useState<

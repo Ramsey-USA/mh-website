@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { getFirebaseDb } from "../../lib/firebase/config";
+import { getFirebaseDb } from "@/lib/firebase/config";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 interface JobApplicationModalProps {

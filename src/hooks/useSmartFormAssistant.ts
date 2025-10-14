@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { militaryConstructionAI } from '../lib/militaryConstructionAI'
+import { militaryConstructionAI } from '@/lib/militaryConstructionAI'
 
 interface FormField {
   name: string

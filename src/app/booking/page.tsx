@@ -8,14 +8,14 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
-} from "../../components/ui";
-import { MaterialIcon } from "../../components/icons/MaterialIcon";
+} from "@/components/ui";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from "../../components/animations/FramerMotionComponents";
-import { consultationService } from "../../lib/utils/firebase";
+} from "@/components/animations/FramerMotionComponents";
+import { consultationService } from "@/lib/utils/firebase";
 import { useGlobalChatbot } from "../../providers/GlobalChatbotProvider";
 
 // Available time slots

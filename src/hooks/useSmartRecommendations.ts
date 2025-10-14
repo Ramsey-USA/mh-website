@@ -12,11 +12,11 @@ import SmartRecommendationEngine, {
   RecommendationMetrics,
   UserBehavior,
   RecommendationContext,
-} from '../lib/recommendations/SmartRecommendationEngine'
+} from '@/lib/recommendations/SmartRecommendationEngine'
 import type {
   UserAssignment,
   VariantConfiguration,
-} from '../lib/recommendations/ABTestingFramework'
+} from '@/lib/recommendations/ABTestingFramework'
 
 interface UseSmartRecommendationsOptions {
   userId?: string

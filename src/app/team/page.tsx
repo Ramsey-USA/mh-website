@@ -2,18 +2,18 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Button } from "../../components/ui";
-import { VintageBaseballCard } from "../../components/ui/VintageBaseballCard";
+import { Button } from "@/components/ui";
+import { VintageBaseballCard } from "@/components/ui/VintageBaseballCard";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
-} from "../../components/animations/FramerMotionComponents";
+} from "@/components/animations/FramerMotionComponents";
 import {
   vintageTeamMembers,
   type VintageTeamMember,
-} from "../../lib/data/vintage-team";
-import { PageNavigation } from "../../components/navigation/PageNavigation";
-import { navigationConfigs } from "../../components/navigation/navigationConfigs";
+} from "@/lib/data/vintage-team";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import "../../styles/vintage-baseball-card.css";
 
 // Group team members by department

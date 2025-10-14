@@ -30,7 +30,7 @@ import { MaterialIcon } from "../icons/MaterialIcon";
  * @example
  * ```tsx
  * // Automatically included in layout.tsx - no manual implementation needed
- * import { Navigation } from "../components/layout";
+ * import { Navigation } from "@/components/layout";
  *
  * export default function RootLayout({ children }) {
  *   return (
