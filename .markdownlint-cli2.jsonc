@@ -1,13 +1,17 @@
 {
   "config": {
-    "MD038": false,
-    "MD009": false,
-    "MD022": false,
-    "MD032": false,
-    "MD025": false,
-    "MD024": false,
-    "MD013": false,
-    "line-length": false
+    "MD038": true,
+    "MD009": true,
+    "MD022": true,
+    "MD032": true,
+    "MD025": true,
+    "MD024": true,
+    "MD013": {
+      "line_length": 100
+    },
+    "line-length": {
+      "line_length": 100
+    }
   },
   "globs": ["**/*.md"],
   "ignores": ["node_modules/**", "firebase/functions/node_modules/**"]

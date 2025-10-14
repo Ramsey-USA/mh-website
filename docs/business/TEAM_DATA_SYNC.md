@@ -2,15 +2,15 @@
 
 ## Overview
 
-This document establishes a systematic approach to ensure team member information  
-flows efficiently from vintage baseball cards to MD documentation files,  
+This document establishes a systematic approach to ensure team member information
+flows efficiently from vintage baseball cards to MD documentation files,
 maintaining consistency and accuracy across all platforms.
 
 ## Data Architecture
 
 ### Source of Truth: `src/lib/data/vintage-team.ts`
 
-All team member information originates from the `VintageTeamMember` interface in the  
+All team member information originates from the `VintageTeamMember` interface in the
 vintage team data file. This centralized approach ensures:
 
 - **Single Source Updates**: Changes made in one location propagate to all displays
@@ -189,4 +189,5 @@ When adding new team members:
 
 ---
 
-*This documentation ensures efficient data flow from baseball card information to MD files while maintaining accuracy and professional presentation standards.*
+*This documentation ensures efficient data flow from baseball card information to MD files while
+maintaining accuracy and professional presentation standards.*

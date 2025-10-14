@@ -25,7 +25,7 @@ http.request.uri.path eq "/api/contact" and http.request.method eq "POST"
 ### Cache Rules
 
 ```text
-Pattern: *.mhconstruction.com/*
+Pattern: *.mhc-gc.com/*
 Setting: Cache Level = Standard
 Setting: Browser Cache TTL = 1 month
 Setting: Edge Cache TTL = 7 days
@@ -34,7 +34,7 @@ Setting: Edge Cache TTL = 7 days
 ### Performance Rules
 
 ```text
-Pattern: *.mhconstruction.com/api/*
+Pattern: *.mhc-gc.com/api/*
 Setting: Cache Level = Bypass
 ```
 
@@ -50,7 +50,7 @@ Proxy: Enabled (Orange Cloud)
 
 Type: CNAME
 Name: www
-Content: mhconstruction.com
+Content: mhc-gc.com
 Proxy: Enabled (Orange Cloud)
 ```
 

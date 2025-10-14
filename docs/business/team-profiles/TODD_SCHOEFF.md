@@ -29,7 +29,10 @@ Estimating Excellence Award, 20-Year Service Recognition
 
 ## Biography
 
-Todd brings over 20 years of construction estimation expertise to MH Construction. Known for accurate estimates that minimize budget surprises, he specializes in commercial project bidding and medical facility projects. His precision estimating supports MH Construction's commitment to transparent, honest pricing that builds lasting client relationships.
+Todd brings over 20 years of construction estimation expertise to MH Construction. Known for
+accurate estimates that minimize budget surprises, he specializes in commercial project bidding and
+medical facility projects. His precision estimating supports MH Construction's commitment to
+transparent, honest pricing that builds lasting client relationships.
 
 ## Career Highlights
 

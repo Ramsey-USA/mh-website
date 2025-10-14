@@ -4,7 +4,8 @@
 
 **Last Updated:** October 10, 2025
 
-This guide establishes the critical terminology distinctions used throughout the MH Construction website to ensure consistent messaging and prevent user confusion.
+This guide establishes the critical terminology distinctions used throughout the MH Construction
+website to ensure consistent messaging and prevent user confusion.
 
 ---
 
@@ -206,4 +207,5 @@ This terminology guide should be:
 - Shared with any external content creators
 - Integrated into style guide training
 
-**Questions about terminology?** Contact the development team or refer to this guide before making content decisions.
+**Questions about terminology?** Contact the development team or refer to this guide before
+making content decisions.

@@ -2,9 +2,11 @@
 
 ## 🔥 **Integration Status: COMPLETE** ✅
 
-**Firebase is fully integrated and operational!** This guide now serves as both setup reference and verification checklist for the active Firebase services.
+**Firebase is fully integrated and operational!** This guide now serves as both
+setup reference and verification checklist for the active Firebase services.
 
-This guide covers Firebase configuration for the MH Construction website with authentication, database, storage, functions, and hosting features.
+This guide covers Firebase configuration for the MH Construction website with
+authentication, database, storage, functions, and hosting features.
 
 ## Prerequisites
 
@@ -147,7 +149,7 @@ The app will automatically create collections when needed, but you can pre-creat
    ```json
    {
      "uid": "your_user_uid",
-     "email": "admin@mhconstruction.com",
+     "email": "admin@mhc-gc.com",
      "displayName": "Admin User",
      "role": "admin",
      "isActive": true,
@@ -284,7 +286,8 @@ For technical support:
 | Service | Status | Features |
 |---------|---------|----------|
 | **Authentication** | ✅ Active | Google OAuth, Email/Password, Role-based access |
-| **Firestore Database** | ✅ Active | Real-time data, Collections: users, consultations, estimates, notifications, team |
+| **Firestore Database** | ✅ Active | Real-time data, Collections: users, |
+| | | consultations, estimates, notifications, team |
 | **Cloud Storage** | ✅ Active | File uploads, Document management, Image storage |
 | **Cloud Functions** | ✅ Active | API endpoints, Form processing, Server-side logic |
 | **Hosting** | ✅ Ready | Production deployment platform |

@@ -18,9 +18,9 @@ developers working on this project.
 
 ## 🏗️ Project Overview
 
-This is a partnership-driven foundation platform for MH Construction, a veteran-owned company serving the
-Pacific Northwest. The platform emphasizes community partnership, transparent communication, and veteran
-excellence.
+This is a partnership-driven foundation platform for MH Construction, a veteran-owned company
+serving the Pacific Northwest. The platform emphasizes community partnership, transparent
+communication, and veteran excellence.
 
 ### Current Status
 
@@ -447,7 +447,7 @@ npm run lighthouse    # (When implemented)
 - **Documentation**: Check existing docs first
 - **Issues**: Search existing issues before creating new ones
 - **Discussions**: Use GitHub Discussions for questions
-- **Contact**: development team at <developers@mhconstruction.com>
+- **Contact**: development team at <developers@mhc-gc.com>
 
 ## 📋 Pull Request Process
 
@@ -505,14 +505,14 @@ Brief description of changes
 
 ### Development Team
 
-- **Lead Developer**: <developers@mhconstruction.com>
-- **Project Manager**: <pm@mhconstruction.com>
-- **Emergency Support**: <support@mhconstruction.com>
+- **Lead Developer**: <developers@mhc-gc.com>
+- **Project Manager**: <pm@mhc-gc.com>
+- **Emergency Support**: <support@mhc-gc.com>
 
 ### Business Contacts
 
 - **General Inquiries**: (509) 308-6489
-- **Email**: <info@mhconstruction.com>
+- **Email**: <info@mhc-gc.com>
 
 ---
 
@@ -525,7 +525,8 @@ Remember that this project represents MH Construction's commitment to:
 - **Excellence**: Veteran-owned quality and precision
 - **Transparency**: Open communication and honest practices
 
-Every contribution should reflect these values and support the company's mission of building lasting partnerships through exceptional construction services.
+Every contribution should reflect these values and support the company's mission of building lasting
+partnerships through exceptional construction services.
 
 ---
 

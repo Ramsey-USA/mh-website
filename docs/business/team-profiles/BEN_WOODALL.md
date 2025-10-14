@@ -29,7 +29,10 @@ Budget Excellence Award, Project Efficiency Recognition
 
 ## Biography
 
-Ben is a dedicated Project Manager with a focus on project efficiency and budget management. His strength lies in balancing project scope, timeline, and budget constraints while ensuring projects deliver maximum value. Ben exemplifies MH Construction's commitment to delivering exceptional results on time and within budget.
+Ben is a dedicated Project Manager with a focus on project efficiency and budget management. His
+strength lies in balancing project scope, timeline, and budget constraints while ensuring projects
+deliver maximum value. Ben exemplifies MH Construction's commitment to delivering exceptional
+results on time and within budget.
 
 ## Career Highlights
 

@@ -82,10 +82,13 @@ This document tracks icon usage across the website to ensure unique icons and av
 
 ### ⚠️ Intentionally Reused Icons
 
-- `military_tech` - Used for both veteran-owned status AND veteran programs (acceptable as both relate to veteran services)
-- `build` - Used for both services AND building philosophy (acceptable as both relate to construction)
+- `military_tech` - Used for both veteran-owned status AND veteran programs (acceptable as both
+  relate to veteran services)
+- `build` - Used for both services AND building philosophy (acceptable as both relate to
+  construction)
 - `work` - Used only for LinkedIn (moved from careers to avoid duplication)
-- `arrow_forward` - Used for all footer navigation links (acceptable as consistent navigation element)
+- `arrow_forward` - Used for all footer navigation links (acceptable as consistent navigation
+  element)
 
 ## Design Guidelines
 
@@ -108,7 +111,9 @@ This document tracks icon usage across the website to ensure unique icons and av
 - Changed `/careers` from `work` to `badge` icon
 - Ensured `handshake` is uniquely used for "Start Partnership"
 - Updated PageHero component navigation to match main Navigation component
-- Fixed PageHero icon inconsistencies: `group` → `people`, `construction` → `build`, `work` → `photo_library`, `work_outline` → `badge`, `contact_mail` → `contact_phone`
+- Fixed PageHero icon inconsistencies: `group` → `people`, `construction` → `build`,
+  `work` → `photo_library`, `work_outline` → `badge`, `contact_mail` → `contact_phone`
 - Applied MH brand colors (`brand-primary`) to PageHero navigation styling
 - Verified no icon conflicts between Navigation, Footer, and PageHero components
-- **Terminology Impact**: This change eliminates user confusion and clearly distinguishes internal capabilities from external partnerships
+- **Terminology Impact**: This change eliminates user confusion and clearly distinguishes
+  internal capabilities from external partnerships

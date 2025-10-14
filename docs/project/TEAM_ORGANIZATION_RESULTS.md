@@ -6,8 +6,8 @@
 
 ## Executive Summary
 
-Successfully organized 19 scattered team member files into a professional,  
-structured team-profiles directory. Improved documentation health score from 18%  
+Successfully organized 19 scattered team member files into a professional,
+structured team-profiles directory. Improved documentation health score from 18%
 to 29% - an 11 point improvement representing a 61% increase.
 
 ---
@@ -131,7 +131,8 @@ docs/business/team-profiles/
 
 ### Updated Detection Logic
 
-- **Directory Index Recognition:** Script now properly recognizes team-profiles/README.md as legitimate directory index
+- **Directory Index Recognition:** Script now properly recognizes team-profiles/README.md as
+  legitimate directory index
 - **Team File Detection:** Updated to check for team files in new location
 - **Health Score Accuracy:** Proper scoring of organized vs scattered team files
 
@@ -179,6 +180,9 @@ docs/business/team-profiles/
 
 ## Conclusion
 
-The team profiles organization represents a significant step forward in documentation quality. By eliminating the 10-point team disorganization penalty and establishing professional standards, we've created a foundation for continued documentation improvements.
+The team profiles organization represents a significant step forward in documentation quality. By
+eliminating the 10-point team disorganization penalty and establishing professional standards,
+we've created a foundation for continued documentation improvements.
 
-**Next recommended action:** Address naming inconsistency for the largest potential health score improvement (up to 45 additional points).
+**Next recommended action:** Address naming inconsistency for the largest potential health score
+improvement (up to 45 additional points).

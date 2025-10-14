@@ -1,9 +1,9 @@
 # MH Construction Brand Overview
 
-**Date:** October 9, 2025  
-**Status:** ✅ Current  
-**Category:** Business - Brand Guidelines  
-**Last Updated:** October 9, 2025  
+**Date:** October 9, 2025
+**Status:** ✅ Current
+**Category:** Business - Brand Guidelines
+**Last Updated:** October 9, 2025
 
 ## Quick Navigation
 
@@ -42,7 +42,7 @@
 ### Supporting Taglines
 
 - "Your Partner in Building Tomorrow"
-- "Working WITH you to serve our communities"  
+- "Working WITH you to serve our communities"
 - "Where Military Precision Meets Construction Excellence"
 - "Partnership-Driven Construction Management"
 
@@ -50,8 +50,8 @@
 
 ### Unique Value Proposition
 
-MH Construction combines **military precision** with **partnership-driven** construction  
-management to deliver exceptional results for commercial, industrial, and medical facility  
+MH Construction combines **military precision** with **partnership-driven** construction
+management to deliver exceptional results for commercial, industrial, and medical facility
 projects throughout the Pacific Northwest.
 
 ### Key Differentiators
@@ -69,7 +69,7 @@ projects throughout the Pacific Northwest.
 **Secondary**:
 
 - Industrial facility managers
-- Medical facility administrators  
+- Medical facility administrators
 - Religious organization leaders
 - Winery and vineyard owners
 
@@ -112,7 +112,7 @@ projects throughout the Pacific Northwest.
 ### Core Values
 
 1. **Integrity**: Unwavering commitment to our word
-2. **Partnership**: Building relationships alongside buildings  
+2. **Partnership**: Building relationships alongside buildings
 3. **Excellence**: Military precision in every project detail
 4. **Transparency**: Open communication throughout the process
 5. **Community**: Serving and strengthening our local area
@@ -121,19 +121,19 @@ projects throughout the Pacific Northwest.
 
 #### Integrity
 
-> "Integrity is the unwavering commitment to our word. As a team built on principles of  
-> accountability and trust, we view our business conduct as a direct reflection of our  
+> "Integrity is the unwavering commitment to our word. As a team built on principles of
+> accountability and trust, we view our business conduct as a direct reflection of our
 > personal character."
 
 #### Partnership
 
-> "Partnership means building relationships alongside buildings. We work WITH you, not  
+> "Partnership means building relationships alongside buildings. We work WITH you, not
 > FOR you, ensuring your vision guides every decision throughout the construction process."
 
 #### Excellence
 
-> "Excellence comes from military precision applied to construction management. Every  
-> detail matters, every timeline is sacred, and every project reflects our commitment to  
+> "Excellence comes from military precision applied to construction management. Every
+> detail matters, every timeline is sacred, and every project reflects our commitment to
 > superior results."
 
 ## Current Architecture & Implementation
@@ -156,7 +156,7 @@ projects throughout the Pacific Northwest.
 
 - **Home** - Active and functional
 - **About Us** - Coming soon states for future development
-- **Services** - Coming soon states for future development  
+- **Services** - Coming soon states for future development
 - **Portfolio** - Coming soon states for future development
 - **Contact** - Coming soon states for future development
 
@@ -206,6 +206,6 @@ projects throughout the Pacific Northwest.
 
 ---
 
-**Brand Authority**: MH Construction Leadership Team  
-**Last Major Update**: October 8, 2025 (v3.7.2)  
+**Brand Authority**: MH Construction Leadership Team
+**Last Major Update**: October 8, 2025 (v3.7.2)
 **Next Review**: Quarterly brand compliance assessment

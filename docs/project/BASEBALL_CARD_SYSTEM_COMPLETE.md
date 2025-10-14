@@ -8,8 +8,8 @@
 
 ## 🎯 System Overview
 
-The baseball card theme transforms the traditional team page into an interactive,  
-engaging experience showcasing MH Construction team members in a professional  
+The baseball card theme transforms the traditional team page into an interactive,
+engaging experience showcasing MH Construction team members in a professional
 yet memorable format.
 
 ### **Implementation Components**
@@ -93,7 +93,7 @@ yet memorable format.
   "experience": "Years",
   "specialties": ["Area 1", "Area 2"],
   "bio": "Professional background",
-  "contact": "contact@mhconstruction.com",
+  "contact": "contact@mhc-gc.com",
   "image": "/images/team/member.jpg"
 }
 ```text

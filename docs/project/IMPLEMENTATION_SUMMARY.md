@@ -83,7 +83,7 @@
 
 *📋 Technical Implementation: `/src/components/icons/MaterialIcon.tsx` with size mapping and style support*
 
-- **6-Value Professional Foundation**: Evolved from 4 simplified values to  
+- **6-Value Professional Foundation**: Evolved from 4 simplified values to
   comprehensive 6-principle system
   - Honesty & Transparency (full-disclosure approach)
   - Integrity (unwavering commitment to our word)
@@ -197,17 +197,22 @@
 
 ```tsx
 // Large Section Headers
-<h1 className="mb-10 pb-4 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter">
-  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+<h1 className="mb-10 pb-4 font-black text-gray-900 dark:text-white text-4xl
+  sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed
+  tracking-tighter">
+  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300
+    text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
     Building Tomorrow with
   </span>
-  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary
+    to-brand-secondary drop-shadow-sm text-transparent">
     Today's Technology
   </span>
 </h1>
 
 // Body Text with Proper Dark Mode
-<p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+<p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300
+  text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
   Enhanced description text with automatic theme adaptation
 </p>
 ```text
@@ -228,7 +233,8 @@
 </Button>
 
 // Special Background CTA
-<Button variant="outline" size="xl" className="shadow-xl bg-transparent border-white text-white hover:bg-white hover:text-brand-primary">
+<Button variant="outline" size="xl" className="shadow-xl bg-transparent
+  border-white text-white hover:bg-white hover:text-brand-primary">
   <span className="z-10 relative tracking-wide">Get Free Estimate</span>
 </Button>
 ```text
@@ -344,12 +350,16 @@ src/
 
 ## 📈 **Performance Monitoring**
 
-The website includes comprehensive performance monitoring with real-time metrics tracking, Core Web Vitals optimization, and automated performance reporting for continuous optimization.
+The website includes comprehensive performance monitoring with real-time metrics
+tracking, Core Web Vitals optimization, and automated performance reporting for
+continuous optimization.
 
 ---
 
 **Status**: ✅ **Ready for Production Deployment**
 
-The MH Construction website now has a comprehensive portfolio showcase system with enterprise-level performance optimizations and SEO features ready for production deployment.
+The MH Construction website now has a comprehensive portfolio showcase system
+with enterprise-level performance optimizations and SEO features ready for
+production deployment.
 
 1. **Content Population**: Add real content to replace placeholder text and images

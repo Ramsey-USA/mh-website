@@ -1,26 +1,48 @@
-# Technical Documentation Hub
+# Technical Documentation Index
 
-**Category:** Technical Implementation & Architecture  
-**Last Updated:** October 9, 2025  
-**Status:** ✅ Active  
+**Category:** Technical Implementation & Architecture
+**Last Updated:** October 14, 2025
+**Status:** ✅ Active - Reorganized Structure
 
-## Quick Navigation
+## 📂 Directory Structure
+
+### `/design-system/` - Design System & UI Components
+
+Comprehensive design system documentation including icons, buttons, navigation, and visual elements.
+
+**Subdirectories:**
+
+- `/icons/` - Icon system specifications, usage guides, and policy implementation
+- `/buttons/` - Button system documentation and examples
+- `/navigation/` - Navigation architecture and implementation guides
+
+**Key Files:**
+
+- `design-system.md` - Master design system documentation
+
+### `/performance/` - Performance Optimization
+
+Performance monitoring, optimization strategies, and implementation guides.
+
+**Key Files:**
+
+- `phase-5-performance-implementation.md` - Performance optimization implementation
+
+### `/architecture/` - System Architecture
+
+Technical architecture documentation, page layouts, and system design specifications.
+
+## 🛠️ Root Level Technical Files
 
 ### 🏗️ System Architecture & Design
 
-- [**Design System**](./DESIGN_SYSTEM.md) - UI components and design standards
 - [**Features Documentation**](./FEATURES.md) - Complete feature specifications
 - [**Page Layout Quick Start**](./PAGE_LAYOUT_QUICK_START.md) - Copy-paste templates for new pages
 - [**Page Layout Standards**](./PAGE_LAYOUT_STANDARDS.md) - Complete spacing, padding, typography reference
 - [**Icon System Quick Reference**](./ICON_SYSTEM_QUICK_REFERENCE.md) - Icon usage guide
-
-### 🛠️ Development & Implementation
-
-- [**Button System**](./BUTTON_SYSTEM.md) - Button variants and implementation
-- [**Button Examples**](./BUTTON_EXAMPLES.md) - Button usage examples
 - [**CSS JS Cohesion**](./CSS_JS_COHESION.md) - CSS and JavaScript integration
 - [**Icon Hover Effects Guide**](./ICON_HOVER_EFFECTS_GUIDE.md) - Custom icon system and hover effects
-- [**Phase 5 Performance Implementation**](./PHASE_5_PERFORMANCE_IMPLEMENTATION.md) -  
+- [**Phase 5 Performance Implementation**](./PHASE_5_PERFORMANCE_IMPLEMENTATION.md) -
   Performance monitoring implementation
 
 ## Directory Structure
@@ -72,7 +94,7 @@ docs/technical/
 >
 > [Business Hub](../business/BUSINESS_INDEX.md) - Business operations and brand guidelines
 
-### 📝 Project Documentation  
+### 📝 Project Documentation
 >
 > [Project Hub](../project/PROJECT_INDEX.md) - Project plans and implementations
 
@@ -82,11 +104,11 @@ docs/technical/
 
 ### 📖 Guidelines & Standards
 >
-> [Guidelines Hub](../guidelines/GUIDELINES_INDEX.md) - Standards and best practices
+> [Guidelines Hub](../development/guidelines/guidelines-index.md) - Standards and best practices
 
 ### 📑 Reference Materials
 >
-> [Reference Hub](../reference/REFERENCE_INDEX.md) - Quick references and templates
+> [Reference Hub](../development/reference/reference-index.md) - Quick references and templates
 
 ## Quick Technical Reference
 
@@ -113,6 +135,6 @@ docs/technical/
 
 ---
 
-**Technical Authority**: MH Construction Development Team  
-**Last Update**: October 9, 2025  
+**Technical Authority**: MH Construction Development Team
+**Last Update**: October 9, 2025
 **Next Review**: Weekly technical architecture assessment

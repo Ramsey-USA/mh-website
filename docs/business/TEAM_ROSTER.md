@@ -2,7 +2,7 @@
 
 ## Leadership & Core Team
 
-**Partnership Philosophy**: "We Work With You" - Our people-centered culture starts with  
+**Partnership Philosophy**: "We Work With You" - Our people-centered culture starts with
 leadership committed to serving both clients and communities.
 
 ---
@@ -30,7 +30,7 @@ leadership committed to serving both clients and communities.
   - Quality Standards Development
   - Client Trust & Reputation Building
   - Mentorship & Succession Planning
-- **Impact**: Established the "We Work With You" partnership philosophy that defines  
+- **Impact**: Established the "We Work With You" partnership philosophy that defines
   MH Construction today
 
 ### Arnold Garcia - Vice President
@@ -194,7 +194,7 @@ leadership committed to serving both clients and communities.
 
 ### Veteran Team Members
 
-- **Matt Ramsey**: Project Engineer & Digital Marketing Manager - Brings military  
+- **Matt Ramsey**: Project Engineer & Digital Marketing Manager - Brings military
   precision to technology integration
 - **Veteran Hiring Initiative**: Active recruitment of qualified veterans across all departments
 - **Wounded Warrior Support**: Specialized services and support for wounded veterans
@@ -331,7 +331,7 @@ Every team member embodies our core partnership approach:
 
 ---
 
-**Team Philosophy**: "Every team member is an ambassador for our partnership approach  
+**Team Philosophy**: "Every team member is an ambassador for our partnership approach
 and commitment to community service."
 
 **Contact**: For team-specific questions or to request specific expertise, call (509) 308-6489

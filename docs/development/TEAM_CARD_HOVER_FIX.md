@@ -2,11 +2,13 @@
 
 ## Issue Description
 
-The vintage baseball cards on the team page were becoming fuzzy/blurry during hover effects due to conflicting transforms and subpixel rendering issues.
+The vintage baseball cards on the team page were becoming fuzzy/blurry during hover effects due to
+conflicting transforms and subpixel rendering issues.
 
 ## Root Cause Analysis
 
-1. **Duplicate Transforms**: Both JSX (`hover:scale-[1.02]`) and CSS (`translateY(-3px)`) were applying transforms simultaneously
+1. **Duplicate Transforms**: Both JSX (`hover:scale-[1.02]`) and CSS (`translateY(-3px)`) were
+   applying transforms simultaneously
 2. **Subpixel Rendering**: Fractional pixel values in transforms caused blurriness
 3. **Missing Hardware Acceleration**: Transforms weren't optimized for GPU acceleration
 4. **Backdrop Filter**: `backdrop-filter: blur(1px)` was contributing to overall fuzziness
@@ -147,4 +149,5 @@ After applying these fixes:
 - ✅ **Smooth Performance**: 60fps animations with hardware acceleration
 - ✅ **Cross-browser Consistency**: Identical behavior across all modern browsers
 
-The vintage baseball cards should now provide a smooth, professional user experience with crisp visuals throughout all interactions.
+The vintage baseball cards should now provide a smooth, professional user experience with crisp
+visuals throughout all interactions.

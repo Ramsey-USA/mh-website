@@ -1,19 +1,22 @@
 # MH Construction Brand Guidelines & Design System
 
-## Complete brand identity, design system, and implementation guidelines for MH Construction LLC
+## Complete brand identity, design system, and implementation guidelines
+
+## for MH Construction LLC
 
 > **📅 Last Updated:** October 8, 2025
 > **🎨 Brand Version:** 3.7.2
 > **👥 Authority:** MH Construction Leadership Team
 > **💻 Implementation:** Foundation-Only Architecture with Google Material Icons
 > **🌙 Theme Support:** Complete light/dark mode with optimized theme toggle
-> **🚀 Architecture:** Clean Slate Foundation, Google Material Icons, ready for creative expansion
+> **🚀 Architecture:** Clean Slate Foundation, Google Material Icons, ready
+> for creative expansion
 
 ## 🚨 **CRITICAL POLICY: EMOJI-FREE CODEBASE (v3.7.2)**
 
 ### **Icon Standards Enforcement**
 
-**MH Construction maintains a strict EMOJI-FREE source code policy. All visual  
+**MH Construction maintains a strict EMOJI-FREE source code policy. All visual
 indicators must use Google Material Icons exclusively.**
 
 #### **✅ APPROVED: Material Icons Only**
@@ -88,17 +91,22 @@ title: 'Update 🎯'
 
 ### **Current Architecture (v3.7.1) - October 2, 2025**
 
-**MH Construction now features a clean foundation-only architecture with Google Material Icons and optimized components ready for creative expansion.**
+**MH Construction now features a clean foundation-only architecture with**
+**Google Material Icons and optimized components ready for creative expansion.**
 
-#### **Foundation Standards Implementation:**
+####  **Foundation Standards Implementation:**
 
 ```tsx
 // Modern Typography System with Responsive Scaling
-<h1 className="mb-10 pb-4 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter">
-  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+<h1 className="mb-10 pb-4 font-black text-gray-900 dark:text-white
+  text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
+  leading-relaxed tracking-tighter">
+  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300
+    text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
     Building Tomorrow with
   </span>
-  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+  <span className="block bg-clip-text bg-gradient-to-r
+    from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
     Today's Technology
   </span>
 </h1>
@@ -126,13 +134,20 @@ title: 'Update 🎯'
 
 ### **Latest Brand Improvements (v3.7.1):**
 
-- ✅ **Enhanced Typography**: Responsive clamp() scaling from text-4xl to text-8xl
-- ✅ **Unified Button Standards**: Outlined buttons with rounded-xl corners, MH brand colors, consistent sizing and icons
-- ✅ **Consistent Rounded Corners**: All buttons use rounded-xl to match card styling
-- ✅ **MaterialIcon Integration**: Exclusively Google Material Icons throughout entire website
-- ✅ **Theme-Aware Design**: Proper light/dark mode support across all components
-- ✅ **Professional Color Palette**: Hunter green, black, white, and grays with proper contrast
-- ✅ **Accessibility Standards**: WCAG 2.1 compliance with comprehensive testing guidelines
+- ✅ **Enhanced Typography**: Responsive clamp() scaling from text-4xl to
+  text-8xl
+- ✅ **Unified Button Standards**: Outlined buttons with rounded-xl corners,
+  MH brand colors, consistent sizing and icons
+- ✅ **Consistent Rounded Corners**: All buttons use rounded-xl to match card
+  styling
+- ✅ **MaterialIcon Integration**: Exclusively Google Material Icons throughout
+  entire website
+- ✅ **Theme-Aware Design**: Proper light/dark mode support across all
+  components
+- ✅ **Professional Color Palette**: Hunter green, black, white, and grays with
+  proper contrast
+- ✅ **Accessibility Standards**: WCAG 2.1 compliance with comprehensive testing
+  guidelines
 - ✅ **Clean Interactions**: 300ms transitions with hover color changes
 
 ---
@@ -143,11 +158,13 @@ title: 'Update 🎯'
 
 #### 🚫 **NO BUBBLE HEADINGS POLICY**
 
-**ENFORCED STANDARD:** MH Construction prohibits bubble-style decorative headings to maintain professional visual hierarchy.
+**ENFORCED STANDARD:** MH Construction prohibits bubble-style decorative
+headings to maintain professional visual hierarchy.
 
 ```tsx
 // ❌ PROHIBITED - Bubble/pill-shaped header decorations
-<div className="inline-flex items-center bg-brand-primary/10 shadow-lg mb-8 px-8 py-4 border border-brand-primary/20 rounded-full">
+<div className="inline-flex items-center bg-brand-primary/10 shadow-lg mb-8
+  px-8 py-4 border border-brand-primary/20 rounded-full">
   <MaterialIcon icon="construction" size="md" />
   <span className="ml-4 font-black text-brand-primary text-sm uppercase tracking-wider">
     Section Label
@@ -155,7 +172,9 @@ title: 'Update 🎯'
 </div>
 
 // ✅ REQUIRED - Clean, direct section headers
-<h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+<h2 className="mb-6 font-black text-gray-900 dark:text-gray-100
+  text-2xl sm:text-3xl md:text-4xl lg:text-5xl
+  leading-tight tracking-tighter">
   Section Title
 </h2>
 ```text
@@ -179,7 +198,8 @@ title: 'Update 🎯'
 
     {/* Back: Detailed Information */}
     <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
-      <div className="bg-gradient-to-br from-brand-primary to-brand-secondary rounded-xl p-6 shadow-lg text-white">
+      <div className="bg-gradient-to-br from-brand-primary to-brand-secondary
+        rounded-xl p-6 shadow-lg text-white">
         <h3 className="font-bold text-xl mb-4">{title}</h3>
         <p>{detailedDescription}</p>
         <ul className="mt-4 space-y-2">
@@ -198,7 +218,8 @@ title: 'Update 🎯'
 
 #### 🦸 **HERO SECTION CONSISTENCY REQUIREMENT**
 
-**UPDATED STANDARD:** Hero sections have been integrated into each page's layout and no longer use the standalone `PageHero` component.
+**UPDATED STANDARD:** Hero sections have been integrated into each page's
+layout and no longer use the standalone `PageHero` component.
 
 - Each page now implements its own custom hero section
 - Heroes are integrated with the new transparent header design
@@ -245,20 +266,22 @@ title: 'Update 🎯'
 
 #### **6-Value Professional Foundation**
 
-*Evolution from simplified 4-value system to comprehensive professional methodology with trust as the ultimate goal.*
+*Evolution from simplified 4-value system to comprehensive professional*
+*methodology with trust as the ultimate goal.*
 
 | Value | Core Principle | Brand Expression |
 |-------|----------------|------------------|
-| **Honesty & Transparency** | Full-disclosure transparency from day one | Open-dialogue progress meetings, complete information sharing |
-| **Integrity** | Unwavering commitment to our word | Business conduct reflects personal character |
-| **Precision & Experience** | 150+ years combined construction expertise | Engineer-driven project packages, reliable foresight |
-| **Client-First Ethics** | Small-town values with client-focused approach | Acting solely in client's best interest |
-| **Professionalism & Control** | Confident navigation of complex projects | Levelheaded management, harmonious workflow |
-| **Trust (The Culmination)** | Measurable result of all other values | Foundation upon which MH Construction exists |
+| **Honesty & Transparency** | Full-disclosure transparency | Open-dialogue meetings, info sharing |
+| **Integrity** | Unwavering commitment to our word | Business conduct reflects character |
+| **Precision & Experience** | 150+ years combined expertise | Engineer-driven packages, foresight |
+| **Client-First Ethics** | Small-town client-focused values | Acting in client's best interest |
+| **Professionalism & Control** | Confident project navigation | Levelheaded, harmonious workflow |
+| **Trust (The Culmination)** | Result of all other values | Foundation of MH Construction |
 
 #### **Value Messaging Framework**
 
-**Trust as Foundation**: "Earning your trust is not a starting point; it is the culmination of our consistent performance in all other core values."
+**Trust as Foundation**: "Earning your trust is not a starting point; it is
+the culmination of our consistent performance in all other core values."
 
 **Client Control**: "We manage the project; you control it."
 
@@ -363,7 +386,10 @@ export default {
 </Button>
 
 // Card with theme-aware styling and custom enhancements
-<div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl p-6 card-primary">
+<div
+  className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark
+    rounded-xl p-6 card-primary"
+>
   <h3 className="text-brand-primary dark:text-brand-primary-light">Project Title</h3>
   <p className="text-text-secondary dark:text-text-secondary-dark">Description</p>
 </div>
@@ -393,7 +419,8 @@ Our design system uses Tailwind's built-in dark mode with custom brand colors th
 
 ### Tailwind Theme Configuration with MH Brand Enhancement
 
-Our design system uses Tailwind's built-in dark mode with custom brand colors and enhanced CSS classes that automatically adapt.
+Our design system uses Tailwind's built-in dark mode with custom brand colors and enhanced
+CSS classes that automatically adapt.
 
 ```typescript
 // tailwind.config.ts - Dark mode configuration
@@ -423,9 +450,14 @@ export default {
 
 ```tsx
 // Same component automatically adapts with MH enhancements
-<div className="bg-surface dark:bg-surface-dark text-text-primary dark:text-text-primary-dark border border-border dark:border-border-dark card-primary">
+<div
+  className="bg-surface dark:bg-surface-dark text-text-primary dark:text-text-primary-dark
+    border border-border dark:border-border-dark card-primary"
+>
   <h2 className="text-brand-primary dark:text-brand-primary-light">Dark Mode Content</h2>
-  <p className="text-text-secondary dark:text-text-secondary-dark">Enhanced MH styling in dark mode</p>
+  <p className="text-text-secondary dark:text-text-secondary-dark">
+    Enhanced MH styling in dark mode
+  </p>
 </div>
 ```text
 
@@ -434,11 +466,15 @@ export default {
 #### Navigation with MH Enhancement
 
 ```tsx
-<nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark border-b border-border dark:border-border-dark backdrop-blur-sm nav-primary">
+<nav
+  className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark border-b
+    border-border dark:border-border-dark backdrop-blur-sm nav-primary"
+>
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <Link
       href="/"
-      className="flex items-center transition-all duration-300 hover:scale-105 relative overflow-hidden group mh-logo-enhanced"
+      className="flex items-center transition-all duration-300 hover:scale-105 relative
+        overflow-hidden group mh-logo-enhanced"
     >
       MH Logo with enhanced effects
     </Link>
@@ -473,8 +509,12 @@ export function Button({ variant, children, ...props }) {
 #### Card Component (Enhanced with MH Styling)
 
 ```tsx
-<div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/10 transition-all duration-300 p-6 card-primary">
-  <h3 className="text-brand-primary dark:text-brand-primary-light text-xl font-bold mb-4">
+<div className="bg-surface dark:bg-surface-dark
+  border border-border dark:border-border-dark rounded-xl shadow-sm
+  hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/10
+  transition-all duration-300 p-6 card-primary">
+  <h3 className="text-brand-primary dark:text-brand-primary-light
+    text-xl font-bold mb-4">
     Project Title
   </h3>
   <p className="text-text-secondary dark:text-text-secondary-dark mb-4">
@@ -486,7 +526,10 @@ export function Button({ variant, children, ...props }) {
 
 ### Theme Migration Notes
 
-MH Construction migrated from a hybrid custom CSS + Tailwind approach to a pure Tailwind CSS v4 implementation in v2.6.0. All previous custom CSS classes (e.g., `.btn-primary`, `.card-primary`, `.nav-primary`) have been replaced with Tailwind utility classes and reusable components.
+MH Construction migrated from a hybrid custom CSS + Tailwind approach to a pure
+Tailwind CSS v4 implementation in v2.6.0. All previous custom CSS classes
+(e.g., `.btn-primary`, `.card-primary`, `.nav-primary`) have been replaced with
+Tailwind utility classes and reusable components.
 
 #### Key Migration Steps
 
@@ -527,22 +570,30 @@ MH Construction migrated from a hybrid custom CSS + Tailwind approach to a pure 
 
 ```tsx
 // Same component automatically adapts to dark mode
-<div className="bg-surface dark:bg-surface-dark text-text-primary dark:text-text-primary-dark border border-border dark:border-border-dark">
-  <h2 className="text-brand-primary dark:text-brand-primary-light">Dark Mode Content</h2>
-  <p className="text-text-secondary dark:text-text-secondary-dark">Automatically styled for dark theme</p>
+<div className="bg-surface dark:bg-surface-dark
+  text-text-primary dark:text-text-primary-dark
+  border border-border dark:border-border-dark">
+  <h2 className="text-brand-primary dark:text-brand-primary-light">
+    Dark Mode Content
+  </h2>
+  <p className="text-text-secondary dark:text-text-secondary-dark">
+    Automatically styled for dark theme
+  </p>
 </div>
-```text
+```
 
 ### Pure Tailwind Component Patterns
 
 #### Navigation with Pure Tailwind
 
 ```tsx
-<nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark border-b border-border dark:border-border-dark backdrop-blur-sm">
+<nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark
+  border-b border-border dark:border-border-dark backdrop-blur-sm">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <Link
       href="/"
-      className="text-text-primary dark:text-text-primary-dark hover:text-brand-primary transition-colors"
+      className="text-text-primary dark:text-text-primary-dark
+        hover:text-brand-primary transition-colors"
     >
       Home
     </Link>
@@ -588,8 +639,12 @@ export function Button({ variant, children, ...props }) {
 #### Card Component (Pure Tailwind)
 
 ```tsx
-<div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/10 transition-all duration-300 p-6">
-  <h3 className="text-brand-primary dark:text-brand-primary-light text-xl font-bold mb-4">
+<div className="bg-surface dark:bg-surface-dark
+  border border-border dark:border-border-dark rounded-xl shadow-sm
+  hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/10
+  transition-all duration-300 p-6">
+  <h3 className="text-brand-primary dark:text-brand-primary-light
+    text-xl font-bold mb-4">
     Project Title
   </h3>
   <p className="text-text-secondary dark:text-text-secondary-dark mb-4">
@@ -605,7 +660,10 @@ export function Button({ variant, children, ...props }) {
 
 ### **Unified Button Design System**
 
-MH Construction uses a standardized button system with consistent MH branding, focusing on outlined buttons with rounded corners that match our card styling. All buttons maintain accessibility, proper contrast, and responsive behavior across the platform.
+MH Construction uses a standardized button system with consistent MH branding,
+focusing on outlined buttons with rounded corners that match our card styling.
+All buttons maintain accessibility, proper contrast, and responsive behavior
+across the platform.
 
 #### **Core Design Principles**
 
@@ -622,9 +680,9 @@ MH Construction uses a standardized button system with consistent MH branding, f
 
 | Variant | Usage Context | Color Scheme | When to Use |
 |---------|---------------|--------------|-------------|
-| `primary` | Main CTAs, primary actions | Hunter green outline, white background | Primary conversions, main actions |
-| `secondary` | Supporting actions | Gray outline, white background | Secondary navigation, supporting actions |
-| `neutral` | Default interactions | Black/white outline based on theme | Standard interactions, content navigation |
+| `primary` | Main CTAs | Hunter green outline | Primary conversions |
+| `secondary` | Supporting | Gray outline | Secondary navigation |
+| `neutral` | Defaults | Black/white (theme) | Standard interactions |
 
 #### **Button Sizes & Section Standards**
 
@@ -885,7 +943,8 @@ MH Construction uses a standardized button system with consistent MH branding, f
 
 ### **Complete Migration to Google Material Icons**
 
-**MH Construction uses exclusively Google Material Icons throughout the entire website for consistency, maintainability, and universal recognition.**
+**MH Construction uses exclusively Google Material Icons throughout the entire**
+**website for consistency, maintainability, and universal recognition.**
 
 #### **MaterialIcon Component Implementation**
 
@@ -1033,7 +1092,8 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon'
 
 ### **📋 Comprehensive Icon Migration Guide**
 
-**The following table provides exact MaterialIcon replacements for all lucide-react icons currently used in the MH Construction codebase:**
+**The following table provides exact MaterialIcon replacements for all**
+**lucide-react icons currently used in the MH Construction codebase:**
 
 | Lucide Icon | MaterialIcon Replacement | Usage Context |
 |-------------|-------------------------|---------------|
@@ -1180,7 +1240,8 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon'
 
 ### Typography System (Enhanced MH Construction Standards)
 
-Our typography system now uses responsive scaling with clamp() functions and modern font weights for optimal display across all devices.
+Our typography system now uses responsive scaling with clamp() functions and
+modern font weights for optimal display across all devices.
 
 ```typescript
 // tailwind.config.ts - Enhanced MH Construction Typography System
@@ -1218,27 +1279,36 @@ export default {
 
 ```tsx
 // Large Section Headers (Hero, Main CTAs)
-<h1 className="mb-10 pb-4 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter">
-  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+<h1 className="mb-10 pb-4 font-black text-gray-900 dark:text-white
+  text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
+  leading-relaxed tracking-tighter">
+  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300
+    text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
     Building Tomorrow with
   </span>
-  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+  <span className="block bg-clip-text bg-gradient-to-r
+    from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
     Today's Technology
   </span>
 </h1>
 
 // Section Headers (Features, Values, Testimonials)
-<h2 className="mb-10 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
-  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+<h2 className="mb-10 font-black text-gray-900 dark:text-gray-100
+  text-5xl sm:text-6xl md:text-7xl lg:text-8xl
+  leading-tight tracking-tighter">
+  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300
+    text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
     Section Introduction
   </span>
-  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+  <span className="block bg-clip-text bg-gradient-to-r
+    from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
     Main Headline
   </span>
 </h2>
 
 // Body Text (Descriptions, Paragraphs)
-<p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+<p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300
+  text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
   Large descriptive text with proper dark mode support and responsive scaling.
 </p>
 
@@ -1336,7 +1406,8 @@ export default {
 
 ### Button Component Architecture
 
-All buttons use the reusable `Button` component with pure Tailwind styling that automatically adapts to themes.
+All buttons use the reusable `Button` component with pure Tailwind styling that
+automatically adapts to themes.
 
 #### Button Component Implementation
 
@@ -1350,7 +1421,9 @@ export function Button({
   className = '',
   ...props
 }) {
-  const baseClasses = 'font-bold rounded-full transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 relative group'
+  const baseClasses = 'font-bold rounded-full transition-all duration-300 focus:outline-none '
+    + 'disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center '
+    + 'gap-2 relative group'
 
   const variantClasses = {
     primary: `
@@ -1384,7 +1457,8 @@ export function Button({
 
   return (
     <button
-      className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`.replace(/\s+/g, ' ').trim()}
+      className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`
+        .replace(/\s+/g, ' ').trim()}
       {...props}
     >
       {children}
@@ -1446,7 +1520,8 @@ export function Button({
 
 ### Call-to-Action Button Standards
 
-Our CTA system ensures consistency across all pages and proper dark/light mode support without custom overrides.
+Our CTA system ensures consistency across all pages and proper dark/light mode support
+without custom overrides.
 
 #### Primary CTA Patterns
 
@@ -1473,7 +1548,12 @@ Our CTA system ensures consistency across all pages and proper dark/light mode s
 </Button>
 
 // Special Background CTAs (CTA Section on Brand Background)
-<Button variant="outline" size="xl" className="shadow-xl bg-transparent border-white text-white hover:bg-white hover:text-brand-primary">
+<Button
+  variant="outline"
+  size="xl"
+  className="shadow-xl bg-transparent border-white text-white hover:bg-white
+    hover:text-brand-primary"
+>
   <BoltIcon size="md" primaryColor="currentColor" className="mr-3" />
   <span className="z-10 relative tracking-wide">Get Free Estimate</span>
 </Button>
@@ -1495,11 +1575,17 @@ Our CTA system ensures consistency across all pages and proper dark/light mode s
 
 ```tsx
 // Standard section spacing (most sections)
-<section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40 [section-name]-section">
+<section
+  className="relative bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40
+    [section-name]-section"
+>
 
 // Hero section (full viewport height with perfect centering)
 <section className="relative bg-white dark:bg-gray-900 h-screen hero-section">
-  <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full flex items-center justify-center pt-32 pb-8">
+  <div
+    className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full flex
+      items-center justify-center pt-32 pb-8"
+  >
     <FadeInWhenVisible className="text-center w-full">
       {/* Hero content here */}
     </FadeInWhenVisible>
@@ -1515,7 +1601,10 @@ Our CTA system ensures consistency across all pages and proper dark/light mode s
 ```tsx
 // Section headers with responsive margin
 <div className="mb-24 lg:mb-32 text-center scroll-reveal">
-  <div className="inline-flex items-center bg-brand-primary/10 shadow-lg mb-10 px-8 py-4 border border-brand-primary/20 rounded-full">
+  <div
+    className="inline-flex items-center bg-brand-primary/10 shadow-lg mb-10 px-8 py-4
+      border border-brand-primary/20 rounded-full"
+  >
     // Section badge
   </div>
   <h2>Section Title</h2>
@@ -1555,7 +1644,8 @@ Our CTA system ensures consistency across all pages and proper dark/light mode s
 
 #### Full Viewport Hero Implementation
 
-The new hero section standard ensures complete visibility on all screen sizes with perfect centering and navigation awareness.
+The new hero section standard ensures complete visibility on all screen sizes with perfect
+centering and navigation awareness.
 
 ```tsx
 // Enhanced Hero Section - New Standard (v2.6.1)
@@ -1564,29 +1654,55 @@ The new hero section standard ensures complete visibility on all screen sizes wi
   <div className="absolute inset-0"></div>
 
   {/* Main Content Container */}
-  <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full flex items-center justify-center pt-32 pb-8">
+  <div
+    className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full flex
+      items-center justify-center pt-32 pb-8"
+  >
     <FadeInWhenVisible className="text-center w-full">
 
       {/* Veteran Badge */}
-      <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-        <ShieldIcon size="sm" primaryColor="currentColor" className="text-brand-primary dark:text-brand-primary-light" />
-        <span className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light text-xs uppercase tracking-wider">
+      <div
+        className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20
+          shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20
+          dark:border-brand-primary/30 rounded-full"
+      >
+        <ShieldIcon
+          size="sm"
+          primaryColor="currentColor"
+          className="text-brand-primary dark:text-brand-primary-light"
+        />
+        <span
+          className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light
+            text-xs uppercase tracking-wider"
+        >
           Veteran-Owned Excellence
         </span>
       </div>
 
       {/* Hero Title */}
-      <h1 className="mb-6 pb-2 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter hero-title">
-        <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+      <h1
+        className="mb-6 pb-2 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl
+          md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter hero-title"
+      >
+        <span
+          className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl
+            sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight"
+        >
           Building Tomorrow with
         </span>
-        <span className="block bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary drop-shadow-sm font-black text-transparent">
+        <span
+          className="block bg-clip-text bg-gradient-to-r from-brand-primary
+            via-brand-secondary to-brand-primary drop-shadow-sm font-black text-transparent"
+        >
           Today's Technology
         </span>
       </h1>
 
       {/* Hero Description */}
-      <p className="mx-auto mb-8 max-w-4xl font-light text-gray-600 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide">
+      <p
+        className="mx-auto mb-8 max-w-4xl font-light text-gray-600 dark:text-gray-300
+          text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide"
+      >
         Veteran-owned construction excellence powered by cutting-edge AI technology.
       </p>
 
@@ -1597,7 +1713,10 @@ The new hero section standard ensures complete visibility on all screen sizes wi
       </div>
 
       {/* Trust Indicators */}
-      <div className="flex flex-wrap justify-center items-center gap-10 font-medium text-gray-700 dark:text-gray-300 text-base">
+      <div
+        className="flex flex-wrap justify-center items-center gap-10 font-medium
+          text-gray-700 dark:text-gray-300 text-base"
+      >
         {/* Trust indicator badges */}
       </div>
 
@@ -1631,7 +1750,10 @@ The new hero section standard ensures complete visibility on all screen sizes wi
 
 ```tsx
 // Navigation with complete Tailwind implementation
-<nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark border-b border-border dark:border-border-dark backdrop-blur-sm">
+<nav
+  className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark border-b
+    border-border dark:border-border-dark backdrop-blur-sm"
+>
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex justify-between items-center h-24 py-2">
       {/* Logo */}
@@ -1675,7 +1797,11 @@ The new hero section standard ensures complete visibility on all screen sizes wi
 
 ```tsx
 // Card component with full theme support
-<div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/10 p-6">
+<div
+  className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark
+    rounded-xl shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg
+    hover:shadow-brand-primary/10 p-6"
+>
   <div className="mb-4">
     <h3 className="text-brand-primary dark:text-brand-primary-light text-xl font-bold mb-2">
       Project Title
@@ -1711,7 +1837,10 @@ The new hero section standard ensures complete visibility on all screen sizes wi
     <input
       type="email"
       id="email"
-      className="w-full px-4 py-3 border border-border dark:border-border-dark rounded-lg bg-surface dark:bg-surface-dark text-text-primary dark:text-text-primary-dark placeholder-text-muted dark:placeholder-text-muted-dark transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary"
+      className="w-full px-4 py-3 border border-border dark:border-border-dark rounded-lg
+        bg-surface dark:bg-surface-dark text-text-primary dark:text-text-primary-dark
+        placeholder-text-muted dark:placeholder-text-muted-dark transition-all duration-200
+        focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary"
       placeholder="Enter your email"
     />
   </div>
@@ -1726,7 +1855,11 @@ The new hero section standard ensures complete visibility on all screen sizes wi
     <textarea
       id="message"
       rows={4}
-      className="w-full px-4 py-3 border border-border dark:border-border-dark rounded-lg bg-surface dark:bg-surface-dark text-text-primary dark:text-text-primary-dark placeholder-text-muted dark:placeholder-text-muted-dark transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary resize-vertical"
+      className="w-full px-4 py-3 border border-border dark:border-border-dark rounded-lg
+        bg-surface dark:bg-surface-dark text-text-primary dark:text-text-primary-dark
+        placeholder-text-muted dark:placeholder-text-muted-dark transition-all duration-200
+        focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary
+        resize-vertical"
       placeholder="Tell us about your project"
     />
   </div>
@@ -1739,13 +1872,18 @@ The new hero section standard ensures complete visibility on all screen sizes wi
 
 ### Enhanced Footer System (Pure Tailwind Implementation)
 
-The footer system showcases comprehensive MH branding with sharp-edged logo, organized navigation, and veteran recognition elements.
+The footer system showcases comprehensive MH branding with sharp-edged logo, organized
+navigation, and veteran recognition elements.
 
 #### Footer Structure
 
 ```tsx
 // Clean Footer with MH Branding
-<footer className="bg-gradient-to-br from-gray-800 via-gray-900 to-black dark:from-black dark:via-gray-900 dark:to-black pt-16 pb-6 text-gray-300 border-t border-brand-primary/20">
+<footer
+  className="bg-gradient-to-br from-gray-800 via-gray-900 to-black dark:from-black
+    dark:via-gray-900 dark:to-black pt-16 pb-6 text-gray-300 border-t
+    border-brand-primary/20"
+>
 
   {/* Four-Column Layout */}
   <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
@@ -1801,13 +1939,22 @@ The footer system showcases comprehensive MH branding with sharp-edged logo, org
 ```tsx
 // Status badges with theme-aware colors
 <div className="flex flex-wrap gap-2">
-  <span className="px-3 py-1 bg-success-light text-success-dark border border-success rounded-full text-sm font-medium">
+  <span
+    className="px-3 py-1 bg-success-light text-success-dark border border-success
+      rounded-full text-sm font-medium"
+  >
     ✅ Completed
   </span>
-  <span className="px-3 py-1 bg-warning-light text-warning-dark border border-warning rounded-full text-sm font-medium">
+  <span
+    className="px-3 py-1 bg-warning-light text-warning-dark border border-warning
+      rounded-full text-sm font-medium"
+  >
     ⚠️ In Progress
   </span>
-  <span className="px-3 py-1 bg-error-light text-error-dark border border-error rounded-full text-sm font-medium">
+  <span
+    className="px-3 py-1 bg-error-light text-error-dark border border-error rounded-full
+      text-sm font-medium"
+  >
     ❌ On Hold
   </span>
   <span className="px-3 py-1 bg-info-light text-info-dark border border-info rounded-full text-sm font-medium">
@@ -1863,7 +2010,8 @@ The footer system showcases comprehensive MH branding with sharp-edged logo, org
 // Theme-aware focus indicators using Tailwind
 <Button
   variant="primary"
-  className="focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-surface-dark"
+  className="focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2
+    focus:ring-offset-white dark:focus:ring-offset-surface-dark"
 >
   Accessible Button
 </Button>
@@ -1901,7 +2049,9 @@ The footer system showcases comprehensive MH branding with sharp-edged logo, org
 <button
   onClick={toggleTheme}
   aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-  className="p-2 rounded-lg border border-border dark:border-border-dark hover:bg-surface-secondary dark:hover:bg-surface-dark-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary"
+  className="p-2 rounded-lg border border-border dark:border-border-dark
+    hover:bg-surface-secondary dark:hover:bg-surface-dark-secondary transition-colors
+    focus:outline-none focus:ring-2 focus:ring-brand-primary"
 >
   {theme === 'dark' ? '☀️' : '🌙'}
 </button>
@@ -1967,11 +2117,18 @@ import { Button } from '@/components/ui/Button'
 
 export function ProjectCard({ project }) {
   return (
-    <div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/10 transition-all duration-300 p-6">
+    <div
+      className="bg-surface dark:bg-surface-dark border border-border
+        dark:border-border-dark rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-lg
+        hover:shadow-brand-primary/10 transition-all duration-300 p-6"
+    >
 
       {/* Header with theme-aware text */}
       <div className="mb-4">
-        <h3 className="text-brand-primary dark:text-brand-primary-light text-xl font-tactic-bold mb-2">
+        <h3
+          className="text-brand-primary dark:text-brand-primary-light text-xl
+            font-tactic-bold mb-2"
+        >
           {project.title}
         </h3>
         <p className="text-text-secondary dark:text-text-secondary-dark font-garamond">
@@ -1981,7 +2138,10 @@ export function ProjectCard({ project }) {
 
       {/* Status badge */}
       <div className="mb-4">
-        <span className="px-3 py-1 bg-success-light text-success-dark border border-success rounded-full text-sm font-medium">
+        <span
+          className="px-3 py-1 bg-success-light text-success-dark border border-success
+            rounded-full text-sm font-medium"
+        >
           ✅ {project.status}
         </span>
       </div>
@@ -2021,7 +2181,10 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg border border-border dark:border-border-dark bg-surface hover:bg-surface-secondary dark:bg-surface-dark dark:hover:bg-surface-dark-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary"
+      className="p-2 rounded-lg border border-border dark:border-border-dark bg-surface
+        hover:bg-surface-secondary dark:bg-surface-dark
+        dark:hover:bg-surface-dark-secondary transition-colors focus:outline-none
+        focus:ring-2 focus:ring-brand-primary"
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
     >
       {theme === 'dark' ? '☀️' : '🌙'}
@@ -2053,8 +2216,18 @@ export function ThemeToggle() {
 
 // NEW APPROACH (v2.6.0+) - Pure Tailwind
 <Button variant="primary" size="xl">Get Quote</Button>
-<div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-xl p-6">Content</div>
-<nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark border-b border-border dark:border-border-dark">Navigation</nav>
+<div
+  className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark
+    rounded-xl p-6"
+>
+  Content
+</div>
+<nav
+  className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-surface-dark border-b
+    border-border dark:border-border-dark"
+>
+  Navigation
+</nav>
 ```text
 
 ### Development Best Practices
@@ -2080,7 +2253,7 @@ export function ThemeToggle() {
 
 ### Technical Contact Information
 
-- **Brand Guidelines**: <developers@mhconstruction.com>
+- **Brand Guidelines**: <developers@mhc-gc.com>
 - **Tailwind Implementation**: See `tailwind.config.ts` and Button component
 - **Theme Support**: Complete Tailwind dark mode implementation
 - **Technical Support**: Pure Tailwind architecture documentation
@@ -2093,9 +2266,12 @@ export function ThemeToggle() {
 
 ---
 
-**This comprehensive brand system ensures consistent, professional, and veteran-proud representation across all digital touchpoints using pure Tailwind CSS v4 with complete accessibility and theme support.** 🏗️
+**This comprehensive brand system ensures consistent, professional, and veteran-proud
+representation across all digital touchpoints using pure Tailwind CSS v4 with complete
+accessibility and theme support.** 🏗️
 
-> "Building Tomorrow with Today's Technology - Where Military Precision Meets Construction Excellence"
+> "Building Tomorrow with Today's Technology - Where Military Precision Meets
+> Construction Excellence"
 
 ### 🚀 **Pure Tailwind Benefits Achieved:**
 

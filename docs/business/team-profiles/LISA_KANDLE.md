@@ -29,7 +29,10 @@ Administrative Support Excellence Award, Efficiency Recognition
 
 ## 👤 Biography
 
-Lisa provides essential administrative support that keeps MH Construction operations running smoothly. Her attention to detail and proactive communication style supports both internal team coordination and client interactions, embodying the company's commitment to professional service excellence.
+Lisa provides essential administrative support that keeps MH Construction operations running
+smoothly. Her attention to detail and proactive communication style supports both internal team
+coordination and client interactions, embodying the company's commitment to professional service
+excellence.
 
 ## ⭐ Career Highlights
 

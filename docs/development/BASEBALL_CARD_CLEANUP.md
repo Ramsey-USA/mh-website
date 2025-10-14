@@ -2,7 +2,8 @@
 
 ## Overview
 
-This document outlines the cleanup of duplicate baseball card components and documentation to maintain a single, optimized implementation.
+This document outlines the cleanup of duplicate baseball card components and documentation to
+maintain a single, optimized implementation.
 
 ## Component Analysis
 
@@ -158,4 +159,5 @@ The baseball card component cleanup has been successfully completed with:
 - **Resolved performance issues**: Hover fuzziness fixed with hardware acceleration
 - **Comprehensive testing**: All functionality verified
 
-The team page now uses a single, well-optimized vintage baseball card component with consistent documentation and no duplicate implementations.
+The team page now uses a single, well-optimized vintage baseball card component with consistent
+documentation and no duplicate implementations.

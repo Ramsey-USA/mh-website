@@ -1,9 +1,9 @@
 # MH Construction Color System
 
-**Date:** October 9, 2025  
-**Status:** ✅ Current  
-**Category:** Business - Brand Guidelines  
-**Last Updated:** October 9, 2025  
+**Date:** October 9, 2025
+**Status:** ✅ Current
+**Category:** Business - Brand Guidelines
+**Last Updated:** October 9, 2025
 
 ## Quick Navigation
 
@@ -18,24 +18,24 @@
 
 ### Primary Blue
 
-**Hex:** `#1976D2`  
-**RGB:** `rgb(25, 118, 210)`  
-**HSL:** `hsl(207, 79%, 46%)`  
-**Use Case:** Primary actions, headers, key elements  
+**Hex:** `#1976D2`
+**RGB:** `rgb(25, 118, 210)`
+**HSL:** `hsl(207, 79%, 46%)`
+**Use Case:** Primary actions, headers, key elements
 
 ### Secondary Blue
 
-**Hex:** `#1E88E5`  
-**RGB:** `rgb(30, 136, 229)`  
-**HSL:** `hsl(208, 79%, 51%)`  
-**Use Case:** Supporting elements, hover states  
+**Hex:** `#1E88E5`
+**RGB:** `rgb(30, 136, 229)`
+**HSL:** `hsl(208, 79%, 51%)`
+**Use Case:** Supporting elements, hover states
 
 ### Accent Blue
 
-**Hex:** `#42A5F5`  
-**RGB:** `rgb(66, 165, 245)`  
-**HSL:** `hsl(207, 89%, 61%)`  
-**Use Case:** Highlights, interactive elements  
+**Hex:** `#42A5F5`
+**RGB:** `rgb(66, 165, 245)`
+**HSL:** `hsl(207, 89%, 61%)`
+**Use Case:** Highlights, interactive elements
 
 ## Light Mode Color Palette
 
@@ -143,26 +143,26 @@
 
 ### Success Colors
 
-**Light Mode:** `#4CAF50` (Green 500)  
-**Dark Mode:** `#66BB6A` (Green 400)  
+**Light Mode:** `#4CAF50` (Green 500)
+**Dark Mode:** `#66BB6A` (Green 400)
 **Usage:** Success messages, completed states, positive indicators
 
 ### Warning Colors
 
-**Light Mode:** `#FF9800` (Orange 500)  
-**Dark Mode:** `#FFB74D` (Orange 300)  
+**Light Mode:** `#FF9800` (Orange 500)
+**Dark Mode:** `#FFB74D` (Orange 300)
 **Usage:** Warning messages, caution states, attention indicators
 
 ### Error Colors
 
-**Light Mode:** `#F44336` (Red 500)  
-**Dark Mode:** `#EF5350` (Red 400)  
+**Light Mode:** `#F44336` (Red 500)
+**Dark Mode:** `#EF5350` (Red 400)
 **Usage:** Error messages, failure states, destructive actions
 
 ### Info Colors
 
-**Light Mode:** `#2196F3` (Blue 500)  
-**Dark Mode:** `#42A5F5` (Blue 400)  
+**Light Mode:** `#2196F3` (Blue 500)
+**Dark Mode:** `#42A5F5` (Blue 400)
 **Usage:** Information messages, neutral notifications
 
 ## Color Usage Guidelines
@@ -225,14 +225,14 @@
   --color-primary: #1976D2;
   --color-secondary: #1E88E5;
   --color-accent: #42A5F5;
-  
+
   /* Light Mode */
   --color-text-primary: #212121;
   --color-text-secondary: #757575;
   --color-background: #FFFFFF;
   --color-surface: #F5F5F5;
   --color-border: #E0E0E0;
-  
+
   /* Semantic Colors */
   --color-success: #4CAF50;
   --color-warning: #FF9800;
@@ -247,7 +247,7 @@
   --color-background: #121212;
   --color-surface: #1E1E1E;
   --color-border: #424242;
-  
+
   /* Dark Mode Semantic */
   --color-success: #66BB6A;
   --color-warning: #FFB74D;
@@ -333,6 +333,6 @@ module.exports = {
 
 ---
 
-**Color Authority**: MH Construction Design Team  
-**Last Color Update**: October 8, 2025 (v3.7.2)  
+**Color Authority**: MH Construction Design Team
+**Last Color Update**: October 8, 2025 (v3.7.2)
 **Next Review**: Quarterly brand compliance assessment

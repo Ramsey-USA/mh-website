@@ -32,6 +32,7 @@ MH Construction implements a **dual navigation system**:
 **Purpose**: Provides contextual navigation for page sections and related content.
 
 **Key Features**:
+
 - Horizontal scrolling navigation bar
 - Material Design icons with hover effects
 - Responsive design with touch-friendly targets
@@ -68,6 +69,7 @@ export const navigationConfigs = {
 ```
 
 **Adding New Page Configuration**:
+
 1. Add new page object to `navigationConfigs`
 2. Include relevant section links and related pages
 3. Use Material Design icon names
@@ -76,20 +78,24 @@ export const navigationConfigs = {
 ## 📱 Responsive Behavior
 
 ### Desktop (≥1024px)
+
 - All navigation items visible horizontally
 - Larger touch targets and spacing
 
 ### Tablet (768px-1023px)
+
 - Horizontal scroll for overflow items
 - Medium touch targets
 
 ### Mobile (≤767px)
+
 - Horizontal scroll with compact spacing
 - Optimized for touch interaction
 
 ## 🎨 Styling
 
 The navigation components use:
+
 - **Background**: White/dark with 95% opacity and backdrop blur
 - **Border**: 4px brand primary top accent
 - **Icons**: Material Design with smooth transitions
@@ -130,20 +136,25 @@ For each new page requiring navigation:
 ## 🧪 Testing
 
 ### Unit Tests
+
 - Component rendering with different item arrays
 - Link functionality and accessibility
 - Responsive behavior across breakpoints
 
 ### E2E Tests
+
 - Navigation between page sections
 - Cross-page navigation flows
 - Mobile touch interaction
 
 ## 📚 Related Documentation
 
-- **[Navigation Architecture](../../docs/technical/NAVIGATION_ARCHITECTURE.md)** - Complete system overview
-- **[Navigation Technical Guide](../../docs/technical/NAVIGATION_TECHNICAL_GUIDE.md)** - Implementation guide
-- **[Navigation Audit Report](../../docs/technical/NAVIGATION_AUDIT_REPORT.md)** - Current implementation status
+- **[Navigation Architecture](../../docs/technical/NAVIGATION_ARCHITECTURE.md)** - Complete system
+  overview
+- **[Navigation Technical Guide](../../docs/technical/NAVIGATION_TECHNICAL_GUIDE.md)** -
+  Implementation guide
+- **[Navigation Audit Report](../../docs/technical/NAVIGATION_AUDIT_REPORT.md)** - Current
+  implementation status
 
 ## 🔧 Development
 
@@ -176,20 +187,23 @@ npm run preview
 ## 🚨 Common Issues
 
 ### Icons Not Displaying
+
 - Verify Material Design icon names at [Google Fonts Icons](https://fonts.google.com/icons)
 - Check MaterialIcon component import
 
 ### Navigation Not Appearing
+
 - Ensure PageNavigation is imported and used
 - Verify navigationConfigs has your page configuration
 - Check component placement after hero section
 
 ### Responsive Issues
+
 - Test horizontal scrolling on mobile
 - Verify touch targets are 44px minimum
 - Check backdrop blur support in target browsers
 
 ---
 
-**Maintained By**: MH Construction Development Team  
+**Maintained By**: MH Construction Development Team
 **Last Updated**: October 13, 2025

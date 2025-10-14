@@ -1,9 +1,9 @@
 # MH Construction Brand Guidelines
 
-**Date:** October 9, 2025  
-**Status:** ✅ Current  
-**Category:** Business  
-**Last Updated:** October 9, 2025  
+**Date:** October 9, 2025
+**Status:** ✅ Current
+**Category:** Business
+**Last Updated:** October 9, 2025
 
 ## Quick Navigation
 
@@ -13,7 +13,7 @@
 
 ## Brand Documentation System
 
-This modular brand documentation replaces the previous single 2,120-line file with  
+This modular brand documentation replaces the previous single 2,120-line file with
 focused, navigable components:
 
 ### 📋 [Brand Overview](./BRAND_OVERVIEW.md)
@@ -21,12 +21,12 @@ focused, navigable components:
 Core brand identity, mission, values, and positioning
 
 - Company information and brand mission
-- Core taglines and value propositions  
+- Core taglines and value propositions
 - Brand personality and voice attributes
 - Target audience definitions
 - Current architecture status (v3.7.2)
 
-### 🎨 [Color System](./COLOR_SYSTEM.md)  
+### 🎨 [Color System](./COLOR_SYSTEM.md)
 
 Complete color palette and usage guidelines
 
@@ -102,9 +102,9 @@ Technical implementation and quality standards
 
 - **Phone**: [(509) 308-6489](tel:+15093086489)
 - **Address**: 3111 N. Capital Ave., Pasco, WA 99301
-- **Website**: [MH Construction](https://mhconstruction.com)
+- **Website**: [MH Construction](https://mhc-gc.com)
 
 ---
 
-**Note**: This brand documentation was reorganized from a single 2,120-line file  
+**Note**: This brand documentation was reorganized from a single 2,120-line file
 into focused, manageable modules for better navigation and maintenance.

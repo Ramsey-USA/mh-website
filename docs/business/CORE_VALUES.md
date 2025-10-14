@@ -2,15 +2,17 @@
 
 ## 6-Value Professional Foundation System
 
-**Trust-Centered Philosophy**: "Trust as our ultimate goal and measurable company foundation"
+**Trust-Centered Philosophy**: "Trust as our ultimate goal and measurable
+company foundation"
 
 ---
 
 ## Our Professional Foundation
 
-MH Construction operates on a comprehensive 6-principle system that evolved from our  
-original values to reflect our growth as a construction industry leader. Each value builds  
-toward our ultimate goal: **Trust** - the culmination of all other values working together.
+MH Construction operates on a comprehensive 6-principle system that evolved from
+our original values to reflect our growth as a construction industry leader. Each
+value builds toward our ultimate goal: **Trust** - the culmination of all other
+values working together.
 
 ---
 
@@ -120,13 +122,14 @@ toward our ultimate goal: **Trust** - the culmination of all other values workin
 
 ### What Trust Means
 
-Trust isn't just another value - it's the result when all other values are consistently  
+Trust isn't just another value - it's the result when all other values are consistently
 demonstrated. Trust is:
 
 - **Earned**: Through consistent demonstration of our other five values
 - **Measurable**: Reflected in client satisfaction, referrals, and repeat business
 - **Foundational**: The basis for all our client relationships and community standing
-- **Sustainable**: What allows us to build lasting partnerships beyond individual projects
+- **Sustainable**: What allows us to build lasting partnerships beyond individual
+  projects
 
 ### How We Build Trust
 
@@ -173,16 +176,17 @@ demonstrated. Trust is:
 
 ## 🎯 Our Promise
 
-**When you choose MH Construction, you're not just hiring a contractor - you're  
+**When you choose MH Construction, you're not just hiring a contractor - you're
 partnering with a team that has made Trust our ultimate goal.**
 
-Every decision we make, every process we follow, and every interaction we have is measured  
-against these six values. They're not just words on a wall - they're the foundation of  
+Every decision we make, every process we follow, and every interaction we have is
+measured against these six values. They're not just words on a wall - they're the
+foundation of
 how we do business and the promise we make to every client and community we serve.
 
 ---
 
-> *"These values aren't just our company culture - they're our commitment to every  
+> *"These values aren't just our company culture - they're our commitment to every
 > client, every project, and every community we have the privilege to serve."*
 > **- Jeremy Thamert, Owner & General Manager**
 
@@ -190,7 +194,7 @@ how we do business and the promise we make to every client and community we serv
 
 **Partnership Philosophy**: "We Work With You" - These values in action
 **Community Focus**: Serving Pacific Northwest Communities Since 1995
-**Contact**: (509) 308-6489 | <info@mhconstruction.com>
+**Contact**: (509) 308-6489 | <info@mhc-gc.com>
 
 ---
 

@@ -1,9 +1,9 @@
 # MH Construction Messaging Guidelines
 
-**Date:** October 9, 2025  
-**Status:** ✅ Current  
-**Category:** Business - Brand Guidelines  
-**Last Updated:** October 9, 2025  
+**Date:** October 9, 2025
+**Status:** ✅ Current
+**Category:** Business - Brand Guidelines
+**Last Updated:** October 9, 2025
 
 ## Quick Navigation
 
@@ -42,8 +42,8 @@ Our voice balances military precision with partnership warmth, creating communic
 **Tone**: Professional, confident, solution-focused
 
 **Example**:
-> "Building for the Owner, NOT the Dollar. Our veteran-owned team combines military  
-> precision with partnership-driven construction management to deliver exceptional  
+> "Building for the Owner, NOT the Dollar. Our veteran-owned team combines military
+> precision with partnership-driven construction management to deliver exceptional
 > results for commercial projects throughout the Pacific Northwest."
 
 #### Client Communications
@@ -51,7 +51,7 @@ Our voice balances military precision with partnership warmth, creating communic
 **Tone**: Collaborative, supportive, transparent
 
 **Example**:
-> "We're working WITH you to ensure every detail aligns with your vision. Here's our  
+> "We're working WITH you to ensure every detail aligns with your vision. Here's our
 > progress update and next steps for your project..."
 
 #### Project Documentation
@@ -59,15 +59,15 @@ Our voice balances military precision with partnership warmth, creating communic
 **Tone**: Clear, detailed, accountability-focused
 
 **Example**:
-> "Phase 2 completion achieved on schedule. All quality checkpoints met, with client  
+> "Phase 2 completion achieved on schedule. All quality checkpoints met, with client
 > approval documented. Moving to Phase 3 as planned."
 
 ## Core Messaging Framework
 
 ### Primary Value Proposition
 
-> "MH Construction combines military precision with partnership-driven construction  
-> management to deliver exceptional results for commercial, industrial, and medical  
+> "MH Construction combines military precision with partnership-driven construction
+> management to deliver exceptional results for commercial, industrial, and medical
 > facility projects throughout the Pacific Northwest."
 
 ### Key Message Pillars
@@ -243,8 +243,8 @@ Our voice balances military precision with partnership warmth, creating communic
 **Tone**: Professional, business-focused, efficiency-oriented
 
 **Sample Message**:
-> "We understand your property is a business asset. Our partnership approach ensures  
-> minimal operational disruption while maximizing your investment value through precision  
+> "We understand your property is a business asset. Our partnership approach ensures
+> minimal operational disruption while maximizing your investment value through precision
 > construction management."
 
 ### Industrial Facility Managers
@@ -259,8 +259,8 @@ Our voice balances military precision with partnership warmth, creating communic
 **Tone**: Technical competence, safety-conscious, detail-oriented
 
 **Sample Message**:
-> "Industrial construction demands precision. Our military-trained team understands complex  
-> systems, safety requirements, and the critical need to maintain operations throughout  
+> "Industrial construction demands precision. Our military-trained team understands complex
+> systems, safety requirements, and the critical need to maintain operations throughout
 > your project."
 
 ### Medical Facility Administrators
@@ -275,8 +275,8 @@ Our voice balances military precision with partnership warmth, creating communic
 **Tone**: Compliance-focused, detail-oriented, patient-centered
 
 **Sample Message**:
-> "Medical facility construction requires unwavering attention to detail. We partner with  
-> healthcare leaders to ensure every requirement is met while maintaining the highest  
+> "Medical facility construction requires unwavering attention to detail. We partner with
+> healthcare leaders to ensure every requirement is met while maintaining the highest
 > standards of patient care."
 
 ### Religious Organization Leaders
@@ -291,8 +291,8 @@ Our voice balances military precision with partnership warmth, creating communic
 **Tone**: Respectful, community-minded, transparent
 
 **Sample Message**:
-> "Building spaces for community requires partnership built on trust. We work WITH  
-> congregations to create lasting spaces that serve your mission while honoring your  
+> "Building spaces for community requires partnership built on trust. We work WITH
+> congregations to create lasting spaces that serve your mission while honoring your
 > stewardship responsibilities."
 
 ## Digital Content Guidelines
@@ -407,6 +407,6 @@ Our voice balances military precision with partnership warmth, creating communic
 
 ---
 
-**Messaging Authority**: MH Construction Leadership Team  
-**Last Update**: October 8, 2025 (v3.7.2)  
+**Messaging Authority**: MH Construction Leadership Team
+**Last Update**: October 8, 2025 (v3.7.2)
 **Next Review**: Quarterly brand compliance assessment

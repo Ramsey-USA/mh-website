@@ -4,8 +4,8 @@
 **Last Updated:** October 2, 2025
 **Status:** ✅ Active Standard
 
-> **Purpose:** This document defines the spacing, padding, typography, and layout  
-> standards extracted from the home page to ensure visual consistency across all  
+> **Purpose:** This document defines the spacing, padding, typography, and layout
+> standards extracted from the home page to ensure visual consistency across all
 > website pages.
 
 ---
@@ -69,11 +69,14 @@ Every major section should follow this structure:
 ### **Section Headings (H2)**
 
 ```tsx
-<h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+<h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl
+  sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300
+    text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
     Section Context
   </span>
-  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary
+    to-brand-secondary drop-shadow-sm text-transparent">
     Section Title
   </span>
 </h2>
@@ -106,9 +109,12 @@ Every major section should follow this structure:
 ### **Body Text - Large (Section Introductions)**
 
 ```tsx
-<p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-  Introduction text with <span className="font-medium text-gray-800 dark:text-gray-200">emphasized words</span>
-  {' '}and <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
+<p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300
+  text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+  Introduction text with <span className="font-medium text-gray-800
+    dark:text-gray-200">emphasized words</span>
+  {' '}and <span className="bg-clip-text bg-gradient-to-r from-brand-primary
+    to-brand-secondary font-semibold text-transparent">
     gradient highlights
   </span>.
 </p>
@@ -221,7 +227,8 @@ Every major section should follow this structure:
 <section className="bg-white dark:bg-gray-900">
 
 {/* Radial overlay for depth */}
-<div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(56,104,81,0.05)_0%,transparent_50%)] opacity-60"></div>
+<div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,
+  rgba(56,104,81,0.05)_0%,transparent_50%)] opacity-60"></div>
 ```text
 
 ### **Decorative Blur Elements**
@@ -282,9 +289,13 @@ Every major section should follow this structure:
 ### **Standard Card Structure**
 
 ```tsx
-<div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
+<div className="group relative bg-white dark:bg-gray-800 shadow-lg
+  hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl
+  hover:scale-105 transition-all duration-300">
   {/* Hover gradient overlay */}
-  <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
+  <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5
+    to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl
+    transition-opacity duration-300"></div>
 
   {/* Card content with flex layout for bottom-aligned CTA */}
   <div className="relative flex flex-col h-full">
@@ -413,21 +424,28 @@ group-hover:translate-x-2
 
     {/* Section Header */}
     <div className="mb-10 lg:mb-12 text-center">
-      <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-        <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+      <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl
+        sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+        <span className="block mb-3 font-semibold text-gray-700
+          dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl
+          tracking-tight">
           Section Context
         </span>
-        <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+        <span className="block bg-clip-text bg-gradient-to-r from-brand-primary
+          to-brand-secondary drop-shadow-sm text-transparent">
           Section Title
         </span>
       </h2>
-      <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+      <p className="mx-auto max-w-5xl font-light text-gray-600
+        dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed
+        tracking-wide">
         Section introduction text with{' '}
         <span className="font-medium text-gray-800 dark:text-gray-200">
           key emphasis
         </span>{' '}
         and{' '}
-        <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
+        <span className="bg-clip-text bg-gradient-to-r from-brand-primary
+          to-brand-secondary font-semibold text-transparent">
           gradient highlights
         </span>.
       </p>

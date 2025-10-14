@@ -29,7 +29,10 @@ Industrial Excellence Award, Heavy Equipment Mastery Recognition
 
 ## Biography
 
-Porter specializes in industrial and heavy commercial construction projects. His expertise in managing projects with specialized equipment and complex logistical requirements makes him invaluable for industrial builds. Porter brings military-style precision to complex operations, ensuring every detail meets MH Construction's high standards.
+Porter specializes in industrial and heavy commercial construction projects. His expertise in
+managing projects with specialized equipment and complex logistical requirements makes him
+invaluable for industrial builds. Porter brings military-style precision to complex operations,
+ensuring every detail meets MH Construction's high standards.
 
 ## Career Highlights
 
@@ -56,7 +59,8 @@ CDL, NCCO
 
 ## Fun Fact
 
-Porter can operate over 15 different types of heavy construction equipment and trains others in their safe operation.
+Porter can operate over 15 different types of heavy construction equipment and trains others in
+their safe operation.
 
 ---
 

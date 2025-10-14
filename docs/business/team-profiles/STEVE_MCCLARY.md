@@ -29,7 +29,10 @@ Perfect Safety Record Award, Field Leadership Excellence
 
 ## Biography
 
-Steve brings over 20 years of field operations leadership to MH Construction. His hands-on approach emphasizes safety-first practices and quality construction while managing complex projects with multiple subcontractors and phases. Steve embodies the company's military-precision approach to construction excellence.
+Steve brings over 20 years of field operations leadership to MH Construction. His hands-on approach
+emphasizes safety-first practices and quality construction while managing complex projects with
+multiple subcontractors and phases. Steve embodies the company's military-precision approach to
+construction excellence.
 
 ## Career Highlights
 

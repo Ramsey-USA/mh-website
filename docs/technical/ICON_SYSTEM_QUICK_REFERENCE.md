@@ -159,7 +159,8 @@ For icons that never change:
 
 ```tsx
 <div className="card group">
-  <div className="w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-2xl flex items-center justify-center p-2 mb-4">
+  <div className="w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-primary-dark
+    rounded-2xl flex items-center justify-center p-2 mb-4">
     <MaterialIcon icon="smart_toy" size="2xl" primaryColor="white" />
   </div>
   <h3>Feature Title</h3>

@@ -29,9 +29,9 @@ Project Organization Excellence Award, Team Leadership Recognition
 
 ## 👤 Biography
 
-Derek brings 10 years of construction supervision experience to MH Construction,  
-specializing in project organization and team coordination. His systematic approach  
-to site management ensures projects stay on schedule while maintaining the highest  
+Derek brings 10 years of construction supervision experience to MH Construction,
+specializing in project organization and team coordination. His systematic approach
+to site management ensures projects stay on schedule while maintaining the highest
 quality standards that define MH Construction's reputation for excellence.
 
 ## ⭐ Career Highlights
@@ -59,7 +59,7 @@ OSHA 30, CPR, First Aid
 
 ## 💡 Fun Fact
 
-Derek can organize a construction site so efficiently that workers spend 20% less  
+Derek can organize a construction site so efficiently that workers spend 20% less
 time searching for tools and materials.
 
 ---

@@ -1,9 +1,9 @@
 # MH Construction Typography System
 
-**Date:** October 9, 2025  
-**Status:** ✅ Current  
-**Category:** Business - Brand Guidelines  
-**Last Updated:** October 9, 2025  
+**Date:** October 9, 2025
+**Status:** ✅ Current
+**Category:** Business - Brand Guidelines
+**Last Updated:** October 9, 2025
 
 ## Quick Navigation
 
@@ -18,8 +18,8 @@
 
 ### Primary Typeface: Inter
 
-**Inter** is the primary typeface for all MH Construction digital communications,  
-chosen for its excellent readability, modern appearance, and professional character  
+**Inter** is the primary typeface for all MH Construction digital communications,
+chosen for its excellent readability, modern appearance, and professional character
 that aligns with our military precision values.
 
 #### Font Family Stack
@@ -340,7 +340,7 @@ input, textarea {
 :root {
   /* Font Family */
   --font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  
+
   /* Font Sizes */
   --text-xs: 0.75rem;    /* 12px */
   --text-sm: 0.875rem;   /* 14px */
@@ -351,14 +351,14 @@ input, textarea {
   --text-3xl: 1.875rem;  /* 30px */
   --text-4xl: 2.25rem;   /* 36px */
   --text-5xl: 3rem;      /* 48px */
-  
+
   /* Font Weights */
   --font-light: 300;
   --font-normal: 400;
   --font-medium: 500;
   --font-semibold: 600;
   --font-bold: 700;
-  
+
   /* Line Heights */
   --leading-tight: 1.2;
   --leading-snug: 1.3;
@@ -413,7 +413,7 @@ module.exports = {
 #### Heading Length Guidelines
 
 - **H1**: Maximum 60 characters
-- **H2**: Maximum 50 characters  
+- **H2**: Maximum 50 characters
 - **H3**: Maximum 40 characters
 - **H4-H6**: Maximum 30 characters
 
@@ -440,7 +440,7 @@ module.exports = {
   h1 { font-size: 2.25rem; }  /* 36px */
   h2 { font-size: 1.875rem; } /* 30px */
   h3 { font-size: 1.5rem; }   /* 24px */
-  
+
   body { font-size: 1rem; }   /* 16px - maintain for readability */
 }
 ```text
@@ -451,7 +451,7 @@ module.exports = {
 @media (min-width: 1200px) {
   h1 { font-size: 3.5rem; }   /* 56px */
   h2 { font-size: 2.5rem; }   /* 40px */
-  
+
   .text-large { font-size: 1.25rem; } /* 20px */
 }
 ```text
@@ -514,6 +514,6 @@ module.exports = {
 
 ---
 
-**Typography Authority**: MH Construction Design Team  
-**Last Update**: October 8, 2025 (v3.7.2)  
+**Typography Authority**: MH Construction Design Team
+**Last Update**: October 8, 2025 (v3.7.2)
 **Next Review**: Quarterly brand compliance assessment

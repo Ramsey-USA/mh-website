@@ -29,7 +29,10 @@ Administrative Excellence Award, Communication Coordination Recognition
 
 ## Biography
 
-Jennifer serves as the central coordination point ensuring smooth communication across all departments. Her organized systems support efficient operations and maintain information flow throughout the company, embodying MH Construction's commitment to teamwork and seamless project coordination.
+Jennifer serves as the central coordination point ensuring smooth communication across all
+departments. Her organized systems support efficient operations and maintain information flow
+throughout the company, embodying MH Construction's commitment to teamwork and seamless project
+coordination.
 
 ## Career Highlights
 

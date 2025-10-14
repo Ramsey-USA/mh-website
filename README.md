@@ -41,12 +41,12 @@
 >
 > Development setup, workflows, and configuration guides
 
-#### 📖 [Guidelines Hub](./docs/guidelines/GUIDELINES_INDEX.md)
+#### 📖 [Guidelines Hub](./docs/development/guidelines/guidelines-index.md)
 
 >
 > Standards, policies, and best practices
 
-#### 📑 [Reference Hub](./docs/reference/REFERENCE_INDEX.md)
+#### 📑 [Reference Hub](./docs/development/reference/reference-index.md)
 
 >
 > Quick references, templates, and checklists
@@ -57,25 +57,30 @@
 
 #### 🏢 Company Information & Services
 
-- [**Services Overview**](./docs/business/SERVICES.md) - Complete service offerings and capabilities
+- [**Services Overview**](./docs/business/SERVICES.md) - Complete service offerings and
+  capabilities
 - [**Team Roster**](./docs/business/TEAM_ROSTER.md) - Meet our experienced team members
 - [**Core Values**](./docs/business/CORE_VALUES.md) - Our guiding principles and mission
-- [**Partnership Messaging**](./docs/MH_PARTNERSHIP_MESSAGING_GUIDE.md) - Brand messaging guidelines
+- [**Partnership Messaging**](./docs/partnerships/messaging/partnership-messaging-guide.md) -
+  Brand messaging guidelines
 
 #### 📊 Project Status & Roadmap
 
-- [**Complete Optimization Roadmap**](./docs/COMPLETE_OPTIMIZATION_ROADMAP.md) -
-
+- [**Complete Optimization
+  Roadmap**](./docs/migrations/optimizations/complete-optimization-roadmap.md) -
   ⭐ **Comprehensive optimization summary**
-- [**Phase Master Roadmap**](./docs/project/PHASE_MASTER_ROADMAP.md) - ⭐ **Complete project status**
-- [**Next Steps Guide**](./docs/NEXT_STEPS.md) - ⭐ **What to do next**
-- [**Future Phases Roadmap**](./docs/project/FUTURE_PHASES_ROADMAP.md) - Phase 6+ planning and timeline
+- [**Phase Master Roadmap**](./docs/project/roadmaps/phase-master-roadmap.md) -
+  ⭐ **Complete project status**
+- [**Next Steps Guide**](./docs/project/roadmaps/next-steps.md) - ⭐ **What to do next**
+- [**Future Phases Roadmap**](./docs/project/roadmaps/future-phases-roadmap.md) -
+  Phase 6+ planning and timeline
 
 ### For Developers
 
 #### 🛠️ Technical Setup
 
-- [**Firebase Integration**](./docs/development/FIREBASE_SETUP.md) - ✅ **Complete backend integration guide**
+- [**Firebase Integration**](./docs/development/FIREBASE_SETUP.md) -
+  ✅ **Complete backend integration guide**
 - [**VS Code Extensions**](./docs/development/VSCODE_EXTENSIONS_GUIDE.md) -
 
   Recommended extensions for optimization
@@ -212,11 +217,11 @@ Material Icons exclusively.**
 
 ### Quick Standards
 
-- ✅ **DO**: Use    `<MaterialIcon icon="construction" size="lg" /> `
+- ✅ **DO**: Use    `<MaterialIcon icon="construction" size="lg" />`
 - ❌ **DON'T**: Use emojis in .ts/.tsx/.js/.jsx files
 - 📝 **DOCS**: Emojis acceptable in .md files for documentation clarity
 
-**See [DEVELOPMENT_GUIDELINES.md](./docs/guidelines/DEVELOPMENT_GUIDELINES.md) for complete policy details.**
+**See [DEVELOPMENT_GUIDELINES.md](./docs/development/guidelines/development-guidelines.md) for complete policy details.**
 
 ---
 
@@ -447,41 +452,59 @@ src/
 
 ### Quick Access
 
-- **[Development Guidelines](./docs/guidelines/DEVELOPMENT_GUIDELINES.md)** - Complete development rules and UI standards
-- **[Developer Checklist](./docs/reference/DEVELOPER_CHECKLIST.md)** - Quick verification before commits
-- **[UI Component Standards](./docs/standards/UI_COMPONENT_STANDARDS_UPDATE.md)** - Latest UI design requirements
-- **[Icon Policy](./docs/standards/ICON_POLICY_IMPLEMENTATION.md)** - Material Icons usage standards
+- **[Development Guidelines](./docs/development/guidelines/development-guidelines.md)** -
+  Complete development rules and UI standards
+- **[Developer Checklist](./docs/development/reference/developer-checklist.md)** -
+  Quick verification before commits
+- **[UI Component Standards](./docs/standards/UI_COMPONENT_STANDARDS_UPDATE.md)** -
+  Latest UI design requirements
+- **[Icon Policy](./docs/technical/design-system/icons/icon-policy-implementation.md)** -
+  Material Icons usage standards
 
 ### Business Information
 
-- **[Core Values](./docs/business/CORE_VALUES.md)** - 6-value professional foundation system and trust-centered philosophy
-- **[Services & Capabilities](./docs/business/SERVICES.md)** - Construction services, specialties, and detailed expertise
-- **[Team Roster](./docs/business/TEAM_ROSTER.md)** - Leadership and team member details with specializations
-- **[Company Profile](./docs/project/COMPANY_PROFILE.md)** - Business information and organizational overview
+- **[Core Values](./docs/business/CORE_VALUES.md)** - 6-value professional foundation system
+  and trust-centered philosophy
+- **[Services & Capabilities](./docs/business/SERVICES.md)** - Construction services,
+  specialties, and detailed expertise
+- **[Team Roster](./docs/business/TEAM_ROSTER.md)** - Leadership and team member details with
+  specializations
+- **[Company Profile](./docs/project/COMPANY_PROFILE.md)** - Business information and
+  organizational overview
 
 ### Technical Information
 
-- **[Platform Features](./docs/technical/FEATURES.md)** - Complete platform capabilities, PWA features, and technical highlights
-- **[Design System](./docs/technical/DESIGN_SYSTEM.md)** - Brand colors, typography, and component standards
-- **[Button System](./docs/technical/BUTTON_SYSTEM.md)** - Cohesive button implementation with icon integration and accessibility
-- **[Technical Architecture](./docs/project/ARCHITECTURE.md)** - Complete system architecture and technical details
+- **[Platform Features](./docs/technical/FEATURES.md)** - Complete platform capabilities,
+  PWA features, and technical highlights
+- **[Design System](./docs/technical/DESIGN_SYSTEM.md)** - Brand colors, typography, and
+  component standards
+- **[Button System](./docs/technical/BUTTON_SYSTEM.md)** - Cohesive button implementation with
+  icon integration and accessibility
+- **[Technical Architecture](./docs/project/ARCHITECTURE.md)** - Complete system architecture
+  and technical details
 
 ### Development Information
 
-- **[Contributing Guidelines](./CONTRIBUTING.md)** - Developer guidelines, code standards, and contribution workflow
-- **[Setup Guide](./docs/development/SETUP_GUIDE.md)** - Detailed development environment setup instructions
+- **[Contributing Guidelines](./CONTRIBUTING.md)** - Developer guidelines, code standards, and
+  contribution workflow
+- **[Setup Guide](./docs/development/SETUP_GUIDE.md)** - Detailed development environment setup
+  instructions
 
 ### Project Information
 
-- **[Implementation Summary](./docs/project/IMPLEMENTATION_SUMMARY.md)** - Complete feature implementation status and updates
-- **[New Pages Implementation](./docs/project/NEW_PAGES_IMPLEMENTATION.md)** - Detailed documentation of all implemented pages
+- **[Implementation Summary](./docs/project/IMPLEMENTATION_SUMMARY.md)** - Complete feature
+  implementation status and updates
+- **[New Pages Implementation](./docs/project/NEW_PAGES_IMPLEMENTATION.md)** - Detailed
+  documentation of all implemented pages
 - **[Project Changelog](./docs/project/CHANGELOG.md)** - Version history and updates archive
 
 ## 🤝 Partnership Philosophy
 
 ### "We Work With You" - Our Foundation
 
-At MH Construction, we don't just build structures - we build relationships. Our veteran-owned company operates on a simple but powerful principle: **every client is a partner, every project serves the community**.
+At MH Construction, we don't just build structures - we build relationships. Our veteran-owned
+company operates on a simple but powerful principle: **every client is a partner, every project
+serves the community**.
 
 #### Partnership Principles
 
@@ -493,7 +516,9 @@ At MH Construction, we don't just build structures - we build relationships. Our
 
 #### Community Impact
 
-**MH Construction exists to strengthen Pacific Northwest communities.** Every project we complete, every partnership we build, and every team member we support contributes to a stronger, more connected region.
+**MH Construction exists to strengthen Pacific Northwest communities.** Every project we complete,
+every partnership we build, and every team member we support contributes to a stronger, more
+connected region.
 
 ## 🏢 Company Information
 
@@ -505,12 +530,15 @@ At MH Construction, we don't just build structures - we build relationships. Our
  | **Phone** | (509) 308-6489 |
  | **Address** | 3111 N. Capital Ave., Pasco, WA 99301 |
  | **Service Area** | Pacific Northwest (WA, OR, ID) |
- | **Email** | <info@mhconstruction.com> |
- | **Website** | [mhconstruction.com](https://mhconstruction.com) |
+ | **Email** | <info@mhc-gc.com> |
+ | **Website** | [mhc-gc.com](https://mhc-gc.com) |
 
 ### Our Partnership Approach
 
-**MH Construction is more than a contractor - we're your construction partner.** Our veteran-owned company believes in working **with you**, not just **for you**. Every project is a collaboration where your vision, our expertise, and community values come together to create something exceptional.
+**MH Construction is more than a contractor - we're your construction partner.** Our veteran-owned
+company believes in working **with you**, not just **for you**. Every project is a collaboration
+where your vision, our expertise, and community values come together to create something
+exceptional.
 
 ## 💻 Development Environment
 
@@ -589,7 +617,8 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=your_ga_id
 
 ### AI-Powered Construction Intelligence (v4.0.0) - Latest
 
-- **Revolutionary AI Implementation**: First-in-industry military-style construction AI with business integration
+- **Revolutionary AI Implementation**: First-in-industry military-style construction AI with
+  business integration
   - **Global Military Chatbot**: "General MH" available on all pages with Army terminology
   - **Advanced Cost Estimator**: Real-time pricing with 95% accuracy guarantee
   - **Smart Form Assistant**: AI-powered form completion with intelligent suggestions
@@ -621,12 +650,18 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=your_ga_id
 
 #### Phase 4: Business Integration & Lead Generation (v4.0.0)
 
-- **Smart Form Assistant**: AI-powered form completion with intelligent field suggestions and auto-completion
-- **Lead Qualification Engine**: 0-100 scoring system with 5-tier classification (Alpha Priority, Bravo High-Value, Charlie Warm, Delta Cold, Echo Information)
-- **Veteran Lead Priority System**: Advanced service branch detection with expedited processing protocols
-- **Smart Auto-Completion**: Predictive form suggestions with context awareness and real-time validation
-- **Advanced Form Intelligence**: Military-style feedback with progress tracking and completion guidance
-- **Business Impact**: 25% improvement in lead quality, 40% faster form completion, 100% veteran recognition accuracy
+- **Smart Form Assistant**: AI-powered form completion with intelligent field suggestions and
+  auto-completion
+- **Lead Qualification Engine**: 0-100 scoring system with 5-tier classification (Alpha Priority,
+  Bravo High-Value, Charlie Warm, Delta Cold, Echo Information)
+- **Veteran Lead Priority System**: Advanced service branch detection with expedited processing
+  protocols
+- **Smart Auto-Completion**: Predictive form suggestions with context awareness and real-time
+  validation
+- **Advanced Form Intelligence**: Military-style feedback with progress tracking and completion
+  guidance
+- **Business Impact**: 25% improvement in lead quality, 40% faster form completion, 100% veteran
+  recognition accuracy
 
 ### Complete Website Implementation (v3.8.0)
 
@@ -794,7 +829,7 @@ With the complete implementation, the platform now includes:
 
 - **[Technical Architecture](./docs/technical/)**: System design and API documentation
 - **[Performance Benchmarks](./docs/PROJECT_COMPLETION_SUMMARY.md)**: Current baseline metrics
-- **[Development Guidelines](./docs/guidelines/)**: Coding standards and best practices
+- **[Development Guidelines](./docs/development/guidelines/)**: Coding standards and best practices
 - **[Business Requirements](./docs/business/)**: Stakeholder needs and feature specifications
 
 ---
@@ -802,8 +837,8 @@ With the complete implementation, the platform now includes:
 ## 📞 Contact Information
 
 - **Phone**: [(509) 308-6489](tel:+15093086489)
-- **Email**: [info@mhconstruction.com](mailto:info@mhconstruction.com)
-- **Website**: [mhconstruction.com](https://mhconstruction.com)
+- **Email**: [info@mhc-gc.com](mailto:info@mhc-gc.com)
+- **Website**: [mhc-gc.com](https://mhc-gc.com)
 
 ---
 

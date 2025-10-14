@@ -6,26 +6,26 @@
 
 ## 🏛️ Overview
 
-Applying for a construction grant—whether for a new school, religious facility, or  
-government project—is a demanding process that requires accurate, professional  
-documentation. Make sure your application has the best chance at success by partnering  
+Applying for a construction grant—whether for a new school, religious facility, or
+government project—is a demanding process that requires accurate, professional
+documentation. Make sure your application has the best chance at success by partnering
 with MH Construction.
 
-**We act as a critical resource during the preparation phase**, giving you the detailed,  
+**We act as a critical resource during the preparation phase**, giving you the detailed,
 verified construction data you need to impress reviewers.
 
 ---
 
 ## 📋 How We Support Your Grant Application
 
-Our experienced construction team in the Tri-Cities (Kennewick, Pasco, and Richland, WA)  
-provides the essential technical support required to meet your grant's construction  
-specifications, including:
+Our experienced construction team in the Tri-Cities (Kennewick, Pasco, and
+Richland, WA) provides the essential technical support required to meet your
+grant's construction specifications, including:
 
 ### 1. Accurate Cost Estimation
 
-Providing the estimated cost for all construction work to ensure you have reliable numbers  
-for your budget pitch.
+Providing the estimated cost for all construction work to ensure you have reliable
+numbers for your budget pitch.
 
 **What We Provide:**
 
@@ -37,7 +37,8 @@ for your budget pitch.
 
 ### 2. Design & Schedule Validation
 
-Supplying supporting documentation on project design, feasibility, and realistic timelines.
+Supplying supporting documentation on project design, feasibility, and realistic
+timelines.
 
 **What We Provide:**
 
@@ -50,7 +51,8 @@ Supplying supporting documentation on project design, feasibility, and realistic
 
 ### 3. Meeting Compliance
 
-Helping you navigate complex grant specifications to keep your project compliant and on track.
+Helping you navigate complex grant specifications to keep your project compliant
+and on track.
 
 **What We Provide:**
 
@@ -65,8 +67,9 @@ Helping you navigate complex grant specifications to keep your project compliant
 
 ## 🏗️ Building Your Vision Across the Northwest
 
-Once your grant is approved, you can trust our professional team to execute the  
-construction with the same precision and ethical standards used in the application process.
+Once your grant is approved, you can trust our professional team to execute the
+construction with the same precision and ethical standards used in the
+application process.
 
 **We are licensed and experienced to build:**
 
@@ -117,7 +120,7 @@ construction with the same precision and ethical standards used in the applicati
 
 ### Department of Energy Expertise
 
-MH Construction has extensive experience working in the Hanford area and understanding  
+MH Construction has extensive experience working in the Hanford area and understanding
 the unique requirements of Department of Energy projects.
 
 **Our Hanford-Area Capabilities:**
@@ -225,7 +228,7 @@ the unique requirements of Department of Energy projects.
 
 **Phone:** (509) 308-6489
 
-**Email:** <info@mhconstruction.com>
+**Email:** <info@mhc-gc.com>
 
 **Office:** 3111 N. Capital Ave., Pasco, WA 99301
 
@@ -239,8 +242,8 @@ the unique requirements of Department of Energy projects.
 
 ## 🚀 Call to Action
 
-**Call (509) 308-6489 now** to discuss your grant-based construction project with an  
-expert and take the first step toward a successful build.
+**Call (509) 308-6489 now** to discuss your grant-based construction project
+with an expert and take the first step toward a successful build.
 
 ### What to Prepare for Your Call
 
@@ -332,11 +335,12 @@ At MH Construction, we understand that government and grant projects require:
 - **Professionalism** - Military-grade standards and ethics
 - **Partnership** - Working together toward shared goals
 
-**We don't just help you apply for grants—we partner with you to ensure success from  
+**We don't just help you apply for grants—we partner with you to ensure success from
 application through completion.**
 
 ---
 
-**Partnership Philosophy:** "We Work With You" - Collaborative approach to government and grant projects
+**Partnership Philosophy:** "We Work With You" - Collaborative approach to
+government and grant projects
 
 **Last Updated:** October 2025 | MH Construction LLC | Veteran-Owned

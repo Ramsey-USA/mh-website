@@ -29,7 +29,10 @@ Two Navy Achievement Medals
 
 ## 👤 Biography
 
-Matt bridges technology innovation with practical construction applications, bringing military precision to technology integration. His unique role promotes MH Construction's technological capabilities and veteran-owned status while developing cutting-edge solutions that keep the company at the forefront of construction innovation.
+Matt bridges technology innovation with practical construction applications, bringing military
+precision to technology integration. His unique role promotes MH Construction's technological
+capabilities and veteran-owned status while developing cutting-edge solutions that keep the company
+at the forefront of construction innovation.
 
 ## ⭐ Career Highlights
 
@@ -56,7 +59,8 @@ Global Accelerator Web Development & AI Design, OSHA 30, CPR, Google Ads, HubSpo
 
 ## 💡 Fun Fact
 
-Former gym owner and Master Personal Trainer, Matt brings the same dedication to fitness and leadership that he now applies to construction technology and project management.
+Former gym owner and Master Personal Trainer, Matt brings the same dedication to fitness and
+leadership that he now applies to construction technology and project management.
 
 ---
 

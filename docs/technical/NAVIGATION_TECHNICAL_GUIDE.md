@@ -1,7 +1,7 @@
 # MH Construction - Navigation Technical Implementation Guide
 
-> **Developer Implementation Guide for Dual Navigation System**  
-> **Status:** ✅ Implementation Ready  
+> **Developer Implementation Guide for Dual Navigation System**
+> **Status:** ✅ Implementation Ready
 > **Updated:** October 13, 2025
 
 ---
@@ -69,7 +69,8 @@ interface PageNavigationProps {
 
 export function PageNavigation({ items, className = "" }: PageNavigationProps) {
   return (
-    <nav className={`bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t-4 border-brand-primary ${className}`}>
+    <nav className={`bg-white/95 dark:bg-gray-900/95 backdrop-blur-md
+      border-t-4 border-brand-primary ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center py-4">
           <div className="flex space-x-1 overflow-x-auto">
@@ -77,14 +78,21 @@ export function PageNavigation({ items, className = "" }: PageNavigationProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className="group flex flex-col items-center hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 px-4 py-4 min-w-[80px] transition-colors duration-200 rounded-lg"
+                className="group flex flex-col items-center
+                  hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20
+                  px-4 py-4 min-w-[80px] transition-colors duration-200
+                  rounded-lg"
               >
                 <MaterialIcon
                   icon={item.icon}
                   size="md"
-                  className="mb-1 text-gray-600 dark:text-gray-400 group-hover:text-brand-primary transition-colors duration-200"
+                  className="mb-1 text-gray-600 dark:text-gray-400
+                    group-hover:text-brand-primary transition-colors
+                    duration-200"
                 />
-                <span className="text-xs text-gray-700 dark:text-gray-300 group-hover:text-brand-primary font-medium transition-colors duration-200">
+                <span className="text-xs text-gray-700 dark:text-gray-300
+                  group-hover:text-brand-primary font-medium transition-colors
+                  duration-200">
                   {item.label}
                 </span>
               </Link>
@@ -114,7 +122,8 @@ export const navigationConfigs = {
     { href: "/estimator", label: "AI Estimator", icon: "calculate" },
     { href: "/government", label: "Government", icon: "account_balance" },
     { href: "/services#procurement-vendor-management", label: "Procurement", icon: "inventory" },
-    { href: "/services#constructability-budget-control", label: "Constructability", icon: "engineering" },
+    { href: "/services#constructability-budget-control", label: "Constructability",
+      icon: "engineering" },
     { href: "/booking", label: "Start Partnership", icon: "handshake" },
     { href: "/contact", label: "Contact", icon: "contact_phone" }
   ],
@@ -140,7 +149,7 @@ export type PageType = keyof typeof navigationConfigs;
 ```typescript
 export const navigationConfigs = {
   // ... existing configs
-  
+
   newPage: [
     { href: "/", label: "Home", icon: "home" },
     { href: "/newpage#section1", label: "Section 1", icon: "section_icon" },
@@ -241,7 +250,7 @@ export default function NewPage() {
 const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
 // Adjust navigation based on screen size
-<PageNavigation 
+<PageNavigation
   items={navigationConfigs.page}
   className={`${isMobile ? 'px-2' : 'px-4'}`}
 />
@@ -255,7 +264,7 @@ const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   .page-navigation {
     padding: 0.5rem;
   }
-  
+
   .nav-item {
     min-width: 70px;
     padding: 0.75rem 0.5rem;
@@ -481,6 +490,6 @@ const MaterialIcon = lazy(() => import('../icons/MaterialIcon'));
 
 ---
 
-**Document Authority**: MH Construction Development Team  
-**Last Review**: October 13, 2025  
+**Document Authority**: MH Construction Development Team
+**Last Review**: October 13, 2025
 **Next Review**: January 2026 (Quarterly)

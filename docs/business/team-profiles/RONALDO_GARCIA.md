@@ -29,7 +29,10 @@ Master Craftsman Recognition, Quality Excellence Award
 
 ## Biography
 
-Ronaldo is a master craftsman known for exceptional attention to detail in drywall installation and specialty wall systems. He leads specialist work on high-end commercial and medical interiors, bringing military-grade precision and artisan-level quality to every installation that reflects MH Construction's commitment to excellence.
+Ronaldo is a master craftsman known for exceptional attention to detail in drywall installation and
+specialty wall systems. He leads specialist work on high-end commercial and medical interiors,
+bringing military-grade precision and artisan-level quality to every installation that reflects MH
+Construction's commitment to excellence.
 
 ## Career Highlights
 

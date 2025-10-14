@@ -29,9 +29,9 @@ Proactive Leadership Award, Quality Assurance Excellence
 
 ## Biography
 
-Reagan brings 12 years of on-site operations experience with a proactive management  
-style focusing on preventing issues before they arise. His approach maintains  
-project momentum while ensuring quality standards meet MH Construction's reputation  
+Reagan brings 12 years of on-site operations experience with a proactive management
+style focusing on preventing issues before they arise. His approach maintains
+project momentum while ensuring quality standards meet MH Construction's reputation
 for excellence. Reagan's leadership keeps teams motivated and projects on track.
 
 ## Career Highlights
@@ -59,7 +59,7 @@ Information not specified in current data
 
 ## Fun Fact
 
-Reagan has an uncanny ability to predict potential construction issues 3-4 days  
+Reagan has an uncanny ability to predict potential construction issues 3-4 days
 before they typically occur.
 
 ---
