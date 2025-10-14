@@ -64,6 +64,16 @@ backups/
 docs/.markdown-lint-backup-*/
 docs/.naming-backup-*/
 
+# Prevent backup files from being committed
+*.backup
+*.bak
+*.old
+
+# Test files in wrong locations
+test-*.html
+test-*.sh
+/public/test-*.html
+
 # OS
 Thumbs.db
 

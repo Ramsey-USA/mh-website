@@ -42,10 +42,19 @@ const nextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    domains: [
-      "images.unsplash.com",
-      "via.placeholder.com",
-      "firebasestorage.googleapis.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com",
+      },
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+      },
     ],
   },
 
@@ -118,8 +127,8 @@ const nextConfig = {
     // Exclude Firebase functions from Next.js build
     config.externals = config.externals || [];
     if (isServer) {
-      config.externals.push('firebase-functions');
-      config.externals.push('firebase-admin');
+      config.externals.push("firebase-functions");
+      config.externals.push("firebase-admin");
     }
 
     // Optimize bundle splitting
