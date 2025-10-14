@@ -190,7 +190,8 @@ export default function Button({ children, ...props }: ButtonProps) {
 }
 ```
 
-**Note**: New components should prefer named exports. Existing components can remain with default exports but should be gradually migrated during refactoring.
+**Note**: New components should prefer named exports. Existing components can remain with default exports but should
+be gradually migrated during refactoring.
 
 ---
 
