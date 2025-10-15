@@ -74,8 +74,8 @@ Construction from competitors who work "for" clients.
 
 **Partnership Messaging Questions:**
 
-- **Client Projects:** Contact via partnership forms (extension 100)
-- **Vendor Applications:** Contact vendor relations (extension 150)
+- **Client Projects:** [(509) 308-6489](tel:+15093086489) ext. 100 | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+- **Vendor Applications:** [(509) 308-6489](tel:+15093086489) ext. 150 | [vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
 - **Implementation Support:** Development team
 
 ## 🔄 Last Updated

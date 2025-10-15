@@ -192,9 +192,27 @@ how we do business and the promise we make to every client and community we serv
 
 ---
 
+## Ready to Partner With Us?
+
+Experience these values in action on your next construction project.
+
+### **For Project Clients**
+
+- **Schedule Free Consultation** - Discuss your project with our team (`event`)
+- **Get Instant AI Estimate** - Try our automated calculator (`smart_toy`)
+
+**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+
+### **For Trade Partners**
+
+- **Apply to be Approved Vendor** - Join our professional network (`check_circle`)
+
+**Contact:** [(509) 308-6489](tel:+15093086489) ext. 150 | [vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
+
+---
+
 **Partnership Philosophy**: "We Work With You" - These values in action
 **Community Focus**: Serving Pacific Northwest Communities Since 1995
-**Contact**: (509) 308-6489 | <info@mhc-gc.com>
 
 ---
 

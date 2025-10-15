@@ -16,14 +16,14 @@ This document establishes a cohesive button system for MH Construction's website
 
 ### **Primary Buttons (Hunter Green)**
 
-- **Purpose**: Primary actions, CTAs, main navigation
+- **Purpose**: Primary actions, CTAs, main navigation, IRL consultations
 - **Colors**: Hunter Green (#386851) with white text on hover
-- **Usage**: "Schedule Consultation", "Get Quote", "Contact Us"
+- **Usage**: "Schedule Free Consultation", "Request Project Review", "Contact Client Services"
 
 ```tsx
 <Button variant="primary" size="lg">
-  <MaterialIcon icon="calendar_today" className="mr-2 w-5 h-5" />
-  Schedule Consultation
+  <MaterialIcon icon="event" className="mr-2 w-5 h-5" />
+  Schedule Free Consultation
 </Button>
 ```text
 
@@ -202,19 +202,28 @@ transition-all duration-300
 ### **Contact Buttons**
 
 ```tsx
-// Phone call action
+// Client contact - Primary (Hunter Green)
 <Button variant="primary" size="lg" className="w-full">
   <MaterialIcon icon="phone" className="mr-2 w-6 h-6" />
   <span className="text-center">
-    Call Now<br />
-    (509) 308-6489
+    Client Contact<br />
+    (509) 308-6489 ext. 100
   </span>
 </Button>
 
-// Email action
+// Vendor contact - Secondary (Leather Tan)
 <Button variant="secondary" size="lg">
+  <MaterialIcon icon="phone" className="mr-2 w-6 h-6" />
+  <span className="text-center">
+    Vendor Contact<br />
+    (509) 308-6489 ext. 150
+  </span>
+</Button>
+
+// Email actions
+<Button variant="outline" size="lg">
   <MaterialIcon icon="email" className="mr-2 w-6 h-6" />
-  Send Email
+  projects@mhc-gc.com
 </Button>
 ```text
 

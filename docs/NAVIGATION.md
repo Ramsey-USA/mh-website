@@ -31,12 +31,8 @@
   \- 🎯 **COMPLETE OPTIMIZATION SUMMARY** - All optimizations and roadmap
 - **[NEXT_STEPS.md](./project/roadmaps/next-steps.md)** - 🎯 **IMMEDIATE ACTION GUIDE**
   \- What to do next
-- **[PROJECT_COMPLETION_SUMMARY.md](./PROJECT_COMPLETION_SUMMARY.md)** - ✅
-  Complete project overview & results
 - **[PHASE_5_PERFORMANCE_IMPLEMENTATION.md](./technical/performance/phase-5-performance-implementation.md)**
   \- ✅ Performance monitoring
-- **[OPTIMIZATION_SUMMARY.md](./OPTIMIZATION_SUMMARY.md)** - ✅ All phases
-  summary & achievements
 
 ### **🚀 Future Roadmap**
 
@@ -72,7 +68,7 @@
 ### **Icon System**
 
 - **[ICON-SYSTEM-QUICK-REFERENCE.md](./technical/ICON-SYSTEM-QUICK-REFERENCE.md)** - Icon usage guide
-- **[ICON_HOVER_EFFECTS_GUIDE.md](./ICON_HOVER_EFFECTS_GUIDE.md)** - Interactive icon effects
+- **[ICON_HOVER_EFFECTS_GUIDE.md](./technical/ICON_HOVER_EFFECTS_GUIDE.md)** - Interactive icon effects
 
 ---
 
@@ -80,7 +76,7 @@
 
 ### **Master Project Roadmap** ⭐ START HERE
 
-- **[PHASE_MASTER_ROADMAP.md](./project/PHASE_MASTER_ROADMAP.md)** - Complete
+- **[PHASE_MASTER_ROADMAP.md](./project/roadmaps/phase-master-roadmap.md)** - Complete
   project timeline, status, and future roadmap
 - **[PHASE_CONSOLIDATION_PLAN.md](./project/PHASE_CONSOLIDATION_PLAN.md)** - Phase
   organization and consolidation plan

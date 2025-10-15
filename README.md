@@ -119,18 +119,13 @@
 #### 📋 Documentation Navigation
 
 - [**Documentation Index**](./docs/NAVIGATION.md) - ⭐ **Complete navigation to all docs**
-- [**Documentation Manifest**](./docs/MANIFEST.md) - Complete file inventory and organization
 - [**Architecture Overview**](./docs/project/ARCHITECTURE.md) - System architecture and technical decisions
-
-#### 🔍 Quality & Standards
-
-- [**Documentation Cohesion Review**](./docs/DOCUMENTATION_COHESION_REVIEW.md) - Latest quality assessment
-- [**Phone Number Standardization**](./docs/PHONE_NUMBER_STANDARDIZATION_REPORT.md) - Recent improvements
-- [**Technical Metrics Update**](./docs/TECHNICAL_METRICS_UPDATE_REPORT.md) - Performance metrics alignment
 
 #### 📞 Contact Information
 
 - **Phone**: [(509) 308-6489](tel:+15093086489)
+  - **Client Contact**: [ext. 100](tel:+15093086489,100) | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+  - **Vendor Contact**: [ext. 150](tel:+15093086489,150) | [vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
 - **Address**: 3111 N. Capital Ave., Pasco, WA 99301
 - **Service Area**: Tri-Cities, WA | Licensed in WA, OR, ID
 
@@ -176,12 +171,12 @@
   Start Your Project
 </Button>
 
-// Contact button with phone number
+// Contact button examples with client/vendor distinction
 <Button variant="primary" size="lg" className="w-full">
   <MaterialIcon icon="phone" className="mr-3 w-6 h-6" />
   <span className="text-center">
-    Call Now<br />
-    <span className="text-sm opacity-90">(509) 308-6489</span>
+    Client Contact<br />
+    <span className="text-sm opacity-90">(509) 308-6489 ext. 100</span>
   </span>
 </Button>
    ```
@@ -329,7 +324,13 @@ community.
 - **Construction Intelligence**: Expert knowledge in Pacific Northwest construction
 - **Veteran Recognition**: Automatic service branch identification and specialized protocols
 
-#### 🎯 AI Estimator System
+#### 🎯 AI Estimator System (Automated Self-Service)
+
+**Instant, AI-Powered Cost Estimation - Available 24/7**
+
+The AI Estimator is an automated, self-service tool that provides preliminary project pricing in seconds.
+Perfect for clients in the research phase who want immediate ballpark estimates without waiting for an
+appointment.
 
 **Phase 2 Enhanced Features:**
 
@@ -338,7 +339,43 @@ community.
 - **Location Intelligence**: 8 Pacific Northwest zones with custom multipliers
 - **Seasonal Adjustments**: Weather and market condition factors
 - **Veteran Discounts**: Automatic 12% combat veteran discount application
-- **95% Accuracy Guarantee**: Military-grade precision in cost estimation
+- **95% Accuracy Guarantee**: Military-grade precision in preliminary cost estimation
+
+**MaterialIcon:** `smart_toy` (Robot/AI indicator - per MH branding standards)
+**CTA Examples:** "Get Instant AI Estimate", "Try AI Calculator", "Calculate Cost Now"
+**Best For:** Budget planning, initial research, exploring options
+
+#### 🤝 IRL Sales Consultation (Human Expert Service)
+
+**Professional In-Person Consultation with MH Sales Team**
+
+Schedule a personalized consultation with our experienced sales representatives who will visit your site,
+understand your vision, and provide detailed professional estimates. This is the ideal next step when
+you're ready to move forward with your project.
+
+**Professional Services Include:**
+
+- **On-Site Evaluation**: Expert visits your location for thorough assessment
+- **Detailed Estimates**: Comprehensive, accurate pricing tailored to your project
+- **Two-Way Dialogue**: Ask questions, discuss options, explore solutions
+- **Expert Guidance**: Professional advice from experienced construction managers
+- **Partnership Building**: Start your collaborative journey with MH Construction
+- **Customized Solutions**: Plans specifically designed for your needs
+
+**MaterialIcon:** `event` or `handshake` (Personal partnership indicator - per MH branding standards)
+**CTA Examples:** "Schedule Free Consultation", "Book Site Visit", "Meet with Expert"
+**Best For:** Ready to proceed, complex projects, personalized guidance
+
+**📊 Service Comparison:**
+
+| Feature | AI Estimator | IRL Consultation |
+|---------|-----------------|---------------------|
+| **Speed** | Instant | Scheduled |
+| **Detail** | Preliminary | Comprehensive |
+| **Interaction** | Automated | Personal |
+| **Availability** | 24/7 | Business Hours |
+| **MaterialIcon** | `smart_toy` | `event` / `handshake` |
+| **Best Use** | Research Phase | Project Planning |
 
 #### 🔧 Advanced AI Capabilities
 
@@ -517,8 +554,6 @@ src/
   Complete development rules and UI standards
 - **[Developer Checklist](./docs/development/reference/developer-checklist.md)** -
   Quick verification before commits
-- **[UI Component Standards](./docs/standards/UI_COMPONENT_STANDARDS_UPDATE.md)** -
-  Latest UI design requirements
 - **[Icon Policy](./docs/technical/design-system/icons/icon-policy-implementation.md)** -
   Material Icons usage standards
 
@@ -548,15 +583,11 @@ src/
 
 - **[Contributing Guidelines](./CONTRIBUTING.md)** - Developer guidelines, code standards, and
   contribution workflow
-- **[Setup Guide](./docs/development/SETUP_GUIDE.md)** - Detailed development environment setup
-  instructions
 
 ### Project Information
 
 - **[Implementation Summary](./docs/project/IMPLEMENTATION_SUMMARY.md)** - Complete feature
   implementation status and updates
-- **[New Pages Implementation](./docs/project/NEW_PAGES_IMPLEMENTATION.md)** - Detailed
-  documentation of all implemented pages
 - **[Project Changelog](./docs/project/CHANGELOG.md)** - Version history and updates archive
 
 ## 🤝 Partnership Philosophy
@@ -567,13 +598,33 @@ At MH Construction, we don't just build structures - we build relationships. Our
 company operates on a simple but powerful principle: **every client is a partner, every project
 serves the community**.
 
-#### Partnership Principles
+### Two Types of Partnerships
+
+#### Client Partnerships (MaterialIcon: `handshake`)
+
+**Collaborative relationships with project clients** - homeowners, businesses, and organizations
+seeking construction services.
 
 - **Transparent Communication**: Open dialogue from day one
 - **Collaborative Planning**: Your vision + our expertise
 - **Honest Pricing**: No surprises, no hidden costs
 - **Shared Success**: Your satisfaction is our success
 - **Long-term Relationship**: Partners beyond project completion
+
+**Contact:** (509) 308-6489 ext. 100 | <projects@mhc-gc.com>
+
+#### Trade Partnerships (MaterialIcon: `construction`)
+
+**Business relationships with trade professionals** - subcontractors, suppliers, and vendors
+seeking to join our approved network.
+
+- **Professional Standards**: Quality-focused partnership criteria
+- **Business Growth**: Consistent project opportunities
+- **Mutual Respect**: Fair treatment and timely payment
+- **Collaborative Success**: Growing together in the Pacific Northwest
+- **Network Benefits**: Access to diverse project opportunities
+
+**Contact:** (509) 308-6489 ext. 150 | <vendors@mhc-gc.com>
 
 #### Community Impact
 
@@ -889,7 +940,6 @@ With the complete implementation, the platform now includes:
 **Key resources for implementing next phases:**
 
 - **[Technical Architecture](./docs/technical/)**: System design and API documentation
-- **[Performance Benchmarks](./docs/PROJECT_COMPLETION_SUMMARY.md)**: Current baseline metrics
 - **[Development Guidelines](./docs/development/guidelines/)**: Coding standards and best practices
 - **[Business Requirements](./docs/business/)**: Stakeholder needs and feature specifications
 

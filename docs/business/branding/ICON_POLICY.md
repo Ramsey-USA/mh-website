@@ -134,7 +134,8 @@ const title = 'Update 🎯'
 
 - `phone` - Contact actions
 - `email` - Email actions
-- `event` - Scheduling
+- `event` - Scheduling (IRL Consultations)
+- `smart_toy` - AI Estimator tool
 - `arrow_forward` - Next/Continue actions
 
 **Navigation Icons:**

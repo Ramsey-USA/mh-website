@@ -1,26 +1,122 @@
-# MH Construction CTA Button Guide - Client vs Vendor Distinctions
+# MH Construction CTA Button Guide - Service & Partnership Distinctions
 
 ## 🎯 **CTA BUTTON FRAMEWORK**
 
-This guide provides specific button text and messaging patterns to distinguish between:
+This guide provides specific button text and messaging patterns using MH Construction's MaterialIcon
+standards to distinguish between:
 
-- **CLIENT PARTNERSHIPS**: Project collaborations with homeowners, businesses, and organizations
-- **VENDOR PARTNERSHIPS**: Trade relationships with subcontractors, suppliers, and service providers
+- **AI ESTIMATOR**: Automated self-service cost estimation (MaterialIcon: `smart_toy`)
+- **IRL CONSULTATION**: In-person sales consultation (MaterialIcon: `event` or `handshake`)
+- **CLIENT PARTNERSHIPS**: Project collaborations (MaterialIcon: `handshake`)
+- **TRADE PARTNERSHIPS**: Vendor/subcontractor relationships (MaterialIcon: `construction`)
 
 ---
 
-## 🏠 **CLIENT-FOCUSED CTA BUTTONS**
+## 🤖 **AI ESTIMATOR CTA BUTTONS**
+
+### **Automated Self-Service Cost Estimation**
+
+**MaterialIcon:** `smart_toy`
+**Color:** Blue/tech colors
+**Style:** Modern, digital, instant-action focused
+
+```tsx
+// Primary AI Estimator CTAs (using MH branding standards)
+<Button variant="secondary" size="lg">
+  <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
+  <span className="font-medium">Get Instant AI Estimate</span>
+</Button>
+
+<Button variant="secondary" size="lg">
+  <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
+  <span className="font-medium">Try AI Cost Calculator</span>
+</Button>
+
+<Button variant="secondary" size="lg">
+  <MaterialIcon icon="calculate" size="lg" className="mr-3" />
+  <span className="font-medium">Calculate Project Cost</span>
+</Button>
+```
+
+**Button Text Options:**
+
+- "Get Instant AI Estimate"
+- "Try AI Cost Calculator"
+- "Calculate Project Cost Now"
+- "See Pricing Instantly"
+- "Use Smart Estimator"
+- "Get Preliminary Pricing"
+
+---
+
+## 🤝 **IRL CONSULTATION CTA BUTTONS**
+
+### **In-Person Professional Sales Consultation**
+
+**MaterialIcon:** `event` or `handshake`
+**Color:** MH brand orange/green
+**Style:** Personal, professional, relationship-focused
+
+```tsx
+// Primary Consultation CTAs (using MH branding standards)
+<Button variant="primary" size="lg">
+  <MaterialIcon icon="event" size="lg" className="mr-3" />
+  <span className="font-medium">Schedule Free Consultation</span>
+</Button>
+
+<Button variant="primary" size="lg">
+  <MaterialIcon icon="handshake" size="lg" className="mr-3" />
+  <span className="font-medium">Meet with Sales Rep</span>
+</Button>
+
+<Button variant="primary" size="lg">
+  <MaterialIcon icon="place" size="lg" className="mr-3" />
+  <span className="font-medium">Book Site Visit</span>
+</Button>
+```
+
+**Button Text Options:**
+
+- "Schedule Free Consultation"
+- "Book Site Visit"
+- "Meet with Sales Rep"
+- "Request In-Person Estimate"
+- "Speak with Expert"
+- "Schedule Discovery Call"
+
+---
+
+## 🏠 **CLIENT PARTNERSHIP CTA BUTTONS**
+
+### **Project Client Collaborations**
+
+**MaterialIcon:** `handshake`, `event`, `engineering`
+**Color:** MH brand warm colors (orange/green)
+**Style:** Welcoming, collaborative, partnership-focused
+
+```tsx
+// Client Partnership CTAs (using MH branding standards)
+<Button variant="primary" size="lg">
+  <MaterialIcon icon="handshake" size="lg" className="mr-3" />
+  <span className="font-medium">Begin Partnership</span>
+</Button>
+
+<Button variant="primary" size="lg">
+  <MaterialIcon icon="engineering" size="lg" className="mr-3" />
+  <span className="font-medium">Discuss Your Vision</span>
+</Button>
+```
 
 ### **Primary Client Actions**
 
 ```typescript
-// Project Initiation CTAs
-"Get Free Estimate"           // Replaces generic "Get Quote"
-"Schedule Consultation"       // Replaces generic "Contact Us"
-"Begin Partnership"          // Replaces generic "Start Project"
-"Discuss Your Vision"        // For discovery calls
-"Book Site Visit"            // For property assessments
-"Request Project Review"     // For existing plans
+// Project Initiation CTAs with MaterialIcons
+"Get Free Estimate"           // icon: handshake
+"Schedule Consultation"       // icon: event
+"Begin Partnership"          // icon: handshake
+"Discuss Your Vision"        // icon: engineering
+"Book Site Visit"            // icon: place
+"Request Project Review"     // icon: visibility
 
 // Consultation & Discovery CTAs
 "Schedule Discovery Call"    // Initial project exploration
@@ -53,18 +149,42 @@ This guide provides specific button text and messaging patterns to distinguish b
 
 ---
 
-## 🔧 **VENDOR-FOCUSED CTA BUTTONS**
+## 🔧 **TRADE PARTNERSHIP CTA BUTTONS**
+
+### **Vendor/Subcontractor Business Relationships**
+
+**MaterialIcon:** `construction`, `work`, `check_circle`
+**Color:** Professional MH blue/gray
+**Style:** Professional, credible, business opportunity-focused
+
+```tsx
+// Trade Partnership CTAs (using MH branding standards)
+<Button variant="secondary" size="lg">
+  <MaterialIcon icon="construction" size="lg" className="mr-3" />
+  <span className="font-medium">Join Our Trade Partnership Network</span>
+</Button>
+
+<Button variant="secondary" size="lg">
+  <MaterialIcon icon="check_circle" size="lg" className="mr-3" />
+  <span className="font-medium">Apply to be Approved Vendor</span>
+</Button>
+
+<Button variant="secondary" size="lg">
+  <MaterialIcon icon="work" size="lg" className="mr-3" />
+  <span className="font-medium">Explore Vendor Opportunities</span>
+</Button>
+```
 
 ### **Primary Vendor Actions**
 
 ```typescript
-// Application & Registration CTAs
-"Apply to be Approved Vendor"      // Main vendor application
-"Join Our Trade Partnership Network" // Network membership
-"Submit Vendor Application"         // Application process
-"Become a Trade Partner"           // Partnership opportunity
-"Register as Approved Vendor"      // Vendor registration
-"Apply for Trade Network"          // Network application
+// Application & Registration CTAs with MaterialIcons
+"Apply to be Approved Vendor"      // icon: check_circle
+"Join Our Trade Partnership Network" // icon: construction
+"Submit Vendor Application"         // icon: contact_mail
+"Become a Trade Partner"           // icon: work
+"Register as Approved Vendor"      // icon: work
+"Apply for Trade Network"          // icon: construction
 
 // Business Development CTAs
 "Explore Vendor Opportunities"     // Business growth
@@ -101,47 +221,80 @@ This guide provides specific button text and messaging patterns to distinguish b
 
 ### **Homepage Hero Section**
 
-```typescript
-// CLIENT VERSION (Default/Primary)
-Primary CTA: "Get Free Estimate"
-Secondary CTA: "Schedule Consultation"
-Tertiary CTA: "Explore Our Process"
+```tsx
+// CLIENT VERSION - Dual CTA Approach (using MH branding standards)
 
-// VENDOR VERSION (Separate section or page)
-Primary CTA: "Apply to be Approved Vendor"
-Secondary CTA: "Join Trade Partnership Network"
-Tertiary CTA: "View Vendor Requirements"
+// AI Estimator CTA
+<Button variant="secondary" size="lg">
+  <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
+  <span className="font-medium">Get Instant AI Estimate</span>
+</Button>
+
+// IRL Consultation CTA
+<Button variant="primary" size="lg">
+  <MaterialIcon icon="event" size="lg" className="mr-3" />
+  <span className="font-medium">Schedule Free Consultation</span>
+</Button>
+
+// TRADE PARTNERSHIP VERSION (Separate section or page)
+<Button variant="secondary" size="lg">
+  <MaterialIcon icon="check_circle" size="lg" className="mr-3" />
+  <span className="font-medium">Apply to be Approved Vendor</span>
+</Button>
+
+<Button variant="secondary" size="lg">
+  <MaterialIcon icon="construction" size="lg" className="mr-3" />
+  <span className="font-medium">Join Trade Partnership Network</span>
+</Button>
 ```
 
 ### **Contact Page**
 
-```typescript
-// CLIENT CONTACT FORM
-Submit Button: "Request Free Consultation"
-Alt Submit: "Schedule Project Discussion"
-Quick Action: "Get Instant Estimate"
+```tsx
+// CLIENT CONTACT OPTIONS
+// Option 1: AI Estimator
+<Button variant="secondary">
+  <MaterialIcon icon="smart_toy" size="md" className="mr-2" />
+  Get Instant AI Estimate
+</Button>
 
-// VENDOR CONTACT FORM
-Submit Button: "Submit Vendor Application"
-Alt Submit: "Request Partnership Information"
-Quick Action: "Download Vendor Package"
+// Option 2: Schedule Consultation
+<Button variant="primary">
+  <MaterialIcon icon="event" size="md" className="mr-2" />
+  Request Free Consultation
+</Button>
+
+// TRADE PARTNERSHIP CONTACT
+<Button variant="secondary">
+  <MaterialIcon icon="contact_mail" size="md" className="mr-2" />
+  Submit Vendor Application
+</Button>
 ```
 
 ### **Services Page**
 
-```typescript
-// CLIENT SERVICE CTAs
-"Schedule Service Consultation"
-"Get Project Estimate"
-"Discuss This Service"
-"Plan Your Project"
-"Book Service Review"
+```tsx
+// CLIENT SERVICE CTAs with MaterialIcons
+<Button variant="primary">
+  <MaterialIcon icon="event" size="md" className="mr-2" />
+  Schedule Service Consultation
+</Button>
 
-// VENDOR OPPORTUNITY CTAs
-"Apply for This Trade"
-"Join This Service Network"
+<Button variant="secondary">
+  <MaterialIcon icon="smart_toy" size="md" className="mr-2" />
+  Get AI Estimate
+</Button>
+
+// TRADE OPPORTUNITY CTAs with MaterialIcons
+<Button variant="secondary">
+  <MaterialIcon icon="construction" size="md" className="mr-2" />
+  Join This Service Network
+</Button>
+```
+
 "Become [Trade] Partner"
 "Submit [Trade] Application"
+
 ```
 
 ### **Navigation Menu**

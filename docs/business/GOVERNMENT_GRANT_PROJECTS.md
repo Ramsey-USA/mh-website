@@ -224,11 +224,15 @@ the unique requirements of Department of Energy projects.
 
 ## 📞 Get Started with Your Grant Project
 
-### Contact Information
+Ready to discuss your government grant construction project? We specialize in helping
+organizations navigate the complexities of grant-funded builds.
 
-**Phone:** (509) 308-6489
+### **For Grant Project Consultations**
 
-**Email:** <info@mhc-gc.com>
+- **Schedule Free Consultation** - Discuss grant requirements and feasibility (`event`)
+- **Request Project Review** - Submit grant documentation for analysis (`visibility`)
+
+**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
 
 **Office:** 3111 N. Capital Ave., Pasco, WA 99301
 
@@ -240,12 +244,12 @@ the unique requirements of Department of Energy projects.
 
 ---
 
-## 🚀 Call to Action
+## 🚀 Ready to Begin?
 
-**Call (509) 308-6489 now** to discuss your grant-based construction project
-with an expert and take the first step toward a successful build.
+Take the first step toward a successful grant-funded construction project with expert
+guidance through every phase of the process.
 
-### What to Prepare for Your Call
+### What to Prepare for Your Consultation
 
 - Grant program name and requirements
 - Project scope and timeline

@@ -3,34 +3,21 @@
 ## 📋 **Document Overview**
 
 This comprehensive guide provides messaging frameworks for MH Construction's partnership-centered
-culture. Use this document to implement consistent "we work WITH you" messaging across all client
-and vendor communications.
+culture using official MH branding standards with MaterialIcon components. Use this document to
+implement consistent "we work WITH you" messaging across all client and vendor communications.
 
 **Key Sections:**
 
 1. **Core Messaging Framework** - Primary brand messages and language patterns
-2. **Partnership Language Pillars** - Client vs vendor messaging distinctions
-3. **Website Implementation** - Page-specific messaging examples
-4. **UI/UX Elements** - Button text, navigation, and interactive elements
-5. **Vendor/Trade Messaging** - Specialized content for trade partnerships
-6. **Quality Guidelines** - Implementation standards and checklists
+2. **Service Distinctions** - AI Estimator vs IRL Consultation differences
+3. **Partnership Language Pillars** - Client vs trade messaging distinctions with MaterialIcons
+4. **Website Implementation** - Page-specific messaging examples with MH branding
+5. **UI/UX Elements** - Button text, navigation, and interactive elements
+6. **Trade Partnership Messaging** - Specialized content for trade partnerships
+7. **Quality Guidelines** - Implementation standards and checklists
 
-**Document Length:** 650+ lines - Use section headers to navigate quickly
-
----
-
-## 🎯 **Overview**
-
-This comprehensive guide provides specific messaging patterns to implement MH Construction's
-partnership-centered culture throughout the website. Every piece of content should reinforce our
-core belief: **we work WITH clients, not just FOR them**.
-
-**Document Scope:**
-
-- Client partnership messaging (project collaborations)
-- Vendor/trade partnership messaging (business relationships)
-- Website implementation guidelines
-- Quality assurance standards
+**Document Length:** 700+ lines - Use section headers to navigate quickly
+**MH Branding:** All icons use MaterialIcon component per MH Construction standards
 
 ---
 
@@ -46,6 +33,60 @@ reinforce our core belief: **we work WITH clients, not just FOR them**.
 *This tagline emphasizes our commitment to client success over profit maximization
 — the heart of veteran-owned business values.*
 
+**Supporting Taglines:**
+
+- "Building Tomorrow with Today's Technology"
+- "Where Military Precision Meets Construction Excellence"
+- "Your Partner in Building Tomorrow"
+
+---
+
+## 🤖 **SERVICE TYPE DISTINCTIONS**
+
+### **AI Estimator (Automated Self-Service)**
+
+**MaterialIcon:** `smart_toy`
+**Service Type:** Instant, automated, 24/7 cost estimation
+**Best For:** Initial research, budget planning, preliminary pricing
+
+```tsx
+// AI Estimator CTAs (MH Branding Standards)
+<Button variant="secondary" size="lg">
+  <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
+  <span className="font-medium">Get Instant AI Estimate</span>
+</Button>
+```
+
+**Messaging Language:**
+
+- "Instant preliminary pricing"
+- "AI-powered cost calculator"
+- "24/7 automated estimates"
+- "Smart cost estimation"
+- "Preliminary budget planning"
+
+### **IRL Sales Consultation (Human Expert Service)**
+
+**MaterialIcon:** `event` or `handshake`
+**Service Type:** Personalized, in-person, scheduled consultation
+**Best For:** Project planning, detailed estimates, expert guidance
+
+```tsx
+// Consultation CTAs (MH Branding Standards)
+<Button variant="primary" size="lg">
+  <MaterialIcon icon="event" size="lg" className="mr-3" />
+  <span className="font-medium">Schedule Free Consultation</span>
+</Button>
+```
+
+**Messaging Language:**
+
+- "Professional in-person consultation"
+- "Expert site evaluation"
+- "Detailed professional estimates"
+- "Personalized guidance"
+- "On-site assessment"
+
 ---
 
 ## 🤝 **Primary Messaging Pillars**
@@ -54,7 +95,16 @@ reinforce our core belief: **we work WITH clients, not just FOR them**.
 
 ### **🏠 CLIENT PARTNERSHIP LANGUAGE**
 
+**MaterialIcon:** `handshake`, `event`, `engineering`
 For potential project clients seeking construction services:
+
+```tsx
+// Client Partnership Implementation (MH Branding Standards)
+<Button variant="primary" size="lg">
+  <MaterialIcon icon="handshake" size="lg" className="mr-3" />
+  <span className="font-medium">Begin Partnership</span>
+</Button>
+```
 
 ```typescript
 // Client-Focused Messaging (Project Partnerships)
@@ -65,18 +115,27 @@ For potential project clients seeking construction services:
 "We deliver projects" → "We collaborate on your vision"
 "Customer service" → "Partnership experience"
 
-// Client CTA Language
-"Get Quote" → "Get Free Estimate"
-"Contact Us" → "Schedule Consultation"
-"Start Project" → "Begin Partnership"
-"Request Service" → "Discuss Your Vision"
-"Book Now" → "Schedule Discovery Call"
-"Learn More" → "Explore Partnership Options"
-```text
+// Client CTA Language with MaterialIcons
+"Get Quote" → "Get Free Estimate" (icon: handshake)
+"Contact Us" → "Schedule Consultation" (icon: event)
+"Start Project" → "Begin Partnership" (icon: handshake)
+"Request Service" → "Discuss Your Vision" (icon: engineering)
+"Book Now" → "Schedule Discovery Call" (icon: phone)
+"Learn More" → "Explore Partnership Options" (icon: info)
+```
 
-### **🔧 VENDOR/TRADE PARTNERSHIP LANGUAGE**
+### **🔧 TRADE PARTNERSHIP LANGUAGE**
 
+**MaterialIcon:** `construction`, `work`, `check_circle`
 For subcontractors, suppliers, and trade professionals:
+
+```tsx
+// Trade Partnership Implementation (MH Branding Standards)
+<Button variant="secondary" size="lg">
+  <MaterialIcon icon="construction" size="lg" className="mr-3" />
+  <span className="font-medium">Join Our Trade Partnership Network</span>
+</Button>
+```
 
 ```typescript
 // Vendor-Focused Messaging (Trade Partnerships)
@@ -87,14 +146,14 @@ For subcontractors, suppliers, and trade professionals:
 "Vendor registration" → "Approved Vendor Application"
 "Trade network" → "Trade Partnership Network"
 
-// Vendor CTA Language
-"Apply Now" → "Apply to be an Approved Vendor"
-"Join Us" → "Join Our Trade Partnership Network"
-"Contact Us" → "Submit Vendor Application"
-"Learn More" → "View Partnership Requirements"
-"Get Started" → "Begin Vendor Approval Process"
-"Sign Up" → "Register as Trade Partner"
-```text
+// Vendor CTA Language with MaterialIcons
+"Apply Now" → "Apply to be an Approved Vendor" (icon: check_circle)
+"Join Us" → "Join Our Trade Partnership Network" (icon: construction)
+"Contact Us" → "Submit Vendor Application" (icon: contact_mail)
+"Learn More" → "View Partnership Requirements" (icon: info)
+"Get Started" → "Begin Vendor Approval Process" (icon: work)
+"Sign Up" → "Register as Trade Partner" (icon: work)
+```
 
 ### **🎯 LANGUAGE DISTINCTION GUIDELINES**
 
@@ -181,7 +240,7 @@ understanding your unique vision and needs."
 
 Contact Methods:
 - "Project Consultation: (509) 308-6489 ext. 100"
-- "office@mhc-gc.com"
+- "projects@mhc-gc.com"
 - "Schedule Free Estimate"
 - "Book Discovery Call"
 

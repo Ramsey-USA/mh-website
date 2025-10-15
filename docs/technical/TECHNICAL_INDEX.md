@@ -40,10 +40,14 @@ Technical architecture documentation, page layouts, and system design specificat
 - [**Page Layout Quick Start**](./PAGE_LAYOUT_QUICK_START.md) - Copy-paste templates for new pages
 - [**Page Layout Standards**](./PAGE_LAYOUT_STANDARDS.md) - Complete spacing, padding, typography reference
 - [**Icon System Quick Reference**](./ICON_SYSTEM_QUICK_REFERENCE.md) - Icon usage guide
-- [**CSS JS Cohesion**](./CSS_JS_COHESION.md) - CSS and JavaScript integration
 - [**Icon Hover Effects Guide**](./ICON_HOVER_EFFECTS_GUIDE.md) - Custom icon system and hover effects
-- [**Phase 5 Performance Implementation**](./PHASE_5_PERFORMANCE_IMPLEMENTATION.md) -
-  Performance monitoring implementation
+- [**CSS JS Cohesion**](./CSS_JS_COHESION.md) - CSS and JavaScript integration
+
+### 🧭 Navigation Architecture
+
+- [**Navigation Architecture**](./NAVIGATION_ARCHITECTURE.md) - Complete dual navigation system documentation
+- [**Navigation Technical Guide**](./NAVIGATION_TECHNICAL_GUIDE.md) - Technical implementation details
+- [**Navigation Audit Report**](./NAVIGATION_AUDIT_REPORT.md) - Navigation system audit findings
 
 ## Directory Structure
 

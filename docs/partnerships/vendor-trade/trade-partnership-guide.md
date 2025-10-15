@@ -311,7 +311,7 @@ Trade Partnership Team:
 │   ├── Primary contact for new applications
 │   └── Partnership development and growth
 ├── Project Coordination Manager
-│   ├── Phone: (509) 308-6489 ext. 210
+│   ├── Phone: (509) 308-6489 ext. 100
 │   ├── Email: projects@mhc-gc.com
 │   ├── Active project coordination and management
 │   └── Ongoing partnership support and communication
@@ -321,6 +321,14 @@ Trade Partnership Team:
     ├── Safety requirements and training
     └── Compliance monitoring and support
 ```
+
+### **Quick Contact Links**
+
+**Vendor Applications:** [(509) 308-6489](tel:+15093086489) ext. 150 | [vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
+
+**Project Coordination:** [(509) 308-6489](tel:+15093086489) ext. 100 | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+
+**Safety & Compliance:** [(509) 308-6489](tel:+15093086489) ext. 220 | [safety@mhc-gc.com](mailto:safety@mhc-gc.com)
 
 ---
 

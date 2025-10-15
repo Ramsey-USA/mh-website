@@ -22,19 +22,22 @@ different components and pages.
 ## 📞 **Contact Sections**
 
 ```tsx
-// Contact buttons with phone/email actions
+// Contact buttons with client/vendor distinction
 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
   <Button variant="primary" size="lg" className="w-full">
     <MaterialIcon icon="phone" className="mr-3 w-6 h-6" />
     <span className="text-center">
-      Call Now<br />
-      <span className="text-sm opacity-90">(509) 308-6489</span>
+      Client Contact<br />
+      <span className="text-sm opacity-90">(509) 308-6489 ext. 100</span>
     </span>
   </Button>
 
   <Button variant="secondary" size="lg" className="w-full">
-    <MaterialIcon icon="email" className="mr-3 w-6 h-6" />
-    Send Email
+    <MaterialIcon icon="phone" className="mr-3 w-6 h-6" />
+    <span className="text-center">
+      Vendor Contact<br />
+      <span className="text-sm opacity-90">(509) 308-6489 ext. 150</span>
+    </span>
   </Button>
 </div>
 ```text
@@ -43,18 +46,20 @@ different components and pages.
 
 ```tsx
 // Scheduling flow buttons
+```tsx
+// Scheduling flow buttons - IRL vs AI distinction
 <div className="space-y-4">
   <Button variant="primary" size="lg" className="w-full">
-    <MaterialIcon icon="calendar_today" className="mr-3 w-6 h-6" />
-    Schedule Consultation
+    <MaterialIcon icon="event" className="mr-3 w-6 h-6" />
+    Schedule Free Consultation
   </Button>
 
-  <Button variant="outline" size="lg" className="w-full">
-    <MaterialIcon icon="assessment" className="mr-3 w-6 h-6" />
-    Get Instant Estimate
+  <Button variant="secondary" size="lg" className="w-full">
+    <MaterialIcon icon="smart_toy" className="mr-3 w-6 h-6" />
+    Try AI Estimator
   </Button>
 </div>
-```text
+```
 
 ## 🏗️ **Service Cards**
 

@@ -50,14 +50,15 @@ Historical project documents and consolidated materials.
 - **[COMPLETE_IMPLEMENTATION_GUIDE.md](./COMPLETE_IMPLEMENTATION_GUIDE.md)** - Master
   implementation guide
 - **[IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md)** - Implementation status summary
+- **[CONSISTENCY_IMPLEMENTATION_SUMMARY.md](./CONSISTENCY_IMPLEMENTATION_SUMMARY.md)** - Consistency improvements
+- **[CONSISTENCY_MASTER_PLAN.md](./CONSISTENCY_MASTER_PLAN.md)** - Master consistency plan
 
 ### Project Overview
 
 - **[ARCHITECTURE.md](./ARCHITECTURE.md)** - System architecture overview
 - **[DEVELOPMENT_HISTORY.md](./DEVELOPMENT_HISTORY.md)** - Project history and decisions
-- **[COMPLETE_IMPLEMENTATION_GUIDE.md](./COMPLETE_IMPLEMENTATION_GUIDE.md)** -
-  ⭐ **Complete implementation reference**
 - **[COMPANY_PROFILE.md](./COMPANY_PROFILE.md)** - Company profile documentation
+- **[CHANGELOG.md](./CHANGELOG.md)** - Version history and updates
 
 ---
 
@@ -75,19 +76,30 @@ Historical project documents and consolidated materials.
 
 ### Page Implementation
 
-- **[NEW_PAGES_IMPLEMENTATION.md](./NEW_PAGES_IMPLEMENTATION.md)** - New page implementations
-- **[GOVERNMENT_PAGE_IMPLEMENTATION.md](./GOVERNMENT_PAGE_IMPLEMENTATION.md)** - Government page details
 - **[SERVICE_CARDS_VISUAL_GUIDE.md](./SERVICE_CARDS_VISUAL_GUIDE.md)** - Service card design
 
 ### Project History
 
 - **[CHANGELOG.md](./CHANGELOG.md)** - Complete project changelog
+- **[BRANDING_IMPLEMENTATION_SUMMARY.md](./BRANDING_IMPLEMENTATION_SUMMARY.md)** - Branding implementation status
+- **[PHASE1_EXECUTION_SUMMARY.md](./PHASE1_EXECUTION_SUMMARY.md)** - Phase 1 cleanup results
+
+### Quality & Cleanup Reports
+
+- **[MARKDOWN_ORGANIZATION_REVIEW.md](./MARKDOWN_ORGANIZATION_REVIEW.md)** - Documentation organization analysis
+- **[DOCUMENTATION_REORGANIZATION_COMPLETE.md](./DOCUMENTATION_REORGANIZATION_COMPLETE.md)** - Documentation
+  reorganization completion
+- **[CODEBASE_AUDIT_REPORT.md](./CODEBASE_AUDIT_REPORT.md)** - Comprehensive codebase audit
+- **[CLEANUP_QUICK_GUIDE.md](./CLEANUP_QUICK_GUIDE.md)** - Quick cleanup guide
+- **[CROSS_REFERENCE_UPDATES_COMPLETED.md](./CROSS_REFERENCE_UPDATES_COMPLETED.md)** - Cross-reference updates
+- **[DIRECTORY_CONSOLIDATION_COMPLETED.md](./DIRECTORY_CONSOLIDATION_COMPLETED.md)** - Directory consolidation
+- **[UNNECESSARY_FILES_ANALYSIS.md](./UNNECESSARY_FILES_ANALYSIS.md)** - Unnecessary files analysis
 
 ---
 
 ## 🚀 Quick Start Guide
 
-1. Review **[PHASE_MASTER_ROADMAP.md](./PHASE_MASTER_ROADMAP.md)** for project status and roadmap
+1. Review **[roadmaps/phase-master-roadmap.md](./roadmaps/phase-master-roadmap.md)** for project status and roadmap
 2. Check **[IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md)** for current implementations
 3. Use **[ARCHITECTURE.md](./ARCHITECTURE.md)** for system understanding
 
@@ -118,8 +130,8 @@ All historical phase files moved to: `/docs/archive/phases/`
 
 ## 🚀 Quick Start for Development
 
-1. Check `CURRENT_STATUS.md` for current priorities
-2. Review `PHASE_MASTER_ROADMAP.md` for project status and roadmap
+1. Check roadmap files for current priorities
+2. Review `roadmaps/phase-master-roadmap.md` for project status and roadmap
 3. Reference `ARCHITECTURE.md` for system understanding
 4. Update `CHANGELOG.md` when completing features
 

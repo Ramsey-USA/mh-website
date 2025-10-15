@@ -48,6 +48,9 @@ Quick reference guides, troubleshooting documentation, and developer resources.
 
 - **[TERMINOLOGY_GUIDE.md](./TERMINOLOGY_GUIDE.md)** - Project terminology and naming conventions
 - **[FILE_MANAGEMENT.md](./FILE_MANAGEMENT.md)** - File organization and management guidelines
+- **[DEVELOPMENT_STANDARDS.md](./DEVELOPMENT_STANDARDS.md)** - Core development standards and practices
+- **[AI_DEVELOPMENT_GUIDELINES.md](./AI_DEVELOPMENT_GUIDELINES.md)** - AI-assisted development guidelines
+- **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** - Common issues and solutions
 
 ### Implementation & Fixes
 

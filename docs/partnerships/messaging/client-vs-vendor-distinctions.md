@@ -72,25 +72,33 @@ audiences:
 
 #### For project clients seeking construction services
 
-| Traditional | Client-Focused |
-|-------------|----------------|
-| "Get Quote" | "Get Free Estimate" |
-| "Contact Us" | "Schedule Consultation" |
-| "Start Project" | "Begin Partnership" |
-| "Service Request" | "Discuss Your Vision" |
-| "Book Appointment" | "Schedule Discovery Call" |
+**Visual Identity:** Handshake or event icon, warm MH brand colors (orange/green), relationship-focused
+**Primary Icon:** `handshake` - Represents collaborative partnership (MaterialIcon component)
+**Alternative Icons:** `event`, `phone`, `engineering`, `place`
+
+| Traditional | Client-Focused | MaterialIcon |
+|-------------|----------------|--------------|
+| "Get Quote" | "Get Free Estimate" | `handshake` |
+| "Contact Us" | "Schedule Consultation" | `event` |
+| "Start Project" | "Begin Partnership" | `handshake` |
+| "Service Request" | "Discuss Your Vision" | `phone` |
+| "Book Appointment" | "Schedule Discovery Call" | `event` |
 
 ### **TRADE PARTNERSHIP LANGUAGE**
 
 #### For vendors/subcontractors seeking business opportunities
 
-| Generic | Vendor-Focused |
-|---------|----------------|
-| "Join Us" | "Apply to be an Approved Vendor" |
-| "Work With Us" | "Join Our Trade Partnership Network" |
-| "Contact Us" | "Submit Vendor Application" |
-| "Learn More" | "View Partnership Requirements" |
-| "Sign Up" | "Register as Trade Partner" |
+**Visual Identity:** Construction icon, professional MH blue/gray, business-focused
+**Primary Icon:** `construction` or `handyman` - Represents trade professionals (MaterialIcon component)
+**Alternative Icons:** `work`, `group`, `check_circle`, `engineering`
+
+| Generic | Vendor-Focused | MaterialIcon |
+|---------|----------------|--------------|
+| "Join Us" | "Apply to be an Approved Vendor" | `check_circle` |
+| "Work With Us" | "Join Our Trade Partnership Network" | `construction` |
+| "Contact Us" | "Submit Vendor Application" | `contact_mail` |
+| "Learn More" | "View Partnership Requirements" | `info` |
+| "Sign Up" | "Register as Trade Partner" | `work` |
 
 ---
 
@@ -98,16 +106,50 @@ audiences:
 
 ### **Client-Focused CTAs**
 
-- **Primary:** "Get Free Estimate", "Schedule Consultation", "Begin Partnership"
-- **Secondary:** "Schedule Discovery Call", "Book Site Visit",
-  "Explore Partnership Options"
-- **Forms:** "Request Free Consultation", "Share Your Project Vision"
+**Icon Strategy:** Use relationship/scheduling MaterialIcons (`handshake`, `event`, `phone`)
+**Color Palette:** MH brand orange (#FF6B35) or partnership green
+**Button Style:** Welcoming, approachable, collaborative
+
+```tsx
+// Primary Client CTAs
+<Button variant="primary" size="lg">
+  <MaterialIcon icon="event" size="lg" className="mr-3" />
+  <span className="font-medium">Schedule Free Consultation</span>
+</Button>
+
+<Button variant="primary" size="lg">
+  <MaterialIcon icon="handshake" size="lg" className="mr-3" />
+  <span className="font-medium">Begin Partnership</span>
+</Button>
+```
+
+- **Primary:** "Get Free Estimate" (`handshake`), "Schedule Consultation" (`event`), "Begin Partnership" (`handshake`)
+- **Secondary:** "Schedule Discovery Call" (`phone`), "Book Site Visit" (`place`),
+  "Explore Partnership Options" (`info`)
+- **Forms:** "Request Free Consultation" (`contact_mail`), "Share Your Project Vision" (`engineering`)
 
 ### **Vendor-Focused CTAs**
 
-- **Primary:** "Apply to be an Approved Vendor", "Join Our Trade Partnership Network"
-- **Secondary:** "Download Vendor Package", "View Partnership Requirements"
-- **Forms:** "Submit Vendor Application", "Apply for Vendor Status"
+**Icon Strategy:** Use business/professional MaterialIcons (`construction`, `work`, `check_circle`)
+**Color Palette:** Professional MH blue (#1E40AF) or neutral gray
+**Button Style:** Professional, credible, opportunity-focused
+
+```tsx
+// Primary Vendor CTAs
+<Button variant="secondary" size="lg">
+  <MaterialIcon icon="construction" size="lg" className="mr-3" />
+  <span className="font-medium">Join Our Trade Partnership Network</span>
+</Button>
+
+<Button variant="secondary" size="lg">
+  <MaterialIcon icon="check_circle" size="lg" className="mr-3" />
+  <span className="font-medium">Apply to be an Approved Vendor</span>
+</Button>
+```
+
+- **Primary:** "Apply to be an Approved Vendor" (`check_circle`), "Join Our Trade Partnership Network" (`construction`)
+- **Secondary:** "Download Vendor Package" (`download`), "View Partnership Requirements" (`info`)
+- **Forms:** "Submit Vendor Application" (`contact_mail`), "Apply for Vendor Status" (`work`)
 
 ---
 
@@ -133,11 +175,26 @@ audiences:
 
 ### **Partnership Types Defined**
 
-- **"Client Partnership"** = Collaborative relationship with project clients
-- **"Trade Partnership"** = Business relationship with vendors/subcontractors
+#### Client Partnership
+
+- **Definition:** Collaborative relationship with project clients (homeowners, businesses, organizations)
+- **MaterialIcon:** `handshake` - Represents working together
+- **Also Called:** "Project Partnership", "Client Collaboration"
+- **NOT Called:** "Customer", "Buyer", "Contractor hire"
+
+#### Trade Partnership
+
+- **Definition:** Business relationship with vendors/subcontractors/suppliers
+- **MaterialIcon:** `construction` or `handyman` - Represents trade professionals
+- **Also Called:** "Vendor Network", "Trade Alliance", "Subcontractor Partnership"
+- **NOT Called:** "Supplier" (alone), "Vendor" (alone), "Subcontractor" (alone)
+
+#### Additional Terminology
+
 - **"Our Team"** = Internal MH Construction employees only
 - **"Trade Partners"** = External subcontractors, vendors, suppliers
 - **"Your Partnership Team"** = Combined client + MH team on a project
+- **"Partnership Network"** = Ecosystem of clients, team, and trade partners
 
 ---
 

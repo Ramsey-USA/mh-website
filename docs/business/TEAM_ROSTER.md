@@ -288,7 +288,16 @@ Every team member embodies our core partnership approach:
 
 ## 📞 Team Contact Information
 
-### Project Inquiries
+### For Project Consultations
+
+Connect with our experienced team to discuss your construction project needs.
+
+- **Schedule Free Consultation** - Meet with our specialists (`event`)
+- **Request Project Review** - Submit plans for expert analysis (`visibility`)
+
+**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+
+### Project Team Contacts
 
 - **Primary Contact**: Arnold Garcia, Vice President
 - **Project Management**: Makayla Holstein or Ben Woodall
@@ -334,7 +343,7 @@ Every team member embodies our core partnership approach:
 **Team Philosophy**: "Every team member is an ambassador for our partnership approach
 and commitment to community service."
 
-**Contact**: For team-specific questions or to request specific expertise, call (509) 308-6489
+**General Contact:** [(509) 308-6489](tel:+15093086489) | [info@mhc-gc.com](mailto:info@mhc-gc.com)
 
 ---
 

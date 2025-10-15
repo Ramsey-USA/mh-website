@@ -511,8 +511,10 @@ Brief description of changes
 
 ### Business Contacts
 
-- **General Inquiries**: (509) 308-6489
-- **Email**: <info@mhc-gc.com>
+- **General Inquiries**: [(509) 308-6489](tel:+15093086489)
+  - **Client Contact**: [ext. 100](tel:+15093086489,100) | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+  - **Vendor Contact**: [ext. 150](tel:+15093086489,150) | [vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
+- **General Email**: <info@mhc-gc.com>
 
 ---
 

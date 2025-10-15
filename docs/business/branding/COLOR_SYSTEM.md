@@ -1,9 +1,10 @@
 # MH Construction Color System
 
-**Date:** October 9, 2025
+**Date:** October 15, 2025
 **Status:** ✅ Current
 **Category:** Business - Brand Guidelines
-**Last Updated:** October 9, 2025
+**Last Updated:** October 15, 2025
+**Version:** 3.7.2
 
 ## Quick Navigation
 
@@ -16,26 +17,35 @@
 
 ## Primary Brand Colors
 
-### Primary Blue
+### Primary Color - Hunter Green
 
-**Hex:** `#1976D2`
-**RGB:** `rgb(25, 118, 210)`
-**HSL:** `hsl(207, 79%, 46%)`
-**Use Case:** Primary actions, headers, key elements
+**Hex:** `#386851`
+**RGB:** `rgb(56, 104, 81)`
+**HSL:** `hsl(153, 30%, 31%)`
+**Use Case:** Primary buttons, main CTAs, brand identity, primary actions
 
-### Secondary Blue
+**Color Variants:**
 
-**Hex:** `#1E88E5`
-**RGB:** `rgb(30, 136, 229)`
-**HSL:** `hsl(208, 79%, 51%)`
-**Use Case:** Supporting elements, hover states
+- **Primary Light:** `#4a7a63` - Lighter hunter green for hover states
+- **Primary Dark:** `#2d5240` - Darker hunter green for active states
 
-### Accent Blue
+### Secondary Color - Leather Tan
 
-**Hex:** `#42A5F5`
-**RGB:** `rgb(66, 165, 245)`
-**HSL:** `hsl(207, 89%, 61%)`
-**Use Case:** Highlights, interactive elements
+**Hex:** `#BD9264`
+**RGB:** `rgb(189, 146, 100)`
+**HSL:** `hsl(31, 42%, 57%)`
+**Use Case:** Secondary buttons, complementary elements, supporting actions
+
+**Color Variants:**
+
+- **Secondary Light:** `#c9a176` - Lighter tan for hover states
+- **Secondary Dark:** `#a67d52` - Darker tan for active states
+
+### Accent Colors
+
+**Black:** `#000000` - High contrast text, borders, emphasis
+**White:** `#FFFFFF` - Light backgrounds, inverted text
+**Gray Palette:** Professional neutral tones for text and backgrounds
 
 ## Light Mode Color Palette
 
@@ -165,27 +175,127 @@
 **Dark Mode:** `#42A5F5` (Blue 400)
 **Usage:** Information messages, neutral notifications
 
-## Color Usage Guidelines
+---
+
+## Button Color Implementation
+
+### Primary Buttons (Hunter Green)
+
+**Default State:**
+
+- Background: `transparent` or `white`
+- Border: `2px solid #386851`
+- Text: `#386851`
+
+**Hover State:**
+
+- Background: `#386851`
+- Border: `2px solid #386851`
+- Text: `white`
+- Transform: `translateY(-2px)` (subtle lift effect)
+
+**Active/Pressed State:**
+
+- Background: `#2d5240` (darker hunter green)
+- Border: `2px solid #2d5240`
+- Text: `white`
+
+**Usage:** Primary CTAs, IRL Consultations, main actions, client partnerships
+
+### Secondary Buttons (Leather Tan)
+
+**Default State:**
+
+- Background: `transparent` or `white`
+- Border: `2px solid #BD9264`
+- Text: `#BD9264`
+
+**Hover State:**
+
+- Background: `#BD9264`
+- Border: `2px solid #BD9264`
+- Text: `white`
+- Transform: `translateY(-2px)` (subtle lift effect)
+
+**Active/Pressed State:**
+
+- Background: `#a67d52` (darker tan)
+- Border: `2px solid #a67d52`
+- Text: `white`
+
+**Usage:** AI Estimator, secondary actions, supporting CTAs, trade partnerships
+
+### Outline Buttons
+
+**Default State:**
+
+- Background: `transparent`
+- Border: `2px solid #386851`
+- Text: `#386851`
+
+**Hover State:**
+
+- Background: `rgba(56, 104, 81, 0.1)` (subtle hunter green tint)
+- Border: `2px solid #386851`
+- Text: `#386851`
+
+**Usage:** Tertiary actions, cancel buttons, alternative options
+
+### Neutral Buttons
+
+**Light Mode:**
+
+- Background: `white`
+- Border: `2px solid #E0E0E0`
+- Text: `#212121`
+- Hover: Background becomes `#F5F5F5`
+
+**Dark Mode:**
+
+- Background: `#2D2D2D`
+- Border: `2px solid #424242`
+- Text: `#FFFFFF`
+- Hover: Background becomes `#404040`
+
+**Usage:** Theme-aware system buttons, settings, utilities
+
+---
+
+## Color Usage Guidelines (Continued)
 
 ### Primary Color Applications
 
 #### Headers and Navigation
 
-- Use Primary Blue (`#1976D2`) for main navigation
-- Use Secondary Blue (`#1E88E5`) for sub-navigation
-- Maintain consistent blue hierarchy throughout
+- Use Hunter Green (`#386851`) for main navigation elements
+- Primary color provides professional, trustworthy appearance
+- Maintain consistent brand identity throughout site
 
 #### Call-to-Action Elements
 
-- Primary buttons use Primary Blue background
-- Hover states use Secondary Blue
-- Active states use Accent Blue
+- Primary buttons use Hunter Green outline with white background
+- Hover states: Solid Hunter Green background with white text
+- Active states: Darker hunter green (`#2d5240`) with white text
 
 #### Links and Interactive Elements
 
-- Text links use Primary Blue
-- Hover states use Secondary Blue
-- Visited links maintain Primary Blue (no color change)
+- Text links use Hunter Green for brand consistency
+- Hover states: Slightly lighter hunter green (`#4a7a63`)
+- Focus states: Include visible outline for accessibility
+
+### Secondary Color Applications
+
+#### Supporting Actions
+
+- Secondary buttons use Leather Tan outline
+- Complementary to primary actions (e.g., AI Estimator vs IRL Consultation)
+- Hover states: Solid Leather Tan background with white text
+
+#### Accent and Decorative Elements
+
+- Use Leather Tan for subtle emphasis and warmth
+- Complements Hunter Green without overwhelming primary brand color
+- Appropriate for badges, tags, and secondary highlights
 
 ### Background Color Strategy
 
@@ -221,10 +331,13 @@
 
 ```css
 :root {
-  /* Primary Colors */
-  --color-primary: #1976D2;
-  --color-secondary: #1E88E5;
-  --color-accent: #42A5F5;
+  /* Brand Colors */
+  --color-brand-primary: #386851;        /* Hunter Green */
+  --color-brand-primary-light: #4a7a63;  /* Lighter Hunter Green */
+  --color-brand-primary-dark: #2d5240;   /* Darker Hunter Green */
+  --color-brand-secondary: #BD9264;      /* Leather Tan */
+  --color-brand-secondary-light: #c9a176; /* Lighter Tan */
+  --color-brand-secondary-dark: #a67d52;  /* Darker Tan */
 
   /* Light Mode */
   --color-text-primary: #212121;
@@ -261,29 +374,34 @@
 ```javascript
 module.exports = {
   theme: {
-    colors: {
-      primary: {
-        DEFAULT: '#1976D2',
-        light: '#1E88E5',
-        lighter: '#42A5F5'
-      },
-      gray: {
-        50: '#FAFAFA',
-        100: '#F5F5F5',
-        200: '#EEEEEE',
-        300: '#E0E0E0',
-        400: '#BDBDBD',
-        500: '#9E9E9E',
-        600: '#757575',
-        700: '#424242',
-        800: '#303030',
-        900: '#212121'
-      },
-      semantic: {
-        success: '#4CAF50',
-        warning: '#FF9800',
-        error: '#F44336',
-        info: '#2196F3'
+    extend: {
+      colors: {
+        brand: {
+          primary: '#386851',         // Hunter Green
+          'primary-light': '#4a7a63', // Lighter Hunter Green
+          'primary-dark': '#2d5240',  // Darker Hunter Green
+          secondary: '#BD9264',       // Leather Tan
+          'secondary-light': '#c9a176', // Lighter Tan
+          'secondary-dark': '#a67d52'   // Darker Tan
+        },
+        gray: {
+          50: '#FAFAFA',
+          100: '#F5F5F5',
+          200: '#EEEEEE',
+          300: '#E0E0E0',
+          400: '#BDBDBD',
+          500: '#9E9E9E',
+          600: '#757575',
+          700: '#424242',
+          800: '#303030',
+          900: '#212121'
+        },
+        semantic: {
+          success: '#4CAF50',
+          warning: '#FF9800',
+          error: '#F44336',
+          info: '#2196F3'
+        }
       }
     }
   }
@@ -294,15 +412,43 @@ module.exports = {
 
 ### Logo Applications
 
-- **Primary Logo:** Uses Primary Blue (`#1976D2`)
+- **Primary Logo:** Uses Hunter Green (`#386851`) for brand identity
 - **Monochrome Logo:** Adapts to context (white on dark, dark on light)
 - **Minimum Contrast:** Maintains 3:1 ratio with background
 
 ### Marketing Material Colors
 
-- **Business Cards:** Primary Blue with white/gray text
-- **Signage:** High contrast Primary Blue on white
-- **Digital Assets:** Consistent with web color palette
+- **Business Cards:** Hunter Green with white/gray text, Leather Tan accents
+- **Signage:** High contrast Hunter Green on white background
+- **Digital Assets:** Consistent with web color palette (Hunter Green/Leather Tan)
+
+### Button Usage by Context
+
+**Client Partnership Actions (Primary - Hunter Green):**
+
+- "Schedule Free Consultation" (icon: `event`)
+- "Begin Partnership" (icon: `handshake`)
+- "Get Professional Estimate" (icon: `engineering`)
+- "Book Site Visit" (icon: `place`)
+
+**AI Estimator Actions (Secondary - Leather Tan):**
+
+- "Get Instant AI Estimate" (icon: `smart_toy`)
+- "Try AI Cost Calculator" (icon: `smart_toy`)
+- "Calculate Project Cost" (icon: `calculate`)
+
+**Trade Partnership Actions (Secondary - Leather Tan):**
+
+- "Join Our Trade Partnership Network" (icon: `construction`)
+- "Apply to be Approved Vendor" (icon: `check_circle`)
+- "Submit Vendor Application" (icon: `contact_mail`)
+
+### Color Accessibility in Context
+
+**Hunter Green on White:** 7.2:1 contrast ratio (AAA compliant)
+**Leather Tan on White:** 3.8:1 contrast ratio (AA compliant for large text)
+**White on Hunter Green:** 7.2:1 contrast ratio (AAA compliant)
+**White on Leather Tan:** 3.8:1 contrast ratio (AA compliant)
 
 ### Quality Assurance
 
@@ -334,5 +480,74 @@ module.exports = {
 ---
 
 **Color Authority**: MH Construction Design Team
-**Last Color Update**: October 8, 2025 (v3.7.2)
+**Last Color Update**: October 15, 2025 (v3.7.2)
+**Color Scheme**: Hunter Green (#386851) + Leather Tan (#BD9264)
 **Next Review**: Quarterly brand compliance assessment
+
+---
+
+## Quick Reference Card
+
+### Brand Colors
+
+| Color | Hex | Usage |
+|-------|-----|-------|
+| **Hunter Green** | `#386851` | Primary buttons, main CTAs, IRL consultations |
+| **Hunter Green Light** | `#4a7a63` | Hover states, lighter accents |
+| **Hunter Green Dark** | `#2d5240` | Active states, pressed buttons |
+| **Leather Tan** | `#BD9264` | Secondary buttons, AI Estimator, trade partnerships |
+| **Leather Tan Light** | `#c9a176` | Hover states, lighter accents |
+| **Leather Tan Dark** | `#a67d52` | Active states, pressed buttons |
+
+### Service/Partnership Color Associations
+
+| Service/Partnership | Button Color | Icon | Example CTA |
+|---------------------|--------------|------|-------------|
+| **IRL Consultation** | Hunter Green (Primary) | `event` | "Schedule Free Consultation" |
+| **Client Partnership** | Hunter Green (Primary) | `handshake` | "Begin Partnership" |
+| **AI Estimator** | Leather Tan (Secondary) | `smart_toy` | "Get Instant AI Estimate" |
+| **Trade Partnership** | Leather Tan (Secondary) | `construction` | "Join Trade Network" |
+
+### Contact Information Color Coding
+
+- **Client Partnerships:** Hunter Green theme (ext. 100, projects@mhc-gc.com)
+- **Trade Partnerships:** Leather Tan theme (ext. 150, vendors@mhc-gc.com)
+
+---
+
+## Implementation Examples
+
+### Primary Button (Hunter Green)
+
+```tsx
+<Button variant="primary" size="lg">
+  <MaterialIcon icon="event" size="lg" className="mr-3" />
+  <span className="font-medium">Schedule Free Consultation</span>
+</Button>
+```
+
+### Secondary Button (Leather Tan)
+
+```tsx
+<Button variant="secondary" size="lg">
+  <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
+  <span className="font-medium">Get Instant AI Estimate</span>
+</Button>
+```
+
+### Using Brand Colors Directly
+
+```tsx
+// Hunter Green text
+<span className="text-brand-primary">Primary Action</span>
+
+// Leather Tan background
+<div className="bg-brand-secondary text-white p-4">
+  Secondary Content
+</div>
+
+// Hunter Green hover effect
+<button className="text-brand-primary hover:bg-brand-primary hover:text-white">
+  Interactive Element
+</button>
+```

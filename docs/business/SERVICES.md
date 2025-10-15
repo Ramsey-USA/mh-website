@@ -49,7 +49,12 @@ commercial, industrial, and specialty businesses, including:
 - **Churches & Religious Facilities**
 - **Wineries & Vineyards**
 
-**Call to Action**: Call (509) 308-6489 today to take the first step toward your new building construction.
+**Ready to Start?** Schedule a free consultation to discuss your commercial construction project.
+
+- **Schedule Free Consultation** - Meet with our specialists (`event`)
+- **Get Instant AI Estimate** - Try our automated calculator (`smart_toy`)
+
+**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
 
 ---
 
@@ -188,7 +193,12 @@ Improvement (TI) Services and are licensed to complete commercial renovation pro
 throughout Washington, Oregon, and Idaho. We'll help you bring your vision to life
 quickly and efficiently.
 
-**Call to Action**: Call us right away to schedule tenant improvement services.
+**Ready for Your Tenant Improvements?**
+
+- **Schedule Free Consultation** - Discuss your renovation project (`event`)
+- **Book Site Visit** - On-location space assessment (`place`)
+
+**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
 
 ---
 
@@ -304,10 +314,22 @@ standards and your expectations.
 
 ## 📞 Get Started
 
-### **Free Consultation**
+### **Two Pathways to Begin Your Project**
 
-Call (509) 308-6489 today to begin planning your new commercial, industrial, or medical
-construction project in Benton or Franklin County.
+#### Instant AI Estimate
+
+Try our AI-powered cost estimator for immediate preliminary pricing - available 24/7, no appointment needed.
+
+- **Get Instant AI Estimate** - Automated cost calculation (`smart_toy`)
+
+#### Professional Consultation
+
+Schedule a personalized consultation with our experienced team for expert guidance and detailed planning.
+
+- **Schedule Free Consultation** - Meet with our project specialists (`event`)
+- **Book Site Visit** - On-location assessment (`place`)
+
+**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
 
 ### **Service Request Process**
 
@@ -330,44 +352,63 @@ construction project in Benton or Franklin County.
 Ready to begin your construction partnership? We're here to listen, collaborate, and
 bring your vision to life through professional construction management.
 
-**Client Actions:**
+**Two Ways to Get Started:**
 
-- **Get Free Estimate** - Schedule your no-obligation project consultation
-- **Schedule Discovery Call** - Discuss your vision with our project specialists
-- **Book Site Visit** - Arrange an on-location assessment and planning session
+#### 1. Instant AI Estimate
+
+Get preliminary project costs in seconds with our AI-powered calculator.
+Available 24/7 for immediate budget planning.
+
+- **Get Instant AI Estimate** - Automated preliminary pricing (`smart_toy`)
+- **Try AI Cost Calculator** - Quick budget estimation (`calculate`)
+
+#### 2. Professional Consultation
+
+Schedule a personalized consultation with our experienced sales team for
+detailed professional estimates and expert guidance.
+
+**Client Services:**
+
+- **Schedule Free Consultation** - Meet with our project specialists (`event`)
+- **Book Site Visit** - Arrange an on-location assessment (`place`)
+- **Request Project Review** - Submit plans for expert analysis (`visibility`)
+
+**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
 
 ### **For Trade Partners**
 
 Looking to grow your business with a veteran-owned construction leader? Join our
 network of quality professionals serving the Pacific Northwest market.
 
-**Trade Partnership Actions:**
+**Trade Partnership Opportunities:**
 
-- **Apply to be an Approved Vendor** - Submit your application to join our network
-- **Join Our Trade Partnership Network** - Explore opportunities for business growth
-- **Download Vendor Package** - Get requirements and application materials
+- **Apply to be Approved Vendor** - Submit application to join network (`check_circle`)
+- **Join Trade Partnership Network** - Partner with established contractor (`construction`)
+- **Download Vendor Package** - Get requirements and materials (`download`)
+
+**Contact:** [(509) 308-6489](tel:+15093086489) ext. 150 | [vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
 
 ---
 
 ## Contact Information
 
-### **Project Consultations**
+### **Project Consultations** (Client Partnerships)
 
-**Phone:** (509) 308-6489 ext. 100
-**Email:** <projects@mhc-gc.com>
+**Phone:** [(509) 308-6489](tel:+15093086489) ext. 100
+**Email:** [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
 **For:** Free estimates, consultations, and project discussions
 
-### **Trade Partnership Inquiries**
+### **Trade Partnership Inquiries** (Vendor Partnerships)
 
-**Phone:** (509) 308-6489 ext. 150
-**Email:** <vendors@mhc-gc.com>
+**Phone:** [(509) 308-6489](tel:+15093086489) ext. 150
+**Email:** [vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
 **For:** Vendor applications, trade partnerships, and business opportunities
 
 ### **General Information**
 
 **Address:** 3111 N. Capital Ave., Pasco, WA 99301
 **Website:** mhc-gc.com
-**Email:** <info@mhc-gc.com>
+**Email:** [info@mhc-gc.com](mailto:info@mhc-gc.com)
 
 ---
 
