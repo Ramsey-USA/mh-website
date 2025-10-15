@@ -17,5 +17,9 @@
     "MD036": false
   },
   "globs": ["**/*.md"],
-  "ignores": ["node_modules/**", "firebase/functions/node_modules/**", ".next/**"]
+  "ignores": [
+    "node_modules/**",
+    "firebase/functions/node_modules/**",
+    ".next/**"
+  ]
 }
