@@ -104,8 +104,8 @@ rm -rf /workspaces/mh-website/src/app/test-css
 ```bash
 # Move to scripts/tests or remove if no longer needed
 mkdir -p scripts/tests
-mv test-responsive-complete.html scripts/tests/
-mv test-responsive.sh scripts/tests/
+mv test-responsive-complete.html testing/
+mv test-responsive.sh testing/
 rm public/test-hero.html  # Remove from public folder
 ```
 
@@ -270,8 +270,8 @@ rmdir /workspaces/mh-website/src/app/test-css 2>/dev/null || true
 # 4. Move test files from root
 echo "Moving test files..."
 mkdir -p scripts/tests
-mv /workspaces/mh-website/test-responsive-complete.html scripts/tests/ 2>/dev/null || true
-mv /workspaces/mh-website/test-responsive.sh scripts/tests/ 2>/dev/null || true
+mv /workspaces/mh-website/test-responsive-complete.html testing/ 2>/dev/null || true
+mv /workspaces/mh-website/test-responsive.sh testing/ 2>/dev/null || true
 
 # 5. Remove test file from public
 echo "Removing test file from public directory..."

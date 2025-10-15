@@ -18,8 +18,8 @@
 
 ### Files Relocated: **2**
 
-- `test-responsive-complete.html` → `scripts/tests/`
-- `test-responsive.sh` → `scripts/tests/`
+- `test-responsive-complete.html` → `testing/`
+- `test-responsive.sh` → `testing/`
 
 ## ✅ Build Verification
 

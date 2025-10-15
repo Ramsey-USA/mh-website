@@ -3,21 +3,30 @@
  * Real-time security monitoring and vulnerability management interface
  */
 
-'use client'
+"use client";
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Progress } from '@/components/ui/progress'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+} from "@/components/ui/base/card";
+import { Badge } from "@/components/ui/base/badge";
+import { Button } from "@/components/ui/base/button";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/base/tabs";
+import { Progress } from "@/components/ui/base/progress";
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from "@/components/ui/base/alert";
 import {
   BarChart,
   Bar,
@@ -33,49 +42,49 @@ import {
   Line,
   Area,
   AreaChart,
-} from 'recharts'
-import { MaterialIcon } from '@/components/icons/MaterialIcon'
+} from "recharts";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 // Mock data types (in real app, these would come from security services)
 interface SecurityMetrics {
-  totalEvents: number
-  criticalVulnerabilities: number
-  activeThreats: number
-  riskScore: number
-  lastScanTime: Date
-  systemStatus: 'secure' | 'warning' | 'critical'
+  totalEvents: number;
+  criticalVulnerabilities: number;
+  activeThreats: number;
+  riskScore: number;
+  lastScanTime: Date;
+  systemStatus: "secure" | "warning" | "critical";
   trends: {
-    events: number
-    vulnerabilities: number
-    riskScore: number
-  }
+    events: number;
+    vulnerabilities: number;
+    riskScore: number;
+  };
 }
 
 interface VulnerabilitySummary {
-  total: number
-  critical: number
-  high: number
-  medium: number
-  low: number
-  fixed: number
-  pending: number
+  total: number;
+  critical: number;
+  high: number;
+  medium: number;
+  low: number;
+  fixed: number;
+  pending: number;
 }
 
 interface SecurityEvent {
-  id: string
-  type: string
-  severity: 'low' | 'medium' | 'high' | 'critical'
-  timestamp: Date
-  source: string
-  description: string
-  status: 'new' | 'investigating' | 'resolved'
+  id: string;
+  type: string;
+  severity: "low" | "medium" | "high" | "critical";
+  timestamp: Date;
+  source: string;
+  description: string;
+  status: "new" | "investigating" | "resolved";
 }
 
 interface AuditData {
-  date: string
-  events: number
-  riskScore: number
-  vulnerabilities: number
+  date: string;
+  events: number;
+  riskScore: number;
+  vulnerabilities: number;
 }
 
 // Mock data
@@ -85,13 +94,13 @@ const mockSecurityMetrics: SecurityMetrics = {
   activeThreats: 1,
   riskScore: 73,
   lastScanTime: new Date(),
-  systemStatus: 'warning',
+  systemStatus: "warning",
   trends: {
     events: 12,
     vulnerabilities: -2,
     riskScore: 5,
   },
-}
+};
 
 const mockVulnerabilities: VulnerabilitySummary = {
   total: 18,
@@ -101,142 +110,142 @@ const mockVulnerabilities: VulnerabilitySummary = {
   low: 3,
   fixed: 12,
   pending: 6,
-}
+};
 
 const mockSecurityEvents: SecurityEvent[] = [
   {
-    id: '1',
-    type: 'Rate Limit Exceeded',
-    severity: 'medium',
+    id: "1",
+    type: "Rate Limit Exceeded",
+    severity: "medium",
     timestamp: new Date(),
-    source: '192.168.1.100',
-    description: 'Multiple failed login attempts detected',
-    status: 'investigating',
+    source: "192.168.1.100",
+    description: "Multiple failed login attempts detected",
+    status: "investigating",
   },
   {
-    id: '2',
-    type: 'XSS Attempt',
-    severity: 'high',
+    id: "2",
+    type: "XSS Attempt",
+    severity: "high",
     timestamp: new Date(Date.now() - 300000),
-    source: '10.0.0.50',
-    description: 'Malicious script injection detected in user input',
-    status: 'new',
+    source: "10.0.0.50",
+    description: "Malicious script injection detected in user input",
+    status: "new",
   },
   {
-    id: '3',
-    type: 'CSRF Token Invalid',
-    severity: 'medium',
+    id: "3",
+    type: "CSRF Token Invalid",
+    severity: "medium",
     timestamp: new Date(Date.now() - 600000),
-    source: '203.0.113.25',
-    description: 'Request submitted without valid CSRF token',
-    status: 'resolved',
+    source: "203.0.113.25",
+    description: "Request submitted without valid CSRF token",
+    status: "resolved",
   },
-]
+];
 
 const mockAuditData: AuditData[] = [
-  { date: '2024-01-01', events: 45, riskScore: 65, vulnerabilities: 8 },
-  { date: '2024-01-02', events: 52, riskScore: 71, vulnerabilities: 9 },
-  { date: '2024-01-03', events: 38, riskScore: 68, vulnerabilities: 7 },
-  { date: '2024-01-04', events: 67, riskScore: 73, vulnerabilities: 8 },
-  { date: '2024-01-05', events: 41, riskScore: 69, vulnerabilities: 6 },
-  { date: '2024-01-06', events: 58, riskScore: 72, vulnerabilities: 7 },
-  { date: '2024-01-07', events: 49, riskScore: 73, vulnerabilities: 6 },
-]
+  { date: "2024-01-01", events: 45, riskScore: 65, vulnerabilities: 8 },
+  { date: "2024-01-02", events: 52, riskScore: 71, vulnerabilities: 9 },
+  { date: "2024-01-03", events: 38, riskScore: 68, vulnerabilities: 7 },
+  { date: "2024-01-04", events: 67, riskScore: 73, vulnerabilities: 8 },
+  { date: "2024-01-05", events: 41, riskScore: 69, vulnerabilities: 6 },
+  { date: "2024-01-06", events: 58, riskScore: 72, vulnerabilities: 7 },
+  { date: "2024-01-07", events: 49, riskScore: 73, vulnerabilities: 6 },
+];
 
 export default function SecurityDashboard() {
-  const [activeTab, setActiveTab] = useState('overview')
-  const [isScanning, setIsScanning] = useState(false)
-  const [selectedTimeRange, setSelectedTimeRange] = useState('7d')
-  const [metrics, setMetrics] = useState<SecurityMetrics>(mockSecurityMetrics)
+  const [activeTab, setActiveTab] = useState("overview");
+  const [isScanning, setIsScanning] = useState(false);
+  const [selectedTimeRange, setSelectedTimeRange] = useState("7d");
+  const [metrics, setMetrics] = useState<SecurityMetrics>(mockSecurityMetrics);
   const [vulnerabilities, setVulnerabilities] =
-    useState<VulnerabilitySummary>(mockVulnerabilities)
+    useState<VulnerabilitySummary>(mockVulnerabilities);
   const [securityEvents, setSecurityEvents] =
-    useState<SecurityEvent[]>(mockSecurityEvents)
-  const [auditData, setAuditData] = useState<AuditData[]>(mockAuditData)
+    useState<SecurityEvent[]>(mockSecurityEvents);
+  const [auditData, setAuditData] = useState<AuditData[]>(mockAuditData);
 
   useEffect(() => {
     // Simulate real-time updates
     const interval = setInterval(() => {
-      setMetrics(prev => ({
+      setMetrics((prev) => ({
         ...prev,
         totalEvents: prev.totalEvents + Math.floor(Math.random() * 3),
         riskScore: Math.max(
           0,
           Math.min(100, prev.riskScore + (Math.random() - 0.5) * 2)
         ),
-      }))
-    }, 30000)
+      }));
+    }, 30000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   const handleStartScan = async () => {
-    setIsScanning(true)
+    setIsScanning(true);
     // Simulate scan duration
     setTimeout(() => {
-      setIsScanning(false)
-      setMetrics(prev => ({
+      setIsScanning(false);
+      setMetrics((prev) => ({
         ...prev,
         lastScanTime: new Date(),
-      }))
-    }, 5000)
-  }
+      }));
+    }, 5000);
+  };
 
   const getSeverityColor = (severity: string) => {
     switch (severity) {
-      case 'critical':
-        return '#DC2626'
-      case 'high':
-        return '#EA580C'
-      case 'medium':
-        return '#D97706'
-      case 'low':
-        return '#059669'
+      case "critical":
+        return "#DC2626";
+      case "high":
+        return "#EA580C";
+      case "medium":
+        return "#D97706";
+      case "low":
+        return "#059669";
       default:
-        return '#6B7280'
+        return "#6B7280";
     }
-  }
+  };
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case 'secure':
+      case "secure":
         return (
           <MaterialIcon
             icon="check_circle"
             className="w-5 h-5 text-green-500"
           />
-        )
-      case 'warning':
+        );
+      case "warning":
         return (
           <MaterialIcon icon="warning" className="w-5 h-5 text-yellow-500" />
-        )
-      case 'critical':
-        return <MaterialIcon icon="cancel" className="w-5 h-5 text-red-500" />
+        );
+      case "critical":
+        return <MaterialIcon icon="cancel" className="w-5 h-5 text-red-500" />;
       default:
         return (
           <MaterialIcon icon="show_chart" className="w-5 h-5 text-gray-500" />
-        )
+        );
     }
-  }
+  };
 
   const getTrendIcon = (trend: number) => {
     if (trend > 0)
       return (
         <MaterialIcon icon="trending_up" className="w-4 h-4 text-red-500" />
-      )
+      );
     if (trend < 0)
       return (
         <MaterialIcon icon="trending_down" className="w-4 h-4 text-green-500" />
-      )
-    return <MaterialIcon icon="show_chart" className="w-4 h-4 text-gray-500" />
-  }
+      );
+    return <MaterialIcon icon="show_chart" className="w-4 h-4 text-gray-500" />;
+  };
 
   const vulnerabilityData = [
-    { name: 'Critical', value: vulnerabilities.critical, color: '#DC2626' },
-    { name: 'High', value: vulnerabilities.high, color: '#EA580C' },
-    { name: 'Medium', value: vulnerabilities.medium, color: '#D97706' },
-    { name: 'Low', value: vulnerabilities.low, color: '#059669' },
-  ]
+    { name: "Critical", value: vulnerabilities.critical, color: "#DC2626" },
+    { name: "High", value: vulnerabilities.high, color: "#EA580C" },
+    { name: "Medium", value: vulnerabilities.medium, color: "#D97706" },
+    { name: "Low", value: vulnerabilities.low, color: "#059669" },
+  ];
 
   return (
     <div className="space-y-6">
@@ -279,19 +288,19 @@ export default function SecurityDashboard() {
       </div>
 
       {/* Status Alert */}
-      {metrics.systemStatus !== 'secure' && (
+      {metrics.systemStatus !== "secure" && (
         <Alert
           className={
-            metrics.systemStatus === 'critical'
-              ? 'border-red-200 bg-red-50'
-              : 'border-yellow-200 bg-yellow-50'
+            metrics.systemStatus === "critical"
+              ? "border-red-200 bg-red-50"
+              : "border-yellow-200 bg-yellow-50"
           }
         >
           <MaterialIcon icon="warning" className="w-4 h-4" />
           <AlertTitle>
-            {metrics.systemStatus === 'critical'
-              ? 'Critical Security Issues Detected'
-              : 'Security Warnings'}
+            {metrics.systemStatus === "critical"
+              ? "Critical Security Issues Detected"
+              : "Security Warnings"}
           </AlertTitle>
           <AlertDescription>
             {metrics.criticalVulnerabilities > 0 && (
@@ -341,7 +350,7 @@ export default function SecurityDashboard() {
             <div className="flex items-center text-muted-foreground text-xs">
               {getTrendIcon(metrics.trends.events)}
               <span className="ml-1">
-                {metrics.trends.events > 0 ? '+' : ''}
+                {metrics.trends.events > 0 ? "+" : ""}
                 {metrics.trends.events} from last period
               </span>
             </div>
@@ -368,7 +377,7 @@ export default function SecurityDashboard() {
             <div className="flex items-center text-muted-foreground text-xs">
               {getTrendIcon(metrics.trends.vulnerabilities)}
               <span className="ml-1">
-                {metrics.trends.vulnerabilities > 0 ? '+' : ''}
+                {metrics.trends.vulnerabilities > 0 ? "+" : ""}
                 {metrics.trends.vulnerabilities} from last scan
               </span>
             </div>
@@ -389,7 +398,7 @@ export default function SecurityDashboard() {
             <div className="flex items-center mt-1 text-muted-foreground text-xs">
               {getTrendIcon(metrics.trends.riskScore)}
               <span className="ml-1">
-                {metrics.trends.riskScore > 0 ? '+' : ''}
+                {metrics.trends.riskScore > 0 ? "+" : ""}
                 {metrics.trends.riskScore} from last period
               </span>
             </div>
@@ -487,14 +496,14 @@ export default function SecurityDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {securityEvents.slice(0, 5).map(event => (
+                  {securityEvents.slice(0, 5).map((event) => (
                     <div
                       key={event.id}
                       className="flex justify-between items-center p-4 border rounded-lg"
                     >
                       <div className="flex items-center space-x-4">
                         <div
-                          className={`w-3 h-3 rounded-full bg-${getSeverityColor(event.severity).replace('#', '')}`}
+                          className={`w-3 h-3 rounded-full bg-${getSeverityColor(event.severity).replace("#", "")}`}
                         />
                         <div>
                           <p className="font-medium">{event.type}</p>
@@ -522,9 +531,9 @@ export default function SecurityDashboard() {
                       <div className="flex items-center space-x-2">
                         <Badge
                           variant={
-                            event.severity === 'critical'
-                              ? 'destructive'
-                              : 'secondary'
+                            event.severity === "critical"
+                              ? "destructive"
+                              : "secondary"
                           }
                         >
                           {event.severity}
@@ -633,7 +642,7 @@ export default function SecurityDashboard() {
           <Card>
             <CardContent className="p-0">
               <div className="divide-y">
-                {securityEvents.map(event => (
+                {securityEvents.map((event) => (
                   <div key={event.id} className="p-6">
                     <div className="flex justify-between items-center">
                       <div className="flex items-center space-x-4">
@@ -659,9 +668,9 @@ export default function SecurityDashboard() {
                       <div className="flex items-center space-x-2">
                         <Badge
                           variant={
-                            event.severity === 'critical'
-                              ? 'destructive'
-                              : 'secondary'
+                            event.severity === "critical"
+                              ? "destructive"
+                              : "secondary"
                           }
                         >
                           {event.severity}
@@ -744,12 +753,12 @@ export default function SecurityDashboard() {
               <CardContent>
                 <div className="space-y-3">
                   {[
-                    { country: 'Unknown', threats: 45, percentage: 35 },
-                    { country: 'China', threats: 32, percentage: 25 },
-                    { country: 'Russia', threats: 28, percentage: 22 },
-                    { country: 'Brazil', threats: 15, percentage: 12 },
-                    { country: 'Other', threats: 8, percentage: 6 },
-                  ].map(item => (
+                    { country: "Unknown", threats: 45, percentage: 35 },
+                    { country: "China", threats: 32, percentage: 25 },
+                    { country: "Russia", threats: 28, percentage: 22 },
+                    { country: "Brazil", threats: 15, percentage: 12 },
+                    { country: "Other", threats: 8, percentage: 6 },
+                  ].map((item) => (
                     <div
                       key={item.country}
                       className="flex justify-between items-center"
@@ -786,15 +795,15 @@ export default function SecurityDashboard() {
               <CardContent>
                 <div className="space-y-4">
                   {[
-                    { framework: 'NIST CSF', compliance: 87, status: 'good' },
+                    { framework: "NIST CSF", compliance: 87, status: "good" },
                     {
-                      framework: 'ISO 27001',
+                      framework: "ISO 27001",
                       compliance: 78,
-                      status: 'warning',
+                      status: "warning",
                     },
-                    { framework: 'SOC 2', compliance: 92, status: 'good' },
-                    { framework: 'GDPR', compliance: 95, status: 'excellent' },
-                  ].map(item => (
+                    { framework: "SOC 2", compliance: 92, status: "good" },
+                    { framework: "GDPR", compliance: 95, status: "excellent" },
+                  ].map((item) => (
                     <div key={item.framework} className="space-y-2">
                       <div className="flex justify-between items-center">
                         <span className="font-medium text-sm">
@@ -820,31 +829,31 @@ export default function SecurityDashboard() {
                 <div className="space-y-4">
                   {[
                     {
-                      control: 'Access Controls',
-                      status: 'implemented',
-                      icon: 'lock',
+                      control: "Access Controls",
+                      status: "implemented",
+                      icon: "lock",
                     },
                     {
-                      control: 'Encryption',
-                      status: 'implemented',
-                      icon: 'security',
+                      control: "Encryption",
+                      status: "implemented",
+                      icon: "security",
                     },
                     {
-                      control: 'Monitoring',
-                      status: 'implemented',
-                      icon: 'visibility',
+                      control: "Monitoring",
+                      status: "implemented",
+                      icon: "visibility",
                     },
                     {
-                      control: 'Incident Response',
-                      status: 'partial',
-                      icon: 'warning',
+                      control: "Incident Response",
+                      status: "partial",
+                      icon: "warning",
                     },
                     {
-                      control: 'Business Continuity',
-                      status: 'pending',
-                      icon: 'lock_open',
+                      control: "Business Continuity",
+                      status: "pending",
+                      icon: "lock_open",
                     },
-                  ].map(item => {
+                  ].map((item) => {
                     return (
                       <div
                         key={item.control}
@@ -856,17 +865,17 @@ export default function SecurityDashboard() {
                         </div>
                         <Badge
                           variant={
-                            item.status === 'implemented'
-                              ? 'default'
-                              : item.status === 'partial'
-                                ? 'secondary'
-                                : 'outline'
+                            item.status === "implemented"
+                              ? "default"
+                              : item.status === "partial"
+                                ? "secondary"
+                                : "outline"
                           }
                         >
                           {item.status}
                         </Badge>
                       </div>
-                    )
+                    );
                   })}
                 </div>
               </CardContent>
@@ -875,5 +884,5 @@ export default function SecurityDashboard() {
         </TabsContent>
       </Tabs>
     </div>
-  )
+  );
 }

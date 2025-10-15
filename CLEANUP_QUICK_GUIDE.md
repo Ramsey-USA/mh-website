@@ -19,7 +19,7 @@ The codebase audit identified **~160 files** that need attention:
 
 ```bash
 # Run the automated cleanup script
-./scripts/cleanup-phase1.sh
+./scripts/cleanup/cleanup-phase1.sh
 
 # Verify everything works
 npm run build
@@ -35,7 +35,7 @@ ls -la src/app/test*
 ls -la src/app/phase*-test
 
 # Then run the cleanup script
-./scripts/cleanup-phase2.sh
+./scripts/cleanup/cleanup-phase2.sh
 
 # Verify everything works
 npm run build
@@ -46,7 +46,7 @@ npm run dev
 
 ```bash
 # This script compares files before removing
-./scripts/cleanup-phase3.sh
+./scripts/cleanup/cleanup-phase3.sh
 
 # Verify everything works
 npm run build

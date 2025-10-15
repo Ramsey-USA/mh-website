@@ -1,16 +1,16 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { Button } from '@/components/ui/button'
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/base/button";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
   HoverScale,
-} from '@/components/animations/FramerMotionComponents'
-import ContentManagement from '@/components/dashboard/ContentManagementSimple'
-import { useAuth } from '@/lib/auth/AuthContext'
-import { useAnalytics } from '@/components/analytics/enhanced-analytics'
-import { MaterialIcon } from '@/components/icons/MaterialIcon'
+} from "@/components/animations/FramerMotionComponents";
+import ContentManagement from "@/components/dashboard/ContentManagementSimple";
+import { useAuth } from "@/lib/auth/AuthContext";
+import { useAnalytics } from "@/components/analytics/enhanced-analytics";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   collection,
   getDocs,
@@ -19,41 +19,41 @@ import {
   orderBy,
   limit,
   Timestamp,
-} from 'firebase/firestore'
-import { getFirebaseDb } from '@/lib/firebase/config'
+} from "firebase/firestore";
+import { getFirebaseDb } from "@/lib/firebase/config";
 
 interface DashboardStats {
-  totalProjects: number
-  totalBlogPosts: number
-  totalTestimonials: number
-  pendingTestimonials: number
-  recentActivity: ActivityItem[]
-  popularContent: ContentItem[]
+  totalProjects: number;
+  totalBlogPosts: number;
+  totalTestimonials: number;
+  pendingTestimonials: number;
+  recentActivity: ActivityItem[];
+  popularContent: ContentItem[];
 }
 
 interface ActivityItem {
-  id: string
-  type: 'project_added' | 'blog_published' | 'testimonial_received'
-  title: string
-  timestamp: Timestamp
-  details: string
+  id: string;
+  type: "project_added" | "blog_published" | "testimonial_received";
+  title: string;
+  timestamp: Timestamp;
+  details: string;
 }
 
 interface ContentItem {
-  id: string
-  title: string
-  type: 'blog' | 'project' | 'testimonial'
-  views: number
-  engagement: number
+  id: string;
+  title: string;
+  type: "blog" | "project" | "testimonial";
+  views: number;
+  engagement: number;
 }
 
-type DashboardTab = 'overview' | 'content' | 'analytics' | 'settings'
+type DashboardTab = "overview" | "content" | "analytics" | "settings";
 
 const AdminDashboard = () => {
-  const { user } = useAuth()
-  const { trackEvent } = useAnalytics()
+  const { user } = useAuth();
+  const { trackEvent } = useAnalytics();
 
-  const [activeTab, setActiveTab] = useState<DashboardTab>('overview')
+  const [activeTab, setActiveTab] = useState<DashboardTab>("overview");
   const [stats, setStats] = useState<DashboardStats>({
     totalProjects: 0,
     totalBlogPosts: 0,
@@ -61,99 +61,99 @@ const AdminDashboard = () => {
     pendingTestimonials: 0,
     recentActivity: [],
     popularContent: [],
-  })
-  const [loading, setLoading] = useState(true)
+  });
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (user) {
-      loadDashboardData()
-      trackEvent('admin_dashboard_view', {
-        event_category: 'admin',
-        event_label: 'Dashboard accessed',
-      })
+      loadDashboardData();
+      trackEvent("admin_dashboard_view", {
+        event_category: "admin",
+        event_label: "Dashboard accessed",
+      });
     }
-  }, [user, trackEvent])
+  }, [user, trackEvent]);
 
   const loadDashboardData = async () => {
     try {
-      setLoading(true)
-      const firestore = getFirebaseDb()
+      setLoading(true);
+      const firestore = getFirebaseDb();
 
       // Load projects count
-      const projectsSnapshot = await getDocs(collection(firestore, 'projects'))
-      const totalProjects = projectsSnapshot.size
+      const projectsSnapshot = await getDocs(collection(firestore, "projects"));
+      const totalProjects = projectsSnapshot.size;
 
       // Load blog posts count
       const blogQuery = query(
-        collection(firestore, 'blog'),
-        where('published', '==', true)
-      )
-      const blogSnapshot = await getDocs(blogQuery)
-      const totalBlogPosts = blogSnapshot.size
+        collection(firestore, "blog"),
+        where("published", "==", true)
+      );
+      const blogSnapshot = await getDocs(blogQuery);
+      const totalBlogPosts = blogSnapshot.size;
 
       // Load testimonials
       const testimonialsSnapshot = await getDocs(
-        collection(firestore, 'testimonials')
-      )
-      const totalTestimonials = testimonialsSnapshot.size
+        collection(firestore, "testimonials")
+      );
+      const totalTestimonials = testimonialsSnapshot.size;
 
       // Count pending testimonials
       const pendingQuery = query(
-        collection(firestore, 'testimonials'),
-        where('approved', '==', false)
-      )
-      const pendingSnapshot = await getDocs(pendingQuery)
-      const pendingTestimonials = pendingSnapshot.size
+        collection(firestore, "testimonials"),
+        where("approved", "==", false)
+      );
+      const pendingSnapshot = await getDocs(pendingQuery);
+      const pendingTestimonials = pendingSnapshot.size;
 
       // Load recent activity (mock data for now)
       const recentActivity: ActivityItem[] = [
         {
-          id: '1',
-          type: 'project_added',
-          title: 'New project added',
+          id: "1",
+          type: "project_added",
+          title: "New project added",
           timestamp: Timestamp.now(),
-          details: 'Kitchen renovation project in Spokane',
+          details: "Kitchen renovation project in Spokane",
         },
         {
-          id: '2',
-          type: 'blog_published',
-          title: 'Blog post published',
+          id: "2",
+          type: "blog_published",
+          title: "Blog post published",
           timestamp: Timestamp.now(),
-          details: 'Winter Construction Preparation Tips',
+          details: "Winter Construction Preparation Tips",
         },
         {
-          id: '3',
-          type: 'testimonial_received',
-          title: 'New testimonial received',
+          id: "3",
+          type: "testimonial_received",
+          title: "New testimonial received",
           timestamp: Timestamp.now(),
-          details: '5-star review from satisfied customer',
+          details: "5-star review from satisfied customer",
         },
-      ]
+      ];
 
       // Mock popular content data
       const popularContent: ContentItem[] = [
         {
-          id: '1',
-          title: 'Kitchen Renovation Trends 2024',
-          type: 'blog',
+          id: "1",
+          title: "Kitchen Renovation Trends 2024",
+          type: "blog",
           views: 1250,
           engagement: 85,
         },
         {
-          id: '2',
-          title: 'Luxury Mountain Home',
-          type: 'project',
+          id: "2",
+          title: "Luxury Mountain Home",
+          type: "project",
           views: 980,
           engagement: 92,
         },
         {
-          id: '3',
-          title: 'Outstanding Service Review',
-          type: 'testimonial',
+          id: "3",
+          title: "Outstanding Service Review",
+          type: "testimonial",
           views: 450,
           engagement: 95,
         },
-      ]
+      ];
 
       setStats({
         totalProjects,
@@ -162,26 +162,26 @@ const AdminDashboard = () => {
         pendingTestimonials,
         recentActivity,
         popularContent,
-      })
+      });
     } catch (error) {
-      console.error('Error loading dashboard data:', error)
+      console.error("Error loading dashboard data:", error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   const StatCard = ({
     title,
     value,
     icon,
     trend,
-    color = 'primary',
+    color = "primary",
   }: {
-    title: string
-    value: number
-    icon: string
-    trend?: string
-    color?: string
+    title: string;
+    value: number;
+    icon: string;
+    trend?: string;
+    color?: string;
   }) => (
     <HoverScale
       className={`bg-white rounded-lg p-6 shadow-sm border-l-4 border-${color}-500`}
@@ -205,7 +205,7 @@ const AdminDashboard = () => {
         </div>
       </div>
     </HoverScale>
-  )
+  );
 
   const renderOverview = () => (
     <div className="space-y-6">
@@ -252,10 +252,10 @@ const AdminDashboard = () => {
             Recent Activity
           </h3>
           <div className="space-y-4">
-            {stats.recentActivity.map(activity => (
+            {stats.recentActivity.map((activity) => (
               <div key={activity.id} className="flex items-start space-x-3">
                 <div className="flex-shrink-0">
-                  {activity.type === 'project_added' && (
+                  {activity.type === "project_added" && (
                     <div className="bg-blue-100 p-1.5 rounded-full">
                       <MaterialIcon
                         icon="bar_chart"
@@ -263,7 +263,7 @@ const AdminDashboard = () => {
                       />
                     </div>
                   )}
-                  {activity.type === 'blog_published' && (
+                  {activity.type === "blog_published" && (
                     <div className="bg-green-100 p-1.5 rounded-full">
                       <MaterialIcon
                         icon="description"
@@ -271,7 +271,7 @@ const AdminDashboard = () => {
                       />
                     </div>
                   )}
-                  {activity.type === 'testimonial_received' && (
+                  {activity.type === "testimonial_received" && (
                     <div className="bg-yellow-100 p-1.5 rounded-full">
                       <MaterialIcon
                         icon="star"
@@ -301,7 +301,7 @@ const AdminDashboard = () => {
             Popular Content
           </h3>
           <div className="space-y-4">
-            {stats.popularContent.map(content => (
+            {stats.popularContent.map((content) => (
               <div
                 key={content.id}
                 className="flex justify-between items-center"
@@ -330,11 +330,11 @@ const AdminDashboard = () => {
                 <div className="flex-shrink-0">
                   <span
                     className={`px-2 py-1 text-xs rounded-full ${
-                      content.type === 'blog'
-                        ? 'bg-green-100 text-green-800'
-                        : content.type === 'project'
-                          ? 'bg-blue-100 text-blue-800'
-                          : 'bg-yellow-100 text-yellow-800'
+                      content.type === "blog"
+                        ? "bg-green-100 text-green-800"
+                        : content.type === "project"
+                          ? "bg-blue-100 text-blue-800"
+                          : "bg-yellow-100 text-yellow-800"
                     }`}
                   >
                     {content.type}
@@ -346,7 +346,7 @@ const AdminDashboard = () => {
         </FadeInWhenVisible>
       </div>
     </div>
-  )
+  );
 
   const renderAnalytics = () => (
     <div className="space-y-6">
@@ -376,10 +376,10 @@ const AdminDashboard = () => {
         <h3 className="mb-4 font-semibold text-lg">Top Performing Pages</h3>
         <div className="space-y-3">
           {[
-            { page: '/estimator', views: 890, conversions: 45 },
-            { page: '/portfolio', views: 750, conversions: 32 },
-            { page: '/services', views: 620, conversions: 28 },
-            { page: '/blog', views: 540, conversions: 15 },
+            { page: "/estimator", views: 890, conversions: 45 },
+            { page: "/portfolio", views: 750, conversions: 32 },
+            { page: "/services", views: 620, conversions: 28 },
+            { page: "/blog", views: 540, conversions: 15 },
           ].map((page, index) => (
             <div key={index} className="flex justify-between items-center py-2">
               <span className="font-medium">{page.page}</span>
@@ -392,7 +392,7 @@ const AdminDashboard = () => {
         </div>
       </div>
     </div>
-  )
+  );
 
   const renderSettings = () => (
     <div className="space-y-6">
@@ -466,7 +466,7 @@ const AdminDashboard = () => {
         </div>
       </div>
     </div>
-  )
+  );
 
   if (!user) {
     return (
@@ -474,7 +474,7 @@ const AdminDashboard = () => {
         <h1 className="mb-4 font-bold text-2xl">Access Denied</h1>
         <p>Please log in to access the admin dashboard.</p>
       </div>
-    )
+    );
   }
 
   return (
@@ -496,18 +496,18 @@ const AdminDashboard = () => {
           <div className="border-gray-200 border-b">
             <nav className="flex space-x-8">
               {[
-                { id: 'overview', label: 'Overview', icon: 'bar_chart' },
-                { id: 'content', label: 'Content', icon: 'description' },
-                { id: 'analytics', label: 'Analytics', icon: 'trending_up' },
-                { id: 'settings', label: 'Settings', icon: 'settings' },
-              ].map(tab => (
+                { id: "overview", label: "Overview", icon: "bar_chart" },
+                { id: "content", label: "Content", icon: "description" },
+                { id: "analytics", label: "Analytics", icon: "trending_up" },
+                { id: "settings", label: "Settings", icon: "settings" },
+              ].map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as DashboardTab)}
                   className={`flex items-center py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
                     activeTab === tab.id
-                      ? 'border-primary-500 text-primary-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                      ? "border-primary-500 text-primary-600"
+                      : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
                   }`}
                 >
                   <MaterialIcon icon={tab.icon} className="mr-2 w-4 h-4" />
@@ -520,14 +520,14 @@ const AdminDashboard = () => {
 
         {/* Tab Content */}
         <div>
-          {activeTab === 'overview' && renderOverview()}
-          {activeTab === 'content' && <ContentManagement />}
-          {activeTab === 'analytics' && renderAnalytics()}
-          {activeTab === 'settings' && renderSettings()}
+          {activeTab === "overview" && renderOverview()}
+          {activeTab === "content" && <ContentManagement />}
+          {activeTab === "analytics" && renderAnalytics()}
+          {activeTab === "settings" && renderSettings()}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AdminDashboard
+export default AdminDashboard;

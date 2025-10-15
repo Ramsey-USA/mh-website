@@ -1,37 +1,37 @@
-'use client'
+"use client";
 
-import { useState, useEffect, useCallback } from 'react'
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-import { OptimizedImage } from '@/components/ui/OptimizedImage'
-import { FadeInWhenVisible } from '@/components/animations/FramerMotionComponents'
-import { useAnalytics } from '@/components/analytics/enhanced-analytics'
-import { MaterialIcon } from '@/components/icons/MaterialIcon'
+import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/base/button";
+import { OptimizedImage } from "@/components/ui/media/OptimizedImage";
+import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
+import { useAnalytics } from "@/components/analytics/enhanced-analytics";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 interface GalleryImage {
-  id: string
-  src: string
-  alt: string
-  title?: string
-  description?: string
-  category?: string
-  tags?: string[]
-  photographer?: string
-  location?: string
-  date?: Date
-  featured?: boolean
+  id: string;
+  src: string;
+  alt: string;
+  title?: string;
+  description?: string;
+  category?: string;
+  tags?: string[];
+  photographer?: string;
+  location?: string;
+  date?: Date;
+  featured?: boolean;
 }
 
 interface InteractiveGalleryProps {
-  images: GalleryImage[]
-  title?: string
-  showThumbnails?: boolean
-  showCategories?: boolean
-  enableDownload?: boolean
-  enableSharing?: boolean
-  autoPlay?: boolean
-  autoPlayInterval?: number
-  className?: string
+  images: GalleryImage[];
+  title?: string;
+  showThumbnails?: boolean;
+  showCategories?: boolean;
+  enableDownload?: boolean;
+  enableSharing?: boolean;
+  autoPlay?: boolean;
+  autoPlayInterval?: number;
+  className?: string;
 }
 
 const InteractiveGallery = ({
@@ -43,51 +43,51 @@ const InteractiveGallery = ({
   enableSharing = true,
   autoPlay = false,
   autoPlayInterval = 5000,
-  className = '',
+  className = "",
 }: InteractiveGalleryProps) => {
-  const { trackEvent } = useAnalytics()
+  const { trackEvent } = useAnalytics();
 
-  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null)
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isFullscreen, setIsFullscreen] = useState(false)
-  const [selectedCategory, setSelectedCategory] = useState('')
-  const [zoom, setZoom] = useState(1)
-  const [rotation, setRotation] = useState(0)
-  const [favorites, setFavorites] = useState<Set<string>>(new Set())
-  const [viewMode, setViewMode] = useState<'grid' | 'masonry'>('grid')
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [zoom, setZoom] = useState(1);
+  const [rotation, setRotation] = useState(0);
+  const [favorites, setFavorites] = useState<Set<string>>(new Set());
+  const [viewMode, setViewMode] = useState<"grid" | "masonry">("grid");
 
   // Filter images by category
   const categories = Array.from(
-    new Set(images.map(img => img.category).filter(Boolean))
-  ) as string[]
+    new Set(images.map((img) => img.category).filter(Boolean))
+  ) as string[];
   const filteredImages = selectedCategory
-    ? images.filter(img => img.category === selectedCategory)
-    : images
+    ? images.filter((img) => img.category === selectedCategory)
+    : images;
 
   // Navigation function wrapped in useCallback to prevent useEffect recreation
   const navigateImage = useCallback(
-    (direction: 'prev' | 'next') => {
+    (direction: "prev" | "next") => {
       const newIndex =
-        direction === 'next'
+        direction === "next"
           ? (currentIndex + 1) % filteredImages.length
-          : (currentIndex - 1 + filteredImages.length) % filteredImages.length
+          : (currentIndex - 1 + filteredImages.length) % filteredImages.length;
 
-      setCurrentIndex(newIndex)
-      setSelectedImage(filteredImages[newIndex])
-      setZoom(1)
-      setRotation(0)
+      setCurrentIndex(newIndex);
+      setSelectedImage(filteredImages[newIndex]);
+      setZoom(1);
+      setRotation(0);
     },
     [currentIndex, filteredImages]
-  )
+  );
 
   // Auto-play functionality
   useEffect(() => {
     if (autoPlay && selectedImage && !isFullscreen) {
       const interval = setInterval(() => {
-        setCurrentIndex(prev => (prev + 1) % filteredImages.length)
-      }, autoPlayInterval)
+        setCurrentIndex((prev) => (prev + 1) % filteredImages.length);
+      }, autoPlayInterval);
 
-      return () => clearInterval(interval)
+      return () => clearInterval(interval);
     }
   }, [
     autoPlay,
@@ -95,97 +95,97 @@ const InteractiveGallery = ({
     isFullscreen,
     autoPlayInterval,
     filteredImages.length,
-  ])
+  ]);
 
   // Keyboard navigation
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (!selectedImage) return
+      if (!selectedImage) return;
 
       switch (e.key) {
-        case 'ArrowLeft':
-          navigateImage('prev')
-          break
-        case 'ArrowRight':
-          navigateImage('next')
-          break
-        case 'Escape':
-          closeModal()
-          break
-        case '+':
-        case '=':
-          setZoom(prev => Math.min(prev + 0.25, 3))
-          break
-        case '-':
-          setZoom(prev => Math.max(prev - 0.25, 0.5))
-          break
-        case 'r':
-          setRotation(prev => prev + 90)
-          break
+        case "ArrowLeft":
+          navigateImage("prev");
+          break;
+        case "ArrowRight":
+          navigateImage("next");
+          break;
+        case "Escape":
+          closeModal();
+          break;
+        case "+":
+        case "=":
+          setZoom((prev) => Math.min(prev + 0.25, 3));
+          break;
+        case "-":
+          setZoom((prev) => Math.max(prev - 0.25, 0.5));
+          break;
+        case "r":
+          setRotation((prev) => prev + 90);
+          break;
       }
-    }
+    };
 
-    window.addEventListener('keydown', handleKeyPress)
-    return () => window.removeEventListener('keydown', handleKeyPress)
-  }, [selectedImage, navigateImage])
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, [selectedImage, navigateImage]);
 
   const openImage = (image: GalleryImage, index: number) => {
-    setSelectedImage(image)
-    setCurrentIndex(index)
-    setZoom(1)
-    setRotation(0)
+    setSelectedImage(image);
+    setCurrentIndex(index);
+    setZoom(1);
+    setRotation(0);
 
-    trackEvent('gallery_image_view', {
-      event_category: 'user_engagement',
+    trackEvent("gallery_image_view", {
+      event_category: "user_engagement",
       image_id: image.id,
       image_title: image.title || image.alt,
-    })
-  }
+    });
+  };
 
   const closeModal = () => {
-    setSelectedImage(null)
-    setIsFullscreen(false)
-    setZoom(1)
-    setRotation(0)
-  }
+    setSelectedImage(null);
+    setIsFullscreen(false);
+    setZoom(1);
+    setRotation(0);
+  };
 
   const toggleFavorite = (imageId: string) => {
-    setFavorites(prev => {
-      const newFavorites = new Set(prev)
+    setFavorites((prev) => {
+      const newFavorites = new Set(prev);
       if (newFavorites.has(imageId)) {
-        newFavorites.delete(imageId)
+        newFavorites.delete(imageId);
       } else {
-        newFavorites.add(imageId)
+        newFavorites.add(imageId);
       }
-      return newFavorites
-    })
+      return newFavorites;
+    });
 
-    trackEvent('gallery_favorite_toggle', {
-      event_category: 'user_engagement',
+    trackEvent("gallery_favorite_toggle", {
+      event_category: "user_engagement",
       image_id: imageId,
-      action: favorites.has(imageId) ? 'remove' : 'add',
-    })
-  }
+      action: favorites.has(imageId) ? "remove" : "add",
+    });
+  };
 
   const downloadImage = async (image: GalleryImage) => {
     try {
-      const response = await fetch(image.src)
-      const blob = await response.blob()
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = image.title || image.alt || 'image'
-      a.click()
-      URL.revokeObjectURL(url)
+      const response = await fetch(image.src);
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = image.title || image.alt || "image";
+      a.click();
+      URL.revokeObjectURL(url);
 
-      trackEvent('gallery_image_download', {
-        event_category: 'user_engagement',
+      trackEvent("gallery_image_download", {
+        event_category: "user_engagement",
         image_id: image.id,
-      })
+      });
     } catch (error) {
-      console.error('Download failed:', error)
+      console.error("Download failed:", error);
     }
-  }
+  };
 
   const shareImage = async (image: GalleryImage) => {
     if (navigator.share) {
@@ -194,41 +194,41 @@ const InteractiveGallery = ({
           title: image.title || image.alt,
           text: image.description,
           url: window.location.href,
-        })
+        });
 
-        trackEvent('gallery_image_share', {
-          event_category: 'user_engagement',
+        trackEvent("gallery_image_share", {
+          event_category: "user_engagement",
           image_id: image.id,
-          share_method: 'native',
-        })
+          share_method: "native",
+        });
       } catch (error) {
-        console.error('Share failed:', error)
+        console.error("Share failed:", error);
       }
     } else {
       // Fallback to clipboard
-      await navigator.clipboard.writeText(window.location.href)
+      await navigator.clipboard.writeText(window.location.href);
       // You could show a toast notification here
-      trackEvent('gallery_image_share', {
-        event_category: 'user_engagement',
+      trackEvent("gallery_image_share", {
+        event_category: "user_engagement",
         image_id: image.id,
-        share_method: 'clipboard',
-      })
+        share_method: "clipboard",
+      });
     }
-  }
+  };
 
   const renderGridView = () => (
     <div
       className={`grid gap-6 ${
-        viewMode === 'grid'
-          ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
-          : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3'
+        viewMode === "grid"
+          ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          : "grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3"
       }`}
     >
       {filteredImages.map((image, index) => (
         <div
           key={image.id}
           className={`group relative overflow-hidden rounded-lg cursor-pointer transform transition-all duration-300 ${
-            viewMode === 'masonry' ? 'break-inside-avoid mb-4' : 'aspect-square'
+            viewMode === "masonry" ? "break-inside-avoid mb-4" : "aspect-square"
           }`}
           onClick={() => openImage(image, index)}
         >
@@ -252,9 +252,9 @@ const InteractiveGallery = ({
 
           {/* Favorite Button */}
           <button
-            onClick={e => {
-              e.stopPropagation()
-              toggleFavorite(image.id)
+            onClick={(e) => {
+              e.stopPropagation();
+              toggleFavorite(image.id);
             }}
             className="top-2 right-2 absolute bg-white bg-opacity-80 opacity-0 group-hover:opacity-100 p-1.5 rounded-full transition-opacity duration-300"
           >
@@ -262,8 +262,8 @@ const InteractiveGallery = ({
               icon="favorite"
               className={`h-4 w-4 ${
                 favorites.has(image.id)
-                  ? 'fill-red-500 text-red-500'
-                  : 'text-gray-600'
+                  ? "fill-red-500 text-red-500"
+                  : "text-gray-600"
               }`}
             />
           </button>
@@ -277,7 +277,7 @@ const InteractiveGallery = ({
         </div>
       ))}
     </div>
-  )
+  );
 
   return (
     <FadeInWhenVisible className={`w-full ${className}`}>
@@ -290,23 +290,23 @@ const InteractiveGallery = ({
           {showCategories && categories.length > 0 && (
             <div className="flex flex-wrap gap-2">
               <button
-                onClick={() => setSelectedCategory('')}
+                onClick={() => setSelectedCategory("")}
                 className={`px-3 py-1 text-sm rounded-full transition-colors ${
-                  selectedCategory === ''
-                    ? 'bg-primary-600 text-white'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  selectedCategory === ""
+                    ? "bg-primary-600 text-white"
+                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                 }`}
               >
                 All
               </button>
-              {categories.map(category => (
+              {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
                   className={`px-3 py-1 text-sm rounded-full transition-colors ${
                     selectedCategory === category
-                      ? 'bg-primary-600 text-white'
-                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                      ? "bg-primary-600 text-white"
+                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                   }`}
                 >
                   {category}
@@ -318,23 +318,23 @@ const InteractiveGallery = ({
           {/* View Toggle */}
           <div className="flex items-center space-x-2">
             <button
-              onClick={() => setViewMode('grid')}
+              onClick={() => setViewMode("grid")}
               aria-label="Switch to grid view"
               className={`p-2 rounded ${
-                viewMode === 'grid'
-                  ? 'bg-primary-100 text-primary-700'
-                  : 'text-gray-600'
+                viewMode === "grid"
+                  ? "bg-primary-100 text-primary-700"
+                  : "text-gray-600"
               }`}
             >
               <MaterialIcon icon="grid_view" className="w-4 h-4" />
             </button>
             <button
-              onClick={() => setViewMode('masonry')}
+              onClick={() => setViewMode("masonry")}
               aria-label="Switch to masonry view"
               className={`p-2 rounded ${
-                viewMode === 'masonry'
-                  ? 'bg-primary-100 text-primary-700'
-                  : 'text-gray-600'
+                viewMode === "masonry"
+                  ? "bg-primary-100 text-primary-700"
+                  : "text-gray-600"
               }`}
             >
               <div className="gap-0.5 grid grid-cols-2 w-4 h-4">
@@ -373,14 +373,14 @@ const InteractiveGallery = ({
 
             {/* Navigation Buttons */}
             <button
-              onClick={() => navigateImage('prev')}
+              onClick={() => navigateImage("prev")}
               className="top-1/2 left-4 z-10 absolute bg-black bg-opacity-50 hover:bg-opacity-70 p-2 rounded-full text-white transition-all -translate-y-1/2 transform"
             >
               <MaterialIcon icon="chevron_left" className="w-6 h-6" />
             </button>
 
             <button
-              onClick={() => navigateImage('next')}
+              onClick={() => navigateImage("next")}
               className="top-1/2 right-4 z-10 absolute bg-black bg-opacity-50 hover:bg-opacity-70 p-2 rounded-full text-white transition-all -translate-y-1/2 transform"
             >
               <MaterialIcon icon="chevron_right" className="w-6 h-6" />
@@ -389,19 +389,19 @@ const InteractiveGallery = ({
             {/* Controls */}
             <div className="top-4 left-4 z-10 absolute flex items-center space-x-2">
               <button
-                onClick={() => setZoom(prev => Math.max(prev - 0.25, 0.5))}
+                onClick={() => setZoom((prev) => Math.max(prev - 0.25, 0.5))}
                 className="bg-black bg-opacity-50 hover:bg-opacity-70 p-2 rounded-full text-white transition-all"
               >
                 <MaterialIcon icon="zoom_out" className="w-4 h-4" />
               </button>
               <button
-                onClick={() => setZoom(prev => Math.min(prev + 0.25, 3))}
+                onClick={() => setZoom((prev) => Math.min(prev + 0.25, 3))}
                 className="bg-black bg-opacity-50 hover:bg-opacity-70 p-2 rounded-full text-white transition-all"
               >
                 <MaterialIcon icon="zoom_in" className="w-4 h-4" />
               </button>
               <button
-                onClick={() => setRotation(prev => prev + 90)}
+                onClick={() => setRotation((prev) => prev + 90)}
                 className="bg-black bg-opacity-50 hover:bg-opacity-70 p-2 rounded-full text-white transition-all"
               >
                 <MaterialIcon icon="rotate_right" className="w-4 h-4" />
@@ -467,8 +467,8 @@ const InteractiveGallery = ({
         </div>
       )}
     </FadeInWhenVisible>
-  )
-}
+  );
+};
 
-export default InteractiveGallery
-export type { GalleryImage }
+export default InteractiveGallery;
+export type { GalleryImage };

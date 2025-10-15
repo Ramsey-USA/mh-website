@@ -18,7 +18,7 @@ import {
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { PortfolioService } from "@/lib/services/portfolioService";
-import { OptimizedImage } from "@/components/ui/OptimizedImage";
+import { OptimizedImage } from "@/components/ui/media/OptimizedImage";
 
 // Category definitions
 const categories = [

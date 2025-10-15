@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useTheme } from "@/contexts/ThemeContext";
-import { MaterialIcon } from "../icons/MaterialIcon";
+import { MaterialIcon } from "../../icons/MaterialIcon";
 
 interface ThemeToggleProps {
   size?: "sm" | "md" | "lg";

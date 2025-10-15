@@ -1,6 +1,6 @@
-import React from 'react'
-import { Button } from '@/components/ui/button'
-import { MaterialIcon } from '@/components/icons/MaterialIcon'
+import React from "react";
+import { Button } from "@/components/ui/base/button";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 /**
  * MH Construction Button System Test Component
@@ -315,7 +315,7 @@ export function ButtonSystemTest() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default ButtonSystemTest
+export default ButtonSystemTest;

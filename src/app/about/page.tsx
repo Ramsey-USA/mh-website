@@ -15,7 +15,7 @@ import {
   StaggeredFadeIn,
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
-import { OptimizedImage } from "@/components/ui/OptimizedImage";
+import { OptimizedImage } from "@/components/ui/media/OptimizedImage";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 

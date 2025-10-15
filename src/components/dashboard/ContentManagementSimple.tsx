@@ -1,139 +1,139 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
+import { useState } from "react";
+import { Button } from "@/components/ui/base/button";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
-} from '@/components/animations/FramerMotionComponents'
-import { useAuth } from '@/lib/auth/AuthContext'
-import { useAnalytics } from '@/components/analytics/enhanced-analytics'
-import { MaterialIcon } from '@/components/icons/MaterialIcon'
+} from "@/components/animations/FramerMotionComponents";
+import { useAuth } from "@/lib/auth/AuthContext";
+import { useAnalytics } from "@/components/analytics/enhanced-analytics";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 // Mock data for demonstration
 const mockBlogPosts = [
   {
-    id: '1',
-    title: 'Winter Construction Preparation Tips',
+    id: "1",
+    title: "Winter Construction Preparation Tips",
     excerpt:
-      'Essential steps to prepare your construction projects for winter weather.',
-    category: 'construction-tips',
+      "Essential steps to prepare your construction projects for winter weather.",
+    category: "construction-tips",
     published: true,
     createdAt: new Date(),
   },
   {
-    id: '2',
-    title: 'Sustainable Building Materials Guide',
-    excerpt: 'Exploring eco-friendly construction materials for modern homes.',
-    category: 'industry-insights',
+    id: "2",
+    title: "Sustainable Building Materials Guide",
+    excerpt: "Exploring eco-friendly construction materials for modern homes.",
+    category: "industry-insights",
     published: true,
     createdAt: new Date(),
   },
-]
+];
 
 const mockProjects = [
   {
-    id: '1',
-    title: 'Luxury Mountain Home Renovation',
-    description: 'Complete renovation of a 4,000 sq ft mountain home.',
-    category: 'residential',
-    location: 'Spokane, WA',
+    id: "1",
+    title: "Luxury Mountain Home Renovation",
+    description: "Complete renovation of a 4,000 sq ft mountain home.",
+    category: "residential",
+    location: "Spokane, WA",
     featured: true,
     createdAt: new Date(),
   },
   {
-    id: '2',
-    title: 'Modern Office Complex',
-    description: 'New construction of a 15,000 sq ft office complex.',
-    category: 'commercial',
-    location: 'Seattle, WA',
+    id: "2",
+    title: "Modern Office Complex",
+    description: "New construction of a 15,000 sq ft office complex.",
+    category: "commercial",
+    location: "Seattle, WA",
     featured: false,
     createdAt: new Date(),
   },
-]
+];
 
 const mockTestimonials = [
   {
-    id: '1',
+    id: "1",
     content:
-      'MH Construction delivered exceptional results on our home renovation. Their attention to detail and professionalism exceeded our expectations.',
-    author: 'Sarah Johnson',
-    position: 'Homeowner',
+      "MH Construction delivered exceptional results on our home renovation. Their attention to detail and professionalism exceeded our expectations.",
+    author: "Sarah Johnson",
+    position: "Homeowner",
     rating: 5,
     featured: true,
     approved: true,
     createdAt: new Date(),
   },
   {
-    id: '2',
+    id: "2",
     content:
-      'Professional service from start to finish. The team was knowledgeable and completed our project on time and within budget.',
-    author: 'Mike Chen',
-    position: 'Business Owner',
+      "Professional service from start to finish. The team was knowledgeable and completed our project on time and within budget.",
+    author: "Mike Chen",
+    position: "Business Owner",
     rating: 5,
     featured: false,
     approved: true,
     createdAt: new Date(),
   },
-]
+];
 
-type ContentType = 'blog' | 'portfolio' | 'testimonials'
+type ContentType = "blog" | "portfolio" | "testimonials";
 
 const ContentManagement = () => {
-  const { user } = useAuth()
-  const { trackEvent } = useAnalytics()
+  const { user } = useAuth();
+  const { trackEvent } = useAnalytics();
 
-  const [activeTab, setActiveTab] = useState<ContentType>('blog')
-  const [showForm, setShowForm] = useState(false)
-  const [editingItem, setEditingItem] = useState<any>(null)
-  const [formData, setFormData] = useState<any>({})
+  const [activeTab, setActiveTab] = useState<ContentType>("blog");
+  const [showForm, setShowForm] = useState(false);
+  const [editingItem, setEditingItem] = useState<any>(null);
+  const [formData, setFormData] = useState<any>({});
 
   const resetForm = () => {
-    setFormData({})
-    setEditingItem(null)
-    setShowForm(false)
-  }
+    setFormData({});
+    setEditingItem(null);
+    setShowForm(false);
+  };
 
   const startEdit = (item: any) => {
-    setEditingItem(item)
-    setFormData(item)
-    setShowForm(true)
-  }
+    setEditingItem(item);
+    setFormData(item);
+    setShowForm(true);
+  };
 
   const handleSave = () => {
     // This would normally save to Firebase
-    console.log('Saving:', formData)
-    trackEvent('content_saved', {
-      event_category: 'content_management',
+    console.log("Saving:", formData);
+    trackEvent("content_saved", {
+      event_category: "content_management",
       content_type: activeTab,
-    })
-    resetForm()
-  }
+    });
+    resetForm();
+  };
 
   const handleDelete = (item: any) => {
-    if (!confirm('Are you sure you want to delete this item?')) return
+    if (!confirm("Are you sure you want to delete this item?")) return;
     // This would normally delete from Firebase
-    console.log('Deleting:', item.id)
-    trackEvent('content_deleted', {
-      event_category: 'content_management',
+    console.log("Deleting:", item.id);
+    trackEvent("content_deleted", {
+      event_category: "content_management",
       content_type: activeTab,
       content_id: item.id,
-    })
-  }
+    });
+  };
 
   const renderContentList = () => {
-    let items: any[] = []
+    let items: any[] = [];
 
     switch (activeTab) {
-      case 'blog':
-        items = mockBlogPosts
-        break
-      case 'portfolio':
-        items = mockProjects
-        break
-      case 'testimonials':
-        items = mockTestimonials
-        break
+      case "blog":
+        items = mockBlogPosts;
+        break;
+      case "portfolio":
+        items = mockProjects;
+        break;
+      case "testimonials":
+        items = mockTestimonials;
+        break;
     }
 
     if (items.length === 0) {
@@ -141,12 +141,12 @@ const ContentManagement = () => {
         <div className="py-8 text-gray-500 text-center">
           No {activeTab} found. Create your first item!
         </div>
-      )
+      );
     }
 
     return (
       <StaggeredFadeIn className="space-y-4">
-        {items.map(item => (
+        {items.map((item) => (
           <div
             key={item.id}
             className="bg-white shadow-sm p-4 border rounded-lg"
@@ -157,19 +157,19 @@ const ContentManagement = () => {
                   {item.title || item.author}
                 </h3>
                 <p className="mt-1 text-gray-600">
-                  {activeTab === 'blog' && item.excerpt}
-                  {activeTab === 'portfolio' && item.description}
-                  {activeTab === 'testimonials' &&
-                    item.content?.substring(0, 100) + '...'}
+                  {activeTab === "blog" && item.excerpt}
+                  {activeTab === "portfolio" && item.description}
+                  {activeTab === "testimonials" &&
+                    item.content?.substring(0, 100) + "..."}
                 </p>
                 <div className="flex items-center space-x-4 mt-2 text-gray-500 text-sm">
-                  {activeTab === 'blog' && (
+                  {activeTab === "blog" && (
                     <>
                       <span>Category: {item.category}</span>
-                      <span>{item.published ? 'Published' : 'Draft'}</span>
+                      <span>{item.published ? "Published" : "Draft"}</span>
                     </>
                   )}
-                  {activeTab === 'portfolio' && (
+                  {activeTab === "portfolio" && (
                     <>
                       <span>{item.category}</span>
                       <span>{item.location}</span>
@@ -178,7 +178,7 @@ const ContentManagement = () => {
                       )}
                     </>
                   )}
-                  {activeTab === 'testimonials' && (
+                  {activeTab === "testimonials" && (
                     <>
                       <span>{item.rating} [STAR]</span>
                       {item.featured && (
@@ -192,7 +192,7 @@ const ContentManagement = () => {
                     </>
                   )}
                   <span>
-                    {item.createdAt?.toLocaleDateString?.() || 'Unknown date'}
+                    {item.createdAt?.toLocaleDateString?.() || "Unknown date"}
                   </span>
                 </div>
               </div>
@@ -217,23 +217,23 @@ const ContentManagement = () => {
           </div>
         ))}
       </StaggeredFadeIn>
-    )
-  }
+    );
+  };
 
   const renderForm = () => (
     <div className="space-y-4">
       <div>
         <label className="block mb-2 font-medium text-sm">
-          {activeTab === 'blog'
-            ? 'Title'
-            : activeTab === 'portfolio'
-              ? 'Project Title'
-              : 'Testimonial Content'}
+          {activeTab === "blog"
+            ? "Title"
+            : activeTab === "portfolio"
+              ? "Project Title"
+              : "Testimonial Content"}
         </label>
-        {activeTab === 'testimonials' ? (
+        {activeTab === "testimonials" ? (
           <textarea
-            value={formData.content || ''}
-            onChange={e =>
+            value={formData.content || ""}
+            onChange={(e) =>
               setFormData({ ...formData, content: e.target.value })
             }
             className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 w-full"
@@ -243,44 +243,46 @@ const ContentManagement = () => {
         ) : (
           <input
             type="text"
-            value={formData.title || ''}
-            onChange={e => setFormData({ ...formData, title: e.target.value })}
+            value={formData.title || ""}
+            onChange={(e) =>
+              setFormData({ ...formData, title: e.target.value })
+            }
             className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 w-full"
             placeholder={`Enter ${
-              activeTab === 'blog' ? 'blog post' : 'project'
+              activeTab === "blog" ? "blog post" : "project"
             } title`}
           />
         )}
       </div>
 
-      {activeTab !== 'testimonials' && (
+      {activeTab !== "testimonials" && (
         <div>
           <label className="block mb-2 font-medium text-sm">
-            {activeTab === 'blog' ? 'Excerpt' : 'Description'}
+            {activeTab === "blog" ? "Excerpt" : "Description"}
           </label>
           <textarea
             value={
-              activeTab === 'blog'
-                ? formData.excerpt || ''
-                : formData.description || ''
+              activeTab === "blog"
+                ? formData.excerpt || ""
+                : formData.description || ""
             }
-            onChange={e =>
+            onChange={(e) =>
               setFormData({
                 ...formData,
-                [activeTab === 'blog' ? 'excerpt' : 'description']:
+                [activeTab === "blog" ? "excerpt" : "description"]:
                   e.target.value,
               })
             }
             className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 w-full"
             rows={3}
             placeholder={`Brief ${
-              activeTab === 'blog' ? 'excerpt' : 'description'
+              activeTab === "blog" ? "excerpt" : "description"
             }`}
           />
         </div>
       )}
 
-      {activeTab === 'testimonials' && (
+      {activeTab === "testimonials" && (
         <div className="gap-4 grid md:grid-cols-2">
           <div>
             <label className="block mb-2 font-medium text-sm">
@@ -288,8 +290,8 @@ const ContentManagement = () => {
             </label>
             <input
               type="text"
-              value={formData.author || ''}
-              onChange={e =>
+              value={formData.author || ""}
+              onChange={(e) =>
                 setFormData({ ...formData, author: e.target.value })
               }
               className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 w-full"
@@ -302,8 +304,8 @@ const ContentManagement = () => {
             </label>
             <input
               type="text"
-              value={formData.position || ''}
-              onChange={e =>
+              value={formData.position || ""}
+              onChange={(e) =>
                 setFormData({ ...formData, position: e.target.value })
               }
               className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 w-full"
@@ -318,24 +320,24 @@ const ContentManagement = () => {
           <input
             type="checkbox"
             checked={formData.featured || formData.published || false}
-            onChange={e =>
+            onChange={(e) =>
               setFormData({
                 ...formData,
-                [activeTab === 'blog' ? 'published' : 'featured']:
+                [activeTab === "blog" ? "published" : "featured"]:
                   e.target.checked,
               })
             }
             className="mr-2"
           />
-          {activeTab === 'blog' ? 'Published' : 'Featured'}
+          {activeTab === "blog" ? "Published" : "Featured"}
         </label>
 
-        {activeTab === 'testimonials' && (
+        {activeTab === "testimonials" && (
           <label className="flex items-center">
             <input
               type="checkbox"
               checked={formData.approved || false}
-              onChange={e =>
+              onChange={(e) =>
                 setFormData({ ...formData, approved: e.target.checked })
               }
               className="mr-2"
@@ -345,14 +347,14 @@ const ContentManagement = () => {
         )}
       </div>
     </div>
-  )
+  );
 
   if (!user) {
     return (
       <div className="py-8 text-center">
         <p>Please log in to access content management.</p>
       </div>
-    )
+    );
   }
 
   return (
@@ -361,25 +363,25 @@ const ContentManagement = () => {
         <h1 className="font-bold text-3xl">Content Management</h1>
         <Button onClick={() => setShowForm(true)}>
           <MaterialIcon icon="add" className="mr-2 w-4 h-4" />
-          Add{' '}
-          {activeTab === 'blog'
-            ? 'Post'
-            : activeTab === 'portfolio'
-              ? 'Project'
-              : 'Testimonial'}
+          Add{" "}
+          {activeTab === "blog"
+            ? "Post"
+            : activeTab === "portfolio"
+              ? "Project"
+              : "Testimonial"}
         </Button>
       </div>
 
       {/* Tabs */}
       <div className="flex space-x-1 bg-gray-100 p-1 rounded-lg">
-        {(['blog', 'portfolio', 'testimonials'] as ContentType[]).map(tab => (
+        {(["blog", "portfolio", "testimonials"] as ContentType[]).map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`flex-1 py-2 px-4 rounded-md font-medium transition-colors ${
               activeTab === tab
-                ? 'bg-white text-primary-600 shadow-sm'
-                : 'text-gray-600 hover:text-gray-900'
+                ? "bg-white text-primary-600 shadow-sm"
+                : "text-gray-600 hover:text-gray-900"
             }`}
           >
             {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -394,12 +396,12 @@ const ContentManagement = () => {
             <div className="p-6">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="font-bold text-2xl">
-                  {editingItem ? 'Edit' : 'Add'}{' '}
-                  {activeTab === 'blog'
-                    ? 'Blog Post'
-                    : activeTab === 'portfolio'
-                      ? 'Portfolio Project'
-                      : 'Testimonial'}
+                  {editingItem ? "Edit" : "Add"}{" "}
+                  {activeTab === "blog"
+                    ? "Blog Post"
+                    : activeTab === "portfolio"
+                      ? "Portfolio Project"
+                      : "Testimonial"}
                 </h2>
                 <Button variant="outline" onClick={resetForm}>
                   <MaterialIcon icon="close" className="w-4 h-4" />
@@ -415,7 +417,7 @@ const ContentManagement = () => {
                 </Button>
                 <Button onClick={handleSave}>
                   <MaterialIcon icon="save" className="mr-2 w-4 h-4" />
-                  {editingItem ? 'Update' : 'Create'}
+                  {editingItem ? "Update" : "Create"}
                 </Button>
               </div>
             </div>
@@ -426,7 +428,7 @@ const ContentManagement = () => {
       {/* Content List */}
       <div className="bg-gray-50 p-6 rounded-lg">{renderContentList()}</div>
     </FadeInWhenVisible>
-  )
-}
+  );
+};
 
-export default ContentManagement
+export default ContentManagement;

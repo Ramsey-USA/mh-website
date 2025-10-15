@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ThemeToggle } from "../ui/ThemeToggle";
+import { ThemeToggle } from "../ui/layout/ThemeToggle";
 import { MaterialIcon } from "../icons/MaterialIcon";
 
 export function Navigation() {
@@ -140,15 +140,43 @@ export function Navigation() {
                   {[
                     { href: "/", label: "Home", icon: "home" },
                     { href: "/about", label: "Our Story", icon: "info" },
-                    { href: "/services", label: "Partnership Approach", icon: "build" },
+                    {
+                      href: "/services",
+                      label: "Partnership Approach",
+                      icon: "build",
+                    },
                     { href: "/team", label: "Our Team", icon: "people" },
-                    { href: "/projects", label: "Success Stories", icon: "photo_library" },
-                    { href: "/government", label: "Government", icon: "account_balance" },
-                    { href: "/trade-partners", label: "Trade Partners", icon: "business" },
+                    {
+                      href: "/projects",
+                      label: "Success Stories",
+                      icon: "photo_library",
+                    },
+                    {
+                      href: "/government",
+                      label: "Government",
+                      icon: "account_balance",
+                    },
+                    {
+                      href: "/trade-partners",
+                      label: "Trade Partners",
+                      icon: "business",
+                    },
                     { href: "/careers", label: "Join Our Team", icon: "badge" },
-                    { href: "/contact", label: "Connect With Us", icon: "contact_phone" },
-                    { href: "/estimator", label: "AI Estimator", icon: "calculate" },
-                    { href: "/booking", label: "Start Partnership", icon: "handshake" },
+                    {
+                      href: "/contact",
+                      label: "Connect With Us",
+                      icon: "contact_phone",
+                    },
+                    {
+                      href: "/estimator",
+                      label: "AI Estimator",
+                      icon: "calculate",
+                    },
+                    {
+                      href: "/booking",
+                      label: "Start Partnership",
+                      icon: "handshake",
+                    },
                   ].map((item, index) => (
                     <Link
                       key={item.href}

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ThemeToggle } from "../ui/ThemeToggle";
+import { ThemeToggle } from "../ui/layout/ThemeToggle";
 import { MaterialIcon } from "../icons/MaterialIcon";
 
 /**

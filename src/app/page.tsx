@@ -47,7 +47,7 @@ import {
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
 import { useAnalytics } from "@/components/analytics/enhanced-analytics";
-import { OptimizedImage } from "@/components/ui/OptimizedImage";
+import { OptimizedImage } from "@/components/ui/media/OptimizedImage";
 import {
   useIntersectionObserver,
   useImagePreloader,

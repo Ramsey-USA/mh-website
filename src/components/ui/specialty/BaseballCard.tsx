@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { MaterialIcon } from "../icons/MaterialIcon";
+import { MaterialIcon } from "../../icons/MaterialIcon";
 import { TeamMember } from "@/lib/data/team";
 
 /**

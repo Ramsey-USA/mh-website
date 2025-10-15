@@ -63,19 +63,19 @@ done
 echo ""
 
 # 4. Move test files from root
-echo "${YELLOW}Step 4: Moving test files to scripts/tests/...${NC}"
-mkdir -p /workspaces/mh-website/scripts/tests
+echo "${YELLOW}Step 4: Moving test files to testing/...${NC}"
+mkdir -p /workspaces/mh-website/testing
 
 if [ -f /workspaces/mh-website/test-responsive-complete.html ]; then
-    mv /workspaces/mh-website/test-responsive-complete.html /workspaces/mh-website/scripts/tests/
+    mv /workspaces/mh-website/test-responsive-complete.html /workspaces/mh-website/testing/
     echo "${GREEN}✓ Moved test-responsive-complete.html${NC}"
 else
     echo "test-responsive-complete.html not found"
 fi
 
 if [ -f /workspaces/mh-website/test-responsive.sh ]; then
-    mv /workspaces/mh-website/test-responsive.sh /workspaces/mh-website/scripts/tests/
-    chmod +x /workspaces/mh-website/scripts/tests/test-responsive.sh
+    mv /workspaces/mh-website/test-responsive.sh /workspaces/mh-website/testing/
+    chmod +x /workspaces/mh-website/testing/test-responsive.sh
     echo "${GREEN}✓ Moved test-responsive.sh${NC}"
 else
     echo "test-responsive.sh not found"

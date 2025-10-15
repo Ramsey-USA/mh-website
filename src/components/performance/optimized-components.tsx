@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
-import React, { Suspense, lazy } from 'react'
-import Image from 'next/image'
+import React, { Suspense, lazy } from "react";
+import Image from "next/image";
 import {
   PortfolioCardSkeleton,
   LoadingPlaceholder,
-} from '@/components/ui/loading-placeholder'
+} from "@/components/ui/layout/loading-placeholder";
 
 // Lazy load heavy components
 // PortfolioImage and ProjectGalleryImage lazy imports removed for clean slate migration
@@ -13,14 +13,14 @@ import {
 // Optimized portfolio card with lazy loading
 interface PortfolioCardProps {
   project: {
-    title: string
-    description: string
-    category: string
-    location: { city: string; state: string }
-    details: { completionDate?: string }
-    images: Array<{ url: string }>
-  }
-  priority?: boolean
+    title: string;
+    description: string;
+    category: string;
+    location: { city: string; state: string };
+    details: { completionDate?: string };
+    images: Array<{ url: string }>;
+  };
+  priority?: boolean;
 }
 
 export function OptimizedPortfolioCard({
@@ -31,7 +31,7 @@ export function OptimizedPortfolioCard({
     <div className="group cursor-pointer">
       <div className="relative mb-4 rounded-lg h-64 overflow-hidden">
         <Image
-          src={project.images[0]?.url || '/placeholder-construction.jpg'}
+          src={project.images[0]?.url || "/placeholder-construction.jpg"}
           alt={project.title}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -60,14 +60,14 @@ export function OptimizedPortfolioCard({
           ` • ${new Date(project.details.completionDate).getFullYear()}`}
       </div>
     </div>
-  )
+  );
 }
 
 // Optimized gallery for project detail pages
 interface OptimizedGalleryProps {
-  images: Array<{ url: string; caption?: string }>
-  activeIndex: number
-  onImageClick: (index: number) => void
+  images: Array<{ url: string; caption?: string }>;
+  activeIndex: number;
+  onImageClick: (index: number) => void;
 }
 
 export function OptimizedGallery({
@@ -80,8 +80,8 @@ export function OptimizedGallery({
       {/* Main Image */}
       <div className="relative rounded-lg h-96 lg:h-[500px] overflow-hidden">
         <Image
-          src={images[activeIndex]?.url || '/placeholder-construction.jpg'}
-          alt={images[activeIndex]?.caption || 'Project image'}
+          src={images[activeIndex]?.url || "/placeholder-construction.jpg"}
+          alt={images[activeIndex]?.caption || "Project image"}
           fill
           className="object-cover"
           sizes="(max-width: 1024px) 100vw, 50vw"
@@ -98,8 +98,8 @@ export function OptimizedGallery({
               key={index}
               className={`relative h-20 rounded cursor-pointer transition-opacity ${
                 index === activeIndex
-                  ? 'ring-2 ring-primary-500'
-                  : 'hover:opacity-80'
+                  ? "ring-2 ring-primary-500"
+                  : "hover:opacity-80"
               }`}
               onClick={() => onImageClick(index)}
             >
@@ -115,23 +115,23 @@ export function OptimizedGallery({
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // Performance monitoring component
 export function WebVitalsReporter() {
   React.useEffect(() => {
     // Only load web vitals in production
-    if (process.env.NODE_ENV === 'production') {
-      import('web-vitals').then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
-        onCLS(console.log)
-        onINP(console.log)
-        onFCP(console.log)
-        onLCP(console.log)
-        onTTFB(console.log)
-      })
+    if (process.env.NODE_ENV === "production") {
+      import("web-vitals").then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
+        onCLS(console.log);
+        onINP(console.log);
+        onFCP(console.log);
+        onLCP(console.log);
+        onTTFB(console.log);
+      });
     }
-  }, [])
+  }, []);
 
-  return null
+  return null;
 }

@@ -34,14 +34,14 @@ jobs:
 
       - name: Check for broken links
         run: |
-          chmod +x scripts/validate-markdown-links.sh
-          bash scripts/validate-markdown-links.sh
+          chmod +x scripts/markdown/validate-markdown-links.sh
+          bash scripts/markdown/validate-markdown-links.sh
         continue-on-error: true
 
       - name: Analyze content quality
         run: |
-          chmod +x scripts/analyze-content-quality.sh
-          bash scripts/analyze-content-quality.sh
+          chmod +x scripts/analysis/analyze-content-quality.sh
+          bash scripts/analysis/analyze-content-quality.sh
         continue-on-error: true
 
   markdown-formatting:

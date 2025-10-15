@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Button, Card, CardHeader, CardTitle, CardContent } from "../ui";
-import { MaterialIcon } from "../icons/MaterialIcon";
+import { Button, Card, CardHeader, CardTitle, CardContent } from "../";
+import { MaterialIcon } from "../../icons/MaterialIcon";
 
 interface QuickBookingModalProps {
   isOpen: boolean;

@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { MaterialIcon } from "../icons/MaterialIcon";
-import { FadeInWhenVisible } from "../animations/FramerMotionComponents";
+import { MaterialIcon } from "../../icons/MaterialIcon";
+import { FadeInWhenVisible } from "../../animations/FramerMotionComponents";
 
 interface PageHeroProps {
   title: string;

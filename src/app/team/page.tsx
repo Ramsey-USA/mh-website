@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui";
-import { VintageBaseballCard } from "@/components/ui/VintageBaseballCard";
+import { VintageBaseballCard } from "@/components/ui/specialty/VintageBaseballCard";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
