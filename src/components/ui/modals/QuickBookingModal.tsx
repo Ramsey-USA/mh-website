@@ -126,21 +126,20 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                     className="mr-4 w-16 h-16 object-contain"
                   />
                   <div>
-                    <div>Start Our Partnership Discussion</div>
+                    <div>Schedule Free Consultation</div>
                     <div className="mt-1 font-normal text-white/90 text-lg">
-                      Schedule your free partnership consultation in under 2
-                      minutes
+                      Book your site visit in under 2 minutes
                     </div>
                   </div>
                 </CardTitle>
                 <div className="flex items-center space-x-6 mt-4 text-white/80 text-sm">
                   <div className="flex items-center space-x-2">
                     <MaterialIcon icon="schedule" size="sm" />
-                    <span>60-minute partnership discussion</span>
+                    <span>60-minute site visit</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <MaterialIcon icon="location_on" size="sm" />
-                    <span>On-site collaboration</span>
+                    <span>On-site consultation</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <MaterialIcon icon="payments" size="sm" />
@@ -172,7 +171,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                       1
                     </div>
                     <span className="ml-2 font-medium text-gray-200">
-                      Select Partnership Date & Time
+                      Select Date & Time
                     </span>
                   </div>
                   <div className="bg-gray-600 dark:bg-gray-400 w-12 h-0.5" />
@@ -181,7 +180,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                       2
                     </div>
                     <span className="ml-2 text-gray-400 dark:text-gray-500 text-sm">
-                      Partnership Information
+                      Contact Information
                     </span>
                   </div>
                 </div>
@@ -189,7 +188,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                 <div>
                   <div className="flex justify-between items-center mb-6">
                     <h3 className="font-bold text-gray-900 dark:text-white text-xl">
-                      Choose Your Partnership Meeting Date
+                      Choose Your Consultation Date
                     </h3>
                     <div className="flex items-center space-x-2 bg-amber-900/50 px-3 py-1 border border-amber-700 rounded-full text-amber-300 text-sm">
                       <MaterialIcon icon="check_circle" size="sm" />
@@ -232,7 +231,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                   <div className="slide-in-from-bottom animate-in duration-300">
                     <div className="flex justify-between items-center mb-6">
                       <h3 className="font-bold text-gray-900 dark:text-white text-xl">
-                        Select Your Partnership Discussion Time
+                        Select Your Consultation Time
                       </h3>
                       <div className="flex items-center space-x-2 bg-blue-900/50 px-3 py-1 border border-blue-700 rounded-full text-blue-300 text-sm">
                         <MaterialIcon icon="access_time" size="sm" />
@@ -276,11 +275,10 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                           className="mr-2 text-brand-primary"
                         />
                         <span className="font-bold text-brand-primary text-lg">
-                          Partnership Discussion Scheduled
+                          Consultation Scheduled
                         </span>
                       </div>
                       <p className="font-semibold text-gray-900 dark:text-white text-lg">
-                        [EVENT]{" "}
                         {
                           quickDays.find((d) => d.date === selectedDate)
                             ?.fullDate
@@ -289,18 +287,18 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                       </p>
                       <p className="mt-2 text-gray-600 dark:text-gray-300 text-sm">
                         Our expert team will visit your location for a
-                        comprehensive partnership consultation to discuss your
-                        vision
+                        comprehensive site consultation to discuss your vision
                       </p>
                     </div>
                     <div className="flex gap-4">
                       <Button
                         onClick={() => setStep(2)}
                         size="lg"
-                        className="flex-1 bg-brand-primary hover:bg-brand-accent shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                        variant="primary"
+                        className="flex-1 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                       >
                         <MaterialIcon icon="arrow_forward" className="mr-2" />
-                        Continue to Partnership Details
+                        Continue to Details
                       </Button>
                       <Button
                         variant="outline"
@@ -308,7 +306,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                         className="hover:bg-brand-primary border-2 border-brand-primary text-brand-primary hover:text-white transition-all duration-300"
                       >
                         <MaterialIcon icon="event" className="mr-2" />
-                        Full Partnership Planning
+                        Full Booking Form
                       </Button>
                     </div>
                   </div>
@@ -325,7 +323,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                       <MaterialIcon icon="check" size="sm" />
                     </div>
                     <span className="ml-2 font-medium text-amber-400 text-sm">
-                      Partnership Schedule
+                      Date & Time
                     </span>
                   </div>
                   <div className="bg-brand-primary w-12 h-0.5" />
@@ -334,7 +332,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                       2
                     </div>
                     <span className="ml-2 font-medium text-gray-200">
-                      Partnership Information
+                      Contact Details
                     </span>
                   </div>
                 </div>
@@ -349,11 +347,10 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                           className="mr-2 text-amber-400"
                         />
                         <span className="font-bold text-amber-300">
-                          Partnership Meeting Confirmed
+                          Consultation Time Selected
                         </span>
                       </div>
                       <p className="font-semibold text-gray-900 dark:text-white text-lg">
-                        [EVENT]{" "}
                         {
                           quickDays.find((d) => d.date === selectedDate)
                             ?.fullDate
@@ -375,7 +372,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
 
                 <div>
                   <h3 className="mb-6 font-bold text-gray-900 dark:text-white text-xl">
-                    Tell Us About Your Partnership Project
+                    Tell Us About Your Project
                   </h3>
 
                   <div className="space-y-6">
@@ -490,7 +487,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                           60-Minute
                         </div>
                         <div className="text-gray-600 dark:text-gray-300 text-xs">
-                          Partnership Discussion
+                          Site Visit
                         </div>
                       </div>
                       <div className="bg-gray-50 dark:bg-gray-700 p-4 border border-gray-200 dark:border-gray-600 rounded-xl text-center">
@@ -537,10 +534,11 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                     disabled={
                       !formData.name || !formData.email || !formData.phone
                     }
-                    className="flex-1 bg-gradient-to-r from-brand-primary hover:from-brand-accent to-brand-accent hover:to-brand-primary disabled:opacity-50 shadow-lg hover:shadow-xl hover:scale-105 disabled:hover:scale-100 transition-all duration-300 disabled:cursor-not-allowed btn-glow"
+                    variant="primary"
+                    className="flex-1 disabled:opacity-50 shadow-lg hover:shadow-xl hover:scale-105 disabled:hover:scale-100 transition-all duration-300 disabled:cursor-not-allowed"
                   >
-                    <MaterialIcon icon="check_circle" className="mr-2" />
-                    Schedule Our Partnership Discussion
+                    <MaterialIcon icon="event" className="mr-2" />
+                    Schedule Free Consultation
                   </Button>
                 </div>
               </div>

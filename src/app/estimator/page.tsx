@@ -266,7 +266,8 @@ export default function EstimatorPage() {
                   <div className="mt-6 pt-4 border-t">
                     <Link href="/booking">
                       <Button variant="primary" className="w-full">
-                        Schedule Partnership Discussion
+                        <MaterialIcon icon="event" className="mr-2" />
+                        Schedule Free Consultation
                       </Button>
                     </Link>
                   </div>
@@ -475,11 +476,8 @@ export default function EstimatorPage() {
             <div className="flex sm:flex-row flex-col justify-center gap-4">
               <Link href="/booking">
                 <Button variant="primary" size="lg">
-                  <MaterialIcon
-                    icon="calendar_today"
-                    className="mr-2 w-5 h-5"
-                  />
-                  Schedule Human Consultation
+                  <MaterialIcon icon="event" className="mr-2 w-5 h-5" />
+                  Schedule Free Consultation
                 </Button>
               </Link>
               <Link href="/contact">

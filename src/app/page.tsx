@@ -419,10 +419,10 @@ export default function Home() {
           >
             {[
               {
-                title: "Try AI Estimator",
-                description: "Start partnership planning",
+                title: "Get Instant AI Estimate",
+                description: "Try our AI cost calculator",
                 href: "/estimator",
-                variant: "primary" as const,
+                variant: "secondary" as const,
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="smart_toy"
@@ -432,23 +432,23 @@ export default function Home() {
                 ),
               },
               {
-                title: "Begin Partnership",
-                description: "Schedule your consultation",
+                title: "Schedule Free Consultation",
+                description: "Book your site visit",
                 href: "/booking",
-                variant: "secondary" as const,
+                variant: "primary" as const,
                 icon: ({ size }: any) => (
                   <MaterialIcon
-                    icon="handshake"
+                    icon="event"
                     size={size}
                     className="text-current"
                   />
                 ),
               },
               {
-                title: "Partnership Stories",
+                title: "View Portfolio",
                 description: "Explore our collaborations",
                 href: "/portfolio",
-                variant: "secondary" as const,
+                variant: "outline" as const,
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="visibility"
@@ -458,10 +458,10 @@ export default function Home() {
                 ),
               },
               {
-                title: "Chat with Us",
+                title: "Connect with Expert",
                 description: "Start our conversation",
                 href: "/contact",
-                variant: "secondary" as const,
+                variant: "outline" as const,
                 icon: ({ size }: any) => (
                   <MaterialIcon
                     icon="support_agent"
@@ -1392,6 +1392,67 @@ export default function Home() {
 
             {/* Commercial CTA Buttons - 4 Button Grid */}
             <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto mb-6 max-w-6xl">
+              <Link href="/booking">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="group w-full h-16 transition-all duration-300"
+                >
+                  <div className="flex justify-center items-center">
+                    <MaterialIcon
+                      icon="event"
+                      size="lg"
+                      className="flex-shrink-0 mr-3"
+                    />
+                    <span className="font-medium text-center leading-tight">
+                      Schedule Free
+                      <br />
+                      Consultation
+                    </span>
+                  </div>
+                </Button>
+              </Link>
+
+              <Link href="/estimator">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="group w-full h-16 transition-all duration-300"
+                >
+                  <div className="flex justify-center items-center">
+                    <MaterialIcon
+                      icon="smart_toy"
+                      size="lg"
+                      className="flex-shrink-0 mr-3"
+                    />
+                    <span className="font-medium text-center leading-tight">
+                      Get Instant AI
+                      <br />
+                      Estimate
+                    </span>
+                  </div>
+                </Button>
+              </Link>
+
+              <Link href="/portfolio">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="group w-full h-16 transition-all duration-300"
+                >
+                  <div className="flex justify-center items-center">
+                    <MaterialIcon
+                      icon="visibility"
+                      size="lg"
+                      className="flex-shrink-0 mr-3"
+                    />
+                    <span className="font-medium text-center leading-tight">
+                      View Portfolio
+                    </span>
+                  </div>
+                </Button>
+              </Link>
+
               <a href="tel:+15093086489">
                 <Button
                   variant="primary"
@@ -1412,65 +1473,6 @@ export default function Home() {
                   </div>
                 </Button>
               </a>
-
-              <Link href="/estimator">
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  className="group w-full h-16 transition-all duration-300"
-                >
-                  <div className="flex justify-center items-center">
-                    <MaterialIcon
-                      icon="smart_toy"
-                      size="lg"
-                      className="flex-shrink-0 mr-3"
-                    />
-                    <span className="font-medium text-center leading-tight">
-                      Project Estimator
-                    </span>
-                  </div>
-                </Button>
-              </Link>
-
-              <Link href="/portfolio">
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  className="group w-full h-16 transition-all duration-300"
-                >
-                  <div className="flex justify-center items-center">
-                    <MaterialIcon
-                      icon="visibility"
-                      size="lg"
-                      className="flex-shrink-0 mr-3"
-                    />
-                    <span className="font-medium text-center leading-tight">
-                      Partnership Stories
-                    </span>
-                  </div>
-                </Button>
-              </Link>
-
-              <Link href="/booking">
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="group w-full h-16 transition-all duration-300"
-                >
-                  <div className="flex justify-center items-center">
-                    <MaterialIcon
-                      icon="handshake"
-                      size="lg"
-                      className="flex-shrink-0 mr-3"
-                    />
-                    <span className="font-medium text-center leading-tight">
-                      Start Our
-                      <br />
-                      Partnership
-                    </span>
-                  </div>
-                </Button>
-              </Link>
             </div>
           </FadeInWhenVisible>
         </div>

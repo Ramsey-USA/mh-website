@@ -832,11 +832,12 @@ export default function AboutPage() {
               <div className="flex sm:flex-row flex-col justify-center gap-4 mb-8">
                 <Link href="/booking">
                   <Button
+                    variant="primary"
                     size="lg"
-                    className="bg-white hover:bg-brand-light dark:bg-gray-800 dark:hover:bg-gray-700 shadow-xl hover:shadow-2xl text-brand-accent dark:text-white transition-all duration-300"
+                    className="shadow-xl hover:shadow-2xl transition-all duration-300"
                   >
-                    <MaterialIcon icon="handshake" className="mr-2" />
-                    Start Our Partnership
+                    <MaterialIcon icon="event" className="mr-2" />
+                    Schedule Free Consultation
                   </Button>
                 </Link>
                 <Link href="/services">

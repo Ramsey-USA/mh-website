@@ -3,52 +3,52 @@
  * Phase 6.1: UI component for displaying intelligent project recommendations
  */
 
-'use client'
+"use client";
 
-import React, { useState, useEffect } from 'react'
-import dynamic from 'next/dynamic'
-import { MaterialIcon } from '../icons/MaterialIcon'
-import { Card, CardContent } from '../ui'
+import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+import { MaterialIcon } from "../icons/MaterialIcon";
+import { Card, CardContent } from "../ui";
 import useSmartRecommendations, {
   useRecommendationTracking,
-} from '@/hooks/useSmartRecommendations'
-import FeedbackCollection from './FeedbackCollection'
+} from "@/hooks/useSmartRecommendations";
+import FeedbackCollection from "./FeedbackCollection";
 import type {
   ProjectRecommendation,
   UserProfile,
   VeteranBenefit,
-} from '@/lib/recommendations/SmartRecommendationEngine'
+} from "@/lib/recommendations/SmartRecommendationEngine";
 
 // Dynamic imports for Framer Motion
 const MotionDiv = dynamic(
-  () => import('framer-motion').then(mod => mod.motion.div),
+  () => import("framer-motion").then((mod) => mod.motion.div),
   { ssr: false }
-)
+);
 const AnimatePresence = dynamic(
-  () => import('framer-motion').then(mod => mod.AnimatePresence),
+  () => import("framer-motion").then((mod) => mod.AnimatePresence),
   { ssr: false }
-)
+);
 
 interface SmartRecommendationsProps {
-  userProfile?: UserProfile
-  showVeteranBenefits?: boolean
-  showFeedback?: boolean
-  maxRecommendations?: number
-  variant?: 'default' | 'compact' | 'detailed'
-  onRecommendationClick?: (recommendation: ProjectRecommendation) => void
-  onGetEstimate?: (recommendation: ProjectRecommendation) => void
-  className?: string
+  userProfile?: UserProfile;
+  showVeteranBenefits?: boolean;
+  showFeedback?: boolean;
+  maxRecommendations?: number;
+  variant?: "default" | "compact" | "detailed";
+  onRecommendationClick?: (recommendation: ProjectRecommendation) => void;
+  onGetEstimate?: (recommendation: ProjectRecommendation) => void;
+  className?: string;
 }
 
 interface RecommendationCardProps {
-  recommendation: ProjectRecommendation
-  showVeteranBenefits: boolean
-  showFeedback: boolean
-  variant: 'default' | 'compact' | 'detailed'
-  onRecommendationClick: (recommendation: ProjectRecommendation) => void
-  onGetEstimate: (recommendation: ProjectRecommendation) => void
-  onTrackView: (id: string, type: string) => void
-  onTrackClick: (id: string, type: string) => void
+  recommendation: ProjectRecommendation;
+  showVeteranBenefits: boolean;
+  showFeedback: boolean;
+  variant: "default" | "compact" | "detailed";
+  onRecommendationClick: (recommendation: ProjectRecommendation) => void;
+  onGetEstimate: (recommendation: ProjectRecommendation) => void;
+  onTrackView: (id: string, type: string) => void;
+  onTrackClick: (id: string, type: string) => void;
 }
 
 const RecommendationCard: React.FC<RecommendationCardProps> = ({
@@ -63,56 +63,56 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
 }) => {
   useEffect(() => {
     // Track view when card is rendered
-    onTrackView(recommendation.id, recommendation.projectType)
-  }, [recommendation.id, recommendation.projectType, onTrackView])
+    onTrackView(recommendation.id, recommendation.projectType);
+  }, [recommendation.id, recommendation.projectType, onTrackView]);
 
   const handleCardClick = () => {
-    onTrackClick(recommendation.id, recommendation.projectType)
-    onRecommendationClick(recommendation)
-  }
+    onTrackClick(recommendation.id, recommendation.projectType);
+    onRecommendationClick(recommendation);
+  };
 
   const handleEstimateClick = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    onTrackClick(recommendation.id, recommendation.projectType)
-    onGetEstimate(recommendation)
-  }
+    e.stopPropagation();
+    onTrackClick(recommendation.id, recommendation.projectType);
+    onGetEstimate(recommendation);
+  };
 
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
-    }).format(amount)
-  }
+    }).format(amount);
+  };
 
   const getProjectIcon = (projectType: string) => {
     const iconMap: Record<string, string> = {
-      kitchen: 'kitchen',
-      bathroom: 'bathtub',
-      residential: 'home',
-      commercial: 'business',
-      renovation: 'construction',
-      addition: 'extension',
-      deck: 'deck',
-    }
-    return iconMap[projectType] || 'construction'
-  }
+      kitchen: "kitchen",
+      bathroom: "bathtub",
+      residential: "home",
+      commercial: "business",
+      renovation: "construction",
+      addition: "extension",
+      deck: "deck",
+    };
+    return iconMap[projectType] || "construction";
+  };
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case 'high':
-        return 'text-red-600 bg-red-50'
-      case 'medium':
-        return 'text-orange-600 bg-orange-50'
-      case 'low':
-        return 'text-green-600 bg-green-50'
+      case "high":
+        return "text-red-600 bg-red-50";
+      case "medium":
+        return "text-orange-600 bg-orange-50";
+      case "low":
+        return "text-green-600 bg-green-50";
       default:
-        return 'text-gray-600 bg-gray-50'
+        return "text-gray-600 bg-gray-50";
     }
-  }
+  };
 
-  if (variant === 'compact') {
+  if (variant === "compact") {
     return (
       <MotionDiv
         initial={{ opacity: 0, y: 20 }}
@@ -140,7 +140,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
                 </p>
                 <div className="flex justify-between items-center mt-2">
                   <span className="font-medium text-[#386851] text-sm">
-                    {formatCurrency(recommendation.estimatedCost.min)} -{' '}
+                    {formatCurrency(recommendation.estimatedCost.min)} -{" "}
                     {formatCurrency(recommendation.estimatedCost.max)}
                   </span>
                   <span
@@ -154,7 +154,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
           </CardContent>
         </Card>
       </MotionDiv>
-    )
+    );
   }
 
   return (
@@ -226,7 +226,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
                 </span>
               </div>
               <p className="font-bold text-green-600 text-lg">
-                {formatCurrency(recommendation.estimatedCost.min)} -{' '}
+                {formatCurrency(recommendation.estimatedCost.min)} -{" "}
                 {formatCurrency(recommendation.estimatedCost.max)}
               </p>
             </div>
@@ -248,7 +248,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
           </div>
 
           {/* Reasoning */}
-          {variant === 'detailed' && recommendation.reasoning.length > 0 && (
+          {variant === "detailed" && recommendation.reasoning.length > 0 && (
             <div className="mb-4">
               <h4 className="flex items-center mb-2 font-semibold text-gray-700 text-sm">
                 <MaterialIcon icon="psychology" size="sm" className="mr-1" />
@@ -313,10 +313,10 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
           <div className="flex space-x-3 mb-4">
             <button
               onClick={handleEstimateClick}
-              className="flex flex-1 justify-center items-center space-x-2 bg-[#386851] hover:bg-[#2D5443] px-4 py-2 rounded-lg font-semibold text-white transition-colors duration-200"
+              className="flex flex-1 justify-center items-center space-x-2 bg-[#BD9264] hover:bg-[#A67B4F] px-4 py-2 rounded-lg font-semibold text-white transition-colors duration-200"
             >
-              <MaterialIcon icon="calculate" size="sm" />
-              <span>Get Estimate</span>
+              <MaterialIcon icon="smart_toy" size="sm" />
+              <span>Get AI Estimate</span>
             </button>
             <button
               onClick={handleCardClick}
@@ -338,26 +338,26 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
         </CardContent>
       </Card>
     </MotionDiv>
-  )
-}
+  );
+};
 
 const VeteranBenefitDisplay: React.FC<{ benefit: VeteranBenefit }> = ({
   benefit,
 }) => {
   const getBenefitColor = (type: string) => {
     switch (type) {
-      case 'discount':
-        return 'text-green-700'
-      case 'priority':
-        return 'text-blue-700'
-      case 'financing':
-        return 'text-purple-700'
-      case 'specialist':
-        return 'text-orange-700'
+      case "discount":
+        return "text-green-700";
+      case "priority":
+        return "text-blue-700";
+      case "financing":
+        return "text-purple-700";
+      case "specialist":
+        return "text-orange-700";
       default:
-        return 'text-gray-700'
+        return "text-gray-700";
     }
-  }
+  };
 
   return (
     <div className="flex items-start space-x-2">
@@ -371,35 +371,35 @@ const VeteranBenefitDisplay: React.FC<{ benefit: VeteranBenefit }> = ({
         <p className="text-gray-600 text-xs">{benefit.value}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
   userProfile,
   showVeteranBenefits = true,
   showFeedback = true,
   maxRecommendations = 6,
-  variant = 'default',
+  variant = "default",
   onRecommendationClick = () => {},
   onGetEstimate = () => {},
-  className = '',
+  className = "",
 }) => {
-  const [showAll, setShowAll] = useState(false)
+  const [showAll, setShowAll] = useState(false);
   const { recommendations, isLoading, error, generateRecommendations } =
-    useSmartRecommendations({ maxRecommendations })
+    useSmartRecommendations({ maxRecommendations });
 
-  const { trackView, trackClick } = useRecommendationTracking(userProfile?.id)
+  const { trackView, trackClick } = useRecommendationTracking(userProfile?.id);
 
   // Generate recommendations when user profile is provided
   useEffect(() => {
     if (userProfile) {
-      generateRecommendations(userProfile)
+      generateRecommendations(userProfile);
     }
-  }, [userProfile, generateRecommendations])
+  }, [userProfile, generateRecommendations]);
 
   const displayRecommendations = showAll
     ? recommendations
-    : recommendations.slice(0, 3)
+    : recommendations.slice(0, 3);
 
   if (isLoading) {
     return (
@@ -415,7 +415,7 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
           </p>
         </div>
       </div>
-    )
+    );
   }
 
   if (error) {
@@ -427,7 +427,7 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
           <p className="text-gray-500 text-sm">{error}</p>
         </div>
       </div>
-    )
+    );
   }
 
   if (recommendations.length === 0) {
@@ -445,7 +445,7 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
           </p>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -464,7 +464,7 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
             </h2>
             <p className="text-gray-600">
               AI-powered suggestions tailored to your needs
-              {userProfile?.isVeteran && ' and veteran benefits'}
+              {userProfile?.isVeteran && " and veteran benefits"}
             </p>
           </div>
         </div>
@@ -474,10 +474,10 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
             className="flex items-center space-x-1 font-semibold text-[#386851] hover:text-[#2D5443] text-sm"
           >
             <span>
-              {showAll ? 'Show Less' : `Show All (${recommendations.length})`}
+              {showAll ? "Show Less" : `Show All (${recommendations.length})`}
             </span>
             <MaterialIcon
-              icon={showAll ? 'expand_less' : 'expand_more'}
+              icon={showAll ? "expand_less" : "expand_more"}
               size="sm"
             />
           </button>
@@ -487,9 +487,9 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
       {/* Recommendations Grid */}
       <div
         className={`grid gap-6 ${
-          variant === 'compact'
-            ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
-            : 'grid-cols-1 lg:grid-cols-2 xl:grid-cols-3'
+          variant === "compact"
+            ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+            : "grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
         }`}
       >
         <AnimatePresence>
@@ -527,23 +527,23 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
           <div className="flex justify-center space-x-4">
             <button
               onClick={() => onGetEstimate(recommendations[0])}
-              className="flex items-center space-x-2 bg-[#386851] hover:bg-[#2D5443] px-6 py-3 rounded-lg font-semibold text-white transition-colors duration-200"
+              className="flex items-center space-x-2 bg-[#BD9264] hover:bg-[#A67B4F] px-6 py-3 rounded-lg font-semibold text-white transition-colors duration-200"
             >
-              <MaterialIcon icon="calculate" size="sm" />
-              <span>Get Free Estimate</span>
+              <MaterialIcon icon="smart_toy" size="sm" />
+              <span>Get Instant AI Estimate</span>
             </button>
             <button
-              onClick={() => (window.location.href = '/contact')}
-              className="flex items-center space-x-2 hover:bg-gray-50 px-6 py-3 border border-gray-300 rounded-lg font-semibold text-gray-700 transition-colors duration-200"
+              onClick={() => (window.location.href = "/booking")}
+              className="flex items-center space-x-2 bg-[#386851] hover:bg-[#2D5443] px-6 py-3 rounded-lg font-semibold text-white transition-colors duration-200"
             >
-              <MaterialIcon icon="phone" size="sm" />
-              <span>Talk to Expert</span>
+              <MaterialIcon icon="event" size="sm" />
+              <span>Schedule Free Consultation</span>
             </button>
           </div>
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default SmartRecommendations
+export default SmartRecommendations;
