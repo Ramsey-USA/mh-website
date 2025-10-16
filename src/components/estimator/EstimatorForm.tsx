@@ -303,7 +303,7 @@ export function EstimatorForm() {
       ? Math.round(totalCost * 0.12) // Increased to 12% for veterans
       : 0;
 
-    // AI accuracy calculation based on data completeness
+    // AI estimate completeness calculation
     const dataCompleteness =
       [
         projectData.projectType,
@@ -313,16 +313,19 @@ export function EstimatorForm() {
         projectData.materials[0],
       ].filter(Boolean).length / 5;
 
-    const accuracy = Math.round(85 + dataCompleteness * 10); // 85-95% based on data quality
+    // Estimate confidence based on data provided (not accuracy guarantee)
+    const estimateConfidence = Math.round(75 + dataCompleteness * 15); // 75-90% based on data quality
 
     const estimateData: EstimateData = {
       totalCost: totalCost - veteranDiscount,
       breakdown: { materials, labor, permits, overhead, contingency },
-      timeline: getProjectTimeline(projectData.projectType, sizeMultiplier),
-      accuracy,
+      timeline: getProjectTimeline(
+        projectData.projectType,
+        parseInt(projectData.size)
+      ),
       veteranDiscount,
+      accuracy: estimateConfidence,
     };
-
     setEstimate(estimateData);
     setIsCalculating(false);
     setCurrentStep(4);
@@ -615,7 +618,7 @@ export function EstimatorForm() {
                 placeholder="e.g., $50,000 - $100,000"
                 value={projectData.budget}
                 onChange={(e) => handleInputChange("budget", e.target.value)}
-                helperText="Optional: Help us provide more accurate estimates"
+                helperText="Optional: Help us provide more relevant estimates"
               />
 
               <div className="flex items-center">
@@ -786,7 +789,8 @@ export function EstimatorForm() {
                     Analyzing Your Project...
                   </p>
                   <p className="text-gray-600">
-                    Our AI is calculating the most accurate estimate possible
+                    Our AI is generating a preliminary estimate based on your
+                    project details
                   </p>
                 </div>
               ) : (

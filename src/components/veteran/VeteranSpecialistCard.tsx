@@ -34,7 +34,7 @@ export default function VeteranSpecialistCard({
     ],
     location: 'Omaha, NE',
     phone: '(402) 555-0123',
-    email: 'sarah.mitchell@mhconstructionllc.com',
+    email: 'office@mhc-gc.com',
     certifications: [
       'Certified Aging-in-Place Specialist',
       'VA Loan Specialist',

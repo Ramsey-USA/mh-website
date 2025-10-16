@@ -28,7 +28,7 @@ different components and pages.
     <MaterialIcon icon="phone" className="mr-3 w-6 h-6" />
     <span className="text-center">
       Client Contact<br />
-      <span className="text-sm opacity-90">(509) 308-6489 ext. 100</span>
+      <span className="text-sm opacity-90">(509) 308-6489 </span>
     </span>
   </Button>
 
@@ -36,7 +36,7 @@ different components and pages.
     <MaterialIcon icon="phone" className="mr-3 w-6 h-6" />
     <span className="text-center">
       Vendor Contact<br />
-      <span className="text-sm opacity-90">(509) 308-6489 ext. 150</span>
+      <span className="text-sm opacity-90">(509) 308-6489 </span>
     </span>
   </Button>
 </div>

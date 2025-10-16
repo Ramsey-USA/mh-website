@@ -251,8 +251,8 @@ Front:
 
 Back:
 - Full contact information
-  - Client Contact: ext. 100 | projects@mhc-gc.com
-  - Vendor Contact: ext. 150 | vendors@mhc-gc.com
+  - Client Contact:  | office@mhc-gc.com
+  - Vendor Contact:  | office@mhc-gc.com
 - Service areas: "Licensed in WA, OR, ID"
 - "Veteran-owned and operated"
 ```text
@@ -270,8 +270,8 @@ Building for the Owner, NOT the Dollar
 3111 N. Capital Ave.
 Pasco, WA 99301
 Phone: (509) 308-6489
-Client Contact: ext. 100 | projects@mhc-gc.com
-Vendor Contact: ext. 150 | vendors@mhc-gc.com
+Client Contact:  | office@mhc-gc.com
+Vendor Contact:  | office@mhc-gc.com
 Website: [current domain]
 
 Licensed in WA, OR, ID | Veteran-Owned & Operated
@@ -298,12 +298,12 @@ Licensed in WA, OR, ID | Veteran-Owned & Operated
     Phone: <a href="tel:+15093086489" style="color: #1976D2;">(509) 308-6489</a>
   </div>
   <div style="margin-bottom: 4px;">
-    Client Contact: <a href="tel:+15093086489,100" style="color: #1976D2;">ext. 100</a> | 
-    <a href="mailto:projects@mhc-gc.com" style="color: #1976D2;">projects@mhc-gc.com</a>
+    Client Contact: <a href="tel:+15093086489,100" style="color: #1976D2;"></a> | 
+    <a href="mailto:office@mhc-gc.com" style="color: #1976D2;">office@mhc-gc.com</a>
   </div>
   <div style="margin-bottom: 4px;">
-    Vendor Contact: <a href="tel:+15093086489,150" style="color: #1976D2;">ext. 150</a> | 
-    <a href="mailto:vendors@mhc-gc.com" style="color: #1976D2;">vendors@mhc-gc.com</a>
+    Vendor Contact: <a href="tel:+15093086489,150" style="color: #1976D2;"></a> | 
+    <a href="mailto:office@mhc-gc.com" style="color: #1976D2;">office@mhc-gc.com</a>
   </div>
   <div style="margin-bottom: 8px;">
     Web: <a href="[website]" style="color: #1976D2;">[website]</a>

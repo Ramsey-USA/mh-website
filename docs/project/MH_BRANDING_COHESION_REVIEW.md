@@ -59,8 +59,8 @@ MH Construction website to ensure cohesion with:
 
 #### Partnership Distinctions
 
-- **Client Partnership:** Project collaborations (icon: `handshake`, contact: ext. 100)
-- **Trade Partnership:** Vendor relationships (icon: `construction`, contact: ext. 150)
+- **Client Partnership:** Project collaborations (icon: `handshake`, contact: )
+- **Trade Partnership:** Vendor relationships (icon: `construction`, contact: )
 
 ---
 
@@ -166,7 +166,7 @@ Hunter Green/Leather Tan color scheme and remove all blue color references.
 **Strengths:**
 
 - Consistent use of service distinctions (AI Estimator vs IRL Consultation)
-- Proper contact information (ext. 100 for clients, ext. 150 for vendors)
+- Proper contact information ( for clients,  for vendors)
 - Excellent MaterialIcon usage examples
 - Clear button variant implementations
 
@@ -244,7 +244,7 @@ Hunter Green/Leather Tan color scheme and remove all blue color references.
 **Strengths:**
 
 - Migration documentation reflects current standards
-- Proper email addresses (<projects@mhc-gc.com>, <vendors@mhc-gc.com>)
+- Proper email addresses (<office@mhc-gc.com>, <office@mhc-gc.com>)
 - Correct extension numbers (100, 150)
 
 ### Root-Level Documentation
@@ -314,8 +314,8 @@ Hunter Green/Leather Tan color scheme and remove all blue color references.
 
 - Clear distinction throughout documentation
 - Correct contact information separation
-  - Client: ext. 100, <projects@mhc-gc.com>
-  - Trade: ext. 150, <vendors@mhc-gc.com>
+  - Client: , <office@mhc-gc.com>
+  - Trade: , <office@mhc-gc.com>
 - Appropriate icon usage (handshake vs construction)
 - Proper button variants (primary vs secondary)
 
@@ -344,9 +344,9 @@ Hunter Green/Leather Tan color scheme and remove all blue color references.
 
 - Phone: (509) 308-6489 - consistent across all files
 - Address: 3111 N. Capital Ave., Pasco, WA 99301 - consistent
-- Client contact: ext. 100, <projects@mhc-gc.com> - consistent
-- Vendor contact: ext. 150, <vendors@mhc-gc.com> - consistent
-- General: <info@mhc-gc.com> - consistent
+- Client contact: , <office@mhc-gc.com> - consistent
+- Vendor contact: , <office@mhc-gc.com> - consistent
+- General: <office@mhc-gc.com> - consistent
 
 ---
 

@@ -67,7 +67,7 @@
 ### Client Partnership (Project Collaborations)
 
 **Icon:** `handshake`, `event`, `engineering`  
-**Contact:** ext. 100, <projects@mhc-gc.com>  
+**Contact:** , <office@mhc-gc.com>  
 **Approved CTAs:**
 
 - "Begin Partnership"
@@ -83,8 +83,8 @@
 - **Schedule Free Consultation** - Meet with our team (`event`)
 - **Book Site Visit** - On-location assessment (`place`)
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | 
-[projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+**Contact:** [(509) 308-6489](tel:+15093086489)  | 
+[office@mhc-gc.com](mailto:office@mhc-gc.com)
 ```
 
 ---
@@ -92,7 +92,7 @@
 ### Trade Partnership (Vendor/Subcontractor)
 
 **Icon:** `construction`, `work`, `check_circle`  
-**Contact:** ext. 150, <vendors@mhc-gc.com>  
+**Contact:** , <office@mhc-gc.com>  
 **Approved CTAs:**
 
 - "Apply to be Approved Vendor"
@@ -108,8 +108,8 @@
 - **Apply to be Approved Vendor** - Join our network (`check_circle`)
 - **Download Vendor Package** - Get requirements (`download`)
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 150 | 
-[vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
+**Contact:** [(509) 308-6489](tel:+15093086489)  | 
+[office@mhc-gc.com](mailto:office@mhc-gc.com)
 ```
 
 ---
@@ -120,8 +120,8 @@
 
 ```markdown
 ✅ CORRECT:
-[(509) 308-6489](tel:+15093086489) ext. 100   # Client contact
-[(509) 308-6489](tel:+15093086489) ext. 150   # Vendor contact
+[(509) 308-6489](tel:+15093086489)    # Client contact
+[(509) 308-6489](tel:+15093086489)    # Vendor contact
 
 ❌ INCORRECT:
 (509) 308-6489                                # Missing extension
@@ -133,13 +133,13 @@ Call us at (509) 308-6489                    # Not linked
 
 ```markdown
 ✅ CORRECT:
-[projects@mhc-gc.com](mailto:projects@mhc-gc.com)     # Client email
-[vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)       # Vendor email
-[info@mhc-gc.com](mailto:info@mhc-gc.com)             # General email
+[office@mhc-gc.com](mailto:office@mhc-gc.com)     # Client email
+[office@mhc-gc.com](mailto:office@mhc-gc.com)       # Vendor email
+[office@mhc-gc.com](mailto:office@mhc-gc.com)             # General email
 
 ❌ INCORRECT:
-projects@mhc-gc.com                                    # Not linked
-<projects@mhc-gc.com>                                  # Wrong format
+office@mhc-gc.com                                    # Not linked
+<office@mhc-gc.com>                                  # Wrong format
 ```
 
 ---
@@ -241,8 +241,8 @@ expert guidance and detailed planning.
 - **Book Site Visit** - Arrange an on-location assessment (`place`)
 - **Request Project Review** - Submit your plans for expert analysis (`visibility`)
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | 
-[projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+**Contact:** [(509) 308-6489](tel:+15093086489)  | 
+[office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ### AI Cost Estimator
 
@@ -278,8 +278,8 @@ subcontractors and suppliers.
 - **Download Vendor Package** - Get requirements and materials (`download`)
 - **Schedule Vendor Meeting** - Discuss business opportunities (`work`)
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 150 | 
-[vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
+**Contact:** [(509) 308-6489](tel:+15093086489)  | 
+[office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ### Requirements
 
@@ -300,8 +300,8 @@ subcontractors and suppliers.
 Call (509) 308-6489 for more information
 
 ✅ CORRECT:
-**Client Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | 
-[projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+**Client Contact:** [(509) 308-6489](tel:+15093086489)  | 
+[office@mhc-gc.com](mailto:office@mhc-gc.com)
 ```
 
 ### 2. Generic CTA Text
@@ -339,10 +339,10 @@ IRL Consultation with Primary button variant
 
 ```markdown
 ❌ WRONG:
-Email: projects@mhc-gc.com
+Email: office@mhc-gc.com
 
 ✅ CORRECT:
-Email: [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+Email: [office@mhc-gc.com](mailto:office@mhc-gc.com)
 ```
 
 ---
@@ -358,7 +358,7 @@ Email: [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
 
 For more information, contact us:
 Phone: (509) 308-6489
-Email: info@mhc-gc.com
+Email: office@mhc-gc.com
 ```
 
 **AFTER:**
@@ -366,13 +366,13 @@ Email: info@mhc-gc.com
 ```markdown
 ## Get Started Today
 
-**Client Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | 
-[projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+**Client Contact:** [(509) 308-6489](tel:+15093086489)  | 
+[office@mhc-gc.com](mailto:office@mhc-gc.com)
 
-**Vendor Contact:** [(509) 308-6489](tel:+15093086489) ext. 150 | 
-[vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
+**Vendor Contact:** [(509) 308-6489](tel:+15093086489)  | 
+[office@mhc-gc.com](mailto:office@mhc-gc.com)
 
-**General Inquiries:** [info@mhc-gc.com](mailto:info@mhc-gc.com)
+**General Inquiries:** [office@mhc-gc.com](mailto:office@mhc-gc.com)
 ```
 
 ---
@@ -393,8 +393,8 @@ Interested in our services? Learn more or contact us today.
 - **Schedule Free Consultation** - Meet with our specialists (`event`)
 - **Get Instant AI Estimate** - Try our automated calculator (`smart_toy`)
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | 
-[projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+**Contact:** [(509) 308-6489](tel:+15093086489)  | 
+[office@mhc-gc.com](mailto:office@mhc-gc.com)
 ```
 
 ---
@@ -430,7 +430,7 @@ Interested in our services? Learn more or contact us today.
 Use this checklist when reviewing or creating markdown files:
 
 - [ ] All CTAs use approved phrases from this guide
-- [ ] Phone numbers include proper extensions (ext. 100 or ext. 150)
+- [ ] Phone numbers include proper extensions ( or )
 - [ ] Email addresses are properly linked with mailto:
 - [ ] MaterialIcon references are included for all CTAs
 - [ ] Button variants are correctly assigned (primary/secondary/outline)

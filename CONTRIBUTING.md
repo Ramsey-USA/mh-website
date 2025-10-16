@@ -447,7 +447,7 @@ npm run lighthouse    # (When implemented)
 - **Documentation**: Check existing docs first
 - **Issues**: Search existing issues before creating new ones
 - **Discussions**: Use GitHub Discussions for questions
-- **Contact**: development team at <developers@mhc-gc.com>
+- **Contact**: development team at <office@mhc-gc.com>
 
 ## 📋 Pull Request Process
 
@@ -505,16 +505,16 @@ Brief description of changes
 
 ### Development Team
 
-- **Lead Developer**: <developers@mhc-gc.com>
-- **Project Manager**: <pm@mhc-gc.com>
-- **Emergency Support**: <support@mhc-gc.com>
+- **Lead Developer**: <office@mhc-gc.com>
+- **Project Manager**: <office@mhc-gc.com>
+- **Emergency Support**: <office@mhc-gc.com>
 
 ### Business Contacts
 
 - **General Inquiries**: [(509) 308-6489](tel:+15093086489)
-  - **Client Contact**: [ext. 100](tel:+15093086489,100) | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
-  - **Vendor Contact**: [ext. 150](tel:+15093086489,150) | [vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
-- **General Email**: <info@mhc-gc.com>
+  - **Client Contact**: [ext. 100](tel:+15093086489,100) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+  - **Vendor Contact**: [ext. 150](tel:+15093086489,150) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+- **General Email**: <office@mhc-gc.com>
 
 ---
 

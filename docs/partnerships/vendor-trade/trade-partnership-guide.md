@@ -306,29 +306,29 @@ Partnership Levels:
 ```typescript
 Trade Partnership Team:
 ├── Vendor Relations Manager
-│   ├── Phone: (509) 308-6489 ext. 150
-│   ├── Email: vendors@mhc-gc.com
+│   ├── Phone: (509) 308-6489 
+│   ├── Email: office@mhc-gc.com
 │   ├── Primary contact for new applications
 │   └── Partnership development and growth
 ├── Project Coordination Manager
-│   ├── Phone: (509) 308-6489 ext. 100
-│   ├── Email: projects@mhc-gc.com
+│   ├── Phone: (509) 308-6489 
+│   ├── Email: office@mhc-gc.com
 │   ├── Active project coordination and management
 │   └── Ongoing partnership support and communication
 └── Safety and Compliance Officer
     ├── Phone: (509) 308-6489 ext. 220
-    ├── Email: safety@mhc-gc.com
+    ├── Email: office@mhc-gc.com
     ├── Safety requirements and training
     └── Compliance monitoring and support
 ```
 
 ### **Quick Contact Links**
 
-**Vendor Applications:** [(509) 308-6489](tel:+15093086489) ext. 150 | [vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
+**Vendor Applications:** [(509) 308-6489](tel:+15093086489)  | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
-**Project Coordination:** [(509) 308-6489](tel:+15093086489) ext. 100 | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+**Project Coordination:** [(509) 308-6489](tel:+15093086489)  | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
-**Safety & Compliance:** [(509) 308-6489](tel:+15093086489) ext. 220 | [safety@mhc-gc.com](mailto:safety@mhc-gc.com)
+**Safety & Compliance:** [(509) 308-6489](tel:+15093086489) ext. 220 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ---
 

@@ -302,7 +302,7 @@ website, providing a comprehensive reference for features, pages, and system com
 ### **Business Contact**
 
 - **Phone**: (509) 308-6489
-- **Email**: <info@mhc-gc.com>
+- **Email**: <office@mhc-gc.com>
 - **Address**: 3111 N. Capital Ave., Pasco, WA 99301
 
 ---

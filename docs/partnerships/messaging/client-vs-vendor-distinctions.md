@@ -157,15 +157,15 @@ audiences:
 
 ### **Client Contact Methods**
 
-- **Phone:** (509) 308-6489 ext. 100 (projects/consultations)
-- **Email:** <projects@mhc-gc.com>
+- **Phone:** (509) 308-6489  (projects/consultations)
+- **Email:** <office@mhc-gc.com>
 - **Purpose:** Free estimates, consultations, project discussions
 - **Forms:** Project vision, timeline, budget discussions
 
 ### **Vendor Contact Methods**
 
-- **Phone:** (509) 308-6489 ext. 150 (vendor relations)
-- **Email:** <vendors@mhc-gc.com>
+- **Phone:** (509) 308-6489  (vendor relations)
+- **Email:** <office@mhc-gc.com>
 - **Purpose:** Applications, trade partnerships, business opportunities
 - **Forms:** Company info, qualifications, trade specializations
 

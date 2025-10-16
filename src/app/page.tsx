@@ -233,11 +233,11 @@ export default function Home() {
                 ),
                 title: "AI Project Estimator",
                 description:
-                  "Revolutionary AI-powered cost calculator with ±15% precision guarantee for accurate project planning and budgeting.",
+                  "AI-powered cost estimation system providing preliminary budget planning with regional market intelligence.",
                 details:
-                  "Our proprietary AI analyzes thousands of projects, material costs, and labor factors to provide industry-leading estimate accuracy. Get instant quotes with confidence.",
+                  "Our AI analyzes regional project data, material costs, and labor factors to provide helpful preliminary estimates for budget planning.",
                 features: [
-                  "±15% Accuracy Guarantee",
+                  "Regional Market Data",
                   "Real-time Material Pricing",
                   "Labor Cost Analysis",
                   "PDF Export",

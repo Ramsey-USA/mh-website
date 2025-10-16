@@ -232,7 +232,7 @@ organizations navigate the complexities of grant-funded builds.
 - **Schedule Free Consultation** - Discuss grant requirements and feasibility (`event`)
 - **Request Project Review** - Submit grant documentation for analysis (`visibility`)
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 **Office:** 3111 N. Capital Ave., Pasco, WA 99301
 

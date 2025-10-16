@@ -469,7 +469,7 @@ ${
 • Complete all mission parameters for precise intelligence
 • Deploy **real-time pricing algorithms** for cost reconnaissance  
 • Execute **veteran discount protocols** if applicable
-• Generate **tactical cost assessment** with 95% accuracy
+• Generate **tactical cost assessment** with regional data intelligence
 
 **ORDERS:** Continue with mission briefing to receive full tactical estimate!`;
     }
@@ -877,7 +877,7 @@ Ready to establish **direct communication** with MH Construction command! Our **
 • **Response Time:** All communications acknowledged within **24 hours**
 • **Priority Processing:** Veteran leads receive **expedited handling**
 • **Direct Line:** (509) 308-6489 for immediate tactical support
-• **Secure Channel:** info@mhconstruction.com for detailed mission briefs
+• **Secure Channel:** office@mhc-gc.com for detailed mission briefs
 
 **INTELLIGENT FORM ASSISTANCE:**
 • **Auto-completion suggestions** based on your input

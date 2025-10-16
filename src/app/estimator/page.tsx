@@ -47,7 +47,7 @@ const structuredData = {
   "@type": "SoftwareApplication",
   name: "MH Construction AI Estimator",
   description:
-    "AI-powered construction estimator providing instant, accurate cost estimates with 95% accuracy guarantee for Pacific Northwest construction projects.",
+    "AI-powered construction estimator providing preliminary cost estimates for Pacific Northwest construction project planning.",
   url: "https://mhconstruction.com/estimator",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
@@ -73,10 +73,10 @@ const structuredData = {
     reviewCount: "150",
   },
   featureList: [
-    "Instant cost estimates",
-    "95% accuracy guarantee",
+    "Preliminary cost estimates",
+    "Regional pricing data",
     "Veteran discounts",
-    "Pacific Northwest pricing",
+    "Pacific Northwest focus",
     "No registration required",
     "24/7 availability",
   ],
@@ -109,16 +109,14 @@ export default function EstimatorPage() {
             </h1>
 
             {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
-              Get instant, accurate cost estimates through our collaborative AI
-              technology
+            <p className="text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+              Get preliminary cost estimates through our AI-powered technology
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
-              Revolutionary AI technology delivers precise construction
-              estimates in minutes, not days. Backed by 30+ years of Pacific
-              Northwest partnership experience.
+              AI-powered cost estimation technology provides preliminary budget
+              estimates based on Pacific Northwest construction data.
             </p>
           </div>
         </div>
@@ -167,9 +165,9 @@ export default function EstimatorPage() {
                         className="mt-1 w-5 h-5 text-brand-primary"
                       />
                       <div>
-                        <p className="font-semibold">95% Accuracy</p>
+                        <p className="font-semibold">Data-Driven Estimates</p>
                         <p className="text-gray-600 text-sm">
-                          AI-powered calculations based on real project data
+                          AI-powered calculations using regional market data
                         </p>
                       </div>
                     </div>
@@ -292,8 +290,8 @@ export default function EstimatorPage() {
                 </span>
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
-                Get reliable partnership estimates instantly, backed by decades
-                of collaborative project data and machine learning algorithms
+                Get preliminary cost estimates instantly, powered by regional
+                construction data and AI technology for initial budget planning
               </p>
             </div>
           </FadeInWhenVisible>
@@ -330,11 +328,12 @@ export default function EstimatorPage() {
                       />
                     </div>
                     <h3 className="mb-2 font-semibold text-xl">
-                      Data-Driven Accuracy
+                      Market-Based Calculations
                     </h3>
                     <p className="text-gray-600">
-                      Trained on 500+ completed projects with 95% accuracy rate
-                      for Pacific Northwest pricing.
+                      Trained on regional project data to provide helpful
+                      preliminary cost estimates for Pacific Northwest
+                      construction.
                     </p>
                   </CardContent>
                 </Card>
@@ -376,8 +375,8 @@ export default function EstimatorPage() {
                 </span>
               </h2>
               <p className="text-gray-600 text-lg">
-                Answer a few questions and get your detailed construction
-                estimate instantly
+                Answer a few questions and get your preliminary construction
+                estimate for budget planning
               </p>
             </div>
           </FadeInWhenVisible>

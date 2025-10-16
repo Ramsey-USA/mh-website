@@ -25,7 +25,7 @@ preliminary project pricing based on user input.
 ### Key Characteristics
 
 - ⚡ **Instant Results** - Receive estimate in seconds
-- 🤖 **AI-Powered** - Advanced algorithms with 95% accuracy
+- 🤖 **AI-Powered** - Advanced algorithms providing regional estimates
 - 📱 **Available 24/7** - Access anytime, anywhere
 - 🔢 **Preliminary Pricing** - Ballpark estimates for planning
 - 🎮 **Interactive** - Adjust parameters and see real-time changes
@@ -88,7 +88,7 @@ visits your site, understands your vision, and provides detailed professional es
 
 - 👤 **Human Expert** - Personal interaction with experienced sales rep
 - 🏗️ **Site Visit** - On-location assessment and evaluation
-- 📋 **Detailed Estimate** - Comprehensive, accurate pricing
+- 📋 **Preliminary Estimate** - Initial pricing for budget planning
 - 💬 **Two-Way Dialogue** - Ask questions, discuss options
 - 🎯 **Customized** - Tailored to your specific needs
 - 📅 **Scheduled** - Appointment-based service
@@ -261,7 +261,7 @@ Expert guidance tailored to your specific project.
 
 - "See Your Project Cost in Seconds"
 - "Military-Grade AI Pricing Technology"
-- "95% Accuracy Guarantee"
+- "Regional Pricing Intelligence"
 - "No Appointment Needed"
 - "Explore Options Instantly"
 
@@ -278,7 +278,7 @@ Expert guidance tailored to your specific project.
 - "Expert Guidance from Experienced Team"
 - "Personalized Project Assessment"
 - "Professional Site Evaluation"
-- "Detailed, Accurate Estimates"
+- "Preliminary Pricing Estimates"
 - "Start Your Partnership Journey"
 
 **Use Cases:**
@@ -298,7 +298,7 @@ Expert guidance tailored to your specific project.
 - [ ] Clearly states "preliminary" or "ballpark" estimate nature
 - [ ] Includes 24/7 availability messaging
 - [ ] CTAs use words like "calculate," "instant," "try now"
-- [ ] No promises of detailed, final pricing
+- [ ] Clearly states "preliminary" or "ballpark" estimate nature
 - [ ] Links to consultation option for next step
 
 ### Before Publishing - IRL Consultation Content
@@ -328,13 +328,13 @@ Expert guidance tailored to your specific project.
 
 - **Access:** Website tool at /estimator
 - **Help:** AI chatbot assistance
-- **Tech Support:** <support@mhc-gc.com>
+- **Tech Support:** <office@mhc-gc.com>
 - **Purpose:** Tool usage, technical questions
 
 ### Sales Consultation Booking
 
-- **Phone:** (509) 308-6489 ext. 100
-- **Email:** <projects@mhc-gc.com>
+- **Phone:** (509) 308-6489
+- **Email:** <office@mhc-gc.com>
 - **Purpose:** Schedule appointments, project discussions
 - **Hours:** Monday-Friday, 8am-5pm PT
 

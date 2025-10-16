@@ -97,10 +97,10 @@ MD files to create a unified domain structure.
 
 ### **New Unified Domain Structure**
 
-- **Website**: [mhc-gc.com](https://mhc-gc.com)
-- **General Email**: <info@mhc-gc.com>
-- **Projects**: <projects@mhc-gc.com> (ext. 100)
-- **Vendors**: <vendors@mhc-gc.com> (ext. 150)
+- **Website**: [www.mhc-gc.com](https://www.mhc-gc.com)
+- **General Email**: <office@mhc-gc.com>
+- **Projects**: <office@mhc-gc.com> ()
+- **Vendors**: <office@mhc-gc.com> ()
 - **Office**: <office@mhc-gc.com>
 - **Phone**: (509) 308-6489
 

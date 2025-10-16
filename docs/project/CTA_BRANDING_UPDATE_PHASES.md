@@ -71,13 +71,13 @@ Based on comprehensive review:
 #### **Client Partnership** (Project Collaborations)
 
 - **Icon:** `handshake`, `event`, `engineering`
-- **Contact:** ext. 100, <projects@mhc-gc.com>
+- **Contact:** , <office@mhc-gc.com>
 - **CTA Examples:** "Begin Partnership", "Discuss Your Vision", "Request Project Review"
 
 #### **Trade Partnership** (Vendor/Subcontractor Relationships)
 
 - **Icon:** `construction`, `work`, `check_circle`
-- **Contact:** ext. 150, <vendors@mhc-gc.com>
+- **Contact:** , <office@mhc-gc.com>
 - **CTA Examples:** "Apply to be Approved Vendor", "Join Trade Network"
 
 ---
@@ -136,12 +136,12 @@ These are customer-facing pages that directly impact conversion and brand percep
 #### **Contact Information**
 
 - ✅ Verify: Phone numbers include proper extensions
-  - Client: (509) 308-6489 ext. 100
-  - Vendor: (509) 308-6489 ext. 150
+  - Client: (509) 308-6489
+  - Vendor: (509) 308-6489
 - ✅ Verify: Email addresses are correct
-  - Projects: <projects@mhc-gc.com>
-  - Vendors: <vendors@mhc-gc.com>
-  - General: <info@mhc-gc.com>
+  - Projects: <office@mhc-gc.com>
+  - Vendors: <office@mhc-gc.com>
+  - General: <office@mhc-gc.com>
 
 ### Deliverables
 
@@ -219,7 +219,7 @@ Partnership-facing documentation that defines how we communicate with clients an
 
 ```markdown
 ✅ CORRECT FORMAT:
-**Contact:** (509) 308-6489 ext. 100 | projects@mhc-gc.com
+**Contact:** (509) 308-6489  | office@mhc-gc.com
 
 ✅ For leadership profiles, include direct contact option:
 **Direct Contact:** Available for major projects and strategic initiatives

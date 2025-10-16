@@ -496,7 +496,7 @@ export default function CareersPage() {
               </div>
               <p className="mt-6 text-gray-500 dark:text-gray-400">
                 <MaterialIcon icon="phone" className="inline mr-2" size="sm" />
-                HR Hotline: (509) 308-6489 | careers@mhconstruction.com
+                HR Hotline: (509) 308-6489 | office@mhc-gc.com
               </p>
             </div>
           </FadeInWhenVisible>

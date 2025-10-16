@@ -57,7 +57,7 @@ repository to assess CTA buttons and links for compliance with MH branding stand
    - Some button variant assignments could be more specific
 
 2. **Inconsistent Contact Information Format**
-   - Some files missing extension numbers (ext. 100 or ext. 150)
+   - Some files missing extension numbers ( or )
    - Email addresses sometimes not linked properly
 
 3. **Team Profiles Variation**
@@ -92,20 +92,20 @@ repository to assess CTA buttons and links for compliance with MH branding stand
 
 | Partnership Type | Icon | Contact | Example CTA |
 |------------------|------|---------|-------------|
-| **Client** | `handshake` | ext. 100 | "Begin Partnership" |
-| **Trade/Vendor** | `construction` | ext. 150 | "Apply to be Approved Vendor" |
+| **Client** | `handshake` |  | "Begin Partnership" |
+| **Trade/Vendor** | `construction` |  | "Apply to be Approved Vendor" |
 
 ### Contact Information Standards
 
 ```markdown
 ✅ CORRECT FORMAT:
-- Phone: (509) 308-6489 ext. 100 (clients) or ext. 150 (vendors)
-- Email: projects@mhc-gc.com (clients) or vendors@mhc-gc.com (vendors)
-- General: info@mhc-gc.com
+- Phone: (509) 308-6489  (clients) or  (vendors)
+- Email: office@mhc-gc.com (clients) or office@mhc-gc.com (vendors)
+- General: office@mhc-gc.com
 
 ✅ WITH LINKS:
-- Phone: [(509) 308-6489](tel:+15093086489) ext. 100
-- Email: [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+- Phone: [(509) 308-6489](tel:+15093086489) 
+- Email: [office@mhc-gc.com](mailto:office@mhc-gc.com)
 ```
 
 ---
@@ -295,7 +295,7 @@ markdown files. The plan is available at:
 
 Interested in learning more? Get in touch with our team today.
 
-[Contact Us](mailto:info@mhc-gc.com)
+[Contact Us](mailto:office@mhc-gc.com)
 ```
 
 **AFTER:**
@@ -310,8 +310,8 @@ experienced team.
 - **Schedule Free Consultation** - Meet with our project specialists (`event`)
 - **Book Site Visit** - Arrange an on-location assessment (`place`)
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | 
-[projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+**Contact:** [(509) 308-6489](tel:+15093086489)  | 
+[office@mhc-gc.com](mailto:office@mhc-gc.com)
 ```
 
 ### Example 2: Missing Extension → Proper Format
@@ -319,17 +319,17 @@ experienced team.
 **BEFORE:**
 
 ```markdown
-Call us at (509) 308-6489 or email info@mhc-gc.com
+Call us at (509) 308-6489 or email office@mhc-gc.com
 ```
 
 **AFTER:**
 
 ```markdown
-**Client Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | 
-[projects@mhc-gc.com](mailto:projects@mhc-gc.com)
+**Client Contact:** [(509) 308-6489](tel:+15093086489)  | 
+[office@mhc-gc.com](mailto:office@mhc-gc.com)
 
-**Vendor Contact:** [(509) 308-6489](tel:+15093086489) ext. 150 | 
-[vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
+**Vendor Contact:** [(509) 308-6489](tel:+15093086489)  | 
+[office@mhc-gc.com](mailto:office@mhc-gc.com)
 ```
 
 ### Example 3: Add MaterialIcon Reference

@@ -239,8 +239,8 @@ Form Introduction:
 understanding your unique vision and needs."
 
 Contact Methods:
-- "Project Consultation: (509) 308-6489 ext. 100"
-- "projects@mhc-gc.com"
+- "Project Consultation: (509) 308-6489 "
+- "office@mhc-gc.com"
 - "Schedule Free Estimate"
 - "Book Discovery Call"
 
@@ -254,8 +254,8 @@ Form Introduction:
 partners who share our commitment to excellence."
 
 Contact Methods:
-- "Vendor Relations: (509) 308-6489 ext. 150"
-- "vendors@mhc-gc.com"
+- "Vendor Relations: (509) 308-6489 "
+- "office@mhc-gc.com"
 - "Apply as Approved Vendor"
 - "Submit Trade Application"
 ```text

@@ -75,8 +75,8 @@ All updates follow **MH Construction branding standards** using MaterialIcon com
 | **Purpose** | Project collaboration | Business relationship |
 | **Language Focus** | Collaborative, welcoming | Professional, credible |
 | **Color Scheme** | MH warm colors (orange/green) | Professional blue/gray |
-| **Contact Extension** | ext. 100 | ext. 150 |
-| **Email** | <projects@mhc-gc.com> | <vendors@mhc-gc.com> |
+| **Contact Extension** |  |  |
+| **Email** | <office@mhc-gc.com> | <office@mhc-gc.com> |
 | **Button Variant** | `primary` | `secondary` |
 
 ### CTA Examples
@@ -202,8 +202,8 @@ All updates strictly follow MH Construction branding standards:
 
 ### For Project Clients
 
-**Phone:** (509) 308-6489 ext. 100
-**Email:** <projects@mhc-gc.com>
+**Phone:** (509) 308-6489
+**Email:** <office@mhc-gc.com>
 **Services:**
 
 - AI Estimator support
@@ -213,8 +213,8 @@ All updates strictly follow MH Construction branding standards:
 
 ### For Trade Partners
 
-**Phone:** (509) 308-6489 ext. 150
-**Email:** <vendors@mhc-gc.com>
+**Phone:** (509) 308-6489
+**Email:** <office@mhc-gc.com>
 **Services:**
 
 - Vendor applications
@@ -252,7 +252,7 @@ All updates strictly follow MH Construction branding standards:
 - [ ] Emphasizes collaboration and partnership
 - [ ] Welcoming, relationship-focused tone
 - [ ] Primary button variant
-- [ ] Extension 100 / <projects@mhc-gc.com> contact
+- [ ] Extension 100 / <office@mhc-gc.com> contact
 - [ ] MH brand warm colors (orange/green)
 
 **Trade Partnership Content:**
@@ -261,7 +261,7 @@ All updates strictly follow MH Construction branding standards:
 - [ ] Emphasizes professional standards and growth
 - [ ] Business-focused, credible tone
 - [ ] Secondary button variant
-- [ ] Extension 150 / <vendors@mhc-gc.com> contact
+- [ ] Extension 150 / <office@mhc-gc.com> contact
 - [ ] Professional blue/gray colors
 
 ---

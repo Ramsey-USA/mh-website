@@ -510,8 +510,8 @@ module.exports = {
 
 ### Contact Information Color Coding
 
-- **Client Partnerships:** Hunter Green theme (ext. 100, projects@mhc-gc.com)
-- **Trade Partnerships:** Leather Tan theme (ext. 150, vendors@mhc-gc.com)
+- **Client Partnerships:** Hunter Green theme (, office@mhc-gc.com)
+- **Trade Partnerships:** Leather Tan theme (, office@mhc-gc.com)
 
 ---
 

@@ -196,7 +196,7 @@ Global navigation appears on every page and sets the first impression. Must be c
       <MaterialIcon icon="phone" className="w-5 h-5 text-primary" />
       <div className="flex-1">
         <div className="font-medium text-sm">Client Contact</div>
-        <div className="text-xs text-muted-foreground">(509) 308-6489 ext. 100</div>
+        <div className="text-xs text-muted-foreground">(509) 308-6489 </div>
       </div>
     </a>
 
@@ -208,19 +208,19 @@ Global navigation appears on every page and sets the first impression. Must be c
       <MaterialIcon icon="construction" className="w-5 h-5 text-secondary" />
       <div className="flex-1">
         <div className="font-medium text-sm">Vendor Contact</div>
-        <div className="text-xs text-muted-foreground">(509) 308-6489 ext. 150</div>
+        <div className="text-xs text-muted-foreground">(509) 308-6489 </div>
       </div>
     </a>
 
     {/* Email */}
     <a 
-      href="mailto:projects@mhc-gc.com"
+      href="mailto:office@mhc-gc.com"
       className="flex items-center gap-3 p-3 rounded-lg hover:bg-background transition-colors"
     >
       <MaterialIcon icon="email" className="w-5 h-5 text-primary" />
       <div className="flex-1">
         <div className="font-medium text-sm">Email Us</div>
-        <div className="text-xs text-muted-foreground">projects@mhc-gc.com</div>
+        <div className="text-xs text-muted-foreground">office@mhc-gc.com</div>
       </div>
     </a>
   </div>
@@ -271,7 +271,7 @@ Global navigation appears on every page and sets the first impression. Must be c
       className="flex items-center gap-2 pl-7 text-sm hover:text-primary transition-colors"
     >
       <MaterialIcon icon="handshake" className="w-4 h-4" />
-      <span>Client Projects: ext. 100</span>
+      <span>Client Projects: </span>
     </a>
     
     {/* Vendor Contact */}
@@ -280,25 +280,25 @@ Global navigation appears on every page and sets the first impression. Must be c
       className="flex items-center gap-2 pl-7 text-sm hover:text-primary transition-colors"
     >
       <MaterialIcon icon="construction" className="w-4 h-4" />
-      <span>Trade Partners: ext. 150</span>
+      <span>Trade Partners: </span>
     </a>
   </div>
 
   {/* Email Links */}
   <div className="space-y-2">
     <a 
-      href="mailto:projects@mhc-gc.com"
+      href="mailto:office@mhc-gc.com"
       className="flex items-center gap-2 hover:text-primary transition-colors"
     >
       <MaterialIcon icon="email" className="w-5 h-5" />
-      <span className="text-sm">projects@mhc-gc.com</span>
+      <span className="text-sm">office@mhc-gc.com</span>
     </a>
     <a 
-      href="mailto:vendors@mhc-gc.com"
+      href="mailto:office@mhc-gc.com"
       className="flex items-center gap-2 hover:text-primary transition-colors"
     >
       <MaterialIcon icon="email" className="w-5 h-5" />
-      <span className="text-sm">vendors@mhc-gc.com</span>
+      <span className="text-sm">office@mhc-gc.com</span>
     </a>
   </div>
 
@@ -392,7 +392,7 @@ Homepage is the primary entry point and must showcase branding excellence.
     Call us: <a href="tel:+15093086489" className="hover:text-primary font-medium">(509) 308-6489</a>
   </p>
   <p className="text-xs text-muted-foreground">
-    Client ext. 100 | Vendor ext. 150
+    Client  | Vendor 
   </p>
 </div>
 ```
@@ -529,7 +529,7 @@ const services = [
         <span className="font-medium">(509) 308-6489</span>
       </a>
       <span className="text-xs text-muted-foreground ml-2">
-        Client ext. 100 | Vendor ext. 150
+        Client  | Vendor 
       </span>
     </div>
   </div>
@@ -695,11 +695,11 @@ const services = [
       </a>
       
       <a 
-        href="mailto:projects@mhc-gc.com"
+        href="mailto:office@mhc-gc.com"
         className="flex items-center gap-2 p-3 rounded-lg hover:bg-muted transition-colors"
       >
         <MaterialIcon icon="email" className="w-5 h-5 text-primary" />
-        <div className="font-medium text-sm">projects@mhc-gc.com</div>
+        <div className="font-medium text-sm">office@mhc-gc.com</div>
       </a>
     </CardContent>
     <CardFooter>
@@ -732,11 +732,11 @@ const services = [
       </a>
       
       <a 
-        href="mailto:vendors@mhc-gc.com"
+        href="mailto:office@mhc-gc.com"
         className="flex items-center gap-2 p-3 rounded-lg hover:bg-muted transition-colors"
       >
         <MaterialIcon icon="email" className="w-5 h-5 text-secondary" />
-        <div className="font-medium text-sm">vendors@mhc-gc.com</div>
+        <div className="font-medium text-sm">office@mhc-gc.com</div>
       </a>
     </CardContent>
     <CardFooter>
@@ -797,7 +797,7 @@ const services = [
         className="inline-flex items-center gap-1 hover:text-secondary font-medium mt-2"
       >
         <MaterialIcon icon="phone" className="w-4 h-4" />
-        Call (509) 308-6489 ext. 150
+        Call (509) 308-6489 
       </a>
     </div>
   </CardContent>
@@ -1002,7 +1002,7 @@ For each component update:
 ```tsx
 // ✅ Correct
 <a href="tel:+15093086489,100">
-  (509) 308-6489 ext. 100
+  (509) 308-6489 
 </a>
 
 // ❌ Incorrect
@@ -1021,7 +1021,7 @@ For each component update:
 
 - **CTA Click-Through Rate (CTR):** Target >5% increase
 - **Form Completion Rate:** Target >3% increase
-- **Phone Call Volume:** Track ext. 100 vs ext. 150 usage
+- **Phone Call Volume:** Track  vs  usage
 - **Estimator → Consultation Conversion:** Track funnel
 
 #### Technical Metrics
@@ -1066,12 +1066,12 @@ For each component update:
 ```markdown
 **Standard Display:**
 (509) 308-6489
-- Client Projects: ext. 100 | projects@mhc-gc.com
-- Trade Partners: ext. 150 | vendors@mhc-gc.com
+- Client Projects:  | office@mhc-gc.com
+- Trade Partners:  | office@mhc-gc.com
 
 **Link Format:**
-<a href="tel:+15093086489,100">(509) 308-6489 ext. 100</a>
-<a href="mailto:projects@mhc-gc.com">projects@mhc-gc.com</a>
+<a href="tel:+15093086489,100">(509) 308-6489 </a>
+<a href="mailto:office@mhc-gc.com">office@mhc-gc.com</a>
 ```
 
 ### Icon Selection Guide
@@ -1169,4 +1169,4 @@ For each component update:
 **Last Updated:** October 15, 2025  
 **Next Review:** After Phase 1 completion  
 
-*For questions or clarifications, contact the development team at <developers@mhc-gc.com>*
+*For questions or clarifications, contact the development team at <office@mhc-gc.com>*

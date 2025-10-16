@@ -882,7 +882,7 @@ export default function ServicesPage() {
                     className="inline mr-2"
                     size="md"
                   />
-                  info@mhconstruction.com
+                  office@mhc-gc.com
                 </p>
               </div>
             </div>

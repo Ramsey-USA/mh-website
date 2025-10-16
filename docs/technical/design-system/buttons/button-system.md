@@ -207,7 +207,7 @@ transition-all duration-300
   <MaterialIcon icon="phone" className="mr-2 w-6 h-6" />
   <span className="text-center">
     Client Contact<br />
-    (509) 308-6489 ext. 100
+    (509) 308-6489 
   </span>
 </Button>
 
@@ -216,14 +216,14 @@ transition-all duration-300
   <MaterialIcon icon="phone" className="mr-2 w-6 h-6" />
   <span className="text-center">
     Vendor Contact<br />
-    (509) 308-6489 ext. 150
+    (509) 308-6489 
   </span>
 </Button>
 
 // Email actions
 <Button variant="outline" size="lg">
   <MaterialIcon icon="email" className="mr-2 w-6 h-6" />
-  projects@mhc-gc.com
+  office@mhc-gc.com
 </Button>
 ```text
 

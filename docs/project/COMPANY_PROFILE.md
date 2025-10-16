@@ -74,7 +74,7 @@ Regional Commitment:
 | **Phone** | (509) 308-6489 |
 | **Address** | 3111 N. Capital Ave., Pasco, WA 99301 |
 | **Service Area** | Pacific Northwest (WA, OR, ID) |
-| **Email** | <info@mhc-gc.com> |
+| **Email** | <office@mhc-gc.com> |
 | **Website** | [mhc-gc.com](https://mhc-gc.com) |
 
 ---

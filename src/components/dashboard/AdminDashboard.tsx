@@ -428,7 +428,7 @@ const AdminDashboard = () => {
             <input
               type="email"
               className="p-3 border rounded-lg w-full"
-              defaultValue="info@mhconstruction.com"
+              defaultValue="office@mhc-gc.com"
             />
           </div>
         </div>

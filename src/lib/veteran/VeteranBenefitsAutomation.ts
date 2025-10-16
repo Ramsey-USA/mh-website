@@ -748,7 +748,7 @@ export class VeteranBenefitsAutomation {
         },
         contactInfo: {
           phone: "(555) 123-4567",
-          email: "mike.thompson@mhconstruction.com",
+          email: "office@mhc-gc.com",
           preferredMethod: "phone",
         },
         specializations: ["General Construction"],
@@ -988,9 +988,8 @@ export class VeteranBenefitsAutomation {
   }
 
   private generateEmail(name: string): string {
-    const firstName = name.split(" ")[0].toLowerCase();
-    const lastName = name.split(" ")[1]?.toLowerCase() || "specialist";
-    return `${firstName}.${lastName}@mhconstruction.com`;
+    // All communications go through office@mhc-gc.com
+    return "office@mhc-gc.com";
   }
 
   private generateDirectLine(): string {

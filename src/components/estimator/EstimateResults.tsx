@@ -1,38 +1,38 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { Button, Card, CardHeader, CardTitle, CardContent } from '../ui'
+import React from "react";
+import { Button, Card, CardHeader, CardTitle, CardContent } from "../ui";
 
 interface EstimateData {
-  totalCost: number
+  totalCost: number;
   breakdown: {
-    materials: number
-    labor: number
-    permits: number
-    overhead: number
-    contingency: number
-  }
-  timeline: string
-  accuracy: number
-  veteranDiscount?: number
+    materials: number;
+    labor: number;
+    permits: number;
+    overhead: number;
+    contingency: number;
+  };
+  timeline: string;
+  accuracy: number;
+  veteranDiscount?: number;
 }
 
 interface ProjectData {
-  projectType: string
-  location: string
-  size: string
-  timeline: string
-  budget: string
-  complexity: string
-  materials: string[]
-  features: string[]
-  isVeteran: boolean
+  projectType: string;
+  location: string;
+  size: string;
+  timeline: string;
+  budget: string;
+  complexity: string;
+  materials: string[];
+  features: string[];
+  isVeteran: boolean;
 }
 
 interface EstimateResultsProps {
-  estimate: EstimateData
-  projectData: ProjectData
-  onStartOver: () => void
+  estimate: EstimateData;
+  projectData: ProjectData;
+  onStartOver: () => void;
 }
 
 export function EstimateResults({
@@ -41,42 +41,42 @@ export function EstimateResults({
   onStartOver,
 }: EstimateResultsProps) {
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
-    }).format(amount)
-  }
+    }).format(amount);
+  };
 
   const breakdownItems = [
     {
-      label: 'Materials',
+      label: "Materials",
       amount: estimate.breakdown.materials,
-      color: 'bg-blue-500',
+      color: "bg-blue-500",
     },
-    { label: 'Labor', amount: estimate.breakdown.labor, color: 'bg-green-500' },
+    { label: "Labor", amount: estimate.breakdown.labor, color: "bg-green-500" },
     {
-      label: 'Permits & Fees',
+      label: "Permits & Fees",
       amount: estimate.breakdown.permits,
-      color: 'bg-yellow-500',
+      color: "bg-yellow-500",
     },
     {
-      label: 'Overhead',
+      label: "Overhead",
       amount: estimate.breakdown.overhead,
-      color: 'bg-purple-500',
+      color: "bg-purple-500",
     },
     {
-      label: 'Contingency',
+      label: "Contingency",
       amount: estimate.breakdown.contingency,
-      color: 'bg-red-500',
+      color: "bg-red-500",
     },
-  ]
+  ];
 
   const totalBeforeDiscount = Object.values(estimate.breakdown).reduce(
     (sum, amount) => sum + amount,
     0
-  )
+  );
 
   return (
     <div className="space-y-8 mx-auto max-w-6xl">
@@ -99,9 +99,9 @@ export function EstimateResults({
           Your Estimate is Ready!
         </h2>
         <p className="mx-auto max-w-2xl text-gray-600">
-          Based on current market conditions and our database of 10,000+
-          completed projects, here&apos;s your detailed construction estimate
-          with {estimate.accuracy}% accuracy.
+          Based on current market conditions and typical project parameters,
+          here&apos;s your preliminary construction estimate. Please note this
+          is for planning purposes only.
         </p>
       </div>
 
@@ -154,8 +154,8 @@ export function EstimateResults({
                     <span>{estimate.timeline}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Accuracy Rating:</span>
-                    <span>{estimate.accuracy}%</span>
+                    <span>Estimate Type:</span>
+                    <span>Preliminary</span>
                   </div>
                 </div>
               </div>
@@ -172,7 +172,7 @@ export function EstimateResults({
                 {breakdownItems.map((item, index) => {
                   const percentage = Math.round(
                     (item.amount / totalBeforeDiscount) * 100
-                  )
+                  );
                   return (
                     <div key={index}>
                       <div className="flex justify-between items-center mb-2">
@@ -188,7 +188,7 @@ export function EstimateResults({
                         />
                       </div>
                     </div>
-                  )
+                  );
                 })}
               </div>
             </CardContent>
@@ -274,18 +274,20 @@ export function EstimateResults({
             </CardContent>
           </Card>
 
-          {/* Accuracy Info */}
-          <Card className="bg-green-50 border-green-200">
+          {/* Estimate Transparency */}
+          <Card className="bg-blue-50 border-blue-200">
             <CardHeader>
-              <CardTitle className="text-green-800">
-                95% Accuracy Guarantee
+              <CardTitle className="text-blue-800">
+                About This Estimate
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-green-700 text-sm">
-                This estimate is backed by our 95% accuracy guarantee. If your
-                final project cost varies by more than 10%, we&apos;ll provide a
-                credit toward your next project.
+              <p className="text-blue-700 text-sm">
+                This AI-generated estimate is based on current market data and
+                typical project parameters. Actual costs may vary based on site
+                conditions, material selections, permits, and other
+                project-specific factors. This estimate serves as a helpful
+                starting point for budget planning.
               </p>
             </CardContent>
           </Card>
@@ -325,24 +327,24 @@ export function EstimateResults({
           <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                phase: 'Planning & Permits',
-                duration: '2-4 weeks',
-                description: 'Design finalization, permit acquisition',
+                phase: "Planning & Permits",
+                duration: "2-4 weeks",
+                description: "Design finalization, permit acquisition",
               },
               {
-                phase: 'Site Preparation',
-                duration: '1-2 weeks',
-                description: 'Excavation, utilities, foundation',
+                phase: "Site Preparation",
+                duration: "1-2 weeks",
+                description: "Excavation, utilities, foundation",
               },
               {
-                phase: 'Construction',
-                duration: '80% of timeline',
-                description: 'Main construction work',
+                phase: "Construction",
+                duration: "80% of timeline",
+                description: "Main construction work",
               },
               {
-                phase: 'Finishing & Inspection',
-                duration: '2-3 weeks',
-                description: 'Final details, inspections, walkthrough',
+                phase: "Finishing & Inspection",
+                duration: "2-3 weeks",
+                description: "Final details, inspections, walkthrough",
               },
             ].map((phase, index) => (
               <div
@@ -365,16 +367,22 @@ export function EstimateResults({
         </CardContent>
       </Card>
 
-      {/* Disclaimer */}
+      {/* Enhanced Disclaimer */}
       <div className="mx-auto max-w-4xl text-gray-500 text-xs text-center">
+        <p className="mb-2 font-semibold">
+          Important: This is a Preliminary Estimate
+        </p>
         <p>
-          * This estimate is based on current market conditions, material costs,
-          and regional labor rates. Final pricing may vary based on specific
-          site conditions, material selections, and permit requirements. This
-          estimate is valid for 30 days. Contact us for a detailed quote and
-          site evaluation.
+          This AI-generated estimate is provided for initial budget planning
+          purposes only and should not be considered a formal quote or
+          guarantee. Actual construction costs can vary significantly based on
+          site conditions, material selections, labor availability, permit
+          requirements, and market fluctuations. Final pricing will be
+          determined through a detailed on-site consultation and formal bidding
+          process. This estimate is valid for 30 days and is subject to change
+          without notice.
         </p>
       </div>
     </div>
-  )
+  );
 }

@@ -25,7 +25,7 @@ export const enhancedSEO = {
     name: 'MH Construction LLC',
     legalName: 'MH Construction Limited Liability Company',
     telephone: '+1-509-123-4567',
-    email: 'info@mhconstruction.com',
+    email: 'office@mhc-gc.com',
     address: {
       streetAddress: '1234 Construction Ave',
       addressLocality: 'Pasco',

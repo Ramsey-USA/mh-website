@@ -9,8 +9,8 @@ echo "🚀 Starting MH Construction Website Production Deployment"
 
 # Configuration
 PROJECT_NAME="mh-construction-website"
-PRODUCTION_URL="https://mhconstructionllc.com"
-STAGING_URL="https://staging.mhconstructionllc.com"
+PRODUCTION_URL="https://www.mhc-gc.com"
+STAGING_URL="https://staging.mhc-gc.com"
 
 # Colors for output
 RED='\033[0;31m'

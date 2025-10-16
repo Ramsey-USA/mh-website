@@ -62,7 +62,7 @@ const defaultSEO = {
       addressCountry: 'US',
     },
     telephone: '+1-555-123-4567',
-    email: 'info@mhconstruction.com',
+    email: 'office@mhc-gc.com',
   },
 }
 

@@ -24,8 +24,8 @@
 - **Service Area**: Tri-Cities, WA | Licensed in WA, OR, ID
 - **Headquarters**: 3111 N. Capital Ave., Pasco, WA 99301
 - **Phone**: [(509) 308-6489](tel:+15093086489)
-- **Client Contact**: ext. 100 | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
-- **Vendor Contact**: ext. 150 | [vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
+- **Client Contact**: ext. 100 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+- **Vendor Contact**: ext. 150 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ### Brand Mission
 

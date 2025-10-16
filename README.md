@@ -124,8 +124,8 @@
 #### 📞 Contact Information
 
 - **Phone**: [(509) 308-6489](tel:+15093086489)
-  - **Client Contact**: [ext. 100](tel:+15093086489,100) | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
-  - **Vendor Contact**: [ext. 150](tel:+15093086489,150) | [vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
+  - **Client Contact**: [ext. 100](tel:+15093086489,100) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+  - **Vendor Contact**: [ext. 150](tel:+15093086489,150) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 - **Address**: 3111 N. Capital Ave., Pasco, WA 99301
 - **Service Area**: Tri-Cities, WA | Licensed in WA, OR, ID
 
@@ -339,7 +339,7 @@ appointment.
 - **Location Intelligence**: 8 Pacific Northwest zones with custom multipliers
 - **Seasonal Adjustments**: Weather and market condition factors
 - **Veteran Discounts**: Automatic 12% combat veteran discount application
-- **95% Accuracy Guarantee**: Military-grade precision in preliminary cost estimation
+- **Regional Market Intelligence**: Live cost calculations with location factors
 
 **MaterialIcon:** `smart_toy` (Robot/AI indicator - per MH branding standards)
 **CTA Examples:** "Get Instant AI Estimate", "Try AI Calculator", "Calculate Cost Now"
@@ -356,7 +356,7 @@ you're ready to move forward with your project.
 **Professional Services Include:**
 
 - **On-Site Evaluation**: Expert visits your location for thorough assessment
-- **Detailed Estimates**: Comprehensive, accurate pricing tailored to your project
+- **Preliminary Estimates**: Initial pricing tailored to your project
 - **Two-Way Dialogue**: Ask questions, discuss options, explore solutions
 - **Expert Guidance**: Professional advice from experienced construction managers
 - **Partnership Building**: Start your collaborative journey with MH Construction
@@ -416,7 +416,7 @@ you're ready to move forward with your project.
  | AI Feature | Performance | Status |
  | ------------ | ------------- | -------- |
  | **Response Time** | <1.5 seconds | ✅ Optimized |
- | **Accuracy Rate** | 95%+ estimates | ✅ Military Precision |
+ | **Estimate Quality** | Preliminary estimates | ✅ Regional Data Based |
  | **Availability** | 24/7 Global | ✅ All Pages |
  | **Veteran Recognition** | Auto-detect | ✅ Service-Specific |
  | **Bundle Impact** | +35kB total | ✅ Efficient |
@@ -611,7 +611,7 @@ seeking construction services.
 - **Shared Success**: Your satisfaction is our success
 - **Long-term Relationship**: Partners beyond project completion
 
-**Contact:** (509) 308-6489 ext. 100 | <projects@mhc-gc.com>
+**Contact:** (509) 308-6489 ext. 100 | <office@mhc-gc.com>
 
 #### Trade Partnerships (MaterialIcon: `construction`)
 
@@ -624,7 +624,7 @@ seeking to join our approved network.
 - **Collaborative Success**: Growing together in the Pacific Northwest
 - **Network Benefits**: Access to diverse project opportunities
 
-**Contact:** (509) 308-6489 ext. 150 | <vendors@mhc-gc.com>
+**Contact:** (509) 308-6489 ext. 150 | <office@mhc-gc.com>
 
 #### Community Impact
 
@@ -642,8 +642,8 @@ connected region.
  | **Phone** | (509) 308-6489 |
  | **Address** | 3111 N. Capital Ave., Pasco, WA 99301 |
  | **Service Area** | Pacific Northwest (WA, OR, ID) |
- | **Email** | <info@mhc-gc.com> |
- | **Website** | [mhc-gc.com](https://mhc-gc.com) |
+ | **Email** | <office@mhc-gc.com> |
+ | **Website** | [www.mhc-gc.com](https://www.mhc-gc.com) |
 
 ### Our Partnership Approach
 
@@ -732,7 +732,7 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=your_ga_id
 - **Revolutionary AI Implementation**: First-in-industry military-style construction AI with
   business integration
   - **Global Military Chatbot**: "General MH" available on all pages with Army terminology
-  - **Advanced Cost Estimator**: Real-time pricing with 95% accuracy guarantee
+  - **AI Cost Estimator**: Regional pricing with preliminary budget estimates
   - **Smart Form Assistant**: AI-powered form completion with intelligent suggestions
   - **Lead Qualification Engine**: 0-100 scoring system with military-style assessment
   - **Veteran Recognition System**: Automatic service branch detection and specialized protocols
@@ -948,8 +948,8 @@ With the complete implementation, the platform now includes:
 ## 📞 Contact Information
 
 - **Phone**: [(509) 308-6489](tel:+15093086489)
-- **Email**: [info@mhc-gc.com](mailto:info@mhc-gc.com)
-- **Website**: [mhc-gc.com](https://mhc-gc.com)
+- **Email**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
+- **Website**: [www.mhc-gc.com](https://www.mhc-gc.com)
 
 ---
 

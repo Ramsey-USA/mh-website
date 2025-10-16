@@ -18,7 +18,7 @@ references.
 
 - ✅ **20 files updated** across 4 phases
 - ✅ **100% lint validation** - all files pass with 0 errors
-- ✅ **Contact info standardized** - ext. 100 (clients), ext. 150 (vendors)
+- ✅ **Contact info standardized** -  (clients),  (vendors)
 - ✅ **CTA language consistent** - "Schedule Free Consultation" vs "Try AI Estimator"
 - ✅ **MaterialIcon compliance** - all icons properly referenced (`event`, `smart_toy`, etc.)
 
@@ -38,7 +38,7 @@ references.
    - Updated 5 CTA sections with specific action-based language
    - Replaced generic "Call to Action: Call..." with "Schedule Free Consultation"
    - Added MaterialIcon references (`event`, `smart_toy`)
-   - Added proper contact extensions (ext. 100, ext. 150)
+   - Added proper contact extensions (, )
 
 2. **docs/business/CORE_VALUES.md**
    - Added comprehensive "Ready to Partner With Us?" CTA section
@@ -58,7 +58,7 @@ references.
 5. **docs/business/BUSINESS_INDEX.md**
    - Enhanced navigation descriptions
    - Added full contact information section
-   - Both client (ext. 100) and vendor (ext. 150) contacts
+   - Both client () and vendor () contacts
 
 ### Phase 2: Partnership & Messaging (3/3 Complete)
 
@@ -80,7 +80,7 @@ references.
 
 3. **docs/partnerships/messaging/partnership-messaging-guide.md**
    - Corrected email addresses throughout
-   - Changed "<office@mhc-gc.com>" to "<projects@mhc-gc.com>"
+   - Changed "<office@mhc-gc.com>" to "<office@mhc-gc.com>"
    - Consistent email addressing across document
 
 ### Phase 1 (Continuation): Branding Documentation (7/7 Complete)
@@ -92,8 +92,8 @@ references.
 #### Files Updated
 
 1. **docs/business/branding/BRAND_OVERVIEW.md**
-   - Added client contact line: "ext. 100 | <projects@mhc-gc.com>"
-   - Added vendor contact line: "ext. 150 | <vendors@mhc-gc.com>"
+   - Added client contact line: " | <office@mhc-gc.com>"
+   - Added vendor contact line: " | <office@mhc-gc.com>"
    - Proper mailto: links throughout
 
 2. **docs/business/branding/IMPLEMENTATION_GUIDE.md**
@@ -121,7 +121,7 @@ references.
 
 7. **docs/business/branding/COLOR_SYSTEM.md**
    - Verified previous October 15, 2025 update
-   - Already has proper contact extensions (ext. 100, ext. 150)
+   - Already has proper contact extensions (, )
    - No additional changes needed
 
 ### Phase 3: Technical & Development Documentation (3 Key Files Complete)
@@ -137,8 +137,8 @@ references.
    - Changed example from "Schedule Consultation" to "Schedule Free Consultation"
    - Updated icon from `calendar_today` to `event` (MaterialIcon standard)
    - Rewrote contact buttons section with client/vendor distinction
-   - Added proper extension numbers (ext. 100, ext. 150)
-   - Added email button example with <projects@mhc-gc.com>
+   - Added proper extension numbers (, )
+   - Added email button example with <office@mhc-gc.com>
 
 2. **docs/technical/design-system/buttons/button-examples.md**
    - Updated contact section with client/vendor distinction
@@ -162,15 +162,15 @@ references.
 #### Files Updated
 
 1. **README.md**
-   - Added client contact: "ext. 100 | <projects@mhc-gc.com>"
-   - Added vendor contact: "ext. 150 | <vendors@mhc-gc.com>"
+   - Added client contact: " | <office@mhc-gc.com>"
+   - Added vendor contact: " | <office@mhc-gc.com>"
    - Updated button example from "Call Now" to "Client Contact"
    - Proper tel: and mailto: links throughout
 
 2. **CONTRIBUTING.md**
    - Enhanced business contacts section
-   - Added client contact: "ext. 100 | <projects@mhc-gc.com>"
-   - Added vendor contact: "ext. 150 | <vendors@mhc-gc.com>"
+   - Added client contact: " | <office@mhc-gc.com>"
+   - Added vendor contact: " | <office@mhc-gc.com>"
    - Proper phone link with extensions
 
 ---
@@ -182,7 +182,7 @@ references.
 #### Client Contact (Primary - Hunter Green Theme)
 
 - **Extension:** 100
-- **Email:** <projects@mhc-gc.com>
+- **Email:** <office@mhc-gc.com>
 - **Icon:** `handshake`, `event`, `engineering`
 - **Button Variant:** `primary`
 - **Usage:** Project consultations, client partnerships, IRL services
@@ -190,7 +190,7 @@ references.
 #### Vendor Contact (Secondary - Leather Tan Theme)
 
 - **Extension:** 150
-- **Email:** <vendors@mhc-gc.com>
+- **Email:** <office@mhc-gc.com>
 - **Icon:** `construction`, `work`, `check_circle`
 - **Button Variant:** `secondary`
 - **Usage:** Trade partnerships, vendor applications, supplier relations
@@ -278,8 +278,8 @@ All files now use standardized contact format:
 
 ```markdown
 - **Phone**: [(509) 308-6489](tel:+15093086489)
-  - **Client Contact**: [ext. 100](tel:+15093086489,100) | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
-  - **Vendor Contact**: [ext. 150](tel:+15093086489,150) | [vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
+  - **Client Contact**: [](tel:+15093086489,100) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+  - **Vendor Contact**: [](tel:+15093086489,150) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 ```
 
 ### CTA Language Consistency
@@ -304,7 +304,7 @@ All CTAs now use approved action-based language:
    - Button colors reinforce service categories
 
 2. **Simplified Contact**
-   - Direct extension dialing with tel: links (ext. 100, ext. 150)
+   - Direct extension dialing with tel: links (, )
    - Proper email categorization (projects@ vs vendors@)
    - One-click calling/emailing from all documentation
 
@@ -428,4 +428,4 @@ across all documentation.
 **Version:** 1.0  
 **Status:** ✅ Complete
 
-*For questions or clarifications, contact the development team at <developers@mhc-gc.com>*
+*For questions or clarifications, contact the development team at <office@mhc-gc.com>*

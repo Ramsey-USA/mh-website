@@ -27,7 +27,7 @@ services:
       start_period: 60s
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mh-website.rule=Host(`mhconstructionllc.com`)"
+      - "traefik.http.routers.mh-website.rule=Host(`www.mhc-gc.com`)"
       - "traefik.http.routers.mh-website.tls=true"
       - "traefik.http.routers.mh-website.tls.certresolver=letsencrypt"
 
@@ -41,7 +41,7 @@ services:
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
       - "--certificatesresolvers.letsencrypt.acme.tlschallenge=true"
-      - "--certificatesresolvers.letsencrypt.acme.email=admin@mhconstructionllc.com"
+      - "--certificatesresolvers.letsencrypt.acme.email=office@mhc-gc.com"
       - "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
       - "--global.checknewversion=false"
       - "--global.sendanonymoususage=false"

@@ -240,9 +240,9 @@ Navigation and tertiary CTAs use:
 
 ### Current Standard (Applied)
 
-- **Client Projects:** (509) 308-6489 ext. 100 | <projects@mhc-gc.com>
-- **Vendor/Trade:** (509) 308-6489 ext. 150 | <vendors@mhc-gc.com>
-- **General:** (509) 308-6489 | <info@mhc-gc.com>
+- **Client Projects:** (509) 308-6489  | <office@mhc-gc.com>
+- **Vendor/Trade:** (509) 308-6489  | <office@mhc-gc.com>
+- **General:** (509) 308-6489 | <office@mhc-gc.com>
 
 ### Icon Usage
 

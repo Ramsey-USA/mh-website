@@ -320,10 +320,10 @@ export default function BookingPage() {
                     </a>{" "}
                     or email{" "}
                     <a
-                      href="mailto:info@mhconstruction.com"
+                      href="mailto:office@mhc-gc.com"
                       className="font-semibold underline"
                     >
-                      info@mhconstruction.com
+                      office@mhc-gc.com
                     </a>
                   </p>
                 </div>

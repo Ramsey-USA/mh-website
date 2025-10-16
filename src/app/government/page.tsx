@@ -824,10 +824,10 @@ export default function GovernmentGrantsPage() {
                     />
                     <p className="mb-1 text-gray-400 text-sm">Email Us</p>
                     <a
-                      href="mailto:info@mhconstruction.com"
+                      href="mailto:office@mhc-gc.com"
                       className="font-bold text-white hover:text-gray-300 text-lg"
                     >
-                      info@mhconstruction.com
+                      office@mhc-gc.com
                     </a>
                   </div>
                   <div>

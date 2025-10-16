@@ -32,9 +32,9 @@ const contactMethods = [
   {
     icon: "email",
     title: "Email",
-    value: "info@mhconstruction.com",
+    value: "office@mhc-gc.com",
     description: "We'll respond within 24 hours",
-    link: "mailto:info@mhconstruction.com",
+    link: "mailto:office@mhc-gc.com",
   },
   {
     icon: "location_on",

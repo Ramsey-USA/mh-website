@@ -77,15 +77,15 @@ docs/business/
 - **Name**: MH Construction LLC
 - **Tagline**: "Building for the Owner, NOT the Dollar"
 - **Phone**: [(509) 308-6489](tel:+15093086489)
-- **Client Contact**: ext. 100 | [projects@mhc-gc.com](mailto:projects@mhc-gc.com)
-- **Vendor Contact**: ext. 150 | [vendors@mhc-gc.com](mailto:vendors@mhc-gc.com)
+- **Client Contact**: ext. 100 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+- **Vendor Contact**: ext. 150 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 - **Address**: 3111 N. Capital Ave., Pasco, WA 99301
 - **Licensed**: WA, OR, ID | Veteran-Owned & Operated
 
 ### 🌐 Digital Presence
 
-- **Website**: mhc-gc.com
-- **General Email**: [info@mhc-gc.com](mailto:info@mhc-gc.com)
+- **Website**: [www.mhc-gc.com](https://www.mhc-gc.com)
+- **General Email**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
 - **Social Media**: Professional business profiles
 
 ### 📈 Current Status (v3.7.2)

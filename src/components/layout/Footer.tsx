@@ -86,10 +86,10 @@ export default function Footer() {
                         Partnership Email
                       </div>
                       <a
-                        href="mailto:info@mhconstruction.com"
+                        href="mailto:office@mhc-gc.com"
                         className="font-medium hover:text-brand-primary text-xs transition-colors"
                       >
-                        info@mhconstruction.com
+                        office@mhc-gc.com
                       </a>
                     </div>
                   </div>

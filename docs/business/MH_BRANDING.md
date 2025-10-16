@@ -2253,7 +2253,7 @@ export function ThemeToggle() {
 
 ### Technical Contact Information
 
-- **Brand Guidelines**: <developers@mhc-gc.com>
+- **Brand Guidelines**: <office@mhc-gc.com>
 - **Tailwind Implementation**: See `tailwind.config.ts` and Button component
 - **Theme Support**: Complete Tailwind dark mode implementation
 - **Technical Support**: Pure Tailwind architecture documentation

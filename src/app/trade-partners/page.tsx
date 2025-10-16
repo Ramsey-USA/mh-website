@@ -514,7 +514,7 @@ export default function TradePartnersPage() {
               <p className="mt-6 text-gray-500 dark:text-gray-400">
                 <MaterialIcon icon="phone" className="inline mr-2" size="sm" />
                 Partnership Inquiries: (509) 308-6489 |
-                partnerships@mhconstruction.com
+                office@mhc-gc.com
               </p>
             </div>
           </FadeInWhenVisible>
