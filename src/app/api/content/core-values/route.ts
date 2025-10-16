@@ -9,7 +9,7 @@ export async function GET() {
     console.error("Error loading core values:", error);
     return NextResponse.json(
       { error: "Failed to load core values content" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -1,241 +1,241 @@
-'use client'
+"use client";
 
-import React, { useState, useRef } from 'react'
-import { Card, CardContent, CardHeader, CardTitle, Button } from '../ui'
+import React, { useState, useRef } from "react";
+import { Card, CardContent, CardHeader, CardTitle, Button } from "../ui";
 
 interface SharedDocument {
-  id: string
-  name: string
+  id: string;
+  name: string;
   type:
-    | 'contract'
-    | 'permit'
-    | 'invoice'
-    | 'photo'
-    | 'plan'
-    | 'report'
-    | 'other'
-  category: 'project' | 'legal' | 'financial' | 'progress' | 'reference'
-  url: string
-  uploadDate: string
-  uploadedBy: string
-  size: string
-  description?: string
-  projectId?: string
-  isPrivate: boolean
-  downloadCount: number
-  version: string
-  status: 'active' | 'archived' | 'pending-review'
+    | "contract"
+    | "permit"
+    | "invoice"
+    | "photo"
+    | "plan"
+    | "report"
+    | "other";
+  category: "project" | "legal" | "financial" | "progress" | "reference";
+  url: string;
+  uploadDate: string;
+  uploadedBy: string;
+  size: string;
+  description?: string;
+  projectId?: string;
+  isPrivate: boolean;
+  downloadCount: number;
+  version: string;
+  status: "active" | "archived" | "pending-review";
 }
 
 interface DocumentSharingProps {
-  projectId?: string
-  canUpload?: boolean
-  className?: string
+  projectId?: string;
+  canUpload?: boolean;
+  className?: string;
 }
 
 const mockDocuments: SharedDocument[] = [
   {
-    id: 'doc-001',
-    name: 'Kitchen Renovation Contract.pdf',
-    type: 'contract',
-    category: 'legal',
-    url: '#',
-    uploadDate: '2024-11-01',
-    uploadedBy: 'MH Construction Legal Team',
-    size: '2.3 MB',
+    id: "doc-001",
+    name: "Kitchen Renovation Contract.pdf",
+    type: "contract",
+    category: "legal",
+    url: "#",
+    uploadDate: "2024-11-01",
+    uploadedBy: "MH Construction Legal Team",
+    size: "2.3 MB",
     description:
-      'Signed contract for kitchen renovation project including all terms and conditions.',
-    projectId: 'proj-001',
+      "Signed contract for kitchen renovation project including all terms and conditions.",
+    projectId: "proj-001",
     isPrivate: false,
     downloadCount: 3,
-    version: '1.0',
-    status: 'active',
+    version: "1.0",
+    status: "active",
   },
   {
-    id: 'doc-002',
-    name: 'Building Permit - Bathroom Addition.pdf',
-    type: 'permit',
-    category: 'legal',
-    url: '#',
-    uploadDate: '2024-12-17',
-    uploadedBy: 'Lisa Thompson',
-    size: '890 KB',
+    id: "doc-002",
+    name: "Building Permit - Bathroom Addition.pdf",
+    type: "permit",
+    category: "legal",
+    url: "#",
+    uploadDate: "2024-12-17",
+    uploadedBy: "Lisa Thompson",
+    size: "890 KB",
     description:
-      'Approved building permit for master bathroom addition project.',
-    projectId: 'proj-002',
+      "Approved building permit for master bathroom addition project.",
+    projectId: "proj-002",
     isPrivate: false,
     downloadCount: 1,
-    version: '1.0',
-    status: 'active',
+    version: "1.0",
+    status: "active",
   },
   {
-    id: 'doc-003',
-    name: 'Progress Photos - Week 3.zip',
-    type: 'photo',
-    category: 'progress',
-    url: '#',
-    uploadDate: '2024-12-20',
-    uploadedBy: 'Mike Rodriguez',
-    size: '15.7 MB',
+    id: "doc-003",
+    name: "Progress Photos - Week 3.zip",
+    type: "photo",
+    category: "progress",
+    url: "#",
+    uploadDate: "2024-12-20",
+    uploadedBy: "Mike Rodriguez",
+    size: "15.7 MB",
     description:
-      'Weekly progress photos showing demolition completion and electrical rough-in.',
-    projectId: 'proj-001',
+      "Weekly progress photos showing demolition completion and electrical rough-in.",
+    projectId: "proj-001",
     isPrivate: false,
     downloadCount: 5,
-    version: '1.0',
-    status: 'active',
+    version: "1.0",
+    status: "active",
   },
   {
-    id: 'doc-004',
-    name: 'Invoice #MH-2024-1205.pdf',
-    type: 'invoice',
-    category: 'financial',
-    url: '#',
-    uploadDate: '2024-12-15',
-    uploadedBy: 'MH Construction Billing',
-    size: '445 KB',
-    description: 'Progress billing for work completed through December 15th.',
-    projectId: 'proj-001',
+    id: "doc-004",
+    name: "Invoice #MH-2024-1205.pdf",
+    type: "invoice",
+    category: "financial",
+    url: "#",
+    uploadDate: "2024-12-15",
+    uploadedBy: "MH Construction Billing",
+    size: "445 KB",
+    description: "Progress billing for work completed through December 15th.",
+    projectId: "proj-001",
     isPrivate: false,
     downloadCount: 2,
-    version: '1.0',
-    status: 'active',
+    version: "1.0",
+    status: "active",
   },
   {
-    id: 'doc-005',
-    name: 'Final Kitchen Design Plans.dwg',
-    type: 'plan',
-    category: 'project',
-    url: '#',
-    uploadDate: '2024-10-25',
-    uploadedBy: 'Design Team',
-    size: '5.2 MB',
+    id: "doc-005",
+    name: "Final Kitchen Design Plans.dwg",
+    type: "plan",
+    category: "project",
+    url: "#",
+    uploadDate: "2024-10-25",
+    uploadedBy: "Design Team",
+    size: "5.2 MB",
     description:
-      'Approved architectural drawings and design specifications for kitchen renovation.',
-    projectId: 'proj-001',
+      "Approved architectural drawings and design specifications for kitchen renovation.",
+    projectId: "proj-001",
     isPrivate: false,
     downloadCount: 8,
-    version: '2.1',
-    status: 'active',
+    version: "2.1",
+    status: "active",
   },
-]
+];
 
 export const DocumentSharing: React.FC<DocumentSharingProps> = ({
   projectId,
   canUpload = true,
-  className = '',
+  className = "",
 }) => {
-  const [documents, setDocuments] = useState<SharedDocument[]>(mockDocuments)
-  const [selectedCategory, setSelectedCategory] = useState<string>('all')
-  const [isUploading, setIsUploading] = useState(false)
-  const [uploadProgress, setUploadProgress] = useState(0)
-  const fileInputRef = useRef<HTMLInputElement>(null)
+  const [documents, setDocuments] = useState<SharedDocument[]>(mockDocuments);
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const filteredDocuments = documents.filter(doc => {
+  const filteredDocuments = documents.filter((doc) => {
     const categoryMatch =
-      selectedCategory === 'all' || doc.category === selectedCategory
-    const projectMatch = !projectId || doc.projectId === projectId
-    return categoryMatch && projectMatch
-  })
+      selectedCategory === "all" || doc.category === selectedCategory;
+    const projectMatch = !projectId || doc.projectId === projectId;
+    return categoryMatch && projectMatch;
+  });
 
   const categories = [
-    { value: 'all', label: 'All Documents', icon: '📄' },
-    { value: 'project', label: 'Project Files', icon: '[CONSTRUCTION]' },
-    { value: 'legal', label: 'Legal Documents', icon: '[ASSIGNMENT]' },
-    { value: 'financial', label: 'Financial', icon: '[ATTACH_MONEY]' },
-    { value: 'progress', label: 'Progress Reports', icon: '[TRENDING_UP]' },
-    { value: 'reference', label: 'Reference', icon: '📚' },
-  ]
+    { value: "all", label: "All Documents", icon: "📄" },
+    { value: "project", label: "Project Files", icon: "[CONSTRUCTION]" },
+    { value: "legal", label: "Legal Documents", icon: "[ASSIGNMENT]" },
+    { value: "financial", label: "Financial", icon: "[ATTACH_MONEY]" },
+    { value: "progress", label: "Progress Reports", icon: "[TRENDING_UP]" },
+    { value: "reference", label: "Reference", icon: "📚" },
+  ];
 
-  const getDocumentIcon = (type: SharedDocument['type']) => {
+  const getDocumentIcon = (type: SharedDocument["type"]) => {
     switch (type) {
-      case 'contract':
-        return '[ASSIGNMENT]'
-      case 'permit':
-        return '📜'
-      case 'invoice':
-        return '[ATTACH_MONEY]'
-      case 'photo':
-        return '[PHOTO_CAMERA]'
-      case 'plan':
-        return '📐'
-      case 'report':
-        return '[ANALYTICS]'
+      case "contract":
+        return "[ASSIGNMENT]";
+      case "permit":
+        return "📜";
+      case "invoice":
+        return "[ATTACH_MONEY]";
+      case "photo":
+        return "[PHOTO_CAMERA]";
+      case "plan":
+        return "📐";
+      case "report":
+        return "[ANALYTICS]";
       default:
-        return '📄'
+        return "📄";
     }
-  }
+  };
 
-  const getStatusColor = (status: SharedDocument['status']) => {
+  const getStatusColor = (status: SharedDocument["status"]) => {
     switch (status) {
-      case 'active':
-        return 'bg-green-100 text-green-800'
-      case 'archived':
-        return 'bg-gray-100 text-gray-800'
-      case 'pending-review':
-        return 'bg-yellow-100 text-yellow-800'
+      case "active":
+        return "bg-green-100 text-green-800";
+      case "archived":
+        return "bg-gray-100 text-gray-800";
+      case "pending-review":
+        return "bg-yellow-100 text-yellow-800";
       default:
-        return 'bg-gray-100 text-gray-800'
+        return "bg-gray-100 text-gray-800";
     }
-  }
+  };
 
   const handleFileUpload = async (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    const files = event.target.files
-    if (!files || files.length === 0) return
+    const files = event.target.files;
+    if (!files || files.length === 0) return;
 
-    setIsUploading(true)
-    setUploadProgress(0)
+    setIsUploading(true);
+    setUploadProgress(0);
 
     // Simulate file upload with progress
     for (let i = 0; i <= 100; i += 10) {
-      await new Promise(resolve => setTimeout(resolve, 100))
-      setUploadProgress(i)
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      setUploadProgress(i);
     }
 
     // Add new document to the list
-    const file = files[0]
+    const file = files[0];
     const newDocument: SharedDocument = {
       id: `doc-${Date.now()}`,
       name: file.name,
-      type: 'other',
-      category: 'project',
-      url: '#',
-      uploadDate: new Date().toISOString().split('T')[0],
-      uploadedBy: 'You',
+      type: "other",
+      category: "project",
+      url: "#",
+      uploadDate: new Date().toISOString().split("T")[0],
+      uploadedBy: "You",
       size: `${(file.size / (1024 * 1024)).toFixed(1)} MB`,
-      description: 'Recently uploaded document',
-      projectId: projectId || 'proj-001',
+      description: "Recently uploaded document",
+      projectId: projectId || "proj-001",
       isPrivate: false,
       downloadCount: 0,
-      version: '1.0',
-      status: 'active',
-    }
+      version: "1.0",
+      status: "active",
+    };
 
-    setDocuments(prev => [newDocument, ...prev])
-    setIsUploading(false)
-    setUploadProgress(0)
+    setDocuments((prev) => [newDocument, ...prev]);
+    setIsUploading(false);
+    setUploadProgress(0);
 
     // Reset file input
     if (fileInputRef.current) {
-      fileInputRef.current.value = ''
+      fileInputRef.current.value = "";
     }
-  }
+  };
 
   const handleDownload = (document: SharedDocument) => {
     // Simulate download
-    setDocuments(prev =>
-      prev.map(doc =>
+    setDocuments((prev) =>
+      prev.map((doc) =>
         doc.id === document.id
           ? { ...doc, downloadCount: doc.downloadCount + 1 }
-          : doc
-      )
-    )
+          : doc,
+      ),
+    );
 
     // In a real app, this would trigger the actual download
-    console.log('Downloading:', document.name)
-  }
+    console.log("Downloading:", document.name);
+  };
 
   return (
     <Card className={className}>
@@ -258,7 +258,7 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
                 onClick={() => fileInputRef.current?.click()}
                 disabled={isUploading}
               >
-                {isUploading ? '📤 Uploading...' : '📤 Upload'}
+                {isUploading ? "📤 Uploading..." : "📤 Upload"}
               </Button>
             </div>
           )}
@@ -286,14 +286,14 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
         {/* Category Filter */}
         <div className="mb-6">
           <div className="flex flex-wrap gap-2">
-            {categories.map(category => (
+            {categories.map((category) => (
               <button
                 key={category.value}
                 onClick={() => setSelectedCategory(category.value)}
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   selectedCategory === category.value
-                    ? 'bg-brand-primary text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? "bg-brand-primary text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
               >
                 <span className="mr-1">{category.icon}</span>
@@ -321,7 +321,7 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
             </div>
           ) : (
             <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-              {filteredDocuments.map(document => (
+              {filteredDocuments.map((document) => (
                 <div
                   key={document.id}
                   className="hover:shadow-md p-4 border border-gray-200 rounded-lg transition-shadow"
@@ -343,7 +343,7 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
                     </div>
                     <span
                       className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(
-                        document.status
+                        document.status,
                       )}`}
                     >
                       {document.status}
@@ -389,7 +389,7 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
                       variant="outline"
                       size="sm"
                       className="px-3"
-                      onClick={() => console.log('Share:', document.id)}
+                      onClick={() => console.log("Share:", document.id)}
                     >
                       🔗
                     </Button>
@@ -413,7 +413,7 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
               <p className="font-bold text-brand-primary text-2xl">
                 {filteredDocuments.reduce(
                   (sum, doc) => sum + doc.downloadCount,
-                  0
+                  0,
                 )}
               </p>
               <p className="text-gray-600 text-sm">Downloads</p>
@@ -423,8 +423,8 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
                 {(
                   filteredDocuments.reduce(
                     (sum, doc) =>
-                      sum + parseFloat(doc.size.replace(/[^\d.]/g, '')),
-                    0
+                      sum + parseFloat(doc.size.replace(/[^\d.]/g, "")),
+                    0,
                   ) / 1024
                 ).toFixed(1)}
               </p>
@@ -433,7 +433,7 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
             <div>
               <p className="font-bold text-brand-primary text-2xl">
                 {
-                  filteredDocuments.filter(doc => doc.status === 'active')
+                  filteredDocuments.filter((doc) => doc.status === "active")
                     .length
                 }
               </p>
@@ -443,5 +443,5 @@ export const DocumentSharing: React.FC<DocumentSharingProps> = ({
         </div>
       </CardContent>
     </Card>
-  )
-}
+  );
+};

@@ -8,43 +8,43 @@ import {
   VeteranProfileEngine,
   VeteranProfile,
   ServiceBranch,
-} from './VeteranProfileEngine'
+} from "./VeteranProfileEngine";
 import {
   ContentPersonalizationEngine,
   PersonalizedContent,
-} from './ContentPersonalizationEngine'
+} from "./ContentPersonalizationEngine";
 import {
   VeteranBenefitsAutomation,
   VeteranBenefitsPackage,
-} from './VeteranBenefitsAutomation'
+} from "./VeteranBenefitsAutomation";
 import {
   VeteranPersonalizationSystem,
   ComprehensiveVeteranExperience,
   VeteranSessionData,
   VeteranRecommendation,
   VeteranNotification,
-} from './VeteranPersonalizationSystem'
+} from "./VeteranPersonalizationSystem";
 
 // Re-export everything
 export {
   VeteranProfileEngine,
   type VeteranProfile,
-} from './VeteranProfileEngine'
+} from "./VeteranProfileEngine";
 export {
   ContentPersonalizationEngine,
   type PersonalizedContent,
-} from './ContentPersonalizationEngine'
+} from "./ContentPersonalizationEngine";
 export {
   VeteranBenefitsAutomation,
   type VeteranBenefitsPackage,
-} from './VeteranBenefitsAutomation'
+} from "./VeteranBenefitsAutomation";
 export {
   VeteranPersonalizationSystem,
   type ComprehensiveVeteranExperience,
   type VeteranSessionData,
   type VeteranRecommendation,
   type VeteranNotification,
-} from './VeteranPersonalizationSystem'
+} from "./VeteranPersonalizationSystem";
 
 // Type Exports for External Use
 export type {
@@ -69,7 +69,7 @@ export type {
   DeploymentRecord,
   AdaptiveNeed,
   VABenefit,
-} from './VeteranProfileEngine'
+} from "./VeteranProfileEngine";
 
 export type {
   // Personalization Types
@@ -81,7 +81,7 @@ export type {
   PersonalizedTestimonial,
   PersonalizedFormData,
   PersonalizedCommunication,
-} from './ContentPersonalizationEngine'
+} from "./ContentPersonalizationEngine";
 
 export type {
   // Benefits Types
@@ -103,7 +103,7 @@ export type {
   AutomatedTimeline,
   TimelineMilestone,
   EmergencyResponse,
-} from './VeteranBenefitsAutomation'
+} from "./VeteranBenefitsAutomation";
 
 /**
  * Quick Start Helper Functions
@@ -113,7 +113,7 @@ export type {
  * Initialize the complete veteran personalization system
  */
 export function initializeVeteranSystem() {
-  return VeteranPersonalizationSystem.getInstance()
+  return VeteranPersonalizationSystem.getInstance();
 }
 
 /**
@@ -122,34 +122,34 @@ export function initializeVeteranSystem() {
 export function analyzeVeteranInput(
   input: string,
   formData?: any,
-  sessionData?: any
+  sessionData?: any,
 ) {
-  const profileEngine = VeteranProfileEngine.getInstance()
-  return profileEngine.analyzeAndCreateProfile(input, formData, sessionData)
+  const profileEngine = VeteranProfileEngine.getInstance();
+  return profileEngine.analyzeAndCreateProfile(input, formData, sessionData);
 }
 
 /**
  * Generate personalized content for veteran
  */
 export function generateVeteranContent(profile: VeteranProfile) {
-  const contentEngine = ContentPersonalizationEngine.getInstance()
-  return contentEngine.generatePersonalizedContent(profile)
+  const contentEngine = ContentPersonalizationEngine.getInstance();
+  return contentEngine.generatePersonalizedContent(profile);
 }
 
 /**
  * Get veteran benefits and discounts
  */
 export function getVeteranBenefits(profile: VeteranProfile) {
-  const benefitsEngine = VeteranBenefitsAutomation.getInstance()
-  return benefitsEngine.generateBenefitsPackage(profile)
+  const benefitsEngine = VeteranBenefitsAutomation.getInstance();
+  return benefitsEngine.generateBenefitsPackage(profile);
 }
 
 /**
  * Apply veteran discounts to estimate
  */
 export function applyVeteranDiscounts(profile: VeteranProfile, amount: number) {
-  const benefitsEngine = VeteranBenefitsAutomation.getInstance()
-  return benefitsEngine.applyAutomaticDiscounts(profile, amount)
+  const benefitsEngine = VeteranBenefitsAutomation.getInstance();
+  return benefitsEngine.applyAutomaticDiscounts(profile, amount);
 }
 
 /**
@@ -158,22 +158,22 @@ export function applyVeteranDiscounts(profile: VeteranProfile, amount: number) {
 export async function getVeteranExperience(
   userInput: string,
   formData?: any,
-  sessionId?: string
+  sessionId?: string,
 ) {
-  const veteranSystem = VeteranPersonalizationSystem.getInstance()
+  const veteranSystem = VeteranPersonalizationSystem.getInstance();
   return await veteranSystem.initializeVeteranExperience(
     userInput,
     formData,
-    sessionId
-  )
+    sessionId,
+  );
 }
 
 /**
  * Veteran System Status and Analytics
  */
 export function getVeteranSystemStatus() {
-  const veteranSystem = VeteranPersonalizationSystem.getInstance()
-  return veteranSystem.getVeteranAnalytics()
+  const veteranSystem = VeteranPersonalizationSystem.getInstance();
+  return veteranSystem.getVeteranAnalytics();
 }
 
 /**
@@ -181,9 +181,9 @@ export function getVeteranSystemStatus() {
  */
 export const VETERAN_SYSTEM_CONFIG = {
   // Priority Response Times
-  IMMEDIATE_RESPONSE_TIME: '4 hours',
-  HIGH_PRIORITY_RESPONSE_TIME: '24 hours',
-  STANDARD_RESPONSE_TIME: '48 hours',
+  IMMEDIATE_RESPONSE_TIME: "4 hours",
+  HIGH_PRIORITY_RESPONSE_TIME: "24 hours",
+  STANDARD_RESPONSE_TIME: "48 hours",
 
   // Discount Limits
   MAX_VETERAN_DISCOUNT: 15,
@@ -207,45 +207,45 @@ export const VETERAN_SYSTEM_CONFIG = {
   EMERGENCY_RESPONSE_AVAILABLE: true,
   EMERGENCY_CONTACT_24_7: true,
   CRISIS_INTERVENTION_TRAINED: true,
-}
+};
 
 /**
  * Veteran Branch Emoji Map
  */
 export const VETERAN_BRANCH_EMOJIS = {
-  Army: '[ACCOUNT_BALANCE]',
-  Navy: '[ANCHOR]',
-  Marines: '[SPA]',
-  'Air Force': '[FLIGHT]',
-  'Coast Guard': '[SAFETY_RING]',
-  'Space Force': '[ROCKET_LAUNCH]',
-  Unknown: '[FLAG]',
-}
+  Army: "[ACCOUNT_BALANCE]",
+  Navy: "[ANCHOR]",
+  Marines: "[SPA]",
+  "Air Force": "[FLIGHT]",
+  "Coast Guard": "[SAFETY_RING]",
+  "Space Force": "[ROCKET_LAUNCH]",
+  Unknown: "[FLAG]",
+};
 
 /**
  * Veteran Priority Icons
  */
 export const VETERAN_PRIORITY_ICONS = {
-  IMMEDIATE: '[EMERGENCY]',
-  HIGH: '[BOLT]',
-  STANDARD: '[FLAG]',
-  FAMILY: 'family_restroom',
-}
+  IMMEDIATE: "[EMERGENCY]",
+  HIGH: "[BOLT]",
+  STANDARD: "[FLAG]",
+  FAMILY: "family_restroom",
+};
 
 /**
  * Service Era Icons
  */
 export const SERVICE_ERA_ICONS = {
-  'GWOT (2001-Present)': '[MILITARY_TECH]',
-  'Post-9/11': 'monument',
-  'Gulf War (1990-1991)': 'landscape',
-  'Cold War Era (1945-1991)': '[AC_UNIT]',
-  'Vietnam Era (1964-1975)': 'nature',
-  'Korean War (1950-1953)': 'terrain',
-  'WWII (1941-1945)': 'public',
-  'Multiple Eras': '[EVENT]',
-  Unknown: '[HELP]',
-}
+  "GWOT (2001-Present)": "[MILITARY_TECH]",
+  "Post-9/11": "monument",
+  "Gulf War (1990-1991)": "landscape",
+  "Cold War Era (1945-1991)": "[AC_UNIT]",
+  "Vietnam Era (1964-1975)": "nature",
+  "Korean War (1950-1953)": "terrain",
+  "WWII (1941-1945)": "public",
+  "Multiple Eras": "[EVENT]",
+  Unknown: "[HELP]",
+};
 
 /**
  * Utility Functions
@@ -255,37 +255,37 @@ export const SERVICE_ERA_ICONS = {
  * Check if user input indicates veteran status
  */
 export function isVeteranInput(input: string): boolean {
-  const profileEngine = VeteranProfileEngine.getInstance()
+  const profileEngine = VeteranProfileEngine.getInstance();
   const detection = (profileEngine as any).detectVeteranStatus(
-    input.toLowerCase()
-  )
-  return detection.isVeteran && detection.confidence >= 50
+    input.toLowerCase(),
+  );
+  return detection.isVeteran && detection.confidence >= 50;
 }
 
 /**
  * Get veteran branch from input
  */
 export function detectVeteranBranch(input: string): ServiceBranch {
-  const profileEngine = VeteranProfileEngine.getInstance()
-  return (profileEngine as any).detectServiceBranch(input.toLowerCase())
+  const profileEngine = VeteranProfileEngine.getInstance();
+  return (profileEngine as any).detectServiceBranch(input.toLowerCase());
 }
 
 /**
  * Format veteran discount display
  */
 export function formatVeteranDiscount(discounts: any[]): string {
-  const totalPercentage = discounts.reduce((sum, d) => sum + d.percentage, 0)
-  const discountNames = discounts.map(d => d.name).join(' + ')
-  return `${totalPercentage}% Total Savings (${discountNames})`
+  const totalPercentage = discounts.reduce((sum, d) => sum + d.percentage, 0);
+  const discountNames = discounts.map((d) => d.name).join(" + ");
+  return `${totalPercentage}% Total Savings (${discountNames})`;
 }
 
 /**
  * Generate veteran greeting message
  */
 export function generateVeteranGreeting(profile: VeteranProfile): string {
-  const contentEngine = ContentPersonalizationEngine.getInstance()
-  const content = contentEngine.generatePersonalizedContent(profile)
-  return content.greeting
+  const contentEngine = ContentPersonalizationEngine.getInstance();
+  const content = contentEngine.generatePersonalizedContent(profile);
+  return content.greeting;
 }
 
 /**
@@ -297,15 +297,15 @@ export function generateVeteranGreeting(profile: VeteranProfile): string {
  */
 export function enhanceAIWithVeteranPersonalization(
   aiResponse: any,
-  veteranProfile?: VeteranProfile
+  veteranProfile?: VeteranProfile,
 ) {
   if (!veteranProfile || !veteranProfile.isVeteran) {
-    return aiResponse
+    return aiResponse;
   }
 
-  const contentEngine = ContentPersonalizationEngine.getInstance()
+  const contentEngine = ContentPersonalizationEngine.getInstance();
   const personalizedContent =
-    contentEngine.generatePersonalizedContent(veteranProfile)
+    contentEngine.generatePersonalizedContent(veteranProfile);
 
   // Enhance AI response with veteran-specific content
   return {
@@ -313,69 +313,69 @@ export function enhanceAIWithVeteranPersonalization(
     veteranEnhanced: true,
     greeting: personalizedContent.greeting,
     veteranMessage: personalizedContent.messaging.respectMessage,
-    priorityHandling: veteranProfile.priorityLevel !== 'STANDARD',
+    priorityHandling: veteranProfile.priorityLevel !== "STANDARD",
     discountsAvailable: personalizedContent.pricing.totalSavings,
     specialistAssigned: true,
-  }
+  };
 }
 
 /**
  * Phase 6.4-6.6 Implementation Status
  */
 export const PHASE_6_STATUS = {
-  '6.4': {
-    name: 'Enhanced Veteran Detection & Profiling',
-    status: 'COMPLETE',
+  "6.4": {
+    name: "Enhanced Veteran Detection & Profiling",
+    status: "COMPLETE",
     features: [
-      'Advanced veteran status detection with confidence scoring',
-      'Comprehensive service branch recognition (all 6 branches)',
-      'Combat veteran and deployment history analysis',
-      'Disability rating and service-connected condition detection',
-      'Multi-service veteran support',
-      'Service era classification with multiple era support',
-      'Rank category and specific rank detection',
-      'Family status and employment analysis',
-      'Accessibility needs assessment',
-      'Communication preference profiling',
+      "Advanced veteran status detection with confidence scoring",
+      "Comprehensive service branch recognition (all 6 branches)",
+      "Combat veteran and deployment history analysis",
+      "Disability rating and service-connected condition detection",
+      "Multi-service veteran support",
+      "Service era classification with multiple era support",
+      "Rank category and specific rank detection",
+      "Family status and employment analysis",
+      "Accessibility needs assessment",
+      "Communication preference profiling",
     ],
   },
-  '6.5': {
-    name: 'Dynamic Content Personalization',
-    status: 'COMPLETE',
+  "6.5": {
+    name: "Dynamic Content Personalization",
+    status: "COMPLETE",
     features: [
-      'Branch-specific greeting messages and terminology',
-      'Personalized hero messages and value propositions',
-      'Service-specific project recommendations',
-      'Adaptive pricing with stacked veteran discounts',
-      'Branch-matched testimonials with relevance scoring',
-      'Pre-filled forms with veteran-specific fields',
-      'Communication style adaptation (formal/military/casual)',
-      'Respect level customization (High Honors/Combat Valor/Service Honor)',
-      'Context-aware content for different pages',
-      'Emergency and priority messaging for immediate needs',
+      "Branch-specific greeting messages and terminology",
+      "Personalized hero messages and value propositions",
+      "Service-specific project recommendations",
+      "Adaptive pricing with stacked veteran discounts",
+      "Branch-matched testimonials with relevance scoring",
+      "Pre-filled forms with veteran-specific fields",
+      "Communication style adaptation (formal/military/casual)",
+      "Respect level customization (High Honors/Combat Valor/Service Honor)",
+      "Context-aware content for different pages",
+      "Emergency and priority messaging for immediate needs",
     ],
   },
-  '6.6': {
-    name: 'Veteran Benefits Automation',
-    status: 'COMPLETE',
+  "6.6": {
+    name: "Veteran Benefits Automation",
+    status: "COMPLETE",
     features: [
-      'Automatic discount application with verification system',
-      'VA benefits coordination (SAH, SHA, HISA, VR&E)',
-      'Grant program identification and application assistance',
-      'VA Home Loan and energy efficiency mortgage coordination',
-      'Priority scheduling with guaranteed response times',
-      'Veteran specialist assignment with branch matching',
-      'Emergency response protocols for disabled veterans',
-      'Documentation assistance and VA liaison services',
-      'Escalation procedures for priority veterans',
-      'Comprehensive benefits package generation',
+      "Automatic discount application with verification system",
+      "VA benefits coordination (SAH, SHA, HISA, VR&E)",
+      "Grant program identification and application assistance",
+      "VA Home Loan and energy efficiency mortgage coordination",
+      "Priority scheduling with guaranteed response times",
+      "Veteran specialist assignment with branch matching",
+      "Emergency response protocols for disabled veterans",
+      "Documentation assistance and VA liaison services",
+      "Escalation procedures for priority veterans",
+      "Comprehensive benefits package generation",
     ],
   },
-}
+};
 
 console.log(
-  '[CHECK_CIRCLE] Enhanced Veteran Personalization System (Phase 6.4-6.6) - COMPLETE'
-)
+  "[CHECK_CIRCLE] Enhanced Veteran Personalization System (Phase 6.4-6.6) - COMPLETE",
+);
 console.log(
-  '[MILITARY_TECH] All veteran-focused features are operational and ready for deployment'
-)
+  "[MILITARY_TECH] All veteran-focused features are operational and ready for deployment",
+);

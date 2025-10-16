@@ -48,7 +48,7 @@ export const MH_BRANDING_GUIDELINES: BrandingGuidelines = {
  */
 export function validateBrandCompliance(
   content: string,
-  contentType: "page" | "component" | "markdown" = "page"
+  contentType: "page" | "component" | "markdown" = "page",
 ): BrandValidationResult {
   const errors: string[] = [];
   const warnings: string[] = [];
@@ -75,7 +75,7 @@ export function validateBrandCompliance(
 
     if (foundEmojis.length > 0) {
       errors.push(
-        `CRITICAL: Emojis found in source code: ${foundEmojis.join(", ")}. Use MaterialIcon components instead.`
+        `CRITICAL: Emojis found in source code: ${foundEmojis.join(", ")}. Use MaterialIcon components instead.`,
       );
       score -= 30;
     }
@@ -83,33 +83,33 @@ export function validateBrandCompliance(
 
   // Check for primary tagline presence
   const hasMainTagline = content.includes(
-    MH_BRANDING_GUIDELINES.primaryTagline
+    MH_BRANDING_GUIDELINES.primaryTagline,
   );
   if (!hasMainTagline && contentType === "page") {
     warnings.push(
-      `Primary tagline "${MH_BRANDING_GUIDELINES.primaryTagline}" not found. Consider including for brand consistency.`
+      `Primary tagline "${MH_BRANDING_GUIDELINES.primaryTagline}" not found. Consider including for brand consistency.`,
     );
     score -= 10;
   }
 
   // Check for partnership messaging
   const partnershipTerms = MH_BRANDING_GUIDELINES.partnershipMessaging.some(
-    (term) => content.toLowerCase().includes(term.toLowerCase())
+    (term) => content.toLowerCase().includes(term.toLowerCase()),
   );
   if (!partnershipTerms && contentType === "page") {
     warnings.push(
-      'Partnership messaging not detected. Consider including "We Work With You" philosophy.'
+      'Partnership messaging not detected. Consider including "We Work With You" philosophy.',
     );
     score -= 5;
   }
 
   // Check for regional focus
   const regionalTerms = MH_BRANDING_GUIDELINES.regionalFocus.some((region) =>
-    content.toLowerCase().includes(region.toLowerCase())
+    content.toLowerCase().includes(region.toLowerCase()),
   );
   if (!regionalTerms && contentType === "page") {
     warnings.push(
-      "Regional focus (Tri-Cities, Pasco, WA, OR, ID) not mentioned. Consider adding service area information."
+      "Regional focus (Tri-Cities, Pasco, WA, OR, ID) not mentioned. Consider adding service area information.",
     );
     score -= 5;
   }
@@ -122,7 +122,7 @@ export function validateBrandCompliance(
 
   if (contentType === "component" && !hasMaterialIcons) {
     warnings.push(
-      "No MaterialIcon components detected. Ensure visual elements use approved icon system."
+      "No MaterialIcon components detected. Ensure visual elements use approved icon system.",
     );
     score -= 5;
   }
@@ -137,7 +137,7 @@ export function validateBrandCompliance(
 
   if (contentType === "component" && !hasProperColors) {
     warnings.push(
-      "Brand colors not detected. Use primary/secondary color classes or CSS custom properties."
+      "Brand colors not detected. Use primary/secondary color classes or CSS custom properties.",
     );
     score -= 5;
   }
@@ -151,7 +151,7 @@ export function validateBrandCompliance(
 
     if (hasHardcodedContent) {
       warnings.push(
-        "Hardcoded content detected. Consider migrating to dynamic markdown loading for better maintainability."
+        "Hardcoded content detected. Consider migrating to dynamic markdown loading for better maintainability.",
       );
       score -= 10;
     }
@@ -164,7 +164,7 @@ export function validateBrandCompliance(
     content.includes("sm:");
   if (contentType === "component" && !hasResponsiveClasses) {
     warnings.push(
-      "Responsive design classes not detected. Ensure mobile-first approach."
+      "Responsive design classes not detected. Ensure mobile-first approach.",
     );
     score -= 5;
   }
@@ -187,7 +187,7 @@ export function validateMultipleContent(
   contentMap: Record<
     string,
     { content: string; type: "page" | "component" | "markdown" }
-  >
+  >,
 ): Record<string, BrandValidationResult> {
   const results: Record<string, BrandValidationResult> = {};
 
@@ -202,7 +202,7 @@ export function validateMultipleContent(
  * Generate a brand compliance report
  */
 export function generateComplianceReport(
-  results: Record<string, BrandValidationResult>
+  results: Record<string, BrandValidationResult>,
 ): string {
   let report = "# MH Construction Brand Compliance Report\n\n";
 

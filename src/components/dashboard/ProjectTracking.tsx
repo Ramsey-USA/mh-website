@@ -81,14 +81,14 @@ export const ProjectTracking: React.FC<ProjectTimelineProps> = ({
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       const projectUpdates = mockUpdates.filter(
-        (update) => projectId === "all" || update.projectId === projectId
+        (update) => projectId === "all" || update.projectId === projectId,
       );
 
       setUpdates(
         projectUpdates.sort(
           (a, b) =>
-            new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
-        )
+            new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime(),
+        ),
       );
       setIsLoading(false);
     };
@@ -134,7 +134,7 @@ export const ProjectTracking: React.FC<ProjectTimelineProps> = ({
     const date = new Date(timestamp);
     const now = new Date();
     const diffInHours = Math.floor(
-      (now.getTime() - date.getTime()) / (1000 * 60 * 60)
+      (now.getTime() - date.getTime()) / (1000 * 60 * 60),
     );
 
     if (diffInHours < 24) {
@@ -199,7 +199,7 @@ export const ProjectTracking: React.FC<ProjectTimelineProps> = ({
                   <div className="flex-1 ml-6">
                     <div
                       className={`p-4 rounded-lg border ${getUpdateColor(
-                        update.type
+                        update.type,
                       )}`}
                     >
                       <div className="flex justify-between items-start mb-2">
@@ -360,7 +360,7 @@ function formatTimestamp(timestamp: string): string {
   const date = new Date(timestamp);
   const now = new Date();
   const diffInMinutes = Math.floor(
-    (now.getTime() - date.getTime()) / (1000 * 60)
+    (now.getTime() - date.getTime()) / (1000 * 60),
   );
 
   if (diffInMinutes < 1) {

@@ -101,7 +101,7 @@ if (
     const rootConfig = fs.readFileSync("firebase.json", "utf-8");
     const deployConfig = fs.readFileSync(
       "config/deployment/firebase.json",
-      "utf-8"
+      "utf-8",
     );
 
     if (rootConfig === deployConfig) {
@@ -109,22 +109,22 @@ if (
       if (execute) {
         createBackup(
           "config/deployment/firebase.json",
-          "duplicate firebase.json"
+          "duplicate firebase.json",
         );
         removeFile(
           "config/deployment/firebase.json",
-          "duplicate configuration"
+          "duplicate configuration",
         );
       }
     } else {
       console.log(
-        "   ⚠️  Files differ - keeping root version (enhanced with optimizations)"
+        "   ⚠️  Files differ - keeping root version (enhanced with optimizations)",
       );
       if (execute) {
         createBackup("config/deployment/firebase.json", "old firebase.json");
         removeFile(
           "config/deployment/firebase.json",
-          "superseded configuration"
+          "superseded configuration",
         );
       }
     }
@@ -185,13 +185,13 @@ if (existingEnvFiles.length > 1) {
   });
 
   console.log(
-    "   💡 Recommendation: Keep .env.local.example as primary template"
+    "   💡 Recommendation: Keep .env.local.example as primary template",
   );
 
   if (execute) {
     // Keep the most comprehensive one (.env.local.example) and remove others
     const toRemove = existingEnvFiles.filter(
-      (file) => file !== ".env.local.example"
+      (file) => file !== ".env.local.example",
     );
 
     toRemove.forEach((file) => {

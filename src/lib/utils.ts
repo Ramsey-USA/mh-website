@@ -71,13 +71,13 @@ export const performanceClasses = {
     brandClasses.card.base,
     brandClasses.effect3d.perspective,
     brandClasses.effect3d.preserve3d,
-    brandClasses.animation.gpu
+    brandClasses.animation.gpu,
   ),
 
   interactiveButton: cn(
     brandClasses.button.primary,
     brandClasses.focus.brand,
-    brandClasses.animation.gpu
+    brandClasses.animation.gpu,
   ),
 
   smoothTransition: "transition-all duration-300 ease-out",

@@ -32,7 +32,7 @@ export default function PushNotifications({
   const [showSettings, setShowSettings] = useState(false);
   const [isSupported, setIsSupported] = useState(false);
   const [subscription, setSubscription] = useState<PushSubscription | null>(
-    null
+    null,
   );
 
   useEffect(() => {
@@ -74,8 +74,8 @@ export default function PushNotifications({
         setNotifications(
           parsed.sort(
             (a: PushNotification, b: PushNotification) =>
-              b.timestamp - a.timestamp
-          )
+              b.timestamp - a.timestamp,
+          ),
         );
       }
     } catch (error) {
@@ -126,7 +126,7 @@ export default function PushNotifications({
       const pushSubscription = await registration.pushManager.subscribe({
         userVisibleOnly: true,
         applicationServerKey: urlBase64ToUint8Array(
-          vapidPublicKey
+          vapidPublicKey,
         ) as BufferSource,
       });
 
@@ -183,7 +183,7 @@ export default function PushNotifications({
   };
 
   const removeSubscriptionFromServer = async (
-    subscription: PushSubscription
+    subscription: PushSubscription,
   ) => {
     try {
       await fetch("/api/notifications/unsubscribe", {
@@ -198,7 +198,7 @@ export default function PushNotifications({
     } catch (error) {
       console.log(
         "Note: Unsubscription not sent to server (demo mode):",
-        error
+        error,
       );
     }
   };
@@ -235,7 +235,7 @@ export default function PushNotifications({
 
   const markAsRead = (id: string) => {
     const updatedNotifications = notifications.map((notif) =>
-      notif.id === id ? { ...notif, read: true } : notif
+      notif.id === id ? { ...notif, read: true } : notif,
     );
     setNotifications(updatedNotifications);
     saveNotifications(updatedNotifications);
@@ -243,7 +243,7 @@ export default function PushNotifications({
 
   const deleteNotification = (id: string) => {
     const updatedNotifications = notifications.filter(
-      (notif) => notif.id !== id
+      (notif) => notif.id !== id,
     );
     setNotifications(updatedNotifications);
     saveNotifications(updatedNotifications);
@@ -470,7 +470,7 @@ export const NotificationTypes = {
 export const sendNotification = async (
   title: string,
   body: string,
-  type: string = "general"
+  type: string = "general",
 ) => {
   if ("serviceWorker" in navigator && Notification.permission === "granted") {
     try {

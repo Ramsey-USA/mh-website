@@ -3,34 +3,34 @@
  * Integrates security manager with Next.js application
  */
 
-import { NextRequest, NextResponse } from 'next/server'
-import { securityManager } from '@/lib/security/security-manager'
-import { auditLogger, AuditEventType } from '@/lib/security/audit-logger'
+import { NextRequest, NextResponse } from "next/server";
+import { securityManager } from "@/lib/security/security-manager";
+import { auditLogger, AuditEventType } from "@/lib/security/audit-logger";
 
 // Configuration for different routes
 const ROUTE_SECURITY_CONFIG = {
   // API routes require stricter security
-  '/api/': {
+  "/api/": {
     rateLimitMultiplier: 0.5, // More restrictive rate limiting
     requireCSRF: true,
     validateInput: true,
     logAll: true,
   },
   // Contact and forms
-  '/contact': {
+  "/contact": {
     rateLimitMultiplier: 0.3,
     requireCSRF: true,
     validateInput: true,
     logAll: true,
   },
-  '/estimate': {
+  "/estimate": {
     rateLimitMultiplier: 0.3,
     requireCSRF: true,
     validateInput: true,
     logAll: true,
   },
   // Admin areas (if any)
-  '/admin': {
+  "/admin": {
     rateLimitMultiplier: 0.1,
     requireCSRF: true,
     validateInput: true,
@@ -38,47 +38,47 @@ const ROUTE_SECURITY_CONFIG = {
     requireAuth: true,
   },
   // Public pages - lighter security
-  '/': {
+  "/": {
     rateLimitMultiplier: 1.0,
     requireCSRF: false,
     validateInput: false,
     logAll: false,
   },
-}
+};
 
 // Security paths that bypass normal processing
 const SECURITY_BYPASS_PATHS = [
-  '/api/health',
-  '/api/security/status',
-  '/favicon.ico',
-  '/_next/',
-  '/images/',
-  '/icons/',
-  '/sw.js',
-  '/manifest.json',
-]
+  "/api/health",
+  "/api/security/status",
+  "/favicon.ico",
+  "/_next/",
+  "/images/",
+  "/icons/",
+  "/sw.js",
+  "/manifest.json",
+];
 
 /**
  * Main security middleware function
  */
 export async function securityMiddleware(
-  request: NextRequest
+  request: NextRequest,
 ): Promise<NextResponse> {
-  const pathname = request.nextUrl.pathname
-  const userAgent = request.headers.get('user-agent') || 'Unknown'
-  const ipAddress = getClientIP(request)
+  const pathname = request.nextUrl.pathname;
+  const userAgent = request.headers.get("user-agent") || "Unknown";
+  const ipAddress = getClientIP(request);
 
   // Skip security processing for certain paths
   if (shouldBypassSecurity(pathname)) {
-    return NextResponse.next()
+    return NextResponse.next();
   }
 
   try {
     // Get route-specific configuration
-    const routeConfig = getRouteConfig(pathname)
+    const routeConfig = getRouteConfig(pathname);
 
     // Process security checks
-    const securityResult = await securityManager.processRequest(request)
+    const securityResult = await securityManager.processRequest(request);
 
     if (!securityResult.allowed) {
       // Log security violation
@@ -89,58 +89,58 @@ export async function securityMiddleware(
         {
           path: pathname,
           method: request.method,
-          reason: 'Rate limit exceeded',
-        }
-      )
+          reason: "Rate limit exceeded",
+        },
+      );
 
-      return securityResult.response!
+      return securityResult.response!;
     }
 
     // Create response (continue to next middleware/page)
-    const response = NextResponse.next()
+    const response = NextResponse.next();
 
     // Apply security headers and configurations
     const securedResponse = securityManager.applyResponseSecurity(
       response,
       securityResult,
-      securityResult.csrfToken
-    )
+      securityResult.csrfToken,
+    );
 
     // Log successful request if configured
     if (routeConfig.logAll) {
       await auditLogger.logEvent(AuditEventType.ACCESS_GRANTED, {
-        source: 'middleware',
+        source: "middleware",
         ipAddress,
         userAgent,
-        outcome: 'success',
+        outcome: "success",
         details: {
           path: pathname,
           method: request.method,
           userAgent,
         },
-        tags: ['access', 'middleware'],
-      })
+        tags: ["access", "middleware"],
+      });
     }
 
-    return securedResponse
+    return securedResponse;
   } catch (error) {
     // Log error and continue with minimal security
     await auditLogger.logEvent(AuditEventType.ERROR_OCCURRED, {
-      source: 'middleware',
+      source: "middleware",
       ipAddress,
       userAgent,
-      outcome: 'failure',
+      outcome: "failure",
       details: {
         path: pathname,
         method: request.method,
-        error: error instanceof Error ? error.message : 'Unknown error',
+        error: error instanceof Error ? error.message : "Unknown error",
       },
-      tags: ['error', 'middleware'],
-    })
+      tags: ["error", "middleware"],
+    });
 
     // Apply basic security headers even on error
-    const response = NextResponse.next()
-    return applyBasicSecurityHeaders(response)
+    const response = NextResponse.next();
+    return applyBasicSecurityHeaders(response);
   }
 }
 
@@ -149,13 +149,13 @@ export async function securityMiddleware(
  */
 export function withSecurity(handler: Function) {
   return async (request: NextRequest) => {
-    const pathname = new URL(request.url).pathname
-    const userAgent = request.headers.get('user-agent') || 'Unknown'
-    const ipAddress = getClientIP(request)
+    const pathname = new URL(request.url).pathname;
+    const userAgent = request.headers.get("user-agent") || "Unknown";
+    const ipAddress = getClientIP(request);
 
     try {
       // Enhanced security for API routes
-      const securityResult = await securityManager.processRequest(request)
+      const securityResult = await securityManager.processRequest(request);
 
       if (!securityResult.allowed) {
         await auditLogger.logSecurityViolation(
@@ -165,21 +165,21 @@ export function withSecurity(handler: Function) {
           {
             path: pathname,
             method: request.method,
-            reason: 'Security check failed',
-          }
-        )
+            reason: "Security check failed",
+          },
+        );
 
-        return securityResult.response!
+        return securityResult.response!;
       }
 
       // Validate input for POST/PUT/PATCH requests
-      if (['POST', 'PUT', 'PATCH'].includes(request.method)) {
-        const contentType = request.headers.get('content-type') || ''
+      if (["POST", "PUT", "PATCH"].includes(request.method)) {
+        const contentType = request.headers.get("content-type") || "";
 
-        if (contentType.includes('application/json')) {
+        if (contentType.includes("application/json")) {
           try {
-            const body = await request.json()
-            const validation = securityManager.validateInput(body)
+            const body = await request.json();
+            const validation = securityManager.validateInput(body);
 
             if (!validation.isValid) {
               await auditLogger.logSecurityViolation(
@@ -190,13 +190,13 @@ export function withSecurity(handler: Function) {
                   path: pathname,
                   method: request.method,
                   validationErrors: validation.errors,
-                }
-              )
+                },
+              );
 
               return NextResponse.json(
-                { error: 'Invalid input data', details: validation.errors },
-                { status: 400 }
-              )
+                { error: "Invalid input data", details: validation.errors },
+                { status: 400 },
+              );
             }
 
             // Replace request body with sanitized data
@@ -204,7 +204,7 @@ export function withSecurity(handler: Function) {
               method: request.method,
               headers: request.headers,
               body: JSON.stringify(validation.sanitizedData),
-            })
+            });
           } catch (error) {
             await auditLogger.logSecurityViolation(
               AuditEventType.XSS_ATTEMPT,
@@ -213,81 +213,81 @@ export function withSecurity(handler: Function) {
               {
                 path: pathname,
                 method: request.method,
-                error: 'Invalid JSON',
-              }
-            )
+                error: "Invalid JSON",
+              },
+            );
 
             return NextResponse.json(
-              { error: 'Invalid JSON data' },
-              { status: 400 }
-            )
+              { error: "Invalid JSON data" },
+              { status: 400 },
+            );
           }
         }
       }
 
       // Call the actual API handler
-      const response = await handler(request)
+      const response = await handler(request);
 
       // Apply security to response
       const securedResponse = securityManager.applyResponseSecurity(
         response,
         securityResult,
-        securityResult.csrfToken
-      )
+        securityResult.csrfToken,
+      );
 
       // Log API access
       await auditLogger.logDataAccess(
         pathname,
         request.method,
         undefined, // No user ID in this context
-        'success',
+        "success",
         {
           statusCode: securedResponse.status,
           userAgent,
-        }
-      )
+        },
+      );
 
-      return securedResponse
+      return securedResponse;
     } catch (error) {
       await auditLogger.logEvent(AuditEventType.ERROR_OCCURRED, {
-        source: 'api',
+        source: "api",
         ipAddress,
         userAgent,
-        outcome: 'failure',
+        outcome: "failure",
         details: {
           path: pathname,
           method: request.method,
-          error: error instanceof Error ? error.message : 'Unknown error',
+          error: error instanceof Error ? error.message : "Unknown error",
         },
-        tags: ['error', 'api'],
-      })
+        tags: ["error", "api"],
+      });
 
       return NextResponse.json(
-        { error: 'Internal server error' },
-        { status: 500 }
-      )
+        { error: "Internal server error" },
+        { status: 500 },
+      );
     }
-  }
+  };
 }
 
 /**
  * Security context for React components
  */
 export function createSecurityContext(request: NextRequest) {
-  const ipAddress = getClientIP(request)
-  const userAgent = request.headers.get('user-agent') || 'Unknown'
+  const ipAddress = getClientIP(request);
+  const userAgent = request.headers.get("user-agent") || "Unknown";
 
   return {
     ipAddress,
     userAgent,
     timestamp: new Date(),
     securityHeaders: {
-      'X-Frame-Options': 'DENY',
-      'X-Content-Type-Options': 'nosniff',
-      'X-XSS-Protection': '1; mode=block',
-      'Referrer-Policy': 'strict-origin-when-cross-origin',
+      "X-Frame-Options": "DENY",
+      "X-Content-Type-Options": "nosniff",
+      "X-XSS-Protection": "1; mode=block",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
     },
-  }
+  };
 }
 
 /**
@@ -296,57 +296,57 @@ export function createSecurityContext(request: NextRequest) {
 export async function validateFileUpload(
   file: File,
   options?: {
-    maxSize?: number
-    allowedTypes?: string[]
-    scanForMalware?: boolean
-  }
+    maxSize?: number;
+    allowedTypes?: string[];
+    scanForMalware?: boolean;
+  },
 ): Promise<{
-  isValid: boolean
-  errors: string[]
-  sanitizedFile?: File
+  isValid: boolean;
+  errors: string[];
+  sanitizedFile?: File;
 }> {
-  const errors: string[] = []
-  const config = securityManager.getConfig()
+  const errors: string[] = [];
+  const config = securityManager.getConfig();
 
   // Size validation
-  const maxSize = options?.maxSize || config.validation.maxFileSize
+  const maxSize = options?.maxSize || config.validation.maxFileSize;
   if (file.size > maxSize) {
     errors.push(
-      `File size exceeds maximum allowed size of ${maxSize / (1024 * 1024)}MB`
-    )
+      `File size exceeds maximum allowed size of ${maxSize / (1024 * 1024)}MB`,
+    );
   }
 
   // MIME type validation
   const allowedTypes =
-    options?.allowedTypes || config.validation.allowedMimeTypes
+    options?.allowedTypes || config.validation.allowedMimeTypes;
   if (!allowedTypes.includes(file.type)) {
-    errors.push(`File type ${file.type} is not allowed`)
+    errors.push(`File type ${file.type} is not allowed`);
   }
 
   // File name validation
-  const fileName = file.name
+  const fileName = file.name;
   if (
-    fileName.includes('..') ||
-    fileName.includes('/') ||
-    fileName.includes('\\')
+    fileName.includes("..") ||
+    fileName.includes("/") ||
+    fileName.includes("\\")
   ) {
-    errors.push('Invalid file name - path traversal detected')
+    errors.push("Invalid file name - path traversal detected");
   }
 
   // Check for executable extensions
   const dangerousExtensions = [
-    '.exe',
-    '.bat',
-    '.cmd',
-    '.com',
-    '.pif',
-    '.scr',
-    '.vbs',
-    '.js',
-  ]
-  const fileExtension = fileName.toLowerCase().split('.').pop()
+    ".exe",
+    ".bat",
+    ".cmd",
+    ".com",
+    ".pif",
+    ".scr",
+    ".vbs",
+    ".js",
+  ];
+  const fileExtension = fileName.toLowerCase().split(".").pop();
   if (fileExtension && dangerousExtensions.includes(`.${fileExtension}`)) {
-    errors.push('Executable files are not allowed')
+    errors.push("Executable files are not allowed");
   }
 
   // Basic malware scan (check for suspicious patterns)
@@ -355,45 +355,45 @@ export async function validateFileUpload(
       /PK\x03\x04.*\.exe/, // ZIP containing exe
       /MZ/, // PE header
       /%PDF.*\/JavaScript/, // PDF with JavaScript
-    ]
+    ];
 
     try {
-      const buffer = await file.arrayBuffer()
-      const content = new Uint8Array(buffer)
+      const buffer = await file.arrayBuffer();
+      const content = new Uint8Array(buffer);
       const header = Array.from(content.slice(0, 1024))
-        .map(b => String.fromCharCode(b))
-        .join('')
+        .map((b) => String.fromCharCode(b))
+        .join("");
 
       for (const pattern of suspiciousPatterns) {
         if (pattern.test(header)) {
-          errors.push('File contains suspicious content')
-          break
+          errors.push("File contains suspicious content");
+          break;
         }
       }
     } catch (error) {
-      errors.push('Unable to scan file content')
+      errors.push("Unable to scan file content");
     }
   }
 
-  const isValid = errors.length === 0
+  const isValid = errors.length === 0;
 
   // Log file upload attempt
   await auditLogger.logEvent(AuditEventType.FILE_UPLOAD_BLOCKED, {
-    outcome: isValid ? 'success' : 'failure',
+    outcome: isValid ? "success" : "failure",
     details: {
       fileName: file.name,
       fileSize: file.size,
       mimeType: file.type,
       errors,
     },
-    tags: ['file_upload', isValid ? 'allowed' : 'blocked'],
-  })
+    tags: ["file_upload", isValid ? "allowed" : "blocked"],
+  });
 
   return {
     isValid,
     errors,
     sanitizedFile: isValid ? file : undefined,
-  }
+  };
 }
 
 /**
@@ -401,9 +401,9 @@ export async function validateFileUpload(
  */
 export function generateCSPNonce(): string {
   const nonce = Buffer.from(
-    crypto.getRandomValues(new Uint8Array(16))
-  ).toString('base64')
-  return nonce
+    crypto.getRandomValues(new Uint8Array(16)),
+  ).toString("base64");
+  return nonce;
 }
 
 /**
@@ -413,92 +413,92 @@ export function createSecureCookie(
   name: string,
   value: string,
   options?: {
-    maxAge?: number
-    domain?: string
-    path?: string
-    httpOnly?: boolean
-    secure?: boolean
-    sameSite?: 'strict' | 'lax' | 'none'
-  }
+    maxAge?: number;
+    domain?: string;
+    path?: string;
+    httpOnly?: boolean;
+    secure?: boolean;
+    sameSite?: "strict" | "lax" | "none";
+  },
 ): string {
   const defaults = {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict' as const,
-    path: '/',
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict" as const,
+    path: "/",
     maxAge: 3600, // 1 hour
-  }
+  };
 
-  const cookieOptions = { ...defaults, ...options }
+  const cookieOptions = { ...defaults, ...options };
 
-  let cookieString = `${name}=${value}`
+  let cookieString = `${name}=${value}`;
 
   if (cookieOptions.maxAge) {
-    cookieString += `; Max-Age=${cookieOptions.maxAge}`
+    cookieString += `; Max-Age=${cookieOptions.maxAge}`;
   }
 
   if (cookieOptions.domain) {
-    cookieString += `; Domain=${cookieOptions.domain}`
+    cookieString += `; Domain=${cookieOptions.domain}`;
   }
 
   if (cookieOptions.path) {
-    cookieString += `; Path=${cookieOptions.path}`
+    cookieString += `; Path=${cookieOptions.path}`;
   }
 
   if (cookieOptions.httpOnly) {
-    cookieString += '; HttpOnly'
+    cookieString += "; HttpOnly";
   }
 
   if (cookieOptions.secure) {
-    cookieString += '; Secure'
+    cookieString += "; Secure";
   }
 
-  cookieString += `; SameSite=${cookieOptions.sameSite}`
+  cookieString += `; SameSite=${cookieOptions.sameSite}`;
 
-  return cookieString
+  return cookieString;
 }
 
 // Helper functions
 
 function shouldBypassSecurity(pathname: string): boolean {
-  return SECURITY_BYPASS_PATHS.some(path => pathname.startsWith(path))
+  return SECURITY_BYPASS_PATHS.some((path) => pathname.startsWith(path));
 }
 
 function getRouteConfig(pathname: string) {
   // Find the most specific route configuration
   for (const [route, config] of Object.entries(ROUTE_SECURITY_CONFIG)) {
     if (pathname.startsWith(route)) {
-      return config
+      return config;
     }
   }
 
   // Default configuration
-  return ROUTE_SECURITY_CONFIG['/']
+  return ROUTE_SECURITY_CONFIG["/"];
 }
 
 function getClientIP(request: NextRequest): string {
-  const forwarded = request.headers.get('x-forwarded-for')
-  const realIP = request.headers.get('x-real-ip')
+  const forwarded = request.headers.get("x-forwarded-for");
+  const realIP = request.headers.get("x-real-ip");
 
   if (forwarded) {
-    return forwarded.split(',')[0].trim()
+    return forwarded.split(",")[0].trim();
   }
 
   if (realIP) {
-    return realIP
+    return realIP;
   }
 
-  return 'unknown'
+  return "unknown";
 }
 
 function applyBasicSecurityHeaders(response: NextResponse): NextResponse {
-  response.headers.set('X-Frame-Options', 'DENY')
-  response.headers.set('X-Content-Type-Options', 'nosniff')
-  response.headers.set('X-XSS-Protection', '1; mode=block')
-  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
+  response.headers.set("X-Frame-Options", "DENY");
+  response.headers.set("X-Content-Type-Options", "nosniff");
+  response.headers.set("X-XSS-Protection", "1; mode=block");
+  response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
 
-  return response
+  return response;
 }
 
 // Export the main middleware function as default
-export default securityMiddleware
+export default securityMiddleware;

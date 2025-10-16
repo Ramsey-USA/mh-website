@@ -167,7 +167,7 @@ npm run type-check
    ```tsx
    // ❌ PROBLEM: Wrong case
    import { Button } from "@/components/UI/button";
-   
+
    // ✅ FIX: Correct case
    import { Button } from "@/components/ui/button";
    ```
@@ -177,7 +177,7 @@ npm run type-check
    ```bash
    # Check git status
    git status
-   
+
    # Stage missing files
    git add src/components/NewComponent.tsx
    ```
@@ -324,7 +324,7 @@ Warning: Expected server HTML to contain a matching <div>
 
 ```tsx
 // ❌ PROBLEM: Using Date.now() or Math.random()
-<div>{Date.now()}</div>  // Different on server vs client
+<div>{Date.now()}</div>; // Different on server vs client
 
 // ✅ FIX: Use useEffect for client-only rendering
 const [timestamp, setTimestamp] = useState<number | null>(null);
@@ -333,7 +333,7 @@ useEffect(() => {
   setTimestamp(Date.now());
 }, []);
 
-return <div>{timestamp || 'Loading...'}</div>;
+return <div>{timestamp || "Loading..."}</div>;
 ```
 
 ---
@@ -368,8 +368,8 @@ NEXT_PUBLIC_FIREBASE_PROJECT_ID=...
 ```tsx
 // Add to component
 useEffect(() => {
-  console.log('Component mounted', { props, state });
-  return () => console.log('Component unmounted');
+  console.log("Component mounted", { props, state });
+  return () => console.log("Component unmounted");
 }, []);
 ```
 
@@ -457,9 +457,9 @@ git log --grep="related keyword"
 
 ## 📚 Related Resources
 
-- [Development Standards](./DEVELOPMENT_STANDARDS.md)
-- [AI Development Guidelines](./AI_DEVELOPMENT_GUIDELINES.md)
-- [Consistency Master Plan](../project/CONSISTENCY_MASTER_PLAN.md)
+- [Development Standards](./development-standards.md)
+- [AI Development Guidelines](./ai-development-guidelines.md)
+- [Consistency Master Plan](../project/consistency-master-plan.md)
 
 ---
 

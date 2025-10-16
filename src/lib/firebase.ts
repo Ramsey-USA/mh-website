@@ -30,10 +30,10 @@ const missingEnvVars = requiredEnvVars.filter((envVar) => !process.env[envVar]);
 if (missingEnvVars.length > 0) {
   console.warn(
     "Missing Firebase environment variables:",
-    missingEnvVars.join(", ")
+    missingEnvVars.join(", "),
   );
   console.warn(
-    "Please check your .env.local file and ensure all Firebase config values are set."
+    "Please check your .env.local file and ensure all Firebase config values are set.",
   );
 }
 

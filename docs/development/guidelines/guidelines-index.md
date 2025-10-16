@@ -8,7 +8,7 @@
 
 ### 📋 Development Standards
 
-- [**Development Guidelines**](./DEVELOPMENT_GUIDELINES.md) - Complete development standards and practices
+- [**Development Guidelines**](./development-guidelines.md) - Complete development standards and practices
 - [**Markdown Style Guide**](./MARKDOWN_STYLE_GUIDE.md.original) - Markdown formatting standards
 
 ### 📚 Guidelines Resources
@@ -30,7 +30,7 @@ MH Construction project. All files are current and actively maintained.
 
 ## Directory Structure
 
-```text
+````text
 docs/guidelines/
 ├── GUIDELINES_INDEX.md         # This navigation hub
 ├── CODING_STANDARDS.md         # Code style guidelines
@@ -74,23 +74,23 @@ docs/guidelines/
 
 ### 🏢 Business Documentation
 >
-> [Business Hub](../business/BUSINESS_INDEX.md) - Business operations and strategy
+> [Business Hub](../../business/business-index.md) - Business operations and strategy
 
 ### 🔧 Technical Documentation
 >
-> [Technical Hub](../technical/TECHNICAL_INDEX.md) - Technical architecture and implementation
+> [Technical Hub](../../technical/technical-index.md) - Technical architecture and implementation
 
 ### 📝 Project Documentation
 >
-> [Project Hub](../project/PROJECT_INDEX.md) - Project management and implementation
+> [Project Hub](../../project/project-index.md) - Project management and implementation
 
 ### 📚 Development Documentation
 >
-> [Development Hub](../development/DEVELOPMENT_INDEX.md) - Setup guides and workflows
+> [Development Hub](../development-index.md) - Setup guides and workflows
 
 ### 📑 Reference Materials
 >
-> [Reference Hub](../reference/REFERENCE_INDEX.md) - Quick references and templates
+> [Reference Hub](../reference/reference-index.md) - Quick references and templates
 
 ## Compliance Framework
 
@@ -144,3 +144,4 @@ docs/guidelines/
 **Guidelines Authority**: MH Construction Standards Committee
 **Last Update**: October 9, 2025
 **Next Review**: Quarterly standards assessment
+````

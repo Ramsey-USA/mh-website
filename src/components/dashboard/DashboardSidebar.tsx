@@ -1,95 +1,95 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { Button } from '../ui'
+import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "../ui";
 
 export function DashboardSidebar() {
-  const [activeSection, setActiveSection] = useState('dashboard')
+  const [activeSection, setActiveSection] = useState("dashboard");
 
   const menuItems = [
     {
-      id: 'dashboard',
-      label: 'Dashboard',
-      icon: '[HOME]',
-      href: '/dashboard',
+      id: "dashboard",
+      label: "Dashboard",
+      icon: "[HOME]",
+      href: "/dashboard",
       badge: null,
     },
     {
-      id: 'consultations',
-      label: 'Consultations',
-      icon: '[EVENT]',
-      href: '/dashboard/consultations',
-      badge: '3',
+      id: "consultations",
+      label: "Consultations",
+      icon: "[EVENT]",
+      href: "/dashboard/consultations",
+      badge: "3",
     },
     {
-      id: 'projects',
-      label: 'Projects',
-      icon: '[CONSTRUCTION]',
-      href: '/dashboard/projects',
-      badge: '8',
+      id: "projects",
+      label: "Projects",
+      icon: "[CONSTRUCTION]",
+      href: "/dashboard/projects",
+      badge: "8",
     },
     {
-      id: 'estimates',
-      label: 'Estimates',
-      icon: '[ATTACH_MONEY]',
-      href: '/dashboard/estimates',
-      badge: '12',
+      id: "estimates",
+      label: "Estimates",
+      icon: "[ATTACH_MONEY]",
+      href: "/dashboard/estimates",
+      badge: "12",
     },
     {
-      id: 'clients',
-      label: 'Clients',
-      icon: '[GROUPS]',
-      href: '/dashboard/clients',
+      id: "clients",
+      label: "Clients",
+      icon: "[GROUPS]",
+      href: "/dashboard/clients",
       badge: null,
     },
     {
-      id: 'calendar',
-      label: 'Calendar',
-      icon: '📆',
-      href: '/dashboard/calendar',
+      id: "calendar",
+      label: "Calendar",
+      icon: "📆",
+      href: "/dashboard/calendar",
       badge: null,
     },
     {
-      id: 'team',
-      label: 'Team Management',
-      icon: 'person',
-      href: '/dashboard/team',
+      id: "team",
+      label: "Team Management",
+      icon: "person",
+      href: "/dashboard/team",
       badge: null,
     },
     {
-      id: 'reports',
-      label: 'Reports',
-      icon: '[ANALYTICS]',
-      href: '/dashboard/reports',
+      id: "reports",
+      label: "Reports",
+      icon: "[ANALYTICS]",
+      href: "/dashboard/reports",
       badge: null,
     },
     {
-      id: 'settings',
-      label: 'Settings',
-      icon: '[ENGINEERING]',
-      href: '/dashboard/settings',
+      id: "settings",
+      label: "Settings",
+      icon: "[ENGINEERING]",
+      href: "/dashboard/settings",
       badge: null,
     },
-  ]
+  ];
 
   const veteranFeatures = [
     {
-      id: 'wounded-warrior',
-      label: 'Wounded Warrior',
-      icon: '[MILITARY_TECH]',
-      href: '/dashboard/wounded-warrior',
-      description: 'Initiative Management',
+      id: "wounded-warrior",
+      label: "Wounded Warrior",
+      icon: "[MILITARY_TECH]",
+      href: "/dashboard/wounded-warrior",
+      description: "Initiative Management",
     },
     {
-      id: 'military-clients',
-      label: 'Military Clients',
-      icon: '🪖',
-      href: '/dashboard/military-clients',
-      description: 'Special Programs',
+      id: "military-clients",
+      label: "Military Clients",
+      icon: "🪖",
+      href: "/dashboard/military-clients",
+      description: "Special Programs",
     },
-  ]
+  ];
 
   return (
     <div className="top-0 left-0 z-40 fixed bg-white shadow-lg border-r w-64 h-full">
@@ -118,7 +118,7 @@ export function DashboardSidebar() {
       {/* Navigation */}
       <nav className="flex-1 p-4">
         <div className="space-y-2">
-          {menuItems.map(item => (
+          {menuItems.map((item) => (
             <Link
               key={item.id}
               href={item.href}
@@ -127,8 +127,8 @@ export function DashboardSidebar() {
                 flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors
                 ${
                   activeSection === item.id
-                    ? 'bg-brand-primary text-white'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? "bg-brand-primary text-white"
+                    : "text-gray-700 hover:bg-gray-100"
                 }
               `}
             >
@@ -142,8 +142,8 @@ export function DashboardSidebar() {
                   px-2 py-1 text-xs rounded-full font-semibold
                   ${
                     activeSection === item.id
-                      ? 'bg-white text-brand-primary'
-                      : 'bg-red-500 text-white'
+                      ? "bg-white text-brand-primary"
+                      : "bg-red-500 text-white"
                   }
                 `}
                 >
@@ -160,7 +160,7 @@ export function DashboardSidebar() {
             Veteran Services
           </h3>
           <div className="space-y-2">
-            {veteranFeatures.map(item => (
+            {veteranFeatures.map((item) => (
               <Link
                 key={item.id}
                 href={item.href}
@@ -212,5 +212,5 @@ export function DashboardSidebar() {
         </div>
       </div>
     </div>
-  )
+  );
 }

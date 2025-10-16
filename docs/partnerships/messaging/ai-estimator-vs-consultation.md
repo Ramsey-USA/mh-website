@@ -134,20 +134,20 @@ visits your site, understands your vision, and provides detailed professional es
 
 ## 📊 Side-by-Side Comparison
 
-| Feature | AI Estimator | IRL Consultation |
-|---------|-----------------|---------------------|
-| **Speed** | Instant (seconds) | Scheduled (days) |
-| **Interaction** | Digital/Automated | Human/Personal |
-| **Availability** | 24/7 Online | Business Hours |
-| **Detail Level** | Preliminary/Ballpark | Detailed/Comprehensive |
-| **Customization** | Template-based | Fully Customized |
-| **Best For** | Initial Research | Project Planning |
-| **Cost** | Free (Self-service) | Free (Scheduled) |
-| **Commitment** | None Required | Exploring Partnership |
-| **Site Visit** | Not Included | Included |
-| **Expert Advice** | AI Guidance | Human Expertise |
-| **MaterialIcon** | `smart_toy` | `handshake` |
-| **CTA Example** | "Get Instant Estimate" | "Schedule Consultation" |
+| Feature           | AI Estimator           | IRL Consultation        |
+| ----------------- | ---------------------- | ----------------------- |
+| **Speed**         | Instant (seconds)      | Scheduled (days)        |
+| **Interaction**   | Digital/Automated      | Human/Personal          |
+| **Availability**  | 24/7 Online            | Business Hours          |
+| **Detail Level**  | Preliminary/Ballpark   | Detailed/Comprehensive  |
+| **Customization** | Template-based         | Fully Customized        |
+| **Best For**      | Initial Research       | Project Planning        |
+| **Cost**          | Free (Self-service)    | Free (Scheduled)        |
+| **Commitment**    | None Required          | Exploring Partnership   |
+| **Site Visit**    | Not Included           | Included                |
+| **Expert Advice** | AI Guidance            | Human Expertise         |
+| **MaterialIcon**  | `smart_toy`            | `handshake`             |
+| **CTA Example**   | "Get Instant Estimate" | "Schedule Consultation" |
 
 ---
 
@@ -164,7 +164,7 @@ visits your site, understands your vision, and provides detailed professional es
   <span className="font-medium">Get Instant AI Estimate</span>
 </Button>
 
-// Consultation Section  
+// Consultation Section
 <Button variant="primary" size="lg">
   <MaterialIcon icon="event" size="lg" className="mr-3" />
   <span className="font-medium">Schedule Free Consultation</span>
@@ -181,12 +181,14 @@ visits your site, understands your vision, and provides detailed professional es
 ### Two Ways to Get Pricing:
 
 #### 1. Instant AI Estimator
+
 Icon: MaterialIcon "smart_toy"
 Get preliminary project costs in seconds with our AI-powered calculator.
 Available 24/7 for immediate budget planning.
 [Try AI Estimator →]
 
 #### 2. Professional Consultation
+
 Icon: MaterialIcon "handshake" or "event"
 Schedule a site visit with our sales team for detailed, customized estimates.
 Expert guidance tailored to your specific project.
@@ -201,10 +203,10 @@ Expert guidance tailored to your specific project.
 ## How Would You Like to Proceed?
 
 ○ Get Instant AI Estimate (Automated, Immediate)
-   → Use our digital estimator for quick preliminary pricing
+→ Use our digital estimator for quick preliminary pricing
 
 ○ Schedule Sales Consultation (In-Person, Detailed)
-   → Meet with our team for comprehensive project assessment
+→ Meet with our team for comprehensive project assessment
 ```
 
 ---
@@ -365,7 +367,7 @@ Expert guidance tailored to your specific project.
 - **CTA Button Guide:** `/docs/partnerships/messaging/cta-button-guide.md`
 - **Partnership Messaging:** `/docs/partnerships/messaging/partnership-messaging-guide.md`
 - **Client vs Vendor:** `/docs/partnerships/messaging/client-vs-vendor-distinctions.md`
-- **Services Overview:** `/docs/business/SERVICES.md`
+- **Services Overview:** `/docs/business/services.md`
 
 ---
 
@@ -375,4 +377,4 @@ Expert guidance tailored to your specific project.
 
 ---
 
-*Clear service distinctions create better user experiences and more qualified leads.*
+_Clear service distinctions create better user experiences and more qualified leads._

@@ -132,7 +132,7 @@ function optimizeForFirebasePerformance() {
 
   fs.writeFileSync(
     path.join(OUT_DIR, "PERFORMANCE_NOTES.txt"),
-    performanceOptimizations.trim()
+    performanceOptimizations.trim(),
   );
 
   console.log("✅ Performance optimizations documented");

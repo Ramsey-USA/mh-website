@@ -1,60 +1,60 @@
-'use client'
+"use client";
 
-import React, { useState, useRef, useEffect, useCallback } from 'react'
-import { Button, Card, CardHeader, CardContent, Input } from '../ui'
-import { MaterialIcon } from '../icons/MaterialIcon'
-import { militaryConstructionAI } from '@/lib/militaryConstructionAI'
+import React, { useState, useRef, useEffect, useCallback } from "react";
+import { Button, Card, CardHeader, CardContent, Input } from "../ui";
+import { MaterialIcon } from "../icons/MaterialIcon";
+import { militaryConstructionAI } from "@/lib/militaryConstructionAI";
 
 interface ChatMessage {
-  id: string
-  type: 'user' | 'bot'
-  content: string
-  timestamp: Date
+  id: string;
+  type: "user" | "bot";
+  content: string;
+  timestamp: Date;
   metadata?: {
-    estimateData?: any
-    actionRequired?: boolean
-    priority?: 'low' | 'medium' | 'high' | 'critical'
-  }
+    estimateData?: any;
+    actionRequired?: boolean;
+    priority?: "low" | "medium" | "high" | "critical";
+  };
 }
 
 interface GlobalChatbotProps {
-  estimatorData?: any
-  onEstimateRequest?: (data: any) => void
-  currentPage?: string
+  estimatorData?: any;
+  onEstimateRequest?: (data: any) => void;
+  currentPage?: string;
 }
 
 export function GlobalChatbot({
   estimatorData,
   onEstimateRequest,
-  currentPage = '',
+  currentPage = "",
 }: GlobalChatbotProps) {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isMinimized, setIsMinimized] = useState(false)
-  const [position, setPosition] = useState({ x: 24, y: 24 }) // Bottom right default
-  const [isDragging, setIsDragging] = useState(false)
-  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 })
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
+  const [position, setPosition] = useState({ x: 24, y: 24 }); // Bottom right default
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
-      id: '1',
-      type: 'bot',
+      id: "1",
+      type: "bot",
       content:
         "**General MH** reporting for duty! [MILITARY_TECH]\n\nI'm your **AI construction intelligence officer**, ready to provide **tactical guidance** on your building missions. Whether you need **reconnaissance** on materials, **strategic planning** for timelines, or **intel** on costs - I've got your six.\n\n**What's your mission objective today, soldier?**",
       timestamp: new Date(),
-      metadata: { priority: 'high' },
+      metadata: { priority: "high" },
     },
-  ])
-  const [inputValue, setInputValue] = useState('')
-  const [isTyping, setIsTyping] = useState(false)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
-  const chatbotRef = useRef<HTMLDivElement>(null)
+  ]);
+  const [inputValue, setInputValue] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatbotRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
-    scrollToBottom()
-  }, [messages])
+    scrollToBottom();
+  }, [messages]);
 
   useEffect(() => {
     // Set initial position to bottom right
@@ -63,14 +63,14 @@ export function GlobalChatbot({
         setPosition({
           x: window.innerWidth - 400 - 24, // Account for chatbot width + padding
           y: window.innerHeight - (isOpen ? 600 : 80) - 24, // Account for height + padding
-        })
+        });
       }
-    }
+    };
 
-    updatePosition()
-    window.addEventListener('resize', updatePosition)
-    return () => window.removeEventListener('resize', updatePosition)
-  }, [isOpen, isDragging])
+    updatePosition();
+    window.addEventListener("resize", updatePosition);
+    return () => window.removeEventListener("resize", updatePosition);
+  }, [isOpen, isDragging]);
 
   // Enhanced AI Response System with advanced lead qualification
   const generateArmyResponse = async (userMessage: string): Promise<string> => {
@@ -78,61 +78,61 @@ export function GlobalChatbot({
     const pageContext = {
       ...estimatorData,
       currentPage,
-      isEstimatorPage: currentPage?.includes('/estimator'),
-      isHomePage: currentPage === '/',
-      isServicesPage: currentPage?.includes('/services'),
-      isProjectsPage: currentPage?.includes('/projects'),
-      isAboutPage: currentPage?.includes('/about'),
-      isContactPage: currentPage?.includes('/contact'),
-      isBookingPage: currentPage?.includes('/booking'),
-    }
+      isEstimatorPage: currentPage?.includes("/estimator"),
+      isHomePage: currentPage === "/",
+      isServicesPage: currentPage?.includes("/services"),
+      isProjectsPage: currentPage?.includes("/projects"),
+      isAboutPage: currentPage?.includes("/about"),
+      isContactPage: currentPage?.includes("/contact"),
+      isBookingPage: currentPage?.includes("/booking"),
+    };
 
     // Advanced lead qualification triggers
     const businessKeywords = [
-      'project',
-      'estimate',
-      'cost',
-      'budget',
-      'build',
-      'construction',
-      'remodel',
-      'renovation',
-      'addition',
-      'kitchen',
-      'bathroom',
-      'commercial',
-      'consultation',
-      'quote',
-      'price',
-      'timeline',
-      'contractor',
-      'hire',
-      'service',
-      'work',
-      'job',
-    ]
+      "project",
+      "estimate",
+      "cost",
+      "budget",
+      "build",
+      "construction",
+      "remodel",
+      "renovation",
+      "addition",
+      "kitchen",
+      "bathroom",
+      "commercial",
+      "consultation",
+      "quote",
+      "price",
+      "timeline",
+      "contractor",
+      "hire",
+      "service",
+      "work",
+      "job",
+    ];
 
-    const hasBusinessKeyword = businessKeywords.some(keyword =>
-      userMessage.toLowerCase().includes(keyword)
-    )
+    const hasBusinessKeyword = businessKeywords.some((keyword) =>
+      userMessage.toLowerCase().includes(keyword),
+    );
 
     // Deploy advanced lead qualification for business inquiries
     if (hasBusinessKeyword) {
       const leadQualification =
         militaryConstructionAI.getLeadQualificationGuidance(
           userMessage,
-          pageContext
-        )
+          pageContext,
+        );
 
       // Check for veteran status and apply priority processing
       const veteranAnalysis =
-        militaryConstructionAI.analyzeVeteranStatus(userMessage)
+        militaryConstructionAI.analyzeVeteranStatus(userMessage);
 
       if (veteranAnalysis.isVeteran) {
         const veteranPriority = militaryConstructionAI.processVeteranPriority(
           veteranAnalysis,
-          { message: userMessage, context: pageContext }
-        )
+          { message: userMessage, context: pageContext },
+        );
 
         // Combine lead qualification with veteran priority information
         return `${leadQualification}
@@ -144,102 +144,102 @@ ${veteranPriority.processingProtocol}
 ${veteranPriority.specialAssignment}
 
 **[MILITARY_TECH] VETERAN SUPPORT SERVICES:**
-${veteranPriority.supportServices.map(service => `• ${service}`).join('\n')}
+${veteranPriority.supportServices.map((service) => `• ${service}`).join("\n")}
 
 ${veteranPriority.expeditedTimeline}
 
 ---
 **Thank you for your service! [FLAG]**
-*MH Construction is honored to serve those who served.*`
+*MH Construction is honored to serve those who served.*`;
       }
 
-      return leadQualification
+      return leadQualification;
     }
 
     // Specialized form assistance based on current page
     if (pageContext.isContactPage) {
       const formAssistance = militaryConstructionAI.getContactFormAssistance(
         userMessage,
-        pageContext
-      )
-      return formAssistance
+        pageContext,
+      );
+      return formAssistance;
     }
 
     if (pageContext.isBookingPage) {
       const bookingAssistance = militaryConstructionAI.getBookingFormAssistance(
         userMessage,
-        pageContext
-      )
-      return bookingAssistance
+        pageContext,
+      );
+      return bookingAssistance;
     }
 
     // Standard military AI response for general inquiries
-    return militaryConstructionAI.generateResponse(userMessage, pageContext)
-  }
+    return militaryConstructionAI.generateResponse(userMessage, pageContext);
+  };
 
   const handleSendMessage = async () => {
-    if (!inputValue.trim()) return
+    if (!inputValue.trim()) return;
 
     const userMessage: ChatMessage = {
       id: Date.now().toString(),
-      type: 'user',
+      type: "user",
       content: inputValue,
       timestamp: new Date(),
-    }
+    };
 
-    setMessages(prev => [...prev, userMessage])
-    setInputValue('')
-    setIsTyping(true)
+    setMessages((prev) => [...prev, userMessage]);
+    setInputValue("");
+    setIsTyping(true);
 
     // Enhanced AI processing with lead intelligence
     setTimeout(async () => {
-      const botResponse = await generateArmyResponse(inputValue)
+      const botResponse = await generateArmyResponse(inputValue);
 
       // Analyze message for lead qualification metadata
       const isBusinessInquiry = [
-        'project',
-        'estimate',
-        'cost',
-        'budget',
-        'build',
-        'construction',
-        'remodel',
-        'renovation',
-        'consultation',
-        'quote',
-        'price',
-      ].some(keyword => inputValue.toLowerCase().includes(keyword))
+        "project",
+        "estimate",
+        "cost",
+        "budget",
+        "build",
+        "construction",
+        "remodel",
+        "renovation",
+        "consultation",
+        "quote",
+        "price",
+      ].some((keyword) => inputValue.toLowerCase().includes(keyword));
 
       const isVeteranLead = [
-        'veteran',
-        'military',
-        'service',
-        'army',
-        'navy',
-        'marines',
-        'air force',
-        'coast guard',
-      ].some(keyword => inputValue.toLowerCase().includes(keyword))
+        "veteran",
+        "military",
+        "service",
+        "army",
+        "navy",
+        "marines",
+        "air force",
+        "coast guard",
+      ].some((keyword) => inputValue.toLowerCase().includes(keyword));
 
       const isUrgent = [
-        'urgent',
-        'emergency',
-        'asap',
-        'immediately',
-        'soon',
-        'quickly',
-      ].some(keyword => inputValue.toLowerCase().includes(keyword))
+        "urgent",
+        "emergency",
+        "asap",
+        "immediately",
+        "soon",
+        "quickly",
+      ].some((keyword) => inputValue.toLowerCase().includes(keyword));
 
       // Determine message priority based on lead qualification
-      let priority: 'low' | 'medium' | 'high' | 'critical' = 'medium'
-      if (isUrgent && isBusinessInquiry) priority = 'critical'
-      else if (isVeteranLead && isBusinessInquiry) priority = 'critical'
-      else if (isBusinessInquiry) priority = 'high'
-      else if (isVeteranLead) priority = 'high'
+      let priority: "low" | "medium" | "high" | "critical" = "medium";
+      if (isUrgent && isBusinessInquiry) priority = "critical";
+      else if (isVeteranLead && isBusinessInquiry) priority = "critical";
+      else if (isBusinessInquiry) priority = "high";
+      else if (isVeteranLead) priority = "high";
 
       const botMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
-        type: 'bot',
+        type: "bot",
         content: botResponse,
         timestamp: new Date(),
         metadata: {
@@ -248,74 +248,74 @@ ${veteranPriority.expeditedTimeline}
           estimateData: isBusinessInquiry
             ? {
                 userInput: inputValue,
-                leadType: isVeteranLead ? 'veteran' : 'civilian',
-                urgency: isUrgent ? 'high' : 'normal',
+                leadType: isVeteranLead ? "veteran" : "civilian",
+                urgency: isUrgent ? "high" : "normal",
               }
             : undefined,
         },
-      }
+      };
 
-      setMessages(prev => [...prev, botMessage])
-      setIsTyping(false)
-    }, 1500)
-  }
+      setMessages((prev) => [...prev, botMessage]);
+      setIsTyping(false);
+    }, 1500);
+  };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault()
-      handleSendMessage()
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
     }
-  }
+  };
 
   // Dragging handlers
   const handleMouseDown = (e: React.MouseEvent) => {
-    if ((e.target as HTMLElement).closest('.chat-content')) return // Don't drag when clicking content
+    if ((e.target as HTMLElement).closest(".chat-content")) return; // Don't drag when clicking content
 
-    setIsDragging(true)
-    const rect = chatbotRef.current?.getBoundingClientRect()
+    setIsDragging(true);
+    const rect = chatbotRef.current?.getBoundingClientRect();
     if (rect) {
       setDragOffset({
         x: e.clientX - rect.left,
         y: e.clientY - rect.top,
-      })
+      });
     }
-  }
+  };
 
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
-      if (!isDragging) return
+      if (!isDragging) return;
 
       const newX = Math.max(
         0,
-        Math.min(window.innerWidth - 400, e.clientX - dragOffset.x)
-      )
+        Math.min(window.innerWidth - 400, e.clientX - dragOffset.x),
+      );
       const newY = Math.max(
         0,
         Math.min(
           window.innerHeight - (isOpen ? 600 : 80),
-          e.clientY - dragOffset.y
-        )
-      )
+          e.clientY - dragOffset.y,
+        ),
+      );
 
-      setPosition({ x: newX, y: newY })
+      setPosition({ x: newX, y: newY });
     },
-    [isDragging, dragOffset.x, dragOffset.y, isOpen]
-  )
+    [isDragging, dragOffset.x, dragOffset.y, isOpen],
+  );
 
   const handleMouseUp = useCallback(() => {
-    setIsDragging(false)
-  }, [])
+    setIsDragging(false);
+  }, []);
 
   useEffect(() => {
     if (isDragging) {
-      document.addEventListener('mousemove', handleMouseMove)
-      document.addEventListener('mouseup', handleMouseUp)
+      document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("mouseup", handleMouseUp);
       return () => {
-        document.removeEventListener('mousemove', handleMouseMove)
-        document.removeEventListener('mouseup', handleMouseUp)
-      }
+        document.removeEventListener("mousemove", handleMouseMove);
+        document.removeEventListener("mouseup", handleMouseUp);
+      };
     }
-  }, [isDragging, dragOffset, handleMouseMove, handleMouseUp])
+  }, [isDragging, dragOffset, handleMouseMove, handleMouseUp]);
 
   // Floating AI Icon (when closed)
   if (!isOpen) {
@@ -330,9 +330,9 @@ ${veteranPriority.expeditedTimeline}
         onMouseDown={handleMouseDown}
       >
         <Button
-          onClick={e => {
-            e.stopPropagation()
-            setIsOpen(true)
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsOpen(true);
           }}
           className="group flex justify-center items-center bg-gradient-to-r from-green-600 hover:from-green-700 to-green-800 hover:to-green-900 shadow-2xl rounded-full w-16 h-16 hover:scale-110 transition-all duration-300"
           aria-label="Open General MH - AI Construction Assistant"
@@ -349,7 +349,7 @@ ${veteranPriority.expeditedTimeline}
           General MH - AI Assistant
         </div>
       </div>
-    )
+    );
   }
 
   // Full Chatbot Interface
@@ -360,8 +360,8 @@ ${veteranPriority.expeditedTimeline}
       style={{
         right: `${24}px`,
         bottom: `${24}px`,
-        width: '400px',
-        height: isMinimized ? '60px' : '600px',
+        width: "400px",
+        height: isMinimized ? "60px" : "600px",
       }}
       onMouseDown={handleMouseDown}
     >
@@ -387,9 +387,9 @@ ${veteranPriority.expeditedTimeline}
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={e => {
-                  e.stopPropagation()
-                  setIsMinimized(!isMinimized)
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsMinimized(!isMinimized);
                 }}
                 className="hover:bg-white/20 p-0 w-8 h-8 text-white"
               >
@@ -402,9 +402,9 @@ ${veteranPriority.expeditedTimeline}
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={e => {
-                  e.stopPropagation()
-                  setIsOpen(false)
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsOpen(false);
                 }}
                 className="hover:bg-white/20 p-0 w-8 h-8 text-white"
               >
@@ -419,34 +419,34 @@ ${veteranPriority.expeditedTimeline}
           <>
             {/* Messages */}
             <div className="flex-1 space-y-4 bg-gray-50 p-4 overflow-y-auto chat-content">
-              {messages.map(message => (
+              {messages.map((message) => (
                 <div
                   key={message.id}
                   className={`flex ${
-                    message.type === 'user' ? 'justify-end' : 'justify-start'
+                    message.type === "user" ? "justify-end" : "justify-start"
                   }`}
                 >
                   <div
                     className={`max-w-[80%] p-3 rounded-lg ${
-                      message.type === 'user'
-                        ? 'bg-green-600 text-white'
-                        : 'bg-white border shadow-sm'
+                      message.type === "user"
+                        ? "bg-green-600 text-white"
+                        : "bg-white border shadow-sm"
                     }`}
                   >
-                    {message.type === 'bot' ? (
+                    {message.type === "bot" ? (
                       <div className="prose prose-sm">
-                        {message.content.split('\n').map((line, index) => {
-                          if (line.startsWith('**') && line.endsWith('**')) {
+                        {message.content.split("\n").map((line, index) => {
+                          if (line.startsWith("**") && line.endsWith("**")) {
                             return (
                               <div
                                 key={index}
                                 className="mb-1 font-bold text-green-800"
                               >
-                                {line.replace(/\*\*/g, '')}
+                                {line.replace(/\*\*/g, "")}
                               </div>
-                            )
+                            );
                           }
-                          if (line.startsWith('•')) {
+                          if (line.startsWith("•")) {
                             return (
                               <div
                                 key={index}
@@ -454,7 +454,7 @@ ${veteranPriority.expeditedTimeline}
                               >
                                 {line}
                               </div>
-                            )
+                            );
                           }
                           if (line.trim()) {
                             return (
@@ -464,9 +464,9 @@ ${veteranPriority.expeditedTimeline}
                               >
                                 {line}
                               </div>
-                            )
+                            );
                           }
-                          return <div key={index} className="h-2"></div>
+                          return <div key={index} className="h-2"></div>;
                         })}
                       </div>
                     ) : (
@@ -474,14 +474,14 @@ ${veteranPriority.expeditedTimeline}
                     )}
                     <div
                       className={`text-xs mt-2 ${
-                        message.type === 'user'
-                          ? 'text-white/70'
-                          : 'text-gray-500'
+                        message.type === "user"
+                          ? "text-white/70"
+                          : "text-gray-500"
                       }`}
                     >
                       {message.timestamp.toLocaleTimeString([], {
-                        hour: '2-digit',
-                        minute: '2-digit',
+                        hour: "2-digit",
+                        minute: "2-digit",
                       })}
                     </div>
                   </div>
@@ -496,11 +496,11 @@ ${veteranPriority.expeditedTimeline}
                       <div className="bg-gray-400 rounded-full w-2 h-2 animate-bounce"></div>
                       <div
                         className="bg-gray-400 rounded-full w-2 h-2 animate-bounce"
-                        style={{ animationDelay: '0.1s' }}
+                        style={{ animationDelay: "0.1s" }}
                       ></div>
                       <div
                         className="bg-gray-400 rounded-full w-2 h-2 animate-bounce"
-                        style={{ animationDelay: '0.2s' }}
+                        style={{ animationDelay: "0.2s" }}
                       ></div>
                     </div>
                   </div>
@@ -515,7 +515,7 @@ ${veteranPriority.expeditedTimeline}
               <div className="flex space-x-2">
                 <Input
                   value={inputValue}
-                  onChange={e => setInputValue(e.target.value)}
+                  onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Enter your construction mission details..."
                   className="flex-1 border-gray-300 focus:border-green-600"
@@ -529,13 +529,13 @@ ${veteranPriority.expeditedTimeline}
                 </Button>
               </div>
               <div className="mt-2 text-gray-500 text-xs text-center">
-                [MILITARY_TECH] **Tactical AI** - Powered by military precision • Drag to
-                move
+                [MILITARY_TECH] **Tactical AI** - Powered by military precision
+                • Drag to move
               </div>
             </div>
           </>
         )}
       </Card>
     </div>
-  )
+  );
 }

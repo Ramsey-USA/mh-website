@@ -44,7 +44,7 @@ interface AuthContextType {
     email: string,
     password: string,
     displayName: string,
-    role?: UserRole
+    role?: UserRole,
   ) => Promise<void>;
   signInWithGoogle: () => Promise<void>;
   logout: () => Promise<void>;
@@ -82,7 +82,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   // Create or update user profile in Firestore
   const createUserProfile = async (
     user: User,
-    additionalData: Partial<UserProfile> = {}
+    additionalData: Partial<UserProfile> = {},
   ) => {
     try {
       const db = getFirebaseDb();
@@ -109,7 +109,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   // Update user profile (admin function to update any user)
   const updateUserProfileById = async (
     uid: string,
-    updates: Partial<UserProfile>
+    updates: Partial<UserProfile>,
   ) => {
     try {
       const db = getFirebaseDb();
@@ -144,14 +144,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     email: string,
     password: string,
     displayName: string,
-    role?: UserRole
+    role?: UserRole,
   ) => {
     try {
       const auth = getFirebaseAuth();
       const result = await createUserWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
 
       // Create user profile in Firestore

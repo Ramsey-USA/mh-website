@@ -1,125 +1,125 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { MaterialIcon } from '@/components/icons/MaterialIcon'
+import { useState, useEffect } from "react";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 interface BeforeInstallPromptEvent extends Event {
-  readonly platforms: string[]
+  readonly platforms: string[];
   readonly userChoice: Promise<{
-    outcome: 'accepted' | 'dismissed'
-    platform: string
-  }>
-  prompt(): Promise<void>
+    outcome: "accepted" | "dismissed";
+    platform: string;
+  }>;
+  prompt(): Promise<void>;
 }
 
 interface PWAInstallProps {
-  onInstall?: () => void
-  onDismiss?: () => void
-  className?: string
+  onInstall?: () => void;
+  onDismiss?: () => void;
+  className?: string;
 }
 
 export default function PWAInstall({
   onInstall,
   onDismiss,
-  className = '',
+  className = "",
 }: PWAInstallProps) {
   const [deferredPrompt, setDeferredPrompt] =
-    useState<BeforeInstallPromptEvent | null>(null)
-  const [isInstallable, setIsInstallable] = useState(false)
-  const [isInstalled, setIsInstalled] = useState(false)
-  const [showPrompt, setShowPrompt] = useState(false)
-  const [isIOS, setIsIOS] = useState(false)
-  const [isStandalone, setIsStandalone] = useState(false)
+    useState<BeforeInstallPromptEvent | null>(null);
+  const [isInstallable, setIsInstallable] = useState(false);
+  const [isInstalled, setIsInstalled] = useState(false);
+  const [showPrompt, setShowPrompt] = useState(false);
+  const [isIOS, setIsIOS] = useState(false);
+  const [isStandalone, setIsStandalone] = useState(false);
 
   useEffect(() => {
     // Check if running on iOS
-    const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
-    setIsIOS(iOS)
+    const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    setIsIOS(iOS);
 
     // Check if app is already installed (running in standalone mode)
     const standalone =
-      window.matchMedia('(display-mode: standalone)').matches ||
+      window.matchMedia("(display-mode: standalone)").matches ||
       (window.navigator as any).standalone ||
-      document.referrer.includes('android-app://')
-    setIsStandalone(standalone)
+      document.referrer.includes("android-app://");
+    setIsStandalone(standalone);
 
     // Listen for the beforeinstallprompt event
     const handleBeforeInstallPrompt = (e: Event) => {
-      e.preventDefault()
-      const beforeInstallPromptEvent = e as BeforeInstallPromptEvent
-      setDeferredPrompt(beforeInstallPromptEvent)
-      setIsInstallable(true)
+      e.preventDefault();
+      const beforeInstallPromptEvent = e as BeforeInstallPromptEvent;
+      setDeferredPrompt(beforeInstallPromptEvent);
+      setIsInstallable(true);
 
       // Show prompt after a delay if not dismissed
       setTimeout(() => {
-        const dismissed = localStorage.getItem('pwa-install-dismissed')
+        const dismissed = localStorage.getItem("pwa-install-dismissed");
         if (
           !dismissed ||
           Date.now() - parseInt(dismissed) > 7 * 24 * 60 * 60 * 1000
         ) {
           // 7 days
-          setShowPrompt(true)
+          setShowPrompt(true);
         }
-      }, 5000) // Show after 5 seconds
-    }
+      }, 5000); // Show after 5 seconds
+    };
 
     // Listen for successful installation
     const handleAppInstalled = () => {
-      console.log('PWA was installed')
-      setIsInstalled(true)
-      setShowPrompt(false)
-      setIsInstallable(false)
-      if (onInstall) onInstall()
-    }
+      console.log("PWA was installed");
+      setIsInstalled(true);
+      setShowPrompt(false);
+      setIsInstallable(false);
+      if (onInstall) onInstall();
+    };
 
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
-    window.addEventListener('appinstalled', handleAppInstalled)
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    window.addEventListener("appinstalled", handleAppInstalled);
 
     return () => {
       window.removeEventListener(
-        'beforeinstallprompt',
-        handleBeforeInstallPrompt
-      )
-      window.removeEventListener('appinstalled', handleAppInstalled)
-    }
-  }, [onInstall])
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt,
+      );
+      window.removeEventListener("appinstalled", handleAppInstalled);
+    };
+  }, [onInstall]);
 
   const handleInstallClick = async () => {
-    if (!deferredPrompt) return
+    if (!deferredPrompt) return;
 
     try {
-      await deferredPrompt.prompt()
-      const { outcome } = await deferredPrompt.userChoice
+      await deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
 
-      if (outcome === 'accepted') {
-        console.log('User accepted the install prompt')
-        setIsInstalled(true)
+      if (outcome === "accepted") {
+        console.log("User accepted the install prompt");
+        setIsInstalled(true);
       } else {
-        console.log('User dismissed the install prompt')
-        localStorage.setItem('pwa-install-dismissed', Date.now().toString())
+        console.log("User dismissed the install prompt");
+        localStorage.setItem("pwa-install-dismissed", Date.now().toString());
       }
 
-      setDeferredPrompt(null)
-      setShowPrompt(false)
-      setIsInstallable(false)
+      setDeferredPrompt(null);
+      setShowPrompt(false);
+      setIsInstallable(false);
     } catch (error) {
-      console.error('Error during PWA installation:', error)
+      console.error("Error during PWA installation:", error);
     }
-  }
+  };
 
   const handleDismiss = () => {
-    setShowPrompt(false)
-    localStorage.setItem('pwa-install-dismissed', Date.now().toString())
-    if (onDismiss) onDismiss()
-  }
+    setShowPrompt(false);
+    localStorage.setItem("pwa-install-dismissed", Date.now().toString());
+    if (onDismiss) onDismiss();
+  };
 
   const handleIOSInstallInstructions = () => {
-    setShowPrompt(true)
-  }
+    setShowPrompt(true);
+  };
 
   // Don't show if already installed or in standalone mode
   if (isInstalled || isStandalone) {
-    return null
+    return null;
   }
 
   // iOS Install Instructions Modal
@@ -184,7 +184,7 @@ export default function PWAInstall({
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   // Install Prompt Banner
@@ -229,7 +229,7 @@ export default function PWAInstall({
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   // Install Button Component (can be used anywhere)
@@ -242,7 +242,7 @@ export default function PWAInstall({
         <MaterialIcon icon="download" className="w-4 h-4" />
         Install App
       </button>
-    )
+    );
   }
 
   // iOS Install Button
@@ -255,10 +255,10 @@ export default function PWAInstall({
         <MaterialIcon icon="download" className="w-4 h-4" />
         Install App
       </button>
-    )
+    );
   }
 
-  return null
+  return null;
 }
 
 // PWA Features Showcase Component
@@ -302,5 +302,5 @@ export function PWAFeatures() {
         </div>
       </div>
     </div>
-  )
+  );
 }

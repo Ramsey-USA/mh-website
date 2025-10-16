@@ -9,7 +9,7 @@ export async function GET() {
     console.error("Error loading services:", error);
     return NextResponse.json(
       { error: "Failed to load services content" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

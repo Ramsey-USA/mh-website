@@ -1,135 +1,135 @@
-'use client'
+"use client";
 
-import React, { useState, useEffect } from 'react'
-import { Card, CardContent, CardHeader, CardTitle, Button } from '../ui'
+import React, { useState, useEffect } from "react";
+import { Card, CardContent, CardHeader, CardTitle, Button } from "../ui";
 
 interface MapLocation {
-  lat: number
-  lng: number
-  title: string
-  description: string
-  type: 'office' | 'service-area' | 'project'
+  lat: number;
+  lng: number;
+  title: string;
+  description: string;
+  type: "office" | "service-area" | "project";
 }
 
 interface InteractiveMapProps {
-  showServiceAreas?: boolean
-  showProjects?: boolean
-  height?: string
-  className?: string
+  showServiceAreas?: boolean;
+  showProjects?: boolean;
+  height?: string;
+  className?: string;
 }
 
 export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   showServiceAreas = true,
   showProjects = false,
-  height = '400px',
-  className = '',
+  height = "400px",
+  className = "",
 }) => {
   const [selectedLocation, setSelectedLocation] = useState<MapLocation | null>(
-    null
-  )
-  const [mapLoaded, setMapLoaded] = useState(false)
-  const [mapError, setMapError] = useState(false)
+    null,
+  );
+  const [mapLoaded, setMapLoaded] = useState(false);
+  const [mapError, setMapError] = useState(false);
 
   // MH Construction office location
   const officeLocation: MapLocation = {
     lat: 46.2396,
     lng: -119.1006,
-    title: 'MH Construction Headquarters',
-    description: '3111 N. Capital Ave., Pasco, WA 99301',
-    type: 'office',
-  }
+    title: "MH Construction Headquarters",
+    description: "3111 N. Capital Ave., Pasco, WA 99301",
+    type: "office",
+  };
 
   // Service area locations
   const serviceAreas: MapLocation[] = [
     {
       lat: 46.2396,
       lng: -119.1006,
-      title: 'Pasco, WA',
-      description: 'Primary service area - Full construction services',
-      type: 'service-area',
+      title: "Pasco, WA",
+      description: "Primary service area - Full construction services",
+      type: "service-area",
     },
     {
       lat: 46.2112,
       lng: -119.1372,
-      title: 'Kennewick, WA',
-      description: 'Complete residential and commercial construction',
-      type: 'service-area',
+      title: "Kennewick, WA",
+      description: "Complete residential and commercial construction",
+      type: "service-area",
     },
     {
       lat: 46.2784,
       lng: -119.2844,
-      title: 'Richland, WA',
-      description: 'Custom homes and renovation projects',
-      type: 'service-area',
+      title: "Richland, WA",
+      description: "Custom homes and renovation projects",
+      type: "service-area",
     },
     {
       lat: 46.0646,
       lng: -118.343,
-      title: 'Walla Walla, WA',
-      description: 'Residential construction and remodeling',
-      type: 'service-area',
+      title: "Walla Walla, WA",
+      description: "Residential construction and remodeling",
+      type: "service-area",
     },
     {
       lat: 46.6021,
       lng: -120.5059,
-      title: 'Yakima, WA',
-      description: 'Extended service area for larger projects',
-      type: 'service-area',
+      title: "Yakima, WA",
+      description: "Extended service area for larger projects",
+      type: "service-area",
     },
     {
       lat: 47.6587,
       lng: -117.426,
-      title: 'Spokane, WA',
-      description: 'Extended service area for commercial projects',
-      type: 'service-area',
+      title: "Spokane, WA",
+      description: "Extended service area for commercial projects",
+      type: "service-area",
     },
-  ]
+  ];
 
   // Sample project locations (if enabled)
   const projectLocations: MapLocation[] = [
     {
       lat: 46.252,
       lng: -119.08,
-      title: 'Recent Custom Home',
-      description: 'Luxury 4-bedroom custom home completed 2024',
-      type: 'project',
+      title: "Recent Custom Home",
+      description: "Luxury 4-bedroom custom home completed 2024",
+      type: "project",
     },
     {
       lat: 46.22,
       lng: -119.15,
-      title: 'Commercial Complex',
-      description: 'Modern office building - 15,000 sq ft',
-      type: 'project',
+      title: "Commercial Complex",
+      description: "Modern office building - 15,000 sq ft",
+      type: "project",
     },
-  ]
+  ];
 
   const allLocations = [
-    { ...officeLocation, type: 'office' as const },
+    { ...officeLocation, type: "office" as const },
     ...(showServiceAreas ? serviceAreas : []),
     ...(showProjects ? projectLocations : []),
-  ]
+  ];
 
   // Simulate map loading (replace with actual Google Maps implementation)
   useEffect(() => {
     const timer = setTimeout(() => {
-      setMapLoaded(true)
-    }, 1000)
+      setMapLoaded(true);
+    }, 1000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleGetDirections = (location: MapLocation) => {
     const address = encodeURIComponent(
-      location.type === 'office'
-        ? '3111 N Capital Ave, Pasco, WA 99301'
-        : `${location.title}, WA`
-    )
-    window.open(`https://maps.google.com/maps?daddr=${address}`, '_blank')
-  }
+      location.type === "office"
+        ? "3111 N Capital Ave, Pasco, WA 99301"
+        : `${location.title}, WA`,
+    );
+    window.open(`https://maps.google.com/maps?daddr=${address}`, "_blank");
+  };
 
   const handleCallOffice = () => {
-    window.location.href = 'tel:+15093086489'
-  }
+    window.location.href = "tel:+15093086489";
+  };
 
   if (mapError) {
     return (
@@ -161,7 +161,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           </div>
         </CardContent>
       </Card>
-    )
+    );
   }
 
   return (
@@ -226,18 +226,18 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   key={index}
                   className={`p-4 rounded-lg border cursor-pointer transition-all hover:shadow-md ${
                     selectedLocation === location
-                      ? 'border-brand-primary bg-brand-primary/5'
-                      : 'border-gray-200 hover:border-brand-primary/50'
+                      ? "border-brand-primary bg-brand-primary/5"
+                      : "border-gray-200 hover:border-brand-primary/50"
                   }`}
                   onClick={() => setSelectedLocation(location)}
                 >
                   <div className="flex items-start">
                     <div className="mr-3 text-2xl">
-                      {location.type === 'office'
-                        ? '[APARTMENT]'
-                        : location.type === 'project'
-                        ? '[CONSTRUCTION]'
-                        : '[LOCATION_ON]'}
+                      {location.type === "office"
+                        ? "[APARTMENT]"
+                        : location.type === "project"
+                          ? "[CONSTRUCTION]"
+                          : "[LOCATION_ON]"}
                     </div>
                     <div className="flex-1">
                       <h4 className="mb-1 font-semibold text-gray-900">
@@ -249,9 +249,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                       <Button
                         variant="outline"
                         size="sm"
-                        onClick={e => {
-                          e.stopPropagation()
-                          handleGetDirections(location)
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleGetDirections(location);
                         }}
                         className="text-xs"
                       >
@@ -281,7 +281,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   >
                     🧭 Get Directions
                   </Button>
-                  {selectedLocation.type === 'office' && (
+                  {selectedLocation.type === "office" && (
                     <Button variant="outline" onClick={handleCallOffice}>
                       [PHONE] Call Office
                     </Button>
@@ -317,7 +317,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                 <Button
                   variant="outline"
                   className="hover:bg-white border-white text-white hover:text-brand-primary"
-                  onClick={() => (window.location.href = '/contact')}
+                  onClick={() => (window.location.href = "/contact")}
                 >
                   💬 Contact Form
                 </Button>
@@ -327,41 +327,41 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         </CardContent>
       </Card>
     </div>
-  )
-}
+  );
+};
 
 // Service Area Overview Component
 export const ServiceAreaOverview: React.FC = () => {
   const serviceAreas = [
     {
-      city: 'Pasco',
-      state: 'WA',
-      description: 'Headquarters location with full-service construction',
-      services: ['Custom Homes', 'Commercial', 'Renovations', 'Emergency'],
-      responseTime: '24 hours',
+      city: "Pasco",
+      state: "WA",
+      description: "Headquarters location with full-service construction",
+      services: ["Custom Homes", "Commercial", "Renovations", "Emergency"],
+      responseTime: "24 hours",
     },
     {
-      city: 'Tri-Cities Area',
-      state: 'WA',
-      description: 'Kennewick, Richland, and surrounding communities',
-      services: ['Residential', 'Commercial', 'Remodeling'],
-      responseTime: '24-48 hours',
+      city: "Tri-Cities Area",
+      state: "WA",
+      description: "Kennewick, Richland, and surrounding communities",
+      services: ["Residential", "Commercial", "Remodeling"],
+      responseTime: "24-48 hours",
     },
     {
-      city: 'Walla Walla',
-      state: 'WA',
-      description: 'Wine country construction and renovations',
-      services: ['Custom Homes', 'Wineries', 'Residential'],
-      responseTime: '48 hours',
+      city: "Walla Walla",
+      state: "WA",
+      description: "Wine country construction and renovations",
+      services: ["Custom Homes", "Wineries", "Residential"],
+      responseTime: "48 hours",
     },
     {
-      city: 'Extended Areas',
-      state: 'WA',
-      description: 'Yakima, Spokane, and major projects statewide',
-      services: ['Large Commercial', 'Multi-Family', 'Industrial'],
-      responseTime: '72 hours',
+      city: "Extended Areas",
+      state: "WA",
+      description: "Yakima, Spokane, and major projects statewide",
+      services: ["Large Commercial", "Multi-Family", "Industrial"],
+      responseTime: "72 hours",
     },
-  ]
+  ];
 
   return (
     <div className="gap-6 grid grid-cols-1 md:grid-cols-2">
@@ -396,5 +396,5 @@ export const ServiceAreaOverview: React.FC = () => {
         </Card>
       ))}
     </div>
-  )
-}
+  );
+};

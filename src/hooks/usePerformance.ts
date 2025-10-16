@@ -134,7 +134,7 @@ export function usePerformanceMetrics(updateInterval = 5000) {
 
     if (summary.metrics?.avgLCP > 2500) {
       recommendations.push(
-        "Optimize images and implement lazy loading to improve LCP"
+        "Optimize images and implement lazy loading to improve LCP",
       );
     }
 
@@ -144,7 +144,7 @@ export function usePerformanceMetrics(updateInterval = 5000) {
 
     if (summary.metrics?.avgCLS > 0.1) {
       recommendations.push(
-        "Set explicit dimensions for images and ads to reduce CLS"
+        "Set explicit dimensions for images and ads to reduce CLS",
       );
     }
 
@@ -154,7 +154,7 @@ export function usePerformanceMetrics(updateInterval = 5000) {
       cacheStats.hits / (cacheStats.hits + cacheStats.misses) < 0.7
     ) {
       recommendations.push(
-        "Improve cache hit rate by optimizing cache keys and TTL"
+        "Improve cache hit rate by optimizing cache keys and TTL",
       );
     }
 

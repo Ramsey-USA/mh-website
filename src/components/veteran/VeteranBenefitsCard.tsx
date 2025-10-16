@@ -1,71 +1,71 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { MaterialIcon } from '@/components/icons/MaterialIcon'
-import { VeteranBenefit } from '@/lib/recommendations/SmartRecommendationEngine'
+import { useState } from "react";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { VeteranBenefit } from "@/lib/recommendations/SmartRecommendationEngine";
 
 interface VeteranBenefitsCardProps {
-  benefits: VeteranBenefit[]
-  projectTitle: string
-  className?: string
+  benefits: VeteranBenefit[];
+  projectTitle: string;
+  className?: string;
 }
 
 export default function VeteranBenefitsCard({
   benefits,
   projectTitle,
-  className = '',
+  className = "",
 }: VeteranBenefitsCardProps) {
-  const [expandedBenefit, setExpandedBenefit] = useState<string | null>(null)
+  const [expandedBenefit, setExpandedBenefit] = useState<string | null>(null);
 
-  if (!benefits.length) return null
+  if (!benefits.length) return null;
 
   const totalValue = benefits.reduce((sum, benefit) => {
     const value =
-      typeof benefit.value === 'string'
-        ? parseInt(benefit.value.replace(/\D/g, '')) || 0
-        : benefit.value
-    return sum + value
-  }, 0)
+      typeof benefit.value === "string"
+        ? parseInt(benefit.value.replace(/\D/g, "")) || 0
+        : benefit.value;
+    return sum + value;
+  }, 0);
 
   const getIconForType = (type: string) => {
     switch (type) {
-      case 'grant':
+      case "grant":
         return (
           <MaterialIcon
             icon="attach_money"
             className="w-4 h-4 text-green-600"
           />
-        )
-      case 'loan':
+        );
+      case "loan":
         return (
           <MaterialIcon icon="schedule" className="w-4 h-4 text-blue-600" />
-        )
-      case 'tax-credit':
+        );
+      case "tax-credit":
         return (
           <MaterialIcon
             icon="description"
             className="w-4 h-4 text-purple-600"
           />
-        )
+        );
       default:
         return (
           <MaterialIcon icon="security" className="w-4 h-4 text-slate-600" />
-        )
+        );
     }
-  }
+  };
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'grant':
-        return 'bg-green-50 border-green-200 text-green-800'
-      case 'loan':
-        return 'bg-blue-50 border-blue-200 text-blue-800'
-      case 'tax-credit':
-        return 'bg-purple-50 border-purple-200 text-purple-800'
+      case "grant":
+        return "bg-green-50 border-green-200 text-green-800";
+      case "loan":
+        return "bg-blue-50 border-blue-200 text-blue-800";
+      case "tax-credit":
+        return "bg-purple-50 border-purple-200 text-purple-800";
       default:
-        return 'bg-slate-50 border-slate-200 text-slate-800'
+        return "bg-slate-50 border-slate-200 text-slate-800";
     }
-  }
+  };
 
   return (
     <div
@@ -105,7 +105,7 @@ export default function VeteranBenefitsCard({
                 setExpandedBenefit(
                   expandedBenefit === `${benefit.type}-${index}`
                     ? null
-                    : `${benefit.type}-${index}`
+                    : `${benefit.type}-${index}`,
                 )
               }
             >
@@ -114,17 +114,17 @@ export default function VeteranBenefitsCard({
                   {getIconForType(benefit.type)}
                   <div>
                     <h4 className="font-medium text-slate-900 capitalize">
-                      {benefit.type.replace('-', ' ')} Benefit
+                      {benefit.type.replace("-", " ")} Benefit
                     </h4>
                     <div className="flex items-center gap-2 mt-1">
                       <span
                         className={`text-xs px-2 py-1 rounded border ${getTypeColor(benefit.type)}`}
                       >
-                        {benefit.type.replace('-', ' ').toUpperCase()}
+                        {benefit.type.replace("-", " ").toUpperCase()}
                       </span>
                       {benefit.value && (
                         <span className="font-semibold text-green-600 text-sm">
-                          {typeof benefit.value === 'string'
+                          {typeof benefit.value === "string"
                             ? benefit.value
                             : `$${benefit.value.toLocaleString()}`}
                         </span>
@@ -136,8 +136,8 @@ export default function VeteranBenefitsCard({
                   <svg
                     className={`h-4 w-4 text-slate-400 transition-transform ${
                       expandedBenefit === `${benefit.type}-${index}`
-                        ? 'rotate-180'
-                        : ''
+                        ? "rotate-180"
+                        : ""
                     }`}
                     fill="none"
                     viewBox="0 0 24 24"
@@ -191,5 +191,5 @@ export default function VeteranBenefitsCard({
         </p>
       </div>
     </div>
-  )
+  );
 }

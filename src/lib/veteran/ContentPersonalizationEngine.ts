@@ -163,7 +163,7 @@ export class ContentPersonalizationEngine {
    * Generate comprehensive personalized content for a veteran profile
    */
   public generatePersonalizedContent(
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): PersonalizedContent {
     return {
       greeting: this.generatePersonalizedGreeting(profile),
@@ -215,7 +215,7 @@ export class ContentPersonalizationEngine {
    * Generate personalized messaging based on veteran profile
    */
   private generatePersonalizedMessaging(
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): PersonalizedMessaging {
     const base = {
       heroMessage: "Military Precision Meets Construction Excellence",
@@ -314,7 +314,7 @@ export class ContentPersonalizationEngine {
    * Generate personalized project recommendations
    */
   private generatePersonalizedRecommendations(
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): PersonalizedRecommendation[] {
     const recommendations: PersonalizedRecommendation[] = [];
 
@@ -380,7 +380,7 @@ export class ContentPersonalizationEngine {
 
     // Branch-specific recommendations
     const branchRecommendations = this.getBranchSpecificRecommendations(
-      profile.serviceBranch
+      profile.serviceBranch,
     );
     recommendations.push(...branchRecommendations);
 
@@ -410,7 +410,7 @@ export class ContentPersonalizationEngine {
    * Get branch-specific recommendations
    */
   private getBranchSpecificRecommendations(
-    branch: ServiceBranch
+    branch: ServiceBranch,
   ): PersonalizedRecommendation[] {
     const branchRecs: Record<ServiceBranch, PersonalizedRecommendation[]> = {
       Army: [
@@ -534,7 +534,7 @@ export class ContentPersonalizationEngine {
    * Generate personalized pricing with veteran discounts
    */
   private generatePersonalizedPricing(
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): PersonalizedPricing {
     const discounts: VeteranDiscount[] = [];
     let baseDiscount = 0;
@@ -671,7 +671,7 @@ export class ContentPersonalizationEngine {
    * Generate personalized testimonials based on relevance
    */
   private generatePersonalizedTestimonials(
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): PersonalizedTestimonial[] {
     // Calculate relevance scores for each testimonial
     const scoredTestimonials = this.testimonials.map((testimonial) => {
@@ -724,7 +724,7 @@ export class ContentPersonalizationEngine {
    * Generate personalized form pre-fill data
    */
   private generatePersonalizedFormData(
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): PersonalizedFormData {
     const preFilledFields: Record<string, string> = {};
     const priorityFields: string[] = [];
@@ -740,7 +740,7 @@ export class ContentPersonalizationEngine {
         "veteranStatus",
         "serviceBranch",
         "combatVeteran",
-        "disabilityRating"
+        "disabilityRating",
       );
 
       if (profile.combatVeteran) {
@@ -787,7 +787,7 @@ export class ContentPersonalizationEngine {
    * Generate personalized communication preferences
    */
   private generatePersonalizedCommunication(
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): PersonalizedCommunication {
     let tone: PersonalizedCommunication["tone"] = "casual";
     let terminology: PersonalizedCommunication["terminology"] = "civilian";
@@ -822,10 +822,10 @@ export class ContentPersonalizationEngine {
       if (profile.priorityLevel === "IMMEDIATE") {
         responseTime = "4 hours";
         specialInstructions.push(
-          "IMMEDIATE PRIORITY - Expedited response required"
+          "IMMEDIATE PRIORITY - Expedited response required",
         );
         specialInstructions.push(
-          "Disabled/Combat Veteran - Handle with special care"
+          "Disabled/Combat Veteran - Handle with special care",
         );
       } else if (profile.priorityLevel === "HIGH") {
         responseTime = "24 hours";
@@ -843,10 +843,10 @@ export class ContentPersonalizationEngine {
 
       if (profile.combatVeteran) {
         specialInstructions.push(
-          "Combat veteran - respectful acknowledgment of service"
+          "Combat veteran - respectful acknowledgment of service",
         );
         specialInstructions.push(
-          "PTSD awareness - flexible scheduling if needed"
+          "PTSD awareness - flexible scheduling if needed",
         );
       }
 
@@ -881,7 +881,7 @@ export class ContentPersonalizationEngine {
    */
   public getContextualizedContent(
     profile: VeteranProfile,
-    context: "homepage" | "estimator" | "contact" | "projects" | "about"
+    context: "homepage" | "estimator" | "contact" | "projects" | "about",
   ): Partial<PersonalizedContent> {
     const fullContent = this.generatePersonalizedContent(profile);
 

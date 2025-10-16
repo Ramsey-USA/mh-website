@@ -84,7 +84,7 @@ export function JobApplicationModal({
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -113,7 +113,7 @@ export function JobApplicationModal({
 
       await addDoc(
         collection(getFirebaseDb(), "jobApplications"),
-        applicationData
+        applicationData,
       );
 
       setSubmitSuccess(true);

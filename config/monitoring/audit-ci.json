@@ -3,8 +3,7 @@
   "moderate": false,
   "low": false,
   "critical": true,
-  "allowlist": [
-  ],
+  "allowlist": [],
   "skipLevel": "moderate",
   "report-type": "full",
   "output-format": "text"

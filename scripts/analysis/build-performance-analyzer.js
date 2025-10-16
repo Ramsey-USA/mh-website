@@ -174,7 +174,7 @@ function analyzeBuildArtifacts() {
       console.log(`📊 Bundle Analysis:`);
       console.log(`   - Total chunks: ${chunks.length}`);
       console.log(
-        `   - Total size: ${Math.round((totalSize / 1024 / 1024) * 100) / 100}MB`
+        `   - Total size: ${Math.round((totalSize / 1024 / 1024) * 100) / 100}MB`,
       );
 
       if (totalSize > 1024 * 1024) {
@@ -235,7 +235,7 @@ function generateRecommendations() {
   // Sort by priority
   const highPriority = optimizations.filter((opt) => opt.priority === "HIGH");
   const mediumPriority = optimizations.filter(
-    (opt) => opt.priority === "MEDIUM"
+    (opt) => opt.priority === "MEDIUM",
   );
 
   if (highPriority.length > 0) {
@@ -344,13 +344,13 @@ console.log('🎉 Build optimizations applied!')
 
   fs.writeFileSync(
     "scripts/optimization/build-performance-optimizer.js",
-    script
+    script,
   );
   console.log(
-    "📝 Created: scripts/optimization/build-performance-optimizer.js"
+    "📝 Created: scripts/optimization/build-performance-optimizer.js",
   );
   console.log(
-    "🔧 Run: node scripts/optimization/build-performance-optimizer.js"
+    "🔧 Run: node scripts/optimization/build-performance-optimizer.js",
   );
   console.log("");
 }

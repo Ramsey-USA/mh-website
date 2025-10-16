@@ -81,7 +81,7 @@ process.on("exit", () => {
     console.log(`   3. Try fast build: npm run build:fast`);
     console.log(`   4. Profile memory: npm run build:profile`);
     console.log(
-      `   5. Check for large files: find src -name "*.ts" -o -name "*.tsx" | xargs wc -l | sort -n`
+      `   5. Check for large files: find src -name "*.ts" -o -name "*.tsx" | xargs wc -l | sort -n`,
     );
   }
 });

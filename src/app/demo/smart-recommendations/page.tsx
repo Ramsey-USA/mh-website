@@ -3,19 +3,19 @@
  * Phase 6.1: Test page for the Smart Project Recommendations Engine
  */
 
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import { MaterialIcon } from '@/components/icons/MaterialIcon'
-import { Button } from '@/components/ui'
-import SmartRecommendations from '@/components/recommendations/SmartRecommendations'
-import type { UserProfile } from '@/lib/recommendations/SmartRecommendationEngine'
+import React, { useState } from "react";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { Button } from "@/components/ui";
+import SmartRecommendations from "@/components/recommendations/SmartRecommendations";
+import type { UserProfile } from "@/lib/recommendations/SmartRecommendationEngine";
 
 export default function SmartRecommendationsDemo() {
-  const [userProfile, setUserProfile] = useState<UserProfile | null>(null)
-  const [isVeteran, setIsVeteran] = useState(false)
-  const [budgetRange, setBudgetRange] = useState({ min: 25000, max: 75000 })
-  const [projectTypes, setProjectTypes] = useState<string[]>(['residential'])
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  const [isVeteran, setIsVeteran] = useState(false);
+  const [budgetRange, setBudgetRange] = useState({ min: 25000, max: 75000 });
+  const [projectTypes, setProjectTypes] = useState<string[]>(["residential"]);
 
   const generateTestProfile = () => {
     const profile: UserProfile = {
@@ -24,43 +24,43 @@ export default function SmartRecommendationsDemo() {
       isVeteran,
       veteranDetails: isVeteran
         ? {
-            serviceBranch: 'Army',
-            serviceEra: 'modern',
+            serviceBranch: "Army",
+            serviceEra: "modern",
             combatVeteran: true,
             disabilityRating: 20,
-            specialPrograms: ['va_benefits'],
+            specialPrograms: ["va_benefits"],
             preferredSpecialist: undefined,
           }
         : undefined,
       preferences: {
         budgetRange,
         projectTypes,
-        timeframe: 'within_6_months',
+        timeframe: "within_6_months",
         priorities: isVeteran
-          ? ['veteran_benefits', 'accessibility', 'security']
-          : ['quality', 'value'],
-        communicationStyle: isVeteran ? 'military' : 'casual',
+          ? ["veteran_benefits", "accessibility", "security"]
+          : ["quality", "value"],
+        communicationStyle: isVeteran ? "military" : "casual",
       },
       behaviorHistory: [
         {
           timestamp: new Date(),
-          action: 'view',
-          page: '/estimator',
-          data: { projectType: 'kitchen' },
+          action: "view",
+          page: "/estimator",
+          data: { projectType: "kitchen" },
         },
         {
           timestamp: new Date(),
-          action: 'estimate',
-          page: '/estimator',
-          data: { projectType: 'kitchen', value: 45000 },
+          action: "estimate",
+          page: "/estimator",
+          data: { projectType: "kitchen", value: 45000 },
           conversionEvent: true,
         },
       ],
-      location: 'Pasco, WA',
-    }
+      location: "Pasco, WA",
+    };
 
-    setUserProfile(profile)
-  }
+    setUserProfile(profile);
+  };
 
   return (
     <div className="bg-gray-50 py-8 min-h-screen">
@@ -137,9 +137,9 @@ export default function SmartRecommendationsDemo() {
               </label>
               <select
                 value={`${budgetRange.min}-${budgetRange.max}`}
-                onChange={e => {
-                  const [min, max] = e.target.value.split('-').map(Number)
-                  setBudgetRange({ min, max })
+                onChange={(e) => {
+                  const [min, max] = e.target.value.split("-").map(Number);
+                  setBudgetRange({ min, max });
                 }}
                 className="px-3 py-2 border border-gray-300 rounded-lg w-full"
               >
@@ -158,12 +158,12 @@ export default function SmartRecommendationsDemo() {
               <select
                 multiple
                 value={projectTypes}
-                onChange={e => {
+                onChange={(e) => {
                   const values = Array.from(
                     e.target.selectedOptions,
-                    option => option.value
-                  )
-                  setProjectTypes(values)
+                    (option) => option.value,
+                  );
+                  setProjectTypes(values);
                 }}
                 className="px-3 py-2 border border-gray-300 rounded-lg w-full"
                 size={3}
@@ -199,7 +199,7 @@ export default function SmartRecommendationsDemo() {
               </h3>
               <div className="gap-4 grid grid-cols-1 md:grid-cols-3 text-sm">
                 <div>
-                  <span className="font-medium">Status:</span>{' '}
+                  <span className="font-medium">Status:</span>{" "}
                   {userProfile.isVeteran ? (
                     <span className="inline-flex items-center gap-1">
                       <MaterialIcon
@@ -210,14 +210,14 @@ export default function SmartRecommendationsDemo() {
                       Veteran
                     </span>
                   ) : (
-                    'Civilian'
+                    "Civilian"
                   )}
                   {userProfile.isVeteran && userProfile.veteranDetails && (
                     <div className="ml-4 text-blue-700 text-xs">
-                      {userProfile.veteranDetails.serviceBranch} •{' '}
+                      {userProfile.veteranDetails.serviceBranch} •{" "}
                       {userProfile.veteranDetails.combatVeteran
-                        ? 'Combat Veteran'
-                        : 'Non-Combat'}
+                        ? "Combat Veteran"
+                        : "Non-Combat"}
                     </div>
                   )}
                 </div>
@@ -227,8 +227,8 @@ export default function SmartRecommendationsDemo() {
                   {budgetRange.max.toLocaleString()}
                 </div>
                 <div>
-                  <span className="font-medium">Interests:</span>{' '}
-                  {projectTypes.join(', ')}
+                  <span className="font-medium">Interests:</span>{" "}
+                  {projectTypes.join(", ")}
                 </div>
               </div>
             </div>
@@ -242,13 +242,13 @@ export default function SmartRecommendationsDemo() {
             showVeteranBenefits={true}
             variant="detailed"
             maxRecommendations={6}
-            onRecommendationClick={rec => {
-              console.log('Recommendation clicked:', rec)
-              alert(`Clicked: ${rec.title}`)
+            onRecommendationClick={(rec) => {
+              console.log("Recommendation clicked:", rec);
+              alert(`Clicked: ${rec.title}`);
             }}
-            onGetEstimate={rec => {
-              console.log('Get estimate for:', rec)
-              alert(`Getting estimate for: ${rec.title}`)
+            onGetEstimate={(rec) => {
+              console.log("Get estimate for:", rec);
+              alert(`Getting estimate for: ${rec.title}`);
             }}
             className="bg-white shadow-lg p-6 rounded-lg"
           />
@@ -409,5 +409,5 @@ export default function SmartRecommendationsDemo() {
         </div>
       </div>
     </div>
-  )
+  );
 }

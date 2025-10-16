@@ -1,46 +1,46 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { MaterialIcon } from '../icons/MaterialIcon'
-import VeteranBadge from './VeteranBadge'
+import { useState } from "react";
+import { MaterialIcon } from "../icons/MaterialIcon";
+import VeteranBadge from "./VeteranBadge";
 
 interface VeteranSpecialistCardProps {
-  className?: string
+  className?: string;
 }
 
 export default function VeteranSpecialistCard({
-  className = '',
+  className = "",
 }: VeteranSpecialistCardProps) {
-  const [isContactVisible, setIsContactVisible] = useState(false)
+  const [isContactVisible, setIsContactVisible] = useState(false);
 
   // Mock veteran specialist data - in real app, this would come from CMS/API
   const specialist = {
-    name: 'Sarah Mitchell',
-    title: 'Veteran Construction Specialist',
+    name: "Sarah Mitchell",
+    title: "Veteran Construction Specialist",
     veteranStatus: {
-      branch: 'Army' as const,
+      branch: "Army" as const,
       combatVeteran: true,
       disabilityRating: 20,
-      serviceEra: '2001-Present' as const,
+      serviceEra: "2001-Present" as const,
       activeDuty: false,
-      dischargeBBStatus: 'Honorable' as const,
+      dischargeBBStatus: "Honorable" as const,
     },
-    experience: '15+ years in construction',
+    experience: "15+ years in construction",
     specialties: [
-      'VA Home Loan Projects',
-      'Accessibility Modifications',
-      'Energy Efficiency Grants',
-      'Historic Renovation Tax Credits',
+      "VA Home Loan Projects",
+      "Accessibility Modifications",
+      "Energy Efficiency Grants",
+      "Historic Renovation Tax Credits",
     ],
-    location: 'Omaha, NE',
-    phone: '(402) 555-0123',
-    email: 'office@mhc-gc.com',
+    location: "Omaha, NE",
+    phone: "(402) 555-0123",
+    email: "office@mhc-gc.com",
     certifications: [
-      'Certified Aging-in-Place Specialist',
-      'VA Loan Specialist',
-      'Energy Efficiency Expert',
+      "Certified Aging-in-Place Specialist",
+      "VA Loan Specialist",
+      "Energy Efficiency Expert",
     ],
-  }
+  };
 
   return (
     <div
@@ -111,7 +111,7 @@ export default function VeteranSpecialistCard({
           className="flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-md w-full font-medium text-white transition-colors"
         >
           <MaterialIcon icon="security" size="md" />
-          {isContactVisible ? 'Hide Contact Info' : 'Get Veteran Support'}
+          {isContactVisible ? "Hide Contact Info" : "Get Veteran Support"}
         </button>
 
         {isContactVisible && (
@@ -163,5 +163,5 @@ export default function VeteranSpecialistCard({
         </p>
       </div>
     </div>
-  )
+  );
 }

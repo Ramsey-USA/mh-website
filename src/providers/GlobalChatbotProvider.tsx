@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, {
   createContext,
@@ -6,35 +6,35 @@ import React, {
   useState,
   ReactNode,
   useEffect,
-} from 'react'
-import { GlobalChatbot } from '@/components/chatbot/GlobalChatbot'
-import { usePathname } from 'next/navigation'
+} from "react";
+import { GlobalChatbot } from "@/components/chatbot/GlobalChatbot";
+import { usePathname } from "next/navigation";
 
 interface GlobalChatbotContextType {
-  isVisible: boolean
-  setIsVisible: (visible: boolean) => void
-  currentPageData?: any
-  setCurrentPageData: (data: any) => void
-  currentPage?: string
-  setCurrentPage: (page: string) => void
-  formData?: any
-  setFormData: (data: any) => void
+  isVisible: boolean;
+  setIsVisible: (visible: boolean) => void;
+  currentPageData?: any;
+  setCurrentPageData: (data: any) => void;
+  currentPage?: string;
+  setCurrentPage: (page: string) => void;
+  formData?: any;
+  setFormData: (data: any) => void;
 }
 
 const GlobalChatbotContext = createContext<
   GlobalChatbotContextType | undefined
->(undefined)
+>(undefined);
 
 export function GlobalChatbotProvider({ children }: { children: ReactNode }) {
-  const [isVisible, setIsVisible] = useState(true) // Always visible by default
-  const [currentPageData, setCurrentPageData] = useState(null)
-  const [currentPage, setCurrentPage] = useState('')
-  const [formData, setFormData] = useState(null)
-  const pathname = usePathname()
+  const [isVisible, setIsVisible] = useState(true); // Always visible by default
+  const [currentPageData, setCurrentPageData] = useState(null);
+  const [currentPage, setCurrentPage] = useState("");
+  const [formData, setFormData] = useState(null);
+  const pathname = usePathname();
 
   useEffect(() => {
-    setCurrentPage(pathname)
-  }, [pathname])
+    setCurrentPage(pathname);
+  }, [pathname]);
 
   const value = {
     isVisible,
@@ -45,7 +45,7 @@ export function GlobalChatbotProvider({ children }: { children: ReactNode }) {
     setCurrentPage,
     formData,
     setFormData,
-  }
+  };
 
   return (
     <GlobalChatbotContext.Provider value={value}>
@@ -53,15 +53,15 @@ export function GlobalChatbotProvider({ children }: { children: ReactNode }) {
       {/* Global Chatbot - Always rendered when visible */}
       {isVisible && <GlobalChatbot estimatorData={currentPageData} />}
     </GlobalChatbotContext.Provider>
-  )
+  );
 }
 
 export function useGlobalChatbot() {
-  const context = useContext(GlobalChatbotContext)
+  const context = useContext(GlobalChatbotContext);
   if (context === undefined) {
     throw new Error(
-      'useGlobalChatbot must be used within a GlobalChatbotProvider'
-    )
+      "useGlobalChatbot must be used within a GlobalChatbotProvider",
+    );
   }
-  return context
+  return context;
 }

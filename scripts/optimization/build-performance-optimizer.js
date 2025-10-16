@@ -36,7 +36,7 @@ function optimizeNextConfig() {
     concurrentFeatures: true,
     // Optimize package imports
     optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-icons'],
-  },`
+  },`,
   );
 
   // Add webpack optimizations before the closing brace
@@ -135,7 +135,7 @@ function optimizeNextConfig() {
   // Insert webpack optimizations before the closing brace
   const finalConfig = optimizedConfig.replace(
     /};(\s*)$/,
-    webpackOptimizations + "\n};$1"
+    webpackOptimizations + "\n};$1",
   );
 
   // Create backup
@@ -208,7 +208,7 @@ process.on('exit', () => {
 
   fs.writeFileSync("scripts/optimization/build-monitor.js", monitorScript);
   console.log(
-    "✅ Build monitor created: scripts/optimization/build-monitor.js"
+    "✅ Build monitor created: scripts/optimization/build-monitor.js",
   );
 }
 
@@ -295,7 +295,7 @@ npm cache clean --force
 
   fs.writeFileSync("docs/technical/BUILD_OPTIMIZATION.md", guide);
   console.log(
-    "✅ Build optimization guide created: docs/technical/BUILD_OPTIMIZATION.md"
+    "✅ Build optimization guide created: docs/technical/BUILD_OPTIMIZATION.md",
   );
 }
 

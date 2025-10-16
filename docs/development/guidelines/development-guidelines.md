@@ -17,7 +17,7 @@ files (.ts, .tsx, .js, .jsx, .vue, etc.)
 
 #### Material Icons Component Usage
 
-```tsx
+````tsx
 import { MaterialIcon } from '@/components/icons/MaterialIcon'
 
 // ✅ Correct implementations
@@ -237,15 +237,15 @@ all sections to maintain professional, clean visual hierarchy.
 
 ```tsx
 // ✅ Correct - Clean section headers
-<h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 
-  text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight 
+<h2 className="mb-6 font-black text-gray-900 dark:text-gray-100
+  text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight
   tracking-tighter">
   Section Title
 </h2>
 
 // ✅ Correct - With subtitle pattern
-<h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 
-  text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight 
+<h2 className="mb-6 font-black text-gray-900 dark:text-gray-100
+  text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight
   tracking-tighter">
   <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300
     text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
@@ -473,7 +473,8 @@ spacing and styling:
 
 ### **📚 REFERENCE DOCUMENTS**
 
-- **Complete Implementation:** `DEVELOPMENT_GUIDELINES.md` (this file)
+- **Complete Implementation:** `development-guidelines.md` (this file)
 - **Layout Standards:** `LAYOUT_STANDARDS_COMPLETE.md`
 - **Brand Guidelines:** `docs/business/MH-BRANDING.md`
 - **Update Summary:** `UI_COMPONENT_STANDARDS_UPDATE.md`
+````

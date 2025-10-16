@@ -117,7 +117,7 @@ export const TeamRenderer: React.FC<TeamRendererProps> = ({
       acc[member.category].push(member);
       return acc;
     },
-    {} as Record<string, TeamMember[]>
+    {} as Record<string, TeamMember[]>,
   );
 
   return (

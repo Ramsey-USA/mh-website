@@ -20,7 +20,7 @@ to optimize user experience and provide real-time insights into application perf
 - **Memory Management**: Automatic cleanup of expired entries every 60 seconds
 - **Statistics Tracking**: Real-time hit/miss rates and cache size monitoring
 
-```typescript
+````typescript
 // Usage Example
 import { cacheAIResponse, getCachedAIResponse } from '@/lib/cache/AIResponseCache'
 
@@ -217,3 +217,4 @@ performance with clean TypeScript compilation and optimized bundle sizes.
 
 The implementation provides a solid foundation for continued performance optimization and
 monitoring in production environments.
+````

@@ -3,9 +3,9 @@
  * Visual interface for displaying analytics data and insights
  */
 
-'use client'
+"use client";
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import {
   BarChart,
   Bar,
@@ -22,59 +22,59 @@ import {
   ResponsiveContainer,
   AreaChart,
   Area,
-} from 'recharts'
-import { MaterialIcon } from '@/components/icons/MaterialIcon'
+} from "recharts";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   analyticsEngine,
   type AnalyticsDashboardData,
   type AnalyticsEvent,
-} from '@/lib/analytics/analytics-engine'
+} from "@/lib/analytics/analytics-engine";
 
 // Dashboard Color Palette
 const COLORS = {
-  primary: '#3B82F6',
-  secondary: '#8B5CF6',
-  success: '#10B981',
-  warning: '#F59E0B',
-  danger: '#EF4444',
-  info: '#06B6D4',
-  neutral: '#6B7280',
-}
+  primary: "#3B82F6",
+  secondary: "#8B5CF6",
+  success: "#10B981",
+  warning: "#F59E0B",
+  danger: "#EF4444",
+  info: "#06B6D4",
+  neutral: "#6B7280",
+};
 
 const CHART_COLORS = [
-  '#3B82F6',
-  '#8B5CF6',
-  '#10B981',
-  '#F59E0B',
-  '#EF4444',
-  '#06B6D4',
-]
+  "#3B82F6",
+  "#8B5CF6",
+  "#10B981",
+  "#F59E0B",
+  "#EF4444",
+  "#06B6D4",
+];
 
 // Simple UI Components
 function Card({
   children,
-  className = '',
+  className = "",
 }: {
-  children: React.ReactNode
-  className?: string
+  children: React.ReactNode;
+  className?: string;
 }) {
   return (
     <div className={`bg-white rounded-lg border shadow-sm ${className}`}>
       {children}
     </div>
-  )
+  );
 }
 
 function CardHeader({ children }: { children: React.ReactNode }) {
-  return <div className="flex flex-col space-y-1.5 p-6">{children}</div>
+  return <div className="flex flex-col space-y-1.5 p-6">{children}</div>;
 }
 
 function CardTitle({
   children,
-  className = '',
+  className = "",
 }: {
-  children: React.ReactNode
-  className?: string
+  children: React.ReactNode;
+  className?: string;
 }) {
   return (
     <h3
@@ -82,23 +82,23 @@ function CardTitle({
     >
       {children}
     </h3>
-  )
+  );
 }
 
 function CardDescription({ children }: { children: React.ReactNode }) {
-  return <p className="text-muted-foreground text-sm">{children}</p>
+  return <p className="text-muted-foreground text-sm">{children}</p>;
 }
 
 function CardContent({ children }: { children: React.ReactNode }) {
-  return <div className="p-6 pt-0">{children}</div>
+  return <div className="p-6 pt-0">{children}</div>;
 }
 
 function Progress({
   value,
-  className = '',
+  className = "",
 }: {
-  value: number
-  className?: string
+  value: number;
+  className?: string;
 }) {
   return (
     <div className={`w-full bg-gray-200 rounded-full h-2.5 ${className}`}>
@@ -107,59 +107,59 @@ function Progress({
         style={{ width: `${Math.min(100, Math.max(0, value))}%` }}
       />
     </div>
-  )
+  );
 }
 
 function Badge({
   children,
-  variant = 'default',
-  className = '',
+  variant = "default",
+  className = "",
 }: {
-  children: React.ReactNode
-  variant?: 'default' | 'secondary' | 'destructive' | 'outline'
-  className?: string
+  children: React.ReactNode;
+  variant?: "default" | "secondary" | "destructive" | "outline";
+  className?: string;
 }) {
   const variants = {
-    default: 'bg-primary text-primary-foreground',
-    secondary: 'bg-secondary text-secondary-foreground',
-    destructive: 'bg-destructive text-destructive-foreground',
-    outline: 'text-foreground border border-input',
-  }
+    default: "bg-primary text-primary-foreground",
+    secondary: "bg-secondary text-secondary-foreground",
+    destructive: "bg-destructive text-destructive-foreground",
+    outline: "text-foreground border border-input",
+  };
   return (
     <div
       className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${variants[variant]} ${className}`}
     >
       {children}
     </div>
-  )
+  );
 }
 
 function Button({
   children,
-  variant = 'default',
-  size = 'default',
+  variant = "default",
+  size = "default",
   onClick,
   disabled = false,
-  className = '',
+  className = "",
 }: {
-  children: React.ReactNode
-  variant?: 'default' | 'outline' | 'secondary'
-  size?: 'default' | 'sm' | 'lg'
-  onClick?: () => void
-  disabled?: boolean
-  className?: string
+  children: React.ReactNode;
+  variant?: "default" | "outline" | "secondary";
+  size?: "default" | "sm" | "lg";
+  onClick?: () => void;
+  disabled?: boolean;
+  className?: string;
 }) {
   const variants = {
-    default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+    default: "bg-primary text-primary-foreground hover:bg-primary/90",
     outline:
-      'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-    secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-  }
+      "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+    secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+  };
   const sizes = {
-    default: 'h-10 px-4 py-2',
-    sm: 'h-9 rounded-md px-3',
-    lg: 'h-11 rounded-md px-8',
-  }
+    default: "h-10 px-4 py-2",
+    sm: "h-9 rounded-md px-3",
+    lg: "h-11 rounded-md px-8",
+  };
   return (
     <button
       className={`inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ${variants[variant]} ${sizes[size]} ${className}`}
@@ -168,21 +168,21 @@ function Button({
     >
       {children}
     </button>
-  )
+  );
 }
 
 function Tabs({
   value,
   onValueChange,
   children,
-  className = '',
+  className = "",
 }: {
-  value: string
-  onValueChange: (value: string) => void
-  children: React.ReactNode
-  className?: string
+  value: string;
+  onValueChange: (value: string) => void;
+  children: React.ReactNode;
+  className?: string;
 }) {
-  return <div className={`w-full ${className}`}>{children}</div>
+  return <div className={`w-full ${className}`}>{children}</div>;
 }
 
 function TabsList({ children }: { children: React.ReactNode }) {
@@ -190,7 +190,7 @@ function TabsList({ children }: { children: React.ReactNode }) {
     <div className="inline-flex justify-center items-center bg-muted p-1 rounded-md h-10 text-muted-foreground">
       {children}
     </div>
-  )
+  );
 }
 
 function TabsTrigger({
@@ -199,89 +199,89 @@ function TabsTrigger({
   activeTab,
   onTabChange,
 }: {
-  value: string
-  children: React.ReactNode
-  activeTab: string
-  onTabChange: (value: string) => void
+  value: string;
+  children: React.ReactNode;
+  activeTab: string;
+  onTabChange: (value: string) => void;
 }) {
   return (
     <button
       className={`inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ${
-        activeTab === value ? 'bg-background text-foreground shadow-sm' : ''
+        activeTab === value ? "bg-background text-foreground shadow-sm" : ""
       }`}
       onClick={() => onTabChange(value)}
     >
       {children}
     </button>
-  )
+  );
 }
 
 function TabsContent({
   value,
   children,
   activeTab,
-  className = '',
+  className = "",
 }: {
-  value: string
-  children: React.ReactNode
-  activeTab: string
-  className?: string
+  value: string;
+  children: React.ReactNode;
+  activeTab: string;
+  className?: string;
 }) {
-  if (activeTab !== value) return null
+  if (activeTab !== value) return null;
   return (
     <div
       className={`mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${className}`}
     >
       {children}
     </div>
-  )
+  );
 }
 
 // Main Dashboard Component
 export function AnalyticsDashboard() {
   const [dashboardData, setDashboardData] =
-    useState<AnalyticsDashboardData | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [activeTab, setActiveTab] = useState('overview')
-  const [timeRange, setTimeRange] = useState('7d')
-  const [lastUpdated, setLastUpdated] = useState<Date>(new Date())
+    useState<AnalyticsDashboardData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState("overview");
+  const [timeRange, setTimeRange] = useState("7d");
+  const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
 
   useEffect(() => {
-    loadDashboardData()
+    loadDashboardData();
 
     // Auto-refresh every 5 minutes
-    const interval = setInterval(loadDashboardData, 5 * 60 * 1000)
-    return () => clearInterval(interval)
-  }, [timeRange])
+    const interval = setInterval(loadDashboardData, 5 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, [timeRange]);
 
   const loadDashboardData = async () => {
     try {
-      setLoading(true)
-      const data = await analyticsEngine.getDashboardData()
-      setDashboardData(data)
-      setLastUpdated(new Date())
+      setLoading(true);
+      const data = await analyticsEngine.getDashboardData();
+      setDashboardData(data);
+      setLastUpdated(new Date());
     } catch (error) {
-      console.error('Failed to load dashboard data:', error)
+      console.error("Failed to load dashboard data:", error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   const exportData = () => {
-    const data = analyticsEngine.exportData('csv')
-    const blob = new Blob([data], { type: 'text/csv' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `analytics-${timeRange}-${Date.now()}.csv`
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
-  }
+    const data = analyticsEngine.exportData("csv");
+    const blob = new Blob([data], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `analytics-${timeRange}-${Date.now()}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
 
   if (loading && !dashboardData) {
-    return <DashboardSkeleton />
+    return <DashboardSkeleton />;
   }
 
   return (
@@ -300,7 +300,7 @@ export function AnalyticsDashboard() {
         <div className="flex items-center gap-2">
           <select
             value={timeRange}
-            onChange={e => setTimeRange(e.target.value)}
+            onChange={(e) => setTimeRange(e.target.value)}
             className="px-3 py-2 border rounded-md"
           >
             <option value="1d">Last 24 Hours</option>
@@ -317,7 +317,7 @@ export function AnalyticsDashboard() {
           >
             <MaterialIcon
               icon="refresh"
-              className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`}
+              className={`h-4 w-4 mr-2 ${loading ? "animate-spin" : ""}`}
             />
             Refresh
           </Button>
@@ -433,7 +433,7 @@ export function AnalyticsDashboard() {
         )}
       </Tabs>
     </div>
-  )
+  );
 }
 
 // Overview Dashboard Tab
@@ -542,10 +542,10 @@ function OverviewDashboard({ data }: { data: any }) {
             <Progress value={data.bounceRate} className="mt-2" />
             <p className="mt-2 text-muted-foreground text-sm">
               {data.bounceRate < 40
-                ? 'Excellent'
+                ? "Excellent"
                 : data.bounceRate < 60
-                  ? 'Good'
-                  : 'Needs Improvement'}
+                  ? "Good"
+                  : "Needs Improvement"}
             </p>
           </CardContent>
         </Card>
@@ -587,7 +587,7 @@ function OverviewDashboard({ data }: { data: any }) {
         </Card>
       </div>
     </div>
-  )
+  );
 }
 
 // User Behavior Dashboard Tab
@@ -754,7 +754,7 @@ function UserBehaviorDashboard({ data }: { data: any }) {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
 
 // Performance Dashboard Tab
@@ -794,13 +794,13 @@ function PerformanceDashboard({ data }: { data: any }) {
             Core Web Vitals trend over time
             <Badge
               variant={
-                data.coreWebVitals.trend === 'improving'
-                  ? 'default'
-                  : 'secondary'
+                data.coreWebVitals.trend === "improving"
+                  ? "default"
+                  : "secondary"
               }
               className="ml-2"
             >
-              {data.coreWebVitals.trend === 'improving' ? (
+              {data.coreWebVitals.trend === "improving" ? (
                 <MaterialIcon icon="trending_up" className="mr-1 w-3 h-3" />
               ) : (
                 <MaterialIcon icon="trending_down" className="mr-1 w-3 h-3" />
@@ -853,8 +853,8 @@ function PerformanceDashboard({ data }: { data: any }) {
                 <Badge
                   variant={
                     data.errorRates.criticalErrors > 0
-                      ? 'destructive'
-                      : 'default'
+                      ? "destructive"
+                      : "default"
                   }
                 >
                   {data.errorRates.criticalErrors}
@@ -895,7 +895,7 @@ function PerformanceDashboard({ data }: { data: any }) {
         </Card>
       </div>
     </div>
-  )
+  );
 }
 
 // Conversions Dashboard Tab
@@ -985,7 +985,7 @@ function ConversionsDashboard({ data }: { data: any }) {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
 
 // Veterans Dashboard Tab
@@ -1151,7 +1151,7 @@ function VeteransDashboard({ data }: { data: any }) {
         </Card>
       </div>
     </div>
-  )
+  );
 }
 
 // Real-time Dashboard Tab
@@ -1178,9 +1178,9 @@ function RealTimeDashboard({ data }: { data: any }) {
           title="System Status"
           value={data.systemHealth.status}
           icon={
-            data.systemHealth.status === 'healthy' ? 'check_circle' : 'warning'
+            data.systemHealth.status === "healthy" ? "check_circle" : "warning"
           }
-          color={data.systemHealth.status === 'healthy' ? 'success' : 'warning'}
+          color={data.systemHealth.status === "healthy" ? "success" : "warning"}
           realTime
         />
         <MetricCard
@@ -1208,10 +1208,10 @@ function RealTimeDashboard({ data }: { data: any }) {
                 <div className="bg-green-500 rounded-full w-2 h-2 animate-pulse" />
                 <div className="flex-1">
                   <div className="font-medium text-sm">
-                    {event.type.replace('_', ' ')}
+                    {event.type.replace("_", " ")}
                   </div>
                   <div className="text-muted-foreground text-xs">
-                    {event.metadata.page} •{' '}
+                    {event.metadata.page} •{" "}
                     {event.timestamp.toLocaleTimeString()}
                   </div>
                 </div>
@@ -1265,7 +1265,7 @@ function RealTimeDashboard({ data }: { data: any }) {
                     {Math.round(
                       (Date.now() - new Date(session.startTime).getTime()) /
                         1000 /
-                        60
+                        60,
                     )}
                     m
                   </Badge>
@@ -1276,7 +1276,7 @@ function RealTimeDashboard({ data }: { data: any }) {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
 
 // Utility Components
@@ -1286,15 +1286,15 @@ function MetricCard({
   value,
   change,
   icon,
-  color = 'primary',
+  color = "primary",
   realTime = false,
 }: {
-  title: string
-  value: string | number
-  change?: number
-  icon: string
-  color?: keyof typeof COLORS
-  realTime?: boolean
+  title: string;
+  value: string | number;
+  change?: number;
+  icon: string;
+  color?: keyof typeof COLORS;
+  realTime?: boolean;
 }) {
   return (
     <Card>
@@ -1311,7 +1311,7 @@ function MetricCard({
             {change !== undefined && (
               <div
                 className={`flex items-center text-sm ${
-                  change >= 0 ? 'text-green-600' : 'text-red-600'
+                  change >= 0 ? "text-green-600" : "text-red-600"
                 }`}
               >
                 {change >= 0 ? (
@@ -1331,7 +1331,7 @@ function MetricCard({
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
 
 function WebVitalCard({
@@ -1341,23 +1341,23 @@ function WebVitalCard({
   unit,
   description,
 }: {
-  title: string
-  value: number
-  rating: 'good' | 'needs-improvement' | 'poor'
-  unit: string
-  description: string
+  title: string;
+  value: number;
+  rating: "good" | "needs-improvement" | "poor";
+  unit: string;
+  description: string;
 }) {
   const ratingColors = {
-    good: 'text-green-600',
-    'needs-improvement': 'text-yellow-600',
-    poor: 'text-red-600',
-  }
+    good: "text-green-600",
+    "needs-improvement": "text-yellow-600",
+    poor: "text-red-600",
+  };
 
   const ratingBadges = {
-    good: 'default',
-    'needs-improvement': 'secondary',
-    poor: 'destructive',
-  } as const
+    good: "default",
+    "needs-improvement": "secondary",
+    poor: "destructive",
+  } as const;
 
   return (
     <Card>
@@ -1368,19 +1368,19 @@ function WebVitalCard({
       <CardContent>
         <div className="space-y-2">
           <div className="font-bold text-3xl">
-            {value.toFixed(rating === 'good' ? 0 : 2)}
+            {value.toFixed(rating === "good" ? 0 : 2)}
             {unit}
           </div>
           <Badge
             variant={ratingBadges[rating]}
             className={ratingColors[rating]}
           >
-            {rating.replace('-', ' ')}
+            {rating.replace("-", " ")}
           </Badge>
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
 
 function DashboardSkeleton() {
@@ -1398,7 +1398,7 @@ function DashboardSkeleton() {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default AnalyticsDashboard
+export default AnalyticsDashboard;

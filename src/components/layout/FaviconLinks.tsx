@@ -21,5 +21,5 @@ export default function FaviconLinks() {
       />
       <link rel="shortcut icon" href="/favicon.ico" />
     </>
-  )
+  );
 }

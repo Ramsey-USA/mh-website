@@ -10,7 +10,7 @@
 
 ### **⭐ CRITICAL: Dual Navigation Architecture**
 
-- **[NAVIGATION_ARCHITECTURE.md](./technical/NAVIGATION_ARCHITECTURE.md)** - 🎯 **MASTER GUIDE**
+- **[navigation-architecture.md](./technical/navigation-architecture.md)** - 🎯 **MASTER GUIDE**
   Complete dual navigation system documentation: Global hamburger menu vs
   Page-specific sectional navigation
 - **Navigation Components:**
@@ -51,9 +51,9 @@
 
 ### **Page Layout Standards**
 
-- **[PAGE_LAYOUT_QUICK_START.md](./technical/PAGE_LAYOUT_QUICK_START.md)** -
+- **[page-layout-quick-start.md](./technical/page-layout-quick-start.md)** -
   Copy-paste templates for new pages
-- **[PAGE_LAYOUT_STANDARDS.md](./technical/PAGE_LAYOUT_STANDARDS.md)** - Complete
+- **[page-layout-standards.md](./technical/page-layout-standards.md)** - Complete
   spacing, padding, typography reference
 - **[RESPONSIVE_TESTING_GUIDE.md](./technical/RESPONSIVE_TESTING_GUIDE.md)** -
   Multi-device testing & responsive design
@@ -61,14 +61,14 @@
 ### **Design System**
 
 - **[DESIGN_SYSTEM.md](./technical/DESIGN_SYSTEM.md)** - Brand colors, typography, component standards
-- **[TERMINOLOGY_GUIDE.md](./development/TERMINOLOGY_GUIDE.md)** - ⭐ **CRITICAL:**
+- **[terminology-guide.md](./development/terminology-guide.md)** - ⭐ **CRITICAL:**
   "Our Team" vs "Trade Partners" distinction
 - **[MH-BRANDING.md](./business/MH-BRANDING.md)** - Brand guidelines and messaging
 
 ### **Icon System**
 
-- **[ICON-SYSTEM-QUICK-REFERENCE.md](./technical/ICON-SYSTEM-QUICK-REFERENCE.md)** - Icon usage guide
-- **[ICON_HOVER_EFFECTS_GUIDE.md](./technical/ICON_HOVER_EFFECTS_GUIDE.md)** - Interactive icon effects
+- **[icon-system-quick-reference.md](./technical/icon-system-quick-reference.md)** - Icon usage guide
+- **[icon-hover-effects-guide.md](./technical/icon-hover-effects-guide.md)** - Interactive icon effects
 
 ---
 
@@ -78,8 +78,8 @@
 
 - **[PHASE_MASTER_ROADMAP.md](./project/roadmaps/phase-master-roadmap.md)** - Complete
   project timeline, status, and future roadmap
-- **[PHASE_CONSOLIDATION_PLAN.md](./project/PHASE_CONSOLIDATION_PLAN.md)** - Phase
-  organization and consolidation plan
+- **[PHASE_CONSOLIDATION_PLAN.md](./project/../archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md)** -
+  Phase organization and consolidation plan
 
 ### **Current Status: ✅ ALL PHASES 1-5 COMPLETE**
 
@@ -112,9 +112,9 @@
 
 ## 💼 Business & Content
 
-- **[SERVICES.md](./business/SERVICES.md)** - Service offerings
-- **[CORE_VALUES.md](./business/CORE_VALUES.md)** - Company values
-- **[TEAM_ROSTER.md](./business/TEAM_ROSTER.md)** - Team information
+- **[services.md](./business/services.md)** - Service offerings
+- **[core-values.md](./business/core-values.md)** - Company values
+- **[team-roster.md](./business/team-roster.md)** - Team information
 - **[MH_PARTNERSHIP_MESSAGING_GUIDE.md](./partnerships/messaging/partnership-messaging-guide.md)**
   \- Partnership messaging
 
@@ -125,14 +125,14 @@
 ### **Architecture & Features**
 
 - **[ARCHITECTURE.md](./project/ARCHITECTURE.md)** - System architecture
-- **[FEATURES.md](./technical/FEATURES.md)** - Feature documentation
-- **[COMPANY_PROFILE.md](./project/COMPANY_PROFILE.md)** - Company profile
+- **[features.md](./technical/features.md)** - Feature documentation
+- **[company-profile.md](./project/company-profile.md)** - Company profile
 
 ### **Development**
 
 - **[SETUP_GUIDE.md](./development/SETUP_GUIDE.md)** - Development setup
-- **[FIREBASE_SETUP.md](./development/FIREBASE_SETUP.md)** - Firebase configuration
-- **[VSCODE_EXTENSIONS_GUIDE.md](./development/VSCODE_EXTENSIONS_GUIDE.md)** - VS Code
+- **[firebase-setup.md](./development/firebase-setup.md)** - Firebase configuration
+- **[vscode-extensions-guide.md](./development/vscode-extensions-guide.md)** - VS Code
   extensions for optimization ⭐ NEW
 
 ---
@@ -161,15 +161,15 @@
 
 ### Building a New Page?
 
-1. Read: [PAGE_LAYOUT_QUICK_START.md](./technical/PAGE_LAYOUT_QUICK_START.md)
+1. Read: [page-layout-quick-start.md](./technical/page-layout-quick-start.md)
 2. Copy section template
 3. Copy card template
 4. Customize content
-5. Verify against checklist in [PAGE_LAYOUT_STANDARDS.md](./technical/PAGE_LAYOUT_STANDARDS.md)
+5. Verify against checklist in [page-layout-standards.md](./technical/page-layout-standards.md)
 
 ### Adding Icons?
 
-1. Check: [ICON-SYSTEM-QUICK-REFERENCE.md](./technical/ICON-SYSTEM-QUICK-REFERENCE.md)
+1. Check: [icon-system-quick-reference.md](./technical/icon-system-quick-reference.md)
 2. Use standard sizes: `xl`, `2xl`, `3xl`
 3. Follow container patterns from layout standards
 
@@ -184,43 +184,43 @@
 ## 📁 Documentation Structure
 
 docs/
-├── README.md (this file)           ⭐ Start here
+├── README.md (this file) ⭐ Start here
 ├── technical/
-│   ├── PAGE_LAYOUT_QUICK_START.md  ⭐ Copy-paste templates
-│   ├── PAGE_LAYOUT_STANDARDS.md    ⭐ Complete reference
-│   ├── DESIGN_SYSTEM.md            ⭐ Brand & components
-│   ├── ICON-SYSTEM-QUICK-REFERENCE.md
-│   ├── FEATURES.md
-│   └── ARCHITECTURE.md (via project/)
+│ ├── page-layout-quick-start.md ⭐ Copy-paste templates
+│ ├── page-layout-standards.md ⭐ Complete reference
+│ ├── DESIGN_SYSTEM.md ⭐ Brand & components
+│ ├── icon-system-quick-reference.md
+│ ├── features.md
+│ └── ARCHITECTURE.md (via project/)
 ├── business/
-│   ├── SERVICES.md
-│   ├── CORE_VALUES.md
-│   ├── TEAM_ROSTER.md
-│   └── MH-BRANDING.md
+│ ├── services.md
+│ ├── core-values.md
+│ ├── team-roster.md
+│ └── MH-BRANDING.md
 ├── development/
-│   ├── SETUP_GUIDE.md
-│   └── FIREBASE_SETUP.md
+│ ├── SETUP_GUIDE.md
+│ └── firebase-setup.md
 └── project/
-    ├── ARCHITECTURE.md
-    ├── COMPANY_PROFILE.md
-    ├── IMPLEMENTATION_SUMMARY.md
-    └── archive/
-        ├── PAGE_LAYOUT_STANDARDS_SUMMARY.md
-        ├── SERVICE-CARDS-LAYOUT-FIX.md
-        └── [other summaries]
+├── ARCHITECTURE.md
+├── company-profile.md
+├── ../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md
+└── archive/
+├── PAGE_LAYOUT_STANDARDS_SUMMARY.md
+├── SERVICE-CARDS-LAYOUT-FIX.md
+└── [other summaries]
 
 ---
 
 ## 🎯 Common Tasks
 
-| Task | Documentation |
-|------|---------------|
-| Create new page | [PAGE_LAYOUT_QUICK_START.md](./technical/PAGE_LAYOUT_QUICK_START.md) |
-| Style components | [DESIGN_SYSTEM.md](./technical/DESIGN_SYSTEM.md) |
-| Add icons | [ICON-SYSTEM-QUICK-REFERENCE.md](./technical/ICON-SYSTEM-QUICK-REFERENCE.md) |
-| Update branding | [MH-BRANDING.md](./business/MH-BRANDING.md) |
-| Setup development | [SETUP_GUIDE.md](./development/SETUP_GUIDE.md) |
-| Review architecture | [ARCHITECTURE.md](./project/ARCHITECTURE.md) |
+| Task                | Documentation                                                                |
+| ------------------- | ---------------------------------------------------------------------------- |
+| Create new page     | [page-layout-quick-start.md](./technical/page-layout-quick-start.md)         |
+| Style components    | [DESIGN_SYSTEM.md](./technical/DESIGN_SYSTEM.md)                             |
+| Add icons           | [icon-system-quick-reference.md](./technical/icon-system-quick-reference.md) |
+| Update branding     | [MH-BRANDING.md](./business/MH-BRANDING.md)                                  |
+| Setup development   | [SETUP_GUIDE.md](./development/SETUP_GUIDE.md)                               |
+| Review architecture | [ARCHITECTURE.md](./project/ARCHITECTURE.md)                                 |
 
 ---
 

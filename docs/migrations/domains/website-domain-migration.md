@@ -27,10 +27,10 @@ MD files to create a unified domain structure.
 
 ### **Core Documentation Files**
 
-- ✅ `/docs/business/SERVICES.md` - Updated website reference
+- ✅ `/docs/business/services.md` - Updated website reference
 - ✅ `/README.md` - Updated website links (2 locations)
-- ✅ `/docs/project/COMPANY_PROFILE.md` - Updated website link
-- ✅ `/docs/business/branding/BRANDING_INDEX.md` - Updated website link
+- ✅ `/docs/project/company-profile.md` - Updated website link
+- ✅ `/docs/business/branding/branding-index.md` - Updated website link
 
 ### **Configuration Files**
 
@@ -118,4 +118,4 @@ MD files to create a unified domain structure.
 ---
 
 **Website Domain Migration** | **October 14, 2025**
-*Complete unified domain structure: mhc-gc.com for all touchpoints*
+_Complete unified domain structure: mhc-gc.com for all touchpoints_

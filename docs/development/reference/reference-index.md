@@ -8,8 +8,8 @@
 
 ### � Developer References
 
-- [**Developer Checklist**](./DEVELOPER_CHECKLIST.md) - Development checklist and procedures
-- [**Icon Size Troubleshooting**](./ICON_SIZE_TROUBLESHOOTING.md) - Icon sizing and troubleshooting guide
+- [**Developer Checklist**](./developer-checklist.md) - Development checklist and procedures
+- [**Icon Size Troubleshooting**](./icon-size-troubleshooting.md) - Icon sizing and troubleshooting guide
 
 ### 📚 Reference Resources
 
@@ -20,8 +20,8 @@ for the MH Construction project. All files are current and actively maintained.
 
 ## � Quick Access
 
-- Use **[Developer Checklist](./DEVELOPER_CHECKLIST.md)** for development procedures
-- Reference **[Icon Size Troubleshooting](./ICON_SIZE_TROUBLESHOOTING.md)** for icon issues
+- Use **[Developer Checklist](./developer-checklist.md)** for development procedures
+- Reference **[Icon Size Troubleshooting](./icon-size-troubleshooting.md)** for icon issues
 
 ---
 

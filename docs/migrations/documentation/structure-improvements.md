@@ -28,24 +28,30 @@
 # Document Title
 
 ## 📋 **Quick Navigation**
+
 - [Section 1](#section-1)
 - [Section 2](#section-2)
 - [Resources](#resources)
 
 ## 🎯 **Overview**
+
 Brief description of document purpose and scope.
 
 ## 📖 **Content Sections**
+
 [Main content organized with clear hierarchy]
 
 ## 🔗 **Related Documents**
+
 - [Document A](./path/to/doc-a.md)
 - [Document B](./path/to/doc-b.md)
 
 ## 📞 **Contact Information**
+
 Relevant contact details for this topic.
 
 ---
+
 **Last Updated:** [Date] | **Version:** [X.X] | **Owner:** [Team/Person]
 ```
 
@@ -55,8 +61,11 @@ Relevant contact details for this topic.
 
 ```markdown
 # H1 - Document Title (Only one per document)
+
 ## H2 - Major Sections
+
 ### H3 - Subsections
+
 #### H4 - Sub-subsections (limit use)
 ```
 
@@ -64,10 +73,13 @@ Relevant contact details for this topic.
 
 ```markdown
 ## 1. First Major Section
+
 ### 1.1 First Subsection
+
 ### 1.2 Second Subsection
 
 ## 2. Second Major Section
+
 ### 2.1 First Subsection
 ```
 
@@ -79,6 +91,7 @@ Every document should start with:
 
 ```markdown
 ## 📋 **Quick Navigation**
+
 - [Overview](#overview)
 - [Main Content](#main-content)
 - [Implementation](#implementation)
@@ -90,13 +103,17 @@ Every document should start with:
 
 ```markdown
 ## 🔗 **Related Documents**
+
 ### **Prerequisites**
+
 - [Document Name](./path/to/doc.md) - Brief description
 
 ### **Follow-up Documents**
+
 - [Next Steps](./path/to/next.md) - Brief description
 
 ### **Reference Materials**
+
 - [External Resource](https://example.com) - Brief description
 ```
 
@@ -166,9 +183,9 @@ Current structure is good but could be enhanced:
 
 ```text
 business/
-├── SERVICES.md
-├── CORE_VALUES.md
-├── TEAM_ROSTER.md
+├── services.md
+├── core-values.md
+├── team-roster.md
 └── branding/
 ```
 
@@ -193,7 +210,7 @@ business/
 │   ├── field-operations.md
 │   └── profiles/
 └── branding/
-    ├── README.md (current BRANDING_INDEX.md)
+    ├── README.md (current branding-index.md)
     └── [existing structure]
 ```
 
@@ -244,21 +261,25 @@ technical/
 
 ```markdown
 ## 🎯 Use emojis for section headers
+
 ### **Bold for important subsections**
+
 > Use blockquotes for important notes
 ```
 
 ### **Code Formatting**
 
-```markdown
+````markdown
 #### **Single line code**: `npm install`
 
 #### **File paths**: `/src/components/Button.tsx`
 
 #### **Code blocks**:
+
 ```typescript
 const example = "with syntax highlighting";
 ```
+````
 
 #### **File content blocks**
 
@@ -267,16 +288,17 @@ const example = "with syntax highlighting";
 const content = "with filename context";
 ```
 
-```markdown
-
+````markdown
 ### **Tables for Structured Data**
+
 ```markdown
-| Feature | Status | Notes |
-|---------|--------|-------|
-| Navigation | ✅ Complete | Working well |
-| Forms | 🔄 In Progress | Needs testing |
-| API | ❌ Pending | Not started |
+| Feature    | Status         | Notes         |
+| ---------- | -------------- | ------------- |
+| Navigation | ✅ Complete    | Working well  |
+| Forms      | 🔄 In Progress | Needs testing |
+| API        | ❌ Pending     | Not started   |
 ```
+````
 
 ---
 
@@ -335,4 +357,4 @@ const content = "with filename context";
 ---
 
 **Documentation Structure Improvement Plan** | **Version 1.0** | **October 14, 2025**
-*Enhancing MH Construction documentation for better readability and navigation*
+_Enhancing MH Construction documentation for better readability and navigation_

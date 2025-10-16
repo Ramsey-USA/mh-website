@@ -65,9 +65,9 @@ Based on the Documentation Structure Improvement Plan, consider these future enh
 ### **Phase 2: Content Reorganization (RECOMMENDED)**
 
 - 📝 Consider splitting into separate guides:
-  - `CLIENT_PARTNERSHIP_MESSAGING.md` (client-focused content)
-  - `VENDOR_PARTNERSHIP_MESSAGING.md` (trade/vendor content)
-  - `PARTNERSHIP_IMPLEMENTATION_GUIDE.md` (technical implementation)
+  - `CLIENT_PARTNERSHIP_messaging.md` (client-focused content)
+  - `VENDOR_PARTNERSHIP_messaging.md` (trade/vendor content)
+  - `PARTNERSHIP_implementation-guide.md` (technical implementation)
 
 ### **Phase 3: Cross-References (FUTURE)**
 

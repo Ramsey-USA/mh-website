@@ -1,102 +1,102 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { MaterialIcon } from '@/components/icons/MaterialIcon'
+import { useState, useEffect } from "react";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 interface PWAUpdatePromptProps {
-  className?: string
+  className?: string;
 }
 
 export default function PWAUpdatePrompt({
-  className = '',
+  className = "",
 }: PWAUpdatePromptProps) {
-  const [updateAvailable, setUpdateAvailable] = useState(false)
-  const [isUpdating, setIsUpdating] = useState(false)
+  const [updateAvailable, setUpdateAvailable] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
   const [registration, setRegistration] =
-    useState<ServiceWorkerRegistration | null>(null)
+    useState<ServiceWorkerRegistration | null>(null);
 
   useEffect(() => {
-    if ('serviceWorker' in navigator) {
+    if ("serviceWorker" in navigator) {
       // Register service worker
       navigator.serviceWorker
-        .register('/sw.js')
-        .then(reg => {
-          console.log('[PWA] Service worker registered:', reg)
-          setRegistration(reg)
+        .register("/sw.js")
+        .then((reg) => {
+          console.log("[PWA] Service worker registered:", reg);
+          setRegistration(reg);
 
           // Check for updates periodically
           setInterval(() => {
-            reg.update()
-          }, 60000) // Check every minute
+            reg.update();
+          }, 60000); // Check every minute
 
           // Listen for updates
-          reg.addEventListener('updatefound', () => {
-            console.log('[PWA] Update found')
-            const newWorker = reg.installing
+          reg.addEventListener("updatefound", () => {
+            console.log("[PWA] Update found");
+            const newWorker = reg.installing;
 
             if (newWorker) {
-              newWorker.addEventListener('statechange', () => {
+              newWorker.addEventListener("statechange", () => {
                 if (
-                  newWorker.state === 'installed' &&
+                  newWorker.state === "installed" &&
                   navigator.serviceWorker.controller
                 ) {
-                  console.log('[PWA] New content available')
-                  setUpdateAvailable(true)
+                  console.log("[PWA] New content available");
+                  setUpdateAvailable(true);
                 }
-              })
+              });
             }
-          })
+          });
         })
-        .catch(error => {
-          console.error('[PWA] Service worker registration failed:', error)
-        })
+        .catch((error) => {
+          console.error("[PWA] Service worker registration failed:", error);
+        });
 
       // Listen for service worker messages
-      navigator.serviceWorker.addEventListener('message', event => {
-        if (event.data && event.data.type === 'UPDATE_AVAILABLE') {
-          setUpdateAvailable(true)
+      navigator.serviceWorker.addEventListener("message", (event) => {
+        if (event.data && event.data.type === "UPDATE_AVAILABLE") {
+          setUpdateAvailable(true);
         }
-      })
+      });
 
       // Listen for service worker controller change
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        console.log('[PWA] New service worker activated')
-        window.location.reload()
-      })
+      navigator.serviceWorker.addEventListener("controllerchange", () => {
+        console.log("[PWA] New service worker activated");
+        window.location.reload();
+      });
     }
-  }, [])
+  }, []);
 
   const handleUpdate = async () => {
     if (!registration || !registration.waiting) {
-      return
+      return;
     }
 
-    setIsUpdating(true)
+    setIsUpdating(true);
 
     try {
       // Tell the waiting service worker to skip waiting
-      registration.waiting.postMessage({ type: 'SKIP_WAITING' })
+      registration.waiting.postMessage({ type: "SKIP_WAITING" });
 
       // The page will reload automatically when the new SW takes control
     } catch (error) {
-      console.error('[PWA] Update failed:', error)
-      setIsUpdating(false)
+      console.error("[PWA] Update failed:", error);
+      setIsUpdating(false);
     }
-  }
+  };
 
   const handleDismiss = () => {
-    setUpdateAvailable(false)
+    setUpdateAvailable(false);
     // Store dismissal to avoid showing again for this session
-    sessionStorage.setItem('pwa-update-dismissed', 'true')
-  }
+    sessionStorage.setItem("pwa-update-dismissed", "true");
+  };
 
   // Don't show if dismissed in this session
-  if (sessionStorage.getItem('pwa-update-dismissed')) {
-    return null
+  if (sessionStorage.getItem("pwa-update-dismissed")) {
+    return null;
   }
 
   if (!updateAvailable) {
-    return null
+    return null;
   }
 
   return (
@@ -159,93 +159,93 @@ export default function PWAUpdatePrompt({
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // Hook for managing PWA features
 export function usePWA() {
-  const [isInstalled, setIsInstalled] = useState(false)
-  const [isOnline, setIsOnline] = useState(true)
-  const [installPrompt, setInstallPrompt] = useState<any>(null)
+  const [isInstalled, setIsInstalled] = useState(false);
+  const [isOnline, setIsOnline] = useState(true);
+  const [installPrompt, setInstallPrompt] = useState<any>(null);
 
   useEffect(() => {
     // Check if PWA is installed
     const checkInstalled = () => {
       return (
-        window.matchMedia('(display-mode: standalone)').matches ||
+        window.matchMedia("(display-mode: standalone)").matches ||
         (window.navigator as any).standalone
-      )
-    }
+      );
+    };
 
     // Check online status
     const updateOnlineStatus = () => {
-      setIsOnline(navigator.onLine)
-    }
+      setIsOnline(navigator.onLine);
+    };
 
     // Listen for install prompt
     const handleBeforeInstallPrompt = (e: Event) => {
-      e.preventDefault()
-      setInstallPrompt(e)
-    }
+      e.preventDefault();
+      setInstallPrompt(e);
+    };
 
     // Listen for app installed
     const handleAppInstalled = () => {
-      setIsInstalled(true)
-      setInstallPrompt(null)
-    }
+      setIsInstalled(true);
+      setInstallPrompt(null);
+    };
 
     // Initial checks
-    setIsInstalled(checkInstalled())
-    updateOnlineStatus()
+    setIsInstalled(checkInstalled());
+    updateOnlineStatus();
 
     // Event listeners
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
-    window.addEventListener('appinstalled', handleAppInstalled)
-    window.addEventListener('online', updateOnlineStatus)
-    window.addEventListener('offline', updateOnlineStatus)
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    window.addEventListener("appinstalled", handleAppInstalled);
+    window.addEventListener("online", updateOnlineStatus);
+    window.addEventListener("offline", updateOnlineStatus);
 
     return () => {
       window.removeEventListener(
-        'beforeinstallprompt',
-        handleBeforeInstallPrompt
-      )
-      window.removeEventListener('appinstalled', handleAppInstalled)
-      window.removeEventListener('online', updateOnlineStatus)
-      window.removeEventListener('offline', updateOnlineStatus)
-    }
-  }, [])
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt,
+      );
+      window.removeEventListener("appinstalled", handleAppInstalled);
+      window.removeEventListener("online", updateOnlineStatus);
+      window.removeEventListener("offline", updateOnlineStatus);
+    };
+  }, []);
 
   const installApp = async () => {
-    if (!installPrompt) return false
+    if (!installPrompt) return false;
 
     try {
-      installPrompt.prompt()
-      const { outcome } = await installPrompt.userChoice
+      installPrompt.prompt();
+      const { outcome } = await installPrompt.userChoice;
 
-      if (outcome === 'accepted') {
-        setInstallPrompt(null)
-        return true
+      if (outcome === "accepted") {
+        setInstallPrompt(null);
+        return true;
       }
     } catch (error) {
-      console.error('[PWA] Install error:', error)
+      console.error("[PWA] Install error:", error);
     }
 
-    return false
-  }
+    return false;
+  };
 
   return {
     isInstalled,
     isOnline,
     canInstall: !!installPrompt,
     installApp,
-  }
+  };
 }
 
 // Component for offline indicator
 export function OfflineIndicator() {
-  const { isOnline } = usePWA()
+  const { isOnline } = usePWA();
 
-  if (isOnline) return null
+  if (isOnline) return null;
 
   return (
     <div className="top-0 right-0 left-0 z-50 fixed bg-yellow-500 p-2 font-medium text-white text-sm text-center">
@@ -254,5 +254,5 @@ export function OfflineIndicator() {
         You are currently offline. Some features may be limited.
       </div>
     </div>
-  )
+  );
 }

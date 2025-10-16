@@ -80,7 +80,7 @@ function SimpleDashboard({ showDetails = false }: PerformanceDashboardProps) {
 
   const getScoreColor = (
     score: number,
-    type: "lcp" | "fid" | "cls"
+    type: "lcp" | "fid" | "cls",
   ): string => {
     switch (type) {
       case "lcp":
@@ -697,7 +697,7 @@ export function PerformanceDashboard() {
                 <MetricCard
                   title="Largest Chunk"
                   value={formatBytes(
-                    Math.max(...analysis.chunks.map((c: any) => c.size))
+                    Math.max(...analysis.chunks.map((c: any) => c.size)),
                   )}
                   description="Size of largest chunk"
                   status={

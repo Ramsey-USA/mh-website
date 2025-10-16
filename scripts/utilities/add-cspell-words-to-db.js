@@ -38,7 +38,7 @@ async function addCSpellWordsToDatabase() {
     const ignoreWords = cspellConfig.ignoreWords || [];
 
     console.log(
-      `📝 Found ${words.length} words and ${ignoreWords.length} ignore words in cspell.json`
+      `📝 Found ${words.length} words and ${ignoreWords.length} ignore words in cspell.json`,
     );
 
     // Create or update the spell-check collection
@@ -75,7 +75,7 @@ async function addCSpellWordsToDatabase() {
       currentWords.forEach((word, index) => {
         const docId = `word_${batchIndex * batchSize + index + 1}`.padStart(
           10,
-          "0"
+          "0",
         );
         const wordRef = spellCheckRef.doc(docId);
 
@@ -92,7 +92,7 @@ async function addCSpellWordsToDatabase() {
 
       await batch.commit();
       console.log(
-        `✅ Batch ${batchIndex + 1}/${wordBatches.length} committed (${currentWords.length} words)`
+        `✅ Batch ${batchIndex + 1}/${wordBatches.length} committed (${currentWords.length} words)`,
       );
     }
 
@@ -112,7 +112,7 @@ async function addCSpellWordsToDatabase() {
     await createSearchIndex(spellCheckRef, words);
 
     console.log(
-      "🎉 Successfully added all cSpell words to Firestore database!"
+      "🎉 Successfully added all cSpell words to Firestore database!",
     );
     console.log(`📊 Summary:`);
     console.log(`   - Total words: ${words.length}`);

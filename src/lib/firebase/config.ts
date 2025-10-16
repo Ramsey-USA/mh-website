@@ -59,7 +59,7 @@ function initializeFirebase() {
     // Log warning in production if using fallback config
     if (!hasValidConfig && isProduction) {
       console.warn(
-        "[WARNING] Firebase: Using fallback configuration in production. Please set proper environment variables."
+        "[WARNING] Firebase: Using fallback configuration in production. Please set proper environment variables.",
       );
     }
 
@@ -90,7 +90,7 @@ function initializeFirebase() {
       } catch {
         // Emulators not available or already connected
         console.log(
-          "[EDIT_NOTE] Firebase: Demo mode (emulators not connected)"
+          "[EDIT_NOTE] Firebase: Demo mode (emulators not connected)",
         );
       }
     }
@@ -108,7 +108,7 @@ export function getFirebaseAuth(): Auth {
   if (initializationError) {
     console.warn(
       "[WARNING] Firebase Auth initialization failed:",
-      initializationError
+      initializationError,
     );
     // Try to re-initialize once more
     initializationError = null;
@@ -121,7 +121,7 @@ export function getFirebaseAuth(): Auth {
 
   if (!auth) {
     throw new Error(
-      "Firebase Auth could not be initialized - check environment variables"
+      "Firebase Auth could not be initialized - check environment variables",
     );
   }
 
@@ -132,7 +132,7 @@ export function getFirebaseDb(): Firestore {
   if (initializationError) {
     console.warn(
       "[WARNING] Firebase Firestore initialization failed:",
-      initializationError
+      initializationError,
     );
     // Try to re-initialize once more
     initializationError = null;
@@ -145,7 +145,7 @@ export function getFirebaseDb(): Firestore {
 
   if (!db) {
     throw new Error(
-      "Firebase Firestore could not be initialized - check environment variables"
+      "Firebase Firestore could not be initialized - check environment variables",
     );
   }
 
@@ -156,7 +156,7 @@ export function getFirebaseStorage(): FirebaseStorage {
   if (initializationError) {
     console.warn(
       "[WARNING] Firebase Storage initialization failed:",
-      initializationError
+      initializationError,
     );
     // Try to re-initialize once more
     initializationError = null;
@@ -169,7 +169,7 @@ export function getFirebaseStorage(): FirebaseStorage {
 
   if (!storage) {
     throw new Error(
-      "Firebase Storage could not be initialized - check environment variables"
+      "Firebase Storage could not be initialized - check environment variables",
     );
   }
 
@@ -178,7 +178,7 @@ export function getFirebaseStorage(): FirebaseStorage {
 
 export function getFirebaseFunctions(): Functions {
   throw new Error(
-    "Firebase Functions should be called via API routes, not directly from the client"
+    "Firebase Functions should be called via API routes, not directly from the client",
   );
 }
 

@@ -13,7 +13,7 @@ export interface MarkdownContent {
  * @returns Promise<MarkdownContent>
  */
 export async function loadMarkdownContent(
-  filePath: string
+  filePath: string,
 ): Promise<MarkdownContent> {
   try {
     const fullPath = path.join(process.cwd(), "docs", filePath);
@@ -62,7 +62,7 @@ export async function loadMarkdownContent(
  * @returns Promise<Record<string, MarkdownContent>>
  */
 export async function loadMultipleMarkdownFiles(
-  filePaths: string[]
+  filePaths: string[],
 ): Promise<Record<string, MarkdownContent>> {
   const contents: Record<string, MarkdownContent> = {};
 

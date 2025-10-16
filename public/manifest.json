@@ -10,11 +10,7 @@
   "scope": "/",
   "lang": "en-US",
   "dir": "ltr",
-  "categories": [
-    "business",
-    "construction",
-    "productivity"
-  ],
+  "categories": ["business", "construction", "productivity"],
   "shortcuts": [
     {
       "name": "Get AI Estimate",

@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import React from 'react'
-import Script from 'next/script'
+import React from "react";
+import Script from "next/script";
 
 interface GoogleAnalyticsProps {
-  measurementId: string
+  measurementId: string;
 }
 
 export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
@@ -26,7 +26,7 @@ export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
         `}
       </Script>
     </>
-  )
+  );
 }
 
 // Analytics event tracking functions
@@ -34,123 +34,123 @@ export const analytics = {
   // Track page views
   pageView: (url: string, title?: string) => {
     if (
-      typeof window !== 'undefined' &&
+      typeof window !== "undefined" &&
       window.gtag &&
       process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
     ) {
-      window.gtag('config', process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID, {
+      window.gtag("config", process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID, {
         page_title: title || document.title,
         page_location: url,
-      })
+      });
     }
   },
 
   // Track custom events
   event: (
     eventName: string,
-    parameters?: Record<string, string | number | boolean | undefined>
+    parameters?: Record<string, string | number | boolean | undefined>,
   ) => {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', eventName, parameters)
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", eventName, parameters);
     }
   },
 
   // Track portfolio project views
   portfolioView: (projectTitle: string, projectCategory: string) => {
-    analytics.event('portfolio_view', {
+    analytics.event("portfolio_view", {
       project_title: projectTitle,
       project_category: projectCategory,
-      event_category: 'Portfolio',
+      event_category: "Portfolio",
       event_label: projectTitle,
-    })
+    });
   },
 
   // Track estimate requests
   estimateRequest: (projectType: string, location: string) => {
-    analytics.event('estimate_request', {
+    analytics.event("estimate_request", {
       project_type: projectType,
       location: location,
-      event_category: 'Lead Generation',
-      event_label: 'AI Estimate Request',
-    })
+      event_category: "Lead Generation",
+      event_label: "AI Estimate Request",
+    });
   },
 
   // Track consultation bookings
   consultationBooking: (serviceType: string) => {
-    analytics.event('consultation_booking', {
+    analytics.event("consultation_booking", {
       service_type: serviceType,
-      event_category: 'Lead Generation',
-      event_label: 'Consultation Booking',
-    })
+      event_category: "Lead Generation",
+      event_label: "Consultation Booking",
+    });
   },
 
   // Track contact form submissions
   contactForm: (formType: string, inquiryType?: string) => {
-    analytics.event('contact_form_submit', {
+    analytics.event("contact_form_submit", {
       form_type: formType,
       inquiry_type: inquiryType,
-      event_category: 'Lead Generation',
-      event_label: 'Contact Form',
-    })
+      event_category: "Lead Generation",
+      event_label: "Contact Form",
+    });
   },
 
   // Track phone clicks
   phoneClick: (phoneNumber: string) => {
-    analytics.event('phone_click', {
+    analytics.event("phone_click", {
       phone_number: phoneNumber,
-      event_category: 'Contact',
-      event_label: 'Phone Call',
-    })
+      event_category: "Contact",
+      event_label: "Phone Call",
+    });
   },
 
   // Track email clicks
   emailClick: (emailAddress: string) => {
-    analytics.event('email_click', {
+    analytics.event("email_click", {
       email_address: emailAddress,
-      event_category: 'Contact',
-      event_label: 'Email',
-    })
+      event_category: "Contact",
+      event_label: "Email",
+    });
   },
 
   // Track file downloads
   download: (fileName: string, fileType: string) => {
-    analytics.event('file_download', {
+    analytics.event("file_download", {
       file_name: fileName,
       file_type: fileType,
-      event_category: 'Downloads',
+      event_category: "Downloads",
       event_label: fileName,
-    })
+    });
   },
 
   // Track social media clicks
   socialClick: (platform: string, url: string) => {
-    analytics.event('social_click', {
+    analytics.event("social_click", {
       social_platform: platform,
       social_url: url,
-      event_category: 'Social Media',
+      event_category: "Social Media",
       event_label: platform,
-    })
+    });
   },
-}
+};
 
 // Hook for tracking page views in Next.js
 export function useAnalytics() {
   React.useEffect(() => {
     // Track initial page view
-    analytics.pageView(window.location.href)
-  }, [])
+    analytics.pageView(window.location.href);
+  }, []);
 
-  return analytics
+  return analytics;
 }
 
 // Declare gtag function for TypeScript
 declare global {
   interface Window {
     gtag: (
-      command: 'config' | 'event' | 'js',
+      command: "config" | "event" | "js",
       targetId: string | Date,
-      config?: Record<string, string | number | boolean | undefined>
-    ) => void
-    dataLayer: unknown[]
+      config?: Record<string, string | number | boolean | undefined>,
+    ) => void;
+    dataLayer: unknown[];
   }
 }

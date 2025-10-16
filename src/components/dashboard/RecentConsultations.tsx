@@ -1,102 +1,102 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { Button, Card, CardHeader, CardTitle, CardContent } from '../ui'
+import React from "react";
+import { Button, Card, CardHeader, CardTitle, CardContent } from "../ui";
 
 export function RecentConsultations() {
   const consultations = [
     {
-      id: 'C001',
-      clientName: 'John & Sarah Mitchell',
-      projectType: 'Custom Home',
-      consultationType: 'Initial Consultation',
-      date: '2025-09-23',
-      time: '09:00 AM',
-      teamMember: 'Mark Harris',
-      status: 'confirmed',
+      id: "C001",
+      clientName: "John & Sarah Mitchell",
+      projectType: "Custom Home",
+      consultationType: "Initial Consultation",
+      date: "2025-09-23",
+      time: "09:00 AM",
+      teamMember: "Mark Harris",
+      status: "confirmed",
       isVeteran: true,
-      priority: 'high',
-      estimatedValue: '$425,000',
+      priority: "high",
+      estimatedValue: "$425,000",
     },
     {
-      id: 'C002',
-      clientName: 'Robert Chen',
-      projectType: 'Kitchen Remodel',
-      consultationType: 'Design Consultation',
-      date: '2025-09-23',
-      time: '02:00 PM',
-      teamMember: 'Sarah Harris',
-      status: 'confirmed',
+      id: "C002",
+      clientName: "Robert Chen",
+      projectType: "Kitchen Remodel",
+      consultationType: "Design Consultation",
+      date: "2025-09-23",
+      time: "02:00 PM",
+      teamMember: "Sarah Harris",
+      status: "confirmed",
       isVeteran: false,
-      priority: 'medium',
-      estimatedValue: '$45,000',
+      priority: "medium",
+      estimatedValue: "$45,000",
     },
     {
-      id: 'C003',
-      clientName: 'Maria Rodriguez',
-      projectType: 'Commercial Building',
-      consultationType: 'Technical Consultation',
-      date: '2025-09-24',
-      time: '10:00 AM',
-      teamMember: 'Jim Rodriguez',
-      status: 'pending',
+      id: "C003",
+      clientName: "Maria Rodriguez",
+      projectType: "Commercial Building",
+      consultationType: "Technical Consultation",
+      date: "2025-09-24",
+      time: "10:00 AM",
+      teamMember: "Jim Rodriguez",
+      status: "pending",
       isVeteran: false,
-      priority: 'high',
-      estimatedValue: '$850,000',
+      priority: "high",
+      estimatedValue: "$850,000",
     },
     {
-      id: 'C004',
-      clientName: 'David Thompson',
-      projectType: 'Home Addition',
-      consultationType: 'Estimate Review',
-      date: '2025-09-24',
-      time: '03:00 PM',
-      teamMember: 'Mark Harris',
-      status: 'confirmed',
+      id: "C004",
+      clientName: "David Thompson",
+      projectType: "Home Addition",
+      consultationType: "Estimate Review",
+      date: "2025-09-24",
+      time: "03:00 PM",
+      teamMember: "Mark Harris",
+      status: "confirmed",
       isVeteran: true,
-      priority: 'medium',
-      estimatedValue: '$85,000',
+      priority: "medium",
+      estimatedValue: "$85,000",
     },
     {
-      id: 'C005',
-      clientName: 'Lisa Park',
-      projectType: 'Bathroom Remodel',
-      consultationType: 'Initial Consultation',
-      date: '2025-09-25',
-      time: '11:00 AM',
-      teamMember: 'Sarah Harris',
-      status: 'confirmed',
+      id: "C005",
+      clientName: "Lisa Park",
+      projectType: "Bathroom Remodel",
+      consultationType: "Initial Consultation",
+      date: "2025-09-25",
+      time: "11:00 AM",
+      teamMember: "Sarah Harris",
+      status: "confirmed",
       isVeteran: false,
-      priority: 'low',
-      estimatedValue: '$22,000',
+      priority: "low",
+      estimatedValue: "$22,000",
     },
-  ]
+  ];
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'confirmed':
-        return 'bg-green-100 text-green-800'
-      case 'pending':
-        return 'bg-yellow-100 text-yellow-800'
-      case 'cancelled':
-        return 'bg-red-100 text-red-800'
+      case "confirmed":
+        return "bg-green-100 text-green-800";
+      case "pending":
+        return "bg-yellow-100 text-yellow-800";
+      case "cancelled":
+        return "bg-red-100 text-red-800";
       default:
-        return 'bg-gray-100 text-gray-800'
+        return "bg-gray-100 text-gray-800";
     }
-  }
+  };
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case 'high':
-        return 'bg-red-500'
-      case 'medium':
-        return 'bg-yellow-500'
-      case 'low':
-        return 'bg-green-500'
+      case "high":
+        return "bg-red-500";
+      case "medium":
+        return "bg-yellow-500";
+      case "low":
+        return "bg-green-500";
       default:
-        return 'bg-gray-500'
+        return "bg-gray-500";
     }
-  }
+  };
 
   return (
     <Card>
@@ -110,7 +110,7 @@ export function RecentConsultations() {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          {consultations.map(consultation => (
+          {consultations.map((consultation) => (
             <div
               key={consultation.id}
               className="flex items-center hover:bg-gray-50 p-4 border rounded-lg transition-colors"
@@ -118,7 +118,7 @@ export function RecentConsultations() {
               {/* Priority Indicator */}
               <div
                 className={`w-1 h-16 rounded-full mr-4 ${getPriorityColor(
-                  consultation.priority
+                  consultation.priority,
                 )}`}
               ></div>
 
@@ -137,11 +137,11 @@ export function RecentConsultations() {
                       )}
                     </div>
                     <p className="text-gray-600 text-sm">
-                      {consultation.projectType} •{' '}
+                      {consultation.projectType} •{" "}
                       {consultation.consultationType}
                     </p>
                     <p className="mt-1 text-gray-500 text-xs">
-                      ID: {consultation.id} • Est. Value:{' '}
+                      ID: {consultation.id} • Est. Value:{" "}
                       {consultation.estimatedValue}
                     </p>
                   </div>
@@ -149,7 +149,7 @@ export function RecentConsultations() {
                   <div className="text-right">
                     <span
                       className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(
-                        consultation.status
+                        consultation.status,
                       )}`}
                     >
                       {consultation.status}
@@ -194,5 +194,5 @@ export function RecentConsultations() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

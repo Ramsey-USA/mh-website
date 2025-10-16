@@ -1,110 +1,110 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { Button, Card, CardHeader, CardTitle, CardContent } from '../ui'
+import React from "react";
+import { Button, Card, CardHeader, CardTitle, CardContent } from "../ui";
 
 export function TeamSchedule() {
-  const today = new Date()
+  const today = new Date();
   const teamSchedule = [
     {
-      id: 'mark-harris',
-      name: 'Mark Harris',
-      title: 'Founder & Lead',
-      avatar: 'person',
-      status: 'available',
-      currentTask: 'Mitchell Home Site Visit',
+      id: "mark-harris",
+      name: "Mark Harris",
+      title: "Founder & Lead",
+      avatar: "person",
+      status: "available",
+      currentTask: "Mitchell Home Site Visit",
       nextAppointment: {
-        time: '9:00 AM',
-        client: 'Mitchell Family',
-        type: 'Initial Consultation',
+        time: "9:00 AM",
+        client: "Mitchell Family",
+        type: "Initial Consultation",
       },
       todaySchedule: [
         {
-          time: '9:00 AM',
-          task: 'Mitchell Consultation',
-          type: 'consultation',
+          time: "9:00 AM",
+          task: "Mitchell Consultation",
+          type: "consultation",
         },
-        { time: '11:00 AM', task: 'Thompson Site Visit', type: 'site-visit' },
-        { time: '2:00 PM', task: 'Team Meeting', type: 'internal' },
-        { time: '3:30 PM', task: 'Estimate Review', type: 'consultation' },
+        { time: "11:00 AM", task: "Thompson Site Visit", type: "site-visit" },
+        { time: "2:00 PM", task: "Team Meeting", type: "internal" },
+        { time: "3:30 PM", task: "Estimate Review", type: "consultation" },
       ],
     },
     {
-      id: 'sarah-harris',
-      name: 'Sarah Harris',
-      title: 'Design Director',
-      avatar: 'person',
-      status: 'busy',
-      currentTask: 'Chen Kitchen Design Review',
+      id: "sarah-harris",
+      name: "Sarah Harris",
+      title: "Design Director",
+      avatar: "person",
+      status: "busy",
+      currentTask: "Chen Kitchen Design Review",
       nextAppointment: {
-        time: '2:00 PM',
-        client: 'Robert Chen',
-        type: 'Design Consultation',
+        time: "2:00 PM",
+        client: "Robert Chen",
+        type: "Design Consultation",
       },
       todaySchedule: [
-        { time: '10:00 AM', task: 'Design Review', type: 'internal' },
+        { time: "10:00 AM", task: "Design Review", type: "internal" },
         {
-          time: '2:00 PM',
-          task: 'Chen Design Consultation',
-          type: 'consultation',
+          time: "2:00 PM",
+          task: "Chen Design Consultation",
+          type: "consultation",
         },
-        { time: '4:00 PM', task: 'Material Selection', type: 'internal' },
+        { time: "4:00 PM", task: "Material Selection", type: "internal" },
       ],
     },
     {
-      id: 'jim-rodriguez',
-      name: 'Jim Rodriguez',
-      title: 'Project Manager',
-      avatar: 'person',
-      status: 'on-site',
-      currentTask: 'Downtown Complex Inspection',
+      id: "jim-rodriguez",
+      name: "Jim Rodriguez",
+      title: "Project Manager",
+      avatar: "person",
+      status: "on-site",
+      currentTask: "Downtown Complex Inspection",
       nextAppointment: {
-        time: '10:00 AM',
-        client: 'Maria Rodriguez',
-        type: 'Technical Consultation',
+        time: "10:00 AM",
+        client: "Maria Rodriguez",
+        type: "Technical Consultation",
       },
       todaySchedule: [
-        { time: '8:00 AM', task: 'Site Inspection', type: 'site-visit' },
+        { time: "8:00 AM", task: "Site Inspection", type: "site-visit" },
         {
-          time: '10:00 AM',
-          task: 'Rodriguez Technical Consultation',
-          type: 'consultation',
+          time: "10:00 AM",
+          task: "Rodriguez Technical Consultation",
+          type: "consultation",
         },
-        { time: '1:00 PM', task: 'Permit Review', type: 'internal' },
-        { time: '3:00 PM', task: 'Contractor Meeting', type: 'external' },
+        { time: "1:00 PM", task: "Permit Review", type: "internal" },
+        { time: "3:00 PM", task: "Contractor Meeting", type: "external" },
       ],
     },
-  ]
+  ];
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'available':
-        return 'bg-green-500'
-      case 'busy':
-        return 'bg-yellow-500'
-      case 'on-site':
-        return 'bg-blue-500'
-      case 'unavailable':
-        return 'bg-red-500'
+      case "available":
+        return "bg-green-500";
+      case "busy":
+        return "bg-yellow-500";
+      case "on-site":
+        return "bg-blue-500";
+      case "unavailable":
+        return "bg-red-500";
       default:
-        return 'bg-gray-500'
+        return "bg-gray-500";
     }
-  }
+  };
 
   const getTaskTypeIcon = (type: string) => {
     switch (type) {
-      case 'consultation':
-        return '[GROUPS]'
-      case 'site-visit':
-        return '[CONSTRUCTION]'
-      case 'internal':
-        return '[APARTMENT]'
-      case 'external':
-        return '[HANDSHAKE]'
+      case "consultation":
+        return "[GROUPS]";
+      case "site-visit":
+        return "[CONSTRUCTION]";
+      case "internal":
+        return "[APARTMENT]";
+      case "external":
+        return "[HANDSHAKE]";
       default:
-        return '[ASSIGNMENT]'
+        return "[ASSIGNMENT]";
     }
-  }
+  };
 
   return (
     <Card>
@@ -116,17 +116,17 @@ export function TeamSchedule() {
           </Button>
         </div>
         <p className="text-gray-600 text-sm">
-          Today,{' '}
-          {today.toLocaleDateString('en-US', {
-            weekday: 'long',
-            month: 'long',
-            day: 'numeric',
+          Today,{" "}
+          {today.toLocaleDateString("en-US", {
+            weekday: "long",
+            month: "long",
+            day: "numeric",
           })}
         </p>
       </CardHeader>
       <CardContent>
         <div className="space-y-6">
-          {teamSchedule.map(member => (
+          {teamSchedule.map((member) => (
             <div key={member.id} className="pb-4 border-b last:border-b-0">
               {/* Team Member Header */}
               <div className="flex justify-between items-center mb-3">
@@ -142,7 +142,7 @@ export function TeamSchedule() {
                 <div className="flex items-center">
                   <div
                     className={`w-3 h-3 rounded-full ${getStatusColor(
-                      member.status
+                      member.status,
                     )} mr-2`}
                   ></div>
                   <span className="text-gray-600 text-sm capitalize">
@@ -162,7 +162,7 @@ export function TeamSchedule() {
                       {member.currentTask}
                     </span>
                   </div>
-                  {member.status !== 'available' && (
+                  {member.status !== "available" && (
                     <Button variant="outline" size="sm">
                       Contact
                     </Button>
@@ -179,7 +179,7 @@ export function TeamSchedule() {
                         Next:
                       </span>
                       <span className="ml-2 text-blue-900 text-sm">
-                        {member.nextAppointment.time} -{' '}
+                        {member.nextAppointment.time} -{" "}
                         {member.nextAppointment.client}
                       </span>
                     </div>
@@ -210,13 +210,13 @@ export function TeamSchedule() {
                       </div>
                       <span
                         className={`px-2 py-1 text-xs rounded-full ${
-                          item.type === 'consultation'
-                            ? 'bg-green-100 text-green-800'
-                            : item.type === 'site-visit'
-                              ? 'bg-blue-100 text-blue-800'
-                              : item.type === 'internal'
-                                ? 'bg-gray-100 text-gray-800'
-                                : 'bg-purple-100 text-purple-800'
+                          item.type === "consultation"
+                            ? "bg-green-100 text-green-800"
+                            : item.type === "site-visit"
+                              ? "bg-blue-100 text-blue-800"
+                              : item.type === "internal"
+                                ? "bg-gray-100 text-gray-800"
+                                : "bg-purple-100 text-purple-800"
                         }`}
                       >
                         {item.type}
@@ -242,5 +242,5 @@ export function TeamSchedule() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

@@ -3,7 +3,7 @@
  * Generates dynamic manifest.json based on configuration
  */
 
-import { PWA_CONFIG } from './config'
+import { PWA_CONFIG } from "./config";
 
 /**
  * Generate manifest.json for PWA installation
@@ -24,7 +24,7 @@ export function generateManifest(): any {
       src: icon.src,
       sizes: icon.sizes,
       type: icon.type,
-      purpose: icon.purpose || 'any maskable',
+      purpose: icon.purpose || "any maskable",
     })),
 
     shortcuts: PWA_CONFIG.shortcuts.map((shortcut: any) => ({
@@ -35,8 +35,8 @@ export function generateManifest(): any {
       icons: [
         {
           src: shortcut.icon,
-          sizes: '192x192',
-          type: 'image/png',
+          sizes: "192x192",
+          type: "image/png",
         },
       ],
     })),
@@ -45,40 +45,40 @@ export function generateManifest(): any {
     lang: PWA_CONFIG.lang,
 
     // Enhanced PWA features
-    display_override: ['window-controls-overlay', 'minimal-ui'],
+    display_override: ["window-controls-overlay", "minimal-ui"],
 
     // Share target for receiving shared content
     share_target: {
-      action: '/contact',
-      method: 'POST',
-      enctype: 'multipart/form-data',
+      action: "/contact",
+      method: "POST",
+      enctype: "multipart/form-data",
       params: {
-        title: 'title',
-        text: 'message',
-        url: 'url',
+        title: "title",
+        text: "message",
+        url: "url",
       },
     },
 
     // Protocol handlers
     protocol_handlers: [
       {
-        protocol: 'mailto',
-        url: '/contact?email=%s',
+        protocol: "mailto",
+        url: "/contact?email=%s",
       },
       {
-        protocol: 'tel',
-        url: '/contact?phone=%s',
+        protocol: "tel",
+        url: "/contact?phone=%s",
       },
     ],
 
     // File handlers for construction documents
     file_handlers: [
       {
-        action: '/estimator',
+        action: "/estimator",
         accept: {
-          'image/*': ['.jpg', '.jpeg', '.png', '.gif'],
-          'application/pdf': ['.pdf'],
-          'text/plain': ['.txt'],
+          "image/*": [".jpg", ".jpeg", ".png", ".gif"],
+          "application/pdf": [".pdf"],
+          "text/plain": [".txt"],
         },
       },
     ],
@@ -86,32 +86,32 @@ export function generateManifest(): any {
     // Screenshots for app stores
     screenshots: [
       {
-        src: '/screenshots/desktop-home.png',
-        sizes: '1280x720',
-        type: 'image/png',
-        platform: 'wide',
-        label: 'Home page on desktop',
+        src: "/screenshots/desktop-home.png",
+        sizes: "1280x720",
+        type: "image/png",
+        platform: "wide",
+        label: "Home page on desktop",
       },
       {
-        src: '/screenshots/mobile-home.png',
-        sizes: '750x1334',
-        type: 'image/png',
-        platform: 'narrow',
-        label: 'Home page on mobile',
+        src: "/screenshots/mobile-home.png",
+        sizes: "750x1334",
+        type: "image/png",
+        platform: "narrow",
+        label: "Home page on mobile",
       },
       {
-        src: '/screenshots/desktop-estimator.png',
-        sizes: '1280x720',
-        type: 'image/png',
-        platform: 'wide',
-        label: 'Cost estimator tool',
+        src: "/screenshots/desktop-estimator.png",
+        sizes: "1280x720",
+        type: "image/png",
+        platform: "wide",
+        label: "Cost estimator tool",
       },
       {
-        src: '/screenshots/mobile-estimator.png',
-        sizes: '750x1334',
-        type: 'image/png',
-        platform: 'narrow',
-        label: 'Mobile cost estimator',
+        src: "/screenshots/mobile-estimator.png",
+        sizes: "750x1334",
+        type: "image/png",
+        platform: "narrow",
+        label: "Mobile cost estimator",
       },
     ],
 
@@ -122,27 +122,27 @@ export function generateManifest(): any {
 
     // Launch handler for better app startup
     launch_handler: {
-      client_mode: ['navigate-existing', 'auto'],
+      client_mode: ["navigate-existing", "auto"],
     },
-  }
+  };
 }
 
 /**
  * Update manifest.json file
  */
 export async function updateManifest(): Promise<void> {
-  const manifest = generateManifest()
+  const manifest = generateManifest();
 
   try {
     // In a real implementation, this would update the public/manifest.json file
-    console.log('Generated manifest:', manifest)
+    console.log("Generated manifest:", manifest);
 
     // Store in localStorage for runtime access
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('pwa-manifest', JSON.stringify(manifest))
+    if (typeof window !== "undefined") {
+      localStorage.setItem("pwa-manifest", JSON.stringify(manifest));
     }
   } catch (error) {
-    console.error('Failed to update manifest:', error)
+    console.error("Failed to update manifest:", error);
   }
 }
 
@@ -150,16 +150,16 @@ export async function updateManifest(): Promise<void> {
  * Get browser capabilities for PWA features
  */
 export function getBrowserCapabilities(): {
-  installPrompt: boolean
-  pushNotifications: boolean
-  backgroundSync: boolean
-  periodicSync: boolean
-  badging: boolean
-  share: boolean
-  fileHandling: boolean
-  shortcuts: boolean
+  installPrompt: boolean;
+  pushNotifications: boolean;
+  backgroundSync: boolean;
+  periodicSync: boolean;
+  badging: boolean;
+  share: boolean;
+  fileHandling: boolean;
+  shortcuts: boolean;
 } {
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     return {
       installPrompt: false,
       pushNotifications: false,
@@ -169,56 +169,56 @@ export function getBrowserCapabilities(): {
       share: false,
       fileHandling: false,
       shortcuts: false,
-    }
+    };
   }
 
   return {
-    installPrompt: 'BeforeInstallPromptEvent' in window,
-    pushNotifications: 'PushManager' in window && 'Notification' in window,
+    installPrompt: "BeforeInstallPromptEvent" in window,
+    pushNotifications: "PushManager" in window && "Notification" in window,
     backgroundSync:
-      'serviceWorker' in navigator &&
-      'sync' in window.ServiceWorkerRegistration.prototype,
+      "serviceWorker" in navigator &&
+      "sync" in window.ServiceWorkerRegistration.prototype,
     periodicSync:
-      'serviceWorker' in navigator &&
-      'periodicSync' in window.ServiceWorkerRegistration.prototype,
-    badging: 'setAppBadge' in navigator,
-    share: 'share' in navigator,
-    fileHandling: 'launchQueue' in window,
-    shortcuts: 'getInstalledRelatedApps' in navigator,
-  }
+      "serviceWorker" in navigator &&
+      "periodicSync" in window.ServiceWorkerRegistration.prototype,
+    badging: "setAppBadge" in navigator,
+    share: "share" in navigator,
+    fileHandling: "launchQueue" in window,
+    shortcuts: "getInstalledRelatedApps" in navigator,
+  };
 }
 
 /**
  * Check if app is installed as PWA
  */
 export function isPWAInstalled(): boolean {
-  if (typeof window === 'undefined') {
-    return false
+  if (typeof window === "undefined") {
+    return false;
   }
 
   // Check if app is launched from home screen
-  const isStandalone = window.matchMedia('(display-mode: standalone)').matches
-  const isMinimalUI = window.matchMedia('(display-mode: minimal-ui)').matches
-  const isFullscreen = window.matchMedia('(display-mode: fullscreen)').matches
+  const isStandalone = window.matchMedia("(display-mode: standalone)").matches;
+  const isMinimalUI = window.matchMedia("(display-mode: minimal-ui)").matches;
+  const isFullscreen = window.matchMedia("(display-mode: fullscreen)").matches;
 
-  return isStandalone || isMinimalUI || isFullscreen
+  return isStandalone || isMinimalUI || isFullscreen;
 }
 
 /**
  * Get PWA installation status and capabilities
  */
 export function getPWAStatus(): {
-  isInstalled: boolean
-  isInstallable: boolean
-  capabilities: ReturnType<typeof getBrowserCapabilities>
-  manifest: any
+  isInstalled: boolean;
+  isInstallable: boolean;
+  capabilities: ReturnType<typeof getBrowserCapabilities>;
+  manifest: any;
 } {
   return {
     isInstalled: isPWAInstalled(),
     isInstallable: getBrowserCapabilities().installPrompt,
     capabilities: getBrowserCapabilities(),
     manifest: generateManifest(),
-  }
+  };
 }
 
 /**
@@ -226,34 +226,34 @@ export function getPWAStatus(): {
  */
 export class AppBadge {
   static async set(count: number): Promise<void> {
-    if ('setAppBadge' in navigator) {
+    if ("setAppBadge" in navigator) {
       try {
-        await (navigator as any).setAppBadge(count)
+        await (navigator as any).setAppBadge(count);
       } catch (error) {
-        console.warn('Failed to set app badge:', error)
+        console.warn("Failed to set app badge:", error);
       }
     }
   }
 
   static async clear(): Promise<void> {
-    if ('clearAppBadge' in navigator) {
+    if ("clearAppBadge" in navigator) {
       try {
-        await (navigator as any).clearAppBadge()
+        await (navigator as any).clearAppBadge();
       } catch (error) {
-        console.warn('Failed to clear app badge:', error)
+        console.warn("Failed to clear app badge:", error);
       }
     }
   }
 
   static async update(
     newEstimates: number,
-    newMessages: number
+    newMessages: number,
   ): Promise<void> {
-    const total = newEstimates + newMessages
+    const total = newEstimates + newMessages;
     if (total > 0) {
-      await this.set(total)
+      await this.set(total);
     } else {
-      await this.clear()
+      await this.clear();
     }
   }
 }
@@ -263,17 +263,17 @@ export class AppBadge {
  */
 export class WebShare {
   static async isSupported(): Promise<boolean> {
-    return 'share' in navigator
+    return "share" in navigator;
   }
 
   static async shareProject(project: {
-    title: string
-    description: string
-    url: string
-    images?: string[]
+    title: string;
+    description: string;
+    url: string;
+    images?: string[];
   }): Promise<boolean> {
     if (!(await this.isSupported())) {
-      return false
+      return false;
     }
 
     try {
@@ -281,62 +281,62 @@ export class WebShare {
         title: `${project.title} - MH Construction`,
         text: project.description,
         url: project.url,
-      }
+      };
 
       // Add files if supported and available
       if (
         project.images &&
         project.images.length > 0 &&
-        'canShare' in navigator
+        "canShare" in navigator
       ) {
         const files = await Promise.all(
-          project.images.map(async imageUrl => {
+          project.images.map(async (imageUrl) => {
             try {
-              const response = await fetch(imageUrl)
-              const blob = await response.blob()
-              return new File([blob], 'project-image.jpg', { type: blob.type })
+              const response = await fetch(imageUrl);
+              const blob = await response.blob();
+              return new File([blob], "project-image.jpg", { type: blob.type });
             } catch {
-              return null
+              return null;
             }
-          })
-        )
+          }),
+        );
 
-        const validFiles = files.filter(Boolean) as File[]
+        const validFiles = files.filter(Boolean) as File[];
         if (
           validFiles.length > 0 &&
           (navigator as any).canShare({ files: validFiles })
         ) {
-          shareData.files = validFiles
+          shareData.files = validFiles;
         }
       }
 
-      await navigator.share(shareData)
-      return true
+      await navigator.share(shareData);
+      return true;
     } catch (error) {
-      console.warn('Web share failed:', error)
-      return false
+      console.warn("Web share failed:", error);
+      return false;
     }
   }
 
   static async shareEstimate(estimate: {
-    type: string
-    total: number
-    url: string
+    type: string;
+    total: number;
+    url: string;
   }): Promise<boolean> {
     if (!(await this.isSupported())) {
-      return false
+      return false;
     }
 
     try {
       await navigator.share({
-        title: 'Construction Estimate - MH Construction',
+        title: "Construction Estimate - MH Construction",
         text: `${estimate.type} estimate: $${estimate.total.toLocaleString()}`,
         url: estimate.url,
-      })
-      return true
+      });
+      return true;
     } catch (error) {
-      console.warn('Estimate share failed:', error)
-      return false
+      console.warn("Estimate share failed:", error);
+      return false;
     }
   }
 }

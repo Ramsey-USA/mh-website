@@ -1,138 +1,143 @@
-'use client'
+"use client";
 
-import { useState, useMemo } from 'react'
-import Image from 'next/image'
-import { MaterialIcon } from '@/components/icons/MaterialIcon'
+import { useState, useMemo } from "react";
+import Image from "next/image";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   ClientTestimonial,
   TestimonialStatus,
   mockTestimonials,
   getReviewStats,
-} from '@/lib/types/testimonials'
-import { formatDate } from '@/lib/utils/dateUtils'
+} from "@/lib/types/testimonials";
+import { formatDate } from "@/lib/utils/dateUtils";
 
-type SortOption = 'newest' | 'oldest' | 'rating' | 'status'
+type SortOption = "newest" | "oldest" | "rating" | "status";
 
 const statusColors = {
-  pending: 'bg-yellow-100 text-yellow-800 border-yellow-200',
-  approved: 'bg-green-100 text-green-800 border-green-200',
-  rejected: 'bg-red-100 text-red-800 border-red-200',
-  featured: 'bg-blue-100 text-blue-800 border-blue-200',
-}
+  pending: "bg-yellow-100 text-yellow-800 border-yellow-200",
+  approved: "bg-green-100 text-green-800 border-green-200",
+  rejected: "bg-red-100 text-red-800 border-red-200",
+  featured: "bg-blue-100 text-blue-800 border-blue-200",
+};
 
 const statusIcons = {
-  pending: 'info',
-  approved: 'check',
-  rejected: 'close',
-  featured: 'emoji_events',
-}
+  pending: "info",
+  approved: "check",
+  rejected: "close",
+  featured: "emoji_events",
+};
 
 export default function TestimonialsDashboard() {
-  const [selectedTestimonials, setSelectedTestimonials] = useState<string[]>([])
-  const [searchTerm, setSearchTerm] = useState('')
-  const [statusFilter, setStatusFilter] = useState<TestimonialStatus | 'all'>(
-    'all'
-  )
-  const [sortBy, setSortBy] = useState<SortOption>('newest')
-  const [showFilters, setShowFilters] = useState(false)
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('list')
+  const [selectedTestimonials, setSelectedTestimonials] = useState<string[]>(
+    [],
+  );
+  const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState<TestimonialStatus | "all">(
+    "all",
+  );
+  const [sortBy, setSortBy] = useState<SortOption>("newest");
+  const [showFilters, setShowFilters] = useState(false);
+  const [viewMode, setViewMode] = useState<"grid" | "list">("list");
 
   // Get review statistics
-  const reviewStats = getReviewStats(mockTestimonials)
+  const reviewStats = getReviewStats(mockTestimonials);
 
   // Status statistics
   const statusStats = {
-    pending: mockTestimonials.filter(t => t.status === 'pending').length,
-    approved: mockTestimonials.filter(t => t.status === 'approved').length,
-    rejected: mockTestimonials.filter(t => t.status === 'rejected').length,
-    featured: mockTestimonials.filter(t => t.status === 'featured').length,
-  }
+    pending: mockTestimonials.filter((t) => t.status === "pending").length,
+    approved: mockTestimonials.filter((t) => t.status === "approved").length,
+    rejected: mockTestimonials.filter((t) => t.status === "rejected").length,
+    featured: mockTestimonials.filter((t) => t.status === "featured").length,
+  };
 
   // Filter and sort testimonials
   const filteredTestimonials = useMemo(() => {
-    const filtered = mockTestimonials.filter(testimonial => {
+    const filtered = mockTestimonials.filter((testimonial) => {
       // Search filter
       if (searchTerm) {
-        const search = searchTerm.toLowerCase()
+        const search = searchTerm.toLowerCase();
         if (
           !testimonial.clientName.toLowerCase().includes(search) &&
           !testimonial.projectTitle.toLowerCase().includes(search) &&
           !testimonial.testimonialText.toLowerCase().includes(search) &&
           !testimonial.clientLocation.toLowerCase().includes(search) &&
-          !testimonial.tags.some(tag => tag.toLowerCase().includes(search))
+          !testimonial.tags.some((tag) => tag.toLowerCase().includes(search))
         ) {
-          return false
+          return false;
         }
       }
 
       // Status filter
-      if (statusFilter !== 'all' && testimonial.status !== statusFilter) {
-        return false
+      if (statusFilter !== "all" && testimonial.status !== statusFilter) {
+        return false;
       }
 
-      return true
-    })
+      return true;
+    });
 
     // Sort testimonials
     filtered.sort((a, b) => {
       switch (sortBy) {
-        case 'newest':
+        case "newest":
           return (
             new Date(b.submissionDate).getTime() -
             new Date(a.submissionDate).getTime()
-          )
-        case 'oldest':
+          );
+        case "oldest":
           return (
             new Date(a.submissionDate).getTime() -
             new Date(b.submissionDate).getTime()
-          )
-        case 'rating':
-          return b.rating - a.rating
-        case 'status':
+          );
+        case "rating":
+          return b.rating - a.rating;
+        case "status":
           const statusOrder = {
             pending: 0,
             featured: 1,
             approved: 2,
             rejected: 3,
-          }
-          return statusOrder[a.status] - statusOrder[b.status]
+          };
+          return statusOrder[a.status] - statusOrder[b.status];
         default:
-          return 0
+          return 0;
       }
-    })
+    });
 
-    return filtered
-  }, [searchTerm, statusFilter, sortBy])
+    return filtered;
+  }, [searchTerm, statusFilter, sortBy]);
 
   const handleSelectAll = () => {
     if (selectedTestimonials.length === filteredTestimonials.length) {
-      setSelectedTestimonials([])
+      setSelectedTestimonials([]);
     } else {
-      setSelectedTestimonials(filteredTestimonials.map(t => t.id))
+      setSelectedTestimonials(filteredTestimonials.map((t) => t.id));
     }
-  }
+  };
 
   const handleSelectTestimonial = (id: string) => {
-    setSelectedTestimonials(prev =>
-      prev.includes(id) ? prev.filter(tid => tid !== id) : [...prev, id]
-    )
-  }
+    setSelectedTestimonials((prev) =>
+      prev.includes(id) ? prev.filter((tid) => tid !== id) : [...prev, id],
+    );
+  };
 
   const handleBulkAction = (
-    action: 'approve' | 'reject' | 'feature' | 'delete'
+    action: "approve" | "reject" | "feature" | "delete",
   ) => {
     // In a real app, this would make API calls
-    console.log(`Bulk ${action} action for testimonials:`, selectedTestimonials)
-    setSelectedTestimonials([])
-  }
+    console.log(
+      `Bulk ${action} action for testimonials:`,
+      selectedTestimonials,
+    );
+    setSelectedTestimonials([]);
+  };
 
   const handleStatusChange = (
     testimonialId: string,
-    newStatus: TestimonialStatus
+    newStatus: TestimonialStatus,
   ) => {
     // In a real app, this would make an API call
-    console.log(`Changing testimonial ${testimonialId} status to ${newStatus}`)
-  }
+    console.log(`Changing testimonial ${testimonialId} status to ${newStatus}`);
+  };
 
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -243,7 +248,7 @@ export default function TestimonialsDashboard() {
               className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
             >
               <MaterialIcon icon="filter_alt" className="w-4 h-4" />
-              {showFilters ? 'Hide Filters' : 'Show Filters'}
+              {showFilters ? "Hide Filters" : "Show Filters"}
               {showFilters ? (
                 <MaterialIcon icon="expand_less" className="w-4 h-4" />
               ) : (
@@ -262,7 +267,7 @@ export default function TestimonialsDashboard() {
               type="text"
               placeholder="Search testimonials by client, project, content..."
               value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
+              onChange={(e) => setSearchTerm(e.target.value)}
               className="py-3 pr-4 pl-10 border border-gray-300 focus:border-transparent rounded-lg focus:ring-2 focus:ring-blue-500 w-full"
             />
           </div>
@@ -276,8 +281,8 @@ export default function TestimonialsDashboard() {
                 </label>
                 <select
                   value={statusFilter}
-                  onChange={e =>
-                    setStatusFilter(e.target.value as TestimonialStatus | 'all')
+                  onChange={(e) =>
+                    setStatusFilter(e.target.value as TestimonialStatus | "all")
                   }
                   className="px-3 py-2 border border-gray-300 focus:border-transparent rounded-lg focus:ring-2 focus:ring-blue-500 w-full"
                 >
@@ -296,7 +301,7 @@ export default function TestimonialsDashboard() {
                 </label>
                 <select
                   value={sortBy}
-                  onChange={e => setSortBy(e.target.value as SortOption)}
+                  onChange={(e) => setSortBy(e.target.value as SortOption)}
                   className="px-3 py-2 border border-gray-300 focus:border-transparent rounded-lg focus:ring-2 focus:ring-blue-500 w-full"
                 >
                   <option value="newest">Newest First</option>
@@ -313,21 +318,21 @@ export default function TestimonialsDashboard() {
                 </label>
                 <div className="flex gap-2">
                   <button
-                    onClick={() => setViewMode('list')}
+                    onClick={() => setViewMode("list")}
                     className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-colors ${
-                      viewMode === 'list'
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      viewMode === "list"
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                     }`}
                   >
                     List
                   </button>
                   <button
-                    onClick={() => setViewMode('grid')}
+                    onClick={() => setViewMode("grid")}
                     className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-colors ${
-                      viewMode === 'grid'
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      viewMode === "grid"
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                     }`}
                   >
                     Grid
@@ -339,9 +344,9 @@ export default function TestimonialsDashboard() {
               <div className="flex items-end">
                 <button
                   onClick={() => {
-                    setSearchTerm('')
-                    setStatusFilter('all')
-                    setSortBy('newest')
+                    setSearchTerm("");
+                    setStatusFilter("all");
+                    setSortBy("newest");
                   }}
                   className="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg w-full font-medium text-gray-700 text-sm transition-colors"
                 >
@@ -359,30 +364,30 @@ export default function TestimonialsDashboard() {
               <div className="flex items-center gap-4">
                 <span className="font-medium text-blue-900 text-sm">
                   {selectedTestimonials.length} testimonial
-                  {selectedTestimonials.length > 1 ? 's' : ''} selected
+                  {selectedTestimonials.length > 1 ? "s" : ""} selected
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <button
-                  onClick={() => handleBulkAction('approve')}
+                  onClick={() => handleBulkAction("approve")}
                   className="bg-green-600 hover:bg-green-700 px-3 py-1 rounded text-white text-sm transition-colors"
                 >
                   Approve
                 </button>
                 <button
-                  onClick={() => handleBulkAction('feature')}
+                  onClick={() => handleBulkAction("feature")}
                   className="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-white text-sm transition-colors"
                 >
                   Feature
                 </button>
                 <button
-                  onClick={() => handleBulkAction('reject')}
+                  onClick={() => handleBulkAction("reject")}
                   className="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white text-sm transition-colors"
                 >
                   Reject
                 </button>
                 <button
-                  onClick={() => handleBulkAction('delete')}
+                  onClick={() => handleBulkAction("delete")}
                   className="bg-gray-600 hover:bg-gray-700 px-3 py-1 rounded text-white text-sm transition-colors"
                 >
                   Delete
@@ -395,7 +400,7 @@ export default function TestimonialsDashboard() {
         {/* Results Summary */}
         <div className="flex justify-between items-center mb-6">
           <p className="text-gray-600">
-            Showing {filteredTestimonials.length} of {mockTestimonials.length}{' '}
+            Showing {filteredTestimonials.length} of {mockTestimonials.length}{" "}
             testimonials
           </p>
           <div className="flex items-center gap-4">
@@ -415,7 +420,7 @@ export default function TestimonialsDashboard() {
         </div>
 
         {/* Testimonials List/Grid */}
-        {viewMode === 'list' ? (
+        {viewMode === "list" ? (
           <div className="bg-white shadow-sm border rounded-lg overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
@@ -451,13 +456,13 @@ export default function TestimonialsDashboard() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {filteredTestimonials.map(testimonial => (
+                  {filteredTestimonials.map((testimonial) => (
                     <TestimonialRow
                       key={testimonial.id}
                       testimonial={testimonial}
                       selected={selectedTestimonials.includes(testimonial.id)}
                       onSelect={() => handleSelectTestimonial(testimonial.id)}
-                      onStatusChange={status =>
+                      onStatusChange={(status) =>
                         handleStatusChange(testimonial.id, status)
                       }
                     />
@@ -468,13 +473,13 @@ export default function TestimonialsDashboard() {
           </div>
         ) : (
           <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {filteredTestimonials.map(testimonial => (
+            {filteredTestimonials.map((testimonial) => (
               <TestimonialCard
                 key={testimonial.id}
                 testimonial={testimonial}
                 selected={selectedTestimonials.includes(testimonial.id)}
                 onSelect={() => handleSelectTestimonial(testimonial.id)}
-                onStatusChange={status =>
+                onStatusChange={(status) =>
                   handleStatusChange(testimonial.id, status)
                 }
               />
@@ -493,15 +498,15 @@ export default function TestimonialsDashboard() {
               No testimonials found
             </h3>
             <p className="text-gray-600">
-              {searchTerm || statusFilter !== 'all'
-                ? 'Try adjusting your filters or search terms.'
-                : 'No testimonials have been submitted yet.'}
+              {searchTerm || statusFilter !== "all"
+                ? "Try adjusting your filters or search terms."
+                : "No testimonials have been submitted yet."}
             </p>
           </div>
         )}
       </div>
     </div>
-  )
+  );
 }
 
 function TestimonialRow({
@@ -510,15 +515,15 @@ function TestimonialRow({
   onSelect,
   onStatusChange,
 }: {
-  testimonial: ClientTestimonial
-  selected: boolean
-  onSelect: () => void
-  onStatusChange: (status: TestimonialStatus) => void
+  testimonial: ClientTestimonial;
+  selected: boolean;
+  onSelect: () => void;
+  onStatusChange: (status: TestimonialStatus) => void;
 }) {
-  const statusIconName = statusIcons[testimonial.status]
+  const statusIconName = statusIcons[testimonial.status];
 
   return (
-    <tr className={`hover:bg-gray-50 ${selected ? 'bg-blue-50' : ''}`}>
+    <tr className={`hover:bg-gray-50 ${selected ? "bg-blue-50" : ""}`}>
       <td className="px-6 py-4 whitespace-nowrap">
         <input
           type="checkbox"
@@ -563,8 +568,8 @@ function TestimonialRow({
               icon="star"
               className={`h-4 w-4 ${
                 i < testimonial.rating
-                  ? 'fill-yellow-400 text-yellow-400'
-                  : 'text-gray-300'
+                  ? "fill-yellow-400 text-yellow-400"
+                  : "text-gray-300"
               }`}
             />
           ))}
@@ -603,7 +608,9 @@ function TestimonialRow({
           </button>
           <select
             value={testimonial.status}
-            onChange={e => onStatusChange(e.target.value as TestimonialStatus)}
+            onChange={(e) =>
+              onStatusChange(e.target.value as TestimonialStatus)
+            }
             className="px-2 py-1 border border-gray-300 focus:border-transparent rounded focus:ring-1 focus:ring-blue-500 text-xs"
           >
             <option value="pending">Pending</option>
@@ -614,7 +621,7 @@ function TestimonialRow({
         </div>
       </td>
     </tr>
-  )
+  );
 }
 
 function TestimonialCard({
@@ -623,16 +630,16 @@ function TestimonialCard({
   onSelect,
   onStatusChange,
 }: {
-  testimonial: ClientTestimonial
-  selected: boolean
-  onSelect: () => void
-  onStatusChange: (status: TestimonialStatus) => void
+  testimonial: ClientTestimonial;
+  selected: boolean;
+  onSelect: () => void;
+  onStatusChange: (status: TestimonialStatus) => void;
 }) {
-  const statusIconName = statusIcons[testimonial.status]
+  const statusIconName = statusIcons[testimonial.status];
 
   return (
     <div
-      className={`bg-white rounded-lg shadow-sm border p-6 ${selected ? 'ring-2 ring-blue-500' : ''}`}
+      className={`bg-white rounded-lg shadow-sm border p-6 ${selected ? "ring-2 ring-blue-500" : ""}`}
     >
       {/* Header */}
       <div className="flex justify-between items-start mb-4">
@@ -687,8 +694,8 @@ function TestimonialCard({
               icon="star"
               className={`h-4 w-4 ${
                 i < testimonial.rating
-                  ? 'fill-yellow-400 text-yellow-400'
-                  : 'text-gray-300'
+                  ? "fill-yellow-400 text-yellow-400"
+                  : "text-gray-300"
               }`}
             />
           ))}
@@ -727,7 +734,7 @@ function TestimonialCard({
         </div>
         <select
           value={testimonial.status}
-          onChange={e => onStatusChange(e.target.value as TestimonialStatus)}
+          onChange={(e) => onStatusChange(e.target.value as TestimonialStatus)}
           className="px-2 py-1 border border-gray-300 focus:border-transparent rounded focus:ring-1 focus:ring-blue-500 text-xs"
         >
           <option value="pending">Pending</option>
@@ -737,5 +744,5 @@ function TestimonialCard({
         </select>
       </div>
     </div>
-  )
+  );
 }

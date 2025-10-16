@@ -9,7 +9,7 @@ const fs = require("fs");
 const path = require("path");
 
 console.log(
-  "🔍 Validating build configuration for Firebase-only deployment..."
+  "🔍 Validating build configuration for Firebase-only deployment...",
 );
 
 // Check for required files
@@ -39,12 +39,12 @@ if (fs.existsSync(nextConfigPath)) {
   ];
 
   const hasProblems = problematicPatterns.some((pattern) =>
-    new RegExp(pattern, "i").test(content)
+    new RegExp(pattern, "i").test(content),
   );
 
   if (hasProblems) {
     console.log(
-      "⚠️  Found potential Cloudflare hard dependencies in next.config.js"
+      "⚠️  Found potential Cloudflare hard dependencies in next.config.js",
     );
     allGood = false;
   } else {
@@ -71,5 +71,5 @@ if (allGood) {
 }
 
 console.log(
-  "\n💡 Pro Tip: You can add Cloudflare later without any code changes!"
+  "\n💡 Pro Tip: You can add Cloudflare later without any code changes!",
 );

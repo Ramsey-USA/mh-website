@@ -264,7 +264,7 @@ const successFactors = [
 
 export default function GovernmentGrantsPage() {
   const [selectedGrantType, setSelectedGrantType] = useState<string | null>(
-    null
+    null,
   );
 
   return (
@@ -540,7 +540,9 @@ export default function GovernmentGrantsPage() {
                   className="h-full cursor-pointer"
                   onClick={() =>
                     setSelectedGrantType(
-                      selectedGrantType === type.category ? null : type.category
+                      selectedGrantType === type.category
+                        ? null
+                        : type.category,
                     )
                   }
                 >

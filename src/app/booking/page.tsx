@@ -174,7 +174,7 @@ export default function BookingPage() {
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -196,7 +196,7 @@ export default function BookingPage() {
         budget: formData.budget ? parseInt(formData.budget) : undefined,
         status: "pending" as const,
         scheduledDate: new Date(
-          `${formData.selectedDate}T${convertTo24Hour(formData.selectedTime)}`
+          `${formData.selectedDate}T${convertTo24Hour(formData.selectedTime)}`,
         ),
         notes: formData.additionalNotes,
       };
@@ -258,7 +258,7 @@ export default function BookingPage() {
                           month: "long",
                           day: "numeric",
                           year: "numeric",
-                        }
+                        },
                       )}
                     </p>
                     <p className="flex items-center gap-2 font-semibold text-green-800 dark:text-green-200">

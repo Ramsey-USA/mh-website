@@ -297,7 +297,7 @@ ${Object.entries(this.constructionIntel.materialSpecs)
 
   private getLocationIntelligence(input: string): string {
     const detectedLocation = Object.keys(
-      this.constructionIntel.locationIntel
+      this.constructionIntel.locationIntel,
     ).find((loc) => input.includes(loc));
 
     if (detectedLocation) {
@@ -355,7 +355,7 @@ ${Object.entries(this.constructionIntel.timelineStrategies)
 
   private getVeteranProtocols(input: string): string {
     const serviceDetected = Object.keys(
-      this.constructionIntel.veteranProtocols
+      this.constructionIntel.veteranProtocols,
     ).find((service) => input.includes(service));
 
     const greeting = serviceDetected
@@ -386,7 +386,7 @@ ${Object.entries(this.constructionIntel.timelineStrategies)
 
   private getProjectIntelligence(input: string): string {
     const projectType = Object.keys(this.constructionIntel.projectTypes).find(
-      (type) => input.includes(type)
+      (type) => input.includes(type),
     );
 
     if (projectType) {
@@ -784,7 +784,7 @@ Your construction mission parameters are being analyzed through our **military-g
     const formAnalysis = this.analyzeFormCompletion(context?.formData);
     const smartSuggestions = this.generateSmartSuggestions(
       input,
-      context?.formData
+      context?.formData,
     );
     const validationGuidance = this.getValidationGuidance(context?.formData);
 
@@ -897,10 +897,10 @@ Ready to establish **direct communication** with MH Construction command! Our **
     // Enhanced booking form analysis
     const bookingAnalysis = this.analyzeBookingCompletion(context?.formData);
     const timeSlotSuggestions = this.generateTimeSlotSuggestions(
-      context?.formData
+      context?.formData,
     );
     const bookingValidation = this.getBookingValidationGuidance(
-      context?.formData
+      context?.formData,
     );
 
     if (context?.formData) {
@@ -1039,7 +1039,7 @@ Ready to schedule **direct tactical consultation** with MH Construction command!
   public getLeadQualificationGuidance(input: string, context?: any): string {
     const leadIntelligence = this.performComprehensiveLeadAnalysis(
       input,
-      context
+      context,
     );
 
     return `**LEAD QUALIFICATION INTELLIGENCE COMMAND** [GPS_FIXED]
@@ -1092,7 +1092,7 @@ ${leadIntelligence.followUpStrategy}
 
     const totalScore = Object.values(scoring).reduce(
       (sum, score) => sum + score,
-      0
+      0,
     );
     const scoreCategory = this.categorizeLeadScore(totalScore);
 
@@ -1108,14 +1108,14 @@ ${leadIntelligence.followUpStrategy}
       classification: this.generateAdvancedLeadClassification(
         totalScore,
         scoring,
-        keywords
+        keywords,
       ),
       scoreBreakdown: this.generateScoreBreakdown(scoring),
       actionPlan: this.generateActionPlan(totalScore, scoring, keywords),
       followUpStrategy: this.generateFollowUpStrategy(
         totalScore,
         scoring,
-        keywords
+        keywords,
       ),
     };
   }
@@ -1287,7 +1287,7 @@ ${leadIntelligence.followUpStrategy}
   private generateAdvancedLeadClassification(
     score: number,
     scoring: any,
-    keywords: string
+    keywords: string,
   ): string {
     if (score >= 80) {
       return `[WHATSHOT] **ALPHA PRIORITY LEAD** - Elite Deployment Required:
@@ -1339,7 +1339,7 @@ ${leadIntelligence.followUpStrategy}
   private generateActionPlan(
     score: number,
     scoring: any,
-    keywords: string
+    keywords: string,
   ): string {
     if (score >= 80) {
       return `[ROCKET_LAUNCH] **IMMEDIATE ACTION PROTOCOL:**
@@ -1374,7 +1374,7 @@ ${leadIntelligence.followUpStrategy}
   private generateFollowUpStrategy(
     score: number,
     scoring: any,
-    keywords: string
+    keywords: string,
   ): string {
     if (score >= 80) {
       return `[MILITARY_TECH] **ELITE FOLLOW-UP PROTOCOLS:**
@@ -1426,14 +1426,14 @@ ${leadIntelligence.followUpStrategy}
     const allFields = [...requiredFields, ...optionalFields];
 
     const completedFields = allFields.filter((field) =>
-      formData[field]?.toString().trim()
+      formData[field]?.toString().trim(),
     );
     const missingRequired = requiredFields.filter(
-      (field) => !formData[field]?.toString().trim()
+      (field) => !formData[field]?.toString().trim(),
     );
 
     const completionRate = Math.round(
-      (completedFields.length / allFields.length) * 100
+      (completedFields.length / allFields.length) * 100,
     );
 
     let quality = "INSUFFICIENT";
@@ -1473,14 +1473,14 @@ ${leadIntelligence.followUpStrategy}
     const allFields = [...requiredFields, ...optionalFields];
 
     const completedFields = allFields.filter((field) =>
-      bookingData[field]?.toString().trim()
+      bookingData[field]?.toString().trim(),
     );
     const missingRequired = requiredFields.filter(
-      (field) => !bookingData[field]?.toString().trim()
+      (field) => !bookingData[field]?.toString().trim(),
     );
 
     const completionRate = Math.round(
-      (completedFields.length / allFields.length) * 100
+      (completedFields.length / allFields.length) * 100,
     );
 
     let quality = "INSUFFICIENT";
@@ -1502,19 +1502,19 @@ ${leadIntelligence.followUpStrategy}
       const keywords = input.toLowerCase();
       if (keywords.includes("kitchen"))
         suggestions.push(
-          '[GPS_FIXED] **SUGGESTION:** Consider "Kitchen Remodel" for mission type'
+          '[GPS_FIXED] **SUGGESTION:** Consider "Kitchen Remodel" for mission type',
         );
       if (keywords.includes("bathroom"))
         suggestions.push(
-          '[GPS_FIXED] **SUGGESTION:** Consider "Bathroom Remodel" for mission type'
+          '[GPS_FIXED] **SUGGESTION:** Consider "Bathroom Remodel" for mission type',
         );
       if (keywords.includes("addition") || keywords.includes("expand"))
         suggestions.push(
-          '[GPS_FIXED] **SUGGESTION:** Consider "Home Addition" for mission type'
+          '[GPS_FIXED] **SUGGESTION:** Consider "Home Addition" for mission type',
         );
       if (keywords.includes("commercial") || keywords.includes("business"))
         suggestions.push(
-          '[GPS_FIXED] **SUGGESTION:** Consider "Commercial Building" for mission type'
+          '[GPS_FIXED] **SUGGESTION:** Consider "Commercial Building" for mission type',
         );
     }
 
@@ -1523,15 +1523,15 @@ ${leadIntelligence.followUpStrategy}
       const locationKeywords = input.toLowerCase();
       if (locationKeywords.includes("seattle"))
         suggestions.push(
-          "[LOCATION_ON] **LOCATION INTEL:** Seattle area - Premium pricing zone"
+          "[LOCATION_ON] **LOCATION INTEL:** Seattle area - Premium pricing zone",
         );
       if (locationKeywords.includes("spokane"))
         suggestions.push(
-          "[LOCATION_ON] **LOCATION INTEL:** Spokane area - Standard operational zone"
+          "[LOCATION_ON] **LOCATION INTEL:** Spokane area - Standard operational zone",
         );
       if (locationKeywords.includes("tacoma"))
         suggestions.push(
-          "[LOCATION_ON] **LOCATION INTEL:** Tacoma area - Active construction zone"
+          "[LOCATION_ON] **LOCATION INTEL:** Tacoma area - Active construction zone",
         );
     }
 
@@ -1542,7 +1542,7 @@ ${leadIntelligence.followUpStrategy}
       input.toLowerCase().includes("service")
     ) {
       suggestions.push(
-        "[MILITARY_TECH] **VETERAN DETECTED:** Mention your service branch for 12% combat discount!"
+        "[MILITARY_TECH] **VETERAN DETECTED:** Mention your service branch for 12% combat discount!",
       );
     }
 
@@ -1553,7 +1553,7 @@ ${leadIntelligence.followUpStrategy}
       input.toLowerCase().includes("price")
     ) {
       suggestions.push(
-        "[ATTACH_MONEY] **BUDGET INTEL:** Include budget range in message for tactical resource planning"
+        "[ATTACH_MONEY] **BUDGET INTEL:** Include budget range in message for tactical resource planning",
       );
     }
 
@@ -1570,10 +1570,10 @@ ${leadIntelligence.followUpStrategy}
     // Morning vs afternoon recommendations
     if (!bookingData.selectedTime) {
       suggestions.push(
-        "[ALARM] **OPTIMAL TIMES:** Morning slots (8-11 AM) for outdoor projects"
+        "[ALARM] **OPTIMAL TIMES:** Morning slots (8-11 AM) for outdoor projects",
       );
       suggestions.push(
-        "[ALARM] **STRATEGIC PLANNING:** Afternoon slots (1-4 PM) for interior consultations"
+        "[ALARM] **STRATEGIC PLANNING:** Afternoon slots (1-4 PM) for interior consultations",
       );
     }
 
@@ -1583,7 +1583,7 @@ ${leadIntelligence.followUpStrategy}
       const tomorrow = new Date(today);
       tomorrow.setDate(tomorrow.getDate() + 1);
       suggestions.push(
-        `[EVENT] **EARLIEST DEPLOYMENT:** ${tomorrow.toLocaleDateString()} or later recommended`
+        `[EVENT] **EARLIEST DEPLOYMENT:** ${tomorrow.toLocaleDateString()} or later recommended`,
       );
     }
 
@@ -1600,14 +1600,14 @@ ${leadIntelligence.followUpStrategy}
     // Email validation guidance
     if (formData.email && !this.validateEmail(formData.email)) {
       issues.push(
-        "[EMAIL] **EMAIL FORMAT:** Use standard format (example@domain.com)"
+        "[EMAIL] **EMAIL FORMAT:** Use standard format (example@domain.com)",
       );
     }
 
     // Phone validation guidance
     if (formData.phone && !this.validatePhone(formData.phone)) {
       issues.push(
-        "[PHONE] **PHONE FORMAT:** Use (XXX) XXX-XXXX format for optimal communication"
+        "[PHONE] **PHONE FORMAT:** Use (XXX) XXX-XXXX format for optimal communication",
       );
     }
 
@@ -1615,11 +1615,11 @@ ${leadIntelligence.followUpStrategy}
     if (formData.message) {
       if (formData.message.length < 20) {
         issues.push(
-          "[EDIT_NOTE] **MESSAGE BRIEF:** Consider adding more project details for better tactical planning"
+          "[EDIT_NOTE] **MESSAGE BRIEF:** Consider adding more project details for better tactical planning",
         );
       } else if (formData.message.length > 500) {
         issues.push(
-          "[EDIT_NOTE] **MESSAGE LENGTH:** Consider summarizing key points for efficient processing"
+          "[EDIT_NOTE] **MESSAGE LENGTH:** Consider summarizing key points for efficient processing",
         );
       }
     }
@@ -1637,14 +1637,14 @@ ${leadIntelligence.followUpStrategy}
     // Email validation
     if (bookingData.email && !this.validateEmail(bookingData.email)) {
       issues.push(
-        "[EMAIL] **EMAIL FORMAT:** Use standard format (example@domain.com)"
+        "[EMAIL] **EMAIL FORMAT:** Use standard format (example@domain.com)",
       );
     }
 
     // Phone validation
     if (bookingData.phone && !this.validatePhone(bookingData.phone)) {
       issues.push(
-        "[PHONE] **PHONE FORMAT:** Use (XXX) XXX-XXXX format for coordination"
+        "[PHONE] **PHONE FORMAT:** Use (XXX) XXX-XXXX format for coordination",
       );
     }
 
@@ -1652,7 +1652,7 @@ ${leadIntelligence.followUpStrategy}
     if (bookingData.projectDescription) {
       if (bookingData.projectDescription.length < 30) {
         issues.push(
-          "[EDIT_NOTE] **PROJECT BRIEF:** Add more details for better consultation preparation"
+          "[EDIT_NOTE] **PROJECT BRIEF:** Add more details for better consultation preparation",
         );
       }
     }
@@ -1663,7 +1663,7 @@ ${leadIntelligence.followUpStrategy}
       const today = new Date();
       if (selectedDate <= today) {
         issues.push(
-          "[EVENT] **DATE VALIDATION:** Select future date for consultation scheduling"
+          "[EVENT] **DATE VALIDATION:** Select future date for consultation scheduling",
         );
       }
     }
@@ -1877,7 +1877,7 @@ ${leadIntelligence.followUpStrategy}
       "overseas",
     ];
     const isCombatVeteran = combatKeywords.some((keyword) =>
-      keywords.includes(keyword)
+      keywords.includes(keyword),
     );
 
     // Disabled veteran detection
@@ -1891,7 +1891,7 @@ ${leadIntelligence.followUpStrategy}
       "wounded",
     ];
     const isDisabledVeteran = disabilityKeywords.some((keyword) =>
-      keywords.includes(keyword)
+      keywords.includes(keyword),
     );
 
     // Multiple tours detection
@@ -1903,7 +1903,7 @@ ${leadIntelligence.followUpStrategy}
       "third tour",
     ];
     const hasMultipleTours = tourKeywords.some((keyword) =>
-      keywords.includes(keyword)
+      keywords.includes(keyword),
     );
 
     // VA benefits eligibility
@@ -2029,7 +2029,7 @@ ${leadIntelligence.followUpStrategy}
    */
   processVeteranPriority(
     veteranAnalysis: any,
-    leadData: any
+    leadData: any,
   ): {
     priority: "IMMEDIATE" | "HIGH" | "STANDARD";
     processingProtocol: string;
@@ -2060,7 +2060,7 @@ ${leadIntelligence.followUpStrategy}
     // Generate processing protocol
     const processingProtocol = this.generateVeteranProtocol(
       priority,
-      veteranAnalysis
+      veteranAnalysis,
     );
 
     // Assign specialized personnel
@@ -2072,7 +2072,7 @@ ${leadIntelligence.followUpStrategy}
     // Set expedited timeline
     const expeditedTimeline = this.getExpeditedTimeline(
       priority,
-      disabledVeteran
+      disabledVeteran,
     );
 
     return {
@@ -2089,7 +2089,7 @@ ${leadIntelligence.followUpStrategy}
    */
   private generateVeteranProtocol(
     priority: string,
-    veteranAnalysis: any
+    veteranAnalysis: any,
   ): string {
     const { serviceBranch, rank, combatVeteran, disabledVeteran } =
       veteranAnalysis;
@@ -2208,7 +2208,7 @@ ${leadIntelligence.followUpStrategy}
    */
   private getExpeditedTimeline(
     priority: string,
-    disabledVeteran: boolean
+    disabledVeteran: boolean,
   ): string {
     if (priority === "IMMEDIATE") {
       return `[BOLT] **IMMEDIATE RESPONSE TIMELINE**
@@ -2242,7 +2242,7 @@ ${leadIntelligence.followUpStrategy}
   generateSmartFormSuggestions(
     formData: any,
     currentField: string,
-    userInput: string
+    userInput: string,
   ): {
     suggestions: string[];
     autoComplete: string;
@@ -2262,19 +2262,19 @@ ${leadIntelligence.followUpStrategy}
       suggestions: this.generateFieldSuggestions(
         currentField,
         userInput,
-        formData
+        formData,
       ),
       autoComplete: this.generateAutoComplete(
         currentField,
         userInput,
-        formData
+        formData,
       ),
       validation: this.validateField(currentField, userInput),
       militaryContext: {
         isVeteran: veteranAnalysis.isVeteran,
         suggestions: this.generateVeteranSuggestions(
           currentField,
-          veteranAnalysis
+          veteranAnalysis,
         ),
         discounts: this.getApplicableVeteranDiscounts(veteranAnalysis),
       },
@@ -2287,7 +2287,7 @@ ${leadIntelligence.followUpStrategy}
   private generateFieldSuggestions(
     field: string,
     input: string,
-    formData: any
+    formData: any,
   ): string[] {
     const suggestions: string[] = [];
 
@@ -2297,28 +2297,28 @@ ${leadIntelligence.followUpStrategy}
           suggestions.push(
             "Kitchen Remodel - Full Renovation",
             "Kitchen Remodel - Partial Update",
-            "Kitchen Addition"
+            "Kitchen Addition",
           );
         }
         if (input.toLowerCase().includes("bathroom")) {
           suggestions.push(
             "Bathroom Remodel - Master Bath",
             "Bathroom Remodel - Guest Bath",
-            "Bathroom Addition"
+            "Bathroom Addition",
           );
         }
         if (input.toLowerCase().includes("commercial")) {
           suggestions.push(
             "Commercial Building - New Construction",
             "Commercial Renovation",
-            "Tenant Improvement"
+            "Tenant Improvement",
           );
         }
         if (input.toLowerCase().includes("home")) {
           suggestions.push(
             "Custom Home - New Construction",
             "Home Addition",
-            "Home Renovation"
+            "Home Renovation",
           );
         }
         break;
@@ -2335,7 +2335,7 @@ ${leadIntelligence.followUpStrategy}
           "Burbank, WA",
         ];
         const matchingAreas = triCitiesAreas.filter((area) =>
-          area.toLowerCase().includes(input.toLowerCase())
+          area.toLowerCase().includes(input.toLowerCase()),
         );
         suggestions.push(...matchingAreas);
         break;
@@ -2347,7 +2347,7 @@ ${leadIntelligence.followUpStrategy}
             "$25,000 - $50,000 (Major Renovation)",
             "$50,000 - $100,000 (Extensive Remodel)",
             "$100,000 - $250,000 (Addition/New Construction)",
-            "$250,000+ (Custom/Commercial Project)"
+            "$250,000+ (Custom/Commercial Project)",
           );
         }
         break;
@@ -2358,7 +2358,7 @@ ${leadIntelligence.followUpStrategy}
           "Within 2-4 weeks",
           "Within 1-3 months",
           "Within 3-6 months",
-          "Flexible timeline"
+          "Flexible timeline",
         );
         break;
     }
@@ -2372,7 +2372,7 @@ ${leadIntelligence.followUpStrategy}
   private generateAutoComplete(
     field: string,
     input: string,
-    formData: any
+    formData: any,
   ): string {
     const lowerInput = input.toLowerCase();
 
@@ -2424,7 +2424,7 @@ ${leadIntelligence.followUpStrategy}
    */
   private validateField(
     field: string,
-    input: string
+    input: string,
   ): { isValid: boolean; feedback: string } {
     switch (field) {
       case "name":
@@ -2523,7 +2523,7 @@ ${leadIntelligence.followUpStrategy}
    */
   private generateVeteranSuggestions(
     field: string,
-    veteranAnalysis: any
+    veteranAnalysis: any,
   ): string[] {
     const suggestions: string[] = [];
 
@@ -2536,7 +2536,7 @@ ${leadIntelligence.followUpStrategy}
           "Wheelchair Accessible Home Modifications",
           "Military Workshop/Den Addition",
           "Flag Display Area Installation",
-          "Security System Integration"
+          "Security System Integration",
         );
         break;
 
@@ -2546,7 +2546,7 @@ ${leadIntelligence.followUpStrategy}
           "Requires ADA compliance",
           "VA benefits coordination needed",
           "Deployment schedule accommodation",
-          "PTSD-friendly construction practices"
+          "PTSD-friendly construction practices",
         );
         break;
 
@@ -2555,7 +2555,7 @@ ${leadIntelligence.followUpStrategy}
           suggestions.push(
             "Veteran priority scheduling - ASAP",
             "Between deployments",
-            "VA benefits approval pending"
+            "VA benefits approval pending",
           );
         }
         break;
@@ -2574,28 +2574,28 @@ ${leadIntelligence.followUpStrategy}
 
     // Base veteran discount
     discounts.push(
-      "[MILITARY_TECH] Military Discount: 10% off total project cost"
+      "[MILITARY_TECH] Military Discount: 10% off total project cost",
     );
 
     if (veteranAnalysis.disabledVeteran) {
       discounts.push(
-        "[ACCESSIBLE] Disabled Veteran: 15% off accessibility modifications"
+        "[ACCESSIBLE] Disabled Veteran: 15% off accessibility modifications",
       );
       discounts.push(
-        "🏥 VA Grant Assistance: Help applying for adaptation grants"
+        "🏥 VA Grant Assistance: Help applying for adaptation grants",
       );
     }
 
     if (veteranAnalysis.combatVeteran) {
       discounts.push(
-        "[MILITARY_TECH] Combat Veteran: Priority scheduling + 5% additional discount"
+        "[MILITARY_TECH] Combat Veteran: Priority scheduling + 5% additional discount",
       );
     }
 
     if (veteranAnalysis.vaBenefits) {
       discounts.push("[HOME] VA Home Loan: Specialized financing coordination");
       discounts.push(
-        "[ASSIGNMENT] VA Benefits: Compliance assistance included"
+        "[ASSIGNMENT] VA Benefits: Compliance assistance included",
       );
     }
 
@@ -2604,7 +2604,7 @@ ${leadIntelligence.followUpStrategy}
       discounts.push(
         `${this.getBranchEmoji(veteranAnalysis.serviceBranch)} ${
           veteranAnalysis.serviceBranch
-        } Veteran: Branch pride recognition`
+        } Veteran: Branch pride recognition`,
       );
     }
 
@@ -2669,7 +2669,7 @@ ${leadIntelligence.followUpStrategy}
     // Location-based suggestions
     if (formData.location?.includes("Pasco")) {
       autoFillRecommendations.push(
-        "[CHECK_CIRCLE] Service area confirmed - full MH Construction services available"
+        "[CHECK_CIRCLE] Service area confirmed - full MH Construction services available",
       );
     }
 
@@ -2688,12 +2688,12 @@ ${leadIntelligence.followUpStrategy}
    */
   private generateNextStepGuidance(formData: any): string {
     const completedFields = Object.values(formData).filter(
-      (value) => value && typeof value === "string" && value.trim().length > 0
+      (value) => value && typeof value === "string" && value.trim().length > 0,
     ).length;
 
     const totalFields = Object.keys(formData).length;
     const completionPercentage = Math.round(
-      (completedFields / totalFields) * 100
+      (completedFields / totalFields) * 100,
     );
 
     if (completionPercentage < 30) {
@@ -2729,12 +2729,12 @@ ${leadIntelligence.followUpStrategy}
    */
   async generateSmartProjectRecommendations(
     userProfile: UserProfile,
-    context?: any
+    context?: any,
   ): Promise<ProjectRecommendation[]> {
     try {
       return await this.recommendationEngine.generateRecommendations(
         userProfile,
-        context
+        context,
       );
     } catch (error) {
       console.error("Error generating smart recommendations:", error);
@@ -2747,7 +2747,7 @@ ${leadIntelligence.followUpStrategy}
    */
   createUserProfileFromData(formData: any, sessionData?: any): UserProfile {
     const veteranAnalysis = this.analyzeVeteranStatus(
-      `${formData.name || ""} ${formData.message || ""} ${formData.projectType || ""}`
+      `${formData.name || ""} ${formData.message || ""} ${formData.projectType || ""}`,
     );
 
     const preferences = {
@@ -2900,7 +2900,7 @@ ${leadIntelligence.followUpStrategy}
   async generateEnhancedVeteranResponse(
     input: string,
     formData?: any,
-    sessionId?: string
+    sessionId?: string,
   ): Promise<{
     standardResponse: string;
     veteranExperience?: ComprehensiveVeteranExperience;
@@ -2918,13 +2918,13 @@ ${leadIntelligence.followUpStrategy}
         await this.veteranSystem.initializeVeteranExperience(
           input,
           formData,
-          sessionId
+          sessionId,
         );
 
       // Enhance the response with veteran personalization
       const enhancedResponse = enhanceAIWithVeteranPersonalization(
         standardResponse,
-        veteranExperience.profile
+        veteranExperience.profile,
       );
 
       // Extract veteran benefits if applicable
@@ -2989,7 +2989,7 @@ ${leadIntelligence.followUpStrategy}
    */
   private formatEnhancedResponse(
     enhancedResponse: any,
-    veteranExperience: ComprehensiveVeteranExperience
+    veteranExperience: ComprehensiveVeteranExperience,
   ): string {
     const profile = veteranExperience.profile;
     const content = veteranExperience.personalizedContent;
@@ -3056,7 +3056,7 @@ ${leadIntelligence.followUpStrategy}
    * Generate enhanced next steps with veteran considerations
    */
   private generateEnhancedNextSteps(
-    veteranExperience: ComprehensiveVeteranExperience
+    veteranExperience: ComprehensiveVeteranExperience,
   ): string[] {
     const profile = veteranExperience.profile;
     const steps: string[] = [];
@@ -3072,7 +3072,7 @@ ${leadIntelligence.followUpStrategy}
     // Veteran-specific next steps
     if (profile.priorityLevel === "IMMEDIATE") {
       steps.push(
-        "[EMERGENCY] IMMEDIATE: Veteran specialist will contact you within 4 hours"
+        "[EMERGENCY] IMMEDIATE: Veteran specialist will contact you within 4 hours",
       );
       steps.push("Emergency accessibility assessment will be prioritized");
       if (profile.disabledVeteran) {
@@ -3080,7 +3080,7 @@ ${leadIntelligence.followUpStrategy}
       }
     } else if (profile.priorityLevel === "HIGH") {
       steps.push(
-        "[BOLT] PRIORITY: Veteran specialist will contact you within 24 hours"
+        "[BOLT] PRIORITY: Veteran specialist will contact you within 24 hours",
       );
       steps.push("Priority project scheduling will be arranged");
     } else {
@@ -3099,10 +3099,10 @@ ${leadIntelligence.followUpStrategy}
 
     // Standard steps
     steps.push(
-      "Veteran discounts will be automatically applied to your estimate"
+      "Veteran discounts will be automatically applied to your estimate",
     );
     steps.push(
-      "Detailed project proposal with veteran benefits will be provided"
+      "Detailed project proposal with veteran benefits will be provided",
     );
     steps.push("Your assigned specialist will coordinate all veteran services");
 
@@ -3114,7 +3114,7 @@ ${leadIntelligence.followUpStrategy}
    */
   calculateVeteranDiscountEstimate(
     baseEstimate: number,
-    veteranProfile?: VeteranProfile
+    veteranProfile?: VeteranProfile,
   ): {
     originalAmount: number;
     discountedAmount: number;
@@ -3134,7 +3134,7 @@ ${leadIntelligence.followUpStrategy}
     const benefitsEngine = VeteranBenefitsAutomation.getInstance();
     const discountResult = benefitsEngine.applyAutomaticDiscounts(
       veteranProfile,
-      baseEstimate
+      baseEstimate,
     );
 
     return {
@@ -3142,7 +3142,7 @@ ${leadIntelligence.followUpStrategy}
       discountedAmount: discountResult.discountedAmount,
       totalSavings: discountResult.totalSavings,
       discountBreakdown: discountResult.appliedDiscounts.map(
-        (d: any) => `${d.name}: ${d.percentage}% (${d.description})`
+        (d: any) => `${d.name}: ${d.percentage}% (${d.description})`,
       ),
     };
   }
@@ -3153,7 +3153,7 @@ ${leadIntelligence.followUpStrategy}
   async processEnhancedForm(
     formType: "contact" | "estimate" | "booking",
     formData: any,
-    sessionId?: string
+    sessionId?: string,
   ): Promise<{
     response: any;
     veteranHandling?: any;
@@ -3166,7 +3166,7 @@ ${leadIntelligence.followUpStrategy}
         const result = this.veteranSystem.processVeteranFormSubmission(
           sessionId,
           formType,
-          formData
+          formData,
         );
 
         return {
@@ -3181,7 +3181,7 @@ ${leadIntelligence.followUpStrategy}
       return {
         response: this.generateResponse(
           `${formData.name || ""} ${formData.message || ""} ${formData.projectType || ""}`,
-          formData
+          formData,
         ),
         nextSteps: [
           "Our team will review your request and contact you within 48 hours",
@@ -3196,7 +3196,7 @@ ${leadIntelligence.followUpStrategy}
       return {
         response: this.generateResponse(
           `${formData.name || ""} ${formData.message || ""} ${formData.projectType || ""}`,
-          formData
+          formData,
         ),
         nextSteps: [
           "Our team will review your request and contact you within 48 hours",

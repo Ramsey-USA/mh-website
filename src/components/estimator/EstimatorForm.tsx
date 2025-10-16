@@ -190,7 +190,7 @@ export function EstimatorForm() {
 
   const handleInputChange = (
     field: keyof ProjectData,
-    value: string | string[] | number | boolean
+    value: string | string[] | number | boolean,
   ) => {
     setProjectData((prev) => ({
       ...prev,
@@ -200,7 +200,7 @@ export function EstimatorForm() {
 
   const handleArrayToggle = (
     field: "materials" | "features",
-    value: string
+    value: string,
   ) => {
     setProjectData((prev) => ({
       ...prev,
@@ -321,7 +321,7 @@ export function EstimatorForm() {
       breakdown: { materials, labor, permits, overhead, contingency },
       timeline: getProjectTimeline(
         projectData.projectType,
-        parseInt(projectData.size)
+        parseInt(projectData.size),
       ),
       veteranDiscount,
       accuracy: estimateConfidence,
@@ -334,19 +334,19 @@ export function EstimatorForm() {
   const getProjectTimeline = (type: string, size: number): string => {
     const timelines = {
       "Custom Home": `${Math.ceil((size / 2000) * 8)}-${Math.ceil(
-        (size / 2000) * 12
+        (size / 2000) * 12,
       )} months`,
       "Home Addition": `${Math.ceil((size / 1000) * 2)}-${Math.ceil(
-        (size / 1000) * 4
+        (size / 1000) * 4,
       )} months`,
       "Kitchen Remodel": "4-8 weeks",
       "Bathroom Remodel": "2-4 weeks",
       "Deck/Patio": "1-3 weeks",
       "Commercial Building": `${Math.ceil((size / 5000) * 6)}-${Math.ceil(
-        (size / 5000) * 18
+        (size / 5000) * 18,
       )} months`,
       Renovation: `${Math.ceil((size / 1500) * 2)}-${Math.ceil(
-        (size / 1500) * 6
+        (size / 1500) * 6,
       )} months`,
     };
     return timelines[type as keyof typeof timelines] || "2-6 months";

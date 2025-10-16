@@ -58,7 +58,7 @@ const InteractiveGallery = ({
 
   // Filter images by category
   const categories = Array.from(
-    new Set(images.map((img) => img.category).filter(Boolean))
+    new Set(images.map((img) => img.category).filter(Boolean)),
   ) as string[];
   const filteredImages = selectedCategory
     ? images.filter((img) => img.category === selectedCategory)
@@ -77,7 +77,7 @@ const InteractiveGallery = ({
       setZoom(1);
       setRotation(0);
     },
-    [currentIndex, filteredImages]
+    [currentIndex, filteredImages],
   );
 
   // Auto-play functionality

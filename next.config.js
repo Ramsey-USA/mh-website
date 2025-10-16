@@ -44,6 +44,20 @@ const nextConfig = {
               name: "firebase",
               chunks: "all",
               priority: 15,
+              minSize: 0,
+              maxSize: 150000, // Split Firebase into smaller chunks
+            },
+            firebaseAuth: {
+              test: /[\\/]node_modules[\\/]firebase[\\/]auth[\\/]/,
+              name: "firebase-auth",
+              chunks: "all",
+              priority: 16,
+            },
+            firebaseFirestore: {
+              test: /[\\/]node_modules[\\/]firebase[\\/]firestore[\\/]/,
+              name: "firebase-firestore",
+              chunks: "all",
+              priority: 16,
             },
             vendor: {
               test: /[\\/]node_modules[\\/]/,

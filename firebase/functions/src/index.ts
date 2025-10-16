@@ -56,7 +56,7 @@ export const generateEstimate = functions.https.onCall(
     if (!context.auth) {
       throw new functions.https.HttpsError(
         "unauthenticated",
-        "User must be authenticated"
+        "User must be authenticated",
       );
     }
 
@@ -104,5 +104,5 @@ export const generateEstimate = functions.https.onCall(
         multiplier,
       },
     };
-  }
+  },
 );

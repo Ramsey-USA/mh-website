@@ -129,7 +129,7 @@ export default function ContactPage() {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     setFormData({
       ...formData,
@@ -765,7 +765,7 @@ export default function ContactPage() {
               onRecommendationClick={(recommendation) => {
                 // Pre-fill contact form with project details
                 const projectField = document.querySelector(
-                  'textarea[name="message"]'
+                  'textarea[name="message"]',
                 ) as HTMLTextAreaElement;
                 if (projectField) {
                   const currentValue = projectField.value;

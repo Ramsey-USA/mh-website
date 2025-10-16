@@ -1,58 +1,58 @@
-'use client'
+"use client";
 
-import React, { useState, useCallback } from 'react'
-import Image from 'next/image'
-import dynamic from 'next/dynamic'
+import React, { useState, useCallback } from "react";
+import Image from "next/image";
+import dynamic from "next/dynamic";
 
 // Dynamically import motion components to reduce bundle size
 const MotionDiv = dynamic(
-  () => import('framer-motion').then(mod => mod.motion.div),
+  () => import("framer-motion").then((mod) => mod.motion.div),
   {
     ssr: false,
     loading: () => <div className="relative" />, // Fallback component
-  }
-)
+  },
+);
 
 interface OptimizedImageProps {
-  src: string
-  alt: string
-  width?: number
-  height?: number
-  fill?: boolean
-  className?: string
-  sizes?: string
-  priority?: boolean
-  quality?: number
-  placeholder?: 'blur' | 'empty'
-  onLoad?: () => void
-  onError?: () => void
-  enableAnimation?: boolean
-  blurDataURL?: string
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  fill?: boolean;
+  className?: string;
+  sizes?: string;
+  priority?: boolean;
+  quality?: number;
+  placeholder?: "blur" | "empty";
+  onLoad?: () => void;
+  onError?: () => void;
+  enableAnimation?: boolean;
+  blurDataURL?: string;
 }
 
 // Generate a simple blur data URL for placeholder
 const generateBlurDataURL = (
   width: number = 400,
-  height: number = 300
+  height: number = 300,
 ): string => {
-  const canvas = document.createElement('canvas')
-  canvas.width = width
-  canvas.height = height
-  const ctx = canvas.getContext('2d')
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext("2d");
 
-  if (!ctx) return ''
+  if (!ctx) return "";
 
   // Create a simple gradient blur effect
-  const gradient = ctx.createLinearGradient(0, 0, width, height)
-  gradient.addColorStop(0, '#f3f4f6')
-  gradient.addColorStop(0.5, '#e5e7eb')
-  gradient.addColorStop(1, '#d1d5db')
+  const gradient = ctx.createLinearGradient(0, 0, width, height);
+  gradient.addColorStop(0, "#f3f4f6");
+  gradient.addColorStop(0.5, "#e5e7eb");
+  gradient.addColorStop(1, "#d1d5db");
 
-  ctx.fillStyle = gradient
-  ctx.fillRect(0, 0, width, height)
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, width, height);
 
-  return canvas.toDataURL()
-}
+  return canvas.toDataURL();
+};
 
 export function OptimizedImage({
   src,
@@ -60,35 +60,35 @@ export function OptimizedImage({
   width,
   height,
   fill = false,
-  className = '',
-  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
+  className = "",
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   priority = false,
   quality = 85,
-  placeholder = 'blur',
+  placeholder = "blur",
   onLoad,
   enableAnimation = true,
   blurDataURL,
 }: OptimizedImageProps) {
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [hasError, setHasError] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   const handleLoad = useCallback(() => {
-    setIsLoaded(true)
-    onLoad?.()
-  }, [onLoad])
+    setIsLoaded(true);
+    onLoad?.();
+  }, [onLoad]);
 
   const handleError = useCallback(() => {
-    setHasError(true)
-  }, [])
+    setHasError(true);
+  }, []);
 
   // Generate blur data URL if not provided
   const defaultBlurDataURL =
     blurDataURL ||
-    (typeof window !== 'undefined' ? generateBlurDataURL(width, height) : '')
+    (typeof window !== "undefined" ? generateBlurDataURL(width, height) : "");
 
   const imageProps = {
-    src: hasError ? '/images/placeholder.jpg' : src,
-    alt: alt || 'Image', // Provide fallback alt text
+    src: hasError ? "/images/placeholder.jpg" : src,
+    alt: alt || "Image", // Provide fallback alt text
     onLoad: handleLoad,
     onError: handleError,
     quality,
@@ -97,17 +97,17 @@ export function OptimizedImage({
     sizes,
     priority,
     className: `transition-opacity duration-500 ${
-      isLoaded ? 'opacity-100' : 'opacity-0'
+      isLoaded ? "opacity-100" : "opacity-0"
     } ${className}`,
     ...(fill ? { fill: true } : { width: width || 800, height: height || 600 }),
-  }
+  };
 
   if (enableAnimation) {
     return (
       <MotionDiv
         initial={{ opacity: 0, scale: 1.1 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="relative overflow-hidden"
       >
         <Image {...imageProps} alt={imageProps.alt} />
@@ -115,7 +115,7 @@ export function OptimizedImage({
           <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
         )}
       </MotionDiv>
-    )
+    );
   }
 
   return (
@@ -125,19 +125,19 @@ export function OptimizedImage({
         <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
       )}
     </div>
-  )
+  );
 }
 
 // Specialized component for hero images
 interface HeroImageProps
-  extends Omit<OptimizedImageProps, 'priority' | 'sizes'> {
-  overlay?: boolean
-  overlayClassName?: string
+  extends Omit<OptimizedImageProps, "priority" | "sizes"> {
+  overlay?: boolean;
+  overlayClassName?: string;
 }
 
 export function HeroImage({
   overlay = false,
-  overlayClassName = 'bg-black/30',
+  overlayClassName = "bg-black/30",
   ...props
 }: HeroImageProps) {
   return (
@@ -146,17 +146,17 @@ export function HeroImage({
         {...props}
         priority={true}
         sizes="100vw"
-        className={`object-cover ${props.className || ''}`}
+        className={`object-cover ${props.className || ""}`}
       />
       {overlay && <div className={`absolute inset-0 ${overlayClassName}`} />}
     </div>
-  )
+  );
 }
 
 // Specialized component for portfolio gallery
 interface GalleryImageProps extends OptimizedImageProps {
-  caption?: string
-  category?: string
+  caption?: string;
+  category?: string;
 }
 
 export function GalleryImage({
@@ -173,7 +173,7 @@ export function GalleryImage({
       <OptimizedImage
         {...props}
         className={`object-cover transition-transform duration-300 group-hover:scale-110 ${
-          props.className || ''
+          props.className || ""
         }`}
       />
 
@@ -189,35 +189,35 @@ export function GalleryImage({
         </div>
       </div>
     </MotionDiv>
-  )
+  );
 }
 
 // Avatar component with fallback
 interface AvatarImageProps {
-  src?: string
-  alt: string
-  size?: 'sm' | 'md' | 'lg' | 'xl'
-  fallback?: string
-  className?: string
+  src?: string;
+  alt: string;
+  size?: "sm" | "md" | "lg" | "xl";
+  fallback?: string;
+  className?: string;
 }
 
 export function AvatarImage({
   src,
   alt,
-  size = 'md',
+  size = "md",
   fallback,
-  className = '',
+  className = "",
 }: AvatarImageProps) {
-  const [hasError, setHasError] = useState(false)
+  const [hasError, setHasError] = useState(false);
 
   const sizeClasses = {
-    sm: 'w-8 h-8',
-    md: 'w-12 h-12',
-    lg: 'w-16 h-16',
-    xl: 'w-24 h-24',
-  }
+    sm: "w-8 h-8",
+    md: "w-12 h-12",
+    lg: "w-16 h-16",
+    xl: "w-24 h-24",
+  };
 
-  const handleError = () => setHasError(true)
+  const handleError = () => setHasError(true);
 
   if (!src || hasError) {
     return (
@@ -228,7 +228,7 @@ export function AvatarImage({
           {fallback || alt.charAt(0).toUpperCase()}
         </span>
       </div>
-    )
+    );
   }
 
   return (
@@ -244,5 +244,5 @@ export function AvatarImage({
         onError={handleError}
       />
     </div>
-  )
+  );
 }

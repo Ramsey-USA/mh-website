@@ -81,13 +81,13 @@ self.addEventListener("install", (event) => {
           return caches.open(STATIC_CACHE_NAME).then((cache) => {
             console.log("[SW] Precaching remaining static assets");
             return cache.addAll(
-              STATIC_ASSETS.filter((asset) => !CRITICAL_ASSETS.includes(asset))
+              STATIC_ASSETS.filter((asset) => !CRITICAL_ASSETS.includes(asset)),
             );
           });
         }),
       // Skip waiting to activate immediately
       self.skipWaiting(),
-    ])
+    ]),
   );
 });
 
@@ -109,14 +109,14 @@ self.addEventListener("activate", (event) => {
             .map((cacheName) => {
               console.log("[SW] Deleting old cache:", cacheName);
               return caches.delete(cacheName);
-            })
+            }),
         );
       }),
       // Claim all clients immediately
       self.clients.claim(),
       // Pre-warm critical API endpoints
       warmupCriticalEndpoints(),
-    ])
+    ]),
   );
 });
 
@@ -205,7 +205,7 @@ self.addEventListener("push", (event) => {
         tag: data.tag,
         requireInteraction: data.requireInteraction || false,
         vibrate: [100, 50, 100],
-      })
+      }),
     );
   }
 });
@@ -243,7 +243,7 @@ self.addEventListener("notificationclick", (event) => {
       if (clients.openWindow) {
         return clients.openWindow(url);
       }
-    })
+    }),
   );
 });
 
@@ -370,7 +370,7 @@ async function handleApiRequest(request) {
 
   // Determine cache strategy based on endpoint
   const isCriticalEndpoint = CRITICAL_API_ENDPOINTS.some((endpoint) =>
-    url.pathname.includes(endpoint)
+    url.pathname.includes(endpoint),
   );
 
   if (isCriticalEndpoint) {
@@ -401,7 +401,7 @@ async function handleApiRequest(request) {
     const networkResponse = await Promise.race([
       fetch(request),
       new Promise((_, reject) =>
-        setTimeout(() => reject(new Error("API timeout")), 8000)
+        setTimeout(() => reject(new Error("API timeout")), 8000),
       ),
     ]);
 
@@ -415,7 +415,7 @@ async function handleApiRequest(request) {
   } catch (error) {
     console.log(
       "[SW] Network failed for API request, trying cache:",
-      request.url
+      request.url,
     );
 
     // Fallback to cache
@@ -452,7 +452,7 @@ async function handleImageRequest(request) {
   } catch (error) {
     console.log(
       "[SW] Network failed for image, using cached version:",
-      request.url
+      request.url,
     );
 
     // Return cached version even if expired
@@ -488,7 +488,7 @@ async function handleStaticRequest(request) {
   } catch (error) {
     console.log(
       "[SW] Network failed for static asset, using cached version:",
-      request.url
+      request.url,
     );
 
     // Return cached version even if expired
@@ -517,7 +517,7 @@ async function handlePageRequest(request) {
   } catch (error) {
     console.log(
       "[SW] Network failed for page request, trying cache:",
-      request.url
+      request.url,
     );
 
     // Try cache
@@ -646,7 +646,7 @@ async function handleCloudflareRequest(request) {
     if (cachedResponse) {
       console.log(
         "[SW] Serving stale Cloudflare asset from cache:",
-        request.url
+        request.url,
       );
       return cachedResponse;
     }
@@ -696,7 +696,7 @@ function createOfflineApiResponse(request) {
       {
         status: 503,
         headers: { "Content-Type": "application/json" },
-      }
+      },
     );
   }
 
@@ -710,7 +710,7 @@ function createOfflineApiResponse(request) {
       {
         status: 503,
         headers: { "Content-Type": "application/json" },
-      }
+      },
     );
   }
 
@@ -722,7 +722,7 @@ function createOfflineApiResponse(request) {
     {
       status: 503,
       headers: { "Content-Type": "application/json" },
-    }
+    },
   );
 }
 
@@ -936,7 +936,7 @@ self.addEventListener("push", (event) => {
   }
 
   event.waitUntil(
-    self.registration.showNotification("MH Construction", options)
+    self.registration.showNotification("MH Construction", options),
   );
 });
 
@@ -965,7 +965,7 @@ self.addEventListener("notificationclick", (event) => {
       if (clients.openWindow) {
         return clients.openWindow(urlToOpen);
       }
-    })
+    }),
   );
 });
 

@@ -6,171 +6,171 @@
  * including statistical significance calculations and performance comparisons.
  */
 
-'use client'
+"use client";
 
-import React, { useState, useEffect, useMemo } from 'react'
-import dynamic from 'next/dynamic'
-import { MaterialIcon } from '../icons/MaterialIcon'
-import { Card, CardContent } from '../ui'
-import useSmartRecommendations from '@/hooks/useSmartRecommendations'
+import React, { useState, useEffect, useMemo } from "react";
+import dynamic from "next/dynamic";
+import { MaterialIcon } from "../icons/MaterialIcon";
+import { Card, CardContent } from "../ui";
+import useSmartRecommendations from "@/hooks/useSmartRecommendations";
 
 // Dynamic import for Framer Motion
 const MotionDiv = dynamic(
-  () => import('framer-motion').then(mod => mod.motion.div),
-  { ssr: false }
-)
+  () => import("framer-motion").then((mod) => mod.motion.div),
+  { ssr: false },
+);
 
 interface ExperimentResultsProps {
-  experimentId?: string
-  className?: string
+  experimentId?: string;
+  className?: string;
 }
 
 interface MetricCard {
-  title: string
-  value: string | number
-  change?: number
-  trend?: 'up' | 'down' | 'neutral'
-  icon: string
-  color: string
-  format?: 'percentage' | 'number' | 'currency'
+  title: string;
+  value: string | number;
+  change?: number;
+  trend?: "up" | "down" | "neutral";
+  icon: string;
+  color: string;
+  format?: "percentage" | "number" | "currency";
 }
 
 const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
   experimentId,
-  className = '',
+  className = "",
 }) => {
   const [selectedExperiment, setSelectedExperiment] = useState<string>(
-    experimentId || ''
-  )
-  const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d' | 'all'>(
-    '30d'
-  )
-  const [isLoading, setIsLoading] = useState(false)
+    experimentId || "",
+  );
+  const [timeRange, setTimeRange] = useState<"7d" | "30d" | "90d" | "all">(
+    "30d",
+  );
+  const [isLoading, setIsLoading] = useState(false);
 
   const { getExperimentResults, getActiveExperiments } =
-    useSmartRecommendations({})
+    useSmartRecommendations({});
 
-  const [experiments, setExperiments] = useState<any[]>([])
-  const [experimentResults, setExperimentResults] = useState<any[]>([])
-  const [significanceResults, setSignificanceResults] = useState<any[]>([])
+  const [experiments, setExperiments] = useState<any[]>([]);
+  const [experimentResults, setExperimentResults] = useState<any[]>([]);
+  const [significanceResults, setSignificanceResults] = useState<any[]>([]);
 
   useEffect(() => {
     const loadExperiments = async () => {
       try {
-        const activeExps = getActiveExperiments()
-        setExperiments(activeExps)
+        const activeExps = getActiveExperiments();
+        setExperiments(activeExps);
 
         if (activeExps.length > 0 && !selectedExperiment) {
-          setSelectedExperiment(activeExps[0].id)
+          setSelectedExperiment(activeExps[0].id);
         }
       } catch (error) {
-        console.error('Error loading experiments:', error)
+        console.error("Error loading experiments:", error);
       }
-    }
+    };
 
-    loadExperiments()
-  }, [getActiveExperiments, selectedExperiment])
+    loadExperiments();
+  }, [getActiveExperiments, selectedExperiment]);
 
   useEffect(() => {
     const loadResults = async () => {
-      if (!selectedExperiment) return
+      if (!selectedExperiment) return;
 
-      setIsLoading(true)
+      setIsLoading(true);
       try {
-        const results = getExperimentResults(selectedExperiment)
-        setExperimentResults(results || [])
+        const results = getExperimentResults(selectedExperiment);
+        setExperimentResults(results || []);
 
         // Mock significance results for demo
         setSignificanceResults([
           {
-            variantId: 'variant_1',
+            variantId: "variant_1",
             controlRate: 15.2,
             variantRate: 18.7,
             improvement: 23.0,
             isSignificant: true,
             confidenceLevel: 95.4,
           },
-        ])
+        ]);
       } catch (error) {
-        console.error('Error loading experiment results:', error)
+        console.error("Error loading experiment results:", error);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
-    }
+    };
 
-    loadResults()
-  }, [selectedExperiment, getExperimentResults])
+    loadResults();
+  }, [selectedExperiment, getExperimentResults]);
 
   const summaryMetrics = useMemo((): MetricCard[] => {
-    if (!experimentResults.length) return []
+    if (!experimentResults.length) return [];
 
     const totalUsers = experimentResults.reduce(
       (sum, r) => sum + r.totalUsers,
-      0
-    )
+      0,
+    );
     const totalConversions = experimentResults.reduce(
       (sum, r) => sum + (r.conversionRate * r.totalUsers) / 100,
-      0
-    )
+      0,
+    );
     const avgConversionRate =
-      totalUsers > 0 ? (totalConversions / totalUsers) * 100 : 0
+      totalUsers > 0 ? (totalConversions / totalUsers) * 100 : 0;
     const avgRating =
       experimentResults.reduce((sum, r) => sum + r.averageRating, 0) /
-      experimentResults.length
+      experimentResults.length;
 
     return [
       {
-        title: 'Total Participants',
+        title: "Total Participants",
         value: totalUsers.toLocaleString(),
-        icon: 'people',
-        color: 'blue',
-        format: 'number',
+        icon: "people",
+        color: "blue",
+        format: "number",
       },
       {
-        title: 'Conversion Rate',
+        title: "Conversion Rate",
         value: avgConversionRate.toFixed(1),
         change: significanceResults[0]?.improvement || 0,
-        icon: 'trending_up',
-        color: 'green',
-        format: 'percentage',
+        icon: "trending_up",
+        color: "green",
+        format: "percentage",
       },
       {
-        title: 'Average Rating',
+        title: "Average Rating",
         value: avgRating.toFixed(1),
-        icon: 'star',
-        color: 'yellow',
-        format: 'number',
+        icon: "star",
+        color: "yellow",
+        format: "number",
       },
       {
-        title: 'Statistical Significance',
-        value: significanceResults[0]?.isSignificant ? 'Achieved' : 'Not Yet',
-        icon: significanceResults[0]?.isSignificant ? 'verified' : 'schedule',
-        color: significanceResults[0]?.isSignificant ? 'green' : 'orange',
-        format: 'number',
+        title: "Statistical Significance",
+        value: significanceResults[0]?.isSignificant ? "Achieved" : "Not Yet",
+        icon: significanceResults[0]?.isSignificant ? "verified" : "schedule",
+        color: significanceResults[0]?.isSignificant ? "green" : "orange",
+        format: "number",
       },
-    ]
-  }, [experimentResults, significanceResults])
+    ];
+  }, [experimentResults, significanceResults]);
 
   const formatValue = (value: string | number, format?: string) => {
-    if (format === 'percentage') {
-      return `${value}%`
+    if (format === "percentage") {
+      return `${value}%`;
     }
-    if (format === 'currency') {
-      return `$${Number(value).toLocaleString()}`
+    if (format === "currency") {
+      return `$${Number(value).toLocaleString()}`;
     }
-    return value
-  }
+    return value;
+  };
 
   const getColorClasses = (color: string) => {
     const colorMap: Record<string, string> = {
-      blue: 'text-blue-600 bg-blue-50',
-      green: 'text-green-600 bg-green-50',
-      yellow: 'text-yellow-600 bg-yellow-50',
-      orange: 'text-orange-600 bg-orange-50',
-      red: 'text-red-600 bg-red-50',
-    }
-    return colorMap[color] || colorMap.blue
-  }
+      blue: "text-blue-600 bg-blue-50",
+      green: "text-green-600 bg-green-50",
+      yellow: "text-yellow-600 bg-yellow-50",
+      orange: "text-orange-600 bg-orange-50",
+      red: "text-red-600 bg-red-50",
+    };
+    return colorMap[color] || colorMap.blue;
+  };
 
   if (isLoading) {
     return (
@@ -182,7 +182,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
         />
         <p className="text-gray-600">Loading experiment results...</p>
       </div>
-    )
+    );
   }
 
   return (
@@ -209,7 +209,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
           {/* Time Range Selector */}
           <select
             value={timeRange}
-            onChange={e => setTimeRange(e.target.value as any)}
+            onChange={(e) => setTimeRange(e.target.value as any)}
             className="px-3 py-2 border border-gray-300 focus:border-transparent rounded-lg focus:ring-2 focus:ring-brand-primary"
           >
             <option value="7d">Last 7 days</option>
@@ -221,11 +221,11 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
           {/* Experiment Selector */}
           <select
             value={selectedExperiment}
-            onChange={e => setSelectedExperiment(e.target.value)}
+            onChange={(e) => setSelectedExperiment(e.target.value)}
             className="px-3 py-2 border border-gray-300 focus:border-transparent rounded-lg focus:ring-2 focus:ring-brand-primary min-w-64"
           >
             <option value="">Select Experiment</option>
-            {experiments.map(exp => (
+            {experiments.map((exp) => (
               <option key={exp.id} value={exp.id}>
                 {exp.name}
               </option>
@@ -268,16 +268,14 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
                         <p className="text-sm font-medium text-gray-600">
                           {metric.title}
                         </p>
-                        <p className="text-2xl font-bold">
-                          {metric.value}
-                        </p>
+                        <p className="text-2xl font-bold">{metric.value}</p>
                         <p
                           className={`text-sm ${
-                            metric.trend === 'up'
-                              ? 'text-green-600'
-                              : metric.trend === 'down'
-                              ? 'text-red-600'
-                              : 'text-gray-600'
+                            metric.trend === "up"
+                              ? "text-green-600"
+                              : metric.trend === "down"
+                                ? "text-red-600"
+                                : "text-gray-600"
                           }`}
                         >
                           {metric.change}
@@ -331,9 +329,9 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
                     <tbody>
                       {experimentResults.map((result, index) => {
                         const significance = significanceResults.find(
-                          s => s.variantId === result.variantId
-                        )
-                        const isControl = index === 0
+                          (s) => s.variantId === result.variantId,
+                        );
+                        const isControl = index === 0;
 
                         return (
                           <tr
@@ -343,7 +341,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
                             <td className="px-4 py-3">
                               <div className="flex items-center space-x-2">
                                 <span className="font-medium">
-                                  {isControl ? 'Control' : `Variant ${index}`}
+                                  {isControl ? "Control" : `Variant ${index}`}
                                 </span>
                                 {isControl && (
                                   <span className="bg-blue-100 px-2 py-1 rounded-full text-blue-800 text-xs">
@@ -365,11 +363,11 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
                                   <span
                                     className={`text-sm ${
                                       significance.improvement > 0
-                                        ? 'text-green-600'
-                                        : 'text-red-600'
+                                        ? "text-green-600"
+                                        : "text-red-600"
                                     }`}
                                   >
-                                    ({significance.improvement > 0 ? '+' : ''}
+                                    ({significance.improvement > 0 ? "+" : ""}
                                     {significance.improvement.toFixed(1)}%)
                                   </span>
                                 )}
@@ -391,26 +389,26 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
                                   <MaterialIcon
                                     icon={
                                       significance.isSignificant
-                                        ? 'verified'
-                                        : 'schedule'
+                                        ? "verified"
+                                        : "schedule"
                                     }
                                     className={
                                       significance.isSignificant
-                                        ? 'text-green-600'
-                                        : 'text-orange-600'
+                                        ? "text-green-600"
+                                        : "text-orange-600"
                                     }
                                     size="sm"
                                   />
                                   <span
                                     className={`text-sm ${
                                       significance.isSignificant
-                                        ? 'text-green-600'
-                                        : 'text-orange-600'
+                                        ? "text-green-600"
+                                        : "text-orange-600"
                                     }`}
                                   >
                                     {significance.isSignificant
                                       ? `${significance.confidenceLevel.toFixed(1)}%`
-                                      : 'Pending'}
+                                      : "Pending"}
                                   </span>
                                 </div>
                               ) : (
@@ -418,7 +416,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
                               )}
                             </td>
                           </tr>
-                        )
+                        );
                       })}
                     </tbody>
                   </table>
@@ -445,7 +443,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
               </h3>
 
               <div className="space-y-3">
-                {significanceResults.some(s => s.isSignificant) ? (
+                {significanceResults.some((s) => s.isSignificant) ? (
                   <div className="bg-green-50 p-4 border border-green-200 rounded-lg">
                     <div className="flex items-start space-x-3">
                       <MaterialIcon
@@ -509,7 +507,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default AnalyticsDashboard
+export default AnalyticsDashboard;

@@ -68,7 +68,7 @@ export function GoogleAnalytics({
 export function useAnalytics() {
   const trackEvent = (
     eventName: string,
-    parameters: Record<string, any> = {}
+    parameters: Record<string, any> = {},
   ) => {
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", eventName, {
@@ -114,7 +114,7 @@ export function useAnalytics() {
 
   const trackEstimateRequest = (
     projectType: string,
-    estimatedValue?: number
+    estimatedValue?: number,
   ) => {
     trackEvent("estimate_request", {
       project_type: projectType,
@@ -134,7 +134,7 @@ export function useAnalytics() {
 
   const trackPortfolioView = (
     projectTitle: string,
-    projectCategory: string
+    projectCategory: string,
   ) => {
     trackEvent("portfolio_view", {
       project_type: projectCategory,
@@ -196,7 +196,7 @@ export function ScrollDepthTracker() {
     const scrollDepthTracking = () => {
       const scrollDepth = Math.round(
         (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
-          100
+          100,
       );
 
       // Track scroll milestones

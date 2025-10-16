@@ -9,7 +9,7 @@ const fs = require("fs");
 const path = require("path");
 
 console.log(
-  "🔍 Analyzing codebase for redundant code after optimizations...\n"
+  "🔍 Analyzing codebase for redundant code after optimizations...\n",
 );
 
 const issues = [];
@@ -20,7 +20,7 @@ function checkNextConfigDuplicates() {
   const configs = ["next.config.js", "config/build/next.config.js"];
 
   const existingConfigs = configs.filter((config) =>
-    fs.existsSync(path.join(process.cwd(), config))
+    fs.existsSync(path.join(process.cwd(), config)),
   );
 
   if (existingConfigs.length > 1) {
@@ -38,7 +38,7 @@ function checkFirebaseConfigDuplicates() {
   const configs = ["firebase.json", "config/deployment/firebase.json"];
 
   const existingConfigs = configs.filter((config) =>
-    fs.existsSync(path.join(process.cwd(), config))
+    fs.existsSync(path.join(process.cwd(), config)),
   );
 
   if (existingConfigs.length > 1) {
@@ -87,7 +87,7 @@ function checkOptimizationScripts() {
       (script) =>
         script.includes("old") ||
         script.includes("backup") ||
-        script.includes("temp")
+        script.includes("temp"),
     );
 
     if (redundantScripts.length > 0) {
@@ -110,7 +110,7 @@ function checkEnvironmentFiles() {
   ];
 
   const existingEnvFiles = envFiles.filter((file) =>
-    fs.existsSync(path.join(process.cwd(), file))
+    fs.existsSync(path.join(process.cwd(), file)),
   );
 
   if (existingEnvFiles.length > 2) {
@@ -194,7 +194,7 @@ function checkUnusedDependencies() {
 
     const unusedDeps = optimizationDeps.filter(
       (dep) =>
-        packageJson.dependencies?.[dep] || packageJson.devDependencies?.[dep]
+        packageJson.dependencies?.[dep] || packageJson.devDependencies?.[dep],
     );
 
     if (unusedDeps.length > 0) {
@@ -261,10 +261,10 @@ if (issues.length > 0 || recommendations.length > 0) {
   console.log("🛠️  AUTOMATED CLEANUP AVAILABLE");
   console.log("===============================\n");
   console.log(
-    "Run: node scripts/cleanup/post-optimization-cleanup.js --execute"
+    "Run: node scripts/cleanup/post-optimization-cleanup.js --execute",
   );
   console.log(
-    "This will create a detailed cleanup script for safe execution.\n"
+    "This will create a detailed cleanup script for safe execution.\n",
   );
 }
 

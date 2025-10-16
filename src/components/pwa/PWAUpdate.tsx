@@ -1,107 +1,107 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { MaterialIcon } from '@/components/icons/MaterialIcon'
+import { useState, useEffect } from "react";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 interface PWAUpdateProps {
-  onUpdate?: () => void
-  onDismiss?: () => void
-  className?: string
+  onUpdate?: () => void;
+  onDismiss?: () => void;
+  className?: string;
 }
 
 export default function PWAUpdate({
   onUpdate,
   onDismiss,
-  className = '',
+  className = "",
 }: PWAUpdateProps) {
-  const [updateAvailable, setUpdateAvailable] = useState(false)
-  const [isUpdating, setIsUpdating] = useState(false)
-  const [updateSuccess, setUpdateSuccess] = useState(false)
+  const [updateAvailable, setUpdateAvailable] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [updateSuccess, setUpdateSuccess] = useState(false);
   const [registration, setRegistration] =
-    useState<ServiceWorkerRegistration | null>(null)
-  const [showUpdatePrompt, setShowUpdatePrompt] = useState(false)
+    useState<ServiceWorkerRegistration | null>(null);
+  const [showUpdatePrompt, setShowUpdatePrompt] = useState(false);
 
   useEffect(() => {
-    if ('serviceWorker' in navigator) {
+    if ("serviceWorker" in navigator) {
       // Check for existing service worker registration
-      navigator.serviceWorker.ready.then(reg => {
-        setRegistration(reg)
+      navigator.serviceWorker.ready.then((reg) => {
+        setRegistration(reg);
 
         // Check for waiting service worker (update available)
         if (reg.waiting) {
-          setUpdateAvailable(true)
-          setShowUpdatePrompt(true)
+          setUpdateAvailable(true);
+          setShowUpdatePrompt(true);
         }
 
         // Listen for new service worker installation
-        reg.addEventListener('updatefound', () => {
-          const newWorker = reg.installing
+        reg.addEventListener("updatefound", () => {
+          const newWorker = reg.installing;
           if (newWorker) {
-            newWorker.addEventListener('statechange', () => {
+            newWorker.addEventListener("statechange", () => {
               if (
-                newWorker.state === 'installed' &&
+                newWorker.state === "installed" &&
                 navigator.serviceWorker.controller
               ) {
                 // New service worker installed and ready
-                setUpdateAvailable(true)
-                setShowUpdatePrompt(true)
+                setUpdateAvailable(true);
+                setShowUpdatePrompt(true);
               }
-            })
+            });
           }
-        })
-      })
+        });
+      });
 
       // Listen for messages from service worker
-      navigator.serviceWorker.addEventListener('message', event => {
-        if (event.data && event.data.type === 'SW_UPDATED') {
-          setUpdateAvailable(true)
-          setShowUpdatePrompt(true)
+      navigator.serviceWorker.addEventListener("message", (event) => {
+        if (event.data && event.data.type === "SW_UPDATED") {
+          setUpdateAvailable(true);
+          setShowUpdatePrompt(true);
         }
-      })
+      });
 
       // Listen for controlling service worker changes
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
+      navigator.serviceWorker.addEventListener("controllerchange", () => {
         // Service worker has been updated and is now controlling the page
-        setIsUpdating(false)
-        setUpdateSuccess(true)
-        setUpdateAvailable(false)
-        setShowUpdatePrompt(false)
+        setIsUpdating(false);
+        setUpdateSuccess(true);
+        setUpdateAvailable(false);
+        setShowUpdatePrompt(false);
 
         // Auto-hide success message after 3 seconds
         setTimeout(() => {
-          setUpdateSuccess(false)
-        }, 3000)
+          setUpdateSuccess(false);
+        }, 3000);
 
-        if (onUpdate) onUpdate()
-      })
+        if (onUpdate) onUpdate();
+      });
     }
-  }, [onUpdate])
+  }, [onUpdate]);
 
   const handleUpdate = async () => {
-    if (!registration || !registration.waiting) return
+    if (!registration || !registration.waiting) return;
 
-    setIsUpdating(true)
+    setIsUpdating(true);
 
     try {
       // Tell the waiting service worker to skip waiting and become active
-      registration.waiting.postMessage({ type: 'SKIP_WAITING' })
+      registration.waiting.postMessage({ type: "SKIP_WAITING" });
 
       // The controllerchange event will handle the rest
     } catch (error) {
-      console.error('Error updating service worker:', error)
-      setIsUpdating(false)
+      console.error("Error updating service worker:", error);
+      setIsUpdating(false);
     }
-  }
+  };
 
   const handleDismiss = () => {
-    setShowUpdatePrompt(false)
-    setUpdateAvailable(false)
-    if (onDismiss) onDismiss()
-  }
+    setShowUpdatePrompt(false);
+    setUpdateAvailable(false);
+    if (onDismiss) onDismiss();
+  };
 
   const handleRefreshPage = () => {
-    window.location.reload()
-  }
+    window.location.reload();
+  };
 
   // Success notification
   if (updateSuccess) {
@@ -119,7 +119,7 @@ export default function PWAUpdate({
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   // Update prompt
@@ -177,52 +177,56 @@ export default function PWAUpdate({
           </button>
         </div>
       </div>
-    )
+    );
   }
 
-  return null
+  return null;
 }
 
 // Service Worker Status Component
 export function ServiceWorkerStatus() {
-  const [isSupported, setIsSupported] = useState(false)
-  const [isRegistered, setIsRegistered] = useState(false)
-  const [isControlling, setIsControlling] = useState(false)
-  const [cacheSize, setCacheSize] = useState<number | null>(null)
+  const [isSupported, setIsSupported] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
+  const [isControlling, setIsControlling] = useState(false);
+  const [cacheSize, setCacheSize] = useState<number | null>(null);
 
   useEffect(() => {
-    if ('serviceWorker' in navigator) {
-      setIsSupported(true)
+    if ("serviceWorker" in navigator) {
+      setIsSupported(true);
 
-      navigator.serviceWorker.ready.then(registration => {
-        setIsRegistered(!!registration)
-        setIsControlling(!!navigator.serviceWorker.controller)
-      })
+      navigator.serviceWorker.ready.then((registration) => {
+        setIsRegistered(!!registration);
+        setIsControlling(!!navigator.serviceWorker.controller);
+      });
 
       // Estimate cache size
-      if ('storage' in navigator && 'estimate' in navigator.storage) {
-        navigator.storage.estimate().then(estimate => {
+      if ("storage" in navigator && "estimate" in navigator.storage) {
+        navigator.storage.estimate().then((estimate) => {
           if (estimate.usage) {
-            setCacheSize(Math.round((estimate.usage / 1024 / 1024) * 100) / 100) // MB
+            setCacheSize(
+              Math.round((estimate.usage / 1024 / 1024) * 100) / 100,
+            ); // MB
           }
-        })
+        });
       }
     }
-  }, [])
+  }, []);
 
   const clearCache = async () => {
-    if ('serviceWorker' in navigator && 'caches' in window) {
+    if ("serviceWorker" in navigator && "caches" in window) {
       try {
-        const cacheNames = await caches.keys()
-        await Promise.all(cacheNames.map(cacheName => caches.delete(cacheName)))
+        const cacheNames = await caches.keys();
+        await Promise.all(
+          cacheNames.map((cacheName) => caches.delete(cacheName)),
+        );
 
         // Reload the page to re-register service worker
-        window.location.reload()
+        window.location.reload();
       } catch (error) {
-        console.error('Error clearing cache:', error)
+        console.error("Error clearing cache:", error);
       }
     }
-  }
+  };
 
   return (
     <div className="bg-gray-50 p-4 rounded-lg">
@@ -232,24 +236,24 @@ export function ServiceWorkerStatus() {
         <div className="flex justify-between items-center">
           <span className="text-gray-600">Service Worker:</span>
           <span
-            className={`flex items-center gap-1 ${isSupported && isRegistered ? 'text-green-600' : 'text-gray-500'}`}
+            className={`flex items-center gap-1 ${isSupported && isRegistered ? "text-green-600" : "text-gray-500"}`}
           >
             <div
-              className={`w-2 h-2 rounded-full ${isSupported && isRegistered ? 'bg-green-500' : 'bg-gray-400'}`}
+              className={`w-2 h-2 rounded-full ${isSupported && isRegistered ? "bg-green-500" : "bg-gray-400"}`}
             ></div>
-            {isSupported && isRegistered ? 'Active' : 'Inactive'}
+            {isSupported && isRegistered ? "Active" : "Inactive"}
           </span>
         </div>
 
         <div className="flex justify-between items-center">
           <span className="text-gray-600">Offline Ready:</span>
           <span
-            className={`flex items-center gap-1 ${isControlling ? 'text-green-600' : 'text-gray-500'}`}
+            className={`flex items-center gap-1 ${isControlling ? "text-green-600" : "text-gray-500"}`}
           >
             <div
-              className={`w-2 h-2 rounded-full ${isControlling ? 'bg-green-500' : 'bg-gray-400'}`}
+              className={`w-2 h-2 rounded-full ${isControlling ? "bg-green-500" : "bg-gray-400"}`}
             ></div>
-            {isControlling ? 'Yes' : 'No'}
+            {isControlling ? "Yes" : "No"}
           </span>
         </div>
 
@@ -271,45 +275,45 @@ export function ServiceWorkerStatus() {
         </button>
       </div>
     </div>
-  )
+  );
 }
 
 // Network Status Component
 export function NetworkStatus() {
-  const [isOnline, setIsOnline] = useState(true)
-  const [connectionType, setConnectionType] = useState<string>('unknown')
+  const [isOnline, setIsOnline] = useState(true);
+  const [connectionType, setConnectionType] = useState<string>("unknown");
 
   useEffect(() => {
-    setIsOnline(navigator.onLine)
+    setIsOnline(navigator.onLine);
 
     // Get connection info if available
     const connection =
       (navigator as any).connection ||
       (navigator as any).mozConnection ||
-      (navigator as any).webkitConnection
+      (navigator as any).webkitConnection;
     if (connection) {
       setConnectionType(
-        connection.effectiveType || connection.type || 'unknown'
-      )
+        connection.effectiveType || connection.type || "unknown",
+      );
 
-      connection.addEventListener('change', () => {
+      connection.addEventListener("change", () => {
         setConnectionType(
-          connection.effectiveType || connection.type || 'unknown'
-        )
-      })
+          connection.effectiveType || connection.type || "unknown",
+        );
+      });
     }
 
-    const handleOnline = () => setIsOnline(true)
-    const handleOffline = () => setIsOnline(false)
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
 
-    window.addEventListener('online', handleOnline)
-    window.addEventListener('offline', handleOffline)
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
 
     return () => {
-      window.removeEventListener('online', handleOnline)
-      window.removeEventListener('offline', handleOffline)
-    }
-  }, [])
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
 
   return (
     <div className="bg-gray-50 p-4 rounded-lg">
@@ -319,16 +323,16 @@ export function NetworkStatus() {
         <div className="flex justify-between items-center">
           <span className="text-gray-600">Status:</span>
           <span
-            className={`flex items-center gap-1 ${isOnline ? 'text-green-600' : 'text-red-600'}`}
+            className={`flex items-center gap-1 ${isOnline ? "text-green-600" : "text-red-600"}`}
           >
             <div
-              className={`w-2 h-2 rounded-full ${isOnline ? 'bg-green-500' : 'bg-red-500'}`}
+              className={`w-2 h-2 rounded-full ${isOnline ? "bg-green-500" : "bg-red-500"}`}
             ></div>
-            {isOnline ? 'Online' : 'Offline'}
+            {isOnline ? "Online" : "Offline"}
           </span>
         </div>
 
-        {connectionType !== 'unknown' && (
+        {connectionType !== "unknown" && (
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Connection:</span>
             <span className="text-gray-900 capitalize">{connectionType}</span>
@@ -351,5 +355,5 @@ export function NetworkStatus() {
         </div>
       )}
     </div>
-  )
+  );
 }

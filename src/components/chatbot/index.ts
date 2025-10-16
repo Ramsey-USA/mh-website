@@ -1,1 +1,1 @@
-export { GlobalChatbot } from './GlobalChatbot'
+export { GlobalChatbot } from "./GlobalChatbot";

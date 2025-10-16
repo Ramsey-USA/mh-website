@@ -30,8 +30,8 @@ reinforce our core belief: **we work WITH clients, not just FOR them**.
 ### **🏗️ Primary Brand Message**
 
 **"Building for the Owner, NOT the Dollar"**
-*This tagline emphasizes our commitment to client success over profit maximization
-— the heart of veteran-owned business values.*
+_This tagline emphasizes our commitment to client success over profit maximization
+— the heart of veteran-owned business values._
 
 **Supporting Taglines:**
 
@@ -157,7 +157,7 @@ For subcontractors, suppliers, and trade professionals:
 
 ### **🎯 LANGUAGE DISTINCTION GUIDELINES**
 
-```typescript
+````typescript
 // CLIENT PARTNERSHIP = Project Collaboration
 Use for: Homeowners, business owners, project managers, architects
 Focus: Building dreams, project success, collaborative construction
@@ -776,3 +776,4 @@ Before launching vendor-focused content, verify:
 
 **Partnership Implementation Guide** | **Version 1.0** | **October 1, 2025**
 *Working with development teams to implement MH's community-centered culture*
+````

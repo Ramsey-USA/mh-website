@@ -3,17 +3,17 @@
  * Demonstrates the security dashboard and features
  */
 
-import React from 'react'
-import { Metadata } from 'next'
-import { MaterialIcon } from '@/components/icons/MaterialIcon'
-import SecurityDashboard from '@/components/security/SecurityDashboard'
+import React from "react";
+import { Metadata } from "next";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import SecurityDashboard from "@/components/security/SecurityDashboard";
 
 export const metadata: Metadata = {
-  title: 'Security Dashboard - MH Construction',
+  title: "Security Dashboard - MH Construction",
   description:
-    'Real-time security monitoring and vulnerability management for MH Construction',
-  robots: 'noindex, nofollow', // Don't index security pages
-}
+    "Real-time security monitoring and vulnerability management for MH Construction",
+  robots: "noindex, nofollow", // Don't index security pages
+};
 
 export default function SecurityPage() {
   return (
@@ -122,5 +122,5 @@ export default function SecurityPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

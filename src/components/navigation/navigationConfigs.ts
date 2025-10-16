@@ -7,7 +7,7 @@ export const navigationConfigs = {
       icon: "smart_toy",
     },
     {
-      href: "/#feature-3d-explorer", 
+      href: "/#feature-3d-explorer",
       label: "3D Explorer",
       icon: "visibility",
     },
@@ -22,14 +22,14 @@ export const navigationConfigs = {
       icon: "handshake",
     },
     {
-      href: "/estimator", 
-      label: "Try Estimator", 
-      icon: "calculate"
+      href: "/estimator",
+      label: "Try Estimator",
+      icon: "calculate",
     },
     {
       href: "/#partnership-cta",
-      label: "Start Partnership", 
-      icon: "launch"
+      label: "Start Partnership",
+      icon: "launch",
     },
     { href: "/contact", label: "Contact", icon: "contact_phone" },
   ],

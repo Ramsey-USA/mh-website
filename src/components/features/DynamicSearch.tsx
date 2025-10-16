@@ -73,7 +73,7 @@ const DynamicSearch = ({
           item.title.toLowerCase().includes(query) ||
           item.description.toLowerCase().includes(query) ||
           item.tags.some((tag) => tag.toLowerCase().includes(query)) ||
-          item.category.toLowerCase().includes(query)
+          item.category.toLowerCase().includes(query),
       );
     }
 
@@ -107,7 +107,7 @@ const DynamicSearch = ({
       }
 
       filtered = filtered.filter(
-        (item) => item.date && item.date >= filterDate
+        (item) => item.date && item.date >= filterDate,
       );
     }
 

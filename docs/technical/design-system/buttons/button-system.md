@@ -20,7 +20,7 @@ This document establishes a cohesive button system for MH Construction's website
 - **Colors**: Hunter Green (#386851) with white text on hover
 - **Usage**: "Schedule Free Consultation", "Request Project Review", "Contact Client Services"
 
-```tsx
+````tsx
 <Button variant="primary" size="lg">
   <MaterialIcon icon="event" className="mr-2 w-5 h-5" />
   Schedule Free Consultation
@@ -207,7 +207,7 @@ transition-all duration-300
   <MaterialIcon icon="phone" className="mr-2 w-6 h-6" />
   <span className="text-center">
     Client Contact<br />
-    (509) 308-6489 
+    (509) 308-6489
   </span>
 </Button>
 
@@ -216,7 +216,7 @@ transition-all duration-300
   <MaterialIcon icon="phone" className="mr-2 w-6 h-6" />
   <span className="text-center">
     Vendor Contact<br />
-    (509) 308-6489 
+    (509) 308-6489
   </span>
 </Button>
 
@@ -345,3 +345,4 @@ This button system ensures:
 
 *Last Updated: October 8, 2025*
 *System Version: 2.0*
+````

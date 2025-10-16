@@ -64,7 +64,7 @@ export class CSpellDatabaseManager {
       const ignoreWords = cspellConfig.ignoreWords || [];
 
       console.log(
-        `📝 Processing ${words.length} words and ${ignoreWords.length} ignore words`
+        `📝 Processing ${words.length} words and ${ignoreWords.length} ignore words`,
       );
 
       const spellCheckRef = collection(this.db, this.collectionName);
@@ -85,7 +85,7 @@ export class CSpellDatabaseManager {
 
       console.log("🎉 Successfully added all cSpell words to Firestore!");
       console.log(
-        `📊 Summary: ${words.length} words, ${ignoreWords.length} ignore words`
+        `📊 Summary: ${words.length} words, ${ignoreWords.length} ignore words`,
       );
     } catch (error) {
       console.error("❌ Error adding words to database:", error);
@@ -99,7 +99,7 @@ export class CSpellDatabaseManager {
   private async addMetadata(
     collectionRef: any,
     totalWords: number,
-    totalIgnoreWords: number
+    totalIgnoreWords: number,
   ): Promise<void> {
     const metadata: SpellCheckMetadata = {
       totalWords,
@@ -121,7 +121,7 @@ export class CSpellDatabaseManager {
    */
   private async addWordsBatch(
     collectionRef: any,
-    words: string[]
+    words: string[],
   ): Promise<void> {
     const batchSize = 400; // Under Firestore's 500 document limit
     const wordBatches = this.chunkArray(words, batchSize);
@@ -135,7 +135,7 @@ export class CSpellDatabaseManager {
       currentWords.forEach((word, index) => {
         const docId = `word_${batchIndex * batchSize + index + 1}`.padStart(
           10,
-          "0"
+          "0",
         );
         const wordRef = doc(collectionRef, docId);
 
@@ -154,7 +154,7 @@ export class CSpellDatabaseManager {
 
       await batch.commit();
       console.log(
-        `✅ Batch ${batchIndex + 1}/${wordBatches.length} committed (${currentWords.length} words)`
+        `✅ Batch ${batchIndex + 1}/${wordBatches.length} committed (${currentWords.length} words)`,
       );
     }
   }
@@ -164,7 +164,7 @@ export class CSpellDatabaseManager {
    */
   private async addIgnoreWords(
     collectionRef: any,
-    ignoreWords: string[]
+    ignoreWords: string[],
   ): Promise<void> {
     const ignoreData = {
       words: ignoreWords,
@@ -182,7 +182,7 @@ export class CSpellDatabaseManager {
    */
   private async createSearchIndex(
     collectionRef: any,
-    words: string[]
+    words: string[],
   ): Promise<void> {
     try {
       const searchIndex: Record<string, SearchIndexEntry[]> = {};
@@ -247,7 +247,7 @@ export class CSpellDatabaseManager {
    */
   async queryWords(
     letter?: string,
-    category?: WordCategory
+    category?: WordCategory,
   ): Promise<SpellCheckWord[]> {
     // Implementation for querying words from database
     // This can be used to retrieve words for spell checking

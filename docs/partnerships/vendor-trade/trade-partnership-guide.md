@@ -14,20 +14,20 @@ Construction network.
 
 ```typescript
 // Primary Value Propositions
-"Grow your business with a veteran-owned construction leader"
-"Join a network of quality professionals serving the Pacific Northwest"
-"Access to consistent, quality projects year-round"
-"Fair payment terms and professional treatment guaranteed"
-"Long-term partnership opportunities for business growth"
-"Diverse project portfolio from residential to commercial"
+"Grow your business with a veteran-owned construction leader";
+"Join a network of quality professionals serving the Pacific Northwest";
+"Access to consistent, quality projects year-round";
+"Fair payment terms and professional treatment guaranteed";
+"Long-term partnership opportunities for business growth";
+"Diverse project portfolio from residential to commercial";
 
 // Partnership Differentiators
-"Military precision meets collaborative construction management"
-"Quality-focused projects, not just low-bid opportunities"
-"Professional respect and transparent communication"
-"Growth opportunities with an established regional leader"
-"Community-centered projects that make a difference"
-"Veteran-owned business supporting veteran entrepreneurs"
+"Military precision meets collaborative construction management";
+"Quality-focused projects, not just low-bid opportunities";
+"Professional respect and transparent communication";
+"Growth opportunities with an established regional leader";
+"Community-centered projects that make a difference";
+"Veteran-owned business supporting veteran entrepreneurs";
 ```
 
 ### **Trade Partner Requirements**
@@ -306,12 +306,12 @@ Partnership Levels:
 ```typescript
 Trade Partnership Team:
 ├── Vendor Relations Manager
-│   ├── Phone: (509) 308-6489 
+│   ├── Phone: (509) 308-6489
 │   ├── Email: office@mhc-gc.com
 │   ├── Primary contact for new applications
 │   └── Partnership development and growth
 ├── Project Coordination Manager
-│   ├── Phone: (509) 308-6489 
+│   ├── Phone: (509) 308-6489
 │   ├── Email: office@mhc-gc.com
 │   ├── Active project coordination and management
 │   └── Ongoing partnership support and communication
@@ -324,9 +324,9 @@ Trade Partnership Team:
 
 ### **Quick Contact Links**
 
-**Vendor Applications:** [(509) 308-6489](tel:+15093086489)  | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+**Vendor Applications:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
-**Project Coordination:** [(509) 308-6489](tel:+15093086489)  | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+**Project Coordination:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 **Safety & Compliance:** [(509) 308-6489](tel:+15093086489) ext. 220 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
@@ -338,41 +338,41 @@ Trade Partnership Team:
 
 ```typescript
 // Primary Headlines
-"Join the MH Construction Trade Partnership Network"
-"Grow Your Business with a Veteran-Owned Construction Leader"
-"Quality Projects, Fair Pay, Professional Respect"
-"Build Your Future with Pacific Northwest's Premier Builder"
+"Join the MH Construction Trade Partnership Network";
+"Grow Your Business with a Veteran-Owned Construction Leader";
+"Quality Projects, Fair Pay, Professional Respect";
+"Build Your Future with Pacific Northwest's Premier Builder";
 
 // Supporting Headlines
-"Where Trade Excellence Meets Military Precision"
-"Professional Partnerships That Grow Your Business"
-"Join Quality Professionals Serving the Tri-Cities"
-"Veteran-Owned Business Supporting Trade Professionals"
+"Where Trade Excellence Meets Military Precision";
+"Professional Partnerships That Grow Your Business";
+"Join Quality Professionals Serving the Tri-Cities";
+"Veteran-Owned Business Supporting Trade Professionals";
 ```
 
 ### **Call-to-Action Messaging**
 
 ```typescript
 // Primary CTAs
-"Apply to be an Approved Vendor"
-"Join Our Trade Partnership Network"
-"Submit Your Vendor Application"
-"Become a Trade Partner Today"
+"Apply to be an Approved Vendor";
+"Join Our Trade Partnership Network";
+"Submit Your Vendor Application";
+"Become a Trade Partner Today";
 
 // Secondary CTAs
-"Download Vendor Requirements Package"
-"Schedule Partnership Discussion"
-"Learn About Trade Opportunities"
-"Contact Vendor Relations Team"
+"Download Vendor Requirements Package";
+"Schedule Partnership Discussion";
+"Learn About Trade Opportunities";
+"Contact Vendor Relations Team";
 
 // Information CTAs
-"View Partnership Benefits"
-"Read Success Stories"
-"Explore Trade Categories"
-"Check Application Status"
+"View Partnership Benefits";
+"Read Success Stories";
+"Explore Trade Categories";
+"Check Application Status";
 ```
 
 ---
 
 **Trade Partnership Guide** | **Version 1.0** | **October 14, 2025**
-*Building quality partnerships with Pacific Northwest trade professionals*
+_Building quality partnerships with Pacific Northwest trade professionals_

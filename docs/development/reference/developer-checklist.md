@@ -12,7 +12,7 @@
 
 ### 🔍 Quick Verification Commands
 
-```bash
+````bash
 # Check for emojis in source code (should return no results)
 find src/ -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.jsx" | xargs grep -l "[🎯🚀💡🔒🌟⚡✨🎨📊💪🏆🔧🎖️⭐🏅🎓📈🔥💼🤝👥📱💻🏠🏢🌐📞✉️📍☀️🌙🤖📅🏗️🛡️⚙️✅➡️👁️⚠️🏛️✈️]"
 
@@ -53,4 +53,5 @@ console.log('Debug 🔧')
 
 ---
 
-**Questions?** Check [DEVELOPMENT_GUIDELINES.md](./DEVELOPMENT_GUIDELINES.md) for complete policy details.
+**Questions?** Check [development-guidelines.md](./development-guidelines.md) for complete policy details.
+````

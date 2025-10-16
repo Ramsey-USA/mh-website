@@ -124,7 +124,7 @@ export const responsive = {
  */
 export const createBrandVariant = (
   baseClasses: string,
-  variant: "primary" | "secondary" | "accent" = "primary"
+  variant: "primary" | "secondary" | "accent" = "primary",
 ) => {
   const variantClasses = {
     primary:
@@ -143,14 +143,14 @@ export const createBrandVariant = (
  */
 export const createThemeClasses = (
   lightClasses: string,
-  darkClasses: string
+  darkClasses: string,
 ) => {
   return cn(
     lightClasses,
     darkClasses
       .split(" ")
       .map((cls) => `dark:${cls}`)
-      .join(" ")
+      .join(" "),
   );
 };
 
@@ -162,13 +162,13 @@ export const performanceClasses = {
     brandClasses.card.base,
     brandClasses.effect3d.perspective,
     brandClasses.effect3d.preserve3d,
-    brandClasses.animation.gpu
+    brandClasses.animation.gpu,
   ),
 
   interactiveButton: cn(
     brandClasses.button.primary,
     brandClasses.focus.brand,
-    brandClasses.animation.gpu
+    brandClasses.animation.gpu,
   ),
 
   smoothTransition: "transition-all duration-300 ease-out",
@@ -188,7 +188,7 @@ export const validateClasses = (classes: string): boolean => {
     const prefixClasses = classArray.filter((cls) => cls.startsWith(prefix));
     if (prefixClasses.length > 1) {
       console.warn(
-        `Potential class conflict detected: ${prefixClasses.join(", ")}`
+        `Potential class conflict detected: ${prefixClasses.join(", ")}`,
       );
     }
   }

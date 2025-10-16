@@ -33,7 +33,7 @@ export async function POST(request: NextRequest, context: RouteParams) {
     if (!db || !auth) {
       return NextResponse.json(
         { error: "Firebase not configured" },
-        { status: 503 }
+        { status: 503 },
       );
     }
 
@@ -50,7 +50,7 @@ export async function POST(request: NextRequest, context: RouteParams) {
       } catch (error) {
         return NextResponse.json(
           { error: "Invalid authentication token" },
-          { status: 401 }
+          { status: 401 },
         );
       }
     }
@@ -64,14 +64,14 @@ export async function POST(request: NextRequest, context: RouteParams) {
       default:
         return NextResponse.json(
           { error: "Function not found" },
-          { status: 404 }
+          { status: 404 },
         );
     }
   } catch (error) {
     console.error("Firebase function error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -81,7 +81,7 @@ async function handleSendNotification(data: any, user: any) {
   if (!user) {
     return NextResponse.json(
       { error: "Authentication required" },
-      { status: 401 }
+      { status: 401 },
     );
   }
 
@@ -99,7 +99,7 @@ async function handleGetUserData(data: any, user: any) {
   if (!user) {
     return NextResponse.json(
       { error: "Authentication required" },
-      { status: 401 }
+      { status: 401 },
     );
   }
 
@@ -119,7 +119,7 @@ async function handleGetUserData(data: any, user: any) {
     console.error("Error getting user data:", error);
     return NextResponse.json(
       { error: "Failed to get user data" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

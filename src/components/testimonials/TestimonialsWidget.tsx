@@ -35,7 +35,7 @@ export default function TestimonialsWidget({
       (testimonial) =>
         (testimonial.status === "featured" ||
           testimonial.status === "approved") &&
-        testimonial.featured
+        testimonial.featured,
     )
     .slice(0, maxTestimonials);
 
@@ -62,7 +62,7 @@ export default function TestimonialsWidget({
   const goToPrevious = () => {
     setCurrentIndex(
       (prev) =>
-        (prev - 1 + featuredTestimonials.length) % featuredTestimonials.length
+        (prev - 1 + featuredTestimonials.length) % featuredTestimonials.length,
     );
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(autoSlide), 3000);

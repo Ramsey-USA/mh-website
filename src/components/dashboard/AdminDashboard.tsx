@@ -86,21 +86,21 @@ const AdminDashboard = () => {
       // Load blog posts count
       const blogQuery = query(
         collection(firestore, "blog"),
-        where("published", "==", true)
+        where("published", "==", true),
       );
       const blogSnapshot = await getDocs(blogQuery);
       const totalBlogPosts = blogSnapshot.size;
 
       // Load testimonials
       const testimonialsSnapshot = await getDocs(
-        collection(firestore, "testimonials")
+        collection(firestore, "testimonials"),
       );
       const totalTestimonials = testimonialsSnapshot.size;
 
       // Count pending testimonials
       const pendingQuery = query(
         collection(firestore, "testimonials"),
-        where("approved", "==", false)
+        where("approved", "==", false),
       );
       const pendingSnapshot = await getDocs(pendingQuery);
       const pendingTestimonials = pendingSnapshot.size;

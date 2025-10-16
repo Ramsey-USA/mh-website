@@ -5,7 +5,7 @@ different components and pages.
 
 ## 🏠 **Homepage Hero Section**
 
-```tsx
+````tsx
 // Hero CTA buttons with proper icon integration
 <div className="flex flex-col sm:flex-row gap-4 justify-center">
   <Button variant="primary" size="xl">
@@ -59,11 +59,11 @@ different components and pages.
     Try AI Estimator
   </Button>
 </div>
-```
+````
 
 ## 🏗️ **Service Cards**
 
-```tsx
+````tsx
 // Service card actions
 <div className="flex gap-3 mt-6">
   <Button variant="primary" size="default" className="flex-1">
@@ -280,3 +280,4 @@ When implementing buttons, ensure:
 
 *This system ensures consistent, accessible, and brand-compliant button implementations across the
 entire MH Construction website.*
+````

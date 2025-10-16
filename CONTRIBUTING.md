@@ -128,7 +128,7 @@ Git
 - **Interfaces**: Define clear interfaces for props and data structures
 - **Error Handling**: Proper error boundaries and type-safe error handling
 
-```typescript
+````typescript
 // Good
 interface ButtonProps {
   variant: 'primary' | 'secondary' | 'outline';
@@ -535,3 +535,4 @@ partnerships through exceptional construction services.
 **Thank you for contributing to MH Construction's digital presence!**
 
 ### Last updated: October 2025 | MH Construction Development Team
+````

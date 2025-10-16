@@ -162,7 +162,7 @@ class PerformanceMonitor {
     if ("performance" in window && "timing" in performance) {
       const timing = performance.timing;
       const navigation = performance.getEntriesByType(
-        "navigation"
+        "navigation",
       )[0] as PerformanceNavigationTiming;
 
       this.recordMetric({
@@ -279,7 +279,7 @@ class PerformanceMonitor {
   trackFormCompletion(
     formId: string,
     completed: boolean,
-    timeSpent: number
+    timeSpent: number,
   ): void {
     this.recordMetric({
       formCompletionRate: completed ? 1 : 0,
@@ -303,27 +303,27 @@ class PerformanceMonitor {
         avgLCP: this.average(
           recentMetrics
             .map((m) => m.lcp)
-            .filter((v): v is number => typeof v === "number")
+            .filter((v): v is number => typeof v === "number"),
         ),
         avgFID: this.average(
           recentMetrics
             .map((m) => m.fid)
-            .filter((v): v is number => typeof v === "number")
+            .filter((v): v is number => typeof v === "number"),
         ),
         avgCLS: this.average(
           recentMetrics
             .map((m) => m.cls)
-            .filter((v): v is number => typeof v === "number")
+            .filter((v): v is number => typeof v === "number"),
         ),
         avgAIResponseTime: this.average(
           recentMetrics
             .map((m) => m.aiResponseTime)
-            .filter((v): v is number => typeof v === "number")
+            .filter((v): v is number => typeof v === "number"),
         ),
         avgPageLoadTime: this.average(
           recentMetrics
             .map((m) => m.pageLoadTime)
-            .filter((v): v is number => typeof v === "number")
+            .filter((v): v is number => typeof v === "number"),
         ),
       },
       errors: {
@@ -392,7 +392,7 @@ export const trackAIResponse = (responseTime: number, type: string) => {
 export const trackFormCompletion = (
   formId: string,
   completed: boolean,
-  timeSpent: number
+  timeSpent: number,
 ) => {
   performanceMonitor.trackFormCompletion(formId, completed, timeSpent);
 };

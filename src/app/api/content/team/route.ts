@@ -9,7 +9,7 @@ export async function GET() {
     console.error("Error loading team:", error);
     return NextResponse.json(
       { error: "Failed to load team content" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

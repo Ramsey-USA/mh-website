@@ -5,10 +5,10 @@ export {
   useRequireAuth,
   useRequireAdmin,
   useRequireTeamMember,
-} from '@/lib/auth/AuthContext'
+} from "@/lib/auth/AuthContext";
 export {
   ProtectedRoute,
   DashboardProtection,
   AdminProtection,
-} from '@/lib/auth/ProtectedRoute'
-export { UserProfile } from './UserProfile'
+} from "@/lib/auth/ProtectedRoute";
+export { UserProfile } from "./UserProfile";

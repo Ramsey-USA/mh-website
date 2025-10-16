@@ -55,7 +55,7 @@ indicators in application code must use Google Material Icons exclusively.
 - Defined approved vs prohibited practices
 - Included technical implementation examples
 
-### **2. DEVELOPMENT_GUIDELINES.md**
+### **2. development-guidelines.md**
 
 - Comprehensive developer policy guide
 - Detailed technical standards and requirements
@@ -69,7 +69,7 @@ indicators in application code must use Google Material Icons exclusively.
 - Link to detailed guidelines
 - Build status confirmation
 
-### **4. DEVELOPER_CHECKLIST.md**
+### **4. developer-checklist.md**
 
 - Pre-commit verification checklist
 - Quick validation commands
@@ -156,7 +156,7 @@ accessible, and consistent digital construction industry standards.**
 
 ### ✅ Approved Usage
 
-```tsx
+````tsx
 <MaterialIcon icon="construction" size="lg" className="text-brand-primary" />
 ```text
 
@@ -172,4 +172,5 @@ accessible, and consistent digital construction industry standards.**
 ## 🚀 Getting Started (acceptable in .md files)
 ```text
 
-**Questions?** Reference [DEVELOPMENT_GUIDELINES.md](./DEVELOPMENT_GUIDELINES.md) for complete details.
+**Questions?** Reference [development-guidelines.md](./development-guidelines.md) for complete details.
+````

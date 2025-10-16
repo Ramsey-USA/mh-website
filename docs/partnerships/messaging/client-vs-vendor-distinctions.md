@@ -16,7 +16,7 @@ audiences:
 
 ### **1. Updated MH Partnership Messaging Guide**
 
-*File: `/docs/MH_PARTNERSHIP_MESSAGING_GUIDE.md`*
+_File: `/docs/MH_PARTNERSHIP_MESSAGING_GUIDE.md`_
 
 **Key Updates:**
 
@@ -30,7 +30,7 @@ audiences:
 
 ### **2. Created CTA Button Guide**
 
-*File: `/docs/CTA_BUTTON_GUIDE.md`*
+_File: `/docs/CTA_BUTTON_GUIDE.md`_
 
 **Features:**
 
@@ -42,7 +42,7 @@ audiences:
 
 ### **3. Created Trade Partnership Guide**
 
-*File: `/docs/TRADE_PARTNERSHIP_GUIDE.md`*
+_File: `/docs/TRADE_PARTNERSHIP_GUIDE.md`_
 
 **Contents:**
 
@@ -55,7 +55,7 @@ audiences:
 
 ### **4. Updated Services Documentation**
 
-*File: `/docs/business/SERVICES.md`*
+_File: `/docs/business/services.md`_
 
 **Improvements:**
 
@@ -76,13 +76,13 @@ audiences:
 **Primary Icon:** `handshake` - Represents collaborative partnership (MaterialIcon component)
 **Alternative Icons:** `event`, `phone`, `engineering`, `place`
 
-| Traditional | Client-Focused | MaterialIcon |
-|-------------|----------------|--------------|
-| "Get Quote" | "Get Free Estimate" | `handshake` |
-| "Contact Us" | "Schedule Consultation" | `event` |
-| "Start Project" | "Begin Partnership" | `handshake` |
-| "Service Request" | "Discuss Your Vision" | `phone` |
-| "Book Appointment" | "Schedule Discovery Call" | `event` |
+| Traditional        | Client-Focused            | MaterialIcon |
+| ------------------ | ------------------------- | ------------ |
+| "Get Quote"        | "Get Free Estimate"       | `handshake`  |
+| "Contact Us"       | "Schedule Consultation"   | `event`      |
+| "Start Project"    | "Begin Partnership"       | `handshake`  |
+| "Service Request"  | "Discuss Your Vision"     | `phone`      |
+| "Book Appointment" | "Schedule Discovery Call" | `event`      |
 
 ### **TRADE PARTNERSHIP LANGUAGE**
 
@@ -92,13 +92,13 @@ audiences:
 **Primary Icon:** `construction` or `handyman` - Represents trade professionals (MaterialIcon component)
 **Alternative Icons:** `work`, `group`, `check_circle`, `engineering`
 
-| Generic | Vendor-Focused | MaterialIcon |
-|---------|----------------|--------------|
-| "Join Us" | "Apply to be an Approved Vendor" | `check_circle` |
+| Generic        | Vendor-Focused                       | MaterialIcon   |
+| -------------- | ------------------------------------ | -------------- |
+| "Join Us"      | "Apply to be an Approved Vendor"     | `check_circle` |
 | "Work With Us" | "Join Our Trade Partnership Network" | `construction` |
-| "Contact Us" | "Submit Vendor Application" | `contact_mail` |
-| "Learn More" | "View Partnership Requirements" | `info` |
-| "Sign Up" | "Register as Trade Partner" | `work` |
+| "Contact Us"   | "Submit Vendor Application"          | `contact_mail` |
+| "Learn More"   | "View Partnership Requirements"      | `info`         |
+| "Sign Up"      | "Register as Trade Partner"          | `work`         |
 
 ---
 
@@ -157,14 +157,14 @@ audiences:
 
 ### **Client Contact Methods**
 
-- **Phone:** (509) 308-6489  (projects/consultations)
+- **Phone:** (509) 308-6489 (projects/consultations)
 - **Email:** <office@mhc-gc.com>
 - **Purpose:** Free estimates, consultations, project discussions
 - **Forms:** Project vision, timeline, budget discussions
 
 ### **Vendor Contact Methods**
 
-- **Phone:** (509) 308-6489  (vendor relations)
+- **Phone:** (509) 308-6489 (vendor relations)
 - **Email:** <office@mhc-gc.com>
 - **Purpose:** Applications, trade partnerships, business opportunities
 - **Forms:** Company info, qualifications, trade specializations
@@ -296,5 +296,5 @@ audiences:
 ---
 
 **Implementation Summary** | **Version 1.0** | **October 14, 2025**
-*Successfully implementing client vs vendor partnership distinctions across*
-*all MH Construction content*
+_Successfully implementing client vs vendor partnership distinctions across_
+_all MH Construction content_

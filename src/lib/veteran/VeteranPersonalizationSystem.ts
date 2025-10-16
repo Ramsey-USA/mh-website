@@ -7,85 +7,85 @@ import {
   VeteranProfileEngine,
   VeteranProfile,
   CommunicationStyle,
-} from './VeteranProfileEngine'
+} from "./VeteranProfileEngine";
 import {
   ContentPersonalizationEngine,
   PersonalizedContent,
-} from './ContentPersonalizationEngine'
+} from "./ContentPersonalizationEngine";
 import {
   VeteranBenefitsAutomation,
   VeteranBenefitsPackage,
-} from './VeteranBenefitsAutomation'
+} from "./VeteranBenefitsAutomation";
 
 export interface ComprehensiveVeteranExperience {
-  profile: VeteranProfile
-  personalizedContent: PersonalizedContent
-  benefitsPackage: VeteranBenefitsPackage
-  sessionData: VeteranSessionData
-  recommendations: VeteranRecommendation[]
-  notifications: VeteranNotification[]
+  profile: VeteranProfile;
+  personalizedContent: PersonalizedContent;
+  benefitsPackage: VeteranBenefitsPackage;
+  sessionData: VeteranSessionData;
+  recommendations: VeteranRecommendation[];
+  notifications: VeteranNotification[];
 }
 
 export interface VeteranSessionData {
-  sessionId: string
-  startTime: Date
-  lastActivity: Date
-  interactionHistory: VeteranInteraction[]
-  preferences: SessionPreferences
-  context: SessionContext
+  sessionId: string;
+  startTime: Date;
+  lastActivity: Date;
+  interactionHistory: VeteranInteraction[];
+  preferences: SessionPreferences;
+  context: SessionContext;
 }
 
 export interface VeteranInteraction {
-  timestamp: Date
+  timestamp: Date;
   type:
-    | 'form_interaction'
-    | 'content_view'
-    | 'recommendation_click'
-    | 'discount_applied'
-    | 'specialist_contact'
-  details: any
-  veteranSpecific: boolean
+    | "form_interaction"
+    | "content_view"
+    | "recommendation_click"
+    | "discount_applied"
+    | "specialist_contact";
+  details: any;
+  veteranSpecific: boolean;
 }
 
 export interface SessionPreferences {
-  communicationStyle: 'formal' | 'military' | 'casual' | 'respectful'
-  contentFormat: 'detailed' | 'summary' | 'visual'
-  notificationLevel: 'all' | 'important' | 'minimal'
-  accessibilityMode: boolean
+  communicationStyle: "formal" | "military" | "casual" | "respectful";
+  contentFormat: "detailed" | "summary" | "visual";
+  notificationLevel: "all" | "important" | "minimal";
+  accessibilityMode: boolean;
 }
 
 export interface SessionContext {
-  currentPage: string
-  projectInterest: string[]
-  budgetIndicated?: string
-  timelineIndicated?: string
-  priorityNeeds: string[]
+  currentPage: string;
+  projectInterest: string[];
+  budgetIndicated?: string;
+  timelineIndicated?: string;
+  priorityNeeds: string[];
 }
 
 export interface VeteranRecommendation {
-  id: string
-  type: 'project' | 'benefit' | 'specialist' | 'content'
-  title: string
-  description: string
-  relevanceScore: number
-  veteranSpecific: boolean
-  urgent: boolean
-  actionRequired?: string
+  id: string;
+  type: "project" | "benefit" | "specialist" | "content";
+  title: string;
+  description: string;
+  relevanceScore: number;
+  veteranSpecific: boolean;
+  urgent: boolean;
+  actionRequired?: string;
 }
 
 export interface VeteranNotification {
-  id: string
+  id: string;
   type:
-    | 'benefit_opportunity'
-    | 'discount_available'
-    | 'specialist_message'
-    | 'urgent_response'
-    | 'document_needed'
-  title: string
-  message: string
-  priority: 'low' | 'medium' | 'high' | 'urgent'
-  actionRequired: boolean
-  expiresAt?: Date
+    | "benefit_opportunity"
+    | "discount_available"
+    | "specialist_message"
+    | "urgent_response"
+    | "document_needed";
+  title: string;
+  message: string;
+  priority: "low" | "medium" | "high" | "urgent";
+  actionRequired: boolean;
+  expiresAt?: Date;
 }
 
 /**
@@ -93,23 +93,24 @@ export interface VeteranNotification {
  * Main coordination system for all veteran-focused features
  */
 export class VeteranPersonalizationSystem {
-  private static instance: VeteranPersonalizationSystem
-  private profileEngine: VeteranProfileEngine
-  private contentEngine: ContentPersonalizationEngine
-  private benefitsEngine: VeteranBenefitsAutomation
-  private activeSessions: Map<string, VeteranSessionData> = new Map()
+  private static instance: VeteranPersonalizationSystem;
+  private profileEngine: VeteranProfileEngine;
+  private contentEngine: ContentPersonalizationEngine;
+  private benefitsEngine: VeteranBenefitsAutomation;
+  private activeSessions: Map<string, VeteranSessionData> = new Map();
 
   private constructor() {
-    this.profileEngine = VeteranProfileEngine.getInstance()
-    this.contentEngine = ContentPersonalizationEngine.getInstance()
-    this.benefitsEngine = VeteranBenefitsAutomation.getInstance()
+    this.profileEngine = VeteranProfileEngine.getInstance();
+    this.contentEngine = ContentPersonalizationEngine.getInstance();
+    this.benefitsEngine = VeteranBenefitsAutomation.getInstance();
   }
 
   public static getInstance(): VeteranPersonalizationSystem {
     if (!VeteranPersonalizationSystem.instance) {
-      VeteranPersonalizationSystem.instance = new VeteranPersonalizationSystem()
+      VeteranPersonalizationSystem.instance =
+        new VeteranPersonalizationSystem();
     }
-    return VeteranPersonalizationSystem.instance
+    return VeteranPersonalizationSystem.instance;
   }
 
   /**
@@ -118,36 +119,40 @@ export class VeteranPersonalizationSystem {
   public async initializeVeteranExperience(
     userInput: string,
     formData?: any,
-    sessionId?: string
+    sessionId?: string,
   ): Promise<ComprehensiveVeteranExperience> {
     // Generate or retrieve veteran profile
     const profile = this.profileEngine.analyzeAndCreateProfile(
       userInput,
       formData,
-      { sessionId }
-    )
+      { sessionId },
+    );
 
     // Generate personalized content
     const personalizedContent =
-      this.contentEngine.generatePersonalizedContent(profile)
+      this.contentEngine.generatePersonalizedContent(profile);
 
     // Generate benefits package
-    const benefitsPackage = this.benefitsEngine.generateBenefitsPackage(profile)
+    const benefitsPackage =
+      this.benefitsEngine.generateBenefitsPackage(profile);
 
     // Initialize or update session
-    const sessionData = this.initializeSession(sessionId || profile.id, profile)
+    const sessionData = this.initializeSession(
+      sessionId || profile.id,
+      profile,
+    );
 
     // Generate recommendations
     const recommendations = this.generateVeteranRecommendations(
       profile,
-      sessionData
-    )
+      sessionData,
+    );
 
     // Generate notifications
     const notifications = this.generateVeteranNotifications(
       profile,
-      benefitsPackage
-    )
+      benefitsPackage,
+    );
 
     const experience: ComprehensiveVeteranExperience = {
       profile,
@@ -156,17 +161,17 @@ export class VeteranPersonalizationSystem {
       sessionData,
       recommendations,
       notifications,
-    }
+    };
 
     // Log interaction
     this.logInteraction(sessionData.sessionId, {
       timestamp: new Date(),
-      type: 'form_interaction',
+      type: "form_interaction",
       details: { userInput, formData },
       veteranSpecific: profile.isVeteran,
-    })
+    });
 
-    return experience
+    return experience;
   }
 
   /**
@@ -174,56 +179,56 @@ export class VeteranPersonalizationSystem {
    */
   public getContextualizedExperience(
     sessionId: string,
-    context: 'homepage' | 'estimator' | 'contact' | 'projects' | 'about',
-    additionalData?: any
+    context: "homepage" | "estimator" | "contact" | "projects" | "about",
+    additionalData?: any,
   ): {
-    personalizedContent?: Partial<PersonalizedContent>
-    recommendations?: VeteranRecommendation[]
-    notifications?: VeteranNotification[]
+    personalizedContent?: Partial<PersonalizedContent>;
+    recommendations?: VeteranRecommendation[];
+    notifications?: VeteranNotification[];
   } {
-    const sessionData = this.activeSessions.get(sessionId)
+    const sessionData = this.activeSessions.get(sessionId);
     if (!sessionData) {
-      throw new Error('Session not found')
+      throw new Error("Session not found");
     }
 
-    const profile = this.profileEngine.getProfile(sessionData.sessionId)
+    const profile = this.profileEngine.getProfile(sessionData.sessionId);
     if (!profile) {
-      throw new Error('Profile not found')
+      throw new Error("Profile not found");
     }
 
     // Update session context
-    sessionData.context.currentPage = context
-    sessionData.lastActivity = new Date()
+    sessionData.context.currentPage = context;
+    sessionData.lastActivity = new Date();
 
     // Get contextualized content
     const personalizedContent = this.contentEngine.getContextualizedContent(
       profile,
-      context
-    )
+      context,
+    );
 
     // Get context-specific recommendations
     const recommendations = this.getContextualRecommendations(
       profile,
       context,
-      additionalData
-    )
+      additionalData,
+    );
 
     // Get context-specific notifications
-    const notifications = this.getContextualNotifications(profile, context)
+    const notifications = this.getContextualNotifications(profile, context);
 
     // Log page interaction
     this.logInteraction(sessionId, {
       timestamp: new Date(),
-      type: 'content_view',
+      type: "content_view",
       details: { context, additionalData },
       veteranSpecific: profile.isVeteran,
-    })
+    });
 
     return {
       personalizedContent,
       recommendations,
       notifications,
-    }
+    };
   }
 
   /**
@@ -231,73 +236,77 @@ export class VeteranPersonalizationSystem {
    */
   public processVeteranFormSubmission(
     sessionId: string,
-    formType: 'contact' | 'estimate' | 'booking',
-    formData: any
+    formType: "contact" | "estimate" | "booking",
+    formData: any,
   ): {
-    response: any
-    veteranBenefits?: any
-    priorityHandling?: any
-    nextSteps: string[]
+    response: any;
+    veteranBenefits?: any;
+    priorityHandling?: any;
+    nextSteps: string[];
   } {
-    const sessionData = this.activeSessions.get(sessionId)
+    const sessionData = this.activeSessions.get(sessionId);
     if (!sessionData) {
-      throw new Error('Session not found')
+      throw new Error("Session not found");
     }
 
-    const profile = this.profileEngine.getProfile(sessionData.sessionId)
+    const profile = this.profileEngine.getProfile(sessionData.sessionId);
     if (!profile) {
-      throw new Error('Profile not found')
+      throw new Error("Profile not found");
     }
 
     // Update profile with new form data
-    const updatedProfile = this.updateProfileFromForm(profile, formData)
+    const updatedProfile = this.updateProfileFromForm(profile, formData);
 
     // Generate veteran-specific response
     const response = this.generateVeteranFormResponse(
       updatedProfile,
       formType,
-      formData
-    )
+      formData,
+    );
 
     // Calculate veteran benefits if applicable
-    let veteranBenefits
+    let veteranBenefits;
     if (
       updatedProfile.isVeteran &&
-      (formType === 'estimate' || formType === 'booking')
+      (formType === "estimate" || formType === "booking")
     ) {
-      veteranBenefits = this.calculateFormBenefits(updatedProfile, formData)
+      veteranBenefits = this.calculateFormBenefits(updatedProfile, formData);
     }
 
     // Determine priority handling
-    let priorityHandling
+    let priorityHandling;
     if (
-      updatedProfile.priorityLevel === 'IMMEDIATE' ||
-      updatedProfile.priorityLevel === 'HIGH'
+      updatedProfile.priorityLevel === "IMMEDIATE" ||
+      updatedProfile.priorityLevel === "HIGH"
     ) {
       priorityHandling = this.initiatePriorityHandling(
         updatedProfile,
         formType,
-        formData
-      )
+        formData,
+      );
     }
 
     // Generate next steps
-    const nextSteps = this.generateNextSteps(updatedProfile, formType, formData)
+    const nextSteps = this.generateNextSteps(
+      updatedProfile,
+      formType,
+      formData,
+    );
 
     // Log form submission
     this.logInteraction(sessionId, {
       timestamp: new Date(),
-      type: 'form_interaction',
+      type: "form_interaction",
       details: { formType, formData, veteranBenefits, priorityHandling },
       veteranSpecific: updatedProfile.isVeteran,
-    })
+    });
 
     return {
       response,
       veteranBenefits,
       priorityHandling,
       nextSteps,
-    }
+    };
   }
 
   /**
@@ -306,31 +315,34 @@ export class VeteranPersonalizationSystem {
   public applyVeteranDiscounts(
     sessionId: string,
     estimateAmount: number,
-    projectDetails: any
+    projectDetails: any,
   ): {
-    originalAmount: number
-    discountedAmount: number
-    appliedDiscounts: any[]
-    totalSavings: number
-    veteranMessage: string
+    originalAmount: number;
+    discountedAmount: number;
+    appliedDiscounts: any[];
+    totalSavings: number;
+    veteranMessage: string;
   } {
-    const profile = this.getProfileBySession(sessionId)
+    const profile = this.getProfileBySession(sessionId);
     if (!profile) {
-      throw new Error('Profile not found')
+      throw new Error("Profile not found");
     }
 
     const discountResult = this.benefitsEngine.applyAutomaticDiscounts(
       profile,
-      estimateAmount
-    )
+      estimateAmount,
+    );
 
     // Generate veteran-specific message
-    const veteranMessage = this.generateDiscountMessage(profile, discountResult)
+    const veteranMessage = this.generateDiscountMessage(
+      profile,
+      discountResult,
+    );
 
     // Log discount application
     this.logInteraction(sessionId, {
       timestamp: new Date(),
-      type: 'discount_applied',
+      type: "discount_applied",
       details: {
         originalAmount: estimateAmount,
         discountedAmount: discountResult.discountedAmount,
@@ -338,7 +350,7 @@ export class VeteranPersonalizationSystem {
         appliedDiscounts: discountResult.appliedDiscounts,
       },
       veteranSpecific: profile.isVeteran,
-    })
+    });
 
     return {
       originalAmount: estimateAmount,
@@ -346,7 +358,7 @@ export class VeteranPersonalizationSystem {
       appliedDiscounts: discountResult.appliedDiscounts,
       totalSavings: discountResult.totalSavings,
       veteranMessage,
-    }
+    };
   }
 
   /**
@@ -354,34 +366,35 @@ export class VeteranPersonalizationSystem {
    */
   public requestSpecialistContact(
     sessionId: string,
-    urgency: 'standard' | 'priority' | 'emergency',
-    message?: string
+    urgency: "standard" | "priority" | "emergency",
+    message?: string,
   ): {
-    assignedSpecialist: any
-    contactInfo: any
-    expectedResponse: string
-    specialInstructions: string[]
+    assignedSpecialist: any;
+    contactInfo: any;
+    expectedResponse: string;
+    specialInstructions: string[];
   } {
-    const profile = this.getProfileBySession(sessionId)
+    const profile = this.getProfileBySession(sessionId);
     if (!profile) {
-      throw new Error('Profile not found')
+      throw new Error("Profile not found");
     }
 
-    const benefitsPackage = this.benefitsEngine.generateBenefitsPackage(profile)
-    const specialistAssignment = benefitsPackage.specialistAssignment
+    const benefitsPackage =
+      this.benefitsEngine.generateBenefitsPackage(profile);
+    const specialistAssignment = benefitsPackage.specialistAssignment;
 
     // Adjust response time based on urgency and veteran status
     let expectedResponse = specialistAssignment.assignedSpecialist
-      ? '24-48 hours'
-      : '48-72 hours'
+      ? "24-48 hours"
+      : "48-72 hours";
 
     if (profile.isVeteran) {
-      if (urgency === 'emergency' && profile.priorityLevel === 'IMMEDIATE') {
-        expectedResponse = '2-4 hours'
-      } else if (urgency === 'priority' && profile.priorityLevel === 'HIGH') {
-        expectedResponse = '4-8 hours'
-      } else if (profile.priorityLevel === 'HIGH') {
-        expectedResponse = '12-24 hours'
+      if (urgency === "emergency" && profile.priorityLevel === "IMMEDIATE") {
+        expectedResponse = "2-4 hours";
+      } else if (urgency === "priority" && profile.priorityLevel === "HIGH") {
+        expectedResponse = "4-8 hours";
+      } else if (profile.priorityLevel === "HIGH") {
+        expectedResponse = "12-24 hours";
       }
     }
 
@@ -389,13 +402,13 @@ export class VeteranPersonalizationSystem {
     const specialInstructions = this.generateSpecialistInstructions(
       profile,
       urgency,
-      message
-    )
+      message,
+    );
 
     // Log specialist contact request
     this.logInteraction(sessionId, {
       timestamp: new Date(),
-      type: 'specialist_contact',
+      type: "specialist_contact",
       details: {
         urgency,
         message,
@@ -403,36 +416,37 @@ export class VeteranPersonalizationSystem {
         expectedResponse,
       },
       veteranSpecific: profile.isVeteran,
-    })
+    });
 
     return {
       assignedSpecialist: specialistAssignment.assignedSpecialist,
       contactInfo: specialistAssignment.contactInfo,
       expectedResponse,
       specialInstructions,
-    }
+    };
   }
 
   /**
    * Get veteran analytics and insights
    */
   public getVeteranAnalytics(sessionId?: string): {
-    totalVeterans: number
-    veteranProfiles: any[]
-    engagementMetrics: any
-    benefitUtilization: any
-    topRecommendations: any[]
+    totalVeterans: number;
+    veteranProfiles: any[];
+    engagementMetrics: any;
+    benefitUtilization: any;
+    topRecommendations: any[];
   } {
-    const allProfiles = this.profileEngine.getAllProfiles()
-    const veteranProfiles = allProfiles.filter(p => p.isVeteran)
+    const allProfiles = this.profileEngine.getAllProfiles();
+    const veteranProfiles = allProfiles.filter((p) => p.isVeteran);
 
-    const engagementMetrics = this.calculateEngagementMetrics(veteranProfiles)
-    const benefitUtilization = this.calculateBenefitUtilization(veteranProfiles)
-    const topRecommendations = this.getTopRecommendations(veteranProfiles)
+    const engagementMetrics = this.calculateEngagementMetrics(veteranProfiles);
+    const benefitUtilization =
+      this.calculateBenefitUtilization(veteranProfiles);
+    const topRecommendations = this.getTopRecommendations(veteranProfiles);
 
     return {
       totalVeterans: veteranProfiles.length,
-      veteranProfiles: veteranProfiles.map(p => ({
+      veteranProfiles: veteranProfiles.map((p) => ({
         id: p.id,
         branch: p.serviceBranch,
         priority: p.priorityLevel,
@@ -442,20 +456,20 @@ export class VeteranPersonalizationSystem {
       engagementMetrics,
       benefitUtilization,
       topRecommendations,
-    }
+    };
   }
 
   // Private helper methods
 
   private initializeSession(
     sessionId: string,
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): VeteranSessionData {
-    const existing = this.activeSessions.get(sessionId)
+    const existing = this.activeSessions.get(sessionId);
 
     if (existing) {
-      existing.lastActivity = new Date()
-      return existing
+      existing.lastActivity = new Date();
+      return existing;
     }
 
     const sessionData: VeteranSessionData = {
@@ -465,161 +479,161 @@ export class VeteranPersonalizationSystem {
       interactionHistory: [],
       preferences: {
         communicationStyle: this.mapCommunicationStyle(
-          profile.communicationStyle
+          profile.communicationStyle,
         ),
-        contentFormat: 'detailed',
+        contentFormat: "detailed",
         notificationLevel:
-          profile.priorityLevel === 'IMMEDIATE' ? 'all' : 'important',
+          profile.priorityLevel === "IMMEDIATE" ? "all" : "important",
         accessibilityMode:
           profile.disabledVeteran ||
           profile.accessibilityRequirements.length > 0,
       },
       context: {
-        currentPage: 'homepage',
+        currentPage: "homepage",
         projectInterest: [],
         priorityNeeds: profile.constructionPriorities,
       },
-    }
+    };
 
-    this.activeSessions.set(sessionId, sessionData)
-    return sessionData
+    this.activeSessions.set(sessionId, sessionData);
+    return sessionData;
   }
 
   /**
    * Map VeteranProfile CommunicationStyle to session style
    */
   private mapCommunicationStyle(
-    veteranStyle: CommunicationStyle
-  ): 'formal' | 'military' | 'casual' | 'respectful' {
+    veteranStyle: CommunicationStyle,
+  ): "formal" | "military" | "casual" | "respectful" {
     switch (veteranStyle) {
-      case 'Military Direct':
-        return 'military'
-      case 'Professional Formal':
-        return 'formal'
-      case 'Casual Friendly':
-        return 'casual'
-      case 'Respectful Detailed':
-        return 'respectful'
+      case "Military Direct":
+        return "military";
+      case "Professional Formal":
+        return "formal";
+      case "Casual Friendly":
+        return "casual";
+      case "Respectful Detailed":
+        return "respectful";
       default:
-        return 'respectful'
+        return "respectful";
     }
   }
 
   private generateVeteranRecommendations(
     profile: VeteranProfile,
-    sessionData: VeteranSessionData
+    sessionData: VeteranSessionData,
   ): VeteranRecommendation[] {
-    const recommendations: VeteranRecommendation[] = []
+    const recommendations: VeteranRecommendation[] = [];
 
     if (!profile.isVeteran) {
       return [
         {
-          id: 'general001',
-          type: 'project',
-          title: 'Schedule Free Consultation',
-          description: 'Get started with a comprehensive project assessment',
+          id: "general001",
+          type: "project",
+          title: "Schedule Free Consultation",
+          description: "Get started with a comprehensive project assessment",
           relevanceScore: 80,
           veteranSpecific: false,
           urgent: false,
         },
-      ]
+      ];
     }
 
     // High priority recommendations for disabled veterans
     if (profile.disabledVeteran) {
       recommendations.push({
-        id: 'disabled001',
-        type: 'benefit',
-        title: 'VA Accessibility Grants Available',
+        id: "disabled001",
+        type: "benefit",
+        title: "VA Accessibility Grants Available",
         description:
-          'You may qualify for up to $20,387 in accessibility grants',
+          "You may qualify for up to $20,387 in accessibility grants",
         relevanceScore: 95,
         veteranSpecific: true,
         urgent: true,
-        actionRequired: 'Schedule benefits consultation',
-      })
+        actionRequired: "Schedule benefits consultation",
+      });
     }
 
     // Combat veteran recommendations
     if (profile.combatVeteran) {
       recommendations.push({
-        id: 'combat001',
-        type: 'project',
-        title: 'Veteran Security Package',
-        description: 'Enhanced security features designed for combat veterans',
+        id: "combat001",
+        type: "project",
+        title: "Veteran Security Package",
+        description: "Enhanced security features designed for combat veterans",
         relevanceScore: 85,
         veteranSpecific: true,
         urgent: false,
-      })
+      });
     }
 
     // Branch-specific specialist recommendations
     recommendations.push({
-      id: 'specialist001',
-      type: 'specialist',
+      id: "specialist001",
+      type: "specialist",
       title: `Connect with ${profile.serviceBranch} Veteran Specialist`,
       description:
-        'Work with a specialist who understands your service background',
+        "Work with a specialist who understands your service background",
       relevanceScore: 90,
       veteranSpecific: true,
       urgent: false,
-    })
+    });
 
     // Project-specific recommendations based on profile
     profile.constructionPriorities.forEach((priority, index) => {
       recommendations.push({
         id: `project00${index + 1}`,
-        type: 'project',
+        type: "project",
         title: `${priority} Solutions`,
         description: `Specialized ${priority.toLowerCase()} options for veterans`,
         relevanceScore: 75 - index * 5,
         veteranSpecific: true,
-        urgent: priority === 'Accessibility Compliance',
-      })
-    })
+        urgent: priority === "Accessibility Compliance",
+      });
+    });
 
     return recommendations
       .sort((a, b) => b.relevanceScore - a.relevanceScore)
-      .slice(0, 5)
+      .slice(0, 5);
   }
 
   private generateVeteranNotifications(
     profile: VeteranProfile,
-    benefitsPackage: VeteranBenefitsPackage
+    benefitsPackage: VeteranBenefitsPackage,
   ): VeteranNotification[] {
-    const notifications: VeteranNotification[] = []
+    const notifications: VeteranNotification[] = [];
 
     if (!profile.isVeteran) {
-      return []
+      return [];
     }
 
     // Priority response notification
-    if (profile.priorityLevel === 'IMMEDIATE') {
+    if (profile.priorityLevel === "IMMEDIATE") {
       notifications.push({
-        id: 'priority001',
-        type: 'urgent_response',
-        title: 'IMMEDIATE Priority Status Active',
+        id: "priority001",
+        type: "urgent_response",
+        title: "IMMEDIATE Priority Status Active",
         message:
-          'You will receive priority response within 4 hours. Emergency contact available 24/7.',
-        priority: 'urgent',
+          "You will receive priority response within 4 hours. Emergency contact available 24/7.",
+        priority: "urgent",
         actionRequired: false,
-      })
+      });
     }
 
     // Discount notifications
     const totalDiscount = benefitsPackage.discounts.reduce(
       (sum, d) => sum + d.percentage,
-      0
-    )
+      0,
+    );
     if (totalDiscount > 0) {
       notifications.push({
-        id: 'discount001',
-        type: 'discount_available',
+        id: "discount001",
+        type: "discount_available",
         title: `${totalDiscount}% Veteran Discount Applied`,
         message: `Your veteran status qualifies you for ${totalDiscount}% off construction services.`,
-        priority: 'medium',
+        priority: "medium",
         actionRequired: false,
-      })
+      });
     }
 
     // Benefits opportunity notifications
@@ -627,312 +641,313 @@ export class VeteranPersonalizationSystem {
       if (benefit.coordinationOffered) {
         notifications.push({
           id: `benefit00${index + 1}`,
-          type: 'benefit_opportunity',
+          type: "benefit_opportunity",
           title: `${benefit.name} Available`,
           message: `You may qualify for ${benefit.maxBenefit} through ${benefit.name}`,
-          priority: 'high',
+          priority: "high",
           actionRequired: true,
-        })
+        });
       }
-    })
+    });
 
     // Document verification notifications
     const unverifiedDiscounts = benefitsPackage.discounts.filter(
-      d => d.verification.required && d.verification.status === 'pending'
-    )
+      (d) => d.verification.required && d.verification.status === "pending",
+    );
 
     if (unverifiedDiscounts.length > 0) {
       notifications.push({
-        id: 'docs001',
-        type: 'document_needed',
-        title: 'Discount Verification Needed',
+        id: "docs001",
+        type: "document_needed",
+        title: "Discount Verification Needed",
         message:
-          'Please provide verification documents to activate your veteran discounts.',
-        priority: 'medium',
+          "Please provide verification documents to activate your veteran discounts.",
+        priority: "medium",
         actionRequired: true,
-      })
+      });
     }
 
     return notifications.sort((a, b) => {
-      const priorityOrder = { urgent: 4, high: 3, medium: 2, low: 1 }
-      return priorityOrder[b.priority] - priorityOrder[a.priority]
-    })
+      const priorityOrder = { urgent: 4, high: 3, medium: 2, low: 1 };
+      return priorityOrder[b.priority] - priorityOrder[a.priority];
+    });
   }
 
   private getContextualRecommendations(
     profile: VeteranProfile,
     context: string,
-    additionalData?: any
+    additionalData?: any,
   ): VeteranRecommendation[] {
     // Context-specific recommendation logic would go here
     // For now, return relevant recommendations based on context
 
     switch (context) {
-      case 'estimator':
-        return this.generateEstimatorRecommendations(profile, additionalData)
-      case 'contact':
-        return this.generateContactRecommendations(profile)
-      case 'projects':
-        return this.generateProjectRecommendations(profile)
+      case "estimator":
+        return this.generateEstimatorRecommendations(profile, additionalData);
+      case "contact":
+        return this.generateContactRecommendations(profile);
+      case "projects":
+        return this.generateProjectRecommendations(profile);
       default:
-        return []
+        return [];
     }
   }
 
   private getContextualNotifications(
     profile: VeteranProfile,
-    context: string
+    context: string,
   ): VeteranNotification[] {
     // Context-specific notification logic
-    return []
+    return [];
   }
 
   private generateEstimatorRecommendations(
     profile: VeteranProfile,
-    data?: any
+    data?: any,
   ): VeteranRecommendation[] {
-    const recommendations: VeteranRecommendation[] = []
+    const recommendations: VeteranRecommendation[] = [];
 
     if (profile.isVeteran && profile.disabledVeteran) {
       recommendations.push({
-        id: 'estimator001',
-        type: 'benefit',
-        title: 'Include Accessibility Features',
-        description: 'Add ADA-compliant features covered by VA grants',
+        id: "estimator001",
+        type: "benefit",
+        title: "Include Accessibility Features",
+        description: "Add ADA-compliant features covered by VA grants",
         relevanceScore: 90,
         veteranSpecific: true,
         urgent: false,
-        actionRequired: 'Review accessibility options',
-      })
+        actionRequired: "Review accessibility options",
+      });
     }
 
-    return recommendations
+    return recommendations;
   }
 
   private generateContactRecommendations(
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): VeteranRecommendation[] {
-    const recommendations: VeteranRecommendation[] = []
+    const recommendations: VeteranRecommendation[] = [];
 
     if (profile.isVeteran) {
       recommendations.push({
-        id: 'contact001',
-        type: 'specialist',
-        title: 'Request Veteran Specialist',
-        description: 'Connect directly with a veteran construction specialist',
+        id: "contact001",
+        type: "specialist",
+        title: "Request Veteran Specialist",
+        description: "Connect directly with a veteran construction specialist",
         relevanceScore: 85,
         veteranSpecific: true,
         urgent: false,
-      })
+      });
     }
 
-    return recommendations
+    return recommendations;
   }
 
   private generateProjectRecommendations(
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): VeteranRecommendation[] {
     // Project-specific recommendations based on veteran profile
-    return []
+    return [];
   }
 
   private updateProfileFromForm(
     profile: VeteranProfile,
-    formData: any
+    formData: any,
   ): VeteranProfile {
     // Update profile with new information from form submission
-    const updates: Partial<VeteranProfile> = {}
+    const updates: Partial<VeteranProfile> = {};
 
     if (formData.budgetRange && formData.budgetRange !== profile.budgetRange) {
-      updates.budgetRange = formData.budgetRange as any
+      updates.budgetRange = formData.budgetRange as any;
     }
 
     if (formData.timeline && formData.timeline !== profile.preferredTimeline) {
-      updates.preferredTimeline = formData.timeline as any
+      updates.preferredTimeline = formData.timeline as any;
     }
 
     if (formData.projectType) {
-      const currentPriorities = profile.constructionPriorities || []
+      const currentPriorities = profile.constructionPriorities || [];
       if (!currentPriorities.includes(formData.projectType)) {
         updates.constructionPriorities = [
           ...currentPriorities,
           formData.projectType,
-        ]
+        ];
       }
     }
 
-    return this.profileEngine.updateProfile(profile.id, updates) || profile
+    return this.profileEngine.updateProfile(profile.id, updates) || profile;
   }
 
   private generateVeteranFormResponse(
     profile: VeteranProfile,
     formType: string,
-    formData: any
+    formData: any,
   ): any {
     // Generate appropriate response based on veteran status and form type
     if (!profile.isVeteran) {
-      return this.generateStandardFormResponse(formType, formData)
+      return this.generateStandardFormResponse(formType, formData);
     }
 
     const personalizedContent =
-      this.contentEngine.generatePersonalizedContent(profile)
+      this.contentEngine.generatePersonalizedContent(profile);
 
     return {
       greeting: personalizedContent.greeting,
       message: personalizedContent.messaging.servicePromise,
       veteranRecognition: true,
-      priorityHandling: profile.priorityLevel !== 'STANDARD',
+      priorityHandling: profile.priorityLevel !== "STANDARD",
       specialistAssigned: true,
-    }
+    };
   }
 
   private generateStandardFormResponse(formType: string, formData: any): any {
     return {
-      greeting: 'Thank you for your interest in MH Construction!',
+      greeting: "Thank you for your interest in MH Construction!",
       message: "We'll review your information and get back to you soon.",
       veteranRecognition: false,
       priorityHandling: false,
       specialistAssigned: false,
-    }
+    };
   }
 
   private calculateFormBenefits(profile: VeteranProfile, formData: any): any {
     // Calculate applicable benefits based on form data
-    const benefitsPackage = this.benefitsEngine.generateBenefitsPackage(profile)
+    const benefitsPackage =
+      this.benefitsEngine.generateBenefitsPackage(profile);
 
     return {
-      discounts: benefitsPackage.discounts.filter(d => d.autoApplied),
+      discounts: benefitsPackage.discounts.filter((d) => d.autoApplied),
       vaBenefits: benefitsPackage.vaBenefits.eligibleBenefits,
       specialOffers: benefitsPackage.priorityServices,
-    }
+    };
   }
 
   private initiatePriorityHandling(
     profile: VeteranProfile,
     formType: string,
-    formData: any
+    formData: any,
   ): any {
     // Initiate priority handling procedures
     return {
       priorityLevel: profile.priorityLevel,
       responseTime:
-        profile.priorityLevel === 'IMMEDIATE' ? '4 hours' : '24 hours',
+        profile.priorityLevel === "IMMEDIATE" ? "4 hours" : "24 hours",
       specialistAssigned: true,
-      emergencyContact: profile.priorityLevel === 'IMMEDIATE',
-    }
+      emergencyContact: profile.priorityLevel === "IMMEDIATE",
+    };
   }
 
   private generateNextSteps(
     profile: VeteranProfile,
     formType: string,
-    formData: any
+    formData: any,
   ): string[] {
-    const steps: string[] = []
+    const steps: string[] = [];
 
     if (profile.isVeteran) {
-      if (profile.priorityLevel === 'IMMEDIATE') {
+      if (profile.priorityLevel === "IMMEDIATE") {
         steps.push(
-          'IMMEDIATE PRIORITY: Veteran specialist will contact you within 4 hours'
-        )
+          "IMMEDIATE PRIORITY: Veteran specialist will contact you within 4 hours",
+        );
       } else {
         steps.push(
-          'Priority response: Veteran specialist will contact you within 24 hours'
-        )
+          "Priority response: Veteran specialist will contact you within 24 hours",
+        );
       }
 
       if (profile.disabledVeteran) {
-        steps.push('Accessibility assessment will be scheduled')
-        steps.push('VA benefits coordination will be discussed')
+        steps.push("Accessibility assessment will be scheduled");
+        steps.push("VA benefits coordination will be discussed");
       }
 
-      steps.push('Veteran discounts will be automatically applied')
+      steps.push("Veteran discounts will be automatically applied");
     } else {
       steps.push(
-        'Our team will review your request and contact you within 48 hours'
-      )
-      steps.push('Free consultation will be scheduled at your convenience')
+        "Our team will review your request and contact you within 48 hours",
+      );
+      steps.push("Free consultation will be scheduled at your convenience");
     }
 
-    steps.push('Detailed project proposal will be provided')
+    steps.push("Detailed project proposal will be provided");
 
-    return steps
+    return steps;
   }
 
   private generateDiscountMessage(
     profile: VeteranProfile,
-    discountResult: any
+    discountResult: any,
   ): string {
     if (!profile.isVeteran || discountResult.totalSavings === 0) {
-      return 'Thank you for choosing MH Construction!'
+      return "Thank you for choosing MH Construction!";
     }
 
-    const branch = profile.serviceBranch
-    const savings = discountResult.totalSavings
+    const branch = profile.serviceBranch;
+    const savings = discountResult.totalSavings;
     const discountText = discountResult.appliedDiscounts
       .map((d: any) => d.name)
-      .join(', ')
+      .join(", ");
 
-    let message = `[FLAG] Thank you for your service, ${branch} veteran! `
-    message += `You've saved $${savings.toFixed(2)} with your veteran benefits: ${discountText}.`
+    let message = `[FLAG] Thank you for your service, ${branch} veteran! `;
+    message += `You've saved $${savings.toFixed(2)} with your veteran benefits: ${discountText}.`;
 
     if (profile.combatVeteran) {
-      message += ` Your combat service is honored with our deepest respect.`
+      message += ` Your combat service is honored with our deepest respect.`;
     }
 
     if (profile.disabledVeteran) {
-      message += ` Additional accessibility benefits may be available through VA programs.`
+      message += ` Additional accessibility benefits may be available through VA programs.`;
     }
 
-    return message
+    return message;
   }
 
   private generateSpecialistInstructions(
     profile: VeteranProfile,
     urgency: string,
-    message?: string
+    message?: string,
   ): string[] {
-    const instructions: string[] = []
+    const instructions: string[] = [];
 
     if (profile.isVeteran) {
-      instructions.push(`Veteran: ${profile.serviceBranch}`)
-      instructions.push('Thank for service in initial contact')
+      instructions.push(`Veteran: ${profile.serviceBranch}`);
+      instructions.push("Thank for service in initial contact");
 
       if (profile.combatVeteran) {
-        instructions.push('Combat veteran - show appropriate respect')
-        instructions.push('PTSD awareness - be flexible with scheduling')
+        instructions.push("Combat veteran - show appropriate respect");
+        instructions.push("PTSD awareness - be flexible with scheduling");
       }
 
       if (profile.disabledVeteran) {
-        instructions.push('Service-connected disability - accessibility focus')
-        instructions.push('VA benefits coordination may be needed')
+        instructions.push("Service-connected disability - accessibility focus");
+        instructions.push("VA benefits coordination may be needed");
       }
 
-      if (urgency === 'emergency') {
-        instructions.push('EMERGENCY REQUEST - Immediate response required')
-      } else if (urgency === 'priority') {
-        instructions.push('PRIORITY REQUEST - Expedited response needed')
+      if (urgency === "emergency") {
+        instructions.push("EMERGENCY REQUEST - Immediate response required");
+      } else if (urgency === "priority") {
+        instructions.push("PRIORITY REQUEST - Expedited response needed");
       }
     }
 
-    return instructions
+    return instructions;
   }
 
   private logInteraction(
     sessionId: string,
-    interaction: VeteranInteraction
+    interaction: VeteranInteraction,
   ): void {
-    const sessionData = this.activeSessions.get(sessionId)
+    const sessionData = this.activeSessions.get(sessionId);
     if (sessionData) {
-      sessionData.interactionHistory.push(interaction)
-      sessionData.lastActivity = new Date()
+      sessionData.interactionHistory.push(interaction);
+      sessionData.lastActivity = new Date();
     }
   }
 
   private getProfileBySession(sessionId: string): VeteranProfile | undefined {
-    const sessionData = this.activeSessions.get(sessionId)
-    if (!sessionData) return undefined
+    const sessionData = this.activeSessions.get(sessionId);
+    if (!sessionData) return undefined;
 
-    return this.profileEngine.getProfile(sessionData.sessionId)
+    return this.profileEngine.getProfile(sessionData.sessionId);
   }
 
   private calculateEngagementMetrics(profiles: VeteranProfile[]): any {
@@ -942,13 +957,13 @@ export class VeteranPersonalizationSystem {
       averageInteractions: 5.2,
       conversionRate: 0.85,
       satisfactionScore: 4.7,
-    }
+    };
   }
 
   private calculateBenefitUtilization(profiles: VeteranProfile[]): any {
     // Calculate benefit utilization statistics
-    const disabledVeterans = profiles.filter(p => p.disabledVeteran).length
-    const combatVeterans = profiles.filter(p => p.combatVeteran).length
+    const disabledVeterans = profiles.filter((p) => p.disabledVeteran).length;
+    const combatVeterans = profiles.filter((p) => p.combatVeteran).length;
 
     return {
       totalVeterans: profiles.length,
@@ -956,16 +971,16 @@ export class VeteranPersonalizationSystem {
       combatVeterans,
       discountUtilization: 0.92,
       vaBenefitCoordination: 0.78,
-    }
+    };
   }
 
   private getTopRecommendations(profiles: VeteranProfile[]): any[] {
     // Get most popular recommendations
     return [
-      { type: 'Accessibility Retrofit', usage: 65 },
-      { type: 'Security Enhancement', usage: 45 },
-      { type: 'Energy Efficiency', usage: 38 },
-      { type: 'Smart Technology', usage: 32 },
-    ]
+      { type: "Accessibility Retrofit", usage: 65 },
+      { type: "Security Enhancement", usage: 45 },
+      { type: "Energy Efficiency", usage: 38 },
+      { type: "Smart Technology", usage: 32 },
+    ];
   }
 }

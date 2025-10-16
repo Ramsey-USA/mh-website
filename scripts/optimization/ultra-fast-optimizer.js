@@ -143,7 +143,7 @@ module.exports = nextConfig;`;
   if (fs.existsSync("next.config.js")) {
     fs.writeFileSync(
       "next.config.js.backup.safe",
-      fs.readFileSync("next.config.js")
+      fs.readFileSync("next.config.js"),
     );
     console.log("📁 Current config backed up as: next.config.js.backup.safe");
   }
@@ -194,7 +194,7 @@ fi
   fs.writeFileSync("scripts/optimization/ultra-fast-build.sh", buildScript);
   fs.chmodSync("scripts/optimization/ultra-fast-build.sh", "755");
   console.log(
-    "✅ Ultra-fast build script created: scripts/optimization/ultra-fast-build.sh"
+    "✅ Ultra-fast build script created: scripts/optimization/ultra-fast-build.sh",
   );
 }
 
@@ -250,7 +250,7 @@ echo "Total improvement: 6-9s (35-53% faster)"
   fs.writeFileSync("scripts/analysis/large-file-analyzer.sh", analysisScript);
   fs.chmodSync("scripts/analysis/large-file-analyzer.sh", "755");
   console.log(
-    "✅ Large file analyzer created: scripts/analysis/large-file-analyzer.sh"
+    "✅ Large file analyzer created: scripts/analysis/large-file-analyzer.sh",
   );
 }
 
@@ -321,14 +321,14 @@ console.log("");
 console.log("📋 What was created:");
 console.log("• next.config.js.ultra-fast - Enhanced config");
 console.log(
-  "• scripts/optimization/ultra-fast-build.sh - Optimized build script"
+  "• scripts/optimization/ultra-fast-build.sh - Optimized build script",
 );
 console.log("• scripts/analysis/large-file-analyzer.sh - File analysis");
 console.log("• ULTRA_FAST_SAFETY_REPORT.md - Safety assessment");
 console.log("");
 console.log("🎯 Next steps (your choice):");
 console.log(
-  "1. Test ultra-fast config: cp next.config.js.ultra-fast next.config.js"
+  "1. Test ultra-fast config: cp next.config.js.ultra-fast next.config.js",
 );
 console.log("2. Run analysis: ./scripts/analysis/large-file-analyzer.sh");
 console.log("3. Test build: ./scripts/optimization/ultra-fast-build.sh");

@@ -171,7 +171,7 @@ export default function SecurityDashboard() {
         totalEvents: prev.totalEvents + Math.floor(Math.random() * 3),
         riskScore: Math.max(
           0,
-          Math.min(100, prev.riskScore + (Math.random() - 0.5) * 2)
+          Math.min(100, prev.riskScore + (Math.random() - 0.5) * 2),
         ),
       }));
     }, 30000);

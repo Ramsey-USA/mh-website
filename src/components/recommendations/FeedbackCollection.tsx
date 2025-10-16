@@ -6,78 +6,78 @@
  * integrates with A/B testing framework, and supports multiple feedback types.
  */
 
-'use client'
+"use client";
 
-import React, { useState, useCallback } from 'react'
-import dynamic from 'next/dynamic'
-import { MaterialIcon } from '../icons/MaterialIcon'
-import { Card, CardContent } from '../ui'
-import useSmartRecommendations from '@/hooks/useSmartRecommendations'
+import React, { useState, useCallback } from "react";
+import dynamic from "next/dynamic";
+import { MaterialIcon } from "../icons/MaterialIcon";
+import { Card, CardContent } from "../ui";
+import useSmartRecommendations from "@/hooks/useSmartRecommendations";
 import type {
   ProjectRecommendation,
   RecommendationFeedback,
-} from '@/lib/recommendations/SmartRecommendationEngine'
+} from "@/lib/recommendations/SmartRecommendationEngine";
 
 // Dynamic imports for Framer Motion
 const MotionDiv = dynamic(
-  () => import('framer-motion').then(mod => mod.motion.div),
-  { ssr: false }
-)
+  () => import("framer-motion").then((mod) => mod.motion.div),
+  { ssr: false },
+);
 const AnimatePresence = dynamic(
-  () => import('framer-motion').then(mod => mod.AnimatePresence),
-  { ssr: false }
-)
+  () => import("framer-motion").then((mod) => mod.AnimatePresence),
+  { ssr: false },
+);
 
 interface FeedbackCollectionProps {
-  recommendation: ProjectRecommendation
-  userId: string
-  onFeedbackSubmitted?: (feedback: RecommendationFeedback) => void
-  variant?: 'compact' | 'detailed' | 'modal'
-  showRatingOnly?: boolean
-  className?: string
+  recommendation: ProjectRecommendation;
+  userId: string;
+  onFeedbackSubmitted?: (feedback: RecommendationFeedback) => void;
+  variant?: "compact" | "detailed" | "modal";
+  showRatingOnly?: boolean;
+  className?: string;
 }
 
 interface FeedbackFormData {
-  rating: number
-  feedback: string
-  clicked: boolean
-  converted: boolean
-  helpful: boolean
-  accurate: boolean
-  relevant: boolean
+  rating: number;
+  feedback: string;
+  clicked: boolean;
+  converted: boolean;
+  helpful: boolean;
+  accurate: boolean;
+  relevant: boolean;
 }
 
 const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
   recommendation,
   userId,
   onFeedbackSubmitted,
-  variant = 'detailed',
+  variant = "detailed",
   showRatingOnly = false,
-  className = '',
+  className = "",
 }) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState<FeedbackFormData>({
     rating: 0,
-    feedback: '',
+    feedback: "",
     clicked: false,
     converted: false,
     helpful: false,
     accurate: false,
     relevant: false,
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [hasSubmitted, setHasSubmitted] = useState(false)
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const { recordFeedback, trackExperimentEvent } = useSmartRecommendations({
     userId,
-  })
+  });
 
   const handleSubmit = useCallback(
     async (data?: FeedbackFormData) => {
-      const feedbackData = data || formData
-      if (feedbackData.rating === 0 && !feedbackData.feedback) return
+      const feedbackData = data || formData;
+      if (feedbackData.rating === 0 && !feedbackData.feedback) return;
 
-      setIsSubmitting(true)
+      setIsSubmitting(true);
 
       try {
         const feedback: RecommendationFeedback = {
@@ -88,39 +88,39 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
           converted: feedbackData.converted,
           feedback: feedbackData.feedback || undefined,
           timestamp: new Date(),
-        }
+        };
 
         // Record feedback through hook
-        recordFeedback(feedback)
+        recordFeedback(feedback);
 
         // Track experiment event
-        trackExperimentEvent('feedback', {
+        trackExperimentEvent("feedback", {
           recommendationId: recommendation.id,
           rating: feedbackData.rating,
           helpful: feedbackData.helpful,
           accurate: feedbackData.accurate,
           relevant: feedbackData.relevant,
-        })
+        });
 
         // Callback for parent component
-        onFeedbackSubmitted?.(feedback)
+        onFeedbackSubmitted?.(feedback);
 
-        setHasSubmitted(true)
-        setIsOpen(false)
+        setHasSubmitted(true);
+        setIsOpen(false);
 
         // Track in analytics
-        if (typeof window !== 'undefined' && window.gtag) {
-          window.gtag('event', 'recommendation_feedback_submitted', {
+        if (typeof window !== "undefined" && window.gtag) {
+          window.gtag("event", "recommendation_feedback_submitted", {
             recommendation_id: recommendation.id,
             rating: feedbackData.rating,
             user_id: userId,
             project_type: recommendation.projectType,
-          })
+          });
         }
       } catch (error) {
-        console.error('Error submitting feedback:', error)
+        console.error("Error submitting feedback:", error);
       } finally {
-        setIsSubmitting(false)
+        setIsSubmitting(false);
       }
     },
     [
@@ -130,32 +130,32 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
       recordFeedback,
       trackExperimentEvent,
       onFeedbackSubmitted,
-    ]
-  )
+    ],
+  );
 
   const handleRatingClick = useCallback(
     (rating: number) => {
-      const newFormData = { ...formData, rating }
-      setFormData(newFormData)
+      const newFormData = { ...formData, rating };
+      setFormData(newFormData);
 
       // For compact variant, auto-submit on rating
-      if (variant === 'compact' || showRatingOnly) {
-        handleSubmit(newFormData)
+      if (variant === "compact" || showRatingOnly) {
+        handleSubmit(newFormData);
       }
     },
-    [formData, variant, showRatingOnly, handleSubmit]
-  )
+    [formData, variant, showRatingOnly, handleSubmit],
+  );
 
   const renderStarRating = () => (
     <div className="flex items-center space-x-1">
-      {[1, 2, 3, 4, 5].map(star => (
+      {[1, 2, 3, 4, 5].map((star) => (
         <button
           key={star}
           onClick={() => handleRatingClick(star)}
           className={`text-2xl transition-colors duration-200 ${
             formData.rating >= star
-              ? 'text-yellow-400 hover:text-yellow-500'
-              : 'text-gray-300 hover:text-yellow-300'
+              ? "text-yellow-400 hover:text-yellow-500"
+              : "text-gray-300 hover:text-yellow-300"
           }`}
           disabled={hasSubmitted}
         >
@@ -163,27 +163,27 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
         </button>
       ))}
     </div>
-  )
+  );
 
   const renderQuickFeedback = () => (
     <div className="flex flex-wrap gap-2 mt-3">
       {[
-        { key: 'helpful', label: 'Helpful', icon: 'thumb_up' },
-        { key: 'accurate', label: 'Accurate', icon: 'verified' },
-        { key: 'relevant', label: 'Relevant', icon: 'target' },
+        { key: "helpful", label: "Helpful", icon: "thumb_up" },
+        { key: "accurate", label: "Accurate", icon: "verified" },
+        { key: "relevant", label: "Relevant", icon: "target" },
       ].map(({ key, label, icon }) => (
         <button
           key={key}
           onClick={() =>
-            setFormData(prev => ({
+            setFormData((prev) => ({
               ...prev,
               [key]: !prev[key as keyof FeedbackFormData],
             }))
           }
           className={`flex items-center space-x-1 px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200 ${
             formData[key as keyof FeedbackFormData]
-              ? 'bg-green-100 text-green-800 border-green-200'
-              : 'bg-gray-100 text-gray-600 border-gray-200 hover:bg-gray-150'
+              ? "bg-green-100 text-green-800 border-green-200"
+              : "bg-gray-100 text-gray-600 border-gray-200 hover:bg-gray-150"
           } border`}
           disabled={hasSubmitted}
         >
@@ -192,7 +192,7 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
         </button>
       ))}
     </div>
-  )
+  );
 
   if (hasSubmitted) {
     return (
@@ -202,10 +202,10 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
           <span className="font-medium">Thank you for your feedback!</span>
         </div>
       </div>
-    )
+    );
   }
 
-  if (variant === 'compact') {
+  if (variant === "compact") {
     return (
       <div className={`${className} p-3 bg-gray-50 rounded-lg`}>
         <div className="flex justify-between items-center">
@@ -215,10 +215,10 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
           {renderStarRating()}
         </div>
       </div>
-    )
+    );
   }
 
-  if (variant === 'modal') {
+  if (variant === "modal") {
     return (
       <>
         <button
@@ -272,8 +272,8 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
                   </label>
                   <textarea
                     value={formData.feedback}
-                    onChange={e =>
-                      setFormData(prev => ({
+                    onChange={(e) =>
+                      setFormData((prev) => ({
                         ...prev,
                         feedback: e.target.value,
                       }))
@@ -305,7 +305,7 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
                       />
                     )}
                     <span>
-                      {isSubmitting ? 'Submitting...' : 'Submit Feedback'}
+                      {isSubmitting ? "Submitting..." : "Submit Feedback"}
                     </span>
                   </button>
                 </div>
@@ -314,7 +314,7 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
           )}
         </AnimatePresence>
       </>
-    )
+    );
   }
 
   // Default detailed variant
@@ -344,8 +344,8 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
             </label>
             <textarea
               value={formData.feedback}
-              onChange={e =>
-                setFormData(prev => ({ ...prev, feedback: e.target.value }))
+              onChange={(e) =>
+                setFormData((prev) => ({ ...prev, feedback: e.target.value }))
               }
               placeholder="Tell us what you think..."
               className="px-3 py-2 border border-gray-300 focus:border-transparent rounded-lg focus:ring-2 focus:ring-brand-primary w-full text-sm"
@@ -361,13 +361,13 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
             {isSubmitting && (
               <MaterialIcon icon="refresh" size="sm" className="animate-spin" />
             )}
-            <span>{isSubmitting ? 'Submitting...' : 'Submit Feedback'}</span>
+            <span>{isSubmitting ? "Submitting..." : "Submit Feedback"}</span>
           </button>
         </div>
       </CardContent>
     </Card>
-  )
-}
+  );
+};
 
 /**
  * Hook for enhanced feedback collection
@@ -375,56 +375,56 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
 export function useFeedbackCollection(userId?: string) {
   const { recordFeedback, trackExperimentEvent } = useSmartRecommendations({
     userId,
-  })
+  });
   const [feedbackHistory, setFeedbackHistory] = useState<
     RecommendationFeedback[]
-  >([])
+  >([]);
 
   const submitFeedback = useCallback(
     async (
       recommendation: ProjectRecommendation,
       rating: number,
-      additionalData?: Partial<FeedbackFormData>
+      additionalData?: Partial<FeedbackFormData>,
     ) => {
       const feedback: RecommendationFeedback = {
         recommendationId: recommendation.id,
-        userId: userId || 'anonymous',
+        userId: userId || "anonymous",
         rating,
         clicked: additionalData?.clicked || false,
         converted: additionalData?.converted || false,
         feedback: additionalData?.feedback,
         timestamp: new Date(),
-      }
+      };
 
-      recordFeedback(feedback)
-      setFeedbackHistory(prev => [...prev, feedback])
+      recordFeedback(feedback);
+      setFeedbackHistory((prev) => [...prev, feedback]);
 
       // Track experiment event
-      trackExperimentEvent('feedback', {
+      trackExperimentEvent("feedback", {
         recommendationId: recommendation.id,
         rating,
         ...additionalData,
-      })
+      });
 
-      return feedback
+      return feedback;
     },
-    [userId, recordFeedback, trackExperimentEvent]
-  )
+    [userId, recordFeedback, trackExperimentEvent],
+  );
 
   const getFeedbackForRecommendation = useCallback(
     (recommendationId: string) => {
       return feedbackHistory.filter(
-        f => f.recommendationId === recommendationId
-      )
+        (f) => f.recommendationId === recommendationId,
+      );
     },
-    [feedbackHistory]
-  )
+    [feedbackHistory],
+  );
 
   return {
     submitFeedback,
     getFeedbackForRecommendation,
     feedbackHistory,
-  }
+  };
 }
 
-export default FeedbackCollection
+export default FeedbackCollection;

@@ -148,7 +148,7 @@ export class PerformanceManager {
           if (entry.entryType === "resource") {
             this.recordMetric(
               `resource_${entry.initiatorType}`,
-              entry.duration
+              entry.duration,
             );
           }
         });
@@ -171,20 +171,20 @@ export class PerformanceManager {
 
         this.recordMetric(
           "dns_lookup",
-          timing.domainLookupEnd - timing.domainLookupStart
+          timing.domainLookupEnd - timing.domainLookupStart,
         );
         this.recordMetric(
           "tcp_connect",
-          timing.connectEnd - timing.connectStart
+          timing.connectEnd - timing.connectStart,
         );
         this.recordMetric(
           "request_response",
-          timing.responseEnd - timing.requestStart
+          timing.responseEnd - timing.requestStart,
         );
         this.recordMetric("dom_parse", timing.domComplete - timing.domLoading);
         this.recordMetric(
           "load_complete",
-          timing.loadEventEnd - navigationStart
+          timing.loadEventEnd - navigationStart,
         );
       }, 0);
     });
@@ -245,11 +245,11 @@ export class PerformanceManager {
       const value = this.getAverageMetric(metric);
       if (value > 0) {
         const threshold = this.getThreshold(
-          metric as keyof PerformanceConfig["thresholds"]
+          metric as keyof PerformanceConfig["thresholds"],
         );
         const score = Math.max(
           0,
-          Math.min(100, (1 - value / (threshold * 2)) * 100)
+          Math.min(100, (1 - value / (threshold * 2)) * 100),
         );
         totalScore += score * weight;
         totalWeight += weight;
@@ -265,7 +265,7 @@ export class PerformanceManager {
     const lcp = this.getAverageMetric("largest_contentful_paint");
     if (lcp > this.config.thresholds.largestContentfulPaint) {
       recommendations.push(
-        "Optimize images and implement lazy loading to improve LCP"
+        "Optimize images and implement lazy loading to improve LCP",
       );
     }
 
@@ -277,7 +277,7 @@ export class PerformanceManager {
     const cls = this.getAverageMetric("cumulative_layout_shift");
     if (cls > this.config.thresholds.cumulativeLayoutShift) {
       recommendations.push(
-        "Set explicit dimensions for images and ads to reduce CLS"
+        "Set explicit dimensions for images and ads to reduce CLS",
       );
     }
 

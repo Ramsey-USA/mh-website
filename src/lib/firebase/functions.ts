@@ -19,7 +19,7 @@ export class FirebaseFunctionsClient {
   async call<T = any>(
     functionName: string,
     data: any = {},
-    options: FunctionCallOptions = {}
+    options: FunctionCallOptions = {},
   ): Promise<T> {
     const { requireAuth = false, timeout = 30000 } = options;
 
@@ -41,7 +41,7 @@ export class FirebaseFunctionsClient {
         headers["Authorization"] = `Bearer ${token}`;
       } catch (error) {
         throw new Error(
-          `Authentication failed: ${error instanceof Error ? error.message : "Unknown error"}`
+          `Authentication failed: ${error instanceof Error ? error.message : "Unknown error"}`,
         );
       }
     }
@@ -65,7 +65,7 @@ export class FirebaseFunctionsClient {
           .json()
           .catch(() => ({ error: "Unknown error" }));
         throw new Error(
-          `HTTP ${response.status}: ${errorData.error || response.statusText}`
+          `HTTP ${response.status}: ${errorData.error || response.statusText}`,
         );
       }
 

@@ -39,7 +39,7 @@ export default function PWAInstallPrompt({
       const userAgent = window.navigator.userAgent.toLowerCase();
       const mobile =
         /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
-          userAgent
+          userAgent,
         );
       const ios = /iphone|ipad|ipod/i.test(userAgent);
 
@@ -99,7 +99,7 @@ export default function PWAInstallPrompt({
     return () => {
       window.removeEventListener(
         "beforeinstallprompt",
-        handleBeforeInstallPrompt
+        handleBeforeInstallPrompt,
       );
       window.removeEventListener("appinstalled", handleAppInstalled);
     };

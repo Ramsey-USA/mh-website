@@ -20,7 +20,7 @@ import {
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_BASE_URL || "https://mh-construction.com"
+    process.env.NEXT_PUBLIC_BASE_URL || "https://mh-construction.com",
   ),
   title: "MH Construction - Building Tomorrow with Today's Technology",
   description:

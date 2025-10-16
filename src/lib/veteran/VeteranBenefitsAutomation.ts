@@ -295,7 +295,7 @@ export class VeteranBenefitsAutomation {
    * Generate comprehensive veteran benefits package
    */
   public generateBenefitsPackage(
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): VeteranBenefitsPackage {
     return {
       discounts: this.generateAutomatedDiscounts(profile),
@@ -311,7 +311,7 @@ export class VeteranBenefitsAutomation {
    * Generate automated discounts with verification
    */
   private generateAutomatedDiscounts(
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): AutomatedDiscount[] {
     const discounts: AutomatedDiscount[] = [];
 
@@ -462,7 +462,7 @@ export class VeteranBenefitsAutomation {
    * Generate VA benefits coordination services
    */
   private generateVABenefitCoordination(
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): VABenefitCoordination {
     const eligibleBenefits: VABenefit[] = [];
     const grantPrograms: GrantProgram[] = [];
@@ -729,7 +729,7 @@ export class VeteranBenefitsAutomation {
    * Assign appropriate veteran specialist
    */
   private assignVeteranSpecialist(
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): SpecialistAssignment {
     // Default assignment for non-veterans
     if (!profile.isVeteran) {
@@ -763,7 +763,7 @@ export class VeteranBenefitsAutomation {
       // Assign disabled veteran specialist
       assignedSpecialist =
         this.specialists.find((s) =>
-          s.specializations.includes("Disabled Veteran Services")
+          s.specializations.includes("Disabled Veteran Services"),
         ) || this.specialists[0];
     } else if (profile.combatVeteran) {
       // Assign combat veteran specialist
@@ -771,7 +771,7 @@ export class VeteranBenefitsAutomation {
         this.specialists.find(
           (s) =>
             s.combatVeteran &&
-            s.specializations.includes("Combat Veteran Services")
+            s.specializations.includes("Combat Veteran Services"),
         ) || this.specialists[0];
     } else {
       // Try to match by branch first
@@ -785,8 +785,8 @@ export class VeteranBenefitsAutomation {
       (s) =>
         s.id !== assignedSpecialist.id &&
         s.specializations.some((spec) =>
-          assignedSpecialist.specializations.includes(spec)
-        )
+          assignedSpecialist.specializations.includes(spec),
+        ),
     );
 
     const contactInfo: ContactInfo = {
@@ -813,7 +813,7 @@ export class VeteranBenefitsAutomation {
    * Generate communication protocol
    */
   private generateCommunicationProtocol(
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): CommunicationProtocol {
     const escalationProcedure: EscalationLevel[] = [];
     const specialInstructions: string[] = [];
@@ -887,7 +887,7 @@ export class VeteranBenefitsAutomation {
    * Generate automated timeline based on priority
    */
   private generateAutomatedTimeline(
-    profile: VeteranProfile
+    profile: VeteranProfile,
   ): AutomatedTimeline {
     let initialResponse = "48 hours";
     let consultation = "1 week";
@@ -1013,7 +1013,7 @@ export class VeteranBenefitsAutomation {
   }
 
   private generateSpecialistAvailability(
-    priority: VeteranPriority
+    priority: VeteranPriority,
   ): AvailabilityWindow[] {
     const baseAvailability = this.generateStandardAvailability();
 
@@ -1037,7 +1037,7 @@ export class VeteranBenefitsAutomation {
    */
   public applyAutomaticDiscounts(
     profile: VeteranProfile,
-    baseAmount: number
+    baseAmount: number,
   ): {
     discountedAmount: number;
     appliedDiscounts: AutomatedDiscount[];
@@ -1056,7 +1056,7 @@ export class VeteranBenefitsAutomation {
           // Fixed discount with maximum
           const discountAmount = Math.min(
             baseAmount * (discount.percentage / 100),
-            discount.maxSavings
+            discount.maxSavings,
           );
           totalFixedDiscount += discountAmount;
         } else if (discount.stackable) {
@@ -1066,7 +1066,7 @@ export class VeteranBenefitsAutomation {
           // Non-stackable - take highest
           totalDiscountPercentage = Math.max(
             totalDiscountPercentage,
-            discount.percentage
+            discount.percentage,
           );
         }
       }

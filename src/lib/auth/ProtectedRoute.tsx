@@ -1,38 +1,38 @@
 // Protected route component for role-based access control
-'use client'
+"use client";
 
-import React from 'react'
-import { useRouter } from 'next/navigation'
-import { useAuth, UserRole } from './AuthContext'
-import { Card, CardContent, Button } from '@/components/ui'
+import React from "react";
+import { useRouter } from "next/navigation";
+import { useAuth, UserRole } from "./AuthContext";
+import { Card, CardContent, Button } from "@/components/ui";
 
 interface ProtectedRouteProps {
-  children: React.ReactNode
-  requiredRole?: UserRole
-  fallbackPath?: string
-  loadingComponent?: React.ReactNode
-  unauthorizedComponent?: React.ReactNode
+  children: React.ReactNode;
+  requiredRole?: UserRole;
+  fallbackPath?: string;
+  loadingComponent?: React.ReactNode;
+  unauthorizedComponent?: React.ReactNode;
 }
 
 export function ProtectedRoute({
   children,
   requiredRole,
-  fallbackPath = '/auth/login',
+  fallbackPath = "/auth/login",
   loadingComponent,
   unauthorizedComponent,
 }: ProtectedRouteProps) {
-  const { user, userProfile, loading } = useAuth()
-  const router = useRouter()
+  const { user, userProfile, loading } = useAuth();
+  const router = useRouter();
 
   // Show loading state
   if (loading) {
-    return loadingComponent || <LoadingScreen />
+    return loadingComponent || <LoadingScreen />;
   }
 
   // Redirect to login if not authenticated
   if (!user) {
-    router.push(fallbackPath)
-    return <LoadingScreen message="Redirecting to login..." />
+    router.push(fallbackPath);
+    return <LoadingScreen message="Redirecting to login..." />;
   }
 
   // Check role-based access
@@ -41,10 +41,10 @@ export function ProtectedRoute({
       client: 0,
       team_member: 1,
       admin: 2,
-    }
+    };
 
     const hasAccess =
-      roleHierarchy[userProfile.role] >= roleHierarchy[requiredRole]
+      roleHierarchy[userProfile.role] >= roleHierarchy[requiredRole];
 
     if (!hasAccess) {
       return (
@@ -54,15 +54,15 @@ export function ProtectedRoute({
             userRole={userProfile.role}
           />
         )
-      )
+      );
     }
   }
 
-  return <>{children}</>
+  return <>{children}</>;
 }
 
 // Default loading screen component
-function LoadingScreen({ message = 'Loading...' }: { message?: string }) {
+function LoadingScreen({ message = "Loading..." }: { message?: string }) {
   return (
     <div className="flex justify-center items-center bg-surface min-h-screen">
       <Card className="w-full max-w-md">
@@ -75,7 +75,7 @@ function LoadingScreen({ message = 'Loading...' }: { message?: string }) {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
 
 // Default unauthorized screen component
@@ -83,16 +83,16 @@ function UnauthorizedScreen({
   requiredRole,
   userRole,
 }: {
-  requiredRole: UserRole
-  userRole: UserRole
+  requiredRole: UserRole;
+  userRole: UserRole;
 }) {
-  const router = useRouter()
+  const router = useRouter();
 
   const roleNames: Record<UserRole, string> = {
-    client: 'Client',
-    team_member: 'Team Member',
-    admin: 'Administrator',
-  }
+    client: "Client",
+    team_member: "Team Member",
+    admin: "Administrator",
+  };
 
   return (
     <div className="flex justify-center items-center bg-surface min-h-screen">
@@ -118,13 +118,13 @@ function UnauthorizedScreen({
             Access Denied
           </h2>
           <p className="mb-4 text-text-secondary">
-            This area requires{' '}
+            This area requires{" "}
             <span className="font-semibold text-brand-primary">
               {roleNames[requiredRole]}
-            </span>{' '}
+            </span>{" "}
             access.
             <br />
-            Your current role:{' '}
+            Your current role:{" "}
             <span className="font-semibold">{roleNames[userRole]}</span>
           </p>
 
@@ -137,7 +137,7 @@ function UnauthorizedScreen({
               Go Back
             </Button>
             <Button
-              onClick={() => router.push('/')}
+              onClick={() => router.push("/")}
               variant="default"
               className="w-full"
             >
@@ -147,19 +147,19 @@ function UnauthorizedScreen({
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
 
 // Dashboard protection wrapper
 export function DashboardProtection({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  return <ProtectedRoute requiredRole="team_member">{children}</ProtectedRoute>
+  return <ProtectedRoute requiredRole="team_member">{children}</ProtectedRoute>;
 }
 
 // Admin protection wrapper
 export function AdminProtection({ children }: { children: React.ReactNode }) {
-  return <ProtectedRoute requiredRole="admin">{children}</ProtectedRoute>
+  return <ProtectedRoute requiredRole="admin">{children}</ProtectedRoute>;
 }

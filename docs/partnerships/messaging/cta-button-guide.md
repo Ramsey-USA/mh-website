@@ -111,40 +111,40 @@ standards to distinguish between:
 
 ```typescript
 // Project Initiation CTAs with MaterialIcons
-"Get Free Estimate"           // icon: handshake
-"Schedule Consultation"       // icon: event
-"Begin Partnership"          // icon: handshake
-"Discuss Your Vision"        // icon: engineering
-"Book Site Visit"            // icon: place
-"Request Project Review"     // icon: visibility
+"Get Free Estimate"; // icon: handshake
+"Schedule Consultation"; // icon: event
+"Begin Partnership"; // icon: handshake
+"Discuss Your Vision"; // icon: engineering
+"Book Site Visit"; // icon: place
+"Request Project Review"; // icon: visibility
 
 // Consultation & Discovery CTAs
-"Schedule Discovery Call"    // Initial project exploration
-"Book Free Consultation"    // No-obligation discussion
-"Arrange Site Visit"         // On-location assessment
-"Plan Partnership Meeting"   // Collaborative planning session
-"Schedule Project Review"    // Plans and vision review
-"Book Estimate Appointment" // Formal estimate meeting
+"Schedule Discovery Call"; // Initial project exploration
+"Book Free Consultation"; // No-obligation discussion
+"Arrange Site Visit"; // On-location assessment
+"Plan Partnership Meeting"; // Collaborative planning session
+"Schedule Project Review"; // Plans and vision review
+"Book Estimate Appointment"; // Formal estimate meeting
 ```
 
 ### **Secondary Client Actions**
 
 ```typescript
 // Information & Exploration CTAs
-"Explore Partnership Options"    // Learn about collaboration
-"View Project Gallery"          // See completed work
-"Read Partnership Stories"      // Client testimonials
-"Download Project Guide"        // Educational resources
-"Calculate Project Cost"        // AI estimator tool
-"Learn Our Process"            // How we work
+"Explore Partnership Options"; // Learn about collaboration
+"View Project Gallery"; // See completed work
+"Read Partnership Stories"; // Client testimonials
+"Download Project Guide"; // Educational resources
+"Calculate Project Cost"; // AI estimator tool
+"Learn Our Process"; // How we work
 
 // Communication CTAs
-"Chat with Expert"             // Live chat or contact
-"Send Project Details"         // Form submission
-"Ask Project Question"         // Quick inquiry
-"Share Your Ideas"            // Vision sharing
-"Get Project Advice"          // Expert guidance
-"Connect with Team"           // Meet the people
+"Chat with Expert"; // Live chat or contact
+"Send Project Details"; // Form submission
+"Ask Project Question"; // Quick inquiry
+"Share Your Ideas"; // Vision sharing
+"Get Project Advice"; // Expert guidance
+"Connect with Team"; // Meet the people
 ```
 
 ---
@@ -179,40 +179,40 @@ standards to distinguish between:
 
 ```typescript
 // Application & Registration CTAs with MaterialIcons
-"Apply to be Approved Vendor"      // icon: check_circle
-"Join Our Trade Partnership Network" // icon: construction
-"Submit Vendor Application"         // icon: contact_mail
-"Become a Trade Partner"           // icon: work
-"Register as Approved Vendor"      // icon: work
-"Apply for Trade Network"          // icon: construction
+"Apply to be Approved Vendor"; // icon: check_circle
+"Join Our Trade Partnership Network"; // icon: construction
+"Submit Vendor Application"; // icon: contact_mail
+"Become a Trade Partner"; // icon: work
+"Register as Approved Vendor"; // icon: work
+"Apply for Trade Network"; // icon: construction
 
 // Business Development CTAs
-"Explore Vendor Opportunities"     // Business growth
-"Join Professional Network"        // Trade partnerships
-"Grow Your Business with Us"       // Partnership benefits
-"Access Vendor Portal"            // Existing vendor login
-"View Current Opportunities"       // Available projects
-"Schedule Vendor Meeting"         // Business discussion
+"Explore Vendor Opportunities"; // Business growth
+"Join Professional Network"; // Trade partnerships
+"Grow Your Business with Us"; // Partnership benefits
+"Access Vendor Portal"; // Existing vendor login
+"View Current Opportunities"; // Available projects
+"Schedule Vendor Meeting"; // Business discussion
 ```
 
 ### **Secondary Vendor Actions**
 
 ```typescript
 // Information & Requirements CTAs
-"Download Vendor Package"          // Requirements & forms
-"View Partnership Requirements"    // Qualification criteria
-"Learn Application Process"        // Step-by-step guide
-"Check Qualification Criteria"     // Requirements review
-"Access Vendor Resources"         // Tools and materials
-"Read Vendor Benefits"           // Partnership advantages
+"Download Vendor Package"; // Requirements & forms
+"View Partnership Requirements"; // Qualification criteria
+"Learn Application Process"; // Step-by-step guide
+"Check Qualification Criteria"; // Requirements review
+"Access Vendor Resources"; // Tools and materials
+"Read Vendor Benefits"; // Partnership advantages
 
 // Communication CTAs
-"Contact Vendor Relations"        // Dedicated vendor team
-"Speak with Trade Manager"        // Business development
-"Ask Partnership Questions"       // General inquiry
-"Submit Trade Inquiry"           // Initial contact
-"Schedule Business Discussion"    // Formal meeting
-"Connect with Vendor Team"       // Direct communication
+"Contact Vendor Relations"; // Dedicated vendor team
+"Speak with Trade Manager"; // Business development
+"Ask Partnership Questions"; // General inquiry
+"Submit Trade Inquiry"; // Initial contact
+"Schedule Business Discussion"; // Formal meeting
+"Connect with Vendor Team"; // Direct communication
 ```
 
 ---
@@ -295,7 +295,7 @@ standards to distinguish between:
 "Become [Trade] Partner"
 "Submit [Trade] Application"
 
-```
+````
 
 ### **Navigation Menu**
 
@@ -313,7 +313,7 @@ standards to distinguish between:
 "Partnership Opportunities"
 "Vendor Portal Login"
 "Vendor Resources"
-```
+````
 
 ---
 
@@ -411,4 +411,4 @@ standards to distinguish between:
 ---
 
 **CTA Button Guide** | **Version 1.0** | **October 14, 2025**
-*Implementing clear distinctions between client partnerships and trade partnerships*
+_Implementing clear distinctions between client partnerships and trade partnerships_

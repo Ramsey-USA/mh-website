@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import React from 'react'
-import performanceMonitoring from '@/lib/performance/monitoring'
+import React from "react";
+import performanceMonitoring from "@/lib/performance/monitoring";
 
 /**
  * Example component demonstrating the performance monitoring system
@@ -9,12 +9,12 @@ import performanceMonitoring from '@/lib/performance/monitoring'
  */
 export default function PerformanceExample() {
   // Use the performance monitoring hook
-  const { metrics, isReady } = performanceMonitoring.usePerformanceMonitoring()
+  const { metrics, isReady } = performanceMonitoring.usePerformanceMonitoring();
 
   // Generate performance report from metrics
   const report = isReady
     ? performanceMonitoring.generatePerformanceReport(metrics)
-    : null
+    : null;
 
   return (
     <div className="bg-white shadow-lg p-6 rounded-lg">
@@ -31,7 +31,7 @@ export default function PerformanceExample() {
             <div className="bg-blue-50 p-4 rounded">
               <h3 className="font-semibold text-blue-800">CLS</h3>
               <p className="font-bold text-blue-600 text-2xl">
-                {metrics.cls ? metrics.cls.toFixed(3) : 'N/A'}
+                {metrics.cls ? metrics.cls.toFixed(3) : "N/A"}
               </p>
               <p className="text-gray-600 text-sm">Cumulative Layout Shift</p>
             </div>
@@ -39,7 +39,7 @@ export default function PerformanceExample() {
             <div className="bg-green-50 p-4 rounded">
               <h3 className="font-semibold text-green-800">INP</h3>
               <p className="font-bold text-green-600 text-2xl">
-                {metrics.inp ? `${metrics.inp.toFixed(0)}ms` : 'N/A'}
+                {metrics.inp ? `${metrics.inp.toFixed(0)}ms` : "N/A"}
               </p>
               <p className="text-gray-600 text-sm">Interaction to Next Paint</p>
             </div>
@@ -47,7 +47,7 @@ export default function PerformanceExample() {
             <div className="bg-purple-50 p-4 rounded">
               <h3 className="font-semibold text-purple-800">LCP</h3>
               <p className="font-bold text-purple-600 text-2xl">
-                {metrics.lcp ? `${metrics.lcp.toFixed(0)}ms` : 'N/A'}
+                {metrics.lcp ? `${metrics.lcp.toFixed(0)}ms` : "N/A"}
               </p>
               <p className="text-gray-600 text-sm">Largest Contentful Paint</p>
             </div>
@@ -60,13 +60,13 @@ export default function PerformanceExample() {
               <div className="flex items-center gap-2 mb-2">
                 <div
                   className={`w-4 h-4 rounded-full ${
-                    report.status === 'excellent'
-                      ? 'bg-green-500'
-                      : report.status === 'good'
-                      ? 'bg-blue-500'
-                      : report.status === 'needs-improvement'
-                      ? 'bg-yellow-500'
-                      : 'bg-red-500'
+                    report.status === "excellent"
+                      ? "bg-green-500"
+                      : report.status === "good"
+                        ? "bg-blue-500"
+                        : report.status === "needs-improvement"
+                          ? "bg-yellow-500"
+                          : "bg-red-500"
                   }`}
                 ></div>
                 <span className="font-medium">{report.score}/100</span>
@@ -101,12 +101,12 @@ export default function PerformanceExample() {
                     <span className="text-gray-600 uppercase">{key}:</span>
                     <span className="font-medium">{value}</span>
                   </div>
-                )
+                ),
               )}
             </div>
           </div>
         </div>
       )}
     </div>
-  )
+  );
 }
