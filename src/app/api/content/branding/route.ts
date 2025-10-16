@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { loadMarkdownContent } from "@/lib/content/markdownLoader";
 
+export const dynamic = "force-static";
+export const revalidate = 3600; // Revalidate every hour
+
 export async function GET() {
   try {
     const branding = await loadMarkdownContent("business/MH_BRANDING.md");

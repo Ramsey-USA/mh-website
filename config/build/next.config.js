@@ -8,6 +8,9 @@ const nextConfig = {
     esmExternals: true,
   },
 
+  // Server external packages
+  serverExternalPackages: ["firebase-admin"],
+
   // Compiler options
   compiler: {
     // Remove console logs in production
@@ -64,7 +67,7 @@ const nextConfig = {
       {
         source: "/(.*)",
         headers: [
-          // Security headers
+          // Security headers optimized for Cloudflare
           {
             key: "X-Frame-Options",
             value: "DENY",
@@ -80,12 +83,31 @@ const nextConfig = {
           {
             key: "Permissions-Policy",
             value:
-              "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+              "camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=()",
           },
-          // Performance headers
+          // Performance headers for CDN optimization
           {
             key: "X-DNS-Prefetch-Control",
             value: "on",
+          },
+          {
+            key: "Vary",
+            value: "Accept-Encoding, Accept",
+          },
+          // Cloudflare cache tags for better cache management
+          {
+            key: "CF-Cache-Tag",
+            value: "html-pages",
+          },
+          // Security enhancements
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
+          {
+            key: "Content-Security-Policy",
+            value:
+              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com wss://*.firebaseio.com; frame-src 'none';",
           },
         ],
       },
@@ -94,7 +116,16 @@ const nextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=300, stale-while-revalidate=60",
+            value:
+              "public, max-age=300, stale-while-revalidate=600, stale-if-error=86400",
+          },
+          {
+            key: "CF-Cache-Tag",
+            value: "api-routes",
+          },
+          {
+            key: "Vary",
+            value: "Accept-Encoding, Authorization",
           },
         ],
       },
@@ -105,6 +136,10 @@ const nextConfig = {
             key: "Cache-Control",
             value: "public, max-age=31536000, immutable",
           },
+          {
+            key: "CF-Cache-Tag",
+            value: "static-assets",
+          },
         ],
       },
       {
@@ -112,7 +147,41 @@ const nextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=86400, stale-while-revalidate=60",
+            value: "public, max-age=86400, stale-while-revalidate=3600",
+          },
+          {
+            key: "CF-Cache-Tag",
+            value: "images",
+          },
+          {
+            key: "Vary",
+            value: "Accept",
+          },
+        ],
+      },
+      {
+        source: "/manifest.json",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400",
+          },
+          {
+            key: "Content-Type",
+            value: "application/manifest+json",
+          },
+        ],
+      },
+      {
+        source: "/sw.js",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, must-revalidate",
+          },
+          {
+            key: "Service-Worker-Allowed",
+            value: "/",
           },
         ],
       },
@@ -131,14 +200,30 @@ const nextConfig = {
       config.externals.push("firebase-admin");
     }
 
-    // Optimize bundle splitting
+    // Optimize bundle splitting for CDN caching
     if (!dev && !isServer) {
       config.optimization = {
         ...config.optimization,
         splitChunks: {
           ...config.optimization.splitChunks,
+          chunks: "all",
           cacheGroups: {
             ...config.optimization.splitChunks.cacheGroups,
+            // Firebase vendor chunk
+            firebase: {
+              test: /[\\/]node_modules[\\/](firebase|@firebase)[\\/]/,
+              name: "firebase",
+              priority: 20,
+              chunks: "all",
+            },
+            // React vendor chunk
+            react: {
+              test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+              name: "react",
+              priority: 15,
+              chunks: "all",
+            },
+            // Other vendor libraries
             vendor: {
               test: /[\\/]node_modules[\\/]/,
               name: "vendors",
@@ -154,8 +239,19 @@ const nextConfig = {
             },
           },
         },
+        // Enable tree shaking
+        usedExports: true,
+        sideEffects: false,
       };
     }
+
+    // Enable Webpack 5 optimizations
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      net: false,
+      tls: false,
+    };
 
     return config;
   },
@@ -179,8 +275,9 @@ const nextConfig = {
     ];
   },
 
-  // Output configuration
+  // Output configuration for static export and CDN optimization
   output: "standalone",
+  distDir: ".next",
 
   // Enable TypeScript and ESLint checking
   typescript: {
