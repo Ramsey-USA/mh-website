@@ -7,6 +7,8 @@
     "dev": "next dev",
     "dev:turbo": "next dev --turbo",
     "build": "next build",
+    "build:fast": "NODE_ENV=production SKIP_LINT=true next build",
+    "build:profile": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" next build",
     "build:analyze": "ANALYZE=true npm run build",
     "build:cloudflare": "npm run build && npm run export:cloudflare",
     "build:firebase": "npm run build && npm run export:firebase",
