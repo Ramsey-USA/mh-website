@@ -132,81 +132,87 @@ export default function Home() {
       <StructuredData data={generateOrganizationStructuredData()} />
 
       {/* Home Page Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8">
-            {/* Main Title */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+          <div className="space-y-6 sm:space-y-8">
+            {/* Main Title - Better mobile scaling */}
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
               <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
                 Your Partnership in Construction Excellence
               </span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+            {/* Subtitle - Better mobile responsiveness */}
+            <p className="max-w-3xl mx-auto text-lg xs:text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed px-2">
               We Work With You Every Step. Military Precision. Advanced
               Technology.
             </p>
 
-            {/* Description */}
-            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+            {/* Description - Improved mobile spacing */}
+            <p className="max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-white/80 leading-relaxed px-4">
               Partnering with Tri-Cities communities since 1995 - where veteran
               values meet collaborative construction management for
               extraordinary results.
             </p>
 
-            {/* Call to Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+            {/* Call to Action Buttons - Mobile optimized */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-8 sm:mt-12 px-4">
               <Button
                 size="xl"
-                className="bg-brand-secondary hover:bg-brand-secondary/90 text-gray-900 font-bold"
+                className="bg-brand-secondary hover:bg-brand-secondary/90 text-gray-900 font-bold w-full sm:w-auto min-h-[48px] touch-manipulation"
               >
-                <MaterialIcon icon="handshake" className="mr-3 w-7 h-7" />
-                Start Your Project
+                <MaterialIcon
+                  icon="handshake"
+                  className="mr-2 sm:mr-3 w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0"
+                />
+                <span className="text-sm sm:text-base">Start Your Project</span>
               </Button>
               <Button
                 variant="outline"
                 size="xl"
-                className="border-white text-white hover:bg-white hover:text-gray-900"
+                className="border-white text-white hover:bg-white hover:text-gray-900 w-full sm:w-auto min-h-[48px] touch-manipulation"
               >
-                <MaterialIcon icon="visibility" className="mr-3 w-7 h-7" />
-                View Our Work
+                <MaterialIcon
+                  icon="visibility"
+                  className="mr-2 sm:mr-3 w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0"
+                />
+                <span className="text-sm sm:text-base">View Our Work</span>
               </Button>
             </div>
           </div>
         </div>
 
-        {/* Page-Specific Navigation Bar */}
+        {/* Page-Specific Navigation Bar - Hidden on mobile for better UX */}
         <PageNavigation
           items={navigationConfigs.home}
-          className="absolute bottom-0 left-0 right-0"
+          className="absolute bottom-0 left-0 right-0 hidden md:block"
         />
       </section>
 
       {/* Revolutionary Features Section */}
       <section
         id="revolutionary-features"
-        className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-12 lg:py-16 features-section"
+        className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-8 sm:py-12 lg:py-16 features-section"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(56,104,81,0.05)_0%,transparent_50%)] opacity-60"></div>
         <div className="top-20 right-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
         <div className="bottom-20 left-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-40 h-40"></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible className="mb-10 lg:mb-12 text-center">
-            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+          <FadeInWhenVisible className="mb-8 sm:mb-10 lg:mb-12 text-center">
+            <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+              <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 The Future of
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                 Construction
               </span>
             </h2>
-            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
               Where{" "}
               <span className="font-medium text-gray-800 dark:text-gray-200">
                 collaborative partnership meets cutting-edge AI
@@ -221,7 +227,7 @@ export default function Home() {
             </p>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <StaggeredFadeIn className="gap-4 sm:gap-6 lg:gap-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 icon: ({ size }: any) => (
@@ -330,42 +336,45 @@ export default function Home() {
                   id={`feature-${featureIds[index]}`}
                   className="group perspective-1000 feature-card"
                 >
-                  <div className="relative w-full min-h-[220px] sm:min-h-[320px] md:min-h-[380px] lg:min-h-[420px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
-                    {/* Front of Card */}
-                    <div className="absolute inset-0 bg-white dark:bg-gray-800 shadow-lg hover:shadow-brand-primary/10 hover:shadow-xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden transition-all duration-300 backface-hidden">
+                  <div className="relative w-full h-auto min-h-[280px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[420px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
+                    {/* Front of Card - Mobile optimized */}
+                    <div className="absolute inset-0 bg-white dark:bg-gray-800 shadow-lg hover:shadow-brand-primary/10 hover:shadow-xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-300 backface-hidden">
                       {/* Gradient Background */}
                       <div
-                        className={`absolute inset-0 ${feature.bgColor} rounded-3xl`}
+                        className={`absolute inset-0 ${feature.bgColor} rounded-2xl sm:rounded-3xl`}
                       ></div>
 
                       <div className="z-10 relative flex flex-col h-full">
                         <div className="flex-grow">
-                          {/* Icon Container - Maximized Space Utilization */}
+                          {/* Icon Container - Mobile responsive */}
                           <div
-                            className={`w-20 h-20 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg p-2`}
+                            className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${feature.color} rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg p-2`}
                           >
-                            <feature.icon size="2xl" primaryColor="white" />
+                            <feature.icon size="xl" primaryColor="white" />
                           </div>
 
-                          <h3 className="mb-4 font-black text-gray-900 dark:text-gray-100 text-2xl md:text-3xl leading-tight tracking-tight">
+                          <h3 className="mb-3 sm:mb-4 font-black text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-tight tracking-tight">
                             {feature.title}
                           </h3>
 
-                          <p className="font-light text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
+                          <p className="font-light text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
                             {feature.description}
                           </p>
                         </div>
 
-                        {/* Pin to bottom */}
-                        <div className="mt-auto pt-6 font-semibold text-brand-primary dark:text-bronze-400 text-xs uppercase tracking-wider">
-                          Hover for details
+                        {/* Pin to bottom - Mobile friendly */}
+                        <div className="mt-auto pt-4 sm:pt-6 font-semibold text-brand-primary dark:text-bronze-400 text-xs uppercase tracking-wider">
+                          <span className="hidden sm:inline">
+                            Hover for details
+                          </span>
+                          <span className="sm:hidden">Tap for details</span>
                         </div>
                       </div>
                     </div>
 
-                    {/* Back of Card */}
+                    {/* Back of Card - Mobile optimized */}
                     <div
-                      className={`absolute inset-0 bg-gradient-to-br ${feature.color} shadow-xl hover:shadow-2xl transition-shadow duration-300 p-3 sm:p-4 md:p-5 lg:p-6 rounded-3xl backface-hidden rotate-y-180 overflow-hidden`}
+                      className={`absolute inset-0 bg-gradient-to-br ${feature.color} shadow-xl hover:shadow-2xl transition-shadow duration-300 p-3 sm:p-4 md:p-5 lg:p-6 rounded-2xl sm:rounded-3xl backface-hidden rotate-y-180 overflow-hidden`}
                     >
                       <div className="flex flex-col h-full text-white text-center">
                         <div className="flex flex-col flex-grow min-h-0">
@@ -374,7 +383,7 @@ export default function Home() {
                             primaryColor="white"
                             className="mx-auto mb-2"
                           />
-                          <h3 className="mb-2 font-black text-base sm:text-lg lg:text-xl">
+                          <h3 className="mb-2 font-black text-sm sm:text-base lg:text-lg xl:text-xl">
                             {feature.title}
                           </h3>
                           <p className="mb-3 font-light text-white/90 text-xs sm:text-sm lg:text-base leading-tight overflow-hidden">
@@ -412,10 +421,10 @@ export default function Home() {
             })}
           </StaggeredFadeIn>
 
-          {/* AI Feature CTAs */}
+          {/* AI Feature CTAs - Mobile optimized */}
           <div
             id="ai-features-cta"
-            className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-12"
+            className="gap-3 sm:gap-4 lg:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-8 sm:mt-12"
           >
             {[
               {
@@ -475,13 +484,15 @@ export default function Home() {
                 <Button
                   variant={cta.variant}
                   size="lg"
-                  className="group mb-3 w-full transition-all duration-300"
+                  className="group mb-2 sm:mb-3 w-full transition-all duration-300 min-h-[48px] touch-manipulation"
                   onClick={() => (window.location.href = cta.href)}
                 >
-                  <cta.icon size="lg" className="mr-3" />
-                  <span className="font-medium">{cta.title}</span>
+                  <cta.icon size="lg" className="mr-2 sm:mr-3 flex-shrink-0" />
+                  <span className="font-medium text-sm sm:text-base">
+                    {cta.title}
+                  </span>
                 </Button>
-                <p className="font-light text-gray-600 dark:text-gray-300 text-sm">
+                <p className="font-light text-gray-600 dark:text-gray-300 text-xs sm:text-sm">
                   {cta.description}
                 </p>
               </div>
@@ -493,7 +504,7 @@ export default function Home() {
       {/* Core Values Section */}
       <section
         id="core-values"
-        className="relative bg-white dark:bg-gray-900 py-12 lg:py-16 values-section"
+        className="relative bg-white dark:bg-gray-900 py-8 sm:py-12 lg:py-16 values-section"
       >
         {/* Background Elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.05)_0%,transparent_50%)]"></div>
@@ -501,16 +512,16 @@ export default function Home() {
         <div className="right-10 bottom-20 absolute bg-brand-primary/10 blur-2xl rounded-full w-32 h-32"></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="mb-10 lg:mb-12 text-center scroll-reveal">
-            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+          <div className="mb-8 sm:mb-10 lg:mb-12 text-center scroll-reveal">
+            <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+              <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 Built on
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                 Professional Foundation
               </span>
             </h2>
-            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
               Our foundation rests on{" "}
               <span className="font-medium text-gray-800 dark:text-gray-200">
                 six core principles
@@ -524,7 +535,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="gap-4 sm:gap-6 lg:gap-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 value: "Honesty & Transparency",
@@ -637,37 +648,40 @@ export default function Home() {
                   className="group perspective-1000 scroll-reveal value-card"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="relative w-full min-h-[180px] sm:min-h-[280px] md:min-h-[340px] lg:min-h-[380px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
-                    {/* Front of Card */}
-                    <div className="absolute inset-0 bg-white dark:bg-gray-800 shadow-lg hover:shadow-brand-primary/10 hover:shadow-xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden transition-all duration-300 backface-hidden">
+                  <div className="relative w-full h-auto min-h-[280px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[380px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
+                    {/* Front of Card - Mobile optimized */}
+                    <div className="absolute inset-0 bg-white dark:bg-gray-800 shadow-lg hover:shadow-brand-primary/10 hover:shadow-xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-300 backface-hidden">
                       {/* Gradient Overlay */}
                       <div
-                        className={`absolute inset-0 ${item.bgColor} rounded-3xl`}
+                        className={`absolute inset-0 ${item.bgColor} rounded-2xl sm:rounded-3xl`}
                       ></div>
 
                       <div className="z-10 relative flex flex-col justify-between h-full text-center">
                         <div>
                           <div
-                            className={`w-24 h-24 bg-gradient-to-br ${item.color} rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg p-3`}
+                            className={`w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br ${item.color} rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg p-3`}
                           >
-                            <IconComponent size="3xl" primaryColor="white" />
-                          </div>{" "}
-                          <h3 className="mb-4 font-black text-gray-900 dark:text-gray-100 text-2xl md:text-3xl leading-tight tracking-tight">
+                            <IconComponent size="2xl" primaryColor="white" />
+                          </div>
+                          <h3 className="mb-3 sm:mb-4 font-black text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-tight tracking-tight">
                             {item.value}
                           </h3>
-                          <p className="font-light text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">
+                          <p className="font-light text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-base leading-relaxed">
                             {item.description}
                           </p>
                         </div>
 
                         <div className="mt-4 font-semibold text-brand-primary dark:text-bronze-400 text-xs uppercase tracking-wider">
-                          Hover to learn more
+                          <span className="hidden sm:inline">
+                            Hover to learn more
+                          </span>
+                          <span className="sm:hidden">Tap to learn more</span>
                         </div>
                       </div>
                     </div>
 
-                    {/* Back of Card */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary to-brand-secondary shadow-xl hover:shadow-2xl p-4 sm:p-5 md:p-6 rounded-3xl overflow-hidden rotate-y-180 transition-shadow duration-300 backface-hidden">
+                    {/* Back of Card - Mobile optimized */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary to-brand-secondary shadow-xl hover:shadow-2xl p-3 sm:p-4 md:p-5 lg:p-6 rounded-2xl sm:rounded-3xl overflow-hidden rotate-y-180 transition-shadow duration-300 backface-hidden">
                       <div className="flex flex-col justify-between h-full text-white text-center">
                         <div className="flex-shrink-0">
                           <IconComponent
@@ -675,7 +689,7 @@ export default function Home() {
                             primaryColor="white"
                             className="mx-auto mb-2 sm:mb-3"
                           />
-                          <h3 className="mb-2 font-black text-lg sm:text-xl">
+                          <h3 className="mb-2 font-black text-base sm:text-lg lg:text-xl">
                             {item.value} in Action
                           </h3>
                           <p className="mb-3 font-light text-white/90 text-sm sm:text-base leading-snug">
@@ -687,7 +701,7 @@ export default function Home() {
                           <div className="mb-1 sm:mb-2 font-medium text-white/80 text-xs sm:text-sm uppercase tracking-wider">
                             Key Metric
                           </div>
-                          <div className="font-bold text-lg sm:text-xl">
+                          <div className="font-bold text-sm sm:text-base lg:text-lg xl:text-xl">
                             {item.stats}
                           </div>
                         </div>
@@ -702,22 +716,22 @@ export default function Home() {
       </section>
 
       {/* Showcase of Services Section */}
-      <section className="relative bg-white dark:bg-gray-900 py-12 lg:py-16 showcase-section">
+      <section className="relative bg-white dark:bg-gray-900 py-8 sm:py-12 lg:py-16 showcase-section">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 dark:from-gray-800/50 to-white dark:to-gray-900"></div>
         <div className="top-20 right-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
         <div className="bottom-20 left-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-40 h-40"></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible className="mb-16 text-center">
-            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+          <FadeInWhenVisible className="mb-12 sm:mb-16 text-center">
+            <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+              <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 Showcase of
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                 Services
               </span>
             </h2>
-            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
               Discover our comprehensive construction management and commercial
               services throughout the{" "}
               <span className="font-medium text-gray-800 dark:text-gray-200">
@@ -732,28 +746,28 @@ export default function Home() {
             </p>
           </FadeInWhenVisible>
 
-          {/* Service Cards Grid - 6 Cards */}
-          <FadeInWhenVisible className="gap-6 lg:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {/* Service Cards Grid - Mobile optimized for 6 Cards */}
+          <FadeInWhenVisible className="gap-4 sm:gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {/* Construction Management */}
-            <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
+            <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 rounded-2xl sm:rounded-3xl hover:scale-105 transition-all duration-300 min-h-[280px] sm:min-h-[320px]">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-2xl sm:rounded-3xl transition-opacity duration-300"></div>
               <div className="relative flex flex-col h-full">
-                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
+                <div className="flex justify-center items-center bg-brand-primary/10 mb-4 sm:mb-6 p-2 rounded-xl sm:rounded-2xl w-12 h-12 sm:w-16 sm:h-16">
                   <MaterialIcon
                     icon="explore"
                     size="lg"
                     className="text-brand-primary"
                   />
                 </div>
-                <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
+                <h3 className="mb-3 sm:mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-lg sm:text-xl lg:text-2xl transition-colors">
                   Construction Management
                 </h3>
-                <p className="flex-grow mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="flex-grow mb-4 sm:mb-6 text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                   Full Construction Management (CM) services throughout the
                   Tri-Cities. We minimize "on-the-fly" decisions through
                   meticulous planning.
                 </p>
-                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
+                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary text-sm sm:text-base transition-colors">
                   <span className="mr-2">Call (509) 308-6489</span>
                   <MaterialIcon
                     icon="arrow_forward"
@@ -765,24 +779,24 @@ export default function Home() {
             </div>
 
             {/* Master Planning */}
-            <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
+            <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 rounded-2xl sm:rounded-3xl hover:scale-105 transition-all duration-300 min-h-[280px] sm:min-h-[320px]">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-2xl sm:rounded-3xl transition-opacity duration-300"></div>
               <div className="relative flex flex-col h-full">
-                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
+                <div className="flex justify-center items-center bg-brand-primary/10 mb-4 sm:mb-6 p-2 rounded-xl sm:rounded-2xl w-12 h-12 sm:w-16 sm:h-16">
                   <MaterialIcon
                     icon="architecture"
                     size="lg"
                     className="text-brand-primary"
                   />
                 </div>
-                <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
+                <h3 className="mb-3 sm:mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-lg sm:text-xl lg:text-2xl transition-colors">
                   Master Planning
                 </h3>
-                <p className="flex-grow mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="flex-grow mb-4 sm:mb-6 text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                   Comprehensive Pre-Construction & Master Planning services.
                   Transform your vision into a practical, buildable reality.
                 </p>
-                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
+                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary text-sm sm:text-base transition-colors">
                   <span className="mr-2">Learn More</span>
                   <MaterialIcon
                     icon="arrow_forward"
@@ -794,24 +808,24 @@ export default function Home() {
             </div>
 
             {/* Commercial Buildings */}
-            <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
+            <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 rounded-2xl sm:rounded-3xl hover:scale-105 transition-all duration-300 min-h-[280px] sm:min-h-[320px]">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-2xl sm:rounded-3xl transition-opacity duration-300"></div>
               <div className="relative flex flex-col h-full">
-                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
+                <div className="flex justify-center items-center bg-brand-primary/10 mb-4 sm:mb-6 p-2 rounded-xl sm:rounded-2xl w-12 h-12 sm:w-16 sm:h-16">
                   <MaterialIcon
                     icon="build"
                     size="lg"
                     className="text-brand-primary"
                   />
                 </div>
-                <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
+                <h3 className="mb-3 sm:mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-lg sm:text-xl lg:text-2xl transition-colors">
                   Commercial Buildings
                 </h3>
-                <p className="flex-grow mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="flex-grow mb-4 sm:mb-6 text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                   Complete Commercial Construction Services for offices, retail,
                   and industrial facilities across WA, OR, and ID.
                 </p>
-                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
+                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary text-sm sm:text-base transition-colors">
                   <span className="mr-2">Learn More</span>
                   <MaterialIcon
                     icon="arrow_forward"
@@ -823,24 +837,24 @@ export default function Home() {
             </div>
 
             {/* Medical Facilities */}
-            <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
+            <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 rounded-2xl sm:rounded-3xl hover:scale-105 transition-all duration-300 min-h-[280px] sm:min-h-[320px]">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-2xl sm:rounded-3xl transition-opacity duration-300"></div>
               <div className="relative flex flex-col h-full">
-                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
+                <div className="flex justify-center items-center bg-brand-primary/10 mb-4 sm:mb-6 p-2 rounded-xl sm:rounded-2xl w-12 h-12 sm:w-16 sm:h-16">
                   <MaterialIcon
                     icon="straighten"
                     size="lg"
                     className="text-brand-primary"
                   />
                 </div>
-                <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
+                <h3 className="mb-3 sm:mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-lg sm:text-xl lg:text-2xl transition-colors">
                   Medical Facilities
                 </h3>
-                <p className="flex-grow mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="flex-grow mb-4 sm:mb-6 text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                   Specialized medical facility construction and clinic design.
                   Precision planning for healthcare environments.
                 </p>
-                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
+                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary text-sm sm:text-base transition-colors">
                   <span className="mr-2">Learn More</span>
                   <MaterialIcon
                     icon="arrow_forward"
@@ -852,24 +866,24 @@ export default function Home() {
             </div>
 
             {/* Light Industrial */}
-            <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
+            <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 rounded-2xl sm:rounded-3xl hover:scale-105 transition-all duration-300 min-h-[280px] sm:min-h-[320px]">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-2xl sm:rounded-3xl transition-opacity duration-300"></div>
               <div className="relative flex flex-col h-full">
-                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
+                <div className="flex justify-center items-center bg-brand-primary/10 mb-4 sm:mb-6 p-2 rounded-xl sm:rounded-2xl w-12 h-12 sm:w-16 sm:h-16">
                   <MaterialIcon
                     icon="construction"
                     size="lg"
                     className="text-brand-primary"
                   />
                 </div>
-                <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
+                <h3 className="mb-3 sm:mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-lg sm:text-xl lg:text-2xl transition-colors">
                   Light Industrial
                 </h3>
-                <p className="flex-grow mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="flex-grow mb-4 sm:mb-6 text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                   Safe, durable, and highly functional industrial buildings.
                   Warehouses to processing plants built to your specifications.
                 </p>
-                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
+                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary text-sm sm:text-base transition-colors">
                   <span className="mr-2">Learn More</span>
                   <MaterialIcon
                     icon="arrow_forward"
@@ -881,25 +895,25 @@ export default function Home() {
             </div>
 
             {/* Tenant Improvements */}
-            <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
+            <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 rounded-2xl sm:rounded-3xl hover:scale-105 transition-all duration-300 min-h-[280px] sm:min-h-[320px]">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-2xl sm:rounded-3xl transition-opacity duration-300"></div>
               <div className="relative flex flex-col h-full">
-                <div className="flex justify-center items-center bg-brand-primary/10 mb-6 p-2 rounded-2xl w-16 h-16">
+                <div className="flex justify-center items-center bg-brand-primary/10 mb-4 sm:mb-6 p-2 rounded-xl sm:rounded-2xl w-12 h-12 sm:w-16 sm:h-16">
                   <MaterialIcon
                     icon="gps_fixed"
                     size="lg"
                     className="text-brand-primary"
                   />
                 </div>
-                <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-2xl transition-colors">
+                <h3 className="mb-3 sm:mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-lg sm:text-xl lg:text-2xl transition-colors">
                   Tenant Improvements
                 </h3>
-                <p className="flex-grow mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="flex-grow mb-4 sm:mb-6 text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                   Expert Commercial Tenant Improvement (TI) Services. Transform
                   your commercial space into a functional, beautiful
                   environment.
                 </p>
-                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary transition-colors">
+                <div className="flex items-center mt-auto font-semibold text-brand-primary group-hover:text-brand-secondary text-sm sm:text-base transition-colors">
                   <span className="mr-2">Learn More</span>
                   <MaterialIcon
                     icon="arrow_forward"
@@ -914,22 +928,22 @@ export default function Home() {
       </section>
 
       {/* Enhanced Client Testimonials */}
-      <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-12 lg:py-16 testimonials-section">
+      <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-8 sm:py-12 lg:py-16 testimonials-section">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(189,146,100,0.05)_0%,transparent_50%)] opacity-60"></div>
         <div className="top-20 left-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-40 h-40"></div>
         <div className="right-20 bottom-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-32 h-32"></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="mb-16 lg:mb-20 text-center scroll-reveal">
-            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+          <div className="mb-12 sm:mb-16 lg:mb-20 text-center scroll-reveal">
+            <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+              <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 What Our
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                 Clients Say
               </span>
             </h2>
-            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
               Read testimonials from{" "}
               <span className="font-medium text-gray-800 dark:text-gray-200">
                 valued partners
@@ -942,7 +956,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-12">
+          <div className="gap-4 sm:gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8 sm:mb-12">
             {[
               {
                 name: "Sarah Thompson",
@@ -977,9 +991,9 @@ export default function Home() {
                 className="group scroll-reveal testimonial-card"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="relative bg-white dark:bg-gray-800 shadow-lg group-hover:shadow-2xl p-8 rounded-3xl h-full antialiased transform-gpu transition-all duration-500">
-                  {/* Quote Icon - Maximized Space */}
-                  <div className="top-6 right-6 absolute flex justify-center items-center bg-brand-secondary/10 p-2 rounded-full w-12 h-12 group-hover:scale-110 transition-transform duration-300">
+                <div className="relative bg-white dark:bg-gray-800 shadow-lg group-hover:shadow-2xl p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl h-full antialiased transform-gpu transition-all duration-500 min-h-[280px] sm:min-h-[320px]">
+                  {/* Quote Icon - Mobile optimized */}
+                  <div className="top-4 right-4 sm:top-6 sm:right-6 absolute flex justify-center items-center bg-brand-secondary/10 p-2 rounded-full w-10 h-10 sm:w-12 sm:h-12 group-hover:scale-110 transition-transform duration-300">
                     <svg
                       className="w-full h-full text-brand-secondary"
                       fill="currentColor"
@@ -989,17 +1003,17 @@ export default function Home() {
                     </svg>
                   </div>
 
-                  <div className="flex items-start space-x-4 mb-6">
-                    <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-primary to-brand-secondary shadow-lg p-3 rounded-2xl w-16 h-16 group-hover:scale-110 transition-transform duration-300">
-                      <span className="font-bold text-white text-2xl">
+                  <div className="flex items-start space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                    <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-primary to-brand-secondary shadow-lg p-2 sm:p-3 rounded-xl sm:rounded-2xl w-12 h-12 sm:w-16 sm:h-16 group-hover:scale-110 transition-transform duration-300">
+                      <span className="font-bold text-white text-lg sm:text-2xl">
                         {testimonial.name.charAt(0)}
                       </span>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="mb-2 font-black text-gray-900 dark:text-gray-100 text-xl md:text-2xl tracking-tight">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="mb-1 sm:mb-2 font-black text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl tracking-tight">
                         {testimonial.name}
                       </h3>
-                      <p className="mb-3 font-medium text-gray-600 dark:text-gray-400 text-sm md:text-base tracking-wide">
+                      <p className="mb-2 sm:mb-3 font-medium text-gray-600 dark:text-gray-400 text-xs sm:text-sm md:text-base tracking-wide">
                         {testimonial.location} •{" "}
                         <span className="font-bold text-brand-primary">
                           {testimonial.project}
@@ -1011,7 +1025,7 @@ export default function Home() {
                             <MaterialIcon
                               key={i}
                               icon="star"
-                              size="lg"
+                              size="sm"
                               className="text-yellow-400"
                             />
                           )
@@ -1020,7 +1034,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <blockquote className="font-light text-gray-700 dark:text-gray-300 text-lg md:text-xl italic leading-relaxed tracking-wide">
+                  <blockquote className="font-light text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl italic leading-relaxed tracking-wide">
                     "{testimonial.review}"
                   </blockquote>
                 </div>
@@ -1033,10 +1047,14 @@ export default function Home() {
               <Button
                 variant="secondary"
                 size="lg"
-                className="group transition-all duration-300"
+                className="group transition-all duration-300 w-full sm:w-auto min-h-[48px] touch-manipulation"
               >
-                <MaterialIcon icon="rate_review" size="lg" className="mr-3" />
-                <span className="font-medium">
+                <MaterialIcon
+                  icon="rate_review"
+                  size="lg"
+                  className="mr-2 sm:mr-3 flex-shrink-0"
+                />
+                <span className="font-medium text-sm sm:text-base">
                   View All Partnership Stories
                 </span>
               </Button>
@@ -1046,19 +1064,19 @@ export default function Home() {
       </section>
 
       {/* Smart Project Recommendations */}
-      <section className="relative bg-white dark:bg-gray-900 py-12 lg:py-16">
+      <section className="relative bg-white dark:bg-gray-900 py-8 sm:py-12 lg:py-16">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
-            <div className="mb-12 text-center">
-              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+            <div className="mb-8 sm:mb-12 text-center">
+              <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                   Smart Project
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                   Recommendations
                 </span>
               </h2>
-              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
                 Discover intelligent project recommendations based on{" "}
                 <span className="font-medium text-gray-800 dark:text-gray-200">
                   Pacific Northwest trends
@@ -1098,19 +1116,19 @@ export default function Home() {
                   });
                 }
               }}
-              className="bg-gradient-to-br from-blue-50 dark:from-gray-800 to-indigo-100 dark:to-gray-700 shadow-lg p-8 rounded-xl"
+              className="bg-gradient-to-br from-blue-50 dark:from-gray-800 to-indigo-100 dark:to-gray-700 shadow-lg p-4 sm:p-6 lg:p-8 rounded-xl"
             />
           </FadeInWhenVisible>
         </div>
       </section>
 
       {/* Why Partner With MH Construction Section */}
-      <section className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-gray-900 py-12 lg:py-16 text-white">
+      <section className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-gray-900 py-8 sm:py-12 lg:py-16 text-white">
         <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
-          <div className="mb-10 lg:mb-12 text-center scroll-reveal">
-            <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-              <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+          <div className="mb-8 sm:mb-10 lg:mb-12 text-center scroll-reveal">
+            <h2 className="mb-4 sm:mb-6 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+              <span className="block mb-2 sm:mb-3 font-semibold text-white/80 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 The MH Partnership
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-white via-brand-secondary to-white drop-shadow-sm text-transparent">
@@ -1118,16 +1136,16 @@ export default function Home() {
               </span>
             </h2>
 
-            <p className="mx-auto max-w-5xl font-light text-white/90 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+            <p className="mx-auto max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
               Experience the collaborative approach where veteran values and
               genuine partnership create extraordinary results.
             </p>
 
             {/* Core Philosophy Tagline */}
-            <div className="mt-8 mb-4">
-              <p className="mx-auto max-w-4xl font-bold text-white text-xl md:text-2xl text-center leading-relaxed tracking-wide">
+            <div className="mt-6 sm:mt-8 mb-3 sm:mb-4">
+              <p className="mx-auto max-w-4xl font-bold text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed tracking-wide px-2">
                 "Building for the Owner,{" "}
-                <span className="font-black text-bronze-300 text-2xl md:text-3xl">
+                <span className="font-black text-bronze-300 text-xl sm:text-2xl md:text-3xl">
                   NOT
                 </span>{" "}
                 the Dollar"
@@ -1135,44 +1153,47 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Core Partnership Values - 4 Flip Cards with Sharp Duotone Icons */}
-          <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          {/* Core Partnership Values - Mobile optimized 4 Flip Cards */}
+          <div className="gap-3 sm:gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {/* Partnership Approach - We Work With You */}
-            <div className="group h-64 perspective-1000">
+            <div className="group h-56 sm:h-64 perspective-1000">
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
                 <div className="absolute inset-0 backface-hidden">
-                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-3">
+                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-lg sm:rounded-xl h-full text-center">
+                    <div className="mb-2 sm:mb-3">
                       <MaterialIcon
                         icon="security"
-                        size="2xl"
+                        size="xl"
                         className="drop-shadow-lg mx-auto text-white"
                       />
                     </div>
-                    <h3 className="font-black text-white text-xl md:text-2xl tracking-tight">
+                    <h3 className="font-black text-white text-lg sm:text-xl md:text-2xl tracking-tight">
                       We Work With You
                     </h3>
                     <p className="mt-1 text-white/70 text-xs">
-                      Hover to learn more
+                      <span className="hidden sm:inline">
+                        Hover to learn more
+                      </span>
+                      <span className="sm:hidden">Tap to learn more</span>
                     </p>
                   </div>
                 </div>
 
                 {/* Back of Card */}
                 <div className="absolute inset-0 rotate-y-180 backface-hidden">
-                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-3">
+                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-lg sm:rounded-xl h-full text-center">
+                    <div className="mb-2 sm:mb-3">
                       <MaterialIcon
                         icon="security"
                         size="lg"
                         className="mx-auto text-white"
                       />
                     </div>
-                    <h3 className="mb-3 font-black text-white text-lg md:text-xl">
+                    <h3 className="mb-2 sm:mb-3 font-black text-white text-base sm:text-lg md:text-xl">
                       True Collaboration
                     </h3>
-                    <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                    <p className="text-white/90 text-xs sm:text-sm md:text-base leading-relaxed">
                       More than contractors - we're your construction partners.
                       Your vision combined with our veteran-led expertise
                       creates extraordinary results.
@@ -1183,41 +1204,44 @@ export default function Home() {
             </div>
 
             {/* Community Focus */}
-            <div className="group h-64 perspective-1000">
+            <div className="group h-56 sm:h-64 perspective-1000">
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
                 <div className="absolute inset-0 backface-hidden">
-                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-3">
+                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-lg sm:rounded-xl h-full text-center">
+                    <div className="mb-2 sm:mb-3">
                       <MaterialIcon
                         icon="favorite"
-                        size="2xl"
+                        size="xl"
                         className="mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="font-black text-white text-xl md:text-2xl tracking-tight">
+                    <h3 className="font-black text-white text-lg sm:text-xl md:text-2xl tracking-tight">
                       Community Centered
                     </h3>
                     <p className="mt-1 text-white/70 text-xs">
-                      Hover to learn more
+                      <span className="hidden sm:inline">
+                        Hover to learn more
+                      </span>
+                      <span className="sm:hidden">Tap to learn more</span>
                     </p>
                   </div>
                 </div>
 
                 {/* Back of Card */}
                 <div className="absolute inset-0 rotate-y-180 backface-hidden">
-                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-3">
+                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-lg sm:rounded-xl h-full text-center">
+                    <div className="mb-2 sm:mb-3">
                       <MaterialIcon
                         icon="favorite"
                         size="lg"
                         className="mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="mb-3 font-black text-white text-lg md:text-xl">
+                    <h3 className="mb-2 sm:mb-3 font-black text-white text-base sm:text-lg md:text-xl">
                       Pacific Northwest Roots
                     </h3>
-                    <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                    <p className="text-white/90 text-xs sm:text-sm md:text-base leading-relaxed">
                       Every project strengthens our shared community. Local
                       hiring, regional suppliers, and neighborhood focus.
                     </p>
@@ -1227,41 +1251,44 @@ export default function Home() {
             </div>
 
             {/* Transparent Partnership */}
-            <div className="group h-64 perspective-1000">
+            <div className="group h-56 sm:h-64 perspective-1000">
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
                 <div className="absolute inset-0 backface-hidden">
-                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-3">
+                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-lg sm:rounded-xl h-full text-center">
+                    <div className="mb-2 sm:mb-3">
                       <MaterialIcon
                         icon="visibility"
-                        size="2xl"
+                        size="xl"
                         className="drop-shadow-lg mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="font-black text-white text-xl md:text-2xl tracking-tight">
+                    <h3 className="font-black text-white text-lg sm:text-xl md:text-2xl tracking-tight">
                       Honest & Transparent
                     </h3>
                     <p className="mt-1 text-white/70 text-xs">
-                      Hover to learn more
+                      <span className="hidden sm:inline">
+                        Hover to learn more
+                      </span>
+                      <span className="sm:hidden">Tap to learn more</span>
                     </p>
                   </div>
                 </div>
 
                 {/* Back of Card */}
                 <div className="absolute inset-0 rotate-y-180 backface-hidden">
-                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-3">
+                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-lg sm:rounded-xl h-full text-center">
+                    <div className="mb-2 sm:mb-3">
                       <MaterialIcon
                         icon="visibility"
                         size="lg"
                         className="mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="mb-3 font-black text-white text-lg md:text-xl">
+                    <h3 className="mb-2 sm:mb-3 font-black text-white text-base sm:text-lg md:text-xl">
                       No Surprises Partnership
                     </h3>
-                    <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                    <p className="text-white/90 text-xs sm:text-sm md:text-base leading-relaxed">
                       Open pricing, honest timelines, and constant
                       communication. Veteran integrity means no hidden costs.
                     </p>
@@ -1271,41 +1298,44 @@ export default function Home() {
             </div>
 
             {/* Lasting Relationships */}
-            <div className="group h-64 perspective-1000">
+            <div className="group h-56 sm:h-64 perspective-1000">
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
                 <div className="absolute inset-0 backface-hidden">
-                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-3">
+                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-lg sm:rounded-xl h-full text-center">
+                    <div className="mb-2 sm:mb-3">
                       <MaterialIcon
                         icon="handshake"
-                        size="2xl"
+                        size="xl"
                         className="drop-shadow-lg mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="font-black text-white text-xl md:text-2xl tracking-tight">
+                    <h3 className="font-black text-white text-lg sm:text-xl md:text-2xl tracking-tight">
                       Lifelong Partners
                     </h3>
                     <p className="mt-1 text-white/70 text-xs">
-                      Hover to learn more
+                      <span className="hidden sm:inline">
+                        Hover to learn more
+                      </span>
+                      <span className="sm:hidden">Tap to learn more</span>
                     </p>
                   </div>
                 </div>
 
                 {/* Back of Card */}
                 <div className="absolute inset-0 rotate-y-180 backface-hidden">
-                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-4 border border-white/20 rounded-xl h-full text-center">
-                    <div className="mb-3">
+                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-lg sm:rounded-xl h-full text-center">
+                    <div className="mb-2 sm:mb-3">
                       <MaterialIcon
                         icon="handshake"
                         size="lg"
                         className="mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="mb-3 font-black text-white text-lg md:text-xl">
+                    <h3 className="mb-2 sm:mb-3 font-black text-white text-base sm:text-lg md:text-xl">
                       Beyond Project Completion
                     </h3>
-                    <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                    <p className="text-white/90 text-xs sm:text-sm md:text-base leading-relaxed">
                       Our partnership doesn't end when construction finishes.
                       Many clients become lifelong friends and community
                       connections.
@@ -1324,22 +1354,22 @@ export default function Home() {
       </section>
 
       {/* Latest Blog & News Section */}
-      <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-12 lg:py-16 blog-news-section">
+      <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-8 sm:py-12 lg:py-16 blog-news-section">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(56,104,81,0.05)_0%,transparent_50%)] opacity-60"></div>
         <div className="top-20 right-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
         <div className="bottom-20 left-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-40 h-40"></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible className="mb-16 text-center">
-            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+          <FadeInWhenVisible className="mb-12 sm:mb-16 text-center">
+            <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+              <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 Latest News &
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                 Construction Insights
               </span>
             </h2>
-            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+            <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
               Stay informed with{" "}
               <span className="font-medium text-gray-800 dark:text-gray-200">
                 construction industry insights
@@ -1355,25 +1385,37 @@ export default function Home() {
           {/* Blog/News Carousel removed for clean slate migration */}
 
           {/* View All Links */}
-          <div className="flex sm:flex-row flex-col justify-center items-center gap-6 mt-12 text-center">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mt-8 sm:mt-12 text-center">
             <Link href="/blog">
               <Button
                 variant="secondary"
                 size="lg"
-                className="group transition-all duration-300"
+                className="group transition-all duration-300 w-full sm:w-auto min-h-[48px] touch-manipulation"
               >
-                <MaterialIcon icon="article" size="lg" className="mr-3" />
-                <span className="font-medium">View All Blog Posts</span>
+                <MaterialIcon
+                  icon="article"
+                  size="lg"
+                  className="mr-2 sm:mr-3 flex-shrink-0"
+                />
+                <span className="font-medium text-sm sm:text-base">
+                  View All Blog Posts
+                </span>
               </Button>
             </Link>
             <Link href="/news">
               <Button
                 variant="secondary"
                 size="lg"
-                className="group transition-all duration-300"
+                className="group transition-all duration-300 w-full sm:w-auto min-h-[48px] touch-manipulation"
               >
-                <MaterialIcon icon="newspaper" size="lg" className="mr-3" />
-                <span className="font-medium">View All News</span>
+                <MaterialIcon
+                  icon="newspaper"
+                  size="lg"
+                  className="mr-2 sm:mr-3 flex-shrink-0"
+                />
+                <span className="font-medium text-sm sm:text-base">
+                  View All News
+                </span>
               </Button>
             </Link>
           </div>
@@ -1383,37 +1425,37 @@ export default function Home() {
       {/* Enhanced Partnership Call to Action Section */}
       <section
         id="partnership-cta"
-        className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-brand-secondary py-16 lg:py-24 cta-section"
+        className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-brand-secondary py-12 sm:py-16 lg:py-24 cta-section"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
           <FadeInWhenVisible>
-            <h2 className="mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+            <h2 className="mb-4 sm:mb-6 font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
               Ready to Start Our Partnership?
             </h2>
-            <p className="mx-auto mb-12 max-w-4xl font-light text-white/90 text-xl md:text-2xl leading-relaxed">
+            <p className="mx-auto mb-8 sm:mb-12 max-w-4xl font-light text-white/90 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed px-2">
               Join business partners across the{" "}
               <span className="font-medium text-white">Tri-Cities area</span>{" "}
               who chose collaborative construction management for their
               commercial, industrial, and medical facility projects.
             </p>
 
-            {/* Commercial CTA Buttons - 4 Button Grid */}
-            <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto mb-6 max-w-6xl">
+            {/* Commercial CTA Buttons - Mobile optimized 4 Button Grid */}
+            <div className="gap-3 sm:gap-4 lg:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto mb-4 sm:mb-6 max-w-6xl">
               <Link href="/booking">
                 <Button
                   variant="primary"
                   size="lg"
-                  className="group w-full h-16 transition-all duration-300"
+                  className="group w-full h-auto min-h-[56px] sm:min-h-[64px] transition-all duration-300 p-3 sm:p-4 touch-manipulation"
                 >
-                  <div className="flex justify-center items-center">
+                  <div className="flex flex-col justify-center items-center">
                     <MaterialIcon
                       icon="event"
                       size="lg"
-                      className="flex-shrink-0 mr-3"
+                      className="flex-shrink-0 mb-1"
                     />
-                    <span className="font-medium text-center leading-tight">
+                    <span className="font-medium text-center text-xs sm:text-sm leading-tight">
                       Schedule Free
                       <br />
                       Consultation
@@ -1426,15 +1468,15 @@ export default function Home() {
                 <Button
                   variant="secondary"
                   size="lg"
-                  className="group w-full h-16 transition-all duration-300"
+                  className="group w-full h-auto min-h-[56px] sm:min-h-[64px] transition-all duration-300 p-3 sm:p-4 touch-manipulation"
                 >
-                  <div className="flex justify-center items-center">
+                  <div className="flex flex-col justify-center items-center">
                     <MaterialIcon
                       icon="smart_toy"
                       size="lg"
-                      className="flex-shrink-0 mr-3"
+                      className="flex-shrink-0 mb-1"
                     />
-                    <span className="font-medium text-center leading-tight">
+                    <span className="font-medium text-center text-xs sm:text-sm leading-tight">
                       Get Instant AI
                       <br />
                       Estimate
@@ -1447,15 +1489,15 @@ export default function Home() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="group w-full h-16 transition-all duration-300"
+                  className="group w-full h-auto min-h-[56px] sm:min-h-[64px] transition-all duration-300 p-3 sm:p-4 touch-manipulation"
                 >
-                  <div className="flex justify-center items-center">
+                  <div className="flex flex-col justify-center items-center">
                     <MaterialIcon
                       icon="visibility"
                       size="lg"
-                      className="flex-shrink-0 mr-3"
+                      className="flex-shrink-0 mb-1"
                     />
-                    <span className="font-medium text-center leading-tight">
+                    <span className="font-medium text-center text-xs sm:text-sm leading-tight">
                       View Portfolio
                     </span>
                   </div>
@@ -1466,15 +1508,15 @@ export default function Home() {
                 <Button
                   variant="primary"
                   size="lg"
-                  className="group w-full h-16 transition-all duration-300"
+                  className="group w-full h-auto min-h-[56px] sm:min-h-[64px] transition-all duration-300 p-3 sm:p-4 touch-manipulation"
                 >
-                  <div className="flex justify-center items-center">
+                  <div className="flex flex-col justify-center items-center">
                     <MaterialIcon
                       icon="phone"
                       size="lg"
-                      className="flex-shrink-0 mr-3"
+                      className="flex-shrink-0 mb-1"
                     />
-                    <span className="font-medium text-center leading-tight">
+                    <span className="font-medium text-center text-xs sm:text-sm leading-tight">
                       Call Now
                       <br />
                       (509) 308-6489

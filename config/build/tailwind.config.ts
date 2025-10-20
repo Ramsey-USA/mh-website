@@ -165,7 +165,16 @@ const config: Config = {
       // Screen sizes for responsive design
       screens: {
         xs: "475px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
         "3xl": "1600px",
+        // Mobile-first breakpoints
+        "mobile-sm": { max: "374px" }, // Very small phones
+        mobile: { max: "639px" }, // All mobile devices
+        tablet: { min: "640px", max: "1023px" }, // Tablets only
       },
 
       // Z-index scale for layering

@@ -100,7 +100,9 @@
 
 #### 🎨 Design & Layout
 
-- [**Design System**](./docs/technical/DESIGN_SYSTEM.md) - Brand colors, typography, components
+- [**Design System**](./docs/technical/design-system/DESIGN_SYSTEM.md) - Brand colors, typography, components
+- [**Mobile Optimization Guide**](./docs/technical/design-system/mobile-optimization-guide.md) - Complete mobile standards
+- [**Mobile Quick Reference**](./docs/technical/design-system/mobile-quick-reference.md) - Developer quick reference  
 - [**Page Layout Standards**](./docs/technical/page-layout-standards.md) -
 
   Spacing, padding, responsive design

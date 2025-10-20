@@ -171,18 +171,19 @@ export default Component;
 
 - **Tailwind Classes**: Use Tailwind utility classes
 - **Custom CSS**: Only when Tailwind is insufficient
-- **Responsive Design**: Mobile-first approach
+- **Responsive Design**: Mobile-first approach following [Mobile Optimization Guide](/docs/technical/design-system/mobile-optimization-guide.md)
 - **CSS Variables**: Use design system tokens
+- **Touch Optimization**: Include `touch-manipulation` class for all interactive elements
 
 ```tsx
-// Good - Tailwind utilities
-<button className="bg-brand-primary hover:bg-brand-primary-light px-4 py-2 rounded-lg">
+// Good - Mobile-optimized Tailwind utilities
+<button className="bg-brand-primary hover:bg-brand-primary-light px-4 xs:px-5 py-2.5 xs:py-3 rounded-lg text-sm xs:text-base touch-manipulation">
   Button
 </button>
 
-// Custom CSS only when needed
-<div className="custom-complex-layout">
-  {/* Complex layout requiring custom CSS */}
+// Mobile-responsive layout
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6">
+  {/* Content */}
 </div>
 ```text
 
@@ -223,10 +224,19 @@ src/
 ### Component Standards
 
 - Follow the design system documented in `docs/technical/design-system/DESIGN_SYSTEM.md`
-- All sections must use the standardized typography patterns
-- Use standardized button variants
-- Implement proper hover states and transitions
-- Ensure WCAG 2.1 AA accessibility compliance
+- **Mobile Optimization**: Follow mobile standards in `docs/technical/design-system/mobile-optimization-guide.md`
+- All sections must use the standardized typography patterns with mobile-responsive scaling
+- Use standardized button variants with proper touch targets (44px minimum)
+- Implement proper hover states and transitions with `touch-manipulation` class
+- Ensure WCAG 2.1 AA accessibility compliance including mobile accessibility
+
+### Mobile-First Requirements
+
+- **Touch Targets**: Minimum 44px × 44px for all interactive elements
+- **Typography**: Use responsive scaling pattern: `text-sm xs:text-base sm:text-lg`
+- **Spacing**: Progressive scaling: `px-3 xs:px-4 sm:px-6`
+- **Performance**: Include `touch-manipulation` for all interactive elements
+- **Testing**: Verify functionality on 320px+ screen widths
 
 ### Icons
 

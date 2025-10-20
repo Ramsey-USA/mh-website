@@ -63,8 +63,8 @@ export function Navigation() {
       {/* Main Header - Transparent and absolute positioning */}
       <header className="top-0 left-0 right-0 z-40 absolute bg-transparent">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex justify-center items-center py-2 h-20 sm:h-24">
-            {/* Logo - Centered */}
+          <div className="flex justify-center items-center py-2 h-16 sm:h-20 md:h-24">
+            {/* Logo - Centered with mobile optimization */}
             <div className="flex-shrink-0">
               <Link
                 href="/"
@@ -76,7 +76,7 @@ export function Navigation() {
                   width={88}
                   height={88}
                   priority
-                  className="drop-shadow-lg w-auto h-[56px] sm:h-[70px] md:h-[88px]"
+                  className="drop-shadow-lg w-auto h-[48px] xs:h-[56px] sm:h-[70px] md:h-[88px]"
                 />
               </Link>
             </div>
@@ -84,19 +84,19 @@ export function Navigation() {
         </div>
       </header>
 
-      {/* Theme Toggle - Fixed left edge */}
-      <div className="top-4 left-4 sm:left-6 z-50 fixed">
+      {/* Theme Toggle - Fixed left edge with mobile optimization */}
+      <div className="top-3 left-3 sm:top-4 sm:left-4 lg:left-6 z-50 fixed">
         <ThemeToggle compact size="sm" />
       </div>
 
-      {/* Hamburger Menu - Fixed right edge */}
-      <div className="top-4 right-4 sm:right-6 z-50 fixed">
+      {/* Hamburger Menu - Fixed right edge with mobile optimization */}
+      <div className="top-3 right-3 sm:top-4 sm:right-4 lg:right-6 z-50 fixed">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="relative bg-gradient-to-r from-brand-primary to-forest-600 hover:from-brand-accent hover:to-forest-700 shadow-lg hover:shadow-xl p-3 rounded-xl transition-all duration-300"
+          className="relative bg-gradient-to-r from-brand-primary to-forest-600 hover:from-brand-accent hover:to-forest-700 shadow-lg hover:shadow-xl p-2.5 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 touch-manipulation"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
-          <div className="flex flex-col justify-center space-y-1 w-6 h-6">
+          <div className="flex flex-col justify-center space-y-1 w-5 h-5 sm:w-6 sm:h-6">
             <span
               className={`w-full h-0.5 bg-white transition-all duration-300 transform ${
                 isMenuOpen ? "rotate-45 translate-y-2" : ""
@@ -138,8 +138,8 @@ export function Navigation() {
           <div className="z-10 relative flex flex-col px-4 sm:px-6 py-4 h-full">
             {/* Main Navigation Links */}
             <div className="flex flex-1 justify-center items-center">
-              <div className="w-full max-w-sm sm:max-w-md">
-                <div className="gap-3 grid grid-cols-2 sm:grid-cols-2">
+              <div className="w-full max-w-xs xs:max-w-sm sm:max-w-md">
+                <div className="gap-2 xs:gap-3 sm:gap-3 grid grid-cols-2">
                   {[
                     { href: "/", label: "Home", icon: "home" },
                     { href: "/about", label: "Our Story", icon: "info" },
@@ -175,15 +175,15 @@ export function Navigation() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="group flex flex-col items-center hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-sm px-4 py-6 rounded-xl font-medium text-gray-900 hover:text-brand-primary dark:hover:text-bronze-400 dark:text-gray-100 text-center transition-all duration-300"
+                      className="group flex flex-col items-center hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-sm px-2 xs:px-3 sm:px-4 py-4 xs:py-5 sm:py-6 rounded-lg sm:rounded-xl font-medium text-gray-900 hover:text-brand-primary dark:hover:text-bronze-400 dark:text-gray-100 text-center transition-all duration-300 touch-manipulation"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <MaterialIcon
                         icon={item.icon}
                         size="md"
-                        className="opacity-70 group-hover:opacity-100 mb-3 dark:group-hover:text-bronze-400 group-hover:text-brand-primary transition-all duration-300"
+                        className="opacity-70 group-hover:opacity-100 mb-2 sm:mb-3 dark:group-hover:text-bronze-400 group-hover:text-brand-primary transition-all duration-300"
                       />
-                      <div className="font-medium text-sm leading-tight">
+                      <div className="font-medium text-xs xs:text-sm sm:text-sm leading-tight">
                         {item.label}
                       </div>
                     </Link>
@@ -193,24 +193,24 @@ export function Navigation() {
             </div>
 
             {/* Social Media Links */}
-            <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-              <div className="mb-4 text-center">
-                <h4 className="font-medium text-gray-700 dark:text-gray-300 text-sm">
+            <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200 dark:border-gray-700">
+              <div className="mb-3 sm:mb-4 text-center">
+                <h4 className="font-medium text-gray-700 dark:text-gray-300 text-xs sm:text-sm">
                   Follow Our Partnership Journey
                 </h4>
               </div>
-              <div className="flex justify-center gap-4">
+              <div className="flex justify-center gap-3 sm:gap-4">
                 <a
                   href="https://facebook.com/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 hover:bg-blue-600 dark:bg-gray-700 hover:shadow-lg p-3 rounded-xl hover:scale-105 transition-all duration-300"
+                  className="group flex justify-center items-center bg-gray-100 hover:bg-blue-600 dark:bg-gray-700 hover:shadow-lg p-2.5 sm:p-3 rounded-lg sm:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
                   title="Follow us on Facebook"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="thumb_up"
-                    size="md"
+                    size="sm"
                     className="text-gray-600 group-hover:text-white dark:text-gray-400 transition-colors"
                   />
                 </a>
@@ -218,13 +218,13 @@ export function Navigation() {
                   href="https://instagram.com/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 dark:bg-gray-700 hover:shadow-lg p-3 rounded-xl hover:scale-105 transition-all duration-300"
+                  className="group flex justify-center items-center bg-gray-100 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 dark:bg-gray-700 hover:shadow-lg p-2.5 sm:p-3 rounded-lg sm:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
                   title="See our projects on Instagram"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="photo_camera"
-                    size="md"
+                    size="sm"
                     className="text-gray-600 group-hover:text-white dark:text-gray-400 transition-colors"
                   />
                 </a>
@@ -232,13 +232,13 @@ export function Navigation() {
                   href="https://linkedin.com/company/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 hover:bg-blue-700 dark:bg-gray-700 hover:shadow-lg p-3 rounded-xl hover:scale-105 transition-all duration-300"
+                  className="group flex justify-center items-center bg-gray-100 hover:bg-blue-700 dark:bg-gray-700 hover:shadow-lg p-2.5 sm:p-3 rounded-lg sm:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
                   title="Connect on LinkedIn"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="work"
-                    size="md"
+                    size="sm"
                     className="text-gray-600 group-hover:text-white dark:text-gray-400 transition-colors"
                   />
                 </a>
@@ -246,13 +246,13 @@ export function Navigation() {
                   href="https://youtube.com/@mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 hover:bg-red-600 dark:bg-gray-700 hover:shadow-lg p-3 rounded-xl hover:scale-105 transition-all duration-300"
+                  className="group flex justify-center items-center bg-gray-100 hover:bg-red-600 dark:bg-gray-700 hover:shadow-lg p-2.5 sm:p-3 rounded-lg sm:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
                   title="Watch our videos on YouTube"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="play_circle"
-                    size="md"
+                    size="sm"
                     className="text-gray-600 group-hover:text-white dark:text-gray-400 transition-colors"
                   />
                 </a>
