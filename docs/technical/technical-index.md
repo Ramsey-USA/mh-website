@@ -8,17 +8,18 @@
 
 ### `/design-system/` - Design System & UI Components
 
-Comprehensive design system documentation including icons, buttons, navigation, and visual elements.
+Comprehensive design system documentation including typography standards, icons, buttons, navigation, and visual elements.
+
+**Key Files:**
+
+- `DESIGN_SYSTEM.md` - Complete MH Construction design system standards
+- `typography-examples-clean.md` - Typography implementation examples
 
 **Subdirectories:**
 
 - `/icons/` - Icon system specifications, usage guides, and policy implementation
 - `/buttons/` - Button system documentation and examples
 - `/navigation/` - Navigation architecture and implementation guides
-
-**Key Files:**
-
-- `design-system.md` - Master design system documentation
 
 ### `/performance/` - Performance Optimization
 

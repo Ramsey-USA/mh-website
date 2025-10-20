@@ -27,7 +27,7 @@ const TestimonialsWidget = dynamic(
       <div className="bg-muted rounded-lg h-96 animate-pulse"></div>
     ),
     ssr: false,
-  },
+  }
 );
 const SmartRecommendations = dynamic(
   () => import("../components/recommendations/SmartRecommendations"),
@@ -36,7 +36,7 @@ const SmartRecommendations = dynamic(
       <div className="bg-muted rounded-lg h-64 animate-pulse"></div>
     ),
     ssr: false,
-  },
+  }
 );
 // import BlogNewsCarousel from '@/components/blog/BlogNewsCarousel'
 import Head from "next/head";
@@ -81,7 +81,7 @@ export default function Home() {
     const handleScroll = () => {
       const scrollPercent = Math.round(
         (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
-          100,
+          100
       );
 
       if (scrollPercent >= 25 && !sessionStorage.getItem("scroll_25")) {
@@ -365,28 +365,28 @@ export default function Home() {
 
                     {/* Back of Card */}
                     <div
-                      className={`absolute inset-0 bg-gradient-to-br ${feature.color} shadow-xl hover:shadow-2xl transition-shadow duration-300 p-8 rounded-3xl backface-hidden rotate-y-180 overflow-hidden`}
+                      className={`absolute inset-0 bg-gradient-to-br ${feature.color} shadow-xl hover:shadow-2xl transition-shadow duration-300 p-3 sm:p-4 md:p-5 lg:p-6 rounded-3xl backface-hidden rotate-y-180 overflow-hidden`}
                     >
                       <div className="flex flex-col h-full text-white text-center">
-                        <div className="flex flex-col flex-grow">
+                        <div className="flex flex-col flex-grow min-h-0">
                           <feature.icon
                             size="lg"
                             primaryColor="white"
-                            className="mx-auto mb-3"
+                            className="mx-auto mb-2"
                           />
-                          <h3 className="mb-3 font-black text-xl">
+                          <h3 className="mb-2 font-black text-base sm:text-lg lg:text-xl">
                             {feature.title}
                           </h3>
-                          <p className="mb-4 font-light text-white/90 text-base leading-snug">
+                          <p className="mb-3 font-light text-white/90 text-xs sm:text-sm lg:text-base leading-tight overflow-hidden">
                             {feature.details}
                           </p>
                         </div>
 
-                        <div className="bg-white/20 backdrop-blur-sm mt-auto p-3 border border-white/10 rounded-xl">
-                          <div className="mb-2 font-medium text-white/80 text-xs uppercase tracking-wider">
+                        <div className="bg-white/20 backdrop-blur-sm flex-shrink-0 p-2 sm:p-2.5 border border-white/10 rounded-lg">
+                          <div className="mb-1 font-medium text-white/80 text-xs uppercase tracking-wider">
                             Key Features
                           </div>
-                          <ul className="space-y-1 text-xs">
+                          <ul className="space-y-0.5 text-xs">
                             {feature.features.map((feat, idx) => (
                               <li
                                 key={idx}
@@ -394,10 +394,10 @@ export default function Home() {
                               >
                                 <MaterialIcon
                                   icon="check_circle"
-                                  size="md"
-                                  className="flex-shrink-0 mt-0.5 mr-2 text-white/80"
+                                  size="sm"
+                                  className="flex-shrink-0 mt-0.5 mr-1.5 text-white/80"
                                 />
-                                <span className="font-light leading-snug">
+                                <span className="font-light leading-tight text-xs break-words">
                                   {feat}
                                 </span>
                               </li>
@@ -606,7 +606,7 @@ export default function Home() {
                 description:
                   "Professionalism here is the confident, controlled ability to navigate complex projects.",
                 details:
-                  "We leverage decades of commercial and logistical experience to course the rough waters of construction through levelheaded management. This creates a coordinated, harmonious workflow that provides unmatched confidence to owners, subcontractors, and project peers.",
+                  "Decades of experience navigating complex projects with levelheaded management and coordinated workflow.",
                 color: "from-bronze-600 to-bronze-800",
                 bgColor: "bg-bronze-100 dark:bg-bronze-900",
                 stats: "Harmonious Workflow Management",
@@ -667,27 +667,29 @@ export default function Home() {
                     </div>
 
                     {/* Back of Card */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary to-brand-secondary shadow-xl hover:shadow-2xl p-6 rounded-3xl overflow-hidden rotate-y-180 transition-shadow duration-300 backface-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary to-brand-secondary shadow-xl hover:shadow-2xl p-4 sm:p-5 md:p-6 rounded-3xl overflow-hidden rotate-y-180 transition-shadow duration-300 backface-hidden">
                       <div className="flex flex-col justify-between h-full text-white text-center">
                         <div className="flex-shrink-0">
                           <IconComponent
                             size="lg"
                             primaryColor="white"
-                            className="mx-auto mb-3"
+                            className="mx-auto mb-2 sm:mb-3"
                           />
-                          <h3 className="mb-2 font-black text-xl">
+                          <h3 className="mb-2 font-black text-lg sm:text-xl">
                             {item.value} in Action
                           </h3>
-                          <p className="mb-3 font-light text-white/90 text-base leading-snug">
+                          <p className="mb-3 font-light text-white/90 text-sm sm:text-base leading-snug">
                             {item.details}
                           </p>
                         </div>
 
-                        <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm p-4 border border-white/10 rounded-xl">
-                          <div className="mb-2 font-medium text-white/80 text-sm uppercase tracking-wider">
+                        <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm p-2 sm:p-3 md:p-4 border border-white/10 rounded-xl">
+                          <div className="mb-1 sm:mb-2 font-medium text-white/80 text-xs sm:text-sm uppercase tracking-wider">
                             Key Metric
                           </div>
-                          <div className="font-bold text-xl">{item.stats}</div>
+                          <div className="font-bold text-lg sm:text-xl">
+                            {item.stats}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1012,7 +1014,7 @@ export default function Home() {
                               size="lg"
                               className="text-yellow-400"
                             />
-                          ),
+                          )
                         )}
                       </div>
                     </div>
@@ -1048,17 +1050,24 @@ export default function Home() {
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
-              <h2 className="flex justify-center items-center gap-3 mb-4 font-bold text-gray-900 dark:text-white text-3xl">
-                <MaterialIcon
-                  icon="workspace_premium"
-                  size="xl"
-                  className="text-brand-primary"
-                />
-                Popular Project Ideas
+              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                  Smart Project
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                  Recommendations
+                </span>
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
-                Discover intelligent project recommendations based on Pacific
-                Northwest trends and veteran preferences
+              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+                Discover intelligent project recommendations based on{" "}
+                <span className="font-medium text-gray-800 dark:text-gray-200">
+                  Pacific Northwest trends
+                </span>{" "}
+                and veteran preferences for{" "}
+                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
+                  collaborative success
+                </span>
+                .
               </p>
             </div>
 
@@ -1100,25 +1109,25 @@ export default function Home() {
         <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
           <div className="mb-10 lg:mb-12 text-center scroll-reveal">
-            <h2 className="mb-4 font-black text-white text-2xl sm:text-3xl md:text-4xl leading-tight tracking-tighter">
-              <span className="block mb-2 font-semibold text-white/80 text-lg sm:text-xl md:text-2xl tracking-tight">
+            <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+              <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                 The MH Partnership
               </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-white via-brand-secondary to-white text-transparent">
+              <span className="block bg-clip-text bg-gradient-to-r from-white via-brand-secondary to-white drop-shadow-sm text-transparent">
                 Difference
               </span>
             </h2>
 
-            <p className="mx-auto max-w-2xl font-light text-white/90 text-base md:text-lg leading-relaxed">
+            <p className="mx-auto max-w-5xl font-light text-white/90 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
               Experience the collaborative approach where veteran values and
               genuine partnership create extraordinary results.
             </p>
 
             {/* Core Philosophy Tagline */}
-            <div className="mt-6 mb-2">
-              <p className="mx-auto max-w-2xl font-bold text-white text-base sm:text-lg text-center leading-snug">
+            <div className="mt-8 mb-4">
+              <p className="mx-auto max-w-4xl font-bold text-white text-xl md:text-2xl text-center leading-relaxed tracking-wide">
                 "Building for the Owner,{" "}
-                <span className="font-black text-bronze-300 text-lg sm:text-xl">
+                <span className="font-black text-bronze-300 text-2xl md:text-3xl">
                   NOT
                 </span>{" "}
                 the Dollar"
@@ -1141,7 +1150,7 @@ export default function Home() {
                         className="drop-shadow-lg mx-auto text-white"
                       />
                     </div>
-                    <h3 className="font-black text-white text-base lg:text-lg tracking-tight">
+                    <h3 className="font-black text-white text-xl md:text-2xl tracking-tight">
                       We Work With You
                     </h3>
                     <p className="mt-1 text-white/70 text-xs">
@@ -1160,10 +1169,10 @@ export default function Home() {
                         className="mx-auto text-white"
                       />
                     </div>
-                    <h3 className="mb-3 font-black text-white text-base">
+                    <h3 className="mb-3 font-black text-white text-lg md:text-xl">
                       True Collaboration
                     </h3>
-                    <p className="text-white/90 text-xs leading-relaxed">
+                    <p className="text-white/90 text-sm md:text-base leading-relaxed">
                       More than contractors - we're your construction partners.
                       Your vision combined with our veteran-led expertise
                       creates extraordinary results.
@@ -1186,7 +1195,7 @@ export default function Home() {
                         className="mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="font-black text-white text-base lg:text-lg tracking-tight">
+                    <h3 className="font-black text-white text-xl md:text-2xl tracking-tight">
                       Community Centered
                     </h3>
                     <p className="mt-1 text-white/70 text-xs">
@@ -1205,10 +1214,10 @@ export default function Home() {
                         className="mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="mb-3 font-black text-white text-base">
+                    <h3 className="mb-3 font-black text-white text-lg md:text-xl">
                       Pacific Northwest Roots
                     </h3>
-                    <p className="text-white/90 text-xs leading-relaxed">
+                    <p className="text-white/90 text-sm md:text-base leading-relaxed">
                       Every project strengthens our shared community. Local
                       hiring, regional suppliers, and neighborhood focus.
                     </p>
@@ -1230,7 +1239,7 @@ export default function Home() {
                         className="drop-shadow-lg mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="font-black text-white text-base lg:text-lg tracking-tight">
+                    <h3 className="font-black text-white text-xl md:text-2xl tracking-tight">
                       Honest & Transparent
                     </h3>
                     <p className="mt-1 text-white/70 text-xs">
@@ -1249,10 +1258,10 @@ export default function Home() {
                         className="mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="mb-3 font-black text-white text-base">
+                    <h3 className="mb-3 font-black text-white text-lg md:text-xl">
                       No Surprises Partnership
                     </h3>
-                    <p className="text-white/90 text-xs leading-relaxed">
+                    <p className="text-white/90 text-sm md:text-base leading-relaxed">
                       Open pricing, honest timelines, and constant
                       communication. Veteran integrity means no hidden costs.
                     </p>
@@ -1274,7 +1283,7 @@ export default function Home() {
                         className="drop-shadow-lg mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="font-black text-white text-base lg:text-lg tracking-tight">
+                    <h3 className="font-black text-white text-xl md:text-2xl tracking-tight">
                       Lifelong Partners
                     </h3>
                     <p className="mt-1 text-white/70 text-xs">
@@ -1293,10 +1302,10 @@ export default function Home() {
                         className="mx-auto text-brand-secondary"
                       />
                     </div>
-                    <h3 className="mb-3 font-black text-white text-base">
+                    <h3 className="mb-3 font-black text-white text-lg md:text-xl">
                       Beyond Project Completion
                     </h3>
-                    <p className="text-white/90 text-xs leading-relaxed">
+                    <p className="text-white/90 text-sm md:text-base leading-relaxed">
                       Our partnership doesn't end when construction finishes.
                       Many clients become lifelong friends and community
                       connections.

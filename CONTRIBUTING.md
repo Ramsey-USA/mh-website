@@ -222,7 +222,8 @@ src/
 
 ### Component Standards
 
-- Follow the design system documented in `docs/technical/DESIGN_SYSTEM.md`
+- Follow the design system documented in `docs/technical/design-system/DESIGN_SYSTEM.md`
+- All sections must use the standardized typography patterns
 - Use standardized button variants
 - Implement proper hover states and transitions
 - Ensure WCAG 2.1 AA accessibility compliance
