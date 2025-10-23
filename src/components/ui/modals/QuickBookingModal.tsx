@@ -121,9 +121,9 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                   <Image
                     src="/images/logo/mh-logo.png"
                     alt="MH Construction"
-                    width={64}
-                    height={64}
-                    className="mr-4 w-16 h-16 object-contain"
+                    width={128}
+                    height={128}
+                    className="mr-4 w-32 h-32 object-contain"
                   />
                   <div>
                     <div>Schedule Free Consultation</div>

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { VintageBaseballCard } from "@/components/ui/specialty/VintageBaseballCard";
 import {
   FadeInWhenVisible,
@@ -27,7 +28,7 @@ function groupByDepartment(members: VintageTeamMember[]) {
       acc[dept].push(member);
       return acc;
     },
-    {} as Record<string, VintageTeamMember[]>,
+    {} as Record<string, VintageTeamMember[]>
   );
 }
 
@@ -45,16 +46,21 @@ export default function TeamPage() {
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-8">
-            {/* Main Title */}
+            {/* Subtitle First - MH Branding Standard */}
+            <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
+              Expert Construction Management Professionals
+            </p>
+
+            {/* Main Title with Proper Gradient */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent drop-shadow-lg">
                 Our Team
               </span>
             </h1>
@@ -88,7 +94,7 @@ export default function TeamPage() {
               <span className="text-gray-700 dark:text-gray-300">
                 Professional
               </span>{" "}
-              <span className="bg-clip-text bg-gradient-to-r from-[#386851] to-[#BD9264] text-transparent">
+              <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                 Team Cards
               </span>
             </h2>
@@ -137,19 +143,19 @@ export default function TeamPage() {
           {/* Life at MH Section */}
           <div className="mt-24">
             <FadeInWhenVisible>
-              <div className="bg-gradient-to-br from-[#386851]/5 to-[#BD9264]/5 p-12 rounded-2xl">
+              <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 p-12 rounded-2xl">
                 <div className="mb-12 text-center">
                   <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                     <span className="text-gray-700 dark:text-gray-300">
                       Partnership Life at
                     </span>{" "}
-                    <span className="bg-clip-text bg-gradient-to-r from-[#386851] to-[#BD9264] text-transparent">
+                    <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                       MH Construction
                     </span>
                   </h2>
                   <p className="mx-auto max-w-3xl text-gray-700 dark:text-gray-300 text-xl leading-relaxed">
                     "All for one, one for all" isn't just a motto—it's how we
-                    partner, grow, and succeed together with our clients.
+                    partner, grow, and succeed together with our partners.
                   </p>
                 </div>
 
@@ -157,27 +163,19 @@ export default function TeamPage() {
                   {/* Team Unity */}
                   <FadeInWhenVisible>
                     <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-[#386851] to-[#2D5443] mx-auto mb-6 rounded-full w-16 h-16">
-                        <svg
-                          className="w-8 h-8 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                          />
-                        </svg>
+                      <div className="flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark mx-auto mb-6 rounded-full w-16 h-16">
+                        <MaterialIcon
+                          icon="groups"
+                          size="lg"
+                          className="text-white"
+                        />
                       </div>
                       <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
                         Partnership Unity
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
                         From veterans to civilians, office to field—we're one
-                        partnership team with shared values. Every client
+                        partnership team with shared values. Every partner
                         success belongs to all of us.
                       </p>
                     </div>
@@ -186,20 +184,12 @@ export default function TeamPage() {
                   {/* Mutual Support */}
                   <FadeInWhenVisible>
                     <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-[#BD9264] to-[#BD9264]-dark mx-auto mb-6 rounded-full w-16 h-16">
-                        <svg
-                          className="w-8 h-8 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                          />
-                        </svg>
+                      <div className="flex justify-center items-center bg-gradient-to-r from-brand-secondary to-brand-secondary-dark mx-auto mb-6 rounded-full w-16 h-16">
+                        <MaterialIcon
+                          icon="favorite"
+                          size="lg"
+                          className="text-white"
+                        />
                       </div>
                       <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
                         Mutual Support
@@ -215,26 +205,18 @@ export default function TeamPage() {
                   {/* Shared Success */}
                   <FadeInWhenVisible>
                     <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-[#2D5443] to-[#2D5443]-dark mx-auto mb-6 rounded-full w-16 h-16">
-                        <svg
-                          className="w-8 h-8 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                          />
-                        </svg>
+                      <div className="flex justify-center items-center bg-gradient-to-r from-brand-primary-dark to-brand-primary-dark mx-auto mb-6 rounded-full w-16 h-16">
+                        <MaterialIcon
+                          icon="military_tech"
+                          size="lg"
+                          className="text-white"
+                        />
                       </div>
                       <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
                         Partnership Success
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
-                        When our clients win, we all win. Celebrating
+                        When our partners win, we all win. Celebrating
                         partnership achievements together and learning from
                         setbacks as a unified team.
                       </p>
@@ -248,25 +230,19 @@ export default function TeamPage() {
                     <span className="text-gray-700 dark:text-gray-300">
                       What Makes Our Partnership
                     </span>{" "}
-                    <span className="bg-clip-text bg-gradient-to-r from-[#386851] to-[#BD9264] text-transparent">
+                    <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                       Culture Special
                     </span>
                   </h3>
                   <div className="gap-8 grid grid-cols-1 md:grid-cols-2">
                     <div className="space-y-6">
                       <div className="flex items-start space-x-4">
-                        <div className="flex flex-shrink-0 justify-center items-center bg-[#386851] rounded-full w-8 h-8">
-                          <svg
-                            className="w-4 h-4 text-white"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
+                        <div className="flex flex-shrink-0 justify-center items-center bg-brand-primary rounded-full w-8 h-8">
+                          <MaterialIcon
+                            icon="check"
+                            size="sm"
+                            className="text-white"
+                          />
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
@@ -279,18 +255,12 @@ export default function TeamPage() {
                         </div>
                       </div>
                       <div className="flex items-start space-x-4">
-                        <div className="flex flex-shrink-0 justify-center items-center bg-[#386851] rounded-full w-8 h-8">
-                          <svg
-                            className="w-4 h-4 text-white"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
+                        <div className="flex flex-shrink-0 justify-center items-center bg-brand-primary rounded-full w-8 h-8">
+                          <MaterialIcon
+                            icon="check"
+                            size="sm"
+                            className="text-white"
+                          />
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
@@ -302,18 +272,12 @@ export default function TeamPage() {
                         </div>
                       </div>
                       <div className="flex items-start space-x-4">
-                        <div className="flex flex-shrink-0 justify-center items-center bg-[#386851] rounded-full w-8 h-8">
-                          <svg
-                            className="w-4 h-4 text-white"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
+                        <div className="flex flex-shrink-0 justify-center items-center bg-brand-primary rounded-full w-8 h-8">
+                          <MaterialIcon
+                            icon="check"
+                            size="sm"
+                            className="text-white"
+                          />
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
@@ -328,17 +292,11 @@ export default function TeamPage() {
                     <div className="space-y-6">
                       <div className="flex items-start space-x-4">
                         <div className="flex flex-shrink-0 justify-center items-center bg-brand-secondary rounded-full w-8 h-8">
-                          <svg
-                            className="w-4 h-4 text-white"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
+                          <MaterialIcon
+                            icon="check"
+                            size="sm"
+                            className="text-white"
+                          />
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
@@ -351,17 +309,11 @@ export default function TeamPage() {
                       </div>
                       <div className="flex items-start space-x-4">
                         <div className="flex flex-shrink-0 justify-center items-center bg-brand-secondary rounded-full w-8 h-8">
-                          <svg
-                            className="w-4 h-4 text-white"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
+                          <MaterialIcon
+                            icon="check"
+                            size="sm"
+                            className="text-white"
+                          />
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
@@ -374,17 +326,11 @@ export default function TeamPage() {
                       </div>
                       <div className="flex items-start space-x-4">
                         <div className="flex flex-shrink-0 justify-center items-center bg-brand-secondary rounded-full w-8 h-8">
-                          <svg
-                            className="w-4 h-4 text-white"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
+                          <MaterialIcon
+                            icon="check"
+                            size="sm"
+                            className="text-white"
+                          />
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
@@ -422,7 +368,7 @@ export default function TeamPage() {
                   <span className="text-gray-700 dark:text-gray-300">
                     Interested in Joining
                   </span>{" "}
-                  <span className="bg-clip-text bg-gradient-to-r from-[#386851] to-[#BD9264] text-transparent">
+                  <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                     Our Partnership Team?
                   </span>
                 </h3>

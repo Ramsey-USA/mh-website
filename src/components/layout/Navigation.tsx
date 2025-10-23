@@ -65,7 +65,7 @@ export function Navigation() {
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex justify-center items-center py-2 h-16 sm:h-20 md:h-24">
             {/* Logo - Centered with mobile optimization */}
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 pt-4 sm:pt-6 md:pt-8">
               <Link
                 href="/"
                 className="flex items-center hover:scale-105 transition-all duration-300"
@@ -73,10 +73,10 @@ export function Navigation() {
                 <Image
                   src="/images/logo/mh-logo.png"
                   alt="MH Construction"
-                  width={88}
-                  height={88}
+                  width={176}
+                  height={176}
                   priority
-                  className="drop-shadow-lg w-auto h-[48px] xs:h-[56px] sm:h-[70px] md:h-[88px]"
+                  className="drop-shadow-lg w-auto h-[96px] xs:h-[112px] sm:h-[140px] md:h-[176px]"
                 />
               </Link>
             </div>

@@ -35,7 +35,7 @@ const coreServices = [
       "Wineries & Vineyards",
     ],
     benefits: [
-      "Exceptional client experience from start to finish",
+      "Exceptional partnership experience from start to finish",
       "Streamlined process with upfront planning",
       "Expert oversight and intricate detail management",
     ],
@@ -86,7 +86,7 @@ const coreServices = [
     title: "Constructability & Budget Control",
     subtitle: "Proactive Feasibility Analysis",
     description:
-      "Is your project possible? And if so, how can it be cost-effective? We're committed to improving project planning and execution by conducting early-stage analysis of construction feasibility and cost considerations. We offer these critical services to clients throughout Washington, Oregon, and Idaho.",
+      "Is your project possible? And if so, how can it be cost-effective? We're committed to improving project planning and execution by conducting early-stage analysis of construction feasibility and cost considerations. We offer these critical services to partners throughout Washington, Oregon, and Idaho.",
     features: [
       "Most efficient construction sequence and assembly",
       "Logistics for specialty items (equipment and infrastructure)",
@@ -103,7 +103,7 @@ const coreServices = [
     title: "Modularization",
     subtitle: "Advanced Subproject Management",
     description:
-      "Project Modularization involves strategically dividing a project into smaller, more manageable subprojects. This process simplifies design, execution, and maintenance. We focus on Subproject Management to help clients complete large, complex projects more efficiently and consistently meet schedules.",
+      "Project Modularization involves strategically dividing a project into smaller, more manageable subprojects. This process simplifies design, execution, and maintenance. We focus on Subproject Management to help partners complete large, complex projects more efficiently and consistently meet schedules.",
     features: [
       "Streamlined transitions between construction phases",
       "Improved resource allocation and communication efficiency",
@@ -273,9 +273,14 @@ export default function ServicesPage() {
           {/* Content */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="space-y-8">
-              {/* Main Title */}
+              {/* Subtitle First - MH Branding Standard */}
+              <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
+                Comprehensive Construction Management Solutions
+              </p>
+
+              {/* Main Title with Proper Gradient */}
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-                <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+                <span className="block bg-clip-text bg-gradient-to-r from-[#BD9264] via-white to-[#386851] text-transparent drop-shadow-lg">
                   Our Partnership Approach
                 </span>
               </h1>
@@ -616,7 +621,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Service Areas Section */}
-        <section className="bg-gradient-to-r from-brand-primary dark:from-forest-700 to-brand-accent dark:to-forest-800 py-16 text-white">
+        <section className="bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark to-brand-accent dark:to-gray-800 py-16 text-white">
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mb-12 text-center">
@@ -633,7 +638,7 @@ export default function ServicesPage() {
                     Areas
                   </span>
                 </h2>
-                <p className="font-light text-forest-100 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+                <p className="font-light text-white/90 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                   Serving the Pacific Northwest with Excellence
                 </p>
               </div>
@@ -1116,7 +1121,7 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gradient-to-r from-brand-primary dark:from-forest-700 to-brand-accent dark:to-forest-800 py-16 text-white">
+        <section className="bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark to-brand-accent dark:to-gray-800 py-16 text-white">
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mx-auto max-w-3xl text-center">
@@ -1133,7 +1138,7 @@ export default function ServicesPage() {
                     Partnership?
                   </span>
                 </h2>
-                <p className="mb-8 text-forest-100 text-xl">
+                <p className="mb-8 text-white/90 text-xl">
                   Call us today for a free consultation and let's discuss how we
                   can bring your vision to life through partnership.
                 </p>
@@ -1154,7 +1159,7 @@ export default function ServicesPage() {
                   <Link href="/projects">
                     <Button
                       size="lg"
-                      className="bg-brand-secondary hover:bg-bronze-600 dark:bg-brand-secondary dark:hover:bg-bronze-600 text-black dark:text-black"
+                      className="bg-brand-secondary hover:bg-brand-secondary-dark dark:bg-brand-secondary dark:hover:bg-brand-secondary-dark text-black dark:text-black"
                     >
                       <MaterialIcon
                         icon="photo_library"

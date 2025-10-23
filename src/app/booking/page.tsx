@@ -233,9 +233,9 @@ export default function BookingPage() {
       <div className="bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-900 to-gray-100 dark:to-gray-800 min-h-screen">
         <div className="mx-auto px-4 py-20 max-w-4xl">
           <FadeInWhenVisible>
-            <Card className="bg-green-50 dark:bg-green-900/20 shadow-xl border-green-200 dark:border-green-800">
+            <Card className="bg-brand-primary/5 dark:bg-brand-primary/20 shadow-xl border-brand-primary/20 dark:border-brand-primary/30">
               <CardContent className="p-12 text-center">
-                <div className="flex justify-center mb-6 text-green-600 dark:text-green-400">
+                <div className="flex justify-center mb-6 text-brand-primary dark:text-brand-primary">
                   <MaterialIcon icon="check_circle" size="4xl" />
                 </div>
                 <h1 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
@@ -244,15 +244,15 @@ export default function BookingPage() {
                     Scheduled!
                   </span>
                 </h1>
-                <div className="space-y-4 mb-8 text-green-700 dark:text-green-300">
+                <div className="space-y-4 mb-8 text-brand-primary dark:text-brand-primary-light">
                   <p className="text-xl">
                     Thank you, <strong>{formData.clientName}</strong>!
                   </p>
                   <p className="text-lg">
                     Your partnership discussion is scheduled for:
                   </p>
-                  <div className="bg-green-100 dark:bg-green-800/30 mx-auto p-4 border border-green-300 dark:border-green-700 rounded-lg max-w-md">
-                    <p className="flex items-center gap-2 font-semibold text-green-800 dark:text-green-200">
+                  <div className="bg-brand-primary/10 dark:bg-brand-primary/20 mx-auto p-4 border border-brand-primary/30 dark:border-brand-primary/40 rounded-lg max-w-md">
+                    <p className="flex items-center gap-2 font-semibold text-brand-primary dark:text-brand-primary-light">
                       <MaterialIcon icon="event" size="sm" />
                       {new Date(formData.selectedDate).toLocaleDateString(
                         "en-US",
@@ -264,14 +264,14 @@ export default function BookingPage() {
                         }
                       )}
                     </p>
-                    <p className="flex items-center gap-2 font-semibold text-green-800 dark:text-green-200">
+                    <p className="flex items-center gap-2 font-semibold text-brand-primary dark:text-brand-primary-light">
                       <MaterialIcon icon="schedule" size="sm" />
                       {formData.selectedTime}
                     </p>
                   </div>
                 </div>
 
-                <div className="space-y-3 mb-8 text-green-600 dark:text-green-400 text-sm">
+                <div className="space-y-3 mb-8 text-brand-primary/80 dark:text-brand-primary-light text-sm">
                   <p>
                     <strong>Next Steps:</strong>
                   </p>
@@ -309,11 +309,11 @@ export default function BookingPage() {
                   </Link>
                 </div>
 
-                <div className="bg-green-100 dark:bg-green-800/30 mt-8 p-4 border border-green-300 dark:border-green-700 rounded-lg">
-                  <p className="mb-2 font-semibold text-green-800 dark:text-green-200">
+                <div className="bg-brand-primary/10 dark:bg-brand-primary/20 mt-8 p-4 border border-brand-primary/30 dark:border-brand-primary/40 rounded-lg">
+                  <p className="mb-2 font-semibold text-brand-primary dark:text-brand-primary-light">
                     Need to reschedule?
                   </p>
-                  <p className="text-green-700 dark:text-green-300 text-sm">
+                  <p className="text-brand-primary/80 dark:text-brand-primary-light text-sm">
                     Call us at{" "}
                     <a
                       href="tel:+15093086489"

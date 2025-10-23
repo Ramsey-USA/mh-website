@@ -18,9 +18,9 @@ export default function Footer() {
                 <Image
                   src="/images/logo/mh-logo.png"
                   alt="MH Construction Logo"
-                  width={132}
-                  height={66}
-                  className="mx-auto sm:mx-0 lg:mx-0 w-[120px] xs:w-[135px] sm:w-[150px] h-auto drop-shadow-lg"
+                  width={264}
+                  height={132}
+                  className="mx-auto sm:mx-0 lg:mx-0 w-[240px] xs:w-[270px] sm:w-[300px] h-auto drop-shadow-lg"
                 />
               </div>
 

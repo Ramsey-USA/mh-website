@@ -52,16 +52,21 @@ export default function EstimatorPage() {
       <StructuredData data={seoData.schemas} />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-8">
-            {/* Main Title */}
+            {/* Subtitle First - MH Branding Standard */}
+            <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
+              AI-Powered Construction Budget Planning
+            </p>
+
+            {/* Main Title with Proper Gradient */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent drop-shadow-lg">
                 Partnership Cost Estimator
               </span>
             </h1>
@@ -87,21 +92,23 @@ export default function EstimatorPage() {
       </section>
 
       {/* Key Differences Banner */}
-      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 py-12">
+      <section className="bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 py-12">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="gap-8 grid md:grid-cols-2">
               {/* AI Estimator (Current Page) */}
-              <Card className="bg-white shadow-lg border-2 border-blue-500">
-                <CardHeader className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-center">
+              <Card className="bg-white shadow-lg border-2 border-brand-primary">
+                <CardHeader className="bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white text-center">
                   <div className="flex justify-center items-center mb-2">
                     <MaterialIcon
                       icon="auto_awesome"
                       className="mr-2 w-6 h-6"
                     />
-                    <CardTitle>Partnership AI Estimates</CardTitle>
+                    <CardTitle>AI Estimator Tool</CardTitle>
                   </div>
-                  <p className="text-blue-100">You're here now!</p>
+                  <p className="text-white/80">
+                    Smart technology, instant results
+                  </p>
                 </CardHeader>
                 <CardContent className="p-6">
                   <div className="space-y-3">
@@ -162,10 +169,10 @@ export default function EstimatorPage() {
                 <CardHeader className="bg-gradient-to-r from-brand-accent text-white text-center to-brand-accent-dark">
                   <div className="flex justify-center items-center mb-2">
                     <MaterialIcon icon="people" className="mr-2 w-6 h-6" />
-                    <CardTitle>Human Consultation</CardTitle>
+                    <CardTitle>IRL Professional Estimators</CardTitle>
                   </div>
                   <p className="text-brand-accent-light">
-                    For complex projects
+                    Human experts for complex projects
                   </p>
                 </CardHeader>
                 <CardContent className="p-6">
@@ -260,10 +267,10 @@ export default function EstimatorPage() {
               <HoverScale>
                 <Card className="text-center">
                   <CardContent className="p-6">
-                    <div className="flex justify-center items-center bg-blue-100 mx-auto mb-4 rounded-full w-16 h-16">
+                    <div className="flex justify-center items-center bg-brand-primary/10 mx-auto mb-4 rounded-full w-16 h-16">
                       <MaterialIcon
                         icon="speed"
-                        className="w-8 h-8 text-blue-600"
+                        className="w-8 h-8 text-brand-primary"
                       />
                     </div>
                     <h3 className="mb-2 font-semibold text-xl">
@@ -392,21 +399,25 @@ export default function EstimatorPage() {
           <FadeInWhenVisible>
             <div className="gap-8 grid md:grid-cols-4 text-center">
               <div>
-                <div className="mb-2 font-bold text-blue-600 text-3xl">
+                <div className="mb-2 font-bold text-brand-primary text-3xl">
                   500+
                 </div>
                 <p className="text-gray-600">Projects in AI Database</p>
               </div>
               <div>
-                <div className="mb-2 font-bold text-blue-600 text-3xl">95%</div>
+                <div className="mb-2 font-bold text-brand-primary text-3xl">
+                  95%
+                </div>
                 <p className="text-gray-600">Accuracy Rate</p>
               </div>
               <div>
-                <div className="mb-2 font-bold text-blue-600 text-3xl">30+</div>
+                <div className="mb-2 font-bold text-brand-primary text-3xl">
+                  30+
+                </div>
                 <p className="text-gray-600">Years Experience</p>
               </div>
               <div>
-                <div className="mb-2 font-bold text-blue-600 text-3xl">
+                <div className="mb-2 font-bold text-brand-primary text-3xl">
                   24/7
                 </div>
                 <p className="text-gray-600">Always Available</p>
@@ -417,7 +428,7 @@ export default function EstimatorPage() {
       </section>
 
       {/* CTA for Complex Projects */}
-      <section className="bg-gradient-to-r from-gray-900 to-blue-900 py-16 text-white">
+      <section className="bg-gradient-to-r from-gray-900 to-brand-primary-dark py-16 text-white">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
           <FadeInWhenVisible>
             <h2 className="mb-4 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
@@ -426,7 +437,7 @@ export default function EstimatorPage() {
                 Detailed Analysis?
               </span>
             </h2>
-            <p className="mx-auto mb-8 max-w-3xl text-blue-100 text-xl">
+            <p className="mx-auto mb-8 max-w-3xl text-white/80 text-xl">
               For complex projects, unique sites, or custom architectural
               features, our expert team provides detailed consultations and site
               evaluations.

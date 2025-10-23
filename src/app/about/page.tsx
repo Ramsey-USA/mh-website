@@ -105,7 +105,7 @@ const coreValues = [
 const companyStats = [
   { iconName: "calendar_today", value: "1995", label: "Company Established" },
   { iconName: "groups", value: "150+", label: "Years Combined Experience" },
-  { iconName: "star", value: "98%", label: "Client Satisfaction" },
+  { iconName: "star", value: "98%", label: "Partnership Satisfaction" },
   { iconName: "diversity_3", value: "70%", label: "Referral Rate" },
 ];
 
@@ -161,16 +161,21 @@ export default function AboutPage() {
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-8">
-            {/* Main Title */}
+            {/* Subtitle First - MH Branding Standard */}
+            <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
+              Partnership-Driven Construction Management
+            </p>
+
+            {/* Main Title with Proper Gradient */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+              <span className="block bg-clip-text bg-gradient-to-r from-[#BD9264] via-white to-[#386851] text-transparent drop-shadow-lg">
                 About MH Construction
               </span>
             </h1>
@@ -182,8 +187,8 @@ export default function AboutPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
-              Operating on a simple but powerful principle: every client is a
-              partner, every project serves the community. Where military
+              Operating on a simple but powerful principle: every partner is a
+              collaborator, every project serves the community. Where military
               precision meets construction excellence through genuine
               partnership.
             </p>
@@ -229,7 +234,7 @@ export default function AboutPage() {
                   <CardHeader>
                     <MaterialIcon
                       icon="favorite"
-                      className="mb-3 text-bronze-400 text-4xl"
+                      className="mb-3 text-brand-secondary text-4xl"
                     />
                     <CardTitle className="text-gray-900 dark:text-white">
                       Client Partnership Approach
@@ -394,7 +399,7 @@ export default function AboutPage() {
       </section>
 
       {/* Company Stats */}
-      <section className="bg-gradient-to-r from-brand-primary dark:from-forest-700 to-forest-600 dark:to-forest-800 py-16 text-white">
+      <section className="bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark to-brand-primary-dark dark:to-gray-800 py-16 text-white">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-16 text-center">
@@ -410,7 +415,7 @@ export default function AboutPage() {
                   Record
                 </span>
               </h2>
-              <p className="mx-auto max-w-5xl font-light text-forest-100 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+              <p className="mx-auto max-w-5xl font-light text-white/90 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 Proven results from a veteran-owned team committed to excellence
               </p>
             </div>
@@ -423,7 +428,7 @@ export default function AboutPage() {
                       className="mb-4 text-brand-secondary text-5xl"
                     />
                     <div className="mb-2 font-bold text-4xl">{stat.value}</div>
-                    <div className="text-forest-100">{stat.label}</div>
+                    <div className="text-white/90">{stat.label}</div>
                   </div>
                 </HoverScale>
               ))}
@@ -641,7 +646,7 @@ export default function AboutPage() {
                       className="mb-4 text-brand-primary text-5xl"
                     />
                     <CardTitle className="text-gray-900 dark:text-white text-2xl">
-                      For Our Clients
+                      For Our Partners
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -807,7 +812,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight">
-                Client Reviews
+                Partnership Reviews
               </h2>
               <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed">
                 Hear directly from our partners about their experience working
@@ -1265,7 +1270,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative bg-gradient-to-r from-brand-accent dark:from-forest-800 via-brand-primary dark:via-forest-700 to-forest-600 dark:to-forest-600 py-16 lg:py-24 overflow-hidden text-white">
+      <section className="relative bg-gradient-to-r from-brand-accent dark:from-brand-primary-dark via-brand-primary dark:via-brand-primary to-brand-primary-dark dark:to-gray-800 py-16 lg:py-24 overflow-hidden text-white">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="z-10 relative mx-auto px-4 container">
           <FadeInWhenVisible>
@@ -1297,7 +1302,7 @@ export default function AboutPage() {
                 <p className="mb-2 font-medium text-brand-secondary text-lg">
                   "Building for the Owner, NOT the Dollar"
                 </p>
-                <p className="text-forest-100 text-lg">
+                <p className="text-white/90 text-lg">
                   Partner with a team that has made Trust our ultimate goal.
                   Let's discuss your vision and build something remarkable
                   together.
@@ -1327,7 +1332,7 @@ export default function AboutPage() {
                 </Link>
               </div>
 
-              <div className="flex sm:flex-row flex-col justify-center items-center gap-6 text-forest-100">
+              <div className="flex sm:flex-row flex-col justify-center items-center gap-6 text-white/90">
                 <div className="flex items-center">
                   <MaterialIcon
                     icon="phone"

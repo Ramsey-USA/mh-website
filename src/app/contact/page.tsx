@@ -140,16 +140,21 @@ export default function ContactPage() {
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-8">
-            {/* Main Title */}
+            {/* Subtitle First - MH Branding Standard */}
+            <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
+              Strategic Construction Management Consultation
+            </p>
+
+            {/* Main Title with Proper Gradient */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent drop-shadow-lg">
                 Let's Start Our Partnership
               </span>
             </h1>
@@ -510,7 +515,7 @@ export default function ContactPage() {
                           />
                           <div>
                             <p className="font-semibold text-gray-900 dark:text-white">
-                              98% Client Satisfaction
+                              98% Partner Satisfaction
                             </p>
                             <p className="text-gray-600 dark:text-gray-400 text-sm">
                               Proven track record of success
@@ -754,7 +759,7 @@ export default function ContactPage() {
               </h2>
               <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 Not sure what project to discuss? Explore these popular
-                construction projects from our Pacific Northwest clients
+                construction projects from our Pacific Northwest partners
               </p>
             </div>
 
@@ -873,7 +878,7 @@ export default function ContactPage() {
                     <MaterialIcon
                       icon="construction"
                       size="lg"
-                      className="text-blue-600 dark:text-blue-400"
+                      className="text-brand-primary dark:text-brand-primary-light"
                     />
                     <CardTitle className="text-gray-900 dark:text-white text-lg">
                       Structural Repairs
@@ -915,7 +920,7 @@ export default function ContactPage() {
                     <MaterialIcon
                       icon="precision_manufacturing"
                       size="lg"
-                      className="text-green-600 dark:text-green-400"
+                      className="text-brand-accent"
                     />
                     <CardTitle className="text-gray-900 dark:text-white text-lg">
                       Equipment & Manpower

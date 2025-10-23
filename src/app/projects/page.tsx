@@ -115,16 +115,21 @@ export default function ProjectsPage() {
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-8">
-            {/* Main Title */}
+            {/* Subtitle First - MH Branding Standard */}
+            <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
+              Award-Winning Construction Partnership Portfolio
+            </p>
+
+            {/* Main Title with Proper Gradient */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent drop-shadow-lg">
                 Our Partnership Success Stories
               </span>
             </h1>
@@ -138,7 +143,7 @@ export default function ProjectsPage() {
             <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
               Explore our comprehensive portfolio showcasing decades of
               collaborative partnerships, innovative construction solutions, and
-              unwavering commitment to client success throughout the Tri-Cities
+              unwavering commitment to partner success throughout the Tri-Cities
               area.
             </p>
           </div>
@@ -164,13 +169,13 @@ export default function ProjectsPage() {
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                   Proven Track
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-[#386851] to-[#BD9264] drop-shadow-sm text-transparent">
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                   Record
                 </span>
               </h2>
               <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 Building for the Owner, NOT the Dollar - Numbers that reflect
-                our veteran-owned commitment to excellence and client
+                our veteran-owned commitment to excellence and partner
                 partnerships
               </p>
             </div>
@@ -178,11 +183,11 @@ export default function ProjectsPage() {
             <div className="gap-8 grid grid-cols-2 md:grid-cols-4 mx-auto max-w-6xl">
               {projectStats.map((stat, index) => (
                 <HoverScale key={index}>
-                  <div className="bg-gradient-to-br from-[#386851]/5 dark:from-[#386851]/10 to-[#BD9264]/5 dark:to-[#BD9264]/10 hover:shadow-xl dark:hover:shadow-gray-600/50 p-6 border border-[#386851]/20 dark:border-[#386851]/30 rounded-xl text-center transition-all duration-300">
+                  <div className="bg-gradient-to-br from-brand-primary/5 dark:from-brand-primary/10 to-brand-secondary/5 dark:to-brand-secondary/10 hover:shadow-xl dark:hover:shadow-gray-600/50 p-6 border border-brand-primary/20 dark:border-brand-primary/30 rounded-xl text-center transition-all duration-300">
                     <MaterialIcon
                       icon={stat.icon}
                       size="3xl"
-                      className="mb-4 text-[#386851]"
+                      className="mb-4 text-brand-primary"
                     />
                     <div className="mb-2 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl">
                       {stat.value}
@@ -201,7 +206,7 @@ export default function ProjectsPage() {
       {/* Veteran-Owned Benefits */}
       <section
         id="veteran-owned"
-        className="bg-gradient-to-r from-[#386851]/10 dark:from-[#386851]/20 to-brand-primary/5 dark:to-brand-primary/10 py-12"
+        className="bg-gradient-to-r from-brand-primary/10 dark:from-brand-primary/20 to-brand-primary/5 dark:to-brand-primary/10 py-12"
       >
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
@@ -210,7 +215,7 @@ export default function ProjectsPage() {
                 <MaterialIcon
                   icon="military_tech"
                   size="3xl"
-                  className="mr-4 text-[#386851]"
+                  className="mr-4 text-brand-primary"
                 />
                 <div>
                   <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl">
@@ -225,7 +230,7 @@ export default function ProjectsPage() {
                 <MaterialIcon
                   icon="verified"
                   size="3xl"
-                  className="mr-4 text-[#BD9264]"
+                  className="mr-4 text-brand-secondary"
                 />
                 <div>
                   <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl">
@@ -250,12 +255,12 @@ export default function ProjectsPage() {
                 <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight">
                   Find Your Perfect
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-[#386851] to-[#BD9264] drop-shadow-sm text-transparent">
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                   Partnership
                 </span>
               </h3>
               <p className="font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed tracking-wide">
-                Discover how we've partnered with clients across different
+                Discover how we've partnered with partners across different
                 project types
               </p>
             </div>
@@ -273,7 +278,7 @@ export default function ProjectsPage() {
                   placeholder="Search projects by name, location, type, or features..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="bg-white dark:bg-gray-700 py-4 pr-4 pl-12 border border-gray-300 dark:border-gray-600 focus:border-[#386851] dark:focus:border-[#386851] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#386851]/20 w-full text-gray-900 dark:text-white"
+                  className="bg-white dark:bg-gray-700 py-4 pr-4 pl-12 border border-gray-300 dark:border-gray-600 focus:border-brand-primary dark:focus:border-brand-primary rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary/20 w-full text-gray-900 dark:text-white"
                 />
                 {searchQuery && (
                   <button
@@ -298,7 +303,7 @@ export default function ProjectsPage() {
                   className={`
                     ${
                       selectedCategory === category.id
-                        ? "bg-[#386851] hover:bg-[#386851]-dark text-white"
+                        ? "bg-brand-primary hover:bg-brand-primary-dark text-white"
                         : "bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 border-gray-300 dark:border-gray-600"
                     }
                   `}
@@ -332,14 +337,14 @@ export default function ProjectsPage() {
                         categories.find((c) => c.id === selectedCategory)?.label
                       } Partnership`}
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-[#386851] to-[#BD9264] drop-shadow-sm text-transparent">
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                   Stories
                 </span>
               </h2>
               <p className="font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 {projects.length}{" "}
                 {projects.length === 1 ? "collaboration" : "collaborations"}{" "}
-                showcasing our commitment to working with clients
+                showcasing our commitment to working with partners
               </p>
             </div>
           </FadeInWhenVisible>
@@ -361,7 +366,7 @@ export default function ProjectsPage() {
                         priority={project.isFeatured}
                       />
                     ) : (
-                      <div className="flex justify-center items-center bg-gradient-to-br from-[#386851]/20 dark:from-[#386851]/30 to-[#BD9264]/20 dark:to-[#BD9264]/30 w-full h-full">
+                      <div className="flex justify-center items-center bg-gradient-to-br from-brand-primary/20 dark:from-brand-primary/30 to-brand-secondary/20 dark:to-brand-secondary/30 w-full h-full">
                         <MaterialIcon
                           icon="image"
                           size="4xl"
@@ -382,11 +387,11 @@ export default function ProjectsPage() {
                       </div>
                     )}
                     <div className="bottom-4 left-4 absolute">
-                      <span className="inline-flex items-center bg-white/90 dark:bg-gray-800/90 shadow-md backdrop-blur-sm px-2 py-1 border-[#386851] border-l-4 font-semibold text-gray-900 dark:text-white text-xs">
+                      <span className="inline-flex items-center bg-white/90 dark:bg-gray-800/90 shadow-md backdrop-blur-sm px-2 py-1 border-brand-primary/20 border-l-4 font-semibold text-gray-900 dark:text-white text-xs">
                         <MaterialIcon
                           icon="location_on"
                           size="sm"
-                          className="mr-1 text-[#386851]"
+                          className="mr-1 text-brand-primary"
                         />
                         {project.location.city}, {project.location.state}
                       </span>
@@ -403,8 +408,8 @@ export default function ProjectsPage() {
                         inline-flex items-center px-2 py-1 rounded-md text-xs font-semibold
                         ${
                           project.status === "completed"
-                            ? "bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300"
-                            : "bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300"
+                            ? "bg-brand-primary/5 dark:bg-brand-primary-dark/30 text-brand-primary dark:text-brand-primary-light"
+                            : "bg-brand-secondary/10 dark:bg-brand-secondary/20 text-brand-secondary dark:text-brand-secondary-light"
                         }
                       `}
                       >
@@ -425,7 +430,7 @@ export default function ProjectsPage() {
 
                     {/* Community Impact Badge */}
                     <div className="mb-4">
-                      <span className="inline-flex items-center bg-brand-secondary/10 dark:bg-brand-secondary/20 px-2 py-1 border-brand-secondary border-l-4 font-medium text-[#BD9264] text-xs">
+                      <span className="inline-flex items-center bg-brand-secondary/10 dark:bg-brand-secondary/20 px-2 py-1 border-brand-secondary border-l-4 font-medium text-brand-secondary text-xs">
                         <MaterialIcon
                           icon="groups"
                           size="sm"
@@ -547,7 +552,7 @@ export default function ProjectsPage() {
                     setSelectedCategory("all");
                     setSearchQuery("");
                   }}
-                  className="bg-[#386851] hover:bg-[#386851]-dark text-white"
+                  className="bg-brand-primary hover:bg-brand-primary-dark text-white"
                 >
                   <MaterialIcon icon="view_list" className="mr-2" size="md" />
                   View All Partnerships
@@ -567,7 +572,7 @@ export default function ProjectsPage() {
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                   Partnership
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-[#386851] to-[#BD9264] drop-shadow-sm text-transparent">
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                   Capabilities
                 </span>
               </h2>
@@ -589,7 +594,7 @@ export default function ProjectsPage() {
                   <MaterialIcon
                     icon={capability.icon}
                     size="2xl"
-                    className="mb-3 text-[#386851]"
+                    className="mb-3 text-brand-primary"
                   />
                   <CardTitle className="flex items-center min-h-[3rem] text-gray-900 dark:text-white text-lg">
                     {capability.title}
@@ -615,7 +620,7 @@ export default function ProjectsPage() {
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                   Why Choose
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-[#386851] to-[#BD9264] drop-shadow-sm text-transparent">
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                   MH Construction
                 </span>
               </h2>
@@ -673,7 +678,7 @@ export default function ProjectsPage() {
                   <MaterialIcon
                     icon={reason.iconName}
                     size="2xl"
-                    className="mb-3 text-[#386851]"
+                    className="mb-3 text-brand-primary"
                   />
                   <CardTitle className="flex items-center min-h-[3rem] text-gray-900 dark:text-white text-lg">
                     {reason.title}
@@ -698,19 +703,19 @@ export default function ProjectsPage() {
               <div className="mb-12 text-center">
                 <MaterialIcon
                   icon="format_quote"
-                  size="3xl"
-                  className="mb-4 text-[#386851]"
+                  size="4xl"
+                  className="mb-4 text-brand-primary"
                 />
                 <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
                   <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                     Partnership
                   </span>
-                  <span className="block bg-clip-text bg-gradient-to-r from-[#386851] to-[#BD9264] drop-shadow-sm text-transparent">
+                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                     Experiences
                   </span>
                 </h2>
                 <p className="font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                  Hear how we work WITH our clients, not just for them
+                  Hear how we work WITH our partners, not just for them
                 </p>
               </div>
 
@@ -731,7 +736,7 @@ export default function ProjectsPage() {
                                 key={i}
                                 icon="star"
                                 size="md"
-                                className="text-[#BD9264]"
+                                className="text-brand-secondary"
                               />
                             )
                           )}
@@ -765,13 +770,13 @@ export default function ProjectsPage() {
                 <MaterialIcon
                   icon="trending_up"
                   size="3xl"
-                  className="mb-4 text-[#386851]"
+                  className="mb-4 text-brand-primary"
                 />
                 <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
                   <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                     Our Partnership
                   </span>
-                  <span className="block bg-clip-text bg-gradient-to-r from-[#386851] to-[#BD9264] drop-shadow-sm text-transparent">
+                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                     Process
                   </span>
                 </h2>
@@ -826,7 +831,7 @@ export default function ProjectsPage() {
                     <CardContent className="p-6">
                       <div className="flex items-start min-h-[5rem]">
                         <div className="flex-shrink-0 mr-4">
-                          <div className="flex justify-center items-center bg-[#386851] rounded-full w-12 h-12 font-bold text-white text-xl">
+                          <div className="flex justify-center items-center bg-brand-primary rounded-full w-12 h-12 font-bold text-white text-xl">
                             {process.step}
                           </div>
                         </div>
@@ -843,7 +848,7 @@ export default function ProjectsPage() {
                             <MaterialIcon
                               icon={process.icon}
                               size="lg"
-                              className="flex-shrink-0 ml-4 text-[#386851]"
+                              className="flex-shrink-0 ml-4 text-brand-primary"
                             />
                           </div>
                         </div>
@@ -858,24 +863,24 @@ export default function ProjectsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-[#386851] dark:from-[#386851]-dark to-brand-primary-dark dark:to-brand-primary py-16 text-white">
+      <section className="bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark to-brand-primary-dark dark:to-brand-primary py-16 text-white">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-3xl text-center">
               <MaterialIcon
                 icon="handshake"
                 size="4xl"
-                className="mb-6 text-[#BD9264] dark:text-[#BD9264]"
+                className="mb-6 text-brand-secondary"
               />
               <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
                   Ready to Build
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-white to-[#BD9264] drop-shadow-sm text-transparent">
+                <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
                   Together?
                 </span>
               </h2>
-              <p className="mb-8 text-green-100 dark:text-green-200 text-xl">
+              <p className="mb-8 text-white/90 text-xl">
                 Let's start our partnership and bring your vision to life with
                 the same veteran-owned dedication and quality you see in our
                 portfolio
@@ -884,7 +889,7 @@ export default function ProjectsPage() {
                 <Link href="/contact">
                   <Button
                     size="lg"
-                    className="bg-[#386851] hover:bg-[#386851]-dark dark:bg-[#386851] dark:hover:bg-[#386851]-dark text-white"
+                    className="bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark text-white"
                   >
                     <MaterialIcon icon="phone" className="mr-2" size="md" />
                     Start Our Partnership
@@ -900,7 +905,7 @@ export default function ProjectsPage() {
                   </Button>
                 </Link>
               </div>
-              <p className="mt-6 text-green-200 dark:text-green-300">
+              <p className="mt-6 text-white/90">
                 <MaterialIcon icon="phone" className="inline mr-2" size="md" />
                 Partnership Hotline: (509) 308-6489 | 3111 N. Capital Ave.,
                 Pasco, WA 99301

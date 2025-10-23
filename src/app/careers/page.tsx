@@ -28,7 +28,7 @@ const openPositions = [
     type: "Full-time",
     experience: "3-5 years",
     description:
-      "Lead construction projects from inception to completion, managing timelines, budgets, and client relationships.",
+      "Lead construction projects from inception to completion, managing timelines, budgets, and partner relationships.",
     requirements: [
       "Bachelor's degree in Construction Management or related field",
       "3+ years of project management experience",
@@ -94,7 +94,7 @@ const openPositions = [
     type: "Full-time",
     experience: "Entry Level Welcome",
     description:
-      "Support daily operations with scheduling, documentation, and client communication.",
+      "Support daily operations with scheduling, documentation, and partner communication.",
     requirements: [
       "High school diploma or equivalent",
       "Excellent communication skills",
@@ -195,16 +195,21 @@ export default function CareersPage() {
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-8">
-            {/* Main Title */}
+            {/* Subtitle First - MH Branding Standard */}
+            <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
+              Partnership-Focused Career Opportunities
+            </p>
+
+            {/* Main Title with Proper Gradient */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent drop-shadow-lg">
                 Join Our Team
               </span>
             </h1>

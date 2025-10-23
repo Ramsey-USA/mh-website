@@ -139,9 +139,9 @@ export default function Home() {
       <StructuredData data={generateOrganizationStructuredData()} />
 
       {/* Home Page Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -310,8 +310,7 @@ export default function Home() {
                   <MaterialIcon
                     icon="security"
                     size={size}
-                    className="text-white"
-                    style={{ color: "#4CAF50" }}
+                    className="text-brand-primary"
                   />
                 ),
                 title: "24/7 AI Assistant",

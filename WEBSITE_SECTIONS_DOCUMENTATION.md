@@ -2,18 +2,28 @@
 
 This document provides a comprehensive overview of all the sections on each page of the MH Construction website.
 
+**Last Updated:** October 23, 2025
+
 ## 1. Home Page (`/`)
 
 **Sections:**
 
 1. **Hero Section** - "Your Partnership in Construction Excellence"
+   - Main title: "Your Partnership in Construction Excellence"
+   - Subtitle: "We Work With You Every Step. Military Precision. Advanced Technology."
+   - Description: "Partnering with Tri-Cities communities since 1995 - where veteran values meet
+     collaborative construction management for extraordinary results."
+   - CTAs: "Start Your Project" (primary), "View Our Work" (outline)
+
 2. **Revolutionary Features Section** - "The Future of Construction"
    - AI Project Estimator
-   - Smart Scheduling
+   - Smart Scheduling  
    - 3D Project Explorer
    - 24/7 AI Assistant
+
 3. **Core Values Section** - "Built on Professional Foundation"
-   - 6 Core Values with flip cards
+   - 6 Core Values with interactive flip cards
+   - Trust as the ultimate goal
 4. **Showcase of Services Section** - "Showcase of Services"
    - Construction Management
    - Master Planning

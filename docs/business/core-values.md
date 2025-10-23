@@ -201,13 +201,13 @@ Experience these values in action on your next construction project.
 - **Schedule Free Consultation** - Discuss your project with our team (`event`)
 - **Get Instant AI Estimate** - Try our automated calculator (`smart_toy`)
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+**Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ### **For Trade Partners**
 
 - **Apply to be Approved Vendor** - Join our professional network (`check_circle`)
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 150 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+**Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ---
 

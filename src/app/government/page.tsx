@@ -270,16 +270,21 @@ export default function GovernmentGrantsPage() {
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 min-h-screen flex items-center justify-center text-white">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-700/30 via-gray-900/80 to-gray-600/20"></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-8">
-            {/* Main Title */}
+            {/* Subtitle First - MH Branding Standard */}
+            <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
+              Federal, State & Local Grant Construction Support
+            </p>
+
+            {/* Main Title with Proper Gradient */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+              <span className="block bg-clip-text bg-gradient-to-r from-gray-300 via-white to-gray-300 text-transparent drop-shadow-lg">
                 Government & Grant Projects
               </span>
             </h1>
@@ -358,7 +363,7 @@ export default function GovernmentGrantsPage() {
                 <span className="text-gray-700 dark:text-gray-300">
                   How We Support Your
                 </span>{" "}
-                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                <span className="bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 text-transparent">
                   Grant Application
                 </span>
               </h2>
@@ -431,7 +436,7 @@ export default function GovernmentGrantsPage() {
                 />
                 <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                   <span className="text-gray-300">Hanford & Department of</span>{" "}
-                  <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
+                  <span className="bg-clip-text bg-gradient-to-r from-white to-gray-300 text-transparent">
                     Energy Expertise
                   </span>
                 </h2>
@@ -522,7 +527,7 @@ export default function GovernmentGrantsPage() {
                 <span className="text-gray-700 dark:text-gray-300">
                   Grant Programs
                 </span>{" "}
-                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                <span className="bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 text-transparent">
                   We Support
                 </span>
               </h2>
@@ -594,7 +599,7 @@ export default function GovernmentGrantsPage() {
                   <span className="text-gray-700 dark:text-gray-300">
                     Our Grant Application
                   </span>{" "}
-                  <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  <span className="bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 text-transparent">
                     Support Process
                   </span>
                 </h2>
@@ -657,7 +662,7 @@ export default function GovernmentGrantsPage() {
                 <span className="text-gray-700 dark:text-gray-300">
                   Government
                 </span>{" "}
-                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                <span className="bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 text-transparent">
                   Project Types
                 </span>
               </h2>
@@ -724,7 +729,7 @@ export default function GovernmentGrantsPage() {
                   <span className="text-gray-700 dark:text-gray-300">
                     Maximizing Your
                   </span>{" "}
-                  <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  <span className="bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 text-transparent">
                     Grant Success
                   </span>
                 </h2>
@@ -787,7 +792,7 @@ export default function GovernmentGrantsPage() {
               />
               <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                 <span className="text-gray-300">Ready to Start Your</span>{" "}
-                <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
+                <span className="bg-clip-text bg-gradient-to-r from-white to-gray-300 text-transparent">
                   Grant Application?
                 </span>
               </h2>
@@ -850,7 +855,7 @@ export default function GovernmentGrantsPage() {
                 <Link href="/booking">
                   <Button
                     size="lg"
-                    className="bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark px-10 py-7 text-white text-xl"
+                    className="bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-800 px-10 py-7 text-white text-xl"
                   >
                     <MaterialIcon
                       icon="phone_in_talk"
@@ -862,7 +867,7 @@ export default function GovernmentGrantsPage() {
                 </Link>
                 <Button
                   size="lg"
-                  className="bg-brand-secondary hover:bg-brand-secondary-dark dark:bg-brand-secondary dark:hover:bg-brand-secondary-dark px-10 py-7 text-black dark:text-black text-xl"
+                  className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-500 dark:hover:bg-gray-600 px-10 py-7 text-white dark:text-white text-xl"
                 >
                   <MaterialIcon icon="download" className="mr-3" size="lg" />
                   Download Capabilities
