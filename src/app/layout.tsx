@@ -5,7 +5,7 @@ import { Navigation, Footer } from "@/components/layout";
 import FaviconLinks from "@/components/layout/FaviconLinks";
 import { AuthProvider } from "@/lib/auth/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import { GlobalChatbotProvider } from "../providers/GlobalChatbotProvider";
+import { GlobalChatbotProvider } from "@/providers/GlobalChatbotProvider";
 import { WebVitalsReporter } from "@/components/performance/optimized-components";
 // import { AnalyticsProvider } from "@/components/analytics/enhanced-analytics";
 // import PWAUpdate from "@/components/pwa/PWAUpdate";

@@ -24,5 +24,10 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "firebase/functions/**/*"]
+  "exclude": [
+    "node_modules",
+    "firebase/functions/**/*",
+    "backups/**/*",
+    "**/*.backup.*"
+  ]
 }

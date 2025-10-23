@@ -63,11 +63,9 @@
   "license": "MIT",
   "dependencies": {
     "@emotion/is-prop-valid": "^1.4.0",
-    "@radix-ui/react-alert-dialog": "^1.1.15",
     "@radix-ui/react-progress": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tabs": "^1.1.13",
-    "@tailwindcss/line-clamp": "^0.4.4",
     "@types/bcryptjs": "^3.0.0",
     "@types/hast": "^3.0.4",
     "@types/mdast": "^4.0.4",
@@ -93,20 +91,14 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-markdown": "^10.1.0",
-    "react-syntax-highlighter": "^15.6.6",
-    "recharts": "^3.2.1",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.9.2",
-    "web-push": "^3.6.7",
     "web-vitals": "^5.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@lhci/cli": "^0.12.0",
-    "lighthouse": "^12.8.2",
-    "markdownlint": "^0.39.0",
     "markdownlint-cli2": "^0.18.1",
     "prettier": "^3.1.0"
   }

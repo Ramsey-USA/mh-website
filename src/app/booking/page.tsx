@@ -16,7 +16,7 @@ import {
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
 import { consultationService } from "@/lib/utils/firebase";
-import { useGlobalChatbot } from "../../providers/GlobalChatbotProvider";
+import { useGlobalChatbot } from "@/providers/GlobalChatbotProvider";
 // Enhanced SEO handled in layout.tsx
 
 // Available time slots

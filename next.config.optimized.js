@@ -8,11 +8,11 @@ const nextConfig = {
       "framer-motion",
       "@radix-ui/react-icons",
       "react-markdown",
+      "recharts",
     ],
+    // Enable server components optimization
+    serverComponentsExternalPackages: ["firebase-admin"],
   },
-
-  // Server external packages (moved from experimental)
-  serverExternalPackages: ["firebase-admin"],
 
   poweredByHeader: false,
   compress: true,
@@ -23,6 +23,7 @@ const nextConfig = {
   },
 
   // Enhanced performance configuration
+  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
@@ -33,13 +34,8 @@ const nextConfig = {
       type: "filesystem",
       compression: "gzip",
       maxMemoryGenerations: 1,
+      cacheDirectory: ".next/cache",
     };
-
-    // Exclude backup directories from compilation
-    config.module.rules.push({
-      test: /\.(ts|tsx|js|jsx)$/,
-      exclude: [/node_modules/, /backups/, /\.backup\./, /\.next/],
-    });
 
     if (!dev) {
       config.optimization.minimize = true;
@@ -74,13 +70,13 @@ const nextConfig = {
               chunks: "all",
               priority: 25,
             },
-            // Charts and visualization (removed since recharts was removed)
-            // charts: {
-            //   test: /[\\/]node_modules[\\/](recharts|d3-)[\\/]/,
-            //   name: "charts",
-            //   chunks: "all",
-            //   priority: 20,
-            // },
+            // Charts and visualization
+            charts: {
+              test: /[\\/]node_modules[\\/](recharts|d3-)[\\/]/,
+              name: "charts",
+              chunks: "all",
+              priority: 20,
+            },
             // Common vendor libraries
             vendor: {
               test: /[\\/]node_modules[\\/]/,

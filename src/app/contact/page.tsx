@@ -16,7 +16,7 @@ import {
   StaggeredFadeIn,
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
-import { useGlobalChatbot } from "../../providers/GlobalChatbotProvider";
+import { useGlobalChatbot } from "@/providers/GlobalChatbotProvider";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
