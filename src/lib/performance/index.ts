@@ -19,7 +19,6 @@ export {
 } from "./hooks";
 
 // Optimized components
-export { PerformanceDashboard } from "@/components/performance/PerformanceDashboard";
 export { OptimizedImage } from "@/components/performance/OptimizedImage";
 
 // Code splitting utilities
@@ -79,11 +78,5 @@ export type { CacheConfig } from "./caching";
  *    ```tsx
  *    import { createDynamicImport } from '@/lib/performance'
  *    const LazyComponent = createDynamicImport(() => import('./Component'))
- *    ```
- *
- * 6. Monitor performance:
- *    ```tsx
- *    import { PerformanceDashboard } from '@/lib/performance'
- *    <PerformanceDashboard />
  *    ```
  */

@@ -56,6 +56,11 @@ import {
   useImagePreloader,
 } from "@/hooks/usePerformanceOptimization";
 
+// Import new modular page sections (commented out for testing)
+// import { HeroSection } from "@/components/page-sections/hero/HeroSection";
+// import { FeaturesSection } from "@/components/page-sections/features/FeaturesSection";
+// import { ServicesSection } from "@/components/page-sections/services/ServicesSection";
+
 export default function Home() {
   // Initialize analytics
   const { trackEvent } = useAnalytics();

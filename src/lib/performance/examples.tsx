@@ -14,7 +14,6 @@ import {
   useMemoryMonitoring,
   OptimizedImage,
   createDynamicImport,
-  PerformanceDashboard,
   performanceManager,
   cleanupPerformance,
 } from "./index";
@@ -68,7 +67,7 @@ const ExampleComponent = ({ title, data }: { title: string; data: any[] }) => {
 // Example 3: Wrap component with performance tracking
 export const TrackedExampleComponent = withPerformanceTracking(
   ExampleComponent,
-  "ExampleComponent",
+  "ExampleComponent"
 );
 
 // Example 4: Optimized data fetching
@@ -153,9 +152,6 @@ export function OptimizedPage() {
       <React.Suspense fallback={<div>Loading...</div>}>
         <LazyHeavyComponent />
       </React.Suspense>
-
-      {/* Performance dashboard (admin only) */}
-      {process.env.NODE_ENV === "development" && <PerformanceDashboard />}
     </div>
   );
 }

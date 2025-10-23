@@ -648,7 +648,7 @@ businesses to solve structural problems at their source.
 #### What We DON'T Do
 
 - Water extraction or cleanup services (we repair the structure causing the leak)
-- 24/7 emergency response (we're construction experts, not first responders)
+- Round-the-clock emergency response (we're construction experts, not first responders)
 - Services typically provided by restoration companies
 
 **Key Distinction**: We repair the dam, not remove the water. When companies face urgent
@@ -820,12 +820,32 @@ recognition accuracy
 - Government page for public sector projects
 - Trade Partners page showcasing subcontractor network
 
-### Navigation System Optimization (v3.8.1)
+### Navigation System Optimization (v3.8.2)
 
+- **Unified Navigation Architecture**: Comprehensive navigation system across all page heroes
+- **Urgent Construction Support**: Updated all emergency language to "Urgent Construction Support"
+- **Section-Specific Navigation**: Each page hero includes relevant anchor links to new sections
 - **Adaptive Grid System**: Responsive navigation for all device sizes
 - **Universal Accessibility**: Theme toggle and controls always visible
 - **Mobile Optimization**: 25% height reduction on small screens
-- **Consistent Experience**: Unified navigation across hamburger menu, footer, and hero
+- **Consistent Experience**: Unified navigation across hamburger menu, footer, and hero sections
+
+#### New Page Sections Added:
+- **Services Page**: Quality Inspections (`#inspections`), Maintenance & Repairs (`#maintenance`) sections
+- **Contact Page**: Urgent Construction Support section (`#urgent-support`) replacing Emergency Services
+- **About Page**: Client Reviews (`#reviews`), Safety & Compliance (`#safety`), Awards & Recognition (`#awards`) sections
+- **All Navigation**: Updated anchor links from `#emergency` to `#urgent-support`
+
+#### Navigation Testing:
+To verify navigation is working correctly:
+```bash
+npm run build  # Verify no build errors
+npm run dev    # Start development server
+```
+Test navigation links:
+- Footer "Urgent Support" → `/contact#urgent-support`
+- Hero navigation on each page → Relevant page sections
+- Hamburger menu "Urgent Support" → `/contact#urgent-support`
 
 ### Advanced Features Implementation (v3.7.0-3.8.0)
 
