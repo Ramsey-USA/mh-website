@@ -339,9 +339,12 @@ Schedule a personalized consultation with our experienced team for expert guidan
 4. **Proposal**: Comprehensive project proposal with transparent pricing
 5. **Partnership**: Collaborative execution with regular communication
 
-### **Emergency Services**
+### **Urgent Construction Support**
 
-24/7 emergency support for urgent construction needs and project issues.
+Specialized expertise, manpower, and equipment available for companies facing critical
+construction challenges. We partner with businesses to provide urgent structural
+consultation and repairs - fixing the source of problems like damaged foundations,
+roofing systems, and structural issues causing leaks or failures.
 
 ---
 

@@ -17,7 +17,7 @@ interface ProjectStatus {
   budget: number;
   spent: number;
   description: string;
-  category: "residential" | "commercial" | "renovation" | "emergency";
+  category: "residential" | "commercial" | "renovation" | "urgent-support";
   priority: "low" | "medium" | "high" | "urgent";
   lastUpdate: string;
   nextMilestone: string;
@@ -174,12 +174,12 @@ export const ClientDashboard: React.FC = () => {
   const [communications, setCommunications] =
     useState<Communication[]>(mockCommunications);
   const [selectedProject, setSelectedProject] = useState<ProjectStatus | null>(
-    null,
+    null
   );
 
   const stats: DashboardStats = {
     activeProjects: projects.filter(
-      (p) => p.status === "in-progress" || p.status === "planning",
+      (p) => p.status === "in-progress" || p.status === "planning"
     ).length,
     completedProjects: projects.filter((p) => p.status === "completed").length,
     upcomingMilestones: 3,
@@ -223,8 +223,8 @@ export const ClientDashboard: React.FC = () => {
   const markAsRead = (communicationId: string) => {
     setCommunications((prev) =>
       prev.map((comm) =>
-        comm.id === communicationId ? { ...comm, isRead: true } : comm,
-      ),
+        comm.id === communicationId ? { ...comm, isRead: true } : comm
+      )
     );
   };
 
@@ -272,7 +272,7 @@ export const ClientDashboard: React.FC = () => {
                     | "projects"
                     | "tracking"
                     | "communications"
-                    | "documents",
+                    | "documents"
                 )
               }
               className={`py-2 px-1 border-b-2 font-medium text-sm ${
@@ -359,7 +359,7 @@ export const ClientDashboard: React.FC = () => {
                   {projects
                     .filter(
                       (p) =>
-                        p.status === "in-progress" || p.status === "planning",
+                        p.status === "in-progress" || p.status === "planning"
                     )
                     .map((project) => (
                       <div
@@ -388,7 +388,7 @@ export const ClientDashboard: React.FC = () => {
                         </div>
                         <span
                           className={`ml-4 px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(
-                            project.status,
+                            project.status
                           )}`}
                         >
                           {project.status}
@@ -438,7 +438,7 @@ export const ClientDashboard: React.FC = () => {
                         <div className="flex items-center ml-4">
                           <span
                             className={`text-xs ${getPriorityColor(
-                              comm.priority,
+                              comm.priority
                             )}`}
                           >
                             {comm.priority}
@@ -490,7 +490,7 @@ export const ClientDashboard: React.FC = () => {
                           </div>
                           <span
                             className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(
-                              project.status,
+                              project.status
                             )}`}
                           >
                             {project.status}
@@ -510,7 +510,7 @@ export const ClientDashboard: React.FC = () => {
                             </p>
                             <p className="font-medium">
                               {new Date(
-                                project.estimatedCompletion,
+                                project.estimatedCompletion
                               ).toLocaleDateString()}
                             </p>
                           </div>

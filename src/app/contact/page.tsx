@@ -570,23 +570,23 @@ export default function ContactPage() {
                   </Card>
                 </FadeInWhenVisible>
 
-                {/* Emergency Contact */}
+                {/* Urgent Construction Support */}
                 <FadeInWhenVisible>
                   <Card className="bg-gradient-to-r from-amber-50 dark:from-amber-900/20 to-orange-50 dark:to-orange-900/20 hover:shadow-lg dark:hover:shadow-gray-600/50 border-amber-200 dark:border-amber-700 transition-shadow">
                     <CardHeader>
                       <MaterialIcon
-                        icon="emergency"
+                        icon="engineering"
                         size="2xl"
                         className="mb-3 text-amber-600 dark:text-amber-400"
                       />
                       <CardTitle className="text-gray-900 dark:text-white text-2xl">
-                        Emergency Support
+                        Urgent Construction Support
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
                       <p className="mb-4 text-gray-700 dark:text-gray-300">
                         Need urgent assistance with an active project or
-                        emergency construction need?
+                        time-critical construction need?
                       </p>
                       <a
                         href="tel:+15093086489"
@@ -596,7 +596,7 @@ export default function ContactPage() {
                         Call (509) 308-6489
                       </a>
                       <p className="mt-3 text-gray-600 dark:text-gray-400 text-sm text-center">
-                        24/7 Emergency Support Available
+                        Urgent Support Available During Business Hours
                       </p>
                     </CardContent>
                   </Card>
@@ -803,6 +803,188 @@ export default function ContactPage() {
               }}
               className="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-xl"
             />
+          </FadeInWhenVisible>
+        </div>
+      </section>
+
+      {/* Urgent Construction Support Section */}
+      <section
+        id="urgent-support"
+        className="bg-orange-50 dark:bg-orange-900/20 py-16 lg:py-24"
+      >
+        <div className="mx-auto px-4 container">
+          <FadeInWhenVisible>
+            <div className="mx-auto max-w-4xl text-center mb-12">
+              <div className="flex justify-center items-center mb-6">
+                <div className="bg-orange-100 dark:bg-orange-900/50 p-4 rounded-2xl">
+                  <MaterialIcon
+                    icon="engineering"
+                    size="xl"
+                    className="text-orange-600 dark:text-orange-400"
+                  />
+                </div>
+              </div>
+              <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight">
+                Urgent Construction Support
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed">
+                When companies face urgent construction challenges, MH
+                Construction provides expert consultation, specialized manpower,
+                and equipment to resolve critical structural issues.
+              </p>
+            </div>
+          </FadeInWhenVisible>
+
+          <div className="gap-8 grid md:grid-cols-2 lg:grid-cols-3 mb-12">
+            <StaggeredFadeIn>
+              <Card className="bg-white dark:bg-gray-900 hover:shadow-lg transition-all duration-300 border-l-4 border-orange-500">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <MaterialIcon
+                      icon="build"
+                      size="lg"
+                      className="text-orange-600 dark:text-orange-400"
+                    />
+                    <CardTitle className="text-gray-900 dark:text-white text-lg">
+                      Expert Consultation
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                    Urgent structural assessments and professional guidance when
+                    companies need immediate construction expertise.
+                  </p>
+                  <div className="text-center">
+                    <a
+                      href="tel:+15093086489"
+                      className="inline-flex items-center bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+                    >
+                      <MaterialIcon icon="phone" className="mr-2" size="sm" />
+                      (509) 308-6489
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white dark:bg-gray-900 hover:shadow-lg transition-all duration-300 border-l-4 border-blue-500">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <MaterialIcon
+                      icon="construction"
+                      size="lg"
+                      className="text-blue-600 dark:text-blue-400"
+                    />
+                    <CardTitle className="text-gray-900 dark:text-white text-lg">
+                      Structural Repairs
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                    Fixing the source of problems - repairing damaged
+                    structures, foundations, and systems causing leaks or
+                    failures.
+                  </p>
+                  <ul className="space-y-1 text-xs">
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Foundation and structural repairs
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Roof and wall system restoration
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white dark:bg-gray-900 hover:shadow-lg transition-all duration-300 border-l-4 border-green-500">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <MaterialIcon
+                      icon="precision_manufacturing"
+                      size="lg"
+                      className="text-green-600 dark:text-green-400"
+                    />
+                    <CardTitle className="text-gray-900 dark:text-white text-lg">
+                      Equipment & Manpower
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                    Specialized construction equipment and experienced crews
+                    available for urgent project assistance.
+                  </p>
+                  <ul className="space-y-1 text-xs">
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Heavy machinery and specialized tools
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Skilled construction professionals
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </StaggeredFadeIn>
+          </div>
+
+          <FadeInWhenVisible>
+            <div className="bg-gradient-to-r from-orange-600 to-orange-700 dark:from-orange-700 dark:to-orange-800 text-white p-6 rounded-xl text-center">
+              <MaterialIcon
+                icon="handshake"
+                size="lg"
+                className="mb-4 text-yellow-300"
+              />
+              <h3 className="mb-2 font-bold text-lg">
+                Urgent Support Partnership
+              </h3>
+              <p className="mb-4 text-sm">
+                When your company faces urgent construction challenges, MH
+                Construction can provide expert consultation, specialized
+                manpower, and equipment. We partner with companies to solve
+                critical structural issues at the source.
+              </p>
+              <div className="flex sm:flex-row flex-col justify-center gap-4">
+                <a
+                  href="tel:+15093086489"
+                  className="inline-flex items-center bg-white hover:bg-gray-100 text-orange-700 px-6 py-3 rounded-lg font-bold transition-colors"
+                >
+                  <MaterialIcon icon="phone" className="mr-2" size="md" />
+                  Urgent Support: (509) 308-6489
+                </a>
+                <a
+                  href="mailto:office@mhc-gc.com?subject=Urgent%20Construction%20Support%20Request"
+                  className="inline-flex items-center bg-orange-800 hover:bg-orange-900 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                >
+                  <MaterialIcon icon="email" className="mr-2" size="md" />
+                  Email Support Request
+                </a>
+              </div>
+            </div>
           </FadeInWhenVisible>
         </div>
       </section>

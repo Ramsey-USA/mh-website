@@ -171,6 +171,16 @@ export function Navigation() {
                       label: "Partners",
                       icon: "handshake",
                     },
+                    {
+                      href: "/contact#urgent-support",
+                      label: "Urgent Support",
+                      icon: "engineering",
+                    },
+                    {
+                      href: "/booking",
+                      label: "Book Now",
+                      icon: "calendar_today",
+                    },
                   ].map((item, index) => (
                     <Link
                       key={item.href}

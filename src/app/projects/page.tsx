@@ -102,8 +102,8 @@ export default function ProjectsPage() {
             .includes(searchQuery.toLowerCase()) ||
           (project.tags &&
             project.tags.some((tag) =>
-              tag.toLowerCase().includes(searchQuery.toLowerCase()),
-            )),
+              tag.toLowerCase().includes(searchQuery.toLowerCase())
+            ))
       );
     }
 
@@ -470,7 +470,7 @@ export default function ProjectsPage() {
                             <span>
                               {project.details.completionDate.toLocaleDateString(
                                 "en-US",
-                                { year: "numeric", month: "long" },
+                                { year: "numeric", month: "long" }
                               )}
                             </span>
                           </div>
@@ -502,7 +502,7 @@ export default function ProjectsPage() {
                                 size="sm"
                                 className="text-yellow-500"
                               />
-                            ),
+                            )
                           )}
                         </div>
                         <p className="text-gray-600 text-sm italic line-clamp-2">
@@ -659,10 +659,10 @@ export default function ProjectsPage() {
                   "Meticulous quality control at every project phase, ensuring work meets our high standards.",
               },
               {
-                iconName: "support_agent",
-                title: "24/7 Emergency Support",
+                iconName: "engineering",
+                title: "Urgent Construction Support",
                 description:
-                  "Round-the-clock emergency support for urgent construction needs and project issues.",
+                  "Expert construction consultation and rapid resource deployment for time-critical project needs.",
               },
             ].map((reason, index) => (
               <Card
@@ -733,7 +733,7 @@ export default function ProjectsPage() {
                                 size="md"
                                 className="text-[#BD9264]"
                               />
-                            ),
+                            )
                           )}
                         </div>
                         <p className="flex-grow mb-4 text-gray-700 dark:text-gray-300 italic leading-relaxed">

@@ -337,7 +337,7 @@ export const ServiceAreaOverview: React.FC = () => {
       city: "Pasco",
       state: "WA",
       description: "Headquarters location with full-service construction",
-      services: ["Custom Homes", "Commercial", "Renovations", "Emergency"],
+      services: ["Custom Homes", "Commercial", "Renovations", "Urgent Support"],
       responseTime: "24 hours",
     },
     {

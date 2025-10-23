@@ -113,7 +113,7 @@ export function GlobalChatbot({
     ];
 
     const hasBusinessKeyword = businessKeywords.some((keyword) =>
-      userMessage.toLowerCase().includes(keyword),
+      userMessage.toLowerCase().includes(keyword)
     );
 
     // Deploy advanced lead qualification for business inquiries
@@ -121,7 +121,7 @@ export function GlobalChatbot({
       const leadQualification =
         militaryConstructionAI.getLeadQualificationGuidance(
           userMessage,
-          pageContext,
+          pageContext
         );
 
       // Check for veteran status and apply priority processing
@@ -131,7 +131,7 @@ export function GlobalChatbot({
       if (veteranAnalysis.isVeteran) {
         const veteranPriority = militaryConstructionAI.processVeteranPriority(
           veteranAnalysis,
-          { message: userMessage, context: pageContext },
+          { message: userMessage, context: pageContext }
         );
 
         // Combine lead qualification with veteran priority information
@@ -160,7 +160,7 @@ ${veteranPriority.expeditedTimeline}
     if (pageContext.isContactPage) {
       const formAssistance = militaryConstructionAI.getContactFormAssistance(
         userMessage,
-        pageContext,
+        pageContext
       );
       return formAssistance;
     }
@@ -168,7 +168,7 @@ ${veteranPriority.expeditedTimeline}
     if (pageContext.isBookingPage) {
       const bookingAssistance = militaryConstructionAI.getBookingFormAssistance(
         userMessage,
-        pageContext,
+        pageContext
       );
       return bookingAssistance;
     }
@@ -223,7 +223,8 @@ ${veteranPriority.expeditedTimeline}
 
       const isUrgent = [
         "urgent",
-        "emergency",
+        "urgent support",
+        "critical",
         "asap",
         "immediately",
         "soon",
@@ -287,19 +288,19 @@ ${veteranPriority.expeditedTimeline}
 
       const newX = Math.max(
         0,
-        Math.min(window.innerWidth - 400, e.clientX - dragOffset.x),
+        Math.min(window.innerWidth - 400, e.clientX - dragOffset.x)
       );
       const newY = Math.max(
         0,
         Math.min(
           window.innerHeight - (isOpen ? 600 : 80),
-          e.clientY - dragOffset.y,
-        ),
+          e.clientY - dragOffset.y
+        )
       );
 
       setPosition({ x: newX, y: newY });
     },
-    [isDragging, dragOffset.x, dragOffset.y, isOpen],
+    [isDragging, dragOffset.x, dragOffset.y, isOpen]
   );
 
   const handleMouseUp = useCallback(() => {

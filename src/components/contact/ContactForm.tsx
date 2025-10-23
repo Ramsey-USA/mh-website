@@ -27,7 +27,7 @@ interface ContactFormData {
 }
 
 interface ContactFormProps {
-  formType: "general" | "project" | "emergency";
+  formType: "general" | "project" | "urgent";
   title: string;
   description?: string;
 }
@@ -63,7 +63,7 @@ export function ContactForm({
     "Commercial Construction",
     "Industrial Project",
     "Renovation/Restoration",
-    "Emergency Repair",
+    "Urgent Construction Support",
     "Other",
   ];
 

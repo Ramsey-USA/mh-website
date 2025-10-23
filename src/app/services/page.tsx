@@ -252,10 +252,10 @@ const whyChooseUs = [
       "Meticulous quality control at every project phase, ensuring work meets our high standards.",
   },
   {
-    iconName: "support_agent",
-    title: "24/7 Emergency Support",
+    iconName: "engineering",
+    title: "Urgent Construction Support",
     description:
-      "Round-the-clock emergency support for urgent construction needs and project issues.",
+      "Expert construction consultation and rapid resource deployment for time-critical project needs.",
   },
 ];
 
@@ -823,6 +823,295 @@ export default function ServicesPage() {
                 </div>
               </div>
             </FadeInWhenVisible>
+          </div>
+        </section>
+
+        {/* Quality Inspections Section */}
+        <section
+          id="inspections"
+          className="bg-gray-50 dark:bg-gray-800 py-16 lg:py-24"
+        >
+          <div className="mx-auto px-4 container">
+            <FadeInWhenVisible>
+              <div className="mx-auto max-w-4xl text-center mb-12">
+                <div className="flex justify-center items-center mb-6">
+                  <div className="bg-brand-primary/10 p-4 rounded-2xl">
+                    <MaterialIcon
+                      icon="fact_check"
+                      size="xl"
+                      className="text-brand-primary"
+                    />
+                  </div>
+                </div>
+                <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight">
+                  Quality Inspections
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed">
+                  Ensuring excellence through comprehensive quality assurance
+                  and detailed inspections at every phase of your project.
+                </p>
+              </div>
+            </FadeInWhenVisible>
+
+            <div className="gap-8 grid md:grid-cols-2 mb-12">
+              <StaggeredFadeIn>
+                <Card className="bg-white dark:bg-gray-900 hover:shadow-lg transition-all duration-300">
+                  <CardHeader>
+                    <div className="flex items-center space-x-3 mb-4">
+                      <MaterialIcon
+                        icon="search"
+                        size="lg"
+                        className="text-brand-primary"
+                      />
+                      <CardTitle className="text-gray-900 dark:text-white text-xl">
+                        Pre-Construction Inspections
+                      </CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                      Thorough site evaluations and planning assessments before
+                      construction begins.
+                    </p>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                        />
+                        <span className="text-gray-600 dark:text-gray-300">
+                          Site condition assessments
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                        />
+                        <span className="text-gray-600 dark:text-gray-300">
+                          Permit and code compliance verification
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                        />
+                        <span className="text-gray-600 dark:text-gray-300">
+                          Material and design specification reviews
+                        </span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-white dark:bg-gray-900 hover:shadow-lg transition-all duration-300">
+                  <CardHeader>
+                    <div className="flex items-center space-x-3 mb-4">
+                      <MaterialIcon
+                        icon="assignment_turned_in"
+                        size="lg"
+                        className="text-brand-primary"
+                      />
+                      <CardTitle className="text-gray-900 dark:text-white text-xl">
+                        Progress & Final Inspections
+                      </CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                      Ongoing quality control and comprehensive final
+                      inspections for peace of mind.
+                    </p>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                        />
+                        <span className="text-gray-600 dark:text-gray-300">
+                          Phase-by-phase quality checkpoints
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                        />
+                        <span className="text-gray-600 dark:text-gray-300">
+                          Final walkthrough and punch list completion
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                        />
+                        <span className="text-gray-600 dark:text-gray-300">
+                          Documentation and warranty preparation
+                        </span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </StaggeredFadeIn>
+            </div>
+          </div>
+        </section>
+
+        {/* Maintenance & Repairs Section */}
+        <section
+          id="maintenance"
+          className="bg-white dark:bg-gray-900 py-16 lg:py-24"
+        >
+          <div className="mx-auto px-4 container">
+            <FadeInWhenVisible>
+              <div className="mx-auto max-w-4xl text-center mb-12">
+                <div className="flex justify-center items-center mb-6">
+                  <div className="bg-brand-primary/10 p-4 rounded-2xl">
+                    <MaterialIcon
+                      icon="home_repair_service"
+                      size="xl"
+                      className="text-brand-primary"
+                    />
+                  </div>
+                </div>
+                <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight">
+                  Maintenance & Repairs
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed">
+                  Protecting your investment with professional maintenance
+                  services and expert repairs when you need them most.
+                </p>
+              </div>
+            </FadeInWhenVisible>
+
+            <div className="gap-8 grid lg:grid-cols-3 mb-12">
+              <StaggeredFadeIn>
+                <Card className="bg-gradient-to-br from-brand-light to-white dark:from-gray-800 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+                  <CardHeader>
+                    <div className="flex items-center space-x-3 mb-4">
+                      <MaterialIcon
+                        icon="schedule"
+                        size="lg"
+                        className="text-brand-primary"
+                      />
+                      <CardTitle className="text-gray-900 dark:text-white text-lg">
+                        Preventive Maintenance
+                      </CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                      Regular maintenance programs to prevent costly repairs and
+                      extend building life.
+                    </p>
+                    <ul className="space-y-1 text-xs">
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                        />
+                        <span className="text-gray-600 dark:text-gray-300">
+                          HVAC system maintenance
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                        />
+                        <span className="text-gray-600 dark:text-gray-300">
+                          Roof and exterior inspections
+                        </span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-gradient-to-br from-brand-light to-white dark:from-gray-800 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+                  <CardHeader>
+                    <div className="flex items-center space-x-3 mb-4">
+                      <MaterialIcon
+                        icon="build"
+                        size="lg"
+                        className="text-brand-primary"
+                      />
+                      <CardTitle className="text-gray-900 dark:text-white text-lg">
+                        Urgent Repairs
+                      </CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                      Fast response times for urgent repairs to minimize
+                      downtime and damage.
+                    </p>
+                    <ul className="space-y-1 text-xs">
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                        />
+                        <span className="text-gray-600 dark:text-gray-300">
+                          Rapid response protocols
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                        />
+                        <span className="text-gray-600 dark:text-gray-300">
+                          Water damage mitigation
+                        </span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-gradient-to-br from-brand-light to-white dark:from-gray-800 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+                  <CardHeader>
+                    <div className="flex items-center space-x-3 mb-4">
+                      <MaterialIcon
+                        icon="handyman"
+                        size="lg"
+                        className="text-brand-primary"
+                      />
+                      <CardTitle className="text-gray-900 dark:text-white text-lg">
+                        Facility Upgrades
+                      </CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                      Strategic improvements and modernization to enhance
+                      property value and efficiency.
+                    </p>
+                    <ul className="space-y-1 text-xs">
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                        />
+                        <span className="text-gray-600 dark:text-gray-300">
+                          Energy efficiency upgrades
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                        />
+                        <span className="text-gray-600 dark:text-gray-300">
+                          Accessibility improvements
+                        </span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </StaggeredFadeIn>
+            </div>
           </div>
         </section>
 

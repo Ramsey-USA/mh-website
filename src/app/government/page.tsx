@@ -109,7 +109,7 @@ const governmentProjects = [
       "Public Works",
       "Utility Buildings",
       "Maintenance Facilities",
-      "Emergency Services",
+      "Urgent Construction Services",
     ],
   },
   {
@@ -132,7 +132,7 @@ const grantTypes = [
     programs: [
       "Department of Energy (DOE)",
       "General Services Administration (GSA)",
-      "FEMA Emergency Management",
+      "FEMA Disaster Management",
       "Department of Defense (DoD)",
       "Small Business Administration (SBA)",
     ],
@@ -224,9 +224,9 @@ const hanfordCapabilities = [
     description: "Established relationships with Hanford-area subcontractors",
   },
   {
-    icon: "emergency",
-    title: "Emergency Response",
-    description: "24/7 emergency response capabilities for critical projects",
+    icon: "engineering",
+    title: "Urgent Construction Support",
+    description: "Rapid response capabilities for time-critical projects",
   },
   {
     icon: "workspace_premium",
@@ -264,7 +264,7 @@ const successFactors = [
 
 export default function GovernmentGrantsPage() {
   const [selectedGrantType, setSelectedGrantType] = useState<string | null>(
-    null,
+    null
   );
 
   return (
@@ -484,7 +484,7 @@ export default function GovernmentGrantsPage() {
                           "Training facility development",
                           "Infrastructure improvements",
                           "Safety system installations",
-                          "Emergency response projects",
+                          "Urgent construction projects",
                         ].map((item, idx) => (
                           <div
                             key={idx}
@@ -540,9 +540,7 @@ export default function GovernmentGrantsPage() {
                   className="h-full cursor-pointer"
                   onClick={() =>
                     setSelectedGrantType(
-                      selectedGrantType === type.category
-                        ? null
-                        : type.category,
+                      selectedGrantType === type.category ? null : type.category
                     )
                   }
                 >
@@ -877,7 +875,8 @@ export default function GovernmentGrantsPage() {
                   className="inline mr-2"
                   size="sm"
                 />
-                Monday - Friday: 8:00 AM - 5:00 PM PST | 24/7 Emergency Support
+                Monday - Friday: 8:00 AM - 5:00 PM PST | Urgent Support
+                Available
               </p>
             </div>
           </FadeInWhenVisible>

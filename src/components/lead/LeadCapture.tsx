@@ -49,7 +49,7 @@ export const LeadCapture: React.FC<LeadCaptureProps> = ({
     "Kitchen Remodel",
     "Bathroom Remodel",
     "Addition/Extension",
-    "Emergency Repair",
+    "Urgent Construction Support",
     "Other",
   ];
 

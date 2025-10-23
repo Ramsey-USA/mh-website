@@ -518,7 +518,7 @@ Brief description of changes
 
 - **Lead Developer**: <office@mhc-gc.com>
 - **Project Manager**: <office@mhc-gc.com>
-- **Emergency Support**: <office@mhc-gc.com>
+- **Urgent Support**: <office@mhc-gc.com>
 
 ### Business Contacts
 

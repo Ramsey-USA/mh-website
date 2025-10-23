@@ -58,7 +58,9 @@
 #### 🏢 Company Information & Services
 
 - [**Services Overview**](./docs/business/services.md) - Complete service offerings and
-  capabilities
+  capabilities including urgent construction support
+- [**Urgent Construction Support**](./docs/business/urgent-construction-support.md) -
+  Specialized expertise for companies facing critical structural challenges
 - [**Team Roster**](./docs/business/team-roster.md) - Meet our experienced team members
 - [**Core Values**](./docs/business/core-values.md) - Our guiding principles and mission
 - [**Partnership Messaging**](./docs/partnerships/messaging/partnership-messaging-guide.md) -
@@ -628,6 +630,32 @@ seeking to join our approved network.
 - **Network Benefits**: Access to diverse project opportunities
 
 **Contact:** (509) 308-6489 ext. 150 | <office@mhc-gc.com>
+
+### Urgent Construction Support
+
+**Specialized Construction Expertise for Critical Challenges**
+
+MH Construction provides urgent construction support for companies facing critical structural
+issues. We focus on **construction expertise, not emergency response** - partnering with
+businesses to solve structural problems at their source.
+
+#### What We Provide
+
+- **Expert Consultation**: Urgent structural assessments and professional guidance
+- **Structural Repairs**: Fixing damaged foundations, roofing systems, and structural failures
+- **Equipment & Manpower**: Specialized construction equipment and experienced crews
+
+#### What We DON'T Do
+
+- Water extraction or cleanup services (we repair the structure causing the leak)
+- 24/7 emergency response (we're construction experts, not first responders)
+- Services typically provided by restoration companies
+
+**Key Distinction**: We repair the dam, not remove the water. When companies face urgent
+construction challenges, MH Construction partners with them to solve structural issues
+at their source.
+
+**Urgent Support Contact**: (509) 308-6489 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 #### Community Impact
 

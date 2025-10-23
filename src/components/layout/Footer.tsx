@@ -14,27 +14,14 @@ export default function Footer() {
           {/* Column 1: Company Info */}
           <div className="space-y-3 xs:space-y-4 sm:col-span-2 lg:col-span-1">
             <div className="text-center sm:text-left lg:text-left">
-              <div className="bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 p-4 rounded-xl mb-4 border border-brand-primary/20">
+              <div className="mb-4">
                 <Image
                   src="/images/logo/mh-logo.png"
                   alt="MH Construction Logo"
                   width={132}
                   height={66}
-                  className="mx-auto sm:mx-0 lg:mx-0 mb-3 xs:mb-4 w-[120px] xs:w-[135px] sm:w-[150px] h-auto drop-shadow-lg"
+                  className="mx-auto sm:mx-0 lg:mx-0 w-[120px] xs:w-[135px] sm:w-[150px] h-auto drop-shadow-lg"
                 />
-                <p className="mb-3 xs:mb-4 text-brand-primary dark:text-brand-secondary font-medium text-sm xs:text-base">
-                  Building for the Owner, NOT the Dollar
-                </p>
-                <div className="flex items-center justify-center sm:justify-start space-x-2">
-                  <MaterialIcon
-                    icon="military_tech"
-                    size="sm"
-                    className="text-brand-primary"
-                  />
-                  <span className="text-gray-300 text-xs font-medium">
-                    Veteran-Owned Excellence Since 1995
-                  </span>
-                </div>
               </div>
 
               {/* Contact Info */}
@@ -50,7 +37,7 @@ export default function Footer() {
                     </div>
                     <div>
                       <div className="mb-1 text-gray-400 dark:text-gray-300 text-xs">
-                        Partnership Phone
+                        MHC Phone
                       </div>
                       <a
                         href="tel:+15093086489"
@@ -73,7 +60,7 @@ export default function Footer() {
                     </div>
                     <div>
                       <div className="mb-1 text-gray-400 dark:text-gray-300 text-xs">
-                        Partnership Office
+                        MHC Office
                       </div>
                       <span className="text-xs leading-tight">
                         3111 N. Capital Ave.
@@ -95,7 +82,7 @@ export default function Footer() {
                     </div>
                     <div>
                       <div className="mb-1 text-gray-400 dark:text-gray-300 text-xs">
-                        Partnership Email
+                        MHC Email
                       </div>
                       <a
                         href="mailto:office@mhc-gc.com"
@@ -201,6 +188,57 @@ export default function Footer() {
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
                 <span>Connect With Us</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
+              <Link
+                href="/services#inspections"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+              >
+                <MaterialIcon
+                  icon="fact_check"
+                  size="sm"
+                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                />
+                <span>Quality Inspections</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
+              <Link
+                href="/contact#urgent-support"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+              >
+                <MaterialIcon
+                  icon="engineering"
+                  size="sm"
+                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                />
+                <span>Urgent Construction Support</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
+              <Link
+                href="/services#maintenance"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+              >
+                <MaterialIcon
+                  icon="home_repair_service"
+                  size="sm"
+                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                />
+                <span>Maintenance & Repairs</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -318,6 +356,57 @@ export default function Footer() {
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
                 <span>Join Our Team</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
+              <Link
+                href="/about#testimonials"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+              >
+                <MaterialIcon
+                  icon="star"
+                  size="sm"
+                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                />
+                <span>Client Reviews</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
+              <Link
+                href="/about#safety"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+              >
+                <MaterialIcon
+                  icon="verified_user"
+                  size="sm"
+                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                />
+                <span>Safety & Compliance</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
+              <Link
+                href="/about#awards"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+              >
+                <MaterialIcon
+                  icon="emoji_events"
+                  size="sm"
+                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                />
+                <span>Awards & Recognition</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"

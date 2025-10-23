@@ -789,6 +789,481 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Client Reviews Section */}
+      <section
+        id="testimonials"
+        className="bg-gray-50 dark:bg-gray-800 py-16 lg:py-24"
+      >
+        <div className="mx-auto px-4 container">
+          <FadeInWhenVisible>
+            <div className="mx-auto max-w-4xl text-center mb-12">
+              <div className="flex justify-center items-center mb-6">
+                <div className="bg-brand-primary/10 p-4 rounded-2xl">
+                  <MaterialIcon
+                    icon="star"
+                    size="xl"
+                    className="text-brand-primary"
+                  />
+                </div>
+              </div>
+              <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight">
+                Client Reviews
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed">
+                Hear directly from our partners about their experience working
+                with MH Construction on their most important projects.
+              </p>
+            </div>
+          </FadeInWhenVisible>
+
+          <div className="gap-8 grid md:grid-cols-2 lg:grid-cols-3 mb-12">
+            <StaggeredFadeIn>
+              <Card className="bg-white dark:bg-gray-900 hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="flex space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <MaterialIcon
+                          key={i}
+                          icon="star"
+                          size="sm"
+                          className="text-yellow-400"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 italic">
+                    "MH Construction delivered exactly what they promised, on
+                    time and within budget. Their attention to detail and
+                    communication throughout the project was exceptional."
+                  </p>
+                  <div className="flex items-center space-x-3">
+                    <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center">
+                      <MaterialIcon
+                        icon="business"
+                        size="sm"
+                        className="text-brand-primary"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900 dark:text-white text-sm">
+                        Regional Medical Center
+                      </p>
+                      <p className="text-gray-500 dark:text-gray-400 text-xs">
+                        Healthcare Facility Project
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white dark:bg-gray-900 hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="flex space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <MaterialIcon
+                          key={i}
+                          icon="star"
+                          size="sm"
+                          className="text-yellow-400"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 italic">
+                    "Working with MH Construction felt like having a true
+                    partner. They went above and beyond to ensure our vision
+                    became reality while staying mindful of our budget."
+                  </p>
+                  <div className="flex items-center space-x-3">
+                    <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center">
+                      <MaterialIcon
+                        icon="store"
+                        size="sm"
+                        className="text-brand-primary"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900 dark:text-white text-sm">
+                        Tri-Cities Retail Group
+                      </p>
+                      <p className="text-gray-500 dark:text-gray-400 text-xs">
+                        Commercial Retail Complex
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white dark:bg-gray-900 hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="flex space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <MaterialIcon
+                          key={i}
+                          icon="star"
+                          size="sm"
+                          className="text-yellow-400"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 italic">
+                    "The military precision and attention to detail showed in
+                    every aspect of the project. Professional, reliable, and
+                    committed to excellence."
+                  </p>
+                  <div className="flex items-center space-x-3">
+                    <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center">
+                      <MaterialIcon
+                        icon="account_balance"
+                        size="sm"
+                        className="text-brand-primary"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900 dark:text-white text-sm">
+                        Municipal Services
+                      </p>
+                      <p className="text-gray-500 dark:text-gray-400 text-xs">
+                        Government Facility Renovation
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </StaggeredFadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Safety & Compliance Section */}
+      <section id="safety" className="bg-white dark:bg-gray-900 py-16 lg:py-24">
+        <div className="mx-auto px-4 container">
+          <FadeInWhenVisible>
+            <div className="mx-auto max-w-4xl text-center mb-12">
+              <div className="flex justify-center items-center mb-6">
+                <div className="bg-brand-primary/10 p-4 rounded-2xl">
+                  <MaterialIcon
+                    icon="verified_user"
+                    size="xl"
+                    className="text-brand-primary"
+                  />
+                </div>
+              </div>
+              <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight">
+                Safety & Compliance
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed">
+                Safety is never compromised at MH Construction. Our
+                comprehensive safety programs and regulatory compliance ensure
+                every project meets the highest standards.
+              </p>
+            </div>
+          </FadeInWhenVisible>
+
+          <div className="gap-8 grid md:grid-cols-2 mb-12">
+            <StaggeredFadeIn>
+              <Card className="bg-gradient-to-br from-green-50 to-white dark:from-green-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <MaterialIcon
+                      icon="security"
+                      size="lg"
+                      className="text-green-600 dark:text-green-400"
+                    />
+                    <CardTitle className="text-gray-900 dark:text-white text-xl">
+                      Safety First Culture
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Daily safety meetings and protocols
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        OSHA-compliant safety training for all team members
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Comprehensive safety equipment and monitoring
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Zero-tolerance policy for safety violations
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <MaterialIcon
+                      icon="gavel"
+                      size="lg"
+                      className="text-blue-600 dark:text-blue-400"
+                    />
+                    <CardTitle className="text-gray-900 dark:text-white text-xl">
+                      Regulatory Compliance
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Licensed and insured in Washington, Oregon, and Idaho
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Current with all local and federal building codes
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Environmental compliance and sustainability practices
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Regular audits and certification maintenance
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </StaggeredFadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Awards & Recognition Section */}
+      <section
+        id="awards"
+        className="bg-gray-50 dark:bg-gray-800 py-16 lg:py-24"
+      >
+        <div className="mx-auto px-4 container">
+          <FadeInWhenVisible>
+            <div className="mx-auto max-w-4xl text-center mb-12">
+              <div className="flex justify-center items-center mb-6">
+                <div className="bg-brand-primary/10 p-4 rounded-2xl">
+                  <MaterialIcon
+                    icon="emoji_events"
+                    size="xl"
+                    className="text-brand-primary"
+                  />
+                </div>
+              </div>
+              <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight">
+                Awards & Recognition
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed">
+                Our commitment to excellence has been recognized by industry
+                leaders and the communities we serve throughout the Pacific
+                Northwest.
+              </p>
+            </div>
+          </FadeInWhenVisible>
+
+          <div className="gap-8 grid md:grid-cols-2 lg:grid-cols-3 mb-12">
+            <StaggeredFadeIn>
+              <Card className="bg-gradient-to-br from-yellow-50 to-white dark:from-yellow-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <MaterialIcon
+                      icon="workspace_premium"
+                      size="lg"
+                      className="text-yellow-600 dark:text-yellow-400"
+                    />
+                    <CardTitle className="text-gray-900 dark:text-white text-lg">
+                      Excellence in Construction
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-sm">
+                    Associated General Contractors (AGC) - Washington Chapter
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                    Outstanding Commercial Project Award for innovation and
+                    quality craftsmanship
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <MaterialIcon
+                      icon="military_tech"
+                      size="lg"
+                      className="text-blue-600 dark:text-blue-400"
+                    />
+                    <CardTitle className="text-gray-900 dark:text-white text-lg">
+                      Veteran Business Enterprise
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-sm">
+                    Certified Veteran-Owned Small Business (VOSB)
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                    Department of Veterans Affairs certification recognizing
+                    veteran entrepreneurship excellence
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-br from-green-50 to-white dark:from-green-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <MaterialIcon
+                      icon="eco"
+                      size="lg"
+                      className="text-green-600 dark:text-green-400"
+                    />
+                    <CardTitle className="text-gray-900 dark:text-white text-lg">
+                      Sustainable Building Leader
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-sm">
+                    Washington State Green Building Council
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                    Recognition for commitment to sustainable construction
+                    practices and LEED compliance
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-br from-red-50 to-white dark:from-red-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <MaterialIcon
+                      icon="verified_user"
+                      size="lg"
+                      className="text-red-600 dark:text-red-400"
+                    />
+                    <CardTitle className="text-gray-900 dark:text-white text-lg">
+                      Safety Excellence
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-sm">
+                    OSHA Voluntary Protection Program (VPP)
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                    Star designation for exemplary workplace safety and health
+                    programs
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-br from-purple-50 to-white dark:from-purple-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <MaterialIcon
+                      icon="groups"
+                      size="lg"
+                      className="text-purple-600 dark:text-purple-400"
+                    />
+                    <CardTitle className="text-gray-900 dark:text-white text-lg">
+                      Community Partner
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-sm">
+                    Tri-Cities Chamber of Commerce
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                    Business Excellence Award for community involvement and
+                    economic development support
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-br from-orange-50 to-white dark:from-orange-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <MaterialIcon
+                      icon="trending_up"
+                      size="lg"
+                      className="text-orange-600 dark:text-orange-400"
+                    />
+                    <CardTitle className="text-gray-900 dark:text-white text-lg">
+                      Industry Innovation
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-sm">
+                    Construction Technology Advancement
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                    Recognition for innovative use of technology in project
+                    management and execution
+                  </p>
+                </CardContent>
+              </Card>
+            </StaggeredFadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="relative bg-gradient-to-r from-brand-accent dark:from-forest-800 via-brand-primary dark:via-forest-700 to-forest-600 dark:to-forest-600 py-16 lg:py-24 overflow-hidden text-white">
         <div className="absolute inset-0 bg-black/10"></div>
