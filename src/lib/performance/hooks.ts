@@ -58,11 +58,6 @@ export function useRenderTiming(
   const renderCountRef = useRef(0);
   const lastRenderTimeRef = useRef<number | undefined>(undefined);
 
-  // Use useMemo to create a stable dependency array
-  const effectDependencies = useMemo(() => {
-    return dependencies ? [componentName, ...dependencies] : [componentName];
-  }, [componentName, dependencies]);
-
   useEffect(() => {
     const renderStart = performance.now();
 
@@ -85,7 +80,7 @@ export function useRenderTiming(
     }, 0);
 
     return () => clearTimeout(timeoutId);
-  }, effectDependencies);
+  }, [componentName, dependencies]);
 
   return {
     renderCount: renderCountRef.current,
