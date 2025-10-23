@@ -15,6 +15,8 @@ import {
   StaggeredFadeIn,
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { consultationService } from "@/lib/utils/firebase";
 import { useGlobalChatbot } from "@/providers/GlobalChatbotProvider";
 // Enhanced SEO handled in layout.tsx
@@ -340,7 +342,10 @@ export default function BookingPage() {
     <>
       <div className="bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-900 to-gray-100 dark:to-gray-800 min-h-screen">
         {/* Header */}
-        <section className="bg-gradient-to-br from-gray-800 dark:from-black via-gray-900 dark:via-gray-900 to-black dark:to-black pt-24 pb-16 text-white">
+        <section
+          id="consultation"
+          className="bg-gradient-to-br from-gray-800 dark:from-black via-gray-900 dark:via-gray-900 to-black dark:to-black pt-24 pb-16 text-white"
+        >
           <div className="mx-auto px-4 max-w-4xl text-center">
             <FadeInWhenVisible>
               <h1 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
@@ -356,6 +361,12 @@ export default function BookingPage() {
             </FadeInWhenVisible>
           </div>
         </section>
+
+        {/* Page Navigation */}
+        <PageNavigation
+          items={navigationConfigs.booking}
+          className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t-4 border-brand-primary"
+        />
 
         {/* Progress Indicator */}
         <div className="bg-white dark:bg-gray-800 shadow-sm py-4">
@@ -528,7 +539,10 @@ export default function BookingPage() {
             )}
 
             {step === 2 && (
-              <Card className="bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700">
+              <Card
+                id="project-types"
+                className="bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700"
+              >
                 <CardHeader>
                   <CardTitle className="flex items-center text-gray-900 dark:text-white text-2xl">
                     <MaterialIcon icon="person" className="mr-3" />

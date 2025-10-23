@@ -45,7 +45,11 @@ export const navigationConfigs = {
     { href: "/about#team", label: "Leadership Team", icon: "people" },
     { href: "/about#testimonials", label: "Client Reviews", icon: "star" },
     { href: "/about#safety", label: "Safety & Compliance", icon: "security" },
-    { href: "/about#awards", label: "Awards & Recognition", icon: "emoji_events" },
+    {
+      href: "/about#awards",
+      label: "Awards & Recognition",
+      icon: "emoji_events",
+    },
     { href: "/contact", label: "Partner With Us", icon: "contact_phone" },
   ],
 
@@ -56,8 +60,16 @@ export const navigationConfigs = {
       label: "Core Services",
       icon: "build",
     },
-    { href: "/services#inspections", label: "Quality Inspections", icon: "fact_check" },
-    { href: "/services#maintenance", label: "Maintenance & Repairs", icon: "build_circle" },
+    {
+      href: "/services#inspections",
+      label: "Quality Inspections",
+      icon: "fact_check",
+    },
+    {
+      href: "/services#maintenance",
+      label: "Maintenance & Repairs",
+      icon: "build_circle",
+    },
     { href: "/estimator", label: "Get Estimate", icon: "calculate" },
     { href: "/contact", label: "Start Project", icon: "contact_phone" },
   ],
@@ -112,7 +124,11 @@ export const navigationConfigs = {
   estimator: [
     { href: "/", label: "Home", icon: "home" },
     { href: "/services#core-services", label: "Our Services", icon: "build" },
-    { href: "/services#maintenance", label: "Maintenance & Repairs", icon: "build_circle" },
+    {
+      href: "/services#maintenance",
+      label: "Maintenance & Repairs",
+      icon: "build_circle",
+    },
     { href: "/contact", label: "Talk to Expert", icon: "contact_phone" },
     {
       href: "/projects#portfolio",
@@ -125,7 +141,11 @@ export const navigationConfigs = {
   government: [
     { href: "/", label: "Home", icon: "home" },
     { href: "/services#core-services", label: "Our Services", icon: "build" },
-    { href: "/services#inspections", label: "Quality Inspections", icon: "fact_check" },
+    {
+      href: "/services#inspections",
+      label: "Quality Inspections",
+      icon: "fact_check",
+    },
     { href: "/estimator", label: "Cost Estimator", icon: "calculate" },
     { href: "/about#team", label: "Veteran Team", icon: "people" },
     { href: "/contact", label: "Get Started", icon: "contact_phone" },
@@ -142,6 +162,34 @@ export const navigationConfigs = {
       icon: "photo_library",
     },
     { href: "/contact", label: "Partner With Us", icon: "handshake" },
+  ],
+
+  booking: [
+    { href: "/", label: "Home", icon: "home" },
+    { href: "/booking#consultation", label: "Consultation", icon: "event" },
+    { href: "/booking#project-types", label: "Project Types", icon: "build" },
+    { href: "/estimator", label: "Get Estimate", icon: "calculate" },
+    {
+      href: "/services#core-services",
+      label: "Our Services",
+      icon: "build_circle",
+    },
+    { href: "/about#team", label: "Meet Team", icon: "people" },
+    { href: "/contact", label: "Contact Us", icon: "contact_phone" },
+  ],
+
+  testimonials: [
+    { href: "/", label: "Home", icon: "home" },
+    {
+      href: "/testimonials#client-reviews",
+      label: "Client Reviews",
+      icon: "star",
+    },
+    { href: "/projects#portfolio", label: "Our Work", icon: "photo_library" },
+    { href: "/about#team", label: "Meet Team", icon: "people" },
+    { href: "/services#core-services", label: "Our Services", icon: "build" },
+    { href: "/estimator", label: "Get Estimate", icon: "calculate" },
+    { href: "/contact", label: "Share Experience", icon: "contact_phone" },
   ],
 };
 

@@ -10,7 +10,6 @@ import {
   CardTitle,
   CardContent,
 } from "@/components/ui";
-// import { PortfolioImage } from '@/components/portfolio/ProjectImage'
 import { PortfolioService } from "@/lib/services/portfolioService";
 import {
   generateSEOMetadata,
@@ -41,7 +40,6 @@ const SmartRecommendations = dynamic(
     ssr: false,
   }
 );
-// import BlogNewsCarousel from '@/components/blog/BlogNewsCarousel'
 import Head from "next/head";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
@@ -55,11 +53,6 @@ import {
   useIntersectionObserver,
   useImagePreloader,
 } from "@/hooks/usePerformanceOptimization";
-
-// Import new modular page sections (commented out for testing)
-// import { HeroSection } from "@/components/page-sections/hero/HeroSection";
-// import { FeaturesSection } from "@/components/page-sections/features/FeaturesSection";
-// import { ServicesSection } from "@/components/page-sections/services/ServicesSection";
 
 export default function Home() {
   // Initialize analytics

@@ -7,6 +7,8 @@ import React from "react";
 import { Metadata } from "next";
 import Image from "next/image";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { mockTestimonials } from "@/lib/types/testimonials";
 import { formatDate } from "@/lib/utils/dateUtils";
 
@@ -78,8 +80,17 @@ export default function TestimonialsPage() {
           </div>
         </div>
 
+        {/* Page Navigation */}
+        <PageNavigation
+          items={navigationConfigs.testimonials}
+          className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t-4 border-brand-primary mb-8"
+        />
+
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div
+          id="client-reviews"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+        >
           {displayTestimonials.map((testimonial) => (
             <div
               key={testimonial.id}

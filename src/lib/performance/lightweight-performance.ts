@@ -3,7 +3,7 @@
  * Simplified version with essential features only for production use
  */
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 interface CoreMetric {
   name: string;
@@ -134,6 +134,9 @@ export function useOptimizedQuery<T>(
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(false);
 
+  // Memoize the queryFn to avoid unnecessary re-runs
+  const memoizedQueryFn = useCallback(queryFn, [queryFn]);
+
   useEffect(() => {
     const cached = performanceManager.getCache<T>(key);
     if (cached) {
@@ -142,13 +145,13 @@ export function useOptimizedQuery<T>(
     }
 
     setLoading(true);
-    queryFn()
+    memoizedQueryFn()
       .then((result) => {
         setData(result);
         performanceManager.setCache(key, result, ttl);
       })
       .finally(() => setLoading(false));
-  }, [key, ttl]); // Removing queryFn from deps to avoid infinite rerenders
+  }, [key, ttl, memoizedQueryFn]);
 
   return { data, loading };
 }

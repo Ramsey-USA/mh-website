@@ -14,8 +14,6 @@ export default function robots(): MetadataRoute.Robots {
           "/dashboard/",
           "/_next/",
           "/private/",
-          "/demo/",
-          "/test-markdown/",
           "/security/",
           "*.json",
           "/firebase/",
