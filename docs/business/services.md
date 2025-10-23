@@ -407,7 +407,7 @@ network of quality professionals serving the Pacific Northwest market.
 ### **General Information**
 
 **Address:** 3111 N. Capital Ave., Pasco, WA 99301
-**Website:** [www.mhc-gc.com](https://www.mhc-gc.com)
+**Website:** [mhc-gc.com](https://mhc-gc.com)
 **Email:** [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ---

@@ -27,7 +27,7 @@ interface GenerateMetadataProps {
 
 const defaultSEO = {
   siteName: "MH Construction",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://mhconstruction.com",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://mhc-gc.com",
   defaultTitle:
     "MH Construction - Veteran-Owned Construction Excellence in the Pacific Northwest",
   defaultDescription:
@@ -41,8 +41,10 @@ const defaultSEO = {
     "renovation",
     "remodeling",
     "Pacific Northwest",
-    "Seattle construction",
-    "Portland construction",
+    "Tri-Cities construction",
+    "Pasco construction",
+    "Kennewick construction",
+    "Richland construction",
     "veteran owned business",
     "custom homes",
     "office buildings",
@@ -55,13 +57,13 @@ const defaultSEO = {
   companyInfo: {
     name: "MH Construction",
     address: {
-      streetAddress: "123 Construction Way",
-      addressLocality: "Seattle",
+      streetAddress: "3111 N. Capital Ave.",
+      addressLocality: "Pasco",
       addressRegion: "WA",
-      postalCode: "98101",
+      postalCode: "99301",
       addressCountry: "US",
     },
-    telephone: "+1-555-123-4567",
+    telephone: "(509) 308-6489",
     email: "office@mhc-gc.com",
   },
 };
@@ -165,8 +167,8 @@ export function generateOrganizationStructuredData() {
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: "47.6062",
-      longitude: "-122.3321",
+      latitude: "46.2396",
+      longitude: "-119.1006",
     },
     areaServed: [
       {
@@ -176,6 +178,10 @@ export function generateOrganizationStructuredData() {
       {
         "@type": "State",
         name: "Oregon",
+      },
+      {
+        "@type": "State",
+        name: "Idaho",
       },
     ],
     serviceType: [
@@ -236,7 +242,7 @@ export function generateProjectStructuredData(project: {
 
 // Generate breadcrumb structured data
 export function generateBreadcrumbStructuredData(
-  breadcrumbs: Array<{ name: string; url: string }>,
+  breadcrumbs: Array<{ name: string; url: string }>
 ) {
   return {
     "@context": "https://schema.org",

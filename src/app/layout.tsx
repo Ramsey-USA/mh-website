@@ -20,20 +20,31 @@ import {
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_BASE_URL || "https://mh-construction.com",
+    process.env.NEXT_PUBLIC_BASE_URL || "https://mhc-gc.com"
   ),
-  title: "MH Construction - Building Tomorrow with Today's Technology",
+  title: "MH Construction - AI-Powered Veteran-Owned Construction Excellence",
   description:
-    "Veteran-owned construction excellence powered by cutting-edge AI technology. Serving the Pacific Northwest with military precision and construction expertise.",
+    "Revolutionary AI-powered construction intelligence with General MH military assistant. Veteran-owned excellence serving Pacific Northwest communities with authentic partnerships, transparent communication, and cutting-edge technology.",
   keywords: [
-    "construction",
-    "veteran-owned",
-    "Pacific Northwest",
-    "Pasco WA",
-    "building",
-    "AI estimator",
+    "AI construction assistant",
+    "veteran-owned contractor",
+    "military precision construction",
+    "Pacific Northwest builder",
+    "AI cost estimator",
+    "General MH military AI",
+    "construction intelligence",
+    "veteran benefits construction",
+    "Tri-Cities WA contractor",
+    "transparent construction partnerships",
+    "real-time cost estimation",
+    "military-style project management",
+    "Washington Oregon Idaho contractor",
+    "sustainable construction technology",
+    "community-focused building",
   ],
-  authors: [{ name: "MH Construction Team" }],
+  authors: [
+    { name: "MH Construction - Veteran-Owned Partnership-Driven Team" },
+  ],
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,

@@ -46,7 +46,10 @@
     "cspell:sync-db": "node scripts/add-cspell-words-to-db.js",
     "cspell:sync-db:ts": "tsx src/lib/utils/cspell-database.ts",
     "cspell:check": "npx cspell \"**/*.{md,js,ts,tsx,json}\" --no-progress --show-context",
-    "cspell:fix": "npx cspell \"**/*.{md,js,ts,tsx,json}\" --no-progress --words-only --unique | head -20 && echo 'Add these words to cspell.json if they are valid'"
+    "cspell:fix": "npx cspell \"**/*.{md,js,ts,tsx,json}\" --no-progress --words-only --unique | head -20 && echo 'Add these words to cspell.json if they are valid'",
+    "domain:check": "bash scripts/utilities/check-domain-setup.sh",
+    "domain:setup": "bash scripts/utilities/setup-firebase-domain.sh",
+    "domain:help": "echo 'Domain Setup Guide: docs/deployment/namecheap-domain-setup.md' && echo 'Domain Check: npm run domain:check' && echo 'Firebase Setup: npm run domain:setup'"
   },
   "keywords": [
     "construction",

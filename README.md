@@ -641,12 +641,12 @@ connected region.
 | -------------------------- | -------------------------------------------------------- |
 | **Business Name**          | MH Construction LLC (Veteran-Owned)                      |
 | **Partnership Philosophy** | "We Work With You" - Collaborative Construction Partners |
-| **Community Focus**        | Serving Pacific Northwest Communities Since 1995         |
+| **Community Focus**        | Serving Pacific Northwest Communities with Excellence         |
 | **Phone**                  | (509) 308-6489                                           |
 | **Address**                | 3111 N. Capital Ave., Pasco, WA 99301                    |
 | **Service Area**           | Pacific Northwest (WA, OR, ID)                           |
 | **Email**                  | <office@mhc-gc.com>                                      |
-| **Website**                | [www.mhc-gc.com](https://www.mhc-gc.com)                 |
+| **Website**                | [mhc-gc.com](https://mhc-gc.com)                 |
 
 ### Our Partnership Approach
 
@@ -952,7 +952,7 @@ With the complete implementation, the platform now includes:
 
 - **Phone**: [(509) 308-6489](tel:+15093086489)
 - **Email**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
-- **Website**: [www.mhc-gc.com](https://www.mhc-gc.com)
+- **Website**: [mhc-gc.com](https://mhc-gc.com)
 
 ---
 

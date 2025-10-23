@@ -235,6 +235,8 @@ const PartnershipMessage = () => {
 - Contact information with standardized phone number
 - Website URL and professional email
 - Physical address: "3111 N. Capital Ave., Pasco, WA 99301"
+  - **Display Format**: Professional with periods (3111 N. Capital Ave.)
+  - **Map Links**: Google Maps format without periods (3111 N Capital Ave)
 
 **Color Scheme**: Primary blue background with white text
 
@@ -499,6 +501,32 @@ Licensed in WA, OR, ID | Veteran-Owned & Operated
 - [ ] Advanced analytics integration
 - [ ] Marketing automation setup
 
+## Address Formatting Standards
+
+### Professional Display vs. Map Links
+
+**Display Format** (for business cards, websites, documents):
+- **Standard**: "3111 N. Capital Ave., Pasco, WA 99301"
+- **Use**: Professional presentations, contact information, letterhead
+- **Format**: Include periods after abbreviations (N., Ave.)
+
+**Map Link Format** (for Google Maps integration):
+- **Standard**: "3111 N Capital Ave, Pasco, WA 99301" 
+- **Use**: Google Maps URLs, navigation links, map integrations
+- **Format**: No periods (matches Google Maps expectations)
+
+### Implementation Examples
+
+```html
+<!-- Professional Display -->
+<p>Visit us at: 3111 N. Capital Ave., Pasco, WA 99301</p>
+
+<!-- Map Link -->
+<a href="https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301">
+  Get Directions
+</a>
+```
+
 ## Related Documentation
 
 - [**Brand Overview**](./brand-overview.md) - Complete brand identity guide
@@ -510,6 +538,6 @@ Licensed in WA, OR, ID | Veteran-Owned & Operated
 ---
 
 **Implementation Authority**: MH Construction Development Team
-**Last Update**: October 8, 2025 (v3.7.2)
+**Last Update**: October 23, 2025 (v4.0.1) - Added address formatting standards
 **Next Review**: Monthly implementation audit
 ````

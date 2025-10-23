@@ -19,6 +19,9 @@ import {
 } from "@/components/seo/seo-meta";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+
+// Enhanced SEO for AI-powered veteran-owned construction
+import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
 // Dynamically import below-the-fold components
 const TestimonialsWidget = dynamic(
   () => import("../components/testimonials/TestimonialsWidget"),
@@ -56,6 +59,9 @@ import {
 export default function Home() {
   // Initialize analytics
   const { trackEvent } = useAnalytics();
+
+  // Get enhanced SEO data for homepage
+  const homepageSEO = getHomepageSEO();
 
   // Preload critical images for better performance
   const criticalImages = [
@@ -104,13 +110,16 @@ export default function Home() {
 
   return (
     <>
+      {/* Enhanced SEO structured data for AI-powered veteran-owned construction */}
+      <StructuredData data={homepageSEO.schemas} />
+
       <Head>
         <title>
-          MH Construction - Veteran-Led Construction Management | Tri-Cities WA
+          MH Construction - AI-Powered Veteran-Owned Construction Excellence
         </title>
         <meta
           name="description"
-          content="Veteran-owned Commercial Construction Management in Pasco, Kennewick, Richland WA. Military precision meets AI technology for superior CM services. Call (509) 308-6489 today."
+          content="Revolutionary AI construction intelligence with General MH military assistant. Veteran-owned excellence serving Pacific Northwest communities with authentic partnerships and cutting-edge technology."
         />
         <meta
           name="keywords"
@@ -125,7 +134,7 @@ export default function Home() {
           content="Veteran-led Commercial Construction Management with military precision and AI technology. Serving the Tri-Cities area. Call (509) 308-6489."
         />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://mhconstruction.com" />
+        <link rel="canonical" href="https://mhc-gc.com" />
       </Head>
 
       {/* Add structured data for SEO */}
@@ -1487,17 +1496,17 @@ export default function Home() {
 
               <Link href="/portfolio">
                 <Button
-                  variant="outline"
-                  size="lg"
-                  className="group w-full h-auto min-h-[56px] sm:min-h-[64px] transition-all duration-300 p-3 sm:p-4 touch-manipulation"
+                  variant="secondary"
+                  size="xl"
+                  className="group w-full h-auto min-h-[64px] sm:min-h-[72px] transition-all duration-300 p-4 sm:p-5 touch-manipulation"
                 >
                   <div className="flex flex-col justify-center items-center">
                     <MaterialIcon
                       icon="visibility"
-                      size="lg"
+                      size="xl"
                       className="flex-shrink-0 mb-1"
                     />
-                    <span className="font-medium text-center text-xs sm:text-sm leading-tight">
+                    <span className="font-bold text-center text-sm sm:text-base leading-tight">
                       View Portfolio
                     </span>
                   </div>

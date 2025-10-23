@@ -1,33 +1,34 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Construction Estimator | MH Construction | Instant Project Quotes",
+  title:
+    "AI Construction Cost Estimator | Instant Estimates 24/7 | MH Construction",
   description:
-    "Get preliminary construction estimates in minutes with our AI-powered estimator. Regional Pacific Northwest pricing data for initial budget planning.",
+    "Revolutionary AI-powered construction estimates with General MH military intelligence. Instant pricing, veteran discounts, Pacific Northwest market data, and 24/7 availability for preliminary project budgets.",
   keywords: [
-    "construction estimator",
-    "AI project estimation",
-    "construction calculator",
-    "building cost estimator",
-    "Pacific Northwest construction",
-    "veteran construction company",
-    "MH Construction estimator",
-    "instant construction quotes",
-    "AI-powered estimates",
-    "construction cost calculator",
-    "building estimate tool",
-    "veteran owned business",
-    "Washington construction",
-    "Oregon construction",
-    "commercial construction estimator",
-    "residential construction estimator",
+    "AI construction cost estimator",
+    "instant construction estimates",
+    "General MH military AI assistant",
+    "veteran discount construction",
+    "Pacific Northwest construction costs",
+    "real-time construction pricing",
+    "automated construction calculator",
+    "military precision cost analysis",
+    "24/7 construction estimator",
+    "revolutionary AI construction intelligence",
+    "veteran-owned construction estimator",
+    "Tri-Cities WA construction costs",
+    "regional intelligence construction pricing",
+    "preliminary construction estimates",
+    "AI-powered cost estimation technology",
+    "construction intelligence platform",
   ],
   openGraph: {
-    title: "AI Construction Estimator - MH Construction",
+    title: "Revolutionary AI Construction Cost Estimator - MH Construction",
     description:
-      "AI-powered construction estimator providing preliminary cost estimates for Pacific Northwest construction project planning.",
-    url: "https://mhconstruction.com/estimator",
-    siteName: "MH Construction",
+      "Get instant AI-powered construction estimates with General MH military intelligence. 24/7 availability, veteran discounts, and Pacific Northwest regional pricing intelligence.",
+    url: "https://mhc-gc.com/estimator",
+    siteName: "MH Construction - AI-Powered Veteran-Owned Excellence",
     images: [
       {
         url: "/images/og/estimator.jpg",
@@ -41,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Construction Estimator - MH Construction",
+    title: "Revolutionary AI Construction Cost Estimator - MH Construction",
     description:
-      "Get preliminary construction estimates powered by AI technology for Pacific Northwest construction project budget planning.",
+      "Instant AI-powered construction estimates with General MH military intelligence. 24/7 availability, veteran discounts, Pacific Northwest pricing.",
     images: ["/images/og/estimator.jpg"],
     creator: "@MHConstruction",
     site: "@MHConstruction",
@@ -60,7 +61,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://mhconstruction.com/estimator",
+    canonical: "https://mhc-gc.com/estimator",
   },
   other: {
     "application-name": "MH Construction AI Estimator",

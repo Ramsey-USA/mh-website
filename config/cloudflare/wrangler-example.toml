@@ -13,12 +13,12 @@ account_id = "YOUR_CLOUDFLARE_ACCOUNT_ID"
 zone_id = "YOUR_CLOUDFLARE_ZONE_ID"
 
 # Custom domain configuration
-route = "mhconstruction.com/*"
+route = "mhc-gc.com/*"
 
 # Environment variables
 [vars]
 ENVIRONMENT = "production"
-API_BASE_URL = "https://api.mhconstruction.com"
+API_BASE_URL = "https://api.mhc-gc.com"
 
 # KV Namespaces for caching
 [[kv_namespaces]]

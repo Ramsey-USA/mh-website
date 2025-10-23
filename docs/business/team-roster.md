@@ -23,7 +23,7 @@ leadership committed to serving both clients and communities.
 
 ### Mike Holstein - Founder (Retired)
 
-- **Experience**: 30+ years construction industry leadership
+- **Experience**: Company founder, construction industry leadership since 1995
 - **Status**: Retired Leadership
 - **Legacy Contributions**:
   - Company Foundations & Core Values Establishment

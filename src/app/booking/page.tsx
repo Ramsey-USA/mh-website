@@ -17,6 +17,7 @@ import {
 } from "@/components/animations/FramerMotionComponents";
 import { consultationService } from "@/lib/utils/firebase";
 import { useGlobalChatbot } from "../../providers/GlobalChatbotProvider";
+// Enhanced SEO handled in layout.tsx
 
 // Available time slots
 const timeSlots = [
@@ -174,7 +175,7 @@ export default function BookingPage() {
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >,
+    >
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -196,7 +197,7 @@ export default function BookingPage() {
         budget: formData.budget ? parseInt(formData.budget) : undefined,
         status: "pending" as const,
         scheduledDate: new Date(
-          `${formData.selectedDate}T${convertTo24Hour(formData.selectedTime)}`,
+          `${formData.selectedDate}T${convertTo24Hour(formData.selectedTime)}`
         ),
         notes: formData.additionalNotes,
       };
@@ -258,7 +259,7 @@ export default function BookingPage() {
                           month: "long",
                           day: "numeric",
                           year: "numeric",
-                        },
+                        }
                       )}
                     </p>
                     <p className="flex items-center gap-2 font-semibold text-green-800 dark:text-green-200">
@@ -336,408 +337,416 @@ export default function BookingPage() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-900 to-gray-100 dark:to-gray-800 min-h-screen">
-      {/* Header */}
-      <section className="bg-gradient-to-br from-gray-800 dark:from-black via-gray-900 dark:via-gray-900 to-black dark:to-black pt-24 pb-16 text-white">
-        <div className="mx-auto px-4 max-w-4xl text-center">
-          <FadeInWhenVisible>
-            <h1 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              <span className="text-white/90">Schedule Our</span>{" "}
-              <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
-                Partnership Discussion
-              </span>
-            </h1>
-            <p className="mx-auto max-w-2xl text-white/90 text-xl">
-              Connect with your partnership-focused team for a collaborative
-              consultation on your construction vision
-            </p>
-          </FadeInWhenVisible>
-        </div>
-      </section>
+    <>
+      <div className="bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-900 to-gray-100 dark:to-gray-800 min-h-screen">
+        {/* Header */}
+        <section className="bg-gradient-to-br from-gray-800 dark:from-black via-gray-900 dark:via-gray-900 to-black dark:to-black pt-24 pb-16 text-white">
+          <div className="mx-auto px-4 max-w-4xl text-center">
+            <FadeInWhenVisible>
+              <h1 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                <span className="text-white/90">Schedule Our</span>{" "}
+                <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
+                  Partnership Discussion
+                </span>
+              </h1>
+              <p className="mx-auto max-w-2xl text-white/90 text-xl">
+                Connect with your partnership-focused team for a collaborative
+                consultation on your construction vision
+              </p>
+            </FadeInWhenVisible>
+          </div>
+        </section>
 
-      {/* Progress Indicator */}
-      <div className="bg-white dark:bg-gray-800 shadow-sm py-4">
-        <div className="mx-auto px-4 max-w-4xl">
-          <div className="flex justify-center items-center space-x-8">
-            <div
-              className={`flex items-center ${
-                step >= 1
-                  ? "text-brand-primary dark:text-brand-primary"
-                  : "text-gray-400 dark:text-gray-500"
-              }`}
-            >
+        {/* Progress Indicator */}
+        <div className="bg-white dark:bg-gray-800 shadow-sm py-4">
+          <div className="mx-auto px-4 max-w-4xl">
+            <div className="flex justify-center items-center space-x-8">
               <div
-                className={`flex justify-center items-center mr-2 rounded-full w-8 h-8 text-sm font-bold ${
+                className={`flex items-center ${
                   step >= 1
-                    ? "bg-brand-primary text-white"
-                    : "bg-gray-200 dark:bg-gray-600 dark:text-gray-400"
+                    ? "text-brand-primary dark:text-brand-primary"
+                    : "text-gray-400 dark:text-gray-500"
                 }`}
               >
-                1
+                <div
+                  className={`flex justify-center items-center mr-2 rounded-full w-8 h-8 text-sm font-bold ${
+                    step >= 1
+                      ? "bg-brand-primary text-white"
+                      : "bg-gray-200 dark:bg-gray-600 dark:text-gray-400"
+                  }`}
+                >
+                  1
+                </div>
+                <span className="font-medium text-sm">Date & Time</span>
               </div>
-              <span className="font-medium text-sm">Date & Time</span>
-            </div>
-            <div
-              className={`w-16 h-0.5 ${
-                step >= 2 ? "bg-brand-primary" : "bg-gray-300 dark:bg-gray-600"
-              }`}
-            />
-            <div
-              className={`flex items-center ${
-                step >= 2
-                  ? "text-brand-primary dark:text-brand-primary"
-                  : "text-gray-400 dark:text-gray-500"
-              }`}
-            >
               <div
-                className={`flex justify-center items-center mr-2 rounded-full w-8 h-8 text-sm font-bold ${
+                className={`w-16 h-0.5 ${
                   step >= 2
-                    ? "bg-brand-primary text-white"
-                    : "bg-gray-200 dark:bg-gray-600 dark:text-gray-400"
+                    ? "bg-brand-primary"
+                    : "bg-gray-300 dark:bg-gray-600"
                 }`}
-              >
-                2
-              </div>
-              <span className="font-medium text-sm">Your Details</span>
-            </div>
-            <div
-              className={`w-16 h-0.5 ${
-                step >= 3 ? "bg-brand-primary" : "bg-gray-300 dark:bg-gray-600"
-              }`}
-            />
-            <div
-              className={`flex items-center ${
-                step >= 3
-                  ? "text-brand-primary dark:text-brand-primary"
-                  : "text-gray-400 dark:text-gray-500"
-              }`}
-            >
+              />
               <div
-                className={`flex justify-center items-center mr-2 rounded-full w-8 h-8 text-sm font-bold ${
-                  step >= 3
-                    ? "bg-brand-primary text-white"
-                    : "bg-gray-200 dark:bg-gray-600 dark:text-gray-400"
+                className={`flex items-center ${
+                  step >= 2
+                    ? "text-brand-primary dark:text-brand-primary"
+                    : "text-gray-400 dark:text-gray-500"
                 }`}
               >
-                3
+                <div
+                  className={`flex justify-center items-center mr-2 rounded-full w-8 h-8 text-sm font-bold ${
+                    step >= 2
+                      ? "bg-brand-primary text-white"
+                      : "bg-gray-200 dark:bg-gray-600 dark:text-gray-400"
+                  }`}
+                >
+                  2
+                </div>
+                <span className="font-medium text-sm">Your Details</span>
               </div>
-              <span className="font-medium text-sm">Confirmation</span>
+              <div
+                className={`w-16 h-0.5 ${
+                  step >= 3
+                    ? "bg-brand-primary"
+                    : "bg-gray-300 dark:bg-gray-600"
+                }`}
+              />
+              <div
+                className={`flex items-center ${
+                  step >= 3
+                    ? "text-brand-primary dark:text-brand-primary"
+                    : "text-gray-400 dark:text-gray-500"
+                }`}
+              >
+                <div
+                  className={`flex justify-center items-center mr-2 rounded-full w-8 h-8 text-sm font-bold ${
+                    step >= 3
+                      ? "bg-brand-primary text-white"
+                      : "bg-gray-200 dark:bg-gray-600 dark:text-gray-400"
+                  }`}
+                >
+                  3
+                </div>
+                <span className="font-medium text-sm">Confirmation</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Main Content */}
-      <div className="mx-auto px-4 py-12 max-w-4xl">
-        <StaggeredFadeIn>
-          {step === 1 && (
-            <Card className="bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700">
-              <CardHeader>
-                <CardTitle className="flex items-center text-gray-900 dark:text-white text-2xl">
-                  <MaterialIcon icon="calendar_month" className="mr-3" />
-                  Select Date & Time
-                </CardTitle>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Choose your preferred date and time for the consultation
-                </p>
-              </CardHeader>
-              <CardContent className="space-y-8">
-                {/* Calendar */}
-                <div>
-                  <h3 className="mb-4 font-semibold text-gray-900 dark:text-white text-lg">
-                    Available Dates
-                  </h3>
-                  <div className="gap-3 grid grid-cols-4 md:grid-cols-7">
-                    {calendarDays.map((day) => (
-                      <button
-                        key={day.date}
-                        onClick={() => handleDateSelect(day.date)}
-                        className={`p-3 border rounded-lg text-center transition-all duration-200 ${
-                          selectedDate === day.date
-                            ? "bg-brand-primary border-brand-primary text-white"
-                            : "hover:bg-brand-primary/10 hover:border-brand-primary border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                        }`}
-                      >
-                        <div className="font-medium text-xs">{day.dayName}</div>
-                        <div className="font-bold text-lg">
-                          {day.displayDate}
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Time Slots */}
-                {selectedDate && (
+        {/* Main Content */}
+        <div className="mx-auto px-4 py-12 max-w-4xl">
+          <StaggeredFadeIn>
+            {step === 1 && (
+              <Card className="bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-gray-900 dark:text-white text-2xl">
+                    <MaterialIcon icon="calendar_month" className="mr-3" />
+                    Select Date & Time
+                  </CardTitle>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Choose your preferred date and time for the consultation
+                  </p>
+                </CardHeader>
+                <CardContent className="space-y-8">
+                  {/* Calendar */}
                   <div>
                     <h3 className="mb-4 font-semibold text-gray-900 dark:text-white text-lg">
-                      Available Times
+                      Available Dates
                     </h3>
-                    <div className="gap-3 grid grid-cols-2 md:grid-cols-4">
-                      {timeSlots.map((time) => (
+                    <div className="gap-3 grid grid-cols-4 md:grid-cols-7">
+                      {calendarDays.map((day) => (
                         <button
-                          key={time}
-                          onClick={() => handleTimeSelect(time)}
+                          key={day.date}
+                          onClick={() => handleDateSelect(day.date)}
                           className={`p-3 border rounded-lg text-center transition-all duration-200 ${
-                            selectedTime === time
+                            selectedDate === day.date
                               ? "bg-brand-primary border-brand-primary text-white"
                               : "hover:bg-brand-primary/10 hover:border-brand-primary border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                           }`}
                         >
-                          {time}
+                          <div className="font-medium text-xs">
+                            {day.dayName}
+                          </div>
+                          <div className="font-bold text-lg">
+                            {day.displayDate}
+                          </div>
                         </button>
                       ))}
                     </div>
                   </div>
-                )}
 
-                {/* Continue Button */}
-                {selectedDate && selectedTime && (
-                  <div className="pt-6 border-gray-200 dark:border-gray-600 border-t">
-                    <div className="bg-brand-primary/10 dark:bg-brand-primary/20 mb-4 p-4 border border-brand-primary/20 dark:border-brand-primary/30 rounded-lg">
-                      <p className="font-semibold text-brand-primary dark:text-brand-primary">
-                        Selected:{" "}
-                        {
-                          calendarDays.find((d) => d.date === selectedDate)
-                            ?.fullDate
-                        }{" "}
-                        at {selectedTime}
-                      </p>
-                    </div>
-                    <Button
-                      onClick={() => setStep(2)}
-                      variant="primary"
-                      size="lg"
-                      className="w-full"
-                    >
-                      <MaterialIcon icon="arrow_forward" className="mr-2" />
-                      Continue to Details
-                    </Button>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          )}
-
-          {step === 2 && (
-            <Card className="bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700">
-              <CardHeader>
-                <CardTitle className="flex items-center text-gray-900 dark:text-white text-2xl">
-                  <MaterialIcon icon="person" className="mr-3" />
-                  Partnership Information
-                </CardTitle>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Share your details so we can begin our collaboration
-                </p>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Personal Information */}
-                  <div className="gap-4 grid md:grid-cols-2">
+                  {/* Time Slots */}
+                  {selectedDate && (
                     <div>
-                      <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="clientName"
-                        value={formData.clientName}
-                        onChange={handleInputChange}
-                        required
-                        className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
-                        placeholder="John Smith"
-                      />
-                    </div>
-                    <div>
-                      <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
-                        placeholder="john@example.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="gap-4 grid md:grid-cols-2">
-                    <div>
-                      <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
-                        Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        required
-                        className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
-                        placeholder="(509) 555-0123"
-                      />
-                    </div>
-                    <div>
-                      <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
-                        Project Type *
-                      </label>
-                      <select
-                        name="projectType"
-                        value={formData.projectType}
-                        onChange={handleInputChange}
-                        required
-                        className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
-                      >
-                        <option value="">Select project type</option>
-                        {projectTypes.map((type) => (
-                          <option key={type} value={type}>
-                            {type}
-                          </option>
+                      <h3 className="mb-4 font-semibold text-gray-900 dark:text-white text-lg">
+                        Available Times
+                      </h3>
+                      <div className="gap-3 grid grid-cols-2 md:grid-cols-4">
+                        {timeSlots.map((time) => (
+                          <button
+                            key={time}
+                            onClick={() => handleTimeSelect(time)}
+                            className={`p-3 border rounded-lg text-center transition-all duration-200 ${
+                              selectedTime === time
+                                ? "bg-brand-primary border-brand-primary text-white"
+                                : "hover:bg-brand-primary/10 hover:border-brand-primary border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                            }`}
+                          >
+                            {time}
+                          </button>
                         ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="gap-4 grid md:grid-cols-2">
-                    <div>
-                      <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
-                        Project Location
-                      </label>
-                      <input
-                        type="text"
-                        name="location"
-                        value={formData.location}
-                        onChange={handleInputChange}
-                        className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
-                        placeholder="Pasco, WA"
-                      />
-                    </div>
-                    <div>
-                      <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
-                        Estimated Budget
-                      </label>
-                      <select
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleInputChange}
-                        className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
-                      >
-                        <option value="">Select budget range</option>
-                        <option value="50000">Under $50,000</option>
-                        <option value="100000">$50,000 - $100,000</option>
-                        <option value="250000">$100,000 - $250,000</option>
-                        <option value="500000">$250,000 - $500,000</option>
-                        <option value="1000000">$500,000 - $1,000,000</option>
-                        <option value="1000001">Over $1,000,000</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
-                      Your Partnership Vision *
-                    </label>
-                    <textarea
-                      name="projectDescription"
-                      value={formData.projectDescription}
-                      onChange={handleInputChange}
-                      required
-                      rows={4}
-                      className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
-                      placeholder="Share your vision and goals - we'll work together to bring them to life..."
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
-                      Partnership Notes
-                    </label>
-                    <textarea
-                      name="additionalNotes"
-                      value={formData.additionalNotes}
-                      onChange={handleInputChange}
-                      rows={3}
-                      className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
-                      placeholder="Anything else you'd like to share about our upcoming partnership..."
-                    />
-                  </div>
-
-                  {/* Summary */}
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 border border-gray-200 dark:border-gray-600 rounded-lg">
-                    <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">
-                      Partnership Discussion Summary:
-                    </h4>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm">
-                      <span className="flex items-center gap-2 mb-1">
-                        <MaterialIcon icon="event" size="sm" />
-                        {
-                          calendarDays.find((d) => d.date === selectedDate)
-                            ?.fullDate
-                        }
-                      </span>
-                      <span className="flex items-center gap-2 mb-1">
-                        <MaterialIcon icon="schedule" size="sm" />
-                        {selectedTime}
-                      </span>
-                      <span className="flex items-center gap-2">
-                        <MaterialIcon icon="place" size="sm" />
-                        Free on-site consultation
-                      </span>
-                      <br />
-                      <span className="flex items-center gap-1">
-                        <MaterialIcon icon="schedule" size="sm" />
-                        Approximately 60 minutes
-                      </span>
-                    </p>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={() => setStep(1)}
-                      className="flex-1 hover:bg-gray-50 dark:hover:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300"
-                    >
-                      <MaterialIcon icon="arrow_back" className="mr-2" />
-                      Back to Date & Time
-                    </Button>
-                    <Button
-                      type="submit"
-                      variant="primary"
-                      disabled={isSubmitting}
-                      className="flex-1"
-                    >
-                      {isSubmitting ? (
-                        <MaterialIcon
-                          icon="hourglass_empty"
-                          className="mr-2 animate-spin"
-                        />
-                      ) : (
-                        <MaterialIcon icon="check" className="mr-2" />
-                      )}
-                      {isSubmitting
-                        ? "Scheduling..."
-                        : "Schedule Partnership Discussion"}
-                    </Button>
-                  </div>
-
-                  {submitStatus === "error" && (
-                    <div className="bg-red-50 dark:bg-red-900/20 p-4 border border-red-200 dark:border-red-800 rounded-lg">
-                      <p className="text-red-700 dark:text-red-300">
-                        There was an error scheduling your partnership
-                        discussion. Please try again or call us at (509)
-                        308-6489.
-                      </p>
+                      </div>
                     </div>
                   )}
-                </form>
-              </CardContent>
-            </Card>
-          )}
-        </StaggeredFadeIn>
+
+                  {/* Continue Button */}
+                  {selectedDate && selectedTime && (
+                    <div className="pt-6 border-gray-200 dark:border-gray-600 border-t">
+                      <div className="bg-brand-primary/10 dark:bg-brand-primary/20 mb-4 p-4 border border-brand-primary/20 dark:border-brand-primary/30 rounded-lg">
+                        <p className="font-semibold text-brand-primary dark:text-brand-primary">
+                          Selected:{" "}
+                          {
+                            calendarDays.find((d) => d.date === selectedDate)
+                              ?.fullDate
+                          }{" "}
+                          at {selectedTime}
+                        </p>
+                      </div>
+                      <Button
+                        onClick={() => setStep(2)}
+                        variant="primary"
+                        size="lg"
+                        className="w-full"
+                      >
+                        <MaterialIcon icon="arrow_forward" className="mr-2" />
+                        Continue to Details
+                      </Button>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            )}
+
+            {step === 2 && (
+              <Card className="bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-gray-900 dark:text-white text-2xl">
+                    <MaterialIcon icon="person" className="mr-3" />
+                    Partnership Information
+                  </CardTitle>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Share your details so we can begin our collaboration
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Personal Information */}
+                    <div className="gap-4 grid md:grid-cols-2">
+                      <div>
+                        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          name="clientName"
+                          value={formData.clientName}
+                          onChange={handleInputChange}
+                          required
+                          className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
+                          placeholder="John Smith"
+                        />
+                      </div>
+                      <div>
+                        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          required
+                          className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
+                          placeholder="john@example.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="gap-4 grid md:grid-cols-2">
+                      <div>
+                        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
+                          Phone Number *
+                        </label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          required
+                          className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
+                          placeholder="(509) 555-0123"
+                        />
+                      </div>
+                      <div>
+                        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
+                          Project Type *
+                        </label>
+                        <select
+                          name="projectType"
+                          value={formData.projectType}
+                          onChange={handleInputChange}
+                          required
+                          className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
+                        >
+                          <option value="">Select project type</option>
+                          {projectTypes.map((type) => (
+                            <option key={type} value={type}>
+                              {type}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="gap-4 grid md:grid-cols-2">
+                      <div>
+                        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
+                          Project Location
+                        </label>
+                        <input
+                          type="text"
+                          name="location"
+                          value={formData.location}
+                          onChange={handleInputChange}
+                          className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
+                          placeholder="Pasco, WA"
+                        />
+                      </div>
+                      <div>
+                        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
+                          Estimated Budget
+                        </label>
+                        <select
+                          name="budget"
+                          value={formData.budget}
+                          onChange={handleInputChange}
+                          className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
+                        >
+                          <option value="">Select budget range</option>
+                          <option value="50000">Under $50,000</option>
+                          <option value="100000">$50,000 - $100,000</option>
+                          <option value="250000">$100,000 - $250,000</option>
+                          <option value="500000">$250,000 - $500,000</option>
+                          <option value="1000000">$500,000 - $1,000,000</option>
+                          <option value="1000001">Over $1,000,000</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
+                        Your Partnership Vision *
+                      </label>
+                      <textarea
+                        name="projectDescription"
+                        value={formData.projectDescription}
+                        onChange={handleInputChange}
+                        required
+                        rows={4}
+                        className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
+                        placeholder="Share your vision and goals - we'll work together to bring them to life..."
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
+                        Partnership Notes
+                      </label>
+                      <textarea
+                        name="additionalNotes"
+                        value={formData.additionalNotes}
+                        onChange={handleInputChange}
+                        rows={3}
+                        className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white"
+                        placeholder="Anything else you'd like to share about our upcoming partnership..."
+                      />
+                    </div>
+
+                    {/* Summary */}
+                    <div className="bg-gray-50 dark:bg-gray-700/50 p-4 border border-gray-200 dark:border-gray-600 rounded-lg">
+                      <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">
+                        Partnership Discussion Summary:
+                      </h4>
+                      <p className="text-gray-700 dark:text-gray-300 text-sm">
+                        <span className="flex items-center gap-2 mb-1">
+                          <MaterialIcon icon="event" size="sm" />
+                          {
+                            calendarDays.find((d) => d.date === selectedDate)
+                              ?.fullDate
+                          }
+                        </span>
+                        <span className="flex items-center gap-2 mb-1">
+                          <MaterialIcon icon="schedule" size="sm" />
+                          {selectedTime}
+                        </span>
+                        <span className="flex items-center gap-2">
+                          <MaterialIcon icon="place" size="sm" />
+                          Free on-site consultation
+                        </span>
+                        <br />
+                        <span className="flex items-center gap-1">
+                          <MaterialIcon icon="schedule" size="sm" />
+                          Approximately 60 minutes
+                        </span>
+                      </p>
+                    </div>
+
+                    <div className="flex gap-4">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={() => setStep(1)}
+                        className="flex-1 hover:bg-gray-50 dark:hover:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300"
+                      >
+                        <MaterialIcon icon="arrow_back" className="mr-2" />
+                        Back to Date & Time
+                      </Button>
+                      <Button
+                        type="submit"
+                        variant="primary"
+                        disabled={isSubmitting}
+                        className="flex-1"
+                      >
+                        {isSubmitting ? (
+                          <MaterialIcon
+                            icon="hourglass_empty"
+                            className="mr-2 animate-spin"
+                          />
+                        ) : (
+                          <MaterialIcon icon="check" className="mr-2" />
+                        )}
+                        {isSubmitting
+                          ? "Scheduling..."
+                          : "Schedule Partnership Discussion"}
+                      </Button>
+                    </div>
+
+                    {submitStatus === "error" && (
+                      <div className="bg-red-50 dark:bg-red-900/20 p-4 border border-red-200 dark:border-red-800 rounded-lg">
+                        <p className="text-red-700 dark:text-red-300">
+                          There was an error scheduling your partnership
+                          discussion. Please try again or call us at (509)
+                          308-6489.
+                        </p>
+                      </div>
+                    )}
+                  </form>
+                </CardContent>
+              </Card>
+            )}
+          </StaggeredFadeIn>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

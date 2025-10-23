@@ -33,7 +33,7 @@ export default function VeteranSpecialistCard({
       "Historic Renovation Tax Credits",
     ],
     location: "Omaha, NE",
-    phone: "(402) 555-0123",
+    phone: "(509) 308-6489",
     email: "office@mhc-gc.com",
     certifications: [
       "Certified Aging-in-Place Specialist",

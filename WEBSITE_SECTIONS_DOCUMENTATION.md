@@ -36,7 +36,7 @@ This document provides a comprehensive overview of all the sections on each page
    - Client Partnership Approach card
    - Community-Centered Culture card
 3. **Company Stats Section** - "Our Track Record"
-   - 30+ Years in Business
+   - Company established in 1995
    - 150+ Years Combined Experience
    - 98% Client Satisfaction
    - 70% Referral Rate
@@ -110,8 +110,8 @@ This document provides a comprehensive overview of all the sections on each page
 1. **Hero Section** - "Our Partnership Success Stories"
 2. **Project Stats Section** - "Proven Track Record"
    - 100+ Partnership Projects
-   - 98% Partnership Satisfaction
-   - 30+ Years Building Together
+   - 98+ Partnership Satisfaction
+   - Company serving since 1995
    - 70% Partnership Referrals
 3. **Veteran-Owned Benefits Section**
    - Veteran-Owned Excellence badge
@@ -238,7 +238,7 @@ Most pages share these common elements:
 2. **Veteran-Owned Pride** - Military precision and values
 3. **Community Investment** - Pacific Northwest regional focus
 4. **Transparency** - Open communication and honest pricing
-5. **Experience** - 150+ years combined team experience
+5. **Experience** - 150+ years combined team experience (company established 1995)
 6. **Technology Integration** - AI tools and modern approaches
 7. **Quality Assurance** - Military-grade attention to detail
 

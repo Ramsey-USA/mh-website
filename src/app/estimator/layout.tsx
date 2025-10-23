@@ -1,7 +1,12 @@
-import { Metadata } from "next";
-import { metadata as estimatorMetadata } from "./metadata";
+import type { Metadata } from "next";
+import { getAIEstimatorSEO } from "@/lib/seo/page-seo-utils";
 
-export const metadata: Metadata = estimatorMetadata;
+// Enhanced SEO metadata for AI Estimator
+const seoData = getAIEstimatorSEO();
+const { schemas, ...metadataProps } = seoData;
+export const metadata: Metadata = metadataProps;
+
+import { StructuredData } from "@/components/seo/enhanced-seo";
 
 export default function EstimatorLayout({
   children,
@@ -10,49 +15,8 @@ export default function EstimatorLayout({
 }) {
   return (
     <>
-      {/* Structured Data for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            name: "MH Construction AI Estimator",
-            description:
-              "AI-powered construction cost estimator for preliminary budget planning",
-            url: "https://mhconstruction.com/estimator",
-            applicationCategory: "BusinessApplication",
-            operatingSystem: "Web Browser",
-            offers: {
-              "@type": "Offer",
-              price: "0",
-              priceCurrency: "USD",
-              description: "Free AI construction cost estimation",
-            },
-            provider: {
-              "@type": "LocalBusiness",
-              name: "MH Construction",
-              description:
-                "Veteran-owned construction company in Pacific Northwest",
-              address: {
-                "@type": "PostalAddress",
-                addressRegion: "Washington",
-                addressCountry: "US",
-              },
-              telephone: "(555) 123-4567",
-              url: "https://mhconstruction.com",
-            },
-            featureList: [
-              "Preliminary cost estimates",
-              "Regional pricing data",
-              "Veteran discounts",
-              "Pacific Northwest focus",
-              "Material cost breakdown",
-              "Timeline estimation",
-            ],
-          }),
-        }}
-      />
+      {/* Enhanced AI Estimator Structured Data for SEO */}
+      <StructuredData data={schemas} />
       {children}
     </>
   );

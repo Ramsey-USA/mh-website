@@ -10,20 +10,32 @@ export default function Footer() {
     <footer className="bg-gradient-to-br from-gray-800 dark:from-black via-gray-900 dark:via-gray-900 to-black dark:to-black pt-6 xs:pt-8 sm:pt-10 pb-4 border-t border-brand-primary/20 text-gray-300 touch-manipulation">
       <div className="mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Main Footer Content */}
-        <div className="gap-4 xs:gap-5 sm:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 pb-4 xs:pb-5 sm:pb-6">
+        <div className="gap-4 xs:gap-5 sm:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 pb-4 xs:pb-5 sm:pb-6">
           {/* Column 1: Company Info */}
-          <div className="space-y-3 xs:space-y-4">
+          <div className="space-y-3 xs:space-y-4 sm:col-span-2 lg:col-span-1">
             <div className="text-center sm:text-left lg:text-left">
-              <Image
-                src="/images/logo/mh-logo.png"
-                alt="MH Construction Logo"
-                width={132}
-                height={66}
-                className="mx-auto sm:mx-0 lg:mx-0 mb-3 xs:mb-4 w-[100px] xs:w-[115px] sm:w-[132px] h-auto"
-              />
-              <p className="mb-3 xs:mb-4 text-gray-400 dark:text-gray-300 text-xs xs:text-sm">
-                Building for the Owner, NOT the Dollar
-              </p>
+              <div className="bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 p-4 rounded-xl mb-4 border border-brand-primary/20">
+                <Image
+                  src="/images/logo/mh-logo.png"
+                  alt="MH Construction Logo"
+                  width={132}
+                  height={66}
+                  className="mx-auto sm:mx-0 lg:mx-0 mb-3 xs:mb-4 w-[120px] xs:w-[135px] sm:w-[150px] h-auto drop-shadow-lg"
+                />
+                <p className="mb-3 xs:mb-4 text-brand-primary dark:text-brand-secondary font-medium text-sm xs:text-base">
+                  Building for the Owner, NOT the Dollar
+                </p>
+                <div className="flex items-center justify-center sm:justify-start space-x-2">
+                  <MaterialIcon
+                    icon="military_tech"
+                    size="sm"
+                    className="text-brand-primary"
+                  />
+                  <span className="text-gray-300 text-xs font-medium">
+                    Veteran-Owned Excellence Since 1995
+                  </span>
+                </div>
+              </div>
 
               {/* Contact Info */}
               <div className="space-y-2 xs:space-y-3 text-gray-300 dark:text-gray-200 text-xs xs:text-sm">
@@ -98,16 +110,16 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2: Core Navigation */}
           <div className="space-y-3 xs:space-y-4">
             <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
               <MaterialIcon
-                icon="link"
+                icon="explore"
                 size="sm"
                 className="text-brand-primary"
               />
               <h4 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
-                Partnership Links
+                Core Services
               </h4>
             </div>
             <nav className="space-y-1.5 xs:space-y-2">
@@ -128,6 +140,89 @@ export default function Footer() {
                 />
               </Link>
 
+              <Link
+                href="/services"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+              >
+                <MaterialIcon
+                  icon="build"
+                  size="sm"
+                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                />
+                <span>Construction Management</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
+              <Link
+                href="/projects"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+              >
+                <MaterialIcon
+                  icon="photo_library"
+                  size="sm"
+                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                />
+                <span>Portfolio & Projects</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
+              <Link
+                href="/estimator"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+              >
+                <MaterialIcon
+                  icon="smart_toy"
+                  size="sm"
+                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                />
+                <span>AI Cost Estimator</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
+              <Link
+                href="/contact"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+              >
+                <MaterialIcon
+                  icon="contact_phone"
+                  size="sm"
+                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                />
+                <span>Connect With Us</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+            </nav>
+          </div>
+
+          {/* Column 3: Company & Partnerships */}
+          <div className="space-y-3 xs:space-y-4">
+            <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
+              <MaterialIcon
+                icon="people"
+                size="sm"
+                className="text-brand-primary"
+              />
+              <h4 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
+                Company & Partners
+              </h4>
+            </div>
+            <nav className="space-y-1.5 xs:space-y-2">
               <Link
                 href="/"
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
@@ -163,23 +258,6 @@ export default function Footer() {
               </Link>
 
               <Link
-                href="/services"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
-              >
-                <MaterialIcon
-                  icon="build"
-                  size="sm"
-                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
-                />
-                <span>Partnership Approach</span>
-                <MaterialIcon
-                  icon="arrow_forward"
-                  size="sm"
-                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                />
-              </Link>
-
-              <Link
                 href="/team"
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
@@ -189,40 +267,6 @@ export default function Footer() {
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
                 <span>Our Team</span>
-                <MaterialIcon
-                  icon="arrow_forward"
-                  size="sm"
-                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                />
-              </Link>
-
-              <Link
-                href="/projects"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
-              >
-                <MaterialIcon
-                  icon="photo_library"
-                  size="sm"
-                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
-                />
-                <span>Success Stories</span>
-                <MaterialIcon
-                  icon="arrow_forward"
-                  size="sm"
-                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                />
-              </Link>
-
-              <Link
-                href="/government"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
-              >
-                <MaterialIcon
-                  icon="account_balance"
-                  size="sm"
-                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
-                />
-                <span>Government & Grants</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -248,6 +292,23 @@ export default function Footer() {
               </Link>
 
               <Link
+                href="/government"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+              >
+                <MaterialIcon
+                  icon="account_balance"
+                  size="sm"
+                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                />
+                <span>Government & Grants</span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
+              <Link
                 href="/careers"
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
@@ -263,28 +324,11 @@ export default function Footer() {
                   className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
                 />
               </Link>
-
-              <Link
-                href="/contact"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
-              >
-                <MaterialIcon
-                  icon="contact_phone"
-                  size="sm"
-                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
-                />
-                <span>Connect With Us</span>
-                <MaterialIcon
-                  icon="arrow_forward"
-                  size="sm"
-                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                />
-              </Link>
             </nav>
           </div>
 
           {/* Column 3: Social Media & Resources */}
-          <div className="space-y-3 xs:space-y-4 sm:col-span-2 lg:col-span-1">
+          <div className="space-y-3 xs:space-y-4">
             <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
               <MaterialIcon
                 icon="share"
@@ -292,7 +336,7 @@ export default function Footer() {
                 className="text-brand-primary"
               />
               <h4 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
-                Connect & Partnership Resources
+                Connect & Resources
               </h4>
             </div>
 
@@ -306,65 +350,65 @@ export default function Footer() {
                   href="https://facebook.com/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 hover:bg-blue-600 dark:bg-gray-600 hover:shadow-lg p-2 xs:p-2.5 sm:p-3 border border-gray-600 dark:border-gray-500 hover:border-blue-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
+                  className="group flex justify-center items-center bg-gray-700 hover:bg-blue-600 dark:bg-gray-600 hover:shadow-lg hover:shadow-brand-primary/30 dark:hover:shadow-brand-secondary/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 dark:border-gray-500 hover:border-blue-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
                   title="Follow our partnership stories on Facebook"
                 >
                   <MaterialIcon
                     icon="thumb_up"
                     size="sm"
-                    className="text-gray-400 group-hover:text-white transition-colors"
+                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(56,104,81,0.6)] dark:group-hover:drop-shadow-[0_0_8px_rgba(189,146,100,0.6)]"
                   />
                 </a>
                 <a
                   href="https://instagram.com/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:shadow-lg p-2 xs:p-2.5 sm:p-3 border border-gray-600 hover:border-pink-500 dark:border-gray-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
+                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:shadow-lg hover:shadow-brand-primary/30 dark:hover:shadow-brand-secondary/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 hover:border-pink-500 dark:border-gray-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
                   title="See partnership projects on Instagram"
                 >
                   <MaterialIcon
                     icon="photo_camera"
                     size="sm"
-                    className="text-gray-400 group-hover:text-white transition-colors"
+                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(56,104,81,0.6)] dark:group-hover:drop-shadow-[0_0_8px_rgba(189,146,100,0.6)]"
                   />
                 </a>
                 <a
                   href="https://x.com/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 hover:bg-black dark:bg-gray-600 hover:shadow-lg p-2 xs:p-2.5 sm:p-3 border border-gray-600 hover:border-gray-400 dark:border-gray-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
+                  className="group flex justify-center items-center bg-gray-700 hover:bg-black dark:bg-gray-600 hover:shadow-lg hover:shadow-brand-primary/30 dark:hover:shadow-brand-secondary/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 hover:border-gray-400 dark:border-gray-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
                   title="Follow partnership updates on X (Twitter)"
                 >
                   <MaterialIcon
                     icon="close"
                     size="sm"
-                    className="text-gray-400 group-hover:text-white transition-colors"
+                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(56,104,81,0.6)] dark:group-hover:drop-shadow-[0_0_8px_rgba(189,146,100,0.6)]"
                   />
                 </a>
                 <a
                   href="https://youtube.com/@mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 hover:bg-red-600 dark:bg-gray-600 hover:shadow-lg p-2 xs:p-2.5 sm:p-3 border border-gray-600 dark:border-gray-500 hover:border-red-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
+                  className="group flex justify-center items-center bg-gray-700 hover:bg-red-600 dark:bg-gray-600 hover:shadow-lg hover:shadow-brand-primary/30 dark:hover:shadow-brand-secondary/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 dark:border-gray-500 hover:border-red-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
                   title="Watch partnership success stories on YouTube"
                 >
                   <MaterialIcon
                     icon="play_circle"
                     size="sm"
-                    className="text-gray-400 group-hover:text-white transition-colors"
+                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(56,104,81,0.6)] dark:group-hover:drop-shadow-[0_0_8px_rgba(189,146,100,0.6)]"
                   />
                 </a>
                 <a
                   href="https://linkedin.com/company/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 hover:bg-blue-700 dark:bg-gray-600 hover:shadow-lg p-2 xs:p-2.5 sm:p-3 border border-gray-600 dark:border-gray-500 hover:border-blue-400 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
+                  className="group flex justify-center items-center bg-gray-700 hover:bg-blue-700 dark:bg-gray-600 hover:shadow-lg hover:shadow-brand-primary/30 dark:hover:shadow-brand-secondary/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 dark:border-gray-500 hover:border-blue-400 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
                   title="Connect with our partnership team on LinkedIn"
                 >
                   <MaterialIcon
                     icon="work"
                     size="sm"
-                    className="text-gray-400 group-hover:text-white transition-colors"
+                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(56,104,81,0.6)] dark:group-hover:drop-shadow-[0_0_8px_rgba(189,146,100,0.6)]"
                   />
                 </a>
               </div>

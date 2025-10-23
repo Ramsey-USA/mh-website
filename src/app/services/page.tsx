@@ -17,6 +17,7 @@ import {
 } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+// Enhanced SEO handled in layout.tsx
 
 // Core Services Data
 const coreServices = [
@@ -259,267 +260,323 @@ const whyChooseUs = [
 ];
 
 export default function ServicesPage() {
+  // Enhanced SEO handled in layout.tsx
+
   return (
-    <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
+    <>
+      <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
+          {/* Background Elements */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/30 via-gray-900/80 to-[#BD9264]/20"></div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8">
-            {/* Main Title */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
-                Our Partnership Approach
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
-              Collaborative Construction Management in the Pacific Northwest
-            </p>
-
-            {/* Description */}
-            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
-              Tri-Cities Headquarters: Pasco, WA | Partnership Area: Washington,
-              Oregon, Idaho
-            </p>
-          </div>
-        </div>
-
-        {/* Page-Specific Navigation Bar */}
-        <PageNavigation
-          items={navigationConfigs.services}
-          className="absolute bottom-0 left-0 right-0"
-        />
-      </section>
-
-      {/* Construction Expertise Section */}
-      <section className="bg-white dark:bg-gray-900 py-16">
-        <div className="mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mx-auto mb-12 max-w-4xl text-center">
-              <MaterialIcon
-                icon="engineering"
-                size="3xl"
-                className="mb-4 text-brand-primary"
-              />
-              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Partnership-Focused Construction
+          {/* Content */}
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="space-y-8">
+              {/* Main Title */}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+                <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+                  Our Partnership Approach
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
-                  Management
-                </span>
-              </h2>
-              <p className="mb-4 font-light text-gray-700 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                Planning a new commercial building demands intricate details and
-                expert partnership oversight. Work with us through comprehensive
-                Partnership-Focused Construction Management services throughout
-                the Tri-Cities (Pasco, WA) area.
+              </h1>
+
+              {/* Subtitle */}
+              <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+                Collaborative Construction Management in the Pacific Northwest
               </p>
-              <div className="bg-brand-primary/5 dark:bg-gray-800 p-6 border-brand-primary border-l-4 rounded-lg">
-                <p className="text-gray-800 dark:text-gray-200 text-lg">
-                  <strong>Our Partnership Priority:</strong> Delivering an
-                  exceptional partnership experience from start to finish. Our
-                  commitment to thorough communication and upfront collaboration
-                  is critical to streamlining the process, preventing costly
-                  on-the-fly decisions later on.
+
+              {/* Description */}
+              <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+                Tri-Cities Headquarters: Pasco, WA | Partnership Area:
+                Washington, Oregon, Idaho
+              </p>
+            </div>
+          </div>
+
+          {/* Page-Specific Navigation Bar */}
+          <PageNavigation
+            items={navigationConfigs.services}
+            className="absolute bottom-0 left-0 right-0"
+          />
+        </section>
+
+        {/* Construction Expertise Section */}
+        <section className="bg-white dark:bg-gray-900 py-16">
+          <div className="mx-auto px-4 container">
+            <FadeInWhenVisible>
+              <div className="mx-auto mb-12 max-w-4xl text-center">
+                <MaterialIcon
+                  icon="engineering"
+                  size="3xl"
+                  className="mb-4 text-brand-primary"
+                />
+                <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                    Partnership-Focused Construction
+                  </span>
+                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                    Management
+                  </span>
+                </h2>
+                <p className="mb-4 font-light text-gray-700 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+                  Planning a new commercial building demands intricate details
+                  and expert partnership oversight. Work with us through
+                  comprehensive Partnership-Focused Construction Management
+                  services throughout the Tri-Cities (Pasco, WA) area.
+                </p>
+                <div className="bg-brand-primary/5 dark:bg-gray-800 p-6 border-brand-primary border-l-4 rounded-lg">
+                  <p className="text-gray-800 dark:text-gray-200 text-lg">
+                    <strong>Our Partnership Priority:</strong> Delivering an
+                    exceptional partnership experience from start to finish. Our
+                    commitment to thorough communication and upfront
+                    collaboration is critical to streamlining the process,
+                    preventing costly on-the-fly decisions later on.
+                  </p>
+                </div>
+
+                {/* CTA Button */}
+                <div className="mt-8">
+                  <Link href="/contact">
+                    <Button size="lg" className="gap-2">
+                      <MaterialIcon icon="phone" size="sm" />
+                      Call (509) 308-6489 Today
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </FadeInWhenVisible>
+          </div>
+        </section>
+
+        {/* Core Services Section */}
+        <section
+          id="core-services"
+          className="bg-gray-50 dark:bg-gray-800 py-16"
+        >
+          <div className="mx-auto px-4 container">
+            <FadeInWhenVisible>
+              <div className="mb-12 text-center">
+                <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                    Partnership
+                  </span>
+                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                    Services
+                  </span>
+                </h2>
+                <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+                  Comprehensive partnership-focused management services designed
+                  to bring your vision to life through collaboration
                 </p>
               </div>
+            </FadeInWhenVisible>
 
-              {/* CTA Button */}
-              <div className="mt-8">
-                <Link href="/contact">
-                  <Button size="lg" className="gap-2">
-                    <MaterialIcon icon="phone" size="sm" />
-                    Call (509) 308-6489 Today
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
-
-      {/* Core Services Section */}
-      <section id="core-services" className="bg-gray-50 dark:bg-gray-800 py-16">
-        <div className="mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mb-12 text-center">
-              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Partnership
-                </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
-                  Services
-                </span>
-              </h2>
-              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                Comprehensive partnership-focused management services designed
-                to bring your vision to life through collaboration
-              </p>
-            </div>
-          </FadeInWhenVisible>
-
-          <StaggeredFadeIn className="gap-8 grid md:grid-cols-2 mx-auto max-w-7xl">
-            {coreServices.map((service, index) => (
-              <Card
-                key={index}
-                id={service.title
-                  .toLowerCase()
-                  .replace(/[^a-z0-9]+/g, "-")
-                  .replace(/(^-|-$)/g, "")}
-                className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
-              >
-                <CardHeader className="flex-shrink-0">
-                  <MaterialIcon
-                    icon={service.iconName}
-                    size="3xl"
-                    className="mb-4 text-brand-primary"
-                  />
-                  <CardTitle className="flex items-center mb-2 min-h-[3rem] text-gray-900 dark:text-white text-2xl">
-                    {service.title}
-                  </CardTitle>
-                  <p className="font-semibold text-gray-600 dark:text-gray-400 text-sm">
-                    {service.subtitle}
-                  </p>
-                </CardHeader>
-                <CardContent className="flex flex-col flex-grow">
-                  <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  <div className="flex-grow mb-4">
-                    <p className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
-                      What's Included:
+            <StaggeredFadeIn className="gap-8 grid md:grid-cols-2 mx-auto max-w-7xl">
+              {coreServices.map((service, index) => (
+                <Card
+                  key={index}
+                  id={service.title
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, "-")
+                    .replace(/(^-|-$)/g, "")}
+                  className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
+                >
+                  <CardHeader className="flex-shrink-0">
+                    <MaterialIcon
+                      icon={service.iconName}
+                      size="3xl"
+                      className="mb-4 text-brand-primary"
+                    />
+                    <CardTitle className="flex items-center mb-2 min-h-[3rem] text-gray-900 dark:text-white text-2xl">
+                      {service.title}
+                    </CardTitle>
+                    <p className="font-semibold text-gray-600 dark:text-gray-400 text-sm">
+                      {service.subtitle}
                     </p>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, fIndex) => (
-                        <li key={fIndex} className="flex items-start text-sm">
-                          <MaterialIcon
-                            icon="check_circle"
-                            className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                            size="sm"
-                          />
-                          <span className="text-gray-600 dark:text-gray-300">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex-shrink-0 pt-4 border-gray-200 dark:border-gray-600 border-t">
-                    <p className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
-                      Benefits:
+                  </CardHeader>
+                  <CardContent className="flex flex-col flex-grow">
+                    <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {service.description}
                     </p>
-                    <ul className="space-y-2">
-                      {service.benefits.map((benefit, bIndex) => (
-                        <li key={bIndex} className="flex items-start text-sm">
-                          <MaterialIcon
-                            icon="stars"
-                            className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
-                            size="sm"
-                          />
-                          <span className="text-gray-600 dark:text-gray-300">
-                            {benefit}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
 
-                  {/* CTA Text */}
-                  {service.ctaText && (
-                    <div className="flex-shrink-0 bg-brand-primary/5 dark:bg-gray-700 mt-4 p-3 border-brand-primary border-l-2 rounded">
-                      <p className="font-medium text-gray-800 dark:text-gray-200 text-xs">
-                        {service.ctaText}
+                    <div className="flex-grow mb-4">
+                      <p className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
+                        What's Included:
                       </p>
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
-          </StaggeredFadeIn>
-        </div>
-      </section>
-
-      {/* Specialty Services Section */}
-      <section className="bg-white dark:bg-gray-900 py-16">
-        <div className="mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mb-12 text-center">
-              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Partnership
-                </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
-                  Specialties
-                </span>
-              </h2>
-              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                Diverse collaborative construction expertise across the
-                Tri-Cities and Pacific Northwest
-              </p>
-            </div>
-          </FadeInWhenVisible>
-
-          <StaggeredFadeIn className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
-            {specialtyServices.map((service, index) => (
-              <Card
-                key={index}
-                className="flex flex-col bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
-              >
-                <CardHeader className="flex-shrink-0">
-                  <MaterialIcon
-                    icon={service.iconName}
-                    size="2xl"
-                    className="mb-3 text-brand-primary"
-                  />
-                  <CardTitle className="flex items-center min-h-[2.5rem] text-gray-900 dark:text-white text-xl">
-                    {service.title}
-                  </CardTitle>
-                  <p className="mt-1 font-semibold text-gray-600 dark:text-gray-400 text-sm">
-                    {service.subtitle}
-                  </p>
-                </CardHeader>
-                <CardContent className="flex flex-col flex-grow">
-                  <p className="mb-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  <div className="flex-grow">
-                    {/* Markets List */}
-                    {service.markets && (
                       <ul className="space-y-2">
-                        {service.markets.map((market, mIndex) => (
-                          <li key={mIndex} className="flex items-start text-sm">
+                        {service.features.map((feature, fIndex) => (
+                          <li key={fIndex} className="flex items-start text-sm">
                             <MaterialIcon
                               icon="check_circle"
                               className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
                               size="sm"
                             />
                             <span className="text-gray-600 dark:text-gray-300">
-                              {market}
+                              {feature}
                             </span>
                           </li>
                         ))}
                       </ul>
-                    )}
+                    </div>
 
-                    {/* Build Types List */}
-                    {service.buildTypes && (
-                      <>
-                        <div className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
-                          What We Build:
-                        </div>
-                        <ul className="space-y-2 mb-3">
-                          {service.buildTypes.map((type, tIndex) => (
+                    <div className="flex-shrink-0 pt-4 border-gray-200 dark:border-gray-600 border-t">
+                      <p className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
+                        Benefits:
+                      </p>
+                      <ul className="space-y-2">
+                        {service.benefits.map((benefit, bIndex) => (
+                          <li key={bIndex} className="flex items-start text-sm">
+                            <MaterialIcon
+                              icon="stars"
+                              className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                              size="sm"
+                            />
+                            <span className="text-gray-600 dark:text-gray-300">
+                              {benefit}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* CTA Text */}
+                    {service.ctaText && (
+                      <div className="flex-shrink-0 bg-brand-primary/5 dark:bg-gray-700 mt-4 p-3 border-brand-primary border-l-2 rounded">
+                        <p className="font-medium text-gray-800 dark:text-gray-200 text-xs">
+                          {service.ctaText}
+                        </p>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              ))}
+            </StaggeredFadeIn>
+          </div>
+        </section>
+
+        {/* Specialty Services Section */}
+        <section className="bg-white dark:bg-gray-900 py-16">
+          <div className="mx-auto px-4 container">
+            <FadeInWhenVisible>
+              <div className="mb-12 text-center">
+                <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                    Partnership
+                  </span>
+                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                    Specialties
+                  </span>
+                </h2>
+                <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+                  Diverse collaborative construction expertise across the
+                  Tri-Cities and Pacific Northwest
+                </p>
+              </div>
+            </FadeInWhenVisible>
+
+            <StaggeredFadeIn className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+              {specialtyServices.map((service, index) => (
+                <Card
+                  key={index}
+                  className="flex flex-col bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
+                >
+                  <CardHeader className="flex-shrink-0">
+                    <MaterialIcon
+                      icon={service.iconName}
+                      size="2xl"
+                      className="mb-3 text-brand-primary"
+                    />
+                    <CardTitle className="flex items-center min-h-[2.5rem] text-gray-900 dark:text-white text-xl">
+                      {service.title}
+                    </CardTitle>
+                    <p className="mt-1 font-semibold text-gray-600 dark:text-gray-400 text-sm">
+                      {service.subtitle}
+                    </p>
+                  </CardHeader>
+                  <CardContent className="flex flex-col flex-grow">
+                    <p className="mb-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      {service.description}
+                    </p>
+
+                    <div className="flex-grow">
+                      {/* Markets List */}
+                      {service.markets && (
+                        <ul className="space-y-2">
+                          {service.markets.map((market, mIndex) => (
                             <li
-                              key={tIndex}
+                              key={mIndex}
+                              className="flex items-start text-sm"
+                            >
+                              <MaterialIcon
+                                icon="check_circle"
+                                className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                                size="sm"
+                              />
+                              <span className="text-gray-600 dark:text-gray-300">
+                                {market}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {/* Build Types List */}
+                      {service.buildTypes && (
+                        <>
+                          <div className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
+                            What We Build:
+                          </div>
+                          <ul className="space-y-2 mb-3">
+                            {service.buildTypes.map((type, tIndex) => (
+                              <li
+                                key={tIndex}
+                                className="flex items-start text-sm"
+                              >
+                                <MaterialIcon
+                                  icon="arrow_right"
+                                  className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                                  size="sm"
+                                />
+                                <span className="text-gray-600 dark:text-gray-300">
+                                  {type}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      )}
+
+                      {/* Features/Capabilities List */}
+                      {service.features && (
+                        <>
+                          <div className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
+                            High-Quality Materials:
+                          </div>
+                          <ul className="space-y-2 mb-3">
+                            {service.features.map((feature, fIndex) => (
+                              <li
+                                key={fIndex}
+                                className="flex items-start text-sm"
+                              >
+                                <MaterialIcon
+                                  icon="verified"
+                                  className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                                  size="sm"
+                                />
+                                <span className="text-gray-600 dark:text-gray-300">
+                                  {feature}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      )}
+
+                      {service.capabilities && !service.markets && (
+                        <ul className="space-y-2 mb-3">
+                          {service.capabilities.map((cap, cIndex) => (
+                            <li
+                              key={cIndex}
                               className="flex items-start text-sm"
                             >
                               <MaterialIcon
@@ -528,367 +585,328 @@ export default function ServicesPage() {
                                 size="sm"
                               />
                               <span className="text-gray-600 dark:text-gray-300">
-                                {type}
+                                {cap}
                               </span>
                             </li>
                           ))}
                         </ul>
-                      </>
-                    )}
-
-                    {/* Features/Capabilities List */}
-                    {service.features && (
-                      <>
-                        <div className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
-                          High-Quality Materials:
-                        </div>
-                        <ul className="space-y-2 mb-3">
-                          {service.features.map((feature, fIndex) => (
-                            <li
-                              key={fIndex}
-                              className="flex items-start text-sm"
-                            >
-                              <MaterialIcon
-                                icon="verified"
-                                className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
-                                size="sm"
-                              />
-                              <span className="text-gray-600 dark:text-gray-300">
-                                {feature}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </>
-                    )}
-
-                    {service.capabilities && !service.markets && (
-                      <ul className="space-y-2 mb-3">
-                        {service.capabilities.map((cap, cIndex) => (
-                          <li key={cIndex} className="flex items-start text-sm">
-                            <MaterialIcon
-                              icon="arrow_right"
-                              className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                              size="sm"
-                            />
-                            <span className="text-gray-600 dark:text-gray-300">
-                              {cap}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-
-                  {/* Note */}
-                  {service.note && (
-                    <p className="flex-shrink-0 mt-3 pt-3 border-gray-200 dark:border-gray-600 border-t text-gray-600 dark:text-gray-400 text-xs italic">
-                      {service.note}
-                    </p>
-                  )}
-
-                  {/* CTA */}
-                  {service.ctaText && (
-                    <div className="flex-shrink-0 bg-brand-primary/5 dark:bg-gray-700 mt-4 p-3 border-brand-primary border-l-2 rounded">
-                      <p className="font-medium text-gray-800 dark:text-gray-200 text-xs">
-                        {service.ctaText}
-                      </p>
+                      )}
                     </div>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
-          </StaggeredFadeIn>
-        </div>
-      </section>
 
-      {/* Service Areas Section */}
-      <section className="bg-gradient-to-r from-brand-primary dark:from-forest-700 to-brand-accent dark:to-forest-800 py-16 text-white">
-        <div className="mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mb-12 text-center">
-              <MaterialIcon
-                icon="public"
-                size="3xl"
-                className="mb-4 text-brand-secondary"
-              />
-              <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Partnership
-                </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
-                  Areas
-                </span>
-              </h2>
-              <p className="font-light text-forest-100 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                Serving the Pacific Northwest with Excellence
-              </p>
-            </div>
+                    {/* Note */}
+                    {service.note && (
+                      <p className="flex-shrink-0 mt-3 pt-3 border-gray-200 dark:border-gray-600 border-t text-gray-600 dark:text-gray-400 text-xs italic">
+                        {service.note}
+                      </p>
+                    )}
 
-            <div className="gap-8 grid md:grid-cols-2 mx-auto max-w-4xl">
-              {serviceAreas.map((area, index) => (
-                <Card
-                  key={index}
-                  className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border-white/20 transition-all"
-                >
-                  <CardHeader>
-                    <MaterialIcon
-                      icon={area.iconName}
-                      size="2xl"
-                      className="mb-3 text-brand-secondary"
-                    />
-                    <CardTitle className="text-white text-2xl">
-                      {area.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {area.areas.map((location, lIndex) => (
-                        <li
-                          key={lIndex}
-                          className="flex items-center text-white/90"
-                        >
-                          <MaterialIcon
-                            icon="location_on"
-                            className="mr-2 text-brand-secondary"
-                            size="sm"
-                          />
-                          <span>{location}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {/* CTA */}
+                    {service.ctaText && (
+                      <div className="flex-shrink-0 bg-brand-primary/5 dark:bg-gray-700 mt-4 p-3 border-brand-primary border-l-2 rounded">
+                        <p className="font-medium text-gray-800 dark:text-gray-200 text-xs">
+                          {service.ctaText}
+                        </p>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               ))}
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
+            </StaggeredFadeIn>
+          </div>
+        </section>
 
-      {/* Why Choose Us Section */}
-      <section className="bg-gray-50 dark:bg-gray-800 py-16">
-        <div className="mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mb-12 text-center">
-              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Why Partner With
-                </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
-                  MH Construction
-                </span>
-              </h2>
-              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                Your trusted partner for commercial construction in the Pacific
-                Northwest
-              </p>
-            </div>
-          </FadeInWhenVisible>
-
-          <StaggeredFadeIn className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
-            {whyChooseUs.map((reason, index) => (
-              <Card
-                key={index}
-                className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
-              >
-                <CardHeader className="flex-shrink-0">
-                  <MaterialIcon
-                    icon={reason.iconName}
-                    size="2xl"
-                    className="mb-3 text-brand-primary"
-                  />
-                  <CardTitle className="flex items-center min-h-[3rem] text-gray-900 dark:text-white text-lg">
-                    {reason.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-grow items-start">
-                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                    {reason.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </StaggeredFadeIn>
-        </div>
-      </section>
-
-      {/* Service Request Process Section */}
-      <section className="bg-white dark:bg-gray-900 py-16">
-        <div className="mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mx-auto max-w-4xl">
+        {/* Service Areas Section */}
+        <section className="bg-gradient-to-r from-brand-primary dark:from-forest-700 to-brand-accent dark:to-forest-800 py-16 text-white">
+          <div className="mx-auto px-4 container">
+            <FadeInWhenVisible>
               <div className="mb-12 text-center">
                 <MaterialIcon
-                  icon="trending_up"
+                  icon="public"
                   size="3xl"
-                  className="mb-4 text-brand-primary"
+                  className="mb-4 text-brand-secondary"
                 />
-                <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                    Our Partnership
+                <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                  <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                    Partnership
                   </span>
-                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
-                    Process
+                  <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
+                    Areas
                   </span>
                 </h2>
-                <p className="font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                  From initial partnership conversation to project completion,
-                  we collaborate with you every step of the way
+                <p className="font-light text-forest-100 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+                  Serving the Pacific Northwest with Excellence
                 </p>
               </div>
 
-              <div className="space-y-6">
-                {[
-                  {
-                    step: 1,
-                    title: "Partnership Consultation",
-                    description:
-                      "Understanding your vision through collaborative discussion",
-                    icon: "chat",
-                  },
-                  {
-                    step: 2,
-                    title: "Site Assessment",
-                    description:
-                      "Evaluating location and project feasibility together",
-                    icon: "explore",
-                  },
-                  {
-                    step: 3,
-                    title: "Collaborative Planning",
-                    description:
-                      "Detailed planning and timeline development with your input",
-                    icon: "event",
-                  },
-                  {
-                    step: 4,
-                    title: "Partnership Proposal",
-                    description:
-                      "Comprehensive project proposal with transparent partnership pricing",
-                    icon: "description",
-                  },
-                  {
-                    step: 5,
-                    title: "Partnership Execution",
-                    description:
-                      "Collaborative execution with regular communication and updates",
-                    icon: "handshake",
-                  },
-                ].map((process, index) => (
+              <div className="gap-8 grid md:grid-cols-2 mx-auto max-w-4xl">
+                {serviceAreas.map((area, index) => (
                   <Card
                     key={index}
-                    className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-shadow"
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border-white/20 transition-all"
                   >
-                    <CardContent className="p-6">
-                      <div className="flex items-start min-h-[5rem]">
-                        <div className="flex-shrink-0 mr-4">
-                          <div className="flex justify-center items-center bg-brand-primary rounded-full w-12 h-12 font-bold text-white text-xl">
-                            {process.step}
-                          </div>
-                        </div>
-                        <div className="flex-grow">
-                          <div className="flex justify-between items-start">
-                            <div className="flex-grow pr-4">
-                              <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl leading-tight">
-                                {process.title}
-                              </h3>
-                              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                                {process.description}
-                              </p>
-                            </div>
+                    <CardHeader>
+                      <MaterialIcon
+                        icon={area.iconName}
+                        size="2xl"
+                        className="mb-3 text-brand-secondary"
+                      />
+                      <CardTitle className="text-white text-2xl">
+                        {area.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2">
+                        {area.areas.map((location, lIndex) => (
+                          <li
+                            key={lIndex}
+                            className="flex items-center text-white/90"
+                          >
                             <MaterialIcon
-                              icon={process.icon}
-                              size="lg"
-                              className="flex-shrink-0 ml-4 text-brand-primary"
+                              icon="location_on"
+                              className="mr-2 text-brand-secondary"
+                              size="sm"
                             />
-                          </div>
-                        </div>
-                      </div>
+                            <span>{location}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </CardContent>
                   </Card>
                 ))}
               </div>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
+            </FadeInWhenVisible>
+          </div>
+        </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-brand-primary dark:from-forest-700 to-brand-accent dark:to-forest-800 py-16 text-white">
-        <div className="mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mx-auto max-w-3xl text-center">
-              <MaterialIcon
-                icon="phone_in_talk"
-                size="4xl"
-                className="mb-6 text-brand-secondary"
-              />
-              <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Ready to Start Our
-                </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
-                  Partnership?
-                </span>
-              </h2>
-              <p className="mb-8 text-forest-100 text-xl">
-                Call us today for a free consultation and let's discuss how we
-                can bring your vision to life through partnership.
-              </p>
-              <div className="flex sm:flex-row flex-col justify-center gap-4 mb-8">
-                <Link href="/contact">
-                  <Button
-                    size="lg"
-                    className="bg-white hover:bg-brand-light dark:bg-gray-800 dark:hover:bg-gray-700 text-brand-accent dark:text-white"
-                  >
-                    <MaterialIcon icon="handshake" className="mr-2" size="md" />
-                    Start Our Partnership
-                  </Button>
-                </Link>
-                <Link href="/projects">
-                  <Button
-                    size="lg"
-                    className="bg-brand-secondary hover:bg-bronze-600 dark:bg-brand-secondary dark:hover:bg-bronze-600 text-black dark:text-black"
-                  >
+        {/* Why Choose Us Section */}
+        <section className="bg-gray-50 dark:bg-gray-800 py-16">
+          <div className="mx-auto px-4 container">
+            <FadeInWhenVisible>
+              <div className="mb-12 text-center">
+                <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                    Why Partner With
+                  </span>
+                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                    MH Construction
+                  </span>
+                </h2>
+                <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+                  Your trusted partner for commercial construction in the
+                  Pacific Northwest
+                </p>
+              </div>
+            </FadeInWhenVisible>
+
+            <StaggeredFadeIn className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+              {whyChooseUs.map((reason, index) => (
+                <Card
+                  key={index}
+                  className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
+                >
+                  <CardHeader className="flex-shrink-0">
                     <MaterialIcon
-                      icon="photo_library"
-                      className="mr-2"
+                      icon={reason.iconName}
+                      size="2xl"
+                      className="mb-3 text-brand-primary"
+                    />
+                    <CardTitle className="flex items-center min-h-[3rem] text-gray-900 dark:text-white text-lg">
+                      {reason.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex flex-grow items-start">
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      {reason.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </StaggeredFadeIn>
+          </div>
+        </section>
+
+        {/* Service Request Process Section */}
+        <section className="bg-white dark:bg-gray-900 py-16">
+          <div className="mx-auto px-4 container">
+            <FadeInWhenVisible>
+              <div className="mx-auto max-w-4xl">
+                <div className="mb-12 text-center">
+                  <MaterialIcon
+                    icon="trending_up"
+                    size="3xl"
+                    className="mb-4 text-brand-primary"
+                  />
+                  <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                    <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                      Our Partnership
+                    </span>
+                    <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                      Process
+                    </span>
+                  </h2>
+                  <p className="font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+                    From initial partnership conversation to project completion,
+                    we collaborate with you every step of the way
+                  </p>
+                </div>
+
+                <div className="space-y-6">
+                  {[
+                    {
+                      step: 1,
+                      title: "Partnership Consultation",
+                      description:
+                        "Understanding your vision through collaborative discussion",
+                      icon: "chat",
+                    },
+                    {
+                      step: 2,
+                      title: "Site Assessment",
+                      description:
+                        "Evaluating location and project feasibility together",
+                      icon: "explore",
+                    },
+                    {
+                      step: 3,
+                      title: "Collaborative Planning",
+                      description:
+                        "Detailed planning and timeline development with your input",
+                      icon: "event",
+                    },
+                    {
+                      step: 4,
+                      title: "Partnership Proposal",
+                      description:
+                        "Comprehensive project proposal with transparent partnership pricing",
+                      icon: "description",
+                    },
+                    {
+                      step: 5,
+                      title: "Partnership Execution",
+                      description:
+                        "Collaborative execution with regular communication and updates",
+                      icon: "handshake",
+                    },
+                  ].map((process, index) => (
+                    <Card
+                      key={index}
+                      className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-shadow"
+                    >
+                      <CardContent className="p-6">
+                        <div className="flex items-start min-h-[5rem]">
+                          <div className="flex-shrink-0 mr-4">
+                            <div className="flex justify-center items-center bg-brand-primary rounded-full w-12 h-12 font-bold text-white text-xl">
+                              {process.step}
+                            </div>
+                          </div>
+                          <div className="flex-grow">
+                            <div className="flex justify-between items-start">
+                              <div className="flex-grow pr-4">
+                                <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl leading-tight">
+                                  {process.title}
+                                </h3>
+                                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                  {process.description}
+                                </p>
+                              </div>
+                              <MaterialIcon
+                                icon={process.icon}
+                                size="lg"
+                                className="flex-shrink-0 ml-4 text-brand-primary"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </FadeInWhenVisible>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="bg-gradient-to-r from-brand-primary dark:from-forest-700 to-brand-accent dark:to-forest-800 py-16 text-white">
+          <div className="mx-auto px-4 container">
+            <FadeInWhenVisible>
+              <div className="mx-auto max-w-3xl text-center">
+                <MaterialIcon
+                  icon="phone_in_talk"
+                  size="4xl"
+                  className="mb-6 text-brand-secondary"
+                />
+                <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+                  <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                    Ready to Start Our
+                  </span>
+                  <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
+                    Partnership?
+                  </span>
+                </h2>
+                <p className="mb-8 text-forest-100 text-xl">
+                  Call us today for a free consultation and let's discuss how we
+                  can bring your vision to life through partnership.
+                </p>
+                <div className="flex sm:flex-row flex-col justify-center gap-4 mb-8">
+                  <Link href="/contact">
+                    <Button
+                      size="lg"
+                      className="bg-white hover:bg-brand-light dark:bg-gray-800 dark:hover:bg-gray-700 text-brand-accent dark:text-white"
+                    >
+                      <MaterialIcon
+                        icon="handshake"
+                        className="mr-2"
+                        size="md"
+                      />
+                      Start Our Partnership
+                    </Button>
+                  </Link>
+                  <Link href="/projects">
+                    <Button
+                      size="lg"
+                      className="bg-brand-secondary hover:bg-bronze-600 dark:bg-brand-secondary dark:hover:bg-bronze-600 text-black dark:text-black"
+                    >
+                      <MaterialIcon
+                        icon="photo_library"
+                        className="mr-2"
+                        size="md"
+                      />
+                      Partnership Success Stories
+                    </Button>
+                  </Link>
+                </div>
+                <div className="space-y-2 text-brand-secondary">
+                  <p className="text-xl">
+                    <MaterialIcon
+                      icon="phone"
+                      className="inline mr-2"
                       size="md"
                     />
-                    Partnership Success Stories
-                  </Button>
-                </Link>
+                    (509) 308-6489
+                  </p>
+                  <p>
+                    <MaterialIcon
+                      icon="location_on"
+                      className="inline mr-2"
+                      size="md"
+                    />
+                    3111 N. Capital Ave., Pasco, WA 99301
+                  </p>
+                  <p>
+                    <MaterialIcon
+                      icon="email"
+                      className="inline mr-2"
+                      size="md"
+                    />
+                    office@mhc-gc.com
+                  </p>
+                </div>
               </div>
-              <div className="space-y-2 text-brand-secondary">
-                <p className="text-xl">
-                  <MaterialIcon
-                    icon="phone"
-                    className="inline mr-2"
-                    size="md"
-                  />
-                  (509) 308-6489
-                </p>
-                <p>
-                  <MaterialIcon
-                    icon="location_on"
-                    className="inline mr-2"
-                    size="md"
-                  />
-                  3111 N. Capital Ave., Pasco, WA 99301
-                </p>
-                <p>
-                  <MaterialIcon
-                    icon="email"
-                    className="inline mr-2"
-                    size="md"
-                  />
-                  office@mhc-gc.com
-                </p>
-              </div>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
-    </div>
+            </FadeInWhenVisible>
+          </div>
+        </section>
+      </div>
+    </>
   );
 }

@@ -124,8 +124,7 @@
 [(509) 308-6489](tel:+15093086489) # Vendor contact
 
 ❌ INCORRECT:
-(509) 308-6489 # Missing extension
-509-308-6489 # Wrong format
+ (509) 308-6489 # Correct format
 Call us at (509) 308-6489 # Not linked
 ```
 

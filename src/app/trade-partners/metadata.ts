@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Trade Partners - Our Network | MH Construction",
     description:
       "Meet MH Construction's trusted trade partners and subcontractors. We work with skilled professionals across electrical, plumbing, HVAC, concrete, roofing, and material supply.",
-    url: "https://mhconstruction.com/trade-partners",
+    url: "https://mhc-gc.com/trade-partners",
     siteName: "MH Construction",
     images: [
       {
@@ -43,6 +43,6 @@ export const metadata: Metadata = {
     images: ["/images/og-trade-partners.jpg"],
   },
   alternates: {
-    canonical: "https://mhconstruction.com/trade-partners",
+    canonical: "https://mhc-gc.com/trade-partners",
   },
 };

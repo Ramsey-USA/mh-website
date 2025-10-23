@@ -11,6 +11,7 @@ import {
   Button,
 } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { getAIEstimatorSEO } from "@/lib/seo/page-seo-utils";
 // Dynamically import heavy components
 const EstimatorForm = dynamic(
   () =>
@@ -22,7 +23,7 @@ const EstimatorForm = dynamic(
       <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-96 animate-pulse"></div>
     ),
     ssr: false,
-  },
+  }
 );
 const SmartRecommendations = dynamic(
   () => import("../../components/recommendations/SmartRecommendations"),
@@ -31,7 +32,7 @@ const SmartRecommendations = dynamic(
       <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-64 animate-pulse"></div>
     ),
     ssr: false,
-  },
+  }
 );
 import {
   FadeInWhenVisible,
@@ -40,58 +41,15 @@ import {
 } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
-
-// Structured data for SEO
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "MH Construction AI Estimator",
-  description:
-    "AI-powered construction estimator providing preliminary cost estimates for Pacific Northwest construction project planning.",
-  url: "https://mhconstruction.com/estimator",
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Web",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-    description: "Free AI-powered construction estimates",
-  },
-  provider: {
-    "@type": "Organization",
-    name: "MH Construction",
-    url: "https://mhconstruction.com",
-    logo: "https://mhconstruction.com/images/logo/mh-logo.png",
-    sameAs: [
-      "https://www.facebook.com/MHConstructionNW",
-      "https://www.linkedin.com/company/mh-construction",
-    ],
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "150",
-  },
-  featureList: [
-    "Preliminary cost estimates",
-    "Regional pricing data",
-    "Veteran discounts",
-    "Pacific Northwest focus",
-    "No registration required",
-    "24/7 availability",
-  ],
-};
+import { StructuredData } from "@/components/seo/enhanced-seo";
 
 export default function EstimatorPage() {
+  // Get SEO data for structured data
+  const seoData = getAIEstimatorSEO();
   return (
     <>
-      {/* Structured Data for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
+      {/* Enhanced AI Estimator Structured Data for SEO */}
+      <StructuredData data={seoData.schemas} />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-900 via-[#386851] to-gray-900 min-h-screen flex items-center justify-center text-white">
@@ -232,7 +190,8 @@ export default function EstimatorPage() {
                       <div>
                         <p className="font-semibold">Expert Analysis</p>
                         <p className="text-gray-600 text-sm">
-                          30+ years of construction experience
+                          Company expertise since 1995, team with 150+ years
+                          combined experience
                         </p>
                       </div>
                     </div>

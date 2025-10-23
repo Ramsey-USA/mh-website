@@ -104,7 +104,7 @@ Technical implementation and quality standards
   - **Client Contact**: [ext. 100](tel:+15093086489,100) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
   - **Vendor Contact**: [ext. 150](tel:+15093086489,150) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 - **Address**: 3111 N. Capital Ave., Pasco, WA 99301
-- **Website**: [MH Construction](https://www.mhc-gc.com)
+- **Website**: [MH Construction](https://mhc-gc.com)
 
 ---
 

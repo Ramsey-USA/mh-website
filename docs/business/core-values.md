@@ -212,7 +212,7 @@ Experience these values in action on your next construction project.
 ---
 
 **Partnership Philosophy**: "We Work With You" - These values in action
-**Community Focus**: Serving Pacific Northwest Communities Since 1995
+**Community Focus**: Serving Pacific Northwest Communities with Excellence
 
 ---
 

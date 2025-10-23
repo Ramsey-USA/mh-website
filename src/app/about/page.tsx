@@ -103,7 +103,7 @@ const coreValues = [
 
 // Company Stats
 const companyStats = [
-  { iconName: "calendar_today", value: "30+", label: "Years in Business" },
+  { iconName: "calendar_today", value: "1995", label: "Company Established" },
   { iconName: "groups", value: "150+", label: "Years Combined Experience" },
   { iconName: "star", value: "98%", label: "Client Satisfaction" },
   { iconName: "diversity_3", value: "70%", label: "Referral Rate" },
@@ -143,7 +143,7 @@ const leadershipTeam = [
   {
     name: "Mike Holstein",
     role: "Founder (Retired)",
-    experience: "30+ years construction industry leadership",
+    experience: "Company founder, construction leadership since 1995",
     status: "Retired Leadership",
     specialties: [
       "Company Foundations & Core Values Establishment",

@@ -129,7 +129,7 @@ export default function ContactPage() {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    >
   ) => {
     setFormData({
       ...formData,
@@ -495,10 +495,10 @@ export default function ContactPage() {
                           />
                           <div>
                             <p className="font-semibold text-gray-900 dark:text-white">
-                              30+ Years Experience
+                              150+ Years Combined Experience
                             </p>
                             <p className="text-gray-600 dark:text-gray-400 text-sm">
-                              Combined team expertise you can trust
+                              Team expertise you can trust since 1995
                             </p>
                           </div>
                         </li>
@@ -765,7 +765,7 @@ export default function ContactPage() {
               onRecommendationClick={(recommendation) => {
                 // Pre-fill contact form with project details
                 const projectField = document.querySelector(
-                  'textarea[name="message"]',
+                  'textarea[name="message"]'
                 ) as HTMLTextAreaElement;
                 if (projectField) {
                   const currentValue = projectField.value;
