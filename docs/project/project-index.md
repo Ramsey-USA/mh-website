@@ -45,11 +45,11 @@ Historical project documents and consolidated materials.
 
 ### Current Development Status
 
-- **[../archive/completed-phases/../archive/completed-phases/../archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md](./../archive/completed-phases/../archive/completed-phases/../archive/completed-phases/../archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md)** -
+- **[Phase Consolidation Plan](../archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md)** -
   Phase organization strategy
 - **[COMPLETE_implementation-guide.md](./COMPLETE_implementation-guide.md)** -
   Master implementation guide
-- **[../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md](./../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md)** -
+- **[Implementation Summary](../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md)** -
   Implementation status summary
 - **[consistency-implementation-summary.md](./consistency-implementation-summary.md)** -
   Consistency improvements

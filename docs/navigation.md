@@ -78,7 +78,7 @@
 
 - **[PHASE_MASTER_ROADMAP.md](./project/roadmaps/phase-master-roadmap.md)** - Complete
   project timeline, status, and future roadmap
-- **[../archive/completed-phases/../archive/completed-phases/../archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md](./project/../archive/completed-phases/../archive/completed-phases/../archive/completed-phases/../archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md)** -
+- **[Phase Consolidation Plan](./archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md)** -
   Phase organization and consolidation plan
 
 ### **Current Status: ✅ ALL PHASES 1-5 COMPLETE**
