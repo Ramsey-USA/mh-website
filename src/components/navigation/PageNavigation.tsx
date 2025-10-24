@@ -3,19 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { MaterialIcon } from "../icons/MaterialIcon";
-
-/**
- * Navigation item interface for page-specific sectional navigation
- * @interface NavigationItem
- * @property {string} href - The URL or hash link to navigate to
- * @property {string} label - Display text for the navigation item
- * @property {string} icon - Material Design icon name for the navigation item
- */
-interface NavigationItem {
-  href: string;
-  label: string;
-  icon: string;
-}
+import { NavigationItem, getNavigationLabel } from "./navigationConfigs";
+import { useIsMobile } from "../../hooks/useBreakpoint";
 
 /**
  * Props interface for PageNavigation component
@@ -59,26 +48,28 @@ interface PageNavigationProps {
  * @see /src/components/navigation/navigationConfigs.ts - Navigation configurations
  */
 export function PageNavigation({ items, className = "" }: PageNavigationProps) {
+  const isMobile = useIsMobile();
+
   return (
     <nav
       className={`bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t-4 border-brand-primary ${className}`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center py-4">
-          <div className="flex space-x-1 overflow-x-auto">
+      <div className="max-w-7xl mx-auto px-2 mobile-sm:px-1 xs:px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-center py-3 mobile-sm:py-2 xs:py-4">
+          <div className="flex space-x-0.5 mobile-sm:space-x-0 xs:space-x-1 overflow-x-auto">
             {items.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="group flex flex-col items-center hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 px-4 py-4 min-w-[80px] transition-colors duration-200 rounded-lg"
+                className="group flex flex-col items-center hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 px-2 mobile-sm:px-1.5 xs:px-4 py-3 mobile-sm:py-2.5 xs:py-4 min-w-[60px] mobile-sm:min-w-[56px] xs:min-w-[80px] transition-colors duration-200 rounded-lg"
               >
                 <MaterialIcon
                   icon={item.icon}
-                  size="md"
-                  className="mb-1 text-gray-600 dark:text-gray-400 group-hover:text-brand-primary transition-colors duration-200"
+                  size="sm"
+                  className="mb-0.5 mobile-sm:mb-0 xs:mb-1 text-gray-600 dark:text-gray-400 group-hover:text-brand-primary transition-colors duration-200 mobile-sm:w-4 mobile-sm:h-4"
                 />
-                <span className="text-xs text-gray-700 dark:text-gray-300 group-hover:text-brand-primary font-medium transition-colors duration-200">
-                  {item.label}
+                <span className="text-[10px] mobile-sm:text-[9px] xs:text-xs text-gray-700 dark:text-gray-300 group-hover:text-brand-primary font-medium transition-colors duration-200 text-center leading-tight mobile-sm:leading-none">
+                  {getNavigationLabel(item, isMobile)}
                 </span>
               </Link>
             ))}

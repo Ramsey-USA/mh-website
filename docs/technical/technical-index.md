@@ -20,6 +20,7 @@ Comprehensive design system documentation including typography standards, icons,
 - `/icons/` - Icon system specifications, usage guides, and policy implementation
 - `/buttons/` - Button system documentation and examples
 - `/navigation/` - Navigation architecture and implementation guides
+- `footer-enhancements.md` - **NEW**: Interactive footer system documentation (October 24, 2025)
 
 ### `/performance/` - Performance Optimization
 

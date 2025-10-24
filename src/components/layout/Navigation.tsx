@@ -135,11 +135,11 @@ export function Navigation() {
           </div>
 
           {/* Menu Content */}
-          <div className="z-10 relative flex flex-col px-4 sm:px-6 py-4 h-full">
+          <div className="z-10 relative flex flex-col px-3 mobile-sm:px-2 xs:px-4 sm:px-6 py-3 mobile-sm:py-2 xs:py-4 h-full">
             {/* Main Navigation Links */}
             <div className="flex flex-1 justify-center items-center">
-              <div className="w-full max-w-xs xs:max-w-sm sm:max-w-md">
-                <div className="gap-2 xs:gap-3 sm:gap-3 grid grid-cols-2">
+              <div className="w-full max-w-[280px] mobile-sm:max-w-[260px] xs:max-w-sm sm:max-w-md">
+                <div className="gap-1.5 mobile-sm:gap-1 xs:gap-2 sm:gap-3 grid grid-cols-2">
                   {[
                     { href: "/", label: "Home", icon: "home" },
                     { href: "/about", label: "Our Story", icon: "info" },
@@ -185,15 +185,15 @@ export function Navigation() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="group flex flex-col items-center hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-sm px-2 xs:px-3 sm:px-4 py-4 xs:py-5 sm:py-6 rounded-lg sm:rounded-xl font-medium text-gray-900 hover:text-brand-primary dark:hover:text-bronze-400 dark:text-gray-100 text-center transition-all duration-300 touch-manipulation"
+                      className="group flex flex-col items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-sm px-1.5 mobile-sm:px-1 xs:px-2 sm:px-4 py-3 mobile-sm:py-2.5 xs:py-4 sm:py-6 min-h-[56px] mobile-sm:min-h-[48px] rounded-lg sm:rounded-xl font-medium text-gray-900 hover:text-brand-primary dark:hover:text-bronze-400 dark:text-gray-100 text-center transition-all duration-300 touch-manipulation"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <MaterialIcon
                         icon={item.icon}
-                        size="md"
-                        className="opacity-70 group-hover:opacity-100 mb-2 sm:mb-3 dark:group-hover:text-bronze-400 group-hover:text-brand-primary transition-all duration-300"
+                        size="sm"
+                        className="opacity-70 group-hover:opacity-100 mb-1 mobile-sm:mb-0.5 xs:mb-2 sm:mb-3 dark:group-hover:text-bronze-400 group-hover:text-brand-primary transition-all duration-300 mobile-sm:w-4 mobile-sm:h-4"
                       />
-                      <div className="font-medium text-xs xs:text-sm sm:text-sm leading-tight">
+                      <div className="font-medium text-[10px] mobile-sm:text-[9px] xs:text-xs sm:text-sm leading-tight mobile-sm:leading-none">
                         {item.label}
                       </div>
                     </Link>
@@ -203,67 +203,81 @@ export function Navigation() {
             </div>
 
             {/* Social Media Links */}
-            <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200 dark:border-gray-700">
-              <div className="mb-3 sm:mb-4 text-center">
-                <h4 className="font-medium text-gray-700 dark:text-gray-300 text-xs sm:text-sm">
+            <div className="mt-4 mobile-sm:mt-3 xs:mt-6 sm:mt-8 pt-3 mobile-sm:pt-2 xs:pt-4 sm:pt-6 border-t border-gray-200 dark:border-gray-700">
+              <div className="mb-2 mobile-sm:mb-1.5 xs:mb-3 sm:mb-4 text-center">
+                <h4 className="font-medium text-gray-700 dark:text-gray-300 text-[10px] mobile-sm:text-[9px] xs:text-xs sm:text-sm">
                   Follow Our Partnership Journey
                 </h4>
               </div>
-              <div className="flex justify-center gap-3 sm:gap-4">
+              <div className="flex justify-center gap-2 mobile-sm:gap-1.5 xs:gap-3 sm:gap-4">
                 <a
                   href="https://facebook.com/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 hover:bg-blue-600 dark:bg-gray-700 hover:shadow-lg p-2.5 sm:p-3 rounded-lg sm:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
-                  title="Follow us on Facebook"
+                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0] hover:shadow-lg hover:shadow-[#1877F2]/30 dark:hover:shadow-[#1877F2]/20 p-2 mobile-sm:p-1.5 xs:p-2.5 sm:p-3 border border-gray-200 dark:border-gray-600 hover:border-[#1877F2] rounded-lg sm:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation min-w-[40px] min-h-[40px] mobile-sm:min-w-[36px] mobile-sm:min-h-[36px]"
+                  title="Follow our partnership stories on Facebook"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="thumb_up"
                     size="sm"
-                    className="text-gray-600 group-hover:text-white dark:text-gray-400 transition-colors"
+                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(24,119,242,0.6)] mobile-sm:w-3.5 mobile-sm:h-3.5"
                   />
                 </a>
                 <a
                   href="https://instagram.com/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 dark:bg-gray-700 hover:shadow-lg p-2.5 sm:p-3 rounded-lg sm:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
-                  title="See our projects on Instagram"
+                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:shadow-lg hover:shadow-[#E4405F]/30 dark:hover:shadow-[#E4405F]/20 p-2 mobile-sm:p-1.5 xs:p-2.5 sm:p-3 border border-gray-200 dark:border-gray-600 hover:border-[#E4405F] rounded-lg sm:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation min-w-[40px] min-h-[40px] mobile-sm:min-w-[36px] mobile-sm:min-h-[36px]"
+                  title="See partnership projects on Instagram"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="photo_camera"
                     size="sm"
-                    className="text-gray-600 group-hover:text-white dark:text-gray-400 transition-colors"
+                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(228,64,95,0.6)] mobile-sm:w-3.5 mobile-sm:h-3.5"
                   />
                 </a>
                 <a
                   href="https://linkedin.com/company/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 hover:bg-blue-700 dark:bg-gray-700 hover:shadow-lg p-2.5 sm:p-3 rounded-lg sm:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
-                  title="Connect on LinkedIn"
+                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] hover:shadow-lg hover:shadow-[#0A66C2]/30 dark:hover:shadow-[#0A66C2]/20 p-2 mobile-sm:p-1.5 xs:p-2.5 sm:p-3 border border-gray-200 dark:border-gray-600 hover:border-[#0A66C2] rounded-lg sm:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation min-w-[40px] min-h-[40px] mobile-sm:min-w-[36px] mobile-sm:min-h-[36px]"
+                  title="Connect with our partnership team on LinkedIn"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="work"
                     size="sm"
-                    className="text-gray-600 group-hover:text-white dark:text-gray-400 transition-colors"
+                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.6)] mobile-sm:w-3.5 mobile-sm:h-3.5"
+                  />
+                </a>
+                <a
+                  href="https://x.com/mhconstruction"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000] hover:shadow-lg hover:shadow-black/30 dark:hover:shadow-black/20 p-2 mobile-sm:p-1.5 xs:p-2.5 sm:p-3 border border-gray-200 dark:border-gray-600 hover:border-[#1D9BF0] rounded-lg sm:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation min-w-[40px] min-h-[40px] mobile-sm:min-w-[36px] mobile-sm:min-h-[36px]"
+                  title="Follow partnership updates on X (Twitter)"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <MaterialIcon
+                    icon="close"
+                    size="sm"
+                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(29,155,240,0.6)] mobile-sm:w-3.5 mobile-sm:h-3.5"
                   />
                 </a>
                 <a
                   href="https://youtube.com/@mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 hover:bg-red-600 dark:bg-gray-700 hover:shadow-lg p-2.5 sm:p-3 rounded-lg sm:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
-                  title="Watch our videos on YouTube"
+                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000] hover:shadow-lg hover:shadow-[#FF0000]/30 dark:hover:shadow-[#FF0000]/20 p-2 mobile-sm:p-1.5 xs:p-2.5 sm:p-3 border border-gray-200 dark:border-gray-600 hover:border-[#FF0000] rounded-lg sm:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation min-w-[40px] min-h-[40px] mobile-sm:min-w-[36px] mobile-sm:min-h-[36px]"
+                  title="Watch partnership success stories on YouTube"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="play_circle"
                     size="sm"
-                    className="text-gray-600 group-hover:text-white dark:text-gray-400 transition-colors"
+                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(255,0,0,0.6)] mobile-sm:w-3.5 mobile-sm:h-3.5"
                   />
                 </a>
               </div>

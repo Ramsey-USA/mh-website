@@ -15,13 +15,15 @@ export default function Footer() {
           <div className="space-y-3 xs:space-y-4 sm:col-span-2 lg:col-span-1">
             <div className="text-center sm:text-left lg:text-left">
               <div className="mb-4">
-                <Image
-                  src="/images/logo/mh-logo.png"
-                  alt="MH Construction Logo"
-                  width={264}
-                  height={132}
-                  className="mx-auto sm:mx-0 lg:mx-0 w-[240px] xs:w-[270px] sm:w-[300px] h-auto drop-shadow-lg"
-                />
+                <Link href="/" className="inline-block">
+                  <Image
+                    src="/images/logo/mh-logo.png"
+                    alt="MH Construction Logo"
+                    width={264}
+                    height={132}
+                    className="mx-auto sm:mx-0 lg:mx-0 w-[240px] xs:w-[270px] sm:w-[300px] h-auto drop-shadow-lg hover:drop-shadow-xl transition-all duration-300 cursor-pointer"
+                  />
+                </Link>
               </div>
 
               {/* Contact Info */}
@@ -439,65 +441,65 @@ export default function Footer() {
                   href="https://facebook.com/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 hover:bg-blue-600 dark:bg-gray-600 hover:shadow-lg hover:shadow-brand-primary/30 dark:hover:shadow-brand-secondary/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 dark:border-gray-500 hover:border-blue-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
+                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0] hover:shadow-lg hover:shadow-[#1877F2]/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 dark:border-gray-500 hover:border-[#1877F2] rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
                   title="Follow our partnership stories on Facebook"
                 >
                   <MaterialIcon
                     icon="thumb_up"
                     size="sm"
-                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(56,104,81,0.6)] dark:group-hover:drop-shadow-[0_0_8px_rgba(189,146,100,0.6)]"
+                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(24,119,242,0.6)]"
                   />
                 </a>
                 <a
                   href="https://instagram.com/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:shadow-lg hover:shadow-brand-primary/30 dark:hover:shadow-brand-secondary/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 hover:border-pink-500 dark:border-gray-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
+                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:shadow-lg hover:shadow-[#E4405F]/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 hover:border-[#E4405F] dark:border-gray-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
                   title="See partnership projects on Instagram"
                 >
                   <MaterialIcon
                     icon="photo_camera"
                     size="sm"
-                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(56,104,81,0.6)] dark:group-hover:drop-shadow-[0_0_8px_rgba(189,146,100,0.6)]"
+                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(228,64,95,0.6)]"
                   />
                 </a>
                 <a
                   href="https://x.com/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 hover:bg-black dark:bg-gray-600 hover:shadow-lg hover:shadow-brand-primary/30 dark:hover:shadow-brand-secondary/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 hover:border-gray-400 dark:border-gray-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
+                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000] hover:shadow-lg hover:shadow-black/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 hover:border-[#1D9BF0] dark:border-gray-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
                   title="Follow partnership updates on X (Twitter)"
                 >
                   <MaterialIcon
                     icon="close"
                     size="sm"
-                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(56,104,81,0.6)] dark:group-hover:drop-shadow-[0_0_8px_rgba(189,146,100,0.6)]"
+                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(29,155,240,0.6)]"
                   />
                 </a>
                 <a
                   href="https://youtube.com/@mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 hover:bg-red-600 dark:bg-gray-600 hover:shadow-lg hover:shadow-brand-primary/30 dark:hover:shadow-brand-secondary/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 dark:border-gray-500 hover:border-red-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
+                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000] hover:shadow-lg hover:shadow-[#FF0000]/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 dark:border-gray-500 hover:border-[#FF0000] rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
                   title="Watch partnership success stories on YouTube"
                 >
                   <MaterialIcon
                     icon="play_circle"
                     size="sm"
-                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(56,104,81,0.6)] dark:group-hover:drop-shadow-[0_0_8px_rgba(189,146,100,0.6)]"
+                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(255,0,0,0.6)]"
                   />
                 </a>
                 <a
                   href="https://linkedin.com/company/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 hover:bg-blue-700 dark:bg-gray-600 hover:shadow-lg hover:shadow-brand-primary/30 dark:hover:shadow-brand-secondary/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 dark:border-gray-500 hover:border-blue-400 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
+                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] hover:shadow-lg hover:shadow-[#0A66C2]/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 dark:border-gray-500 hover:border-[#0A66C2] rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
                   title="Connect with our partnership team on LinkedIn"
                 >
                   <MaterialIcon
                     icon="work"
                     size="sm"
-                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(56,104,81,0.6)] dark:group-hover:drop-shadow-[0_0_8px_rgba(189,146,100,0.6)]"
+                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.6)]"
                   />
                 </a>
               </div>
@@ -531,36 +533,26 @@ export default function Footer() {
                 more
               </div>
             </div>
-
-            {/* Additional Resources */}
-            <div className="space-y-1.5 xs:space-y-2 pt-3 xs:pt-4">
-              <div className="mb-2 text-gray-400 dark:text-gray-300 text-xs">
-                Partnership Resources
-              </div>
-              <div className="flex items-center space-x-2 opacity-60 text-gray-500 dark:text-gray-400 text-xs cursor-not-allowed">
-                <MaterialIcon
-                  icon="description"
-                  size="sm"
-                  className="text-gray-600 dark:text-gray-500"
-                />
-                <span>Partnership Brochures (Coming Soon)</span>
-              </div>
-              <div className="flex items-center space-x-2 opacity-60 text-gray-500 dark:text-gray-400 text-xs cursor-not-allowed">
-                <MaterialIcon
-                  icon="military_tech"
-                  size="sm"
-                  className="text-gray-600 dark:text-gray-500"
-                />
-                <span>Veteran Partnership Programs (Coming Soon)</span>
-              </div>
-            </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-4 xs:pt-5 sm:pt-6 border-gray-700 dark:border-gray-600 border-t">
-          <div className="flex md:flex-row flex-col justify-between items-center space-y-2 xs:space-y-3 md:space-y-0 text-gray-400 dark:text-gray-300 text-xs xs:text-sm">
-            <div className="flex items-center space-x-2">
+        {/* Clean Bottom Bar - Streamlined Design */}
+        <div className="pt-8 pb-6 border-gray-700 dark:border-gray-600 border-t relative">
+          {/* Back to Top Button */}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="absolute -top-6 left-4 bg-brand-primary hover:bg-brand-primary-dark text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group touch-manipulation"
+            aria-label="Back to top"
+          >
+            <MaterialIcon
+              icon="keyboard_arrow_up"
+              size="md"
+              className="group-hover:animate-bounce"
+            />
+          </button>
+
+          <div className="flex lg:flex-row flex-col justify-between items-center space-y-4 lg:space-y-0 text-gray-400 dark:text-gray-300">
+            <div className="flex items-center space-x-2 text-sm">
               <MaterialIcon
                 icon="copyright"
                 size="sm"
@@ -568,47 +560,79 @@ export default function Footer() {
               />
               <span>&copy; 2025 MH Construction LLC. All rights reserved.</span>
             </div>
-            <div className="flex items-center space-x-2 text-center md:text-left">
-              <MaterialIcon
-                icon="military_tech"
-                size="sm"
-                className="text-brand-primary"
-              />
-              <span className="flex flex-col xs:flex-row xs:items-center xs:space-x-1">
-                <span className="font-medium text-brand-primary">
-                  Veteran-owned partnership
+
+            <div className="flex flex-wrap items-center justify-center lg:justify-end gap-4 text-xs">
+              <button className="group flex items-center space-x-1 hover:bg-brand-primary/10 px-2 py-1 rounded-lg transition-all duration-300 hover:scale-105 touch-manipulation">
+                <MaterialIcon
+                  icon="verified"
+                  size="sm"
+                  className="text-brand-primary group-hover:scale-110 transition-transform duration-300"
+                />
+                <span className="group-hover:text-brand-primary transition-colors duration-300">
+                  Licensed & Insured
                 </span>
-                <span>excellence serving the Pacific Northwest</span>
-              </span>
+              </button>
+              <div className="flex items-center gap-1">
+                <MaterialIcon
+                  icon="location_on"
+                  size="sm"
+                  className="text-brand-primary"
+                />
+                <div className="flex gap-1">
+                  <span
+                    className="relative group cursor-help hover:text-brand-primary transition-colors duration-300 px-1 py-0.5 rounded hover:bg-brand-primary/10"
+                    title="Washington License: MHCONCI907R7"
+                  >
+                    WA
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 pointer-events-none">
+                      License: MHCONCI907R7
+                    </div>
+                  </span>
+                  <span className="text-gray-400">•</span>
+                  <span
+                    className="relative group cursor-help hover:text-brand-primary transition-colors duration-300 px-1 py-0.5 rounded hover:bg-brand-primary/10"
+                    title="Oregon License: 765043-99"
+                  >
+                    OR
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 pointer-events-none">
+                      License: 765043-99
+                    </div>
+                  </span>
+                  <span className="text-gray-400">•</span>
+                  <span
+                    className="relative group cursor-help hover:text-brand-primary transition-colors duration-300 px-1 py-0.5 rounded hover:bg-brand-primary/10"
+                    title="Idaho License: RCE-49250"
+                  >
+                    ID
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 pointer-events-none">
+                      License: RCE-49250
+                    </div>
+                  </span>
+                </div>
+              </div>
+              <button className="group flex items-center space-x-1 hover:bg-brand-primary/10 px-2 py-1 rounded-lg transition-all duration-300 hover:scale-105 touch-manipulation">
+                <MaterialIcon
+                  icon="military_tech"
+                  size="sm"
+                  className="text-brand-primary group-hover:scale-110 transition-transform duration-300"
+                />
+                <span className="font-medium text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
+                  Veteran-Owned
+                </span>
+              </button>
             </div>
           </div>
 
-          {/* Additional Footer Info */}
-          <div className="flex lg:flex-row flex-col justify-center items-center lg:space-x-4 xl:space-x-6 space-y-1.5 xs:space-y-2 lg:space-y-0 mt-3 xs:mt-4 pt-3 border-gray-700/50 dark:border-gray-600/50 border-t text-gray-500 dark:text-gray-400 text-xs">
-            <div className="flex items-center space-x-1">
+          {/* Interactive Brand Tagline */}
+          <div className="text-center mt-6 pt-4 border-t border-gray-700/50 dark:border-gray-600/50">
+            <p className="group cursor-default text-brand-primary dark:text-brand-primary text-sm font-semibold italic hover:text-brand-primary-dark transition-all duration-300 hover:scale-105 select-none">
+              "Building for the Owner, NOT the Dollar"
               <MaterialIcon
-                icon="verified"
+                icon="favorite"
                 size="sm"
-                className="text-brand-primary"
+                className="ml-2 opacity-0 group-hover:opacity-100 text-red-500 transition-all duration-300 inline-block group-hover:animate-pulse"
               />
-              <span>Licensed & Insured Partnership</span>
-            </div>
-            <div className="flex items-center space-x-1">
-              <MaterialIcon
-                icon="location_on"
-                size="sm"
-                className="text-brand-primary"
-              />
-              <span>Serving WA, OR, & ID</span>
-            </div>
-            <div className="flex items-center space-x-1 text-center">
-              <MaterialIcon
-                icon="build"
-                size="sm"
-                className="text-brand-primary"
-              />
-              <span>Building for the Owner, NOT the Dollar</span>
-            </div>
+            </p>
           </div>
         </div>
       </div>

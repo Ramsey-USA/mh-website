@@ -1,0 +1,42 @@
+/* Mobile Navigation Touch Targets and Accessibility Utilities */
+
+/* Ensure touch targets meet minimum 44x44px requirement */
+.touch-target-min {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* Extra small touch targets for very cramped layouts */
+.touch-target-sm {
+  min-width: 36px;
+  min-height: 36px;
+}
+
+/* Mobile-specific utilities */
+@media (max-width: 374px) {
+  .mobile-sm\:text-micro {
+    font-size: 8px;
+    line-height: 10px;
+  }
+  
+  .mobile-sm\:gap-micro {
+    gap: 2px;
+  }
+  
+  .mobile-sm\:p-micro {
+    padding: 2px;
+  }
+}
+
+/* Ensure text is always readable */
+.text-readable-min {
+  font-size: max(9px, 0.75rem);
+}
+
+/* Force hardware acceleration for smooth animations on mobile */
+.mobile-smooth {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
