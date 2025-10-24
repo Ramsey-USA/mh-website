@@ -108,7 +108,7 @@ standard of branding excellence.
 
 ### Documentation
 
-- **Implementation Guide**: `/docs/development/BRANDING_IMPLEMENTATION_GUIDE.md`
+- **Implementation Guide**: `/docs/development/BRANDING_implementation-guide.md`
 - **Quick Reference**: `/docs/development/BRANDING_QUICK_REFERENCE.md`
 - **Design System**: `/docs/technical/design-system/DESIGN_SYSTEM.md`
 - **Brand Guidelines**: `/docs/business/branding/`

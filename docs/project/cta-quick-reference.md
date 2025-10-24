@@ -421,8 +421,8 @@ Interested in our services? Learn more or contact us today.
 
 ## 📚 Related Documentation
 
-- [Full Implementation Plan](./../archive/redundant-reports/CTA_BRANDING_UPDATE_PHASES.md)
-- [Review Summary](./../archive/redundant-reports/CTA_REVIEW_SUMMARY.md)
+- [Full Implementation Plan](./../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/CTA_BRANDING_UPDATE_PHASES.md)
+- [Review Summary](./../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/CTA_REVIEW_SUMMARY.md)
 - [MH Branding Guidelines v3.7.2](../business/mh-branding.md)
 - [CTA Button Guide](../partnerships/messaging/cta-button-guide.md)
 - [Button System Documentation](../technical/design-system/buttons/button-system.md)

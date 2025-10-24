@@ -45,11 +45,11 @@ Historical project documents and consolidated materials.
 
 ### Current Development Status
 
-- **[PHASE_CONSOLIDATION_PLAN.md](./../archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md)** -
+- **[../archive/completed-phases/../archive/completed-phases/../archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md](./../archive/completed-phases/../archive/completed-phases/../archive/completed-phases/../archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md)** -
   Phase organization strategy
 - **[COMPLETE_implementation-guide.md](./COMPLETE_implementation-guide.md)** -
   Master implementation guide
-- **[IMPLEMENTATION_SUMMARY.md](./../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md)** -
+- **[../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md](./../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md)** -
   Implementation status summary
 - **[consistency-implementation-summary.md](./consistency-implementation-summary.md)** -
   Consistency improvements
@@ -58,10 +58,10 @@ Historical project documents and consolidated materials.
 
 ### Project Overview
 
-- **[ARCHITECTURE.md](./ARCHITECTURE.md)** - System architecture overview
+- **[architecture.md](./architecture.md)** - System architecture overview
 - **[development-history.md](./development-history.md)** - Project history and decisions
 - **[company-profile.md](./company-profile.md)** - Company profile documentation
-- **[CHANGELOG.md](./CHANGELOG.md)** - Version history and updates
+- **[changelog.md](./changelog.md)** - Version history and updates
 
 ---
 
@@ -83,7 +83,7 @@ Historical project documents and consolidated materials.
 
 ### Project History
 
-- **[CHANGELOG.md](./CHANGELOG.md)** - Complete project changelog
+- **[changelog.md](./changelog.md)** - Complete project changelog
 - **[development-history.md](./development-history.md)** - Development progression overview
 
 ### Quality & Cleanup Reports
@@ -103,9 +103,9 @@ For historical project reports and phase documentation, see:
 ## 🚀 Quick Start Guide
 
 1. Review **[roadmaps/phase-master-roadmap.md](./roadmaps/phase-master-roadmap.md)** for project status and roadmap
-2. Check **[../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md](./../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md)**
+2. Check **[../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md](./../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md)**
    for current implementations
-3. Use **[ARCHITECTURE.md](./ARCHITECTURE.md)** for system understanding
+3. Use **[architecture.md](./architecture.md)** for system understanding
 
 - `*_IMPLEMENTATION*.md` - Step-by-step implementation guides
 - `*_GUIDE.md` - Usage and configuration guides
@@ -113,7 +113,7 @@ For historical project reports and phase documentation, see:
 
 ### Updates & Changes
 
-- `CHANGELOG.md` - Version history
+- `changelog.md` - Version history
 - `*_UPDATE.md` - Specific feature updates
 - `*_RESULTS.md` - Implementation results
 
@@ -136,7 +136,7 @@ All historical phase files moved to: `/docs/archive/phases/`
 
 1. Check roadmap files for current priorities
 2. Review `roadmaps/phase-master-roadmap.md` for project status and roadmap
-3. Reference `ARCHITECTURE.md` for system understanding
-4. Update `CHANGELOG.md` when completing features
+3. Reference `architecture.md` for system understanding
+4. Update `changelog.md` when completing features
 
 **Philosophy:** Simple, focused, action-oriented documentation.

@@ -120,7 +120,7 @@
 
 #### 🎨 Design & Layout
 
-- [**Design System**](./docs/technical/design-system/DESIGN_SYSTEM.md) - Brand colors, typography, components
+- [**Design System Guide**](./docs/technical/design-system/design-system.md) - Complete design standards
 - [**Mobile Optimization Guide**](./docs/technical/design-system/mobile-optimization-guide.md) - Complete mobile standards
 - [**Mobile Quick Reference**](./docs/technical/design-system/mobile-quick-reference.md) - Developer quick reference  
 - [**Page Layout Standards**](./docs/technical/page-layout-standards.md) -
@@ -141,8 +141,8 @@
 
 #### 📋 Documentation Navigation
 
-- [**Documentation Index**](./docs/NAVIGATION.md) - ⭐ **Complete navigation to all docs**
-- [**Architecture Overview**](./docs/project/ARCHITECTURE.md) - System architecture and technical decisions
+- [**Navigation Guide**](./docs/navigation.md) - Site navigation patterns
+- [**Architecture Overview**](./docs/project/architecture.md) - System architecture
 
 #### 📞 Contact Information
 
@@ -279,7 +279,7 @@ Start Your Project
 - **Accessibility** with proper focus states and ARIA labels
 - **Responsive design** with mobile-optimized touch targets
 
-**Documentation**: See [BUTTON_SYSTEM.md](./docs/technical/BUTTON_SYSTEM.md) for complete
+**Documentation**: See [button-system.md](./docs/technical/design-system/buttons/button-system.md) for complete
 implementation guide.
 
 ---
@@ -668,7 +668,7 @@ src/
   PWA features, and technical highlights
 - **[Design System](./docs/technical/DESIGN_SYSTEM.md)** - Brand colors, typography, and
   component standards
-- **[Button System](./docs/technical/BUTTON_SYSTEM.md)** - Cohesive button implementation with
+- **[Button System](./docs/technical/design-system/buttons/button-system.md)** - Cohesive button implementation with
   icon integration and accessibility
 - **[Technical Architecture](./docs/project/ARCHITECTURE.md)** - Complete system architecture
   and technical details
@@ -680,9 +680,9 @@ src/
 
 ### Project Information
 
-- **[Implementation Summary](./docs/project/../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md)** - Complete feature
-  implementation status and updates
-- **[Project Changelog](./docs/project/CHANGELOG.md)** - Version history and updates archive
+- **[Implementation Summary](./docs/archive/redundant-reports/IMPLEMENTATION_SUMMARY.md)** -
+  Complete feature implementation status and updates
+- **[Project Changelog](./docs/project/changelog.md)** - Version history and updates archive
 
 ## 🤝 Partnership Philosophy
 

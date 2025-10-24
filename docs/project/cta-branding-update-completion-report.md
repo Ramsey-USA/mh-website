@@ -336,9 +336,9 @@ All CTAs now use approved action-based language:
 
 ### Updated Planning Documents
 
-- [../archive/redundant-reports/CTA_BRANDING_UPDATE_PHASES.md](./../archive/redundant-reports/CTA_BRANDING_UPDATE_PHASES.md)
+- [../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/CTA_BRANDING_UPDATE_PHASES.md](./../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/CTA_BRANDING_UPDATE_PHASES.md)
   - Complete 6-phase plan
-- [../archive/redundant-reports/CTA_REVIEW_SUMMARY.md](./../archive/redundant-reports/CTA_REVIEW_SUMMARY.md)
+- [../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/CTA_REVIEW_SUMMARY.md](./../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/CTA_REVIEW_SUMMARY.md)
   - Executive summary of findings
 - [cta-quick-reference.md](./cta-quick-reference.md) - Quick reference for standards
 

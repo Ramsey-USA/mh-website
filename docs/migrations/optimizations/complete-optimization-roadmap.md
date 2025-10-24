@@ -53,9 +53,9 @@ docs/
 ├── 📈 migrations/optimizations/complete-optimization-roadmap.md  ✅ This comprehensive guide
 ├── project/
 │   ├── 🗺️  roadmaps/phase-master-roadmap.md      ⭐ Complete roadmap
-│   ├── 🔄 ../archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md   📋 Consolidation strategy
+│   ├── 🔄 ../archive/completed-phases/../archive/completed-phases/../archive/completed-phases/../archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md   📋 Consolidation strategy
 │   ├── 🚀 roadmaps/future-phases-roadmap.md      📋 Phase 6+ planning
-│   ├── 📊 ../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md     ✅ Implementation details
+│   ├── 📊 ../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md     ✅ Implementation details
 │   └── 📁 archive/                      📁 Empty - ready for future use
 ├── technical/
 │   ├── ⚡ PHASE_5_PERFORMANCE_IMPLEMENTATION.md ✅ Performance guide

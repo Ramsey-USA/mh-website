@@ -197,7 +197,7 @@ grep -r "MaterialIcon" src/app/
 
 ### Documentation
 
-- **Implementation Guide**: `/docs/development/BRANDING_IMPLEMENTATION_GUIDE.md`
+- **Implementation Guide**: `/docs/development/BRANDING_implementation-guide.md`
 - **Design System**: `/docs/technical/design-system/DESIGN_SYSTEM.md`
 - **Brand Guidelines**: `/docs/business/branding/`
 

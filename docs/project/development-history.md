@@ -102,10 +102,10 @@ for historical reference and context.
 
 ## 📚 **REFERENCE LINKS**
 
-- **[Current Implementation Summary](../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md)** - Live project status
-- **[Technical Architecture](ARCHITECTURE.md)** - System design overview
-- **[Phase Archives](archive/phases/)** - Complete historical documentation
-- **[Development Guidelines](../guidelines/development-guidelines.md)** - Current development standards
+- **[Current Implementation Summary](../migrations/codebase-improvement-completion-report.md)** - Live project status
+- **[Technical Architecture](./architecture.md)** - System design overview
+- **[Phase Archives](archive/phases/)** - Complete historical documentation  
+- **[Development Guidelines](../development/guidelines/development-guidelines.md)** - Current development standards
 
 ---
 

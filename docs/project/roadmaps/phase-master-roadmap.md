@@ -187,7 +187,7 @@ docs/
 ├── project/
 │   ├── PHASE_MASTER_ROADMAP.md          ⭐ THIS FILE
 │   ├── FUTURE_PHASES_ROADMAP.md         📋 Detailed Phase 6+ plans
-│   ├── ../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md        ✅ Implementation details
+│   ├── ../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md        ✅ Implementation details
 │   └── archive/                         � Empty - ready for future use
 ├── technical/
 │   ├── PHASE_5_PERFORMANCE_IMPLEMENTATION.md ✅ Performance guide

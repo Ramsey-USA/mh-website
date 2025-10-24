@@ -27,11 +27,11 @@
 
 Successfully updated **30+ file categories** from UPPER_CASE to kebab-case:
 
-- Business files: `SERVICES.md` → `services.md`
-- Technical files: `FEATURES.md` → `features.md`
-- Development files: `FIREBASE_SETUP.md` → `firebase-setup.md`
+- Business files: `services.md` → `services.md`
+- Technical files: `features.md` → `features.md`
+- Development files: `firebase-setup.md` → `firebase-setup.md`
 - Project files: `ARCHITECTURE.md` → `architecture.md`
-- Branding files: `BRAND_OVERVIEW.md` → `brand-overview.md`
+- Branding files: `brand-overview.md` → `brand-overview.md`
 
 ### 2. Cross-Reference Updates ✅
 

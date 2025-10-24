@@ -78,7 +78,7 @@
 
 - **[PHASE_MASTER_ROADMAP.md](./project/roadmaps/phase-master-roadmap.md)** - Complete
   project timeline, status, and future roadmap
-- **[PHASE_CONSOLIDATION_PLAN.md](./project/../archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md)** -
+- **[../archive/completed-phases/../archive/completed-phases/../archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md](./project/../archive/completed-phases/../archive/completed-phases/../archive/completed-phases/../archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md)** -
   Phase organization and consolidation plan
 
 ### **Current Status: ✅ ALL PHASES 1-5 COMPLETE**
@@ -203,7 +203,7 @@ docs/
 └── project/
 ├── ARCHITECTURE.md
 ├── company-profile.md
-├── ../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md
+├── ../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md
 └── archive/
 ├── PAGE_LAYOUT_STANDARDS_SUMMARY.md
 ├── SERVICE-CARDS-LAYOUT-FIX.md
