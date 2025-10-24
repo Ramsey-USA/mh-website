@@ -505,29 +505,42 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Search Bar */}
+            {/* Enhanced Search Bar */}
             <div className="space-y-2 xs:space-y-3 pt-2 border-gray-700 dark:border-gray-600 border-t">
               <div className="mb-2 text-gray-400 dark:text-gray-300 text-xs">
                 Quick Partnership Search
               </div>
-              <div className="relative">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const searchInput = e.currentTarget.querySelector(
+                    "input"
+                  ) as HTMLInputElement;
+                  if (searchInput?.value.trim()) {
+                    window.location.href = `/projects?search=${encodeURIComponent(searchInput.value)}`;
+                  }
+                }}
+                className="relative"
+              >
                 <input
                   type="text"
+                  name="search"
                   placeholder="Search partnership resources..."
                   className="bg-gray-700/50 hover:bg-gray-700 focus:bg-gray-700 dark:bg-gray-600/50 dark:hover:bg-gray-600 dark:focus:bg-gray-600 px-3 xs:px-4 py-2.5 xs:py-3 pr-12 xs:pr-14 border border-gray-600 dark:border-gray-500 focus:border-brand-primary dark:focus:border-brand-primary rounded-lg xs:rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary/20 w-full text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 placeholder-gray-500 dark:placeholder-gray-400 touch-manipulation"
+                  aria-label="Search partnership resources"
                 />
                 <button
                   type="submit"
-                  className="top-1/2 right-1 absolute bg-brand-primary hover:bg-brand-accent p-1.5 rounded-lg text-white hover:scale-105 transition-all -translate-y-1/2 duration-300 transform touch-manipulation"
+                  className="top-1/2 right-1 absolute bg-brand-primary hover:bg-brand-accent p-1.5 rounded-lg text-white hover:scale-105 transition-all -translate-y-1/2 duration-300 transform touch-manipulation group"
                   aria-label="Search"
                 >
                   <MaterialIcon
                     icon="search"
                     size="sm"
-                    className="text-white"
+                    className="text-white group-hover:scale-110 transition-transform"
                   />
                 </button>
-              </div>
+              </form>
               <div className="text-gray-500 dark:text-gray-400 text-xs">
                 Search partnership services, team members, success stories, and
                 more

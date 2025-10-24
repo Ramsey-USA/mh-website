@@ -68,7 +68,7 @@ export function GoogleAnalytics({
 export function useAnalytics() {
   const trackEvent = (
     eventName: string,
-    parameters: Record<string, any> = {},
+    parameters: Record<string, any> = {}
   ) => {
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", eventName, {
@@ -114,7 +114,7 @@ export function useAnalytics() {
 
   const trackEstimateRequest = (
     projectType: string,
-    estimatedValue?: number,
+    estimatedValue?: number
   ) => {
     trackEvent("estimate_request", {
       project_type: projectType,
@@ -134,7 +134,7 @@ export function useAnalytics() {
 
   const trackPortfolioView = (
     projectTitle: string,
-    projectCategory: string,
+    projectCategory: string
   ) => {
     trackEvent("portfolio_view", {
       project_type: projectCategory,
@@ -175,6 +175,159 @@ export function useAnalytics() {
     });
   };
 
+  // Enhanced search tracking events
+  const trackSearchPerformed = (
+    searchQuery: string,
+    searchLocation: string,
+    resultsCount: number,
+    searchType: string = "standard"
+  ) => {
+    trackEvent("site_search", {
+      event_category: "user_engagement",
+      search_term: searchQuery,
+      search_location: searchLocation,
+      results_count: resultsCount,
+      search_type: searchType,
+    });
+  };
+
+  const trackSearchFilterUsed = (
+    filterType: string,
+    filterValue: string,
+    searchQuery?: string
+  ) => {
+    trackEvent("search_filter_used", {
+      event_category: "user_engagement",
+      filter_type: filterType,
+      filter_value: filterValue,
+      search_query: searchQuery || "",
+    });
+  };
+
+  const trackSearchResultClick = (
+    itemId: string,
+    itemType: string,
+    searchQuery: string,
+    resultPosition: number
+  ) => {
+    trackEvent("search_result_click", {
+      event_category: "user_engagement",
+      item_id: itemId,
+      item_type: itemType,
+      search_query: searchQuery,
+      result_position: resultPosition,
+    });
+  };
+
+  const trackSearchViewToggle = (
+    oldView: string,
+    newView: string,
+    searchQuery?: string
+  ) => {
+    trackEvent("search_view_toggle", {
+      event_category: "user_engagement",
+      previous_view: oldView,
+      new_view: newView,
+      search_query: searchQuery || "",
+    });
+  };
+
+  const trackSearchClear = (searchQuery: string, hasFilters: boolean) => {
+    trackEvent("search_cleared", {
+      event_category: "user_engagement",
+      cleared_query: searchQuery,
+      had_filters: hasFilters,
+    });
+  };
+
+  // Enhanced chatbot tracking events
+  const trackChatbotOpen = (source: string, currentPage?: string) => {
+    trackEvent("chatbot_opened", {
+      event_category: "chatbot_engagement",
+      source_location: source,
+      current_page: currentPage || "",
+    });
+  };
+
+  const trackChatbotClose = (sessionDuration: number, messageCount: number) => {
+    trackEvent("chatbot_closed", {
+      event_category: "chatbot_engagement",
+      session_duration: sessionDuration,
+      message_count: messageCount,
+    });
+  };
+
+  const trackChatbotMessage = (
+    messageType: "user" | "bot",
+    messageLength: number,
+    conversationTurn: number,
+    messageContent?: string
+  ) => {
+    trackEvent("chatbot_message", {
+      event_category: "chatbot_engagement",
+      message_type: messageType,
+      message_length: messageLength,
+      conversation_turn: conversationTurn,
+      has_business_keywords: messageContent
+        ? /project|estimate|cost|budget|build|construction/i.test(
+            messageContent
+          )
+        : false,
+    });
+  };
+
+  const trackChatbotLeadGenerated = (
+    leadType: "veteran" | "standard",
+    priority: "low" | "medium" | "high" | "critical",
+    projectType?: string
+  ) => {
+    trackEvent("chatbot_lead_generated", {
+      event_category: "lead_generation",
+      lead_type: leadType,
+      priority_level: priority,
+      project_type: projectType || "unknown",
+    });
+  };
+
+  const trackChatbotFormAssist = (
+    formType: string,
+    assistType: "suggestion" | "completion" | "validation",
+    fieldName?: string
+  ) => {
+    trackEvent("chatbot_form_assist", {
+      event_category: "chatbot_engagement",
+      form_type: formType,
+      assist_type: assistType,
+      field_name: fieldName || "",
+    });
+  };
+
+  const trackChatbotError = (
+    errorType: "ai_response" | "connection" | "validation",
+    errorMessage?: string
+  ) => {
+    trackEvent("chatbot_error", {
+      event_category: "chatbot_errors",
+      error_type: errorType,
+      error_message: errorMessage || "unknown",
+    });
+  };
+
+  const trackChatbotDrag = (fromPosition: string, toPosition: string) => {
+    trackEvent("chatbot_dragged", {
+      event_category: "chatbot_engagement",
+      from_position: fromPosition,
+      to_position: toPosition,
+    });
+  };
+
+  const trackChatbotMinimize = (isMinimized: boolean) => {
+    trackEvent("chatbot_minimize_toggle", {
+      event_category: "chatbot_engagement",
+      is_minimized: isMinimized,
+    });
+  };
+
   return {
     trackEvent,
     trackPageView,
@@ -187,6 +340,19 @@ export function useAnalytics() {
     trackFormSubmission,
     trackPhoneCall,
     trackEmailClick,
+    trackSearchPerformed,
+    trackSearchFilterUsed,
+    trackSearchResultClick,
+    trackSearchViewToggle,
+    trackSearchClear,
+    trackChatbotOpen,
+    trackChatbotClose,
+    trackChatbotMessage,
+    trackChatbotLeadGenerated,
+    trackChatbotFormAssist,
+    trackChatbotError,
+    trackChatbotDrag,
+    trackChatbotMinimize,
   };
 }
 
@@ -196,7 +362,7 @@ export function ScrollDepthTracker() {
     const scrollDepthTracking = () => {
       const scrollDepth = Math.round(
         (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
-          100,
+          100
       );
 
       // Track scroll milestones

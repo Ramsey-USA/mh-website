@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import {
   Button,
@@ -15,6 +15,7 @@ import {
   StaggeredFadeIn,
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
+import { useAnalytics } from "@/components/analytics/enhanced-analytics";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { PortfolioService } from "@/lib/services/portfolioService";
@@ -78,8 +79,41 @@ const capabilities = [
 ];
 
 export default function ProjectsPage() {
+  const { trackSearchPerformed, trackSearchFilterUsed, trackSearchClear } =
+    useAnalytics();
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Initialize search from URL parameters
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get("search");
+    const categoryParam = urlParams.get("category");
+
+    if (searchParam) {
+      setSearchQuery(searchParam);
+    }
+    if (categoryParam && categoryParam !== "all") {
+      setSelectedCategory(categoryParam);
+    }
+  }, []);
+
+  // Update URL when search changes
+  useEffect(() => {
+    const urlParams = new URLSearchParams();
+    if (searchQuery.trim()) {
+      urlParams.set("search", searchQuery);
+    }
+    if (selectedCategory && selectedCategory !== "all") {
+      urlParams.set("category", selectedCategory);
+    }
+
+    const newUrl = urlParams.toString()
+      ? `${window.location.pathname}?${urlParams.toString()}`
+      : window.location.pathname;
+
+    window.history.replaceState({}, "", newUrl);
+  }, [searchQuery, selectedCategory]);
 
   // Get projects based on selected category and search query
   const projects = useMemo(() => {
@@ -109,6 +143,31 @@ export default function ProjectsPage() {
 
     return filteredProjects;
   }, [selectedCategory, searchQuery]);
+
+  // Track search analytics (after projects is defined)
+  useEffect(() => {
+    if (searchQuery.trim()) {
+      const timeoutId = setTimeout(() => {
+        trackSearchPerformed(searchQuery, "projects_page", projects.length);
+      }, 1000); // Debounce tracking
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [searchQuery, projects.length, trackSearchPerformed]);
+
+  // Track category filter usage
+  useEffect(() => {
+    if (selectedCategory && selectedCategory !== "all") {
+      trackSearchFilterUsed("category", selectedCategory, searchQuery);
+    }
+  }, [selectedCategory, searchQuery, trackSearchFilterUsed]);
+
+  // Clear search function with analytics
+  const clearSearch = () => {
+    trackSearchClear(searchQuery, selectedCategory !== "all");
+    setSearchQuery("");
+    setSelectedCategory("all");
+  };
 
   const stats = PortfolioService.getPortfolioStats();
 
@@ -291,8 +350,9 @@ export default function ProjectsPage() {
                 />
                 {searchQuery && (
                   <button
-                    onClick={() => setSearchQuery("")}
+                    onClick={clearSearch}
                     className="top-1/2 right-4 absolute hover:bg-gray-200 dark:hover:bg-gray-600 p-1 rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors -translate-y-1/2 transform"
+                    aria-label="Clear search"
                   >
                     <MaterialIcon icon="close" size="sm" />
                   </button>
@@ -549,7 +609,7 @@ export default function ProjectsPage() {
               <div className="flex sm:flex-row flex-col justify-center gap-4">
                 {searchQuery && (
                   <Button
-                    onClick={() => setSearchQuery("")}
+                    onClick={clearSearch}
                     className="bg-brand-secondary hover:bg-brand-secondary-dark text-white"
                   >
                     <MaterialIcon icon="clear" className="mr-2" size="md" />
@@ -558,8 +618,8 @@ export default function ProjectsPage() {
                 )}
                 <Button
                   onClick={() => {
+                    clearSearch();
                     setSelectedCategory("all");
-                    setSearchQuery("");
                   }}
                   className="bg-brand-primary hover:bg-brand-primary-dark text-white"
                 >
