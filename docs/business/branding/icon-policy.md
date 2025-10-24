@@ -188,7 +188,7 @@ Material Icons work consistently across:
 - [**Color System**](./color-system.md) - Icon color guidelines
 - [**Typography**](./typography.md) - Text and icon pairing
 - [**Implementation Guide**](./implementation-guide.md) - Technical implementation
-- [**Design System**](../technical/DESIGN_SYSTEM.md) - Complete design standards
+- [**Design System**](../../technical/design-system/design-system.md) - Complete design standards
 
 ---
 

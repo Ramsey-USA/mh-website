@@ -12,7 +12,7 @@ Comprehensive design system documentation including typography standards, icons,
 
 **Key Files:**
 
-- `DESIGN_SYSTEM.md` - Complete MH Construction design system standards
+- `design-system.md` - Complete MH Construction design system standards
 - `typography-examples-clean.md` - Typography implementation examples
 
 **Subdirectories:**

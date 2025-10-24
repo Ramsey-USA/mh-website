@@ -55,15 +55,13 @@
   Copy-paste templates for new pages
 - **[page-layout-standards.md](./technical/page-layout-standards.md)** - Complete
   spacing, padding, typography reference
-- **[RESPONSIVE_TESTING_GUIDE.md](./technical/RESPONSIVE_TESTING_GUIDE.md)** -
-  Multi-device testing & responsive design
 
 ### **Design System**
 
-- **[DESIGN_SYSTEM.md](./technical/DESIGN_SYSTEM.md)** - Brand colors, typography, component standards
+- **[design-system.md](./technical/design-system/design-system.md)** - Brand colors, typography, component standards
 - **[terminology-guide.md](./development/terminology-guide.md)** - ⭐ **CRITICAL:**
   "Our Team" vs "Trade Partners" distinction
-- **[MH-BRANDING.md](./business/MH-BRANDING.md)** - Brand guidelines and messaging
+- **[mh-branding.md](./business/mh-branding.md)** - Brand guidelines and messaging
 
 ### **Icon System**
 
@@ -115,7 +113,7 @@
 - **[services.md](./business/services.md)** - Service offerings
 - **[core-values.md](./business/core-values.md)** - Company values
 - **[team-roster.md](./business/team-roster.md)** - Team information
-- **[MH_PARTNERSHIP_MESSAGING_GUIDE.md](./partnerships/messaging/partnership-messaging-guide.md)**
+- **[partnership-messaging-guide.md](./partnerships/messaging/partnership-messaging-guide.md)**
   \- Partnership messaging
 
 ---
@@ -124,13 +122,13 @@
 
 ### **Architecture & Features**
 
-- **[ARCHITECTURE.md](./project/ARCHITECTURE.md)** - System architecture
+- **[architecture.md](./project/architecture.md)** - System architecture
 - **[features.md](./technical/features.md)** - Feature documentation
 - **[company-profile.md](./project/company-profile.md)** - Company profile
 
 ### **Development**
 
-- **[SETUP_GUIDE.md](./development/SETUP_GUIDE.md)** - Development setup
+- **[development-index.md](./development/development-index.md)** - Development setup
 - **[firebase-setup.md](./development/firebase-setup.md)** - Firebase configuration
 - **[vscode-extensions-guide.md](./development/vscode-extensions-guide.md)** - VS Code
   extensions for optimization ⭐ NEW
@@ -139,21 +137,16 @@
 
 ## 📦 Recent Changes
 
-### October 2, 2025
+### October 24, 2025
 
-- ✅ **[PAGE_LAYOUT_STANDARDS_SUMMARY.md](./project/archive/PAGE_LAYOUT_STANDARDS_SUMMARY.md)** -
-  Layout standards extraction
-- ✅ **[SERVICE-CARDS-LAYOUT-FIX.md](./project/archive/SERVICE-CARDS-LAYOUT-FIX.md)** -
-  Bottom-aligned CTAs
+- ✅ **Codebase Cleanup** - Removed outdated reports and config files
+- ✅ **Navigation Fixed** - Updated all broken links and file references  
+- ✅ **Archive Cleanup** - Consolidated historical documentation
 
-### Previous Updates
+### Archive Cleanup Notice
 
-- **[ICON-SPACE-MAXIMIZATION-SUMMARY.md](./project/archive/ICON-SPACE-MAXIMIZATION-SUMMARY.md)** -
-  Icon sizing optimization
-- **[CORE-VALUES-UPDATE-SUMMARY.md](./project/archive/CORE-VALUES-UPDATE-SUMMARY.md)** -
-  Core values refresh
-- **[SOCIAL-MEDIA-UPDATE-SUMMARY.md](./project/archive/SOCIAL-MEDIA-UPDATE-SUMMARY.md)** -
-  Social media updates
+*Previous archive files have been removed as part of codebase cleanup. Historical project summaries  
+and reports that are no longer relevant have been consolidated into current documentation.*
 
 ---
 
@@ -175,7 +168,7 @@
 
 ### Need Design Colors?
 
-1. Check: [DESIGN_SYSTEM.md](./technical/DESIGN_SYSTEM.md) - Color section
+1. Check: [design-system.md](./technical/design-system/design-system.md) - Color section
 2. Brand colors: Hunter Green (#386851), Leather Tan (#BD9264)
 3. Always include dark mode: `dark:bg-gray-900`
 
@@ -183,31 +176,36 @@
 
 ## 📁 Documentation Structure
 
+```
 docs/
-├── README.md (this file) ⭐ Start here
+├── navigation.md (this file) ⭐ Start here
 ├── technical/
-│ ├── page-layout-quick-start.md ⭐ Copy-paste templates
-│ ├── page-layout-standards.md ⭐ Complete reference
-│ ├── DESIGN_SYSTEM.md ⭐ Brand & components
-│ ├── icon-system-quick-reference.md
-│ ├── features.md
-│ └── ARCHITECTURE.md (via project/)
+│   ├── page-layout-quick-start.md ⭐ Copy-paste templates
+│   ├── page-layout-standards.md ⭐ Complete reference  
+│   ├── design-system/
+│   │   └── design-system.md ⭐ Brand & components
+│   ├── icon-system-quick-reference.md
+│   ├── features.md
+│   └── navigation-architecture.md
 ├── business/
-│ ├── services.md
-│ ├── core-values.md
-│ ├── team-roster.md
-│ └── MH-BRANDING.md
+│   ├── services.md
+│   ├── core-values.md
+│   ├── team-roster.md
+│   └── mh-branding.md
 ├── development/
-│ ├── SETUP_GUIDE.md
-│ └── firebase-setup.md
-└── project/
-├── ARCHITECTURE.md
-├── company-profile.md
-├── ../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/IMPLEMENTATION_SUMMARY.md
-└── archive/
-├── PAGE_LAYOUT_STANDARDS_SUMMARY.md
-├── SERVICE-CARDS-LAYOUT-FIX.md
-└── [other summaries]
+│   ├── development-index.md
+│   └── firebase-setup.md
+├── project/
+│   ├── architecture.md
+│   ├── company-profile.md
+│   └── roadmaps/
+│       ├── phase-master-roadmap.md
+│       ├── future-phases-roadmap.md
+│       └── next-steps.md
+└── migrations/
+    └── optimizations/
+        └── complete-optimization-roadmap.md
+```
 
 ---
 
@@ -216,11 +214,11 @@ docs/
 | Task                | Documentation                                                                |
 | ------------------- | ---------------------------------------------------------------------------- |
 | Create new page     | [page-layout-quick-start.md](./technical/page-layout-quick-start.md)         |
-| Style components    | [DESIGN_SYSTEM.md](./technical/DESIGN_SYSTEM.md)                             |
+| Style components    | [design-system.md](./technical/design-system/design-system.md)                             |
 | Add icons           | [icon-system-quick-reference.md](./technical/icon-system-quick-reference.md) |
-| Update branding     | [MH-BRANDING.md](./business/MH-BRANDING.md)                                  |
-| Setup development   | [SETUP_GUIDE.md](./development/SETUP_GUIDE.md)                               |
-| Review architecture | [ARCHITECTURE.md](./project/ARCHITECTURE.md)                                 |
+| Update branding     | [mh-branding.md](./business/mh-branding.md)                                  |
+| Setup development   | [development-index.md](./development/development-index.md)                               |
+| Review architecture | [architecture.md](./project/architecture.md)                                 |
 
 ---
 
@@ -244,5 +242,5 @@ When adding new documentation:
 
 ---
 
-**Last Updated:** October 2, 2025
+**Last Updated:** October 24, 2025
 **Maintained by:** MH Construction Development Team

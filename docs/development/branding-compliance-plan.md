@@ -377,7 +377,7 @@ npm run lint
 
 ### Technical Resources
 
-- **Design System**: `/docs/technical/design-system/DESIGN_SYSTEM.md`
+- **Design System**: `/docs/technical/design-system/design-system.md`
 - **Component Library**: `/src/components/ui/`
 - **Branding Validator**: `/src/lib/content/BrandingValidator.ts`
 

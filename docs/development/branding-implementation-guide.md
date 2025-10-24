@@ -267,7 +267,7 @@ npm run build
 
 ### Technical Documentation
 
-- **Design System**: `/docs/technical/design-system/DESIGN_SYSTEM.md`
+- **Design System**: `/docs/technical/design-system/design-system.md`
 - **Components**: `/src/components/ui/`
 - **Validator**: `/src/lib/content/BrandingValidator.ts`
 

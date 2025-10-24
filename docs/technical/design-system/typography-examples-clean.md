@@ -4,7 +4,7 @@ This document provides concrete examples of the MH Construction typography
 standards in action.
 
 For complete typography standards, see the
-[Design System Documentation](./DESIGN_SYSTEM.md).
+[Design System Documentation](./design-system.md).
 
 ## ✅ Standard Section Header Pattern
 
@@ -70,6 +70,6 @@ When updating existing components:
 
 ## 📚 Related Resources
 
-- [Complete Design System](./DESIGN_SYSTEM.md)
+- [Complete Design System](./design-system.md)
 - [Component Library](/src/components/ui/mh-ui-guide.md)
 - [Contributing Guidelines](/CONTRIBUTING.md)

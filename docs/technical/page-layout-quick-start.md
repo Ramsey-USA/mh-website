@@ -234,7 +234,7 @@ For complete details, see:
 
 - **[page-layout-standards.md](./page-layout-standards.md)** - Complete
   reference with full responsive guide
-- **[DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)** - Brand guidelines
+- **[design-system.md](./design-system/design-system.md)** - Brand guidelines
 - **Home Page Source:** `src/app/page.tsx` - Live examples
 
 ---

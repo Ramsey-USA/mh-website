@@ -422,7 +422,7 @@ are now integrated into each page's layout.
 
 ---
 
-**Questions?** Contact the development team or reference the MH-BRANDING.md file
+**Questions?** Contact the development team or reference the mh-branding.md file
 for detailed implementation examples.
 
 ---
@@ -475,6 +475,6 @@ spacing and styling:
 
 - **Complete Implementation:** `development-guidelines.md` (this file)
 - **Layout Standards:** `LAYOUT_STANDARDS_COMPLETE.md`
-- **Brand Guidelines:** `docs/business/MH-BRANDING.md`
+- **Brand Guidelines:** `docs/business/mh-branding.md`
 - **Update Summary:** `UI_COMPONENT_STANDARDS_UPDATE.md`
 ````

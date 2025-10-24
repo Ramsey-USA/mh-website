@@ -42,7 +42,7 @@ maintain a single, optimized implementation.
 - Added hover optimization improvements
 - Included technical optimization details
 
-### 2. DESIGN_SYSTEM.md
+### 2. design-system.md
 
 **Status**: ✅ UPDATED
 
@@ -70,7 +70,7 @@ docs/
 ├── development/
 │ └── team-card-hover-fix.md # ✅ Current vintage card fixes
 ├── technical/
-│ └── DESIGN_SYSTEM.md # ✅ Updated to vintage component
+│ └── design-system.md # ✅ Updated to vintage component
 └── ...
 
 OPTIMIZATION_TRACKER.md # ✅ Updated to vintage component
@@ -85,7 +85,7 @@ OPTIMIZATION_TRACKER.md # ✅ Updated to vintage component
 ### Documentation References
 
 - **OPTIMIZATION_TRACKER.md**: Updated to `VintageBaseballCard` ✅
-- **DESIGN_SYSTEM.md**: Updated imports and CSS classes ✅
+- **design-system.md**: Updated imports and CSS classes ✅
 - **Team profiles**: Reference vintage baseball card data ✅
 
 ### CSS Files

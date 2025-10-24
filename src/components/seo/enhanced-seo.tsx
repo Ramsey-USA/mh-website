@@ -647,11 +647,17 @@ export function generateLocalBusinessSchema() {
 export function StructuredData({ data }: { data: object | object[] }) {
   const schemaData = Array.isArray(data) ? data : [data];
 
+  // Sanitize JSON data for security
+  const sanitizedData = JSON.stringify(schemaData).replace(
+    /<\/script/gi,
+    "<\\/script"
+  );
+
   return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(schemaData),
+        __html: sanitizedData,
       }}
     />
   );

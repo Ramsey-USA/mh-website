@@ -798,9 +798,8 @@ Keep extensions updated for best performance:
 
 ## 🔗 Related Documentation
 
-- [Responsive Testing Guide](../technical/RESPONSIVE_TESTING_GUIDE.md)
 - [Page Layout Standards](../technical/page-layout-standards.md)
-- [Design System](../technical/DESIGN_SYSTEM.md)
+- [Design System](../technical/design-system/design-system.md)
 - [Firebase Setup](../development/firebase-setup.md)
 
 ---

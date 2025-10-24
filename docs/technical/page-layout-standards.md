@@ -655,9 +655,9 @@ When creating a new page, ensure:
 
 ## 📚 Related Documentation
 
-- **[DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)** - Complete design system
+- **[design-system.md](./design-system/design-system.md)** - Complete design system
 - **[icon-system-quick-reference.md](./icon-system-quick-reference.md)** - Icon usage
-- **[MH-BRANDING.md](../business/MH-BRANDING.md)** - Brand guidelines
+- **[mh-branding.md](../business/mh-branding.md)** - Brand guidelines
 - **[features.md](./features.md)** - Feature documentation
 
 ---

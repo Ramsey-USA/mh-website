@@ -663,7 +663,7 @@ src/
 
 ## 📚 Documentation
 
-**📖 [Complete Documentation Index](./docs/MANIFEST.md)** - Navigate all project documentation
+**📖 [Complete Documentation Index](./docs/navigation.md)** - Navigate all project documentation
 
 ### Quick Access
 
@@ -689,11 +689,11 @@ src/
 
 - **[Platform Features](./docs/technical/features.md)** - Complete platform capabilities,
   PWA features, and technical highlights
-- **[Design System](./docs/technical/DESIGN_SYSTEM.md)** - Brand colors, typography, and
+- **[Design System](./docs/technical/design-system/design-system.md)** - Brand colors, typography, and
   component standards
 - **[Button System](./docs/technical/design-system/buttons/button-system.md)** - Cohesive button implementation with
   icon integration and accessibility
-- **[Technical Architecture](./docs/project/ARCHITECTURE.md)** - Complete system architecture
+- **[Technical Architecture](./docs/project/architecture.md)** - Complete system architecture
   and technical details
 
 ### Development Information
@@ -703,7 +703,7 @@ src/
 
 ### Project Information
 
-- **[Implementation Summary](./docs/archive/redundant-reports/IMPLEMENTATION_SUMMARY.md)** -
+- **[Implementation Summary](./docs/migrations/codebase-improvement-completion-report.md)** -
   Complete feature implementation status and updates
 - **[Project Changelog](./docs/project/changelog.md)** - Version history and updates archive
 

@@ -336,10 +336,8 @@ All CTAs now use approved action-based language:
 
 ### Updated Planning Documents
 
-- [../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/CTA_BRANDING_UPDATE_PHASES.md](./../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/CTA_BRANDING_UPDATE_PHASES.md)
-  - Complete 6-phase plan
-- [../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/CTA_REVIEW_SUMMARY.md](./../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/../archive/redundant-reports/CTA_REVIEW_SUMMARY.md)
-  - Executive summary of findings
+*Historical planning documents and review summaries have been consolidated into current documentation.*
+
 - [cta-quick-reference.md](./cta-quick-reference.md) - Quick reference for standards
 
 ### Branding Standards Reference
@@ -430,4 +428,4 @@ across all documentation.
 **Version:** 1.0  
 **Status:** ✅ Complete
 
-_For questions or clarifications, contact the development team at <office@mhc-gc.com>_
+*For questions or clarifications, contact the development team at <office@mhc-gc.com>*

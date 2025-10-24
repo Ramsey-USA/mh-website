@@ -370,7 +370,7 @@ When implementing new sections or components:
 - [Mobile Quick Reference](/docs/technical/design-system/mobile-quick-reference.md) - Developer quick reference
 - [Typography Examples](/docs/technical/design-system/typography-examples-clean.md)
 - [Component Library](/src/components/ui/mh-ui-guide.md)
-- [Brand Guidelines](/docs/business/brand-guidelines.md)
+- [Brand Guidelines](/docs/business/mh-branding.md)
 
 ## 🔄 Updates & Maintenance
 

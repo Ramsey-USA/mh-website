@@ -141,10 +141,16 @@ export function generateSEOMetadata({
 
 // Component for adding structured data
 export function StructuredData({ data }: { data: object }) {
+  // Sanitize JSON data for security
+  const sanitizedData = JSON.stringify(data).replace(
+    /<\/script/gi,
+    "<\\/script"
+  );
+
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: sanitizedData }}
     />
   );
 }
