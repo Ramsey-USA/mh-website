@@ -244,32 +244,41 @@ export default function TradePartnersPage() {
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-[100dvh] sm:min-h-screen flex items-center justify-center text-white">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 sm:py-0">
+          <div className="space-y-6 sm:space-y-8">
             {/* Subtitle First - MH Branding Standard */}
-            <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 font-medium tracking-wide">
               Collaborative Construction Network
             </p>
 
             {/* Main Title with Proper Gradient */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight tracking-tight">
               <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent drop-shadow-lg">
                 Our Trade Partners
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+            <p className="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 leading-relaxed">
               Building Excellence Together
             </p>
 
+            {/* Primary Tagline */}
+            <div className="max-w-4xl mx-auto">
+              <div className="inline-block bg-black/30 backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 rounded-lg border border-white/20">
+                <p className="text-base sm:text-lg md:text-xl font-semibold bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white text-transparent">
+                  Building for the Owner, NOT the Dollar
+                </p>
+              </div>
+            </div>
+
             {/* Description */}
-            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+            <p className="max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
               MH Construction succeeds because of our exceptional trade
               partners. We're grateful for the skilled subcontractors and
               reliable vendors who help us deliver outstanding results on every

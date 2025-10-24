@@ -46,13 +46,13 @@ export const ValueRenderer: React.FC<ValueRendererProps> = ({
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i].trim();
 
-      // Look for main value sections (## 🔍 1. format)
-      if (line.match(/^## [🔍⚖️🎯🤝🎛️🛡️] \d+\. /)) {
+      // Look for main value sections (## icon number format)
+      if (line.match(/^## [^\s]+ \d+\. /)) {
         if (currentValue && currentValue.title) {
           values.push(currentValue as CoreValue);
         }
 
-        const titleMatch = line.match(/^## [🔍⚖️🎯🤝🎛️🛡️] \d+\. (.+)/);
+        const titleMatch = line.match(/^## [^\s]+ \d+\. (.+)/);
         const title = titleMatch ? titleMatch[1].trim() : "";
 
         currentValue = {

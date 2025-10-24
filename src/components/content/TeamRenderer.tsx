@@ -36,13 +36,16 @@ export const TeamRenderer: React.FC<TeamRendererProps> = ({
       const line = lines[i].trim();
 
       // Look for category headers
-      if (line.startsWith("## ") && line.includes("🎖️")) {
+      if (line.startsWith("## ") && line.includes("Executive Leadership")) {
         currentCategory = "Executive Leadership";
-      } else if (line.startsWith("## ") && line.includes("🏗️")) {
+      } else if (
+        line.startsWith("## ") &&
+        line.includes("Project Management")
+      ) {
         currentCategory = "Project Management";
-      } else if (line.startsWith("## ") && line.includes("🔧")) {
+      } else if (line.startsWith("## ") && line.includes("Field Operations")) {
         currentCategory = "Field Operations";
-      } else if (line.startsWith("## ") && line.includes("🤝")) {
+      } else if (line.startsWith("## ") && line.includes("Client Relations")) {
         currentCategory = "Client Relations";
       }
 
@@ -117,7 +120,7 @@ export const TeamRenderer: React.FC<TeamRendererProps> = ({
       acc[member.category].push(member);
       return acc;
     },
-    {} as Record<string, TeamMember[]>,
+    {} as Record<string, TeamMember[]>
   );
 
   return (
@@ -140,7 +143,12 @@ export const TeamRenderer: React.FC<TeamRendererProps> = ({
       {Object.entries(groupedMembers).map(([category, members]) => (
         <div key={category} className="mb-12">
           <h2 className="text-3xl font-bold text-primary mb-8 text-center">
-            {getCategoryIcon(category)} {category}
+            <MaterialIcon
+              icon={getCategoryIcon(category)}
+              size="lg"
+              className="inline mr-2 text-primary"
+            />
+            {category}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -266,15 +274,15 @@ export const TeamRenderer: React.FC<TeamRendererProps> = ({
 function getCategoryIcon(category: string): string {
   switch (category) {
     case "Executive Leadership":
-      return "🎖️";
+      return "military_tech";
     case "Project Management":
-      return "🏗️";
+      return "construction";
     case "Field Operations":
-      return "🔧";
+      return "engineering";
     case "Client Relations":
-      return "🤝";
+      return "handshake";
     default:
-      return "👥";
+      return "groups";
   }
 }
 

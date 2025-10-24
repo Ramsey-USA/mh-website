@@ -140,32 +140,39 @@ export default function ContactPage() {
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-[100dvh] sm:min-h-screen flex items-center justify-center text-white">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 sm:py-0">
+          <div className="space-y-6 sm:space-y-8">
+            {/* Primary Tagline - MH Branding Standard */}
+            <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-xl">
+              <p className="text-base sm:text-lg md:text-xl font-semibold text-brand-secondary tracking-wide">
+                "Building for the Owner, NOT the Dollar"
+              </p>
+            </div>
+
             {/* Subtitle First - MH Branding Standard */}
-            <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 font-medium tracking-wide">
               Strategic Construction Management Consultation
             </p>
 
             {/* Main Title with Proper Gradient */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight tracking-tight">
               <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent drop-shadow-lg">
                 Let's Start Our Partnership
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+            <p className="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 leading-relaxed">
               Connect with Your Partnership Team
             </p>
 
             {/* Description */}
-            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+            <p className="max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
               Experience the difference true collaboration makes. Begin our
               conversation with your partnership-focused team for a strategic
               consultation, detailed project estimate, and construction
@@ -186,15 +193,15 @@ export default function ContactPage() {
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-16 text-center">
-              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+              <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+                <span className="text-gray-700 dark:text-gray-300">
                   Begin Our
-                </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                </span>{" "}
+                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
                   Conversation
                 </span>
               </h2>
-              <p className="font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+              <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed">
                 Multiple ways to connect with your partnership-focused
                 construction team
               </p>

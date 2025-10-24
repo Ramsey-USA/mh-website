@@ -57,9 +57,9 @@
 
 ````css
 :root {
-  --color-primary: #1976D2;
-  --color-secondary: #1E88E5;
-  --color-accent: #42A5F5;
+  --color-primary: #386851;        /* Hunter Green */
+  --color-secondary: #BD9264;      /* Leather Tan */
+  --color-accent: #2F5D45;         /* Forest Green */
   --color-text-primary: #212121;
   --color-background: #FFFFFF;
 }
@@ -76,10 +76,13 @@
 module.exports = {
   theme: {
     colors: {
-      primary: {
-        DEFAULT: '#1976D2',
-        light: '#1E88E5',
-        lighter: '#42A5F5'
+      brand: {
+        primary: '#386851',           /* Hunter Green */
+        'primary-light': '#4a7a63',
+        'primary-dark': '#2d5240',
+        secondary: '#BD9264',         /* Leather Tan */
+        'secondary-light': '#c9a176',
+        'secondary-dark': '#a67d52'
       }
     }
   }

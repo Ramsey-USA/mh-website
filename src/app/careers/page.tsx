@@ -195,7 +195,7 @@ export default function CareersPage() {
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-[100dvh] sm:min-h-screen flex items-center justify-center text-white">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
@@ -218,6 +218,15 @@ export default function CareersPage() {
             <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
               Build Your Career with MH Construction
             </p>
+
+            {/* Primary Tagline */}
+            <div className="max-w-4xl mx-auto">
+              <div className="inline-block bg-black/30 backdrop-blur-sm px-6 py-3 rounded-lg border border-white/20">
+                <p className="text-lg md:text-xl font-semibold bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white text-transparent">
+                  Building for the Owner, NOT the Dollar
+                </p>
+              </div>
+            </div>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">

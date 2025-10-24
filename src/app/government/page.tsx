@@ -270,7 +270,7 @@ export default function GovernmentGrantsPage() {
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 min-h-[100dvh] sm:min-h-screen flex items-center justify-center text-white">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-700/30 via-gray-900/80 to-gray-600/20"></div>
 
@@ -294,6 +294,15 @@ export default function GovernmentGrantsPage() {
               Expert Construction Support for Federal, State, and Local Grant
               Applications
             </p>
+
+            {/* Primary Tagline */}
+            <div className="max-w-4xl mx-auto">
+              <div className="inline-block bg-black/30 backdrop-blur-sm px-6 py-3 rounded-lg border border-white/20">
+                <p className="text-lg md:text-xl font-semibold bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white text-transparent">
+                  Building for the Owner, NOT the Dollar
+                </p>
+              </div>
+            </div>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
