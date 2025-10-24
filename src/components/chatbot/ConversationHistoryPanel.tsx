@@ -52,13 +52,13 @@ const ConversationHistoryPanel = memo(
     return (
       <div className="absolute inset-0 bg-white dark:bg-gray-800 z-10 flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-800 to-blue-900 dark:from-blue-700 dark:to-blue-800 p-3 text-white">
+        <div className="bg-gradient-to-r from-brand-primary to-brand-accent dark:from-brand-primary dark:to-brand-accent p-3 text-white">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2">
               <MaterialIcon
                 icon="history"
                 size="md"
-                className="text-blue-300"
+                className="text-brand-light"
               />
               <h3 className="font-bold text-lg">Conversation History</h3>
             </div>

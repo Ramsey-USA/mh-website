@@ -110,7 +110,7 @@ export function GlobalChatbot({
       id: "welcome",
       type: "bot",
       content:
-        "**General MH** reporting for duty! 🎖️\n\nI'm your **AI construction intelligence officer**, ready to provide **tactical guidance** on your building missions. Whether you need:\n\n• **Reconnaissance** on materials and costs\n• **Strategic planning** for timelines\n• **Intel** on veteran benefits\n• **Mission briefing** on project scope\n\n**What's your construction objective today, soldier?**",
+        "**Welcome to MH Construction** - where we're **Building for the Owner, NOT the Dollar!**\n\nI'm your **AI Construction Intelligence** system, powered by **military precision** and **veteran-owned excellence**. Here to assist with:\n\n• **Partnership Planning** - Let's build together\n• **Project Intelligence** - Cost, timeline, and scope guidance\n• **Veteran Services** - Specialized support for our fellow veterans\n• **Expert Consultation** - Professional construction guidance\n\n**Licensed in WA, OR, ID** | **Tri-Cities & Pacific Northwest**\n\n**How can we serve your construction mission today?**",
       timestamp: new Date(),
       metadata: { priority: "high" },
     },
@@ -568,7 +568,7 @@ export function GlobalChatbot({
             { message: userMessage }
           );
 
-          response = `**[VETERAN PRIORITY PROTOCOL ACTIVATED]** 🇺🇸\n\n${militaryConstructionAI.getLeadQualificationGuidance(userMessage, pageContext)}\n\n**VETERAN SUPPORT SERVICES:**\n• ${veteranPriority.supportServices.join("\n• ")}\n\n**EXPEDITED PROCESSING:** ${veteranPriority.expeditedTimeline ? "ACTIVE" : "STANDARD"}\n\n---\n**Thank you for your service! Your project has been prioritized.**`;
+          response = `**[VETERAN PRIORITY PROTOCOL ACTIVATED]**\n\n${militaryConstructionAI.getLeadQualificationGuidance(userMessage, pageContext)}\n\n**VETERAN SUPPORT SERVICES:**\n• ${veteranPriority.supportServices.join("\n• ")}\n\n**EXPEDITED PROCESSING:** ${veteranPriority.expeditedTimeline ? "ACTIVE" : "STANDARD"}\n\n---\n**Thank you for your service! Your project has been prioritized.**`;
 
           // Track veteran lead
           trackChatbotLeadGenerated(
@@ -611,7 +611,7 @@ export function GlobalChatbot({
           userMessage.toLowerCase().includes("search") ||
           userMessage.toLowerCase().includes("find")
         ) {
-          response += `\n\n💡 **Pro Tip:** Use our advanced search on the projects page to find specific examples of our work. Just press Ctrl+K to quick-search anywhere on the site!`;
+          response += `\n\n**Pro Tip:** Use our advanced search on the projects page to find specific examples of our work. Just press Ctrl+K to quick-search anywhere on the site!`;
         }
 
         return response;
@@ -838,13 +838,24 @@ export function GlobalChatbot({
     }
   }, [isDragging, handleMouseMove, handleMouseUp]);
 
-  // Position management
+  // Position management with mobile responsiveness
   useEffect(() => {
     const updatePosition = () => {
       if (!isDragging) {
+        const isMobile = window.innerWidth <= 640; // Tailwind's sm breakpoint
+        const chatbotWidth = isMobile
+          ? Math.min(window.innerWidth - 32, 360)
+          : 400; // Responsive width
+        const padding = isMobile ? 16 : 24; // Smaller padding on mobile
+
         setPosition({
-          x: window.innerWidth - 424, // 400px width + 24px padding
-          y: window.innerHeight - (isOpen ? 624 : 104), // height + padding
+          x: isMobile ? padding : window.innerWidth - chatbotWidth - padding,
+          y:
+            window.innerHeight -
+            (isOpen
+              ? (isMobile ? Math.min(window.innerHeight - 100, 500) : 624) +
+                padding
+              : 104), // Responsive height
         });
       }
     };
@@ -858,24 +869,32 @@ export function GlobalChatbot({
   const quickActions = useMemo(
     () => [
       {
-        label: "Get Estimate",
-        icon: "calculate",
-        action: () => setInputValue("I need a project estimate"),
+        label: "Get Partnership Estimate",
+        icon: "handshake",
+        action: () =>
+          setInputValue(
+            "I'd like to explore a construction partnership and get an estimate"
+          ),
       },
       {
-        label: "View Services",
-        icon: "build",
-        action: () => setInputValue("What services do you offer?"),
+        label: "Our Services",
+        icon: "construction",
+        action: () =>
+          setInputValue("What construction services does MH offer?"),
       },
       {
         label: "Veteran Benefits",
         icon: "military_tech",
-        action: () => setInputValue("What veteran benefits are available?"),
+        action: () =>
+          setInputValue("What special services do you offer for veterans?"),
       },
       {
         label: "Schedule Consultation",
-        icon: "calendar_today",
-        action: () => setInputValue("I'd like to schedule a consultation"),
+        icon: "event",
+        action: () =>
+          setInputValue(
+            "I'd like to schedule a free consultation with MH Construction"
+          ),
       },
     ],
     []
@@ -885,38 +904,40 @@ export function GlobalChatbot({
   if (!isOpen) {
     return (
       <div
-        ref={chatbotRef}
-        className="z-50 fixed cursor-move"
-        style={{
-          right: `${24}px`,
-          bottom: `${24}px`,
-        }}
+        className="z-40 fixed bottom-24 right-6 sm:bottom-28 sm:right-8"
         onMouseDown={handleMouseDown}
       >
-        <Button
+        <div
+          className="cursor-pointer group transform hover:scale-110 transition-all duration-500 ease-out relative"
           onClick={(e) => {
             e.stopPropagation();
             handleChatbotToggle(true);
           }}
-          className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 shadow-2xl p-4 rounded-full text-white hover:scale-110 transition-all duration-300 transform touch-manipulation group"
           aria-label="Open MH Construction AI Assistant"
-          size="lg"
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              handleChatbotToggle(true);
+            }
+          }}
         >
-          <div className="relative">
-            <MaterialIcon
-              icon="smart_toy"
-              size="xl"
-              className="text-white group-hover:animate-pulse"
-            />
-            <div className="top-0 right-0 absolute bg-green-400 rounded-full w-3 h-3 animate-ping"></div>
-            <div className="top-0 right-0 absolute bg-green-500 rounded-full w-3 h-3"></div>
-          </div>
-        </Button>
+          {/* Tan glow effect background */}
+          <div className="absolute inset-0 bg-brand-secondary rounded-full blur-xl opacity-0 group-hover:opacity-60 transition-all duration-500 scale-150 animate-pulse-slow" />
 
-        {/* Tooltip */}
-        <div className="bottom-full right-0 absolute bg-gray-900 mb-2 px-3 py-2 rounded-lg text-white text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-          General MH - AI Assistant
-          <div className="top-full right-4 absolute border-l-transparent border-r-transparent border-t-gray-900 border-4"></div>
+          {/* Large icon without container */}
+          <MaterialIcon
+            icon="smart_toy"
+            size="3xl"
+            className="relative text-brand-primary group-hover:text-brand-secondary transition-all duration-500 drop-shadow-2xl group-hover:drop-shadow-[0_0_25px_rgba(189,146,100,0.6)] filter group-hover:brightness-110"
+          />
+        </div>
+
+        {/* Enhanced Tooltip with brand colors */}
+        <div className="bottom-full right-0 absolute bg-gradient-to-r from-brand-primary to-brand-accent mb-4 px-5 py-3 rounded-xl text-white text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none hidden sm:block shadow-2xl border border-brand-secondary/30 backdrop-blur-sm">
+          MH Construction - AI Assistant
+          <div className="top-full right-6 absolute border-l-transparent border-r-transparent border-t-brand-primary border-4"></div>
         </div>
       </div>
     );
@@ -926,21 +947,18 @@ export function GlobalChatbot({
   return (
     <div
       ref={chatbotRef}
-      className="z-50 fixed"
-      style={{
-        right: `${24}px`,
-        bottom: `${24}px`,
-        width: "400px",
-        height: isMinimized ? "60px" : "600px",
-      }}
-      onMouseDown={handleMouseDown}
+      className="z-50 fixed bottom-16 right-4 sm:bottom-20 sm:right-6 w-[380px] sm:w-[450px] max-w-[calc(100vw-2rem)] h-[550px] sm:h-[650px] max-h-[calc(100vh-8rem)] animate-scale-in"
       role="dialog"
       aria-labelledby="chatbot-title"
       aria-describedby="chatbot-description"
       aria-modal="true"
       aria-live="polite"
     >
-      <Card className="flex flex-col bg-white dark:bg-gray-800 shadow-2xl border-2 border-green-700/20 dark:border-green-500/20 h-full overflow-hidden transition-all duration-300 relative">
+      <Card className="flex flex-col bg-gradient-to-br from-white via-white to-brand-light/10 dark:from-gray-800 dark:via-gray-800 dark:to-brand-dark/10 shadow-2xl border-3 border-brand-secondary/40 dark:border-brand-secondary/50 h-full transition-all duration-300 relative rounded-2xl overflow-hidden backdrop-blur-sm">
+        {/* Decorative corner accent */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-brand-secondary/20 to-transparent rounded-bl-full pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-brand-primary/10 to-transparent rounded-tr-full pointer-events-none" />
+
         {/* Conversation History Panel */}
         <ConversationHistoryPanel
           history={conversationHistory}
@@ -953,37 +971,51 @@ export function GlobalChatbot({
         {/* Skip link for accessibility */}
         <a
           href="#chatbot-input"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-green-600 text-white px-3 py-1 rounded z-10"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-brand-primary text-white px-3 py-1 rounded z-10"
         >
           Skip to chat input
         </a>
 
-        {/* Header - Always visible */}
-        <CardHeader className="bg-gradient-to-r from-green-800 to-green-900 dark:from-green-700 dark:to-green-800 p-3 text-white cursor-move drag-handle">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-3">
+        {/* Header - Always visible with enhanced design */}
+        <CardHeader className="bg-gradient-to-r from-brand-primary via-brand-accent to-brand-primary dark:from-brand-primary dark:via-brand-accent dark:to-brand-primary px-5 py-4 text-white shadow-xl flex-shrink-0 relative overflow-hidden rounded-t-2xl">
+          {/* Animated background pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
+          </div>
+
+          <div className="flex justify-between items-center relative z-10">
+            <div className="flex items-center space-x-3 min-w-0 flex-1">
               <div className="relative">
                 <MaterialIcon
                   icon="smart_toy"
-                  size="lg"
-                  className="text-green-300"
+                  size="md"
+                  className="text-white w-8 h-8 flex-shrink-0 drop-shadow-lg"
                 />
-                <div
-                  className="-top-1 -right-1 absolute bg-green-400 rounded-full w-3 h-3 animate-pulse"
-                  aria-hidden="true"
-                ></div>
+                {/* Status indicator */}
+                <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white animate-pulse" />
               </div>
-              <div>
-                <h3 id="chatbot-title" className="font-bold text-lg">
-                  General MH
+              <div className="min-w-0 flex-1">
+                <h3
+                  id="chatbot-title"
+                  className="font-bold text-xl truncate text-shadow-lg"
+                >
+                  MH Assistant
                 </h3>
-                <p id="chatbot-description" className="opacity-90 text-sm">
-                  AI Construction Officer
+                <p
+                  id="chatbot-description"
+                  className="opacity-95 text-sm truncate font-semibold flex items-center gap-1"
+                >
+                  <MaterialIcon
+                    icon="military_tech"
+                    size="sm"
+                    className="w-4 h-4"
+                  />
+                  AI Construction Intelligence
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center space-x-1">
+            <div className="flex items-center space-x-2 flex-shrink-0">
               <Button
                 variant="ghost"
                 size="sm"
@@ -991,11 +1023,11 @@ export function GlobalChatbot({
                   e.stopPropagation();
                   handleHistoryToggle();
                 }}
-                className="hover:bg-white/20 p-0 w-8 h-8 text-white transition-colors"
+                className="hover:bg-white/30 p-2.5 w-10 h-10 text-white transition-all duration-300 touch-manipulation rounded-xl backdrop-blur-sm shadow-lg hover:shadow-xl hover:scale-110"
                 aria-label="View conversation history"
                 title="Conversation History"
               >
-                <MaterialIcon icon="history" size="sm" />
+                <MaterialIcon icon="history" size="sm" className="w-5 h-5" />
               </Button>
 
               <Button
@@ -1005,13 +1037,21 @@ export function GlobalChatbot({
                   e.stopPropagation();
                   handleMinimizeToggle();
                 }}
-                className="hover:bg-white/20 p-0 w-8 h-8 text-white transition-colors"
+                className="hover:bg-white/30 p-2.5 w-10 h-10 text-white transition-all duration-300 touch-manipulation rounded-xl backdrop-blur-sm shadow-lg hover:shadow-xl hover:scale-110"
                 aria-label={isMinimized ? "Expand chat" : "Minimize chat"}
               >
                 {isMinimized ? (
-                  <MaterialIcon icon="open_in_full" size="sm" />
+                  <MaterialIcon
+                    icon="open_in_full"
+                    size="sm"
+                    className="w-5 h-5"
+                  />
                 ) : (
-                  <MaterialIcon icon="close_fullscreen" size="sm" />
+                  <MaterialIcon
+                    icon="close_fullscreen"
+                    size="sm"
+                    className="w-5 h-5"
+                  />
                 )}
               </Button>
 
@@ -1022,10 +1062,10 @@ export function GlobalChatbot({
                   e.stopPropagation();
                   handleChatbotToggle(false);
                 }}
-                className="hover:bg-white/20 p-0 w-8 h-8 text-white transition-colors"
+                className="hover:bg-red-500/30 p-2.5 w-10 h-10 text-white transition-all duration-300 touch-manipulation rounded-xl backdrop-blur-sm shadow-lg hover:shadow-xl hover:scale-110"
                 aria-label="Close chat"
               >
-                <MaterialIcon icon="close" size="sm" />
+                <MaterialIcon icon="close" size="sm" className="w-5 h-5" />
               </Button>
             </div>
           </div>
@@ -1033,31 +1073,10 @@ export function GlobalChatbot({
 
         {/* Chat Content - Hidden when minimized */}
         {!isMinimized && (
-          <>
-            {/* Quick Actions */}
-            {messages.length === 1 && (
-              <div className="bg-green-50 dark:bg-green-900/20 p-3 border-b border-green-200 dark:border-green-700">
-                <p className="mb-2 text-green-800 dark:text-green-300 text-sm font-medium">
-                  Quick Actions:
-                </p>
-                <div className="gap-2 grid grid-cols-2">
-                  {quickActions.map((action, index) => (
-                    <button
-                      key={index}
-                      onClick={action.action}
-                      className="flex items-center justify-center space-x-1 bg-white dark:bg-gray-700 hover:bg-green-100 dark:hover:bg-green-800 p-2 border border-green-200 dark:border-green-600 rounded-lg text-green-700 dark:text-green-300 text-xs transition-colors"
-                    >
-                      <MaterialIcon icon={action.icon} size="sm" />
-                      <span>{action.label}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Messages */}
+          <div className="flex flex-col flex-1 overflow-hidden relative z-10">
+            {/* Messages with enhanced background */}
             <div
-              className="flex-1 space-y-4 bg-gray-50 dark:bg-gray-900 p-4 overflow-y-auto chat-content"
+              className="flex-1 space-y-4 bg-gradient-to-b from-white via-brand-light/5 to-white dark:from-gray-900 dark:via-brand-dark/5 dark:to-gray-900 p-4 overflow-y-scroll chat-content border-t-2 border-brand-secondary/20 dark:border-brand-secondary/30 h-0"
               role="log"
               aria-live="polite"
               aria-label="Chat conversation"
@@ -1083,27 +1102,30 @@ export function GlobalChatbot({
                 />
               ))}
 
-              {/* Enhanced Typing Indicator */}
+              {/* Enhanced Typing Indicator with bronze accent */}
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="bg-white dark:bg-gray-800 shadow-sm p-3 border border-gray-200 dark:border-gray-700 rounded-lg">
-                    <div className="flex items-center space-x-2">
-                      <MaterialIcon
-                        icon="smart_toy"
-                        size="sm"
-                        className="text-green-600"
-                      />
-                      <span className="text-gray-600 dark:text-gray-400 text-sm">
-                        General MH is analyzing...
+                  <div className="bg-gradient-to-br from-white to-brand-light/30 dark:from-gray-800 dark:to-brand-dark/30 shadow-lg p-3 sm:p-4 border-2 border-brand-secondary/30 dark:border-brand-secondary/40 rounded-xl backdrop-blur-sm">
+                    <div className="flex items-center space-x-3">
+                      <div className="relative">
+                        <MaterialIcon
+                          icon="smart_toy"
+                          size="sm"
+                          className="text-brand-secondary w-5 h-5"
+                        />
+                        <div className="absolute inset-0 bg-brand-secondary/20 rounded-full blur-sm animate-pulse" />
+                      </div>
+                      <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base font-semibold">
+                        MH Assistant is analyzing...
                       </span>
                       <div className="flex space-x-1">
-                        <div className="bg-green-400 rounded-full w-2 h-2 animate-bounce"></div>
+                        <div className="bg-brand-secondary rounded-full w-2 h-2 sm:w-2.5 sm:h-2.5 animate-bounce shadow-lg"></div>
                         <div
-                          className="bg-green-400 rounded-full w-2 h-2 animate-bounce"
+                          className="bg-brand-primary rounded-full w-2 h-2 sm:w-2.5 sm:h-2.5 animate-bounce shadow-lg"
                           style={{ animationDelay: "0.1s" }}
                         ></div>
                         <div
-                          className="bg-green-400 rounded-full w-2 h-2 animate-bounce"
+                          className="bg-brand-secondary rounded-full w-2 h-2 sm:w-2.5 sm:h-2.5 animate-bounce shadow-lg"
                           style={{ animationDelay: "0.2s" }}
                         ></div>
                       </div>
@@ -1115,23 +1137,12 @@ export function GlobalChatbot({
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Quick Action Menu */}
-            {showQuickActions &&
-              messages.length === 1 &&
-              !isTyping &&
-              !inputValue.trim() && (
-                <div className="px-4">
-                  <QuickActionMenu
-                    onActionSelect={handleQuickActionSelect}
-                    isVisible={true}
-                    currentPage={currentPage}
-                  />
-                </div>
-              )}
+            {/* Enhanced Input Area with gradient and improved styling */}
+            <div className="bg-gradient-to-r from-gray-50 via-brand-light/10 to-gray-50 dark:from-gray-800 dark:via-brand-dark/10 dark:to-gray-800 p-4 border-t-2 border-brand-secondary/30 dark:border-brand-secondary/40 flex-shrink-0 relative backdrop-blur-sm">
+              {/* Subtle top highlight */}
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-secondary/50 to-transparent" />
 
-            {/* Enhanced Input Area */}
-            <div className="bg-white dark:bg-gray-800 p-4 border-t border-gray-200 dark:border-gray-700">
-              <div className="flex space-x-2">
+              <div className="flex space-x-3">
                 <input
                   id="chatbot-input"
                   ref={inputRef}
@@ -1139,35 +1150,58 @@ export function GlobalChatbot({
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Enter your construction mission details..."
-                  className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:border-green-600 dark:focus:border-green-500 focus:ring-2 focus:ring-green-600/20 focus:outline-none rounded-md transition-colors"
+                  placeholder="Tell us about your construction partnership needs..."
+                  className="flex-1 px-5 py-3.5 border-2 border-brand-secondary/40 dark:border-brand-secondary/50 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:border-brand-secondary dark:focus:border-brand-secondary focus:ring-3 focus:ring-brand-secondary/30 focus:outline-none rounded-xl transition-all duration-300 text-sm font-medium shadow-lg hover:shadow-xl placeholder:text-gray-500 dark:placeholder:text-gray-400"
                   disabled={isTyping}
-                  aria-label="Type your message to General MH"
+                  aria-label="Type your message to MH Assistant"
                   aria-describedby="input-help"
                 />
                 <Button
                   onClick={handleSendMessage}
                   disabled={!inputValue.trim() || isTyping}
-                  className="bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-800 px-3 transition-colors"
+                  className="bg-gradient-to-r from-brand-primary to-brand-accent hover:from-brand-accent hover:to-brand-primary border-2 border-brand-secondary/50 dark:border-brand-secondary/60 px-5 py-3.5 transition-all duration-300 touch-manipulation rounded-xl shadow-xl hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 active:scale-95"
                   aria-label="Send message"
                 >
-                  <MaterialIcon icon="send" size="sm" />
+                  <MaterialIcon
+                    icon="send"
+                    size="sm"
+                    className="w-5 h-5 text-white"
+                  />
                 </Button>
               </div>
 
               <div
                 id="input-help"
-                className="flex justify-between items-center mt-2 text-gray-500 dark:text-gray-400 text-xs"
+                className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-3 text-gray-600 dark:text-gray-400 text-xs space-y-1 sm:space-y-0 font-semibold"
                 role="note"
                 aria-label="Chatbot keyboard shortcuts and information"
               >
-                <span>🎖️ **Tactical AI** - Military precision</span>
-                <span>
-                  Drag to move • ESC to close • Ctrl+Shift+C to toggle
+                <span className="flex items-center gap-1.5">
+                  <MaterialIcon
+                    icon="construction"
+                    size="sm"
+                    className="w-4 h-4 text-brand-secondary"
+                  />
+                  <strong className="text-brand-primary dark:text-brand-secondary">
+                    MH Construction AI
+                  </strong>
+                  <span className="text-gray-500 dark:text-gray-500">
+                    - Building partnerships
+                  </span>
+                </span>
+                <span className="text-gray-500 dark:text-gray-500 flex items-center gap-1">
+                  <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-xs">
+                    ESC
+                  </kbd>
+                  to close •
+                  <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-xs">
+                    Ctrl+Shift+C
+                  </kbd>
+                  to toggle
                 </span>
               </div>
             </div>
-          </>
+          </div>
         )}
       </Card>
     </div>
