@@ -84,7 +84,7 @@ docs/business/
 
 ### 🌐 Digital Presence
 
-- **Website**: [mhc-gc.com](https://mhc-gc.com)
+- **Website**: [www.mhc-gc.com](https://www.mhc-gc.com)
 - **General Email**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
 - **Social Media**: Professional business profiles
 

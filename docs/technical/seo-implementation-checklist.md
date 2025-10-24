@@ -152,7 +152,7 @@ export default function [PageName]Page() {
 # Test individual page schemas
 curl -X POST \
   -H "Content-Type: application/json" \
-  -d '{"url": "https://mhc-gc.com/estimator"}' \
+  -d '{"url": "https://www.mhc-gc.com/estimator"}' \
   "https://search.google.com/test/rich-results"
 ```
 

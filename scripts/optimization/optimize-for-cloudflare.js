@@ -90,11 +90,11 @@ function createRedirectsFile() {
 # Cloudflare Pages Redirects
 
 # Force HTTPS
-http://mhc-gc.com/* https://mhc-gc.com/:splat 301!
+http://mhc-gc.com/* https://www.mhc-gc.com/:splat 301!
 http://www.mhc-gc.com/* https://www.mhc-gc.com/:splat 301!
 
-# Redirect www to non-www
-https://www.mhc-gc.com/* https://mhc-gc.com/:splat 301!
+# Redirect non-www to www
+https://mhc-gc.com/* https://www.mhc-gc.com/:splat 301!
 
 # SPA fallback
 /*    /index.html   200

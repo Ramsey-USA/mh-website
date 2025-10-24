@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "MH Construction - AI-Powered Veteran-Owned Excellence",
-    url: "https://mhc-gc.com/services",
+    url: "https://www.mhc-gc.com/services",
     images: [
       {
         url: "/images/og/services.jpg",
@@ -49,6 +49,6 @@ export const metadata: Metadata = {
     site: "@MHConstruction",
   },
   alternates: {
-    canonical: "https://mhc-gc.com/services",
+    canonical: "https://www.mhc-gc.com/services",
   },
 };

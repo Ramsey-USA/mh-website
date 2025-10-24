@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Revolutionary AI Construction Cost Estimator - MH Construction",
     description:
       "Get instant AI-powered construction estimates with General MH military intelligence. 24/7 availability, veteran discounts, and Pacific Northwest regional pricing intelligence.",
-    url: "https://mhc-gc.com/estimator",
+    url: "https://www.mhc-gc.com/estimator",
     siteName: "MH Construction - AI-Powered Veteran-Owned Excellence",
     images: [
       {
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://mhc-gc.com/estimator",
+    canonical: "https://www.mhc-gc.com/estimator",
   },
   other: {
     "application-name": "MH Construction AI Estimator",

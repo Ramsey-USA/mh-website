@@ -8,7 +8,7 @@ export const enhancedSEO = {
     "MH Construction - AI-Powered Veteran-Owned Construction Excellence",
   defaultDescription:
     "Revolutionary AI-powered construction intelligence with General MH military assistant. Veteran-owned excellence serving Pacific Northwest communities with authentic partnerships, transparent communication, and cutting-edge technology including AI cost estimation and military precision project management.",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://mhc-gc.com",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.mhc-gc.com",
   twitterHandle: "@MHConstruction",
   defaultKeywords: [
     "AI construction assistant",

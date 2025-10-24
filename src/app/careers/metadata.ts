@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Careers - Join Our Team | MH Construction",
     description:
       "Join MH Construction, a veteran-owned construction company in the Pacific Northwest. Explore career opportunities with competitive benefits and a supportive work environment.",
-    url: "https://mhc-gc.com/careers",
+    url: "https://www.mhc-gc.com/careers",
     siteName: "MH Construction",
     images: [
       {
@@ -41,6 +41,6 @@ export const metadata: Metadata = {
     images: ["/images/og-careers.jpg"],
   },
   alternates: {
-    canonical: "https://mhc-gc.com/careers",
+    canonical: "https://www.mhc-gc.com/careers",
   },
 };

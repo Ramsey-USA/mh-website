@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Schedule Free Construction Consultation - MH Construction",
     description:
       "Book your complimentary on-site consultation with MH Construction experts. Professional evaluation and partnership development for your construction project.",
-    url: "https://mhc-gc.com/booking",
+    url: "https://www.mhc-gc.com/booking",
     siteName: "MH Construction - AI-Powered Veteran-Owned Excellence",
     images: [
       {
@@ -48,6 +48,6 @@ export const metadata: Metadata = {
     site: "@MHConstruction",
   },
   alternates: {
-    canonical: "https://mhc-gc.com/booking",
+    canonical: "https://www.mhc-gc.com/booking",
   },
 };

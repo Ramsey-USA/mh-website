@@ -27,7 +27,7 @@ interface GenerateMetadataProps {
 
 const defaultSEO = {
   siteName: "MH Construction",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://mhc-gc.com",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.mhc-gc.com",
   defaultTitle:
     "MH Construction - Veteran-Owned Construction Excellence in the Pacific Northwest",
   defaultDescription:

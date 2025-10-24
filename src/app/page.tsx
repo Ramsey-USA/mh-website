@@ -132,7 +132,7 @@ export default function Home() {
           content="Veteran-led Commercial Construction Management with military precision and AI technology. Serving the Tri-Cities area. Call (509) 308-6489."
         />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://mhc-gc.com" />
+        <link rel="canonical" href="https://www.mhc-gc.com" />
       </Head>
 
       {/* Add structured data for SEO */}

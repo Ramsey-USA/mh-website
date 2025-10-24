@@ -75,7 +75,7 @@ Regional Commitment:
 | **Address** | 3111 N. Capital Ave., Pasco, WA 99301 |
 | **Service Area** | Pacific Northwest (WA, OR, ID) |
 | **Email** | <office@mhc-gc.com> |
-| **Website** | [mhc-gc.com](https://mhc-gc.com) |
+| **Website** | [www.mhc-gc.com](https://www.mhc-gc.com) |
 
 ---
 

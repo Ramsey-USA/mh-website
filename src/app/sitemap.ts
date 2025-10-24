@@ -3,7 +3,7 @@ import { PortfolioService } from "@/lib/services/portfolioService";
 import { mockBlogPosts } from "@/lib/types/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mhc-gc.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.mhc-gc.com";
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [

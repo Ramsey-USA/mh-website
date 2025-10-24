@@ -14,7 +14,7 @@ import {
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_BASE_URL || "https://mhc-gc.com"
+    process.env.NEXT_PUBLIC_BASE_URL || "https://www.mhc-gc.com"
   ),
   title: "MH Construction - AI-Powered Veteran-Owned Construction Excellence",
   description:

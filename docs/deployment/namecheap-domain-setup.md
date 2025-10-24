@@ -160,8 +160,8 @@ Your `firebase.json` is already optimized with:
 
 After setup is complete, verify these work:
 
-- `https://mhc-gc.com` (root domain)
-- `https://www.mhc-gc.com` (www subdomain)
+- `https://mhc-gc.com` (redirects to www)
+- `https://www.mhc-gc.com` (canonical domain)
 - All pages load correctly
 - SSL certificate is active (green lock in browser)
 
@@ -173,7 +173,7 @@ Update any hardcoded URLs in your project:
 
 ```bash
 # In .env.local
-NEXT_PUBLIC_SITE_URL=https://mhc-gc.com
+NEXT_PUBLIC_SITE_URL=https://www.mhc-gc.com
 ```
 
 **Update sitemap and robots.txt:**
@@ -289,7 +289,7 @@ npm run deploy:staging         # Deploy to staging environment
 
 # Domain Verification
 nslookup mhc-gc.com           # Check DNS resolution
-curl -I https://mhc-gc.com    # Check website response
+curl -I https://www.mhc-gc.com    # Check website response
 
 # Firebase Management
 firebase login                 # Authenticate

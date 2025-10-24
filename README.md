@@ -763,7 +763,7 @@ connected region.
 | **Address**                | 3111 N. Capital Ave., Pasco, WA 99301                    |
 | **Service Area**           | Pacific Northwest (WA, OR, ID)                           |
 | **Email**                  | <office@mhc-gc.com>                                      |
-| **Website**                | [mhc-gc.com](https://mhc-gc.com)                 |
+| **Website**                | [www.mhc-gc.com](https://www.mhc-gc.com)                 |
 
 ### Our Partnership Approach
 
@@ -841,13 +841,37 @@ NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 
 ## Site Configuration
 
-NEXT_PUBLIC_SITE_URL=<http://localhost:3000>
+NEXT_PUBLIC_SITE_URL=https://www.mhc-gc.com
 NEXT_PUBLIC_GA_MEASUREMENT_ID=your_ga_id
-```text
+```
+
+### Canonical URL Configuration
+
+The website uses **`www.mhc-gc.com`** as the canonical URL for all pages and SEO optimization:
+
+- **Canonical URLs**: All pages use `www.mhc-gc.com` as the canonical domain
+- **Redirects**: Non-www traffic (`mhc-gc.com`) automatically redirects to www version (301 redirects)
+- **SEO Alignment**: All metadata, OpenGraph, Twitter Cards, and structured data use canonical URLs
+- **Firebase Hosting**: Configuration matches Firebase hosting application setup
+- **Infrastructure**: All deployment scripts, DNS, and CDN configurations aligned
+
+**For Development:**
+- Local development can use `http://localhost:3000` for `NEXT_PUBLIC_SITE_URL`
+- Production always uses `https://www.mhc-gc.com`
 
 ## 📈 Recent Platform Milestones
 
-### 🌟 Perfect Branding Compliance Achievement (v4.1.0) - Latest
+### � Canonical URL Standardization (v4.1.1) - Latest
+
+- **Canonical URL Migration**: Complete standardization to `www.mhc-gc.com` as canonical domain
+- **SEO Optimization**: All pages, metadata, and structured data now use consistent www URLs
+- **Redirect Configuration**: Non-www traffic automatically redirects to www version (301 redirects)
+- **Firebase Alignment**: URL configuration matches Firebase hosting application setup
+- **Comprehensive Updates**: 22+ files updated including metadata, sitemap, robots.txt, and documentation
+- **Technical Excellence**: All OpenGraph, Twitter Cards, and schema markup use canonical URLs
+- **Infrastructure Consistency**: Deployment scripts, Docker configs, and Cloudflare redirects aligned
+
+### �🌟 Perfect Branding Compliance Achievement (v4.1.0)
 
 - **Historic Milestone**: First-ever perfect 100/100 branding compliance score achieved
 - **Comprehensive Excellence**: All critical requirements and high-priority features at 100%
@@ -1133,7 +1157,7 @@ With the complete implementation, the platform now includes:
 
 - **Phone**: [(509) 308-6489](tel:+15093086489)
 - **Email**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
-- **Website**: [mhc-gc.com](https://mhc-gc.com)
+- **Website**: [www.mhc-gc.com](https://www.mhc-gc.com)
 
 ---
 
