@@ -2,25 +2,26 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Government & Grant Projects - MH Construction | DOE & Hanford Expertise",
+    "Federal Government Contractor | DOE & Hanford | Army Veteran Leadership - MH Construction",
   description:
-    "Expert construction support for federal, state, and local grant applications. DOE and Hanford experience. Veteran-owned with military precision for government projects in the Tri-Cities, WA.",
+    "Mission-critical government construction with Army veteran leadership. Federal contracting expertise, DOE compliance, and military-grade project execution for government facilities in the Pacific Northwest.",
   keywords: [
-    "government construction",
-    "grant application support",
-    "DOE construction",
-    "Hanford contractor",
-    "federal grants",
-    "government facilities",
-    "Tri-Cities government projects",
-    "veteran-owned contractor",
-    "construction grant documentation",
-    "Pasco WA government construction",
+    "federal government contractor",
+    "DOE contractor",
+    "Hanford construction",
+    "military construction contractor",
+    "veteran-owned federal contractor",
+    "government facilities contractor",
+    "Army veteran construction",
+    "federal compliance contractor",
+    "mission-critical construction",
+    "VOSB contractor Pacific Northwest",
   ],
   openGraph: {
-    title: "Government & Grant Projects - MH Construction",
+    title:
+      "Federal Government Contractor | Army Veteran Leadership - MH Construction",
     description:
-      "Veteran-owned construction firm specializing in government projects and grant application support. DOE and Hanford expertise serving the Pacific Northwest.",
+      "Mission-critical government construction with Army veteran leadership. Military precision, federal compliance, and DOE expertise serving the Pacific Northwest.",
     type: "website",
     locale: "en_US",
     siteName: "MH Construction",

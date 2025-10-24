@@ -164,16 +164,16 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
 export function getGovernmentSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Government Construction Projects | Veteran-Owned Contractor | MH Construction",
+      "Federal Government Contractor | Army Veteran Leadership | Mission-Critical Construction",
     description:
-      "Specialized government construction services by veteran-owned MH Construction. Military precision project management, security clearance capabilities, and compliance expertise for public sector projects.",
+      "Mission-critical government construction with Army veteran leadership. Federal contracting expertise, DOE compliance, and military-grade project execution for government facilities in the Pacific Northwest.",
     keywords: [
-      "government construction contractor",
-      "veteran-owned government contractor",
-      "military construction projects",
-      "public sector construction",
-      "government building contractor Pacific Northwest",
-      "VOSB construction services",
+      "federal government contractor",
+      "Army veteran construction",
+      "mission-critical construction",
+      "DOE federal contractor",
+      "military precision construction",
+      "VOSB contractor Pacific Northwest",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/government`,
     schemas: [],

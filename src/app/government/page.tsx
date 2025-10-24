@@ -18,247 +18,253 @@ import {
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
-// Grant Support Services
+// Federal contracting services
 const grantSupportServices = [
   {
     icon: "calculate",
-    title: "Accurate Cost Estimation",
+    title: "Mission-Critical Cost Analysis",
     description:
-      "Professional-grade cost estimates ensuring reliable numbers for your budget pitch",
+      "Military-grade accuracy in cost estimation ensuring reliable fiscal projections for federal procurement",
     features: [
-      "Detailed line-item cost breakdowns",
-      "Material cost projections with market analysis",
-      "Labor cost estimates based on current rates",
-      "Contingency planning and risk assessment",
-      "Professional documentation meeting grant standards",
+      "Detailed line-item cost breakdowns per federal standards",
+      "Material cost projections with supply chain risk analysis",
+      "Labor cost estimates based on prevailing wage requirements",
+      "Contingency planning and operational risk assessment",
+      "Professional documentation meeting federal acquisition regulations",
     ],
   },
   {
     icon: "architecture",
-    title: "Design & Schedule Validation",
+    title: "Design & Operational Validation",
     description:
-      "Comprehensive documentation on project design, feasibility, and realistic timelines",
+      "Comprehensive technical assessment ensuring mission readiness and operational effectiveness",
     features: [
-      "Constructability review and analysis",
-      "Feasibility studies and site assessments",
-      "Realistic project timeline development",
-      "Phase-by-phase scheduling documentation",
-      "Critical path analysis and design validation",
+      "Constructability review and tactical analysis",
+      "Mission feasibility studies and site security assessments",
+      "Realistic operational timeline development",
+      "Phase-by-phase execution planning with checkpoints",
+      "Critical path analysis and design validation for mission success",
     ],
   },
   {
     icon: "verified",
-    title: "Compliance Assurance",
-    description: "Navigate complex grant specifications with expert guidance",
+    title: "Federal Compliance Assurance",
+    description:
+      "Navigate complex federal regulations with veteran expertise and military precision",
     features: [
-      "Grant specification review and interpretation",
-      "Compliance documentation preparation",
-      "Building code verification (WA, OR, ID)",
-      "Environmental and safety compliance support",
-      "Regulatory requirement coordination",
+      "Federal acquisition regulation (FAR) compliance review",
+      "Security clearance coordination and documentation",
+      "Building code verification and regulatory compliance",
+      "Environmental and operational security compliance",
+      "Quality assurance meeting federal standards",
     ],
   },
 ];
 
-// Government project types
+// Federal facility types
 const governmentProjects = [
   {
     icon: "school",
-    title: "Educational Facilities",
+    title: "Federal Training Facilities",
     examples: [
-      "K-12 Schools",
-      "Community Colleges",
-      "Training Facilities",
-      "Libraries",
+      "Military Training Centers",
+      "Federal Academies",
+      "DOE Training Facilities",
+      "Government Libraries",
     ],
   },
   {
     icon: "account_balance",
-    title: "Government Buildings",
+    title: "Government Operations Centers",
     examples: [
-      "Municipal Offices",
-      "Public Safety Facilities",
-      "Courthouses",
-      "Civic Centers",
+      "Federal Office Buildings",
+      "Emergency Operations Centers",
+      "Administrative Command Centers",
+      "Secure Government Facilities",
     ],
   },
   {
     icon: "church",
-    title: "Religious Facilities",
+    title: "Community Mission Facilities",
     examples: [
-      "Worship Centers",
-      "Religious Education",
-      "Community Spaces",
-      "Renovations",
+      "Military Chapels",
+      "Community Centers on Base",
+      "Multi-Purpose Facilities",
+      "Mission Support Buildings",
     ],
   },
   {
     icon: "groups",
-    title: "Community Projects",
+    title: "Public Service Facilities",
     examples: [
-      "Recreation Centers",
-      "Public Health Facilities",
-      "Senior Centers",
-      "Community Hubs",
+      "Veterans Service Centers",
+      "Public Health Command",
+      "Emergency Response Centers",
+      "Mission Support Hubs",
     ],
   },
   {
     icon: "engineering",
-    title: "Infrastructure",
+    title: "Critical Infrastructure",
     examples: [
-      "Public Works",
-      "Utility Buildings",
-      "Maintenance Facilities",
-      "Urgent Construction Services",
+      "Utilities Command Centers",
+      "Maintenance Operations",
+      "Security Support Facilities",
+      "Emergency Construction Services",
     ],
   },
   {
     icon: "science",
-    title: "DOE & Hanford Support",
+    title: "DOE & Hanford Operations",
     examples: [
-      "Support Facilities",
-      "Administrative Buildings",
-      "Training Centers",
-      "Safety Systems",
+      "Security Support Facilities",
+      "Administrative Command Centers",
+      "Operational Training Centers",
+      "Mission-Critical Safety Systems",
     ],
   },
 ];
 
-// Grant types
+// Federal contracting types
 const grantTypes = [
   {
-    category: "Federal Grants",
+    category: "Federal Contracts",
     icon: "flag",
     programs: [
-      "Department of Energy (DOE)",
-      "General Services Administration (GSA)",
-      "FEMA Disaster Management",
-      "Department of Defense (DoD)",
-      "Small Business Administration (SBA)",
+      "Department of Energy (DOE) Facilities",
+      "General Services Administration (GSA) Buildings",
+      "Department of Defense (DoD) Infrastructure",
+      "FEMA Emergency Response Construction",
+      "Veterans Affairs (VA) Facilities",
     ],
   },
   {
-    category: "State & Local Grants",
+    category: "State & Municipal Contracts",
     icon: "location_city",
     programs: [
-      "Washington State Programs",
-      "Oregon State Funding",
-      "Idaho Construction Grants",
-      "County and Municipal Grants",
-      "Community Development (CDBG)",
+      "Washington State Government Facilities",
+      "Oregon State Infrastructure Projects",
+      "Idaho Government Building Contracts",
+      "County Administrative Facilities",
+      "Municipal Emergency Services Buildings",
     ],
   },
   {
-    category: "Specialized Grants",
+    category: "Mission-Critical Projects",
     icon: "star",
     programs: [
-      "Educational Facility Grants",
-      "Religious Organization Funding",
-      "Non-Profit Construction",
-      "Historic Preservation",
-      "Environmental & Sustainability",
+      "Security-Enhanced Facilities",
+      "Emergency Operations Centers",
+      "Training and Readiness Facilities",
+      "Critical Infrastructure Upgrades",
+      "Operational Support Buildings",
     ],
   },
 ];
 
-// Process steps
+// Federal contracting process
 const processSteps = [
   {
     step: 1,
-    title: "Initial Consultation",
+    title: "Mission Assessment",
     description:
-      "Review grant requirements, assess feasibility, and establish documentation timeline",
+      "Review federal requirements, assess operational feasibility, and establish command timeline",
     icon: "chat",
   },
   {
     step: 2,
-    title: "Cost Estimation",
+    title: "Tactical Cost Analysis",
     description:
-      "Develop detailed estimates and prepare comprehensive financial documentation",
+      "Develop detailed cost projections and prepare comprehensive fiscal documentation",
     icon: "calculate",
   },
   {
     step: 3,
-    title: "Technical Support",
+    title: "Technical Validation",
     description:
-      "Validate design specifications and provide constructability analysis",
+      "Validate specifications and provide operational constructability analysis",
     icon: "engineering",
   },
   {
     step: 4,
-    title: "Compliance Review",
+    title: "Compliance Verification",
     description:
-      "Ensure all regulatory requirements and grant specifications are met",
+      "Ensure all federal regulations and operational requirements are met",
     icon: "fact_check",
   },
   {
     step: 5,
-    title: "Submission Support",
-    description: "Final documentation review and ongoing clarification support",
+    title: "Mission Execution",
+    description:
+      "Final documentation review and operational deployment support",
     icon: "send",
   },
 ];
 
-// Hanford capabilities
+// Federal contracting capabilities
 const hanfordCapabilities = [
   {
     icon: "security",
-    title: "Security Coordination",
+    title: "Security Operations Coordination",
     description:
-      "Clearance coordination and DOE security protocol understanding",
+      "Clearance protocols and federal security compliance expertise",
   },
   {
     icon: "gavel",
-    title: "DOE Compliance",
-    description: "Department of Energy documentation and compliance expertise",
+    title: "Federal Acquisition Compliance",
+    description:
+      "Department of Energy and federal procurement regulation expertise",
   },
   {
     icon: "health_and_safety",
-    title: "Safety Protocols",
+    title: "Operational Safety Protocols",
     description:
-      "Radiation safety and Hanford-specific safety system knowledge",
+      "OSHA compliance and mission-specific safety system implementation",
   },
   {
     icon: "handshake",
-    title: "Contractor Network",
-    description: "Established relationships with Hanford-area subcontractors",
+    title: "Strategic Partner Network",
+    description:
+      "Vetted subcontractor relationships for federal project execution",
   },
   {
     icon: "engineering",
-    title: "Urgent Construction Support",
-    description: "Rapid response capabilities for time-critical projects",
+    title: "Rapid Response Construction",
+    description:
+      "Emergency construction capabilities for mission-critical timelines",
   },
   {
     icon: "workspace_premium",
-    title: "Quality Systems",
-    description: "Comprehensive quality control meeting federal standards",
+    title: "Quality Assurance Systems",
+    description: "Military-grade quality control exceeding federal standards",
   },
 ];
 
-// Success factors
+// Federal contract success factors
 const successFactors = [
   {
     icon: "assignment",
-    title: "Professional Documentation",
+    title: "Military-Grade Documentation",
     description:
-      "Industry-standard formatting and complete technical specifications",
+      "Federal-standard formatting and complete operational specifications",
   },
   {
     icon: "schedule",
-    title: "Realistic Timelines",
+    title: "Mission-Critical Timelines",
     description:
-      "Achievable schedules with contingencies and detailed planning",
+      "Operational schedules with tactical contingencies and detailed planning",
   },
   {
     icon: "verified_user",
-    title: "Compliance Verification",
+    title: "Federal Compliance Verification",
     description:
-      "All requirements clearly addressed with supporting documentation",
+      "All requirements thoroughly addressed with supporting documentation",
   },
   {
     icon: "business_center",
-    title: "Qualified Contractor",
-    description: "Experienced team with proven capabilities and licensing",
+    title: "Qualified Government Contractor",
+    description:
+      "Veteran leadership with proven federal contracting capabilities",
   },
 ];
 
@@ -277,39 +283,39 @@ export default function GovernmentGrantsPage() {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-8">
-            {/* Subtitle First - MH Branding Standard */}
+            {/* Subtitle First - Government Focus */}
             <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
-              Federal, State & Local Grant Construction Support
+              Federal Contracting | Mission-Critical Infrastructure
             </p>
 
             {/* Main Title with Proper Gradient */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
               <span className="block bg-clip-text bg-gradient-to-r from-gray-300 via-white to-gray-300 text-transparent drop-shadow-lg">
-                Government & Grant Projects
+                Government Contracting
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
-              Expert Construction Support for Federal, State, and Local Grant
-              Applications
+              Army Veteran Leadership | Federal Compliance | Mission Execution
             </p>
 
-            {/* Primary Tagline */}
+            {/* Primary Tagline - Government Focused */}
             <div className="max-w-4xl mx-auto">
               <div className="inline-block bg-black/30 backdrop-blur-sm px-6 py-3 rounded-lg border border-white/20">
                 <p className="text-lg md:text-xl font-semibold bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white text-transparent">
-                  Building for the Owner, NOT the Dollar
+                  Mission-Critical Construction | Military Precision | On Time,
+                  On Target
                 </p>
               </div>
             </div>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
-              MH Construction provides the detailed, verified construction
-              documentation you need to maximize your grant application success.
-              From DOE projects to community facilities, we deliver
-              military-grade precision for government work.
+              Under Army veteran leadership, MH Construction delivers
+              mission-critical construction services with unwavering commitment
+              to federal compliance, operational security, and successful
+              mission completion.
             </p>
           </div>
         </div>
@@ -329,9 +335,9 @@ export default function GovernmentGrantsPage() {
               <div className="flex items-center">
                 <MaterialIcon icon="military_tech" size="lg" className="mr-3" />
                 <div className="text-left">
-                  <p className="font-bold text-lg">Veteran-Owned</p>
+                  <p className="font-bold text-lg">Army Veteran Owned</p>
                   <p className="text-gray-300 text-sm">
-                    Military Precision Applied
+                    Military Leadership Applied
                   </p>
                 </div>
               </div>
@@ -339,17 +345,17 @@ export default function GovernmentGrantsPage() {
               <div className="flex items-center">
                 <MaterialIcon icon="verified" size="lg" className="mr-3" />
                 <div className="text-left">
-                  <p className="font-bold text-lg">Licensed in WA, OR, ID</p>
-                  <p className="text-gray-300 text-sm">Tri-State Coverage</p>
+                  <p className="font-bold text-lg">Federal Compliance Ready</p>
+                  <p className="text-gray-300 text-sm">WA, OR, ID Licensed</p>
                 </div>
               </div>
               <div className="hidden md:block bg-gray-600 w-px h-12"></div>
               <div className="flex items-center">
                 <MaterialIcon icon="science" size="lg" className="mr-3" />
                 <div className="text-left">
-                  <p className="font-bold text-lg">DOE & Hanford Experience</p>
+                  <p className="font-bold text-lg">DOE & Hanford Qualified</p>
                   <p className="text-gray-300 text-sm">
-                    Federal Compliance Ready
+                    Mission-Critical Experience
                   </p>
                 </div>
               </div>
@@ -370,16 +376,16 @@ export default function GovernmentGrantsPage() {
               />
               <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                 <span className="text-gray-700 dark:text-gray-300">
-                  How We Support Your
+                  Federal Contracting
                 </span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 text-transparent">
-                  Grant Application
+                  Support Services
                 </span>
               </h2>
               <p className="mx-auto max-w-4xl text-gray-600 dark:text-gray-300 text-xl">
-                Our experienced Tri-Cities team provides essential technical
-                support to meet grant construction specifications and maximize
-                approval success
+                Army veteran leadership delivers mission-critical construction
+                services with unwavering commitment to federal specifications
+                and operational success
               </p>
             </div>
           </FadeInWhenVisible>
@@ -450,9 +456,9 @@ export default function GovernmentGrantsPage() {
                   </span>
                 </h2>
                 <p className="mx-auto max-w-3xl text-gray-200 text-xl">
-                  Extensive experience working in the Hanford area with deep
-                  understanding of DOE project requirements and federal
-                  compliance standards
+                  Proven operational excellence in high-security environments
+                  with comprehensive understanding of federal compliance
+                  requirements and mission-critical construction protocols
                 </p>
               </div>
 
@@ -489,16 +495,16 @@ export default function GovernmentGrantsPage() {
                     />
                     <div>
                       <h3 className="mb-4 font-bold text-white text-2xl">
-                        Hanford Project Capabilities
+                        Federal Project Capabilities
                       </h3>
                       <div className="gap-4 grid md:grid-cols-2">
                         {[
-                          "Support facility construction",
-                          "Administrative building renovations",
-                          "Training facility development",
-                          "Infrastructure improvements",
-                          "Safety system installations",
-                          "Urgent construction projects",
+                          "Mission-critical facility construction",
+                          "Administrative facility security upgrades",
+                          "Training facility operational development",
+                          "Infrastructure tactical improvements",
+                          "Safety system mission installations",
+                          "Emergency rapid response construction",
                         ].map((item, idx) => (
                           <div
                             key={idx}
@@ -534,15 +540,15 @@ export default function GovernmentGrantsPage() {
               />
               <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                 <span className="text-gray-700 dark:text-gray-300">
-                  Grant Programs
+                  Federal Contract
                 </span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 text-transparent">
-                  We Support
+                  Categories
                 </span>
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
-                Experience with federal, state, local, and specialized grant
-                programs
+                Proven execution across federal, state, and mission-critical
+                construction contracts
               </p>
             </div>
           </FadeInWhenVisible>
@@ -606,14 +612,14 @@ export default function GovernmentGrantsPage() {
                 />
                 <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                   <span className="text-gray-700 dark:text-gray-300">
-                    Our Grant Application
+                    Federal Contract
                   </span>{" "}
                   <span className="bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 text-transparent">
-                    Support Process
+                    Execution Process
                   </span>
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 text-xl">
-                  Five-phase approach to maximize your grant success
+                  Five-phase military approach to federal contract success
                 </p>
               </div>
 
@@ -669,14 +675,14 @@ export default function GovernmentGrantsPage() {
               />
               <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                 <span className="text-gray-700 dark:text-gray-300">
-                  Government
+                  Federal Facility
                 </span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 text-transparent">
-                  Project Types
+                  Classifications
                 </span>
               </h2>
               <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
-                Licensed and experienced across diverse government and community
+                Licensed and mission-ready across diverse federal and government
                 facility projects
               </p>
             </div>
@@ -736,14 +742,14 @@ export default function GovernmentGrantsPage() {
                 />
                 <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                   <span className="text-gray-700 dark:text-gray-300">
-                    Maximizing Your
+                    Mission Success
                   </span>{" "}
                   <span className="bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 text-transparent">
-                    Grant Success
+                    Factors
                   </span>
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 text-xl">
-                  What makes a strong grant application and how we deliver
+                  What ensures federal contract success and how we deliver
                 </p>
               </div>
 
@@ -800,18 +806,18 @@ export default function GovernmentGrantsPage() {
                 className="mb-8 text-gray-300"
               />
               <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                <span className="text-gray-300">Ready to Start Your</span>{" "}
+                <span className="text-gray-300">Ready to Execute Your</span>{" "}
                 <span className="bg-clip-text bg-gradient-to-r from-white to-gray-300 text-transparent">
-                  Grant Application?
+                  Federal Mission?
                 </span>
               </h2>
               <p className="mb-8 text-gray-200 text-2xl">
-                Partner with a veteran-owned construction team that understands
-                government requirements
+                Deploy with Army veteran leadership that delivers
+                mission-critical results
               </p>
               <p className="mx-auto mb-12 max-w-3xl text-gray-100 text-xl">
-                Call now to discuss your grant-based construction project with
-                an expert and take the first step toward a successful build
+                Contact our command center to discuss your federal construction
+                requirements and begin mission planning for successful execution
               </p>
 
               <div className="bg-white/10 backdrop-blur-sm mb-8 p-8 border-2 border-gray-600 rounded-lg">
@@ -871,7 +877,7 @@ export default function GovernmentGrantsPage() {
                       className="mr-3"
                       size="lg"
                     />
-                    Schedule Consultation
+                    Request Mission Brief
                   </Button>
                 </Link>
                 <Button
@@ -879,7 +885,7 @@ export default function GovernmentGrantsPage() {
                   className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-500 dark:hover:bg-gray-600 px-10 py-7 text-white dark:text-white text-xl"
                 >
                   <MaterialIcon icon="download" className="mr-3" size="lg" />
-                  Download Capabilities
+                  Federal Capabilities Brief
                 </Button>
               </div>
 
@@ -889,8 +895,8 @@ export default function GovernmentGrantsPage() {
                   className="inline mr-2"
                   size="sm"
                 />
-                Monday - Friday: 8:00 AM - 5:00 PM PST | Urgent Support
-                Available
+                Monday - Friday: 0800 - 1700 PST | Emergency Response Available
+                24/7
               </p>
             </div>
           </FadeInWhenVisible>
