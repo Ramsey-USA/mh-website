@@ -1,25 +1,19 @@
 {
   "config": {
-    "MD038": true,
-    "MD009": true,
-    "MD022": true,
-    "MD032": true,
-    "MD025": true,
-    "MD024": {
-      "siblings_only": true,
-    },
+    "default": true,
     "MD013": {
       "line_length": 120,
       "code_blocks": false,
-      "tables": false,
+      "tables": false
     },
-    "MD040": false,
-    "MD036": false,
+    "MD033": false,
+    "MD041": false,
+    "MD051": false
   },
-  "globs": ["**/*.md"],
-  "ignores": [
-    "node_modules/**",
-    "firebase/functions/node_modules/**",
-    ".next/**",
-  ],
+  "globs": [
+    "**/*.md",
+    "!node_modules/**",
+    "!firebase/functions/node_modules/**",
+    "!.next/**"
+  ]
 }

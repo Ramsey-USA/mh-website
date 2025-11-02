@@ -1,5 +1,5 @@
 // Cloudflare storage utilities for KV and D1 database
-// This replaces Firebase Firestore and Storage functionality
+// Cloudflare storage utilities for D1, KV, and R2
 
 // Type definitions for Cloudflare Workers
 type KVNamespace = any;

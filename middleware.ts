@@ -26,7 +26,7 @@ export async function middleware(request: NextRequest) {
       // Enable stale-while-revalidate for API routes
       response.headers.set(
         "Cache-Control",
-        "public, max-age=300, stale-while-revalidate=600",
+        "public, max-age=300, stale-while-revalidate=600"
       );
     } else if (
       url.pathname.match(/\.(js|css|png|jpg|jpeg|gif|webp|svg|ico|woff|woff2)$/)
@@ -34,7 +34,7 @@ export async function middleware(request: NextRequest) {
       response.headers.set("CF-Cache-Tag", "static");
       response.headers.set(
         "Cache-Control",
-        "public, max-age=31536000, immutable",
+        "public, max-age=31536000, immutable"
       );
     } else {
       response.headers.set("CF-Cache-Tag", "html");
@@ -51,7 +51,7 @@ export async function middleware(request: NextRequest) {
     if (url.pathname === "/") {
       response.headers.set(
         "Link",
-        "</images/logo.webp>; rel=preload; as=image, </styles/critical.css>; rel=preload; as=style",
+        "</images/logo.webp>; rel=preload; as=image, </styles/critical.css>; rel=preload; as=style"
       );
     }
 
@@ -63,11 +63,15 @@ export async function middleware(request: NextRequest) {
   return response;
 }
 
-// Generate a random nonce for CSP
+// Generate a random nonce for CSP (Edge Runtime compatible)
 function generateNonce(): string {
-  return Buffer.from(crypto.getRandomValues(new Uint8Array(16))).toString(
-    "base64",
-  );
+  const array = crypto.getRandomValues(new Uint8Array(16));
+  // Convert to base64 without Buffer (Edge Runtime compatible)
+  let binary = "";
+  for (let i = 0; i < array.length; i++) {
+    binary += String.fromCharCode(array[i]);
+  }
+  return btoa(binary);
 }
 
 // Configure which paths the middleware should run on

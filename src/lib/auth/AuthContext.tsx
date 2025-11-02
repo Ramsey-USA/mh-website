@@ -1,5 +1,5 @@
 // Authentication context and provider for user management
-// NOTE: This is a stub implementation. Firebase authentication has been removed.
+// NOTE: This is a stub implementation. Authentication uses Cloudflare Access/Zero Trust.
 "use client";
 
 import React, { createContext, useContext, useState } from "react";
