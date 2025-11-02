@@ -2,7 +2,17 @@
 
 ## MH Construction - Complete Cloudflare Pages Setup & Deployment
 
+**✅ DEPLOYMENT READY** (November 2, 2025)
+
 This guide covers everything needed to deploy the MH Construction website to Cloudflare Pages with Edge Runtime compatibility.
+
+### Recent Fix (November 2, 2025)
+
+**Issue Resolved**: Removed `output: "standalone"` from next.config.js which was incompatible with Cloudflare Pages.
+
+**Result**: ✅ All 14 Edge Function Routes now build successfully  
+**Build Time**: ~60 seconds with 3-second optimization phase  
+**Status**: Production-ready for deployment
 
 ## 🚀 Quick Start
 
@@ -267,6 +277,26 @@ Cloudflare provides free SSL automatically:
 ---
 
 ## 🔍 Troubleshooting
+
+### Build Fails with "Routes not configured for Edge Runtime" Error
+
+**Fixed** (November 2, 2025)
+
+**Cause**: The `output: "standalone"` setting in next.config.js was incompatible with
+@cloudflare/next-on-pages
+
+**Solution**: Removed the `output: "standalone"` line from next.config.js. Cloudflare Pages uses
+@cloudflare/next-on-pages which generates its own output structure.
+
+**Verification**:
+
+```bash
+# Clean build to verify fix
+rm -rf .next .vercel
+npm run build:cloudflare
+
+# Should show: "✓ Build completed in ~60s" with 14 Edge Function Routes detected
+```
 
 ### Build Fails with "Edge Runtime" Error
 

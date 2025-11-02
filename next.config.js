@@ -103,7 +103,8 @@ const nextConfig = {
     return config;
   },
 
-  output: "standalone",
+  // Removed 'output: "standalone"' for Cloudflare Pages compatibility
+  // Cloudflare Pages uses @cloudflare/next-on-pages which generates its own output
   distDir: ".next",
   cleanDistDir: true,
 
