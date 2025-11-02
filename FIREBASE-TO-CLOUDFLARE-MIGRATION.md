@@ -238,7 +238,8 @@ npm install -g wrangler
 # Login
 wrangler login
 
-# Deploy
+# Build and deploy
+npm run build:cloudflare
 npm run pages:deploy
 ```
 
@@ -251,8 +252,8 @@ npm run pages:deploy
 
 2. **Build Settings**
    - Framework: Next.js
-   - Build command: `npm run build`
-   - Output directory: `.next`
+   - Build command: `npx @cloudflare/next-on-pages@1`
+   - Output directory: `.vercel/output/static`
    - Node version: 18
 
 3. **Environment Variables**

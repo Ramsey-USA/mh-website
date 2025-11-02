@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { MarkdownContent } from "@/lib/content/markdownLoader";
+import { ContentItem } from "@/lib/content/contentCache";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import {
@@ -19,7 +19,7 @@ interface CoreValue {
 }
 
 interface ValueRendererProps {
-  content: MarkdownContent;
+  content: ContentItem;
   className?: string;
 }
 

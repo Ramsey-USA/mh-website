@@ -2,10 +2,10 @@
 
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import { MarkdownContent } from "@/lib/content/markdownLoader";
+import { ContentItem } from "@/lib/content/contentCache";
 
 interface MarkdownRendererProps {
-  content: MarkdownContent;
+  content: ContentItem;
   className?: string;
 }
 
@@ -92,7 +92,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
 
 interface MarkdownSectionProps {
   title?: string;
-  content: MarkdownContent;
+  content: ContentItem;
   className?: string;
 }
 

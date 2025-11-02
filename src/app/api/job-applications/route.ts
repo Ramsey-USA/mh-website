@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Enable Edge Runtime for Cloudflare Pages
+export const runtime = "edge";
+
 // Job applications API using Cloudflare storage
 export async function POST(request: NextRequest) {
   try {

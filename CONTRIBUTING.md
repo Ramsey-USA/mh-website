@@ -365,8 +365,8 @@ docs/
 ### Deployment Commands
 
 ```bash
-# Production build
-npm run build
+# Production build (Cloudflare-optimized)
+npm run build:cloudflare
 
 # Deploy to Cloudflare Pages
 npm run pages:deploy

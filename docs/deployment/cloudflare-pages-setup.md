@@ -46,10 +46,13 @@ CLOUDFLARE_API_TOKEN=your_api_token
 3. Connect your Git repository
 4. Configure build settings:
    - **Framework preset**: Next.js
-   - **Build command**: `npm run build`
-   - **Build output directory**: `.next`
+   - **Build command**: `npx @cloudflare/next-on-pages@1`
+   - **Build output directory**: `.vercel/output/static`
    - **Root directory**: `/` (or your project root)
    - **Node version**: 18 or higher
+
+**Note**: Some API routes that use Node.js features (file system, etc.) may need to be refactored
+to work with Cloudflare's Edge Runtime or moved to static generation.
 
 ### Via Wrangler CLI
 
@@ -60,7 +63,8 @@ npm install -g wrangler
 # Login to Cloudflare
 wrangler login
 
-# Deploy
+# Build and deploy
+npm run build:cloudflare
 npm run pages:deploy
 ```
 
@@ -80,8 +84,8 @@ NODE_VERSION=18
 ### Build Configuration
 
 ```yaml
-Build command: npm run build
-Build output directory: .next
+Build command: npx @cloudflare/next-on-pages@1
+Build output directory: .vercel/output/static
 Root directory: /
 Environment variables: Node 18+
 ```
@@ -366,8 +370,8 @@ Set up webhooks for:
 # Development
 npm run dev
 
-# Build locally
-npm run build
+# Build for Cloudflare
+npm run build:cloudflare
 
 # Deploy to Cloudflare Pages
 npm run pages:deploy

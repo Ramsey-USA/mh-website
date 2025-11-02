@@ -11,6 +11,9 @@ import {
   RiskLevel,
 } from "@/lib/security/audit-logger";
 
+// Enable Edge Runtime for Cloudflare Pages
+export const runtime = "edge";
+
 async function handler(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -113,7 +116,7 @@ async function handler(request: NextRequest) {
       if (!eventType || !Object.values(AuditEventType).includes(eventType)) {
         return NextResponse.json(
           { error: "Invalid event type" },
-          { status: 400 },
+          { status: 400 }
         );
       }
 
@@ -136,7 +139,7 @@ async function handler(request: NextRequest) {
     console.error("Security events API error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
@@ -144,7 +147,7 @@ async function handler(request: NextRequest) {
 // Helper function to generate human-readable descriptions
 function getEventDescription(
   eventType: AuditEventType,
-  details: Record<string, any>,
+  details: Record<string, any>
 ): string {
   switch (eventType) {
     case AuditEventType.LOGIN_SUCCESS:

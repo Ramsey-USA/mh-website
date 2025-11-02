@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Enable Edge Runtime for Cloudflare Pages
+export const runtime = "edge";
+
 // Consultation API routes using Cloudflare storage
 // This replaces Firebase Firestore functionality
 

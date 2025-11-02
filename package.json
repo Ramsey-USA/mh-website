@@ -10,16 +10,16 @@
     "build:fast": "NODE_ENV=production SKIP_LINT=true next build",
     "build:profile": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" next build",
     "build:analyze": "ANALYZE=true npm run build",
-    "build:cloudflare": "npm run build",
+    "build:cloudflare": "npx @cloudflare/next-on-pages@1",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit --project config/quality/tsconfig.json",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "pages:deploy": "npm run build && npx wrangler pages deploy .next --project-name=mh-construction",
+    "pages:deploy": "npm run build:cloudflare && npx wrangler pages deploy .vercel/output/static --project-name=mh-construction",
     "pages:dev": "npm run dev",
-    "deploy:production": "npm run build && npm run pages:deploy",
+    "deploy:production": "npm run build:cloudflare && npm run pages:deploy",
     "bundle:size": "npm run build && du -sh .next/static/chunks/*.js | sort -hr | head -10",
     "performance:check": "npm run build && echo 'Build complete. Check bundle sizes above.'",
     "clean": "bash scripts/cleanup.sh",
@@ -86,8 +86,10 @@
     "web-vitals": "^5.1.0"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.16",
     "@eslint/eslintrc": "^3.3.1",
     "markdownlint-cli2": "^0.18.1",
-    "prettier": "^3.1.0"
+    "prettier": "^3.1.0",
+    "wrangler": "^4.45.3"
   }
 }

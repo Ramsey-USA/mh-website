@@ -1,15 +1,25 @@
 import { NextResponse } from "next/server";
-import { loadMarkdownContent } from "@/lib/content/markdownLoader";
+import { getContent } from "@/lib/content/contentCache";
+
+export const runtime = "edge";
 
 export async function GET() {
   try {
-    const coreValues = await loadMarkdownContent("business/CORE_VALUES.md");
-    return NextResponse.json(coreValues);
+    const content = await getContent("core-values");
+
+    if (!content) {
+      return NextResponse.json(
+        { error: "Core values content not found" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json(content);
   } catch (error) {
     console.error("Error loading core values:", error);
     return NextResponse.json(
       { error: "Failed to load core values content" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

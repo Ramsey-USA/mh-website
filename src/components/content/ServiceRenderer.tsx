@@ -2,12 +2,12 @@
 
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import { MarkdownContent } from "@/lib/content/markdownLoader";
+import { ContentItem } from "@/lib/content/contentCache";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 
 interface ServiceRendererProps {
-  content: MarkdownContent;
+  content: ContentItem;
   className?: string;
 }
 

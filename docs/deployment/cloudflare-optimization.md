@@ -62,8 +62,8 @@ npm run dev
 ### Build & Deploy
 
 ```bash
-# Build for production
-npm run build
+# Build for production (Cloudflare-optimized)
+npm run build:cloudflare
 
 # Deploy to Cloudflare Pages
 npm run pages:deploy

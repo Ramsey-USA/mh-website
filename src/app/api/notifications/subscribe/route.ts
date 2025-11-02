@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Enable Edge Runtime for Cloudflare Pages
+export const runtime = "edge";
+
 // Store subscriptions in memory (in production, use a database)
 const subscriptions = new Map<string, any>();
 

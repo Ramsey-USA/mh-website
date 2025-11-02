@@ -1,15 +1,25 @@
 import { NextResponse } from "next/server";
-import { loadMarkdownContent } from "@/lib/content/markdownLoader";
+import { getContent } from "@/lib/content/contentCache";
+
+export const runtime = "edge";
 
 export async function GET() {
   try {
-    const services = await loadMarkdownContent("business/SERVICES.md");
-    return NextResponse.json(services);
+    const content = await getContent("services");
+
+    if (!content) {
+      return NextResponse.json(
+        { error: "Services content not found" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json(content);
   } catch (error) {
     console.error("Error loading services:", error);
     return NextResponse.json(
       { error: "Failed to load services content" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Enable Edge Runtime for Cloudflare Pages
+export const runtime = "edge";
+
 export interface SubscriptionData {
   subscription: PushSubscription;
   userAgent: string;

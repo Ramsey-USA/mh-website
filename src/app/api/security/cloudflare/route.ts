@@ -6,6 +6,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSecurity } from "@/middleware/security";
 
+// Enable Edge Runtime for Cloudflare Pages
+export const runtime = "edge";
+
 async function handler(request: NextRequest) {
   try {
     if (request.method === "GET") {
@@ -35,7 +38,7 @@ async function handler(request: NextRequest) {
   } catch (error) {
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
