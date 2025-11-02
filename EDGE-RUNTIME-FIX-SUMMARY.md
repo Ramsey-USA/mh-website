@@ -139,10 +139,11 @@ npm run build:cloudflare
 ## Next Steps
 
 1. **Read `CLOUDFLARE-BUILD-SETTINGS.md`** for exact configuration steps
-2. **Update Cloudflare Dashboard** with correct build settings
-3. **Clear build cache** in Cloudflare
-4. **Retry deployment**
-5. **Monitor build logs** to verify Edge Function Routes are detected
+3. **Update Cloudflare Dashboard** with correct build settings
+4. **Clear build cache** in Cloudflare
+5. **Set NODE_VERSION=18.18.0** environment variable
+6. **Retry deployment**
+7. **Monitor build logs** to verify Edge Function Routes are detected
 
 ---
 

@@ -54,7 +54,7 @@ npx @cloudflare/next-on-pages@1
 Add these in the **Environment variables** section (click "Add variable"):
 
 ```
-NODE_VERSION = 18.17.0
+NODE_VERSION = 18.18.0
 ```
 
 ```
