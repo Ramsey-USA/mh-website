@@ -6,6 +6,15 @@ export const runtime = "edge";
 // Store subscriptions in memory (in production, use a database)
 const subscriptions = new Map<string, any>();
 
+// Web-compatible base64 helper (Edge runtime safe)
+function base64EncodeUnicode(str: string) {
+  const uint8 = new TextEncoder().encode(str);
+  let binary = "";
+  for (let i = 0; i < uint8.length; i++)
+    binary += String.fromCharCode(uint8[i]);
+  return btoa(binary);
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { subscription, userAgent, timestamp } = await request.json();
@@ -13,14 +22,12 @@ export async function POST(request: NextRequest) {
     if (!subscription || !subscription.endpoint) {
       return NextResponse.json(
         { error: "Invalid subscription object" },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
     // Generate a unique ID for the subscription
-    const subscriptionId = Buffer.from(subscription.endpoint).toString(
-      "base64",
-    );
+    const subscriptionId = base64EncodeUnicode(subscription.endpoint);
 
     // Store the subscription (in production, save to database)
     subscriptions.set(subscriptionId, {
@@ -41,7 +48,7 @@ export async function POST(request: NextRequest) {
     console.error("Error saving subscription:", error);
     return NextResponse.json(
       { error: "Failed to save subscription" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

@@ -15,6 +15,15 @@ if (!global.subscriptionsStore) {
   global.subscriptionsStore = new Map();
 }
 
+// Web-compatible base64 helper (Edge runtime safe)
+function base64EncodeUnicode(str: string) {
+  const uint8 = new TextEncoder().encode(str);
+  let binary = "";
+  for (let i = 0; i < uint8.length; i++)
+    binary += String.fromCharCode(uint8[i]);
+  return btoa(binary);
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { subscription } = await request.json();
@@ -22,14 +31,12 @@ export async function POST(request: NextRequest) {
     if (!subscription || !subscription.endpoint) {
       return NextResponse.json(
         { error: "Invalid subscription object" },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
     // Generate the same ID used when subscribing
-    const subscriptionId = Buffer.from(subscription.endpoint).toString(
-      "base64",
-    );
+    const subscriptionId = base64EncodeUnicode(subscription.endpoint);
 
     // Remove the subscription
     const existed = global.subscriptionsStore.delete(subscriptionId);
@@ -47,7 +54,7 @@ export async function POST(request: NextRequest) {
     console.error("Error removing subscription:", error);
     return NextResponse.json(
       { error: "Failed to remove subscription" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
