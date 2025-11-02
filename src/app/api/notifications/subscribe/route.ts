@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = "edge";
+export const dynamic = "force-dynamic";
 
 // Store subscriptions in memory (in production, use a database)
 const subscriptions = new Map<string, any>();

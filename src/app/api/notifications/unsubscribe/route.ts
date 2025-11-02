@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = "edge";
+export const dynamic = "force-dynamic";
 
 // Reference to the same subscription store (in production, use a database)
 import type { SubscriptionData } from "../send/route";

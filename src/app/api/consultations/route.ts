@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = "edge";
+export const dynamic = "force-dynamic";
 
 // Consultation API routes using Cloudflare storage (D1, KV, or external DB)
 

@@ -7,6 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { withSecurity } from "@/middleware/security";
 
 export const runtime = "edge";
+export const dynamic = "force-dynamic";
 
 async function handler(request: NextRequest) {
   try {
