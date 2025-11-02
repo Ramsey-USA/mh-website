@@ -6,7 +6,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSecurity } from "@/middleware/security";
 
-// Enable Edge Runtime for Cloudflare Pages
 export const runtime = "edge";
 
 async function handler(request: NextRequest) {

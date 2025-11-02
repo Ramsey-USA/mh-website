@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// Enable Edge Runtime for Cloudflare Pages
 export const runtime = "edge";
 
 // Consultation API routes using Cloudflare storage (D1, KV, or external DB)

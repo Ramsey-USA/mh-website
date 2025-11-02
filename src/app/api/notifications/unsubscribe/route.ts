@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// Enable Edge Runtime for Cloudflare Pages
 export const runtime = "edge";
 
 // Reference to the same subscription store (in production, use a database)

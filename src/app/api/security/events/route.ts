@@ -11,7 +11,6 @@ import {
   RiskLevel,
 } from "@/lib/security/audit-logger";
 
-// Enable Edge Runtime for Cloudflare Pages
 export const runtime = "edge";
 
 async function handler(request: NextRequest) {

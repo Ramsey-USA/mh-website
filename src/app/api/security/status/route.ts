@@ -11,7 +11,6 @@ import {
   VulnerabilityType,
 } from "@/lib/security/vulnerability-scanner";
 
-// Enable Edge Runtime for Cloudflare Pages
 export const runtime = "edge";
 
 async function handler(request: NextRequest) {
