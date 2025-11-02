@@ -17,7 +17,7 @@ import {
 } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
-import { consultationService } from "@/lib/utils/firebase";
+import { consultationService } from "@/lib/cloudflare/storage";
 import { useGlobalChatbot } from "@/providers/GlobalChatbotProvider";
 // Enhanced SEO handled in layout.tsx
 

@@ -2,8 +2,6 @@
 
 import React, { useState } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { getFirebaseDb } from "@/lib/firebase/config";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 interface JobApplicationModalProps {
   isOpen: boolean;
@@ -84,7 +82,7 @@ export function JobApplicationModal({
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    >
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -102,19 +100,26 @@ export function JobApplicationModal({
     setSubmitError("");
 
     try {
-      // Submit to Firebase
+      // Submit to API endpoint (which will handle Cloudflare storage)
       const applicationData = {
         ...formData,
         resumeFileName: formData.resumeFile?.name || "",
         resumeFileSize: formData.resumeFile?.size || 0,
-        submittedAt: serverTimestamp(),
+        submittedAt: new Date().toISOString(),
         status: "new",
       };
 
-      await addDoc(
-        collection(getFirebaseDb(), "jobApplications"),
-        applicationData,
-      );
+      const response = await fetch("/api/job-applications", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(applicationData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit application");
+      }
 
       setSubmitSuccess(true);
       setTimeout(() => {

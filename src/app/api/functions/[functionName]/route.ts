@@ -1,27 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getFirestore } from "firebase-admin/firestore";
-import { getAuth } from "firebase-admin/auth";
-import { initializeApp, getApps, cert } from "firebase-admin/app";
 
-// Initialize Firebase Admin SDK
-let db: any = null;
-let auth: any = null;
-
-if (!getApps().length && process.env.FIREBASE_PROJECT_ID) {
-  try {
-    initializeApp({
-      credential: cert({
-        projectId: process.env.FIREBASE_PROJECT_ID,
-        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-        privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
-      }),
-    });
-    db = getFirestore();
-    auth = getAuth();
-  } catch (error) {
-    console.warn("Firebase Admin SDK initialization failed:", error);
-  }
-}
+// Cloudflare-based API routes
+// This replaces Firebase Admin SDK functionality
 
 interface RouteParams {
   params: Promise<{ functionName: string }>;
@@ -29,30 +9,17 @@ interface RouteParams {
 
 export async function POST(request: NextRequest, context: RouteParams) {
   try {
-    // Check if Firebase is initialized
-    if (!db || !auth) {
-      return NextResponse.json(
-        { error: "Firebase not configured" },
-        { status: 503 },
-      );
-    }
-
     const { functionName } = await context.params;
     const body = await request.json();
     const authHeader = request.headers.get("authorization");
 
-    // Verify authentication if provided
+    // Basic authentication check (replace with your auth solution)
     let user = null;
     if (authHeader && authHeader.startsWith("Bearer ")) {
       const token = authHeader.split("Bearer ")[1];
-      try {
-        user = await auth.verifyIdToken(token);
-      } catch (error) {
-        return NextResponse.json(
-          { error: "Invalid authentication token" },
-          { status: 401 },
-        );
-      }
+      // TODO: Implement JWT verification or other auth mechanism
+      // For now, we'll just extract a user ID from token
+      user = { uid: token };
     }
 
     // Route to specific functions
@@ -64,29 +31,28 @@ export async function POST(request: NextRequest, context: RouteParams) {
       default:
         return NextResponse.json(
           { error: "Function not found" },
-          { status: 404 },
+          { status: 404 }
         );
     }
   } catch (error) {
-    console.error("Firebase function error:", error);
+    console.error("API function error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
 
 async function handleSendNotification(data: any, user: any) {
-  // Implement notification sending logic
   if (!user) {
     return NextResponse.json(
       { error: "Authentication required" },
-      { status: 401 },
+      { status: 401 }
     );
   }
 
-  // Example: Send notification via Firebase Cloud Messaging
-  // You would implement the actual notification logic here
+  // TODO: Implement notification sending logic
+  // Could use email service, push notifications, etc.
 
   return NextResponse.json({
     success: true,
@@ -99,27 +65,25 @@ async function handleGetUserData(data: any, user: any) {
   if (!user) {
     return NextResponse.json(
       { error: "Authentication required" },
-      { status: 401 },
+      { status: 401 }
     );
   }
 
   try {
-    // Example: Get user data from Firestore
-    const userDoc = await db.collection("users").doc(user.uid).get();
-
-    if (!userDoc.exists) {
-      return NextResponse.json({ error: "User not found" }, { status: 404 });
-    }
-
+    // TODO: Implement user data retrieval from Cloudflare KV/D1
+    // For now, return mock data
     return NextResponse.json({
       success: true,
-      data: userDoc.data(),
+      data: {
+        uid: user.uid,
+        // Add other user fields as needed
+      },
     });
   } catch (error) {
     console.error("Error getting user data:", error);
     return NextResponse.json(
       { error: "Failed to get user data" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

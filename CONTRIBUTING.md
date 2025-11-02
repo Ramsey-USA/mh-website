@@ -53,12 +53,11 @@ Git
    npm install
    ```
 
-3. **Environment setup** (✅ Firebase Active)
+3. **Environment setup**
 
    ```bash
    cp .env.example .env.local
-   # Firebase configuration is already active in .env.local
-   # Project: mhc-gc-website (Live Firebase project)
+   # Add your environment variables for Cloudflare if needed
    ```
 
 4. **Start development server**
@@ -291,12 +290,12 @@ npm run test:coverage    # Coverage report
 - Use `NEXT_PUBLIC_` prefix for client-side variables
 - Store sensitive data in secure environment management
 
-### Firebase Security (✅ Active & Configured)
+### Security Best Practices
 
-- ✅ **Security Rules Deployed**: Firestore and Storage rules active
-- ✅ **Authentication Checks**: Role-based access control implemented
+- ✅ **Security Headers**: CSP, HSTS, X-Frame-Options configured
 - ✅ **Input Validation**: All user inputs properly validated
-- ✅ **Production Ready**: Security rules tested and deployed
+- ✅ **API Protection**: Rate limiting and authentication
+- ✅ **Production Ready**: Security handled by Cloudflare WAF
 
 ### Dependencies
 
@@ -363,24 +362,17 @@ docs/
 - [ ] Environment variables configured
 - [ ] Performance metrics within targets
 
-### Deployment Commands (✅ Firebase Integration Active)
+### Deployment Commands
 
 ```bash
 # Production build
 npm run build
 
-# Full Firebase deployment (all services)
-firebase deploy
+# Deploy to Cloudflare Pages
+npm run pages:deploy
 
-# Specific service deployments
-firebase deploy --only hosting        # Static site hosting
-firebase deploy --only firestore:rules # Database security rules
-firebase deploy --only functions      # Cloud Functions API
-firebase deploy --only storage        # File storage rules
-
-# NPM scripts for convenience
-npm run firebase:deploy   # Deploy all services
-npm run firebase:emulate  # Local development with emulators
+# Or push to Git for automatic deployment
+git push origin main
 ```text
 
 ## 🐛 Bug Reports

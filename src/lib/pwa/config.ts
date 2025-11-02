@@ -353,11 +353,7 @@ export const PERFORMANCE_CONFIG = {
 
   // Resource hints
   RESOURCE_HINTS: {
-    preconnect: [
-      "https://fonts.googleapis.com",
-      "https://fonts.gstatic.com",
-      "https://firebaseapp.com",
-    ],
+    preconnect: ["https://fonts.googleapis.com", "https://fonts.gstatic.com"],
     dnsPrefetch: [
       "https://www.googletagmanager.com",
       "https://www.google-analytics.com",

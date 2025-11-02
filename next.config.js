@@ -12,7 +12,7 @@ const nextConfig = {
   },
 
   // Server external packages (moved from experimental)
-  serverExternalPackages: ["firebase-admin"],
+  serverExternalPackages: [],
 
   poweredByHeader: false,
   compress: true,
@@ -59,14 +59,6 @@ const nextConfig = {
               priority: 40,
               enforce: true,
             },
-            // Firebase chunk
-            firebase: {
-              test: /[\\/]node_modules[\\/](firebase|@firebase)[\\/]/,
-              name: "firebase",
-              chunks: "all",
-              priority: 30,
-              maxSize: 150000,
-            },
             // UI libraries
             ui: {
               test: /[\\/]node_modules[\\/](@radix-ui|framer-motion|lucide-react)[\\/]/,
@@ -74,13 +66,6 @@ const nextConfig = {
               chunks: "all",
               priority: 25,
             },
-            // Charts and visualization (removed since recharts was removed)
-            // charts: {
-            //   test: /[\\/]node_modules[\\/](recharts|d3-)[\\/]/,
-            //   name: "charts",
-            //   chunks: "all",
-            //   priority: 20,
-            // },
             // Common vendor libraries
             vendor: {
               test: /[\\/]node_modules[\\/]/,

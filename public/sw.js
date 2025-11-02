@@ -1,5 +1,5 @@
 // MH Construction Service Worker
-// Enhanced for Firebase Hosting and Cloudflare CDN optimization
+// Enhanced for Cloudflare Pages optimization
 // Provides offline capabilities, advanced caching, and PWA functionality
 
 const CACHE_NAME = "mh-construction-v4.0.0";
@@ -81,13 +81,13 @@ self.addEventListener("install", (event) => {
           return caches.open(STATIC_CACHE_NAME).then((cache) => {
             console.log("[SW] Precaching remaining static assets");
             return cache.addAll(
-              STATIC_ASSETS.filter((asset) => !CRITICAL_ASSETS.includes(asset)),
+              STATIC_ASSETS.filter((asset) => !CRITICAL_ASSETS.includes(asset))
             );
           });
         }),
       // Skip waiting to activate immediately
       self.skipWaiting(),
-    ]),
+    ])
   );
 });
 
@@ -109,14 +109,14 @@ self.addEventListener("activate", (event) => {
             .map((cacheName) => {
               console.log("[SW] Deleting old cache:", cacheName);
               return caches.delete(cacheName);
-            }),
+            })
         );
       }),
       // Claim all clients immediately
       self.clients.claim(),
       // Pre-warm critical API endpoints
       warmupCriticalEndpoints(),
-    ]),
+    ])
   );
 });
 
@@ -205,7 +205,7 @@ self.addEventListener("push", (event) => {
         tag: data.tag,
         requireInteraction: data.requireInteraction || false,
         vibrate: [100, 50, 100],
-      }),
+      })
     );
   }
 });
@@ -243,7 +243,7 @@ self.addEventListener("notificationclick", (event) => {
       if (clients.openWindow) {
         return clients.openWindow(url);
       }
-    }),
+    })
   );
 });
 
@@ -263,26 +263,18 @@ self.addEventListener("message", (event) => {
   }
 });
 
-// CDN and Firebase optimization utilities
-function isFirebaseAsset(url) {
-  return (
-    url.hostname.includes("firebasestorage.googleapis.com") ||
-    url.hostname.includes("firebaseapp.com")
-  );
-}
-
+// CDN and Cloudflare optimization utilities
 function isCloudflareAsset(url) {
   return (
     url.searchParams.has("cf") ||
-    request.headers.get("cf-ray") ||
-    url.hostname.includes("cloudflare")
+    url.hostname.includes("cloudflare") ||
+    url.hostname.includes("pages.dev")
   );
 }
 
 function isCDNAsset(request) {
   const url = new URL(request.url);
   return (
-    isFirebaseAsset(url) ||
     isCloudflareAsset(url) ||
     url.pathname.startsWith("/_next/static/") ||
     url.pathname.startsWith("/static/")
@@ -352,10 +344,8 @@ self.addEventListener("fetch", (event) => {
       event.respondWith(handlePageRequest(request, strategy));
     }
   } else {
-    // External requests (CDN, APIs, Firebase, etc.) - optimized for each
-    if (isFirebaseAsset(new URL(request.url))) {
-      event.respondWith(handleFirebaseRequest(request));
-    } else if (isCloudflareAsset(new URL(request.url))) {
+    // External requests (CDN, APIs, Cloudflare, etc.) - optimized for each
+    if (isCloudflareAsset(new URL(request.url))) {
       event.respondWith(handleCloudflareRequest(request));
     } else {
       event.respondWith(handleExternalRequest(request));
@@ -370,7 +360,7 @@ async function handleApiRequest(request) {
 
   // Determine cache strategy based on endpoint
   const isCriticalEndpoint = CRITICAL_API_ENDPOINTS.some((endpoint) =>
-    url.pathname.includes(endpoint),
+    url.pathname.includes(endpoint)
   );
 
   if (isCriticalEndpoint) {
@@ -401,7 +391,7 @@ async function handleApiRequest(request) {
     const networkResponse = await Promise.race([
       fetch(request),
       new Promise((_, reject) =>
-        setTimeout(() => reject(new Error("API timeout")), 8000),
+        setTimeout(() => reject(new Error("API timeout")), 8000)
       ),
     ]);
 
@@ -415,7 +405,7 @@ async function handleApiRequest(request) {
   } catch (error) {
     console.log(
       "[SW] Network failed for API request, trying cache:",
-      request.url,
+      request.url
     );
 
     // Fallback to cache
@@ -452,7 +442,7 @@ async function handleImageRequest(request) {
   } catch (error) {
     console.log(
       "[SW] Network failed for image, using cached version:",
-      request.url,
+      request.url
     );
 
     // Return cached version even if expired
@@ -488,7 +478,7 @@ async function handleStaticRequest(request) {
   } catch (error) {
     console.log(
       "[SW] Network failed for static asset, using cached version:",
-      request.url,
+      request.url
     );
 
     // Return cached version even if expired
@@ -517,7 +507,7 @@ async function handlePageRequest(request) {
   } catch (error) {
     console.log(
       "[SW] Network failed for page request, trying cache:",
-      request.url,
+      request.url
     );
 
     // Try cache
@@ -544,44 +534,6 @@ async function handleExternalRequest(request) {
     return networkResponse;
   } catch (error) {
     console.log("[SW] External request failed:", request.url);
-    throw error;
-  }
-}
-
-// Enhanced Firebase request handler with optimized caching
-async function handleFirebaseRequest(request) {
-  const cacheName = CDN_CACHE_NAME;
-
-  try {
-    // Firebase assets are immutable and can be cached aggressively
-    const cachedResponse = await caches.match(request);
-
-    if (cachedResponse && !isExpired(cachedResponse, CACHE_DURATION.CDN)) {
-      console.log("[SW] Serving Firebase asset from cache:", request.url);
-      return cachedResponse;
-    }
-
-    // Fetch from network
-    const networkResponse = await fetch(request);
-
-    if (networkResponse.ok) {
-      // Cache Firebase assets for long term
-      const cache = await caches.open(cacheName);
-      cache.put(request, networkResponse.clone());
-      console.log("[SW] Cached Firebase asset:", request.url);
-    }
-
-    return networkResponse;
-  } catch (error) {
-    console.log("[SW] Firebase request failed:", request.url, error);
-
-    // Try to serve from cache as fallback
-    const cachedResponse = await caches.match(request);
-    if (cachedResponse) {
-      console.log("[SW] Serving stale Firebase asset from cache:", request.url);
-      return cachedResponse;
-    }
-
     throw error;
   }
 }
@@ -646,7 +598,7 @@ async function handleCloudflareRequest(request) {
     if (cachedResponse) {
       console.log(
         "[SW] Serving stale Cloudflare asset from cache:",
-        request.url,
+        request.url
       );
       return cachedResponse;
     }
@@ -696,7 +648,7 @@ function createOfflineApiResponse(request) {
       {
         status: 503,
         headers: { "Content-Type": "application/json" },
-      },
+      }
     );
   }
 
@@ -710,7 +662,7 @@ function createOfflineApiResponse(request) {
       {
         status: 503,
         headers: { "Content-Type": "application/json" },
-      },
+      }
     );
   }
 
@@ -722,7 +674,7 @@ function createOfflineApiResponse(request) {
     {
       status: 503,
       headers: { "Content-Type": "application/json" },
-    },
+    }
   );
 }
 
@@ -936,7 +888,7 @@ self.addEventListener("push", (event) => {
   }
 
   event.waitUntil(
-    self.registration.showNotification("MH Construction", options),
+    self.registration.showNotification("MH Construction", options)
   );
 });
 
@@ -965,7 +917,7 @@ self.addEventListener("notificationclick", (event) => {
       if (clients.openWindow) {
         return clients.openWindow(urlToOpen);
       }
-    }),
+    })
   );
 });
 
