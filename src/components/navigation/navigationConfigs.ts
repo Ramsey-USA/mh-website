@@ -18,13 +18,13 @@ export function getNavigationLabel(
 export const navigationConfigs = {
   home: [
     {
-      href: "/#feature-ai-estimator",
+      href: "/estimator",
       label: "AI Estimator",
-      mobileLabel: "AI Est.",
-      icon: "smart_toy",
+      mobileLabel: "Estimator",
+      icon: "calculate",
     },
     {
-      href: "/#feature-3d-explorer",
+      href: "/3d-explorer",
       label: "3D Explorer",
       mobileLabel: "3D View",
       icon: "visibility",
@@ -40,12 +40,6 @@ export const navigationConfigs = {
       label: "Get Started",
       mobileLabel: "Start",
       icon: "handshake",
-    },
-    {
-      href: "/estimator",
-      label: "Try Estimator",
-      mobileLabel: "Estimate",
-      icon: "calculate",
     },
     {
       href: "/#partnership-cta",
@@ -207,6 +201,12 @@ export const navigationConfigs = {
 
   careers: [
     { href: "/", label: "Home", icon: "home" },
+    {
+      href: "/careers#positions",
+      label: "Open Positions",
+      mobileLabel: "Positions",
+      icon: "work",
+    },
     {
       href: "/team",
       label: "Meet Team",
