@@ -283,7 +283,7 @@ const example = "with syntax highlighting";
 `````
 ``````
 
-``````
+```text
 
 #### **File content blocks**
 
@@ -305,7 +305,7 @@ const content = "with filename context";
 ```text
 ``````
 
-```
+```text
 
 ---
 

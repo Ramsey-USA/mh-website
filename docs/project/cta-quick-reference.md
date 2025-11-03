@@ -455,9 +455,3 @@ Use this checklist when reviewing or creating markdown files:
 **For Use By:** Content creators, developers, documentation writers
 **Last Updated:** October 15, 2025
 **Version:** 3.7.2
-````
-`````
-
-```
-
-```
