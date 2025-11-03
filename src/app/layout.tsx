@@ -90,7 +90,7 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* Google Material Icons - Now optimized with font-display in globals.css */}
+        {/* Google Material Icons - Optimized with font-display in globals.css */}
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
           rel="stylesheet"
