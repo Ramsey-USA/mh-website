@@ -1,7 +1,8 @@
 # MH Construction - Veteran-Owned Partnership-Driven Platform
 
 🎯 **PERFECT BRANDING COMPLIANCE ACHIEVED**: 100/100 Score - All Standards Exceeded!  
-✅ **PRODUCTION READY**: Complete platform with exceptional performance optimization
+✅ **PRODUCTION READY**: Complete platform with exceptional performance optimization  
+🇺🇸 **VETERAN-OWNED**: Since January 2025 under U.S. Army veteran leadership (founded 2010)
 
 ## Table of Contents
 
@@ -411,9 +412,10 @@ Material Icons exclusively.**
 ## 🏗️ Project Overview
 
 MH Construction's website is a comprehensive digital platform showcasing veteran-owned excellence in
-the Pacific Northwest. Built with **Next.js 15.5.2** and **modern web technologies**, this platform
-delivers authentic relationships, transparent communication, and community impact through a complete
-suite of construction industry features.
+the Pacific Northwest. Founded in 2010, veteran-owned since January 2025 under U.S. Army veteran
+leadership. Built with **Next.js 15.5.2** and **modern web technologies**, this platform delivers
+authentic relationships, transparent communication, and community impact through a complete suite of
+construction industry features.
 
 ## ✨ Current Platform Status
 
@@ -770,9 +772,9 @@ src/
 
 ### "We Work With You" - Our Foundation
 
-At MH Construction, we don't just build structures - we build relationships. Our veteran-owned
-company operates on a simple but powerful principle: **every client is a partner, every project
-serves the community**.
+At MH Construction, we don't just build structures - we build relationships. Founded in 2010,
+veteran-owned since January 2025 under U.S. Army veteran leadership, our company operates on a
+simple but powerful principle: **every client is a partner, every project serves the community**.
 
 ### Two Types of Partnerships
 
@@ -838,7 +840,7 @@ connected region.
 
 | Information                | Details                                                  |
 | -------------------------- | -------------------------------------------------------- |
-| **Business Name**          | MH Construction LLC (Veteran-Owned)                      |
+| **Business Name**          | MH Construction LLC (Veteran-Owned Since January 2025)   |
 | **Partnership Philosophy** | "We Work With You" - Collaborative Construction Partners |
 | **Community Focus**        | Serving Pacific Northwest Communities with Excellence         |
 | **Phone**                  | (509) 308-6489                                           |
@@ -849,10 +851,10 @@ connected region.
 
 ### Our Partnership Approach
 
-**MH Construction is more than a contractor - we're your construction partner.** Our veteran-owned
-company believes in working **with you**, not just **for you**. Every project is a collaboration
-where your vision, our expertise, and community values come together to create something
-exceptional.
+**MH Construction is more than a contractor - we're your construction partner.** Founded in 2010,
+veteran-owned since January 2025 under U.S. Army veteran leadership. We believe in working
+**with you**, not just **for you**. Every project is a collaboration where your vision, our
+expertise, and community values come together to create something exceptional.
 
 ## 💻 Development Environment
 

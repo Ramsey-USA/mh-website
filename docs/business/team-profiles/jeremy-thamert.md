@@ -29,10 +29,11 @@ Army Commendation Medal, Army Achievement Medal
 
 ## 👤 Biography
 
-Jeremy has served as General Manager of MH Construction for 2 years and became owner in January 2025.
-He is the visionary behind MH Construction's pioneering approach, bringing extensive experience and a
-commitment to integrating cutting-edge technology. Under his leadership, MH Construction continues to
-honor its military-grade precision while embracing innovative construction technologies.
+Jeremy Thamert, a U.S. military veteran, became owner of MH Construction in January 2025 after
+serving as General Manager for 2 years. He is the visionary behind MH Construction's pioneering
+approach, bringing extensive experience and a commitment to integrating cutting-edge technology.
+Under his veteran leadership, MH Construction continues to honor its values of discipline, integrity,
+and precision while embracing innovative construction technologies.
 
 ## ⭐ Career Highlights
 

@@ -312,7 +312,7 @@ CTA Examples:
 // Partnership Story Framework
 Section 1: "Our Partnership Philosophy"
 - Why we chose "work with you" over traditional contracting
-- Community-centered approach since 1995
+- Community-centered approach since 2010
 - Veteran values applied to civilian community building
 
 Section 2: "How Partnership Works"
@@ -434,7 +434,7 @@ client collaborations.
 // Community and Partnership Footer
 Company Description:
 "MH Construction - Your Pacific Northwest construction partners. Working with communities
-since 1995 to build tomorrow, together."
+since 2010 to build tomorrow, together."
 
 Contact Section Header: "Let's Connect"
 Quick Links: "Partnership Resources"

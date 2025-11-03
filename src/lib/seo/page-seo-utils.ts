@@ -15,7 +15,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title: "AI-Powered Veteran-Owned Construction Excellence | MH Construction",
     description:
-      "Revolutionary AI construction intelligence with General MH military assistant. Veteran-owned excellence serving Pacific Northwest communities with transparent partnerships, 24/7 AI estimator, and military precision project management.",
+      "Revolutionary AI construction intelligence with General MH military assistant. Founded 2010, veteran-owned since January 2025 under Army veteran leadership. Serving Pacific Northwest communities with transparent partnerships, 24/7 AI estimator, and military precision project management.",
     keywords: [
       "AI construction assistant",
       "veteran-owned contractor Pacific Northwest",
@@ -76,7 +76,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title: "About MH Construction | Veteran-Owned Partnership-Driven Platform",
     description:
-      "Learn about MH Construction's veteran-owned heritage, partnership philosophy, and revolutionary AI construction intelligence. Serving Pacific Northwest communities with military precision and authentic relationships since 2020.",
+      "Founded 2010 by Mike Holstein, veteran-owned since January 2025 under Army veteran Jeremy Thamert's leadership. Partnership philosophy and revolutionary AI construction intelligence. Serving Pacific Northwest communities with military precision and authentic relationships.",
     keywords: [
       "veteran-owned construction company",
       "partnership-driven construction",
@@ -242,7 +242,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title: "Contact MH Construction | Veteran-Owned Builder | Pasco, WA",
     description:
-      "Contact MH Construction for your Pacific Northwest construction needs. Veteran-owned excellence with AI-powered estimating, military precision, and authentic partnership approach. (509) 308-6489",
+      "Contact MH Construction for your Pacific Northwest construction needs. Founded 2010, veteran-owned since January 2025 with AI-powered estimating, military precision, and authentic partnership approach. (509) 308-6489",
     keywords: [
       "contact construction contractor Pasco WA",
       "veteran-owned construction contact",

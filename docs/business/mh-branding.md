@@ -265,7 +265,7 @@ layout and no longer use the standalone `PageHero` component.
 | **Tagline** | "Your Partnership in Construction Excellence" |
 | **Secondary Tagline** | "We Work With You Every Step. Military Precision. Advanced Technology." |
 | **Industry** | Construction & Renovation |
-| **Founded** | Veteran-owned and operated |
+| **Founded** | 2010 - Veteran-owned and operated |
 | **Service Philosophy** | Military precision, veteran values, cutting-edge technology |
 
 ### Core Values (Updated v3.6.0 - October 2025)

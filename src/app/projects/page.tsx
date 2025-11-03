@@ -290,7 +290,7 @@ export default function ProjectsPage() {
                     Veteran-Owned Excellence
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                    Military precision meets construction expertise
+                    Veteran-owned since January 2025 with military precision
                   </p>
                 </div>
               </div>

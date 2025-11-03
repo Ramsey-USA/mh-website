@@ -23,7 +23,7 @@ leadership committed to serving both clients and communities.
 
 ### Mike Holstein - Founder (Retired)
 
-- **Experience**: Company founder, construction industry leadership since 1995
+- **Experience**: Company founder in 2010, construction industry leadership since 1995
 - **Status**: Retired Leadership
 - **Legacy Contributions**:
   - Company Foundations & Core Values Establishment
@@ -83,18 +83,6 @@ leadership committed to serving both clients and communities.
   - Specialty Systems & Complex Projects
 - **Expertise**: Known for accurate estimates that minimize budget surprises
 - **Approach**: Comprehensive analysis of all project variables and potential risks
-
-### Ronaldo Garcia - Drywall & Specialty Systems Expert
-
-- **Experience**: 12 years specialized construction
-- **Status**: Civilian Professional
-- **Core Specialties**:
-  - Drywall Installation & Finishing
-  - Specialty Wall Systems
-  - Interior Finishing & Detail Work
-  - Precision Craftsmanship
-- **Reputation**: Master craftsman known for exceptional attention to detail
-- **Projects**: Lead specialist on high-end commercial and medical interiors
 
 ---
 
@@ -273,11 +261,6 @@ Every team member embodies our core partnership approach:
 
 - **Lead Superintendent**: Porter Cline
 - **Specialties**: Warehouses, processing facilities, specialized industrial buildings
-
-### Interior & Specialty Work
-
-- **Lead Specialist**: Ronaldo Garcia
-- **Specialties**: Medical office build-outs, high-end commercial interiors
 
 ### Estimation & Planning
 

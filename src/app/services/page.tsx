@@ -231,7 +231,7 @@ const whyChooseUs = [
     iconName: "military_tech",
     title: "Veteran-Owned Excellence",
     description:
-      "Military precision and discipline applied to construction, ensuring attention to detail and reliable execution.",
+      "Veteran-owned since January 2025 under Army veteran leadership. Military precision and discipline applied to construction, ensuring attention to detail and reliable execution.",
   },
   {
     iconName: "handshake",

@@ -117,7 +117,7 @@ export default function Home() {
         </title>
         <meta
           name="description"
-          content="Revolutionary AI construction intelligence with General MH military assistant. Veteran-owned excellence serving Pacific Northwest communities with authentic partnerships and cutting-edge technology."
+          content="Revolutionary AI construction intelligence with General MH military assistant. Founded 2010, veteran-owned since January 2025 under Army veteran leadership. Serving Pacific Northwest communities with authentic partnerships and cutting-edge technology."
         />
         <meta
           name="keywords"
@@ -129,7 +129,7 @@ export default function Home() {
         />
         <meta
           property="og:description"
-          content="Veteran-led Commercial Construction Management with military precision and AI technology. Serving the Tri-Cities area. Call (509) 308-6489."
+          content="Founded 2010, veteran-owned since January 2025. Commercial Construction Management with military precision and AI technology. Serving the Tri-Cities area. Call (509) 308-6489."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://www.mhc-gc.com" />
@@ -161,7 +161,7 @@ export default function Home() {
 
             {/* Description - Improved mobile spacing */}
             <p className="max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-white/80 leading-relaxed px-4">
-              Partnering with Tri-Cities communities since 1995 - where veteran
+              Partnering with Tri-Cities communities since 2010 - where veteran
               values meet collaborative construction management for
               extraordinary results.
             </p>

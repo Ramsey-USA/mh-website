@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ),
   title: "MH Construction - AI-Powered Veteran-Owned Construction Excellence",
   description:
-    "Revolutionary AI-powered construction intelligence with General MH military assistant. Veteran-owned excellence serving Pacific Northwest communities with authentic partnerships, transparent communication, and cutting-edge technology.",
+    "Revolutionary AI-powered construction intelligence with General MH military assistant. Founded 2010, veteran-owned since January 2025 under Army veteran leadership. Serving Pacific Northwest communities with authentic partnerships, transparent communication, and cutting-edge technology.",
   keywords: [
     "AI construction assistant",
     "veteran-owned contractor",

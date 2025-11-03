@@ -62,40 +62,40 @@ const coreValues = [
   },
   {
     iconName: "handshake",
-    title: "Partnership-First Ethics",
+    title: "Client-First Ethics",
     subtitle: "Small-town values with big-city capabilities",
     description:
-      "Your vision comes first. We adapt our expertise to serve your goals and build lasting partnerships, not just structures.",
+      "Your vision comes first. We adapt our expertise to serve your goals and build lasting relationships, not just structures.",
     practices: [
-      "Initial consultations focused on understanding your unique partnership needs",
+      "Initial consultations focused on understanding your unique needs",
       "Flexible scheduling that works with your timeline and priorities",
       "Multiple communication channels (phone, email, text, in-person)",
-      "Solutions scaled to your budget without compromising partnership quality",
+      "Solutions scaled to your budget without compromising quality",
     ],
   },
   {
     iconName: "settings",
-    title: "Partnership & Control",
+    title: "Professionalism & Control",
     subtitle: '"You control it, we manage it"',
     description:
-      "Shared decision making where you maintain control while we provide expert guidance and handle all logistics through true partnership.",
+      "Shared decision making where you maintain control while we provide expert guidance and handle all logistics.",
     practices: [
       "Decision points clearly identified and explained before work proceeds",
-      "Daily briefings on progress and upcoming partnership decisions needed",
+      "Daily briefings on progress and upcoming decisions needed",
       "Professional appearance and conduct on your property",
       "Coordination of all subcontractors and material deliveries",
     ],
   },
   {
     iconName: "shield",
-    title: "Partnership Trust",
-    subtitle: "The culmination of all other values",
+    title: "Trust (The Culmination)",
+    subtitle: "The ultimate goal of all other values",
     description:
-      "Trust isn't just another value—it's the result when all other values are consistently demonstrated. It's our ultimate partnership goal.",
+      "Trust isn't just another value—it's the result when all other values are consistently demonstrated. It's our ultimate goal and measurable foundation.",
     practices: [
-      "Consistency: Delivering the same high standards on every partnership project",
+      "Consistency: Delivering the same high standards on every project",
       "Reliability: Being where we say we'll be, when we say we'll be there",
-      "Competence: Demonstrating expertise through quality partnership results",
+      "Competence: Demonstrating expertise through quality results",
       "Character: Doing the right thing, especially when it's difficult",
     ],
   },
@@ -103,9 +103,9 @@ const coreValues = [
 
 // Company Stats
 const companyStats = [
-  { iconName: "calendar_today", value: "1995", label: "Company Established" },
+  { iconName: "calendar_today", value: "2010", label: "Company Founded" },
   { iconName: "groups", value: "150+", label: "Years Combined Experience" },
-  { iconName: "star", value: "98%", label: "Partnership Satisfaction" },
+  { iconName: "star", value: "98%", label: "Client Satisfaction" },
   { iconName: "diversity_3", value: "70%", label: "Referral Rate" },
 ];
 
@@ -114,16 +114,17 @@ const leadershipTeam = [
   {
     name: "Jeremy Thamert",
     role: "Owner & General Manager",
-    experience: "2 years in current role",
-    status: "Civilian Supporter",
+    experience: "U.S. Army Veteran | 2 years leading MH Construction",
+    status: "U.S. Army Veteran",
     specialties: [
       "Strategic Vision & Business Development",
       "Technology Integration & Innovation",
       "AI Adoption & Digital Transformation",
       "Operational Leadership & Team Management",
     ],
-    philosophy: "Bridging military precision with civilian innovation",
-    icon: "person",
+    philosophy:
+      "Bringing veteran leadership and military precision to construction excellence",
+    icon: "military_tech",
   },
   {
     name: "Arnold Garcia",
@@ -143,7 +144,7 @@ const leadershipTeam = [
   {
     name: "Mike Holstein",
     role: "Founder (Retired)",
-    experience: "Company founder, construction leadership since 1995",
+    experience: "Company founder in 2010, construction leadership since 1995",
     status: "Retired Leadership",
     specialties: [
       "Company Foundations & Core Values Establishment",
@@ -168,29 +169,37 @@ export default function AboutPage() {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-8">
-            {/* Subtitle First - MH Branding Standard */}
-            <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
-              Partnership-Driven Construction Management
-            </p>
+            {/* Veteran-Owned Badge */}
+            <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 border border-white/20 rounded-full">
+              <MaterialIcon
+                icon="military_tech"
+                className="mr-3 text-brand-secondary"
+              />
+              <span className="font-bold text-white text-sm uppercase tracking-wider">
+                Veteran-Owned Since January 2025
+              </span>
+            </div>
 
             {/* Main Title with Proper Gradient */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+              <span className="block mb-3 font-semibold text-white/90 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+                Your Partnership in
+              </span>
               <span className="block bg-clip-text bg-gradient-to-r from-[#BD9264] via-white to-[#386851] text-transparent drop-shadow-lg">
-                About MH Construction
+                Construction Excellence
               </span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
-              "We Work With You Every Step of the Way"
+            {/* Primary Tagline */}
+            <p className="max-w-3xl mx-auto text-2xl sm:text-3xl md:text-4xl text-white font-bold leading-relaxed">
+              "Building for the Owner, NOT the Dollar"
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
-              Operating on a simple but powerful principle: every partner is a
-              collaborator, every project serves the community. Where military
-              precision meets construction excellence through genuine
-              partnership.
+              Where military precision meets construction excellence. We work
+              with you every step—combining veteran values, advanced technology,
+              and genuine partnership to build your vision.
             </p>
           </div>
         </div>
@@ -215,15 +224,15 @@ export default function AboutPage() {
                   icon="handshake"
                   className="mb-4 text-brand-primary text-6xl"
                 />
-                <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
+                  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                     Our Partnership
                   </span>
                   <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                     Philosophy
                   </span>
                 </h2>
-                <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+                <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
                   At MH Construction, we don't just build structures - we build
                   relationships.
                 </p>
@@ -375,12 +384,13 @@ export default function AboutPage() {
                 <p className="mb-4 text-gray-800 dark:text-gray-200 text-lg italic leading-relaxed">
                   "When you choose MH Construction, you're not hiring a
                   contractor - you're gaining a partner who genuinely cares
-                  about your success and our community's future. We believe in
-                  building for the owner, not the dollar."
+                  about your success and our community's future. We bring
+                  veteran values of discipline, integrity, and excellence to
+                  every project—building for the owner, not the dollar."
                 </p>
                 <div className="flex items-center">
                   <MaterialIcon
-                    icon="person"
+                    icon="military_tech"
                     className="mr-3 text-brand-primary text-2xl"
                   />
                   <div>
@@ -388,7 +398,7 @@ export default function AboutPage() {
                       Jeremy Thamert
                     </p>
                     <p className="text-gray-600 dark:text-gray-300 text-sm">
-                      Owner & General Manager
+                      Owner & General Manager | U.S. Army Veteran
                     </p>
                   </div>
                 </div>
@@ -407,15 +417,15 @@ export default function AboutPage() {
                 icon="analytics"
                 className="mb-6 text-brand-secondary text-6xl"
               />
-              <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+              <h2 className="mb-6 font-black text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                   Our Track
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
                   Record
                 </span>
               </h2>
-              <p className="mx-auto max-w-5xl font-light text-white/90 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+              <p className="mx-auto max-w-5xl font-light text-white/90 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
                 Proven results from a veteran-owned team committed to excellence
               </p>
             </div>
@@ -446,8 +456,8 @@ export default function AboutPage() {
                 icon="shield"
                 className="mb-6 text-brand-primary text-6xl"
               />
-              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                   Our 6 Core
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
@@ -455,7 +465,7 @@ export default function AboutPage() {
                 </span>
               </h2>
               <div className="mx-auto max-w-4xl">
-                <p className="mb-4 font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+                <p className="mb-4 font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
                   Trust-Centered Philosophy: "Trust as our ultimate goal and
                   measurable company foundation"
                 </p>
@@ -529,10 +539,7 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Team Section */}
-      <section
-        id="team"
-        className="bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-16 lg:py-24"
-      >
+      <section id="team" className="bg-gray-50 dark:bg-gray-800 py-16 lg:py-24">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-16 text-center">
@@ -540,15 +547,15 @@ export default function AboutPage() {
                 icon="groups"
                 className="mb-6 text-brand-primary text-6xl"
               />
-              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                   Meet Our
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                   Team
                 </span>
               </h2>
-              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
                 Your partnership starts with leaders committed to serving both
                 clients and communities through collaborative excellence
               </p>
@@ -612,8 +619,8 @@ export default function AboutPage() {
                       ))}
                     </ul>
                   </div>
-                  <div className="pt-4 border-gray-100 border-t">
-                    <p className="text-gray-700 text-sm italic leading-relaxed">
+                  <div className="pt-4 border-gray-100 dark:border-gray-600 border-t">
+                    <p className="text-gray-700 dark:text-gray-300 text-sm italic leading-relaxed">
                       "{member.philosophy}"
                     </p>
                   </div>
@@ -629,8 +636,8 @@ export default function AboutPage() {
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-6xl">
-              <h2 className="mb-16 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+              <h2 className="mb-16 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-center leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                   Why Our Values
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
@@ -832,7 +839,7 @@ export default function AboutPage() {
                           key={i}
                           icon="star"
                           size="sm"
-                          className="text-yellow-400"
+                          className="text-brand-secondary"
                         />
                       ))}
                     </div>
@@ -873,7 +880,7 @@ export default function AboutPage() {
                           key={i}
                           icon="star"
                           size="sm"
-                          className="text-yellow-400"
+                          className="text-brand-secondary"
                         />
                       ))}
                     </div>
@@ -914,7 +921,7 @@ export default function AboutPage() {
                           key={i}
                           icon="star"
                           size="sm"
-                          className="text-yellow-400"
+                          className="text-brand-secondary"
                         />
                       ))}
                     </div>
@@ -977,13 +984,13 @@ export default function AboutPage() {
 
           <div className="gap-8 grid md:grid-cols-2 mb-12">
             <StaggeredFadeIn>
-              <Card className="bg-gradient-to-br from-green-50 to-white dark:from-green-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+              <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-primary dark:border-brand-primary/50 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center space-x-3 mb-4">
                     <MaterialIcon
                       icon="security"
                       size="lg"
-                      className="text-green-600 dark:text-green-400"
+                      className="text-brand-primary"
                     />
                     <CardTitle className="text-gray-900 dark:text-white text-xl">
                       Safety First Culture
@@ -1032,13 +1039,13 @@ export default function AboutPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+              <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-secondary dark:border-brand-secondary/50 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center space-x-3 mb-4">
                     <MaterialIcon
                       icon="gavel"
                       size="lg"
-                      className="text-blue-600 dark:text-blue-400"
+                      className="text-brand-secondary"
                     />
                     <CardTitle className="text-gray-900 dark:text-white text-xl">
                       Regulatory Compliance
@@ -1121,13 +1128,13 @@ export default function AboutPage() {
 
           <div className="gap-8 grid md:grid-cols-2 lg:grid-cols-3 mb-12">
             <StaggeredFadeIn>
-              <Card className="bg-gradient-to-br from-yellow-50 to-white dark:from-yellow-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+              <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-secondary dark:border-brand-secondary/50 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center space-x-3 mb-4">
                     <MaterialIcon
                       icon="workspace_premium"
                       size="lg"
-                      className="text-yellow-600 dark:text-yellow-400"
+                      className="text-brand-secondary"
                     />
                     <CardTitle className="text-gray-900 dark:text-white text-lg">
                       Excellence in Construction
@@ -1145,13 +1152,13 @@ export default function AboutPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+              <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-primary dark:border-brand-primary/50 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center space-x-3 mb-4">
                     <MaterialIcon
                       icon="military_tech"
                       size="lg"
-                      className="text-blue-600 dark:text-blue-400"
+                      className="text-brand-primary"
                     />
                     <CardTitle className="text-gray-900 dark:text-white text-lg">
                       Veteran Business Enterprise
@@ -1163,19 +1170,20 @@ export default function AboutPage() {
                     Certified Veteran-Owned Small Business (VOSB)
                   </p>
                   <p className="text-gray-500 dark:text-gray-400 text-xs">
-                    Department of Veterans Affairs certification recognizing
-                    veteran entrepreneurship excellence
+                    Veteran-owned since January 2025 under Army veteran
+                    leadership. Department of Veterans Affairs certification
+                    recognizing veteran entrepreneurship excellence.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-green-50 to-white dark:from-green-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+              <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-accent dark:border-brand-accent/50 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center space-x-3 mb-4">
                     <MaterialIcon
                       icon="eco"
                       size="lg"
-                      className="text-green-600 dark:text-green-400"
+                      className="text-brand-accent"
                     />
                     <CardTitle className="text-gray-900 dark:text-white text-lg">
                       Sustainable Building Leader
@@ -1193,13 +1201,13 @@ export default function AboutPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-red-50 to-white dark:from-red-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+              <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-primary dark:border-brand-primary/50 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center space-x-3 mb-4">
                     <MaterialIcon
                       icon="verified_user"
                       size="lg"
-                      className="text-red-600 dark:text-red-400"
+                      className="text-brand-primary"
                     />
                     <CardTitle className="text-gray-900 dark:text-white text-lg">
                       Safety Excellence
@@ -1217,13 +1225,13 @@ export default function AboutPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-purple-50 to-white dark:from-purple-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+              <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-accent dark:border-brand-accent/50 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center space-x-3 mb-4">
                     <MaterialIcon
                       icon="groups"
                       size="lg"
-                      className="text-purple-600 dark:text-purple-400"
+                      className="text-brand-accent"
                     />
                     <CardTitle className="text-gray-900 dark:text-white text-lg">
                       Community Partner
@@ -1241,13 +1249,13 @@ export default function AboutPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-orange-50 to-white dark:from-orange-900/20 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
+              <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-secondary dark:border-brand-secondary/50 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center space-x-3 mb-4">
                     <MaterialIcon
                       icon="trending_up"
                       size="lg"
-                      className="text-orange-600 dark:text-orange-400"
+                      className="text-brand-secondary"
                     />
                     <CardTitle className="text-gray-900 dark:text-white text-lg">
                       Industry Innovation
@@ -1275,10 +1283,10 @@ export default function AboutPage() {
         <div className="z-10 relative mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl text-center">
-              <div className="inline-flex items-center mb-6 px-2 py-1 border-yellow-300 border-l-4">
+              <div className="inline-flex items-center mb-6 px-2 py-1 border-brand-secondary border-l-4">
                 <MaterialIcon
                   icon="military_tech"
-                  className="mr-2 text-yellow-300"
+                  className="mr-2 text-brand-secondary"
                 />
                 <span className="font-semibold text-sm">
                   Veteran-Owned Excellence
@@ -1289,8 +1297,8 @@ export default function AboutPage() {
                 icon="handshake"
                 className="mb-6 text-brand-secondary text-6xl"
               />
-              <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+              <h2 className="mb-6 font-black text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                   Ready to Start Our
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">

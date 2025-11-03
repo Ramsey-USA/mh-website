@@ -194,7 +194,7 @@ the unique requirements of Department of Energy projects.
 
 ### Proven Track Record
 
-- Company serving Pacific Northwest communities since 1995
+- Company serving Pacific Northwest communities since 2010
 - 150+ years combined team experience
 - 98% client satisfaction rate
 - Extensive government project experience

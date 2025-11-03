@@ -70,7 +70,7 @@ Regional Commitment:
 |-------------|---------|
 | **Business Name** | MH Construction LLC (Veteran-Owned) |
 | **Partnership Philosophy** | "We Work With You" - Collaborative Construction Partners |
-| **Community Focus** | Serving Pacific Northwest Communities Since 1995 |
+| **Community Focus** | Serving Pacific Northwest Communities Since 2010 |
 | **Phone** | (509) 308-6489 |
 | **Address** | 3111 N. Capital Ave., Pasco, WA 99301 |
 | **Service Area** | Pacific Northwest (WA, OR, ID) |
@@ -100,7 +100,6 @@ The following roster is sourced directly from `src/lib/data/team.ts` and grouped
 | Makayla Holstein | Project Manager | 8 yrs | Civilian | Coordination; Timeline; Communication |
 | Ben Woodall | Project Manager | 10 yrs | Civilian | Efficiency; Budget; Resources |
 | Todd Schoeff | Lead Estimator | 20 yrs | Civilian | Cost Estimation; Commercial |
-| Ronaldo Garcia | Drywall & Specialty Expert | 12 yrs | Civilian | Drywall; Wall Systems |
 
 ### Site & Field Operations
 

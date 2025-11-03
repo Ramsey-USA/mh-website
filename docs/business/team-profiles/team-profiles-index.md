@@ -29,7 +29,6 @@
 
 - **[Steve McClary](./steve-mcclary.md)** - Operations support
 - **[Arnold Garcia](./arnold-garcia.md)** - Field operations
-- **[Ronaldo Garcia](./ronaldo-garcia.md)** - Operations support
 
 ### Administrative Team
 

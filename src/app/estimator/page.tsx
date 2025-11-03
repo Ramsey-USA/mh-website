@@ -197,7 +197,7 @@ export default function EstimatorPage() {
                       <div>
                         <p className="font-semibold">Expert Analysis</p>
                         <p className="text-gray-600 text-sm">
-                          Company expertise since 1995, team with 150+ years
+                          Company expertise since 2010, team with 150+ years
                           combined experience
                         </p>
                       </div>

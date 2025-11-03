@@ -29,13 +29,13 @@ Lifetime Achievement Award, Regional Business Excellence Award
 
 ## 👤 Biography
 
-Mike Holstein founded MH Construction and established its reputation for integrity, quality, and
-military-grade precision. His leadership and vision established the "We Work With You" partnership
-philosophy that defines MH Construction today.
+Mike Holstein founded MH Construction in 2010 and established its reputation for integrity, quality, and
+precision. His leadership and vision established the "We Work With You" partnership philosophy that
+defines MH Construction today.
 
 ## ⭐ Career Highlights
 
-- Founded MH Construction
+- Founded MH Construction in 2010
 - Established company core values
 - Built reputation for quality excellence
 - Mentored next generation of leaders

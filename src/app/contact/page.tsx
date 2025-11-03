@@ -510,7 +510,7 @@ export default function ContactPage() {
                               150+ Years Combined Experience
                             </p>
                             <p className="text-gray-600 dark:text-gray-400 text-sm">
-                              Team expertise you can trust since 1995
+                              Team expertise you can trust since 2010
                             </p>
                           </div>
                         </li>

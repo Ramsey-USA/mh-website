@@ -337,7 +337,7 @@ export default function GovernmentGrantsPage() {
                 <div className="text-left">
                   <p className="font-bold text-lg">Army Veteran Owned</p>
                   <p className="text-gray-300 text-sm">
-                    Military Leadership Applied
+                    Veteran-Owned Since January 2025
                   </p>
                 </div>
               </div>

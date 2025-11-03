@@ -81,7 +81,7 @@ export const vintageTeamMembers: VintageTeamMember[] = [
 
     awards: "Army Commendation Medal, Army Achievement Medal",
 
-    bio: "Jeremy has served as General Manager of MH Construction for 2 years and became owner in January 2025. He is the visionary behind MH Construction's pioneering approach, bringing extensive experience and a commitment to integrating cutting-edge technology. Under his leadership, MH Construction continues to honor its military-grade precision while embracing innovative construction technologies.",
+    bio: "Jeremy Thamert, a U.S. military veteran, became owner of MH Construction in January 2025 after serving as General Manager for 2 years. He is the visionary behind MH Construction's pioneering approach, bringing extensive experience and a commitment to integrating cutting-edge technology. Under his veteran leadership, MH Construction continues to honor its values of discipline, integrity, and precision while embracing innovative construction technologies.",
 
     careerHighlights: [
       "Led digital transformation initiative",
@@ -137,10 +137,10 @@ export const vintageTeamMembers: VintageTeamMember[] = [
 
     awards: "Lifetime Achievement Award, Regional Business Excellence Award",
 
-    bio: 'Mike Holstein founded MH Construction and established its reputation for integrity, quality, and military-grade precision. His leadership and vision established the "We Work With You" partnership philosophy that defines MH Construction today.',
+    bio: 'Mike Holstein founded MH Construction in 2010 and established its reputation for integrity, quality, and precision. His leadership and vision established the "We Work With You" partnership philosophy that defines MH Construction today.',
 
     careerHighlights: [
-      "Founded MH Construction",
+      "Founded MH Construction in 2010",
       "Established company core values",
       "Built reputation for quality excellence",
       "Mentored next generation of leaders",
@@ -250,7 +250,7 @@ export const vintageTeamMembers: VintageTeamMember[] = [
 
     awards: "Perfect Project Delivery Award, Rising Star Recognition",
 
-    bio: "Makayla Holstein, daughter of founder Mike Holstein, is a highly-skilled Project Manager who excels at navigating complex project timelines and coordinating all project phases. She specializes in commercial and medical facility projects, bringing military-precision scheduling to every build while maintaining the family legacy of excellence.",
+    bio: "Makayla Holstein, daughter of MH Construction founder Mike Holstein, is a highly-skilled Project Manager who excels at navigating complex project timelines and coordinating all project phases. She specializes in commercial and medical facility projects, bringing precision scheduling to every build while maintaining the family legacy of excellence.",
 
     careerHighlights: [
       "Zero project delays in 2025",
@@ -388,62 +388,6 @@ export const vintageTeamMembers: VintageTeamMember[] = [
     veteranStatus: "Civilian Professional",
     active: true,
     slug: "todd-schoeff",
-  },
-
-  {
-    name: "Ronaldo Garcia",
-    role: "Drywall & Specialty Systems Expert",
-    department: "Project Management & Estimating",
-    cardNumber: 0,
-    position: "Specialty Expert",
-    nickname: "The Artisan",
-
-    yearsWithCompany: 12,
-    hometown: "Pacific Northwest",
-    education: "Trade Specialization",
-
-    currentYearStats: {
-      projectsCompleted: 45,
-      clientSatisfaction: 99,
-      safetyRecord: "PERFECT",
-      teamCollaborations: 30,
-    },
-
-    careerStats: {
-      totalProjects: 380,
-      yearsExperience: 12,
-      specialtyAreas: 4,
-      mentorships: 15,
-    },
-
-    awards: "Master Craftsman Recognition, Quality Excellence Award",
-
-    bio: "Ronaldo is a master craftsman known for exceptional attention to detail in drywall installation and specialty wall systems. He leads specialist work on high-end commercial and medical interiors, bringing military-grade precision and artisan-level quality to every installation that reflects MH Construction's commitment to excellence.",
-
-    careerHighlights: [
-      "Master craftsman certification",
-      "Led high-end medical facility interiors",
-      "Developed specialty installation techniques",
-      "Achieved 99% client satisfaction",
-    ],
-
-    funFact:
-      "Ronaldo can identify drywall quality issues just by running his hand along the surface.",
-
-    certifications: "NECA, CISCA",
-    hobbies: "Carpentry, Soccer",
-    specialInterests: "Craftsmanship",
-
-    specialties: [
-      "Drywall Installation & Finishing",
-      "Specialty Wall Systems",
-      "Interior Finishing & Detail Work",
-      "Precision Craftsmanship",
-    ],
-    avatar: "/images/team/ronaldo-garcia.jpg",
-    veteranStatus: "Civilian Professional",
-    active: true,
-    slug: "ronaldo-garcia",
   },
 
   // Site & Field Operations

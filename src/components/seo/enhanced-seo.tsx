@@ -7,7 +7,7 @@ export const enhancedSEO = {
   defaultTitle:
     "MH Construction - AI-Powered Veteran-Owned Construction Excellence",
   defaultDescription:
-    "Revolutionary AI-powered construction intelligence with General MH military assistant. Veteran-owned excellence serving Pacific Northwest communities with authentic partnerships, transparent communication, and cutting-edge technology including AI cost estimation and military precision project management.",
+    "Revolutionary AI-powered construction intelligence with General MH military assistant. Founded 2010, veteran-owned since January 2025 under Army veteran leadership. Serving Pacific Northwest communities with authentic partnerships, transparent communication, and cutting-edge technology including AI cost estimation and military precision project management.",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.mhc-gc.com",
   twitterHandle: "@MHConstruction",
   defaultKeywords: [
@@ -411,7 +411,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "Do you offer veteran benefits and discounts?",
       answer:
-        "Yes! As a veteran-owned business, we proudly offer automatic 12% combat veteran discounts through our AI Estimator system, plus specialized protocols for veteran recognition and service-specific benefits. Our General MH military AI assistant provides veteran advisory services for accessibility, energy efficiency, and security guidance.",
+        "Yes! As a veteran-owned business since January 2025, we proudly offer automatic 12% combat veteran discounts through our AI Estimator system, plus specialized protocols for veteran recognition and service-specific benefits. Our General MH military AI assistant provides veteran advisory services for accessibility, energy efficiency, and security guidance.",
     },
     {
       question: "What areas do you serve in the Pacific Northwest?",
@@ -421,7 +421,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "What makes MH Construction different from other contractors?",
       answer:
-        "We are the first construction company with revolutionary AI-powered construction intelligence, featuring General MH military assistant with Army General personality. As a veteran-owned business, we combine military precision with cutting-edge technology, transparent partnerships, and authentic community relationships using our 'We Work With You' philosophy.",
+        "We are the first construction company with revolutionary AI-powered construction intelligence, featuring General MH military assistant with Army General personality. Founded in 2010, veteran-owned since January 2025 under Army veteran leadership, we combine military precision with cutting-edge technology, transparent partnerships, and authentic community relationships using our 'We Work With You' philosophy.",
     },
     {
       question: "How does the AI construction assistant work?",

@@ -188,7 +188,7 @@ how we do business and the promise we make to every client and community we serv
 
 > _"These values aren't just our company culture - they're our commitment to every
 > client, every project, and every community we have the privilege to serve."_
-> **- Jeremy Thamert, Owner & General Manager**
+> **- Jeremy Thamert, Owner & General Manager (U.S. Army Veteran)**
 
 ---
 
