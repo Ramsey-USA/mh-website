@@ -63,9 +63,9 @@ export function Navigation() {
       {/* Main Header - Transparent and absolute positioning */}
       <header className="top-0 left-0 right-0 z-40 absolute bg-transparent">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex justify-center items-center py-2 h-16 sm:h-20 md:h-24">
-            {/* Logo - Centered with mobile optimization */}
-            <div className="flex-shrink-0 pt-4 sm:pt-6 md:pt-8">
+          <div className="flex justify-center items-center py-2 h-14 sm:h-16 md:h-20">
+            {/* Logo - Centered with mobile optimization (20% smaller) */}
+            <div className="flex-shrink-0 pt-2 sm:pt-3 md:pt-4">
               <Link
                 href="/"
                 className="flex items-center hover:scale-105 transition-all duration-300"
@@ -73,10 +73,10 @@ export function Navigation() {
                 <Image
                   src="/images/logo/mh-logo.png"
                   alt="MH Construction"
-                  width={176}
-                  height={176}
+                  width={141}
+                  height={141}
                   priority
-                  className="drop-shadow-lg w-auto h-[96px] xs:h-[112px] sm:h-[140px] md:h-[176px]"
+                  className="drop-shadow-lg w-auto h-[77px] xs:h-[90px] sm:h-[112px] md:h-[141px]"
                 />
               </Link>
             </div>

@@ -143,8 +143,8 @@ export default function Home() {
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Content - Added top and bottom padding to prevent overlap */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-24 md:pb-28">
           <div className="space-y-6 sm:space-y-8">
             {/* Main Title - Better mobile scaling */}
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
@@ -166,8 +166,8 @@ export default function Home() {
               extraordinary results.
             </p>
 
-            {/* Call to Action Buttons - Mobile optimized */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-8 sm:mt-12 px-4">
+            {/* Call to Action Buttons - Mobile optimized with proper spacing */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-8 sm:mt-12 px-4 pb-4">
               <Button
                 size="xl"
                 className="bg-brand-secondary hover:bg-brand-secondary/90 text-gray-900 font-bold w-full sm:w-auto min-h-[48px] touch-manipulation"
