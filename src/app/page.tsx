@@ -193,10 +193,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Page-Specific Navigation Bar - Hidden on mobile for better UX */}
+        {/* Page-Specific Navigation Bar - Visible on all devices */}
         <PageNavigation
           items={navigationConfigs.home}
-          className="absolute bottom-0 left-0 right-0 hidden md:block"
+          className="absolute bottom-0 left-0 right-0"
         />
       </section>
 

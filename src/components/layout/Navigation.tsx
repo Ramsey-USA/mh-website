@@ -63,9 +63,9 @@ export function Navigation() {
       {/* Main Header - Transparent and absolute positioning */}
       <header className="top-0 left-0 right-0 z-40 absolute bg-transparent">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex justify-center items-center py-2 h-14 sm:h-16 md:h-20">
+          <div className="flex justify-center items-center py-3 sm:py-4 md:py-5 h-auto">
             {/* Logo - Centered with mobile optimization (20% smaller) */}
-            <div className="flex-shrink-0 pt-2 sm:pt-3 md:pt-4">
+            <div className="flex-shrink-0">
               <Link
                 href="/"
                 className="flex items-center hover:scale-105 transition-all duration-300"
