@@ -62,7 +62,7 @@ const SECURITY_BYPASS_PATHS = [
  * Main security middleware function
  */
 export async function securityMiddleware(
-  request: NextRequest
+  request: NextRequest,
 ): Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
   const userAgent = request.headers.get("user-agent") || "Unknown";
@@ -90,7 +90,7 @@ export async function securityMiddleware(
           path: pathname,
           method: request.method,
           reason: "Rate limit exceeded",
-        }
+        },
       );
 
       return securityResult.response!;
@@ -103,7 +103,7 @@ export async function securityMiddleware(
     const securedResponse = securityManager.applyResponseSecurity(
       response,
       securityResult,
-      securityResult.csrfToken
+      securityResult.csrfToken,
     );
 
     // Log successful request if configured
@@ -166,7 +166,7 @@ export function withSecurity(handler: Function) {
             path: pathname,
             method: request.method,
             reason: "Security check failed",
-          }
+          },
         );
 
         return securityResult.response!;
@@ -190,12 +190,12 @@ export function withSecurity(handler: Function) {
                   path: pathname,
                   method: request.method,
                   validationErrors: validation.errors,
-                }
+                },
               );
 
               return NextResponse.json(
                 { error: "Invalid input data", details: validation.errors },
-                { status: 400 }
+                { status: 400 },
               );
             }
 
@@ -214,12 +214,12 @@ export function withSecurity(handler: Function) {
                 path: pathname,
                 method: request.method,
                 error: "Invalid JSON",
-              }
+              },
             );
 
             return NextResponse.json(
               { error: "Invalid JSON data" },
-              { status: 400 }
+              { status: 400 },
             );
           }
         }
@@ -232,7 +232,7 @@ export function withSecurity(handler: Function) {
       const securedResponse = securityManager.applyResponseSecurity(
         response,
         securityResult,
-        securityResult.csrfToken
+        securityResult.csrfToken,
       );
 
       // Log API access
@@ -244,7 +244,7 @@ export function withSecurity(handler: Function) {
         {
           statusCode: securedResponse.status,
           userAgent,
-        }
+        },
       );
 
       return securedResponse;
@@ -264,7 +264,7 @@ export function withSecurity(handler: Function) {
 
       return NextResponse.json(
         { error: "Internal server error" },
-        { status: 500 }
+        { status: 500 },
       );
     }
   };
@@ -299,7 +299,7 @@ export async function validateFileUpload(
     maxSize?: number;
     allowedTypes?: string[];
     scanForMalware?: boolean;
-  }
+  },
 ): Promise<{
   isValid: boolean;
   errors: string[];
@@ -312,7 +312,7 @@ export async function validateFileUpload(
   const maxSize = options?.maxSize || config.validation.maxFileSize;
   if (file.size > maxSize) {
     errors.push(
-      `File size exceeds maximum allowed size of ${maxSize / (1024 * 1024)}MB`
+      `File size exceeds maximum allowed size of ${maxSize / (1024 * 1024)}MB`,
     );
   }
 
@@ -422,7 +422,7 @@ export function createSecureCookie(
     httpOnly?: boolean;
     secure?: boolean;
     sameSite?: "strict" | "lax" | "none";
-  }
+  },
 ): string {
   const defaults = {
     httpOnly: true,

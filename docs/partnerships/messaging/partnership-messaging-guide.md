@@ -49,7 +49,7 @@ _This tagline emphasizes our commitment to client success over profit maximizati
 **Service Type:** Instant, automated, 24/7 cost estimation
 **Best For:** Initial research, budget planning, preliminary pricing
 
-```tsx
+`````tsx
 // AI Estimator CTAs (MH Branding Standards)
 <Button variant="secondary" size="lg">
   <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
@@ -776,4 +776,4 @@ Before launching vendor-focused content, verify:
 
 **Partnership Implementation Guide** | **Version 1.0** | **October 1, 2025**
 *Working with development teams to implement MH's community-centered culture*
-````
+`````

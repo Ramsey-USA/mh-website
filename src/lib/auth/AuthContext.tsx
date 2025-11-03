@@ -29,7 +29,7 @@ interface AuthContextType {
     email: string,
     password: string,
     displayName: string,
-    role?: UserRole
+    role?: UserRole,
   ) => Promise<void>;
   signInWithGoogle: () => Promise<void>;
   logout: () => Promise<void>;
@@ -37,7 +37,7 @@ interface AuthContextType {
   updateUserProfile: (updates: Partial<UserProfile>) => Promise<void>;
   updateUserProfileById: (
     uid: string,
-    updates: Partial<UserProfile>
+    updates: Partial<UserProfile>,
   ) => Promise<void>;
 }
 

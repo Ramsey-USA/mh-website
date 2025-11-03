@@ -108,7 +108,7 @@ export function getContentKeys(): string[] {
  * Get multiple content items
  */
 export async function getMultipleContent(
-  keys: string[]
+  keys: string[],
 ): Promise<Record<string, ContentItem>> {
   const result: Record<string, ContentItem> = {};
 

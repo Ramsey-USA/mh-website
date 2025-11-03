@@ -56,7 +56,7 @@ const normalizeString = (str: string): string => {
 
 const calculateRelevanceScore = (
   item: SearchableItem,
-  query: string
+  query: string,
 ): number => {
   const normalizedQuery = normalizeString(query);
   const queryWords = normalizedQuery.split(" ").filter(Boolean);
@@ -199,7 +199,7 @@ const DynamicSearch = ({
               item.relevanceScore > 0 ||
               fuzzyMatch(item.title, query) ||
               fuzzyMatch(item.description, query) ||
-              item.tags.some((tag) => fuzzyMatch(tag, query))
+              item.tags.some((tag) => fuzzyMatch(tag, query)),
           )
           .sort((a, b) => (b.relevanceScore || 0) - (a.relevanceScore || 0));
       } else {
@@ -209,7 +209,7 @@ const DynamicSearch = ({
             item.title.toLowerCase().includes(query) ||
             item.description.toLowerCase().includes(query) ||
             item.tags.some((tag) => tag.toLowerCase().includes(query)) ||
-            item.category.toLowerCase().includes(query)
+            item.category.toLowerCase().includes(query),
         );
       }
     }
@@ -244,7 +244,7 @@ const DynamicSearch = ({
       }
 
       filtered = filtered.filter(
-        (item) => item.date && item.date >= filterDate
+        (item) => item.date && item.date >= filterDate,
       );
     }
 
@@ -301,7 +301,7 @@ const DynamicSearch = ({
         onItemClick(item);
       }
     },
-    [trackEvent, debouncedSearchQuery, filteredItems, onItemClick]
+    [trackEvent, debouncedSearchQuery, filteredItems, onItemClick],
   );
 
   // Keyboard shortcuts
@@ -316,7 +316,7 @@ const DynamicSearch = ({
       // Focus search with Ctrl+K or Cmd+K
       if ((event.ctrlKey || event.metaKey) && event.key === "k") {
         const searchInput = document.querySelector(
-          'input[type="text"]'
+          'input[type="text"]',
         ) as HTMLInputElement;
         if (searchInput) {
           searchInput.focus();

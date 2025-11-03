@@ -23,7 +23,7 @@ These standards ensure consistency, maintainability, and prevent recurring bugs.
 
 #### ✅ CORRECT
 
-```tsx
+`````tsx
 import { Button, Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
@@ -371,11 +371,11 @@ export function Button({
 }: ButtonProps) {
   // ...
 }
-````
+`````
 
 ### **Complex Logic Documentation**
 
-```tsx
+````tsx
 // WHY: Firebase requires initialization before use to prevent race conditions
 // HOW: Lazy initialization on first access
 // WHEN: 2025-10-14 - Fix for intermittent Firebase errors
@@ -423,5 +423,6 @@ Before committing code, ensure:
 
 ---
 
-**Questions or Suggestions?**  
+**Questions or Suggestions?**
 Update this document via pull request or discuss with the team.
+````

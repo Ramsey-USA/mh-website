@@ -50,7 +50,7 @@ Use `inline code` for short code snippets.
 
 For longer code examples:
 
-```javascript
+````javascript
 function example() {
   return "Always specify language";
 }
@@ -145,3 +145,4 @@ This template ensures:
 - [ ] No trailing spaces
 - [ ] Proper heading hierarchy
 - [ ] Clear section organization
+````

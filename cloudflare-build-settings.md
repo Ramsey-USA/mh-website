@@ -21,7 +21,7 @@ The error you're experiencing means Cloudflare Pages is **not using the correct 
 
 ### ⚡ Framework preset
 
-```text
+````text
 Next.js
 ```text
 
@@ -89,7 +89,7 @@ During deployment, watch the build logs. You should see:
 ⚡️ Completed `npx vercel build`.
 
 ⚡️ Build Summary (@cloudflare/next-on-pages v1.13.16)
-⚡️ 
+⚡️
 ⚡️ Edge Function Routes (14)
 ⚡️   ┌ /api/consultations
 ⚡️   ├ /api/consultations/[id]
@@ -242,7 +242,8 @@ The most common issue is **not using the exact build command** shown above.
 
 ---
 
-**Last Updated**: November 2, 2025  
-**Status**: Build works locally ✅ - Configuration needed in Cloudflare Dashboard  
-**Next.js Version**: 15.5.2  
+**Last Updated**: November 2, 2025
+**Status**: Build works locally ✅ - Configuration needed in Cloudflare Dashboard
+**Next.js Version**: 15.5.2
 **Adapter Version**: @cloudflare/next-on-pages@1.13.16
+````

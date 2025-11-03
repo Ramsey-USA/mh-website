@@ -4,7 +4,7 @@ This directory contains the navigation components for the MH Construction websit
 
 ## 📁 Structure
 
-```text
+````text
 src/components/navigation/
 ├── README.md                  # This file - Navigation components documentation
 ├── PageNavigation.tsx         # Page-specific sectional navigation component
@@ -57,8 +57,11 @@ import { navigationConfigs } from "../../components/navigation/navigationConfigs
 
 ```typescript
 export const navigationConfigs = {
+  // Home page - unique: links to standalone feature pages not sections
   home: [
-    { href: "/services#section", label: "Section", icon: "icon_name" },
+    { href: "/estimator", label: "AI Estimator", icon: "calculate" },
+    { href: "/3d-explorer", label: "3D Explorer", icon: "visibility" },
+    { href: "/#core-values", label: "Our Values", icon: "shield" },
     // ... more items
   ],
   about: [
@@ -207,3 +210,4 @@ npm run preview
 
 **Maintained By**: MH Construction Development Team
 **Last Updated**: October 13, 2025
+````

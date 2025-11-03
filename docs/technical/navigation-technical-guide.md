@@ -28,7 +28,7 @@
 
 **File**: `/src/components/layout/Navigation.tsx`
 
-```typescript
+````typescript
 // Already implemented - no changes needed
 // Automatically appears on all pages via layout.tsx
 import { Navigation } from "../components/layout";
@@ -116,26 +116,13 @@ export function PageNavigation({ items, className = "" }: PageNavigationProps) {
 ```typescript
 // Page-specific navigation configurations
 export const navigationConfigs = {
-  // Home page navigation
+  // Home page navigation - unique: links to standalone pages not sections
   home: [
-    {
-      href: "/services#modularization",
-      label: "Modularization",
-      icon: "precision_manufacturing",
-    },
     { href: "/estimator", label: "AI Estimator", icon: "calculate" },
-    { href: "/government", label: "Government", icon: "account_balance" },
-    {
-      href: "/services#procurement-vendor-management",
-      label: "Procurement",
-      icon: "inventory",
-    },
-    {
-      href: "/services#constructability-budget-control",
-      label: "Constructability",
-      icon: "engineering",
-    },
-    { href: "/booking", label: "Start Partnership", icon: "handshake" },
+    { href: "/3d-explorer", label: "3D Explorer", icon: "visibility" },
+    { href: "/#core-values", label: "Our Values", icon: "shield" },
+    { href: "/#ai-features-cta", label: "Get Started", icon: "handshake" },
+    { href: "/#partnership-cta", label: "Start Partnership", icon: "launch" },
     { href: "/contact", label: "Contact", icon: "contact_phone" },
   ],
 
@@ -520,3 +507,4 @@ const MaterialIcon = lazy(() => import("../icons/MaterialIcon"));
 **Document Authority**: MH Construction Development Team
 **Last Review**: October 13, 2025
 **Next Review**: January 2026 (Quarterly)
+````

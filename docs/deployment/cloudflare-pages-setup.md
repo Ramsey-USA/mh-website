@@ -31,7 +31,7 @@ Your project is already configured for Cloudflare Pages! The `next.config.js` us
 
 Create a `.env.local` file for local development:
 
-```env
+````env
 NEXT_PUBLIC_SITE_URL=https://mhc-gc.com
 CLOUDFLARE_ACCOUNT_ID=your_account_id
 CLOUDFLARE_API_TOKEN=your_api_token
@@ -402,3 +402,4 @@ wrangler pages project list
 **Status**: ✅ **READY FOR DEPLOYMENT**
 
 Your MH Construction website is fully configured and ready to deploy to Cloudflare Pages!
+````

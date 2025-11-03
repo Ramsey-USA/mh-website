@@ -37,7 +37,7 @@
 
 ### Next.js Configuration
 
-```javascript
+````javascript
 experimental: {
   webpackBuildWorker: true,           // Parallel compilation
   optimizeCss: true,                  // CSS optimization
@@ -93,7 +93,7 @@ If you want to push for sub-15 second builds:
    # Split the 102KB militaryConstructionAI.ts file
    # Split the 71KB page.tsx file
    # Target: <30KB per file
-   ```
+````
 
 1. **Dynamic Imports** (Potential 2-3s improvement):
 
@@ -113,7 +113,7 @@ If you want to push for sub-15 second builds:
 
 ### Standard Usage
 
-```bash
+````bash
 npm run build              # Standard optimized build (16-17s)
 npm run build:fast         # Skip linting (similar speed)
 npm run build:profile      # Extra memory allocation
@@ -158,3 +158,4 @@ significantly more efficient!
 **🎯 Current Status**: Mission Accomplished! Build optimization complete.
 
 **Optional**: Want to push for sub-15 second builds? Let me know and I can help split those large files for maximum performance!
+````

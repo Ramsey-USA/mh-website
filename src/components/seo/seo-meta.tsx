@@ -144,7 +144,7 @@ export function StructuredData({ data }: { data: object }) {
   // Sanitize JSON data for security
   const sanitizedData = JSON.stringify(data).replace(
     /<\/script/gi,
-    "<\\/script"
+    "<\\/script",
   );
 
   return (
@@ -248,7 +248,7 @@ export function generateProjectStructuredData(project: {
 
 // Generate breadcrumb structured data
 export function generateBreadcrumbStructuredData(
-  breadcrumbs: Array<{ name: string; url: string }>
+  breadcrumbs: Array<{ name: string; url: string }>,
 ) {
   return {
     "@context": "https://schema.org",

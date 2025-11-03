@@ -120,7 +120,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
   ];
 
   const serviceSchemas = constructionServices.map((service) =>
-    generateServiceSchema(service)
+    generateServiceSchema(service),
   );
 
   return generateEnhancedMetadata({

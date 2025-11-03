@@ -157,7 +157,7 @@ visits your site, understands your vision, and provides detailed professional es
 
 **Dual CTA Approach:**
 
-```tsx
+````tsx
 // AI Estimator Section
 <Button variant="secondary" size="lg">
   <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
@@ -378,3 +378,4 @@ Expert guidance tailored to your specific project.
 ---
 
 _Clear service distinctions create better user experiences and more qualified leads._
+````

@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
     if (!data.firstName || !data.lastName || !data.email || !data.position) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -70,7 +70,7 @@ Application ID: ${application.id}
             type: "job-application",
             recipientEmail: "office@mhc-gc.com",
           }),
-        }
+        },
       );
 
       if (!emailResponse.ok) {
@@ -99,7 +99,7 @@ Application ID: ${application.id}
     console.error("Error submitting job application:", error);
     return NextResponse.json(
       { error: "Failed to submit application" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -118,7 +118,7 @@ export async function GET(request: NextRequest) {
     console.error("Error fetching job applications:", error);
     return NextResponse.json(
       { error: "Failed to fetch applications" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

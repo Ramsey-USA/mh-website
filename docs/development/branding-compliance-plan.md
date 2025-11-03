@@ -238,7 +238,7 @@ implementation steps, and validation checkpoints.
 
 #### Step 1: Page Analysis
 
-```bash
+````bash
 # For each page, run the branding validator
 node -e "
 const { validateBrandCompliance } = require('./src/lib/content/BrandingValidator.ts');
@@ -257,7 +257,7 @@ console.log(JSON.stringify(result, null, 2));
    ```tsx
    // Replace: 🏗️
    // With: <MaterialIcon icon="construction" size="md" />
-   ```
+````
 
 #### Step 3: Typography Standardization
 
@@ -267,7 +267,7 @@ console.log(JSON.stringify(result, null, 2));
 
 #### Step 4: Validation & Testing
 
-```bash
+````bash
 # Run full validation
 npm run build
 npm run lint
@@ -413,6 +413,7 @@ npm run lint
 
 ---
 
-**Last Updated**: October 24, 2025  
-**Next Review**: November 24, 2025  
+**Last Updated**: October 24, 2025
+**Next Review**: November 24, 2025
 **Responsible**: Development Team
+````

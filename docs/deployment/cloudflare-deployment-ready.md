@@ -69,7 +69,7 @@ Images, icons, screenshots, and other static resources
 
 ### Option 1: Deploy via Wrangler (CLI)
 
-```bash
+````bash
 npm run pages:deploy
 ```text
 
@@ -218,3 +218,4 @@ Object storage for uploads:
 
 **Status**: Ready for production deployment ✅
 **Last Updated**: November 2, 2025
+````

@@ -32,7 +32,7 @@ communication, and veteran excellence.
 
 ### Prerequisites
 
-```bash
+````bash
 Node.js >= 18.0.0
 npm >= 8.0.0
 Git
@@ -45,7 +45,7 @@ Git
    ```bash
    git clone https://github.com/Ramsey-USA/mh-website.git
    cd mh-website
-   ```
+````
 
 1. **Install dependencies**
 

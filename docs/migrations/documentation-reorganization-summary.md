@@ -4,7 +4,7 @@
 
 ### 🗂️ New Directory Structure
 
-```text
+````text
 docs/
 ├── 📁 operations/          # NEW - Operational documentation
 │   └── build-optimization/ # Build performance and optimization guides
@@ -92,3 +92,4 @@ This reorganization significantly improves:
 - **Maintenance**: Consistent structure reduces confusion
 - **Scalability**: Clear categories for future content
 - **Professional Appearance**: Clean, organized documentation structure
+````

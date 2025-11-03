@@ -54,7 +54,7 @@ comprehensive optimizations for performance, security, and developer experience.
 
 ### Local Development
 
-```bash
+````bash
 npm run dev
 # Runs on http://localhost:3000
 ```text
@@ -228,3 +228,4 @@ Verify routes exist and are properly exported:
 **Status**: ✅ **MIGRATION COMPLETE**
 
 The website has been successfully migrated from Firebase to Cloudflare Pages with improved performance, security, and scalability.
+````

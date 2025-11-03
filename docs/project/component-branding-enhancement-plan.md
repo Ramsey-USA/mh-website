@@ -93,7 +93,7 @@ Global navigation appears on every page and sets the first impression. Must be c
 
 **Primary CTA Button (Desktop - Right Side):**
 
-```tsx
+````tsx
 <Button
   variant="primary"
   size="default"
@@ -1199,8 +1199,9 @@ For each component update:
 
 ---
 
-**Document Status:** 🟢 Ready for Implementation  
-**Last Updated:** October 15, 2025  
+**Document Status:** 🟢 Ready for Implementation
+**Last Updated:** October 15, 2025
 **Next Review:** After Phase 1 completion
 
 _For questions or clarifications, contact the development team at <office@mhc-gc.com>_
+````

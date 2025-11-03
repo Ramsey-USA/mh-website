@@ -20,7 +20,7 @@ standards to distinguish between:
 **Color:** Blue/tech colors
 **Style:** Modern, digital, instant-action focused
 
-```tsx
+````tsx
 // Primary AI Estimator CTAs (using MH branding standards)
 <Button variant="secondary" size="lg">
   <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
@@ -313,7 +313,7 @@ standards to distinguish between:
 "Partnership Opportunities"
 "Vendor Portal Login"
 "Vendor Resources"
-````
+```
 
 ---
 
@@ -321,7 +321,7 @@ standards to distinguish between:
 
 ### **Client CTAs - Styling Approach**
 
-```css
+````css
 /* Primary Client CTAs */
 .client-primary-cta {
   background: brand-primary (green);
@@ -412,3 +412,4 @@ standards to distinguish between:
 
 **CTA Button Guide** | **Version 1.0** | **October 14, 2025**
 _Implementing clear distinctions between client partnerships and trade partnerships_
+````

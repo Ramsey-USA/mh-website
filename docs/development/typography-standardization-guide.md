@@ -4,7 +4,7 @@
 
 ### Hero Section Typography (H1)
 
-```tsx
+````tsx
 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight tracking-tight">
   <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent drop-shadow-lg">
     Main Hero Title
@@ -59,10 +59,10 @@
 ```tsx
 <!-- Section wrapper -->
 <section className="bg-white dark:bg-gray-900 py-16 lg:py-24">
-  
+
   <!-- Section header spacing -->
   <div className="mb-12 lg:mb-16 text-center">
-    
+
   <!-- Content spacing -->
   <div className="space-y-6 sm:space-y-8">
 ```text
@@ -195,3 +195,4 @@ grep -r "bg-gradient-to-r.*from-brand" src/app/
 - Missing `text-transparent` with gradients
 - Inconsistent color naming
 - Wrong brand color applications
+````

@@ -43,7 +43,7 @@ Organized component library for the MH Construction website with logical categor
 
 ### Recommended: Use Index Exports
 
-```tsx
+````tsx
 // ✅ Preferred - Clean imports through index
 import { Button, Card, Badge } from "@/components/ui";
 import { PageHero, ThemeToggle } from "@/components/ui";
@@ -135,3 +135,4 @@ Custom components with specific themes or unique functionality.
 
 This organization maintains all existing functionality while providing a cleaner, more
 maintainable structure for the UI component library.
+````

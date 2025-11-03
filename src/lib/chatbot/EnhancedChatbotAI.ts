@@ -66,7 +66,7 @@ export class EnhancedChatbotAI {
   generateEnhancedResponse(
     userMessage: string,
     context: EnhancedChatbotContext,
-    conversationHistory: any[] = []
+    conversationHistory: any[] = [],
   ): string {
     // Check if user is asking about search or wants to find something
     if (this.isSearchRelatedQuery(userMessage)) {
@@ -92,7 +92,7 @@ export class EnhancedChatbotAI {
     return this.generateGeneralResponse(
       userMessage,
       context,
-      conversationHistory
+      conversationHistory,
     );
   }
 
@@ -110,13 +110,13 @@ export class EnhancedChatbotAI {
       "view projects",
     ];
     return searchKeywords.some((keyword) =>
-      message.toLowerCase().includes(keyword.toLowerCase())
+      message.toLowerCase().includes(keyword.toLowerCase()),
     );
   }
 
   private generateSearchResponse(
     message: string,
-    context: EnhancedChatbotContext
+    context: EnhancedChatbotContext,
   ): string {
     const searchTerms = this.extractSearchTerms(message);
 
@@ -172,7 +172,7 @@ export class EnhancedChatbotAI {
 
   private isPageSpecificQuery(
     message: string,
-    context: EnhancedChatbotContext
+    context: EnhancedChatbotContext,
   ): boolean {
     const pageKeywords = {
       "/services": ["service", "what do you do", "offerings", "capabilities"],
@@ -186,13 +186,13 @@ export class EnhancedChatbotAI {
     const currentPageKeywords =
       pageKeywords[context.currentPage as keyof typeof pageKeywords] || [];
     return currentPageKeywords.some((keyword) =>
-      message.toLowerCase().includes(keyword)
+      message.toLowerCase().includes(keyword),
     );
   }
 
   private generatePageSpecificResponse(
     message: string,
-    context: EnhancedChatbotContext
+    context: EnhancedChatbotContext,
   ): string {
     switch (context.currentPage) {
       case "/services":
@@ -212,14 +212,14 @@ export class EnhancedChatbotAI {
 
   private generateServicesPageResponse(
     message: string,
-    context: EnhancedChatbotContext
+    context: EnhancedChatbotContext,
   ): string {
     return `**[SERVICES INTEL]** 🔧\n\nI see you're exploring our construction capabilities! Here's what MH Construction offers:\n\n**RESIDENTIAL OPERATIONS:**\n• Custom home construction\n• Kitchen & bathroom remodels\n• Home additions & renovations\n• Deck & outdoor living spaces\n\n**COMMERCIAL MISSIONS:**\n• Office building construction\n• Retail space development\n• Industrial facility builds\n• Tenant improvements\n\n**SPECIALIZED SERVICES:**\n• Veteran-owned business priority\n• Energy-efficient construction\n• Sustainable building practices\n• Emergency repair services\n\n**Need a specific service briefing or ready for an estimate?**`;
   }
 
   private generateProjectsPageResponse(
     message: string,
-    context: EnhancedChatbotContext
+    context: EnhancedChatbotContext,
   ): string {
     let response = `**[PORTFOLIO RECONNAISSANCE]** 📸\n\n`;
 
@@ -246,35 +246,35 @@ export class EnhancedChatbotAI {
 
   private generateTeamPageResponse(
     message: string,
-    context: EnhancedChatbotContext
+    context: EnhancedChatbotContext,
   ): string {
     return `**[PERSONNEL DIRECTORY]** 👥\n\nMeet the elite construction force behind MH Construction!\n\n**COMMAND STRUCTURE:**\n• **Leadership Team** - Strategic planning & operations\n• **Project Managers** - Mission coordination & execution\n• **Skilled Craftspeople** - Precision construction work\n• **Support Staff** - Administrative & customer service\n\n**VETERAN REPRESENTATION:**\nMany of our team members are fellow veterans who understand the importance of:\n• Precision and attention to detail\n• Meeting deadlines and budgets\n• Superior communication\n• Honor and integrity\n\n**Want to know about specific team members or roles?**`;
   }
 
   private generateContactPageResponse(
     message: string,
-    context: EnhancedChatbotContext
+    context: EnhancedChatbotContext,
   ): string {
     return `**[CONTACT PROTOCOLS]** 📞\n\nReady to establish communication! Here are your contact options:\n\n**IMMEDIATE CONTACT:**\n• **Phone:** (509) 308-6489\n• **Email:** info@mhconstruction.com\n• **Hours:** Mon-Fri, 8:00 AM - 5:00 PM PST\n\n**RESPONSE TIMES:**\n• **Standard inquiries:** Within 24 hours\n• **Veteran inquiries:** Priority response within 12 hours\n• **Emergency support:** Same day response\n\n**CONSULTATION OPTIONS:**\n• Free on-site consultations\n• Virtual project discussions\n• Phone consultations\n• In-office meetings\n\n**Ready to submit a contact form or need help with your message?**`;
   }
 
   private generateBookingPageResponse(
     message: string,
-    context: EnhancedChatbotContext
+    context: EnhancedChatbotContext,
   ): string {
     return `**[MISSION SCHEDULING]** 📅\n\nI'm here to help optimize your consultation booking!\n\n**CONSULTATION PROCESS:**\n1. **Select your preferred date & time**\n2. **Provide project details**\n3. **Confirm your appointment**\n\n**AVAILABLE SLOTS:**\n• Morning missions: 8 AM - 12 PM\n• Afternoon operations: 1 PM - 5 PM\n• Flexible scheduling available\n\n**WHAT TO EXPECT:**\n• 60-minute comprehensive review\n• On-site evaluation (if applicable)\n• Preliminary timeline & budget discussion\n• Next steps planning\n\n**VETERAN PRIORITY:** Expedited scheduling available for veterans\n\n**Need help with any part of the booking process?**`;
   }
 
   private generateGeneralPageResponse(
     message: string,
-    context: EnhancedChatbotContext
+    context: EnhancedChatbotContext,
   ): string {
     return `**[GENERAL ASSISTANCE]** 🏗️\n\nI'm here to help you navigate MH Construction! Based on your question, I can:\n\n• **Guide you** to the right page for your needs\n• **Provide information** about our services and capabilities\n• **Help you search** for specific projects or team members\n• **Assist with forms** and booking consultations\n• **Answer questions** about veteran benefits and priority services\n\n**What specific information can I help you find today?**`;
   }
 
   private isVeteranQuery(
     message: string,
-    context: EnhancedChatbotContext
+    context: EnhancedChatbotContext,
   ): boolean {
     const veteranKeywords = [
       "veteran",
@@ -292,14 +292,14 @@ export class EnhancedChatbotAI {
     ];
     return (
       veteranKeywords.some((keyword) =>
-        message.toLowerCase().includes(keyword)
+        message.toLowerCase().includes(keyword),
       ) || Boolean(context.conversationMemory?.userProfile?.isVeteran)
     );
   }
 
   private generateVeteranResponse(
     message: string,
-    context: EnhancedChatbotContext
+    context: EnhancedChatbotContext,
   ): string {
     return `**[VETERAN PRIORITY PROTOCOL]** 🇺🇸\n\n**Thank you for your service!** MH Construction is proud to offer enhanced support for our veteran community.\n\n**VETERAN BENEFITS:**\n• **Priority scheduling** for consultations and projects\n• **Military discount** on all construction services\n• **VA loan assistance** and coordination\n• **Accessibility modifications** expertise\n• **Expedited project timelines** when possible\n\n**SPECIALIZED SERVICES:**\n• PTSD-friendly consultation environments\n• Wheelchair accessibility modifications\n• Veteran-owned business partnerships\n• Support for disabled veteran housing needs\n\n**IMMEDIATE SUPPORT:**\nCall (509) 308-6489 and mention your veteran status for priority assistance.\n\n**How can we specifically support your construction mission?**`;
   }
@@ -320,13 +320,13 @@ export class EnhancedChatbotAI {
       "timeline",
     ];
     return projectKeywords.some((keyword) =>
-      message.toLowerCase().includes(keyword)
+      message.toLowerCase().includes(keyword),
     );
   }
 
   private generateProjectResponse(
     message: string,
-    context: EnhancedChatbotContext
+    context: EnhancedChatbotContext,
   ): string {
     const projectType = this.extractProjectType(message);
 
@@ -375,7 +375,7 @@ export class EnhancedChatbotAI {
   private generateGeneralResponse(
     message: string,
     context: EnhancedChatbotContext,
-    conversationHistory: any[]
+    conversationHistory: any[],
   ): string {
     // Analyze conversation history for better context
     const previousTopics = this.extractPreviousTopics(conversationHistory);
@@ -421,7 +421,7 @@ export class EnhancedChatbotAI {
         Object.entries(topicKeywords).forEach(([topic, keywords]) => {
           if (
             keywords.some((keyword) =>
-              message.content.toLowerCase().includes(keyword)
+              message.content.toLowerCase().includes(keyword),
             ) &&
             !topics.includes(topic)
           ) {

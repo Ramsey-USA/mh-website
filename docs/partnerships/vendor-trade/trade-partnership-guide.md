@@ -12,7 +12,7 @@ Construction network.
 
 ### **Core Benefits for Trade Partners**
 
-```typescript
+````typescript
 // Primary Value Propositions
 "Grow your business with a veteran-owned construction leader";
 "Join a network of quality professionals serving the Pacific Northwest";
@@ -376,3 +376,4 @@ Trade Partnership Team:
 
 **Trade Partnership Guide** | **Version 1.0** | **October 14, 2025**
 _Building quality partnerships with Pacific Northwest trade professionals_
+````

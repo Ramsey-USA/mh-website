@@ -31,7 +31,7 @@
 
 ### Next.js Config Optimizations
 
-```javascript
+````javascript
 experimental: {
   webpackBuildWorker: true,      // 15-20% faster builds
   optimizeCss: true,             // Optimized CSS processing
@@ -110,7 +110,7 @@ node scripts/optimization/build-monitor.js && npm run build
    ```bash
    rm -rf .next
    npm cache clean --force
-   ```
+````
 
 1. **Check Large Files**:
 

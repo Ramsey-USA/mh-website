@@ -18,7 +18,7 @@ I've analyzed your codebase and here are **safe** ways to push even faster:
 
 #### 1. **Large File Splitting** ⭐⭐⭐
 
-```text
+````text
 Current file sizes that slow compilation:
 • militaryConstructionAI.ts: 102KB (🚨 MAJOR impact)
 • page.tsx: 71KB (🚨 Major impact)
@@ -193,3 +193,4 @@ Would you like me to:
 3. **⚪ Keep current excellent performance** (16s is already great!)
 
 What's your preference?
+````

@@ -515,7 +515,7 @@ Licensed in WA, OR, ID | Veteran-Owned & Operated
 - **Format**: Include periods after abbreviations (N., Ave.)
 
 **Map Link Format** (for Google Maps integration):
-- **Standard**: "3111 N Capital Ave, Pasco, WA 99301" 
+- **Standard**: "3111 N Capital Ave, Pasco, WA 99301"
 - **Use**: Google Maps URLs, navigation links, map integrations
 - **Format**: No periods (matches Google Maps expectations)
 

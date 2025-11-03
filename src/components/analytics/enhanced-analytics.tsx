@@ -68,7 +68,7 @@ export function GoogleAnalytics({
 export function useAnalytics() {
   const trackEvent = (
     eventName: string,
-    parameters: Record<string, any> = {}
+    parameters: Record<string, any> = {},
   ) => {
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", eventName, {
@@ -114,7 +114,7 @@ export function useAnalytics() {
 
   const trackEstimateRequest = (
     projectType: string,
-    estimatedValue?: number
+    estimatedValue?: number,
   ) => {
     trackEvent("estimate_request", {
       project_type: projectType,
@@ -134,7 +134,7 @@ export function useAnalytics() {
 
   const trackPortfolioView = (
     projectTitle: string,
-    projectCategory: string
+    projectCategory: string,
   ) => {
     trackEvent("portfolio_view", {
       project_type: projectCategory,
@@ -180,7 +180,7 @@ export function useAnalytics() {
     searchQuery: string,
     searchLocation: string,
     resultsCount: number,
-    searchType: string = "standard"
+    searchType: string = "standard",
   ) => {
     trackEvent("site_search", {
       event_category: "user_engagement",
@@ -194,7 +194,7 @@ export function useAnalytics() {
   const trackSearchFilterUsed = (
     filterType: string,
     filterValue: string,
-    searchQuery?: string
+    searchQuery?: string,
   ) => {
     trackEvent("search_filter_used", {
       event_category: "user_engagement",
@@ -208,7 +208,7 @@ export function useAnalytics() {
     itemId: string,
     itemType: string,
     searchQuery: string,
-    resultPosition: number
+    resultPosition: number,
   ) => {
     trackEvent("search_result_click", {
       event_category: "user_engagement",
@@ -222,7 +222,7 @@ export function useAnalytics() {
   const trackSearchViewToggle = (
     oldView: string,
     newView: string,
-    searchQuery?: string
+    searchQuery?: string,
   ) => {
     trackEvent("search_view_toggle", {
       event_category: "user_engagement",
@@ -261,7 +261,7 @@ export function useAnalytics() {
     messageType: "user" | "bot",
     messageLength: number,
     conversationTurn: number,
-    messageContent?: string
+    messageContent?: string,
   ) => {
     trackEvent("chatbot_message", {
       event_category: "chatbot_engagement",
@@ -270,7 +270,7 @@ export function useAnalytics() {
       conversation_turn: conversationTurn,
       has_business_keywords: messageContent
         ? /project|estimate|cost|budget|build|construction/i.test(
-            messageContent
+            messageContent,
           )
         : false,
     });
@@ -279,7 +279,7 @@ export function useAnalytics() {
   const trackChatbotLeadGenerated = (
     leadType: "veteran" | "standard",
     priority: "low" | "medium" | "high" | "critical",
-    projectType?: string
+    projectType?: string,
   ) => {
     trackEvent("chatbot_lead_generated", {
       event_category: "lead_generation",
@@ -292,7 +292,7 @@ export function useAnalytics() {
   const trackChatbotFormAssist = (
     formType: string,
     assistType: "suggestion" | "completion" | "validation",
-    fieldName?: string
+    fieldName?: string,
   ) => {
     trackEvent("chatbot_form_assist", {
       event_category: "chatbot_engagement",
@@ -304,7 +304,7 @@ export function useAnalytics() {
 
   const trackChatbotError = (
     errorType: "ai_response" | "connection" | "validation",
-    errorMessage?: string
+    errorMessage?: string,
   ) => {
     trackEvent("chatbot_error", {
       event_category: "chatbot_errors",
@@ -362,7 +362,7 @@ export function ScrollDepthTracker() {
     const scrollDepthTracking = () => {
       const scrollDepth = Math.round(
         (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
-          100
+          100,
       );
 
       // Track scroll milestones

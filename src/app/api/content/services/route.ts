@@ -11,7 +11,7 @@ export async function GET() {
     if (!content) {
       return NextResponse.json(
         { error: "Services content not found" },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -20,7 +20,7 @@ export async function GET() {
     console.error("Error loading services:", error);
     return NextResponse.json(
       { error: "Failed to load services content" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

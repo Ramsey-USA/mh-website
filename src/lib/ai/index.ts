@@ -78,7 +78,7 @@ export class MilitaryConstructionAI {
       response = this.veteranAI.generateVeteranResponse(
         userInput,
         veteranProfile,
-        context
+        context,
       );
     }
     // Check if this is an estimate request
@@ -105,7 +105,7 @@ export class MilitaryConstructionAI {
   async processEnhancedEstimate(
     projectType: string,
     formData: any,
-    sessionId?: string
+    sessionId?: string,
   ): Promise<{
     estimate: string;
     leadIntelligence: any;
@@ -130,13 +130,13 @@ export class MilitaryConstructionAI {
       // Process estimate
       const estimate = this.costAnalyzer.processEstimate(
         estimateInput,
-        isVeteran
+        isVeteran,
       );
 
       // Generate lead intelligence
       const leadIntelligence = this.costAnalyzer.generateLeadIntelligence(
         `${projectType} ${formData.message || ""} ${formData.budget || ""}`,
-        formData
+        formData,
       );
 
       // Get recommendations - simplified for now
@@ -148,7 +148,7 @@ export class MilitaryConstructionAI {
         veteranBenefits = await this.veteranSystem.processVeteranFormSubmission(
           sessionId,
           "estimate",
-          formData
+          formData,
         );
       }
 
@@ -181,7 +181,7 @@ export class MilitaryConstructionAI {
   async processEnhancedForm(
     formType: FormType,
     formData: any,
-    sessionId?: string
+    sessionId?: string,
   ): Promise<EnhancedFormResult> {
     try {
       // Process with veteran system if session exists
@@ -189,7 +189,7 @@ export class MilitaryConstructionAI {
         const result = this.veteranSystem.processVeteranFormSubmission(
           sessionId,
           formType,
-          formData
+          formData,
         );
 
         return {
@@ -204,7 +204,7 @@ export class MilitaryConstructionAI {
       return {
         response: this.generateResponse(
           `${formData.name || ""} ${formData.message || ""} ${formData.projectType || ""}`,
-          formData
+          formData,
         ),
         nextSteps: [
           "Our team will review your request and contact you within 24 hours",
@@ -219,7 +219,7 @@ export class MilitaryConstructionAI {
       return {
         response: this.generateResponse(
           `${formData.name || ""} ${formData.message || ""} ${formData.projectType || ""}`,
-          formData
+          formData,
         ),
         nextSteps: [
           "Our team will review your request and contact you within 48 hours",
@@ -242,7 +242,7 @@ export class MilitaryConstructionAI {
     ];
     return (
       veteranKeywords.some((keyword) =>
-        input.toLowerCase().includes(keyword)
+        input.toLowerCase().includes(keyword),
       ) || Boolean(context?.veteranProfile)
     );
   }
@@ -250,7 +250,7 @@ export class MilitaryConstructionAI {
   private isEstimateQuery(input: string): boolean {
     const estimateKeywords = ["estimate", "cost", "price", "budget", "quote"];
     return estimateKeywords.some((keyword) =>
-      input.toLowerCase().includes(keyword)
+      input.toLowerCase().includes(keyword),
     );
   }
 
@@ -287,7 +287,7 @@ export class MilitaryConstructionAI {
       "air force",
     ];
     return veteranIndicators.some((indicator) =>
-      input.toLowerCase().includes(indicator)
+      input.toLowerCase().includes(indicator),
     );
   }
 
@@ -304,7 +304,7 @@ export class MilitaryConstructionAI {
   getLeadQualificationGuidance(userMessage: string, pageContext?: any): string {
     return this.coreEngine.generateResponse(
       `Provide lead qualification guidance for: ${userMessage}`,
-      pageContext || { type: "lead_qualification" }
+      pageContext || { type: "lead_qualification" },
     );
   }
 
@@ -329,7 +329,7 @@ export class MilitaryConstructionAI {
 
   processVeteranPriority(
     veteranAnalysis: any,
-    context: any
+    context: any,
   ): {
     processingProtocol: string;
     specialAssignment: string;
@@ -359,21 +359,21 @@ export class MilitaryConstructionAI {
   getContactFormAssistance(userMessage: string, pageContext?: any): string {
     return this.coreEngine.generateResponse(
       `Provide contact form assistance for: ${userMessage}`,
-      pageContext || { type: "form_assistance" }
+      pageContext || { type: "form_assistance" },
     );
   }
 
   getBookingFormAssistance(userMessage: string, pageContext?: any): string {
     return this.coreEngine.generateResponse(
       `Provide booking form assistance for: ${userMessage}`,
-      pageContext || { type: "booking_assistance" }
+      pageContext || { type: "booking_assistance" },
     );
   }
 
   generateSmartFormSuggestions(
     formData: any,
     field?: string,
-    value?: any
+    value?: any,
   ): {
     suggestions: string[];
     autoComplete: string;
@@ -388,7 +388,7 @@ export class MilitaryConstructionAI {
     };
   } {
     const isVeteran = this.detectVeteranStatus(
-      JSON.stringify(formData) + (value || "")
+      JSON.stringify(formData) + (value || ""),
     );
 
     let suggestions: string[] = [];

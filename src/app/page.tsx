@@ -29,7 +29,7 @@ const TestimonialsWidget = dynamic(
       <div className="bg-muted rounded-lg h-96 animate-pulse"></div>
     ),
     ssr: false,
-  }
+  },
 );
 const SmartRecommendations = dynamic(
   () => import("../components/recommendations/SmartRecommendations"),
@@ -38,7 +38,7 @@ const SmartRecommendations = dynamic(
       <div className="bg-muted rounded-lg h-64 animate-pulse"></div>
     ),
     ssr: false,
-  }
+  },
 );
 import Head from "next/head";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -85,7 +85,7 @@ export default function Home() {
     const handleScroll = () => {
       const scrollPercent = Math.round(
         (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
-          100
+          100,
       );
 
       if (scrollPercent >= 25 && !sessionStorage.getItem("scroll_25")) {
@@ -1009,7 +1009,7 @@ export default function Home() {
                               size="sm"
                               className="text-yellow-400"
                             />
-                          )
+                          ),
                         )}
                       </div>
                     </div>

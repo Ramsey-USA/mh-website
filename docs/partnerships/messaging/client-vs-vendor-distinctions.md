@@ -110,7 +110,7 @@ _File: `/docs/business/services.md`_
 **Color Palette:** MH brand orange (#FF6B35) or partnership green
 **Button Style:** Welcoming, approachable, collaborative
 
-```tsx
+````tsx
 // Primary Client CTAs
 <Button variant="primary" size="lg">
   <MaterialIcon icon="event" size="lg" className="mr-3" />
@@ -298,3 +298,4 @@ _File: `/docs/business/services.md`_
 **Implementation Summary** | **Version 1.0** | **October 14, 2025**
 _Successfully implementing client vs vendor partnership distinctions across_
 _all MH Construction content_
+````

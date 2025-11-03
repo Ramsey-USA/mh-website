@@ -12,7 +12,7 @@ expertise.
 
 **Added Missing Pages:**
 
-- `/careers` - Construction career opportunities  
+- `/careers` - Construction career opportunities
 - `/government` - Government construction projects
 - `/team` - Veteran construction team profiles
 - `/trade-partners` - Subcontractor partnership network
@@ -38,7 +38,7 @@ expertise.
 
 #### Enhanced Organization Schema
 
-```json
+````json
 {
   "@type": ["GeneralContractor", "VeteranOwnedBusiness"],
   "veteranOwned": true,
@@ -56,12 +56,12 @@ expertise.
 - **IRL Consultation:** Professional service with business hours and expert guidance
 - **Construction Services:** Comprehensive service catalog with AI integration
 
-#### Enhanced FAQ Schema  
+#### Enhanced FAQ Schema
 
 8 comprehensive FAQs covering:
 
 - AI vs IRL service comparison
-- Veteran benefits and discounts  
+- Veteran benefits and discounts
 - Pacific Northwest service coverage
 - Unique AI technology differentiators
 - General MH military assistant capabilities
@@ -71,7 +71,7 @@ expertise.
 **Complete SEO functions for all pages:**
 
 - `getHomepageSEO()` - AI partnerships and veteran focus
-- `getAIEstimatorSEO()` - Instant estimates and military precision  
+- `getAIEstimatorSEO()` - Instant estimates and military precision
 - `getBookingSEO()` - Free consultation scheduling
 - `getServicesSEO()` - AI-powered construction services
 - `getAboutSEO()` - Veteran heritage and partnerships
@@ -101,7 +101,7 @@ import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
 
 export default function Home() {
   const homepageSEO = getHomepageSEO();
-  
+
   return (
     <>
       {/* Enhanced structured data */}
@@ -121,7 +121,7 @@ export default function Home() {
 - **Pacific Northwest Local:** Improved regional construction contractor ranking
 - **Service-Specific:** Better ranking for specific construction and AI services
 
-### Rich Results Opportunities  
+### Rich Results Opportunities
 
 - **FAQ Rich Snippets:** Direct answers in search results for common questions
 - **Business Information:** Enhanced local business knowledge panel
@@ -159,7 +159,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function EstimatorPage() {
   const seoData = getAIEstimatorSEO();
-  
+
   return (
     <>
       <StructuredData data={seoData.schemas} />
@@ -217,9 +217,10 @@ export default function EstimatorPage() {
 
 - **Week 1-2:** Search engines index new sitemap and schemas
 - **Week 3-4:** Initial ranking improvements for AI construction terms
-- **Month 2:** Rich results appearance for FAQ and business information  
+- **Month 2:** Rich results appearance for FAQ and business information
 - **Month 3:** Significant traffic increase for veteran-owned business searches
 - **Month 6:** Market leadership position for AI construction services
 
 This comprehensive SEO enhancement positions MH Construction as the premier AI-powered, veteran-owned construction
 company in the Pacific Northwest, with clear competitive advantages and strong search visibility.
+````

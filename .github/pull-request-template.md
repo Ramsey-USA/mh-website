@@ -37,7 +37,7 @@ Provide a clear and concise description of what this PR accomplishes.
 - [ ] Updated documentation
 - [ ] Added/updated tests
 - [ ] Updated dependencies
-- [ ] Other: ****\_\_\_****
+- [ ] Other: \***\*\_\_\_\*\***
 
 **Detailed list of changes:**
 

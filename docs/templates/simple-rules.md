@@ -22,7 +22,7 @@ Text after lists needs a blank line before it.
 
 Always specify the language:
 
-```javascript
+````javascript
 const example = "specify language";
 ```text
 
@@ -43,3 +43,4 @@ Files must end with exactly one newline character.
 ## Quick Check
 
 Before committing, run: `npm run lint:markdown`
+````

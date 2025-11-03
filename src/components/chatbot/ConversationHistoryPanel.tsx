@@ -251,7 +251,7 @@ const ConversationHistoryPanel = memo(
         </div>
       </div>
     );
-  }
+  },
 );
 
 ConversationHistoryPanel.displayName = "ConversationHistoryPanel";

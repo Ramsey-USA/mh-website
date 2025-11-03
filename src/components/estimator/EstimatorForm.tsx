@@ -82,7 +82,7 @@ export function EstimatorForm() {
 
   const handleInputChange = (
     field: keyof ProjectData,
-    value: string | string[] | number | boolean
+    value: string | string[] | number | boolean,
   ) => {
     setProjectData((prev) => ({ ...prev, [field]: value }));
   };
@@ -167,7 +167,7 @@ export function EstimatorForm() {
 
     let totalCost = Object.values(breakdown).reduce(
       (sum, cost) => sum + cost,
-      0
+      0,
     );
     let veteranDiscount = 0;
 

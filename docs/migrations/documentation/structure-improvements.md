@@ -24,7 +24,7 @@
 
 #### **Standard Document Template**
 
-```markdown
+``````markdown
 # Document Title
 
 ## 📋 **Quick Navigation**
@@ -53,7 +53,8 @@ Relevant contact details for this topic.
 ---
 
 **Last Updated:** [Date] | **Version:** [X.X] | **Owner:** [Team/Person]
-```text
+
+`````text
 
 ### **2. Heading Structure Standards**
 
@@ -279,14 +280,18 @@ technical/
 ```typescript
 const example = "with syntax highlighting";
 ```text
-````
+`````
+``````
+
+``````
 
 #### **File content blocks**
 
-```markdown
+`````markdown
 // filename: example.ts
 const content = "with filename context";
-```text
+
+`````text
 
 ````markdown
 ### **Tables for Structured Data**
@@ -298,7 +303,9 @@ const content = "with filename context";
 | Forms      | 🔄 In Progress | Needs testing |
 | API        | ❌ Pending     | Not started   |
 ```text
-````
+``````
+
+```
 
 ---
 
@@ -358,3 +365,4 @@ const content = "with filename context";
 
 **Documentation Structure Improvement Plan** | **Version 1.0** | **October 14, 2025**
 _Enhancing MH Construction documentation for better readability and navigation_
+```

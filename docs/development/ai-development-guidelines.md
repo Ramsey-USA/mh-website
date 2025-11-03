@@ -20,7 +20,7 @@ introduction of inconsistencies and bugs that have historically plagued this pro
 
 #### 1. Use `@/` Absolute Imports
 
-```tsx
+````tsx
 // ✅ CORRECT
 import { Button } from "@/components/ui";
 import { useAuth } from "@/hooks/useAuth";
@@ -518,3 +518,4 @@ If you encounter situations not covered by these guidelines:
 
 **Remember**: Consistency is more valuable than individual "optimizations".
 Following these guidelines prevents bugs and saves debugging time.
+````

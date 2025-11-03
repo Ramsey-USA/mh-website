@@ -189,7 +189,7 @@
     /* Prevent layout shift during font loading */
     font-display: swap;
   }
-  
+
   /* Optimize rendering performance */
   * {
     -webkit-tap-highlight-color: transparent;

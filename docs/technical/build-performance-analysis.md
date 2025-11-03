@@ -13,7 +13,7 @@
 **Current breakdown:**
 
 - ✅ Compilation: ~15-18s (TypeScript + bundling)
-- ✅ Static generation: ~3-4s (30 pages)  
+- ✅ Static generation: ~3-4s (30 pages)
 - ✅ Optimization: ~2-3s (minification + tree shaking)
 
 ### 💡 **Additional Optimization Opportunities:**
@@ -22,7 +22,7 @@
 
 Many components are already using dynamic imports, but we can optimize further:
 
-```typescript
+````typescript
 // Current: Good but can be improved
 const EstimatorForm = dynamic(() => import("../../components/estimator"));
 
@@ -52,7 +52,7 @@ Looking at the chunk sizes:
 | Metric | Current | Industry Standard | Status |
 |--------|---------|-------------------|--------|
 | **Production Build** | 23s | 20-60s | ✅ Good |
-| **Bundle Size** | 385kB | <500kB | ✅ Excellent |  
+| **Bundle Size** | 385kB | <500kB | ✅ Excellent |
 | **Page Count** | 30 pages | N/A | ✅ Complete |
 | **TypeScript Errors** | 0 | 0 | ✅ Perfect |
 | **Lighthouse Score** | 94+ | >90 | ✅ Excellent |
@@ -83,7 +83,7 @@ Looking at the chunk sizes:
 
 - **23s build time** is within normal range for:
   - 30+ pages with SSG
-  - Comprehensive TypeScript compilation  
+  - Comprehensive TypeScript compilation
   - Full Next.js optimization pipeline
   - Firebase integration
   - Comprehensive SEO metadata generation
@@ -133,8 +133,9 @@ npm run build
 The build performance is **already optimized** for a comprehensive platform:
 
 - ✅ React warnings fixed
-- ✅ 26% build time improvement achieved  
+- ✅ 26% build time improvement achieved
 - ✅ Bundle size under control
 - ✅ All optimizations in place
 
 **The 23s build time is normal and healthy** for a production Next.js application with this feature set!
+````

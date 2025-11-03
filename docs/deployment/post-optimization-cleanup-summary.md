@@ -80,7 +80,7 @@
 
 ## 📁 **Current File Structure (Optimized)**
 
-```text
+````text
 /workspaces/mh-website/
 ├── firebase.json                 # ✅ Enhanced Firebase configuration
 ├── next.config.js               # ✅ Optimized Next.js configuration
@@ -156,3 +156,4 @@ cp backups/post-optimization-cleanup-2025-10-16T1615/firebase.json config/deploy
 **Status**: ✅ **CLEANUP COMPLETE - CODEBASE OPTIMIZED**
 
 The website is now cleaner, more maintainable, and fully optimized for both Firebase Hosting and Cloudflare CDN deployment.
+````

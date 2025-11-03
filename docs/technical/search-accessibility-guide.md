@@ -85,7 +85,7 @@ ensure compliance with WCAG 2.1 guidelines and provide an inclusive user experie
 
 ### 1. Enhanced Search Input
 
-```tsx
+````tsx
 <input
   type="text"
   value={searchQuery}
@@ -205,3 +205,4 @@ Tested with:
 
 *This accessibility implementation ensures that the MH Construction website search functionality is usable by all
 visitors, regardless of their abilities or assistive technologies used.*
+````

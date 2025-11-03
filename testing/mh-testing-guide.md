@@ -27,7 +27,7 @@ Automated testing scripts for the MH Construction website quality assurance.
 
 Make scripts executable before running:
 
-```bash
+````bash
 chmod +x *.sh
 ```text
 
@@ -59,3 +59,4 @@ Run individual tests:
 These tests are designed to work in development environments and provide automated
 quality assurance for the website's responsive design, security features, and overall
 code cohesion after major refactoring operations like kebab-case conversions.
+````

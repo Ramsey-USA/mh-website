@@ -29,7 +29,7 @@ resolve all inconsistencies.
 
 **Problem Pattern**:
 
-```tsx
+````tsx
 // INCONSISTENT: Different pages use different imports
 // Some pages:
 import { FadeInWhenVisible } from "../../components/animations/FramerMotionComponents";
@@ -52,7 +52,7 @@ import { FadeInWhenVisible } from "../../components/animations/DynamicAnimations
 
 ### **CRITICAL: Import Path Inconsistency**
 
-**Impact**: Confusion, harder refactoring, inconsistent codebase  
+**Impact**: Confusion, harder refactoring, inconsistent codebase
 **Root Cause**: Mixed usage of relative vs. absolute imports
 
 **Current State**:
@@ -80,7 +80,7 @@ import { MaterialIcon } from "../components/icons/MaterialIcon";
 
 ### **MEDIUM: Component Export Inconsistency**
 
-**Impact**: Import confusion, harder to refactor  
+**Impact**: Import confusion, harder to refactor
 **Root Cause**: Mixed named and default exports
 
 **Current State**:
@@ -101,7 +101,7 @@ export { Button, Card } from "./ui";
 
 ### **LOW: Styling Pattern Inconsistency**
 
-**Impact**: Harder to maintain, inconsistent visual behavior  
+**Impact**: Harder to maintain, inconsistent visual behavior
 **Root Cause**: Multiple utility class patterns
 
 **Current State**:
@@ -117,8 +117,8 @@ export { Button, Card } from "./ui";
 
 ### **Phase 1: Animation System Standardization** ⚡ CRITICAL
 
-**Timeline**: 2-3 hours  
-**Complexity**: Medium  
+**Timeline**: 2-3 hours
+**Complexity**: Medium
 **Impact**: HIGH - Fixes content visibility issues
 
 #### Phase 1 Tasks
@@ -136,7 +136,7 @@ export { Button, Card } from "./ui";
      HoverScale,
      ParallaxScroll,
    } from "@/components/animations/FramerMotionComponents";
-   ```
+````
 
 1. **Remove animation wrappers from critical content**
    - Identify sections where content MUST be visible immediately
@@ -222,7 +222,7 @@ export { Button, Card } from "./ui";
 
 #### Phase 2 Standard Patterns
 
-```tsx
+````tsx
 // ✅ ALWAYS USE: @/ absolute imports
 import { Button, Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -246,8 +246,8 @@ import { MaterialIcon } from "../../../components/icons/MaterialIcon";
 
 ### **Phase 3: Component Export Standardization** 🔄 MEDIUM PRIORITY
 
-**Timeline**: 2-3 hours  
-**Complexity**: Low  
+**Timeline**: 2-3 hours
+**Complexity**: Low
 **Impact**: MEDIUM - Improves consistency
 
 #### Decision: Named Exports for All Components
@@ -295,8 +295,8 @@ export default function ComponentName() {}
 
 ### **Phase 4: Documentation & Guidelines** 📚 HIGH PRIORITY
 
-**Timeline**: 2-3 hours  
-**Complexity**: Low  
+**Timeline**: 2-3 hours
+**Complexity**: Low
 **Impact**: HIGH - Prevents future inconsistencies
 
 #### Create Comprehensive Documentation
@@ -331,8 +331,8 @@ export default function ComponentName() {}
 
 ### **Phase 5: Automated Enforcement** 🤖 CRITICAL
 
-**Timeline**: 3-4 hours  
-**Complexity**: High  
+**Timeline**: 3-4 hours
+**Complexity**: High
 **Impact**: CRITICAL - Prevents regression
 
 #### ESLint Custom Rules
@@ -428,7 +428,7 @@ module.exports = {
 
    ```tsx
    import { Button } from "@/components/ui";
-   ```
+````
 
 1. **Import animations from FramerMotionComponents ONLY**
 

@@ -13,7 +13,7 @@ excellence.
 **Added Missing Pages:**
 
 - `/careers` - Construction job opportunities
-- `/government` - Government construction projects  
+- `/government` - Government construction projects
 - `/team` - Veteran construction team
 - `/trade-partners` - Subcontractor network
 - `/estimator` - AI-powered cost estimation (highest priority: 0.95)
@@ -117,7 +117,7 @@ veteran-owned status, and Pacific Northwest community focus.
 
 For each page, import and use the appropriate SEO function:
 
-```tsx
+````tsx
 // Example: AI Estimator page
 import { getAIEstimatorSEO } from '@/lib/seo/page-seo-utils';
 import { StructuredData } from '@/components/seo/enhanced-seo';
@@ -130,7 +130,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function EstimatorPage() {
   const seoData = getAIEstimatorSEO();
-  
+
   return (
     <>
       <StructuredData data={seoData.schemas} />
@@ -169,7 +169,7 @@ const serviceSchemas = services.map(service => generateServiceSchema(service));
 ### 1. Search Visibility Improvements
 
 - **AI Construction Terms:** First-mover advantage in AI construction search
-- **Veteran-Owned Queries:** Enhanced visibility for veteran business searches  
+- **Veteran-Owned Queries:** Enhanced visibility for veteran business searches
 - **Pacific Northwest Local:** Improved regional construction search ranking
 - **Service-Specific:** Better ranking for specific construction services
 
@@ -229,3 +229,4 @@ const serviceSchemas = services.map(service => generateServiceSchema(service));
 
 This comprehensive SEO enhancement positions MH Construction as the leading AI-powered, veteran-owned construction
 company in the Pacific Northwest, with clear differentiation and strong local/regional focus.
+````

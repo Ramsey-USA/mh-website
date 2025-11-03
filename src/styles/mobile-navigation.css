@@ -18,11 +18,11 @@
     font-size: 8px;
     line-height: 10px;
   }
-  
+
   .mobile-sm\:gap-micro {
     gap: 2px;
   }
-  
+
   .mobile-sm\:p-micro {
     padding: 2px;
   }

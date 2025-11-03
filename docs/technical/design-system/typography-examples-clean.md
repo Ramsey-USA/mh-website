@@ -10,7 +10,7 @@ For complete typography standards, see the
 
 All sections should follow this consistent pattern:
 
-```tsx
+````tsx
 <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
   <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
     {subtitle}
@@ -73,3 +73,4 @@ When updating existing components:
 - [Complete Design System](./design-system.md)
 - [Component Library](/src/components/ui/mh-ui-guide.md)
 - [Contributing Guidelines](/contributing.md)
+````

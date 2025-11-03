@@ -32,18 +32,19 @@
 
 **Markdown Format:**
 
-```markdown
+`````markdown
 **AI Estimator:**
 
 - **Get Instant AI Estimate** - Automated cost calculation (`smart_toy`)
-```text
+
+````text
 
 ---
 
 ### IRL Consultation (In-Person Professional Service)
 
-**Button Variant:** Primary  
-**Icon:** `event`, `handshake`, `place`  
+**Button Variant:** Primary
+**Icon:** `event`, `handshake`, `place`
 **Approved CTAs:**
 
 - "Schedule Free Consultation"
@@ -66,8 +67,8 @@
 
 ### Client Partnership (Project Collaborations)
 
-**Icon:** `handshake`, `event`, `engineering`  
-**Contact:** , <office@mhc-gc.com>  
+**Icon:** `handshake`, `event`, `engineering`
+**Contact:** , <office@mhc-gc.com>
 **Approved CTAs:**
 
 - "Begin Partnership"
@@ -91,8 +92,8 @@
 
 ### Trade Partnership (Vendor/Subcontractor)
 
-**Icon:** `construction`, `work`, `check_circle`  
-**Contact:** , <office@mhc-gc.com>  
+**Icon:** `construction`, `work`, `check_circle`
+**Contact:** , <office@mhc-gc.com>
 **Approved CTAs:**
 
 - "Apply to be Approved Vendor"
@@ -450,7 +451,13 @@ Use this checklist when reviewing or creating markdown files:
 
 ---
 
-**Quick Reference Status:** ✅ Active  
-**For Use By:** Content creators, developers, documentation writers  
-**Last Updated:** October 15, 2025  
+**Quick Reference Status:** ✅ Active
+**For Use By:** Content creators, developers, documentation writers
+**Last Updated:** October 15, 2025
 **Version:** 3.7.2
+````
+`````
+
+```
+
+```

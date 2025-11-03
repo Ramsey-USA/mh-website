@@ -4,7 +4,7 @@
 
 ### WAF Custom Rules
 
-```javascript
+````javascript
 // Block common attack patterns
 (http.request.uri.path contains "/admin" and not ip.src in {YOUR_OFFICE_IP}) or
 (http.request.uri.path contains "/.env") or
@@ -103,3 +103,4 @@ Proxy: Enabled (Orange Cloud)
   - High traffic spikes
   - Security events
   - Origin server errors
+````

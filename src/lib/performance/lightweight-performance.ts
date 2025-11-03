@@ -129,7 +129,7 @@ export function usePerformanceTiming(componentName: string) {
 export function useOptimizedQuery<T>(
   key: string,
   queryFn: () => Promise<T>,
-  ttl: number = 300000
+  ttl: number = 300000,
 ) {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(false);

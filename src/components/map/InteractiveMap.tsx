@@ -25,7 +25,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   className = "",
 }) => {
   const [selectedLocation, setSelectedLocation] = useState<MapLocation | null>(
-    null
+    null,
   );
   const [mapLoaded, setMapLoaded] = useState(false);
   const [mapError, setMapError] = useState(false);
@@ -122,7 +122,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     const address = encodeURIComponent(
       location.type === "office"
         ? "3111 N Capital Ave, Pasco, WA 99301"
-        : `${location.title}, WA`
+        : `${location.title}, WA`,
     );
     window.open(`https://maps.google.com/maps?daddr=${address}`, "_blank");
   };

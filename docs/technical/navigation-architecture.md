@@ -74,21 +74,21 @@ About
 
 ### **Page-Specific Navigation Implementations**
 
+**Note:** The homepage navigation differs from other pages - it links directly to
+standalone feature pages (AI Estimator and 3D Explorer) rather than internal page
+sections, making it unique among all page navigation bars.
+
 #### **Home Page Navigation**
 
-```typescript
+````typescript
 {
   items: [
-    { href: "#revolutionary-features", label: "Features", icon: "star" },
-    {
-      href: "#feature-ai-estimator",
-      label: "AI Estimator",
-      icon: "psychology",
-    },
-    { href: "#core-values", label: "Values", icon: "favorite" },
-    { href: "#why-choose-mh", label: "Why MH", icon: "verified" },
-    { href: "/team", label: "Meet Team", icon: "people" },
-    { href: "/contact", label: "Start Project", icon: "contact_phone" },
+    { href: "/estimator", label: "AI Estimator", icon: "calculate" },
+    { href: "/3d-explorer", label: "3D Explorer", icon: "visibility" },
+    { href: "/#core-values", label: "Our Values", icon: "shield" },
+    { href: "/#ai-features-cta", label: "Get Started", icon: "handshake" },
+    { href: "/#partnership-cta", label: "Start Partnership", icon: "launch" },
+    { href: "/contact", label: "Contact", icon: "contact_phone" },
   ];
 }
 ```text
@@ -218,3 +218,4 @@ All navigation configurations are centralized in
 
 _This document serves as the authoritative guide for navigation
 architecture and should be updated whenever navigation changes are made._
+````

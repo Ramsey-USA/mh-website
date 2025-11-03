@@ -22,7 +22,7 @@ Text continues here with proper spacing.
 
 Always specify language for code blocks:
 
-```javascript
+````javascript
 function example() {
   return "language specified";
 }
@@ -64,3 +64,4 @@ Before saving any markdown file:
 - File ends with single newline
 
 Use this template to prevent linting errors.
+````

@@ -28,7 +28,7 @@ function groupByDepartment(members: VintageTeamMember[]) {
       acc[dept].push(member);
       return acc;
     },
-    {} as Record<string, VintageTeamMember[]>
+    {} as Record<string, VintageTeamMember[]>,
   );
 }
 

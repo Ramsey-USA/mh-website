@@ -402,7 +402,7 @@ export function ContactForm({
                     onClick={() =>
                       handleInputChange(
                         "urgency",
-                        urgency.value as "low" | "medium" | "high"
+                        urgency.value as "low" | "medium" | "high",
                       )
                     }
                     className={`px-3 py-1 rounded-full text-sm transition-colors ${
@@ -432,7 +432,7 @@ export function ContactForm({
                     onClick={() =>
                       handleInputChange(
                         "preferredContact",
-                        method.value as "email" | "phone" | "either"
+                        method.value as "email" | "phone" | "either",
                       )
                     }
                     className={`px-3 py-1 rounded-full text-sm transition-colors ${

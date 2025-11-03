@@ -18,7 +18,7 @@
 
 **Diagnosis**:
 
-```bash
+````bash
 # Check browser console for errors
 # Look for: "Cannot read property 'FadeInWhenVisible' of undefined"
 # Or: Animation/motion related errors
@@ -170,7 +170,7 @@ npm run type-check
 
    // ✅ FIX: Correct case
    import { Button } from "@/components/ui/button";
-   ```
+````
 
 1. **Uncommitted files**
 
@@ -212,7 +212,7 @@ npm run type-check
 
 #### Solution 2: Dynamic Classes
 
-```tsx
+````tsx
 // ❌ PROBLEM: Dynamic classes not in safelist
 <div className={`text-${color}-500`}>  // Won't work!
 
@@ -474,5 +474,6 @@ git log --grep="related keyword"
 
 ---
 
-**Can't Find Your Issue?**  
+**Can't Find Your Issue?**
 Document it here after solving it to help future developers!
+````

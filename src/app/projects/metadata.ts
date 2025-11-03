@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Construction Projects Portfolio - Commercial & Industrial | MH Construction",
-  description: "Explore MH Construction's completed projects: commercial buildings, medical facilities, industrial construction, and tenant improvements across the Pacific Northwest. Veteran-owned quality.",
+  title:
+    "Construction Projects Portfolio - Commercial & Industrial | MH Construction",
+  description:
+    "Explore MH Construction's completed projects: commercial buildings, medical facilities, industrial construction, and tenant improvements across the Pacific Northwest. Veteran-owned quality.",
   keywords: [
     "construction projects",
     "construction portfolio",
@@ -18,7 +20,8 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Project Portfolio - MH Construction",
-    description: "View our completed commercial, industrial, and medical facility projects. Veteran-owned excellence in action.",
+    description:
+      "View our completed commercial, industrial, and medical facility projects. Veteran-owned excellence in action.",
     type: "website",
     url: "https://www.mhc-gc.com/projects",
   },

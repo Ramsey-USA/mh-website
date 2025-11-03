@@ -32,7 +32,7 @@ Our brand emphasizes strength, reliability, and patriotic service.
     console.error("Error loading branding:", error);
     return NextResponse.json(
       { error: "Failed to load branding content" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

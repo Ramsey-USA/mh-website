@@ -38,7 +38,7 @@ export class CostAnalyzer {
         keywords,
         context,
         projectType,
-        budgetRange
+        budgetRange,
       ),
       location: this.extractLocation(keywords, context),
       veteranStatus: this.detectVeteranStatus(keywords, context),
@@ -97,7 +97,7 @@ export class CostAnalyzer {
   private generateEstimateReport(
     input: EstimateInput,
     finalEstimate: number,
-    isVeteran: boolean
+    isVeteran: boolean,
   ): string {
     const formattedEstimate = new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -196,7 +196,7 @@ Are you a veteran or active service member? Qualify for 12% service discount!
     for (const project of projectTypes) {
       if (
         project.keywords.some((keyword) =>
-          keywords.toLowerCase().includes(keyword)
+          keywords.toLowerCase().includes(keyword),
         )
       ) {
         return project.type;
@@ -227,7 +227,7 @@ Are you a veteran or active service member? Qualify for 12% service discount!
     for (const budget of budgetIndicators) {
       if (
         budget.keywords.some((keyword) =>
-          keywords.toLowerCase().includes(keyword)
+          keywords.toLowerCase().includes(keyword),
         )
       ) {
         return budget.range;
@@ -254,7 +254,7 @@ Are you a veteran or active service member? Qualify for 12% service discount!
     for (const timeline of timelineIndicators) {
       if (
         timeline.keywords.some((keyword) =>
-          keywords.toLowerCase().includes(keyword)
+          keywords.toLowerCase().includes(keyword),
         )
       ) {
         return timeline.timeline;
@@ -295,7 +295,7 @@ Are you a veteran or active service member? Qualify for 12% service discount!
       "service",
     ];
     return veteranKeywords.some((keyword) =>
-      keywords.toLowerCase().includes(keyword)
+      keywords.toLowerCase().includes(keyword),
     );
   }
 
@@ -303,7 +303,7 @@ Are you a veteran or active service member? Qualify for 12% service discount!
     keywords: string,
     context?: any,
     projectType?: string,
-    budgetRange?: string
+    budgetRange?: string,
   ): string {
     const urgencyIndicators = ["emergency", "urgent", "asap"];
     const highValueIndicators = ["100k", "luxury", "custom", "extensive"];

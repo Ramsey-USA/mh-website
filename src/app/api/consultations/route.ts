@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     if (!data.name || !data.email || !data.projectType) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
     console.error("Error creating consultation:", error);
     return NextResponse.json(
       { error: "Failed to create consultation" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -62,7 +62,7 @@ export async function GET(request: NextRequest) {
     console.error("Error fetching consultations:", error);
     return NextResponse.json(
       { error: "Failed to fetch consultations" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

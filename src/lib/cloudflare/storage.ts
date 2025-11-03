@@ -38,7 +38,7 @@ export class CloudflareKVStorage {
   async set<T>(
     key: string,
     value: T,
-    expirationTtl?: number
+    expirationTtl?: number,
   ): Promise<boolean> {
     if (!this.kv) {
       console.warn("KV namespace not initialized");
@@ -133,7 +133,7 @@ export class CloudflareD1Database {
     }
     try {
       const prepared = statements.map((stmt) =>
-        this.db!.prepare(stmt.sql).bind(...(stmt.params || []))
+        this.db!.prepare(stmt.sql).bind(...(stmt.params || [])),
       );
       await this.db.batch(prepared);
       return true;

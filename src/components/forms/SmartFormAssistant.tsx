@@ -8,11 +8,11 @@ import { Card, CardContent, Button } from "../ui";
 // Dynamic import for Framer Motion to reduce bundle size
 const MotionDiv = dynamic(
   () => import("framer-motion").then((mod) => mod.motion.div),
-  { ssr: false }
+  { ssr: false },
 );
 const AnimatePresence = dynamic(
   () => import("framer-motion").then((mod) => mod.AnimatePresence),
-  { ssr: false }
+  { ssr: false },
 );
 
 interface SmartFormAssistantProps {
@@ -100,7 +100,7 @@ export function SmartFormAssistant({
                   <div className="text-brand-primary dark:text-brand-primary text-sm whitespace-pre-line">
                     {predictiveCompletion.nextStepGuidance.replace(
                       /\\n/g,
-                      "\n"
+                      "\n",
                     )}
                   </div>
                 </div>
@@ -171,7 +171,7 @@ export function SmartFormAssistant({
                                   className="ml-auto text-yellow-600"
                                 />
                               </Button>
-                            )
+                            ),
                           )}
                         </div>
                       </div>
@@ -250,7 +250,7 @@ export function SmartFormAssistant({
                             {discount}
                           </span>
                         </div>
-                      )
+                      ),
                     )}
                   </div>
                   <div className="bg-blue-100 mt-4 p-3 rounded-lg">
@@ -295,7 +295,7 @@ export function SmartFormAssistant({
                             className="ml-auto text-green-600"
                           />
                         </Button>
-                      )
+                      ),
                     )}
                   </div>
                 </CardContent>
@@ -331,7 +331,7 @@ export function SmartFormAssistant({
                           {recommendation}
                         </span>
                       </div>
-                    )
+                    ),
                   )}
                 </div>
               </CardContent>

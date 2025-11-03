@@ -16,16 +16,16 @@ MH Construction follows a **mobile-first design approach** where:
 
 ### Device Support Matrix
 
-| Category | Screen Width | Devices | Priority | Standards |
-|----------|-------------|---------|----------|-----------|
-| **Small Phones** | 320px - 374px | iPhone SE, small Android | High | Core functionality, readable text |
-| **Large Phones** | 375px - 474px | iPhone 12/13/14, Galaxy S series | Critical | Full feature access, optimized UX |
-| **Small Tablets** | 475px - 639px | iPad Mini, small tablets | High | Enhanced layouts, touch optimization |
-| **Tablets** | 640px - 1023px | iPad, Android tablets | Medium | Desktop-like features, multi-column |
+| Category          | Screen Width   | Devices                          | Priority | Standards                            |
+| ----------------- | -------------- | -------------------------------- | -------- | ------------------------------------ |
+| **Small Phones**  | 320px - 374px  | iPhone SE, small Android         | High     | Core functionality, readable text    |
+| **Large Phones**  | 375px - 474px  | iPhone 12/13/14, Galaxy S series | Critical | Full feature access, optimized UX    |
+| **Small Tablets** | 475px - 639px  | iPad Mini, small tablets         | High     | Enhanced layouts, touch optimization |
+| **Tablets**       | 640px - 1023px | iPad, Android tablets            | Medium   | Desktop-like features, multi-column  |
 
 ### Responsive Breakpoint Implementation
 
-```typescript
+````typescript
 // Tailwind Config Breakpoints (mobile-first)
 screens: {
   xs: "475px",      // Large phones+
@@ -34,7 +34,7 @@ screens: {
   lg: "1024px",     // Laptops+
   xl: "1280px",     // Desktops+
   "2xl": "1536px",  // Large screens+
-  
+
   // Max-width breakpoints for mobile-specific styles
   "mobile-sm": { max: "374px" },  // Very small phones only
   "mobile": { max: "639px" },     // All mobile devices only
@@ -135,7 +135,7 @@ Follow this exact progression for consistent mobile readability:
 #### Navigation Links
 
 ```tsx
-<Link 
+<Link
   href="/page"
   className="flex items-center px-3 xs:px-4 py-2.5 xs:py-3 min-h-[44px] text-sm xs:text-base font-medium text-gray-700 hover:text-brand-primary hover:bg-gray-50 rounded-lg transition-all duration-300 touch-manipulation"
 >
@@ -146,7 +146,7 @@ Follow this exact progression for consistent mobile readability:
 #### Form Inputs
 
 ```tsx
-<input 
+<input
   type="text"
   className="w-full px-3 xs:px-4 py-2.5 xs:py-3 min-h-[44px] text-sm xs:text-base border border-gray-300 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 rounded-lg transition-all duration-300 touch-manipulation"
 />
@@ -234,7 +234,7 @@ Follow this exact progression for consistent mobile readability:
         height={66}
         className="h-[48px] xs:h-[56px] sm:h-[70px] md:h-[88px] w-auto"
       />
-      
+
       {/* Mobile menu button */}
       <button className="p-2 xs:p-2.5 sm:p-3 rounded-lg hover:bg-gray-100 touch-manipulation lg:hidden">
         <MenuIcon size="sm" />
@@ -257,7 +257,7 @@ Follow this exact progression for consistent mobile readability:
       {description}
     </p>
   </div>
-  
+
   <button className="w-full px-4 py-2.5 xs:py-3 bg-brand-primary text-white text-sm xs:text-base font-medium rounded-lg hover:bg-brand-accent transition-all duration-300 touch-manipulation">
     {actionText}
   </button>
@@ -279,7 +279,7 @@ Follow this exact progression for consistent mobile readability:
       placeholder={placeholder}
     />
   </div>
-  
+
   <button
     type="submit"
     className="w-full px-6 py-3 xs:py-3.5 bg-brand-primary text-white text-sm xs:text-base font-medium rounded-lg hover:bg-brand-accent transition-all duration-300 touch-manipulation"
@@ -414,7 +414,7 @@ export function MobileOptimizedSection() {
               Main Title
             </span>
           </h2>
-          
+
           <p className="mx-auto max-w-5xl font-light text-gray-600 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed">
             Description text with proper mobile scaling and readability.
           </p>
@@ -428,10 +428,10 @@ export function MobileOptimizedSection() {
               className="bg-white p-4 xs:p-5 sm:p-6 rounded-lg xs:rounded-xl shadow-md hover:shadow-lg transition-all duration-300 touch-manipulation"
             >
               <div className="mb-3 xs:mb-4">
-                <MaterialIcon 
-                  icon={item.icon} 
-                  size="md" 
-                  className="mb-3 text-brand-primary" 
+                <MaterialIcon
+                  icon={item.icon}
+                  size="md"
+                  className="mb-3 text-brand-primary"
                 />
                 <h3 className="text-lg xs:text-xl sm:text-xl md:text-2xl font-semibold text-gray-900 mb-2">
                   {item.title}
@@ -440,7 +440,7 @@ export function MobileOptimizedSection() {
                   {item.description}
                 </p>
               </div>
-              
+
               <button className="w-full px-4 py-2.5 xs:py-3 bg-brand-primary text-white text-sm xs:text-base font-medium rounded-lg hover:bg-brand-accent transition-all duration-300 touch-manipulation">
                 Learn More
               </button>
@@ -460,8 +460,9 @@ export function MobileOptimizedSection() {
 
 ---
 
-**Last Updated**: October 20, 2025  
-**Version**: 1.0.0  
+**Last Updated**: October 20, 2025
+**Version**: 1.0.0
 **Author**: MH Construction Development Team
 
 This guide ensures all mobile implementations follow consistent, high-quality standards across the MH Construction website.
+````

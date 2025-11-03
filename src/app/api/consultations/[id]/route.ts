@@ -27,7 +27,7 @@ export async function GET(request: NextRequest, context: RouteParams) {
     console.error("Error fetching consultation:", error);
     return NextResponse.json(
       { error: "Failed to fetch consultation" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -49,7 +49,7 @@ export async function PUT(request: NextRequest, context: RouteParams) {
     console.error("Error updating consultation:", error);
     return NextResponse.json(
       { error: "Failed to update consultation" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -69,7 +69,7 @@ export async function DELETE(request: NextRequest, context: RouteParams) {
     console.error("Error deleting consultation:", error);
     return NextResponse.json(
       { error: "Failed to delete consultation" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

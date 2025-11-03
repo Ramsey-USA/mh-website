@@ -49,24 +49,26 @@ and links across the MH Construction website.
 
 All the following routes are active and functional:
 
-| Route | Page Location | Status |
-|-------|--------------|--------|
-| `/` | `src/app/page.tsx` | ✅ Active |
-| `/about` | `src/app/about/page.tsx` | ✅ Active |
-| `/services` | `src/app/services/page.tsx` | ✅ Active |
-| `/projects` | `src/app/projects/page.tsx` | ✅ Active |
-| `/team` | `src/app/team/page.tsx` | ✅ Active |
-| `/government` | `src/app/government/page.tsx` | ✅ Active |
-| `/trade-partners` | `src/app/trade-partners/page.tsx` | ✅ Active |
-| `/careers` | `src/app/careers/page.tsx` | ✅ Active |
-| `/contact` | `src/app/contact/page.tsx` | ✅ Active |
-| `/booking` | `src/app/booking/page.tsx` | ✅ Active |
-| `/estimator` | `src/app/estimator/page.tsx` | ✅ Active |
+| Route             | Page Location                     | Status                         |
+| ----------------- | --------------------------------- | ------------------------------ |
+| `/`               | `src/app/page.tsx`                | ✅ Active                      |
+| `/about`          | `src/app/about/page.tsx`          | ✅ Active                      |
+| `/services`       | `src/app/services/page.tsx`       | ✅ Active                      |
+| `/projects`       | `src/app/projects/page.tsx`       | ✅ Active                      |
+| `/team`           | `src/app/team/page.tsx`           | ✅ Active                      |
+| `/government`     | `src/app/government/page.tsx`     | ✅ Active                      |
+| `/trade-partners` | `src/app/trade-partners/page.tsx` | ✅ Active                      |
+| `/careers`        | `src/app/careers/page.tsx`        | ✅ Active                      |
+| `/contact`        | `src/app/contact/page.tsx`        | ✅ Active                      |
+| `/booking`        | `src/app/booking/page.tsx`        | ✅ Active                      |
+| `/estimator`      | `src/app/estimator/page.tsx`      | ✅ Active                      |
+| `/3d-explorer`    | `src/app/3d-explorer/page.tsx`    | ✅ Active (Under Construction) |
 
 **Notes**:
 
 - `/testimonials` page removed (Nov 3, 2025) - testimonials now implemented as reusable section component
 - `/blog` page removed (Nov 3, 2025) - blog now implemented as reusable section component
+- `/3d-explorer` page added (Nov 3, 2025) - minimal "under construction" page to track user interest
 
 ## Contact Information Standards
 
@@ -99,13 +101,13 @@ All the following routes are active and functional:
 
 All social media links are properly configured:
 
-| Platform | URL | Occurrences |
-|----------|-----|-------------|
-| Facebook | `https://facebook.com/mhconstruction` | 4 |
-| Instagram | `https://instagram.com/mhconstruction` | 4 |
-| X (Twitter) | `https://x.com/mhconstruction` | 2 |
-| YouTube | `https://youtube.com/@mhconstruction` | 3 |
-| LinkedIn | `https://linkedin.com/company/mhconstruction` | 4 |
+| Platform    | URL                                           | Occurrences |
+| ----------- | --------------------------------------------- | ----------- |
+| Facebook    | `https://facebook.com/mhconstruction`         | 4           |
+| Instagram   | `https://instagram.com/mhconstruction`        | 4           |
+| X (Twitter) | `https://x.com/mhconstruction`                | 2           |
+| YouTube     | `https://youtube.com/@mhconstruction`         | 3           |
+| LinkedIn    | `https://linkedin.com/company/mhconstruction` | 4           |
 
 ## CTA Distribution Analysis
 
@@ -129,7 +131,7 @@ Current CTA distribution across the site:
 
 ✅ **Correct Pattern**:
 
-```tsx
+````tsx
 import Link from "next/link";
 
 <Link href="/contact">
@@ -164,7 +166,7 @@ import Link from "next/link";
 
 ```tsx
 {/* Phone Link */}
-<a 
+<a
   href="tel:+15093086489"
   className="text-brand-primary hover:text-brand-accent"
 >
@@ -172,7 +174,7 @@ import Link from "next/link";
 </a>
 
 {/* Email Link */}
-<a 
+<a
   href="mailto:office@mhc-gc.com"
   className="text-brand-primary hover:text-brand-accent"
 >
@@ -341,3 +343,4 @@ For questions about CTA validation or this guide:
 
 *Last Updated: November 3, 2025*
 *Version: 1.0*
+````

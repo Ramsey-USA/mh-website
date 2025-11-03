@@ -33,7 +33,7 @@ export default function TestimonialsSection({
   const displayTestimonials = mockTestimonials
     .filter(
       (testimonial) =>
-        testimonial.status === "approved" || testimonial.status === "featured"
+        testimonial.status === "approved" || testimonial.status === "featured",
     )
     .sort((a, b) => {
       // Featured first, then by rating, then by date

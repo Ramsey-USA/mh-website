@@ -229,14 +229,14 @@ export class PortfolioService {
   // Get featured projects for homepage
   static getFeaturedProjects(): ProjectPortfolio[] {
     return portfolioData.filter(
-      (project) => project.isPublished && project.isFeatured
+      (project) => project.isPublished && project.isFeatured,
     );
   }
 
   // Get project by slug
   static getProjectBySlug(slug: string): ProjectPortfolio | undefined {
     return portfolioData.find(
-      (project) => project.isPublished && project.seoMetadata.slug === slug
+      (project) => project.isPublished && project.seoMetadata.slug === slug,
     );
   }
 
@@ -246,7 +246,7 @@ export class PortfolioService {
       return this.getAllProjects();
     }
     return portfolioData.filter(
-      (project) => project.isPublished && project.category === category
+      (project) => project.isPublished && project.category === category,
     );
   }
 
@@ -256,13 +256,13 @@ export class PortfolioService {
 
     if (filter.category && filter.category.length > 0) {
       filteredProjects = filteredProjects.filter((project) =>
-        filter.category!.includes(project.category)
+        filter.category!.includes(project.category),
       );
     }
 
     if (filter.tags && filter.tags.length > 0) {
       filteredProjects = filteredProjects.filter((project) =>
-        filter.tags!.some((tag) => project.tags.includes(tag))
+        filter.tags!.some((tag) => project.tags.includes(tag)),
       );
     }
 
@@ -274,7 +274,7 @@ export class PortfolioService {
             .includes(filter.location!.toLowerCase()) ||
           project.location.state
             .toLowerCase()
-            .includes(filter.location!.toLowerCase())
+            .includes(filter.location!.toLowerCase()),
       );
     }
 
@@ -282,7 +282,7 @@ export class PortfolioService {
       filteredProjects = filteredProjects.filter(
         (project) =>
           project.details.completionDate >= filter.dateRange!.start &&
-          project.details.completionDate <= filter.dateRange!.end
+          project.details.completionDate <= filter.dateRange!.end,
       );
     }
 
@@ -292,7 +292,7 @@ export class PortfolioService {
   // Get related projects (same category, different project)
   static getRelatedProjects(
     projectId: string,
-    limit: number = 3
+    limit: number = 3,
   ): ProjectPortfolio[] {
     const currentProject = portfolioData.find((p) => p.id === projectId);
     if (!currentProject) return [];
@@ -302,7 +302,7 @@ export class PortfolioService {
         (project) =>
           project.isPublished &&
           project.id !== projectId &&
-          project.category === currentProject.category
+          project.category === currentProject.category,
       )
       .slice(0, limit);
   }

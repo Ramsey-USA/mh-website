@@ -14,7 +14,7 @@ and components.
 
 ### CSS Variables Usage
 
-```css
+````css
 /* Use these CSS variables throughout the codebase */
 var(--brand-primary)
 var(--brand-secondary)
@@ -100,7 +100,7 @@ All major sections should follow this consistent typography pattern:
 Follow the established button component with proper variants:
 
 - `variant="primary"` - Brand primary background
-- `variant="secondary"` - Brand secondary background  
+- `variant="secondary"` - Brand secondary background
 - `variant="outline"` - Transparent with brand border
 
 #### Cards
@@ -136,7 +136,7 @@ All text must follow this progressive scaling pattern:
 // Main Section Headers
 className="text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-5xl"
 
-// Section Subtitles  
+// Section Subtitles
 className="text-xl xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl"
 
 // Large Body Text
@@ -171,7 +171,7 @@ className="text-xs xs:text-xs sm:text-sm"
 // Button Touch Targets
 className="p-2.5 xs:p-3 sm:p-3 min-h-[44px] min-w-[44px] touch-manipulation"
 
-// Link Touch Targets  
+// Link Touch Targets
 className="px-3 xs:px-4 py-2.5 xs:py-3 touch-manipulation"
 
 // Icon Button Touch Targets
@@ -336,13 +336,13 @@ className="px-4 xs:px-5 sm:px-6 py-2.5 xs:py-3 sm:py-3 text-sm xs:text-base touc
           {mainTitle}
         </span>
       </h2>
-      
+
       {/* Standard Description Pattern - Mobile Optimized */}
       <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base xs:text-lg sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
         {description}
       </p>
     </FadeInWhenVisible>
-    
+
     {/* Section Content */}
   </div>
 </section>
@@ -383,3 +383,4 @@ This design system should be updated when:
 
 **Last Updated**: October 20, 2025
 **Version**: 1.0.0
+````

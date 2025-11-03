@@ -6,7 +6,7 @@ This is a quick reference guide for developers implementing mobile-optimized com
 
 ### Typography Scaling
 
-```tsx
+````tsx
 // Headers: Much larger mobile sizes for better impact and readability
 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl
 
@@ -36,7 +36,7 @@ py-6 xs:py-8 sm:py-10 lg:py-16
 // Minimum touch target (44px)
 p-2.5 xs:p-3 min-h-[44px] min-w-[44px] touch-manipulation
 
-// Recommended touch target (48px) 
+// Recommended touch target (48px)
 p-3 xs:p-3.5 min-h-[48px] min-w-[48px] touch-manipulation
 
 // Form inputs
@@ -173,7 +173,7 @@ shadow-brand hover:shadow-brand-lg
 ### Breakpoint Testing
 
 - [ ] 320px (iPhone SE)
-- [ ] 375px (iPhone 12/13/14)  
+- [ ] 375px (iPhone 12/13/14)
 - [ ] 475px (Large phones)
 - [ ] 640px (Small tablets)
 
@@ -193,3 +193,4 @@ npm run test:accessibility
 ```text
 
 Save this reference for consistent mobile implementations across the MH Construction website!
+````

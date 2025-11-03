@@ -44,7 +44,7 @@ export function usePerformanceTiming(componentName: string) {
         performanceManager.endTiming(`${componentName}_${interactionName}`);
       };
     },
-    [componentName]
+    [componentName],
   );
 
   return { trackInteraction };
@@ -53,7 +53,7 @@ export function usePerformanceTiming(componentName: string) {
 // Hook for monitoring render performance
 export function useRenderTiming(
   componentName: string,
-  dependencies?: React.DependencyList
+  dependencies?: React.DependencyList,
 ) {
   const renderCountRef = useRef(0);
   const lastRenderTimeRef = useRef<number | undefined>(undefined);
@@ -96,7 +96,7 @@ export function useOptimizedQuery<T>(
     ttl?: number;
     enabled?: boolean;
     dependencies?: React.DependencyList;
-  } = {}
+  } = {},
 ) {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(false);
@@ -136,7 +136,7 @@ export function useOptimizedQuery<T>(
 // Hook for monitoring memory usage
 export function useMemoryMonitoring(
   componentName: string,
-  interval: number = 10000
+  interval: number = 10000,
 ) {
   const [memoryInfo, setMemoryInfo] = useState<{
     usedJSHeapSize?: number;
@@ -175,7 +175,7 @@ export function useLazyImage(
     threshold?: number;
     onLoad?: () => void;
     onError?: () => void;
-  } = {}
+  } = {},
 ) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
@@ -197,7 +197,7 @@ export function useLazyImage(
           observer.disconnect();
         }
       },
-      { rootMargin, threshold }
+      { rootMargin, threshold },
     );
 
     observer.observe(imgElement);
@@ -278,7 +278,7 @@ export function usePerformanceMetrics(refreshInterval: number = 5000) {
 // Hook for code splitting and dynamic imports
 export function useDynamicImport<T>(
   importFn: () => Promise<{ default: T }>,
-  componentName: string
+  componentName: string,
 ) {
   const [component, setComponent] = useState<T | null>(null);
   const [loading, setLoading] = useState(true);
@@ -304,7 +304,7 @@ export function useDynamicImport<T>(
       })
       .catch((err) => {
         setError(
-          err instanceof Error ? err : new Error("Dynamic import failed")
+          err instanceof Error ? err : new Error("Dynamic import failed"),
         );
         performanceManager.endTiming(`dynamic_import_${componentName}`);
       })

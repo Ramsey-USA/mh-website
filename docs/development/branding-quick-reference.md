@@ -6,7 +6,7 @@
 
 ### Emoji Policy
 
-```tsx
+````tsx
 // ❌ NEVER use emojis in source code
 <span>🏗️ Construction</span>
 
@@ -210,3 +210,4 @@ grep -r "MaterialIcon" src/app/
 ---
 
 **Remember**: When in doubt, check existing compliant pages (Home, About) for patterns to follow.
+````

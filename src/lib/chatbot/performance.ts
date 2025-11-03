@@ -82,7 +82,7 @@ export function usePerformanceMonitor(componentName: string) {
     performanceData.current.totalRenders = renderCount.current;
     performanceData.current.maxRenderTime = Math.max(
       performanceData.current.maxRenderTime,
-      renderTime
+      renderTime,
     );
     performanceData.current.averageRenderTime =
       (performanceData.current.averageRenderTime * (renderCount.current - 1) +
@@ -200,6 +200,6 @@ export const useMessageFormatter = () => {
         return keywords;
       },
     }),
-    []
+    [],
   );
 };

@@ -237,7 +237,7 @@ references.
 
 All updated files validated with `npm run lint:markdown`:
 
-```bash
+````bash
 # Phase 1: Business & Service Pages
 ✅ docs/business/services.md - 0 errors
 ✅ docs/business/core-values.md - 0 errors
@@ -268,8 +268,8 @@ All updated files validated with `npm run lint:markdown`:
 ✅ CONTRIBUTING.md - 0 errors
 ```text
 
-**Total Files Validated:** 20  
-**Total Errors:** 0  
+**Total Files Validated:** 20
+**Total Errors:** 0
 **Success Rate:** 100%
 
 ### Contact Information Consistency
@@ -423,9 +423,10 @@ across all documentation.
 
 ---
 
-**Report Completed By:** GitHub Copilot  
-**Date:** October 15, 2025  
-**Version:** 1.0  
+**Report Completed By:** GitHub Copilot
+**Date:** October 15, 2025
+**Version:** 1.0
 **Status:** ✅ Complete
 
 *For questions or clarifications, contact the development team at <office@mhc-gc.com>*
+````

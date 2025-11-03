@@ -529,7 +529,7 @@ module.exports = {
 
 ### Secondary Button (Leather Tan)
 
-```tsx
+````tsx
 <Button variant="secondary" size="lg">
   <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
   <span className="font-medium">Get Instant AI Estimate</span>
@@ -552,3 +552,4 @@ module.exports = {
   Interactive Element
 </button>
 ```text
+````

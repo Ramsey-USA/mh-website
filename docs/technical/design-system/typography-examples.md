@@ -7,7 +7,7 @@ standards in action.
 
 ### Example 1: Standard Section Header
 
-```tsx
+````tsx
 <section className="relative bg-white dark:bg-gray-900 py-12 lg:py-16">
   <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
     <FadeInWhenVisible className="mb-10 lg:mb-12 text-center">
@@ -19,7 +19,7 @@ standards in action.
           Construction Management
         </span>
       </h2>
-      
+
       <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
         Where{" "}
         <span className="font-medium text-gray-800 dark:text-gray-200">
@@ -220,3 +220,4 @@ Use the brand gradient pattern for:
   {subtitleText}
 </span>
 ```text
+````

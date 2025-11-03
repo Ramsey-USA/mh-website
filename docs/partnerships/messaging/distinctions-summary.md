@@ -36,7 +36,7 @@ All updates follow **MH Construction branding standards** using MaterialIcon com
 
 **AI Estimator CTAs:**
 
-```tsx
+````tsx
 <Button variant="secondary" size="lg">
   <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
   <span className="font-medium">Get Instant AI Estimate</span>
@@ -321,3 +321,4 @@ All updates strictly follow MH Construction branding standards:
 ---
 
 _Clear distinctions create better user experiences and more qualified leads for MH Construction._
+````

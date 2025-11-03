@@ -61,7 +61,7 @@ Organized automation scripts for the MH Construction website development workflo
 
 ## Usage Examples
 
-```bash
+````bash
 # Run analysis
 ./analysis/analyze-content-quality.sh
 
@@ -102,3 +102,4 @@ find scripts/ -name "*.sh" -exec chmod +x {} \;
 6. **Deployment** - Deploy to production
 
 This organization reduces clutter while maintaining clear separation of concerns and easy script discovery.
+````

@@ -18,11 +18,11 @@ This comprehensive guide contains ALL MH Construction branding standards. For fo
 **modular branding documentation**:
 
 - **[Brand Documentation Index](./branding/branding-index.md)** - Navigation hub for all brand docs
-- **[Brand Overview](./branding/brand-overview.md)** - Core identity, taglines, positioning  
-- **[Color System](./branding/color-system.md)** - Complete color palette and usage  
-- **[Typography](./branding/typography.md)** - Font system and hierarchy  
-- **[Messaging Guidelines](./branding/messaging.md)** - Voice, tone, and content standards  
-- **[Icon Policy](./branding/icon-policy.md)** - Material Icons standards and enforcement  
+- **[Brand Overview](./branding/brand-overview.md)** - Core identity, taglines, positioning
+- **[Color System](./branding/color-system.md)** - Complete color palette and usage
+- **[Typography](./branding/typography.md)** - Font system and hierarchy
+- **[Messaging Guidelines](./branding/messaging.md)** - Voice, tone, and content standards
+- **[Icon Policy](./branding/icon-policy.md)** - Material Icons standards and enforcement
 - **[Implementation Guide](./branding/implementation-guide.md)** - Technical implementation details
 
 ---
@@ -1676,7 +1676,7 @@ without custom overrides.
   {/* Main Content Container - Positioned below header, above navigation bar */}
   <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
     <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-      
+
       {/* Veteran Badge (Optional) */}
       <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
         <MaterialIcon

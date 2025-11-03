@@ -29,7 +29,7 @@ in the MH Construction website. All competing or duplicate code has been removed
 
 **Import Pattern**:
 
-```tsx
+````tsx
 // In layout.tsx
 import { Navigation } from "@/components/layout";
 ```text
@@ -263,3 +263,4 @@ export const navigationConfigs = {
 ---
 
 **For questions or issues, refer to the technical documentation or contact the development team.**
+````

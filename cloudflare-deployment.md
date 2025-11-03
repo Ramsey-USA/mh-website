@@ -18,7 +18,7 @@ This guide covers everything needed to deploy the MH Construction website to Clo
 
 ### Prerequisites
 
-```bash
+````bash
 Node.js >= 18.0.0
 npm >= 8.0.0
 Cloudflare account (free tier works)
@@ -137,7 +137,7 @@ The `next.config.js` is already optimized for Cloudflare Pages:
    Build command: npx @cloudflare/next-on-pages@1
    Build output directory: .vercel/output/static
    Root directory: (leave blank)
-   ```
+````
 
 1. **Environment Variables**
    Add in Cloudflare Dashboard → Pages → Settings → Environment Variables:
@@ -153,7 +153,7 @@ The `next.config.js` is already optimized for Cloudflare Pages:
 
 ### Manual Deployment
 
-```bash
+````bash
 # Install Wrangler CLI globally
 npm install -g wrangler
 
@@ -254,7 +254,7 @@ If domain is external (e.g., Namecheap):
    ```text
    alfred.ns.cloudflare.com
    luna.ns.cloudflare.com
-   ```
+````
 
 1. Wait 24-48 hours for nameserver propagation
 
@@ -290,7 +290,7 @@ Cloudflare provides free SSL automatically:
 
 **Verification**:
 
-```bash
+````bash
 # Clean build to verify fix
 rm -rf .next .vercel
 npm run build:cloudflare
@@ -439,11 +439,12 @@ Before deploying to production:
 
 ---
 
-**Last Updated**: November 2, 2025  
-**Platform**: Cloudflare Pages  
-**Framework**: Next.js 15.5.2  
-**Runtime**: Edge Runtime  
+**Last Updated**: November 2, 2025
+**Platform**: Cloudflare Pages
+**Framework**: Next.js 15.5.2
+**Runtime**: Edge Runtime
 
 ## Ready to Deploy
 
 Your website is now configured and ready for Cloudflare Pages deployment! 🚀
+````

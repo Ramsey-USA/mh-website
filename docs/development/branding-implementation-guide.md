@@ -16,14 +16,17 @@ All pages must implement the cohesive hero section pattern:
 ```tsx
 <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
   <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
-  
+
   <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
     <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
       {/* Page-specific content */}
     </div>
   </div>
-  
-  <PageNavigation items={navigationConfigs.pageName} className="absolute bottom-0 left-0 right-0" />
+
+  <PageNavigation
+    items={navigationConfigs.pageName}
+    className="absolute bottom-0 left-0 right-0"
+  />
 </section>
 ```
 
@@ -40,11 +43,11 @@ All pages must implement the cohesive hero section pattern:
 
 ### Typography Scaling Standards
 
-| Element | Mobile (base) | Tablet (sm/md) | Desktop (lg/xl) |
-|---------|---------------|----------------|-----------------|
-| Main Title | `text-lg` | `sm:text-2xl` | `lg:text-4xl` / `xl:text-5xl` |
-| Subtitle | `text-xs` | `sm:text-base` | `lg:text-xl` |
-| Description | `text-xs` | `sm:text-sm` | `lg:text-lg` |
+| Element     | Mobile (base) | Tablet (sm/md) | Desktop (lg/xl)               |
+| ----------- | ------------- | -------------- | ----------------------------- |
+| Main Title  | `text-lg`     | `sm:text-2xl`  | `lg:text-4xl` / `xl:text-5xl` |
+| Subtitle    | `text-xs`     | `sm:text-base` | `lg:text-xl`                  |
+| Description | `text-xs`     | `sm:text-sm`   | `lg:text-lg`                  |
 
 ## Current Status Assessment
 
@@ -93,7 +96,7 @@ All pages must implement the cohesive hero section pattern:
 
 #### Standard Section Header Pattern
 
-```tsx
+````tsx
 <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
   <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
     {subtitle}
@@ -114,7 +117,7 @@ All pages must implement the cohesive hero section pattern:
 
 ### Phase 3: Messaging Integration (Priority 3)
 
-**Timeline**: 1-2 days  
+**Timeline**: 1-2 days
 **Goal**: Brand message consistency
 
 #### Key Requirements
@@ -126,7 +129,7 @@ All pages must implement the cohesive hero section pattern:
 
 ### Phase 4: Component Standardization (Priority 4)
 
-**Timeline**: 2-3 days  
+**Timeline**: 2-3 days
 **Goal**: Design system compliance
 
 #### Standard Component Patterns
@@ -330,3 +333,4 @@ npm run build
 **Success Metric**: 95+ branding validator score across all pages
 
 **Timeline**: Complete implementation within 8-10 business days
+````
