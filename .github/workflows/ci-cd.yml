@@ -101,7 +101,6 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: mh-construction
           directory: .vercel/output/static
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
   # Security Audit
   security-audit:
