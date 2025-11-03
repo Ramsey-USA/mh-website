@@ -2,8 +2,6 @@ import { NextResponse } from "next/server";
 import { getContent } from "@/lib/content/contentCache";
 
 export const runtime = "edge";
-
-export const dynamic = "force-static";
 export const revalidate = 3600; // Revalidate every hour
 
 export async function GET() {
