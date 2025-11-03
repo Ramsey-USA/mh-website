@@ -1,44 +1,25 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Careers - Join Our Team | MH Construction",
-  description:
-    "Join MH Construction, a veteran-owned construction company in the Pacific Northwest. Explore career opportunities in construction management, field operations, and administration with competitive benefits.",
+  title: "Careers - Join Our Veteran-Led Construction Team | MH Construction",
+  description: "Explore career opportunities at MH Construction. Join our veteran-led team in the Tri-Cities. We offer competitive benefits, professional development, and a collaborative work environment.",
   keywords: [
-    "MH Construction careers",
-    "construction jobs Pasco WA",
-    "Tri-Cities construction employment",
-    "veteran-owned company jobs",
-    "construction manager positions",
-    "site supervisor jobs",
-    "construction estimator careers",
-    "Pacific Northwest construction jobs",
-    "commercial construction careers",
-    "construction company benefits",
-  ].join(", "),
+    "construction jobs",
+    "construction careers",
+    "veteran employment",
+    "construction job openings",
+    "Tri-Cities construction jobs",
+    "join construction team",
+    "construction employment",
+    "contractor careers",
+    "veteran-friendly employer",
+    "construction opportunities",
+  ],
   openGraph: {
-    title: "Careers - Join Our Team | MH Construction",
-    description:
-      "Join MH Construction, a veteran-owned construction company in the Pacific Northwest. Explore career opportunities with competitive benefits and a supportive work environment.",
-    url: "https://www.mhc-gc.com/careers",
-    siteName: "MH Construction",
-    images: [
-      {
-        url: "/images/og-careers.jpg",
-        width: 1200,
-        height: 630,
-        alt: "MH Construction Career Opportunities",
-      },
-    ],
-    locale: "en_US",
+    title: "Careers at MH Construction",
+    description: "Join our veteran-led construction team in the Tri-Cities. Competitive benefits and professional growth opportunities available.",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Careers - Join Our Team | MH Construction",
-    description:
-      "Join MH Construction, a veteran-owned construction company. Explore career opportunities with competitive benefits.",
-    images: ["/images/og-careers.jpg"],
+    url: "https://www.mhc-gc.com/careers",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/careers",

@@ -1,25 +1,27 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Our Team - MH Construction | Expert Construction Professionals",
-  description:
-    "Meet the MH Construction team - 150+ years combined experience in commercial construction. Veteran-owned with expert project managers, superintendents, and skilled professionals.",
+  title: "Our Team - Veteran Leadership & Construction Experts | MH Construction",
+  description: "Meet the MH Construction team: veteran-led leadership, experienced project managers, and skilled construction professionals. Military precision meets collaborative excellence in the Tri-Cities.",
   keywords: [
-    "MH Construction team",
+    "construction team",
+    "veteran construction leaders",
+    "construction project managers",
+    "MH Construction staff",
+    "veteran-owned team",
+    "Army veteran leadership",
     "construction professionals",
-    "veteran-owned construction",
     "Tri-Cities construction team",
-    "project managers",
-    "construction superintendents",
-    "construction estimators",
-    "Pasco WA construction team",
+    "experienced contractors",
+    "military precision team",
   ],
   openGraph: {
-    title: "Meet the MH Construction Team",
-    description:
-      "Expert construction professionals with 150+ years combined experience serving the Pacific Northwest. Veteran-owned and community-focused.",
+    title: "Our Veteran-Led Team - MH Construction",
+    description: "Meet our experienced team of construction professionals led by Army veteran leadership. Military precision in every project.",
     type: "website",
-    locale: "en_US",
-    siteName: "MH Construction",
+    url: "https://www.mhc-gc.com/team",
+  },
+  alternates: {
+    canonical: "https://www.mhc-gc.com/team",
   },
 };

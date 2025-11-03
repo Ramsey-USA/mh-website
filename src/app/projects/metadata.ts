@@ -1,25 +1,28 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Projects - MH Construction | Our Portfolio",
-  description:
-    "Explore MH Construction's portfolio of completed projects. From residential custom homes to commercial buildings and industrial facilities across the Pacific Northwest.",
+  title: "Construction Projects Portfolio - Commercial & Industrial | MH Construction",
+  description: "Explore MH Construction's completed projects: commercial buildings, medical facilities, industrial construction, and tenant improvements across the Pacific Northwest. Veteran-owned quality.",
   keywords: [
-    "MH Construction projects",
+    "construction projects",
     "construction portfolio",
     "completed projects",
-    "Tri-Cities construction",
-    "commercial projects",
-    "residential construction",
-    "industrial construction",
-    "Pacific Northwest projects",
+    "commercial construction projects",
+    "medical facility projects",
+    "industrial building projects",
+    "Tri-Cities construction projects",
+    "Pasco projects",
+    "Kennewick construction",
+    "Richland contractor projects",
+    "Pacific Northwest construction",
   ],
   openGraph: {
-    title: "MH Construction Project Portfolio",
-    description:
-      "100+ projects completed across Washington, Oregon, and Idaho. Quality craftsmanship in commercial, residential, and industrial construction.",
+    title: "Project Portfolio - MH Construction",
+    description: "View our completed commercial, industrial, and medical facility projects. Veteran-owned excellence in action.",
     type: "website",
-    locale: "en_US",
-    siteName: "MH Construction",
+    url: "https://www.mhc-gc.com/projects",
+  },
+  alternates: {
+    canonical: "https://www.mhc-gc.com/projects",
   },
 };

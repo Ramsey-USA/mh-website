@@ -1,29 +1,26 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title:
-    "Federal Government Contractor | DOE & Hanford | Army Veteran Leadership - MH Construction",
-  description:
-    "Mission-critical government construction with Army veteran leadership. Federal contracting expertise, DOE compliance, and military-grade project execution for government facilities in the Pacific Northwest.",
+  title: "Government & Federal Construction Services | MH Construction",
+  description: "Veteran-owned construction services for government and federal projects. Experienced with government contracting, compliance, and military facility construction in the Pacific Northwest.",
   keywords: [
-    "federal government contractor",
-    "DOE contractor",
-    "Hanford construction",
-    "military construction contractor",
+    "government construction",
+    "federal construction services",
+    "government contractor",
     "veteran-owned federal contractor",
-    "government facilities contractor",
-    "Army veteran construction",
-    "federal compliance contractor",
-    "mission-critical construction",
-    "VOSB contractor Pacific Northwest",
+    "military facility construction",
+    "government project compliance",
+    "federal contracting",
+    "government building construction",
+    "veteran federal contractor",
   ],
   openGraph: {
-    title:
-      "Federal Government Contractor | Army Veteran Leadership - MH Construction",
-    description:
-      "Mission-critical government construction with Army veteran leadership. Military precision, federal compliance, and DOE expertise serving the Pacific Northwest.",
+    title: "Government Construction Services - MH Construction",
+    description: "Veteran-owned construction services for government and federal projects. Experienced with compliance and military precision.",
     type: "website",
-    locale: "en_US",
-    siteName: "MH Construction",
+    url: "https://www.mhc-gc.com/government",
+  },
+  alternates: {
+    canonical: "https://www.mhc-gc.com/government",
   },
 };

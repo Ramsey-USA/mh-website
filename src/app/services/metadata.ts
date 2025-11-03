@@ -1,52 +1,28 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title:
-    "Construction Services | AI-Powered Building Solutions | MH Construction",
-  description:
-    "Comprehensive construction services powered by revolutionary AI technology. Residential, commercial, government projects with military precision, veteran benefits, and Pacific Northwest expertise including AI cost estimation and General MH military assistant.",
+  title: "Construction Services - Commercial, Industrial & Medical Facilities | MH Construction",
+  description: "Comprehensive construction management services: Commercial buildings, Master Planning, Medical Facilities, Light Industrial, Tenant Improvements. Serving Tri-Cities, WA, OR, ID. Call (509) 308-6489.",
   keywords: [
-    "AI-powered construction services",
-    "residential commercial construction",
-    "government construction projects",
-    "veteran construction services",
-    "Pacific Northwest builder",
-    "military precision construction",
-    "General MH AI assistant",
-    "construction intelligence platform",
-    "veteran-owned construction company",
-    "AI construction technology",
-    "construction management AI",
-    "Tri-Cities construction services",
-    "revolutionary construction intelligence",
-    "military construction expertise",
-    "veteran benefits construction",
+    "construction services",
+    "commercial construction",
+    "construction management services",
+    "master planning",
+    "pre-construction services",
+    "medical facility construction",
+    "light industrial construction",
+    "tenant improvements",
+    "commercial buildings Tri-Cities",
+    "construction management Pasco",
+    "Kennewick construction services",
+    "Richland commercial contractor",
+    "Washington Oregon Idaho construction",
   ],
   openGraph: {
-    title: "AI-Powered Construction Services - MH Construction",
-    description:
-      "Revolutionary construction services powered by AI technology. Residential, commercial, government projects with military precision and veteran expertise across Washington, Oregon, Idaho.",
+    title: "Construction Management Services - MH Construction",
+    description: "Full-service construction management for commercial, industrial, and medical facilities. Veteran-owned excellence in the Pacific Northwest.",
     type: "website",
-    locale: "en_US",
-    siteName: "MH Construction - AI-Powered Veteran-Owned Excellence",
     url: "https://www.mhc-gc.com/services",
-    images: [
-      {
-        url: "/images/og/services.jpg",
-        width: 1200,
-        height: 630,
-        alt: "MH Construction AI-Powered Construction Services",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "AI-Powered Construction Services - MH Construction",
-    description:
-      "Revolutionary construction services with AI technology, military precision, and veteran expertise across the Pacific Northwest.",
-    images: ["/images/og/services.jpg"],
-    creator: "@MHConstruction",
-    site: "@MHConstruction",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/services",
