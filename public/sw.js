@@ -33,8 +33,6 @@ const STATIC_ASSETS = [
   "/services",
   "/portfolio",
   "/projects",
-  "/testimonials",
-  "/blog",
   "/contact",
   "/estimator",
   "/booking",
@@ -48,7 +46,6 @@ const CRITICAL_API_ENDPOINTS = ["/api/estimator", "/api/contact"];
 const API_ENDPOINTS = [
   ...CRITICAL_API_ENDPOINTS,
   "/api/booking",
-  "/api/testimonials",
   "/api/projects",
   "/api/notifications/subscribe",
   "/api/notifications/send",

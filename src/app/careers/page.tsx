@@ -22,13 +22,109 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 // Available positions
 const openPositions = [
   {
+    title: "Equipment Operator (Civil)",
+    department: "Field Operations",
+    location: "Tri-Cities Area",
+    type: "Full-time",
+    experience: "3+ years",
+    description:
+      "Operate heavy equipment for civil construction projects including excavators, loaders, dozers, and graders. Safety-focused operation in compliance with all regulations.",
+    requirements: [
+      "3+ years of equipment operation experience",
+      "Valid commercial driver's license (CDL) preferred",
+      "Experience with excavators, loaders, dozers, and graders",
+      "Strong understanding of civil construction practices",
+      "OSHA safety certification",
+      "Ability to read grade stakes and construction plans",
+    ],
+    benefits: [
+      "Competitive hourly rate based on experience",
+      "Equipment maintenance training provided",
+      "Health, dental, and vision insurance",
+      "Safety incentive programs",
+      "Veteran preference for military equipment operators",
+    ],
+  },
+  {
+    title: "Lead Carpenter",
+    department: "Construction",
+    location: "Tri-Cities Area",
+    type: "Full-time",
+    experience: "5+ years",
+    description:
+      "Lead carpentry teams on commercial and residential projects, ensuring quality craftsmanship and project timelines. Mentor junior carpenters and coordinate with project management.",
+    requirements: [
+      "5+ years of professional carpentry experience",
+      "Proven leadership and team management skills",
+      "Expertise in framing, finish work, and trim carpentry",
+      "Ability to read blueprints and technical drawings",
+      "Own professional carpentry tools",
+      "Valid driver's license and reliable transportation",
+    ],
+    benefits: [
+      "Competitive salary with performance bonuses",
+      "Tool allowance and replacement program",
+      "Company vehicle for site travel",
+      "Health insurance package",
+      "Leadership development opportunities",
+    ],
+  },
+  {
+    title: "Shop Manager (Small Engines)",
+    department: "Equipment Management",
+    location: "Pasco, WA",
+    type: "Full-time",
+    experience: "4+ years",
+    description:
+      "Manage equipment shop operations, maintain small engines and power tools, coordinate maintenance schedules, and ensure all equipment is field-ready. Oversee inventory and ordering.",
+    requirements: [
+      "4+ years of small engine repair experience",
+      "Knowledge of 2-stroke and 4-stroke engines",
+      "Experience with power tools, generators, and compressors",
+      "Strong organizational and inventory management skills",
+      "Ability to diagnose and repair equipment efficiently",
+      "Parts ordering and vendor relationship management",
+    ],
+    benefits: [
+      "Competitive salary based on experience",
+      "Climate-controlled shop facility",
+      "Tool and equipment budget",
+      "Health and dental insurance",
+      "Professional certifications supported",
+    ],
+  },
+  {
+    title: "Drywaller/Taper",
+    department: "Construction",
+    location: "Tri-Cities Area",
+    type: "Full-time",
+    experience: "2+ years",
+    description:
+      "Install, finish, and texture drywall for commercial and residential projects. Ensure smooth, professional finishes that meet quality standards and project specifications.",
+    requirements: [
+      "2+ years of drywall installation and finishing experience",
+      "Expertise in taping, mudding, and texturing",
+      "Knowledge of various finish levels and techniques",
+      "Ability to work efficiently on scaffolding and lifts",
+      "Own basic drywall tools",
+      "Attention to detail and quality craftsmanship",
+    ],
+    benefits: [
+      "Competitive hourly rate with overtime opportunities",
+      "Tool replacement program",
+      "Health insurance after probation period",
+      "Material handling equipment provided",
+      "Steady work year-round",
+    ],
+  },
+  {
     title: "Project Manager",
     department: "Construction Management",
     location: "Pasco, WA",
     type: "Full-time",
     experience: "3-5 years",
     description:
-      "Lead construction projects from inception to completion, managing timelines, budgets, and partner relationships.",
+      "Lead construction projects from inception to completion, managing timelines, budgets, and partner relationships. Work WITH project owners to deliver exceptional results.",
     requirements: [
       "Bachelor's degree in Construction Management or related field",
       "3+ years of project management experience",
@@ -50,7 +146,7 @@ const openPositions = [
     type: "Full-time",
     experience: "5+ years",
     description:
-      "Oversee daily construction activities, ensure safety compliance, and coordinate with subcontractors.",
+      "Oversee daily construction activities, ensure safety compliance, and coordinate with subcontractors. Lead field teams with integrity and excellence.",
     requirements: [
       "5+ years of construction supervision experience",
       "OSHA 30 certification required",
@@ -72,7 +168,7 @@ const openPositions = [
     type: "Full-time",
     experience: "2-4 years",
     description:
-      "Prepare accurate cost estimates for commercial and residential projects using industry software.",
+      "Prepare accurate cost estimates for commercial and residential projects using industry software. Partner with clients to understand project scope and deliver competitive bids.",
     requirements: [
       "Experience with estimating software (ProEst, PlanSwift, etc.)",
       "2+ years of construction estimating experience",
@@ -94,7 +190,7 @@ const openPositions = [
     type: "Full-time",
     experience: "Entry Level Welcome",
     description:
-      "Support daily operations with scheduling, documentation, and partner communication.",
+      "Support daily operations with scheduling, documentation, and partner communication. Be the welcoming face of our veteran-owned company.",
     requirements: [
       "High school diploma or equivalent",
       "Excellent communication skills",
@@ -195,46 +291,74 @@ export default function CareersPage() {
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-[100dvh] sm:min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8">
-            {/* Subtitle First - MH Branding Standard */}
-            <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
-              Partnership-Focused Career Opportunities
-            </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 sm:py-0">
+          <FadeInWhenVisible className="space-y-6 sm:space-y-8">
+            {/* Veteran-Owned Badge */}
+            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-4 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
+              <MaterialIcon
+                icon="military_tech"
+                size="sm"
+                className="text-brand-primary"
+              />
+              <span className="ml-3 font-bold text-brand-primary text-xs uppercase tracking-wider">
+                Veteran-Owned Excellence
+              </span>
+            </div>
 
-            {/* Main Title with Proper Gradient */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent drop-shadow-lg">
+            {/* Primary Tagline - MH Branding Standard */}
+            <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-xl inline-block">
+              <p className="text-base sm:text-lg md:text-xl font-semibold text-brand-secondary tracking-wide">
+                "Building for the Owner, NOT the Dollar"
+              </p>
+            </div>
+
+            {/* Main Title with Proper Gradient - MH Typography Standards */}
+            <h1 className="mb-6 pb-2 font-black text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter">
+              <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
                 Join Our Team
+              </span>
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-secondary drop-shadow-lg text-transparent">
+                Build Your Career
               </span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
-              Build Your Career with MH Construction
+            {/* Description */}
+            <p className="max-w-4xl mx-auto font-light text-white/90 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+              Partnership Culture • Professional Growth • Veteran-Friendly
             </p>
 
-            {/* Primary Tagline */}
-            <div className="max-w-4xl mx-auto">
-              <div className="inline-block bg-black/30 backdrop-blur-sm px-6 py-3 rounded-lg border border-white/20">
-                <p className="text-lg md:text-xl font-semibold bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white text-transparent">
-                  Building for the Owner, NOT the Dollar
-                </p>
+            {/* Subtitle */}
+            <p className="max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
+              Join a veteran-owned company that values integrity, excellence,
+              and community. We're looking for dedicated professionals who share
+              our commitment to quality craftsmanship.
+            </p>
+
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 font-medium text-brand-secondary text-sm sm:text-base">
+              <div className="flex items-center">
+                <MaterialIcon icon="groups" size="sm" className="mr-2" />
+                <span>Team Unity</span>
+              </div>
+              <div className="flex items-center">
+                <MaterialIcon icon="school" size="sm" className="mr-2" />
+                <span>Career Development</span>
+              </div>
+              <div className="flex items-center">
+                <MaterialIcon
+                  icon="health_and_safety"
+                  size="sm"
+                  className="mr-2"
+                />
+                <span>Safety First</span>
               </div>
             </div>
-
-            {/* Description */}
-            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
-              Join a veteran-owned company that values integrity, excellence,
-              and community. We're looking for dedicated professionals to help
-              us build the future of the Pacific Northwest.
-            </p>
-          </div>
+          </FadeInWhenVisible>
         </div>
 
         {/* Page-Specific Navigation Bar */}
@@ -248,16 +372,13 @@ export default function CareersPage() {
         {/* Why Work With Us */}
         <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
-            <div className="mb-12 lg:mb-16 text-center">
-              <h2 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-                <span className="text-gray-700 dark:text-gray-300">
-                  Why Choose
-                </span>{" "}
-                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
-                  MH Construction?
+            <div className="mb-16 lg:mb-24 text-center">
+              <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+                  Why Choose MH Construction?
                 </span>
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
+              <p className="mx-auto max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
                 We're more than just a construction company—we're a family that
                 invests in your success and future.
               </p>
@@ -295,16 +416,13 @@ export default function CareersPage() {
         {/* Benefits & Perks */}
         <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
-            <div className="mb-12 lg:mb-16 text-center">
-              <h2 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-                <span className="text-gray-700 dark:text-gray-300">
-                  Benefits &
-                </span>{" "}
-                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
-                  Perks
+            <div className="mb-16 lg:mb-24 text-center">
+              <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+                  Benefits & Perks
                 </span>
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
+              <p className="mx-auto max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
                 We believe in taking care of our team members with comprehensive
                 benefits and a supportive work environment.
               </p>
@@ -342,16 +460,13 @@ export default function CareersPage() {
         {/* Open Positions */}
         <section id="positions" className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
-            <div className="mb-12 lg:mb-16 text-center">
-              <h2 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-                <span className="text-gray-700 dark:text-gray-300">
-                  Current
-                </span>{" "}
-                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
-                  Openings
+            <div className="mb-16 lg:mb-24 text-center">
+              <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+                  Current Openings
                 </span>
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
+              <p className="mx-auto max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
                 Explore our current job opportunities and find the perfect role
                 to advance your career with us.
               </p>
@@ -411,9 +526,10 @@ export default function CareersPage() {
                     <div className="mt-4 sm:mt-0 sm:ml-6">
                       <Button
                         onClick={() => handleApplyNow(position.title)}
-                        className="bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark text-white"
+                        variant="primary"
+                        size="lg"
                       >
-                        <MaterialIcon icon="send" className="mr-2" size="sm" />
+                        <MaterialIcon icon="send" size="lg" className="mr-3" />
                         Apply Now
                       </Button>
                     </div>
@@ -476,15 +592,12 @@ export default function CareersPage() {
                 size="4xl"
                 className="mb-6 text-brand-primary"
               />
-              <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-                <span className="text-gray-700 dark:text-gray-300">
-                  Don't See the
-                </span>{" "}
-                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
-                  Perfect Role?
+              <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+                  Don't See the Perfect Role?
                 </span>
               </h2>
-              <p className="mx-auto mb-8 max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
+              <p className="mx-auto mb-10 max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
                 We're always looking for talented individuals to join our team.
                 Send us your resume and let us know how you'd like to contribute
                 to our mission.
@@ -492,25 +605,32 @@ export default function CareersPage() {
               <div className="flex sm:flex-row flex-col justify-center gap-4">
                 <Button
                   onClick={() => handleApplyNow("General Application")}
+                  variant="primary"
                   size="lg"
-                  className="bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark shadow-xl text-white"
                 >
-                  <MaterialIcon icon="upload" className="mr-2" />
+                  <MaterialIcon icon="upload" size="lg" className="mr-3" />
                   Submit General Application
                 </Button>
                 <Link href="/contact">
-                  <Button
-                    size="lg"
-                    className="bg-brand-secondary hover:bg-brand-secondary-dark dark:bg-brand-secondary dark:hover:bg-brand-secondary-dark shadow-xl text-black dark:text-black"
-                  >
-                    <MaterialIcon icon="contact_mail" className="mr-2" />
+                  <Button variant="secondary" size="lg">
+                    <MaterialIcon
+                      icon="contact_mail"
+                      size="lg"
+                      className="mr-3"
+                    />
                     Contact HR
                   </Button>
                 </Link>
               </div>
-              <p className="mt-6 text-gray-500 dark:text-gray-400">
+              <p className="mt-8 text-gray-500 dark:text-gray-400 text-lg">
                 <MaterialIcon icon="phone" className="inline mr-2" size="sm" />
-                HR Hotline: (509) 308-6489 | office@mhc-gc.com
+                HR Hotline: (509) 308-6489 |{" "}
+                <a
+                  href="mailto:office@mhc-gc.com"
+                  className="font-semibold text-brand-primary hover:text-brand-secondary underline"
+                >
+                  office@mhc-gc.com
+                </a>
               </p>
             </div>
           </FadeInWhenVisible>

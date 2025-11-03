@@ -24,6 +24,63 @@ export async function POST(request: NextRequest) {
       status: "new",
     };
 
+    // Send email notification to office@mhc-gc.com
+    try {
+      const emailSubject = `New Job Application: ${data.position} - ${data.firstName} ${data.lastName}`;
+      const emailBody = `
+New Job Application Received
+
+Position: ${data.position}
+Name: ${data.firstName} ${data.lastName}
+Email: ${data.email}
+Phone: ${data.phone}
+Experience: ${data.experience}
+Availability: ${data.availability}
+Veteran Status: ${data.veteranStatus || "Not specified"}
+
+Address:
+${data.address || "Not provided"}
+${data.city ? `${data.city}, ` : ""}${data.state || ""} ${data.zipCode || ""}
+
+Cover Letter:
+${data.coverLetter || "Not provided"}
+
+Resume: ${data.resumeFileName || "Not uploaded"}
+Referral Source: ${data.referralSource || "Not provided"}
+
+Submitted: ${new Date().toLocaleString()}
+Application ID: ${application.id}
+      `.trim();
+
+      // Send email using fetch to a mail service endpoint
+      // This assumes you have an email service configured
+      const emailResponse = await fetch(
+        `${request.nextUrl.origin}/api/contact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: `${data.firstName} ${data.lastName}`,
+            email: data.email,
+            phone: data.phone,
+            subject: emailSubject,
+            message: emailBody,
+            type: "job-application",
+            recipientEmail: "office@mhc-gc.com",
+          }),
+        }
+      );
+
+      if (!emailResponse.ok) {
+        console.error("Failed to send email notification");
+      }
+    } catch (emailError) {
+      console.error("Error sending email notification:", emailError);
+      // Continue even if email fails - don't block the application submission
+    }
+
     // TODO: Store in Cloudflare D1 database or KV
     console.log("New job application:", application);
 

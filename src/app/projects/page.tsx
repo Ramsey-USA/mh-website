@@ -179,42 +179,70 @@ export default function ProjectsPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8">
-            {/* Subtitle First - MH Branding Standard */}
-            <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
-              Award-Winning Construction Partnership Portfolio
-            </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 sm:py-0">
+          <FadeInWhenVisible className="space-y-6 sm:space-y-8">
+            {/* Veteran Badge - MH Branding Standard */}
+            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-4 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
+              <MaterialIcon
+                icon="military_tech"
+                size="sm"
+                className="text-brand-secondary"
+              />
+              <span className="ml-3 font-bold text-brand-secondary text-xs uppercase tracking-wider">
+                Veteran-Owned Excellence
+              </span>
+            </div>
 
-            {/* Main Title with Proper Gradient */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent drop-shadow-lg">
-                Our Partnership Success Stories
+            {/* Primary Tagline - MH Branding Standard */}
+            <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-xl inline-block">
+              <p className="text-base sm:text-lg md:text-xl font-semibold text-brand-secondary tracking-wide">
+                "Building for the Owner, NOT the Dollar"
+              </p>
+            </div>
+
+            {/* Main Title with Proper Gradient - MH Typography Standards */}
+            <h1 className="mb-6 pb-2 font-black text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter">
+              <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+                Partnership Success
+              </span>
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary drop-shadow-lg text-transparent">
+                Stories
               </span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+            {/* Description - Partnership Language */}
+            <p className="max-w-4xl mx-auto font-light text-white/90 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
               Building Excellence Together Across the Pacific Northwest
             </p>
 
-            {/* Primary Tagline */}
-            <div className="max-w-4xl mx-auto">
-              <div className="inline-block bg-black/30 backdrop-blur-sm px-6 py-3 rounded-lg border border-white/20">
-                <p className="text-lg md:text-xl font-semibold bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white text-transparent">
-                  Building for the Owner, NOT the Dollar
-                </p>
-              </div>
-            </div>
-
-            {/* Description */}
-            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+            {/* Subtitle */}
+            <p className="max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
               Explore our comprehensive portfolio showcasing decades of
               collaborative partnerships, innovative construction solutions, and
               unwavering commitment to partner success throughout the Tri-Cities
               area.
             </p>
-          </div>
+
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 font-medium text-brand-secondary text-sm sm:text-base">
+              <div className="flex items-center">
+                <MaterialIcon
+                  icon="workspace_premium"
+                  size="sm"
+                  className="mr-2"
+                />
+                <span>100+ Projects</span>
+              </div>
+              <div className="flex items-center">
+                <MaterialIcon icon="star" size="sm" className="mr-2" />
+                <span>98% Satisfaction</span>
+              </div>
+              <div className="flex items-center">
+                <MaterialIcon icon="handshake" size="sm" className="mr-2" />
+                <span>Partnership-Driven</span>
+              </div>
+            </div>
+          </FadeInWhenVisible>
         </div>
 
         {/* Page-Specific Navigation Bar */}
@@ -227,24 +255,23 @@ export default function ProjectsPage() {
       {/* Project Stats */}
       <section
         id="project-stats"
-        className="bg-white dark:bg-gray-900 py-16 lg:py-24"
+        className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40"
       >
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             {/* Section Header */}
-            <div className="mb-16 text-center">
-              <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-                <span className="text-gray-700 dark:text-gray-300">
+            <div className="mb-16 lg:mb-24 text-center">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                   Proven Track
-                </span>{" "}
-                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                   Record
                 </span>
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed">
-                Building for the Owner, NOT the Dollar - Numbers that reflect
-                our veteran-owned commitment to excellence and partner
-                partnerships
+              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+                Numbers that reflect our veteran-owned commitment to excellence
+                and lasting partnerships
               </p>
             </div>
 
@@ -319,16 +346,16 @@ export default function ProjectsPage() {
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mb-8 text-center">
-              <h3 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight tracking-tighter">
-                <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight">
+              <h3 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-tight">
                   Find Your Perfect
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                   Partnership
                 </span>
               </h3>
-              <p className="font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed tracking-wide">
-                Discover how we've partnered with partners across different
+              <p className="font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+                Discover how we've partnered with clients across different
                 project types
               </p>
             </div>
@@ -393,13 +420,13 @@ export default function ProjectsPage() {
       {/* Projects Grid */}
       <section
         id="portfolio"
-        className="bg-white dark:bg-gray-900 py-16 lg:py-24"
+        className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40"
       >
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
-            <div className="mb-12 text-center">
-              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+            <div className="mb-16 lg:mb-24 text-center">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                   {selectedCategory === "all"
                     ? "Partnership Success"
                     : `${
@@ -413,7 +440,7 @@ export default function ProjectsPage() {
               <p className="font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 {projects.length}{" "}
                 {projects.length === 1 ? "collaboration" : "collaborations"}{" "}
-                showcasing our commitment to working with partners
+                showcasing our commitment to working WITH partners
               </p>
             </div>
           </FadeInWhenVisible>
@@ -610,10 +637,12 @@ export default function ProjectsPage() {
                 {searchQuery && (
                   <Button
                     onClick={clearSearch}
-                    className="bg-brand-secondary hover:bg-brand-secondary-dark text-white"
+                    variant="secondary"
+                    size="lg"
+                    className="transition-all duration-300"
                   >
-                    <MaterialIcon icon="clear" className="mr-2" size="md" />
-                    Clear Search
+                    <MaterialIcon icon="clear" size="lg" className="mr-3" />
+                    <span className="font-medium">Clear Search</span>
                   </Button>
                 )}
                 <Button
@@ -621,10 +650,12 @@ export default function ProjectsPage() {
                     clearSearch();
                     setSelectedCategory("all");
                   }}
-                  className="bg-brand-primary hover:bg-brand-primary-dark text-white"
+                  variant="primary"
+                  size="lg"
+                  className="transition-all duration-300"
                 >
-                  <MaterialIcon icon="view_list" className="mr-2" size="md" />
-                  View All Partnerships
+                  <MaterialIcon icon="view_list" size="lg" className="mr-3" />
+                  <span className="font-medium">View All Partnerships</span>
                 </Button>
               </div>
             </div>
@@ -633,12 +664,12 @@ export default function ProjectsPage() {
       </section>
 
       {/* Project Capabilities Section */}
-      <section className="bg-gray-50 dark:bg-gray-800 py-16 lg:py-24">
+      <section className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32 xl:py-40">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
-            <div className="mb-12 text-center">
-              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+            <div className="mb-16 lg:mb-24 text-center">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                   Partnership
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
@@ -647,7 +678,7 @@ export default function ProjectsPage() {
               </h2>
               <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
                 Veteran-owned collaborative expertise across multiple
-                construction markets, working with you to strengthen Pacific
+                construction markets, working WITH you to strengthen Pacific
                 Northwest communities
               </p>
             </div>
@@ -681,13 +712,13 @@ export default function ProjectsPage() {
       </section>
 
       {/* Why Choose MH Construction Section - Matching Services Page */}
-      <section className="bg-gray-50 dark:bg-gray-800 py-16">
+      <section className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32 xl:py-40">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
-            <div className="mb-12 text-center">
-              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
-                  Why Choose
+            <div className="mb-16 lg:mb-24 text-center">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                  Why Partner With
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                   MH Construction
@@ -765,18 +796,18 @@ export default function ProjectsPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-white dark:bg-gray-900 py-16 lg:py-24">
+      <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl">
-              <div className="mb-12 text-center">
+              <div className="mb-16 lg:mb-24 text-center">
                 <MaterialIcon
                   icon="format_quote"
                   size="4xl"
-                  className="mb-4 text-brand-primary"
+                  className="mb-6 text-brand-primary"
                 />
-                <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Partnership
                   </span>
                   <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
@@ -831,18 +862,18 @@ export default function ProjectsPage() {
       </section>
 
       {/* Partnership Process Section - Matching Services Page */}
-      <section className="bg-white dark:bg-gray-900 py-16">
+      <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl">
-              <div className="mb-12 text-center">
+              <div className="mb-16 lg:mb-24 text-center">
                 <MaterialIcon
                   icon="trending_up"
                   size="3xl"
-                  className="mb-4 text-brand-primary"
+                  className="mb-6 text-brand-primary"
                 />
-                <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Our Partnership
                   </span>
                   <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
@@ -850,7 +881,7 @@ export default function ProjectsPage() {
                   </span>
                 </h2>
                 <p className="font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                  From initial consultation to project completion, we work with
+                  From initial consultation to project completion, we work WITH
                   you every step of the way
                 </p>
               </div>
@@ -932,53 +963,76 @@ export default function ProjectsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark to-brand-primary-dark dark:to-brand-primary py-16 text-white">
+      <section className="bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark to-brand-primary-dark dark:to-brand-primary py-20 lg:py-32 xl:py-40 text-white">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-3xl text-center">
               <MaterialIcon
                 icon="handshake"
                 size="4xl"
-                className="mb-6 text-brand-secondary"
+                className="mb-8 text-brand-secondary"
               />
-              <h2 className="mb-6 font-black text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+              <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-white/80 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                   Ready to Build
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
                   Together?
                 </span>
               </h2>
-              <p className="mb-8 text-white/90 text-xl">
+              <p className="mb-8 font-light text-white/90 text-lg md:text-xl lg:text-2xl leading-relaxed">
                 Let's start our partnership and bring your vision to life with
                 the same veteran-owned dedication and quality you see in our
                 portfolio
               </p>
-              <div className="flex sm:flex-row flex-col justify-center gap-4">
+              <div className="flex sm:flex-row flex-col justify-center gap-4 mb-8">
                 <Link href="/contact">
                   <Button
+                    variant="primary"
                     size="lg"
-                    className="bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark text-white"
+                    className="transition-all duration-300 border-2 border-white text-white hover:bg-white hover:text-brand-primary"
                   >
-                    <MaterialIcon icon="phone" className="mr-2" size="md" />
-                    Start Our Partnership
+                    <MaterialIcon icon="phone" size="lg" className="mr-3" />
+                    <span className="font-medium">Start Partnership</span>
                   </Button>
                 </Link>
                 <Link href="/services">
                   <Button
+                    variant="secondary"
                     size="lg"
-                    className="bg-brand-secondary hover:bg-brand-secondary-dark dark:bg-brand-secondary dark:hover:bg-brand-secondary-dark text-black dark:text-black"
+                    className="transition-all duration-300"
                   >
-                    <MaterialIcon icon="build" className="mr-2" size="md" />
-                    Explore Capabilities
+                    <MaterialIcon icon="build" size="lg" className="mr-3" />
+                    <span className="font-medium">Explore Capabilities</span>
                   </Button>
                 </Link>
               </div>
-              <p className="mt-6 text-white/90">
-                <MaterialIcon icon="phone" className="inline mr-2" size="md" />
-                Partnership Hotline: (509) 308-6489 | 3111 N. Capital Ave.,
-                Pasco, WA 99301
-              </p>
+              <div className="space-y-2 text-brand-secondary">
+                <p className="text-lg md:text-xl">
+                  <MaterialIcon
+                    icon="phone"
+                    size="md"
+                    className="inline mr-2"
+                  />
+                  (509) 308-6489
+                </p>
+                <p>
+                  <MaterialIcon
+                    icon="location_on"
+                    size="md"
+                    className="inline mr-2"
+                  />
+                  3111 N. Capital Ave., Pasco, WA 99301
+                </p>
+                <p>
+                  <MaterialIcon
+                    icon="email"
+                    size="md"
+                    className="inline mr-2"
+                  />
+                  office@mhc-gc.com
+                </p>
+              </div>
             </div>
           </FadeInWhenVisible>
         </div>

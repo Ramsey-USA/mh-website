@@ -154,28 +154,44 @@ export function JobApplicationModal({
 
   if (submitSuccess) {
     return (
-      <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 p-4">
-        <div className="bg-white dark:bg-gray-800 p-8 rounded-lg w-full max-w-md text-center">
-          <div className="mb-4 text-[#386851]">
-            <svg
-              className="mx-auto w-16 h-16"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clipRule="evenodd"
-              />
-            </svg>
+      <div className="z-50 fixed inset-0 flex justify-center items-center bg-black/70 backdrop-blur-sm p-4">
+        <div className="bg-white dark:bg-gray-800 p-8 sm:p-12 rounded-2xl w-full max-w-2xl text-center shadow-2xl border-2 border-brand-primary/30">
+          <div className="mb-6 text-brand-primary">
+            <MaterialIcon icon="check_circle" size="4xl" />
           </div>
-          <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl">
-            Welcome to Our Partnership Team!
+          <h3 className="mb-4 pb-2 font-black text-3xl sm:text-4xl md:text-5xl leading-tight">
+            <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+              Welcome to Our Team!
+            </span>
           </h3>
-          <p className="text-gray-600 dark:text-gray-300">
-            Thank you for your interest in joining our partnership team. We'll
-            review your application and contact you soon to discuss how we can
-            work together.
+          <p className="mb-6 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            Thank you for your interest in joining our veteran-owned company.
+            We'll review your application and contact you soon to discuss how we
+            can work together.
+          </p>
+
+          {/* Veteran Badge */}
+          <div className="bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-4 rounded-xl border border-brand-primary/30 dark:border-brand-primary/40 inline-block">
+            <div className="flex items-center gap-2">
+              <MaterialIcon
+                icon="military_tech"
+                size="md"
+                className="text-brand-primary"
+              />
+              <span className="font-semibold text-brand-primary">
+                Veteran-Owned Excellence
+              </span>
+            </div>
+          </div>
+
+          <p className="mt-6 text-sm text-gray-500 dark:text-gray-400">
+            Your application has been sent to{" "}
+            <a
+              href="mailto:office@mhc-gc.com"
+              className="font-semibold text-brand-primary hover:text-brand-secondary underline"
+            >
+              office@mhc-gc.com
+            </a>
           </p>
         </div>
       </div>
@@ -183,37 +199,53 @@ export function JobApplicationModal({
   }
 
   return (
-    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-lg w-full max-w-4xl max-h-[90vh] overflow-hidden">
+    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black/70 backdrop-blur-sm p-4">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden shadow-2xl border-2 border-brand-primary/20">
         {/* Header */}
-        <div className="bg-gradient-to-r from-[#386851] to-[#2D5443] p-6 text-white">
-          <div className="flex justify-between items-center">
+        <div className="bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary p-6 sm:p-8 text-white relative overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/10 via-transparent to-transparent"></div>
+
+          <div className="relative z-10 flex justify-between items-center">
             <div className="flex items-center space-x-3">
-              <MaterialIcon icon="work" className="w-6 h-6" />
-              <h2 className="font-bold text-2xl">Join Our Partnership Team</h2>
+              <div className="bg-white/10 backdrop-blur-sm p-2 rounded-lg border border-white/20">
+                <MaterialIcon icon="work" size="lg" />
+              </div>
+              <div>
+                <h2 className="font-black text-2xl sm:text-3xl md:text-4xl leading-tight">
+                  Join Our Team
+                </h2>
+                <p className="text-white/90 text-sm sm:text-base mt-1">
+                  Veteran-Owned Excellence
+                </p>
+              </div>
             </div>
             <button
               onClick={onClose}
-              className="text-white hover:text-gray-200 transition-colors"
+              className="text-white hover:text-brand-secondary transition-colors hover:bg-white/10 p-2 rounded-lg"
             >
-              <MaterialIcon icon="close" className="w-6 h-6" />
+              <MaterialIcon icon="close" size="lg" />
             </button>
           </div>
-          <p className="mt-2 text-white/90">
-            We're excited to learn more about you and how you can contribute as
-            a partner in MH Construction's mission to build excellence together.
-          </p>
+
+          {/* Tagline */}
+          <div className="relative z-10 mt-4 bg-white/10 backdrop-blur-sm p-3 border border-white/20 rounded-lg inline-block">
+            <p className="text-sm sm:text-base font-semibold text-brand-secondary">
+              "Building for the Owner, NOT the Dollar"
+            </p>
+          </div>
         </div>
 
         {/* Form */}
-        <div className="p-6 max-h-[calc(90vh-120px)] overflow-y-auto">
+        <div className="p-6 max-h-[calc(90vh-200px)] overflow-y-auto">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Personal Information */}
             <div>
-              <h3 className="flex items-center mb-4 font-semibold text-gray-900 dark:text-white text-lg">
+              <h3 className="flex items-center mb-4 font-bold text-gray-900 dark:text-white text-xl">
                 <MaterialIcon
                   icon="person"
-                  className="mr-2 w-5 h-5 text-[#386851]"
+                  size="md"
+                  className="mr-3 text-brand-primary"
                 />
                 Personal Information
               </h3>
@@ -249,10 +281,11 @@ export function JobApplicationModal({
 
             {/* Contact Information */}
             <div>
-              <h3 className="flex items-center mb-4 font-semibold text-gray-900 dark:text-white text-lg">
+              <h3 className="flex items-center mb-4 font-bold text-gray-900 dark:text-white text-xl">
                 <MaterialIcon
                   icon="email"
-                  className="mr-2 w-5 h-5 text-[#386851]"
+                  size="md"
+                  className="mr-3 text-brand-primary"
                 />
                 Contact Information
               </h3>
@@ -288,10 +321,11 @@ export function JobApplicationModal({
 
             {/* Address */}
             <div>
-              <h3 className="flex items-center mb-4 font-semibold text-gray-900 dark:text-white text-lg">
+              <h3 className="flex items-center mb-4 font-bold text-gray-900 dark:text-white text-xl">
                 <MaterialIcon
                   icon="place"
-                  className="mr-2 w-5 h-5 text-[#386851]"
+                  size="md"
+                  className="mr-3 text-brand-primary"
                 />
                 Address
               </h3>
@@ -351,26 +385,27 @@ export function JobApplicationModal({
 
             {/* Position Information */}
             <div>
-              <h3 className="flex items-center mb-4 font-semibold text-gray-900 dark:text-white text-lg">
+              <h3 className="flex items-center mb-4 font-bold text-gray-900 dark:text-white text-xl">
                 <MaterialIcon
                   icon="work"
-                  className="mr-2 w-5 h-5 text-[#386851]"
+                  size="md"
+                  className="mr-3 text-brand-primary"
                 />
-                Partnership Role Information
+                Position Information
               </h3>
               <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                 <div>
                   <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
-                    Partnership Role of Interest *
+                    Position of Interest *
                   </label>
                   <select
                     name="position"
                     required
                     value={formData.position}
                     onChange={handleInputChange}
-                    className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-[#386851] focus:ring-2 w-full text-gray-900 dark:text-white"
+                    className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-brand-primary focus:ring-2 w-full text-gray-900 dark:text-white"
                   >
-                    <option value="">Select a partnership role</option>
+                    <option value="">Select a position</option>
                     {positions.map((position) => (
                       <option key={position} value={position}>
                         {position}
@@ -441,33 +476,33 @@ export function JobApplicationModal({
 
             {/* Cover Letter */}
             <div>
-              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
-                Tell us about yourself and why you'd like to join our
-                partnership at MH Construction
+              <label className="block mb-2 font-medium text-gray-700 dark:text-gray-200 text-sm">
+                Tell us about yourself and why you'd like to join our team
               </label>
               <textarea
                 name="coverLetter"
-                rows={4}
+                rows={5}
                 value={formData.coverLetter}
                 onChange={handleInputChange}
-                className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-[#386851] focus:ring-2 w-full text-gray-900 dark:text-white"
-                placeholder="Share your experience, goals, and what interests you about partnering with our team to build excellence together..."
+                className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-lg focus:outline-none focus:ring-brand-primary focus:ring-2 w-full text-gray-900 dark:text-white"
+                placeholder="Share your experience, skills, and career goals. What excites you about joining our veteran-owned company?"
               />
             </div>
 
             {/* Resume Upload */}
             <div>
-              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
+              <label className="block mb-2 font-medium text-gray-700 dark:text-gray-200 text-sm">
                 Resume (PDF, DOC, or DOCX)
               </label>
-              <div className="flex justify-center mt-1 px-6 pt-5 pb-6 border-2 border-gray-300 hover:border-[#386851] dark:border-gray-600 border-dashed rounded-md transition-colors">
-                <div className="space-y-1 text-center">
+              <div className="flex justify-center mt-1 px-6 pt-6 pb-6 border-2 border-gray-300 hover:border-brand-primary dark:border-gray-600 border-dashed rounded-xl transition-all hover:bg-brand-primary/5">
+                <div className="space-y-2 text-center">
                   <MaterialIcon
                     icon="upload"
-                    className="mx-auto w-12 h-12 text-gray-400 dark:text-gray-500"
+                    size="3xl"
+                    className="mx-auto text-brand-primary/60"
                   />
                   <div className="flex text-gray-600 dark:text-gray-300 text-sm">
-                    <label className="relative bg-white dark:bg-gray-700 rounded-md font-medium text-[#386851] hover:text-[#BD9264] cursor-pointer">
+                    <label className="relative bg-white dark:bg-gray-700 rounded-md font-semibold text-brand-primary hover:text-brand-secondary cursor-pointer transition-colors">
                       <span>Upload a file</span>
                       <input
                         type="file"
@@ -483,9 +518,16 @@ export function JobApplicationModal({
                     PDF, DOC, DOCX up to 10MB
                   </p>
                   {formData.resumeFile && (
-                    <p className="mt-2 text-[#386851] text-sm">
-                      Selected: {formData.resumeFile.name}
-                    </p>
+                    <div className="mt-3 p-3 bg-brand-primary/10 border border-brand-primary/30 rounded-lg">
+                      <p className="text-brand-primary text-sm font-medium flex items-center justify-center">
+                        <MaterialIcon
+                          icon="check_circle"
+                          size="sm"
+                          className="mr-2"
+                        />
+                        Selected: {formData.resumeFile.name}
+                      </p>
+                    </div>
                   )}
                 </div>
               </div>
@@ -494,7 +536,7 @@ export function JobApplicationModal({
             {/* How did you hear about us */}
             <div>
               <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
-                How did you hear about this partnership opportunity?
+                How did you hear about this opportunity?
               </label>
               <input
                 type="text"
@@ -515,20 +557,52 @@ export function JobApplicationModal({
 
             {/* Submit Button */}
             <div className="pt-6 border-gray-200 dark:border-gray-600 border-t">
-              <div className="flex justify-end space-x-4">
+              <div className="bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 mb-6 p-4 border border-brand-primary/30 dark:border-brand-primary/40 rounded-xl">
+                <p className="text-gray-800 dark:text-gray-200 text-sm leading-relaxed">
+                  <MaterialIcon
+                    icon="info"
+                    size="sm"
+                    className="inline mr-2 text-brand-primary"
+                  />
+                  Your application will be sent to our HR team at{" "}
+                  <a
+                    href="mailto:office@mhc-gc.com"
+                    className="font-semibold text-brand-primary hover:text-brand-secondary underline"
+                  >
+                    office@mhc-gc.com
+                  </a>
+                  . We'll review your submission and contact you within 3-5
+                  business days.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row justify-end gap-4">
                 <button
                   type="button"
                   onClick={onClose}
-                  className="hover:bg-gray-50 dark:hover:bg-gray-700 px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-md text-gray-700 dark:text-gray-200 transition-colors"
+                  className="hover:bg-gray-50 dark:hover:bg-gray-700 px-6 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-200 font-semibold transition-all order-2 sm:order-1"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-gradient-to-r from-[#386851] hover:from-[#BD9264] to-[#2D5443] hover:to-[#386851] disabled:opacity-50 px-6 py-3 rounded-md text-white transition-all duration-200 disabled:cursor-not-allowed"
+                  className="bg-gradient-to-r from-brand-primary to-brand-primary-dark hover:from-brand-secondary hover:to-brand-primary disabled:opacity-50 px-8 py-3 rounded-lg text-white font-bold transition-all duration-200 disabled:cursor-not-allowed shadow-lg hover:shadow-xl order-1 sm:order-2 flex items-center justify-center"
                 >
-                  {isSubmitting ? "Submitting..." : "Join Our Partnership Team"}
+                  {isSubmitting ? (
+                    <>
+                      <MaterialIcon
+                        icon="hourglass_empty"
+                        size="md"
+                        className="mr-3 animate-spin"
+                      />
+                      Submitting...
+                    </>
+                  ) : (
+                    <>
+                      <MaterialIcon icon="send" size="md" className="mr-3" />
+                      Submit Application
+                    </>
+                  )}
                 </button>
               </div>
             </div>

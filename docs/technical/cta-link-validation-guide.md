@@ -11,10 +11,11 @@ and links across the MH Construction website.
 
 1. **Broken Internal Links**
    - `/portfolio` - Referenced in `src/app/page.tsx:1494` but page doesn't exist
-   - `/blog` - Referenced in `src/app/page.tsx:1395` but page doesn't exist
    - `/news` - Referenced in `src/app/page.tsx:1411` but page doesn't exist
 
    **Action Required**: Either create these pages or remove/redirect the links
+
+**Note**: `/blog` removed (Nov 3, 2025) - blog now implemented as reusable section component
 
 ### 🟡 Warnings
 
@@ -61,7 +62,11 @@ All the following routes are active and functional:
 | `/contact` | `src/app/contact/page.tsx` | ✅ Active |
 | `/booking` | `src/app/booking/page.tsx` | ✅ Active |
 | `/estimator` | `src/app/estimator/page.tsx` | ✅ Active |
-| `/testimonials` | `src/app/testimonials/page.tsx` | ✅ Active |
+
+**Notes**:
+
+- `/testimonials` page removed (Nov 3, 2025) - testimonials now implemented as reusable section component
+- `/blog` page removed (Nov 3, 2025) - blog now implemented as reusable section component
 
 ## Contact Information Standards
 
@@ -309,7 +314,9 @@ Based on current validation results:
 
 ### Priority 1 (Critical - Fix Immediately)
 
-1. Fix or remove broken links to `/portfolio`, `/blog`, `/news`
+1. Fix or remove broken links to `/portfolio`, `/news`
+
+**Note**: `/blog` and `/testimonials` routes removed (Nov 3, 2025) - now implemented as reusable section components
 
 ### Priority 2 (High - Fix Soon)
 

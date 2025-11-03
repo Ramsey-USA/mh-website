@@ -230,30 +230,35 @@ export default function BookingPage() {
 
   if (submitStatus === "success") {
     return (
-      <div className="bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-900 to-gray-100 dark:to-gray-800 min-h-screen">
-        <div className="mx-auto px-4 py-20 max-w-4xl">
+      <div className="bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center">
+        <div className="mx-auto px-4 py-20 max-w-5xl">
           <FadeInWhenVisible>
-            <Card className="bg-brand-primary/5 dark:bg-brand-primary/20 shadow-xl border-brand-primary/20 dark:border-brand-primary/30">
-              <CardContent className="p-12 text-center">
-                <div className="flex justify-center mb-6 text-brand-primary dark:text-brand-primary">
+            <Card className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl border-2 border-brand-primary/30 dark:border-brand-primary/40">
+              <CardContent className="p-8 sm:p-12 text-center">
+                <div className="flex justify-center mb-8 text-brand-primary dark:text-brand-primary">
                   <MaterialIcon icon="check_circle" size="4xl" />
                 </div>
-                <h1 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                  <span className="text-gray-300">Partnership Discussion</span>{" "}
-                  <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
-                    Scheduled!
+
+                <h1 className="mb-8 pb-2 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
+                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+                    Consultation Confirmed!
                   </span>
                 </h1>
-                <div className="space-y-4 mb-8 text-brand-primary dark:text-brand-primary-light">
-                  <p className="text-xl">
-                    Thank you, <strong>{formData.clientName}</strong>!
+
+                <div className="space-y-6 mb-10 text-gray-700 dark:text-gray-300">
+                  <p className="text-xl sm:text-2xl font-semibold">
+                    Thank you,{" "}
+                    <span className="text-brand-primary">
+                      {formData.clientName}
+                    </span>
+                    !
                   </p>
-                  <p className="text-lg">
-                    Your partnership discussion is scheduled for:
+                  <p className="text-lg sm:text-xl">
+                    Your expert consultation is scheduled:
                   </p>
-                  <div className="bg-brand-primary/10 dark:bg-brand-primary/20 mx-auto p-4 border border-brand-primary/30 dark:border-brand-primary/40 rounded-lg max-w-md">
-                    <p className="flex items-center gap-2 font-semibold text-brand-primary dark:text-brand-primary-light">
-                      <MaterialIcon icon="event" size="sm" />
+                  <div className="bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 mx-auto p-6 border-2 border-brand-primary/30 dark:border-brand-primary/40 rounded-xl max-w-md shadow-lg">
+                    <p className="flex items-center justify-center gap-3 font-bold text-brand-primary dark:text-brand-primary-light text-xl mb-3">
+                      <MaterialIcon icon="event" size="md" />
                       {new Date(formData.selectedDate).toLocaleDateString(
                         "en-US",
                         {
@@ -264,67 +269,140 @@ export default function BookingPage() {
                         }
                       )}
                     </p>
-                    <p className="flex items-center gap-2 font-semibold text-brand-primary dark:text-brand-primary-light">
-                      <MaterialIcon icon="schedule" size="sm" />
+                    <p className="flex items-center justify-center gap-3 font-bold text-brand-primary dark:text-brand-primary-light text-xl">
+                      <MaterialIcon icon="schedule" size="md" />
                       {formData.selectedTime}
                     </p>
                   </div>
                 </div>
 
-                <div className="space-y-3 mb-8 text-brand-primary/80 dark:text-brand-primary-light text-sm">
-                  <p>
-                    <strong>Next Steps:</strong>
-                  </p>
-                  <ul className="space-y-2 list-disc list-inside">
-                    <li>
-                      You'll receive a partnership confirmation email shortly
+                {/* Next Steps */}
+                <div className="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-xl mb-10 text-left max-w-3xl mx-auto border border-gray-200 dark:border-gray-600">
+                  <h3 className="mb-6 pb-2 font-black text-2xl sm:text-3xl md:text-4xl text-center">
+                    <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                      What Happens Next
+                    </span>
+                  </h3>
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <MaterialIcon
+                        icon="email"
+                        size="md"
+                        className="text-brand-primary flex-shrink-0 mt-1"
+                      />
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-white">
+                          Confirmation Email
+                        </p>
+                        <p className="text-gray-600 dark:text-gray-400">
+                          You'll receive a detailed confirmation with all
+                          consultation details
+                        </p>
+                      </div>
                     </li>
-                    <li>
-                      Your partnership team will call you 24 hours before our
-                      discussion
+                    <li className="flex items-start gap-3">
+                      <MaterialIcon
+                        icon="phone"
+                        size="md"
+                        className="text-brand-primary flex-shrink-0 mt-1"
+                      />
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-white">
+                          Pre-Consultation Call
+                        </p>
+                        <p className="text-gray-600 dark:text-gray-400">
+                          Our team will call 24 hours before to confirm and
+                          answer any questions
+                        </p>
+                      </div>
                     </li>
-                    <li>
-                      We'll come prepared with project insights and
-                      collaborative recommendations
+                    <li className="flex items-start gap-3">
+                      <MaterialIcon
+                        icon="engineering"
+                        size="md"
+                        className="text-brand-primary flex-shrink-0 mt-1"
+                      />
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-white">
+                          Expert Team Preparation
+                        </p>
+                        <p className="text-gray-600 dark:text-gray-400">
+                          We'll review your project details and prepare tailored
+                          recommendations
+                        </p>
+                      </div>
                     </li>
-                    <li>
-                      Free on-site partnership estimate will be provided during
-                      our discussion
+                    <li className="flex items-start gap-3">
+                      <MaterialIcon
+                        icon="location_on"
+                        size="md"
+                        className="text-brand-primary flex-shrink-0 mt-1"
+                      />
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-white">
+                          Free On-Site Visit
+                        </p>
+                        <p className="text-gray-600 dark:text-gray-400">
+                          Comprehensive property assessment with detailed
+                          estimate provided
+                        </p>
+                      </div>
                     </li>
                   </ul>
                 </div>
 
-                <div className="flex sm:flex-row flex-col justify-center gap-4">
+                {/* Veteran Discount Notice */}
+                <div className="bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-6 rounded-xl mb-10 border border-brand-primary/30 dark:border-brand-primary/40 max-w-3xl mx-auto">
+                  <div className="flex items-center justify-center gap-3 mb-3">
+                    <MaterialIcon
+                      icon="military_tech"
+                      size="lg"
+                      className="text-brand-primary"
+                    />
+                    <h3 className="font-bold text-brand-primary text-xl">
+                      Veteran-Owned Excellence
+                    </h3>
+                  </div>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    Active military and veterans automatically receive{" "}
+                    <strong>10% discount</strong> on all services. Thank you for
+                    your service!
+                  </p>
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex sm:flex-row flex-col justify-center gap-4 mb-8">
                   <Link href="/">
                     <Button variant="primary" size="lg">
-                      <MaterialIcon icon="home" className="mr-2" />
+                      <MaterialIcon icon="home" size="lg" className="mr-3" />
                       Return Home
                     </Button>
                   </Link>
                   <Link href="/services">
-                    <Button variant="primary" size="lg">
-                      <MaterialIcon icon="build" className="mr-2" />
-                      View Our Partnership Approach
+                    <Button variant="secondary" size="lg">
+                      <MaterialIcon icon="build" size="lg" className="mr-3" />
+                      Explore Services
                     </Button>
                   </Link>
                 </div>
 
-                <div className="bg-brand-primary/10 dark:bg-brand-primary/20 mt-8 p-4 border border-brand-primary/30 dark:border-brand-primary/40 rounded-lg">
-                  <p className="mb-2 font-semibold text-brand-primary dark:text-brand-primary-light">
-                    Need to reschedule?
+                {/* Contact Info */}
+                <div className="bg-gray-50 dark:bg-gray-700/50 p-6 border border-gray-200 dark:border-gray-600 rounded-xl max-w-2xl mx-auto">
+                  <p className="mb-3 font-semibold text-gray-900 dark:text-white text-lg">
+                    Need to Reschedule?
                   </p>
-                  <p className="text-brand-primary/80 dark:text-brand-primary-light text-sm">
-                    Call us at{" "}
+                  <p className="text-gray-600 dark:text-gray-400">
+                    Contact us anytime:{" "}
                     <a
                       href="tel:+15093086489"
-                      className="font-semibold underline"
+                      className="font-semibold text-brand-primary hover:text-brand-secondary underline"
                     >
                       (509) 308-6489
                     </a>{" "}
-                    or email{" "}
+                    or{" "}
                     <a
                       href="mailto:office@mhc-gc.com"
-                      className="font-semibold underline"
+                      className="font-semibold text-brand-primary hover:text-brand-secondary underline"
                     >
                       office@mhc-gc.com
                     </a>
@@ -344,20 +422,65 @@ export default function BookingPage() {
         {/* Header */}
         <section
           id="consultation"
-          className="bg-gradient-to-br from-gray-800 dark:from-black via-gray-900 dark:via-gray-900 to-black dark:to-black pt-24 pb-16 text-white"
+          className="bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white"
         >
-          <div className="mx-auto px-4 max-w-4xl text-center">
-            <FadeInWhenVisible>
-              <h1 className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                <span className="text-white/90">Schedule Our</span>{" "}
-                <span className="bg-clip-text bg-gradient-to-r from-white to-brand-accent text-transparent">
-                  Partnership Discussion
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 sm:py-0">
+            <FadeInWhenVisible className="space-y-6 sm:space-y-8">
+              {/* Veteran-Owned Badge */}
+              <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-4 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
+                <MaterialIcon
+                  icon="military_tech"
+                  size="sm"
+                  className="text-brand-primary"
+                />
+                <span className="ml-3 font-bold text-brand-primary text-xs uppercase tracking-wider">
+                  Veteran-Owned Excellence
+                </span>
+              </div>
+
+              {/* Primary Tagline - MH Branding Standard */}
+              <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-xl inline-block">
+                <p className="text-base sm:text-lg md:text-xl font-semibold text-brand-secondary tracking-wide">
+                  "Building for the Owner, NOT the Dollar"
+                </p>
+              </div>
+
+              {/* Main Title with Proper Gradient - MH Typography Standards */}
+              <h1 className="mb-6 pb-2 font-black text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter">
+                <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+                  Schedule Your
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-secondary drop-shadow-lg text-transparent">
+                  Expert Consultation
                 </span>
               </h1>
-              <p className="mx-auto max-w-2xl text-white/90 text-xl">
-                Connect with your partnership-focused team for a collaborative
-                consultation on your construction vision
+
+              {/* Description */}
+              <p className="max-w-4xl mx-auto font-light text-white/90 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+                Work WITH Our Team • On-Site Assessment • Custom Solutions
               </p>
+
+              {/* Subtitle */}
+              <p className="max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
+                Free consultation with 30+ years of construction expertise. We
+                partner with you to bring your vision to life.
+              </p>
+
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 font-medium text-brand-secondary text-sm sm:text-base">
+                <div className="flex items-center">
+                  <MaterialIcon icon="handshake" size="sm" className="mr-2" />
+                  <span>Partnership Approach</span>
+                </div>
+                <div className="flex items-center">
+                  <MaterialIcon icon="location_on" size="sm" className="mr-2" />
+                  <span>Free On-Site Visit</span>
+                </div>
+                <div className="flex items-center">
+                  <MaterialIcon icon="engineering" size="sm" className="mr-2" />
+                  <span>Expert Analysis</span>
+                </div>
+              </div>
             </FadeInWhenVisible>
           </div>
         </section>
@@ -450,11 +573,17 @@ export default function BookingPage() {
             {step === 1 && (
               <Card className="bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700">
                 <CardHeader>
-                  <CardTitle className="flex items-center text-gray-900 dark:text-white text-2xl">
-                    <MaterialIcon icon="calendar_month" className="mr-3" />
-                    Select Date & Time
+                  <CardTitle className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
+                    <span className="flex items-center bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+                      <MaterialIcon
+                        icon="calendar_month"
+                        size="lg"
+                        className="mr-3 text-brand-primary"
+                      />
+                      Select Date & Time
+                    </span>
                   </CardTitle>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
                     Choose your preferred date and time for the consultation
                   </p>
                 </CardHeader>
@@ -529,7 +658,11 @@ export default function BookingPage() {
                         size="lg"
                         className="w-full"
                       >
-                        <MaterialIcon icon="arrow_forward" className="mr-2" />
+                        <MaterialIcon
+                          icon="arrow_forward"
+                          size="lg"
+                          className="mr-3"
+                        />
                         Continue to Details
                       </Button>
                     </div>
@@ -544,12 +677,19 @@ export default function BookingPage() {
                 className="bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700"
               >
                 <CardHeader>
-                  <CardTitle className="flex items-center text-gray-900 dark:text-white text-2xl">
-                    <MaterialIcon icon="person" className="mr-3" />
-                    Partnership Information
+                  <CardTitle className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
+                    <span className="flex items-center bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+                      <MaterialIcon
+                        icon="handshake"
+                        size="lg"
+                        className="mr-3 text-brand-primary"
+                      />
+                      Partnership Information
+                    </span>
                   </CardTitle>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Share your details so we can begin our collaboration
+                  <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Share your vision so we can partner together to bring it to
+                    life
                   </p>
                 </CardHeader>
                 <CardContent>
@@ -719,38 +859,48 @@ export default function BookingPage() {
                       <Button
                         type="button"
                         variant="outline"
+                        size="lg"
                         onClick={() => setStep(1)}
                         className="flex-1 hover:bg-gray-50 dark:hover:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300"
                       >
-                        <MaterialIcon icon="arrow_back" className="mr-2" />
+                        <MaterialIcon
+                          icon="arrow_back"
+                          size="lg"
+                          className="mr-3"
+                        />
                         Back to Date & Time
                       </Button>
                       <Button
                         type="submit"
                         variant="primary"
+                        size="lg"
                         disabled={isSubmitting}
                         className="flex-1"
                       >
                         {isSubmitting ? (
                           <MaterialIcon
                             icon="hourglass_empty"
-                            className="mr-2 animate-spin"
+                            size="lg"
+                            className="mr-3 animate-spin"
                           />
                         ) : (
-                          <MaterialIcon icon="check" className="mr-2" />
+                          <MaterialIcon
+                            icon="check"
+                            size="lg"
+                            className="mr-3"
+                          />
                         )}
                         {isSubmitting
                           ? "Scheduling..."
-                          : "Schedule Partnership Discussion"}
+                          : "Confirm Partnership Discussion"}
                       </Button>
                     </div>
 
                     {submitStatus === "error" && (
                       <div className="bg-red-50 dark:bg-red-900/20 p-4 border border-red-200 dark:border-red-800 rounded-lg">
                         <p className="text-red-700 dark:text-red-300">
-                          There was an error scheduling your partnership
-                          discussion. Please try again or call us at (509)
-                          308-6489.
+                          There was an error scheduling your consultation.
+                          Please try again or call us at (509) 308-6489.
                         </p>
                       </div>
                     )}

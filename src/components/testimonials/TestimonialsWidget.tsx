@@ -35,7 +35,7 @@ export default function TestimonialsWidget({
       (testimonial) =>
         (testimonial.status === "featured" ||
           testimonial.status === "approved") &&
-        testimonial.featured,
+        testimonial.featured
     )
     .slice(0, maxTestimonials);
 
@@ -62,7 +62,7 @@ export default function TestimonialsWidget({
   const goToPrevious = () => {
     setCurrentIndex(
       (prev) =>
-        (prev - 1 + featuredTestimonials.length) % featuredTestimonials.length,
+        (prev - 1 + featuredTestimonials.length) % featuredTestimonials.length
     );
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(autoSlide), 3000);
@@ -158,15 +158,15 @@ export default function TestimonialsWidget({
           )}
         </div>
 
-        {/* View All Button */}
+        {/* View All Button - Changed to Contact CTA */}
         {showViewAll && (
           <div className="mt-12 text-center">
             <Link
-              href="/testimonials"
+              href="/contact"
               className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-bold text-white transition-colors duration-200"
             >
-              View All Testimonials
-              <MaterialIcon icon="open_in_new" className="w-5 h-5" />
+              Share Your Experience
+              <MaterialIcon icon="contact_phone" className="w-5 h-5" />
             </Link>
           </div>
         )}
@@ -331,13 +331,6 @@ function CompactTestimonialsWidget({
             {currentTestimonial.projectTitle}
           </div>
         </div>
-
-        <Link
-          href="/testimonials"
-          className="font-medium text-blue-600 hover:text-blue-700 text-sm"
-        >
-          View More
-        </Link>
       </div>
 
       {/* Progress Dots */}
@@ -448,15 +441,15 @@ function CardsTestimonialsWidget({
           ))}
         </div>
 
-        {/* View All Button */}
+        {/* View All Button - Changed to Contact CTA */}
         {showViewAll && (
           <div className="mt-12 text-center">
             <Link
-              href="/testimonials"
+              href="/contact"
               className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-bold text-white transition-colors duration-200"
             >
-              View All Testimonials
-              <MaterialIcon icon="open_in_new" className="w-5 h-5" />
+              Share Your Experience
+              <MaterialIcon icon="contact_phone" className="w-5 h-5" />
             </Link>
           </div>
         )}

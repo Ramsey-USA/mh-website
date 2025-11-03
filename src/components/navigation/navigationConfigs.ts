@@ -248,12 +248,6 @@ export const navigationConfigs = {
   contact: [
     { href: "/", label: "Home", icon: "home" },
     {
-      href: "/contact#contact-form",
-      label: "Contact Form",
-      mobileLabel: "Form",
-      icon: "edit",
-    },
-    {
       href: "/estimator",
       label: "Get Estimate",
       mobileLabel: "Estimate",
@@ -261,27 +255,33 @@ export const navigationConfigs = {
     },
     {
       href: "/booking",
-      label: "Quick Booking",
+      label: "Book Consultation",
       mobileLabel: "Book",
-      icon: "calendar_today",
+      icon: "calendar_month",
     },
     {
-      href: "/contact#urgent-support",
-      label: "Urgent Support",
-      mobileLabel: "Urgent",
-      icon: "engineering",
+      href: "/services",
+      label: "Our Services",
+      mobileLabel: "Services",
+      icon: "construction",
     },
     {
-      href: "/about#team",
-      label: "Our Team",
-      mobileLabel: "Team",
-      icon: "people",
-    },
-    {
-      href: "/projects#portfolio",
-      label: "Our Work",
-      mobileLabel: "Work",
+      href: "/projects",
+      label: "Our Projects",
+      mobileLabel: "Projects",
       icon: "photo_library",
+    },
+    {
+      href: "/team",
+      label: "Meet Team",
+      mobileLabel: "Team",
+      icon: "groups",
+    },
+    {
+      href: "/careers",
+      label: "Join Team",
+      mobileLabel: "Careers",
+      icon: "work",
     },
   ],
 
@@ -423,46 +423,6 @@ export const navigationConfigs = {
       href: "/contact",
       label: "Contact Us",
       mobileLabel: "Contact",
-      icon: "contact_phone",
-    },
-  ],
-
-  testimonials: [
-    { href: "/", label: "Home", icon: "home" },
-    {
-      href: "/testimonials#client-reviews",
-      label: "Client Reviews",
-      mobileLabel: "Reviews",
-      icon: "star",
-    },
-    {
-      href: "/projects#portfolio",
-      label: "Our Work",
-      mobileLabel: "Work",
-      icon: "photo_library",
-    },
-    {
-      href: "/about#team",
-      label: "Meet Team",
-      mobileLabel: "Team",
-      icon: "people",
-    },
-    {
-      href: "/services#core-services",
-      label: "Our Services",
-      mobileLabel: "Services",
-      icon: "build",
-    },
-    {
-      href: "/estimator",
-      label: "Get Estimate",
-      mobileLabel: "Estimate",
-      icon: "calculate",
-    },
-    {
-      href: "/contact",
-      label: "Share Experience",
-      mobileLabel: "Share",
       icon: "contact_phone",
     },
   ],
