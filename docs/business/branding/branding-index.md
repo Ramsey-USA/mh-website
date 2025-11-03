@@ -1,20 +1,34 @@
 # MH Construction Brand Guidelines
 
-**Date:** October 9, 2025
+**Date:** November 3, 2025
 **Status:** ✅ Current
 **Category:** Business
-**Last Updated:** October 9, 2025
+**Last Updated:** November 3, 2025
 
 ## Quick Navigation
 
-- [🏠 Business Documentation](../README.md)
+- [📘 **Master Brand Guide**](../mh-branding.md) - Complete comprehensive reference
+- [🏠 Business Documentation](../business-index.md)
 - [📋 Main Documentation](../../README.md)
 - [🎯 Brand Overview](./brand-overview.md) - **Start here for brand basics**
 
-## Brand Documentation System
+---
 
-This modular brand documentation replaces the previous single 2,120-line file with
-focused, navigable components:
+## About This Documentation
+
+**Two ways to access MH Construction branding standards:**
+
+1. **[Master Brand Guide](../mh-branding.md)** - Comprehensive 2,340-line reference with ALL standards
+2. **Modular Documentation (below)** - Focused, navigable sections for quick reference
+
+Both approaches contain the same authoritative information. Use the master guide for complete
+context, or navigate the modules below for focused topics.
+
+---
+
+## Brand Documentation Modules
+
+This modular brand documentation provides focused, navigable components:
 
 ### 📋 [Brand Overview](./brand-overview.md)
 
@@ -24,7 +38,7 @@ Core brand identity, mission, values, and positioning
 - Core taglines and value propositions
 - Brand personality and voice attributes
 - Target audience definitions
-- Current architecture status (v3.7.2)
+- Current architecture status (v4.0.1)
 
 ### 🎨 [Color System](./color-system.md)
 

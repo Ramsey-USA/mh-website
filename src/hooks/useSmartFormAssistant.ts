@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { militaryConstructionAI } from "@/lib/militaryConstructionAI";
+import { militaryConstructionAI } from "@/lib/ai";
 
 interface FormField {
   name: string;
@@ -48,13 +48,13 @@ export function useSmartFormAssistant(formData: any) {
       const suggestions = militaryConstructionAI.generateSmartFormSuggestions(
         formData,
         field,
-        value,
+        value
       );
 
       setFieldSuggestions(suggestions);
       setIsVeteranDetected(suggestions.militaryContext.isVeteran);
     },
-    [formData],
+    [formData]
   );
 
   // Generate predictive completion for entire form
@@ -81,7 +81,7 @@ export function useSmartFormAssistant(formData: any) {
     (fieldName: string, value: string) => {
       generateFieldSuggestions(fieldName, value);
     },
-    [generateFieldSuggestions],
+    [generateFieldSuggestions]
   );
 
   // Apply suggestion to field
@@ -109,11 +109,11 @@ export function useSmartFormAssistant(formData: any) {
         militaryConstructionAI.generateSmartFormSuggestions(
           formData,
           fieldName,
-          value,
+          value
         );
       return quickSuggestion.validation;
     },
-    [fieldSuggestions, currentField, formData],
+    [fieldSuggestions, currentField, formData]
   );
 
   // Get veteran discounts display
@@ -124,7 +124,7 @@ export function useSmartFormAssistant(formData: any) {
   // Get completion progress
   const getCompletionProgress = useCallback(() => {
     const completedFields = Object.values(formData).filter(
-      (value) => value && typeof value === "string" && value.trim().length > 0,
+      (value) => value && typeof value === "string" && value.trim().length > 0
     ).length;
 
     const totalFields = Object.keys(formData).length;

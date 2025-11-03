@@ -1,9 +1,10 @@
 # MH Construction Typography System
 
-**Date:** October 9, 2025
+**Date:** November 3, 2025
 **Status:** ✅ Current
-**Category:** Business - Brand Guidelines
-**Last Updated:** October 9, 2025
+**Category:** Business - Brand Standards
+**Version:** 4.0.1
+**Last Updated:** November 3, 2025
 
 ## Quick Navigation
 
@@ -511,10 +512,11 @@ module.exports = {
 - [**Color System**](./color-system.md) - Color palette and usage
 - [**Icon Policy**](./icon-policy.md) - Material Icons standards
 - [**Implementation Guide**](./implementation-guide.md) - Technical implementation
+- [**Master Brand Guide**](../mh-branding.md) - Complete comprehensive reference
 
 ---
 
 **Typography Authority**: MH Construction Design Team
-**Last Update**: October 8, 2025 (v3.7.2)
+**Last Update**: November 3, 2025 (v4.0.1)
 **Next Review**: Quarterly brand compliance assessment
 ````

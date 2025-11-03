@@ -462,7 +462,7 @@ export default function Home() {
               {
                 title: "View Portfolio",
                 description: "Explore our collaborations",
-                href: "/portfolio",
+                href: "/services#portfolio",
                 variant: "outline" as const,
                 icon: ({ size }: any) => (
                   <MaterialIcon
@@ -1390,9 +1390,9 @@ export default function Home() {
 
           {/* Blog/News Carousel removed for clean slate migration */}
 
-          {/* View All Links */}
+          {/* View All Links - Redirected to About page sections */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mt-8 sm:mt-12 text-center">
-            <Link href="/blog">
+            <Link href="/about#blog">
               <Button
                 variant="secondary"
                 size="lg"
@@ -1404,11 +1404,11 @@ export default function Home() {
                   className="mr-2 sm:mr-3 flex-shrink-0"
                 />
                 <span className="font-medium text-sm sm:text-base">
-                  View All Blog Posts
+                  Construction Insights
                 </span>
               </Button>
             </Link>
-            <Link href="/news">
+            <Link href="/about#news">
               <Button
                 variant="secondary"
                 size="lg"
@@ -1420,7 +1420,7 @@ export default function Home() {
                   className="mr-2 sm:mr-3 flex-shrink-0"
                 />
                 <span className="font-medium text-sm sm:text-base">
-                  View All News
+                  Company News
                 </span>
               </Button>
             </Link>
@@ -1491,7 +1491,7 @@ export default function Home() {
                 </Button>
               </Link>
 
-              <Link href="/portfolio">
+              <Link href="/projects">
                 <Button
                   variant="secondary"
                   size="xl"
@@ -1504,7 +1504,7 @@ export default function Home() {
                       className="flex-shrink-0 mb-1"
                     />
                     <span className="font-bold text-center text-sm sm:text-base leading-tight">
-                      View Portfolio
+                      View Projects
                     </span>
                   </div>
                 </Button>

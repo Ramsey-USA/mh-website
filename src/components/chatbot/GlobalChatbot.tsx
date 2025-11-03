@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import { Button, Card, CardHeader, CardContent, Input } from "../ui";
 import { MaterialIcon } from "../icons/MaterialIcon";
-import { militaryConstructionAI } from "@/lib/militaryConstructionAI";
+import { militaryConstructionAI } from "@/lib/ai";
 import { useAnalytics } from "../analytics/enhanced-analytics";
 import {
   enhancedChatbotAI,

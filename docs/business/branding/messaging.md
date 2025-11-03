@@ -1,9 +1,10 @@
 # MH Construction Messaging Guidelines
 
-**Date:** October 9, 2025
+**Date:** November 3, 2025
 **Status:** ✅ Current
 **Category:** Business - Brand Guidelines
-**Last Updated:** October 9, 2025
+**Version:** 4.0.1
+**Last Updated:** November 3, 2025
 
 ## Quick Navigation
 
@@ -411,9 +412,10 @@ Our voice balances military precision with partnership warmth, creating communic
 - [**Typography**](./typography.md) - Text and font guidelines
 - [**Icon Policy**](./icon-policy.md) - Visual elements policy
 - [**Implementation Guide**](./implementation-guide.md) - Technical standards
+- [**Master Brand Guide**](../mh-branding.md) - Complete comprehensive reference
 
 ---
 
 **Messaging Authority**: MH Construction Leadership Team
-**Last Update**: October 8, 2025 (v3.7.2)
+**Last Update**: November 3, 2025 (v4.0.1)
 **Next Review**: Quarterly brand compliance assessment

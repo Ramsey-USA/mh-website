@@ -72,4 +72,4 @@ When updating existing components:
 
 - [Complete Design System](./design-system.md)
 - [Component Library](/src/components/ui/mh-ui-guide.md)
-- [Contributing Guidelines](/CONTRIBUTING.md)
+- [Contributing Guidelines](/contributing.md)

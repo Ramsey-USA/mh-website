@@ -1,9 +1,10 @@
 # MH Construction Brand Overview
 
-**Date:** October 9, 2025
+**Date:** November 3, 2025
 **Status:** ✅ Current
 **Category:** Business - Brand Guidelines
-**Last Updated:** October 9, 2025
+**Version:** 4.0.1
+**Last Updated:** November 3, 2025
 
 ## Quick Navigation
 
@@ -205,9 +206,10 @@ projects throughout the Pacific Northwest.
 - [**Typography**](./typography.md) - Font system and text guidelines
 - [**Messaging**](./messaging.md) - Detailed voice and tone guidelines
 - [**Implementation Guide**](./implementation-guide.md) - Technical implementation
+- [**Master Brand Guide**](../mh-branding.md) - Complete comprehensive reference
 
 ---
 
 **Brand Authority**: MH Construction Leadership Team
-**Last Major Update**: October 8, 2025 (v3.7.2)
+**Last Major Update**: November 3, 2025 (v4.0.1)
 **Next Review**: Quarterly brand compliance assessment

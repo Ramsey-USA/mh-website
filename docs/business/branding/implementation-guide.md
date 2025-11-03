@@ -1,9 +1,10 @@
 # MH Construction Brand Implementation Guide
 
-**Date:** October 9, 2025
+**Date:** November 3, 2025
 **Status:** ✅ Current
 **Category:** Business - Brand Guidelines
-**Last Updated:** October 9, 2025
+**Version:** 4.0.1
+**Last Updated:** November 3, 2025
 
 ## Quick Navigation
 
@@ -241,7 +242,7 @@ const PartnershipMessage = () => {
   - **Display Format**: Professional with periods (3111 N. Capital Ave.)
   - **Map Links**: Google Maps format without periods (3111 N Capital Ave)
 
-**Color Scheme**: Primary blue background with white text
+**Color Scheme**: Hunter Green (#386851) background with white text
 
 **Typography**: Inter font family, clear hierarchy
 
@@ -282,7 +283,7 @@ Website: [current domain]
 Licensed in WA, OR, ID | Veteran-Owned & Operated
 ```text
 
-**Color Application**: Header uses primary blue, body text in dark gray
+**Color Application**: Header uses Hunter Green (#386851), body text in dark gray
 
 ### Email Signature Standards
 
@@ -290,7 +291,7 @@ Licensed in WA, OR, ID | Veteran-Owned & Operated
 
 ```html
 <div style="font-family: Inter, Arial, sans-serif; color: #212121;">
-  <div style="font-weight: 600; color: #1976D2; margin-bottom: 8px;">
+  <div style="font-weight: 600; color: #386851; margin-bottom: 8px;">
     [Name] | [Title]
   </div>
   <div style="font-weight: 600; margin-bottom: 4px;">
@@ -300,18 +301,18 @@ Licensed in WA, OR, ID | Veteran-Owned & Operated
     Building for the Owner, NOT the Dollar
   </div>
   <div style="margin-bottom: 4px;">
-    Phone: <a href="tel:+15093086489" style="color: #1976D2;">(509) 308-6489</a>
+    Phone: <a href="tel:+15093086489" style="color: #386851;">(509) 308-6489</a>
   </div>
   <div style="margin-bottom: 4px;">
-    Client Contact: <a href="tel:+15093086489,100" style="color: #1976D2;"></a> |
-    <a href="mailto:office@mhc-gc.com" style="color: #1976D2;">office@mhc-gc.com</a>
+    Client Contact: <a href="tel:+15093086489,100" style="color: #386851;"></a> |
+    <a href="mailto:office@mhc-gc.com" style="color: #386851;">office@mhc-gc.com</a>
   </div>
   <div style="margin-bottom: 4px;">
-    Vendor Contact: <a href="tel:+15093086489,150" style="color: #1976D2;"></a> |
-    <a href="mailto:office@mhc-gc.com" style="color: #1976D2;">office@mhc-gc.com</a>
+    Vendor Contact: <a href="tel:+15093086489,150" style="color: #386851;"></a> |
+    <a href="mailto:office@mhc-gc.com" style="color: #386851;">office@mhc-gc.com</a>
   </div>
   <div style="margin-bottom: 8px;">
-    Web: <a href="[website]" style="color: #1976D2;">[website]</a>
+    Web: <a href="[website]" style="color: #386851;">[website]</a>
   </div>
   <div style="color: #757575; font-size: 12px;">
     Licensed in WA, OR, ID | Veteran-Owned & Operated
@@ -383,7 +384,7 @@ Licensed in WA, OR, ID | Veteran-Owned & Operated
 
 #### Visual Elements
 
-- [ ] Primary blue (#1976D2) used correctly
+- [ ] Hunter Green (#386851) used correctly
 - [ ] Inter font family implemented
 - [ ] Material Icons used exclusively
 - [ ] Proper contrast ratios maintained
@@ -537,10 +538,11 @@ Licensed in WA, OR, ID | Veteran-Owned & Operated
 - [**Typography**](./typography.md) - Text and font guidelines
 - [**Messaging**](./messaging.md) - Voice and tone standards
 - [**Icon Policy**](./icon-policy.md) - Visual elements policy
+- [**Master Brand Guide**](../mh-branding.md) - Complete comprehensive reference
 
 ---
 
 **Implementation Authority**: MH Construction Development Team
-**Last Update**: October 23, 2025 (v4.0.1) - Added address formatting standards
+**Last Update**: November 3, 2025 (v4.0.1) - Updated colors, versions, and cross-references
 **Next Review**: Monthly implementation audit
 ````

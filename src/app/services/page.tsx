@@ -1127,6 +1127,168 @@ export default function ServicesPage() {
           </div>
         </section>
 
+        {/* Portfolio Section */}
+        <section
+          id="portfolio"
+          className="relative bg-gray-50 dark:bg-gray-800 py-16 sm:py-20 lg:py-24"
+        >
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <FadeInWhenVisible className="mb-12 text-center">
+              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-4xl sm:text-5xl md:text-6xl tracking-tight">
+                <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl">
+                  Construction
+                </span>
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent text-transparent">
+                  Portfolio
+                </span>
+              </h2>
+              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-lg sm:text-xl">
+                Explore our completed projects showcasing quality craftsmanship
+                across commercial, residential, and government sectors
+              </p>
+            </FadeInWhenVisible>
+
+            <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-12">
+              <FadeInWhenVisible>
+                <Card className="group hover:shadow-2xl transition-all duration-300 h-full overflow-hidden">
+                  <div className="relative bg-gray-200 dark:bg-gray-700 h-64 overflow-hidden">
+                    <div className="absolute inset-0 flex justify-center items-center bg-gradient-to-br from-brand-primary/20 to-brand-accent/20">
+                      <MaterialIcon
+                        icon="business"
+                        size="4xl"
+                        className="text-brand-primary"
+                      />
+                    </div>
+                    <div className="group-hover:scale-110 absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-transform duration-300"></div>
+                    <div className="absolute inset-x-0 bottom-0 p-4">
+                      <span className="inline-block bg-brand-primary/90 backdrop-blur-sm px-3 py-1 font-medium text-white text-xs">
+                        Commercial
+                      </span>
+                    </div>
+                  </div>
+                  <CardContent className="pt-6">
+                    <h3 className="mb-2 font-bold text-gray-900 dark:text-gray-100 text-xl">
+                      Commercial Buildings
+                    </h3>
+                    <p className="mb-4 text-gray-600 dark:text-gray-300 text-sm">
+                      Office complexes, retail spaces, and mixed-use
+                      developments built with precision and attention to detail.
+                    </p>
+                    <Link
+                      href="/projects?category=commercial"
+                      className="inline-flex items-center text-brand-primary hover:text-brand-accent transition-colors"
+                    >
+                      <span className="font-medium text-sm">View Projects</span>
+                      <MaterialIcon
+                        icon="arrow_forward"
+                        size="sm"
+                        className="ml-1"
+                      />
+                    </Link>
+                  </CardContent>
+                </Card>
+              </FadeInWhenVisible>
+
+              <FadeInWhenVisible>
+                <Card className="group hover:shadow-2xl transition-all duration-300 h-full overflow-hidden">
+                  <div className="relative bg-gray-200 dark:bg-gray-700 h-64 overflow-hidden">
+                    <div className="absolute inset-0 flex justify-center items-center bg-gradient-to-br from-brand-secondary/20 to-bronze-400/20">
+                      <MaterialIcon
+                        icon="home"
+                        size="4xl"
+                        className="text-brand-secondary"
+                      />
+                    </div>
+                    <div className="group-hover:scale-110 absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-transform duration-300"></div>
+                    <div className="absolute inset-x-0 bottom-0 p-4">
+                      <span className="inline-block bg-brand-secondary/90 backdrop-blur-sm px-3 py-1 font-medium text-gray-900 text-xs">
+                        Residential
+                      </span>
+                    </div>
+                  </div>
+                  <CardContent className="pt-6">
+                    <h3 className="mb-2 font-bold text-gray-900 dark:text-gray-100 text-xl">
+                      Custom Homes
+                    </h3>
+                    <p className="mb-4 text-gray-600 dark:text-gray-300 text-sm">
+                      Luxury custom homes, renovations, and additions crafted
+                      with military precision and care.
+                    </p>
+                    <Link
+                      href="/projects?category=residential"
+                      className="inline-flex items-center text-brand-primary hover:text-brand-accent transition-colors"
+                    >
+                      <span className="font-medium text-sm">View Projects</span>
+                      <MaterialIcon
+                        icon="arrow_forward"
+                        size="sm"
+                        className="ml-1"
+                      />
+                    </Link>
+                  </CardContent>
+                </Card>
+              </FadeInWhenVisible>
+
+              <FadeInWhenVisible>
+                <Card className="group hover:shadow-2xl transition-all duration-300 h-full overflow-hidden">
+                  <div className="relative bg-gray-200 dark:bg-gray-700 h-64 overflow-hidden">
+                    <div className="absolute inset-0 flex justify-center items-center bg-gradient-to-br from-brand-accent/20 to-brand-primary/20">
+                      <MaterialIcon
+                        icon="account_balance"
+                        size="4xl"
+                        className="text-brand-accent"
+                      />
+                    </div>
+                    <div className="group-hover:scale-110 absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-transform duration-300"></div>
+                    <div className="absolute inset-x-0 bottom-0 p-4">
+                      <span className="inline-block bg-brand-accent/90 backdrop-blur-sm px-3 py-1 font-medium text-white text-xs">
+                        Government
+                      </span>
+                    </div>
+                  </div>
+                  <CardContent className="pt-6">
+                    <h3 className="mb-2 font-bold text-gray-900 dark:text-gray-100 text-xl">
+                      Government Projects
+                    </h3>
+                    <p className="mb-4 text-gray-600 dark:text-gray-300 text-sm">
+                      Municipal facilities, infrastructure, and specialized
+                      government contracts completed with security clearance.
+                    </p>
+                    <Link
+                      href="/projects?category=government"
+                      className="inline-flex items-center text-brand-primary hover:text-brand-accent transition-colors"
+                    >
+                      <span className="font-medium text-sm">View Projects</span>
+                      <MaterialIcon
+                        icon="arrow_forward"
+                        size="sm"
+                        className="ml-1"
+                      />
+                    </Link>
+                  </CardContent>
+                </Card>
+              </FadeInWhenVisible>
+            </div>
+
+            <FadeInWhenVisible className="text-center">
+              <Link href="/projects">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="shadow-xl hover:shadow-2xl transition-all duration-300"
+                >
+                  <MaterialIcon icon="visibility" className="mr-2" size="md" />
+                  View Complete Portfolio
+                </Button>
+              </Link>
+              <p className="mt-4 text-gray-600 dark:text-gray-300">
+                <MaterialIcon icon="info" size="sm" className="inline mr-2" />
+                Detailed portfolio with High-Level CRM integration coming soon
+              </p>
+            </FadeInWhenVisible>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark to-brand-accent dark:to-gray-800 py-16 text-white">
           <div className="mx-auto px-4 container">

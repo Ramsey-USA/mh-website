@@ -1,11 +1,9 @@
 import { MetadataRoute } from "next";
-import { PortfolioService } from "@/lib/services/portfolioService";
-import { mockBlogPosts } from "@/lib/types/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.mhc-gc.com";
 
-  // Static pages
+  // Static pages - only include pages that actually exist
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -20,19 +18,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/about#blog`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/about#news`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/services`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/projects`,
+      url: `${baseUrl}/services#portfolio`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/portfolio`,
+      url: `${baseUrl}/projects`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
@@ -80,51 +90,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${baseUrl}/testimonials`,
       lastModified: new Date(),
-      changeFrequency: "daily",
+      changeFrequency: "monthly",
       priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/news`,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.5,
     },
   ];
 
-  // Dynamic portfolio pages
-  const projects = PortfolioService.getAllProjects();
-  const portfolioPages: MetadataRoute.Sitemap = projects
-    .filter((project) => project.isPublished)
-    .map((project) => ({
-      url: `${baseUrl}/portfolio/${project.seoMetadata.slug}`,
-      lastModified: new Date(project.updatedAt),
-      changeFrequency: "monthly" as const,
-      priority: project.isFeatured ? 0.8 : 0.6,
-    }));
-
-  // Blog posts
-  const blogPages: MetadataRoute.Sitemap = mockBlogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.updatedAt || post.publishedAt),
-    changeFrequency: "monthly" as const,
-    priority: post.featured ? 0.8 : 0.6,
-  }));
-
-  // Blog category pages
-  const categoryPages: MetadataRoute.Sitemap = [
-    "construction-tips",
-    "home-improvement",
-    "company-news",
-    "veteran-spotlight",
-    "project-stories",
-  ].map((category) => ({
-    url: `${baseUrl}/blog?category=${category}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.6,
-  }));
-
-  return [...staticPages, ...portfolioPages, ...blogPages, ...categoryPages];
+  return staticPages;
 }

@@ -1,9 +1,10 @@
 # MH Construction Icon Policy & Standards
 
-**Date:** October 9, 2025
+**Date:** November 3, 2025
 **Status:** ✅ Current
 **Category:** Business - Brand Standards
-**Last Updated:** October 9, 2025
+**Version:** 4.0.1
+**Last Updated:** November 3, 2025
 
 ## Quick Navigation
 
@@ -188,11 +189,14 @@ Material Icons work consistently across:
 - [**Color System**](./color-system.md) - Icon color guidelines
 - [**Typography**](./typography.md) - Text and icon pairing
 - [**Implementation Guide**](./implementation-guide.md) - Technical implementation
+- [**Implementation Guide**](./implementation-guide.md) - Technical implementation
 - [**Design System**](../../technical/design-system/design-system.md) - Complete design standards
+- [**Master Brand Guide**](../mh-branding.md) - Complete comprehensive reference
 
 ---
 
 **Policy Authority**: MH Construction Leadership Team
 **Implementation**: Foundation-Only Architecture with Google Material Icons
 **Enforcement**: Required for all production code
+**Last Update**: November 3, 2025 (v4.0.1)
 ````

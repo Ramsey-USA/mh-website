@@ -8,7 +8,7 @@ import { lazy } from "react";
 // Dynamic import wrapper with error handling
 export const dynamicImport = <T = any>(
   importFn: () => Promise<T>,
-  fallback?: T,
+  fallback?: T
 ): Promise<T> => {
   return importFn().catch((error) => {
     console.error("Dynamic import failed:", error);
@@ -22,7 +22,7 @@ export const dynamicImport = <T = any>(
 // Lazy load heavy components with loading states
 export const createLazyComponent = <T extends React.ComponentType<any>>(
   importFn: () => Promise<{ default: T }>,
-  displayName?: string,
+  displayName?: string
 ) => {
   const LazyComponent = lazy(importFn);
   if (displayName) {
@@ -32,8 +32,9 @@ export const createLazyComponent = <T extends React.ComponentType<any>>(
 };
 
 // AI Module dynamic imports
-export const loadAIEstimator = () =>
-  dynamicImport(() => import("../militaryConstructionAI"));
+// Import AI modules dynamically to reduce bundle size
+const loadMilitaryConstructionAI = () =>
+  import("../ai").then((mod) => mod.militaryConstructionAI);
 
 export const loadFormAssistantModule = () =>
   dynamicImport(() => import("../../components/forms/SmartFormAssistant"));
@@ -41,7 +42,7 @@ export const loadFormAssistantModule = () =>
 // Heavy UI components lazy loading - these require default exports
 export const LazySmartFormAssistant = createLazyComponent(
   () => import("../../components/forms/SmartFormAssistant"),
-  "LazySmartFormAssistant",
+  "LazySmartFormAssistant"
 );
 
 // Critical resource hints
@@ -58,7 +59,7 @@ export const preloadCriticalComponents = () => {
     };
 
     preload(() => {
-      loadAIEstimator();
+      loadMilitaryConstructionAI();
       loadFormAssistantModule();
     });
   }
@@ -68,7 +69,7 @@ export const preloadCriticalComponents = () => {
 export const getBundleInfo = () => {
   if (typeof window !== "undefined" && "performance" in window) {
     const navigation = performance.getEntriesByType(
-      "navigation",
+      "navigation"
     )[0] as PerformanceNavigationTiming;
     return {
       totalSize: navigation.transferSize || 0,

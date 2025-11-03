@@ -1,10 +1,10 @@
 # MH Construction Color System
 
-**Date:** October 15, 2025
+**Date:** November 3, 2025
 **Status:** ✅ Current
 **Category:** Business - Brand Guidelines
-**Last Updated:** October 15, 2025
-**Version:** 3.7.2
+**Last Updated:** November 3, 2025
+**Version:** 4.0.1
 
 ## Quick Navigation
 
@@ -476,11 +476,12 @@ module.exports = {
 - [**Icon Policy**](./icon-policy.md) - Material Icons standards
 - [**Typography**](./typography.md) - Font system and text guidelines
 - [**Implementation Guide**](./implementation-guide.md) - Technical implementation
+- [**Master Brand Guide**](../mh-branding.md) - Complete comprehensive reference
 
 ---
 
 **Color Authority**: MH Construction Design Team
-**Last Color Update**: October 15, 2025 (v3.7.2)
+**Last Color Update**: November 3, 2025 (v4.0.1)
 **Color Scheme**: Hunter Green (#386851) + Leather Tan (#BD9264)
 **Next Review**: Quarterly brand compliance assessment
 

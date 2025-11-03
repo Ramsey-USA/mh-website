@@ -4,15 +4,30 @@
 
 ## for MH Construction LLC
 
-> **📅 Last Updated:** October 23, 2025
-> **🎨 Brand Version:** 3.7.2
+> **📅 Last Updated:** November 3, 2025
+> **🎨 Brand Version:** 4.0.1
 > **👥 Authority:** MH Construction Leadership Team
 > **💻 Implementation:** Foundation-Only Architecture with Google Material Icons
 > **🌙 Theme Support:** Complete light/dark mode with optimized theme toggle
 > **🚀 Architecture:** Clean Slate Foundation, Google Material Icons, ready
 > for creative expansion
 
-## 🚨 **CRITICAL POLICY: EMOJI-FREE CODEBASE (v3.7.2)**
+## 📚 Documentation Structure
+
+This comprehensive guide contains ALL MH Construction branding standards. For focused reading, see also our
+**modular branding documentation**:
+
+- **[Brand Documentation Index](./branding/branding-index.md)** - Navigation hub for all brand docs
+- **[Brand Overview](./branding/brand-overview.md)** - Core identity, taglines, positioning  
+- **[Color System](./branding/color-system.md)** - Complete color palette and usage  
+- **[Typography](./branding/typography.md)** - Font system and hierarchy  
+- **[Messaging Guidelines](./branding/messaging.md)** - Voice, tone, and content standards  
+- **[Icon Policy](./branding/icon-policy.md)** - Material Icons standards and enforcement  
+- **[Implementation Guide](./branding/implementation-guide.md)** - Technical implementation details
+
+---
+
+## 🚨 **CRITICAL POLICY: EMOJI-FREE CODEBASE (v4.0.1)**
 
 ### **Icon Standards Enforcement**
 
@@ -70,7 +85,7 @@ title: 'Update 🎯'
 
 ## Current State & Navigation Standards
 
-### **Full Website Architecture (v3.7.2)**
+### **Full Website Architecture (v4.0.1)**
 
 - **Complete Website**: All pages production-ready with full MaterialIcon integration
 - **Navigation**: Fully functional navigation with all pages active
@@ -93,9 +108,9 @@ title: 'Update 🎯'
 
 ---
 
-## 🚨 **IMPLEMENTATION NOTICE: Full Website Complete (v3.7.2)**
+## 🚨 **IMPLEMENTATION NOTICE: Full Website Complete (v4.0.1)**
 
-### **Current Architecture (v3.7.2) - October 23, 2025**
+### **Current Architecture (v4.0.1) - November 3, 2025**
 
 **MH Construction now features a complete, fully-functional website with**
 **Google Material Icons and comprehensive pages ready for production.**
@@ -117,7 +132,7 @@ title: 'Update 🎯'
   </span>
 </h1>
 
-// Standardized CTA Buttons (v3.7.2) - Content Section Implementation
+// Standardized CTA Buttons (v4.0.1) - Content Section Implementation
 <Button variant="secondary" size="lg" className="transition-all duration-300">
   <MaterialIcon icon="handshake" size="lg" className="mr-3" />
   <span className="font-medium">Start Your Project</span>
@@ -138,7 +153,7 @@ title: 'Update 🎯'
 </section>
 ```markdown
 
-### **Latest Brand Improvements (v3.7.2):**
+### **Latest Brand Improvements (v4.0.1):**
 
 - ✅ **Enhanced Typography**: Responsive clamp() scaling from text-4xl to
   text-8xl
@@ -268,7 +283,7 @@ layout and no longer use the standalone `PageHero` component.
 | **Founded** | 2010 - Veteran-owned and operated |
 | **Service Philosophy** | Military precision, veteran values, cutting-edge technology |
 
-### Core Values (Updated v3.6.0 - October 2025)
+### Core Values (Updated v4.0.1 - November 2025)
 
 #### **6-Value Professional Foundation**
 
@@ -945,7 +960,7 @@ across the platform.
 
 ---
 
-## Icon System (Google Material Icons v3.7.0)
+## Icon System (Google Material Icons v4.0.1)
 
 ### **Complete Migration to Google Material Icons**
 

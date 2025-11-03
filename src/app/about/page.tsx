@@ -170,35 +170,35 @@ export default function AboutPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-8">
             {/* Veteran-Owned Badge */}
-            <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 border border-white/20 rounded-full">
+            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
               <MaterialIcon
                 icon="military_tech"
                 className="mr-3 text-brand-secondary"
               />
-              <span className="font-bold text-white text-sm uppercase tracking-wider">
-                Veteran-Owned Since January 2025
+              <span className="font-bold text-brand-primary-light dark:text-brand-primary-light text-sm uppercase tracking-wider">
+                Veteran-Owned Excellence
               </span>
             </div>
 
-            {/* Main Title with Proper Gradient */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-              <span className="block mb-3 font-semibold text-white/90 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+            {/* Main Title with Responsive Typography */}
+            <h1 className="mb-6 pb-2 font-black text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight tracking-tighter">
+              <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
                 Your Partnership in
               </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-[#BD9264] via-white to-[#386851] text-transparent drop-shadow-lg">
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary drop-shadow-sm text-transparent">
                 Construction Excellence
               </span>
             </h1>
 
             {/* Primary Tagline */}
-            <p className="max-w-3xl mx-auto text-2xl sm:text-3xl md:text-4xl text-white font-bold leading-relaxed">
+            <p className="max-w-3xl mx-auto text-2xl sm:text-3xl md:text-4xl text-brand-secondary font-bold leading-relaxed">
               "Building for the Owner, NOT the Dollar"
             </p>
 
-            {/* Description */}
-            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+            {/* Description with Partnership Language */}
+            <p className="max-w-4xl mx-auto font-light text-white/90 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
               Where military precision meets construction excellence. We work
-              with you every step—combining veteran values, advanced technology,
+              WITH you every step—combining veteran values, advanced technology,
               and genuine partnership to build your vision.
             </p>
           </div>
@@ -224,8 +224,8 @@ export default function AboutPage() {
                   icon="handshake"
                   className="mb-4 text-brand-primary text-6xl"
                 />
-                <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
-                  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+                <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight tracking-tighter">
+                  <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
                     Our Partnership
                   </span>
                   <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
@@ -234,11 +234,11 @@ export default function AboutPage() {
                 </h2>
                 <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
                   At MH Construction, we don't just build structures - we build
-                  relationships.
+                  relationships. We work WITH you, not FOR you.
                 </p>
               </div>
 
-              <div className="gap-8 grid md:grid-cols-2 mb-12">
+              <div className="gap-8 grid sm:grid-cols-1 md:grid-cols-2 mb-12">
                 <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-shadow">
                   <CardHeader>
                     <MaterialIcon
@@ -326,13 +326,13 @@ export default function AboutPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="mb-4 text-gray-700 dark:text-gray-300">
+                    <p className="text-gray-700 dark:text-gray-300">
                       <strong className="text-gray-900 dark:text-white">
                         MH Construction exists to strengthen Pacific Northwest
                         communities.
                       </strong>{" "}
                       Every project contributes to a stronger, more connected
-                      region.
+                      region. We work WITH communities to build lasting value.
                     </p>
                     <ul className="space-y-3">
                       <li className="flex items-start">
@@ -383,10 +383,10 @@ export default function AboutPage() {
                 />
                 <p className="mb-4 text-gray-800 dark:text-gray-200 text-lg italic leading-relaxed">
                   "When you choose MH Construction, you're not hiring a
-                  contractor - you're gaining a partner who genuinely cares
-                  about your success and our community's future. We bring
-                  veteran values of discipline, integrity, and excellence to
-                  every project—building for the owner, not the dollar."
+                  contractor - you're gaining a partner who works WITH you at
+                  every step. We bring veteran values of discipline, integrity,
+                  and excellence to every project—building for the owner, not
+                  the dollar."
                 </p>
                 <div className="flex items-center">
                   <MaterialIcon
@@ -417,11 +417,11 @@ export default function AboutPage() {
                 icon="analytics"
                 className="mb-6 text-brand-secondary text-6xl"
               />
-              <h2 className="mb-6 font-black text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+              <h2 className="mb-6 font-black text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
                   Our Track
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
+                <span className="block bg-clip-text bg-gradient-to-r from-white via-brand-secondary to-white drop-shadow-sm text-transparent">
                   Record
                 </span>
               </h2>
@@ -456,8 +456,8 @@ export default function AboutPage() {
                 icon="shield"
                 className="mb-6 text-brand-primary text-6xl"
               />
-              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
                   Our 6 Core
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
@@ -470,7 +470,7 @@ export default function AboutPage() {
                   measurable company foundation"
                 </p>
                 <div className="bg-brand-light dark:bg-gray-800 p-6 border-brand-primary border-l-4 rounded-xl">
-                  <p className="font-medium text-brand-accent dark:text-brand-primary text-lg">
+                  <p className="font-medium text-brand-primary dark:text-brand-primary-light text-lg md:text-xl">
                     "Trust isn't just another value—it's the result when all
                     other values are consistently demonstrated. It's our
                     ultimate goal."
@@ -480,7 +480,7 @@ export default function AboutPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+          <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mx-auto max-w-7xl">
             {coreValues.map((value, index) => (
               <Card
                 key={index}
@@ -562,7 +562,7 @@ export default function AboutPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-8 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+          <StaggeredFadeIn className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mx-auto max-w-7xl">
             {leadershipTeam.map((member, index) => (
               <Card
                 key={index}
@@ -645,7 +645,7 @@ export default function AboutPage() {
                 </span>
               </h2>
 
-              <div className="gap-8 grid md:grid-cols-3">
+              <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-primary transition-all hover:-translate-y-2 duration-300">
                   <CardHeader className="text-center">
                     <MaterialIcon
@@ -828,7 +828,7 @@ export default function AboutPage() {
             </div>
           </FadeInWhenVisible>
 
-          <div className="gap-8 grid md:grid-cols-2 lg:grid-cols-3 mb-12">
+          <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mb-12">
             <StaggeredFadeIn>
               <Card className="bg-white dark:bg-gray-900 hover:shadow-lg transition-all duration-300">
                 <CardHeader>
@@ -982,7 +982,7 @@ export default function AboutPage() {
             </div>
           </FadeInWhenVisible>
 
-          <div className="gap-8 grid md:grid-cols-2 mb-12">
+          <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 mb-12">
             <StaggeredFadeIn>
               <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-primary dark:border-brand-primary/50 transition-all duration-300">
                 <CardHeader>
@@ -1126,7 +1126,7 @@ export default function AboutPage() {
             </div>
           </FadeInWhenVisible>
 
-          <div className="gap-8 grid md:grid-cols-2 lg:grid-cols-3 mb-12">
+          <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mb-12">
             <StaggeredFadeIn>
               <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-secondary dark:border-brand-secondary/50 transition-all duration-300">
                 <CardHeader>
@@ -1277,18 +1277,363 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Company News & Blog Section */}
+      <section
+        id="blog"
+        className="relative bg-gray-50 dark:bg-gray-800 py-16 sm:py-20 lg:py-24"
+      >
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <FadeInWhenVisible className="mb-12 text-center">
+            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-4xl sm:text-5xl md:text-6xl leading-tight tracking-tighter">
+              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl tracking-tight">
+                Construction Insights &
+              </span>
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent text-transparent">
+                Company Blog
+              </span>
+            </h2>
+            <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-lg sm:text-xl">
+              Expert construction advice, industry insights, and stories from
+              our veteran-owned team
+            </p>
+          </FadeInWhenVisible>
+
+          <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+            <FadeInWhenVisible>
+              <HoverScale>
+                <Card className="h-full">
+                  <CardHeader>
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <MaterialIcon
+                          icon="tips_and_updates"
+                          size="sm"
+                          className="text-brand-primary"
+                        />
+                        <span className="font-medium text-brand-primary text-xs uppercase tracking-wide">
+                          Construction Tips
+                        </span>
+                      </div>
+                      <span className="text-gray-500 dark:text-gray-400 text-sm">
+                        Oct 2025
+                      </span>
+                    </div>
+                    <CardTitle className="text-xl">
+                      Pre-Construction Planning Essentials
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="mb-4 text-gray-600 dark:text-gray-300">
+                      Learn the critical steps to plan your construction project
+                      for success, from budgeting to timeline management.
+                    </p>
+                    <div className="flex items-center text-brand-primary hover:text-brand-accent transition-colors cursor-pointer">
+                      <span className="font-medium text-sm">Read More</span>
+                      <MaterialIcon
+                        icon="arrow_forward"
+                        size="sm"
+                        className="ml-1"
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              </HoverScale>
+            </FadeInWhenVisible>
+
+            <FadeInWhenVisible>
+              <HoverScale>
+                <Card className="h-full">
+                  <CardHeader>
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <MaterialIcon
+                          icon="military_tech"
+                          size="sm"
+                          className="text-brand-secondary"
+                        />
+                        <span className="font-medium text-brand-secondary text-xs uppercase tracking-wide">
+                          Veteran Spotlight
+                        </span>
+                      </div>
+                      <span className="text-gray-500 dark:text-gray-400 text-sm">
+                        Sep 2025
+                      </span>
+                    </div>
+                    <CardTitle className="text-xl">
+                      Military Values in Construction
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="mb-4 text-gray-600 dark:text-gray-300">
+                      How military precision and integrity translate to superior
+                      construction project management and execution.
+                    </p>
+                    <div className="flex items-center text-brand-primary hover:text-brand-accent transition-colors cursor-pointer">
+                      <span className="font-medium text-sm">Read More</span>
+                      <MaterialIcon
+                        icon="arrow_forward"
+                        size="sm"
+                        className="ml-1"
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              </HoverScale>
+            </FadeInWhenVisible>
+
+            <FadeInWhenVisible>
+              <HoverScale>
+                <Card className="h-full">
+                  <CardHeader>
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <MaterialIcon
+                          icon="eco"
+                          size="sm"
+                          className="text-brand-accent"
+                        />
+                        <span className="font-medium text-brand-accent text-xs uppercase tracking-wide">
+                          Sustainability
+                        </span>
+                      </div>
+                      <span className="text-gray-500 dark:text-gray-400 text-sm">
+                        Aug 2025
+                      </span>
+                    </div>
+                    <CardTitle className="text-xl">
+                      Sustainable Building Practices
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="mb-4 text-gray-600 dark:text-gray-300">
+                      Exploring eco-friendly construction methods that reduce
+                      environmental impact while maintaining quality.
+                    </p>
+                    <div className="flex items-center text-brand-primary hover:text-brand-accent transition-colors cursor-pointer">
+                      <span className="font-medium text-sm">Read More</span>
+                      <MaterialIcon
+                        icon="arrow_forward"
+                        size="sm"
+                        className="ml-1"
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              </HoverScale>
+            </FadeInWhenVisible>
+          </div>
+
+          <FadeInWhenVisible className="mt-12 text-center">
+            <p className="mb-4 text-gray-600 dark:text-gray-300">
+              <MaterialIcon icon="info" size="sm" className="inline mr-2" />
+              Full blog with integrated High-Level CRM coming soon
+            </p>
+          </FadeInWhenVisible>
+        </div>
+      </section>
+
+      {/* Latest News & Updates Section */}
+      <section
+        id="news"
+        className="relative bg-white dark:bg-gray-900 py-16 sm:py-20 lg:py-24"
+      >
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <FadeInWhenVisible className="mb-12 text-center">
+            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-4xl sm:text-5xl md:text-6xl tracking-tight">
+              <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl">
+                Latest News &
+              </span>
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-primary text-transparent">
+                Company Announcements
+              </span>
+            </h2>
+            <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-lg sm:text-xl">
+              Stay updated with our latest projects, partnerships, and company
+              milestones
+            </p>
+          </FadeInWhenVisible>
+
+          <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+            <FadeInWhenVisible>
+              <Card className="border-l-4 border-l-brand-primary">
+                <CardContent className="pt-6">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <MaterialIcon
+                        icon="celebration"
+                        className="text-brand-primary"
+                        size="md"
+                      />
+                      <span className="font-semibold text-brand-primary">
+                        Company Milestone
+                      </span>
+                    </div>
+                    <span className="text-gray-500 dark:text-gray-400 text-sm">
+                      Nov 2025
+                    </span>
+                  </div>
+                  <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-xl">
+                    50+ Successful Partnerships in Pacific Northwest
+                  </h3>
+                  <p className="mb-4 text-gray-600 dark:text-gray-300">
+                    We're proud to announce reaching a major milestone: over 50
+                    completed construction partnerships across Washington and
+                    Oregon. Thank you to all our clients and trade partners who
+                    made this possible.
+                  </p>
+                  <Link
+                    href="/projects"
+                    className="inline-flex items-center text-brand-primary hover:text-brand-accent transition-colors"
+                  >
+                    <span className="font-medium">View Our Work</span>
+                    <MaterialIcon
+                      icon="arrow_forward"
+                      size="sm"
+                      className="ml-1"
+                    />
+                  </Link>
+                </CardContent>
+              </Card>
+            </FadeInWhenVisible>
+
+            <FadeInWhenVisible>
+              <Card className="border-l-4 border-l-brand-secondary">
+                <CardContent className="pt-6">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <MaterialIcon
+                        icon="rocket_launch"
+                        className="text-brand-secondary"
+                        size="md"
+                      />
+                      <span className="font-semibold text-brand-secondary">
+                        New Technology
+                      </span>
+                    </div>
+                    <span className="text-gray-500 dark:text-gray-400 text-sm">
+                      Coming Soon
+                    </span>
+                  </div>
+                  <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-xl">
+                    Integrated CRM & Project Management Platform
+                  </h3>
+                  <p className="mb-4 text-gray-600 dark:text-gray-300">
+                    We're implementing High-Level CRM to provide seamless
+                    communication, real-time project updates, and enhanced
+                    client experience throughout your construction journey.
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors"
+                  >
+                    <span className="font-medium">Learn More</span>
+                    <MaterialIcon
+                      icon="arrow_forward"
+                      size="sm"
+                      className="ml-1"
+                    />
+                  </Link>
+                </CardContent>
+              </Card>
+            </FadeInWhenVisible>
+
+            <FadeInWhenVisible>
+              <Card className="border-l-4 border-l-brand-accent">
+                <CardContent className="pt-6">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <MaterialIcon
+                        icon="handshake"
+                        className="text-brand-accent"
+                        size="md"
+                      />
+                      <span className="font-semibold text-brand-accent">
+                        Partnership
+                      </span>
+                    </div>
+                    <span className="text-gray-500 dark:text-gray-400 text-sm">
+                      Oct 2025
+                    </span>
+                  </div>
+                  <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-xl">
+                    Expanding Trade Partner Network
+                  </h3>
+                  <p className="mb-4 text-gray-600 dark:text-gray-300">
+                    We're actively growing our network of skilled trade partners
+                    to better serve our clients across the Pacific Northwest.
+                    Join our veteran-owned partnership program.
+                  </p>
+                  <Link
+                    href="/trade-partners"
+                    className="inline-flex items-center text-brand-accent hover:text-brand-primary transition-colors"
+                  >
+                    <span className="font-medium">Become a Partner</span>
+                    <MaterialIcon
+                      icon="arrow_forward"
+                      size="sm"
+                      className="ml-1"
+                    />
+                  </Link>
+                </CardContent>
+              </Card>
+            </FadeInWhenVisible>
+
+            <FadeInWhenVisible>
+              <Card className="border-l-4 border-l-brand-secondary">
+                <CardContent className="pt-6">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <MaterialIcon
+                        icon="workspace_premium"
+                        className="text-brand-secondary"
+                        size="md"
+                      />
+                      <span className="font-semibold text-brand-secondary">
+                        Recognition
+                      </span>
+                    </div>
+                    <span className="text-gray-500 dark:text-gray-400 text-sm">
+                      Sep 2025
+                    </span>
+                  </div>
+                  <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-xl">
+                    Award-Winning Safety Record
+                  </h3>
+                  <p className="mb-4 text-gray-600 dark:text-gray-300">
+                    Our commitment to safety excellence has been recognized by
+                    industry organizations. Zero accidents, 100% compliance -
+                    that's the veteran-owned difference.
+                  </p>
+                  <Link
+                    href="/about#safety"
+                    className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors"
+                  >
+                    <span className="font-medium">Safety Standards</span>
+                    <MaterialIcon
+                      icon="arrow_forward"
+                      size="sm"
+                      className="ml-1"
+                    />
+                  </Link>
+                </CardContent>
+              </Card>
+            </FadeInWhenVisible>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="relative bg-gradient-to-r from-brand-accent dark:from-brand-primary-dark via-brand-primary dark:via-brand-primary to-brand-primary-dark dark:to-gray-800 py-16 lg:py-24 overflow-hidden text-white">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="z-10 relative mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl text-center">
-              <div className="inline-flex items-center mb-6 px-2 py-1 border-brand-secondary border-l-4">
+              <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-6 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
                 <MaterialIcon
                   icon="military_tech"
-                  className="mr-2 text-brand-secondary"
+                  className="mr-3 text-brand-secondary"
                 />
-                <span className="font-semibold text-sm">
+                <span className="font-bold text-white text-sm uppercase tracking-wider">
                   Veteran-Owned Excellence
                 </span>
               </div>
@@ -1297,23 +1642,22 @@ export default function AboutPage() {
                 icon="handshake"
                 className="mb-6 text-brand-secondary text-6xl"
               />
-              <h2 className="mb-6 font-black text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+              <h2 className="mb-6 font-black text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight tracking-tighter">
+                <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
                   Ready to Start Our
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
+                <span className="block bg-clip-text bg-gradient-to-r from-white via-brand-secondary to-white drop-shadow-sm text-transparent">
                   Partnership?
                 </span>
               </h2>
 
               <div className="bg-white/10 backdrop-blur-sm mb-8 p-6 border border-white/20 rounded-xl">
-                <p className="mb-2 font-medium text-brand-secondary text-lg">
+                <p className="mb-2 font-bold text-brand-secondary text-xl md:text-2xl">
                   "Building for the Owner, NOT the Dollar"
                 </p>
-                <p className="text-white/90 text-lg">
-                  Partner with a team that has made Trust our ultimate goal.
-                  Let's discuss your vision and build something remarkable
-                  together.
+                <p className="font-light text-white/90 text-lg md:text-xl">
+                  Partner with a team that works WITH you, not FOR you. Let's
+                  discuss your vision and build something remarkable together.
                 </p>
               </div>
 
@@ -1324,7 +1668,7 @@ export default function AboutPage() {
                     size="lg"
                     className="shadow-xl hover:shadow-2xl transition-all duration-300"
                   >
-                    <MaterialIcon icon="event" className="mr-2" />
+                    <MaterialIcon icon="event" size="lg" className="mr-3" />
                     Schedule Free Consultation
                   </Button>
                 </Link>
@@ -1332,18 +1676,19 @@ export default function AboutPage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="hover:bg-white/10 dark:hover:bg-gray-800/50 shadow-xl hover:shadow-2xl border-white dark:border-gray-300 text-white dark:text-gray-200 transition-all duration-300"
+                    className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-brand-primary shadow-xl hover:shadow-2xl transition-all duration-300"
                   >
-                    <MaterialIcon icon="build" className="mr-2" />
+                    <MaterialIcon icon="build" size="lg" className="mr-3" />
                     Explore Partnership Approach
                   </Button>
                 </Link>
               </div>
 
-              <div className="flex sm:flex-row flex-col justify-center items-center gap-6 text-white/90">
+              <div className="flex sm:flex-row flex-col justify-center items-center gap-6 text-white/90 text-base md:text-lg">
                 <div className="flex items-center">
                   <MaterialIcon
                     icon="phone"
+                    size="md"
                     className="mr-2 text-brand-secondary"
                   />
                   <span className="font-medium">(509) 308-6489</span>
@@ -1351,6 +1696,7 @@ export default function AboutPage() {
                 <div className="flex items-center">
                   <MaterialIcon
                     icon="location_on"
+                    size="md"
                     className="mr-2 text-brand-secondary"
                   />
                   <span>3111 N. Capital Ave., Pasco, WA 99301</span>
