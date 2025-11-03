@@ -4,19 +4,19 @@
     "MD013": {
       "line_length": 120,
       "code_blocks": false,
-      "tables": false
+      "tables": false,
     },
     "MD024": {
-      "siblings_only": true
+      "siblings_only": true,
     },
     "MD033": false,
     "MD041": false,
-    "MD051": false
+    "MD051": false,
   },
   "globs": [
     "**/*.md",
     "!node_modules/**",
     "!firebase/functions/node_modules/**",
-    "!.next/**"
-  ]
+    "!.next/**",
+  ],
 }
