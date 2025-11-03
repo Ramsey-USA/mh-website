@@ -244,28 +244,28 @@ export default function TradePartnersPage() {
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-[100dvh] sm:min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 sm:py-0">
-          <div className="space-y-6 sm:space-y-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+          <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
             {/* Trade Partnership Badge */}
-            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-4 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
+            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
               <MaterialIcon
                 icon="construction"
                 size="sm"
-                className="text-brand-secondary mr-3"
+                className="text-brand-secondary mr-2 sm:mr-3"
               />
               <span className="font-bold text-brand-secondary text-xs uppercase tracking-wider">
                 Trade Partnership Network
               </span>
             </div>
 
-            {/* Main Title with Proper Gradient */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight tracking-tight">
-              <span className="block mb-3 font-semibold text-white/80 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+            {/* Main Title */}
+            <h1 className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black leading-tight tracking-tight">
+              <span className="block mb-1 sm:mb-2 font-semibold text-white/80 text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl tracking-tight">
                 Join Our
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent drop-shadow-lg">
@@ -275,15 +275,15 @@ export default function TradePartnersPage() {
 
             {/* Primary Tagline - Vendor Focused */}
             <div className="max-w-4xl mx-auto">
-              <div className="inline-block bg-black/30 backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 rounded-lg border border-white/20">
-                <p className="text-base sm:text-lg md:text-xl font-semibold bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white text-transparent">
+              <div className="inline-block bg-black/30 backdrop-blur-sm px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-lg border border-white/20">
+                <p className="text-xs xs:text-sm sm:text-base md:text-lg font-semibold bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white text-transparent">
                   Grow Your Business with Veteran-Owned Excellence
                 </p>
               </div>
             </div>
 
             {/* Description - Trade Partnership Focus */}
-            <p className="max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
+            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/90 leading-relaxed">
               Partner with MH Construction to access reliable project
               opportunities, professional collaboration, and fair business
               practices. We believe in building lasting relationships with

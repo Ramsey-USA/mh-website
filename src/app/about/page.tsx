@@ -162,27 +162,27 @@ export default function AboutPage() {
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-[100dvh] sm:min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+          <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
             {/* Veteran-Owned Badge */}
-            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
+            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
               <MaterialIcon
                 icon="military_tech"
-                className="mr-3 text-brand-secondary"
+                className="mr-2 sm:mr-3 text-brand-secondary text-base sm:text-lg"
               />
-              <span className="font-bold text-brand-primary-light dark:text-brand-primary-light text-sm uppercase tracking-wider">
+              <span className="font-bold text-brand-primary-light dark:text-brand-primary-light text-xs sm:text-sm uppercase tracking-wider">
                 Veteran-Owned Excellence
               </span>
             </div>
 
             {/* Main Title with Responsive Typography */}
-            <h1 className="mb-6 pb-2 font-black text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight tracking-tighter">
-              <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+            <h1 className="font-black text-white text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight">
+              <span className="block mb-1 sm:mb-2 font-semibold text-white/80 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight">
                 Your Partnership in
               </span>
               <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary drop-shadow-sm text-transparent">
@@ -191,12 +191,12 @@ export default function AboutPage() {
             </h1>
 
             {/* Primary Tagline */}
-            <p className="max-w-3xl mx-auto text-2xl sm:text-3xl md:text-4xl text-brand-secondary font-bold leading-relaxed">
+            <p className="max-w-3xl mx-auto text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-brand-secondary font-bold leading-snug">
               "Building for the Owner, NOT the Dollar"
             </p>
 
             {/* Description with Partnership Language */}
-            <p className="max-w-4xl mx-auto font-light text-white/90 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+            <p className="max-w-4xl mx-auto font-light text-white/90 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed tracking-wide">
               Where military precision meets construction excellence. We work
               WITH you every step—combining veteran values, advanced technology,
               and genuine partnership to build your vision.

@@ -276,34 +276,34 @@ export default function GovernmentGrantsPage() {
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 min-h-[100dvh] sm:min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-700/30 via-gray-900/80 to-gray-600/20"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+          <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
             {/* Subtitle First - Government Focus */}
-            <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
+            <p className="text-xs xs:text-sm sm:text-base md:text-lg text-white/90 font-medium tracking-wide">
               Federal Contracting | Mission-Critical Infrastructure
             </p>
 
-            {/* Main Title with Proper Gradient */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+            {/* Main Title */}
+            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block bg-clip-text bg-gradient-to-r from-gray-300 via-white to-gray-300 text-transparent drop-shadow-lg">
                 Government Contracting
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug">
               Army Veteran Leadership | Federal Compliance | Mission Execution
             </p>
 
             {/* Primary Tagline - Government Focused */}
             <div className="max-w-4xl mx-auto">
-              <div className="inline-block bg-black/30 backdrop-blur-sm px-6 py-3 rounded-lg border border-white/20">
-                <p className="text-lg md:text-xl font-semibold bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white text-transparent">
+              <div className="inline-block bg-black/30 backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 rounded-lg border border-white/20">
+                <p className="text-xs xs:text-sm sm:text-base md:text-lg font-semibold bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white text-transparent">
                   Mission-Critical Construction | Military Precision | On Time,
                   On Target
                 </p>
@@ -311,7 +311,7 @@ export default function GovernmentGrantsPage() {
             </div>
 
             {/* Description */}
-            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed">
               Under Army veteran leadership, MH Construction delivers
               mission-critical construction services with unwavering commitment
               to federal compliance, operational security, and successful

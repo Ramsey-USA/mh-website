@@ -1,11 +1,50 @@
 # MH Construction Branding Compliance Implementation Plan
 
-**Version**: 1.0.0 | **Date**: October 24, 2025 | **Status**: Ready for Implementation
+**Version**: 2.0.0 | **Date**: November 3, 2025 | **Status**: Hero Section Standards Updated
 
 ## Overview
 
-This plan provides a systematic approach to ensure all website pages adhere to MH Construction branding guidelines.
-Designed for developer handoffs with clear priorities and validation steps.
+This plan provides a systematic approach to ensure all website pages adhere to MH Construction branding
+guidelines, including the new cohesive hero section standards implemented November 3, 2025.
+
+## Hero Section Implementation (v4.0.2)
+
+### Standard Hero Structure
+
+All pages must implement the cohesive hero section pattern:
+
+```tsx
+<section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
+  
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+    <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+      {/* Page-specific content */}
+    </div>
+  </div>
+  
+  <PageNavigation items={navigationConfigs.pageName} className="absolute bottom-0 left-0 right-0" />
+</section>
+```
+
+### Hero Section Requirements Checklist
+
+- [ ] Exact viewport height (`h-screen`, not `min-h-screen` or `h-[100dvh]`)
+- [ ] No CTA buttons in hero section
+- [ ] Top padding: `pt-16 sm:pt-24 md:pt-32 lg:pt-40`
+- [ ] Bottom padding: `pb-12 sm:pb-16 md:pb-20 lg:pb-28`
+- [ ] Responsive typography: `text-lg` to `xl:text-5xl` for titles
+- [ ] Tight spacing: `space-y-2` to `lg:space-y-6`
+- [ ] PageNavigation visible at bottom
+- [ ] Overflow hidden to prevent horizontal scroll
+
+### Typography Scaling Standards
+
+| Element | Mobile (base) | Tablet (sm/md) | Desktop (lg/xl) |
+|---------|---------------|----------------|-----------------|
+| Main Title | `text-lg` | `sm:text-2xl` | `lg:text-4xl` / `xl:text-5xl` |
+| Subtitle | `text-xs` | `sm:text-base` | `lg:text-xl` |
+| Description | `text-xs` | `sm:text-sm` | `lg:text-lg` |
 
 ## Current Status Assessment
 

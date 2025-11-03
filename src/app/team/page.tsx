@@ -46,32 +46,32 @@ export default function TeamPage() {
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8">
-            {/* Subtitle First - MH Branding Standard */}
-            <p className="text-lg md:text-xl text-white/90 font-medium tracking-wide">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+          <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+            {/* Subtitle First */}
+            <p className="text-xs xs:text-sm sm:text-base md:text-lg text-white/90 font-medium tracking-wide">
               Expert Construction Management Professionals
             </p>
 
-            {/* Main Title with Proper Gradient */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+            {/* Main Title */}
+            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent drop-shadow-lg">
                 Our Team
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed">
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug">
               Meet the partnership team behind MH Construction
             </p>
 
             {/* Description */}
-            <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
+            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed">
               Discover your dedicated partners through authentic vintage-style
               trading cards. Click on any card to flip it and explore
               professional statistics, career highlights, and personal stories

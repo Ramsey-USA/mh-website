@@ -266,35 +266,35 @@ export default function ServicesPage() {
     <>
       <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-[100dvh] sm:min-h-screen flex items-center justify-center text-white">
+        <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
           {/* Background Elements */}
           <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
           {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 sm:py-0">
-            <FadeInWhenVisible className="space-y-6 sm:space-y-8">
-              {/* Veteran Badge - MH Branding Standard */}
-              <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-4 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+            <FadeInWhenVisible className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+              {/* Veteran Badge */}
+              <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
                 <MaterialIcon
                   icon="military_tech"
                   size="sm"
                   className="text-brand-secondary"
                 />
-                <span className="ml-3 font-bold text-brand-secondary text-xs uppercase tracking-wider">
+                <span className="ml-2 sm:ml-3 font-bold text-brand-secondary text-xs uppercase tracking-wider">
                   Veteran-Owned Excellence
                 </span>
               </div>
 
-              {/* Primary Tagline - MH Branding Standard */}
-              <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-xl inline-block">
-                <p className="text-base sm:text-lg md:text-xl font-semibold text-brand-secondary tracking-wide">
+              {/* Primary Tagline */}
+              <div className="bg-white/10 backdrop-blur-sm p-2 sm:p-3 md:p-4 border border-white/20 rounded-xl inline-block">
+                <p className="text-xs xs:text-sm sm:text-base md:text-lg font-semibold text-brand-secondary tracking-wide">
                   "Building for the Owner, NOT the Dollar"
                 </p>
               </div>
 
-              {/* Subtitle First - MH Branding Standard */}
-              <h1 className="mb-6 pb-2 font-black text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter">
-                <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+              {/* Main Title */}
+              <h1 className="font-black text-white text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight">
+                <span className="block mb-1 sm:mb-2 font-semibold text-white/80 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight">
                   Your Partnership in
                 </span>
                 <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary drop-shadow-lg text-transparent">
@@ -302,20 +302,20 @@ export default function ServicesPage() {
                 </span>
               </h1>
 
-              {/* Description - Partnership Language */}
-              <p className="max-w-4xl mx-auto font-light text-white/90 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+              {/* Description */}
+              <p className="max-w-4xl mx-auto font-light text-white/90 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed tracking-wide">
                 We Work WITH You Every Step. Military Precision. Advanced
                 Technology.
               </p>
 
               {/* Location */}
-              <p className="max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
+              <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base text-white/80 leading-relaxed">
                 Tri-Cities Headquarters: Pasco, WA | Serving Washington, Oregon,
                 Idaho
               </p>
 
               {/* Trust Indicators */}
-              <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 font-medium text-brand-secondary text-sm sm:text-base">
+              <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-10 font-medium text-brand-secondary text-xs sm:text-sm">
                 <div className="flex items-center">
                   <MaterialIcon
                     icon="workspace_premium"

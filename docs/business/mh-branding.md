@@ -5,7 +5,7 @@
 ## for MH Construction LLC
 
 > **📅 Last Updated:** November 3, 2025
-> **🎨 Brand Version:** 4.0.1
+> **🎨 Brand Version:** 4.0.2
 > **👥 Authority:** MH Construction Leadership Team
 > **💻 Implementation:** Foundation-Only Architecture with Google Material Icons
 > **🌙 Theme Support:** Complete light/dark mode with optimized theme toggle
@@ -1661,107 +1661,96 @@ without custom overrides.
 
 ---
 
-### 🏠 Hero Section Standards (v2.6.1)
+### 🏠 Hero Section Standards (v4.0.1)
 
 #### Full Viewport Hero Implementation
 
-The new hero section standard ensures complete visibility on all screen sizes with perfect
-centering and navigation awareness.
+**Updated November 3, 2025** - Cohesive hero section standards across all pages ensure consistent user experience, proper navigation visibility, and optimal typography scaling.
 
 ```tsx
-// Enhanced Hero Section - New Standard (v2.6.1)
-<section className="relative bg-white dark:bg-gray-900 h-screen hero-section">
+// Enhanced Hero Section - Current Standard (v4.0.1)
+<section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
   {/* Background Elements */}
-  <div className="absolute inset-0"></div>
+  <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
-  {/* Main Content Container */}
-  <div
-    className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full flex
-      items-center justify-center pt-32 pb-8"
-  >
-    <FadeInWhenVisible className="text-center w-full">
-
-      {/* Veteran Badge */}
-      <div
-        className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20
-          shadow-lg backdrop-blur-sm mb-8 px-6 py-3 border border-brand-primary/20
-          dark:border-brand-primary/30 rounded-full"
-      >
-        <ShieldIcon
-          size="sm"
-          primaryColor="currentColor"
-          className="text-brand-primary dark:text-brand-primary-light"
+  {/* Main Content Container - Positioned below header, above navigation bar */}
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+    <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+      
+      {/* Veteran Badge (Optional) */}
+      <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
+        <MaterialIcon
+          icon="military_tech"
+          className="mr-2 sm:mr-3 text-brand-secondary text-base sm:text-lg"
         />
-        <span
-          className="ml-3 font-bold text-brand-primary dark:text-brand-primary-light
-            text-xs uppercase tracking-wider"
-        >
+        <span className="font-bold text-brand-primary-light text-xs sm:text-sm uppercase tracking-wider">
           Veteran-Owned Excellence
         </span>
       </div>
 
-      {/* Hero Title */}
-      <h1
-        className="mb-6 pb-2 font-black text-gray-900 dark:text-white text-4xl sm:text-5xl
-          md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter hero-title"
-      >
-        <span
-          className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl
-            sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight"
-        >
-          Your Partnership in
-        </span>
-        <span
-          className="block bg-clip-text bg-gradient-to-r from-brand-primary
-            via-brand-secondary to-brand-primary drop-shadow-sm font-black text-transparent"
-        >
-          Construction Excellence
+      {/* Main Title - Responsive scaling */}
+      <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+        <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+          Your Partnership in Construction Excellence
         </span>
       </h1>
 
-      {/* Hero Description */}
-      <p
-        className="mx-auto mb-8 max-w-4xl font-light text-gray-600 dark:text-gray-300
-          text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide"
-      >
+      {/* Subtitle */}
+      <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
         We Work With You Every Step. Military Precision. Advanced Technology.
       </p>
 
-      {/* CTA Buttons */}
-      <div className="flex sm:flex-row flex-col justify-center items-center gap-8 mb-8">
-        <Button variant="primary" size="xl">Primary CTA</Button>
-        <Button variant="outline" size="xl">Secondary CTA</Button>
-      </div>
-
-      {/* Trust Indicators */}
-      <div
-        className="flex flex-wrap justify-center items-center gap-10 font-medium
-          text-gray-700 dark:text-gray-300 text-base"
-      >
-        {/* Trust indicator badges */}
-      </div>
-
-    </FadeInWhenVisible>
+      {/* Description */}
+      <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
+        Partnering with Tri-Cities communities since 2010 - where veteran values meet collaborative construction management for extraordinary results.
+      </p>
+    </div>
   </div>
+
+  {/* Page-Specific Navigation Bar - Always visible at bottom */}
+  <PageNavigation
+    items={navigationConfigs.pageName}
+    className="absolute bottom-0 left-0 right-0"
+  />
 </section>
-```text
+```
 
-#### Key Hero Section Features
+#### Key Hero Section Features (v4.0.1)
 
-- **Full Viewport Height**: `h-screen` ensures the hero uses the complete screen height
-- **Navigation Offset**: `pt-32` provides proper clearance for the fixed navigation (h-24)
-- **Perfect Centering**: `flex items-center justify-center` centers content both vertically and horizontally
-- **Optimized Spacing**: Reduced margins for better content fit while maintaining visual hierarchy
-- **Responsive Design**: Scales perfectly across all device sizes
-- **Accessibility**: Maintains proper contrast and text sizing
+- **Exact Viewport Height**: `h-screen` ensures hero fills complete viewport (no gap to next section)
+- **No CTA Buttons**: Removed all Call-to-Action buttons from hero sections for cleaner design
+- **Heading Below Logo**: Top padding (`pt-16` to `pt-40`) positions content below header logo
+- **Responsive Typography**: Aggressive scaling from `text-lg` (mobile) to `xl:text-5xl` (desktop)
+- **Tight Spacing**: Reduced gaps (`space-y-2` to `space-y-6`) prevent overlap on small screens
+- **Navigation Bar Visible**: Bottom padding ensures PageNavigation is always visible on page load
+- **No Hydration Errors**: Uses `h-screen` instead of `h-[100dvh]` for SSR compatibility
+- **Overflow Hidden**: Prevents horizontal scrolling and content overflow
+
+#### Responsive Padding Standards
+
+| Element | Mobile (base) | Tablet (sm/md) | Desktop (lg/xl) |
+|---------|---------------|----------------|-----------------|
+| Top Padding | `pt-16` | `pt-24`/`pt-32` | `pt-40` |
+| Bottom Padding | `pb-12` | `pb-16`/`pb-20` | `pb-28` |
+| Vertical Spacing | `space-y-2` | `space-y-3`/`space-y-4` | `space-y-6` |
+
+#### Typography Scaling
+
+| Element | Mobile | Tablet | Desktop | Large Desktop |
+|---------|--------|--------|---------|---------------|
+| Main Title | `text-lg` | `sm:text-2xl` | `lg:text-4xl` | `xl:text-5xl` |
+| Subtitle | `text-xs` | `sm:text-base` | `lg:text-xl` | - |
+| Description | `text-xs` | `sm:text-sm` | `lg:text-lg` | - |
 
 #### Hero Section Benefits
 
-- ✅ **Complete Visibility**: Entire hero content visible on large screens
-- ✅ **No Cutoff**: Badge and bottom elements properly displayed
-- ✅ **Professional Look**: Balanced spacing that looks polished
-- ✅ **Brand Consistent**: Follows MH Construction design standards
-- ✅ **Performance Optimized**: Efficient CSS with minimal custom code
+- ✅ **Consistent Cross-Page**: All pages follow identical hero structure
+- ✅ **Perfect Viewport Fit**: Content visible without scrolling on all devices
+- ✅ **No Overlap**: Text properly spaced from header and navigation bar
+- ✅ **Mobile Optimized**: Aggressive scaling prevents content overflow on small screens
+- ✅ **Navigation Visible**: Section links immediately accessible to users
+- ✅ **Clean Design**: No CTA buttons in hero creates focused, professional appearance
+- ✅ **Performance**: No hydration errors, optimal rendering
 
 ---
 

@@ -139,57 +139,32 @@ export default function Home() {
       <StructuredData data={generateOrganizationStructuredData()} />
 
       {/* Home Page Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-[calc(100dvh-60px)] sm:min-h-[calc(100vh-72px)] flex items-center justify-center text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
-        {/* Content - Optimized spacing for visible navigation bar */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 sm:pt-24 md:pt-28 pb-6 sm:pb-8 md:pb-10">
-          <div className="space-y-4 sm:space-y-5 md:space-y-6">
-            {/* Main Title - Optimized sizing */}
-            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight">
+        {/* Content - Positioned below header logo, above navigation bar */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+          <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+            {/* Main Title */}
+            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
                 Your Partnership in Construction Excellence
               </span>
             </h1>
 
-            {/* Subtitle - Reduced sizing */}
-            <p className="max-w-3xl mx-auto text-base xs:text-lg sm:text-xl md:text-2xl text-white/90 leading-snug px-2">
+            {/* Subtitle */}
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
               We Work With You Every Step. Military Precision. Advanced
               Technology.
             </p>
 
-            {/* Description - Compact version */}
-            <p className="max-w-4xl mx-auto text-sm sm:text-base md:text-lg text-white/80 leading-relaxed px-4">
+            {/* Description */}
+            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
               Partnering with Tri-Cities communities since 2010 - where veteran
               values meet collaborative construction management for
               extraordinary results.
             </p>
-
-            {/* Call to Action Buttons - Reduced spacing */}
-            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 justify-center mt-6 sm:mt-8 px-4">
-              <Button
-                size="xl"
-                className="bg-brand-secondary hover:bg-brand-secondary/90 text-gray-900 font-bold w-full sm:w-auto min-h-[48px] touch-manipulation"
-              >
-                <MaterialIcon
-                  icon="handshake"
-                  className="mr-2 sm:mr-3 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"
-                />
-                <span className="text-sm sm:text-base">Start Your Project</span>
-              </Button>
-              <Button
-                variant="outline"
-                size="xl"
-                className="border-white text-white hover:bg-white hover:text-gray-900 w-full sm:w-auto min-h-[48px] touch-manipulation"
-              >
-                <MaterialIcon
-                  icon="visibility"
-                  className="mr-2 sm:mr-3 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"
-                />
-                <span className="text-sm sm:text-base">View Our Work</span>
-              </Button>
-            </div>
           </div>
         </div>
 
