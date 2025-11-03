@@ -1,8 +1,29 @@
-# Cloudflare Pages Deployment - Ready to Deploy
+# Cloudflare Pages Deployment - Active & Deployed
 
-## Build Status: ✅ SUCCESS
+## Build Status: ✅ DEPLOYED & ACTIVE
 
-The MH Construction website has been successfully migrated from Firebase to Cloudflare Pages and is ready for deployment.
+**Last Deployment:** November 3, 2025  
+**Deployment Method:** GitHub Actions CI/CD Pipeline  
+**Status:** Successfully deploying on every push to `main`
+
+The MH Construction website has been successfully deployed to Cloudflare Pages with automated CI/CD.
+
+## Deployment Configuration
+
+### CI/CD Pipeline (GitHub Actions)
+
+- **Workflow:** `.github/workflows/ci-cd.yml`
+- **Node.js Version:** 20.x
+- **Wrangler Version:** v3
+- **Build Command:** `npm run build:cloudflare`
+- **Output Directory:** `.vercel/output/static`
+- **Deploy Time:** ~3 minutes per push
+- **Project Name:** `mh-construction`
+
+### Required Secrets (Configured ✅)
+
+- `CLOUDFLARE_API_TOKEN` - API token with Pages Edit permission
+- `CLOUDFLARE_ACCOUNT_ID` - Account ID: `60ac45cad5eead847d2ae20dab3661da`
 
 ## Build Summary
 
