@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+  deployments: write
+
 env:
   NODE_VERSION: "18"
   NEXT_PUBLIC_SITE_URL: https://mhc-gc.com
