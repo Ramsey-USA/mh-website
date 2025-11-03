@@ -139,8 +139,6 @@ export function ContactForm({
       // For now, we'll simulate the submission
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      console.log("Form submitted:", formData);
-
       setIsSubmitted(true);
 
       // Reset form after successful submission

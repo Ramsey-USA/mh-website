@@ -4,7 +4,6 @@ const nextConfig = {
     webpackBuildWorker: true,
     optimizeCss: true,
     optimizePackageImports: [
-      "lucide-react",
       "framer-motion",
       "@radix-ui/react-icons",
       "react-markdown",
@@ -61,7 +60,7 @@ const nextConfig = {
             },
             // UI libraries
             ui: {
-              test: /[\\/]node_modules[\\/](@radix-ui|framer-motion|lucide-react)[\\/]/,
+              test: /[\\/]node_modules[\\/](@radix-ui|framer-motion)[\\/]/,
               name: "ui-libs",
               chunks: "all",
               priority: 25,
