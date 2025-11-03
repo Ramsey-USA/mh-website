@@ -8,6 +8,14 @@ const config: Config = {
   ],
   darkMode: "class",
   theme: {
+    screens: {
+      xs: "475px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     extend: {
       colors: {
         brand: {
@@ -59,9 +67,12 @@ const config: Config = {
         "4xl": "2rem",
       },
       boxShadow: {
-        brand: "0 10px 25px -5px rgba(56, 104, 81, 0.2), 0 10px 10px -5px rgba(56, 104, 81, 0.04)",
-        "brand-lg": "0 20px 25px -5px rgba(56, 104, 81, 0.2), 0 10px 10px -5px rgba(56, 104, 81, 0.04)",
-        bronze: "0 10px 25px -5px rgba(205, 127, 50, 0.2), 0 10px 10px -5px rgba(205, 127, 50, 0.04)",
+        brand:
+          "0 10px 25px -5px rgba(56, 104, 81, 0.2), 0 10px 10px -5px rgba(56, 104, 81, 0.04)",
+        "brand-lg":
+          "0 20px 25px -5px rgba(56, 104, 81, 0.2), 0 10px 10px -5px rgba(56, 104, 81, 0.04)",
+        bronze:
+          "0 10px 25px -5px rgba(205, 127, 50, 0.2), 0 10px 10px -5px rgba(205, 127, 50, 0.04)",
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-out",
