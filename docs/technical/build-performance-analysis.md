@@ -31,7 +31,7 @@ const EstimatorForm = dynamic(
   () => import("../../components/estimator/EstimatorForm"),
   { ssr: false, loading: () => <div>Loading...</div> }
 );
-```
+```text
 
 #### 2. **Bundle Analysis Recommendations**
 
@@ -104,7 +104,7 @@ npm run dev  # ~2-3s hot reload
 
 # Use type-check only when needed
 npm run type-check  # ~3-5s
-```
+```text
 
 #### **For Production:**
 
@@ -126,7 +126,7 @@ npm run lint
 
 # Full production build (23s)
 npm run build
-```
+```text
 
 ## 🎉 **Conclusion**
 

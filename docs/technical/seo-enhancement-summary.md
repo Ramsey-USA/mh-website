@@ -48,7 +48,7 @@ expertise.
     "features": ["Real-time cost estimation", "Military-style assessment"]
   }
 }
-```
+```text
 
 #### New Service Schemas
 
@@ -110,7 +110,7 @@ export default function Home() {
     </>
   );
 }
-```
+```text
 
 ## SEO Benefits Expected
 
@@ -167,7 +167,7 @@ export default function EstimatorPage() {
     </>
   );
 }
-```
+```text
 
 ## Next Steps for Complete Implementation
 

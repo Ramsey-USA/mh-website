@@ -23,7 +23,7 @@ Node.js >= 18.0.0
 npm >= 8.0.0
 Cloudflare account (free tier works)
 Git repository connected to Cloudflare
-```
+```text
 
 ### One-Command Deploy
 
@@ -34,7 +34,7 @@ npm run build:cloudflare
 
 # Deploy to Cloudflare Pages
 npm run pages:deploy
-```
+```text
 
 ## 📋 Table of Contents
 
@@ -56,7 +56,7 @@ Create `.env.local` from the template:
 
 ```bash
 cp .env.local.example .env.local
-```
+```text
 
 Required variables for production:
 
@@ -72,28 +72,28 @@ CLOUDFLARE_API_TOKEN=your_api_token_here
 
 # Optional: Analytics
 NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
-```
+```text
 
 ### 2. Get Cloudflare Credentials
 
 **Account ID & Zone ID:**
 
 1. Log into Cloudflare Dashboard
-2. Select your website
-3. Scroll down on Overview page to find:
+1. Select your website
+1. Scroll down on Overview page to find:
    - **Account ID**: Right sidebar
    - **Zone ID**: Right sidebar under API section
 
 **API Token:**
 
 1. Go to "My Profile" → "API Tokens"
-2. Click "Create Token"
-3. Use "Edit Cloudflare Workers" template
-4. Add permissions:
+1. Click "Create Token"
+1. Use "Edit Cloudflare Workers" template
+1. Add permissions:
    - Account - Cloudflare Pages: Edit
    - Zone - DNS: Edit (for custom domains)
-5. Click "Continue to summary" → "Create Token"
-6. Copy the token (you won't see it again!)
+1. Click "Continue to summary" → "Create Token"
+1. Copy the token (you won't see it again!)
 
 ---
 
@@ -107,7 +107,7 @@ The `next.config.js` is already optimized for Cloudflare Pages:
 // Edge Runtime compatible
 // Optimized for @cloudflare/next-on-pages
 // No Node.js APIs in edge routes
-```
+```text
 
 ### Package Scripts
 
@@ -117,7 +117,7 @@ The `next.config.js` is already optimized for Cloudflare Pages:
   "pages:deploy": "npm run build:cloudflare && npx wrangler pages deploy .vercel/output/static --project-name=mh-construction",
   "deploy:production": "npm run build:cloudflare && npm run pages:deploy"
 }
-```
+```text
 
 ---
 
@@ -130,7 +130,7 @@ The `next.config.js` is already optimized for Cloudflare Pages:
    - Click "Create application" → "Pages" → "Connect to Git"
    - Authorize GitHub/GitLab and select your repository
 
-2. **Build Settings**
+1. **Build Settings**
 
    ```text
    Framework preset: Next.js
@@ -139,7 +139,7 @@ The `next.config.js` is already optimized for Cloudflare Pages:
    Root directory: (leave blank)
    ```
 
-3. **Environment Variables**
+1. **Environment Variables**
    Add in Cloudflare Dashboard → Pages → Settings → Environment Variables:
 
    ```text
@@ -147,7 +147,7 @@ The `next.config.js` is already optimized for Cloudflare Pages:
    NODE_VERSION=18
    ```
 
-4. **Branch Configuration**
+1. **Branch Configuration**
    - Production branch: `main`
    - Preview branches: All branches (optional)
 
@@ -163,7 +163,7 @@ wrangler login
 # Deploy manually
 npm run build:cloudflare
 npx wrangler pages deploy .vercel/output/static --project-name=mh-construction
-```
+```text
 
 ---
 
@@ -205,7 +205,7 @@ git commit -m "Deploy to Cloudflare Pages"
 git push origin main
 
 # Cloudflare automatically builds and deploys
-```
+```text
 
 ### Method 2: Wrangler CLI
 
@@ -216,7 +216,7 @@ wrangler login
 
 # Deploy
 npm run deploy:production
-```
+```text
 
 ### Method 3: npm Scripts
 
@@ -226,7 +226,7 @@ npm run build:cloudflare
 
 # Build and deploy
 npm run pages:deploy
-```
+```text
 
 ---
 
@@ -235,9 +235,9 @@ npm run pages:deploy
 ### 1. Add Domain in Cloudflare Pages
 
 1. Go to Pages project → "Custom domains"
-2. Click "Set up a custom domain"
-3. Enter your domain: `mhc-gc.com`
-4. Cloudflare will provide DNS records
+1. Click "Set up a custom domain"
+1. Enter your domain: `mhc-gc.com`
+1. Cloudflare will provide DNS records
 
 ### 2. Configure DNS
 
@@ -249,14 +249,14 @@ If domain is already on Cloudflare:
 If domain is external (e.g., Namecheap):
 
 1. Go to domain registrar
-2. Change nameservers to Cloudflare's:
+1. Change nameservers to Cloudflare's:
 
    ```text
    alfred.ns.cloudflare.com
    luna.ns.cloudflare.com
    ```
 
-3. Wait 24-48 hours for nameserver propagation
+1. Wait 24-48 hours for nameserver propagation
 
 ### 3. SSL/TLS Setup
 
@@ -269,7 +269,7 @@ Cloudflare provides free SSL automatically:
 ### 4. Add www Subdomain
 
 1. Add another custom domain: `www.mhc-gc.com`
-2. Or create redirect rule:
+1. Or create redirect rule:
    - From: `www.mhc-gc.com`
    - To: `mhc-gc.com`
    - Status: 301 Permanent
@@ -296,7 +296,7 @@ rm -rf .next .vercel
 npm run build:cloudflare
 
 # Should show: "✓ Build completed in ~60s" with 14 Edge Function Routes detected
-```
+```text
 
 ### Build Fails with "Edge Runtime" Error
 
@@ -311,7 +311,7 @@ grep -r "from 'path'" src/app/api/
 
 # All API routes must have:
 export const runtime = "edge";
-```
+```text
 
 ### "Buffer is not defined" Error
 
@@ -326,31 +326,31 @@ const b64 = Buffer.from(data).toString('base64');
 // ✅ Use this instead
 const binary = String.fromCharCode(...new Uint8Array(data));
 const b64 = btoa(binary);
-```
+```text
 
 ### Build Succeeds but Pages Don't Load
 
 **Check**:
 
 1. Build output directory is correct: `.vercel/output/static`
-2. All environment variables are set in Cloudflare Dashboard
-3. Check Cloudflare Pages build logs for errors
+1. All environment variables are set in Cloudflare Dashboard
+1. Check Cloudflare Pages build logs for errors
 
 ### Custom Domain Not Working
 
 **Check**:
 
 1. DNS propagation: `dig mhc-gc.com` or use [whatsmydns.net](https://whatsmydns.net)
-2. SSL certificate status in Cloudflare Dashboard
-3. Wait 5-15 minutes for initial SSL provisioning
+1. SSL certificate status in Cloudflare Dashboard
+1. Wait 5-15 minutes for initial SSL provisioning
 
 ### API Routes Return 500 Error
 
 **Check**:
 
 1. All routes have `export const runtime = "edge"`
-2. No Node.js APIs used (fs, path, Buffer)
-3. Check Cloudflare Pages → Functions logs for errors
+1. No Node.js APIs used (fs, path, Buffer)
+1. Check Cloudflare Pages → Functions logs for errors
 
 ---
 
@@ -373,7 +373,7 @@ lighthouse https://mhc-gc.com --view
 
 # Check Core Web Vitals
 # Use Chrome DevTools → Lighthouse → Performance
-```
+```text
 
 ---
 
@@ -392,9 +392,9 @@ lighthouse https://mhc-gc.com --view
 **Enable Cloudflare Security Features**:
 
 1. **WAF (Web Application Firewall)** - Enable managed rules
-2. **Bot Protection** - Block malicious bots
-3. **DDoS Protection** - Automatic mitigation
-4. **Rate Limiting** - Prevent abuse (requires Workers)
+1. **Bot Protection** - Block malicious bots
+1. **DDoS Protection** - Automatic mitigation
+1. **Rate Limiting** - Prevent abuse (requires Workers)
 
 ---
 

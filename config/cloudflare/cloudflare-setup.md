@@ -10,7 +10,7 @@
 (http.request.uri.path contains "/.env") or
 (http.request.uri.path contains "/wp-admin") or
 (http.request.body contains "script>" and http.request.method eq "POST")
-```
+```text
 
 ### Rate Limiting Rules
 
@@ -18,7 +18,7 @@
 // Contact form rate limiting
 http.request.uri.path eq "/api/contact" and http.request.method eq "POST"
 // Rate: 5 requests per minute per IP
-```
+```text
 
 ## Page Rules
 
@@ -29,14 +29,14 @@ Pattern: *.mhc-gc.com/*
 Setting: Cache Level = Standard
 Setting: Browser Cache TTL = 1 month
 Setting: Edge Cache TTL = 7 days
-```
+```text
 
 ### Performance Rules
 
 ```text
 Pattern: *.mhc-gc.com/api/*
 Setting: Cache Level = Bypass
-```
+```text
 
 ## DNS Settings
 
@@ -52,7 +52,7 @@ Type: CNAME
 Name: www
 Content: mhc-gc.com
 Proxy: Enabled (Orange Cloud)
-```
+```text
 
 ## SSL/TLS Configuration
 

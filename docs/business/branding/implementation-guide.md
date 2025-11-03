@@ -529,7 +529,7 @@ Licensed in WA, OR, ID | Veteran-Owned & Operated
 <a href="https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301">
   Get Directions
 </a>
-```
+```text
 
 ## Related Documentation
 

@@ -61,7 +61,7 @@ export default function [PageName]Page() {
     </>
   );
 }
-```
+```text
 
 ## 🚀 Deployment Checklist
 
@@ -154,7 +154,7 @@ curl -X POST \
   -H "Content-Type: application/json" \
   -d '{"url": "https://www.mhc-gc.com/estimator"}' \
   "https://search.google.com/test/rich-results"
-```
+```text
 
 ### Performance Impact
 

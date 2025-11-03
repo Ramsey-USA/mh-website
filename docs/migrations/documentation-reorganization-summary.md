@@ -23,7 +23,7 @@ docs/
 ├── 📁 guides/             # NEW - User guides and tutorials
 ├── 📁 reference/          # NEW - Quick reference materials
 └── 📁 archive/            # NEW - Archived and historical documents
-```
+```text
 
 ### 🎯 Key Improvements
 

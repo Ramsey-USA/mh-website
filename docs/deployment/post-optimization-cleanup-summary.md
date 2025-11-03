@@ -80,7 +80,7 @@
 
 ## 📁 **Current File Structure (Optimized)**
 
-```
+```text
 /workspaces/mh-website/
 ├── firebase.json                 # ✅ Enhanced Firebase configuration
 ├── next.config.js               # ✅ Optimized Next.js configuration
@@ -97,7 +97,7 @@
 │       └── post-optimization-cleanup.js # ✅ This cleanup script
 └── src/
     └── app/                     # ✅ Clean production routes only
-```
+```text
 
 ---
 
@@ -118,7 +118,7 @@ cp backups/post-optimization-cleanup-2025-10-16T1615/filename original/location/
 
 # Example: Restore old firebase config
 cp backups/post-optimization-cleanup-2025-10-16T1615/firebase.json config/deployment/
-```
+```text
 
 ---
 

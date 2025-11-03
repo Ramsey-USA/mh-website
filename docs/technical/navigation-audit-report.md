@@ -41,7 +41,7 @@
 ```text
 ✅ Home, About, Services, Projects, Contact
 ✅ Team, Careers, Estimator, Government, Trade Partners
-```
+```text
 
 ### **2. Navigation Configurations Complete**
 
@@ -139,7 +139,7 @@ Pages Implemented: 5/5 missing pages ✅
 Configuration Updates: All complete ✅
 Documentation: Comprehensive ✅
 Quality Assurance: All tests passing ✅
-```
+```text
 
 ---
 

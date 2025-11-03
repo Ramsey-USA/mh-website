@@ -34,7 +34,7 @@ webpack: {
   cache: { type: 'filesystem', compression: 'gzip' },
   optimization: { splitChunks: { /* advanced chunking */ } }
 }
-```
+```text
 
 ### ✅ **Monitoring & Tools**
 
@@ -52,13 +52,13 @@ npm run build              # Optimized build (16-17s)
 npm run build:fast         # Development build
 npm run build:profile      # Memory-optimized build
 npm run build:analyze      # Bundle analysis
-```
+```text
 
 ### Monitoring
 
 ```bash
 node scripts/optimization/build-monitor.js && npm run build
-```
+```text
 
 ## 📁 Project Files Created
 

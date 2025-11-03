@@ -24,13 +24,13 @@ Always specify the language:
 
 ```javascript
 const example = "specify language";
-```
+```text
 
 For plain text use 'text':
 
 ```text
 Example plain text
-```
+```text
 
 ## Line Length
 

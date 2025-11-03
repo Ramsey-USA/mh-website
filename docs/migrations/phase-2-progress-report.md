@@ -49,7 +49,7 @@ Successfully extracted 3 major page sections into focused, reusable components:
 
 #### **Directory Structure**
 
-```
+```text
 src/components/page-sections/
 ├── hero/
 │   └── HeroSection.tsx      (1.8KB)
@@ -57,7 +57,7 @@ src/components/page-sections/
 │   └── FeaturesSection.tsx  (8.2KB)
 └── services/
     └── ServicesSection.tsx  (4.1KB)
-```
+```text
 
 #### **Data Abstraction**
 

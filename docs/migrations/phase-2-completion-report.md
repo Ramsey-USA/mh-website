@@ -54,7 +54,7 @@ Created modular analytics foundation:
 
 ### **📁 New Modular Structure Created**
 
-```
+```text
 src/components/
 ├── page-sections/          # Page-level components
 │   ├── hero/HeroSection.tsx           (1.8KB)
@@ -64,7 +64,7 @@ src/components/
     └── modules/             # Modular analytics components
         ├── UIComponents.tsx            (5.2KB)
         └── constants.ts                (1.1KB)
-```
+```text
 
 ### **🎯 Cumulative Performance Impact**
 

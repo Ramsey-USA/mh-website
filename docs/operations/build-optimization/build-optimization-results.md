@@ -24,7 +24,7 @@
 ✅ Tree shaking optimizations      // Dead code elimination ✅ WORKING
 ✅ Strategic chunk separation      // Firebase, UI, Framework ✅ NEW
 ✅ Package import optimization     // Heavy libraries ✅ NEW
-```
+```text
 
 ### 2. Build Performance Improvements - ACHIEVED
 
@@ -56,7 +56,7 @@ Excellent chunk distribution achieved:
 88K   firebase-234817c1-2253eb35aa702f55.js    # Firebase auth/firestore
 72K   ui-libs-04fef8b0-04c3e49dc3aeb127.js     # UI component libraries
 60K   vendors-ad6a2f20-f0c0259c5f7ff34c.js     # Third-party vendors
-```
+```text
 
 **Total shared JS baseline: 198KB** (Excellent optimization!)
 
@@ -74,13 +74,13 @@ Excellent chunk distribution achieved:
    # Move sections to: Hero.tsx, Features.tsx, Services.tsx, etc.
    ```
 
-2. **Enable Fast Build Mode** (Will save 5-8 seconds):
+1. **Enable Fast Build Mode** (Will save 5-8 seconds):
 
    ```bash
    npm run build:fast  # Skips linting during build
    ```
 
-3. **Use Build Cache** (Will save 15-20 seconds on rebuilds):
+1. **Use Build Cache** (Will save 15-20 seconds on rebuilds):
 
    ```bash
    # Cache will automatically work after first build
@@ -92,20 +92,20 @@ Excellent chunk distribution achieved:
 #### 🟢 Quick Wins (0-30 minutes)
 
 1. Use optimized next.config.js ✅ (Already applied)
-2. Run `npm run build:fast` for development builds
-3. Use persistent cache for subsequent builds
+1. Run `npm run build:fast` for development builds
+1. Use persistent cache for subsequent builds
 
 #### 🟡 Medium Effort (1-2 hours)
 
 1. Split `militaryConstructionAI.ts` into 4-5 smaller files
-2. Break down large page components into smaller components
-3. Implement dynamic imports for heavy features
+1. Break down large page components into smaller components
+1. Implement dynamic imports for heavy features
 
 #### 🔴 Long-term (2-4 hours)
 
 1. Implement lazy loading for non-critical components
-2. Optimize dependencies (consider lighter alternatives)
-3. Set up incremental build pipeline
+1. Optimize dependencies (consider lighter alternatives)
+1. Set up incremental build pipeline
 
 ## 🛠️ Available Tools
 
@@ -116,19 +116,19 @@ npm run build              # Standard optimized build
 npm run build:fast         # Skip linting (5-8s faster)
 npm run build:profile      # Extra memory allocation
 npm run build:analyze      # Bundle size analysis
-```
+```text
 
 ### Monitoring
 
 ```bash
 node scripts/optimization/build-monitor.js && npm run build
-```
+```text
 
 ### Analysis
 
 ```bash
 ./scripts/analysis/build-bottleneck-analyzer.sh
-```
+```text
 
 ## 📈 Performance Tracking
 
@@ -155,9 +155,9 @@ The build monitor will track your improvements:
 ## 💡 Why This Works
 
 1. **Webpack Workers**: Processes files in parallel instead of sequentially
-2. **Filesystem Cache**: Avoids recompiling unchanged files
-3. **Chunk Splitting**: Smaller, more manageable bundles
-4. **File Size Reduction**: Less code to compile per file
+1. **Filesystem Cache**: Avoids recompiling unchanged files
+1. **Chunk Splitting**: Smaller, more manageable bundles
+1. **File Size Reduction**: Less code to compile per file
 
 The biggest win will come from splitting those large files - TypeScript compilation time scales exponentially with file size!
 

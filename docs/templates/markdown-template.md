@@ -54,18 +54,18 @@ For longer code examples:
 function example() {
   return "Always specify language";
 }
-```
+```text
 
 ```bash
 # Shell commands
 npm install
 npm run build
-```
+```text
 
 ```text
 Plain text blocks need 'text' specified
 to avoid MD040 violations
-```
+```text
 
 ## Tables
 
@@ -121,7 +121,7 @@ within the character limit.
 #### Details (H4)
 ##### Minor Details (H5)
 ###### Smallest Details (H6)
-```
+```text
 
 ## Conclusion
 

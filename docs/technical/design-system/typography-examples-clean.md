@@ -23,7 +23,7 @@ All sections should follow this consistent pattern:
 <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
   {descriptionWithBrandedEmphasis}
 </p>
-```
+```text
 
 ## ✅ Card Component Typography
 
@@ -34,7 +34,7 @@ All sections should follow this consistent pattern:
 <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">
   {cardDescription}
 </p>
-```
+```text
 
 ## ✅ Branded Emphasis Spans
 
@@ -48,7 +48,7 @@ All sections should follow this consistent pattern:
 <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
   {brandedText}
 </span>
-```
+```text
 
 ## 📱 Responsive Typography Scale
 

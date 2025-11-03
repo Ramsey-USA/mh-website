@@ -29,7 +29,7 @@ Make scripts executable before running:
 
 ```bash
 chmod +x *.sh
-```
+```text
 
 Run individual tests:
 
@@ -42,7 +42,7 @@ Run individual tests:
 
 # Responsive design tests
 ./test-responsive.sh
-```
+```text
 
 ## Test Coverage
 

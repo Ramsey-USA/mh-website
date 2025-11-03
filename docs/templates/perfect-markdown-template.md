@@ -26,7 +26,7 @@ Always specify language for code blocks:
 function example() {
   return "language specified";
 }
-```
+```text
 
 For diagrams or plain text use 'text':
 
@@ -34,7 +34,7 @@ For diagrams or plain text use 'text':
 docs/
   templates/
     MARKDOWN_TEMPLATE.md
-```
+```text
 
 ### Line Length
 
@@ -50,7 +50,7 @@ Follow this structure for consistency:
 ## Overview
 ### Details
 #### Sub-details
-```
+```text
 
 ## Quick Checklist
 

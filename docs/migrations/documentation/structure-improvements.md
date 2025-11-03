@@ -53,7 +53,7 @@ Relevant contact details for this topic.
 ---
 
 **Last Updated:** [Date] | **Version:** [X.X] | **Owner:** [Team/Person]
-```
+```text
 
 ### **2. Heading Structure Standards**
 
@@ -67,7 +67,7 @@ Relevant contact details for this topic.
 ### H3 - Subsections
 
 #### H4 - Sub-subsections (limit use)
-```
+```text
 
 #### **Section Numbering**
 
@@ -81,7 +81,7 @@ Relevant contact details for this topic.
 ## 2. Second Major Section
 
 ### 2.1 First Subsection
-```
+```text
 
 ### **3. Enhanced Navigation System**
 
@@ -97,7 +97,7 @@ Every document should start with:
 - [Implementation](#implementation)
 - [Resources](#resources)
 - [Contact](#contact)
-```
+```text
 
 #### **Cross-Reference Standards**
 
@@ -115,7 +115,7 @@ Every document should start with:
 ### **Reference Materials**
 
 - [External Resource](https://example.com) - Brief description
-```
+```text
 
 ### **4. Content Organization Improvements**
 
@@ -144,7 +144,7 @@ Main Topic/
 └── assets/
     ├── diagrams/
     └── screenshots/
-```
+```text
 
 ---
 
@@ -173,7 +173,7 @@ partnership/
 └── reference/
     ├── phone-extensions.md
     └── domain-structure.md
-```
+```text
 
 ### **Business Documentation**
 
@@ -187,7 +187,7 @@ business/
 ├── core-values.md
 ├── team-roster.md
 └── branding/
-```
+```text
 
 **Enhanced:**
 
@@ -212,7 +212,7 @@ business/
 └── branding/
     ├── README.md (current branding-index.md)
     └── [existing structure]
-```
+```text
 
 ### **Technical Documentation**
 
@@ -238,7 +238,7 @@ technical/
 └── api/
     ├── endpoints.md
     └── authentication.md
-```
+```text
 
 ---
 
@@ -265,7 +265,7 @@ technical/
 ### **Bold for important subsections**
 
 > Use blockquotes for important notes
-```
+```text
 
 ### **Code Formatting**
 
@@ -278,7 +278,7 @@ technical/
 
 ```typescript
 const example = "with syntax highlighting";
-```
+```text
 ````
 
 #### **File content blocks**
@@ -286,7 +286,7 @@ const example = "with syntax highlighting";
 ```markdown
 // filename: example.ts
 const content = "with filename context";
-```
+```text
 
 ````markdown
 ### **Tables for Structured Data**
@@ -297,7 +297,7 @@ const content = "with filename context";
 | Navigation | ✅ Complete    | Working well  |
 | Forms      | 🔄 In Progress | Needs testing |
 | API        | ❌ Pending     | Not started   |
-```
+```text
 ````
 
 ---

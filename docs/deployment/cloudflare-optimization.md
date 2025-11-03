@@ -57,7 +57,7 @@ comprehensive optimizations for performance, security, and developer experience.
 ```bash
 npm run dev
 # Runs on http://localhost:3000
-```
+```text
 
 ### Build & Deploy
 
@@ -70,7 +70,7 @@ npm run pages:deploy
 
 # Or use automatic Git deployments
 git push origin main
-```
+```text
 
 ## ⚡ Performance Features
 
@@ -102,14 +102,14 @@ git push origin main
 ```env
 NEXT_PUBLIC_SITE_URL=https://mhc-gc.com
 NODE_VERSION=18
-```
+```text
 
 ### Optional (for Cloudflare services)
 
 ```env
 CLOUDFLARE_ACCOUNT_ID=your_account_id
 CLOUDFLARE_API_TOKEN=your_api_token
-```
+```text
 
 ## 📊 Expected Performance
 
@@ -136,7 +136,7 @@ For persistent data storage:
 ```bash
 wrangler d1 create mh-construction-db
 wrangler d1 execute mh-construction-db --file=./schema.sql
-```
+```text
 
 ### Cloudflare KV Storage (Optional)
 
@@ -144,7 +144,7 @@ For caching and key-value storage:
 
 ```bash
 wrangler kv:namespace create "CACHE"
-```
+```text
 
 ### Cloudflare R2 Storage (Optional)
 
@@ -152,7 +152,7 @@ For file uploads and asset storage:
 
 ```bash
 wrangler r2 bucket create mh-construction-assets
-```
+```text
 
 ## 🚨 Important Notes
 
@@ -201,7 +201,7 @@ Check Node version and dependencies:
 node --version  # Should be 18+
 npm install
 npm run build
-```
+```text
 
 ### API Routes Not Working
 

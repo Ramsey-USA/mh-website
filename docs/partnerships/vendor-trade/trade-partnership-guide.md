@@ -28,7 +28,7 @@ Construction network.
 "Growth opportunities with an established regional leader";
 "Community-centered projects that make a difference";
 "Veteran-owned business supporting veteran entrepreneurs";
-```
+```text
 
 ### **Trade Partner Requirements**
 
@@ -48,7 +48,7 @@ Construction network.
 - Strong safety record and certifications
 - Technology-capable for project communication
 - Sustainable and community-minded business practices
-```
+```text
 
 ---
 
@@ -73,7 +73,7 @@ Application Form Sections:
     ├── Typical project size and scope
     ├── Current workload and availability
     └── Growth goals and objectives
-```
+```text
 
 ### **Step 2: Documentation Review**
 
@@ -94,7 +94,7 @@ Required Documents:
     ├── W-9 tax form
     ├── Business registration documents
     └── Banking and payment information
-```
+```text
 
 ### **Step 3: Portfolio and References**
 
@@ -115,7 +115,7 @@ Portfolio Requirements:
     ├── Project coordination examples
     ├── Team collaboration feedback
     └── Problem-solving and adaptability examples
-```
+```text
 
 ### **Step 4: Partnership Evaluation**
 
@@ -136,7 +136,7 @@ Evaluation Process:
     ├── Community commitment evaluation
     ├── Professional approach review
     └── Long-term partnership potential
-```
+```text
 
 ---
 
@@ -154,7 +154,7 @@ New Trade Partner Kit:
 ├── Quality Control Standards and Expectations
 ├── Contact Directory and Emergency Procedures
 └── Trade Partner Portal Access and Training
-```
+```text
 
 ### **Integration Process**
 
@@ -183,7 +183,7 @@ Week 4: Full Partnership Activation
 ├── Full project access activation
 ├── Long-term planning discussion
 └── Partnership optimization planning
-```
+```text
 
 ---
 
@@ -211,7 +211,7 @@ Specialty Services:
 ├── Project Cleanup
 ├── Material Delivery
 └── Equipment Rental
-```
+```text
 
 ### **Vendor Categories**
 
@@ -235,7 +235,7 @@ Professional Services:
 ├── Insurance Services
 ├── Equipment Services
 └── Transportation and Logistics
-```
+```text
 
 ---
 
@@ -265,7 +265,7 @@ Portal Capabilities:
     ├── Training materials and certifications
     ├── Contact directory and support
     └── Partnership resources and tools
-```
+```text
 
 ---
 
@@ -295,7 +295,7 @@ Partnership Levels:
     ├── Co-marketing and business development
     ├── Strategic planning and market expansion
     └── Long-term growth and development planning
-```
+```text
 
 ---
 
@@ -320,7 +320,7 @@ Trade Partnership Team:
     ├── Email: office@mhc-gc.com
     ├── Safety requirements and training
     └── Compliance monitoring and support
-```
+```text
 
 ### **Quick Contact Links**
 
@@ -348,7 +348,7 @@ Trade Partnership Team:
 "Professional Partnerships That Grow Your Business";
 "Join Quality Professionals Serving the Tri-Cities";
 "Veteran-Owned Business Supporting Trade Professionals";
-```
+```text
 
 ### **Call-to-Action Messaging**
 
@@ -370,7 +370,7 @@ Trade Partnership Team:
 "Read Success Stories";
 "Explore Trade Categories";
 "Check Application Status";
-```
+```text
 
 ---
 

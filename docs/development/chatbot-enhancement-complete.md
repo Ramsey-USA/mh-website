@@ -159,32 +159,32 @@ with enhanced user engagement and accessibility compliance.
 
 ### Component Structure
 
-```
+```text
 GlobalChatbot (Main Container)
 ├── ConversationHistoryPanel (History Management)
 ├── QuickActionMenu (Quick Actions)
 ├── ChatMessage (Memoized Message Rendering)
 └── Enhanced UI Components (Buttons, Cards, etc.)
-```
+```text
 
 ### Library Structure
 
-```
+```text
 src/lib/chatbot/
 ├── EnhancedChatbotAI.ts (AI Response System)
 ├── performance.ts (Performance Utilities)
 └── advanced-features.ts (Persistence & Export)
-```
+```text
 
 ### Analytics Integration
 
-```
+```text
 enhanced-analytics.tsx
 ├── Chatbot-specific tracking functions
 ├── Lead generation metrics
 ├── Session duration tracking
 └── User interaction analytics
-```
+```text
 
 ## 🔧 Configuration & Settings
 

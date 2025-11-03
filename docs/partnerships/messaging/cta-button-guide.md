@@ -36,7 +36,7 @@ standards to distinguish between:
   <MaterialIcon icon="calculate" size="lg" className="mr-3" />
   <span className="font-medium">Calculate Project Cost</span>
 </Button>
-```
+```text
 
 **Button Text Options:**
 
@@ -73,7 +73,7 @@ standards to distinguish between:
   <MaterialIcon icon="place" size="lg" className="mr-3" />
   <span className="font-medium">Book Site Visit</span>
 </Button>
-```
+```text
 
 **Button Text Options:**
 
@@ -105,7 +105,7 @@ standards to distinguish between:
   <MaterialIcon icon="engineering" size="lg" className="mr-3" />
   <span className="font-medium">Discuss Your Vision</span>
 </Button>
-```
+```text
 
 ### **Primary Client Actions**
 
@@ -125,7 +125,7 @@ standards to distinguish between:
 "Plan Partnership Meeting"; // Collaborative planning session
 "Schedule Project Review"; // Plans and vision review
 "Book Estimate Appointment"; // Formal estimate meeting
-```
+```text
 
 ### **Secondary Client Actions**
 
@@ -145,7 +145,7 @@ standards to distinguish between:
 "Share Your Ideas"; // Vision sharing
 "Get Project Advice"; // Expert guidance
 "Connect with Team"; // Meet the people
-```
+```text
 
 ---
 
@@ -173,7 +173,7 @@ standards to distinguish between:
   <MaterialIcon icon="work" size="lg" className="mr-3" />
   <span className="font-medium">Explore Vendor Opportunities</span>
 </Button>
-```
+```text
 
 ### **Primary Vendor Actions**
 
@@ -193,7 +193,7 @@ standards to distinguish between:
 "Access Vendor Portal"; // Existing vendor login
 "View Current Opportunities"; // Available projects
 "Schedule Vendor Meeting"; // Business discussion
-```
+```text
 
 ### **Secondary Vendor Actions**
 
@@ -213,7 +213,7 @@ standards to distinguish between:
 "Submit Trade Inquiry"; // Initial contact
 "Schedule Business Discussion"; // Formal meeting
 "Connect with Vendor Team"; // Direct communication
-```
+```text
 
 ---
 
@@ -246,7 +246,7 @@ standards to distinguish between:
   <MaterialIcon icon="construction" size="lg" className="mr-3" />
   <span className="font-medium">Join Trade Partnership Network</span>
 </Button>
-```
+```text
 
 ### **Contact Page**
 
@@ -269,7 +269,7 @@ standards to distinguish between:
   <MaterialIcon icon="contact_mail" size="md" className="mr-2" />
   Submit Vendor Application
 </Button>
-```
+```text
 
 ### **Services Page**
 
@@ -290,7 +290,7 @@ standards to distinguish between:
   <MaterialIcon icon="construction" size="md" className="mr-2" />
   Join This Service Network
 </Button>
-```
+```text
 
 "Become [Trade] Partner"
 "Submit [Trade] Application"
@@ -337,7 +337,7 @@ standards to distinguish between:
   emphasis: medium;
   placement: supporting;
 }
-```
+```text
 
 ### **Vendor CTAs - Styling Approach**
 
@@ -358,7 +358,7 @@ standards to distinguish between:
   emphasis: medium;
   placement: supporting;
 }
-```
+```text
 
 ---
 
@@ -373,7 +373,7 @@ standards to distinguish between:
 - "Discuss Your Vision" clicks → Discovery calls
 - Form submissions → Qualified leads
 - Estimate completions → Project pipeline
-```
+```text
 
 ### **Vendor CTA Metrics**
 
@@ -384,7 +384,7 @@ standards to distinguish between:
 - "Download Vendor Package" clicks → Interest level
 - Application submissions → Vendor pipeline
 - Portal access → Active vendors
-```
+```text
 
 ---
 

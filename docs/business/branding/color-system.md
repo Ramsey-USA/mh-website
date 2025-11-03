@@ -534,7 +534,7 @@ module.exports = {
   <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
   <span className="font-medium">Get Instant AI Estimate</span>
 </Button>
-```
+```text
 
 ### Using Brand Colors Directly
 
@@ -551,4 +551,4 @@ module.exports = {
 <button className="text-brand-primary hover:bg-brand-primary hover:text-white">
   Interactive Element
 </button>
-```
+```text

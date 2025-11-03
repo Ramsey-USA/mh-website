@@ -38,7 +38,7 @@ This audit identified **several categories of inconsistencies** that need attent
 ```bash
 # Remove all .backup files from src directory
 find /workspaces/mh-website/src -name "*.backup" -type f -delete
-```
+```text
 
 **Risk Level:** 🟡 Low (files already backed up in `/backups/` directory)
 
@@ -77,7 +77,7 @@ rm -rf /workspaces/mh-website/src/app/phase-testing
 rm -rf /workspaces/mh-website/src/app/test-css
 
 # Consider moving analytics-demo to a separate branch or gating it
-```
+```text
 
 **Risk Level:** 🔴 Medium-High (security & production cleanliness)
 
@@ -107,7 +107,7 @@ mkdir -p scripts/tests
 mv test-responsive-complete.html testing/
 mv test-responsive.sh testing/
 rm public/test-hero.html  # Remove from public folder
-```
+```text
 
 **Risk Level:** 🟡 Low-Medium (organizational & public exposure)
 
@@ -138,7 +138,7 @@ rm /workspaces/mh-website/config/quality/.eslintrc.json
 
 # OR Option 2: Keep config copies, symlink from root
 # This depends on your organizational preference
-```
+```text
 
 **Risk Level:** 🟡 Low (currently identical, but could diverge)
 
@@ -156,7 +156,7 @@ rm /workspaces/mh-website/config/quality/.eslintrc.json
 
 ```bash
 rm /workspaces/mh-website/.markdownlint-cli2.jsonc.backup
-```
+```text
 
 **Risk Level:** 🟢 Very Low
 
@@ -176,10 +176,10 @@ rm /workspaces/mh-website/.markdownlint-cli2.jsonc.backup
 
 **Current .gitignore status:**
 
-```
+```text
 .env*.local  ✅ Covered
 .env         ✅ Covered
-```
+```text
 
 **Recommendation:**
 
@@ -206,7 +206,7 @@ rm /workspaces/mh-website/.markdownlint-cli2.jsonc.backup
 # Remove empty directories
 rmdir /workspaces/mh-website/src/app/phase-testing
 rmdir /workspaces/mh-website/src/app/test-css
-```
+```text
 
 **Risk Level:** 🟢 Very Low (just cleanup)
 
@@ -278,7 +278,7 @@ echo "Removing test file from public directory..."
 rm /workspaces/mh-website/public/test-hero.html 2>/dev/null || true
 
 echo "Phase 1 cleanup complete!"
-```
+```text
 
 ### Phase 2: Remove Test Routes (Requires Testing)
 
@@ -302,7 +302,7 @@ rm -rf /workspaces/mh-website/src/app/phase2-test
 # rm -rf /workspaces/mh-website/src/app/analytics-demo
 
 echo "Test routes removed. Run 'npm run build' to verify."
-```
+```text
 
 ### Phase 3: Configuration Consolidation (Review First)
 
@@ -319,7 +319,7 @@ diff /workspaces/mh-website/.eslintrc.json /workspaces/mh-website/config/quality
 # rm /workspaces/mh-website/config/quality/.eslintrc.json
 
 echo "Review diffs before removing duplicate configs."
-```
+```text
 
 ### Phase 4: Documentation Cleanup
 
@@ -370,7 +370,7 @@ test-*.sh
 # Temporary files
 *.tmp
 *.temp
-```
+```text
 
 ---
 

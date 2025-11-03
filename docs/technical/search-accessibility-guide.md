@@ -94,7 +94,7 @@ ensure compliance with WCAG 2.1 guidelines and provide an inclusive user experie
   className="..." // High contrast, focus-visible
   aria-label="Search items"
 />
-```
+```text
 
 ### 2. Accessible Search Results
 
@@ -111,7 +111,7 @@ ensure compliance with WCAG 2.1 guidelines and provide an inclusive user experie
   }}
   aria-label={`View ${item.title}`}
 >
-```
+```text
 
 ### 3. Screen Reader Announcements
 

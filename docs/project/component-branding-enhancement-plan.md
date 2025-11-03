@@ -103,7 +103,7 @@ Global navigation appears on every page and sets the first impression. Must be c
   <MaterialIcon icon="event" className="mr-2 w-5 h-5" />
   Schedule Consultation
 </Button>
-```
+```text
 
 **Secondary CTA Button (Desktop - Optional):**
 
@@ -117,7 +117,7 @@ Global navigation appears on every page and sets the first impression. Must be c
   <MaterialIcon icon="smart_toy" className="mr-2 w-5 h-5" />
   Try AI Estimator
 </Button>
-```
+```text
 
 **Phone Number Link (Desktop):**
 
@@ -129,7 +129,7 @@ Global navigation appears on every page and sets the first impression. Must be c
   <MaterialIcon icon="phone" className="w-4 h-4" />
   (509) 308-6489
 </a>
-```
+```text
 
 #### Implementation Checklist
 
@@ -181,7 +181,7 @@ Global navigation appears on every page and sets the first impression. Must be c
     Try AI Estimator
   </Button>
 </div>
-```
+```text
 
 **Mobile Contact Quick Links (Bottom of Menu):**
 
@@ -225,7 +225,7 @@ Global navigation appears on every page and sets the first impression. Must be c
     </a>
   </div>
 </div>
-```
+```text
 
 #### Implementation Checklist
 
@@ -314,7 +314,7 @@ Global navigation appears on every page and sets the first impression. Must be c
     </address>
   </div>
 </div>
-```
+```text
 
 **Footer CTA Section:**
 
@@ -337,7 +337,7 @@ Global navigation appears on every page and sets the first impression. Must be c
     Try AI Estimator
   </Button>
 </div>
-```
+```text
 
 #### Implementation Checklist
 
@@ -378,7 +378,7 @@ Homepage is the primary entry point and must showcase branding excellence.
     Get Instant Estimate
   </Button>
 </div>
-```
+```text
 
 **Hero Subtext (Below CTAs):**
 
@@ -393,7 +393,7 @@ Homepage is the primary entry point and must showcase branding excellence.
   </p>
   <p className="text-xs text-muted-foreground">Client | Vendor</p>
 </div>
-```
+```text
 
 #### Implementation Checklist
 
@@ -435,7 +435,7 @@ Homepage is the primary entry point and must showcase branding excellence.
     </Button>
   </CardFooter>
 </Card>
-```
+```text
 
 **Service Card Data Structure:**
 
@@ -471,7 +471,7 @@ const services = [
     ctaLink: "/trade-partners",
   },
 ];
-```
+```text
 
 #### Implementation Checklist
 
@@ -493,7 +493,7 @@ const services = [
     Learn More About Us
   </Button>
 </div>
-```
+```text
 
 ### 2.4 Contact Prompt Section
 
@@ -539,7 +539,7 @@ const services = [
     </div>
   </div>
 </section>
-```
+```text
 
 ---
 
@@ -567,7 +567,7 @@ const services = [
     Meet Our Team
   </Button>
 </div>
-```
+```text
 
 ### 3.2 Services Page
 
@@ -582,7 +582,7 @@ const services = [
   <MaterialIcon icon="business" className="mr-2 w-5 h-5" />
   Request Commercial Quote
 </Button>
-```
+```text
 
 **Government Projects:**
 
@@ -591,7 +591,7 @@ const services = [
   <MaterialIcon icon="account_balance" className="mr-2 w-5 h-5" />
   Discuss Government Project
 </Button>
-```
+```text
 
 **Residential Services:**
 
@@ -600,7 +600,7 @@ const services = [
   <MaterialIcon icon="home" className="mr-2 w-5 h-5" />
   Schedule Home Consultation
 </Button>
-```
+```text
 
 ### 3.3 Government Projects Page
 
@@ -630,7 +630,7 @@ const services = [
     View Government Portfolio
   </Button>
 </div>
-```
+```text
 
 ---
 
@@ -656,7 +656,7 @@ const services = [
     Book IRL Consultation
   </Button>
 </div>
-```
+```text
 
 #### Estimator Result Screen
 
@@ -678,7 +678,7 @@ const services = [
     </Button>
   </div>
 </div>
-```
+```text
 
 ### 4.2 Contact Form Page
 
@@ -771,7 +771,7 @@ const services = [
     </CardFooter>
   </Card>
 </div>
-```
+```text
 
 #### Form Submit Button
 
@@ -786,7 +786,7 @@ const services = [
   <MaterialIcon icon="send" className="mr-2 w-5 h-5" />
   {isSubmitting ? "Sending..." : "Send Message"}
 </Button>
-```
+```text
 
 ---
 
@@ -832,7 +832,7 @@ const services = [
     </div>
   </CardContent>
 </Card>
-```
+```text
 
 ### 5.2 Careers Page
 
@@ -857,7 +857,7 @@ const services = [
     </a>
   </p>
 </div>
-```
+```text
 
 ### 5.3 Team Page
 
@@ -883,7 +883,7 @@ const services = [
     </Button>
   )}
 </CardFooter>
-```
+```text
 
 ---
 
@@ -1018,7 +1018,7 @@ For each component update:
 <button className="bg-green-600 text-white px-4 py-2">
   Contact Us
 </button>
-```
+```text
 
 #### Icon Usage
 
@@ -1028,7 +1028,7 @@ For each component update:
 
 // ❌ Incorrect
 <span>🤖</span>
-```
+```text
 
 #### Phone Links
 
@@ -1042,7 +1042,7 @@ For each component update:
 <span onClick={() => window.open('tel:5093086489')}>
   Call us
 </span>
-```
+```text
 
 ---
 
@@ -1106,7 +1106,7 @@ For each component update:
 **Link Format:**
 <a href="tel:+15093086489,100">(509) 308-6489 </a>
 <a href="mailto:office@mhc-gc.com">office@mhc-gc.com</a>
-```
+```text
 
 ### Icon Selection Guide
 

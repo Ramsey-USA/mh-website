@@ -266,7 +266,7 @@ All updated files validated with `npm run lint:markdown`:
 # Phase 4: Project Documentation
 ✅ README.md - 0 errors
 ✅ CONTRIBUTING.md - 0 errors
-```
+```text
 
 **Total Files Validated:** 20  
 **Total Errors:** 0  
@@ -280,7 +280,7 @@ All files now use standardized contact format:
 - **Phone**: [(509) 308-6489](tel:+15093086489)
   - **Client Contact**: [](tel:+15093086489,100) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
   - **Vendor Contact**: [](tel:+15093086489,150) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
-```
+```text
 
 ### CTA Language Consistency
 

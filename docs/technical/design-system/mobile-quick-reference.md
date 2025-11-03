@@ -15,7 +15,7 @@ text-base xs:text-lg sm:text-xl md:text-xl
 
 // Large descriptions: More prominent and readable across all breakpoints
 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl
-```
+```text
 
 ### Spacing Progression
 
@@ -28,7 +28,7 @@ gap-2 xs:gap-3 sm:gap-4 lg:gap-6
 
 // Vertical spacing: 24px → 32px → 40px → 64px
 py-6 xs:py-8 sm:py-10 lg:py-16
-```
+```text
 
 ### Touch Targets
 
@@ -41,7 +41,7 @@ p-3 xs:p-3.5 min-h-[48px] min-w-[48px] touch-manipulation
 
 // Form inputs
 px-3 xs:px-4 py-2.5 xs:py-3 min-h-[44px] touch-manipulation
-```
+```text
 
 ## 📱 Component Templates
 
@@ -51,7 +51,7 @@ px-3 xs:px-4 py-2.5 xs:py-3 min-h-[44px] touch-manipulation
 <button className="px-4 xs:px-5 sm:px-6 py-2.5 xs:py-3 min-h-[44px] bg-brand-primary hover:bg-brand-accent text-white text-sm xs:text-base font-medium rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation">
   {children}
 </button>
-```
+```text
 
 ### Card (Mobile-Optimized)
 
@@ -67,7 +67,7 @@ px-3 xs:px-4 py-2.5 xs:py-3 min-h-[44px] touch-manipulation
     Action
   </button>
 </div>
-```
+```text
 
 ### Section Header (Mobile-Optimized)
 
@@ -80,7 +80,7 @@ px-3 xs:px-4 py-2.5 xs:py-3 min-h-[44px] touch-manipulation
     {mainTitle}
   </span>
 </h2>
-```
+```text
 
 ### Grid Layout (Mobile-Optimized)
 
@@ -88,7 +88,7 @@ px-3 xs:px-4 py-2.5 xs:py-3 min-h-[44px] touch-manipulation
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6">
   {items.map(item => <Item key={item.id} {...item} />)}
 </div>
-```
+```text
 
 ## 🎨 Brand Classes
 
@@ -102,14 +102,14 @@ border-brand-primary
 
 // Gradients for headers
 bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent
-```
+```text
 
 ### Shadows
 
 ```scss
 // Brand shadows
 shadow-brand hover:shadow-brand-lg
-```
+```text
 
 ## 📐 Layout Standards
 
@@ -119,7 +119,7 @@ shadow-brand hover:shadow-brand-lg
 <div className="mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 max-w-7xl">
   {content}
 </div>
-```
+```text
 
 ### Section
 
@@ -129,7 +129,7 @@ shadow-brand hover:shadow-brand-lg
     {content}
   </div>
 </section>
-```
+```text
 
 ### Navigation Grid
 
@@ -137,7 +137,7 @@ shadow-brand hover:shadow-brand-lg
 <div className="grid grid-cols-2 gap-2 xs:gap-3 sm:gap-3 max-w-xs xs:max-w-sm sm:max-w-md">
   {navItems.map(item => <NavItem key={item.href} {...item} />)}
 </div>
-```
+```text
 
 ## ⚡ Performance Classes
 
@@ -148,7 +148,7 @@ shadow-brand hover:shadow-brand-lg
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
-```
+```text
 
 ### Animation performance
 
@@ -158,7 +158,7 @@ shadow-brand hover:shadow-brand-lg
   will-change: transform;
   backfaceVisibility: hidden;
 }
-```
+```text
 
 ## 🧪 Testing Checklist
 
@@ -190,6 +190,6 @@ npx lighthouse https://localhost:3000 --preset=mobile
 
 # Verify touch targets
 npm run test:accessibility
-```
+```text
 
 Save this reference for consistent mobile implementations across the MH Construction website!

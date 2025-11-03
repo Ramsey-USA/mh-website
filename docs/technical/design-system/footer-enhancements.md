@@ -33,7 +33,7 @@ All interactive elements follow MH branding standards with **300ms transitions**
   <MaterialIcon icon="verified" size="sm" className="text-brand-primary group-hover:scale-110 transition-transform duration-300" />
   <span className="group-hover:text-brand-primary transition-colors duration-300">Licensed & Insured</span>
 </button>
-```
+```text
 
 **Features**:
 
@@ -56,7 +56,7 @@ Interactive state abbreviations that display specific license numbers on hover:
     License: MHCONCI907R7
   </div>
 </span>
-```
+```text
 
 **License Numbers**:
 
@@ -80,7 +80,7 @@ Each social media platform uses authentic brand colors:
 
 ```tsx
 hover:bg-gradient-to-r hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0]
-```
+```text
 
 - Official Facebook blue spectrum
 - Light to dark blue gradient
@@ -89,7 +89,7 @@ hover:bg-gradient-to-r hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C
 
 ```tsx
 hover:bg-gradient-to-r hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737]
-```
+```text
 
 - Signature Instagram gradient
 - Purple → Red → Orange
@@ -98,7 +98,7 @@ hover:bg-gradient-to-r hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F7773
 
 ```tsx
 hover:bg-gradient-to-r hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000]
-```
+```text
 
 - Modern X branding (black) with classic Twitter blue accent
 - Represents the platform transition
@@ -107,7 +107,7 @@ hover:bg-gradient-to-r hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#00000
 
 ```tsx
 hover:bg-gradient-to-r hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000]
-```
+```text
 
 - YouTube red spectrum
 - Bright to deep red gradient
@@ -116,7 +116,7 @@ hover:bg-gradient-to-r hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC000
 
 ```tsx
 hover:bg-gradient-to-r hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182]
-```
+```text
 
 - Professional LinkedIn blue range
 - Corporate blue gradient
@@ -133,7 +133,7 @@ hover:bg-gradient-to-r hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#00418
     className="mx-auto sm:mx-0 lg:mx-0 w-[240px] xs:w-[270px] sm:w-[300px] h-auto drop-shadow-lg hover:drop-shadow-xl transition-all duration-300 cursor-pointer"
   />
 </Link>
-```
+```text
 
 **Features**:
 
@@ -152,7 +152,7 @@ hover:bg-gradient-to-r hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#00418
 >
   <MaterialIcon icon="keyboard_arrow_up" size="md" className="group-hover:animate-bounce" />
 </button>
-```
+```text
 
 **Features**:
 
@@ -173,7 +173,7 @@ hover:bg-gradient-to-r hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#00418
     className="ml-2 opacity-0 group-hover:opacity-100 text-red-500 transition-all duration-300 inline-block group-hover:animate-pulse" 
   />
 </p>
-```
+```text
 
 **Features**:
 

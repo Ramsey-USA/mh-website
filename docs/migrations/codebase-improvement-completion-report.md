@@ -57,14 +57,14 @@ the build system while maintaining 100% type safety and functionality.
 
 #### New Architecture
 
-```
+```text
 src/lib/ai/
 ├── types.ts           # Type definitions and interfaces
 ├── core.ts           # Core AI engine functionality  
 ├── cost-estimator.ts # Cost calculation logic
 ├── veteran-ai.ts     # Veteran-specific features
 └── index.ts          # Orchestrator with compatibility layer
-```
+```text
 
 #### Benefits
 
@@ -100,7 +100,7 @@ src/lib/ai/
 
 #### New Structure
 
-```
+```text
 src/components/estimator/
 ├── EstimatorForm.tsx       # Main coordinator (9,875 bytes)
 ├── steps/
@@ -109,7 +109,7 @@ src/components/estimator/
 │   └── ReviewStep.tsx          # Step 3 (3,959 bytes)
 ├── types.ts                # Shared interfaces (1,241 bytes)
 └── constants.ts            # Configuration data (2,510 bytes)
-```
+```text
 
 #### Benefits
 
@@ -209,7 +209,7 @@ src/components/estimator/
 
 The production build demonstrates excellent optimization:
 
-```
+```text
 Page                Size     First Load JS
 ┌ ○ /               11.4 kB    524 kB
 ├ ○ /estimator      3.18 kB    515 kB
@@ -218,7 +218,7 @@ Page                Size     First Load JS
 ┌ (Static)  prerendered as static content
 ├ ○ (SSG)   prerendered as static HTML 
 └ ● (SSR)   server-side renders at runtime
-```
+```text
 
 **Chunk Distribution:**
 

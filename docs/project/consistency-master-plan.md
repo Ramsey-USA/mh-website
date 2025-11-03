@@ -39,7 +39,7 @@ import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponent
 
 // Previously (now deleted):
 import { FadeInWhenVisible } from "../../components/animations/DynamicAnimations";
-```
+```text
 
 **AI Development Pattern Creating This**:
 
@@ -68,7 +68,7 @@ import { Button } from "@/components/ui";
 
 // Pattern 3: Mixed (home page)
 import { MaterialIcon } from "../components/icons/MaterialIcon";
-```
+```text
 
 **Why This Happens**:
 
@@ -95,7 +95,7 @@ export default function SmartRecommendations() {}
 
 // Some use barrel exports
 export { Button, Card } from "./ui";
-```
+```text
 
 ---
 
@@ -126,7 +126,7 @@ export { Button, Card } from "./ui";
 1. **Verify DynamicAnimations.tsx is deleted** ✅ DONE
    - Confirm no references remain in codebase
 
-2. **Standardize all animation imports to FramerMotionComponents**
+1. **Standardize all animation imports to FramerMotionComponents**
 
    ```tsx
    // STANDARD PATTERN - Use this everywhere
@@ -138,12 +138,12 @@ export { Button, Card } from "./ui";
    } from "@/components/animations/FramerMotionComponents";
    ```
 
-3. **Remove animation wrappers from critical content**
+1. **Remove animation wrappers from critical content**
    - Identify sections where content MUST be visible immediately
    - Replace animation wrappers with plain divs
    - Keep animations only for decorative/enhancement purposes
 
-4. **Create Animation Usage Guidelines**
+1. **Create Animation Usage Guidelines**
 
    ```tsx
    // ✅ DO: Use animations for enhancement
@@ -163,7 +163,7 @@ export { Button, Card } from "./ui";
    </FadeInWhenVisible>
    ```
 
-5. **Test all pages for content visibility**
+1. **Test all pages for content visibility**
 
 #### Phase 1 Deliverables
 
@@ -205,7 +205,7 @@ export { Button, Card } from "./ui";
    }
    ```
 
-2. **Create import standardization script**
+1. **Create import standardization script**
 
    ```bash
    # Convert all relative imports to @/ imports
@@ -214,11 +214,11 @@ export { Button, Card } from "./ui";
      's|from [\"'\'']\.\./..\./components/|from "@/components/|g'
    ```
 
-3. **Run automated conversion**
+1. **Run automated conversion**
    - Test after each batch
    - Verify no broken imports
 
-4. **Update documentation to use @/ imports**
+1. **Update documentation to use @/ imports**
 
 #### Phase 2 Standard Patterns
 
@@ -233,7 +233,7 @@ import { formatPhone } from "@/lib/utils";
 // ❌ NEVER USE: Relative imports in app/
 import { Button } from "../../components/ui";
 import { MaterialIcon } from "../../../components/icons/MaterialIcon";
-```
+```text
 
 #### Phase 2 Deliverables
 
@@ -276,14 +276,14 @@ export { Card, CardHeader, CardContent } from "./card";
 
 // ❌ AVOID: Default exports
 export default function ComponentName() {}
-```
+```text
 
 #### Phase 3 Tasks
 
 1. **Audit all component exports**
-2. **Convert default exports to named exports**
-3. **Update all import statements**
-4. **Test thoroughly**
+1. **Convert default exports to named exports**
+1. **Update all import statements**
+1. **Test thoroughly**
 
 #### Phase 3 Deliverables
 
@@ -308,13 +308,13 @@ export default function ComponentName() {}
    - Styling patterns
    - File naming conventions
 
-2. **ai-development-guidelines.md**
+1. **ai-development-guidelines.md**
    - Patterns AI assistants MUST follow
    - Common mistakes to avoid
    - Required code review checklist
    - Examples of correct vs incorrect patterns
 
-3. **TROUBLESHOOTING_GUIDE.md**
+1. **TROUBLESHOOTING_GUIDE.md**
    - Common consistency issues
    - How to fix broken animations
    - Import path problems
@@ -373,7 +373,7 @@ module.exports = {
     "import/prefer-named-exports": "warn",
   },
 };
-```
+```text
 
 #### Pre-commit Hooks
 
@@ -386,7 +386,7 @@ module.exports = {
     }
   }
 }
-```
+```text
 
 #### Phase 5 Deliverables
 
@@ -402,19 +402,19 @@ module.exports = {
 ### Immediate (Today)
 
 1. ✅ **Animation System** - Already fixed, verify complete
-2. 🔄 **Import Path Standardization** - Run automated conversion
-3. 📚 **Create AI Guidelines** - Prevent future issues
+1. 🔄 **Import Path Standardization** - Run automated conversion
+1. 📚 **Create AI Guidelines** - Prevent future issues
 
 ### This Week
 
 1. **Component Export Standardization**
-2. **Complete Documentation**
-3. **ESLint Rule Implementation**
+1. **Complete Documentation**
+1. **ESLint Rule Implementation**
 
 ### Ongoing
 
 1. **Code Review Process**
-2. **Quarterly Consistency Audits**
+1. **Quarterly Consistency Audits**
 
 ---
 
@@ -430,37 +430,37 @@ module.exports = {
    import { Button } from "@/components/ui";
    ```
 
-2. **Import animations from FramerMotionComponents ONLY**
+1. **Import animations from FramerMotionComponents ONLY**
 
    ```tsx
    import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
    ```
 
-3. **Use named exports for components**
+1. **Use named exports for components**
 
    ```tsx
    export function MyComponent() {}
    ```
 
-4. **Check existing patterns before adding new code**
+1. **Check existing patterns before adding new code**
 
-5. **Test content visibility after adding animations**
+1. **Test content visibility after adding animations**
 
 #### ❌ NEVER DO
 
 1. **Never create or import from DynamicAnimations.tsx**
-2. **Never use relative imports like `../../components/`**
-3. **Never wrap critical content in FadeInWhenVisible**
-4. **Never use default exports for components**
-5. **Never introduce new animation wrapper systems**
+1. **Never use relative imports like `../../components/`**
+1. **Never wrap critical content in FadeInWhenVisible**
+1. **Never use default exports for components**
+1. **Never introduce new animation wrapper systems**
 
 #### 🔍 Before Making Changes
 
 1. Read `/docs/project/consistency-master-plan.md` (this file)
-2. Check `/docs/development/development-standards.md`
-3. Review existing similar components
-4. Run `npm run lint` before committing
-5. Test all affected pages
+1. Check `/docs/development/development-standards.md`
+1. Review existing similar components
+1. Run `npm run lint` before committing
+1. Test all affected pages
 
 ---
 
@@ -514,10 +514,10 @@ module.exports = {
 ## 🚀 Next Steps
 
 1. **Review this plan** with development team
-2. **Approve phased approach** and timeline
-3. **Begin Phase 2** - Import path standardization
-4. **Create Phase 4 documentation** - Can run parallel
-5. **Implement Phase 5 enforcement** - Final protection
+1. **Approve phased approach** and timeline
+1. **Begin Phase 2** - Import path standardization
+1. **Create Phase 4 documentation** - Can run parallel
+1. **Implement Phase 5 enforcement** - Final protection
 
 ---
 

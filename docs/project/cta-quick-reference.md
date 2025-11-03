@@ -36,7 +36,7 @@
 **AI Estimator:**
 
 - **Get Instant AI Estimate** - Automated cost calculation (`smart_toy`)
-```
+```text
 
 ---
 
@@ -58,7 +58,7 @@
 
 - **Schedule Free Consultation** - Meet with our project specialists (`event`)
 - **Book Site Visit** - Arrange an on-location assessment (`place`)
-```
+```text
 
 ---
 
@@ -85,7 +85,7 @@
 
 **Contact:** [(509) 308-6489](tel:+15093086489) |
 [office@mhc-gc.com](mailto:office@mhc-gc.com)
-```
+```text
 
 ---
 
@@ -110,7 +110,7 @@
 
 **Contact:** [(509) 308-6489](tel:+15093086489) |
 [office@mhc-gc.com](mailto:office@mhc-gc.com)
-```
+```text
 
 ---
 
@@ -126,7 +126,7 @@
 ❌ INCORRECT:
  (509) 308-6489 # Correct format
 Call us at (509) 308-6489 # Not linked
-```
+```text
 
 ### Email Addresses
 
@@ -139,7 +139,7 @@ Call us at (509) 308-6489 # Not linked
 ❌ INCORRECT:
 office@mhc-gc.com # Not linked
 <office@mhc-gc.com> # Wrong format
-```
+```text
 
 ---
 
@@ -218,7 +218,7 @@ office@mhc-gc.com # Not linked
 **Example:**
 
 - **Schedule Free Consultation** - Meet with our team (`event`)
-```
+```text
 
 ---
 
@@ -258,7 +258,7 @@ Get instant preliminary pricing with our automated cost estimation tool.
 
 **Location:** Serving the Tri-Cities area (Richland, Kennewick, Pasco) and throughout
 Washington, Oregon, and Idaho
-```
+```text
 
 ---
 
@@ -288,7 +288,7 @@ subcontractors and suppliers.
 - Proven track record in construction industry
 - Commitment to quality and professionalism
 - Tri-Cities service area coverage
-```
+```text
 
 ---
 
@@ -303,7 +303,7 @@ Call (509) 308-6489 for more information
 ✅ CORRECT:
 **Client Contact:** [(509) 308-6489](tel:+15093086489) |
 [office@mhc-gc.com](mailto:office@mhc-gc.com)
-```
+```text
 
 ### 2. Generic CTA Text
 
@@ -314,7 +314,7 @@ Call (509) 308-6489 for more information
 ✅ CORRECT:
 
 - **Schedule Free Consultation** - Meet with our specialists (`event`)
-```
+```text
 
 ### 3. Missing Icon References
 
@@ -326,7 +326,7 @@ Call (509) 308-6489 for more information
 ✅ CORRECT:
 
 - **Schedule Free Consultation** - Meet with our team (`event`)
-```
+```text
 
 ### 4. Wrong Button Variant
 
@@ -337,7 +337,7 @@ AI Estimator with Primary button variant
 ✅ CORRECT:
 AI Estimator with Secondary button variant
 IRL Consultation with Primary button variant
-```
+```text
 
 ### 5. Bare URLs
 
@@ -347,7 +347,7 @@ Email: office@mhc-gc.com
 
 ✅ CORRECT:
 Email: [office@mhc-gc.com](mailto:office@mhc-gc.com)
-```
+```text
 
 ---
 
@@ -363,7 +363,7 @@ Email: [office@mhc-gc.com](mailto:office@mhc-gc.com)
 For more information, contact us:
 Phone: (509) 308-6489
 Email: office@mhc-gc.com
-```
+```text
 
 **AFTER:**
 
@@ -377,7 +377,7 @@ Email: office@mhc-gc.com
 [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 **General Inquiries:** [office@mhc-gc.com](mailto:office@mhc-gc.com)
-```
+```text
 
 ---
 
@@ -387,7 +387,7 @@ Email: office@mhc-gc.com
 
 ```markdown
 Interested in our services? Learn more or contact us today.
-```
+```text
 
 **AFTER:**
 
@@ -399,7 +399,7 @@ Interested in our services? Learn more or contact us today.
 
 **Contact:** [(509) 308-6489](tel:+15093086489) |
 [office@mhc-gc.com](mailto:office@mhc-gc.com)
-```
+```text
 
 ---
 
@@ -409,13 +409,13 @@ Interested in our services? Learn more or contact us today.
 
 ```markdown
 [Services](../business/services.md)
-```
+```text
 
 **AFTER:**
 
 ```markdown
 [**Services Overview**](../business/services.md) - Complete service offerings and capabilities
-```
+```text
 
 ---
 

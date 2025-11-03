@@ -10,7 +10,7 @@
     Main Hero Title
   </span>
 </h1>
-```
+```text
 
 ### Section Headers (H2)
 
@@ -23,7 +23,7 @@
     Title
   </span>
 </h2>
-```
+```text
 
 ### Subsection Headers (H3)
 
@@ -31,7 +31,7 @@
 <h3 className="mb-4 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-900 dark:text-white">
   Subsection Title
 </h3>
-```
+```text
 
 ### Body Text Patterns
 
@@ -50,7 +50,7 @@
 <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
   Smaller content text
 </p>
-```
+```text
 
 ## Spacing Standards
 
@@ -65,7 +65,7 @@
     
   <!-- Content spacing -->
   <div className="space-y-6 sm:space-y-8">
-```
+```text
 
 ### Container Patterns
 
@@ -78,7 +78,7 @@
 
 <!-- Text-focused container -->
 <div className="max-w-3xl mx-auto">
-```
+```text
 
 ## Brand Gradient Patterns
 
@@ -86,13 +86,13 @@
 
 ```tsx
 bg-gradient-to-r from-brand-primary to-brand-secondary
-```
+```text
 
 ### Secondary Gradient (Hero backgrounds)
 
 ```tsx
 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900
-```
+```text
 
 ### Accent Gradients
 
@@ -102,7 +102,7 @@ bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5
 
 <!-- Background overlay -->
 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20
-```
+```text
 
 ## Implementation Checklist
 
@@ -162,7 +162,7 @@ bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20
 # Check specific patterns
 grep -r "text-.*xl.*font-bold" src/app/
 grep -r "bg-gradient-to-r.*from-brand" src/app/
-```
+```text
 
 ## Implementation Order
 

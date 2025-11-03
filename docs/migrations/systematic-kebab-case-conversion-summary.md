@@ -102,7 +102,7 @@ project for consistent file naming standards.
 # Verification command (returns 0 = success)
 find /workspaces/mh-website -name "*_*.md" -not -path "*/archive/*" | wc -l
 # Result: 0 files (all converted)
-```
+```text
 
 ### File System Benefits
 

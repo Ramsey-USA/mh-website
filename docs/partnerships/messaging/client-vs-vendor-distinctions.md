@@ -121,7 +121,7 @@ _File: `/docs/business/services.md`_
   <MaterialIcon icon="handshake" size="lg" className="mr-3" />
   <span className="font-medium">Begin Partnership</span>
 </Button>
-```
+```text
 
 - **Primary:** "Get Free Estimate" (`handshake`), "Schedule Consultation" (`event`), "Begin Partnership" (`handshake`)
 - **Secondary:** "Schedule Discovery Call" (`phone`), "Book Site Visit" (`place`),
@@ -145,7 +145,7 @@ _File: `/docs/business/services.md`_
   <MaterialIcon icon="check_circle" size="lg" className="mr-3" />
   <span className="font-medium">Apply to be an Approved Vendor</span>
 </Button>
-```
+```text
 
 - **Primary:** "Apply to be an Approved Vendor" (`check_circle`), "Join Our Trade Partnership Network" (`construction`)
 - **Secondary:** "Download Vendor Package" (`download`), "View Partnership Requirements" (`info`)

@@ -153,7 +153,7 @@
 npm run build:cloudflare     # Build with Cloudflare adapter
 npm run pages:deploy         # Deploy to Cloudflare Pages
 npm run deploy:production    # Build + deploy in one command
-```
+```text
 
 **Current Status**: 🟢 **Production Ready** - Zero compatibility issues, all tests passing
 
@@ -343,7 +343,7 @@ excellence in all digital touchpoints.
 
 🚀 DEPLOYMENT: One-Command Production Deploy
    npm run deploy:production  # Build + deploy to Cloudflare Pages
-```
+```text
 
 ## 🔘 **MH Construction Button System**
 
@@ -373,7 +373,7 @@ Start Your Project
  <span className="text-sm opacity-90">(509) 308-6489 ext. 100</span>
 </span>
 </Button>
-```
+```text
 
 ### Features
 
@@ -408,7 +408,7 @@ implementation guide.
 
 🌟 BRANDING MILESTONE: Perfect 100/100 compliance achieved (October 24, 2025)
 🚀 NEXT: Phase 6+ Advanced Features (See roadmap below)
-```
+```text
 
 ### 🛠️ Development Scripts Organization
 
@@ -424,7 +424,7 @@ implementation guide.
 ├── ⚡ optimization/          # Code & asset optimization (6 scripts)
 ├── 🔧 utilities/             # General purpose tools (4 scripts)
 └── ✅ validation/            # Quality assurance (2 scripts)
-```
+```text
 
 **Benefits:**
 
@@ -456,7 +456,7 @@ implementation guide.
 ├── ⭐ specialty/ (2 components) # Specialty components
 │   ├── BaseballCard.tsx, VintageBaseballCard.tsx
 └── 📦 index.ts                 # Centralized exports
-```
+```text
 
 **Benefits:**
 
@@ -504,7 +504,7 @@ construction industry features.
 ✅ Performance: Optimized (94+ Lighthouse)
 ✅ Icons: Google Material Icons unified
 ✅ Platform: Production-ready with all features
-```
+```text
 
 ## 🤖 AI-Powered Construction Intelligence - FULLY ENHANCED ✅
 
@@ -647,7 +647,7 @@ you're ready to move forward with your project.
 ├── 🆕 Conversation Persistence    # Auto-save and session restoration
 ├── 🆕 Accessibility Framework    # Screen reader and keyboard support
 └── 🆕 Search Intelligence System  # Context-aware search integration
-```
+```text
 
 #### Performance Metrics - ENHANCED PERFORMANCE ✅
 
@@ -679,7 +679,7 @@ Node.js >= 18.0.0
 npm >= 8.0.0
 Git
 Firebase CLI (optional)
-```
+```text
 
 ### Setup
 
@@ -791,7 +791,7 @@ src/
 │   ├── utils/                      # Utility functions
 │   └── types/                      # TypeScript types
 └── hooks/                          # Custom React hooks
-```
+```text
 
 ## 📚 Documentation
 
@@ -1012,7 +1012,7 @@ R2_SECRET_ACCESS_KEY=your_r2_secret_key
 
 ## Analytics (Optional)
 NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
-```
+```text
 
 ### Canonical URL Configuration
 
@@ -1167,7 +1167,7 @@ To verify navigation is working correctly:
 ```bash
 npm run build  # Verify no build errors
 npm run dev    # Start development server
-```
+```text
 Test navigation links:
 - Footer "Urgent Support" → `/contact#urgent-support`
 - Hero navigation on each page → Relevant page sections

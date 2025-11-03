@@ -17,7 +17,7 @@ Level 1: Initial Contact - "Explore Partnership Possibilities"
 Level 2: Project Discussion - "We Work With You" 
 Level 3: Active Collaboration - "Building Together"
 Level 4: Long-term Partnership - "Your Construction Partner for Life"
-```
+```text
 
 #### Tier 2: Context-Specific Voice Modulation
 
@@ -27,7 +27,7 @@ Urgent Contractor Assistance: Professional, supportive, industry-focused
 Project Milestone: Celebratory, collaborative, forward-looking
 Problem Resolution: Transparent, accountable, partnership-preserving
 Contract Negotiation: Professional, fair, partnership-oriented
-```
+```text
 
 ## 🎨 **Visual Identity Enhancement Opportunities**
 
@@ -57,7 +57,7 @@ Contract Negotiation: Professional, fair, partnership-oriented
   --brand-excellence: #1a3d2e;   /* Deep Green - Awards, certifications */
   --brand-precision: #8b7355;    /* Muted Tan - Technical specifications */
 }
-```
+```text
 
 #### Advanced Typography Sophistication
 
@@ -80,7 +80,7 @@ Contract Negotiation: Professional, fair, partnership-oriented
   letter-spacing: 0.01em;
   color: var(--brand-partnership);
 }
-```
+```text
 
 ## 📊 **Content Strategy Gaps & Solutions**
 
@@ -95,7 +95,7 @@ NEEDED: Specialized messaging for:
 - Religious facility construction (respectful, community-focused)
 - Winery construction (artisanal, quality-focused)
 - Industrial construction (efficiency, safety-focused)
-```
+```text
 
 #### 2. **Stakeholder Communication Matrices**
 
@@ -108,7 +108,7 @@ interface StakeholderMessaging {
   regulators: "Compliance, safety, transparency"
   community: "Local impact, job creation, partnership"
 }
-```
+```text
 
 ## 🔧 **Technical Implementation Enhancements**
 
@@ -127,7 +127,7 @@ interface StakeholderMessaging {
   urgency="low"
   partnership-stage="discovery"
 />
-```
+```text
 
 #### 2. **Accessibility & Performance Optimization**
 
@@ -150,7 +150,7 @@ interface StakeholderMessaging {
   will-change: background;
   transform: translateZ(0); /* GPU acceleration */
 }
-```
+```text
 
 ## 📈 **Advanced Analytics & Measurement**
 
@@ -171,7 +171,7 @@ interface BrandEngagementMetrics {
     voiceRecognition: number;
   };
 }
-```
+```text
 
 ## 🎯 **Strategic Recommendations for Implementation**
 
@@ -208,7 +208,7 @@ interface FutureBrandFeatures {
   brandHealthScoring: "Real-time brand compliance monitoring";
   personalizedPartnerships: "Dynamic partnership messaging based on client history";
 }
-```
+```text
 
 ### Advanced User Experience
 

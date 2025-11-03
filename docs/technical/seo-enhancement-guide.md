@@ -138,7 +138,7 @@ export default function EstimatorPage() {
     </>
   );
 }
-```
+```text
 
 ### Step 2: Add Schema to Specific Pages
 
@@ -162,7 +162,7 @@ const services = [
 ];
 
 const serviceSchemas = services.map(service => generateServiceSchema(service));
-```
+```text
 
 ## SEO Benefits Expected
 

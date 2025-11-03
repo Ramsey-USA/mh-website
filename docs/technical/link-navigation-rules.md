@@ -32,7 +32,7 @@ in the MH Construction website. All competing or duplicate code has been removed
 ```tsx
 // In layout.tsx
 import { Navigation } from "@/components/layout";
-```
+```text
 
 ---
 
@@ -56,7 +56,7 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
 // In page component
 <PageNavigation items={navigationConfigs.pageName} />;
-```
+```text
 
 ---
 
@@ -74,7 +74,7 @@ export const navigationConfigs = {
     { href: "/page#section", label: "Section", icon: "icon_name" },
   ],
 };
-```
+```text
 
 ---
 
@@ -90,13 +90,13 @@ import Link from "next/link";
 <Link href="/about" className="...">
   About Us
 </Link>;
-```
+```text
 
 ❌ **INCORRECT**:
 
 ```tsx
 <a href="/about">About Us</a> // Don't use <a> for internal links
-```
+```text
 
 ---
 
@@ -108,7 +108,7 @@ import Link from "next/link";
 <a href="https://external-site.com" target="_blank" rel="noopener noreferrer">
   External Link
 </a>
-```
+```text
 
 ---
 
@@ -118,13 +118,13 @@ For same-page section navigation:
 
 ```tsx
 <Link href="#section-id">Jump to Section</Link>
-```
+```text
 
 For cross-page section navigation:
 
 ```tsx
 <Link href="/services#modularization">Services - Modularization</Link>
-```
+```text
 
 ---
 
@@ -179,13 +179,13 @@ className = "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md";
 
 // Border accent
 className = "border-t-4 border-brand-primary";
-```
+```text
 
 ### **Hover Effects**
 
 ```tsx
 className = "group transition-all duration-300 hover:scale-105";
-```
+```text
 
 ---
 
@@ -243,7 +243,7 @@ export default function NewPage() {
     </div>
   );
 }
-```
+```text
 
 **Add config to navigationConfigs.ts:**
 
@@ -258,7 +258,7 @@ export const navigationConfigs = {
     { href: "/contact", label: "Contact", icon: "contact_phone" },
   ],
 };
-```
+```text
 
 ---
 

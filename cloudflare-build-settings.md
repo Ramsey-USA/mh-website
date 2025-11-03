@@ -21,15 +21,15 @@ The error you're experiencing means Cloudflare Pages is **not using the correct 
 
 ### ⚡ Framework preset
 
-```
+```text
 Next.js
-```
+```text
 
 ### ⚡ Build command (CRITICAL - Must be EXACT)
 
-```
+```text
 npx @cloudflare/next-on-pages@1
-```
+```text
 
 **DO NOT USE:**
 
@@ -39,27 +39,27 @@ npx @cloudflare/next-on-pages@1
 
 ### ⚡ Build output directory
 
-```
+```text
 .vercel/output/static
-```
+```text
 
 ### ⚡ Root directory
 
-```
+```text
 (leave blank or use: /)
-```
+```text
 
 ### ⚡ Environment variables
 
 Add these in the **Environment variables** section (click "Add variable"):
 
-```
+```text
 NODE_VERSION = 18.18.0
-```
+```text
 
-```
+```text
 NEXT_PUBLIC_SITE_URL = https://mhc-gc.com
-```
+```text
 
 ---
 
@@ -79,7 +79,7 @@ After updating the settings:
 
 During deployment, watch the build logs. You should see:
 
-```
+```text
 ⚡️ @cloudflare/next-on-pages CLI v.1.13.16
 ⚡️ Preparing project...
 ⚡️ Project is ready
@@ -104,7 +104,7 @@ During deployment, watch the build logs. You should see:
 ⚡️   ├ /api/security/cloudflare
 ⚡️   ├ /api/security/events
 ⚡️   └ /api/security/status
-```
+```text
 
 ---
 
@@ -134,14 +134,14 @@ By using **`npx @cloudflare/next-on-pages@1`** as the build command, it:
 npm run build              # Runs next build directly
 next build                 # Standard Next.js build
 npm run build:cloudflare   # npm scripts don't work in Cloudflare
-```
+```text
 
 ### ✅ Correct Build Command
 
 ```bash
 # USE THIS:
 npx @cloudflare/next-on-pages@1
-```
+```text
 
 ---
 
@@ -182,7 +182,7 @@ npm install -g wrangler
 wrangler login
 npm run build:cloudflare
 npx wrangler pages deploy .vercel/output/static --project-name=mh-construction
-```
+```text
 
 ---
 
@@ -198,21 +198,21 @@ npx wrangler pages deploy .vercel/output/static --project-name=mh-construction
 
 ### ✅ Build Succeeds When You See
 
-```
+```text
 ⚡️ Edge Function Routes (14)
 ⚡️ Build completed in 2.79s
 ✨ Compiled Worker successfully
 ✨ Uploading Worker bundle
 ✨ Deployment complete!
-```
+```text
 
 ### ❌ Build Fails When You See
 
-```
+```text
 ⚡️ The following routes were not configured to run with the Edge Runtime:
 ⚡️   - /api/consultations
 ⚡️   (etc...)
-```
+```text
 
 **This means**: The build command is wrong in Cloudflare settings.
 

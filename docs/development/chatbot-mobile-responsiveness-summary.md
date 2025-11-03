@@ -89,7 +89,7 @@ text-xs                     // Metadata and help text
 
 // Buttons and Actions
 text-xs                     // Consistent button text
-```
+```text
 
 ### 9. **Touch Interaction Enhancements**
 
@@ -116,7 +116,7 @@ space-y-2 sm:space-y-4     // Item spacing
 // Gap system
 gap-1 sm:gap-2             // Grid spacing
 space-x-1 sm:space-x-2     // Horizontal spacing
-```
+```text
 
 ## 📱 Mobile Device Support
 
@@ -168,7 +168,7 @@ hidden sm:block            // Conditional visibility
 // Layout responsive
 flex-col sm:flex-row       // Responsive flex direction
 max-w-[90%] sm:max-w-[85%] // Responsive max widths
-```
+```text
 
 ### **JavaScript Enhancements:**
 
@@ -183,7 +183,7 @@ setPosition({
   x: isMobile ? padding : window.innerWidth - chatbotWidth - padding,
   y: window.innerHeight - (isOpen ? responsiveHeight : 104),
 });
-```
+```text
 
 ## ✅ Testing & Validation
 

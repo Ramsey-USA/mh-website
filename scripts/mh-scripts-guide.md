@@ -82,7 +82,7 @@ Organized automation scripts for the MH Construction website development workflo
 
 # Deployment
 ./deploy.sh
-```
+```text
 
 ## Script Permissions
 
@@ -90,7 +90,7 @@ All shell scripts should be executable:
 
 ```bash
 find scripts/ -name "*.sh" -exec chmod +x {} \;
-```
+```text
 
 ## Development Workflow
 

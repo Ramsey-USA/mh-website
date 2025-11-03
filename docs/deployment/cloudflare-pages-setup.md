@@ -35,7 +35,7 @@ Create a `.env.local` file for local development:
 NEXT_PUBLIC_SITE_URL=https://mhc-gc.com
 CLOUDFLARE_ACCOUNT_ID=your_account_id
 CLOUDFLARE_API_TOKEN=your_api_token
-```
+```text
 
 ## Step 2: Create Cloudflare Pages Project
 
@@ -66,7 +66,7 @@ wrangler login
 # Build and deploy
 npm run build:cloudflare
 npm run pages:deploy
-```
+```text
 
 ## Step 3: Configure Build Settings
 
@@ -76,10 +76,10 @@ In your Cloudflare Pages project settings:
 
 Add these in **Settings** → **Environment Variables**:
 
-```
+```text
 NEXT_PUBLIC_SITE_URL=https://mhc-gc.com
 NODE_VERSION=18
-```
+```text
 
 ### Build Configuration
 
@@ -88,7 +88,7 @@ Build command: npx @cloudflare/next-on-pages@1
 Build output directory: .vercel/output/static
 Root directory: /
 Environment variables: Node 18+
-```
+```text
 
 ## Step 4: Set Up Custom Domain
 
@@ -103,12 +103,12 @@ Environment variables: Node 18+
 
 If your domain is already on Cloudflare:
 
-```
+```text
 Type: CNAME
 Name: @ (or www)
 Target: your-project.pages.dev
 Proxy: Enabled (orange cloud)
-```
+```text
 
 ## Step 5: Configure Security
 
@@ -174,7 +174,7 @@ wrangler d1 create mh-construction-db
 
 # Run migrations
 wrangler d1 execute mh-construction-db --file=./schema.sql
-```
+```text
 
 ### Example Schema
 
@@ -197,7 +197,7 @@ CREATE TABLE job_applications (
   created_at TEXT DEFAULT CURRENT_TIMESTAMP,
   status TEXT DEFAULT 'new'
 );
-```
+```text
 
 ## Step 8: Set Up Cloudflare KV (Optional)
 
@@ -209,7 +209,7 @@ wrangler kv:namespace create "CACHE"
 
 # Bind to your Pages project
 # Add in wrangler.toml or Pages dashboard
-```
+```text
 
 ## Step 9: Deploy
 
@@ -221,7 +221,7 @@ Push to your Git repository:
 git add .
 git commit -m "Deploy to Cloudflare Pages"
 git push origin main
-```
+```text
 
 Cloudflare automatically builds and deploys!
 
@@ -233,7 +233,7 @@ npm run build
 
 # Deploy with Wrangler
 npm run pages:deploy
-```
+```text
 
 ## Step 10: Verify Deployment
 
@@ -288,7 +288,7 @@ NODE_VERSION=18 npm run build
 rm -rf .next node_modules
 npm install
 npm run build
-```
+```text
 
 ### Domain Not Working
 
@@ -381,7 +381,7 @@ wrangler pages deployment tail
 
 # Check project status
 wrangler pages project list
-```
+```text
 
 ## Resources
 

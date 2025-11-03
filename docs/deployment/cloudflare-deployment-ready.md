@@ -71,7 +71,7 @@ Images, icons, screenshots, and other static resources
 
 ```bash
 npm run pages:deploy
-```
+```text
 
 This will:
 
@@ -100,13 +100,13 @@ If you already have a Cloudflare Pages project:
 ```toml
 name = "mh-construction"
 pages_build_output_dir = ".vercel/output/static"
-```
+```text
 
 1. Deploy:
 
 ```bash
 npx wrangler pages deploy .vercel/output/static --project-name=mh-construction
-```
+```text
 
 ## Environment Variables
 
@@ -116,13 +116,13 @@ Currently no environment variables are required. When adding Cloudflare services
 
 ```bash
 KV_NAMESPACE_ID=your_kv_namespace_id
-```
+```text
 
 ### For Cloudflare D1 (Database)
 
 ```bash
 D1_DATABASE_ID=your_d1_database_id
-```
+```text
 
 Add these in Cloudflare Dashboard → Pages → Settings → Environment Variables
 

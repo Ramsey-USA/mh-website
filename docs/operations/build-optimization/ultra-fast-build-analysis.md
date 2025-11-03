@@ -18,13 +18,13 @@ I've analyzed your codebase and here are **safe** ways to push even faster:
 
 #### 1. **Large File Splitting** ⭐⭐⭐
 
-```
+```text
 Current file sizes that slow compilation:
 • militaryConstructionAI.ts: 102KB (🚨 MAJOR impact)
 • page.tsx: 71KB (🚨 Major impact)
 • AnalyticsDashboard.tsx: 42KB
 • Other 30KB+ files: 13 files
-```
+```text
 
 **Safe approach**: Split into logical modules
 **Time saved**: 4-6 seconds
@@ -39,7 +39,7 @@ experimental: {
   serverComponentsHmrCache: true, // Server component cache
   optimizeServerReact: true,      // React server optimization
 }
-```
+```text
 
 **Time saved**: 2-3 seconds
 **Risk**: ⚪ Zero (official Next.js features)
@@ -54,7 +54,7 @@ typescript: {
   tsconfigPath: './tsconfig.build.json', // Optimized build config
   ignoreBuildErrors: false, // Keep type safety
 }
-```
+```text
 
 #### 4. **Bundle Analysis Reduction**
 
@@ -62,7 +62,7 @@ typescript: {
 // Reduce build reporting overhead
 generateBuildId: () => 'build',
 productionBrowserSourceMaps: false,
-```
+```text
 
 ### 🟢 **Low Impact, Safe Experiments** (1-2s improvement)
 
@@ -71,7 +71,7 @@ productionBrowserSourceMaps: false,
 ```bash
 # Enhanced build command
 NODE_OPTIONS="--max-old-space-size=6144 --max-semi-space-size=256"
-```
+```text
 
 ## ⚠️ **Aggressive Options (USE WITH CAUTION)**
 
@@ -83,7 +83,7 @@ experimental: {
   forceSwcTransforms: true,   // Force SWC for all transforms
   fullySpecified: false,      // Faster module resolution
 }
-```
+```text
 
 **Risk**: 🟡 **Medium** - May need testing with your specific setup
 
@@ -93,7 +93,7 @@ experimental: {
 // Skip some safety checks (NOT recommended for production)
 eslint: { ignoreDuringBuilds: true },  // Skip ESLint
 typescript: { ignoreBuildErrors: true }, // Skip type check
-```
+```text
 
 **Risk**: 🔴 **High** - Could miss errors
 

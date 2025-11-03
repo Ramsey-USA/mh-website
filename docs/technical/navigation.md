@@ -176,7 +176,7 @@ and reports that are no longer relevant have been consolidated into current docu
 
 ## 📁 Documentation Structure
 
-```
+```text
 docs/
 ├── navigation.md (this file) ⭐ Start here
 ├── technical/
@@ -205,7 +205,7 @@ docs/
 └── migrations/
     └── optimizations/
         └── complete-optimization-roadmap.md
-```
+```text
 
 ---
 

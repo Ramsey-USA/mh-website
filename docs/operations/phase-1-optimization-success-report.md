@@ -72,7 +72,7 @@ usedExports: true,
 providedExports: true,
 sideEffects: false,
 innerGraph: true
-```
+```text
 
 ### Performance Features Enabled
 
@@ -95,7 +95,7 @@ Current chunk distribution shows excellent optimization:
 88K   firebase-234817c1-2253eb35aa702f55.js    # Firebase auth/firestore
 72K   ui-libs-04fef8b0-04c3e49dc3aeb127.js     # UI component libraries
 60K   vendors-ad6a2f20-f0c0259c5f7ff34c.js     # Third-party vendors
-```
+```text
 
 ## ✅ Verification Results
 

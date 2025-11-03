@@ -55,7 +55,7 @@ _This tagline emphasizes our commitment to client success over profit maximizati
   <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
   <span className="font-medium">Get Instant AI Estimate</span>
 </Button>
-```
+```text
 
 **Messaging Language:**
 
@@ -77,7 +77,7 @@ _This tagline emphasizes our commitment to client success over profit maximizati
   <MaterialIcon icon="event" size="lg" className="mr-3" />
   <span className="font-medium">Schedule Free Consultation</span>
 </Button>
-```
+```text
 
 **Messaging Language:**
 
@@ -104,7 +104,7 @@ For potential project clients seeking construction services:
   <MaterialIcon icon="handshake" size="lg" className="mr-3" />
   <span className="font-medium">Begin Partnership</span>
 </Button>
-```
+```text
 
 ```typescript
 // Client-Focused Messaging (Project Partnerships)
@@ -122,7 +122,7 @@ For potential project clients seeking construction services:
 "Request Service" → "Discuss Your Vision" (icon: engineering)
 "Book Now" → "Schedule Discovery Call" (icon: phone)
 "Learn More" → "Explore Partnership Options" (icon: info)
-```
+```text
 
 ### **🔧 TRADE PARTNERSHIP LANGUAGE**
 
@@ -135,7 +135,7 @@ For subcontractors, suppliers, and trade professionals:
   <MaterialIcon icon="construction" size="lg" className="mr-3" />
   <span className="font-medium">Join Our Trade Partnership Network</span>
 </Button>
-```
+```text
 
 ```typescript
 // Vendor-Focused Messaging (Trade Partnerships)
@@ -153,7 +153,7 @@ For subcontractors, suppliers, and trade professionals:
 "Learn More" → "View Partnership Requirements" (icon: info)
 "Get Started" → "Begin Vendor Approval Process" (icon: work)
 "Sign Up" → "Register as Trade Partner" (icon: work)
-```
+```text
 
 ### **🎯 LANGUAGE DISTINCTION GUIDELINES**
 

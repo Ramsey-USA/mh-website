@@ -48,7 +48,7 @@ Organized component library for the MH Construction website with logical categor
 import { Button, Card, Badge } from "@/components/ui";
 import { PageHero, ThemeToggle } from "@/components/ui";
 import { Modal, QuickBookingModal } from "@/components/ui";
-```
+```text
 
 ### Direct Imports (When Needed)
 
@@ -57,7 +57,7 @@ import { Modal, QuickBookingModal } from "@/components/ui";
 import { Button } from "@/components/ui/base/button";
 import { PageHero } from "@/components/ui/layout/PageHero";
 import { Modal } from "@/components/ui/modals/Modal";
-```
+```text
 
 ## Component Categories Explained
 

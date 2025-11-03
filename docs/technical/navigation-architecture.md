@@ -91,7 +91,7 @@ About
     { href: "/contact", label: "Start Project", icon: "contact_phone" },
   ];
 }
-```
+```text
 
 #### **Other Pages Navigation**
 
@@ -109,7 +109,7 @@ About
 { href: "/government", label: "Government", icon: "account_balance" }
 { href: "/trade-partners", label: "Partners", icon: "group" }
 { href: "/contact", label: "Start Project", icon: "contact_phone" }
-```
+```text
 
 ### **Page Navigation Technical Features**
 
@@ -151,7 +151,7 @@ import { navigationConfigs } from '@/lib/navigationConfigs';
 
 // In page component
 <PageNavigation items={navigationConfigs.pageName} />
-```
+```text
 
 #### **Configuration Management**
 

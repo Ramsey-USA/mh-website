@@ -41,7 +41,7 @@ All updates follow **MH Construction branding standards** using MaterialIcon com
   <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
   <span className="font-medium">Get Instant AI Estimate</span>
 </Button>
-```
+```text
 
 - "Get Instant AI Estimate"
 - "Try AI Cost Calculator"
@@ -55,7 +55,7 @@ All updates follow **MH Construction branding standards** using MaterialIcon com
   <MaterialIcon icon="event" size="lg" className="mr-3" />
   <span className="font-medium">Schedule Free Consultation</span>
 </Button>
-```
+```text
 
 - "Schedule Free Consultation"
 - "Book Site Visit"
@@ -93,7 +93,7 @@ All updates follow **MH Construction branding standards** using MaterialIcon com
   <MaterialIcon icon="event" size="lg" className="mr-3" />
   <span className="font-medium">Schedule Consultation</span>
 </Button>
-```
+```text
 
 - "Begin Partnership" (`handshake`)
 - "Schedule Consultation" (`event`)
@@ -112,7 +112,7 @@ All updates follow **MH Construction branding standards** using MaterialIcon com
   <MaterialIcon icon="check_circle" size="lg" className="mr-3" />
   <span className="font-medium">Apply to be Approved Vendor</span>
 </Button>
-```
+```text
 
 - "Join Our Trade Partnership Network" (`construction`)
 - "Apply to be Approved Vendor" (`check_circle`)
@@ -177,7 +177,7 @@ All updates strictly follow MH Construction branding standards:
 <MaterialIcon icon="smart_toy" size="lg" className="text-brand-primary" />
 <MaterialIcon icon="handshake" size="md" />
 <MaterialIcon icon="event" size="lg" />
-```
+```text
 
 ❌ **Prohibited in Code:**
 
@@ -185,7 +185,7 @@ All updates strictly follow MH Construction branding standards:
 // Never use emojis in source code
 <span>🤖 AI Estimator</span>
 <button>🤝 Partnership</button>
-```
+```text
 
 ### Icon Standards
 

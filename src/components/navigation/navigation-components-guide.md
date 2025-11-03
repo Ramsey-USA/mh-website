@@ -9,7 +9,7 @@ src/components/navigation/
 ├── README.md                  # This file - Navigation components documentation
 ├── PageNavigation.tsx         # Page-specific sectional navigation component
 └── navigationConfigs.ts       # Navigation configurations for all pages
-```
+```text
 
 ## 🧭 Navigation System Overview
 
@@ -47,7 +47,7 @@ import { navigationConfigs } from "../../components/navigation/navigationConfigs
 
 // Add after hero section
 <PageNavigation items={navigationConfigs.yourPage} />;
-```
+```text
 
 ### navigationConfigs.ts
 
@@ -66,7 +66,7 @@ export const navigationConfigs = {
   ],
   // ... other pages
 };
-```
+```text
 
 **Adding New Page Configuration**:
 
@@ -107,19 +107,19 @@ The navigation components use:
 
 ```typescript
 { href: "/services#modularization", label: "Modularization", icon: "precision_manufacturing" }
-```
+```text
 
 ### Related Page Links
 
 ```typescript
 { href: "/estimator", label: "AI Estimator", icon: "calculate" }
-```
+```text
 
 ### Call-to-Action Links
 
 ```typescript
 { href: "/contact", label: "Contact", icon: "contact_phone" }
-```
+```text
 
 ## 📋 Implementation Checklist
 
@@ -172,7 +172,7 @@ npm test
 
 # Type checking
 npm run type-check
-```
+```text
 
 ### Build Process
 
@@ -182,7 +182,7 @@ npm run build
 
 # Preview build
 npm run preview
-```
+```text
 
 ## 🚨 Common Issues
 

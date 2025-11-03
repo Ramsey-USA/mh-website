@@ -40,7 +40,7 @@ screens: {
   "mobile": { max: "639px" },     // All mobile devices only
   "tablet": { min: "640px", max: "1023px" }, // Tablets only
 }
-```
+```text
 
 ## 📝 Mobile Typography System
 
@@ -84,7 +84,7 @@ Follow this exact progression for consistent mobile readability:
   @apply text-sm xs:text-base sm:text-lg;
   // 14px → 16px → 18px
 }
-```
+```text
 
 ### Typography Rules
 
@@ -114,7 +114,7 @@ Follow this exact progression for consistent mobile readability:
 .touch-spacing {
   margin: 8px; // Minimum 8px between touch targets
 }
-```
+```text
 
 ### Touch-Optimized Components
 
@@ -130,7 +130,7 @@ Follow this exact progression for consistent mobile readability:
 <button className="p-2 xs:p-2.5 sm:p-3 min-h-[44px] min-w-[44px] bg-gray-100 hover:bg-gray-200 rounded-lg transition-all duration-300 touch-manipulation">
   <Icon size="sm" />
 </button>
-```
+```text
 
 #### Navigation Links
 
@@ -141,7 +141,7 @@ Follow this exact progression for consistent mobile readability:
 >
   {children}
 </Link>
-```
+```text
 
 #### Form Inputs
 
@@ -150,7 +150,7 @@ Follow this exact progression for consistent mobile readability:
   type="text"
   className="w-full px-3 xs:px-4 py-2.5 xs:py-3 min-h-[44px] text-sm xs:text-base border border-gray-300 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 rounded-lg transition-all duration-300 touch-manipulation"
 />
-```
+```text
 
 ## 📐 Mobile Layout Standards
 
@@ -180,7 +180,7 @@ Follow this exact progression for consistent mobile readability:
   @apply gap-2 xs:gap-3 sm:gap-4 lg:gap-6;
   // 8px → 12px → 16px → 24px
 }
-```
+```text
 
 ### Grid Systems
 
@@ -193,7 +193,7 @@ Follow this exact progression for consistent mobile readability:
     <NavigationItem key={item.href} {...item} />
   ))}
 </div>
-```
+```text
 
 #### Content Grids
 
@@ -204,7 +204,7 @@ Follow this exact progression for consistent mobile readability:
     <Card key={card.id} {...card} />
   ))}
 </div>
-```
+```text
 
 #### Footer Columns
 
@@ -215,7 +215,7 @@ Follow this exact progression for consistent mobile readability:
   <FooterColumn />
   <FooterColumn className="sm:col-span-2 lg:col-span-1" />
 </div>
-```
+```text
 
 ## 🎨 Component Mobile Standards
 
@@ -242,7 +242,7 @@ Follow this exact progression for consistent mobile readability:
     </div>
   </div>
 </header>
-```
+```text
 
 ### Cards
 
@@ -262,7 +262,7 @@ Follow this exact progression for consistent mobile readability:
     {actionText}
   </button>
 </div>
-```
+```text
 
 ### Forms
 
@@ -287,7 +287,7 @@ Follow this exact progression for consistent mobile readability:
     Submit
   </button>
 </form>
-```
+```text
 
 ## ⚡ Performance Optimization
 
@@ -328,7 +328,7 @@ Add these to your `globals.css`:
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
 }
-```
+```text
 
 ### Image Optimization
 
@@ -346,7 +346,7 @@ Add these to your `globals.css`:
   placeholder="blur"
   blurDataURL="data:image/jpeg;base64,..."
 />
-```
+```text
 
 ## 🧪 Testing Standards
 
@@ -389,7 +389,7 @@ npx playwright test --project=mobile
 
 # Performance monitoring
 npm run test:performance
-```
+```text
 
 ## 📋 Implementation Template
 
@@ -451,7 +451,7 @@ export function MobileOptimizedSection() {
     </section>
   );
 }
-```
+```text
 
 ## 📚 Related Documentation
 

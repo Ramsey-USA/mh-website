@@ -247,7 +247,7 @@ const content = fs.readFileSync('./src/app/[page]/page.tsx', 'utf8');
 const result = validateBrandCompliance(content, 'page');
 console.log(JSON.stringify(result, null, 2));
 "
-```
+```text
 
 #### Step 2: Fix Critical Issues
 
@@ -272,7 +272,7 @@ console.log(JSON.stringify(result, null, 2));
 npm run build
 npm run lint
 # Test on multiple devices/browsers
-```
+```text
 
 ### Code Standards for Branding Compliance
 
@@ -291,7 +291,7 @@ npm run lint
 
 // ❌ INCORRECT: Non-standard typography
 <h2 className="text-3xl font-bold">Title</h2>
-```
+```text
 
 #### Color Standards
 
@@ -304,7 +304,7 @@ npm run lint
 // ❌ INCORRECT: Hardcoded colors
 <div className="bg-[#386851]">
 <span style={{color: '#BD9264'}}>
-```
+```text
 
 #### Icon Standards
 
@@ -315,7 +315,7 @@ npm run lint
 // ❌ INCORRECT: Emoji or other icons
 <span>🏗️</span>
 <i className="fas fa-hammer"></i>
-```
+```text
 
 ### Testing Checklist
 

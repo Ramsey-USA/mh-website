@@ -36,7 +36,7 @@ communication, and veteran excellence.
 Node.js >= 18.0.0
 npm >= 8.0.0
 Git
-```
+```text
 
 ### Development Setup
 
@@ -47,26 +47,26 @@ Git
    cd mh-website
    ```
 
-2. **Install dependencies**
+1. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-3. **Environment setup**
+1. **Environment setup**
 
    ```bash
    cp .env.example .env.local
    # Add your environment variables for Cloudflare if needed
    ```
 
-4. **Start development server**
+1. **Start development server**
 
    ```bash
    npm run dev
    ```
 
-5. **Verify setup**
+1. **Verify setup**
 
    ```bash
    npm run build
@@ -92,12 +92,12 @@ Git
    git checkout -b feature/feature-name
    ```
 
-2. **Make your changes**
+1. **Make your changes**
    - Follow code standards (see below)
    - Write/update tests as needed
    - Update documentation
 
-3. **Quality checks**
+1. **Quality checks**
 
    ```bash
    npm run lint
@@ -105,7 +105,7 @@ Git
    npm run build
    ```
 
-4. **Commit and push**
+1. **Commit and push**
 
    ```bash
    git add .
@@ -113,7 +113,7 @@ Git
    git push origin feature/feature-name
    ```
 
-5. **Create Pull Request**
+1. **Create Pull Request**
    - Use the PR template
    - Request review from team members
    - Ensure all checks pass
@@ -385,8 +385,8 @@ Brief description of the issue
 
 ## Steps to Reproduce
 1. Step one
-2. Step two
-3. Step three
+1. Step two
+1. Step three
 
 ## Expected Behavior
 What should happen
@@ -481,10 +481,10 @@ Brief description of changes
 ### Review Process
 
 1. **Automated Checks**: All CI checks must pass
-2. **Code Review**: At least one team member review
-3. **Testing**: Manual testing for UI changes
-4. **Documentation**: Updated if necessary
-5. **Merge**: Squash and merge preferred
+1. **Code Review**: At least one team member review
+1. **Testing**: Manual testing for UI changes
+1. **Documentation**: Updated if necessary
+1. **Merge**: Squash and merge preferred
 
 ## 🔄 Release Process
 

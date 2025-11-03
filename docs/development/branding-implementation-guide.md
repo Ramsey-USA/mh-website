@@ -63,7 +63,7 @@ Designed for developer handoffs with clear priorities and validation steps.
     {mainTitle}
   </span>
 </h2>
-```
+```text
 
 #### Standard Body Text Pattern
 
@@ -71,7 +71,7 @@ Designed for developer handoffs with clear priorities and validation steps.
 <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
   {content}
 </p>
-```
+```text
 
 ### Phase 3: Messaging Integration (Priority 3)
 
@@ -101,7 +101,7 @@ Designed for developer handoffs with clear priorities and validation steps.
 
 // Animations (300ms standard)
 <div className="transition-all duration-300">
-```
+```text
 
 ## Page-by-Page Checklist
 
@@ -159,7 +159,7 @@ Run branding validator on target page:
 # Check current compliance
 npm run lint
 npm run build
-```
+```text
 
 ### Step 3: Implementation
 
@@ -185,7 +185,7 @@ npm run build
 
 // ❌ INCORRECT: Non-standard
 <h2 className="text-3xl font-bold">
-```
+```text
 
 ### Color Requirements
 
@@ -196,7 +196,7 @@ npm run build
 
 // ❌ INCORRECT: Hardcoded
 <div className="bg-[#386851]">
-```
+```text
 
 ### Icon Requirements
 
@@ -206,7 +206,7 @@ npm run build
 
 // ❌ INCORRECT: Emoji
 <span>🏗️</span>
-```
+```text
 
 ## Validation Criteria
 

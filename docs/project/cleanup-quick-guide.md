@@ -25,7 +25,7 @@ The codebase audit identified **~160 files** that need attention:
 npm run build
 npm run lint
 git status
-```
+```text
 
 ### Review Test Routes (Phase 2)
 
@@ -40,7 +40,7 @@ ls -la src/app/phase*-test
 # Verify everything works
 npm run build
 npm run dev
-```
+```text
 
 ### Consolidate Configs (Phase 3)
 
@@ -51,7 +51,7 @@ npm run dev
 # Verify everything works
 npm run build
 npm run lint
-```
+```text
 
 ## 📖 Detailed Documentation
 
@@ -90,7 +90,7 @@ ls -la backups/
 
 # Restore from the latest backup
 # (Each script tells you the exact command to restore)
-```
+```text
 
 ## 📞 Support
 

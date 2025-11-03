@@ -25,13 +25,13 @@ introduction of inconsistencies and bugs that have historically plagued this pro
 import { Button } from "@/components/ui";
 import { useAuth } from "@/hooks/useAuth";
 import { formatDate } from "@/lib/utils";
-```
+```text
 
 ```tsx
 // ❌ NEVER DO THIS
 import { Button } from "../../components/ui";
 import { useAuth } from "../hooks/useAuth";
-```
+```text
 
 #### 2. Import Animations from FramerMotionComponents ONLY
 
@@ -42,7 +42,7 @@ import {
   StaggeredFadeIn,
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
-```
+```text
 
 ```tsx
 // ❌ NEVER DO THIS - FILE WAS DELETED
@@ -50,7 +50,7 @@ import { FadeInWhenVisible } from "@/components/animations/DynamicAnimations";
 
 // ❌ NEVER CREATE NEW ANIMATION WRAPPERS
 const FadeIn = dynamic(() => import("./animations"), { ssr: false });
-```
+```text
 
 #### 3. Protect Critical Content from Animation Failures
 
@@ -66,7 +66,7 @@ export default function Page() {
     </div>
   );
 }
-```
+```text
 
 ```tsx
 // ❌ NEVER DO THIS - Title could disappear
@@ -77,7 +77,7 @@ export default function Page() {
     </FadeInWhenVisible>
   );
 }
-```
+```text
 
 #### 4. Check Existing Patterns Before Adding Code
 
@@ -91,7 +91,7 @@ export default function Page() {
 # Before creating a new component, search for similar ones
 # Example: Creating a card component
 grep -r "Card" src/components/
-```
+```text
 
 #### 5. Test After Every Change
 
@@ -101,7 +101,7 @@ grep -r "Card" src/components/
 npm run type-check  # Verify TypeScript
 npm run lint        # Verify ESLint rules
 npm run dev         # Test in browser
-```
+```text
 
 ### ❌ NEVER DO
 
@@ -110,7 +110,7 @@ npm run dev         # Test in browser
 ```tsx
 // ❌ FORBIDDEN - This file was deleted for causing bugs
 import anything from "@/components/animations/DynamicAnimations";
-```
+```text
 
 **Why**: This file used `ssr: false` and `loading: () => null` which caused
 content to disappear. It was deleted as part of consistency cleanup.
@@ -121,7 +121,7 @@ content to disappear. It was deleted as part of consistency cleanup.
 // ❌ FORBIDDEN
 import { Component } from "../../components/Component";
 import { helper } from "../../../lib/helper";
-```
+```text
 
 **Why**: Creates inconsistency and makes refactoring difficult. ESLint will block this.
 
@@ -132,7 +132,7 @@ import { helper } from "../../../lib/helper";
 export default function Page() {
   return <FadeInWhenVisible>{/* Entire page content */}</FadeInWhenVisible>;
 }
-```
+```text
 
 **Why**: If the animation component fails to load or execute, the entire page
 becomes blank. This has happened multiple times in production.
@@ -150,7 +150,7 @@ const AnimatedDiv = dynamic(() =>
 
 // Don't do:
 import { motion } from "framer-motion";
-```
+```text
 
 **Why**: Multiple animation systems create maintenance burden and inconsistency.
 
@@ -161,7 +161,7 @@ import { motion } from "framer-motion";
 // Don't add to tsconfig:
 // "@components/*": ["src/components/*"]  // We use @/ only
 // "~/*": ["src/*"]                       // We use @/ only
-```
+```text
 
 **Why**: One import pattern (@/) is sufficient and prevents confusion.
 
@@ -194,7 +194,7 @@ grep -r "import.*ComponentName" src/
 
 # Check import patterns
 grep -r "from.*components" src/
-```
+```text
 
 ### Step 4: Plan the Fix
 
@@ -214,7 +214,7 @@ const Component = dynamic(() => import("./Component"), {
   loading: () => null, // This causes content to disappear!
   ssr: false, // This breaks SEO!
 });
-```
+```text
 
 **DO**: Only optimize when there's a proven performance issue.
 
@@ -229,7 +229,7 @@ const Component = dynamic(() => import("./Component"), {
 // - Two animation systems
 // - Confusion about which to use
 // - Maintenance burden
-```
+```text
 
 **DO**: Improve the existing component in place.
 
@@ -240,7 +240,7 @@ const Component = dynamic(() => import("./Component"), {
 // Example: Code that uses relative imports when our standard is @/
 
 // ❌ DON'T: Copy entire component libraries that duplicate existing components
-```
+```text
 
 **DO**: Adapt external code to match our existing patterns.
 
@@ -254,7 +254,7 @@ import { Card } from "../../components/ui"; // Bad - inconsistent!
 // ❌ DON'T: Mix quote styles inconsistently
 import { A } from "@/components/a"; // Double quotes
 import { B } from "@/components/b"; // Single quotes - inconsistent!
-```
+```text
 
 **DO**: Follow the existing convention consistently.
 
@@ -313,7 +313,7 @@ Before presenting code to the user, verify:
 <FadeInWhenVisible>
   <h1>Important Content</h1> // Can fail to appear!
 </FadeInWhenVisible>
-```
+```text
 
 **Prevention**:
 
@@ -339,7 +339,7 @@ import { Button } from "@/components/ui";
 import { Button } from "../../components/ui";
 
 // After moving Button.tsx, File B breaks!
-```
+```text
 
 **Prevention**:
 
@@ -360,7 +360,7 @@ import { Button } from "../../components/ui";
 const Component = dynamic(() => import("./Component"), {
   ssr: false, // Server renders nothing, client renders component
 });
-```
+```text
 
 **Prevention**:
 
@@ -440,7 +440,7 @@ import type { User, UserProfile } from "@/types/user";
 
 // Contexts
 import { AuthContext } from "@/contexts/AuthContext";
-```
+```text
 
 ### Component Template
 
@@ -479,7 +479,7 @@ export function ComponentName({
     </div>
   );
 }
-```
+```text
 
 ---
 

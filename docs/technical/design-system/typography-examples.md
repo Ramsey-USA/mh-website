@@ -35,7 +35,7 @@ standards in action.
     </FadeInWhenVisible>
   </div>
 </section>
-```
+```text
 
 ### Example 2: Card Component Typography
 
@@ -50,7 +50,7 @@ standards in action.
     meticulous planning.
   </p>
 </div>
-```
+```text
 
 ### Example 3: Flip Card Typography
 
@@ -80,7 +80,7 @@ standards in action.
     </p>
   </div>
 </div>
-```
+```text
 
 ## ❌ Incorrect Typography Patterns
 
@@ -96,7 +96,7 @@ standards in action.
     Difference
   </span>
 </h2>
-```
+```text
 
 **Problems:**
 
@@ -113,7 +113,7 @@ standards in action.
   Experience the collaborative approach where veteran values and
   genuine partnership create extraordinary results.
 </p>
-```
+```text
 
 **Problems:**
 
@@ -132,7 +132,7 @@ standards in action.
 <p className="text-white/90 text-xs leading-relaxed">
   More than contractors - we're your construction partners.
 </p>
-```
+```text
 
 **Problems:**
 
@@ -219,4 +219,4 @@ Use the brand gradient pattern for:
 <span className="font-semibold text-gray-700 dark:text-gray-300">
   {subtitleText}
 </span>
-```
+```text

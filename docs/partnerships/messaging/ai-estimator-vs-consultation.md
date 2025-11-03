@@ -169,7 +169,7 @@ visits your site, understands your vision, and provides detailed professional es
   <MaterialIcon icon="event" size="lg" className="mr-3" />
   <span className="font-medium">Schedule Free Consultation</span>
 </Button>
-```
+```text
 
 ### Services Page Implementation
 
@@ -193,7 +193,7 @@ Icon: MaterialIcon "handshake" or "event"
 Schedule a site visit with our sales team for detailed, customized estimates.
 Expert guidance tailored to your specific project.
 [Schedule Consultation →]
-```
+```text
 
 ### Contact Page Implementation
 
@@ -207,7 +207,7 @@ Expert guidance tailored to your specific project.
 
 ○ Schedule Sales Consultation (In-Person, Detailed)
 → Meet with our team for comprehensive project assessment
-```
+```text
 
 ---
 

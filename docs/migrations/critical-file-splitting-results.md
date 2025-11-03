@@ -13,13 +13,13 @@
 
 #### **Before (Monolithic)**
 
-```
+```text
 src/lib/militaryConstructionAI.ts - 104,881 bytes (3,212 lines)
-```
+```text
 
 #### **After (Modular)**
 
-```
+```text
 src/lib/ai/
 ├── types/index.ts          - 1,614 bytes  (Type definitions)
 ├── core/AIEngine.ts        - 10,184 bytes (Core response logic)
@@ -29,7 +29,7 @@ src/lib/ai/
 
 src/lib/militaryConstructionAI.ts - 278 bytes (Export wrapper)
 Total: 45,055 bytes (57% reduction)
-```
+```text
 
 ### **Architecture Improvements**
 

@@ -138,7 +138,7 @@ npm run build  # ✅ Already completed successfully
 
 # Deploy to your hosting platform
 # (Firebase, Vercel, Netlify, etc.)
-```
+```text
 
 ### **Post-Deployment Actions:**
 

@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-```
+```text
 
 ### **Page Sectional Navigation Implementation**
 
@@ -103,7 +103,7 @@ export function PageNavigation({ items, className = "" }: PageNavigationProps) {
     </nav>
   );
 }
-```
+```text
 
 ---
 
@@ -155,7 +155,7 @@ export const navigationConfigs = {
 };
 
 export type PageType = keyof typeof navigationConfigs;
-```
+```text
 
 ### **Adding New Page Navigation**
 
@@ -173,7 +173,7 @@ export const navigationConfigs = {
     { href: "/contact", label: "Contact", icon: "contact_phone" },
   ],
 };
-```
+```text
 
 1. **Import and use in page component:**
 
@@ -199,7 +199,7 @@ export default function NewPage() {
     </div>
   );
 }
-```
+```text
 
 ---
 
@@ -234,7 +234,7 @@ export default function NewPage() {
   );
   backdrop-filter: blur(16px);
 }
-```
+```text
 
 ### **Page Navigation Styling**
 
@@ -256,7 +256,7 @@ export default function NewPage() {
   background: rgba(var(--brand-primary-rgb), 0.1);
   color: var(--brand-primary);
 }
-```
+```text
 
 ---
 
@@ -273,7 +273,7 @@ const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   items={navigationConfigs.page}
   className={`${isMobile ? 'px-2' : 'px-4'}`}
 />
-```
+```text
 
 ### **Responsive Breakpoints**
 
@@ -303,7 +303,7 @@ const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
     padding: 1rem 2rem;
   }
 }
-```
+```text
 
 ---
 
@@ -329,7 +329,7 @@ describe('Navigation Component', () => {
     expect(screen.getByRole('navigation')).toBeVisible();
   });
 });
-```
+```text
 
 ```typescript
 // __tests__/PageNavigation.test.tsx
@@ -348,7 +348,7 @@ describe('PageNavigation Component', () => {
     expect(screen.getByText('Section 2')).toBeInTheDocument();
   });
 });
-```
+```text
 
 ### **E2E Tests**
 
@@ -368,7 +368,7 @@ describe("Navigation System", () => {
     cy.url().should("include", "#core-services");
   });
 });
-```
+```text
 
 ---
 
@@ -385,7 +385,7 @@ import { navigationConfigs } from "../../components/navigation/navigationConfigs
 
 // Add after hero section
 <PageNavigation items={navigationConfigs.yourPage} />
-```
+```text
 
 ### **Issue: Icons Not Displaying**
 
@@ -396,7 +396,7 @@ import { navigationConfigs } from "../../components/navigation/navigationConfigs
 // Check available icons at: https://fonts.google.com/icons
 { href: "/section", label: "Section", icon: "home" } // ✅ Valid
 { href: "/section", label: "Section", icon: "invalid_icon" } // ❌ Invalid
-```
+```text
 
 ### **Issue: Responsive Layout Breaking**
 
@@ -412,7 +412,7 @@ import { navigationConfigs } from "../../components/navigation/navigationConfigs
   min-width: 80px; /* Minimum width for touch targets */
   flex-shrink: 0; /* Prevent items from shrinking */
 }
-```
+```text
 
 ### **Issue: Z-Index Conflicts**
 
@@ -432,7 +432,7 @@ import { navigationConfigs } from "../../components/navigation/navigationConfigs
 .page-content {
   z-index: 10;
 }
-```
+```text
 
 ---
 
@@ -472,7 +472,7 @@ const memoizedItems = useMemo(() => navigationConfigs.page, []);
 
 // Optimize icon loading
 const MaterialIcon = lazy(() => import("../icons/MaterialIcon"));
-```
+```text
 
 ---
 

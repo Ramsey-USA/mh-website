@@ -133,7 +133,7 @@ import Link from "next/link";
     Contact Us
   </Button>
 </Link>
-```
+```text
 
 ❌ **Avoid**:
 
@@ -141,7 +141,7 @@ import Link from "next/link";
 <Button onClick={() => window.location.href = "/contact"}>
   Contact Us
 </Button>
-```
+```text
 
 ### 2. External Links with Security
 
@@ -153,7 +153,7 @@ import Link from "next/link";
 >
   Follow Us
 </a>
-```
+```text
 
 ### 3. Tel and Mailto Links
 
@@ -173,7 +173,7 @@ import Link from "next/link";
 >
   office@mhc-gc.com
 </a>
-```
+```text
 
 ### 4. Button Component with MaterialIcon
 
@@ -182,7 +182,7 @@ import Link from "next/link";
   <MaterialIcon icon="event" className="mr-2" size="md" />
   Schedule Consultation
 </Button>
-```
+```text
 
 ## Validation Script Usage
 
@@ -194,7 +194,7 @@ chmod +x scripts/validation/validate-ctas.sh
 
 # Run validation
 ./scripts/validation/validate-ctas.sh
-```
+```text
 
 ### What the Script Checks
 
@@ -247,7 +247,7 @@ export const CONTACT_INFO = {
     googleMaps: "https://maps.google.com/?q=3111+N.+Capital+Ave.+Pasco+WA+99301"
   }
 };
-```
+```text
 
 ### Issue 3: Using onClick Instead of Link
 

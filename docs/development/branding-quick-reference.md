@@ -12,7 +12,7 @@
 
 // ✅ ALWAYS use MaterialIcon instead
 <MaterialIcon icon="construction" size="md" className="text-brand-primary" />
-```
+```text
 
 ### Color Standards
 
@@ -25,7 +25,7 @@ className="border-brand-accent"
 // ❌ INCORRECT: Hardcoded colors
 style={{backgroundColor: '#386851'}}
 className="bg-[#BD9264]"
-```
+```text
 
 ### Typography Patterns
 
@@ -44,7 +44,7 @@ className="bg-[#BD9264]"
 <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
   Body content with proper responsive scaling
 </p>
-```
+```text
 
 ## 📝 Required Messaging
 
@@ -82,7 +82,7 @@ Include "Building for the Owner, NOT the Dollar" on key pages
 --brand-primary-dark: #2d5240;
 --brand-secondary-light: #c9a176;
 --brand-secondary-dark: #a67d52;
-```
+```text
 
 ## 🔧 Component Standards
 
@@ -90,7 +90,7 @@ Include "Building for the Owner, NOT the Dollar" on key pages
 
 ```tsx
 <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-all hover:-translate-y-2 duration-300">
-```
+```text
 
 ### Buttons
 
@@ -98,7 +98,7 @@ Include "Building for the Owner, NOT the Dollar" on key pages
 <Button variant="primary" size="lg" className="group transition-all duration-300">
 <Button variant="secondary" size="lg" className="group transition-all duration-300">
 <Button variant="outline" size="lg" className="group transition-all duration-300">
-```
+```text
 
 ### MaterialIcon Usage
 
@@ -106,7 +106,7 @@ Include "Building for the Owner, NOT the Dollar" on key pages
 // Size options: sm, md, lg, xl, 2xl
 <MaterialIcon icon="construction" size="lg" className="text-brand-primary" />
 <MaterialIcon icon="handshake" size="md" className="mr-2 text-brand-secondary" />
-```
+```text
 
 ## 📱 Responsive Requirements
 
@@ -129,7 +129,7 @@ text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl
 
 // Small text: Minimal scaling
 text-sm sm:text-base md:text-lg
-```
+```text
 
 ## ⚡ Animation Standards
 
@@ -151,7 +151,7 @@ className="hover:-translate-y-2 transition-all duration-300"
 // Fade in animations
 <FadeInWhenVisible>
 <StaggeredFadeIn>
-```
+```text
 
 ## 🔍 Validation Checklist
 
@@ -178,7 +178,7 @@ className="hover:-translate-y-2 transition-all duration-300"
 
 ```bash
 ./scripts/validation/check-branding-compliance.sh
-```
+```text
 
 ### Common Fixes
 
@@ -191,7 +191,7 @@ grep -r "#386851\|#BD9264" src/app/
 
 # Check MaterialIcon usage
 grep -r "MaterialIcon" src/app/
-```
+```text
 
 ## 📞 Support
 

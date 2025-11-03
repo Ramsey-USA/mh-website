@@ -31,7 +31,7 @@ import { useAnalytics } from "@/hooks/useAnalytics";
 import { formatPhone } from "@/lib/utils";
 import { User } from "@/types/user";
 import { AuthContext } from "@/contexts/AuthContext";
-```
+```text
 
 #### ❌ INCORRECT
 
@@ -40,7 +40,7 @@ import { AuthContext } from "@/contexts/AuthContext";
 import { Button } from "../../components/ui";
 import { MaterialIcon } from "../../../components/icons/MaterialIcon";
 import { useAnalytics } from "../hooks/useAnalytics";
-```
+```text
 
 ### **Why `@/` Imports?**
 
@@ -65,7 +65,7 @@ import { useAnalytics } from "../hooks/useAnalytics";
     }
   ]
 }
-```
+```text
 
 **Error Message**: "Use @/components/\* instead of relative imports"
 
@@ -86,7 +86,7 @@ import {
   HoverScale,
   ParallaxScroll,
 } from "@/components/animations/FramerMotionComponents";
-```
+```text
 
 #### ❌ INCORRECT - WILL FAIL BUILD
 
@@ -96,7 +96,7 @@ import { FadeInWhenVisible } from "@/components/animations/DynamicAnimations";
 
 // Don't create new dynamic wrappers
 const FadeIn = dynamic(() => import("./FadeInWhenVisible"), { ssr: false });
-```
+```text
 
 ### **Critical Content Visibility Rule**
 
@@ -119,7 +119,7 @@ export default function Page() {
     </>
   );
 }
-```
+```text
 
 #### ❌ INCORRECT - Critical Content Can Disappear
 
@@ -133,7 +133,7 @@ export default function Page() {
     </FadeInWhenVisible>
   );
 }
-```
+```text
 
 ### **Animation Best Practices**
 
@@ -160,7 +160,7 @@ export default function PageName() {
 export default function sitemap() {
   return [...];
 }
-```
+```text
 
 ### **Regular Components**
 
@@ -180,7 +180,7 @@ function Button({ children, ...props }: ButtonProps) {
 }
 
 export { Button };
-```
+```text
 
 #### ⚠️ ACCEPTABLE (Existing Code)
 
@@ -189,7 +189,7 @@ export { Button };
 export default function Button({ children, ...props }: ButtonProps) {
   return <button {...props}>{children}</button>;
 }
-```
+```text
 
 **Note**: New components should prefer named exports. Existing components can remain with default exports but should
 be gradually migrated during refactoring.
@@ -206,7 +206,7 @@ be gradually migrated during refactoring.
 <div className="flex items-center gap-4 p-6 bg-white rounded-lg shadow-md">
   <h2 className="text-2xl font-bold text-gray-900">Title</h2>
 </div>
-```
+```text
 
 ### **Responsive Design**
 
@@ -214,7 +214,7 @@ Use Tailwind's responsive prefixes:
 
 ```tsx
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-```
+```text
 
 ### **Avoid**
 
@@ -230,7 +230,7 @@ Use Tailwind's responsive prefixes:
 
 ```tsx
 import type { User, UserProfile } from "@/types/user";
-```
+```text
 
 ### **Props Interfaces**
 
@@ -248,7 +248,7 @@ export function Button({
 }: ButtonProps) {
   // ...
 }
-```
+```text
 
 ### **Avoid `any`**
 
@@ -268,7 +268,7 @@ interface ProcessData {
 }
 
 function process(data: ProcessData) {}
-```
+```text
 
 ---
 
@@ -276,7 +276,7 @@ function process(data: ProcessData) {}
 
 ### **Directory Structure**
 
-```
+```text
 src/
 ├── app/                 # Next.js app directory (pages)
 ├── components/          # React components
@@ -290,7 +290,7 @@ src/
 ├── contexts/           # React contexts
 ├── middleware/         # Next.js middleware
 └── styles/             # Global styles
-```
+```text
 
 ### **File Naming**
 
@@ -315,7 +315,7 @@ describe("Button", () => {
     expect(screen.getByText("Click me")).toBeInTheDocument();
   });
 });
-```
+```text
 
 ---
 
@@ -333,7 +333,7 @@ import { OptimizedImage } from "@/components/ui/OptimizedImage";
   height={600}
   priority={true} // Above the fold
 />;
-```
+```text
 
 ### **Code Splitting**
 
@@ -345,7 +345,7 @@ const HeavyChart = dynamic(() => import("@/components/charts/HeavyChart"), {
   loading: () => <div>Loading chart...</div>,
   ssr: false, // Only if needed
 });
-```
+```text
 
 ---
 
@@ -385,7 +385,7 @@ function getFirebaseApp(): FirebaseApp {
   }
   return firebaseApp;
 }
-```
+```text
 
 ---
 

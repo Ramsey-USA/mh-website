@@ -22,7 +22,7 @@
 # Check browser console for errors
 # Look for: "Cannot read property 'FadeInWhenVisible' of undefined"
 # Or: Animation/motion related errors
-```
+```text
 
 **Solution 1: Animation Wrapper Issue**
 
@@ -43,7 +43,7 @@
 <FadeInWhenVisible>
   <div className="features">...</div>
 </FadeInWhenVisible>
-```
+```text
 
 **Solution 2: Wrong Animation Import**
 
@@ -53,14 +53,14 @@ import { FadeInWhenVisible } from "@/components/animations/DynamicAnimations";
 
 // ✅ FIX: Import from correct file
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
-```
+```text
 
 **Verification**:
 
 ```bash
 npm run type-check  # Should pass
 npm run dev         # Test in browser
-```
+```text
 
 ---
 
@@ -68,10 +68,10 @@ npm run dev         # Test in browser
 
 **Symptoms**:
 
-```
+```text
 Error: Cannot find module '@/components/animations/DynamicAnimations'
 Error: Cannot find module '../../components/ui'
-```
+```text
 
 **Solution 1: Update Import Path**
 
@@ -81,7 +81,7 @@ import { Button } from "../../components/ui";
 
 // ✅ FIX: Absolute @/ import
 import { Button } from "@/components/ui";
-```
+```text
 
 **Solution 2: Deleted Module Reference**
 
@@ -92,13 +92,13 @@ grep -r "DynamicAnimations" src/
 # Replace with FramerMotionComponents
 find src/ -type f -name "*.tsx" -o -name "*.ts" | \
   xargs sed -i 's|DynamicAnimations|FramerMotionComponents|g'
-```
+```text
 
 **Verification**:
 
 ```bash
 npm run type-check  # Should show no module errors
-```
+```text
 
 ---
 
@@ -106,9 +106,9 @@ npm run type-check  # Should show no module errors
 
 **Symptom**:
 
-```
+```text
 Error: '../../../components/ui' import is restricted
-```
+```text
 
 **Solution**: Convert to `@/` imports
 
@@ -119,13 +119,13 @@ python3 scripts/standardize-imports.py
 # Or manually fix:
 # Replace: from '../../../components/ui'
 # With:    from '@/components/ui'
-```
+```text
 
 **Verification**:
 
 ```bash
 npm run lint  # Should pass with ✔ No ESLint warnings or errors
-```
+```text
 
 ---
 
@@ -135,10 +135,10 @@ npm run lint  # Should pass with ✔ No ESLint warnings or errors
 
 **Symptoms**:
 
-```
+```text
 error TS2307: Cannot find module '@/components/SomeComponent'
 error TS2345: Type 'X' is not assignable to type 'Y'
-```
+```text
 
 **Solution**: Check import paths and types
 
@@ -148,13 +148,13 @@ npm run type-check
 
 # Fix import paths
 # Ensure @/ paths match actual file locations
-```
+```text
 
 **Common Causes**:
 
 1. File moved but imports not updated
-2. Component renamed but exports not updated
-3. Type definition mismatch
+1. Component renamed but exports not updated
+1. Type definition mismatch
 
 ---
 
@@ -172,7 +172,7 @@ npm run type-check
    import { Button } from "@/components/ui/button";
    ```
 
-2. **Uncommitted files**
+1. **Uncommitted files**
 
    ```bash
    # Check git status
@@ -182,7 +182,7 @@ npm run type-check
    git add src/components/NewComponent.tsx
    ```
 
-3. **Missing dependencies**
+1. **Missing dependencies**
 
    ```bash
    # Ensure package.json is committed
@@ -200,7 +200,7 @@ npm run type-check
 - Component appears unstyled
 - Classes work in some files but not others
 
-**Solution 1: Check Class Names**
+#### Solution 1: Check Class Names
 
 ```tsx
 // ❌ PROBLEM: Typo in class name
@@ -210,7 +210,7 @@ npm run type-check
 <div className="flex items-center">
 ```
 
-**Solution 2: Dynamic Classes**
+#### Solution 2: Dynamic Classes
 
 ```tsx
 // ❌ PROBLEM: Dynamic classes not in safelist
@@ -218,7 +218,7 @@ npm run type-check
 
 // ✅ FIX: Use full class names
 <div className={color === 'blue' ? 'text-blue-500' : 'text-gray-500'}>
-```
+```text
 
 ---
 
@@ -232,7 +232,7 @@ npm run type-check
 
 // ✅ FIX: Add responsive breakpoints
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-```
+```text
 
 ---
 
@@ -255,7 +255,7 @@ npm run dev
 rm -rf node_modules package-lock.json
 npm install
 npm run dev
-```
+```text
 
 ---
 
@@ -266,8 +266,8 @@ npm run dev
 **VS Code**:
 
 1. Cmd/Ctrl + Shift + P
-2. Type "TypeScript: Restart TS Server"
-3. Press Enter
+1. Type "TypeScript: Restart TS Server"
+1. Press Enter
 
 **Or restart IDE entirely**
 
@@ -293,7 +293,7 @@ npm install
 node --version  # Should be 18.x or higher
 nvm install 18
 nvm use 18
-```
+```text
 
 ---
 
@@ -305,7 +305,7 @@ nvm use 18
 # If causing issues, check package.json for version conflicts
 # Update conflicting packages:
 npm update package-name
-```
+```text
 
 ---
 
@@ -315,10 +315,10 @@ npm update package-name
 
 **Symptoms**:
 
-```
+```text
 Warning: Text content did not match. Server: "X" Client: "Y"
 Warning: Expected server HTML to contain a matching <div>
-```
+```text
 
 **Common Causes & Fixes**:
 
@@ -334,7 +334,7 @@ useEffect(() => {
 }, []);
 
 return <div>{timestamp || "Loading..."}</div>;
-```
+```text
 
 ---
 
@@ -342,10 +342,10 @@ return <div>{timestamp || "Loading..."}</div>;
 
 **Symptom**:
 
-```
+```text
 Error: Firebase app not initialized
 Error: Auth requires a valid API key
-```
+```text
 
 **Solution**: Check environment variables
 
@@ -357,7 +357,7 @@ NEXT_PUBLIC_FIREBASE_PROJECT_ID=...
 # etc.
 
 # Restart dev server after adding .env.local
-```
+```text
 
 ---
 
@@ -371,22 +371,22 @@ useEffect(() => {
   console.log("Component mounted", { props, state });
   return () => console.log("Component unmounted");
 }, []);
-```
+```text
 
 ### Check Network Requests
 
 1. Open browser DevTools (F12)
-2. Go to Network tab
-3. Reload page
-4. Check for failed requests (red)
-5. Click failed request to see details
+1. Go to Network tab
+1. Reload page
+1. Check for failed requests (red)
+1. Click failed request to see details
 
 ### React DevTools
 
 1. Install React Developer Tools extension
-2. Open browser DevTools
-3. Check "Components" tab
-4. Inspect component props and state
+1. Open browser DevTools
+1. Check "Components" tab
+1. Inspect component props and state
 
 ---
 
@@ -418,7 +418,7 @@ npm outdated
 
 # Update all packages
 npm update
-```
+```text
 
 ---
 
@@ -441,7 +441,7 @@ npm run build
 
 # 5. If build succeeds, restore your changes
 git stash pop
-```
+```text
 
 ### Check for Known Issues
 
@@ -451,7 +451,7 @@ grep -r "error message" docs/
 
 # Check git history for related fixes
 git log --grep="related keyword"
-```
+```text
 
 ---
 

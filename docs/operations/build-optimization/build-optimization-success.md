@@ -61,7 +61,7 @@ webpack: {
     }
   }
 }
-```
+```text
 
 ## 📈 Performance Monitoring
 
@@ -95,14 +95,14 @@ If you want to push for sub-15 second builds:
    # Target: <30KB per file
    ```
 
-2. **Dynamic Imports** (Potential 2-3s improvement):
+1. **Dynamic Imports** (Potential 2-3s improvement):
 
    ```bash
    # Lazy load heavy components
    # Async import large utilities
    ```
 
-3. **Dependency Optimization** (Potential 2-4s improvement):
+1. **Dependency Optimization** (Potential 2-4s improvement):
 
    ```bash
    # Replace heavy libraries with lighter alternatives
@@ -118,13 +118,13 @@ npm run build              # Standard optimized build (16-17s)
 npm run build:fast         # Skip linting (similar speed)
 npm run build:profile      # Extra memory allocation
 npm run build:analyze      # Bundle size analysis
-```
+```text
 
 ### Performance Monitoring
 
 ```bash
 node scripts/optimization/build-monitor.js && npm run build
-```
+```text
 
 ## 📋 Success Metrics Achieved
 
