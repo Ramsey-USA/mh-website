@@ -283,7 +283,7 @@ const example = "with syntax highlighting";
 `````
 ``````
 
-```text
+``````text
 
 #### **File content blocks**
 
