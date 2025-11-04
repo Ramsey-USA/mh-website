@@ -436,12 +436,12 @@ export default function Footer() {
               <div className="mb-2 text-gray-400 dark:text-gray-300 text-xs">
                 Follow Our Partnership Journey
               </div>
-              <div className="flex flex-wrap gap-2 xs:gap-3">
+              <div className="flex items-center justify-start gap-1.5 xs:gap-2 sm:gap-3 overflow-x-auto pb-1">
                 <a
-                  href="https://facebook.com/mhconstruction"
+                  href="https://www.facebook.com/profile.php?id=61575511773974"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0] hover:shadow-lg hover:shadow-[#1877F2]/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 dark:border-gray-500 hover:border-[#1877F2] rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
+                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0] hover:shadow-lg hover:shadow-[#1877F2]/30 p-1.5 xs:p-2 sm:p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#1877F2] rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation flex-shrink-0 min-w-[36px] min-h-[36px] xs:min-w-[40px] xs:min-h-[40px]"
                   title="Follow our partnership stories on Facebook"
                 >
                   <MaterialIcon
@@ -451,10 +451,10 @@ export default function Footer() {
                   />
                 </a>
                 <a
-                  href="https://instagram.com/mhconstruction"
+                  href="https://www.instagram.com/mh_construction_inc/reels/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:shadow-lg hover:shadow-[#E4405F]/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 hover:border-[#E4405F] dark:border-gray-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
+                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:shadow-lg hover:shadow-[#E4405F]/30 p-1.5 xs:p-2 sm:p-2.5 border border-gray-600 hover:border-[#E4405F] dark:border-gray-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation flex-shrink-0 min-w-[36px] min-h-[36px] xs:min-w-[40px] xs:min-h-[40px]"
                   title="See partnership projects on Instagram"
                 >
                   <MaterialIcon
@@ -467,7 +467,7 @@ export default function Footer() {
                   href="https://x.com/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000] hover:shadow-lg hover:shadow-black/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 hover:border-[#1D9BF0] dark:border-gray-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
+                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000] hover:shadow-lg hover:shadow-black/30 p-1.5 xs:p-2 sm:p-2.5 border border-gray-600 hover:border-[#1D9BF0] dark:border-gray-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation flex-shrink-0 min-w-[36px] min-h-[36px] xs:min-w-[40px] xs:min-h-[40px]"
                   title="Follow partnership updates on X (Twitter)"
                 >
                   <MaterialIcon
@@ -480,7 +480,7 @@ export default function Footer() {
                   href="https://youtube.com/@mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000] hover:shadow-lg hover:shadow-[#FF0000]/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 dark:border-gray-500 hover:border-[#FF0000] rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
+                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000] hover:shadow-lg hover:shadow-[#FF0000]/30 p-1.5 xs:p-2 sm:p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#FF0000] rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation flex-shrink-0 min-w-[36px] min-h-[36px] xs:min-w-[40px] xs:min-h-[40px]"
                   title="Watch partnership success stories on YouTube"
                 >
                   <MaterialIcon
@@ -493,7 +493,7 @@ export default function Footer() {
                   href="https://linkedin.com/company/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] hover:shadow-lg hover:shadow-[#0A66C2]/30 p-2 xs:p-2.5 sm:p-3 border border-gray-600 dark:border-gray-500 hover:border-[#0A66C2] rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation"
+                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] hover:shadow-lg hover:shadow-[#0A66C2]/30 p-1.5 xs:p-2 sm:p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#0A66C2] rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation flex-shrink-0 min-w-[36px] min-h-[36px] xs:min-w-[40px] xs:min-h-[40px]"
                   title="Connect with our partnership team on LinkedIn"
                 >
                   <MaterialIcon
@@ -514,7 +514,7 @@ export default function Footer() {
                 onSubmit={(e) => {
                   e.preventDefault();
                   const searchInput = e.currentTarget.querySelector(
-                    "input",
+                    "input"
                   ) as HTMLInputElement;
                   if (searchInput?.value.trim()) {
                     window.location.href = `/projects?search=${encodeURIComponent(searchInput.value)}`;

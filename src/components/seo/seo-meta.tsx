@@ -144,7 +144,7 @@ export function StructuredData({ data }: { data: object }) {
   // Sanitize JSON data for security
   const sanitizedData = JSON.stringify(data).replace(
     /<\/script/gi,
-    "<\\/script",
+    "<\\/script"
   );
 
   return (
@@ -200,9 +200,9 @@ export function generateOrganizationStructuredData() {
       "Project Management",
     ],
     sameAs: [
-      "https://www.facebook.com/mhconstruction",
+      "https://www.facebook.com/profile.php?id=61575511773974",
       "https://www.linkedin.com/company/mhconstruction",
-      "https://www.instagram.com/mhconstruction",
+      "https://www.instagram.com/mh_construction_inc/reels/",
     ],
   };
 }
@@ -248,7 +248,7 @@ export function generateProjectStructuredData(project: {
 
 // Generate breadcrumb structured data
 export function generateBreadcrumbStructuredData(
-  breadcrumbs: Array<{ name: string; url: string }>,
+  breadcrumbs: Array<{ name: string; url: string }>
 ) {
   return {
     "@context": "https://schema.org",

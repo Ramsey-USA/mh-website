@@ -211,7 +211,7 @@ export function Navigation() {
               </div>
               <div className="flex justify-center gap-2 mobile-sm:gap-1.5 xs:gap-3 sm:gap-4">
                 <a
-                  href="https://facebook.com/mhconstruction"
+                  href="https://www.facebook.com/profile.php?id=61575511773974"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0] hover:shadow-lg hover:shadow-[#1877F2]/30 dark:hover:shadow-[#1877F2]/20 p-2 mobile-sm:p-1.5 xs:p-2.5 sm:p-3 border border-gray-200 dark:border-gray-600 hover:border-[#1877F2] rounded-lg sm:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation min-w-[40px] min-h-[40px] mobile-sm:min-w-[36px] mobile-sm:min-h-[36px]"
@@ -225,7 +225,7 @@ export function Navigation() {
                   />
                 </a>
                 <a
-                  href="https://instagram.com/mhconstruction"
+                  href="https://www.instagram.com/mh_construction_inc/reels/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:shadow-lg hover:shadow-[#E4405F]/30 dark:hover:shadow-[#E4405F]/20 p-2 mobile-sm:p-1.5 xs:p-2.5 sm:p-3 border border-gray-200 dark:border-gray-600 hover:border-[#E4405F] rounded-lg sm:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation min-w-[40px] min-h-[40px] mobile-sm:min-w-[36px] mobile-sm:min-h-[36px]"

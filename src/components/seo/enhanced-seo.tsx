@@ -70,8 +70,8 @@ export const enhancedSEO = {
     },
   },
   socialMedia: {
-    facebook: "https://facebook.com/mhconstruction",
-    instagram: "https://instagram.com/mhconstruction",
+    facebook: "https://www.facebook.com/profile.php?id=61575511773974",
+    instagram: "https://www.instagram.com/mh_construction_inc/reels/",
     linkedin: "https://linkedin.com/company/mhconstruction",
     youtube: "https://youtube.com/@mhconstruction",
   },
@@ -383,7 +383,7 @@ export function generateIRLConsultationSchema() {
 
 // Generate FAQ schema
 export function generateFAQSchema(
-  faqs: Array<{ question: string; answer: string }>,
+  faqs: Array<{ question: string; answer: string }>
 ) {
   return {
     "@context": "https://schema.org",
@@ -455,7 +455,7 @@ export function generateReviewSchema(
     reviewBody: string;
     author: string;
     datePublished: string;
-  }>,
+  }>
 ) {
   return {
     "@context": "https://schema.org",
@@ -488,7 +488,7 @@ export function generateReviewSchema(
 
 // Generate breadcrumb schema
 export function generateBreadcrumbSchema(
-  breadcrumbs: Array<{ name: string; url: string }>,
+  breadcrumbs: Array<{ name: string; url: string }>
 ) {
   return {
     "@context": "https://schema.org",
@@ -650,7 +650,7 @@ export function StructuredData({ data }: { data: object | object[] }) {
   // Sanitize JSON data for security
   const sanitizedData = JSON.stringify(schemaData).replace(
     /<\/script/gi,
-    "<\\/script",
+    "<\\/script"
   );
 
   return (
