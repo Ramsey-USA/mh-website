@@ -495,6 +495,13 @@ export default function Home() {
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="mb-8 sm:mb-10 lg:mb-12 text-center scroll-reveal">
+            <div className="flex justify-center items-center mb-4 sm:mb-6">
+              <MaterialIcon
+                icon="shield"
+                size="xl"
+                className="text-brand-primary dark:text-brand-primary"
+              />
+            </div>
             <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
               <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 Built on
@@ -1413,6 +1420,9 @@ export default function Home() {
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
           <FadeInWhenVisible>
+            <div className="flex justify-center items-center mb-4 sm:mb-6">
+              <MaterialIcon icon="launch" size="xl" className="text-white" />
+            </div>
             <h2 className="mb-4 sm:mb-6 font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
               Ready to Start Our Partnership?
             </h2>

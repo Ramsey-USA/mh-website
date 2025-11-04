@@ -371,6 +371,13 @@ export default function ServicesPage() {
             <FadeInWhenVisible>
               <div className="mb-16 lg:mb-24 text-center scroll-reveal">
                 {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
+                <div className="flex justify-center items-center mb-6">
+                  <MaterialIcon
+                    icon="build"
+                    size="xl"
+                    className="text-brand-primary dark:text-brand-primary"
+                  />
+                </div>
                 <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Core Partnership
@@ -902,6 +909,13 @@ export default function ServicesPage() {
             <FadeInWhenVisible>
               <div className="mx-auto max-w-4xl text-center mb-12 scroll-reveal">
                 {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
+                <div className="flex justify-center items-center mb-6">
+                  <MaterialIcon
+                    icon="fact_check"
+                    size="xl"
+                    className="text-brand-primary dark:text-brand-primary"
+                  />
+                </div>
                 <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
                   Quality Inspections
                 </h2>
@@ -1028,6 +1042,13 @@ export default function ServicesPage() {
             <FadeInWhenVisible>
               <div className="mx-auto max-w-4xl text-center mb-12 scroll-reveal">
                 {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
+                <div className="flex justify-center items-center mb-6">
+                  <MaterialIcon
+                    icon="build_circle"
+                    size="xl"
+                    className="text-brand-primary dark:text-brand-primary"
+                  />
+                </div>
                 <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
                   Maintenance & Repairs
                 </h2>
