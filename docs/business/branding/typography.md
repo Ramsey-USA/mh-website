@@ -90,7 +90,8 @@ strong { font-weight: 600; }
 
 ### Mobile-First Responsive Heading Hierarchy
 
-All typography uses responsive scaling that adapts to screen sizes, ensuring optimal readability and professional appearance across all devices.
+All typography uses responsive scaling that adapts to screen sizes, ensuring
+optimal readability and professional appearance across all devices.
 
 #### H1 - Primary Headlines (Responsive)
 
@@ -164,7 +165,8 @@ h3 {
 
 ### Standardized Hero Section Format
 
-**ALL PAGES must implement the standardized hero section format. This ensures consistent user experience, proper navigation visibility, and optimal typography scaling across the entire website.**
+**ALL PAGES must implement the standardized hero section format. This ensures consistent user experience, proper
+navigation visibility, and optimal typography scaling across the entire website.**
 
 #### Hero Section Structure (REQUIRED)
 
