@@ -473,7 +473,22 @@ npm run deploy:production    # Build + deploy in one command
 
 ### ✅ **Component Standards v4.0.2 Alignment**
 
-**Accessibility Enhancements**:
+**Hero Section Standards (November 4, 2025):**
+- **Single-Line Titles**: Hero sections use simple, single-line titles ready for photo/video backgrounds
+- **Brand Color Headlines**: Hero titles use `text-brand-secondary` (Leather Tan) for visual impact
+- **NO BADGES Policy**: No decorative badges or bubble containers in hero sections
+- **Typography Scale**: `text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl`
+- **Clean Background Ready**: Design prepared for future photo/video background integration
+
+**Card Grid Layout Standards (November 4, 2025):**
+- **3-4 Cards Per Row**: Optimal layout on large screens (`lg:grid-cols-3 xl:grid-cols-4`)
+- **Responsive Patterns**:
+  - 6 cards: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`
+  - 4 cards: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4`
+  - 3 cards: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`
+- **Consistent Spacing**: `gap-6 lg:gap-8` for professional appearance
+
+**Accessibility Enhancements:**
 - Form inputs: Added 44px minimum touch targets
 - Touch interactions: Implemented `touch-manipulation` CSS
 - Padding standardization: Consistent `px-4 py-3` form padding
@@ -483,6 +498,9 @@ npm run deploy:production    # Build + deploy in one command
 
 - [**CTA Standardization Plan**](./docs/business/branding/cta-standardization-plan.md) - Complete analysis and implementation roadmap
 - [**Bubble Headings Policy**](./docs/business/branding/bubble-headings-policy.md) - Professional heading guidelines for developers
+- [**Component Standards**](./docs/business/branding/component-standards.md) - Hero sections, card grids, and component patterns
+- [**Typography Standards**](./docs/business/branding/typography.md) - Hero typography and responsive scaling patterns
+- [**Branding Quick Reference**](./docs/development/branding/branding-quick-reference.md) - Developer quick reference guide
 - [**Implementation Summary**](./docs/business/branding/implementation-summary-nov-4-2025.md) - Complete project summary and results
 
 ### 🏆 **Impact Summary**
@@ -1313,7 +1331,9 @@ The website uses **`www.mhc-gc.com`** as the canonical URL for all pages and SEO
 - **Professional Standards**: Zero emojis in codebase, perfect Material Icons usage
 - **Brand Consistency**: Hunter Green and Leather Tan colors implemented flawlessly
 - **Mobile Excellence**: Dynamic viewport height optimization across all hero sections
-- **Typography Perfection**: 12 standardized H2 headers with brand gradients
+- **Typography Perfection**: Hero sections use brand-colored headings (NO BADGES), 3-4 cards per row on large screens
+- **Hero Section Standards**: Single-line titles with `text-brand-secondary` color, ready for photo/video backgrounds
+- **Card Grid Layout**: Optimal 3-4 cards per row on large screens (`lg:grid-cols-3 xl:grid-cols-4`)
 - **Government Page Preservation**: Professional black/white design maintained
 - **Partnership Messaging**: Strong collaborative language site-wide
 - **Tagline Integration**: "Building for the Owner, NOT the Dollar" featured prominently

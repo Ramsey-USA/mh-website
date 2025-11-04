@@ -101,7 +101,7 @@ All pages must implement the cohesive hero section pattern:
 #### Standard Section Header Pattern
 
 ````tsx
-**Goal**: Consistent typography patterns - NO BUBBLE HEADINGS
+**Goal**: Consistent typography patterns - NO SECTION BADGES
 
 #### Standard Section Header Pattern - NO GRADIENTS
 

@@ -169,34 +169,20 @@ export default function AboutPage() {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
           <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-            {/* Veteran-Owned Badge */}
-            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-              <MaterialIcon
-                icon="military_tech"
-                className="mr-2 sm:mr-3 text-brand-secondary text-base sm:text-lg"
-              />
-              <span className="font-bold text-brand-primary-light dark:text-brand-primary-light text-xs sm:text-sm uppercase tracking-wider">
-                Veteran-Owned Excellence
-              </span>
-            </div>
-
-            {/* Main Title with Responsive Typography */}
-            <h1 className="font-black text-white text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight">
-              <span className="block mb-1 sm:mb-2 font-semibold text-white/80 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight">
-                Your Partnership in
-              </span>
-              <span className="block text-white font-black drop-shadow-lg">
-                Construction Excellence
+            {/* Main Title */}
+            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+              <span className="block text-brand-secondary font-black drop-shadow-lg">
+                Your Partnership in Construction Excellence
               </span>
             </h1>
 
             {/* Primary Tagline */}
-            <p className="max-w-3xl mx-auto text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-brand-secondary font-bold leading-snug">
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
               "Building for the Owner, NOT the Dollar"
             </p>
 
             {/* Description with Partnership Language */}
-            <p className="max-w-4xl mx-auto font-light text-white/90 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed tracking-wide">
+            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
               Where military precision meets construction excellence. We work
               WITH you every step—combining veteran values, advanced technology,
               and genuine partnership to build your vision.
@@ -480,7 +466,7 @@ export default function AboutPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mx-auto max-w-7xl">
+          <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto max-w-7xl">
             {coreValues.map((value, index) => (
               <Card
                 key={index}
@@ -562,7 +548,7 @@ export default function AboutPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mx-auto max-w-7xl">
+          <StaggeredFadeIn className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
             {leadershipTeam.map((member, index) => (
               <Card
                 key={index}
@@ -645,7 +631,7 @@ export default function AboutPage() {
                 </span>
               </h2>
 
-              <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
                 <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-primary transition-all hover:-translate-y-2 duration-300">
                   <CardHeader className="text-center">
                     <MaterialIcon
@@ -828,7 +814,7 @@ export default function AboutPage() {
             </div>
           </FadeInWhenVisible>
 
-          <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mb-12">
+          <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-12">
             <StaggeredFadeIn>
               <Card className="bg-white dark:bg-gray-900 hover:shadow-lg transition-all duration-300">
                 <CardHeader>
@@ -1126,7 +1112,7 @@ export default function AboutPage() {
             </div>
           </FadeInWhenVisible>
 
-          <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mb-12">
+          <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-12">
             <StaggeredFadeIn>
               <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-secondary dark:border-brand-secondary/50 transition-all duration-300">
                 <CardHeader>
@@ -1453,7 +1439,7 @@ export default function AboutPage() {
             </p>
           </FadeInWhenVisible>
 
-          <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+          <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
             <FadeInWhenVisible>
               <Card className="border-l-4 border-l-brand-primary">
                 <CardContent className="pt-6">

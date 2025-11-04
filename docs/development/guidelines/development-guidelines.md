@@ -222,16 +222,17 @@ enhanced developer experience in documentation.**
 
 ## UI Component Standards & Design Rules
 
-### 🚫 **NO BUBBLE HEADINGS POLICY**
+### 🚫 **NO SECTION BADGES POLICY**
 
 **Effective Date:** October 8, 2025
 **Policy Version:** 1.1
 **Authority:** MH Construction Design Team
 
-#### Bubble Headings Policy Statement
+#### Section Badges Policy Statement
 
-MH Construction maintains a strict policy prohibiting bubble-style headings in
-all sections to maintain professional, clean visual hierarchy.
+MH Construction maintains a strict policy prohibiting decorative section badges
+(bubble/pill-shaped containers with icons) in all sections to maintain professional,
+clean visual hierarchy.
 
 #### ✅ APPROVED HEADING STYLES
 
@@ -258,10 +259,10 @@ all sections to maintain professional, clean visual hierarchy.
 </h2>
 ```text
 
-#### ❌ PROHIBITED BUBBLE STYLES
+#### ❌ PROHIBITED SECTION BADGE STYLES
 
 ```tsx
-// ❌ Never use bubble/pill-shaped decorative containers
+// ❌ Never use bubble/pill-shaped decorative badge containers
 <div className="inline-flex items-center bg-brand-primary/10 shadow-lg mb-8
   px-8 py-4 border border-brand-primary/20 rounded-full">
   <MaterialIcon icon="construction" size="md" />
@@ -429,7 +430,7 @@ for detailed implementation examples.
 
 ## 📋 **QUICK REFERENCE: UI STANDARDS CHECKLIST**
 
-### **✅ SECTION HEADERS** (No Bubbles)
+### **✅ SECTION HEADERS** (No Section Badges)
 
 ```tsx
 // ✅ Use clean typography hierarchy
@@ -461,7 +462,7 @@ spacing and styling:
 ### **❌ PROHIBITED PATTERNS**
 
 ```tsx
-// ❌ No bubble/pill decorations
+// ❌ No bubble/pill badge decorations
 <div className="bg-brand-primary/10 rounded-full px-6 py-2">Badge</div>
 
 // ❌ No static information cards

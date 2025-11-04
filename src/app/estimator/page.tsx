@@ -23,7 +23,7 @@ const EstimatorForm = dynamic(
       <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-96 animate-pulse"></div>
     ),
     ssr: false,
-  },
+  }
 );
 const SmartRecommendations = dynamic(
   () => import("../../components/recommendations/SmartRecommendations"),
@@ -32,7 +32,7 @@ const SmartRecommendations = dynamic(
       <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-64 animate-pulse"></div>
     ),
     ssr: false,
-  },
+  }
 );
 import {
   FadeInWhenVisible,
@@ -52,67 +52,45 @@ export default function EstimatorPage() {
       <StructuredData data={seoData.schemas} />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-secondary to-gray-900 min-h-screen flex items-center justify-center text-white">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-secondary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/30 via-gray-900/80 to-brand-primary/20"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 sm:py-0">
-          <FadeInWhenVisible className="space-y-6 sm:space-y-8">
-            {/* AI Technology Badge */}
-            <div className="inline-flex items-center bg-brand-secondary/10 dark:bg-brand-secondary/20 shadow-lg backdrop-blur-sm mb-4 px-6 py-3 border border-brand-secondary/20 dark:border-brand-secondary/30 rounded-full">
-              <MaterialIcon
-                icon="smart_toy"
-                size="sm"
-                className="text-brand-secondary"
-              />
-              <span className="ml-3 font-bold text-brand-secondary text-xs uppercase tracking-wider">
-                AI-Powered Technology
-              </span>
-            </div>
-
-            {/* Primary Tagline - MH Branding Standard */}
-            <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-xl inline-block">
-              <p className="text-base sm:text-lg md:text-xl font-semibold text-brand-secondary tracking-wide">
-                "Building for the Owner, NOT the Dollar"
-              </p>
-            </div>
-
-            {/* Main Title with Proper Gradient - MH Typography Standards */}
-            <h1 className="mb-6 pb-2 font-black text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter">
-              <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
-                AI Cost Estimator
-              </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-secondary drop-shadow-lg text-transparent">
-                Budget Planning Tool
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+          <FadeInWhenVisible className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+            {/* Main Title */}
+            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+              <span className="block text-brand-secondary font-black drop-shadow-lg">
+                AI-Powered Cost Estimator
               </span>
             </h1>
 
-            {/* Description - Clear AI Positioning */}
-            <p className="max-w-4xl mx-auto font-light text-white/90 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+            {/* Subtitle */}
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
               Instant Preliminary Estimates • 24/7 Available • No Appointment
               Needed
             </p>
 
-            {/* Subtitle */}
-            <p className="max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
+            {/* Description */}
+            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
               AI-powered technology provides preliminary budget estimates for
-              initial planning. For detailed analysis and custom solutions,
-              schedule an in-person consultation.
+              initial planning • For detailed analysis and custom solutions,
+              schedule an in-person consultation
             </p>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 font-medium text-brand-secondary text-sm sm:text-base">
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-10 font-medium text-brand-secondary text-sm sm:text-base pt-2">
               <div className="flex items-center">
-                <MaterialIcon icon="flash_on" size="sm" className="mr-2" />
+                <MaterialIcon icon="flash_on" size="md" className="mr-2" />
                 <span>Under 5 Minutes</span>
               </div>
               <div className="flex items-center">
-                <MaterialIcon icon="analytics" size="sm" className="mr-2" />
+                <MaterialIcon icon="analytics" size="md" className="mr-2" />
                 <span>Data-Driven</span>
               </div>
               <div className="flex items-center">
-                <MaterialIcon icon="military_tech" size="sm" className="mr-2" />
+                <MaterialIcon icon="military_tech" size="md" className="mr-2" />
                 <span>10% Veteran Discount</span>
               </div>
             </div>
@@ -131,12 +109,15 @@ export default function EstimatorPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
             <div className="mb-16 lg:mb-24 text-center">
-              <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
-                  Choose Your Path Forward
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                  Choose Your
+                </span>
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                  Path Forward
                 </span>
               </h2>
-              <p className="max-w-4xl mx-auto text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Select the approach that best fits your project needs and
                 timeline
               </p>
@@ -340,82 +321,81 @@ export default function EstimatorPage() {
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-16 lg:mb-24 text-center">
-              <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
-                  Why Use Our AI Estimator?
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                  Why Use Our
+                </span>
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                  AI Estimator?
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Get preliminary cost estimates instantly, powered by regional
                 construction data and AI technology for initial budget planning
               </p>
             </div>
           </FadeInWhenVisible>
 
-          <div className="gap-8 grid md:grid-cols-3 mb-12">
-            <StaggeredFadeIn>
-              <HoverScale>
-                <Card className="text-center">
-                  <CardContent className="p-6">
-                    <div className="flex justify-center items-center bg-brand-primary/10 mx-auto mb-4 rounded-full w-16 h-16">
-                      <MaterialIcon
-                        icon="speed"
-                        className="w-8 h-8 text-brand-primary"
-                      />
-                    </div>
-                    <h3 className="mb-2 font-semibold text-xl">
-                      Lightning Fast
-                    </h3>
-                    <p className="text-gray-600">
-                      Complete estimates in under 5 minutes. No waiting, no
-                      back-and-forth emails.
-                    </p>
-                  </CardContent>
-                </Card>
-              </HoverScale>
+          <StaggeredFadeIn className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-12">
+            <HoverScale>
+              <Card className="text-center h-full">
+                <CardContent className="p-6">
+                  <div className="flex justify-center items-center bg-brand-primary/10 mx-auto mb-4 rounded-full w-16 h-16">
+                    <MaterialIcon
+                      icon="speed"
+                      className="w-8 h-8 text-brand-primary"
+                    />
+                  </div>
+                  <h3 className="mb-2 font-semibold text-xl">Lightning Fast</h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Complete estimates in under 5 minutes. No waiting, no
+                    back-and-forth emails.
+                  </p>
+                </CardContent>
+              </Card>
+            </HoverScale>
 
-              <HoverScale>
-                <Card className="text-center">
-                  <CardContent className="p-6">
-                    <div className="flex justify-center items-center bg-brand-secondary/10 mx-auto mb-4 rounded-full w-16 h-16">
-                      <MaterialIcon
-                        icon="analytics"
-                        className="w-8 h-8 text-brand-secondary"
-                      />
-                    </div>
-                    <h3 className="mb-2 font-semibold text-xl">
-                      Market-Based Calculations
-                    </h3>
-                    <p className="text-gray-600">
-                      Trained on regional project data to provide helpful
-                      preliminary cost estimates for Pacific Northwest
-                      construction.
-                    </p>
-                  </CardContent>
-                </Card>
-              </HoverScale>
+            <HoverScale>
+              <Card className="text-center h-full">
+                <CardContent className="p-6">
+                  <div className="flex justify-center items-center bg-brand-secondary/10 mx-auto mb-4 rounded-full w-16 h-16">
+                    <MaterialIcon
+                      icon="analytics"
+                      className="w-8 h-8 text-brand-secondary"
+                    />
+                  </div>
+                  <h3 className="mb-2 font-semibold text-xl">
+                    Market-Based Calculations
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Trained on regional project data to provide helpful
+                    preliminary cost estimates for Pacific Northwest
+                    construction.
+                  </p>
+                </CardContent>
+              </Card>
+            </HoverScale>
 
-              <HoverScale>
-                <Card className="text-center">
-                  <CardContent className="p-6">
-                    <div className="flex justify-center items-center bg-brand-accent/10 mx-auto mb-4 rounded-full w-16 h-16">
-                      <MaterialIcon
-                        icon="savings"
-                        className="w-8 h-8 text-brand-accent"
-                      />
-                    </div>
-                    <h3 className="mb-2 font-semibold text-xl">
-                      No Hidden Costs
-                    </h3>
-                    <p className="text-gray-600">
-                      Transparent breakdown of materials, labor, permits, and
-                      all associated costs.
-                    </p>
-                  </CardContent>
-                </Card>
-              </HoverScale>
-            </StaggeredFadeIn>
-          </div>
+            <HoverScale>
+              <Card className="text-center h-full">
+                <CardContent className="p-6">
+                  <div className="flex justify-center items-center bg-brand-primary/10 mx-auto mb-4 rounded-full w-16 h-16">
+                    <MaterialIcon
+                      icon="savings"
+                      className="w-8 h-8 text-brand-primary"
+                    />
+                  </div>
+                  <h3 className="mb-2 font-semibold text-xl">
+                    No Hidden Costs
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Transparent breakdown of materials, labor, permits, and all
+                    associated costs.
+                  </p>
+                </CardContent>
+              </Card>
+            </HoverScale>
+          </StaggeredFadeIn>
         </div>
       </section>
 
@@ -424,12 +404,15 @@ export default function EstimatorPage() {
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-16 lg:mb-24 text-center">
-              <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
-                  Start Your AI Estimate
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                  Start Your
+                </span>
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                  AI Estimate
                 </span>
               </h2>
-              <p className="max-w-4xl mx-auto text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed">
+              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Answer a few questions and get your preliminary construction
                 estimate for budget planning
               </p>
@@ -520,9 +503,12 @@ export default function EstimatorPage() {
       <section className="bg-gradient-to-r from-gray-900 to-brand-primary-dark py-20 lg:py-32 xl:py-40 text-white">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
           <FadeInWhenVisible>
-            <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-              <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary text-transparent drop-shadow-sm">
-                Need Detailed Analysis?
+            <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+              <span className="block mb-4 font-semibold text-white/80 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                Need Detailed
+              </span>
+              <span className="block text-brand-secondary font-black">
+                Analysis?
               </span>
             </h2>
             <p className="mx-auto mb-10 max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 leading-relaxed">

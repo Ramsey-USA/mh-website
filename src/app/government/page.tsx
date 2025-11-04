@@ -270,7 +270,7 @@ const successFactors = [
 
 export default function GovernmentGrantsPage() {
   const [selectedGrantType, setSelectedGrantType] = useState<string | null>(
-    null,
+    null
   );
 
   return (
@@ -283,39 +283,24 @@ export default function GovernmentGrantsPage() {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
           <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-            {/* Subtitle First - Government Focus */}
-            <p className="text-xs xs:text-sm sm:text-base md:text-lg text-white/90 font-medium tracking-wide">
-              Federal Contracting | Mission-Critical Infrastructure
-            </p>
-
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-              <span className="block bg-clip-text bg-gradient-to-r from-gray-300 via-white to-gray-300 text-transparent drop-shadow-lg">
-                Government Contracting
+              <span className="block text-white font-black drop-shadow-lg">
+                Federal Government Contracting
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug">
-              Army Veteran Leadership | Federal Compliance | Mission Execution
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+              Army Veteran Leadership • Federal Compliance • Mission Execution
             </p>
 
-            {/* Primary Tagline - Government Focused */}
-            <div className="max-w-4xl mx-auto">
-              <div className="inline-block bg-black/30 backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 rounded-lg border border-white/20">
-                <p className="text-xs xs:text-sm sm:text-base md:text-lg font-semibold bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white text-transparent">
-                  Mission-Critical Construction | Military Precision | On Time,
-                  On Target
-                </p>
-              </div>
-            </div>
-
             {/* Description */}
-            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed">
+            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
               Under Army veteran leadership, MH Construction delivers
               mission-critical construction services with unwavering commitment
               to federal compliance, operational security, and successful
-              mission completion.
+              mission completion
             </p>
           </div>
         </div>
@@ -326,7 +311,6 @@ export default function GovernmentGrantsPage() {
           className="absolute bottom-0 left-0 right-0"
         />
       </section>
-
       {/* Veteran-Owned Badge Section */}
       <section className="bg-gradient-to-r from-gray-800 to-black py-8 text-white">
         <div className="mx-auto px-4 container">
@@ -363,26 +347,25 @@ export default function GovernmentGrantsPage() {
           </FadeInWhenVisible>
         </div>
       </section>
-
       {/* Grant Support Services */}
       <section className="bg-white dark:bg-gray-900 py-20">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
-            <div className="mb-16 text-center">
+            <div className="mb-16 lg:mb-24 text-center">
               <MaterialIcon
                 icon="support"
-                size="3xl"
-                className="mb-4 text-gray-700 dark:text-gray-300"
+                size="4xl"
+                className="mb-6 text-gray-700 dark:text-gray-300"
               />
-              <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                <span className="text-gray-700 dark:text-gray-300">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                   Federal Contracting
-                </span>{" "}
-                <span className="bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 text-transparent">
+                </span>
+                <span className="block text-gray-900 dark:text-white font-black">
                   Support Services
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl text-gray-600 dark:text-gray-300 text-xl">
+              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Army veteran leadership delivers mission-critical construction
                 services with unwavering commitment to federal specifications
                 and operational success
@@ -390,7 +373,7 @@ export default function GovernmentGrantsPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-8 grid md:grid-cols-3 mx-auto max-w-7xl">
+          <StaggeredFadeIn className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
             {grantSupportServices.map((service, index) => (
               <Card
                 key={index}
@@ -437,7 +420,6 @@ export default function GovernmentGrantsPage() {
           </StaggeredFadeIn>
         </div>
       </section>
-
       {/* Hanford & DOE Section */}
       <section className="bg-gradient-to-br from-gray-900 to-black py-20 text-white">
         <div className="mx-auto px-4 container">
@@ -449,20 +431,22 @@ export default function GovernmentGrantsPage() {
                   size="4xl"
                   className="mb-6 text-gray-300"
                 />
-                <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                  <span className="text-gray-300">Hanford & Department of</span>{" "}
-                  <span className="bg-clip-text bg-gradient-to-r from-white to-gray-300 text-transparent">
+                <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                  <span className="block mb-4 font-semibold text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                    Hanford & Department of
+                  </span>
+                  <span className="block text-white font-black">
                     Energy Expertise
                   </span>
                 </h2>
-                <p className="mx-auto max-w-3xl text-gray-200 text-xl">
+                <p className="mx-auto max-w-4xl font-light text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                   Proven operational excellence in high-security environments
                   with comprehensive understanding of federal compliance
                   requirements and mission-critical construction protocols
                 </p>
               </div>
 
-              <div className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 mb-12">
+              <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-12">
                 {hanfordCapabilities.map((capability, index) => (
                   <Card
                     key={index}
@@ -483,7 +467,7 @@ export default function GovernmentGrantsPage() {
                     </CardContent>
                   </Card>
                 ))}
-              </div>
+              </StaggeredFadeIn>
 
               <Card className="bg-gray-800 border-gray-600">
                 <CardContent className="p-8">
@@ -527,42 +511,39 @@ export default function GovernmentGrantsPage() {
           </FadeInWhenVisible>
         </div>
       </section>
-
       {/* Grant Types Section */}
       <section className="bg-gray-50 dark:bg-gray-800 py-20">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
-            <div className="mb-16 text-center">
+            <div className="mb-16 lg:mb-24 text-center">
               <MaterialIcon
                 icon="folder_special"
-                size="3xl"
-                className="mb-4 text-gray-700 dark:text-gray-300"
+                size="4xl"
+                className="mb-6 text-gray-700 dark:text-gray-300"
               />
-              <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                <span className="text-gray-700 dark:text-gray-300">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                   Federal Contract
-                </span>{" "}
-                <span className="bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 text-transparent">
+                </span>
+                <span className="block text-gray-900 dark:text-white font-black">
                   Categories
                 </span>
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
+              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Proven execution across federal, state, and mission-critical
                 construction contracts
               </p>
             </div>
           </FadeInWhenVisible>
 
-          <div className="gap-8 grid md:grid-cols-3 mx-auto max-w-7xl">
+          <StaggeredFadeIn className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
             {grantTypes.map((type, index) => (
               <HoverScale key={index}>
                 <div
                   className="h-full cursor-pointer"
                   onClick={() =>
                     setSelectedGrantType(
-                      selectedGrantType === type.category
-                        ? null
-                        : type.category,
+                      selectedGrantType === type.category ? null : type.category
                     )
                   }
                 >
@@ -597,10 +578,9 @@ export default function GovernmentGrantsPage() {
                 </div>
               </HoverScale>
             ))}
-          </div>
+          </StaggeredFadeIn>
         </div>
-      </section>
-
+      </section>{" "}
       {/* Process Steps */}
       <section className="bg-white dark:bg-gray-900 py-20">
         <div className="mx-auto px-4 container">
@@ -609,18 +589,18 @@ export default function GovernmentGrantsPage() {
               <div className="mb-16 text-center">
                 <MaterialIcon
                   icon="timeline"
-                  size="3xl"
-                  className="mb-4 text-gray-700 dark:text-gray-300"
+                  size="4xl"
+                  className="mb-6 text-gray-700 dark:text-gray-300"
                 />
-                <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                  <span className="text-gray-700 dark:text-gray-300">
+                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Federal Contract
-                  </span>{" "}
-                  <span className="bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 text-transparent">
+                  </span>
+                  <span className="block text-gray-900 dark:text-white font-black">
                     Execution Process
                   </span>
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 text-xl">
+                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                   Five-phase military approach to federal contract success
                 </p>
               </div>
@@ -664,7 +644,6 @@ export default function GovernmentGrantsPage() {
           </FadeInWhenVisible>
         </div>
       </section>
-
       {/* Government Project Types */}
       <section className="bg-gray-50 py-20">
         <div className="mx-auto px-4 container">
@@ -672,25 +651,25 @@ export default function GovernmentGrantsPage() {
             <div className="mb-16 text-center">
               <MaterialIcon
                 icon="domain"
-                size="3xl"
-                className="mb-4 text-gray-700 dark:text-gray-300"
+                size="4xl"
+                className="mb-6 text-gray-700 dark:text-gray-300"
               />
-              <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                <span className="text-gray-700 dark:text-gray-300">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                   Federal Facility
-                </span>{" "}
-                <span className="bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 text-transparent">
+                </span>
+                <span className="block text-gray-900 dark:text-white font-black">
                   Classifications
                 </span>
               </h2>
-              <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
+              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Licensed and mission-ready across diverse federal and government
                 facility projects
               </p>
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+          <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
             {governmentProjects.map((project, index) => (
               <Card
                 key={index}
@@ -730,7 +709,6 @@ export default function GovernmentGrantsPage() {
           </StaggeredFadeIn>
         </div>
       </section>
-
       {/* Success Factors */}
       <section className="bg-white dark:bg-gray-900 py-20">
         <div className="mx-auto px-4 container">
@@ -739,18 +717,18 @@ export default function GovernmentGrantsPage() {
               <div className="mb-16 text-center">
                 <MaterialIcon
                   icon="emoji_events"
-                  size="3xl"
-                  className="mb-4 text-gray-700 dark:text-gray-300"
+                  size="4xl"
+                  className="mb-6 text-gray-700 dark:text-gray-300"
                 />
-                <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                  <span className="text-gray-700 dark:text-gray-300">
+                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Mission Success
-                  </span>{" "}
-                  <span className="bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 text-transparent">
+                  </span>
+                  <span className="block text-gray-900 dark:text-white font-black">
                     Factors
                   </span>
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 text-xl">
+                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                   What ensures federal contract success and how we deliver
                 </p>
               </div>
@@ -787,7 +765,6 @@ export default function GovernmentGrantsPage() {
           </FadeInWhenVisible>
         </div>
       </section>
-
       {/* CTA Section - Strong Government Theme */}
       <section className="relative bg-gradient-to-r from-gray-900 to-black py-20 overflow-hidden text-white">
         <div className="absolute inset-0 opacity-10">
@@ -807,17 +784,19 @@ export default function GovernmentGrantsPage() {
                 size="4xl"
                 className="mb-8 text-gray-300"
               />
-              <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                <span className="text-gray-300">Ready to Execute Your</span>{" "}
-                <span className="bg-clip-text bg-gradient-to-r from-white to-gray-300 text-transparent">
+              <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                  Ready to Execute Your
+                </span>
+                <span className="block text-white font-black">
                   Federal Mission?
                 </span>
               </h2>
-              <p className="mb-8 text-gray-200 text-2xl">
+              <p className="mb-8 text-gray-200 text-xl sm:text-2xl">
                 Deploy with Army veteran leadership that delivers
                 mission-critical results
               </p>
-              <p className="mx-auto mb-12 max-w-3xl text-gray-100 text-xl">
+              <p className="mx-auto mb-12 max-w-3xl text-gray-100 text-lg sm:text-xl">
                 Contact our command center to discuss your federal construction
                 requirements and begin mission planning for successful execution
               </p>

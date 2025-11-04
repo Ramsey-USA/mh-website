@@ -176,13 +176,13 @@ title: 'Update 🎯'
 
 ### **CRITICAL UI COMPONENT STANDARDS**
 
-#### 🚫 **NO BUBBLE HEADINGS POLICY**
+#### 🚫 **NO SECTION BADGES POLICY**
 
-**ENFORCED STANDARD:** MH Construction prohibits bubble-style decorative
-headings to maintain professional visual hierarchy.
+**ENFORCED STANDARD:** MH Construction prohibits decorative section badges
+(bubble/pill-shaped containers with icons) to maintain professional visual hierarchy.
 
 ```tsx
-// ❌ PROHIBITED - Bubble/pill-shaped header decorations
+// ❌ PROHIBITED - Bubble/pill-shaped badge decorations at section beginnings
 <div className="inline-flex items-center bg-brand-primary/10 shadow-lg mb-8
   px-8 py-4 border border-brand-primary/20 rounded-full">
   <MaterialIcon icon="construction" size="md" />
@@ -244,7 +244,7 @@ headings to maintain professional visual hierarchy.
 - ✅ **Consistent Structure**: All pages follow identical hero implementation
 - ✅ **Responsive Typography**: Proper scaling from mobile to desktop
 - ✅ **NO CTA Buttons**: Hero sections contain only navigation elements
-- ✅ **Professional Styling**: NO bubble headings, solid colors only
+- ✅ **Professional Styling**: NO section badges, solid colors only
 - ✅ **Navigation Visible**: PageNavigation always displayed at bottom
 
 **Implementation Details:** See comprehensive hero section standards in Typography documentation.

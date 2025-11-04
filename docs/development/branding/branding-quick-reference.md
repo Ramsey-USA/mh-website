@@ -30,7 +30,22 @@ className="bg-[#BD9264]"
 ### Typography Patterns
 
 ```tsx
-// ✅ CORRECT: Standard section header - NO BUBBLE HEADINGS
+// ✅ CORRECT: Hero section (for photo/video backgrounds) - NO BADGES
+<h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+  <span className="block text-brand-secondary font-black drop-shadow-lg">
+    Your Partnership in Construction Excellence
+  </span>
+</h1>
+
+<p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+  Tagline or subtitle content
+</p>
+
+<p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
+  Description content with partnership language
+</p>
+
+// ✅ CORRECT: Standard section header - NO SECTION BADGES
 <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
   <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
     Subtitle Text

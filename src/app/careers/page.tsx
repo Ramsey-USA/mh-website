@@ -298,61 +298,39 @@ export default function CareersPage() {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
           <FadeInWhenVisible className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-            {/* Veteran-Owned Badge */}
-            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-              <MaterialIcon
-                icon="military_tech"
-                size="sm"
-                className="text-brand-primary"
-              />
-              <span className="ml-2 sm:ml-3 font-bold text-brand-primary text-xs uppercase tracking-wider">
-                Veteran-Owned Excellence
-              </span>
-            </div>
-
-            {/* Primary Tagline */}
-            <div className="bg-white/10 backdrop-blur-sm p-2 sm:p-3 md:p-4 border border-white/20 rounded-xl inline-block">
-              <p className="text-xs xs:text-sm sm:text-base md:text-lg font-semibold text-brand-secondary tracking-wide">
-                "Building for the Owner, NOT the Dollar"
-              </p>
-            </div>
-
             {/* Main Title */}
-            <h1 className="font-black text-white text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight">
-              <span className="block mb-1 sm:mb-2 font-semibold text-white/80 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight">
-                Join Our Team
-              </span>
-              <span className="block text-white drop-shadow-lg">
-                Build Your Career
+            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black">
+              <span className="block text-brand-secondary font-black drop-shadow-lg">
+                Build Your Career with MH Construction
               </span>
             </h1>
 
             {/* Description */}
-            <p className="max-w-4xl mx-auto font-light text-white/90 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed tracking-wide">
+            <p className="max-w-4xl mx-auto font-light text-white/90 text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
               Partnership Culture • Professional Growth • Veteran-Friendly
             </p>
 
-            {/* Subtitle */}
-            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base text-white/80 leading-relaxed">
+            {/* Additional Info */}
+            <p className="max-w-4xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg text-white/80 leading-relaxed px-2">
               Join a veteran-owned company that values integrity, excellence,
               and community. We're looking for dedicated professionals who share
               our commitment to quality craftsmanship.
             </p>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-10 font-medium text-brand-secondary text-xs sm:text-sm">
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-10 font-medium text-brand-secondary text-sm sm:text-base">
               <div className="flex items-center">
-                <MaterialIcon icon="groups" size="sm" className="mr-2" />
+                <MaterialIcon icon="groups" size="md" className="mr-2" />
                 <span>Team Unity</span>
               </div>
               <div className="flex items-center">
-                <MaterialIcon icon="school" size="sm" className="mr-2" />
+                <MaterialIcon icon="school" size="md" className="mr-2" />
                 <span>Career Development</span>
               </div>
               <div className="flex items-center">
                 <MaterialIcon
                   icon="health_and_safety"
-                  size="sm"
+                  size="md"
                   className="mr-2"
                 />
                 <span>Safety First</span>
@@ -372,20 +350,24 @@ export default function CareersPage() {
         {/* Why Work With Us */}
         <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
-            <div className="mb-16 lg:mb-24 text-center">
-              <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                <span className="block text-gray-900 dark:text-white drop-shadow-sm">
-                  Why Choose MH Construction?
+            <div className="mb-16 lg:mb-24 text-center scroll-reveal">
+              {/* NO SECTION BADGES - Clean section header */}
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                  Why Join
+                </span>
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                  MH Construction
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 We're more than just a construction company—we're a family that
                 invests in your success and future.
               </p>
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <StaggeredFadeIn className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
             {cultureValues.map((value, index) => (
               <Card
                 key={index}
@@ -416,20 +398,24 @@ export default function CareersPage() {
         {/* Benefits & Perks */}
         <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
-            <div className="mb-16 lg:mb-24 text-center">
-              <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                <span className="block text-gray-900 dark:text-white drop-shadow-sm">
-                  Benefits & Perks
+            <div className="mb-16 lg:mb-24 text-center scroll-reveal">
+              {/* NO SECTION BADGES - Clean section header */}
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                  Employee Benefits
+                </span>
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                  & Perks
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 We believe in taking care of our team members with comprehensive
                 benefits and a supportive work environment.
               </p>
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-12">
             {companyBenefits.map((benefit, index) => (
               <Card
                 key={index}
@@ -460,13 +446,17 @@ export default function CareersPage() {
         {/* Open Positions */}
         <section id="positions" className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
-            <div className="mb-16 lg:mb-24 text-center">
-              <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                <span className="block text-gray-900 dark:text-white drop-shadow-sm">
-                  Current Openings
+            <div className="mb-16 lg:mb-24 text-center scroll-reveal">
+              {/* NO SECTION BADGES - Clean section header */}
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                  Current Career
+                </span>
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                  Opportunities
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Explore our current job opportunities and find the perfect role
                 to advance your career with us.
               </p>
@@ -528,6 +518,7 @@ export default function CareersPage() {
                         onClick={() => handleApplyNow(position.title)}
                         variant="primary"
                         size="lg"
+                        className="transition-all duration-300 min-w-[180px]"
                       >
                         <MaterialIcon icon="send" size="lg" className="mr-3" />
                         Apply Now
@@ -587,38 +578,54 @@ export default function CareersPage() {
         <section className="bg-gradient-to-br from-brand-primary/5 dark:from-brand-primary/10 via-brand-primary/10 dark:via-brand-primary/20 to-brand-secondary/5 dark:to-brand-secondary/10 p-12 lg:p-16 xl:p-20 rounded-2xl">
           <FadeInWhenVisible>
             <div className="text-center">
-              <MaterialIcon
-                icon="groups"
-                size="4xl"
-                className="mb-6 text-brand-primary"
-              />
-              <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                <span className="block text-gray-900 dark:text-white drop-shadow-sm">
-                  Don't See the Perfect Role?
+              {/* NO SECTION BADGES - Icon only */}
+              <div className="mb-8">
+                <MaterialIcon
+                  icon="groups"
+                  size="4xl"
+                  className="text-brand-primary"
+                />
+              </div>
+
+              {/* Standard header - NO SECTION BADGES */}
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                  Don't See the
+                </span>
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                  Perfect Role?
                 </span>
               </h2>
-              <p className="mx-auto mb-10 max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
+
+              <p className="mx-auto mb-10 max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 We're always looking for talented individuals to join our team.
                 Send us your resume and let us know how you'd like to contribute
                 to our mission.
               </p>
-              <div className="flex sm:flex-row flex-col justify-center gap-4">
+
+              {/* CTA Buttons - Brand Standards */}
+              <div className="flex sm:flex-row flex-col justify-center gap-6">
                 <Button
                   onClick={() => handleApplyNow("General Application")}
                   variant="primary"
                   size="lg"
+                  className="transition-all duration-300 min-w-[260px]"
                 >
                   <MaterialIcon icon="upload" size="lg" className="mr-3" />
-                  Submit General Application
+                  <span className="font-medium">Submit Application</span>
                 </Button>
                 <Link href="/contact">
-                  <Button variant="secondary" size="lg">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="transition-all duration-300 min-w-[260px]"
+                  >
                     <MaterialIcon
                       icon="contact_mail"
                       size="lg"
                       className="mr-3"
                     />
-                    Contact HR
+                    <span className="font-medium">Contact HR</span>
                   </Button>
                 </Link>
               </div>

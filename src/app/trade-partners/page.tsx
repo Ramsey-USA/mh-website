@@ -251,39 +251,20 @@ export default function TradePartnersPage() {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
           <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-            {/* Trade Partnership Badge */}
-            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-              <MaterialIcon
-                icon="construction"
-                size="sm"
-                className="text-brand-secondary mr-2 sm:mr-3"
-              />
-              <span className="font-bold text-brand-secondary text-xs uppercase tracking-wider">
-                Trade Partnership Network
-              </span>
-            </div>
-
             {/* Main Title */}
-            <h1 className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black leading-tight tracking-tight">
-              <span className="block mb-1 sm:mb-2 font-semibold text-white/80 text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl tracking-tight">
-                Join Our
-              </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent drop-shadow-lg">
+            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+              <span className="block text-brand-secondary font-black drop-shadow-lg">
                 Trade Partnership Network
               </span>
             </h1>
 
-            {/* Primary Tagline - Vendor Focused */}
-            <div className="max-w-4xl mx-auto">
-              <div className="inline-block bg-black/30 backdrop-blur-sm px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-lg border border-white/20">
-                <p className="text-xs xs:text-sm sm:text-base md:text-lg font-semibold bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white text-transparent">
-                  Grow Your Business with Veteran-Owned Excellence
-                </p>
-              </div>
-            </div>
+            {/* Primary Tagline */}
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+              Grow Your Business with Veteran-Owned Excellence
+            </p>
 
-            {/* Description - Trade Partnership Focus */}
-            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/90 leading-relaxed">
+            {/* Description */}
+            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
               Partner with MH Construction to access reliable project
               opportunities, professional collaboration, and fair business
               practices. We believe in building lasting relationships with
@@ -510,11 +491,11 @@ export default function TradePartnersPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mb-12">
             {partnershipBenefits.map((benefit, index) => (
               <Card
                 key={index}
-                className="flex flex-col bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all"
+                className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 transition-all hover:-translate-y-1 h-full"
               >
                 <CardContent className="flex flex-col p-6 h-full">
                   <div className="flex items-center mb-4">

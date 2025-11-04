@@ -420,74 +420,55 @@ export default function BookingPage() {
         {/* Header */}
         <section
           id="consultation"
-          className="bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white"
+          className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden"
         >
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 sm:py-0">
-            <FadeInWhenVisible className="space-y-6 sm:space-y-8">
-              {/* Veteran-Owned Badge */}
-              <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-4 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-                <MaterialIcon
-                  icon="military_tech"
-                  size="sm"
-                  className="text-brand-primary"
-                />
-                <span className="ml-3 font-bold text-brand-primary text-xs uppercase tracking-wider">
-                  Veteran-Owned Excellence
-                </span>
-              </div>
+          {/* Background Elements */}
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
-              {/* Primary Tagline - MH Branding Standard */}
-              <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-xl inline-block">
-                <p className="text-base sm:text-lg md:text-xl font-semibold text-brand-secondary tracking-wide">
-                  "Building for the Owner, NOT the Dollar"
-                </p>
-              </div>
-
-              {/* Main Title with Proper Gradient - MH Typography Standards */}
-              <h1 className="mb-6 pb-2 font-black text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter">
-                <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
-                  Schedule Your
-                </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-secondary drop-shadow-lg text-transparent">
-                  Expert Consultation
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+            <FadeInWhenVisible className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+              {/* Main Title */}
+              <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+                <span className="block text-brand-secondary font-black drop-shadow-lg">
+                  Schedule Your Expert Consultation
                 </span>
               </h1>
 
-              {/* Description */}
-              <p className="max-w-4xl mx-auto font-light text-white/90 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+              {/* Subtitle */}
+              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
                 Work WITH Our Team • On-Site Assessment • Custom Solutions
               </p>
 
-              {/* Subtitle */}
-              <p className="max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
-                Free consultation with 30+ years of construction expertise. We
-                partner with you to bring your vision to life.
+              {/* Description */}
+              <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
+                Free consultation with 30+ years of construction expertise • We
+                partner with you to bring your vision to life
               </p>
 
               {/* Trust Indicators */}
-              <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 font-medium text-brand-secondary text-sm sm:text-base">
+              <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-10 font-medium text-brand-secondary text-sm sm:text-base pt-2">
                 <div className="flex items-center">
-                  <MaterialIcon icon="handshake" size="sm" className="mr-2" />
+                  <MaterialIcon icon="handshake" size="md" className="mr-2" />
                   <span>Partnership Approach</span>
                 </div>
                 <div className="flex items-center">
-                  <MaterialIcon icon="location_on" size="sm" className="mr-2" />
+                  <MaterialIcon icon="location_on" size="md" className="mr-2" />
                   <span>Free On-Site Visit</span>
                 </div>
                 <div className="flex items-center">
-                  <MaterialIcon icon="engineering" size="sm" className="mr-2" />
+                  <MaterialIcon icon="engineering" size="md" className="mr-2" />
                   <span>Expert Analysis</span>
                 </div>
               </div>
             </FadeInWhenVisible>
           </div>
-        </section>
 
-        {/* Page Navigation */}
-        <PageNavigation
-          items={navigationConfigs.booking}
-          className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t-4 border-brand-primary"
-        />
+          {/* Page-Specific Navigation Bar */}
+          <PageNavigation
+            items={navigationConfigs.booking}
+            className="absolute bottom-0 left-0 right-0"
+          />
+        </section>
 
         {/* Progress Indicator */}
         <div className="bg-white dark:bg-gray-800 shadow-sm py-4">

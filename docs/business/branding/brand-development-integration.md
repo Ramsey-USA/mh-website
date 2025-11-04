@@ -44,7 +44,7 @@ export const brandTypography = {
     'brand': ['Inter', 'system-ui', 'sans-serif'],
   },
   
-  // NO BUBBLE HEADINGS (v4.0.2)
+  // NO SECTION BADGES (v4.0.2)
   headings: {
     h1: 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 dark:text-gray-100',
     h2: 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 dark:text-gray-100',
@@ -166,7 +166,7 @@ export function HeroSection({ title, subtitle, description, primaryCTA, secondar
 
 - [ ] Only Hunter Green (#386851) and Leather Tan (#BD9264) brand colors used
 - [ ] Material Icons implemented instead of emojis
-- [ ] NO bubble headings (gradient text effects)
+- [ ] NO section badges (decorative rounded badge containers)
 - [ ] Consistent animation duration (300ms)
 - [ ] Proper responsive breakpoints (sm, md, lg)
 - [ ] Dark mode support included

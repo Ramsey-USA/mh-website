@@ -37,12 +37,13 @@
 - `implementation-guide.md` - Replaced Forest Green accent with Medium Gray
 - `mh-branding.md` - Removed veteran color palette, updated all color examples
 
-### 2. Typography Policy: NO BUBBLE HEADINGS (MAJOR UPDATE)
+### 2. Typography Policy: NO SECTION BADGES (MAJOR UPDATE)
 
-**Eliminated all gradient text effects for professional presentation:**
+**Eliminated decorative section badges and gradient text effects for professional presentation:**
 
-#### ❌ **REMOVED BUBBLE HEADING PATTERNS:**
+#### ❌ **REMOVED SECTION BADGE PATTERNS:**
 
+- Bubble/pill-shaped decorative containers with icons at section beginnings
 - `bg-clip-text` combined with gradients
 - `bg-gradient-to-r` for text styling
 - `text-transparent` gradient effects
@@ -57,7 +58,7 @@
 
 #### **Files Updated for Typography Compliance:**
 
-- `typography.md` - Added NO BUBBLE HEADINGS policy, responsive typography system
+- `typography.md` - Added NO SECTION BADGES policy, responsive typography system
 - `mh-branding.md` - Replaced all gradient text with solid brand colors
 - `branding-quick-reference.md` - Updated examples to remove gradient patterns
 - `branding-compliance-plan.md` - Updated standards to prohibit bubble headings
@@ -72,7 +73,7 @@
 - **Consistent Structure**: All pages must use identical hero implementation
 - **Responsive Typography**: Proper scaling from `text-lg` to `xl:text-5xl`
 - **NO CTA Buttons**: Hero sections contain only navigation elements
-- **Professional Styling**: NO bubble headings, solid colors only
+- **Professional Styling**: NO section badges, solid colors only
 - **Navigation Visible**: PageNavigation always displayed at bottom
 - **Mobile Optimized**: Perfect scaling for all screen sizes
 

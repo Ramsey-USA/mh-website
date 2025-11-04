@@ -273,66 +273,24 @@ export default function ServicesPage() {
           {/* Content */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
             <FadeInWhenVisible className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-              {/* Veteran Badge */}
-              <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-                <MaterialIcon
-                  icon="military_tech"
-                  size="sm"
-                  className="text-brand-secondary"
-                />
-                <span className="ml-2 sm:ml-3 font-bold text-brand-secondary text-xs uppercase tracking-wider">
-                  Veteran-Owned Excellence
-                </span>
-              </div>
-
-              {/* Primary Tagline */}
-              <div className="bg-white/10 backdrop-blur-sm p-2 sm:p-3 md:p-4 border border-white/20 rounded-xl inline-block">
-                <p className="text-xs xs:text-sm sm:text-base md:text-lg font-semibold text-brand-secondary tracking-wide">
-                  "Building for the Owner, NOT the Dollar"
-                </p>
-              </div>
-
               {/* Main Title */}
-              <h1 className="font-black text-white text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight">
-                <span className="block mb-1 sm:mb-2 font-semibold text-white/80 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight">
-                  Your Partnership in
-                </span>
-                <span className="block text-white font-black drop-shadow-lg">
-                  Construction Excellence
+              <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+                <span className="block text-brand-secondary font-black drop-shadow-lg">
+                  Construction Management Excellence
                 </span>
               </h1>
 
+              {/* Primary Tagline */}
+              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+                "Building for the Owner, NOT the Dollar"
+              </p>
+
               {/* Description */}
-              <p className="max-w-4xl mx-auto font-light text-white/90 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed tracking-wide">
+              <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
                 We Work WITH You Every Step. Military Precision. Advanced
-                Technology.
+                Technology. Veteran-Owned Excellence serving the Pacific
+                Northwest.
               </p>
-
-              {/* Location */}
-              <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base text-white/80 leading-relaxed">
-                Tri-Cities Headquarters: Pasco, WA | Serving Washington, Oregon,
-                Idaho
-              </p>
-
-              {/* Trust Indicators */}
-              <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-10 font-medium text-brand-secondary text-xs sm:text-sm">
-                <div className="flex items-center">
-                  <MaterialIcon
-                    icon="workspace_premium"
-                    size="sm"
-                    className="mr-2"
-                  />
-                  <span>150+ Years Experience</span>
-                </div>
-                <div className="flex items-center">
-                  <MaterialIcon icon="verified" size="sm" className="mr-2" />
-                  <span>Licensed WA, OR, ID</span>
-                </div>
-                <div className="flex items-center">
-                  <MaterialIcon icon="handshake" size="sm" className="mr-2" />
-                  <span>Partnership-Driven</span>
-                </div>
-              </div>
             </FadeInWhenVisible>
           </div>
 
@@ -348,11 +306,16 @@ export default function ServicesPage() {
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mx-auto mb-16 lg:mb-24 max-w-4xl text-center">
-                <MaterialIcon
-                  icon="engineering"
-                  size="3xl"
-                  className="mb-6 text-brand-primary"
-                />
+                {/* NO SECTION BADGES - Section Icon */}
+                <div className="mb-8">
+                  <MaterialIcon
+                    icon="engineering"
+                    size="4xl"
+                    className="text-brand-primary"
+                  />
+                </div>
+
+                {/* Standard Section Header - NO SECTION BADGES */}
                 <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Partnership-Focused
@@ -361,17 +324,19 @@ export default function ServicesPage() {
                     Construction Management
                   </span>
                 </h2>
-                <p className="mb-6 font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+
+                <p className="mb-8 font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                   Planning a new commercial building demands intricate details
                   and expert partnership oversight. Work WITH us through
                   comprehensive Partnership-Focused Construction Management
                   services throughout the Tri-Cities (Pasco, WA) area.
                 </p>
-                <div className="bg-brand-primary/5 dark:bg-gray-800 p-6 border-brand-primary border-l-4 rounded-lg">
-                  <p className="text-gray-800 dark:text-gray-200 text-base md:text-lg leading-relaxed">
-                    <strong className="text-brand-primary dark:text-brand-primary-light">
+
+                <div className="bg-brand-primary/5 dark:bg-gray-800 p-6 sm:p-8 border-brand-primary border-l-4 rounded-xl">
+                  <p className="text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed text-left">
+                    <strong className="text-brand-primary dark:text-brand-primary-light block mb-2">
                       Our Partnership Priority:
-                    </strong>{" "}
+                    </strong>
                     Delivering an exceptional partnership experience from start
                     to finish. Our commitment to thorough communication and
                     upfront collaboration is critical to streamlining the
@@ -379,13 +344,13 @@ export default function ServicesPage() {
                   </p>
                 </div>
 
-                {/* CTA Buttons - Brand Compliant */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+                {/* CTA Buttons - Brand Standards Compliant */}
+                <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-10">
                   <Link href="/contact">
                     <Button
                       variant="primary"
                       size="lg"
-                      className="transition-all duration-300"
+                      className="transition-all duration-300 min-w-[280px]"
                     >
                       <MaterialIcon icon="phone" size="lg" className="mr-3" />
                       <span className="font-medium">Call (509) 308-6489</span>
@@ -393,14 +358,12 @@ export default function ServicesPage() {
                   </Link>
                   <Link href="/booking">
                     <Button
-                      variant="secondary"
+                      variant="outline"
                       size="lg"
-                      className="transition-all duration-300"
+                      className="transition-all duration-300 min-w-[280px]"
                     >
                       <MaterialIcon icon="event" size="lg" className="mr-3" />
-                      <span className="font-medium">
-                        Schedule Free Consultation
-                      </span>
+                      <span className="font-medium">Schedule Consultation</span>
                     </Button>
                   </Link>
                 </div>
@@ -416,23 +379,25 @@ export default function ServicesPage() {
         >
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
-              <div className="mb-16 lg:mb-24 text-center">
+              <div className="mb-16 lg:mb-24 text-center scroll-reveal">
+                {/* NO SECTION BADGES - Clean section header */}
                 <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                    Partnership
+                    Core Partnership
                   </span>
                   <span className="block text-brand-primary dark:text-brand-primary font-black">
                     Services
                   </span>
                 </h2>
-                <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                   Comprehensive partnership-focused management services designed
-                  to bring your vision to life through collaboration
+                  to bring your vision to life through collaboration and
+                  military precision
                 </p>
               </div>
             </FadeInWhenVisible>
 
-            <StaggeredFadeIn className="gap-8 grid md:grid-cols-2 mx-auto max-w-7xl">
+            <StaggeredFadeIn className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mx-auto max-w-7xl">
               {coreServices.map((service, index) => (
                 <div
                   key={index}
@@ -574,23 +539,24 @@ export default function ServicesPage() {
         <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
-              <div className="mb-16 lg:mb-24 text-center">
+              <div className="mb-16 lg:mb-24 text-center scroll-reveal">
+                {/* NO SECTION BADGES - Clean section header */}
                 <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                    Partnership
+                    Specialized Partnership
                   </span>
                   <span className="block text-brand-primary dark:text-brand-primary font-black">
-                    Specialties
+                    Solutions
                   </span>
                 </h2>
-                <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                   Diverse collaborative construction expertise across the
-                  Tri-Cities and Pacific Northwest
+                  Tri-Cities and Pacific Northwest region
                 </p>
               </div>
             </FadeInWhenVisible>
 
-            <StaggeredFadeIn className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+            <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mx-auto max-w-7xl">
               {specialtyServices.map((service, index) => (
                 <Card
                   key={index}
@@ -735,26 +701,32 @@ export default function ServicesPage() {
         <section className="bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark to-brand-accent dark:to-gray-800 py-20 lg:py-32 xl:py-40 text-white">
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
-              <div className="mb-16 lg:mb-24 text-center">
-                <MaterialIcon
-                  icon="public"
-                  size="3xl"
-                  className="mb-6 text-brand-secondary"
-                />
+              <div className="mb-16 lg:mb-24 text-center scroll-reveal">
+                {/* NO SECTION BADGES - Icon only */}
+                <div className="mb-8">
+                  <MaterialIcon
+                    icon="public"
+                    size="4xl"
+                    className="text-brand-secondary"
+                  />
+                </div>
+
+                {/* Standard header - NO SECTION BADGES */}
                 <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-white/80 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                    Partnership
+                    Service Coverage
                   </span>
                   <span className="block text-white font-black drop-shadow-lg">
                     Areas
                   </span>
                 </h2>
-                <p className="font-light text-white/90 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                  Serving the Pacific Northwest with Excellence
+
+                <p className="font-light text-white/90 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
+                  Serving the Pacific Northwest with Partnership Excellence
                 </p>
               </div>
 
-              <div className="gap-8 grid md:grid-cols-2 mx-auto max-w-4xl">
+              <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 mx-auto max-w-4xl">
                 {serviceAreas.map((area, index) => (
                   <Card
                     key={index}
@@ -798,7 +770,8 @@ export default function ServicesPage() {
         <section className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32 xl:py-40">
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
-              <div className="mb-16 lg:mb-24 text-center">
+              <div className="mb-16 lg:mb-24 text-center scroll-reveal">
+                {/* NO SECTION BADGES - Clean section header */}
                 <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Why Partner With
@@ -807,14 +780,14 @@ export default function ServicesPage() {
                     MH Construction
                   </span>
                 </h2>
-                <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                  Your trusted partner for commercial construction in the
-                  Pacific Northwest
+                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
+                  Your trusted partner for commercial construction excellence in
+                  the Pacific Northwest
                 </p>
               </div>
             </FadeInWhenVisible>
 
-            <StaggeredFadeIn className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+            <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto max-w-7xl">
               {whyChooseUs.map((reason, index) => (
                 <Card
                   key={index}
@@ -846,12 +819,17 @@ export default function ServicesPage() {
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mx-auto max-w-4xl">
-                <div className="mb-16 lg:mb-24 text-center">
-                  <MaterialIcon
-                    icon="trending_up"
-                    size="3xl"
-                    className="mb-6 text-brand-primary"
-                  />
+                <div className="mb-16 lg:mb-24 text-center scroll-reveal">
+                  {/* NO SECTION BADGES - Icon only */}
+                  <div className="mb-8">
+                    <MaterialIcon
+                      icon="trending_up"
+                      size="4xl"
+                      className="text-brand-primary"
+                    />
+                  </div>
+
+                  {/* Standard header - NO SECTION BADGES */}
                   <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                     <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                       Our Partnership
@@ -860,7 +838,8 @@ export default function ServicesPage() {
                       Process
                     </span>
                   </h2>
-                  <p className="font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+
+                  <p className="font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                     From initial partnership conversation to project completion,
                     we collaborate WITH you every step of the way
                   </p>
@@ -949,27 +928,29 @@ export default function ServicesPage() {
         >
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
-              <div className="mx-auto max-w-4xl text-center mb-12">
-                <div className="flex justify-center items-center mb-6">
-                  <div className="bg-brand-primary/10 p-4 rounded-2xl">
-                    <MaterialIcon
-                      icon="fact_check"
-                      size="xl"
-                      className="text-brand-primary"
-                    />
-                  </div>
+              <div className="mx-auto max-w-4xl text-center mb-12 scroll-reveal">
+                {/* NO SECTION BADGES - Icon only */}
+                <div className="mb-8">
+                  <MaterialIcon
+                    icon="fact_check"
+                    size="4xl"
+                    className="text-brand-primary"
+                  />
                 </div>
-                <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight">
+
+                {/* Standard header - NO SECTION BADGES */}
+                <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
                   Quality Inspections
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed">
+
+                <p className="text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed px-2">
                   Ensuring excellence through comprehensive quality assurance
                   and detailed inspections at every phase of your project.
                 </p>
               </div>
             </FadeInWhenVisible>
 
-            <div className="gap-8 grid md:grid-cols-2 mb-12">
+            <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 mb-12">
               <StaggeredFadeIn>
                 <Card className="bg-white dark:bg-gray-900 hover:shadow-lg transition-all duration-300">
                   <CardHeader>
@@ -1082,27 +1063,29 @@ export default function ServicesPage() {
         >
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
-              <div className="mx-auto max-w-4xl text-center mb-12">
-                <div className="flex justify-center items-center mb-6">
-                  <div className="bg-brand-primary/10 p-4 rounded-2xl">
-                    <MaterialIcon
-                      icon="home_repair_service"
-                      size="xl"
-                      className="text-brand-primary"
-                    />
-                  </div>
+              <div className="mx-auto max-w-4xl text-center mb-12 scroll-reveal">
+                {/* NO SECTION BADGES - Icon only */}
+                <div className="mb-8">
+                  <MaterialIcon
+                    icon="home_repair_service"
+                    size="4xl"
+                    className="text-brand-primary"
+                  />
                 </div>
-                <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight">
+
+                {/* Standard header - NO SECTION BADGES */}
+                <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
                   Maintenance & Repairs
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed">
+
+                <p className="text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed px-2">
                   Protecting your investment with professional maintenance
                   services and expert repairs when you need them most.
                 </p>
               </div>
             </FadeInWhenVisible>
 
-            <div className="gap-8 grid lg:grid-cols-3 mb-12">
+            <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-12">
               <StaggeredFadeIn>
                 <Card className="bg-gradient-to-br from-brand-light to-white dark:from-gray-800 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
                   <CardHeader>
@@ -1237,16 +1220,17 @@ export default function ServicesPage() {
           className="relative bg-gray-50 dark:bg-gray-800 py-20 lg:py-32 xl:py-40"
         >
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <FadeInWhenVisible className="mb-16 lg:mb-24 text-center">
+            <FadeInWhenVisible className="mb-16 lg:mb-24 text-center scroll-reveal">
+              {/* NO SECTION BADGES - Clean section header */}
               <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                 <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                  Construction
+                  Our Construction
                 </span>
                 <span className="block text-brand-primary dark:text-brand-primary font-black">
                   Portfolio
                 </span>
               </h2>
-              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Explore our completed projects showcasing quality craftsmanship
                 across commercial, residential, and government sectors
               </p>
@@ -1398,30 +1382,38 @@ export default function ServicesPage() {
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mx-auto max-w-3xl text-center">
-                <MaterialIcon
-                  icon="phone_in_talk"
-                  size="4xl"
-                  className="mb-8 text-brand-secondary"
-                />
+                {/* NO SECTION BADGES - Icon only */}
+                <div className="mb-10">
+                  <MaterialIcon
+                    icon="phone_in_talk"
+                    size="4xl"
+                    className="text-brand-secondary"
+                  />
+                </div>
+
+                {/* Standard header - NO SECTION BADGES */}
                 <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-white/80 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                    Ready to Start Our
+                    Ready to Start Your
                   </span>
                   <span className="block text-white font-black drop-shadow-lg">
                     Partnership?
                   </span>
                 </h2>
-                <p className="mb-8 text-white/90 text-lg md:text-xl leading-relaxed">
+
+                <p className="mb-10 text-white/90 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
                   Contact us today for a free consultation and let's discuss how
                   we can bring your vision to life through partnership and
                   collaboration.
                 </p>
-                <div className="flex sm:flex-row flex-col justify-center gap-4 mb-8">
+
+                {/* CTA Buttons - Brand Standards */}
+                <div className="flex sm:flex-row flex-col justify-center gap-6 mb-10">
                   <Link href="/contact">
                     <Button
                       variant="primary"
                       size="lg"
-                      className="transition-all duration-300 border-2 border-white text-white hover:bg-white hover:text-brand-primary"
+                      className="transition-all duration-300 border-2 border-white bg-white text-brand-primary hover:bg-brand-primary hover:text-white min-w-[260px]"
                     >
                       <MaterialIcon
                         icon="handshake"
@@ -1433,16 +1425,16 @@ export default function ServicesPage() {
                   </Link>
                   <Link href="/projects">
                     <Button
-                      variant="secondary"
+                      variant="outline"
                       size="lg"
-                      className="transition-all duration-300"
+                      className="transition-all duration-300 border-2 border-white text-white hover:bg-white hover:text-brand-primary min-w-[260px]"
                     >
                       <MaterialIcon
                         icon="photo_library"
                         size="lg"
                         className="mr-3"
                       />
-                      <span className="font-medium">View Success Stories</span>
+                      <span className="font-medium">View Portfolio</span>
                     </Button>
                   </Link>
                 </div>

@@ -15,18 +15,21 @@
 
 ---
 
-## 🚨 CRITICAL POLICY: NO BUBBLE HEADINGS
+## 🚨 CRITICAL POLICY: NO SECTION BADGES
 
 ### Professional Typography Standards
 
-**MH Construction maintains a strict NO BUBBLE HEADINGS policy. All text must use solid colors with professional presentation.**
+**MH Construction maintains a strict NO SECTION BADGES policy. Section beginnings must not have
+decorative rounded badges/pills with icons. All text headings must use solid colors with
+professional presentation.**
 
-#### ❌ PROHIBITED: Gradient Text Effects
+#### ❌ PROHIBITED: Decorative Section Badges & Gradient Text
 
+- **No decorative section badges** (rounded-full containers with icons at section beginnings)
 - **No `bg-clip-text`** in combination with gradients
 - **No `bg-gradient-to-r`** for text styling  
 - **No `text-transparent`** gradient effects
-- **No bubble or gradient text styling**
+- **No bubble/pill decorations** for section headers
 
 #### ✅ APPROVED: Professional Text Styling
 
@@ -93,7 +96,43 @@ strong { font-weight: 600; }
 All typography uses responsive scaling that adapts to screen sizes, ensuring
 optimal readability and professional appearance across all devices.
 
-#### H1 - Primary Headlines (Responsive)
+#### H1 - Hero Section Headlines (For Photo/Video Backgrounds)
+
+**CRITICAL:** Hero sections must use single-line titles with brand color (NO BADGES).
+
+**Mobile-First Responsive Scaling:**
+
+- **Mobile (base)**: `text-lg` (18px)
+- **Extra Small**: `xs:text-xl` (20px)
+- **Small**: `sm:text-2xl` (24px)
+- **Medium**: `md:text-3xl` (30px)
+- **Large**: `lg:text-4xl` (36px)
+- **Extra Large**: `xl:text-5xl` (48px)
+
+**Weight**: Black (900)  
+**Color**: `text-brand-secondary` (Leather Tan) for hero impact
+**Line Height**: Tight leading for impact  
+**Usage**: Hero page titles with photo/video backgrounds
+
+```tsx
+// ✅ CORRECT: Hero section title
+<h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+  <span className="block text-brand-secondary font-black drop-shadow-lg">
+    Page Title Content
+  </span>
+</h1>
+```
+
+```css
+/* Hero H1 Styles */
+.hero h1 {
+  @apply text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
+  @apply font-black leading-tight tracking-tight;
+  @apply text-brand-secondary drop-shadow-lg;
+}
+```
+
+#### H1 - Primary Headlines (Standard Sections - Responsive)
 
 **Mobile-First Responsive Scaling:**
 
@@ -105,7 +144,7 @@ optimal readability and professional appearance across all devices.
 
 **Weight**: Bold (700)  
 **Line Height**: Tight leading for impact  
-**Usage**: Page titles, primary headlines
+**Usage**: Page titles, primary headlines (non-hero sections)
 
 ```css
 h1 {
@@ -223,7 +262,7 @@ navigation visibility, and optimal typography scaling across the entire website.
 - ✅ **Tight spacing**: `space-y-2` to `lg:space-y-6` prevents mobile overlap
 - ✅ **PageNavigation visible**: Always displayed at bottom of hero section
 - ✅ **Overflow hidden**: Prevents horizontal scrolling issues
-- ✅ **Professional colors**: NO bubble headings, solid colors only
+- ✅ **Professional colors**: NO section badges, solid heading colors only
 
 #### Hero Typography Scaling (MANDATORY)
 

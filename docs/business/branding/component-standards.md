@@ -23,6 +23,20 @@
 - **Standard Sizes:** `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`
 - **Consistent Spacing:** `mr-2`, `mr-3`, `mr-4` for icon-text combinations
 
+### **Card Grid Layout Standards**
+
+- **Large Screens (lg):** 3-4 cards per row optimal
+- **Extra Large (xl):** Use `xl:grid-cols-4` for 6+ card sets
+- **Tablet (md):** 2 cards per row
+- **Mobile:** 1 card per row (stack vertically)
+- **Spacing:** `gap-6 lg:gap-8` for consistent card spacing
+
+**Examples:**
+
+- 6 cards: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`
+- 4 cards: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4`
+- 3 cards: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`
+
 ---
 
 ## 🔘 **Button Component Standards**
@@ -183,6 +197,42 @@ className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
 
 ## 🎯 **Section Component Standards**
 
+### **Hero Section Structure (For Photo/Video Backgrounds)**
+
+**CRITICAL:** No badges or bubble containers in hero sections. Single-line titles with brand color.
+
+```tsx
+<section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
+  {/* Background Elements */}
+  <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
+
+  {/* Content */}
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+    <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+      {/* Main Title - USE BRAND COLOR */}
+      <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+        <span className="block text-brand-secondary font-black drop-shadow-lg">
+          Page Title Content
+        </span>
+      </h1>
+
+      {/* Subtitle */}
+      <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+        Tagline or key message
+      </p>
+
+      {/* Description */}
+      <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
+        Supporting description with partnership language
+      </p>
+    </div>
+  </div>
+
+  {/* Page Navigation */}
+  <PageNavigation items={navigationConfigs.pageName} className="absolute bottom-0 left-0 right-0" />
+</section>
+```
+
 ### **Standard Section Structure**
 
 ```tsx
@@ -215,8 +265,8 @@ className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
     </div>
 
     {/* Section Content */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-      {/* Cards or content */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+      {/* Cards or content - Use 3-4 cards per row on large screens */}
     </div>
   </div>
 </section>

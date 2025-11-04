@@ -87,7 +87,7 @@ implementation steps, and validation checkpoints.
 
 #### Tasks
 
-1. **Section Header Standardization - NO BUBBLE HEADINGS**
+1. **Section Header Standardization - NO SECTION BADGES**
 
    ```tsx
    // Standard MH Construction section header pattern - NO GRADIENTS
@@ -279,7 +279,7 @@ npm run lint
 #### Typography Standards
 
 ```tsx
-// ✅ CORRECT: Standard section header - NO BUBBLE HEADINGS
+// ✅ CORRECT: Standard section header - NO SECTION BADGES
 <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
   <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
     Introduction Text
