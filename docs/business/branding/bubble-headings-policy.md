@@ -128,7 +128,7 @@ decorative elements. Headings should be clean and readable, not competing with b
 - Card components (`<Card>`, `<CardHeader>`, etc.)
 - Shadow classes (`shadow-*`) indicating elevated containers
 
-### **Clean Background Indicators**  
+### **Clean Background Indicators**
 
 - Hero sections with image/video backgrounds
 - Full-width page sections (`py-*`, `px-*` on section level)
@@ -143,29 +143,29 @@ decorative elements. Headings should be clean and readable, not competing with b
 
 ```tsx
 // Primary gradient
-"bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent"
+"bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent";
 
 // Hero gradient with white accent
-"bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent"
+"bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent";
 
 // Subtle brand gradient
-"bg-clip-text bg-gradient-to-r from-brand-primary to-brand-primary-dark text-transparent"
+"bg-clip-text bg-gradient-to-r from-brand-primary to-brand-primary-dark text-transparent";
 ```
 
 ### **For Bubble Containers (Solid Colors Only)**
 
 ```tsx
 // Primary brand color
-"text-brand-primary"
+"text-brand-primary";
 
-// Secondary brand color  
-"text-brand-secondary"
+// Secondary brand color
+"text-brand-secondary";
 
 // Dark contrast for light containers
-"text-gray-900 dark:text-white"
+"text-gray-900 dark:text-white";
 
 // Muted for subtle headings
-"text-gray-700 dark:text-gray-300"
+"text-gray-700 dark:text-gray-300";
 ```
 
 ---

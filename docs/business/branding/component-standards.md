@@ -13,7 +13,7 @@
 ### **Brand Color Integration**
 
 - **Primary Actions:** Hunter Green (#386851)
-- **Secondary Actions:** Leather Tan (#BD9264)  
+- **Secondary Actions:** Leather Tan (#BD9264)
 - **Supporting Colors:** Black, White, Gray scale only
 - **NO Gradients:** Solid colors only (Professional, not decorative)
 
@@ -47,8 +47,8 @@ balance and cleaner layout.
 ### **Required Pattern**
 
 ```tsx
-<Button 
-  variant="primary|secondary|outline|neutral" 
+<Button
+  variant="primary|secondary|outline|neutral"
   size="sm|default|lg|xl"
   className="group transition-all duration-300"
 >
@@ -76,13 +76,16 @@ balance and cleaner layout.
 ### **Standard Card Structure**
 
 ```tsx
-<Card className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 
+<Card
+  className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 
   rounded-3xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 
-  group p-8">
-  
+  group p-8"
+>
   {/* Icon Container - Standard Sizes */}
-  <div className="flex justify-center items-center bg-brand-primary/10 mb-6 
-    rounded-2xl w-16 h-16 p-2">
+  <div
+    className="flex justify-center items-center bg-brand-primary/10 mb-6 
+    rounded-2xl w-16 h-16 p-2"
+  >
     <MaterialIcon icon="icon_name" size="xl" className="text-brand-primary" />
   </div>
 
@@ -95,8 +98,10 @@ balance and cleaner layout.
 
   {/* Card Content */}
   <CardContent>
-    <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg 
-      leading-relaxed mb-6">
+    <p
+      className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg 
+      leading-relaxed mb-6"
+    >
       Card description content
     </p>
   </CardContent>
@@ -117,64 +122,89 @@ balance and cleaner layout.
 for clean UX with single main page scroll.
 
 ```tsx
-<div 
-  className="group perspective h-[400px] cursor-pointer" 
+<div
+  className="group perspective h-[400px] cursor-pointer"
   style={{ perspective: "1000px" }}
 >
-  <div className="relative w-full h-full transition-transform duration-700 preserve-3d 
-    group-hover:rotate-y-180">
-    
+  <div
+    className="relative w-full h-full transition-transform duration-700 preserve-3d 
+    group-hover:rotate-y-180"
+  >
     {/* Front of card */}
     <div className="absolute inset-0 backface-hidden">
-      <Card className="bg-white dark:bg-gray-800 border border-gray-200 
-        dark:border-gray-700 h-full">
+      <Card
+        className="bg-white dark:bg-gray-800 border border-gray-200 
+        dark:border-gray-700 h-full"
+      >
         <CardHeader className="pb-4">
           <div className="flex items-center mb-4">
-            <MaterialIcon icon="icon_name" className="mr-3 text-brand-primary text-4xl" />
+            <MaterialIcon
+              icon="icon_name"
+              className="mr-3 text-brand-primary text-4xl"
+            />
           </div>
           <CardTitle className="mb-2 text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
             Card Title
           </CardTitle>
         </CardHeader>
         <CardContent className="pt-0">
-          <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg 
-            leading-relaxed mb-6">
+          <p
+            className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg 
+            leading-relaxed mb-6"
+          >
             Front card description
           </p>
           <div className="flex items-center justify-center mt-8 text-brand-primary">
-            <MaterialIcon icon="autorenew" className="mr-2 text-xl sm:text-2xl animate-pulse" />
-            <span className="font-medium text-xs sm:text-sm">Hover to see more</span>
+            <MaterialIcon
+              icon="autorenew"
+              className="mr-2 text-xl sm:text-2xl animate-pulse"
+            />
+            <span className="font-medium text-xs sm:text-sm">
+              Hover to see more
+            </span>
           </div>
         </CardContent>
       </Card>
     </div>
 
     {/* Back of card */}
-    <div 
-      className="absolute inset-0 backface-hidden rotate-y-180" 
+    <div
+      className="absolute inset-0 backface-hidden rotate-y-180"
       style={{ transform: "rotateY(180deg)" }}
     >
-      <Card className="bg-gradient-to-br from-brand-primary to-brand-primary-dark 
+      <Card
+        className="bg-gradient-to-br from-brand-primary to-brand-primary-dark 
         dark:from-brand-primary-dark dark:to-gray-900 border border-brand-primary 
-        dark:border-brand-primary/50 h-full">
+        dark:border-brand-primary/50 h-full"
+      >
         <CardHeader className="pb-4">
           <div className="flex items-center mb-4">
-            <MaterialIcon icon="checklist" className="mr-2 text-brand-secondary text-2xl sm:text-3xl" />
-            <p className="font-bold text-white text-base sm:text-lg md:text-xl">Details:</p>
+            <MaterialIcon
+              icon="checklist"
+              className="mr-2 text-brand-secondary text-2xl sm:text-3xl"
+            />
+            <p className="font-bold text-white text-base sm:text-lg md:text-xl">
+              Details:
+            </p>
           </div>
         </CardHeader>
         <CardContent className="pt-0">
           <ul className="space-y-3">
             <li className="flex items-start">
-              <MaterialIcon icon="check_circle" 
-                className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary text-base sm:text-lg" />
+              <MaterialIcon
+                icon="check_circle"
+                className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary text-base sm:text-lg"
+              />
               <span className="text-white leading-relaxed text-xs sm:text-sm md:text-base">
                 Detail item
               </span>
             </li>
           </ul>
           <div className="flex items-center justify-center mt-6 text-brand-secondary">
-            <MaterialIcon icon="autorenew" className="mr-2 text-lg sm:text-xl" />
+            <MaterialIcon
+              icon="autorenew"
+              className="mr-2 text-lg sm:text-xl"
+            />
             <span className="font-medium text-xs">Hover to return</span>
           </div>
         </CardContent>
@@ -263,11 +293,11 @@ for clean UX with single main page scroll.
 ### **Group Interactions**
 
 ```tsx
-className="group"
+className = "group";
 // Icon animations within groups
-className="group-hover:scale-110 transition-transform duration-300"
-// Text animations within groups  
-className="group-hover:text-brand-primary transition-colors duration-300"
+className = "group-hover:scale-110 transition-transform duration-300";
+// Text animations within groups
+className = "group-hover:text-brand-primary transition-colors duration-300";
 ```
 
 ---
@@ -277,7 +307,7 @@ className="group-hover:text-brand-primary transition-colors duration-300"
 ### **Mobile-First Approach**
 
 - **Base:** Mobile (320px+)
-- **sm:** Small screens (640px+)  
+- **sm:** Small screens (640px+)
 - **md:** Tablets (768px+)
 - **lg:** Desktop (1024px+)
 
@@ -290,7 +320,7 @@ className="group-hover:text-brand-primary transition-colors duration-300"
 ### **Grid Responsiveness**
 
 ```tsx
-className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
 ```
 
 ---
@@ -329,7 +359,10 @@ className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
   </div>
 
   {/* Page Navigation */}
-  <PageNavigation items={navigationConfigs.pageName} className="absolute bottom-0 left-0 right-0" />
+  <PageNavigation
+    items={navigationConfigs.pageName}
+    className="absolute bottom-0 left-0 right-0"
+  />
 </section>
 ```
 
@@ -338,28 +371,35 @@ className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
 ```tsx
 <section className="relative py-12 lg:py-16 bg-white dark:bg-gray-900">
   {/* Background decorative elements */}
-  <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white 
-    dark:from-gray-800 dark:to-gray-900"></div>
-  <div className="absolute top-20 right-20 bg-brand-primary/5 blur-3xl 
-    rounded-full w-32 h-32"></div>
-  
+  <div
+    className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white 
+    dark:from-gray-800 dark:to-gray-900"
+  ></div>
+  <div
+    className="absolute top-20 right-20 bg-brand-primary/5 blur-3xl 
+    rounded-full w-32 h-32"
+  ></div>
+
   {/* Content container */}
   <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-    
     {/* Section Header */}
     <div className="mb-10 lg:mb-12 text-center">
-      <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 
-        text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-        <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 
-          text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+      <h2
+        className="mb-6 font-black text-gray-900 dark:text-gray-100 
+        text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter"
+      >
+        <span
+          className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 
+          text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight"
+        >
           Section Context
         </span>
-        <span className="block text-brand-primary">
-          Section Title
-        </span>
+        <span className="block text-brand-primary">Section Title</span>
       </h2>
-      <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 
-        text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+      <p
+        className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 
+        text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide"
+      >
         Section description
       </p>
     </div>
@@ -418,7 +458,7 @@ className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
 ## 📚 **Related Documentation**
 
 - **[MH Branding Guidelines](../mh-branding.md)** - Complete brand system
-- **[Typography Standards](./typography.md)** - Text and heading standards  
+- **[Typography Standards](./typography.md)** - Text and heading standards
 - **[Color System](./color-system.md)** - Brand color definitions
 - **[Icon Policy](./icon-policy.md)** - Material Icons standards
 - **[Page Layout Standards](../../technical/design-system/layout/page-layout-standards.md)** - Layout specifications

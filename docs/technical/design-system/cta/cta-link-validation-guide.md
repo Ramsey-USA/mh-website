@@ -101,13 +101,13 @@ All the following routes are active and functional:
 
 All social media links are properly configured:
 
-| Platform    | URL                                                              | Occurrences |
-| ----------- | ---------------------------------------------------------------- | ----------- |
-| Facebook    | `https://www.facebook.com/profile.php?id=61575511773974`         | 4           |
-| Instagram   | `https://www.instagram.com/mh_construction_inc/reels/`           | 4           |
-| X (Twitter) | `https://x.com/mhconstruction`                                   | 2           |
-| YouTube     | `https://youtube.com/@mhconstruction`                            | 3           |
-| LinkedIn    | `https://linkedin.com/company/mhconstruction`                    | 4           |
+| Platform    | URL                                                      | Occurrences |
+| ----------- | -------------------------------------------------------- | ----------- |
+| Facebook    | `https://www.facebook.com/profile.php?id=61575511773974` | 4           |
+| Instagram   | `https://www.instagram.com/mh_construction_inc/reels/`   | 4           |
+| X (Twitter) | `https://x.com/mhconstruction`                           | 2           |
+| YouTube     | `https://youtube.com/@mhconstruction`                    | 3           |
+| LinkedIn    | `https://linkedin.com/company/mhconstruction`            | 4           |
 
 ## CTA Distribution Analysis
 

@@ -20,19 +20,19 @@ module.exports = {
     extend: {
       colors: {
         // Primary brand colors (v4.0.2)
-        'brand-primary': '#386851',    // Hunter Green
-        'brand-secondary': '#BD9264',  // Leather Tan
-        
+        "brand-primary": "#386851", // Hunter Green
+        "brand-secondary": "#BD9264", // Leather Tan
+
         // Supporting colors only
-        'brand-accent': '#4A7C5E',     // Hunter Green variant
-        
+        "brand-accent": "#4A7C5E", // Hunter Green variant
+
         // NO unauthorized colors (removed)
         // 'veteran-blue': REMOVED
         // 'material-colors': REMOVED
-      }
-    }
-  }
-}
+      },
+    },
+  },
+};
 ```
 
 ### **Typography Implementation**
@@ -41,16 +41,16 @@ module.exports = {
 // Font system integration
 export const brandTypography = {
   fontFamily: {
-    'brand': ['Inter', 'system-ui', 'sans-serif'],
+    brand: ["Inter", "system-ui", "sans-serif"],
   },
-  
+
   // NO SECTION BADGES (v4.0.2)
   headings: {
-    h1: 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 dark:text-gray-100',
-    h2: 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 dark:text-gray-100',
-    h3: 'text-2xl font-bold text-gray-900 dark:text-gray-100',
-  }
-}
+    h1: "text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 dark:text-gray-100",
+    h2: "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 dark:text-gray-100",
+    h3: "text-2xl font-bold text-gray-900 dark:text-gray-100",
+  },
+};
 ```
 
 ---
@@ -61,23 +61,23 @@ export const brandTypography = {
 
 ```tsx
 // src/components/ui/Button.tsx - Brand compliant implementation
-import { MaterialIcon } from '@/components/ui/MaterialIcon';
+import { MaterialIcon } from "@/components/ui/MaterialIcon";
 
 export function Button({ variant, children, icon, ...props }) {
   return (
-    <button 
+    <button
       className={`
         group transition-all duration-300 
-        ${variant === 'primary' ? 'bg-brand-primary text-white' : ''}
-        ${variant === 'secondary' ? 'bg-brand-secondary text-white' : ''}
+        ${variant === "primary" ? "bg-brand-primary text-white" : ""}
+        ${variant === "secondary" ? "bg-brand-secondary text-white" : ""}
         hover:scale-105 focus:ring-2 focus:ring-brand-primary
       `}
       {...props}
     >
       {icon && (
-        <MaterialIcon 
-          icon={icon} 
-          className="mr-2 group-hover:scale-110 transition-transform" 
+        <MaterialIcon
+          icon={icon}
+          className="mr-2 group-hover:scale-110 transition-transform"
         />
       )}
       {children}
@@ -93,18 +93,22 @@ export function Button({ variant, children, icon, ...props }) {
 export function SectionHeader({ context, title, description }) {
   return (
     <div className="mb-10 lg:mb-12 text-center">
-      <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 
-        text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
-        <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 
-          text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+      <h2
+        className="mb-6 font-black text-gray-900 dark:text-gray-100 
+        text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter"
+      >
+        <span
+          className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 
+          text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight"
+        >
           {context}
         </span>
-        <span className="block text-brand-primary">
-          {title}
-        </span>
+        <span className="block text-brand-primary">{title}</span>
       </h2>
-      <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 
-        text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+      <p
+        className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 
+        text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide"
+      >
         {description}
       </p>
     </div>
@@ -120,28 +124,36 @@ export function SectionHeader({ context, title, description }) {
 
 ```tsx
 // Brand-compliant hero section template
-export function HeroSection({ title, subtitle, description, primaryCTA, secondaryCTA }) {
+export function HeroSection({
+  title,
+  subtitle,
+  description,
+  primaryCTA,
+  secondaryCTA,
+}) {
   return (
     <section className="relative py-16 lg:py-24 bg-white dark:bg-gray-900">
       {/* Background decorative elements */}
       <div className="absolute top-20 right-20 bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
-      
+
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
         <h1 className="mb-6 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight">
-          <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 
-            text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+          <span
+            className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 
+            text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+          >
             {subtitle}
           </span>
-          <span className="block text-brand-primary">
-            {title}
-          </span>
+          <span className="block text-brand-primary">{title}</span>
         </h1>
-        
-        <p className="mx-auto mb-8 max-w-4xl font-light text-gray-600 dark:text-gray-300 
-          text-lg md:text-xl lg:text-2xl leading-relaxed">
+
+        <p
+          className="mx-auto mb-8 max-w-4xl font-light text-gray-600 dark:text-gray-300 
+          text-lg md:text-xl lg:text-2xl leading-relaxed"
+        >
           {description}
         </p>
-        
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button variant="primary" size="xl">
             <MaterialIcon icon="event" className="mr-3" />
@@ -193,23 +205,23 @@ npm run a11y:audit        # Accessibility compliance
 
 ```typescript
 // Brand-compliant imports (MANDATORY)
-import { Button } from '@/components/ui/Button';
-import { MaterialIcon } from '@/components/ui/MaterialIcon';
-import { SectionHeader } from '@/components/ui/SectionHeader';
-import { Card, CardHeader, CardContent } from '@/components/ui/Card';
+import { Button } from "@/components/ui/Button";
+import { MaterialIcon } from "@/components/ui/MaterialIcon";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 
 // Brand color utilities
-import { brandColors } from '@/lib/brand-utils';
-import { cn } from '@/lib/utils';
+import { brandColors } from "@/lib/brand-utils";
+import { cn } from "@/lib/utils";
 ```
 
 ### **Forbidden Imports**
 
 ```typescript
 // ❌ NEVER import these (v4.0.2)
-import Emoji from 'react-emoji';           // Emoji policy violation
-import GradientText from 'gradient-text';  // Bubble heading violation
-import RandomColors from 'color-library';  // Unauthorized colors
+import Emoji from "react-emoji"; // Emoji policy violation
+import GradientText from "gradient-text"; // Bubble heading violation
+import RandomColors from "color-library"; // Unauthorized colors
 ```
 
 ---
@@ -222,16 +234,16 @@ import RandomColors from 'color-library';  // Unauthorized colors
 /* globals.css - Brand variable integration */
 :root {
   /* Brand Colors v4.0.2 */
-  --brand-primary: #386851;     /* Hunter Green */
-  --brand-secondary: #BD9264;   /* Leather Tan */
-  --brand-accent: #4A7C5E;      /* Hunter Green variant */
-  
+  --brand-primary: #386851; /* Hunter Green */
+  --brand-secondary: #bd9264; /* Leather Tan */
+  --brand-accent: #4a7c5e; /* Hunter Green variant */
+
   /* Typography */
-  --font-brand: 'Inter', system-ui, sans-serif;
-  
+  --font-brand: "Inter", system-ui, sans-serif;
+
   /* Animations */
   --transition-brand: all 0.3s ease-out;
-  
+
   /* NO unauthorized colors */
   /* --veteran-blue: REMOVED */
   /* --material-teal: REMOVED */
@@ -248,7 +260,7 @@ import RandomColors from 'color-library';  // Unauthorized colors
 // Efficient brand asset implementation
 import { Inter } from 'next/font/google';
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-brand'
@@ -267,12 +279,12 @@ export function BrandProvider({ children }) {
 
 ```typescript
 // Material Icons tree-shaking for performance
-import { 
-  Event,           // Schedule/consultation icons
-  Construction,    // Service icons
-  Phone,          // Contact icons
-  Visibility      // Portfolio icons
-} from '@mui/icons-material';
+import {
+  Event, // Schedule/consultation icons
+  Construction, // Service icons
+  Phone, // Contact icons
+  Visibility, // Portfolio icons
+} from "@mui/icons-material";
 
 // NO emoji imports for production
 ```

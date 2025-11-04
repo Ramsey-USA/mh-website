@@ -366,7 +366,7 @@ export default {
         // Professional supporting colors
         'supporting': {
           'success': '#386851',        // Use Hunter Green for success states
-          'warning': '#BD9264',        // Use Leather Tan for warning states  
+          'warning': '#BD9264',        // Use Leather Tan for warning states
           'error': '#424242',          // Use Dark Gray for error states
         },
       }

@@ -56,7 +56,7 @@
 
 **CSS Custom Properties**:
 
-```css
+````css
 :root {
   --color-primary: #386851;        /* Hunter Green */
   --color-secondary: #BD9264;      /* Leather Tan */

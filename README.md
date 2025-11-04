@@ -48,10 +48,11 @@ consistency across the entire site.
 
   {/* Partnership Tagline - Always Visible */}
   <p style={{ fontSize: "clamp(1.125rem, 3vw, 2.25rem)" }}>
-    "Building for the Owner, <span className="text-bronze-300">NOT</span> the Dollar"
+    "Building for the Owner, <span className="text-bronze-300">NOT</span> the
+    Dollar"
   </p>
 </section>
-``````
+```
 
 **Page-Specific Highlights:**
 
@@ -135,7 +136,7 @@ consistency across the entire site.
 **Impact Summary:**
 
 - 🏆 **Brand Violations**: ✅ Eliminated from all primary user flows
-- 🎯 **CTA Consistency**: ✅ 100% aligned with approved standards  
+- 🎯 **CTA Consistency**: ✅ 100% aligned with approved standards
 - 👥 **User Experience**: ✅ Enhanced with clear, consistent messaging
 - 📱 **Accessibility**: ✅ Improved form interactions and touch targets
 
@@ -532,7 +533,7 @@ npm run deploy:production    # Build + deploy in one command
 
 #### **Before & After Examples**:
 - Homepage: "View Portfolio" → **"View Our Work"** ✅
-- Homepage: "Connect with Expert" → **"Get In Touch"** ✅  
+- Homepage: "Connect with Expert" → **"Get In Touch"** ✅
 - Contact: "View Services" → **"Explore Our Solutions"** ✅
 - Projects: "Start Partnership" → **"Begin Our Partnership"** ✅
 

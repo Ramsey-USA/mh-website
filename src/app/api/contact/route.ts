@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
           error:
             "Missing required fields: name, email, and message are required",
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
     if (!emailRegex.test(data.email)) {
       return NextResponse.json(
         { error: "Invalid email address" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -131,7 +131,7 @@ export async function POST(request: NextRequest) {
     console.error("Error processing contact form:", error);
     return NextResponse.json(
       { error: "Failed to process contact form submission" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -144,7 +144,7 @@ function generateEmailHTML(data: ContactRequest): string {
     ? Object.entries(data.metadata)
         .map(
           ([key, value]) =>
-            `<tr><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>${formatFieldName(key)}:</strong></td><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;">${value}</td></tr>`
+            `<tr><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>${formatFieldName(key)}:</strong></td><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;">${value}</td></tr>`,
         )
         .join("")
     : "";

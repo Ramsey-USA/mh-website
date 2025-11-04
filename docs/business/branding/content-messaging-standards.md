@@ -1,4 +1,4 @@
-# MH Construction Content & Messaging Standards  
+# MH Construction Content & Messaging Standards
 
 **Version:** 4.0.2  
 **Last Updated:** December 2024  
@@ -53,7 +53,7 @@ Description: "Professional [service] delivering [outcome] through [method/values
 ### **Primary CTA Language**
 
 - **Consultation Focused:** "Schedule Free Consultation"
-- **Expert Positioning:** "Get Expert Estimate"  
+- **Expert Positioning:** "Get Expert Estimate"
 - **Partnership Language:** "Begin Our Partnership"
 - **Discovery Based:** "Explore Our Solutions"
 
@@ -73,7 +73,7 @@ Description: "Professional [service] delivering [outcome] through [method/values
   Schedule Free Consultation
 </Button>
 
-// Secondary information CTA  
+// Secondary information CTA
 <Button variant="outline" size="lg">
   <MaterialIcon icon="visibility" className="mr-3" />
   View Our Work
@@ -235,13 +235,15 @@ At MH Construction, we deliver [specific value] through [approach/method]. Our v
 
 ```markdown
 ## [Service Category] Excellence
+
 ### [Specific Service Title]
 
 Professional [service description] designed to [achieve specific outcome]. We combine [method/approach] with [veteran values] to deliver [measurable results].
 
 **What You Get:**
+
 - [Specific benefit 1]
-- [Specific benefit 2]  
+- [Specific benefit 2]
 - [Specific benefit 3]
 
 [Secondary CTA - "Learn More" or "Get Estimate"]

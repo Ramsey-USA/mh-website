@@ -27,7 +27,7 @@ professional presentation.**
 
 - **No decorative section badges** (rounded-full containers with icons at section beginnings)
 - **No `bg-clip-text`** in combination with gradients
-- **No `bg-gradient-to-r`** for text styling  
+- **No `bg-gradient-to-r`** for text styling
 - **No `text-transparent`** gradient effects
 - **No bubble/pill decorations** for section headers
 
@@ -50,8 +50,8 @@ that aligns with our military precision values.
 
 #### Font Family Stack
 
-```css
-font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+````css
+font-family: "Inter", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
 ```text
 
 #### Key Characteristics
@@ -76,18 +76,36 @@ font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 
 ```css
 /* Headings */
-h1 { font-weight: 700; }
-h2 { font-weight: 600; }
-h3 { font-weight: 600; }
-h4 { font-weight: 500; }
-h5 { font-weight: 500; }
-h6 { font-weight: 500; }
+h1 {
+  font-weight: 700;
+}
+h2 {
+  font-weight: 600;
+}
+h3 {
+  font-weight: 600;
+}
+h4 {
+  font-weight: 500;
+}
+h5 {
+  font-weight: 500;
+}
+h6 {
+  font-weight: 500;
+}
 
 /* Body Text */
-body { font-weight: 400; }
-strong { font-weight: 600; }
-.emphasis { font-weight: 500; }
-```
+body {
+  font-weight: 400;
+}
+strong {
+  font-weight: 600;
+}
+.emphasis {
+  font-weight: 500;
+}
+````
 
 ## Responsive Typography Scale
 
@@ -137,7 +155,7 @@ optimal readability and professional appearance across all devices.
 **Mobile-First Responsive Scaling:**
 
 - **Mobile (base)**: `text-2xl` (24px)
-- **Small**: `sm:text-3xl` (30px)  
+- **Small**: `sm:text-3xl` (30px)
 - **Medium**: `md:text-4xl` (36px)
 - **Large**: `lg:text-5xl` (48px)
 - **Extra Large**: `xl:text-6xl` (60px)
@@ -160,7 +178,7 @@ h1 {
 
 - **Mobile (base)**: `text-xl` (20px)
 - **Small**: `sm:text-2xl` (24px)
-- **Medium**: `md:text-3xl` (30px)  
+- **Medium**: `md:text-3xl` (30px)
 - **Large**: `lg:text-4xl` (36px)
 - **Extra Large**: `xl:text-5xl` (48px)
 
@@ -215,10 +233,12 @@ navigation visibility, and optimal typography scaling across the entire website.
 
   <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
     <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-      
       {/* Veteran Badge (Optional) */}
       <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-        <MaterialIcon icon="military_tech" className="mr-2 sm:mr-3 text-brand-secondary text-base sm:text-lg" />
+        <MaterialIcon
+          icon="military_tech"
+          className="mr-2 sm:mr-3 text-brand-secondary text-base sm:text-lg"
+        />
         <span className="font-bold text-brand-primary-light text-xs sm:text-sm uppercase tracking-wider">
           Veteran-Owned Excellence
         </span>
@@ -256,7 +276,7 @@ navigation visibility, and optimal typography scaling across the entire website.
 **CRITICAL REQUIREMENTS - ALL PAGES:**
 
 - ✅ **Exact viewport height**: `h-screen` (not `min-h-screen` or `h-[100dvh]`)
-- ✅ **NO CTA buttons**: Hero sections contain only navigation elements  
+- ✅ **NO CTA buttons**: Hero sections contain only navigation elements
 - ✅ **Responsive padding**: Top `pt-16` to `lg:pt-40`, Bottom `pb-12` to `lg:pb-28`
 - ✅ **Responsive typography**: `text-lg` to `xl:text-5xl` for main titles
 - ✅ **Tight spacing**: `space-y-2` to `lg:space-y-6` prevents mobile overlap
@@ -266,11 +286,11 @@ navigation visibility, and optimal typography scaling across the entire website.
 
 #### Hero Typography Scaling (MANDATORY)
 
-| Element | Mobile (base) | Small | Medium | Large | Extra Large |
-|---------|---------------|-------|--------|-------|-------------|
-| **Main Title** | `text-lg` (18px) | `sm:text-2xl` (24px) | `md:text-3xl` (30px) | `lg:text-4xl` (36px) | `xl:text-5xl` (48px) |
-| **Subtitle** | `text-xs` (12px) | `sm:text-base` (16px) | `md:text-lg` (18px) | `lg:text-xl` (20px) | - |
-| **Description** | `text-xs` (12px) | `sm:text-sm` (14px) | `md:text-base` (16px) | `lg:text-lg` (18px) | - |
+| Element         | Mobile (base)    | Small                 | Medium                | Large                | Extra Large          |
+| --------------- | ---------------- | --------------------- | --------------------- | -------------------- | -------------------- |
+| **Main Title**  | `text-lg` (18px) | `sm:text-2xl` (24px)  | `md:text-3xl` (30px)  | `lg:text-4xl` (36px) | `xl:text-5xl` (48px) |
+| **Subtitle**    | `text-xs` (12px) | `sm:text-base` (16px) | `md:text-lg` (18px)   | `lg:text-xl` (20px)  | -                    |
+| **Description** | `text-xs` (12px) | `sm:text-sm` (14px)   | `md:text-base` (16px) | `lg:text-lg` (18px)  | -                    |
 
 #### Hero Section Benefits
 
@@ -286,7 +306,7 @@ navigation visibility, and optimal typography scaling across the entire website.
 - **Line Height**: 1.2
 - **Usage**: Page titles, primary headlines
 
-```css
+````css
 h1 {
   font-size: 3rem;
   font-weight: 700;
@@ -334,18 +354,19 @@ h3 {
 - **Small**: `sm:text-xl` (20px)
 - **Medium**: `md:text-2xl` (24px)
 
-**Weight**: Bold (700) or Semi-Bold (600)  
-**Line Height**: Comfortable readability  
+**Weight**: Bold (700) or Semi-Bold (600)
+**Line Height**: Comfortable readability
 **Usage**: Card titles, minor headings, component headers
 
 ```tsx
 <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
   Card Title Content
 </CardTitle>
-```
+````
 
 ```css
-h4, .card-title {
+h4,
+.card-title {
   @apply text-lg sm:text-xl md:text-2xl;
   @apply font-bold leading-snug;
   @apply text-gray-900 dark:text-gray-100;
@@ -359,7 +380,7 @@ h4, .card-title {
 - **Line Height**: 1.6
 - **Usage**: Supporting headings, list item titles
 
-```css
+````css
 h5 {
   font-size: 1.25rem;
   font-weight: 500;
@@ -394,16 +415,16 @@ h6 {
 - **Medium**: `md:text-xl` (20px)
 - **Large**: `lg:text-2xl` (24px)
 
-**Weight**: Light (300)  
-**Line Height**: Relaxed  
+**Weight**: Light (300)
+**Line Height**: Relaxed
 **Usage**: Section introduction paragraphs, important body text
 
 ```tsx
-<p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 
+<p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300
   text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
   Section introduction text
 </p>
-```
+````
 
 #### Body Default - Responsive (Card Content, Lists)
 
@@ -418,8 +439,10 @@ h6 {
 **Usage**: Card descriptions, list items, standard paragraph content
 
 ```tsx
-<p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg 
-  leading-relaxed">
+<p
+  className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg 
+  leading-relaxed"
+>
   Standard body content
 </p>
 ```
@@ -449,7 +472,7 @@ h6 {
 - **Line Height**: 1.4
 - **Usage**: Image captions, footnotes, copyright text (non-responsive)
 
-```css
+````css
 .text-caption {
   font-size: 0.75rem;
   font-weight: 400;
@@ -647,64 +670,70 @@ module.exports = {
 
 ```tsx
 {/* Top-level section icons - use text-6xl for large, prominent display */}
-<MaterialIcon 
-  icon="icon_name" 
-  className="mb-6 text-brand-primary text-6xl" 
+<MaterialIcon
+  icon="icon_name"
+  className="mb-6 text-brand-primary text-6xl"
 />
-```
+````
 
 **Wrapped Background (Supporting Sections):**
 
 ```tsx
-{/* Wrapped icons with background - use size="xl" for proper scaling */}
+{
+  /* Wrapped icons with background - use size="xl" for proper scaling */
+}
 <div className="flex justify-center items-center mb-6">
   <div className="bg-brand-primary/10 p-4 rounded-2xl">
-    <MaterialIcon 
-      icon="icon_name" 
-      size="xl" 
-      className="text-brand-primary" 
-    />
+    <MaterialIcon icon="icon_name" size="xl" className="text-brand-primary" />
   </div>
-</div>
+</div>;
 ```
 
 #### Icon-to-Navigation Mapping
 
 Always reference `/src/components/navigation/navigationConfigs.ts` to ensure section icons match navigation:
 
-| Section | Navigation Icon | Implementation |
-|---------|----------------|----------------|
-| Partnership Philosophy | `handshake` | `text-6xl` direct |
-| Core Values | `shield` | `text-6xl` direct |
-| Leadership Team | `people` | `text-6xl` direct |
-| Testimonials | `star` | `size="xl"` wrapped |
-| Safety & Compliance | `security` | `size="xl"` wrapped |
-| Awards & Recognition | `emoji_events` | `size="xl"` wrapped |
+| Section                | Navigation Icon | Implementation      |
+| ---------------------- | --------------- | ------------------- |
+| Partnership Philosophy | `handshake`     | `text-6xl` direct   |
+| Core Values            | `shield`        | `text-6xl` direct   |
+| Leadership Team        | `people`        | `text-6xl` direct   |
+| Testimonials           | `star`          | `size="xl"` wrapped |
+| Safety & Compliance    | `security`      | `size="xl"` wrapped |
+| Awards & Recognition   | `emoji_events`  | `size="xl"` wrapped |
 
 #### Icon Size Reference
 
-| Usage | Class/Size | Pixel Size | Context |
-|-------|-----------|------------|---------|
-| **Hero Icons** | `text-8xl` | 96px | Largest impact |
-| **Section Headers** | `text-6xl` | 64px | Main sections |
-| **Wrapped Icons** | `size="xl"` | 48px | Contained sections |
-| **Card Icons** | `text-4xl` or `size="lg"` | 36px | Individual cards |
-| **List Icons** | `text-base` or `size="sm"` | 16px | Inline with text |
+| Usage               | Class/Size                 | Pixel Size | Context            |
+| ------------------- | -------------------------- | ---------- | ------------------ |
+| **Hero Icons**      | `text-8xl`                 | 96px       | Largest impact     |
+| **Section Headers** | `text-6xl`                 | 64px       | Main sections      |
+| **Wrapped Icons**   | `size="xl"`                | 48px       | Contained sections |
+| **Card Icons**      | `text-4xl` or `size="lg"`  | 36px       | Individual cards   |
+| **List Icons**      | `text-base` or `size="sm"` | 16px       | Inline with text   |
 
 #### Icon Color Standards
 
 ```tsx
-{/* Primary brand color */}
-className="text-brand-primary"
+{
+  /* Primary brand color */
+}
+className = "text-brand-primary";
 
-{/* Secondary brand color */}
-className="text-brand-secondary"
+{
+  /* Secondary brand color */
+}
+className = "text-brand-secondary";
 
-{/* Accent color for checkmarks */}
-className="text-brand-accent"
+{
+  /* Accent color for checkmarks */
+}
+className = "text-brand-accent";
 
-{/* Context colors */}
-className="text-gray-900 dark:text-white"
+{
+  /* Context colors */
+}
+className = "text-gray-900 dark:text-white";
 ```
 
 ---
@@ -745,7 +774,7 @@ className="text-gray-900 dark:text-white"
 
 #### Mobile Optimizations
 
-```css
+````css
 @media (max-width: 768px) {
   h1 { font-size: 2.25rem; }  /* 36px */
   h2 { font-size: 1.875rem; } /* 30px */

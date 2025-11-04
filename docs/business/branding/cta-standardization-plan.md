@@ -31,7 +31,7 @@
 ```tsx
 // FOUND VARIATIONS (need standardization)
 "View Portfolio" ❌
-"Explore our collaborations" ❌  
+"Explore our collaborations" ❌
 "View Projects" ❌
 "See Our Work" ❌
 "Our Projects" ❌
@@ -64,7 +64,7 @@
 "Explore Partnership Approach" ❌
 "Our Services" ❌
 
-// SHOULD BE (standardized) 
+// SHOULD BE (standardized)
 "Explore Our Solutions" ✅ (primary)
 "Our Services" ✅ (secondary)
 ```
@@ -127,7 +127,7 @@
 **Standards:**
 
 - "Our Services" ✅
-- "Our Team" ✅  
+- "Our Team" ✅
 - "Our Projects" → "View Our Work" ✅
 
 ### **Phase 3: Specialized CTAs** (Context Specific)
@@ -154,7 +154,7 @@ Key file: `/src/app/page.tsx`
 **Current Issues:**
 
 1. "View Portfolio" → "View Our Work"
-2. "Connect with Expert" → "Get In Touch"  
+2. "Connect with Expert" → "Get In Touch"
 3. "Explore our collaborations" → "View Our Work"
 
 ### **Step 2: Contact Page Standardization**
@@ -167,7 +167,7 @@ Key file: `/src/app/contact/page.tsx`
 2. "Join Our Team" ✅ (already good)
 3. "View Services" → "Explore Our Solutions"
 
-### **Step 3: Projects Page Standardization**  
+### **Step 3: Projects Page Standardization**
 
 Key file: `/src/app/projects/page.tsx`
 
@@ -219,7 +219,7 @@ Key file: `/src/app/about/page.tsx`
 ### **Secondary CTAs** (Use `variant="secondary"` or `variant="outline"`)
 
 - "View Our Work" + `visibility` icon
-- "Explore Our Solutions" + `build` icon  
+- "Explore Our Solutions" + `build` icon
 - "Get In Touch" + `contact_phone` icon
 - "Learn More" + `arrow_forward` icon
 
