@@ -573,3 +573,50 @@ main,
     backface-visibility: hidden;
   }
 }
+
+/* ============================================
+   3D FLIP CARD ANIMATIONS
+   ============================================ */
+
+/* Perspective container for 3D effect */
+.perspective {
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+}
+
+/* Preserve 3D transforms for children */
+.preserve-3d {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+/* Hide backface of flipped elements */
+.backface-hidden {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Rotate Y axis for flip effect */
+.rotate-y-180 {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+/* Smooth transition for flip animation */
+.group:hover .group-hover\:rotate-y-180 {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+/* Touch device support - tap to flip */
+@media (hover: none) and (pointer: coarse) {
+  .perspective {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* On touch devices, use active state instead of hover */
+  .group:active .group-hover\:rotate-y-180 {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+}
