@@ -238,16 +238,38 @@ title: 'Update 🎯'
 
 #### 🦸 **HERO SECTION CONSISTENCY REQUIREMENT**
 
+**UPDATED:** November 4, 2025 - v4.0.2 Hero Section Standards Finalized
+
 **MANDATORY STANDARD:** ALL pages must implement the standardized hero section format documented in [Typography Standards](./branding/typography.md#-hero-section-typography-standards).
 
 **Key Requirements:**
-- ✅ **Consistent Structure**: All pages follow identical hero implementation
+
+- ✅ **Full Viewport Height**: `h-screen flex items-center justify-center`
+- ✅ **NO Badges**: No veteran badges, military_tech icons, or decorative badges
+- ✅ **NO CTA Buttons**: No Schedule, Get Estimate, Contact buttons
+- ✅ **NO Stats/Cards**: No 30+ years, 100+ projects displays
+- ✅ **NO Trust Indicators**: No satisfaction rates or project counts
+- ✅ **Content ONLY**: Title, subtitle, and description text
+- ✅ **Navigation at Bottom**: PageNavigation at `absolute bottom-0 left-0 right-0`
 - ✅ **Responsive Typography**: Proper scaling from mobile to desktop
-- ✅ **NO CTA Buttons**: Hero sections contain only navigation elements
-- ✅ **Professional Styling**: NO section badges, solid colors only
-- ✅ **Navigation Visible**: PageNavigation always displayed at bottom
+- ✅ **Consistent Structure**: All pages follow identical hero implementation
+
+**What Hero Sections Should Contain:**
+
+1. **Title** - Large, responsive heading with brand color (`text-brand-secondary`)
+2. **Subtitle** - Brief tagline or page description
+3. **Description** - Longer text including company tagline "Building for the Owner, NOT the Dollar"
+4. **Navigation** - PageNavigation component at the bottom
 
 **Implementation Details:** See comprehensive hero section standards in Typography documentation.
+
+**Benefits:**
+
+- ✅ **Clean First Impression**: Hero section loads immediately without clutter
+- ✅ **Better Performance**: Reduced elements = faster load times
+- ✅ **Mobile Optimized**: Content fits perfectly on all screen sizes
+- ✅ **Navigation Visible**: Users see section links immediately
+- ✅ **Brand Consistency**: Every page has identical hero structure
 
 **Essential CSS Classes for Card Flipping:**
 

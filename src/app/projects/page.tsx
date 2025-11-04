@@ -136,8 +136,8 @@ export default function ProjectsPage() {
             .includes(searchQuery.toLowerCase()) ||
           (project.tags &&
             project.tags.some((tag) =>
-              tag.toLowerCase().includes(searchQuery.toLowerCase()),
-            )),
+              tag.toLowerCase().includes(searchQuery.toLowerCase())
+            ))
       );
     }
 
@@ -178,33 +178,18 @@ export default function ProjectsPage() {
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
-        {/* Content - NO WRAPPER on critical content per v4.0.2 */}
+        {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
           <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-            {/* Veteran Badge */}
-            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-              <MaterialIcon
-                icon="military_tech"
-                size="md"
-                className="mr-2 sm:mr-3 text-brand-secondary"
-              />
-              <span className="font-bold text-brand-primary-light text-xs sm:text-sm uppercase tracking-wider">
-                Veteran-Owned Excellence
-              </span>
-            </div>
-
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-              <span className="block mb-2 text-white/90 font-semibold text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl">
-                Partnership Success
-              </span>
-              <span className="block text-white font-black drop-shadow-lg">
-                Stories
+              <span className="block text-brand-secondary font-black drop-shadow-lg">
+                Partnership Success Stories
               </span>
             </h1>
 
-            {/* Primary Tagline */}
-            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-brand-secondary font-bold leading-snug px-2">
+            {/* Subtitle */}
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
               "Building for the Owner, NOT the Dollar"
             </p>
 
@@ -214,26 +199,6 @@ export default function ProjectsPage() {
               Explore our comprehensive portfolio showcasing decades of
               collaborative partnerships throughout the Tri-Cities area.
             </p>
-
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 font-medium text-brand-secondary text-xs sm:text-sm md:text-base">
-              <div className="flex items-center">
-                <MaterialIcon
-                  icon="workspace_premium"
-                  size="sm"
-                  className="mr-2"
-                />
-                <span>100+ Projects</span>
-              </div>
-              <div className="flex items-center">
-                <MaterialIcon icon="star" size="sm" className="mr-2" />
-                <span>98% Satisfaction</span>
-              </div>
-              <div className="flex items-center">
-                <MaterialIcon icon="handshake" size="sm" className="mr-2" />
-                <span>Partnership-Driven</span>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -565,7 +530,7 @@ export default function ProjectsPage() {
                             <span>
                               {project.details.completionDate.toLocaleDateString(
                                 "en-US",
-                                { year: "numeric", month: "long" },
+                                { year: "numeric", month: "long" }
                               )}
                             </span>
                           </div>
@@ -597,7 +562,7 @@ export default function ProjectsPage() {
                                 size="sm"
                                 className="text-yellow-500"
                               />
-                            ),
+                            )
                           )}
                         </div>
                         <p className="text-gray-600 text-sm italic line-clamp-2">
@@ -831,7 +796,7 @@ export default function ProjectsPage() {
                                 size="md"
                                 className="text-brand-secondary"
                               />
-                            ),
+                            )
                           )}
                         </div>
                         <p className="flex-grow mb-4 text-gray-700 dark:text-gray-300 italic leading-relaxed">

@@ -220,50 +220,57 @@ h3 {
 
 ## 🏠 Hero Section Typography Standards
 
-### Standardized Hero Section Format
+### MH Branding Standard for Hero Sections (v4.0.2)
+
+**UPDATED:** November 4, 2025
 
 **ALL PAGES must implement the standardized hero section format. This ensures consistent user experience, proper
 navigation visibility, and optimal typography scaling across the entire website.**
+
+#### 🚨 CRITICAL HERO SECTION REQUIREMENTS
+
+**The following elements are MANDATORY for all hero sections:**
+
+1. **Full Viewport Height**: Must use `h-screen flex items-center justify-center`
+2. **NO Badges**: Remove all veteran badges, decorative badges, or bubble containers
+3. **NO CTA Buttons**: Remove all call-to-action buttons, "Schedule Consultation", "Get Estimate", etc.
+4. **NO Stats/Indicators**: Remove quick stats, trust indicators, or stat cards
+5. **Clean Content Only**: Title, subtitle, and description text ONLY
+6. **Navigation at Bottom**: PageNavigation component positioned at `absolute bottom-0 left-0 right-0`
 
 #### Hero Section Structure (REQUIRED)
 
 ```tsx
 <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
+  {/* Background Elements */}
   <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
+  {/* Content - Clean and Simple */}
   <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
     <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-      {/* Veteran Badge (Optional) */}
-      <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-        <MaterialIcon
-          icon="military_tech"
-          className="mr-2 sm:mr-3 text-brand-secondary text-base sm:text-lg"
-        />
-        <span className="font-bold text-brand-primary-light text-xs sm:text-sm uppercase tracking-wider">
-          Veteran-Owned Excellence
-        </span>
-      </div>
-
       {/* Main Title - REQUIRED RESPONSIVE SCALING */}
       <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-        <span className="block text-white font-black drop-shadow-lg">
+        <span className="block text-brand-secondary font-black drop-shadow-lg">
           {/* Page-specific title content */}
+          Your Page Title Here
         </span>
       </h1>
 
       {/* Subtitle - REQUIRED */}
       <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
         {/* Page-specific subtitle */}
+        Your compelling subtitle or tagline
       </p>
 
       {/* Description - REQUIRED */}
       <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-        {/* Page-specific description */}
+        {/* Page-specific description - Include tagline here */}
+        "Building for the Owner, NOT the Dollar" — Your descriptive text about the page content.
       </p>
     </div>
   </div>
 
-  {/* Page Navigation - ALWAYS REQUIRED */}
+  {/* Page Navigation - ALWAYS REQUIRED AT BOTTOM */}
   <PageNavigation
     items={navigationConfigs.pageName}
     className="absolute bottom-0 left-0 right-0"
@@ -275,14 +282,17 @@ navigation visibility, and optimal typography scaling across the entire website.
 
 **CRITICAL REQUIREMENTS - ALL PAGES:**
 
-- ✅ **Exact viewport height**: `h-screen` (not `min-h-screen` or `h-[100dvh]`)
-- ✅ **NO CTA buttons**: Hero sections contain only navigation elements
+- ✅ **Exact viewport height**: `h-screen flex items-center justify-center`
+- ✅ **NO badges**: No veteran badges, military_tech icons, or decorative badges
+- ✅ **NO CTA buttons**: No Schedule Consultation, Get Estimate, or any action buttons
+- ✅ **NO stats/indicators**: No quick stats cards, trust indicators, or stat displays
+- ✅ **NO contact buttons**: No quick contact buttons or action links
+- ✅ **Content ONLY**: Title, subtitle, description text only
 - ✅ **Responsive padding**: Top `pt-16` to `lg:pt-40`, Bottom `pb-12` to `lg:pb-28`
 - ✅ **Responsive typography**: `text-lg` to `xl:text-5xl` for main titles
 - ✅ **Tight spacing**: `space-y-2` to `lg:space-y-6` prevents mobile overlap
-- ✅ **PageNavigation visible**: Always displayed at bottom of hero section
+- ✅ **PageNavigation at bottom**: Always at `absolute bottom-0 left-0 right-0`
 - ✅ **Overflow hidden**: Prevents horizontal scrolling issues
-- ✅ **Professional colors**: NO section badges, solid heading colors only
 
 #### Hero Typography Scaling (MANDATORY)
 
@@ -291,6 +301,87 @@ navigation visibility, and optimal typography scaling across the entire website.
 | **Main Title**  | `text-lg` (18px) | `sm:text-2xl` (24px)  | `md:text-3xl` (30px)  | `lg:text-4xl` (36px) | `xl:text-5xl` (48px) |
 | **Subtitle**    | `text-xs` (12px) | `sm:text-base` (16px) | `md:text-lg` (18px)   | `lg:text-xl` (20px)  | -                    |
 | **Description** | `text-xs` (12px) | `sm:text-sm` (14px)   | `md:text-base` (16px) | `lg:text-lg` (18px)  | -                    |
+
+#### ❌ PROHIBITED in Hero Sections
+
+**The following elements are STRICTLY FORBIDDEN in hero sections:**
+
+```tsx
+// ❌ DO NOT INCLUDE:
+
+// 1. Veteran Badges or any decorative badges
+<div className="flex justify-center items-center gap-2 mb-4 sm:mb-6">
+  <MaterialIcon icon="military_tech" size="lg" className="text-bronze-300" />
+  <span>Veteran-Owned Excellence</span>
+</div>
+
+// 2. CTA Buttons (Schedule, Get Estimate, Contact, etc.)
+<Link href="/booking">
+  <Button variant="secondary" size="xl">
+    <MaterialIcon icon="event" size="lg" />
+    Schedule Free Consultation
+  </Button>
+</Link>
+
+// 3. Quick Stats or Stat Cards
+<div className="gap-3 sm:gap-6 lg:gap-8 grid grid-cols-2 sm:grid-cols-4">
+  <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6">
+    <div className="font-black text-2xl text-bronze-300">30+</div>
+    <div className="text-white/90">Years Experience</div>
+  </div>
+</div>
+
+// 4. Trust Indicators
+<div className="flex flex-wrap justify-center items-center gap-4">
+  <div className="flex items-center">
+    <MaterialIcon icon="workspace_premium" size="sm" />
+    <span>100+ Projects</span>
+  </div>
+</div>
+
+// 5. Quick Contact Buttons
+<a href="tel:+15093086489" className="inline-flex items-center">
+  <MaterialIcon icon="phone" size="md" />
+  <span>Call Now</span>
+</a>
+
+// 6. Partnership Tagline as separate large element
+<p className="font-bold text-2xl">
+  "Building for the Owner, NOT the Dollar"
+</p>
+```
+
+#### ✅ CORRECT Hero Section Example
+
+```tsx
+// ✅ CORRECT: Clean hero with title, subtitle, description only
+<section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
+
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+    <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+      <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+        <span className="block text-brand-secondary font-black drop-shadow-lg">
+          Commercial Construction Excellence
+        </span>
+      </h1>
+
+      <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+        Your trusted construction partner in Pasco, Kennewick, and Richland.
+      </p>
+
+      <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
+        "Building for the Owner, NOT the Dollar" — Veteran-owned excellence serving the Pacific Northwest with authentic partnerships and cutting-edge technology.
+      </p>
+    </div>
+  </div>
+
+  <PageNavigation
+    items={navigationConfigs.home}
+    className="absolute bottom-0 left-0 right-0"
+  />
+</section>
+```
 
 #### Hero Section Benefits
 

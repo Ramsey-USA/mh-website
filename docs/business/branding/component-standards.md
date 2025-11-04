@@ -329,14 +329,24 @@ className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
 
 ### **Hero Section Structure (For Photo/Video Backgrounds)**
 
-**CRITICAL:** No badges or bubble containers in hero sections. Single-line titles with brand color.
+**UPDATED:** November 4, 2025 - v4.0.2 Hero Standards
+
+**CRITICAL REQUIREMENTS:**
+
+- ✅ **NO badges** or bubble containers (veteran badges, decorative badges)
+- ✅ **NO CTA buttons** (Schedule, Get Estimate, Contact buttons)
+- ✅ **NO stats/cards** (30+ years, 100+ projects displays)
+- ✅ **NO trust indicators** (satisfaction rates, project counts)
+- ✅ **Content ONLY**: Title, subtitle, description text
+- ✅ **Navigation at bottom**: PageNavigation at `absolute bottom-0`
+- ✅ **Full viewport height**: `h-screen flex items-center justify-center`
 
 ```tsx
 <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
   {/* Background Elements */}
   <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
-  {/* Content */}
+  {/* Content - CLEAN AND SIMPLE */}
   <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
     <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
       {/* Main Title - USE BRAND COLOR */}
@@ -353,12 +363,12 @@ className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
 
       {/* Description */}
       <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-        Supporting description with partnership language
+        "Building for the Owner, NOT the Dollar" — Supporting description with partnership language
       </p>
     </div>
   </div>
 
-  {/* Page Navigation */}
+  {/* Page Navigation - ALWAYS AT BOTTOM */}
   <PageNavigation
     items={navigationConfigs.pageName}
     className="absolute bottom-0 left-0 right-0"

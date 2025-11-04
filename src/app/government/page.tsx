@@ -270,92 +270,38 @@ const successFactors = [
 
 export default function GovernmentGrantsPage() {
   const [selectedGrantType, setSelectedGrantType] = useState<string | null>(
-    null,
+    null
   );
 
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 pt-20 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 lg:pb-24 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-700/30 via-gray-900/80 to-gray-600/20"></div>
-        <div className="top-20 right-20 absolute bg-gray-500/20 blur-3xl rounded-full w-64 h-64"></div>
-        <div className="bottom-20 left-20 absolute bg-gray-400/20 blur-3xl rounded-full w-80 h-80"></div>
 
         {/* Content */}
-        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="mx-auto max-w-5xl text-center">
-            {/* Veteran Badge - Always Visible */}
-            <div className="flex justify-center items-center gap-2 mb-4 sm:mb-6">
-              <MaterialIcon
-                icon="military_tech"
-                size="lg"
-                className="text-gray-300"
-              />
-              <span className="font-semibold text-gray-300 text-sm sm:text-base tracking-wide uppercase">
-                Army Veteran Owned
-              </span>
-            </div>
-
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+          <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
             {/* Main Title */}
-            <h1
-              className="mb-4 sm:mb-6 lg:mb-8 font-black text-white leading-none tracking-tighter"
-              style={{ fontSize: "clamp(2rem, 8vw, 6rem)" }}
-            >
-              <span className="block">Federal Government</span>
-              <span className="block mt-2 sm:mt-3 lg:mt-4 text-gray-300">
-                Contracting
+            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+              <span className="block text-gray-300 font-black drop-shadow-lg">
+                Federal Government Contracting
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p
-              className="mx-auto mb-3 sm:mb-4 max-w-4xl font-light text-white/90 leading-relaxed tracking-wide px-2"
-              style={{ fontSize: "clamp(1rem, 2.5vw, 2rem)" }}
-            >
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
               Army Veteran Leadership • Federal Compliance • Mission Execution
             </p>
 
-            {/* Description - Always Visible */}
-            <p
-              className="mx-auto mb-6 sm:mb-8 lg:mb-12 max-w-3xl font-medium text-white/80 leading-relaxed px-2"
-              style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)" }}
-            >
+            {/* Description */}
+            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
               Under Army veteran leadership, MH Construction delivers
               mission-critical construction services with unwavering commitment
               to federal compliance, operational security, and successful
-              mission completion
+              mission completion.
             </p>
-
-            {/* Quick Stats - Mobile optimized */}
-            <FadeInWhenVisible>
-              <div className="gap-3 sm:gap-6 lg:gap-8 grid grid-cols-2 sm:grid-cols-3 mx-auto max-w-4xl">
-                <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 border border-white/20 rounded-lg sm:rounded-xl text-center transition-all duration-300 hover:scale-105">
-                  <div className="mb-1 sm:mb-2 font-black text-2xl sm:text-3xl lg:text-4xl text-gray-300">
-                    DOE
-                  </div>
-                  <div className="font-medium text-white/90 text-xs sm:text-sm lg:text-base">
-                    Hanford Qualified
-                  </div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 border border-white/20 rounded-lg sm:rounded-xl text-center transition-all duration-300 hover:scale-105">
-                  <div className="mb-1 sm:mb-2 font-black text-2xl sm:text-3xl lg:text-4xl text-gray-300">
-                    24/7
-                  </div>
-                  <div className="font-medium text-white/90 text-xs sm:text-sm lg:text-base">
-                    Emergency Response
-                  </div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 border border-white/20 rounded-lg sm:rounded-xl text-center transition-all duration-300 hover:scale-105 col-span-2 sm:col-span-1">
-                  <div className="mb-1 sm:mb-2 font-black text-2xl sm:text-3xl lg:text-4xl text-gray-300">
-                    3-State
-                  </div>
-                  <div className="font-medium text-white/90 text-xs sm:text-sm lg:text-base">
-                    WA, OR, ID Licensed
-                  </div>
-                </div>
-              </div>
-            </FadeInWhenVisible>
           </div>
         </div>
 
@@ -597,9 +543,7 @@ export default function GovernmentGrantsPage() {
                   className="h-full cursor-pointer"
                   onClick={() =>
                     setSelectedGrantType(
-                      selectedGrantType === type.category
-                        ? null
-                        : type.category,
+                      selectedGrantType === type.category ? null : type.category
                     )
                   }
                 >

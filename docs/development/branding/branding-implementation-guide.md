@@ -1,32 +1,60 @@
 # MH Construction Branding Compliance Implementation Plan
 
-**Version**: 4.0.2 | **Date**: November 4, 2025 | **Status**: Hero Section Standards Updated
+**Version**: 4.0.2 | **Date**: November 4, 2025 | **Status**: ✅ Hero Section Standards Finalized
 
 ## Overview
 
 This plan provides a systematic approach to ensure all website pages adhere to MH Construction branding
-guidelines, including the new cohesive hero section standards implemented November 4, 2025.
+guidelines, including the **NEW Hero Section standards** implemented and finalized on November 4, 2025.
 
-## Hero Section Implementation (v4.0.2)
+## Hero Section Implementation (v4.0.2) - FINALIZED
 
-### CRITICAL: Standardized Hero Section Format
+### 🚨 CRITICAL: New Hero Section Standards
 
-**ALL PAGES must implement the standardized hero section format documented in [Typography Standards](../../business/branding/typography.md#-hero-section-typography-standards).**
+**As of November 4, 2025, ALL hero sections must follow the simplified, clean format:**
 
-### Standard Hero Structure
+**MANDATORY REQUIREMENTS:**
 
-All pages must implement the cohesive hero section pattern:
+- ✅ Full viewport height (`h-screen flex items-center justify-center`)
+- ✅ **NO badges** (veteran badges, military_tech icons, decorative badges)
+- ✅ **NO CTA buttons** (Schedule Consultation, Get Estimate, Contact Us, etc.)
+- ✅ **NO stats/cards** (30+ years, 100+ projects, satisfaction stats, etc.)
+- ✅ **NO trust indicators** (icons with labels below title)
+- ✅ **Content ONLY**: Title, subtitle, and description text
+- ✅ Navigation bar at bottom (`absolute bottom-0 left-0 right-0`)
+
+### Standard Hero Structure (REQUIRED)
+
+All pages must implement this exact hero section pattern:
 
 ```tsx
 <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
+  {/* Background Elements */}
   <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
+  {/* Content - CLEAN AND SIMPLE */}
   <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
     <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-      {/* Page-specific content */}
+      {/* Main Title */}
+      <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+        <span className="block text-brand-secondary font-black drop-shadow-lg">
+          Your Page Title
+        </span>
+      </h1>
+
+      {/* Subtitle */}
+      <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+        Your compelling subtitle
+      </p>
+
+      {/* Description */}
+      <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
+        "Building for the Owner, NOT the Dollar" — Your page description
+      </p>
     </div>
   </div>
 
+  {/* Navigation Bar - ALWAYS AT BOTTOM */}
   <PageNavigation
     items={navigationConfigs.pageName}
     className="absolute bottom-0 left-0 right-0"
@@ -36,14 +64,49 @@ All pages must implement the cohesive hero section pattern:
 
 ### Hero Section Requirements Checklist
 
+**Use this checklist when creating or updating any page:**
+
 - [ ] Exact viewport height (`h-screen`, not `min-h-screen` or `h-[100dvh]`)
+- [ ] No badges (veteran, military_tech, or any decorative badges)
 - [ ] No CTA buttons in hero section
+- [ ] No stats cards or stat displays
+- [ ] No trust indicators (icons with project counts, satisfaction, etc.)
+- [ ] No quick contact buttons
+- [ ] Title only: Clean `h1` with `text-brand-secondary`
+- [ ] Subtitle: Brief tagline or page description
+- [ ] Description: Longer text including company tagline
 - [ ] Top padding: `pt-16 sm:pt-24 md:pt-32 lg:pt-40`
 - [ ] Bottom padding: `pb-12 sm:pb-16 md:pb-20 lg:pb-28`
 - [ ] Responsive typography: `text-lg` to `xl:text-5xl` for titles
 - [ ] Tight spacing: `space-y-2` to `lg:space-y-6`
 - [ ] PageNavigation visible at bottom
 - [ ] Overflow hidden to prevent horizontal scroll
+
+### What NOT to Include in Hero Sections
+
+**STRICTLY FORBIDDEN:**
+
+```tsx
+// ❌ NO Veteran Badges
+<div className="flex items-center gap-2">
+  <MaterialIcon icon="military_tech" />
+  <span>Veteran-Owned Excellence</span>
+</div>
+
+// ❌ NO CTA Buttons
+<Button variant="secondary">Schedule Consultation</Button>
+
+// ❌ NO Stats
+<div className="grid grid-cols-4">
+  <div>30+ Years</div>
+</div>
+
+// ❌ NO Trust Indicators
+<div className="flex items-center">
+  <MaterialIcon icon="star" />
+  <span>98% Satisfaction</span>
+</div>
+```
 
 ### Typography Scaling Standards
 

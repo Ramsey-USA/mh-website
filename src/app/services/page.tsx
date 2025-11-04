@@ -270,33 +270,18 @@ export default function ServicesPage() {
           {/* Background Elements */}
           <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
-          {/* Content - NO CTA BUTTONS per v4.0.2 standards */}
+          {/* Content */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
             <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-              {/* Veteran Badge */}
-              <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-                <MaterialIcon
-                  icon="military_tech"
-                  size="md"
-                  className="mr-2 sm:mr-3 text-brand-secondary"
-                />
-                <span className="font-bold text-brand-primary-light text-xs sm:text-sm uppercase tracking-wider">
-                  Veteran-Owned Excellence
-                </span>
-              </div>
-
-              {/* Main Title - Partnership Focus */}
+              {/* Main Title */}
               <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-                <span className="block mb-2 text-white/90 font-semibold text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl">
-                  Your Partnership in
-                </span>
-                <span className="block text-white font-black drop-shadow-lg">
+                <span className="block text-brand-secondary font-black drop-shadow-lg">
                   Construction Excellence
                 </span>
               </h1>
 
-              {/* Primary Tagline */}
-              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-brand-secondary font-bold leading-snug px-2">
+              {/* Subtitle */}
+              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
                 "Building for the Owner, NOT the Dollar"
               </p>
 
