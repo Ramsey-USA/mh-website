@@ -82,7 +82,7 @@ export function JobApplicationModal({
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    >
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -154,15 +154,13 @@ export function JobApplicationModal({
 
   if (submitSuccess) {
     return (
-      <div className="z-50 fixed inset-0 flex justify-center items-center bg-black/70 backdrop-blur-sm p-4">
+      <div className="z-50 fixed inset-0 flex justify-center items-center bg-black/75 backdrop-blur-sm p-4">
         <div className="bg-white dark:bg-gray-800 p-8 sm:p-12 rounded-2xl w-full max-w-2xl text-center shadow-2xl border-2 border-brand-primary/30">
           <div className="mb-6 text-brand-primary">
             <MaterialIcon icon="check_circle" size="4xl" />
           </div>
-          <h3 className="mb-4 pb-2 font-black text-3xl sm:text-4xl md:text-5xl leading-tight">
-            <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
-              Welcome to Our Team!
-            </span>
+          <h3 className="mb-4 font-black text-3xl sm:text-4xl md:text-5xl leading-tight text-gray-900 dark:text-white">
+            Welcome to Our Team!
           </h3>
           <p className="mb-6 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             Thank you for your interest in joining our veteran-owned company.
@@ -176,9 +174,9 @@ export function JobApplicationModal({
               <MaterialIcon
                 icon="military_tech"
                 size="md"
-                className="text-brand-primary"
+                className="text-bronze-300"
               />
-              <span className="font-semibold text-brand-primary">
+              <span className="font-semibold text-bronze-300">
                 Veteran-Owned Excellence
               </span>
             </div>
@@ -199,40 +197,54 @@ export function JobApplicationModal({
   }
 
   return (
-    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black/70 backdrop-blur-sm p-4">
+    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black/75 backdrop-blur-sm p-4">
       <div className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden shadow-2xl border-2 border-brand-primary/20">
-        {/* Header */}
-        <div className="bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary p-6 sm:p-8 text-white relative overflow-hidden">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/10 via-transparent to-transparent"></div>
+        {/* Enhanced Header with v4.0.2 branding */}
+        <div className="relative bg-gradient-to-r from-brand-primary via-brand-accent to-brand-primary p-6 sm:p-8 text-white overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"></div>
+          <div className="top-0 right-0 absolute bg-white/5 rounded-full w-32 h-32 -translate-y-16 translate-x-16" />
+          <div className="bottom-0 left-0 absolute bg-white/5 rounded-full w-24 h-24 -translate-x-12 translate-y-12" />
 
-          <div className="relative z-10 flex justify-between items-center">
-            <div className="flex items-center space-x-3">
-              <div className="bg-white/10 backdrop-blur-sm p-2 rounded-lg border border-white/20">
-                <MaterialIcon icon="work" size="lg" />
-              </div>
-              <div>
-                <h2 className="font-black text-2xl sm:text-3xl md:text-4xl leading-tight">
+          <div className="relative z-10">
+            {/* Veteran Badge - Always Visible */}
+            <div className="flex justify-center items-center gap-2 mb-4">
+              <MaterialIcon
+                icon="military_tech"
+                size="md"
+                className="text-bronze-300"
+              />
+              <span className="font-semibold text-bronze-300 text-sm tracking-wide uppercase">
+                Veteran-Owned Excellence
+              </span>
+            </div>
+
+            <div className="flex justify-between items-start">
+              <div className="flex-1">
+                <h2 className="mb-2 font-black text-2xl sm:text-3xl md:text-4xl leading-tight">
                   Join Our Team
                 </h2>
-                <p className="text-white/90 text-sm sm:text-base mt-1">
-                  Veteran-Owned Excellence
+                <p className="text-white/90 text-sm sm:text-base">
+                  Build Your Career with Excellence
                 </p>
               </div>
+              <button
+                onClick={onClose}
+                className="hover:bg-white/20 p-2 rounded-lg text-white hover:scale-110 transition-all duration-200"
+                aria-label="Close modal"
+              >
+                <MaterialIcon icon="close" size="lg" />
+              </button>
             </div>
-            <button
-              onClick={onClose}
-              className="text-white hover:text-brand-secondary transition-colors hover:bg-white/10 p-2 rounded-lg"
-            >
-              <MaterialIcon icon="close" size="lg" />
-            </button>
-          </div>
 
-          {/* Tagline */}
-          <div className="relative z-10 mt-4 bg-white/10 backdrop-blur-sm p-3 border border-white/20 rounded-lg inline-block">
-            <p className="text-sm sm:text-base font-semibold text-brand-secondary">
-              "Building for the Owner, NOT the Dollar"
-            </p>
+            {/* Partnership Tagline */}
+            <div className="mt-4 bg-white/10 backdrop-blur-sm p-3 border border-white/20 rounded-lg inline-block">
+              <p className="text-sm sm:text-base font-bold text-white">
+                "Building for the Owner,{" "}
+                <span className="font-black text-bronze-300">NOT</span> the
+                Dollar"
+              </p>
+            </div>
           </div>
         </div>
 

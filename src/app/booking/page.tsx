@@ -205,6 +205,67 @@ export default function BookingPage() {
       };
 
       await consultationService.create(consultationData);
+
+      // Send email notification to office@mhc-gc.com
+      try {
+        const emailMessage = `
+New Partnership Discussion Booking
+
+Client Information:
+Name: ${formData.clientName}
+Email: ${formData.email}
+Phone: ${formData.phone}
+
+Consultation Details:
+Date: ${new Date(formData.selectedDate).toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
+Time: ${formData.selectedTime}
+
+Project Information:
+Type: ${formData.projectType}
+Location: ${formData.location}
+Budget: ${formData.budget ? `$${parseInt(formData.budget).toLocaleString()}` : "Not specified"}
+
+Project Description:
+${formData.projectDescription}
+
+Additional Notes:
+${formData.additionalNotes || "None provided"}
+
+---
+Please contact the client to confirm this consultation appointment.
+        `.trim();
+
+        const emailResponse = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.clientName,
+            email: formData.email,
+            phone: formData.phone,
+            subject: `New Consultation Booking: ${formData.projectType} - ${formData.clientName}`,
+            message: emailMessage,
+            type: "consultation",
+            recipientEmail: "office@mhc-gc.com",
+            metadata: {
+              projectType: formData.projectType,
+              location: formData.location,
+              budget: formData.budget,
+              scheduledDate: formData.selectedDate,
+              scheduledTime: formData.selectedTime,
+            },
+          }),
+        });
+
+        if (!emailResponse.ok) {
+          console.error("Failed to send booking notification email");
+        }
+      } catch (emailError) {
+        console.error("Error sending booking email:", emailError);
+        // Continue even if email fails
+      }
+
       setSubmitStatus("success");
       setStep(3);
     } catch (error) {

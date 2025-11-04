@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import { Button, Card, CardHeader, CardTitle, CardContent } from "../";
 import { MaterialIcon } from "../../icons/MaterialIcon";
 
@@ -64,7 +63,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
   const quickDays = generateQuickDays();
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -108,56 +107,71 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
 
       {/* Enhanced Modal with better shadow and animation */}
       <div className="z-10 relative mx-4 w-full max-w-3xl max-h-[95vh] overflow-y-auto animate-modal-slide">
-        <Card className="bg-white dark:bg-gray-900 shadow-2xl border-0 ring-1 ring-black/10 dark:ring-white/10 animate-pulse-glow">
+        <Card className="bg-white dark:bg-gray-900 shadow-2xl border-2 border-brand-primary/20 ring-1 ring-black/10 dark:ring-white/10">
           <CardHeader className="relative bg-gradient-to-r from-brand-primary via-brand-accent to-brand-primary p-8 overflow-hidden text-white">
             {/* Background decoration */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10" />
             <div className="top-0 right-0 absolute bg-white/5 rounded-full w-32 h-32 -translate-y-16 translate-x-16" />
             <div className="bottom-0 left-0 absolute bg-white/5 rounded-full w-24 h-24 -translate-x-12 translate-y-12" />
 
-            <div className="z-10 relative flex justify-between items-start">
-              <div className="flex-1">
-                <CardTitle className="flex items-center mb-3 font-bold text-3xl">
-                  <Image
-                    src="/images/logo/mh-logo.png"
-                    alt="MH Construction"
-                    width={128}
-                    height={128}
-                    className="mr-4 w-32 h-32 object-contain"
-                  />
-                  <div>
-                    <div>Schedule Free Consultation</div>
-                    <div className="mt-1 font-normal text-white/90 text-lg">
-                      Book your site visit in under 2 minutes
+            <div className="z-10 relative">
+              {/* Veteran Badge - Always Visible */}
+              <div className="flex justify-center items-center gap-2 mb-4">
+                <MaterialIcon
+                  icon="military_tech"
+                  size="md"
+                  className="text-bronze-300"
+                />
+                <span className="font-semibold text-bronze-300 text-sm tracking-wide uppercase">
+                  Veteran-Owned Excellence
+                </span>
+              </div>
+
+              <div className="flex justify-between items-start">
+                <div className="flex-1">
+                  <CardTitle className="mb-3 font-black text-2xl sm:text-3xl leading-tight">
+                    Schedule Free Consultation
+                  </CardTitle>
+                  <div className="font-medium text-white/90 text-base sm:text-lg">
+                    Book your site visit in under 2 minutes
+                  </div>
+
+                  {/* Partnership Tagline */}
+                  <div className="mt-4 bg-white/10 backdrop-blur-sm p-3 border border-white/20 rounded-lg inline-block">
+                    <p className="text-sm font-bold text-white">
+                      "Building for the Owner,{" "}
+                      <span className="font-black text-bronze-300">NOT</span>{" "}
+                      the Dollar"
+                    </p>
+                  </div>
+
+                  <div className="flex items-center flex-wrap gap-4 mt-4 text-white/80 text-sm">
+                    <div className="flex items-center space-x-2">
+                      <MaterialIcon icon="schedule" size="sm" />
+                      <span>60-minute site visit</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <MaterialIcon icon="location_on" size="sm" />
+                      <span>On-site consultation</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <MaterialIcon icon="payments" size="sm" />
+                      <span>100% Free</span>
                     </div>
                   </div>
-                </CardTitle>
-                <div className="flex items-center space-x-6 mt-4 text-white/80 text-sm">
-                  <div className="flex items-center space-x-2">
-                    <MaterialIcon icon="schedule" size="sm" />
-                    <span>60-minute site visit</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <MaterialIcon icon="location_on" size="sm" />
-                    <span>On-site consultation</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <MaterialIcon icon="payments" size="sm" />
-                    <span>100% Free</span>
-                  </div>
                 </div>
+                <button
+                  onClick={handleClose}
+                  className="group hover:bg-white/20 p-3 rounded-xl hover:scale-110 transition-all duration-200"
+                  aria-label="Close modal"
+                >
+                  <MaterialIcon
+                    icon="close"
+                    size="lg"
+                    className="text-white group-hover:rotate-90 transition-transform duration-200"
+                  />
+                </button>
               </div>
-              <button
-                onClick={handleClose}
-                className="group hover:bg-white/20 p-3 rounded-xl hover:scale-110 transition-all duration-200"
-                aria-label="Close modal"
-              >
-                <MaterialIcon
-                  icon="close"
-                  size="lg"
-                  className="text-white group-hover:rotate-90 transition-transform duration-200"
-                />
-              </button>
             </div>
           </CardHeader>
 
@@ -494,7 +508,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                         <MaterialIcon
                           icon="payments"
                           size="lg"
-                          className="mb-2 text-bronze-500"
+                          className="mb-2 text-bronze-300"
                         />
                         <div className="font-semibold text-gray-900 dark:text-white text-sm">
                           100% Free

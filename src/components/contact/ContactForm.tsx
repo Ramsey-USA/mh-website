@@ -135,9 +135,62 @@ export function ContactForm({
       // Track form submission
       analytics.contactForm(formType, formData.projectType);
 
-      // Here you would typically send to your backend API
-      // For now, we'll simulate the submission
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Prepare email content with all form data
+      const emailMessage = `
+Contact Form Submission - ${formType.toUpperCase()}
+
+Name: ${formData.firstName} ${formData.lastName}
+Email: ${formData.email}
+Phone: ${formData.phone || "Not provided"}
+
+${
+  formType === "project"
+    ? `
+Project Type: ${formData.projectType}
+Project Location: ${formData.projectLocation}
+Budget Range: ${formData.budget || "Not specified"}
+Timeline: ${formData.timeline || "Not specified"}
+`
+    : ""
+}
+
+Urgency Level: ${formData.urgency}
+Preferred Contact Method: ${formData.preferredContact}
+
+Message:
+${formData.message}
+      `.trim();
+
+      // Submit to API endpoint
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          phone: formData.phone,
+          subject: `${formType.charAt(0).toUpperCase() + formType.slice(1)} Contact Form - ${formData.projectType || "General Inquiry"}`,
+          message: emailMessage,
+          type: formType,
+          recipientEmail: "office@mhc-gc.com",
+          metadata: {
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            projectType: formData.projectType,
+            projectLocation: formData.projectLocation,
+            budget: formData.budget,
+            timeline: formData.timeline,
+            urgency: formData.urgency,
+            preferredContact: formData.preferredContact,
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
 
       setIsSubmitted(true);
 
@@ -161,6 +214,9 @@ export function ContactForm({
     } catch (error) {
       console.error("Form submission error:", error);
       // Handle error (show error message)
+      alert(
+        "There was an error submitting your form. Please try again or call us at (509) 308-6489."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -402,7 +458,7 @@ export function ContactForm({
                     onClick={() =>
                       handleInputChange(
                         "urgency",
-                        urgency.value as "low" | "medium" | "high",
+                        urgency.value as "low" | "medium" | "high"
                       )
                     }
                     className={`px-3 py-1 rounded-full text-sm transition-colors ${
@@ -432,7 +488,7 @@ export function ContactForm({
                     onClick={() =>
                       handleInputChange(
                         "preferredContact",
-                        method.value as "email" | "phone" | "either",
+                        method.value as "email" | "phone" | "either"
                       )
                     }
                     className={`px-3 py-1 rounded-full text-sm transition-colors ${
