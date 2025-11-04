@@ -10,7 +10,7 @@
 
 ### **⭐ CRITICAL: Dual Navigation Architecture**
 
-- **[navigation-architecture.md](./technical/navigation-architecture.md)** - 🎯 **MASTER GUIDE**
+- **[navigation-architecture.md](./navigation-architecture.md)** - 🎯 **MASTER GUIDE**
   Complete dual navigation system documentation: Global hamburger menu vs
   Page-specific sectional navigation
 - **Navigation Components:**
@@ -27,22 +27,22 @@
 
 ### **Final Results** ⭐ START HERE
 
-- **[COMPLETE_OPTIMIZATION_ROADMAP.md](./migrations/optimizations/complete-optimization-roadmap.md)**
+- **[COMPLETE_OPTIMIZATION_ROADMAP.md](../../migrations/optimizations/complete-optimization-roadmap.md)**
   \- 🎯 **COMPLETE OPTIMIZATION SUMMARY** - All optimizations and roadmap
-- **[NEXT_STEPS.md](./project/roadmaps/next-steps.md)** - 🎯 **IMMEDIATE ACTION GUIDE**
+- **[NEXT_STEPS.md](../../project/roadmaps/next-steps.md)** - 🎯 **IMMEDIATE ACTION GUIDE**
   \- What to do next
-- **[PHASE_5_PERFORMANCE_IMPLEMENTATION.md](./technical/performance/phase-5-performance-implementation.md)**
+- **[PHASE_5_PERFORMANCE_IMPLEMENTATION.md](../performance/phase-5-performance-implementation.md)**
   \- ✅ Performance monitoring
 
 ### **🚀 Future Roadmap**
 
-- **[FUTURE_PHASES_ROADMAP.md](./project/roadmaps/future-phases-roadmap.md)** - ⭐
+- **[FUTURE_PHASES_ROADMAP.md](../../project/roadmaps/future-phases-roadmap.md)** - ⭐
   Complete Phase 6+ roadmap & timeline
-- **[Next Phase Options](../README.md#-project-roadmap--next-phases)** - Phase 6+
+- **[Next Phase Options](../../../README.md#-project-roadmap--next-phases)** - Phase 6+
   Advanced Features
-- **[Future Enhancements](../README.md#-phase-6-advanced-features--scaling-future)** -
+- **[Future Enhancements](../../../README.md#-phase-6-advanced-features--scaling-future)** -
   Real-time collaboration, AI, mobile
-- **[Implementation Timeline](../README.md#-implementation-timeline-future-phases)** -
+- **[Implementation Timeline](../../../README.md#-implementation-timeline-future-phases)** -
   2026 development schedule
 
 ---
@@ -51,22 +51,22 @@
 
 ### **Page Layout Standards**
 
-- **[page-layout-quick-start.md](./technical/page-layout-quick-start.md)** -
+- **[page-layout-quick-start.md](../design-system/layout/page-layout-quick-start.md)** -
   Copy-paste templates for new pages
-- **[page-layout-standards.md](./technical/page-layout-standards.md)** - Complete
+- **[page-layout-standards.md](../design-system/layout/page-layout-standards.md)** - Complete
   spacing, padding, typography reference
 
 ### **Design System**
 
-- **[design-system.md](./technical/design-system/design-system.md)** - Brand colors, typography, component standards
-- **[terminology-guide.md](./development/terminology-guide.md)** - ⭐ **CRITICAL:**
+- **[design-system.md](../design-system/design-system.md)** - Brand colors, typography, component standards
+- **[terminology-guide.md](../../development/terminology-guide.md)** - ⭐ **CRITICAL:**
   "Our Team" vs "Trade Partners" distinction
-- **[mh-branding.md](./business/mh-branding.md)** - Brand guidelines and messaging
+- **[mh-branding.md](../../business/mh-branding.md)** - Brand guidelines and messaging
 
 ### **Icon System**
 
-- **[icon-system-quick-reference.md](./technical/icon-system-quick-reference.md)** - Icon usage guide
-- **[icon-hover-effects-guide.md](./technical/icon-hover-effects-guide.md)** - Interactive icon effects
+- **[icon-system-quick-reference.md](../design-system/icons/icon-system-quick-reference.md)** - Icon usage guide
+- **[icon-hover-effects-guide.md](../design-system/icons/icon-hover-effects-guide.md)** - Interactive icon effects
 
 ---
 
@@ -74,9 +74,9 @@
 
 ### **Master Project Roadmap** ⭐ START HERE
 
-- **[PHASE_MASTER_ROADMAP.md](./project/roadmaps/phase-master-roadmap.md)** - Complete
+- **[PHASE_MASTER_ROADMAP.md](../../project/roadmaps/phase-master-roadmap.md)** - Complete
   project timeline, status, and future roadmap
-- **[Phase Consolidation Plan](./archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md)** -
+- **[Phase Consolidation Plan](../../archive/completed-phases/PHASE_CONSOLIDATION_PLAN.md)** -
   Phase organization and consolidation plan
 
 ### **Current Status: ✅ ALL PHASES 1-5 COMPLETE**
@@ -92,12 +92,12 @@
 
 ### **Current Implementation Details**
 
-- **[PHASE_5_PERFORMANCE_IMPLEMENTATION.md](./technical/performance/phase-5-performance-implementation.md)**
+- **[PHASE_5_PERFORMANCE_IMPLEMENTATION.md](../performance/phase-5-performance-implementation.md)**
   \- Performance monitoring implementation guide
 
 ### **Future Development (Optional)**
 
-- **[FUTURE_PHASES_ROADMAP.md](./project/roadmaps/future-phases-roadmap.md)** - ⭐
+- **[FUTURE_PHASES_ROADMAP.md](../../project/roadmaps/future-phases-roadmap.md)** - ⭐
   Complete Phase 6+ roadmap & timeline
 - **[Next Phase Options](../README.md#-project-roadmap--next-phases)** - Phase 6+
   Advanced Features roadmap

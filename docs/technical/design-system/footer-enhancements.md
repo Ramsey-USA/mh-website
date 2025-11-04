@@ -1,7 +1,7 @@
 # Footer System Enhancements - MH Construction
 
 **Implementation Date**: October 24, 2025  
-**Version**: v4.1.1  
+**Version**: v4.0.0  
 **Status**: ✅ Complete
 
 ## Overview
