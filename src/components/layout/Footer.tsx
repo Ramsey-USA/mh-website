@@ -64,11 +64,17 @@ export default function Footer() {
                       <div className="mb-1 text-gray-400 dark:text-gray-300 text-xs">
                         MHC Office
                       </div>
-                      <span className="text-xs leading-tight">
+                      <a
+                        href="https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs leading-tight hover:text-brand-primary transition-colors duration-300 cursor-pointer block"
+                        title="Get directions to our office"
+                      >
                         3111 N. Capital Ave.
                         <br />
                         Pasco, WA 99301
-                      </span>
+                      </a>
                     </div>
                   </div>
                 </div>

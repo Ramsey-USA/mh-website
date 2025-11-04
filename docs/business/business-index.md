@@ -87,6 +87,11 @@ docs/business/
 - **Website**: [www.mhc-gc.com](https://www.mhc-gc.com)
 - **General Email**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
 - **Social Media**: Professional business profiles
+  - **Facebook**: [MH Construction](https://www.facebook.com/profile.php?id=61575511773974)
+  - **Instagram**: [MH Construction Reels](https://www.instagram.com/mh_construction_inc/reels/)
+  - **LinkedIn**: [MH Construction Company](https://linkedin.com/company/mhconstruction)
+  - **YouTube**: [MH Construction Channel](https://youtube.com/@mhconstruction)
+  - **X (Twitter)**: [MH Construction](https://x.com/mhconstruction)
 
 ### 📈 Current Status (v3.7.2)
 

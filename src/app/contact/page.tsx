@@ -271,7 +271,10 @@ export default function ContactPage() {
       </section>
 
       {/* Urgent Support Banner */}
-      <section className="bg-gradient-to-r from-orange-600 to-orange-700 dark:from-orange-700 dark:to-orange-800 py-16">
+      <section
+        id="urgent-support"
+        className="bg-gradient-to-r from-orange-600 to-orange-700 dark:from-orange-700 dark:to-orange-800 py-16"
+      >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
             <div className="text-center text-white">
