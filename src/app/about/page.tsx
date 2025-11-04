@@ -528,7 +528,7 @@ export default function AboutPage() {
                           </p>
                         </div>
                       </CardHeader>
-                      <CardContent className="pt-0 overflow-y-auto max-h-[280px]">
+                      <CardContent className="pt-0">
                         <ul className="space-y-3">
                           {value.practices.map((practice, pIndex) => (
                             <li key={pIndex} className="flex items-start">
@@ -669,7 +669,7 @@ export default function AboutPage() {
                           </p>
                         </div>
                       </CardHeader>
-                      <CardContent className="pt-0 overflow-y-auto max-h-[260px]">
+                      <CardContent className="pt-0">
                         <ul className="space-y-3">
                           {member.specialties.map((specialty, sIndex) => (
                             <li key={sIndex} className="flex items-start">
