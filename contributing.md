@@ -506,6 +506,26 @@ Brief description of changes
 
 ## 📞 Contact Information
 
+### Email System Integration (November 2025)
+
+**All website forms now send email notifications to <office@mhc-gc.com> using Resend:**
+
+- **Contact Forms**: General inquiries and project requests
+- **Job Applications**: Career submissions with resume uploads
+- **Consultation Bookings**: Partnership discussion scheduling
+- **AI Estimator**: Project estimates and follow-ups
+
+**Email Service Details:**
+
+- **Provider**: Resend (<https://resend.com>)
+- **API Endpoint**: `/src/app/api/contact/route.ts`
+- **Environment Variables**: `RESEND_API_KEY`, `EMAIL_FROM`
+- **Status**: ✅ Operational with domain verification complete
+
+**For Development:**
+When testing forms locally, ensure `.env.local` has the Resend API key configured.
+All submissions are logged even if email service is unavailable (graceful fallback).
+
 ### Development Team
 
 - **Lead Developer**: <office@mhc-gc.com>
