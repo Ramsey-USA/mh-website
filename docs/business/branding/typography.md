@@ -326,20 +326,31 @@ h3 {
 }
 ```text
 
-#### H4 - Minor Headlines
+#### H4 - Card Titles (Responsive)
 
-- **Size**: 24px (1.5rem)
-- **Weight**: Medium (500)
-- **Line Height**: 1.5
-- **Usage**: Minor headings, card titles
+**Mobile-First Responsive Scaling:**
+
+- **Mobile (base)**: `text-lg` (18px)
+- **Small**: `sm:text-xl` (20px)
+- **Medium**: `md:text-2xl` (24px)
+
+**Weight**: Bold (700) or Semi-Bold (600)  
+**Line Height**: Comfortable readability  
+**Usage**: Card titles, minor headings, component headers
+
+```tsx
+<CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
+  Card Title Content
+</CardTitle>
+```
 
 ```css
-h4 {
-  font-size: 1.5rem;
-  font-weight: 500;
-  line-height: 1.5;
+h4, .card-title {
+  @apply text-lg sm:text-xl md:text-2xl;
+  @apply font-bold leading-snug;
+  @apply text-gray-900 dark:text-gray-100;
 }
-```text
+```
 
 #### H5 - Supporting Headlines
 
@@ -375,57 +386,68 @@ h6 {
 
 ### Body Text Styles
 
-#### Body Large
+#### Body Large (Section Introductions)
 
-- **Size**: 18px (1.125rem)
-- **Weight**: Regular (400)
-- **Line Height**: 1.7
-- **Usage**: Introduction paragraphs, important body text
+**Mobile-First Responsive Scaling:**
 
-```css
-.text-large {
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.7;
-}
-```text
+- **Mobile (base)**: `text-lg` (18px)
+- **Medium**: `md:text-xl` (20px)
+- **Large**: `lg:text-2xl` (24px)
 
-#### Body Default
+**Weight**: Light (300)  
+**Line Height**: Relaxed  
+**Usage**: Section introduction paragraphs, important body text
 
-- **Size**: 16px (1rem)
-- **Weight**: Regular (400)
-- **Line Height**: 1.6
-- **Usage**: Standard body text, paragraph content
+```tsx
+<p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 
+  text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
+  Section introduction text
+</p>
+```
 
-```css
-body, p {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6;
-}
-```text
+#### Body Default - Responsive (Card Content, Lists)
 
-#### Body Small
+**Mobile-First Responsive Scaling:**
 
-- **Size**: 14px (0.875rem)
-- **Weight**: Regular (400)
-- **Line Height**: 1.5
-- **Usage**: Supporting text, captions, metadata
+- **Mobile (base)**: `text-sm` (14px)
+- **Small**: `sm:text-base` (16px)
+- **Medium**: `md:text-lg` (18px)
 
-```css
-.text-small {
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.5;
-}
-```text
+**Weight**: Regular (400)  
+**Line Height**: Relaxed  
+**Usage**: Card descriptions, list items, standard paragraph content
 
-#### Caption Text
+```tsx
+<p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg 
+  leading-relaxed">
+  Standard body content
+</p>
+```
+
+#### Body Small - Responsive (Fine Print, Secondary Content)
+
+**Mobile-First Responsive Scaling:**
+
+- **Mobile (base)**: `text-xs` (12px)
+- **Small**: `sm:text-sm` (14px)
+- **Medium**: `md:text-base` (16px)
+
+**Weight**: Regular (400)  
+**Line Height**: Relaxed  
+**Usage**: Supporting text, metadata, flip card back content, smaller descriptions
+
+```tsx
+<span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+  Secondary content
+</span>
+```
+
+#### Caption Text (Static)
 
 - **Size**: 12px (0.75rem)
 - **Weight**: Regular (400)
 - **Line Height**: 1.4
-- **Usage**: Image captions, footnotes, copyright text
+- **Usage**: Image captions, footnotes, copyright text (non-responsive)
 
 ```css
 .text-caption {
@@ -610,6 +632,82 @@ module.exports = {
   }
 }
 ```text
+
+---
+
+## 🎯 Section Icon Standards
+
+### Icon Placement & Navigation Consistency
+
+**CRITICAL:** All section icons must match the corresponding navigation bar icons for consistency and user orientation.
+
+#### Icon Sizing Standards
+
+**Direct Placement (Main Sections):**
+
+```tsx
+{/* Top-level section icons - use text-6xl for large, prominent display */}
+<MaterialIcon 
+  icon="icon_name" 
+  className="mb-6 text-brand-primary text-6xl" 
+/>
+```
+
+**Wrapped Background (Supporting Sections):**
+
+```tsx
+{/* Wrapped icons with background - use size="xl" for proper scaling */}
+<div className="flex justify-center items-center mb-6">
+  <div className="bg-brand-primary/10 p-4 rounded-2xl">
+    <MaterialIcon 
+      icon="icon_name" 
+      size="xl" 
+      className="text-brand-primary" 
+    />
+  </div>
+</div>
+```
+
+#### Icon-to-Navigation Mapping
+
+Always reference `/src/components/navigation/navigationConfigs.ts` to ensure section icons match navigation:
+
+| Section | Navigation Icon | Implementation |
+|---------|----------------|----------------|
+| Partnership Philosophy | `handshake` | `text-6xl` direct |
+| Core Values | `shield` | `text-6xl` direct |
+| Leadership Team | `people` | `text-6xl` direct |
+| Testimonials | `star` | `size="xl"` wrapped |
+| Safety & Compliance | `security` | `size="xl"` wrapped |
+| Awards & Recognition | `emoji_events` | `size="xl"` wrapped |
+
+#### Icon Size Reference
+
+| Usage | Class/Size | Pixel Size | Context |
+|-------|-----------|------------|---------|
+| **Hero Icons** | `text-8xl` | 96px | Largest impact |
+| **Section Headers** | `text-6xl` | 64px | Main sections |
+| **Wrapped Icons** | `size="xl"` | 48px | Contained sections |
+| **Card Icons** | `text-4xl` or `size="lg"` | 36px | Individual cards |
+| **List Icons** | `text-base` or `size="sm"` | 16px | Inline with text |
+
+#### Icon Color Standards
+
+```tsx
+{/* Primary brand color */}
+className="text-brand-primary"
+
+{/* Secondary brand color */}
+className="text-brand-secondary"
+
+{/* Accent color for checkmarks */}
+className="text-brand-accent"
+
+{/* Context colors */}
+className="text-gray-900 dark:text-white"
+```
+
+---
 
 ## Typography Usage Guidelines
 

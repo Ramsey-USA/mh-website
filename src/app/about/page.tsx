@@ -567,7 +567,7 @@ export default function AboutPage() {
           <FadeInWhenVisible>
             <div className="mb-16 text-center">
               <MaterialIcon
-                icon="groups"
+                icon="people"
                 className="mb-6 text-brand-primary text-6xl"
               />
               <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
@@ -707,6 +707,12 @@ export default function AboutPage() {
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-6xl">
+              <div className="flex justify-center items-center mb-6">
+                <MaterialIcon
+                  icon="shield"
+                  className="text-brand-primary text-6xl"
+                />
+              </div>
               <h2 className="mb-16 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-center leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                   Why Our Values
@@ -1045,7 +1051,7 @@ export default function AboutPage() {
               <div className="flex justify-center items-center mb-6">
                 <div className="bg-brand-primary/10 p-4 rounded-2xl">
                   <MaterialIcon
-                    icon="verified_user"
+                    icon="security"
                     size="xl"
                     className="text-brand-primary"
                   />
@@ -1592,6 +1598,10 @@ export default function AboutPage() {
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-12 text-center">
+            <MaterialIcon
+              icon="article"
+              className="mb-6 text-brand-primary text-6xl"
+            />
             <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
               <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 Latest News &

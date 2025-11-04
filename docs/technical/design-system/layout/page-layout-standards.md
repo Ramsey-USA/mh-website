@@ -252,7 +252,7 @@ Every major section should follow this structure:
 
 ## 📱 Grid Systems
 
-### **Standard Card Grid**
+### **Standard Card Grid (3-Column Standard)**
 
 ```tsx
 <div className="gap-6 lg:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -267,10 +267,12 @@ Every major section should follow this structure:
 - Desktop: 3 columns (`lg:grid-cols-3`)
 - Gap: `gap-6 lg:gap-8`
 
-### **Feature Card Grid (4 columns)**
+**Usage:** Standard sections with 3, 6, 9, or 12 items
+
+### **Feature Card Grid (4-Column Extended)**
 
 ```tsx
-<div className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+<div className="gap-6 lg:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
   {/* Feature cards */}
 </div>
 ```text
@@ -279,8 +281,105 @@ Every major section should follow this structure:
 
 - Mobile: 1 column
 - Tablet: 2 columns
-- Desktop: 4 columns
-- Gap: `gap-10` (larger for feature cards)
+- Desktop: 3 columns (`lg:grid-cols-3`)
+- Extra Large: 4 columns (`xl:grid-cols-4`)
+- Gap: `gap-6 lg:gap-8`
+
+**Usage:** Larger collections (6-12 items) that benefit from 4-wide display on very large screens
+
+**LAYOUT PHILOSOPHY:**
+
+- **Prefer 3-4 columns** on large screens rather than multiple rows
+- Creates cleaner, more balanced visual layout
+- Easier to scan horizontally than vertically
+- Better whitespace distribution
+- More professional appearance
+
+### **Two-Column Grid (Balanced)**
+
+```tsx
+<div className="gap-8 grid grid-cols-1 md:grid-cols-2">
+  {/* Large content cards */}
+</div>
+```text
+
+**Usage:** Feature comparisons, large content blocks, detailed cards requiring more space
+
+---
+
+## 📜 Scroll Behavior Standards
+
+### **Single Main Scroll Philosophy**
+
+**CRITICAL:** Pages must maintain a single, unified scrolling experience. Internal component scrolling
+creates UX confusion and should be avoided.
+
+#### ✅ APPROVED Patterns
+
+- **Page-level scroll:** Only the main page body scrolls
+- **Natural content flow:** Cards and sections stack naturally
+- **Responsive height:** Content adapts to screen size without scrolling
+- **Fixed heights:** Cards use fixed heights (e.g., `h-[400px]`) with content that fits
+
+#### ❌ PROHIBITED Patterns
+
+- **Internal card scrolling:** No `overflow-y-auto` on card content
+- **Maximum height constraints:** No `max-h-[]` on card bodies that cause scrolling
+- **Nested scroll areas:** No scrollable areas within scrollable areas
+- **Hidden content:** All card content must be visible or accessible via card flip/interaction
+
+### **Card Content Sizing**
+
+```tsx
+{/* ✅ CORRECT: Fixed height with fitting content */}
+<div className="h-[400px]">
+  <Card className="h-full">
+    <CardContent>
+      <p className="text-xs sm:text-sm md:text-base">
+        Content sized to fit naturally
+      </p>
+    </CardContent>
+  </Card>
+</div>
+
+{/* ❌ INCORRECT: Creates internal scroll */}
+<Card className="overflow-y-auto max-h-[280px]">
+  <CardContent>
+    <p>Too much content causes phantom scroll</p>
+  </CardContent>
+</Card>
+```
+
+### **Flip Card Back Content**
+
+```tsx
+{/* ✅ CORRECT: Smaller responsive text fits naturally */}
+<CardContent className="pt-0">
+  <ul className="space-y-3">
+    <li className="flex items-start">
+      <MaterialIcon icon="check_circle" className="flex-shrink-0 mt-0.5 mr-2" />
+      <span className="text-white leading-relaxed text-xs sm:text-sm md:text-base">
+        Detail item
+      </span>
+    </li>
+  </ul>
+</CardContent>
+
+{/* ❌ INCORRECT: Overflow creates phantom scroll */}
+<CardContent className="overflow-y-auto max-h-[260px]">
+  <ul>
+    {/* Too many items or large text */}
+  </ul>
+</CardContent>
+```
+
+### **Content Fitting Strategies**
+
+1. **Reduce Text Size:** Use `text-xs sm:text-sm md:text-base` for flip card backs
+2. **Limit List Items:** Maximum 4-6 items per flip card back
+3. **Adjust Card Height:** Use `h-[450px]` for content-heavy cards
+4. **Concise Copy:** Write shorter, punchier descriptions
+5. **Icon Size:** Use smaller icons on flip backs (`text-base` or `text-lg`)
 
 ---
 

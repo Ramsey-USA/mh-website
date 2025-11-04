@@ -25,7 +25,7 @@
 
 ### **Card Grid Layout Standards**
 
-- **Large Screens (lg):** 3-4 cards per row optimal
+- **Large Screens (lg):** 3 cards per row optimal (standard sections)
 - **Extra Large (xl):** Use `xl:grid-cols-4` for 6+ card sets
 - **Tablet (md):** 2 cards per row
 - **Mobile:** 1 card per row (stack vertically)
@@ -33,9 +33,12 @@
 
 **Examples:**
 
-- 6 cards: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`
+- 6 cards: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3` (prefer 3-wide)
 - 4 cards: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4`
 - 3 cards: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`
+
+**LAYOUT PHILOSOPHY:** Prefer 3-4 columns on large screens rather than multiple rows for better visual
+balance and cleaner layout.
 
 ---
 
@@ -70,7 +73,7 @@
 
 ## 🎴 **Card Component Standards**
 
-### **Required Structure**
+### **Standard Card Structure**
 
 ```tsx
 <Card className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 
@@ -85,14 +88,15 @@
 
   {/* Card Header */}
   <CardHeader>
-    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+    <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
       Card Title
-    </h3>
+    </CardTitle>
   </CardHeader>
 
   {/* Card Content */}
   <CardContent>
-    <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+    <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg 
+      leading-relaxed mb-6">
       Card description content
     </p>
   </CardContent>
@@ -105,6 +109,102 @@
     </Button>
   </div>
 </Card>
+```
+
+### **Card Flip Implementation (3D Transform)**
+
+**CRITICAL:** Card flips should NOT use internal scrolling. All content must fit within the card height
+for clean UX with single main page scroll.
+
+```tsx
+<div 
+  className="group perspective h-[400px] cursor-pointer" 
+  style={{ perspective: "1000px" }}
+>
+  <div className="relative w-full h-full transition-transform duration-700 preserve-3d 
+    group-hover:rotate-y-180">
+    
+    {/* Front of card */}
+    <div className="absolute inset-0 backface-hidden">
+      <Card className="bg-white dark:bg-gray-800 border border-gray-200 
+        dark:border-gray-700 h-full">
+        <CardHeader className="pb-4">
+          <div className="flex items-center mb-4">
+            <MaterialIcon icon="icon_name" className="mr-3 text-brand-primary text-4xl" />
+          </div>
+          <CardTitle className="mb-2 text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
+            Card Title
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="pt-0">
+          <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg 
+            leading-relaxed mb-6">
+            Front card description
+          </p>
+          <div className="flex items-center justify-center mt-8 text-brand-primary">
+            <MaterialIcon icon="autorenew" className="mr-2 text-xl sm:text-2xl animate-pulse" />
+            <span className="font-medium text-xs sm:text-sm">Hover to see more</span>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+
+    {/* Back of card */}
+    <div 
+      className="absolute inset-0 backface-hidden rotate-y-180" 
+      style={{ transform: "rotateY(180deg)" }}
+    >
+      <Card className="bg-gradient-to-br from-brand-primary to-brand-primary-dark 
+        dark:from-brand-primary-dark dark:to-gray-900 border border-brand-primary 
+        dark:border-brand-primary/50 h-full">
+        <CardHeader className="pb-4">
+          <div className="flex items-center mb-4">
+            <MaterialIcon icon="checklist" className="mr-2 text-brand-secondary text-2xl sm:text-3xl" />
+            <p className="font-bold text-white text-base sm:text-lg md:text-xl">Details:</p>
+          </div>
+        </CardHeader>
+        <CardContent className="pt-0">
+          <ul className="space-y-3">
+            <li className="flex items-start">
+              <MaterialIcon icon="check_circle" 
+                className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary text-base sm:text-lg" />
+              <span className="text-white leading-relaxed text-xs sm:text-sm md:text-base">
+                Detail item
+              </span>
+            </li>
+          </ul>
+          <div className="flex items-center justify-center mt-6 text-brand-secondary">
+            <MaterialIcon icon="autorenew" className="mr-2 text-lg sm:text-xl" />
+            <span className="font-medium text-xs">Hover to return</span>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  </div>
+</div>
+```
+
+#### Card Flip Requirements
+
+- **Fixed Height:** Use `h-[400px]` or `h-[450px]` for consistent card dimensions
+- **NO Internal Scroll:** ❌ Never use `overflow-y-auto` or `max-h-[]` on card content
+- **Content Fitting:** All content must fit within fixed height naturally
+- **Responsive Text:** Use `text-xs sm:text-sm md:text-base` for back content to fit better
+- **Single Main Scroll:** Only the page scrolls, not individual cards
+- **3D Transform:** Required classes: `perspective`, `preserve-3d`, `backface-hidden`, `rotate-y-180`
+- **Smooth Animation:** Use `duration-700` for comfortable flip timing
+
+### **Card Typography Standards**
+
+```tsx
+{/* Card Titles - Responsive */}
+<CardTitle className="text-lg sm:text-xl md:text-2xl">
+
+{/* Card Body Text - Standard */}
+<p className="text-sm sm:text-base md:text-lg">
+
+{/* Card Fine Print - Flip Backs */}
+<span className="text-xs sm:text-sm md:text-base">
 ```
 
 ### **Card Variants**
