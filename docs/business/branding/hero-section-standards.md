@@ -58,7 +58,8 @@ This document defines the official MH Construction hero section standard impleme
 
       {/* Description */}
       <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-        "Building for the Owner, NOT the Dollar" — Your page description text here.
+        "Building for the Owner, NOT the Dollar" — Your page description text
+        here.
       </p>
     </div>
   </div>
@@ -77,23 +78,24 @@ This document defines the official MH Construction hero section standard impleme
 
 ### Responsive Size Guide
 
-| Element     | Mobile      | Tablet         | Desktop           |
-|-------------|-------------|----------------|-------------------|
-| **Title**   | `text-lg`   | `sm:text-2xl`  | `xl:text-5xl`     |
-| **Subtitle**| `text-xs`   | `sm:text-base` | `lg:text-xl`      |
-| **Description** | `text-xs` | `sm:text-sm` | `lg:text-lg`    |
+| Element         | Mobile    | Tablet         | Desktop       |
+| --------------- | --------- | -------------- | ------------- |
+| **Title**       | `text-lg` | `sm:text-2xl`  | `xl:text-5xl` |
+| **Subtitle**    | `text-xs` | `sm:text-base` | `lg:text-xl`  |
+| **Description** | `text-xs` | `sm:text-sm`   | `lg:text-lg`  |
 
 ### Full Responsive Classes
 
 ```tsx
 // Title
-className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
+className =
+  "text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl";
 
 // Subtitle
-className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl"
+className = "text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl";
 
 // Description
-className="text-xs sm:text-sm md:text-base lg:text-lg"
+className = "text-xs sm:text-sm md:text-base lg:text-lg";
 ```
 
 ---
