@@ -613,7 +613,7 @@ main,
   .perspective {
     -webkit-tap-highlight-color: transparent;
   }
-  
+
   /* On touch devices, use active state instead of hover */
   .group:active .group-hover\:rotate-y-180 {
     -webkit-transform: rotateY(180deg);

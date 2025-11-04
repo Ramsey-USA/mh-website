@@ -23,7 +23,7 @@ const EstimatorForm = dynamic(
       <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-96 animate-pulse"></div>
     ),
     ssr: false,
-  }
+  },
 );
 const SmartRecommendations = dynamic(
   () => import("../../components/recommendations/SmartRecommendations"),
@@ -32,7 +32,7 @@ const SmartRecommendations = dynamic(
       <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-64 animate-pulse"></div>
     ),
     ssr: false,
-  }
+  },
 );
 import {
   FadeInWhenVisible,

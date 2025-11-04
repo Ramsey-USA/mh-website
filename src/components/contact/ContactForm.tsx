@@ -215,7 +215,7 @@ ${formData.message}
       console.error("Form submission error:", error);
       // Handle error (show error message)
       alert(
-        "There was an error submitting your form. Please try again or call us at (509) 308-6489."
+        "There was an error submitting your form. Please try again or call us at (509) 308-6489.",
       );
     } finally {
       setIsSubmitting(false);
@@ -458,7 +458,7 @@ ${formData.message}
                     onClick={() =>
                       handleInputChange(
                         "urgency",
-                        urgency.value as "low" | "medium" | "high"
+                        urgency.value as "low" | "medium" | "high",
                       )
                     }
                     className={`px-3 py-1 rounded-full text-sm transition-colors ${
@@ -488,7 +488,7 @@ ${formData.message}
                     onClick={() =>
                       handleInputChange(
                         "preferredContact",
-                        method.value as "email" | "phone" | "either"
+                        method.value as "email" | "phone" | "either",
                       )
                     }
                     className={`px-3 py-1 rounded-full text-sm transition-colors ${
