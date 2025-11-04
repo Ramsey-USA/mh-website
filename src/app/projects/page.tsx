@@ -205,7 +205,9 @@ export default function ProjectsPage() {
               <span className="block mb-1 sm:mb-2 font-semibold text-white/80 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight">
                 Partnership Success
               </span>
-              <span className="block text-white drop-shadow-lg">Stories</span>
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary drop-shadow-lg text-transparent">
+                Stories
+              </span>
             </h1>
 
             {/* Description */}
@@ -263,7 +265,7 @@ export default function ProjectsPage() {
                 <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                   Proven Track
                 </span>
-                <span className="block text-brand-primary drop-shadow-sm">
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
                   Record
                 </span>
               </h2>

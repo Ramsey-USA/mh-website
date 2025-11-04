@@ -448,7 +448,7 @@ export default function BookingPage() {
                 <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
                   Schedule Your
                 </span>
-                <span className="block text-white drop-shadow-lg">
+                <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-secondary drop-shadow-lg text-transparent">
                   Expert Consultation
                 </span>
               </h1>
