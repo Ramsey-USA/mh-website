@@ -322,7 +322,7 @@ export default function CareersPage() {
               <span className="block mb-1 sm:mb-2 font-semibold text-white/80 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight">
                 Join Our Team
               </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-secondary drop-shadow-lg text-transparent">
+              <span className="block text-white drop-shadow-lg">
                 Build Your Career
               </span>
             </h1>
@@ -374,7 +374,7 @@ export default function CareersPage() {
           <FadeInWhenVisible>
             <div className="mb-16 lg:mb-24 text-center">
               <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+                <span className="block text-gray-900 dark:text-white drop-shadow-sm">
                   Why Choose MH Construction?
                 </span>
               </h2>
@@ -418,7 +418,7 @@ export default function CareersPage() {
           <FadeInWhenVisible>
             <div className="mb-16 lg:mb-24 text-center">
               <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+                <span className="block text-gray-900 dark:text-white drop-shadow-sm">
                   Benefits & Perks
                 </span>
               </h2>
@@ -462,7 +462,7 @@ export default function CareersPage() {
           <FadeInWhenVisible>
             <div className="mb-16 lg:mb-24 text-center">
               <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+                <span className="block text-gray-900 dark:text-white drop-shadow-sm">
                   Current Openings
                 </span>
               </h2>
@@ -593,7 +593,7 @@ export default function CareersPage() {
                 className="mb-6 text-brand-primary"
               />
               <h2 className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+                <span className="block text-gray-900 dark:text-white drop-shadow-sm">
                   Don't See the Perfect Role?
                 </span>
               </h2>

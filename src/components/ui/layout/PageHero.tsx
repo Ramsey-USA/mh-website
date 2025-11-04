@@ -53,9 +53,7 @@ export function PageHero({ title, subtitle, description }: PageHeroProps) {
           <FadeInWhenVisible className="w-full text-center">
             {/* Title */}
             <h1 className="mb-6 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight">
-              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white drop-shadow-lg">
-                {title}
-              </span>
+              <span className="block text-white drop-shadow-lg">{title}</span>
             </h1>
 
             {/* Subtitle */}

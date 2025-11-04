@@ -15,7 +15,7 @@ export function Input({
   ...props
 }: InputProps) {
   const baseClasses =
-    "w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-white";
+    "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 touch-manipulation min-h-[44px] bg-white dark:bg-gray-800 text-gray-900 dark:text-white";
   const errorClasses = error
     ? "border-red-500 focus:ring-red-500 dark:border-red-400 dark:focus:ring-red-400"
     : "border-gray-300 dark:border-gray-600 focus:border-[#386851] focus:ring-[#386851] dark:focus:border-[#BD9264] dark:focus:ring-[#BD9264]";
@@ -55,7 +55,7 @@ export function Textarea({
   ...props
 }: TextareaProps) {
   const baseClasses =
-    "w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors resize-y bg-white dark:bg-gray-800 text-gray-900 dark:text-white";
+    "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 touch-manipulation min-h-[100px] resize-y bg-white dark:bg-gray-800 text-gray-900 dark:text-white";
   const errorClasses = error
     ? "border-red-500 focus:ring-red-500 dark:border-red-400 dark:focus:ring-red-400"
     : "border-gray-300 dark:border-gray-600 focus:border-[#386851] focus:ring-[#386851] dark:focus:border-[#BD9264] dark:focus:ring-[#BD9264]";

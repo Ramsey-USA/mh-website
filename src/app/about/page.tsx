@@ -1679,7 +1679,7 @@ export default function AboutPage() {
                     className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-brand-primary shadow-xl hover:shadow-2xl transition-all duration-300"
                   >
                     <MaterialIcon icon="build" size="lg" className="mr-3" />
-                    Explore Partnership Approach
+                    Explore Our Solutions
                   </Button>
                 </Link>
               </div>

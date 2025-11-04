@@ -28,7 +28,7 @@ function groupByDepartment(members: VintageTeamMember[]) {
       acc[dept].push(member);
       return acc;
     },
-    {} as Record<string, VintageTeamMember[]>,
+    {} as Record<string, VintageTeamMember[]>
   );
 }
 
@@ -60,9 +60,7 @@ export default function TeamPage() {
 
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary text-transparent drop-shadow-lg">
-                Our Team
-              </span>
+              <span className="block text-white drop-shadow-lg">Our Team</span>
             </h1>
 
             {/* Subtitle */}
@@ -94,9 +92,7 @@ export default function TeamPage() {
               <span className="text-gray-700 dark:text-gray-300">
                 Professional
               </span>{" "}
-              <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
-                Team Cards
-              </span>
+              <span className="text-brand-primary">Team Cards</span>
             </h2>
             <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
               Experience our team through vintage-style baseball cards featuring
@@ -117,7 +113,7 @@ export default function TeamPage() {
                   <div className="relative">
                     {/* MH-styled department header */}
                     <div className="mb-16 text-center">
-                      <h3 className="bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent mb-6 font-black text-transparent text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider">
+                      <h3 className="mb-6 font-black text-brand-primary text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider">
                         {department}
                       </h3>
                       <div className="bg-gradient-to-r from-transparent via-brand-secondary to-transparent mx-auto rounded-full w-48 h-1"></div>
@@ -149,9 +145,7 @@ export default function TeamPage() {
                     <span className="text-gray-700 dark:text-gray-300">
                       Partnership Life at
                     </span>{" "}
-                    <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
-                      MH Construction
-                    </span>
+                    <span className="text-brand-primary">MH Construction</span>
                   </h2>
                   <p className="mx-auto max-w-3xl text-gray-700 dark:text-gray-300 text-xl leading-relaxed">
                     "All for one, one for all" isn't just a motto—it's how we
@@ -230,9 +224,7 @@ export default function TeamPage() {
                     <span className="text-gray-700 dark:text-gray-300">
                       What Makes Our Partnership
                     </span>{" "}
-                    <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
-                      Culture Special
-                    </span>
+                    <span className="text-brand-primary">Culture Special</span>
                   </h3>
                   <div className="gap-8 grid grid-cols-1 md:grid-cols-2">
                     <div className="space-y-6">
@@ -368,7 +360,7 @@ export default function TeamPage() {
                   <span className="text-gray-700 dark:text-gray-300">
                     Interested in Joining
                   </span>{" "}
-                  <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
+                  <span className="text-brand-primary">
                     Our Partnership Team?
                   </span>
                 </h3>

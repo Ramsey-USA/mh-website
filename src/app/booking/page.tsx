@@ -177,7 +177,7 @@ export default function BookingPage() {
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >,
+    >
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -199,7 +199,7 @@ export default function BookingPage() {
         budget: formData.budget ? parseInt(formData.budget) : undefined,
         status: "pending" as const,
         scheduledDate: new Date(
-          `${formData.selectedDate}T${convertTo24Hour(formData.selectedTime)}`,
+          `${formData.selectedDate}T${convertTo24Hour(formData.selectedTime)}`
         ),
         notes: formData.additionalNotes,
       };
@@ -240,7 +240,7 @@ export default function BookingPage() {
                 </div>
 
                 <h1 className="mb-8 pb-2 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
-                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+                  <span className="block text-gray-900 dark:text-white drop-shadow-sm">
                     Consultation Confirmed!
                   </span>
                 </h1>
@@ -266,7 +266,7 @@ export default function BookingPage() {
                           month: "long",
                           day: "numeric",
                           year: "numeric",
-                        },
+                        }
                       )}
                     </p>
                     <p className="flex items-center justify-center gap-3 font-bold text-brand-primary dark:text-brand-primary-light text-xl">
@@ -278,10 +278,8 @@ export default function BookingPage() {
 
                 {/* Next Steps */}
                 <div className="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-xl mb-10 text-left max-w-3xl mx-auto border border-gray-200 dark:border-gray-600">
-                  <h3 className="mb-6 pb-2 font-black text-2xl sm:text-3xl md:text-4xl text-center">
-                    <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent">
-                      What Happens Next
-                    </span>
+                  <h3 className="mb-6 pb-2 font-black text-2xl sm:text-3xl md:text-4xl text-center text-brand-primary">
+                    What Happens Next
                   </h3>
                   <ul className="space-y-4">
                     <li className="flex items-start gap-3">
@@ -450,7 +448,7 @@ export default function BookingPage() {
                 <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
                   Schedule Your
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-secondary drop-shadow-lg text-transparent">
+                <span className="block text-white drop-shadow-lg">
                   Expert Consultation
                 </span>
               </h1>
@@ -574,7 +572,7 @@ export default function BookingPage() {
               <Card className="bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700">
                 <CardHeader>
                   <CardTitle className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
-                    <span className="flex items-center bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+                    <span className="flex items-center text-brand-primary drop-shadow-sm">
                       <MaterialIcon
                         icon="calendar_month"
                         size="lg"
@@ -678,7 +676,7 @@ export default function BookingPage() {
               >
                 <CardHeader>
                   <CardTitle className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
-                    <span className="flex items-center bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+                    <span className="flex items-center text-brand-primary drop-shadow-sm">
                       <MaterialIcon
                         icon="handshake"
                         size="lg"

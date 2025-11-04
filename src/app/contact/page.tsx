@@ -48,14 +48,14 @@ const mainCTAs = [
   },
   {
     icon: "construction",
-    label: "View Services",
+    label: "Explore Our Solutions",
     description: "What we build together",
     link: "/services",
     variant: "primary" as const,
   },
   {
     icon: "photo_library",
-    label: "Our Projects",
+    label: "View Our Work",
     description: "See our partnerships",
     link: "/projects",
     variant: "primary" as const,

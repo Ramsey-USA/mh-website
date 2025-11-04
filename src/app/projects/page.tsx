@@ -136,8 +136,8 @@ export default function ProjectsPage() {
             .includes(searchQuery.toLowerCase()) ||
           (project.tags &&
             project.tags.some((tag) =>
-              tag.toLowerCase().includes(searchQuery.toLowerCase()),
-            )),
+              tag.toLowerCase().includes(searchQuery.toLowerCase())
+            ))
       );
     }
 
@@ -205,9 +205,7 @@ export default function ProjectsPage() {
               <span className="block mb-1 sm:mb-2 font-semibold text-white/80 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight">
                 Partnership Success
               </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary drop-shadow-lg text-transparent">
-                Stories
-              </span>
+              <span className="block text-white drop-shadow-lg">Stories</span>
             </h1>
 
             {/* Description */}
@@ -265,7 +263,7 @@ export default function ProjectsPage() {
                 <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                   Proven Track
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                <span className="block text-brand-primary drop-shadow-sm">
                   Record
                 </span>
               </h2>
@@ -571,7 +569,7 @@ export default function ProjectsPage() {
                             <span>
                               {project.details.completionDate.toLocaleDateString(
                                 "en-US",
-                                { year: "numeric", month: "long" },
+                                { year: "numeric", month: "long" }
                               )}
                             </span>
                           </div>
@@ -603,7 +601,7 @@ export default function ProjectsPage() {
                                 size="sm"
                                 className="text-yellow-500"
                               />
-                            ),
+                            )
                           )}
                         </div>
                         <p className="text-gray-600 text-sm italic line-clamp-2">
@@ -838,7 +836,7 @@ export default function ProjectsPage() {
                                 size="md"
                                 className="text-brand-secondary"
                               />
-                            ),
+                            )
                           )}
                         </div>
                         <p className="flex-grow mb-4 text-gray-700 dark:text-gray-300 italic leading-relaxed">
@@ -993,7 +991,7 @@ export default function ProjectsPage() {
                     className="transition-all duration-300 border-2 border-white text-white hover:bg-white hover:text-brand-primary"
                   >
                     <MaterialIcon icon="phone" size="lg" className="mr-3" />
-                    <span className="font-medium">Start Partnership</span>
+                    <span className="font-medium">Begin Our Partnership</span>
                   </Button>
                 </Link>
                 <Link href="/services">
@@ -1003,7 +1001,7 @@ export default function ProjectsPage() {
                     className="transition-all duration-300"
                   >
                     <MaterialIcon icon="build" size="lg" className="mr-3" />
-                    <span className="font-medium">Explore Capabilities</span>
+                    <span className="font-medium">Explore Our Solutions</span>
                   </Button>
                 </Link>
               </div>
