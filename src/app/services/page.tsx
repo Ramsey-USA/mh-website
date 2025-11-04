@@ -297,7 +297,7 @@ export default function ServicesPage() {
                 <span className="block mb-1 sm:mb-2 font-semibold text-white/80 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight">
                   Your Partnership in
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary drop-shadow-lg text-transparent">
+                <span className="block text-white font-black drop-shadow-lg">
                   Construction Excellence
                 </span>
               </h1>
@@ -357,7 +357,7 @@ export default function ServicesPage() {
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Partnership-Focused
                   </span>
-                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                  <span className="block text-brand-primary dark:text-brand-primary font-black">
                     Construction Management
                   </span>
                 </h2>
@@ -421,7 +421,7 @@ export default function ServicesPage() {
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Partnership
                   </span>
-                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                  <span className="block text-brand-primary dark:text-brand-primary font-black">
                     Services
                   </span>
                 </h2>
@@ -579,7 +579,7 @@ export default function ServicesPage() {
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Partnership
                   </span>
-                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                  <span className="block text-brand-primary dark:text-brand-primary font-black">
                     Specialties
                   </span>
                 </h2>
@@ -745,7 +745,7 @@ export default function ServicesPage() {
                   <span className="block mb-4 font-semibold text-white/80 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Partnership
                   </span>
-                  <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
+                  <span className="block text-white font-black drop-shadow-lg">
                     Areas
                   </span>
                 </h2>
@@ -803,7 +803,7 @@ export default function ServicesPage() {
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Why Partner With
                   </span>
-                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                  <span className="block text-brand-primary dark:text-brand-primary font-black">
                     MH Construction
                   </span>
                 </h2>
@@ -856,7 +856,7 @@ export default function ServicesPage() {
                     <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                       Our Partnership
                     </span>
-                    <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                    <span className="block text-brand-primary dark:text-brand-primary font-black">
                       Process
                     </span>
                   </h2>
@@ -1242,7 +1242,7 @@ export default function ServicesPage() {
                 <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                   Construction
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent drop-shadow-sm text-transparent">
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
                   Portfolio
                 </span>
               </h2>
@@ -1296,7 +1296,7 @@ export default function ServicesPage() {
               <FadeInWhenVisible>
                 <Card className="group hover:shadow-2xl transition-all duration-300 h-full overflow-hidden">
                   <div className="relative bg-gray-200 dark:bg-gray-700 h-64 overflow-hidden">
-                    <div className="absolute inset-0 flex justify-center items-center bg-gradient-to-br from-brand-secondary/20 to-bronze-400/20">
+                    <div className="absolute inset-0 flex justify-center items-center bg-gradient-to-br from-brand-secondary/20 to-brand-accent/20">
                       <MaterialIcon
                         icon="home"
                         size="4xl"
@@ -1407,7 +1407,7 @@ export default function ServicesPage() {
                   <span className="block mb-4 font-semibold text-white/80 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Ready to Start Our
                   </span>
-                  <span className="block bg-clip-text bg-gradient-to-r from-white to-brand-secondary drop-shadow-sm text-transparent">
+                  <span className="block text-white font-black drop-shadow-lg">
                     Partnership?
                   </span>
                 </h2>

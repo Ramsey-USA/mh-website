@@ -148,7 +148,7 @@ export default function Home() {
           <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-              <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+              <span className="block text-white font-black drop-shadow-lg">
                 Your Partnership in Construction Excellence
               </span>
             </h1>
@@ -190,7 +190,7 @@ export default function Home() {
               <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 The Future of
               </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
                 Construction
               </span>
             </h2>
@@ -202,7 +202,7 @@ export default function Home() {
               . Our veteran-led team works with you to combine decades of
               service experience with revolutionary technology to deliver
               construction management that{" "}
-              <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
+              <span className="text-brand-primary font-semibold">
                 serves your vision
               </span>
               .
@@ -498,7 +498,7 @@ export default function Home() {
               <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 Built on
               </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
                 Professional Foundation
               </span>
             </h2>
@@ -509,7 +509,7 @@ export default function Home() {
               </span>{" "}
               that guide every partnership, every decision, and every
               collaborative relationship we build with{" "}
-              <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
+              <span className="text-brand-primary font-semibold">
                 trust as our ultimate goal
               </span>
               .
@@ -708,7 +708,7 @@ export default function Home() {
               <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 Showcase of
               </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
                 Services
               </span>
             </h2>
@@ -720,7 +720,7 @@ export default function Home() {
               </span>{" "}
               (Pasco, Kennewick, Richland). Each service represents our
               commitment to{" "}
-              <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
+              <span className="text-brand-primary font-semibold">
                 partnership excellence
               </span>{" "}
               and collaborative success.
@@ -920,7 +920,7 @@ export default function Home() {
               <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 What Our
               </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
                 Clients Say
               </span>
             </h2>
@@ -930,7 +930,7 @@ export default function Home() {
                 valued partners
               </span>{" "}
               across the Pacific Northwest who have experienced our{" "}
-              <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
+              <span className="text-brand-primary font-semibold">
                 collaborative excellence
               </span>{" "}
               firsthand.
@@ -1053,7 +1053,7 @@ export default function Home() {
                 <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                   Smart Project
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
                   Recommendations
                 </span>
               </h2>
@@ -1063,7 +1063,7 @@ export default function Home() {
                   Pacific Northwest trends
                 </span>{" "}
                 and veteran preferences for{" "}
-                <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
+                <span className="text-brand-primary font-semibold">
                   collaborative success
                 </span>
                 .
@@ -1112,7 +1112,7 @@ export default function Home() {
               <span className="block mb-2 sm:mb-3 font-semibold text-white/80 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 The MH Partnership
               </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-white via-brand-secondary to-white drop-shadow-sm text-transparent">
+              <span className="block text-white font-black drop-shadow-lg">
                 Difference
               </span>
             </h2>
@@ -1346,7 +1346,7 @@ export default function Home() {
               <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 Latest News &
               </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
                 Construction Insights
               </span>
             </h2>
@@ -1356,7 +1356,7 @@ export default function Home() {
                 construction industry insights
               </span>{" "}
               and the latest news from our veteran-owned team in the{" "}
-              <span className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary font-semibold text-transparent">
+              <span className="text-brand-primary font-semibold">
                 Pacific Northwest
               </span>
               .

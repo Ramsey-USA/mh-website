@@ -185,7 +185,7 @@ export default function AboutPage() {
               <span className="block mb-1 sm:mb-2 font-semibold text-white/80 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight">
                 Your Partnership in
               </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary via-white to-brand-primary drop-shadow-sm text-transparent">
+              <span className="block text-white font-black drop-shadow-lg">
                 Construction Excellence
               </span>
             </h1>
@@ -228,7 +228,7 @@ export default function AboutPage() {
                   <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
                     Our Partnership
                   </span>
-                  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                  <span className="block text-brand-primary dark:text-brand-primary font-black">
                     Philosophy
                   </span>
                 </h2>
@@ -421,7 +421,7 @@ export default function AboutPage() {
                 <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
                   Our Track
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-white via-brand-secondary to-white drop-shadow-sm text-transparent">
+                <span className="block text-white font-black drop-shadow-lg">
                   Record
                 </span>
               </h2>
@@ -460,7 +460,7 @@ export default function AboutPage() {
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
                   Our 6 Core
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
                   Values
                 </span>
               </h2>
@@ -551,7 +551,7 @@ export default function AboutPage() {
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                   Meet Our
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
                   Team
                 </span>
               </h2>
@@ -640,7 +640,7 @@ export default function AboutPage() {
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                   Why Our Values
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
                   Matter
                 </span>
               </h2>
@@ -1288,7 +1288,7 @@ export default function AboutPage() {
               <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl tracking-tight">
                 Construction Insights &
               </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent text-transparent">
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
                 Company Blog
               </span>
             </h2>
@@ -1443,7 +1443,7 @@ export default function AboutPage() {
               <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl">
                 Latest News &
               </span>
-              <span className="block bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-primary text-transparent">
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
                 Company Announcements
               </span>
             </h2>
@@ -1646,7 +1646,7 @@ export default function AboutPage() {
                 <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
                   Ready to Start Our
                 </span>
-                <span className="block bg-clip-text bg-gradient-to-r from-white via-brand-secondary to-white drop-shadow-sm text-transparent">
+                <span className="block text-white font-black drop-shadow-lg">
                   Partnership?
                 </span>
               </h2>

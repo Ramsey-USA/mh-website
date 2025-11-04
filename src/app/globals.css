@@ -11,6 +11,9 @@
 /* Import vintage baseball card styles */
 @import "../styles/vintage-baseball-card.css";
 
+/* Import 3D card flip utilities */
+@import "../styles/card-flip.css";
+
 /* ============================================
    PERFORMANCE-OPTIMIZED GOOGLE MATERIAL ICONS
    ============================================ */

@@ -19,11 +19,19 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          primary: "#386851",
-          accent: "#D4AF37",
+          primary: "#386851", // Hunter Green
+          "primary-light": "#4a7a63", // Lighter hunter green
+          "primary-dark": "#2d5240", // Darker hunter green
+          secondary: "#BD9264", // Leather Tan
+          "secondary-light": "#c9a176", // Lighter tan
+          "secondary-dark": "#a67d52", // Darker tan
+          accent: "#757575", // Medium Gray accent
+          "accent-light": "#9E9E9E", // Lighter gray
+          "accent-dark": "#424242", // Darker gray
+          light: "#f7f9f7", // Very light brand background
+          // Legacy aliases (keep for compatibility)
           bronze: "#CD7F32",
           dark: "#2C5440",
-          light: "#4A7B5F",
         },
         gray: {
           50: "#F9FAFB",
