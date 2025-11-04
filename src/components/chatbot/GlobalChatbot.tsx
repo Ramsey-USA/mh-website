@@ -110,7 +110,7 @@ export function GlobalChatbot({
       id: "welcome",
       type: "bot",
       content:
-        "**Welcome to MH Construction** - where we're **Building for the Owner, NOT the Dollar!**\n\nI'm your **AI Construction Intelligence** system, powered by **military precision** and **veteran-owned excellence**. Here to assist with:\n\n• **Partnership Planning** - Let's build together\n• **Project Intelligence** - Cost, timeline, and scope guidance\n• **Veteran Services** - Specialized support for our fellow veterans\n• **Expert Consultation** - Professional construction guidance\n\n**Licensed in WA, OR, ID** | **Tri-Cities & Pacific Northwest**\n\n**How can we serve your construction mission today?**",
+        "Welcome to MH Construction - where we're Building for the Owner, NOT the Dollar!\n\nI'm your AI Construction Intelligence system, powered by military precision and veteran-owned excellence. Here to assist with:\n\n• Partnership Planning - Let's build together\n• Project Intelligence - Cost, timeline, and scope guidance\n• Veteran Services - Specialized support for our fellow veterans\n• Expert Consultation - Professional construction guidance\n\nLicensed in WA, OR, ID | Tri-Cities & Pacific Northwest\n\nHow can we serve your construction mission today?",
       timestamp: new Date(),
       metadata: { priority: "high" },
     },
@@ -228,7 +228,7 @@ export function GlobalChatbot({
               "user",
               message.length,
               conversationTurn + 1,
-              message,
+              message
             );
 
             try {
@@ -251,14 +251,14 @@ export function GlobalChatbot({
 
               const thinkingTime = Math.min(
                 Math.max(message.length * 50, 800),
-                2500,
+                2500
               );
 
               // Use enhanced AI for response generation
               const botResponse = enhancedChatbotAI.generateEnhancedResponse(
                 message.trim(),
                 updatedContext,
-                messages,
+                messages
               );
 
               setTimeout(() => {
@@ -271,13 +271,13 @@ export function GlobalChatbot({
                     responseTime: thinkingTime,
                     isLead:
                       /project|estimate|cost|budget|contact|consultation/.test(
-                        message.toLowerCase(),
+                        message.toLowerCase()
                       ),
                     isVeteran: /veteran|military|service/.test(
-                      message.toLowerCase(),
+                      message.toLowerCase()
                     ),
                     priority: /urgent|emergency|asap/.test(
-                      message.toLowerCase(),
+                      message.toLowerCase()
                     )
                       ? "critical"
                       : "medium",
@@ -291,14 +291,14 @@ export function GlobalChatbot({
                 trackChatbotMessage(
                   "bot",
                   botResponse.length,
-                  conversationTurn + 1,
+                  conversationTurn + 1
                 );
 
                 // Check for lead generation
                 if (botMessage.metadata?.isLead) {
                   trackChatbotLeadGenerated(
                     botMessage.metadata.isVeteran ? "veteran" : "standard",
-                    "medium",
+                    "medium"
                   );
                 }
               }, thinkingTime);
@@ -307,7 +307,7 @@ export function GlobalChatbot({
               setIsTyping(false);
               trackChatbotError(
                 "connection",
-                error instanceof Error ? error.message : "Unknown error",
+                error instanceof Error ? error.message : "Unknown error"
               );
             }
           }, 100);
@@ -324,7 +324,7 @@ export function GlobalChatbot({
       enhancedContext,
       estimatorData,
       messages,
-    ],
+    ]
   );
 
   // Helper function to extract project type from message
@@ -366,7 +366,7 @@ export function GlobalChatbot({
             page: currentPage,
             isVeteran: messages.some((m) => m.metadata?.isVeteran),
             projectType: extractProjectType(
-              messages.find((m) => m.type === "user")?.content || "",
+              messages.find((m) => m.type === "user")?.content || ""
             ),
             leadGenerated: messages.some((m) => m.metadata?.isLead),
           };
@@ -389,7 +389,7 @@ export function GlobalChatbot({
       messages,
       extractProjectType,
       saveConversation,
-    ],
+    ]
   );
 
   // Handle minimize toggle with analytics
@@ -546,15 +546,15 @@ export function GlobalChatbot({
         ];
 
         const hasBusinessKeyword = businessKeywords.some((keyword) =>
-          userMessage.toLowerCase().includes(keyword),
+          userMessage.toLowerCase().includes(keyword)
         );
 
         const isVeteranLead = veteranKeywords.some((keyword) =>
-          userMessage.toLowerCase().includes(keyword),
+          userMessage.toLowerCase().includes(keyword)
         );
 
         const isUrgent = urgentKeywords.some((keyword) =>
-          userMessage.toLowerCase().includes(keyword),
+          userMessage.toLowerCase().includes(keyword)
         );
 
         // Generate AI response using the enhanced system
@@ -565,41 +565,41 @@ export function GlobalChatbot({
             militaryConstructionAI.analyzeVeteranStatus(userMessage);
           const veteranPriority = militaryConstructionAI.processVeteranPriority(
             veteranAnalysis,
-            { message: userMessage },
+            { message: userMessage }
           );
 
-          response = `**[VETERAN PRIORITY PROTOCOL ACTIVATED]**\n\n${militaryConstructionAI.getLeadQualificationGuidance(userMessage, pageContext)}\n\n**VETERAN SUPPORT SERVICES:**\n• ${veteranPriority.supportServices.join("\n• ")}\n\n**EXPEDITED PROCESSING:** ${veteranPriority.expeditedTimeline ? "ACTIVE" : "STANDARD"}\n\n---\n**Thank you for your service! Your project has been prioritized.**`;
+          response = `[VETERAN PRIORITY PROTOCOL ACTIVATED]\n\n${militaryConstructionAI.getLeadQualificationGuidance(userMessage, pageContext)}\n\nVETERAN SUPPORT SERVICES:\n• ${veteranPriority.supportServices.join("\n• ")}\n\nEXPEDITED PROCESSING: ${veteranPriority.expeditedTimeline ? "ACTIVE" : "STANDARD"}\n\n---\nThank you for your service! Your project has been prioritized.`;
 
           // Track veteran lead
           trackChatbotLeadGenerated(
             "veteran",
             "critical",
-            extractProjectType(userMessage),
+            extractProjectType(userMessage)
           );
         } else if (hasBusinessKeyword) {
           response = militaryConstructionAI.getLeadQualificationGuidance(
             userMessage,
-            pageContext,
+            pageContext
           );
           trackChatbotLeadGenerated(
             "standard",
             "high",
-            extractProjectType(userMessage),
+            extractProjectType(userMessage)
           );
         } else if (pageContext.isContactPage) {
           response = militaryConstructionAI.getContactFormAssistance(
             userMessage,
-            pageContext,
+            pageContext
           );
         } else if (pageContext.isBookingPage) {
           response = militaryConstructionAI.getBookingFormAssistance(
             userMessage,
-            pageContext,
+            pageContext
           );
         } else {
           response = militaryConstructionAI.generateResponse(
             userMessage,
-            pageContext,
+            pageContext
           );
         }
 
@@ -611,7 +611,7 @@ export function GlobalChatbot({
           userMessage.toLowerCase().includes("search") ||
           userMessage.toLowerCase().includes("find")
         ) {
-          response += `\n\n**Pro Tip:** Use our advanced search on the projects page to find specific examples of our work. Just press Ctrl+K to quick-search anywhere on the site!`;
+          response += `\n\nPro Tip: Use our advanced search on the projects page to find specific examples of our work!`;
         }
 
         return response;
@@ -619,21 +619,21 @@ export function GlobalChatbot({
         console.error("AI Response Error:", error);
         trackChatbotError(
           "ai_response",
-          error instanceof Error ? error.message : "Unknown error",
+          error instanceof Error ? error.message : "Unknown error"
         );
 
-        return "**[SYSTEM UPDATE]** My tactical systems are temporarily offline. Please stand by while I reconnect to base command, or contact our team directly at (509) 308-6489 for immediate assistance.";
+        return "[SYSTEM UPDATE] My tactical systems are temporarily offline. Please stand by while I reconnect to base command, or contact our team directly at (509) 308-6489 for immediate assistance.";
       }
     },
     [
-      estimatorData,
       currentPage,
+      estimatorData,
       messages,
       sessionStartTime,
       trackChatbotLeadGenerated,
       trackChatbotError,
       extractProjectType,
-    ],
+    ]
   );
 
   // Enhanced message sending with analytics and better UX
@@ -652,7 +652,7 @@ export function GlobalChatbot({
       "user",
       inputValue.length,
       conversationTurn + 1,
-      inputValue,
+      inputValue
     );
 
     setMessages((prev) => [...prev, userMessage]);
@@ -681,14 +681,14 @@ export function GlobalChatbot({
       // Simulate realistic AI thinking time based on message complexity
       const thinkingTime = Math.min(
         Math.max(inputValue.length * 50, 800),
-        2500,
+        2500
       );
 
       // Use enhanced AI for response generation
       const botResponse = enhancedChatbotAI.generateEnhancedResponse(
         inputValue.trim(),
         updatedContext,
-        messages,
+        messages
       );
 
       setTimeout(() => {
@@ -700,10 +700,10 @@ export function GlobalChatbot({
           metadata: {
             responseTime: thinkingTime,
             isLead: /project|estimate|cost|budget|contact|consultation/.test(
-              inputValue.toLowerCase(),
+              inputValue.toLowerCase()
             ),
             isVeteran: /veteran|military|service/.test(
-              inputValue.toLowerCase(),
+              inputValue.toLowerCase()
             ),
             priority: /urgent|emergency|asap/.test(inputValue.toLowerCase())
               ? "critical"
@@ -740,7 +740,7 @@ export function GlobalChatbot({
         if (botMessage.metadata?.isLead) {
           trackChatbotLeadGenerated(
             botMessage.metadata.isVeteran ? "veteran" : "standard",
-            "medium",
+            "medium"
           );
         }
       }, thinkingTime);
@@ -749,7 +749,7 @@ export function GlobalChatbot({
       setIsTyping(false);
       trackChatbotError(
         "connection",
-        error instanceof Error ? error.message : "Unknown error",
+        error instanceof Error ? error.message : "Unknown error"
       );
     }
   }, [
@@ -776,7 +776,7 @@ export function GlobalChatbot({
         setIsOpen(false);
       }
     },
-    [handleSendMessage],
+    [handleSendMessage]
   );
 
   // Enhanced dragging with position tracking
@@ -813,7 +813,7 @@ export function GlobalChatbot({
 
       setPosition({ x: constrainedX, y: constrainedY });
     },
-    [isDragging, dragOffset],
+    [isDragging, dragOffset]
   );
 
   const handleMouseUp = useCallback(() => {
@@ -873,7 +873,7 @@ export function GlobalChatbot({
         icon: "handshake",
         action: () =>
           setInputValue(
-            "I'd like to explore a construction partnership and get an estimate",
+            "I'd like to explore a construction partnership and get an estimate"
           ),
       },
       {
@@ -893,11 +893,11 @@ export function GlobalChatbot({
         icon: "event",
         action: () =>
           setInputValue(
-            "I'd like to schedule a free consultation with MH Construction",
+            "I'd like to schedule a free consultation with MH Construction"
           ),
       },
     ],
-    [],
+    []
   );
 
   // Floating AI Icon (when closed)
@@ -1003,13 +1003,8 @@ export function GlobalChatbot({
                 </h3>
                 <p
                   id="chatbot-description"
-                  className="opacity-95 text-sm truncate font-semibold flex items-center gap-1"
+                  className="opacity-95 text-sm truncate font-semibold"
                 >
-                  <MaterialIcon
-                    icon="military_tech"
-                    size="sm"
-                    className="w-4 h-4"
-                  />
                   AI Construction Intelligence
                 </p>
               </div>
@@ -1094,12 +1089,58 @@ export function GlobalChatbot({
                   `New message from General MH: ${messages[messages.length - 1].content.substring(0, 100)}...`}
               </div>
               {/* Optimized message rendering */}
-              {memoizedMessages.map(({ message, formattedContent }) => (
-                <ChatMessage
-                  key={message.id}
-                  message={message}
-                  formattedContent={formattedContent || []}
-                />
+              {memoizedMessages.map(({ message, formattedContent }, index) => (
+                <div key={message.id}>
+                  <ChatMessage
+                    message={message}
+                    formattedContent={formattedContent || []}
+                  />
+                  {/* Quick Action Buttons for bot messages */}
+                  {message.type === "bot" && index === 0 && (
+                    <div className="flex flex-wrap gap-2 justify-start mt-2 ml-2">
+                      <button
+                        onClick={() =>
+                          setInputValue("Tell me about your services")
+                        }
+                        className="bg-brand-primary/10 hover:bg-brand-primary/20 dark:bg-brand-primary/20 dark:hover:bg-brand-primary/30 px-3 py-1.5 rounded-lg text-brand-primary dark:text-brand-light text-xs font-medium transition-all duration-200 border border-brand-primary/30"
+                      >
+                        Services
+                      </button>
+                      <button
+                        onClick={() =>
+                          setInputValue("Show me your past projects")
+                        }
+                        className="bg-brand-primary/10 hover:bg-brand-primary/20 dark:bg-brand-primary/20 dark:hover:bg-brand-primary/30 px-3 py-1.5 rounded-lg text-brand-primary dark:text-brand-light text-xs font-medium transition-all duration-200 border border-brand-primary/30"
+                      >
+                        Projects
+                      </button>
+                      <button
+                        onClick={() => setInputValue("I need a cost estimate")}
+                        className="bg-brand-primary/10 hover:bg-brand-primary/20 dark:bg-brand-primary/20 dark:hover:bg-brand-primary/30 px-3 py-1.5 rounded-lg text-brand-primary dark:text-brand-light text-xs font-medium transition-all duration-200 border border-brand-primary/30"
+                      >
+                        Get Estimate
+                      </button>
+                      <button
+                        onClick={() =>
+                          setInputValue(
+                            "I'm a veteran, what benefits are available?"
+                          )
+                        }
+                        className="bg-brand-secondary/10 hover:bg-brand-secondary/20 dark:bg-brand-secondary/20 dark:hover:bg-brand-secondary/30 px-3 py-1.5 rounded-lg text-brand-secondary dark:text-brand-secondary text-xs font-medium transition-all duration-200 border border-brand-secondary/30"
+                      >
+                        Veteran Services
+                      </button>
+                      <button
+                        onClick={() =>
+                          setInputValue("How do I contact your team?")
+                        }
+                        className="bg-brand-primary/10 hover:bg-brand-primary/20 dark:bg-brand-primary/20 dark:hover:bg-brand-primary/30 px-3 py-1.5 rounded-lg text-brand-primary dark:text-brand-light text-xs font-medium transition-all duration-200 border border-brand-primary/30"
+                      >
+                        Contact
+                      </button>
+                    </div>
+                  )}
+                </div>
               ))}
 
               {/* Enhanced Typing Indicator with bronze accent */}
@@ -1168,37 +1209,6 @@ export function GlobalChatbot({
                     className="w-5 h-5 text-white"
                   />
                 </Button>
-              </div>
-
-              <div
-                id="input-help"
-                className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-3 text-gray-600 dark:text-gray-400 text-xs space-y-1 sm:space-y-0 font-semibold"
-                role="note"
-                aria-label="Chatbot keyboard shortcuts and information"
-              >
-                <span className="flex items-center gap-1.5">
-                  <MaterialIcon
-                    icon="construction"
-                    size="sm"
-                    className="w-4 h-4 text-brand-secondary"
-                  />
-                  <strong className="text-brand-primary dark:text-brand-secondary">
-                    MH Construction AI
-                  </strong>
-                  <span className="text-gray-500 dark:text-gray-500">
-                    - Building partnerships
-                  </span>
-                </span>
-                <span className="text-gray-500 dark:text-gray-500 flex items-center gap-1">
-                  <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-xs">
-                    ESC
-                  </kbd>
-                  to close •
-                  <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-xs">
-                    Ctrl+Shift+C
-                  </kbd>
-                  to toggle
-                </span>
               </div>
             </div>
           </div>

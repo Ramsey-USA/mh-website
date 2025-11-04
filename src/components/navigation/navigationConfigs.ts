@@ -9,7 +9,7 @@ export interface NavigationItem {
 // Helper function to get appropriate label based on screen size
 export function getNavigationLabel(
   item: NavigationItem,
-  isMobile: boolean = false,
+  isMobile: boolean = false
 ): string {
   return isMobile && item.mobileLabel ? item.mobileLabel : item.label;
 }
@@ -30,19 +30,13 @@ export const navigationConfigs = {
       icon: "visibility",
     },
     {
-      href: "/#core-values",
-      label: "Our Values",
-      mobileLabel: "Values",
-      icon: "shield",
-    },
-    {
-      href: "/#ai-features-cta",
+      href: "/booking",
       label: "Get Started",
       mobileLabel: "Start",
-      icon: "handshake",
+      icon: "event",
     },
     {
-      href: "/#partnership-cta",
+      href: "/trade-partners",
       label: "Start Partnership",
       mobileLabel: "Partner",
       icon: "launch",

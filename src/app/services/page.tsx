@@ -402,7 +402,7 @@ export default function ServicesPage() {
                     .toLowerCase()
                     .replace(/[^a-z0-9]+/g, "-")
                     .replace(/(^-|-$)/g, "")}
-                  className="group perspective-1000 cursor-pointer h-full"
+                  className="group perspective h-[500px] cursor-pointer"
                   style={{ perspective: "1000px" }}
                 >
                   <div
@@ -414,33 +414,35 @@ export default function ServicesPage() {
                       className="absolute inset-0 w-full h-full backface-hidden"
                       style={{ backfaceVisibility: "hidden" }}
                     >
-                      <Card className="flex flex-col bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 h-full shadow-lg">
-                        <CardHeader className="flex-shrink-0">
-                          <MaterialIcon
-                            icon={service.iconName}
-                            size="3xl"
-                            className="mb-4 text-brand-primary"
-                          />
-                          <CardTitle className="flex items-center mb-2 min-h-[3rem] text-gray-900 dark:text-white text-2xl">
+                      <Card className="flex flex-col bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl h-full shadow-lg hover:shadow-2xl transition-all duration-300 p-8">
+                        <CardHeader className="flex-shrink-0 pb-4">
+                          <div className="flex justify-center items-center bg-brand-primary/10 mb-6 rounded-2xl w-16 h-16 p-2">
+                            <MaterialIcon
+                              icon={service.iconName}
+                              size="xl"
+                              className="text-brand-primary"
+                            />
+                          </div>
+                          <CardTitle className="mb-3 text-gray-900 dark:text-white text-xl sm:text-2xl font-black leading-tight">
                             {service.title}
                           </CardTitle>
-                          <p className="font-semibold text-gray-600 dark:text-gray-400 text-sm">
+                          <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-sm sm:text-base">
                             {service.subtitle}
                           </p>
                         </CardHeader>
-                        <CardContent className="flex flex-col flex-grow">
-                          <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <CardContent className="flex flex-col flex-grow pt-0">
+                          <p className="mb-6 text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                             {service.description}
                           </p>
                           <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
-                            <div className="flex items-center justify-center text-brand-primary dark:text-brand-primary-light">
+                            <div className="flex items-center justify-center text-brand-secondary dark:text-brand-secondary-light">
                               <MaterialIcon
-                                icon="touch_app"
-                                size="sm"
-                                className="mr-2"
+                                icon="autorenew"
+                                size="md"
+                                className="mr-2 animate-pulse"
                               />
-                              <span className="text-sm font-medium">
-                                Hover or tap for details
+                              <span className="text-xs sm:text-sm font-medium">
+                                Hover to see details
                               </span>
                             </div>
                           </div>
@@ -450,39 +452,46 @@ export default function ServicesPage() {
 
                     {/* Back Side - Detailed Information */}
                     <div
-                      className="absolute inset-0 w-full h-full backface-hidden rotate-y-180"
+                      className="absolute inset-0 w-full h-full backface-hidden"
                       style={{
                         backfaceVisibility: "hidden",
                         transform: "rotateY(180deg)",
                       }}
                     >
-                      <Card className="flex flex-col bg-gradient-to-br from-brand-primary to-brand-secondary border-0 h-full shadow-xl text-white">
-                        <CardHeader className="flex-shrink-0">
-                          <MaterialIcon
-                            icon={service.iconName}
-                            size="3xl"
-                            className="mb-4 text-white"
-                          />
-                          <CardTitle className="flex items-center mb-2 min-h-[3rem] text-white text-xl">
-                            {service.title}
-                          </CardTitle>
+                      <Card className="flex flex-col bg-gradient-to-br from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-gray-900 border border-brand-primary dark:border-brand-primary/50 rounded-3xl h-full shadow-xl p-6 overflow-hidden">
+                        <CardHeader className="flex-shrink-0 pb-3">
+                          <div className="flex items-center mb-3">
+                            <MaterialIcon
+                              icon={service.iconName}
+                              className="mr-3 text-brand-secondary text-2xl sm:text-3xl"
+                            />
+                            <CardTitle className="text-white text-lg sm:text-xl font-black leading-tight">
+                              {service.title}
+                            </CardTitle>
+                          </div>
                         </CardHeader>
-                        <CardContent className="flex flex-col flex-grow">
-                          <div className="mb-3">
-                            <p className="mb-1.5 font-bold text-white text-xs">
-                              What's Included:
-                            </p>
-                            <ul className="space-y-1.5">
+                        <CardContent className="flex flex-col flex-grow pt-0 overflow-y-auto">
+                          <div className="mb-4">
+                            <div className="flex items-center mb-2">
+                              <MaterialIcon
+                                icon="checklist"
+                                className="mr-2 text-brand-secondary text-lg"
+                              />
+                              <p className="font-bold text-white text-sm sm:text-base">
+                                What's Included:
+                              </p>
+                            </div>
+                            <ul className="space-y-2">
                               {service.features.map((feature, fIndex) => (
                                 <li
                                   key={fIndex}
-                                  className="flex items-start text-xs"
+                                  className="flex items-start text-xs sm:text-sm"
                                 >
                                   <MaterialIcon
                                     icon="check_circle"
-                                    className="flex-shrink-0 mt-0.5 mr-1.5 text-white w-3 h-3"
+                                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary text-base sm:text-lg"
                                   />
-                                  <span className="text-white/90 leading-tight">
+                                  <span className="text-white leading-relaxed">
                                     {feature}
                                   </span>
                                 </li>
@@ -490,21 +499,27 @@ export default function ServicesPage() {
                             </ul>
                           </div>
 
-                          <div className="mb-3">
-                            <p className="mb-1.5 font-bold text-white text-xs">
-                              Partnership Benefits:
-                            </p>
-                            <ul className="space-y-1.5">
+                          <div className="mb-4">
+                            <div className="flex items-center mb-2">
+                              <MaterialIcon
+                                icon="stars"
+                                className="mr-2 text-brand-secondary text-lg"
+                              />
+                              <p className="font-bold text-white text-sm sm:text-base">
+                                Partnership Benefits:
+                              </p>
+                            </div>
+                            <ul className="space-y-2">
                               {service.benefits.map((benefit, bIndex) => (
                                 <li
                                   key={bIndex}
-                                  className="flex items-start text-xs"
+                                  className="flex items-start text-xs sm:text-sm"
                                 >
                                   <MaterialIcon
-                                    icon="stars"
-                                    className="flex-shrink-0 mt-0.5 mr-1.5 text-white w-3 h-3"
+                                    icon="military_tech"
+                                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary text-base sm:text-lg"
                                   />
-                                  <span className="text-white/90 leading-tight">
+                                  <span className="text-white leading-relaxed">
                                     {benefit}
                                   </span>
                                 </li>
@@ -514,12 +529,27 @@ export default function ServicesPage() {
 
                           {/* CTA Text */}
                           {service.ctaText && (
-                            <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm mt-auto p-2 border-white/30 border-l-2 rounded">
-                              <p className="font-medium text-white text-[10px] leading-tight">
+                            <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm mt-auto p-3 border-brand-secondary border-l-4 rounded-lg">
+                              <p className="font-medium text-white text-xs sm:text-sm leading-relaxed">
+                                <MaterialIcon
+                                  icon="phone"
+                                  size="sm"
+                                  className="inline mr-2 text-brand-secondary"
+                                />
                                 {service.ctaText}
                               </p>
                             </div>
                           )}
+
+                          <div className="flex items-center justify-center mt-4 text-brand-secondary">
+                            <MaterialIcon
+                              icon="autorenew"
+                              className="mr-2 text-lg sm:text-xl"
+                            />
+                            <span className="font-medium text-xs">
+                              Hover to return
+                            </span>
+                          </div>
                         </CardContent>
                       </Card>
                     </div>
@@ -530,7 +560,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Specialty Services Section */}
+        {/* Specialty Services Section - WITH FLIP CARDS */}
         <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
@@ -551,142 +581,227 @@ export default function ServicesPage() {
               </div>
             </FadeInWhenVisible>
 
-            <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mx-auto max-w-7xl">
+            <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
               {specialtyServices.map((service, index) => (
-                <Card
+                <div
                   key={index}
-                  className="flex flex-col bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
+                  className="group perspective h-[450px] cursor-pointer"
+                  style={{ perspective: "1000px" }}
                 >
-                  <CardHeader className="flex-shrink-0">
-                    <MaterialIcon
-                      icon={service.iconName}
-                      size="2xl"
-                      className="mb-3 text-brand-primary"
-                    />
-                    <CardTitle className="flex items-center min-h-[2.5rem] text-gray-900 dark:text-white text-xl">
-                      {service.title}
-                    </CardTitle>
-                    <p className="mt-1 font-semibold text-gray-600 dark:text-gray-400 text-sm">
-                      {service.subtitle}
-                    </p>
-                  </CardHeader>
-                  <CardContent className="flex flex-col flex-grow">
-                    <p className="mb-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      {service.description}
-                    </p>
-
-                    <div className="flex-grow">
-                      {/* Markets List */}
-                      {service.markets && (
-                        <ul className="space-y-2">
-                          {service.markets.map((market, mIndex) => (
-                            <li
-                              key={mIndex}
-                              className="flex items-start text-sm"
-                            >
-                              <MaterialIcon
-                                icon="check_circle"
-                                className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                                size="sm"
-                              />
-                              <span className="text-gray-600 dark:text-gray-300">
-                                {market}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-
-                      {/* Build Types List */}
-                      {service.buildTypes && (
-                        <>
-                          <div className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
-                            What We Build:
+                  <div
+                    className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180"
+                    style={{ transformStyle: "preserve-3d" }}
+                  >
+                    {/* Front Side */}
+                    <div
+                      className="absolute inset-0 w-full h-full backface-hidden"
+                      style={{ backfaceVisibility: "hidden" }}
+                    >
+                      <Card className="flex flex-col bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl h-full shadow-lg hover:shadow-2xl transition-all duration-300 p-6">
+                        <CardHeader className="flex-shrink-0 pb-4">
+                          <div className="flex justify-center items-center bg-brand-secondary/10 mb-4 rounded-2xl w-14 h-14 p-2">
+                            <MaterialIcon
+                              icon={service.iconName}
+                              size="lg"
+                              className="text-brand-secondary"
+                            />
                           </div>
-                          <ul className="space-y-2 mb-3">
-                            {service.buildTypes.map((type, tIndex) => (
-                              <li
-                                key={tIndex}
-                                className="flex items-start text-sm"
-                              >
-                                <MaterialIcon
-                                  icon="arrow_right"
-                                  className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                                  size="sm"
-                                />
-                                <span className="text-gray-600 dark:text-gray-300">
-                                  {type}
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        </>
-                      )}
-
-                      {/* Features/Capabilities List */}
-                      {service.features && (
-                        <>
-                          <div className="mb-2 font-semibold text-gray-900 dark:text-white text-sm">
-                            High-Quality Materials:
-                          </div>
-                          <ul className="space-y-2 mb-3">
-                            {service.features.map((feature, fIndex) => (
-                              <li
-                                key={fIndex}
-                                className="flex items-start text-sm"
-                              >
-                                <MaterialIcon
-                                  icon="verified"
-                                  className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
-                                  size="sm"
-                                />
-                                <span className="text-gray-600 dark:text-gray-300">
-                                  {feature}
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        </>
-                      )}
-
-                      {service.capabilities && !service.markets && (
-                        <ul className="space-y-2 mb-3">
-                          {service.capabilities.map((cap, cIndex) => (
-                            <li
-                              key={cIndex}
-                              className="flex items-start text-sm"
-                            >
+                          <CardTitle className="mb-2 text-gray-900 dark:text-white text-lg sm:text-xl font-bold leading-tight">
+                            {service.title}
+                          </CardTitle>
+                          <p className="font-semibold text-brand-secondary dark:text-brand-secondary-light text-sm">
+                            {service.subtitle}
+                          </p>
+                        </CardHeader>
+                        <CardContent className="flex flex-col flex-grow pt-0">
+                          <p className="mb-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                            {service.description}
+                          </p>
+                          <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <div className="flex items-center justify-center text-brand-secondary dark:text-brand-secondary-light">
                               <MaterialIcon
-                                icon="arrow_right"
-                                className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                                icon="autorenew"
                                 size="sm"
+                                className="mr-2 animate-pulse"
                               />
-                              <span className="text-gray-600 dark:text-gray-300">
-                                {cap}
+                              <span className="text-xs font-medium">
+                                Hover for details
                               </span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
                     </div>
 
-                    {/* Note */}
-                    {service.note && (
-                      <p className="flex-shrink-0 mt-3 pt-3 border-gray-200 dark:border-gray-600 border-t text-gray-600 dark:text-gray-400 text-xs italic">
-                        {service.note}
-                      </p>
-                    )}
+                    {/* Back Side - Detailed Lists */}
+                    <div
+                      className="absolute inset-0 w-full h-full backface-hidden"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        transform: "rotateY(180deg)",
+                      }}
+                    >
+                      <Card className="flex flex-col bg-gradient-to-br from-brand-secondary to-brand-secondary-dark dark:from-brand-secondary-dark dark:to-gray-900 border border-brand-secondary dark:border-brand-secondary/50 rounded-3xl h-full shadow-xl p-6 overflow-hidden">
+                        <CardHeader className="flex-shrink-0 pb-3">
+                          <div className="flex items-center mb-3">
+                            <MaterialIcon
+                              icon={service.iconName}
+                              className="mr-2 text-white text-2xl"
+                            />
+                            <CardTitle className="text-white text-base sm:text-lg font-bold leading-tight">
+                              {service.title}
+                            </CardTitle>
+                          </div>
+                        </CardHeader>
+                        <CardContent className="flex flex-col flex-grow pt-0 overflow-y-auto">
+                          <div className="flex-grow">
+                            {/* Markets List */}
+                            {service.markets && (
+                              <>
+                                <div className="flex items-center mb-2">
+                                  <MaterialIcon
+                                    icon="business"
+                                    className="mr-2 text-white text-base"
+                                  />
+                                  <p className="font-bold text-white text-xs sm:text-sm">
+                                    Markets We Serve:
+                                  </p>
+                                </div>
+                                <ul className="space-y-1.5 mb-4">
+                                  {service.markets.map((market, mIndex) => (
+                                    <li
+                                      key={mIndex}
+                                      className="flex items-start text-xs"
+                                    >
+                                      <MaterialIcon
+                                        icon="check_circle"
+                                        className="flex-shrink-0 mt-0.5 mr-1.5 text-white text-sm"
+                                      />
+                                      <span className="text-white/90 leading-tight">
+                                        {market}
+                                      </span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </>
+                            )}
 
-                    {/* CTA */}
-                    {service.ctaText && (
-                      <div className="flex-shrink-0 bg-brand-primary/5 dark:bg-gray-700 mt-4 p-3 border-brand-primary border-l-2 rounded">
-                        <p className="font-medium text-gray-800 dark:text-gray-200 text-xs">
-                          {service.ctaText}
-                        </p>
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
+                            {/* Build Types List */}
+                            {service.buildTypes && (
+                              <>
+                                <div className="flex items-center mb-2">
+                                  <MaterialIcon
+                                    icon="construction"
+                                    className="mr-2 text-white text-base"
+                                  />
+                                  <p className="font-bold text-white text-xs sm:text-sm">
+                                    What We Build:
+                                  </p>
+                                </div>
+                                <ul className="space-y-1.5 mb-4">
+                                  {service.buildTypes.map((type, tIndex) => (
+                                    <li
+                                      key={tIndex}
+                                      className="flex items-start text-xs"
+                                    >
+                                      <MaterialIcon
+                                        icon="arrow_right"
+                                        className="flex-shrink-0 mt-0.5 mr-1.5 text-white text-sm"
+                                      />
+                                      <span className="text-white/90 leading-tight">
+                                        {type}
+                                      </span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </>
+                            )}
+
+                            {/* Features/Capabilities List */}
+                            {service.features && (
+                              <>
+                                <div className="flex items-center mb-2">
+                                  <MaterialIcon
+                                    icon="verified"
+                                    className="mr-2 text-white text-base"
+                                  />
+                                  <p className="font-bold text-white text-xs sm:text-sm">
+                                    Quality Materials:
+                                  </p>
+                                </div>
+                                <ul className="space-y-1.5 mb-4">
+                                  {service.features.map((feature, fIndex) => (
+                                    <li
+                                      key={fIndex}
+                                      className="flex items-start text-xs"
+                                    >
+                                      <MaterialIcon
+                                        icon="check_circle"
+                                        className="flex-shrink-0 mt-0.5 mr-1.5 text-white text-sm"
+                                      />
+                                      <span className="text-white/90 leading-tight">
+                                        {feature}
+                                      </span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </>
+                            )}
+
+                            {service.capabilities && !service.markets && (
+                              <>
+                                <div className="flex items-center mb-2">
+                                  <MaterialIcon
+                                    icon="settings"
+                                    className="mr-2 text-white text-base"
+                                  />
+                                  <p className="font-bold text-white text-xs sm:text-sm">
+                                    Capabilities:
+                                  </p>
+                                </div>
+                                <ul className="space-y-1.5 mb-4">
+                                  {service.capabilities.map((cap, cIndex) => (
+                                    <li
+                                      key={cIndex}
+                                      className="flex items-start text-xs"
+                                    >
+                                      <MaterialIcon
+                                        icon="arrow_right"
+                                        className="flex-shrink-0 mt-0.5 mr-1.5 text-white text-sm"
+                                      />
+                                      <span className="text-white/90 leading-tight">
+                                        {cap}
+                                      </span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </>
+                            )}
+                          </div>
+
+                          {/* Note or CTA at bottom */}
+                          {(service.note || service.ctaText) && (
+                            <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm mt-auto p-2.5 border-white/30 border-l-4 rounded-lg">
+                              <p className="font-medium text-white text-[10px] sm:text-xs leading-tight">
+                                {service.note || service.ctaText}
+                              </p>
+                            </div>
+                          )}
+
+                          <div className="flex items-center justify-center mt-3 text-white/80">
+                            <MaterialIcon
+                              icon="autorenew"
+                              className="mr-2 text-base"
+                            />
+                            <span className="font-medium text-[10px]">
+                              Hover to return
+                            </span>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+                </div>
               ))}
             </StaggeredFadeIn>
           </div>
@@ -898,292 +1013,341 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Quality Inspections Section */}
+        {/* Quality Inspections & Maintenance Section - COMBINED & OPTIMIZED */}
         <section
           id="inspections"
-          className="bg-gray-50 dark:bg-gray-800 py-16 lg:py-24"
+          className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32 xl:py-40"
         >
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
-              <div className="mx-auto max-w-4xl text-center mb-12 scroll-reveal">
+              <div className="mx-auto max-w-4xl text-center mb-16 scroll-reveal">
                 {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
                 <div className="flex justify-center items-center mb-6">
                   <MaterialIcon
-                    icon="fact_check"
+                    icon="verified_user"
                     size="xl"
                     className="text-brand-primary dark:text-brand-primary"
                   />
                 </div>
                 <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
-                  Quality Inspections
+                  Quality Assurance & Maintenance
                 </h2>
 
-                <p className="text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed px-2">
-                  Ensuring excellence through comprehensive quality assurance
-                  and detailed inspections at every phase of your project.
+                <p className="text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
+                  Comprehensive quality control and maintenance services
+                  ensuring excellence at every phase of your project and beyond.
                 </p>
               </div>
             </FadeInWhenVisible>
 
-            <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 mb-12">
-              <StaggeredFadeIn>
-                <Card className="bg-white dark:bg-gray-900 hover:shadow-lg transition-all duration-300">
-                  <CardHeader>
-                    <div className="flex items-center space-x-3 mb-4">
+            {/* Inspections & Maintenance Grid - 3 COLUMNS FOR BETTER LAYOUT */}
+            <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl mb-12">
+              {/* Pre-Construction Inspections */}
+              <Card className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl hover:shadow-2xl transition-all duration-300 p-6 group">
+                <CardHeader className="pb-4">
+                  <div className="flex justify-center items-center bg-brand-primary/10 mb-4 rounded-2xl w-14 h-14 p-2 group-hover:scale-110 transition-transform duration-300">
+                    <MaterialIcon
+                      icon="search"
+                      size="lg"
+                      className="text-brand-primary"
+                    />
+                  </div>
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl font-bold">
+                    Pre-Construction Inspections
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                    Thorough site evaluations and planning assessments before
+                    construction begins.
+                  </p>
+                  <ul className="space-y-2 text-xs sm:text-sm">
+                    <li className="flex items-start">
                       <MaterialIcon
-                        icon="search"
-                        size="lg"
-                        className="text-brand-primary"
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
                       />
-                      <CardTitle className="text-gray-900 dark:text-white text-xl">
-                        Pre-Construction Inspections
-                      </CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
-                      Thorough site evaluations and planning assessments before
-                      construction begins.
-                    </p>
-                    <ul className="space-y-2 text-sm">
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                        />
-                        <span className="text-gray-600 dark:text-gray-300">
-                          Site condition assessments
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                        />
-                        <span className="text-gray-600 dark:text-gray-300">
-                          Permit and code compliance verification
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                        />
-                        <span className="text-gray-600 dark:text-gray-300">
-                          Material and design specification reviews
-                        </span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-white dark:bg-gray-900 hover:shadow-lg transition-all duration-300">
-                  <CardHeader>
-                    <div className="flex items-center space-x-3 mb-4">
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Site condition assessments
+                      </span>
+                    </li>
+                    <li className="flex items-start">
                       <MaterialIcon
-                        icon="assignment_turned_in"
-                        size="lg"
-                        className="text-brand-primary"
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
                       />
-                      <CardTitle className="text-gray-900 dark:text-white text-xl">
-                        Progress & Final Inspections
-                      </CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
-                      Ongoing quality control and comprehensive final
-                      inspections for peace of mind.
-                    </p>
-                    <ul className="space-y-2 text-sm">
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                        />
-                        <span className="text-gray-600 dark:text-gray-300">
-                          Phase-by-phase quality checkpoints
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                        />
-                        <span className="text-gray-600 dark:text-gray-300">
-                          Final walkthrough and punch list completion
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                        />
-                        <span className="text-gray-600 dark:text-gray-300">
-                          Documentation and warranty preparation
-                        </span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
-              </StaggeredFadeIn>
-            </div>
-          </div>
-        </section>
-
-        {/* Maintenance & Repairs Section */}
-        <section
-          id="maintenance"
-          className="bg-white dark:bg-gray-900 py-16 lg:py-24"
-        >
-          <div className="mx-auto px-4 container">
-            <FadeInWhenVisible>
-              <div className="mx-auto max-w-4xl text-center mb-12 scroll-reveal">
-                {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
-                <div className="flex justify-center items-center mb-6">
-                  <MaterialIcon
-                    icon="build_circle"
-                    size="xl"
-                    className="text-brand-primary dark:text-brand-primary"
-                  />
-                </div>
-                <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
-                  Maintenance & Repairs
-                </h2>
-
-                <p className="text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed px-2">
-                  Protecting your investment with professional maintenance
-                  services and expert repairs when you need them most.
-                </p>
-              </div>
-            </FadeInWhenVisible>
-
-            <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-12">
-              <StaggeredFadeIn>
-                <Card className="bg-gradient-to-br from-brand-light to-white dark:from-gray-800 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
-                  <CardHeader>
-                    <div className="flex items-center space-x-3 mb-4">
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Permit and code compliance
+                      </span>
+                    </li>
+                    <li className="flex items-start">
                       <MaterialIcon
-                        icon="schedule"
-                        size="lg"
-                        className="text-brand-primary"
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
                       />
-                      <CardTitle className="text-gray-900 dark:text-white text-lg">
-                        Preventive Maintenance
-                      </CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
-                      Regular maintenance programs to prevent costly repairs and
-                      extend building life.
-                    </p>
-                    <ul className="space-y-1 text-xs">
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                        />
-                        <span className="text-gray-600 dark:text-gray-300">
-                          HVAC system maintenance
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                        />
-                        <span className="text-gray-600 dark:text-gray-300">
-                          Roof and exterior inspections
-                        </span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Material specification reviews
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
 
-                <Card className="bg-gradient-to-br from-brand-light to-white dark:from-gray-800 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
-                  <CardHeader>
-                    <div className="flex items-center space-x-3 mb-4">
+              {/* Progress & Final Inspections */}
+              <Card className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl hover:shadow-2xl transition-all duration-300 p-6 group">
+                <CardHeader className="pb-4">
+                  <div className="flex justify-center items-center bg-brand-primary/10 mb-4 rounded-2xl w-14 h-14 p-2 group-hover:scale-110 transition-transform duration-300">
+                    <MaterialIcon
+                      icon="assignment_turned_in"
+                      size="lg"
+                      className="text-brand-primary"
+                    />
+                  </div>
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl font-bold">
+                    Progress & Final Inspections
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                    Ongoing quality control and comprehensive final inspections
+                    for peace of mind.
+                  </p>
+                  <ul className="space-y-2 text-xs sm:text-sm">
+                    <li className="flex items-start">
                       <MaterialIcon
-                        icon="build"
-                        size="lg"
-                        className="text-brand-primary"
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
                       />
-                      <CardTitle className="text-gray-900 dark:text-white text-lg">
-                        Urgent Repairs
-                      </CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
-                      Fast response times for urgent repairs to minimize
-                      downtime and damage.
-                    </p>
-                    <ul className="space-y-1 text-xs">
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                        />
-                        <span className="text-gray-600 dark:text-gray-300">
-                          Rapid response protocols
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                        />
-                        <span className="text-gray-600 dark:text-gray-300">
-                          Water damage mitigation
-                        </span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Phase-by-phase checkpoints
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Final walkthrough & punch list
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Documentation & warranties
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
 
-                <Card className="bg-gradient-to-br from-brand-light to-white dark:from-gray-800 dark:to-gray-900 hover:shadow-lg transition-all duration-300">
-                  <CardHeader>
-                    <div className="flex items-center space-x-3 mb-4">
+              {/* Preventive Maintenance */}
+              <Card className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl hover:shadow-2xl transition-all duration-300 p-6 group">
+                <CardHeader className="pb-4">
+                  <div className="flex justify-center items-center bg-brand-secondary/10 mb-4 rounded-2xl w-14 h-14 p-2 group-hover:scale-110 transition-transform duration-300">
+                    <MaterialIcon
+                      icon="schedule"
+                      size="lg"
+                      className="text-brand-secondary"
+                    />
+                  </div>
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl font-bold">
+                    Preventive Maintenance
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                    Regular maintenance programs to prevent costly repairs and
+                    extend building life.
+                  </p>
+                  <ul className="space-y-2 text-xs sm:text-sm">
+                    <li className="flex items-start">
                       <MaterialIcon
-                        icon="handyman"
-                        size="lg"
-                        className="text-brand-primary"
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
                       />
-                      <CardTitle className="text-gray-900 dark:text-white text-lg">
-                        Facility Upgrades
-                      </CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
-                      Strategic improvements and modernization to enhance
-                      property value and efficiency.
-                    </p>
-                    <ul className="space-y-1 text-xs">
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                        />
-                        <span className="text-gray-600 dark:text-gray-300">
-                          Energy efficiency upgrades
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
-                        />
-                        <span className="text-gray-600 dark:text-gray-300">
-                          Accessibility improvements
-                        </span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
-              </StaggeredFadeIn>
-            </div>
+                      <span className="text-gray-600 dark:text-gray-300">
+                        HVAC system maintenance
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Roof & exterior inspections
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Preventive scheduling
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Urgent Repairs */}
+              <Card className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl hover:shadow-2xl transition-all duration-300 p-6 group">
+                <CardHeader className="pb-4">
+                  <div className="flex justify-center items-center bg-brand-secondary/10 mb-4 rounded-2xl w-14 h-14 p-2 group-hover:scale-110 transition-transform duration-300">
+                    <MaterialIcon
+                      icon="build"
+                      size="lg"
+                      className="text-brand-secondary"
+                    />
+                  </div>
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl font-bold">
+                    Urgent Repairs
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                    Fast response times for urgent repairs to minimize downtime
+                    and damage.
+                  </p>
+                  <ul className="space-y-2 text-xs sm:text-sm">
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Rapid response protocols
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Water damage mitigation
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Emergency coordination
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Facility Upgrades */}
+              <Card className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl hover:shadow-2xl transition-all duration-300 p-6 group">
+                <CardHeader className="pb-4">
+                  <div className="flex justify-center items-center bg-brand-secondary/10 mb-4 rounded-2xl w-14 h-14 p-2 group-hover:scale-110 transition-transform duration-300">
+                    <MaterialIcon
+                      icon="handyman"
+                      size="lg"
+                      className="text-brand-secondary"
+                    />
+                  </div>
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl font-bold">
+                    Facility Upgrades
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                    Strategic improvements and modernization to enhance property
+                    value and efficiency.
+                  </p>
+                  <ul className="space-y-2 text-xs sm:text-sm">
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Energy efficiency upgrades
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Accessibility improvements
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Modern system integration
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Compliance & Safety */}
+              <Card className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl hover:shadow-2xl transition-all duration-300 p-6 group">
+                <CardHeader className="pb-4">
+                  <div className="flex justify-center items-center bg-brand-primary/10 mb-4 rounded-2xl w-14 h-14 p-2 group-hover:scale-110 transition-transform duration-300">
+                    <MaterialIcon
+                      icon="policy"
+                      size="lg"
+                      className="text-brand-primary"
+                    />
+                  </div>
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl font-bold">
+                    Compliance & Safety
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                    Ensuring all work meets current codes, regulations, and
+                    safety standards.
+                  </p>
+                  <ul className="space-y-2 text-xs sm:text-sm">
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Code compliance verification
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Safety protocol adherence
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                      />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        Regulatory documentation
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </StaggeredFadeIn>
           </div>
         </section>
 

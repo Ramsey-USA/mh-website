@@ -135,11 +135,11 @@ export function Navigation() {
           </div>
 
           {/* Menu Content - No scroll, fits viewport */}
-          <div className="z-10 relative flex flex-col justify-between px-4 py-4 h-full overflow-hidden">
+          <div className="z-10 relative flex flex-col justify-between px-3 sm:px-4 py-3 sm:py-4 h-full overflow-hidden">
             {/* Main Navigation Links - Compact grid */}
             <div className="flex-1 flex items-center justify-center min-h-0">
               <div className="w-full max-w-xs">
-                <div className="gap-2 grid grid-cols-2">
+                <div className="gap-1.5 sm:gap-2 grid grid-cols-2">
                   {[
                     { href: "/", label: "Home", icon: "home" },
                     { href: "/about", label: "About", icon: "info" },
@@ -185,14 +185,18 @@ export function Navigation() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="group flex flex-col items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 px-2 py-2 rounded-lg font-medium text-gray-900 hover:text-brand-primary dark:hover:text-bronze-400 dark:text-gray-100 text-center transition-all duration-300 touch-manipulation min-h-[60px]"
+                      className="group flex flex-col items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 px-1.5 sm:px-2 py-2 sm:py-2.5 rounded-lg font-medium text-gray-900 hover:text-brand-primary dark:hover:text-bronze-400 dark:text-gray-100 text-center transition-all duration-300 touch-manipulation min-h-[56px] sm:min-h-[60px]"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <MaterialIcon
-                        icon={item.icon}
-                        className="opacity-70 group-hover:opacity-100 mb-1 dark:group-hover:text-bronze-400 group-hover:text-brand-primary transition-all duration-300 w-5 h-5"
-                      />
-                      <span className="font-medium text-[11px] leading-tight">
+                      <div className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 mb-1">
+                        <MaterialIcon
+                          icon={item.icon}
+                          size="sm"
+                          className="opacity-70 group-hover:opacity-100 dark:group-hover:text-bronze-400 group-hover:text-brand-primary transition-all duration-300"
+                          style={{ fontSize: "20px" }}
+                        />
+                      </div>
+                      <span className="font-medium text-[10px] sm:text-[11px] leading-tight">
                         {item.label}
                       </span>
                     </Link>
@@ -202,76 +206,86 @@ export function Navigation() {
             </div>
 
             {/* Social Media Links - Compact footer */}
-            <div className="flex-shrink-0 pt-3 border-t border-gray-200 dark:border-gray-700">
-              <div className="mb-2 text-center">
-                <h4 className="font-medium text-gray-700 dark:text-gray-300 text-[10px]">
+            <div className="flex-shrink-0 pt-2 sm:pt-3 border-t border-gray-200 dark:border-gray-700">
+              <div className="mb-1.5 sm:mb-2 text-center">
+                <h4 className="font-medium text-gray-700 dark:text-gray-300 text-[9px] sm:text-[10px]">
                   Follow Us
                 </h4>
               </div>
-              <div className="flex justify-center gap-2">
+              <div className="flex justify-center gap-1.5 sm:gap-2">
                 <a
                   href="https://www.facebook.com/profile.php?id=61575511773974"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#1877F2] hover:to-[#1565C0] p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-9 h-9"
+                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#1877F2] hover:to-[#1565C0] p-1.5 sm:p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-8 h-8 sm:w-9 sm:h-9"
                   aria-label="Facebook"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="thumb_up"
-                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors w-4 h-4"
+                    size="sm"
+                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors"
+                    style={{ fontSize: "16px" }}
                   />
                 </a>
                 <a
                   href="https://www.instagram.com/mh_construction_inc/reels/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#833AB4] hover:to-[#F77737] p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-9 h-9"
+                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#833AB4] hover:to-[#F77737] p-1.5 sm:p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-8 h-8 sm:w-9 sm:h-9"
                   aria-label="Instagram"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="photo_camera"
-                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors w-4 h-4"
+                    size="sm"
+                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors"
+                    style={{ fontSize: "16px" }}
                   />
                 </a>
                 <a
                   href="https://linkedin.com/company/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#0A66C2] hover:to-[#004182] p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-9 h-9"
+                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#0A66C2] hover:to-[#004182] p-1.5 sm:p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-8 h-8 sm:w-9 sm:h-9"
                   aria-label="LinkedIn"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="work"
-                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors w-4 h-4"
+                    size="sm"
+                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors"
+                    style={{ fontSize: "16px" }}
                   />
                 </a>
                 <a
                   href="https://x.com/mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#000000] hover:to-[#1D9BF0] p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-9 h-9"
+                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#000000] hover:to-[#1D9BF0] p-1.5 sm:p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-8 h-8 sm:w-9 sm:h-9"
                   aria-label="X (Twitter)"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="close"
-                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors w-4 h-4"
+                    size="sm"
+                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors"
+                    style={{ fontSize: "16px" }}
                   />
                 </a>
                 <a
                   href="https://youtube.com/@mhconstruction"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#FF0000] hover:to-[#CC0000] p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-9 h-9"
+                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#FF0000] hover:to-[#CC0000] p-1.5 sm:p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-8 h-8 sm:w-9 sm:h-9"
                   aria-label="YouTube"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="play_circle"
-                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors w-4 h-4"
+                    size="sm"
+                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors"
+                    style={{ fontSize: "16px" }}
                   />
                 </a>
               </div>
