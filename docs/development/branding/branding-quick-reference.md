@@ -1,6 +1,6 @@
 # MH Construction Branding Quick Reference
 
-**For Developers** | **Last Updated**: October 24, 2025
+**For Developers** | **Last Updated**: November 4, 2025 | **Version**: 4.0.2
 
 ## 🚨 Critical Requirements (Must-Have)
 
@@ -30,12 +30,12 @@ className="bg-[#BD9264]"
 ### Typography Patterns
 
 ```tsx
-// ✅ CORRECT: Standard section header
+// ✅ CORRECT: Standard section header - NO BUBBLE HEADINGS
 <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
   <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
     Subtitle Text
   </span>
-  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+  <span className="block text-brand-primary dark:text-brand-primary font-black">
     Main Title
   </span>
 </h2>

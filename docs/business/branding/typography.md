@@ -1,10 +1,10 @@
 # MH Construction Typography System
 
-**Date:** November 3, 2025
+**Date:** November 4, 2025
 **Status:** ✅ Current
 **Category:** Business - Brand Standards
-**Version:** 4.0.1
-**Last Updated:** November 3, 2025
+**Version:** 4.0.2
+**Last Updated:** November 4, 2025
 
 ## Quick Navigation
 
@@ -12,6 +12,28 @@
 - [📋 Brand Overview](./brand-overview.md)
 - [🎨 Color System](./color-system.md)
 - [🔧 Icon Policy](./icon-policy.md)
+
+---
+
+## 🚨 CRITICAL POLICY: NO BUBBLE HEADINGS
+
+### Professional Typography Standards
+
+**MH Construction maintains a strict NO BUBBLE HEADINGS policy. All text must use solid colors with professional presentation.**
+
+#### ❌ PROHIBITED: Gradient Text Effects
+
+- **No `bg-clip-text`** in combination with gradients
+- **No `bg-gradient-to-r`** for text styling  
+- **No `text-transparent`** gradient effects
+- **No bubble or gradient text styling**
+
+#### ✅ APPROVED: Professional Text Styling
+
+- **Solid colors only**: `text-brand-primary`, `text-gray-900`, etc.
+- **Professional emphasis**: Font weights and sizes only
+- **Theme-aware colors**: Proper light/dark mode support
+- **High contrast**: Accessibility-compliant color combinations
 
 ---
 
@@ -25,7 +47,7 @@ that aligns with our military precision values.
 
 #### Font Family Stack
 
-````css
+```css
 font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 ```text
 
@@ -62,15 +84,163 @@ h6 { font-weight: 500; }
 body { font-weight: 400; }
 strong { font-weight: 600; }
 .emphasis { font-weight: 500; }
-```text
+```
 
-## Typography Scale
+## Responsive Typography Scale
 
-### Heading Hierarchy
+### Mobile-First Responsive Heading Hierarchy
 
-#### H1 - Primary Headlines
+All typography uses responsive scaling that adapts to screen sizes, ensuring optimal readability and professional appearance across all devices.
 
-- **Size**: 48px (3rem)
+#### H1 - Primary Headlines (Responsive)
+
+**Mobile-First Responsive Scaling:**
+
+- **Mobile (base)**: `text-2xl` (24px)
+- **Small**: `sm:text-3xl` (30px)  
+- **Medium**: `md:text-4xl` (36px)
+- **Large**: `lg:text-5xl` (48px)
+- **Extra Large**: `xl:text-6xl` (60px)
+
+**Weight**: Bold (700)  
+**Line Height**: Tight leading for impact  
+**Usage**: Page titles, primary headlines
+
+```css
+h1 {
+  @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  @apply font-bold leading-tight tracking-tight;
+  @apply text-gray-900 dark:text-white;
+}
+```
+
+#### H2 - Section Headlines (Responsive)
+
+**Mobile-First Responsive Scaling:**
+
+- **Mobile (base)**: `text-xl` (20px)
+- **Small**: `sm:text-2xl` (24px)
+- **Medium**: `md:text-3xl` (30px)  
+- **Large**: `lg:text-4xl` (36px)
+- **Extra Large**: `xl:text-5xl` (48px)
+
+**Weight**: Semi-Bold (600)  
+**Line Height**: Comfortable for readability  
+**Usage**: Major section headings
+
+```css
+h2 {
+  @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
+  @apply font-semibold leading-tight tracking-tight;
+  @apply text-gray-900 dark:text-gray-100;
+}
+```
+
+#### H3 - Subsection Headlines (Responsive)
+
+**Mobile-First Responsive Scaling:**
+
+- **Mobile (base)**: `text-lg` (18px)
+- **Small**: `sm:text-xl` (20px)
+- **Medium**: `md:text-2xl` (24px)
+- **Large**: `lg:text-3xl` (30px)
+- **Extra Large**: `xl:text-4xl` (36px)
+
+**Weight**: Semi-Bold (600)  
+**Line Height**: Comfortable readability  
+**Usage**: Subsection headings, important content blocks
+
+```css
+h3 {
+  @apply text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl;
+  @apply font-semibold leading-snug;
+  @apply text-gray-900 dark:text-gray-100;
+}
+```
+
+---
+
+## 🏠 Hero Section Typography Standards
+
+### Standardized Hero Section Format
+
+**ALL PAGES must implement the standardized hero section format. This ensures consistent user experience, proper navigation visibility, and optimal typography scaling across the entire website.**
+
+#### Hero Section Structure (REQUIRED)
+
+```tsx
+<section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
+
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+    <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+      
+      {/* Veteran Badge (Optional) */}
+      <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
+        <MaterialIcon icon="military_tech" className="mr-2 sm:mr-3 text-brand-secondary text-base sm:text-lg" />
+        <span className="font-bold text-brand-primary-light text-xs sm:text-sm uppercase tracking-wider">
+          Veteran-Owned Excellence
+        </span>
+      </div>
+
+      {/* Main Title - REQUIRED RESPONSIVE SCALING */}
+      <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+        <span className="block text-white font-black drop-shadow-lg">
+          {/* Page-specific title content */}
+        </span>
+      </h1>
+
+      {/* Subtitle - REQUIRED */}
+      <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+        {/* Page-specific subtitle */}
+      </p>
+
+      {/* Description - REQUIRED */}
+      <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
+        {/* Page-specific description */}
+      </p>
+    </div>
+  </div>
+
+  {/* Page Navigation - ALWAYS REQUIRED */}
+  <PageNavigation
+    items={navigationConfigs.pageName}
+    className="absolute bottom-0 left-0 right-0"
+  />
+</section>
+```
+
+#### Hero Section Requirements Checklist
+
+**CRITICAL REQUIREMENTS - ALL PAGES:**
+
+- ✅ **Exact viewport height**: `h-screen` (not `min-h-screen` or `h-[100dvh]`)
+- ✅ **NO CTA buttons**: Hero sections contain only navigation elements  
+- ✅ **Responsive padding**: Top `pt-16` to `lg:pt-40`, Bottom `pb-12` to `lg:pb-28`
+- ✅ **Responsive typography**: `text-lg` to `xl:text-5xl` for main titles
+- ✅ **Tight spacing**: `space-y-2` to `lg:space-y-6` prevents mobile overlap
+- ✅ **PageNavigation visible**: Always displayed at bottom of hero section
+- ✅ **Overflow hidden**: Prevents horizontal scrolling issues
+- ✅ **Professional colors**: NO bubble headings, solid colors only
+
+#### Hero Typography Scaling (MANDATORY)
+
+| Element | Mobile (base) | Small | Medium | Large | Extra Large |
+|---------|---------------|-------|--------|-------|-------------|
+| **Main Title** | `text-lg` (18px) | `sm:text-2xl` (24px) | `md:text-3xl` (30px) | `lg:text-4xl` (36px) | `xl:text-5xl` (48px) |
+| **Subtitle** | `text-xs` (12px) | `sm:text-base` (16px) | `md:text-lg` (18px) | `lg:text-xl` (20px) | - |
+| **Description** | `text-xs` (12px) | `sm:text-sm` (14px) | `md:text-base` (16px) | `lg:text-lg` (18px) | - |
+
+#### Hero Section Benefits
+
+- 🎯 **Consistent Cross-Page**: All pages follow identical hero structure
+- 📱 **Perfect Mobile Scaling**: Content fits all screen sizes without overflow
+- 🧭 **Navigation Visible**: Section links immediately accessible to users
+- ♿ **Accessibility Compliant**: High contrast, readable text at all sizes
+- 🚀 **Performance Optimized**: Uses `h-screen` for SSR compatibility
+
+---
+
 - **Weight**: Bold (700)
 - **Line Height**: 1.2
 - **Usage**: Page titles, primary headlines
@@ -517,6 +687,6 @@ module.exports = {
 ---
 
 **Typography Authority**: MH Construction Design Team
-**Last Update**: November 3, 2025 (v4.0.1)
+**Last Update**: November 4, 2025 (v4.0.2)
 **Next Review**: Quarterly brand compliance assessment
 ````

@@ -1,9 +1,10 @@
 # MH Construction Brand Guidelines
 
-**Date:** November 3, 2025
+**Date:** November 4, 2025
 **Status:** ✅ Current
 **Category:** Business
-**Last Updated:** November 3, 2025
+**Last Updated:** November 4, 2025
+**Version:** 4.0.2
 
 ## Quick Navigation
 
@@ -38,7 +39,7 @@ Core brand identity, mission, values, and positioning
 - Core taglines and value propositions
 - Brand personality and voice attributes
 - Target audience definitions
-- Current architecture status (v4.0.1)
+- Current architecture status (v4.0.2)
 
 ### 🎨 [Color System](./color-system.md)
 
@@ -90,6 +91,36 @@ Technical implementation and quality standards
 - Quality control checklists and approval processes
 - Performance metrics and maintenance procedures
 
+### 🎴 [Component Standards](./component-standards.md)
+
+Unified component design system standards
+
+- Button, card, and form component patterns
+- Animation and interaction guidelines
+- Responsive design standards
+- Accessibility requirements and implementation
+- Quality assurance checklists
+
+### 📝 [Content & Messaging Standards](./content-messaging-standards.md)
+
+Standardized content patterns and communication guidelines
+
+- Brand voice and tone principles
+- Call-to-action language standards
+- Content writing templates and patterns
+- Service description guidelines
+- Contact information formatting
+
+### 🔗 [Brand-Development Integration](./brand-development-integration.md)
+
+Bridge between brand guidelines and development implementation
+
+- Color and typography code integration
+- Component compliance standards
+- Development workflow integration
+- Performance and brand asset optimization
+- Quality assurance automation
+
 ## 🎨 Brand Quick Reference
 
 ### Primary Brand Identity
@@ -103,7 +134,7 @@ Technical implementation and quality standards
 
 - **Primary**: Hunter Green (`#386851`)
 - **Secondary**: Leather Tan (`#BD9264`)
-- **Accent**: Veteran Blue (supporting palette)
+- **Supporting**: Black, White, Gray palette
 
 ### Key Policies
 

@@ -27,7 +27,7 @@ This comprehensive guide contains ALL MH Construction branding standards. For fo
 
 ---
 
-## 🚨 **CRITICAL POLICY: EMOJI-FREE CODEBASE (v4.0.1)**
+## 🚨 **CRITICAL POLICY: EMOJI-FREE CODEBASE (v4.0.2)**
 
 ### **Icon Standards Enforcement**
 
@@ -85,7 +85,7 @@ title: 'Update 🎯'
 
 ## Current State & Navigation Standards
 
-### **Full Website Architecture (v4.0.1)**
+### **Full Website Architecture (v4.0.2)**
 
 - **Complete Website**: All pages production-ready with full MaterialIcon integration
 - **Navigation**: Fully functional navigation with all pages active
@@ -108,9 +108,9 @@ title: 'Update 🎯'
 
 ---
 
-## 🚨 **IMPLEMENTATION NOTICE: Full Website Complete (v4.0.1)**
+## 🚨 **IMPLEMENTATION NOTICE: Full Website Complete (v4.0.2)**
 
-### **Current Architecture (v4.0.1) - November 3, 2025**
+### **Current Architecture (v4.0.2) - November 4, 2025**
 
 **MH Construction now features a complete, fully-functional website with**
 **Google Material Icons and comprehensive pages ready for production.**
@@ -126,13 +126,12 @@ title: 'Update 🎯'
     text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
     Your Partnership in
   </span>
-  <span className="block bg-clip-text bg-gradient-to-r
-    from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+  <span className="block text-brand-primary dark:text-brand-primary font-black">
     Construction Excellence
   </span>
 </h1>
 
-// Standardized CTA Buttons (v4.0.1) - Content Section Implementation
+// Standardized CTA Buttons (v4.0.2) - Content Section Implementation
 <Button variant="secondary" size="lg" className="transition-all duration-300">
   <MaterialIcon icon="handshake" size="lg" className="mr-3" />
   <span className="font-medium">Start Your Project</span>
@@ -153,7 +152,7 @@ title: 'Update 🎯'
 </section>
 ```markdown
 
-### **Latest Brand Improvements (v4.0.1):**
+### **Latest Brand Improvements (v4.0.2):**
 
 - ✅ **Enhanced Typography**: Responsive clamp() scaling from text-4xl to
   text-8xl
@@ -239,13 +238,16 @@ headings to maintain professional visual hierarchy.
 
 #### 🦸 **HERO SECTION CONSISTENCY REQUIREMENT**
 
-**UPDATED STANDARD:** Hero sections have been integrated into each page's
-layout and no longer use the standalone `PageHero` component.
+**MANDATORY STANDARD:** ALL pages must implement the standardized hero section format documented in [Typography Standards](./branding/typography.md#-hero-section-typography-standards).
 
-- Each page now implements its own custom hero section
-- Heroes are integrated with the new transparent header design
-- Content spacing and styling remain consistent across pages
-- The home page features a dedicated hero implementation
+**Key Requirements:**
+- ✅ **Consistent Structure**: All pages follow identical hero implementation
+- ✅ **Responsive Typography**: Proper scaling from mobile to desktop
+- ✅ **NO CTA Buttons**: Hero sections contain only navigation elements
+- ✅ **Professional Styling**: NO bubble headings, solid colors only
+- ✅ **Navigation Visible**: PageNavigation always displayed at bottom
+
+**Implementation Details:** See comprehensive hero section standards in Typography documentation.
 
 **Essential CSS Classes for Card Flipping:**
 
@@ -283,7 +285,7 @@ layout and no longer use the standalone `PageHero` component.
 | **Founded** | 2010 - Veteran-owned and operated |
 | **Service Philosophy** | Military precision, veteran values, cutting-edge technology |
 
-### Core Values (Updated v4.0.1 - November 2025)
+### Core Values (Updated v4.0.2 - November 2025)
 
 #### **6-Value Professional Foundation**
 
@@ -327,9 +329,9 @@ export default {
           'secondary': '#BD9264',      // Leather Tan
           'secondary-light': '#c9a176', // Lighter tan
           'secondary-dark': '#a67d52',  // Darker tan
-          'accent': '#7c9885',         // Sage Green accent
-          'accent-light': '#96ad9c',   // Lighter sage
-          'accent-dark': '#5a7363',    // Darker sage
+          'accent': '#757575',         // Medium Gray accent
+          'accent-light': '#9E9E9E',   // Lighter gray
+          'accent-dark': '#424242',    // Darker gray
           'light': '#f7f9f7',          // Very light brand background
         },
 
@@ -361,11 +363,11 @@ export default {
           'dark-light': '#475569',     // Dark mode subtle borders
         },
 
-        // Veteran recognition colors
-        'veteran': {
-          'red': '#dc2626',
-          'blue': '#1d4ed8',
-          'gold': '#ca8a04',
+        // Professional supporting colors
+        'supporting': {
+          'success': '#386851',        // Use Hunter Green for success states
+          'warning': '#BD9264',        // Use Leather Tan for warning states  
+          'error': '#424242',          // Use Dark Gray for error states
         },
       }
     }
@@ -373,7 +375,7 @@ export default {
 }
 ```text
 
-### Color Usage Guidelines (Hybrid Implementation)
+### Color Usage Guidelines (Professional Implementation)
 
 #### Hunter Green (`bg-brand-primary`, `text-brand-primary`) - Primary
 
@@ -381,6 +383,7 @@ export default {
 - **Header navigation**: `bg-brand-primary` backgrounds with custom nav classes
 - **Active states**: `bg-brand-primary-dark` for pressed states
 - **Logo applications**: `text-brand-primary` for brand elements with enhanced animations
+- **Success states**: Also used for positive feedback and completed actions
 
 #### Leather Tan (`bg-brand-secondary`, `text-brand-secondary`) - Secondary
 
@@ -388,14 +391,15 @@ export default {
 - **Accent elements**: `bg-brand-secondary` backgrounds with custom enhancements
 - **Complementary design**: `border-brand-secondary` borders with hover animations
 - **Warm accent applications**: `text-brand-secondary` text with theme support
+- **Warning states**: Also used for caution and attention indicators
 
-#### Veteran Colors (Enhanced Classes)
+#### Gray Palette (Professional Supporting Colors)
 
-- **Red**: `bg-veteran-red` + `.btn-veteran` for veteran badges with animations
-- **Blue**: `bg-veteran-blue` + `.btn-dashboard` for program elements with effects
-- **Gold**: `bg-veteran-gold` + `.veteran-badge` for achievements
+- **Medium Gray** (`#757575`): General accents, neutral elements, information states
+- **Dark Gray** (`#424242`): Error states, high contrast text, disabled elements
+- **Light Gray** (`#9E9E9E`): Subtle accents, placeholder text, muted elements
 
-#### Usage Examples with Hybrid Approach
+#### Usage Examples with Professional Approach
 
 ```tsx
 // Primary button with brand colors and enhancements
@@ -420,9 +424,9 @@ export default {
   Navigation with MH brand enhancements
 </nav>
 
-// Veteran recognition element with custom styling
-<div className="bg-veteran-red text-white px-4 py-2 rounded-full btn-veteran">
-  Veteran Owned
+// Professional brand element with custom styling
+<div className="bg-brand-primary text-white px-4 py-2 rounded-full">
+  Veteran Owned & Operated
 </div>
 ```text
 
@@ -960,7 +964,7 @@ across the platform.
 
 ---
 
-## Icon System (Google Material Icons v4.0.1)
+## Icon System (Google Material Icons v4.0.2)
 
 ### **Complete Migration to Google Material Icons**
 
@@ -1307,8 +1311,7 @@ export default {
     text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
     Building Tomorrow with
   </span>
-  <span className="block bg-clip-text bg-gradient-to-r
-    from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+  <span className="block text-brand-primary dark:text-brand-primary font-black">
     Today's Technology
   </span>
 </h1>
@@ -1321,8 +1324,7 @@ export default {
     text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
     Section Introduction
   </span>
-  <span className="block bg-clip-text bg-gradient-to-r
-    from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+  <span className="block text-brand-primary dark:text-brand-primary font-black">
     Main Headline
   </span>
 </h2>
@@ -1661,14 +1663,18 @@ without custom overrides.
 
 ---
 
-### 🏠 Hero Section Standards (v4.0.1)
+### 🏠 Hero Section Standards (v4.0.2)
+
+#### Comprehensive Documentation Reference
+
+**For complete hero section implementation details, see [Typography Standards - Hero Section](./branding/typography.md#-hero-section-typography-standards).**
 
 #### Full Viewport Hero Implementation
 
-**Updated November 3, 2025** - Cohesive hero section standards across all pages ensure consistent user experience, proper navigation visibility, and optimal typography scaling.
+**Updated November 4, 2025** - All pages must implement the standardized hero section format for consistent user experience, proper navigation visibility, and optimal typography scaling.
 
 ```tsx
-// Enhanced Hero Section - Current Standard (v4.0.1)
+// Enhanced Hero Section - Current Standard (v4.0.2)
 <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
   {/* Background Elements */}
   <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
@@ -1690,7 +1696,7 @@ without custom overrides.
 
       {/* Main Title - Responsive scaling */}
       <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-        <span className="block bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white text-transparent drop-shadow-lg">
+        <span className="block text-white font-black drop-shadow-lg">
           Your Partnership in Construction Excellence
         </span>
       </h1>
@@ -1715,7 +1721,7 @@ without custom overrides.
 </section>
 ```
 
-#### Key Hero Section Features (v4.0.1)
+#### Key Hero Section Features (v4.0.2)
 
 - **Exact Viewport Height**: `h-screen` ensures hero fills complete viewport (no gap to next section)
 - **No CTA Buttons**: Removed all Call-to-Action buttons from hero sections for cleaner design

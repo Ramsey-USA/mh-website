@@ -1,13 +1,17 @@
 # MH Construction Branding Compliance Implementation Plan
 
-**Version**: 2.0.0 | **Date**: November 3, 2025 | **Status**: Hero Section Standards Updated
+**Version**: 4.0.2 | **Date**: November 4, 2025 | **Status**: Hero Section Standards Updated
 
 ## Overview
 
 This plan provides a systematic approach to ensure all website pages adhere to MH Construction branding
-guidelines, including the new cohesive hero section standards implemented November 3, 2025.
+guidelines, including the new cohesive hero section standards implemented November 4, 2025.
 
 ## Hero Section Implementation (v4.0.2)
+
+### CRITICAL: Standardized Hero Section Format
+
+**ALL PAGES must implement the standardized hero section format documented in [Typography Standards](../../business/branding/typography.md#-hero-section-typography-standards).**
 
 ### Standard Hero Structure
 
@@ -97,14 +101,20 @@ All pages must implement the cohesive hero section pattern:
 #### Standard Section Header Pattern
 
 ````tsx
+**Goal**: Consistent typography patterns - NO BUBBLE HEADINGS
+
+#### Standard Section Header Pattern - NO GRADIENTS
+
+```tsx
 <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
   <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
     {subtitle}
   </span>
-  <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary drop-shadow-sm text-transparent">
+  <span className="block text-brand-primary dark:text-brand-primary font-black">
     {mainTitle}
   </span>
 </h2>
+```
 ```text
 
 #### Standard Body Text Pattern

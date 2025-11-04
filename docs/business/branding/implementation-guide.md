@@ -1,10 +1,10 @@
 # MH Construction Brand Implementation Guide
 
-**Date:** November 3, 2025
+**Date:** November 4, 2025
 **Status:** ✅ Current
 **Category:** Business - Brand Guidelines
-**Version:** 4.0.1
-**Last Updated:** November 3, 2025
+**Version:** 4.0.2
+**Last Updated:** November 4, 2025
 
 ## Quick Navigation
 
@@ -19,7 +19,7 @@
 
 ## Website Implementation Standards
 
-### Current Architecture (v3.7.2)
+### Current Architecture (v4.0.1)
 
 #### Foundation-Only Build Status
 
@@ -56,11 +56,11 @@
 
 **CSS Custom Properties**:
 
-````css
+```css
 :root {
   --color-primary: #386851;        /* Hunter Green */
   --color-secondary: #BD9264;      /* Leather Tan */
-  --color-accent: #2F5D45;         /* Forest Green */
+  --color-accent: #757575;         /* Medium Gray for accents */
   --color-text-primary: #212121;
   --color-background: #FFFFFF;
 }
@@ -543,6 +543,6 @@ Licensed in WA, OR, ID | Veteran-Owned & Operated
 ---
 
 **Implementation Authority**: MH Construction Development Team
-**Last Update**: November 3, 2025 (v4.0.1) - Updated colors, versions, and cross-references
+**Last Update**: November 4, 2025 (v4.0.2) - Updated colors, versions, and cross-references
 **Next Review**: Monthly implementation audit
 ````

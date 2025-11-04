@@ -1,10 +1,10 @@
 # MH Construction Color System
 
-**Date:** November 3, 2025
+**Date:** November 4, 2025
 **Status:** ✅ Current
 **Category:** Business - Brand Guidelines
-**Last Updated:** November 3, 2025
-**Version:** 4.0.1
+**Last Updated:** November 4, 2025
+**Version:** 4.0.2
 
 ## Quick Navigation
 
@@ -153,26 +153,26 @@
 
 ### Success Colors
 
-**Light Mode:** `#4CAF50` (Green 500)
-**Dark Mode:** `#66BB6A` (Green 400)
+**Light Mode:** Hunter Green `#386851` - Using brand primary for positive states
+**Dark Mode:** Hunter Green Light `#4a7a63` - Lighter variant for dark backgrounds
 **Usage:** Success messages, completed states, positive indicators
 
 ### Warning Colors
 
-**Light Mode:** `#FF9800` (Orange 500)
-**Dark Mode:** `#FFB74D` (Orange 300)
+**Light Mode:** Leather Tan `#BD9264` - Using brand secondary for caution states
+**Dark Mode:** Leather Tan Light `#c9a176` - Lighter variant for dark backgrounds
 **Usage:** Warning messages, caution states, attention indicators
 
 ### Error Colors
 
-**Light Mode:** `#F44336` (Red 500)
-**Dark Mode:** `#EF5350` (Red 400)
+**Light Mode:** `#424242` (Dark Gray) - Professional error indication
+**Dark Mode:** `#BDBDBD` (Light Gray) - Inverted for dark backgrounds
 **Usage:** Error messages, failure states, destructive actions
 
 ### Info Colors
 
-**Light Mode:** `#2196F3` (Blue 500)
-**Dark Mode:** `#42A5F5` (Blue 400)
+**Light Mode:** `#757575` (Medium Gray) - Neutral information indication
+**Dark Mode:** `#9E9E9E` (Medium Light Gray) - Adjusted for dark backgrounds
 **Usage:** Information messages, neutral notifications
 
 ---
@@ -481,7 +481,7 @@ module.exports = {
 ---
 
 **Color Authority**: MH Construction Design Team
-**Last Color Update**: November 3, 2025 (v4.0.1)
+**Last Color Update**: November 4, 2025 (v4.0.2)
 **Color Scheme**: Hunter Green (#386851) + Leather Tan (#BD9264)
 **Next Review**: Quarterly brand compliance assessment
 
