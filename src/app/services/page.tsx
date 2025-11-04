@@ -463,27 +463,26 @@ export default function ServicesPage() {
                             size="3xl"
                             className="mb-4 text-white"
                           />
-                          <CardTitle className="flex items-center mb-2 min-h-[3rem] text-white text-2xl">
+                          <CardTitle className="flex items-center mb-2 min-h-[3rem] text-white text-xl">
                             {service.title}
                           </CardTitle>
                         </CardHeader>
-                        <CardContent className="flex flex-col flex-grow overflow-y-auto">
-                          <div className="mb-4">
-                            <p className="mb-2 font-bold text-white text-sm">
+                        <CardContent className="flex flex-col flex-grow">
+                          <div className="mb-3">
+                            <p className="mb-1.5 font-bold text-white text-xs">
                               What's Included:
                             </p>
-                            <ul className="space-y-2">
+                            <ul className="space-y-1.5">
                               {service.features.map((feature, fIndex) => (
                                 <li
                                   key={fIndex}
-                                  className="flex items-start text-sm"
+                                  className="flex items-start text-xs"
                                 >
                                   <MaterialIcon
                                     icon="check_circle"
-                                    className="flex-shrink-0 mt-0.5 mr-2 text-white"
-                                    size="sm"
+                                    className="flex-shrink-0 mt-0.5 mr-1.5 text-white w-3 h-3"
                                   />
-                                  <span className="text-white/90">
+                                  <span className="text-white/90 leading-tight">
                                     {feature}
                                   </span>
                                 </li>
@@ -491,22 +490,21 @@ export default function ServicesPage() {
                             </ul>
                           </div>
 
-                          <div className="mb-4">
-                            <p className="mb-2 font-bold text-white text-sm">
+                          <div className="mb-3">
+                            <p className="mb-1.5 font-bold text-white text-xs">
                               Partnership Benefits:
                             </p>
-                            <ul className="space-y-2">
+                            <ul className="space-y-1.5">
                               {service.benefits.map((benefit, bIndex) => (
                                 <li
                                   key={bIndex}
-                                  className="flex items-start text-sm"
+                                  className="flex items-start text-xs"
                                 >
                                   <MaterialIcon
                                     icon="stars"
-                                    className="flex-shrink-0 mt-0.5 mr-2 text-white"
-                                    size="sm"
+                                    className="flex-shrink-0 mt-0.5 mr-1.5 text-white w-3 h-3"
                                   />
-                                  <span className="text-white/90">
+                                  <span className="text-white/90 leading-tight">
                                     {benefit}
                                   </span>
                                 </li>
@@ -516,8 +514,8 @@ export default function ServicesPage() {
 
                           {/* CTA Text */}
                           {service.ctaText && (
-                            <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm mt-auto p-3 border-white/30 border-l-2 rounded">
-                              <p className="font-medium text-white text-xs">
+                            <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm mt-auto p-2 border-white/30 border-l-2 rounded">
+                              <p className="font-medium text-white text-[10px] leading-tight">
                                 {service.ctaText}
                               </p>
                             </div>

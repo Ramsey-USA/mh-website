@@ -92,11 +92,11 @@ export function OptimizedGallery({
       {/* Thumbnail Grid */}
       <div className="space-y-4">
         <h3 className="font-semibold text-lg">Project Gallery</h3>
-        <div className="gap-2 grid grid-cols-4 max-h-[460px] overflow-y-auto">
+        <div className="gap-2 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8">
           {images.map((image, index) => (
             <div
               key={index}
-              className={`relative h-20 rounded cursor-pointer transition-opacity ${
+              className={`relative h-16 sm:h-18 md:h-20 rounded cursor-pointer transition-opacity ${
                 index === activeIndex
                   ? "ring-2 ring-primary-500"
                   : "hover:opacity-80"
