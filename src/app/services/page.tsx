@@ -265,33 +265,47 @@ export default function ServicesPage() {
   return (
     <>
       <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-        {/* Hero Section */}
+        {/* Hero Section - v4.0.2 Standards */}
         <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
           {/* Background Elements */}
           <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
-          {/* Content */}
+          {/* Content - NO CTA BUTTONS per v4.0.2 standards */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
-            <FadeInWhenVisible className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-              {/* Main Title */}
+            <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+              {/* Veteran Badge */}
+              <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
+                <MaterialIcon
+                  icon="military_tech"
+                  size="md"
+                  className="mr-2 sm:mr-3 text-brand-secondary"
+                />
+                <span className="font-bold text-brand-primary-light text-xs sm:text-sm uppercase tracking-wider">
+                  Veteran-Owned Excellence
+                </span>
+              </div>
+
+              {/* Main Title - Partnership Focus */}
               <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-                <span className="block text-brand-secondary font-black drop-shadow-lg">
-                  Construction Management Excellence
+                <span className="block mb-2 text-white/90 font-semibold text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl">
+                  Your Partnership in
+                </span>
+                <span className="block text-white font-black drop-shadow-lg">
+                  Construction Excellence
                 </span>
               </h1>
 
               {/* Primary Tagline */}
-              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-brand-secondary font-bold leading-snug px-2">
                 "Building for the Owner, NOT the Dollar"
               </p>
 
               {/* Description */}
               <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
                 We Work WITH You Every Step. Military Precision. Advanced
-                Technology. Veteran-Owned Excellence serving the Pacific
-                Northwest.
+                Technology. Serving the Pacific Northwest since 2010.
               </p>
-            </FadeInWhenVisible>
+            </div>
           </div>
 
           {/* Page-Specific Navigation Bar */}
@@ -306,16 +320,7 @@ export default function ServicesPage() {
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mx-auto mb-16 lg:mb-24 max-w-4xl text-center">
-                {/* NO SECTION BADGES - Section Icon */}
-                <div className="mb-8">
-                  <MaterialIcon
-                    icon="engineering"
-                    size="4xl"
-                    className="text-brand-primary"
-                  />
-                </div>
-
-                {/* Standard Section Header - NO SECTION BADGES */}
+                {/* Section Header - v4.0.2 Clean Standards */}
                 <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Partnership-Focused
@@ -344,7 +349,7 @@ export default function ServicesPage() {
                   </p>
                 </div>
 
-                {/* CTA Buttons - Brand Standards Compliant */}
+                {/* CTA Buttons - Brand Standards v4.0.2 */}
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-10">
                   <Link href="/contact">
                     <Button
@@ -380,7 +385,7 @@ export default function ServicesPage() {
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mb-16 lg:mb-24 text-center scroll-reveal">
-                {/* NO SECTION BADGES - Clean section header */}
+                {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
                 <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Core Partnership
@@ -540,7 +545,7 @@ export default function ServicesPage() {
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mb-16 lg:mb-24 text-center scroll-reveal">
-                {/* NO SECTION BADGES - Clean section header */}
+                {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
                 <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Specialized Partnership
@@ -702,16 +707,7 @@ export default function ServicesPage() {
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mb-16 lg:mb-24 text-center scroll-reveal">
-                {/* NO SECTION BADGES - Icon only */}
-                <div className="mb-8">
-                  <MaterialIcon
-                    icon="public"
-                    size="4xl"
-                    className="text-brand-secondary"
-                  />
-                </div>
-
-                {/* Standard header - NO SECTION BADGES */}
+                {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
                 <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-white/80 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Service Coverage
@@ -771,7 +767,7 @@ export default function ServicesPage() {
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mb-16 lg:mb-24 text-center scroll-reveal">
-                {/* NO SECTION BADGES - Clean section header */}
+                {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
                 <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Why Partner With
@@ -820,16 +816,7 @@ export default function ServicesPage() {
             <FadeInWhenVisible>
               <div className="mx-auto max-w-4xl">
                 <div className="mb-16 lg:mb-24 text-center scroll-reveal">
-                  {/* NO SECTION BADGES - Icon only */}
-                  <div className="mb-8">
-                    <MaterialIcon
-                      icon="trending_up"
-                      size="4xl"
-                      className="text-brand-primary"
-                    />
-                  </div>
-
-                  {/* Standard header - NO SECTION BADGES */}
+                  {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
                   <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                     <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                       Our Partnership
@@ -929,16 +916,7 @@ export default function ServicesPage() {
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mx-auto max-w-4xl text-center mb-12 scroll-reveal">
-                {/* NO SECTION BADGES - Icon only */}
-                <div className="mb-8">
-                  <MaterialIcon
-                    icon="fact_check"
-                    size="4xl"
-                    className="text-brand-primary"
-                  />
-                </div>
-
-                {/* Standard header - NO SECTION BADGES */}
+                {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
                 <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
                   Quality Inspections
                 </h2>
@@ -1064,16 +1042,7 @@ export default function ServicesPage() {
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mx-auto max-w-4xl text-center mb-12 scroll-reveal">
-                {/* NO SECTION BADGES - Icon only */}
-                <div className="mb-8">
-                  <MaterialIcon
-                    icon="home_repair_service"
-                    size="4xl"
-                    className="text-brand-primary"
-                  />
-                </div>
-
-                {/* Standard header - NO SECTION BADGES */}
+                {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
                 <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
                   Maintenance & Repairs
                 </h2>
@@ -1221,7 +1190,7 @@ export default function ServicesPage() {
         >
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible className="mb-16 lg:mb-24 text-center scroll-reveal">
-              {/* NO SECTION BADGES - Clean section header */}
+              {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
               <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                 <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                   Our Construction
@@ -1382,16 +1351,7 @@ export default function ServicesPage() {
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mx-auto max-w-3xl text-center">
-                {/* NO SECTION BADGES - Icon only */}
-                <div className="mb-10">
-                  <MaterialIcon
-                    icon="phone_in_talk"
-                    size="4xl"
-                    className="text-brand-secondary"
-                  />
-                </div>
-
-                {/* Standard header - NO SECTION BADGES */}
+                {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
                 <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-white/80 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Ready to Start Your
@@ -1407,13 +1367,13 @@ export default function ServicesPage() {
                   collaboration.
                 </p>
 
-                {/* CTA Buttons - Brand Standards */}
+                {/* CTA Buttons - v4.0.2 Brand Standards */}
                 <div className="flex sm:flex-row flex-col justify-center gap-6 mb-10">
                   <Link href="/contact">
                     <Button
                       variant="primary"
                       size="lg"
-                      className="transition-all duration-300 border-2 border-white bg-white text-brand-primary hover:bg-brand-primary hover:text-white min-w-[260px]"
+                      className="transition-all duration-300 border-2 border-white bg-white text-brand-primary hover:bg-brand-primary hover:text-white hover:border-white min-w-[280px]"
                     >
                       <MaterialIcon
                         icon="handshake"
@@ -1427,7 +1387,7 @@ export default function ServicesPage() {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="transition-all duration-300 border-2 border-white text-white hover:bg-white hover:text-brand-primary min-w-[260px]"
+                      className="transition-all duration-300 border-2 border-white bg-transparent text-white hover:bg-white hover:text-brand-primary hover:border-white min-w-[280px]"
                     >
                       <MaterialIcon
                         icon="photo_library"

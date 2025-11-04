@@ -45,35 +45,47 @@ export default function TeamPage() {
 
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section - v4.0.2 Standards */}
       <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
-        {/* Content */}
+        {/* Content - NO WRAPPER on critical content per v4.0.2 */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
           <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-            {/* Subtitle First */}
-            <p className="text-xs xs:text-sm sm:text-base md:text-lg text-white/90 font-medium tracking-wide">
-              Expert Construction Management Professionals
-            </p>
+            {/* Veteran Badge */}
+            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
+              <MaterialIcon
+                icon="military_tech"
+                size="md"
+                className="mr-2 sm:mr-3 text-brand-secondary"
+              />
+              <span className="font-bold text-brand-primary-light text-xs sm:text-sm uppercase tracking-wider">
+                Veteran-Owned Excellence
+              </span>
+            </div>
 
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-              <span className="block text-white drop-shadow-lg">Our Team</span>
+              <span className="block mb-2 text-white/90 font-semibold text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl">
+                Meet Your Partnership
+              </span>
+              <span className="block text-white font-black drop-shadow-lg">
+                Team
+              </span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug">
-              Meet the partnership team behind MH Construction
+            {/* Primary Tagline */}
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-brand-secondary font-bold leading-snug px-2">
+              "Building for the Owner, NOT the Dollar"
             </p>
 
             {/* Description */}
-            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed">
+            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
               Discover your dedicated partners through authentic vintage-style
-              trading cards. Click on any card to flip it and explore
-              professional statistics, career highlights, and personal stories
-              of the team working with you.
+              trading cards. Click any card to flip and explore professional
+              statistics, career highlights, and personal stories of the team
+              working WITH you.
             </p>
           </div>
         </div>
@@ -88,13 +100,16 @@ export default function TeamPage() {
       <div className="bg-gray-50 dark:bg-gray-900 py-16">
         <div className="mx-auto px-4 max-w-7xl">
           <div className="mb-16 text-center">
-            <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              <span className="text-gray-700 dark:text-gray-300">
+            {/* Section Header - v4.0.2 Clean Standards */}
+            <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                 Professional
-              </span>{" "}
-              <span className="text-brand-primary">Team Cards</span>
+              </span>
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
+                Team Cards
+              </span>
             </h2>
-            <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+            <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
               Experience our team through vintage-style baseball cards featuring
               professional statistics, career achievements, and personal
               stories. Each card showcases the expertise and dedication that
@@ -141,13 +156,16 @@ export default function TeamPage() {
             <FadeInWhenVisible>
               <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 p-12 rounded-2xl">
                 <div className="mb-12 text-center">
-                  <h2 className="mb-6 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                    <span className="text-gray-700 dark:text-gray-300">
+                  {/* Section Header - v4.0.2 Clean Standards */}
+                  <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                    <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                       Partnership Life at
-                    </span>{" "}
-                    <span className="text-brand-primary">MH Construction</span>
+                    </span>
+                    <span className="block text-brand-primary dark:text-brand-primary font-black">
+                      MH Construction
+                    </span>
                   </h2>
-                  <p className="mx-auto max-w-3xl text-gray-700 dark:text-gray-300 text-xl leading-relaxed">
+                  <p className="mx-auto max-w-3xl font-light text-gray-700 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
                     "All for one, one for all" isn't just a motto—it's how we
                     partner, grow, and succeed together with our partners.
                   </p>
@@ -220,11 +238,13 @@ export default function TeamPage() {
 
                 {/* Culture Highlights */}
                 <div className="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-xl">
-                  <h3 className="mb-8 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center">
-                    <span className="text-gray-700 dark:text-gray-300">
+                  <h3 className="mb-8 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl leading-tight tracking-tight text-center">
+                    <span className="block mb-2 text-gray-700 dark:text-gray-300">
                       What Makes Our Partnership
-                    </span>{" "}
-                    <span className="text-brand-primary">Culture Special</span>
+                    </span>
+                    <span className="block text-brand-primary">
+                      Culture Special
+                    </span>
                   </h3>
                   <div className="gap-8 grid grid-cols-1 md:grid-cols-2">
                     <div className="space-y-6">
@@ -356,23 +376,31 @@ export default function TeamPage() {
           <div className="mt-20 text-center">
             <FadeInWhenVisible>
               <div className="bg-white dark:bg-gray-800 shadow-xl mx-auto p-8 border border-brand-secondary rounded-lg max-w-2xl">
-                <h3 className="mb-4 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
-                  <span className="text-gray-700 dark:text-gray-300">
+                {/* Section Header - v4.0.2 Clean Standards */}
+                <h3 className="mb-6 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl leading-tight tracking-tight">
+                  <span className="block mb-2 text-gray-700 dark:text-gray-300">
                     Interested in Joining
-                  </span>{" "}
-                  <span className="text-brand-primary">
+                  </span>
+                  <span className="block text-brand-primary">
                     Our Partnership Team?
                   </span>
                 </h3>
-                <p className="mb-6 text-gray-600 dark:text-gray-300">
+                <p className="mb-6 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                   Explore partnership opportunities and learn more about what
                   makes MH Construction a great place to work. View our current
                   openings and discover the benefits of joining our
                   veteran-owned partnership company.
                 </p>
                 <Link href="/careers">
-                  <Button variant="primary" size="lg">
-                    View Partnership Opportunities
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="transition-all duration-300 min-w-[280px]"
+                  >
+                    <MaterialIcon icon="work" size="lg" className="mr-3" />
+                    <span className="font-medium">
+                      View Partnership Opportunities
+                    </span>
                   </Button>
                 </Link>
               </div>

@@ -139,32 +139,144 @@ export default function Home() {
       <StructuredData data={generateOrganizationStructuredData()} />
 
       {/* Home Page Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-gray-900 pt-20 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 lg:pb-24 text-white overflow-hidden">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_60%)] opacity-50"></div>
+        <div className="top-20 right-20 absolute bg-brand-secondary/20 blur-3xl rounded-full w-64 h-64"></div>
+        <div className="bottom-20 left-20 absolute bg-brand-primary/20 blur-3xl rounded-full w-80 h-80"></div>
 
         {/* Content - Positioned below header logo, above navigation bar */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
-          <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="mx-auto max-w-5xl text-center">
+            {/* Veteran Badge - Always Visible */}
+            <div className="flex justify-center items-center gap-2 mb-4 sm:mb-6">
+              <MaterialIcon
+                icon="military_tech"
+                size="lg"
+                className="text-bronze-300"
+              />
+              <span className="font-semibold text-bronze-300 text-sm sm:text-base tracking-wide uppercase">
+                Veteran-Owned Excellence
+              </span>
+            </div>
+
             {/* Main Title */}
-            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-              <span className="block text-white font-black drop-shadow-lg">
-                Your Partnership in Construction Excellence
+            <h1
+              className="mb-4 sm:mb-6 lg:mb-8 font-black text-white leading-none tracking-tighter"
+              style={{ fontSize: "clamp(2rem, 8vw, 6rem)" }}
+            >
+              <span className="block">Commercial Construction</span>
+              <span className="block mt-2 sm:mt-3 lg:mt-4 bg-clip-text bg-gradient-to-r from-bronze-300 to-bronze-100 text-transparent">
+                Excellence
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-              We Work With You Every Step. Military Precision. Advanced
-              Technology.
+            <p
+              className="mx-auto mb-3 sm:mb-4 max-w-4xl font-light text-white/90 leading-relaxed tracking-wide px-2"
+              style={{ fontSize: "clamp(1rem, 2.5vw, 2rem)" }}
+            >
+              Your trusted construction partner in{" "}
+              <span className="font-semibold text-white">
+                Pasco, Kennewick, and Richland
+              </span>
+              . We build commercial, medical, and industrial projects with{" "}
+              <span className="font-semibold text-bronze-300">
+                integrity & precision
+              </span>
+              .
             </p>
 
-            {/* Description */}
-            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Partnering with Tri-Cities communities since 2010 - where veteran
-              values meet collaborative construction management for
-              extraordinary results.
+            {/* Partnership Tagline - Always Visible */}
+            <p
+              className="mx-auto mb-6 sm:mb-8 lg:mb-12 max-w-3xl font-bold text-white leading-relaxed"
+              style={{ fontSize: "clamp(1.125rem, 3vw, 2.25rem)" }}
+            >
+              "Building for the Owner,{" "}
+              <span
+                className="font-black text-bronze-300"
+                style={{ fontSize: "clamp(1.25rem, 3.5vw, 2.5rem)" }}
+              >
+                NOT
+              </span>{" "}
+              the Dollar"
             </p>
+
+            {/* Enhanced CTA Buttons - Mobile optimized */}
+            <FadeInWhenVisible>
+              <div className="flex sm:flex-row flex-col justify-center items-stretch sm:items-center gap-3 sm:gap-4 lg:gap-6 mx-auto mb-8 sm:mb-12 lg:mb-16 max-w-3xl">
+                <Link href="/booking" className="flex-1 sm:flex-initial">
+                  <Button
+                    variant="secondary"
+                    size="xl"
+                    className="group w-full sm:w-auto transition-all duration-300 min-h-[56px] sm:min-h-[64px] touch-manipulation"
+                  >
+                    <MaterialIcon
+                      icon="event"
+                      size="lg"
+                      className="mr-2 sm:mr-3 flex-shrink-0"
+                    />
+                    <span className="font-medium text-sm sm:text-base lg:text-lg">
+                      Schedule Free Consultation
+                    </span>
+                  </Button>
+                </Link>
+                <Link href="/estimator" className="flex-1 sm:flex-initial">
+                  <Button
+                    variant="primary"
+                    size="xl"
+                    className="group border-2 border-white/20 hover:border-white/40 w-full sm:w-auto transition-all duration-300 min-h-[56px] sm:min-h-[64px] touch-manipulation"
+                  >
+                    <MaterialIcon
+                      icon="smart_toy"
+                      size="lg"
+                      className="mr-2 sm:mr-3 flex-shrink-0"
+                    />
+                    <span className="font-medium text-sm sm:text-base lg:text-lg">
+                      Get Instant AI Estimate
+                    </span>
+                  </Button>
+                </Link>
+              </div>
+            </FadeInWhenVisible>
+
+            {/* Quick Stats - Mobile optimized */}
+            <FadeInWhenVisible>
+              <div className="gap-3 sm:gap-6 lg:gap-8 grid grid-cols-2 sm:grid-cols-4 mx-auto max-w-4xl">
+                <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 border border-white/20 rounded-lg sm:rounded-xl text-center transition-all duration-300 hover:scale-105">
+                  <div className="mb-1 sm:mb-2 font-black text-2xl sm:text-3xl lg:text-4xl text-bronze-300">
+                    30+
+                  </div>
+                  <div className="font-medium text-white/90 text-xs sm:text-sm lg:text-base">
+                    Years Combined Experience
+                  </div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 border border-white/20 rounded-lg sm:rounded-xl text-center transition-all duration-300 hover:scale-105">
+                  <div className="mb-1 sm:mb-2 font-black text-2xl sm:text-3xl lg:text-4xl text-bronze-300">
+                    500+
+                  </div>
+                  <div className="font-medium text-white/90 text-xs sm:text-sm lg:text-base">
+                    Projects Completed
+                  </div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 border border-white/20 rounded-lg sm:rounded-xl text-center transition-all duration-300 hover:scale-105">
+                  <div className="mb-1 sm:mb-2 font-black text-2xl sm:text-3xl lg:text-4xl text-bronze-300">
+                    98%
+                  </div>
+                  <div className="font-medium text-white/90 text-xs sm:text-sm lg:text-base">
+                    Client Satisfaction
+                  </div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 border border-white/20 rounded-lg sm:rounded-xl text-center transition-all duration-300 hover:scale-105">
+                  <div className="mb-1 sm:mb-2 font-black text-2xl sm:text-3xl lg:text-4xl text-bronze-300">
+                    24/7
+                  </div>
+                  <div className="font-medium text-white/90 text-xs sm:text-sm lg:text-base">
+                    Client Support
+                  </div>
+                </div>
+              </div>
+            </FadeInWhenVisible>
           </div>
         </div>
 

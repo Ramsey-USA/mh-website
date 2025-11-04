@@ -52,49 +52,94 @@ export default function EstimatorPage() {
       <StructuredData data={seoData.schemas} />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-secondary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-gray-900 pt-20 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 lg:pb-24 text-white overflow-hidden">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/30 via-gray-900/80 to-brand-primary/20"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_60%)] opacity-50"></div>
+        <div className="top-20 right-20 absolute bg-brand-secondary/20 blur-3xl rounded-full w-64 h-64"></div>
+        <div className="bottom-20 left-20 absolute bg-brand-primary/20 blur-3xl rounded-full w-80 h-80"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
-          <FadeInWhenVisible className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="mx-auto max-w-5xl text-center">
+            {/* Veteran Badge - Always Visible */}
+            <div className="flex justify-center items-center gap-2 mb-4 sm:mb-6">
+              <MaterialIcon
+                icon="military_tech"
+                size="lg"
+                className="text-bronze-300"
+              />
+              <span className="font-semibold text-bronze-300 text-sm sm:text-base tracking-wide uppercase">
+                Veteran-Owned Excellence
+              </span>
+            </div>
+
             {/* Main Title */}
-            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-              <span className="block text-brand-secondary font-black drop-shadow-lg">
-                AI-Powered Cost Estimator
+            <h1
+              className="mb-4 sm:mb-6 lg:mb-8 font-black text-white leading-none tracking-tighter"
+              style={{ fontSize: "clamp(2rem, 8vw, 6rem)" }}
+            >
+              <span className="block">AI-Powered Cost</span>
+              <span className="block mt-2 sm:mt-3 lg:mt-4 bg-clip-text bg-gradient-to-r from-bronze-300 to-bronze-100 text-transparent">
+                Estimator
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+            <p
+              className="mx-auto mb-3 sm:mb-4 max-w-4xl font-light text-white/90 leading-relaxed tracking-wide px-2"
+              style={{ fontSize: "clamp(1rem, 2.5vw, 2rem)" }}
+            >
               Instant Preliminary Estimates • 24/7 Available • No Appointment
               Needed
             </p>
 
-            {/* Description */}
-            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              AI-powered technology provides preliminary budget estimates for
-              initial planning • For detailed analysis and custom solutions,
-              schedule an in-person consultation
+            {/* Partnership Tagline - Always Visible */}
+            <p
+              className="mx-auto mb-6 sm:mb-8 lg:mb-12 max-w-3xl font-bold text-white leading-relaxed"
+              style={{ fontSize: "clamp(1.125rem, 3vw, 2.25rem)" }}
+            >
+              "Building for the Owner,{" "}
+              <span
+                className="font-black text-bronze-300"
+                style={{ fontSize: "clamp(1.25rem, 3.5vw, 2.5rem)" }}
+              >
+                NOT
+              </span>{" "}
+              the Dollar"
             </p>
 
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-10 font-medium text-brand-secondary text-sm sm:text-base pt-2">
-              <div className="flex items-center">
-                <MaterialIcon icon="flash_on" size="md" className="mr-2" />
-                <span>Under 5 Minutes</span>
+            {/* Description */}
+            <FadeInWhenVisible>
+              <p
+                className="mx-auto mb-8 max-w-4xl font-medium text-white/80 leading-relaxed px-2"
+                style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)" }}
+              >
+                AI-powered technology provides preliminary budget estimates for
+                initial planning • For detailed analysis and custom solutions,
+                schedule an in-person consultation
+              </p>
+
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-10 font-medium text-bronze-300 text-sm sm:text-base">
+                <div className="flex items-center">
+                  <MaterialIcon icon="flash_on" size="md" className="mr-2" />
+                  <span>Under 5 Minutes</span>
+                </div>
+                <div className="flex items-center">
+                  <MaterialIcon icon="analytics" size="md" className="mr-2" />
+                  <span>Data-Driven</span>
+                </div>
+                <div className="flex items-center">
+                  <MaterialIcon
+                    icon="military_tech"
+                    size="md"
+                    className="mr-2"
+                  />
+                  <span>10% Veteran Discount</span>
+                </div>
               </div>
-              <div className="flex items-center">
-                <MaterialIcon icon="analytics" size="md" className="mr-2" />
-                <span>Data-Driven</span>
-              </div>
-              <div className="flex items-center">
-                <MaterialIcon icon="military_tech" size="md" className="mr-2" />
-                <span>10% Veteran Discount</span>
-              </div>
-            </div>
-          </FadeInWhenVisible>
+            </FadeInWhenVisible>
+          </div>
         </div>
 
         {/* Page-Specific Navigation Bar */}

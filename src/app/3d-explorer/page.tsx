@@ -21,53 +21,71 @@ export default function ThreeDExplorerPage() {
       <div className="absolute bottom-20 left-20 bg-brand-accent/10 blur-3xl rounded-full w-96 h-96"></div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-        <FadeInWhenVisible className="space-y-8">
-          {/* Veteran-Owned Badge */}
-          <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-6 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-            <MaterialIcon
-              icon="military_tech"
-              size="sm"
-              className="text-brand-accent"
-            />
-            <span className="ml-3 font-bold text-brand-accent text-xs uppercase tracking-wider">
-              Veteran-Owned Excellence
-            </span>
-          </div>
+        {/* Veteran-Owned Badge - Always Visible */}
+        <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm mb-6 px-6 py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
+          <MaterialIcon
+            icon="military_tech"
+            size="sm"
+            className="text-bronze-300"
+          />
+          <span className="ml-3 font-bold text-bronze-300 text-xs uppercase tracking-wider">
+            Veteran-Owned Excellence
+          </span>
+        </div>
 
-          {/* Under Construction Icon */}
+        {/* Under Construction Icon */}
+        <FadeInWhenVisible>
           <div className="flex justify-center mb-8">
             <div className="bg-white/10 backdrop-blur-sm p-8 rounded-full border border-white/20">
               <MaterialIcon
                 icon="visibility"
-                className="text-brand-accent text-8xl"
+                className="text-bronze-300 text-8xl"
               />
             </div>
           </div>
+        </FadeInWhenVisible>
 
-          {/* Main Title */}
-          <h1 className="mb-6 pb-2 font-black text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-            <span className="block mb-3 font-semibold text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
-              3D Project
-            </span>
-            <span className="block bg-clip-text bg-gradient-to-r from-brand-accent to-brand-secondary text-transparent drop-shadow-sm">
-              Explorer
-            </span>
-          </h1>
+        {/* Main Title - Always Visible */}
+        <h1
+          className="mb-6 pb-2 font-black text-white leading-tight tracking-tighter"
+          style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)" }}
+        >
+          <span
+            className="block mb-3 font-semibold text-white/80 tracking-tight"
+            style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}
+          >
+            3D Project
+          </span>
+          <span className="block bg-clip-text bg-gradient-to-r from-bronze-300 to-bronze-100 text-transparent drop-shadow-sm">
+            Explorer
+          </span>
+        </h1>
 
-          {/* Primary Tagline */}
-          <div className="bg-white/10 backdrop-blur-sm p-4 border border-white/20 rounded-xl inline-block mb-6">
-            <p className="text-lg sm:text-xl md:text-2xl font-semibold text-brand-accent tracking-wide">
-              "Building for the Owner, NOT the Dollar"
-            </p>
-          </div>
+        {/* Primary Tagline - Always Visible */}
+        <div className="bg-white/10 backdrop-blur-sm p-4 border border-white/20 rounded-xl inline-block mb-6">
+          <p
+            className="font-bold text-white leading-relaxed"
+            style={{ fontSize: "clamp(1.125rem, 3vw, 2rem)" }}
+          >
+            "Building for the Owner,{" "}
+            <span
+              className="font-black text-bronze-300"
+              style={{ fontSize: "clamp(1.25rem, 3.5vw, 2.25rem)" }}
+            >
+              NOT
+            </span>{" "}
+            the Dollar"
+          </p>
+        </div>
 
+        <FadeInWhenVisible className="space-y-8">
           {/* Under Construction Message */}
           <div className="bg-white/5 backdrop-blur-sm p-8 border border-white/10 rounded-2xl max-w-2xl mx-auto">
             <div className="flex items-center justify-center mb-4">
               <MaterialIcon
                 icon="construction"
                 size="lg"
-                className="text-brand-accent mr-3"
+                className="text-bronze-300 mr-3"
               />
               <h2 className="text-2xl sm:text-3xl font-bold text-white">
                 Coming Soon
@@ -84,7 +102,7 @@ export default function ThreeDExplorerPage() {
                 <MaterialIcon
                   icon="view_in_ar"
                   size="md"
-                  className="text-brand-accent mb-2"
+                  className="text-bronze-300 mb-2"
                 />
                 <span>HD Visualization</span>
               </div>
@@ -92,7 +110,7 @@ export default function ThreeDExplorerPage() {
                 <MaterialIcon
                   icon="edit"
                   size="md"
-                  className="text-brand-accent mb-2"
+                  className="text-bronze-300 mb-2"
                 />
                 <span>Real-time Edits</span>
               </div>
@@ -100,7 +118,7 @@ export default function ThreeDExplorerPage() {
                 <MaterialIcon
                   icon="groups"
                   size="md"
-                  className="text-brand-accent mb-2"
+                  className="text-bronze-300 mb-2"
                 />
                 <span>Collaboration</span>
               </div>
@@ -113,7 +131,7 @@ export default function ThreeDExplorerPage() {
               <Button
                 variant="primary"
                 size="lg"
-                className="bg-brand-accent hover:bg-brand-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+                className="bg-bronze-300 hover:bg-bronze-400 text-gray-900 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
               >
                 <MaterialIcon icon="calculate" size="lg" className="mr-3" />
                 <span className="font-medium">Try AI Estimator</span>
@@ -140,7 +158,7 @@ export default function ThreeDExplorerPage() {
           {/* Back to Home */}
           <Link
             href="/"
-            className="inline-flex items-center text-brand-accent hover:text-brand-secondary transition-colors duration-200 pt-4"
+            className="inline-flex items-center text-bronze-300 hover:text-bronze-400 transition-colors duration-200 pt-4"
           >
             <MaterialIcon icon="arrow_back" size="sm" className="mr-2" />
             <span className="font-medium">Back to Home</span>

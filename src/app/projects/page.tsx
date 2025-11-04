@@ -173,17 +173,29 @@ export default function ProjectsPage() {
 
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section - v4.0.2 Standards */}
       <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
-        {/* Content */}
+        {/* Content - NO WRAPPER on critical content per v4.0.2 */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
-          <FadeInWhenVisible className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-            {/* Main Title - NO SECTION BADGES per policy */}
-            <h1 className="font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tight">
-              <span className="block mb-2 sm:mb-3 font-semibold text-brand-secondary text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+          <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+            {/* Veteran Badge */}
+            <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
+              <MaterialIcon
+                icon="military_tech"
+                size="md"
+                className="mr-2 sm:mr-3 text-brand-secondary"
+              />
+              <span className="font-bold text-brand-primary-light text-xs sm:text-sm uppercase tracking-wider">
+                Veteran-Owned Excellence
+              </span>
+            </div>
+
+            {/* Main Title */}
+            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+              <span className="block mb-2 text-white/90 font-semibold text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl">
                 Partnership Success
               </span>
               <span className="block text-white font-black drop-shadow-lg">
@@ -191,54 +203,38 @@ export default function ProjectsPage() {
               </span>
             </h1>
 
-            {/* Primary Tagline - NO SECTION BADGES per policy */}
-            <p className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-brand-secondary tracking-wide">
+            {/* Primary Tagline */}
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-brand-secondary font-bold leading-snug px-2">
               "Building for the Owner, NOT the Dollar"
             </p>
 
-            {/* Subtitle with Veteran Badge */}
-            <div className="flex items-center justify-center gap-3 text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-white/90">
-              <MaterialIcon
-                icon="military_tech"
-                size="md"
-                className="text-brand-secondary"
-              />
-              <span>Veteran-Owned Excellence</span>
-            </div>
-
             {/* Description */}
-            <p className="max-w-4xl mx-auto font-light text-white/90 text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-              Building Excellence Together Across the Pacific Northwest
-            </p>
-
-            {/* Additional Info */}
-            <p className="max-w-4xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg text-white/80 leading-relaxed px-2">
+            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
+              Building Excellence Together Across the Pacific Northwest -
               Explore our comprehensive portfolio showcasing decades of
-              collaborative partnerships, innovative construction solutions, and
-              unwavering commitment to partner success throughout the Tri-Cities
-              area.
+              collaborative partnerships throughout the Tri-Cities area.
             </p>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-10 font-medium text-brand-secondary text-sm sm:text-base">
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 font-medium text-brand-secondary text-xs sm:text-sm md:text-base">
               <div className="flex items-center">
                 <MaterialIcon
                   icon="workspace_premium"
-                  size="md"
+                  size="sm"
                   className="mr-2"
                 />
                 <span>100+ Projects</span>
               </div>
               <div className="flex items-center">
-                <MaterialIcon icon="star" size="md" className="mr-2" />
+                <MaterialIcon icon="star" size="sm" className="mr-2" />
                 <span>98% Satisfaction</span>
               </div>
               <div className="flex items-center">
-                <MaterialIcon icon="handshake" size="md" className="mr-2" />
+                <MaterialIcon icon="handshake" size="sm" className="mr-2" />
                 <span>Partnership-Driven</span>
               </div>
             </div>
-          </FadeInWhenVisible>
+          </div>
         </div>
 
         {/* Page-Specific Navigation Bar */}
@@ -801,16 +797,7 @@ export default function ProjectsPage() {
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl">
               <div className="mb-16 lg:mb-24 text-center scroll-reveal">
-                {/* NO SECTION BADGES - Icon only */}
-                <div className="mb-8">
-                  <MaterialIcon
-                    icon="format_quote"
-                    size="4xl"
-                    className="text-brand-primary"
-                  />
-                </div>
-
-                {/* Standard header - NO SECTION BADGES */}
+                {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
                 <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Partnership
@@ -873,16 +860,7 @@ export default function ProjectsPage() {
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl">
               <div className="mb-16 lg:mb-24 text-center scroll-reveal">
-                {/* NO SECTION BADGES - Icon only */}
-                <div className="mb-8">
-                  <MaterialIcon
-                    icon="trending_up"
-                    size="4xl"
-                    className="text-brand-primary"
-                  />
-                </div>
-
-                {/* Standard header - NO SECTION BADGES */}
+                {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
                 <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                     Our Partnership
@@ -979,16 +957,7 @@ export default function ProjectsPage() {
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-3xl text-center">
-              {/* NO SECTION BADGES - Icon only */}
-              <div className="mb-10">
-                <MaterialIcon
-                  icon="handshake"
-                  size="4xl"
-                  className="text-brand-secondary"
-                />
-              </div>
-
-              {/* Standard header - NO SECTION BADGES */}
+              {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
               <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                 <span className="block mb-4 font-semibold text-white/80 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                   Ready to Build
@@ -1004,13 +973,13 @@ export default function ProjectsPage() {
                 portfolio
               </p>
 
-              {/* CTA Buttons - Brand Standards */}
+              {/* CTA Buttons - v4.0.2 Brand Standards */}
               <div className="flex sm:flex-row flex-col justify-center gap-6 mb-10">
                 <Link href="/contact">
                   <Button
                     variant="primary"
                     size="lg"
-                    className="transition-all duration-300 border-2 border-white bg-white text-brand-primary hover:bg-brand-primary hover:text-white min-w-[260px]"
+                    className="transition-all duration-300 border-2 border-white bg-white text-brand-primary hover:bg-brand-primary hover:text-white hover:border-white min-w-[280px]"
                   >
                     <MaterialIcon icon="phone" size="lg" className="mr-3" />
                     <span className="font-medium">Start Partnership</span>
@@ -1020,7 +989,7 @@ export default function ProjectsPage() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="transition-all duration-300 border-2 border-white text-white hover:bg-white hover:text-brand-primary min-w-[260px]"
+                    className="transition-all duration-300 border-2 border-white bg-transparent text-white hover:bg-white hover:text-brand-primary hover:border-white min-w-[280px]"
                   >
                     <MaterialIcon icon="build" size="lg" className="mr-3" />
                     <span className="font-medium">View Services</span>
