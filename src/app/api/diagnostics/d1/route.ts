@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
   if (DB) {
     try {
       const result = await DB.prepare(
-        "SELECT name FROM sqlite_master WHERE type='table'",
+        "SELECT name FROM sqlite_master WHERE type='table'"
       ).all();
       diagnostics.tables = result.results;
     } catch (error) {
