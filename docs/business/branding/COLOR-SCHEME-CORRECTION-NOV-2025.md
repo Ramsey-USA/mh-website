@@ -321,14 +321,14 @@ They are NOT for brand identity or marketing elements.
 
 ### OLD (Incorrect) → NEW (Correct)
 
-| Old Reference | New Reference | Usage |
-|---------------|---------------|-------|
-| Orange (#FF6B35) | Hunter Green (#386851) | Client actions |
-| Blue (#1E40AF) | Leather Tan (#BD9264) | Trade partnerships |
-| "Blue/tech colors" | Leather Tan (#BD9264) | AI features |
-| "Warm colors (orange/green)" | Hunter Green (#386851) | Primary actions |
-| "Veteran red" | Hunter Green (primary variant) | Program buttons |
-| "Veteran blue" | Hunter Green (primary variant) | Access buttons |
+| Old Reference                | New Reference                  | Usage              |
+| ---------------------------- | ------------------------------ | ------------------ |
+| Orange (#FF6B35)             | Hunter Green (#386851)         | Client actions     |
+| Blue (#1E40AF)               | Leather Tan (#BD9264)          | Trade partnerships |
+| "Blue/tech colors"           | Leather Tan (#BD9264)          | AI features        |
+| "Warm colors (orange/green)" | Hunter Green (#386851)         | Primary actions    |
+| "Veteran red"                | Hunter Green (primary variant) | Program buttons    |
+| "Veteran blue"               | Hunter Green (primary variant) | Access buttons     |
 
 ---
 
@@ -408,6 +408,7 @@ Add quick reference card to all documentation:
 
 ```markdown
 ## MH Brand Colors
+
 - Primary: Hunter Green (#386851)
 - Secondary: Leather Tan (#BD9264)
 - Supporting: Grayscale only

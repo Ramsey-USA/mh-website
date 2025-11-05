@@ -129,7 +129,7 @@ export class PushNotificationManager {
       });
 
       const serializedSubscription = this.serializeSubscription(
-        this.subscription
+        this.subscription,
       );
 
       // Send subscription to server
@@ -432,7 +432,7 @@ export class PushNotificationManager {
   }
 
   private serializeSubscription(
-    subscription: PushSubscription
+    subscription: PushSubscription,
   ): NotificationSubscription {
     const keys = subscription.getKey("p256dh");
     const auth = subscription.getKey("auth");
@@ -458,7 +458,7 @@ export class PushNotificationManager {
   }
 
   private async sendSubscriptionToServer(
-    subscription: NotificationSubscription
+    subscription: NotificationSubscription,
   ): Promise<void> {
     try {
       await fetch("/api/notifications/subscribe", {

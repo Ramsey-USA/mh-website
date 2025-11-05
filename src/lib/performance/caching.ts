@@ -88,7 +88,7 @@ class CacheManager {
   async set<T>(
     key: string,
     data: T,
-    config: CacheConfig = { ttl: 300000, version: "1.0" }
+    config: CacheConfig = { ttl: 300000, version: "1.0" },
   ): Promise<void> {
     const {
       ttl,
@@ -157,7 +157,7 @@ class CacheManager {
 
   private async getFromBrowser<T>(
     key: string,
-    version: string
+    version: string,
   ): Promise<CacheEntry<T> | null> {
     if (typeof window === "undefined") return null;
 
@@ -204,7 +204,7 @@ class CacheManager {
     key: string,
     data: T,
     config: CacheConfig,
-    storage: "session" | "local" | "indexeddb"
+    storage: "session" | "local" | "indexeddb",
   ): Promise<void> {
     if (typeof window === "undefined") return;
 
@@ -240,7 +240,7 @@ class CacheManager {
 
   private async getFromIndexedDB<T>(
     key: string,
-    version: string
+    version: string,
   ): Promise<CacheEntry<T> | null> {
     return new Promise((resolve) => {
       if (!window.indexedDB) {
@@ -291,7 +291,7 @@ class CacheManager {
 
   private async setInIndexedDB<T>(
     key: string,
-    entry: CacheEntry<T>
+    entry: CacheEntry<T>,
   ): Promise<void> {
     return new Promise((resolve, reject) => {
       if (!window.indexedDB) {
@@ -484,7 +484,7 @@ export class APICache {
 
   async cachedFetch<T>(
     url: string,
-    options: RequestInit & { cacheConfig?: CacheConfig } = {}
+    options: RequestInit & { cacheConfig?: CacheConfig } = {},
   ): Promise<T> {
     const { cacheConfig, ...fetchOptions } = options;
     const cacheKey = this.generateCacheKey(url, fetchOptions);
@@ -492,7 +492,7 @@ export class APICache {
     // Try to get from cache first
     const cached = await this.cacheManager.get<T>(
       cacheKey,
-      cacheConfig?.version || "1.0"
+      cacheConfig?.version || "1.0",
     );
     if (cached) {
       return cached;
@@ -522,7 +522,7 @@ export class APICache {
       queryOptimizer.cacheQuery(
         `api_${cacheKey}`,
         () => Promise.resolve(data),
-        cacheConfig?.ttl || 300000
+        cacheConfig?.ttl || 300000,
       );
 
       return data;
@@ -542,7 +542,7 @@ export class APICache {
 
     return btoa(`${url}_${JSON.stringify(sortedOptions)}`).replace(
       /[/+=]/g,
-      "_"
+      "_",
     );
   }
 
@@ -571,7 +571,7 @@ export class DatabaseCache {
       version?: string;
       tags?: string[];
       dependencies?: string[];
-    } = {}
+    } = {},
   ): Promise<T> {
     const {
       ttl = 600000,

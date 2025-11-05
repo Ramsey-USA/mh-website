@@ -19,18 +19,18 @@ All updates follow **MH Construction branding standards** using MaterialIcon com
 
 ### Service Type Distinctions
 
-| Aspect             | AI Estimator                    | IRL Sales Consultation             |
-| ------------------ | ------------------------------- | ---------------------------------- |
-| **Type**           | Automated self-service          | Human expert service               |
-| **MaterialIcon**   | `smart_toy`                     | `event` or `handshake`             |
-| **Speed**          | Instant (seconds)               | Scheduled (days)                   |
-| **Availability**   | 24/7 online                     | Business hours                     |
-| **Detail Level**   | Preliminary/ballpark            | Comprehensive/detailed             |
-| **Interaction**    | Digital/automated               | Personal/in-person                 |
-| **Best For**       | Research phase, budget planning | Project planning, ready to proceed |
-| **Site Visit**     | Not included                    | Included                           |
+| Aspect             | AI Estimator                      | IRL Sales Consultation             |
+| ------------------ | --------------------------------- | ---------------------------------- |
+| **Type**           | Automated self-service            | Human expert service               |
+| **MaterialIcon**   | `smart_toy`                       | `event` or `handshake`             |
+| **Speed**          | Instant (seconds)                 | Scheduled (days)                   |
+| **Availability**   | 24/7 online                       | Business hours                     |
+| **Detail Level**   | Preliminary/ballpark              | Comprehensive/detailed             |
+| **Interaction**    | Digital/automated                 | Personal/in-person                 |
+| **Best For**       | Research phase, budget planning   | Project planning, ready to proceed |
+| **Site Visit**     | Not included                      | Included                           |
 | **Color Scheme**   | Leather Tan (#BD9264) - Secondary | Hunter Green (#386851) - Primary   |
-| **Button Variant** | `secondary`                     | `primary`                          |
+| **Button Variant** | `secondary`                       | `primary`                          |
 
 ### CTA Examples
 

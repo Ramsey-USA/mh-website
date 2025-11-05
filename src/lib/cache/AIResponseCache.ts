@@ -252,7 +252,7 @@ export const aiCache = new AIResponseCache();
 export const cacheAIResponse = (
   key: string,
   response: string,
-  expiryMs?: number
+  expiryMs?: number,
 ) => {
   aiCache.set(key, response, expiryMs);
 };
@@ -266,7 +266,7 @@ export const cacheFormData = (formId: string, data: Record<string, any>) => {
 };
 
 export const getCachedFormData = (
-  formId: string
+  formId: string,
 ): Record<string, any> | null => {
   return aiCache.getFormData(formId);
 };
@@ -274,7 +274,7 @@ export const getCachedFormData = (
 // Generate cache key for AI requests
 export const generateCacheKey = (
   type: string,
-  input: string | object
+  input: string | object,
 ): string => {
   const inputString = typeof input === "string" ? input : JSON.stringify(input);
   const hash = btoa(inputString)

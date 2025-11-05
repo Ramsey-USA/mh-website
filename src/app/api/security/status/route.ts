@@ -43,10 +43,10 @@ async function handler(request: NextRequest) {
         metrics: {
           totalEvents: auditStats.totalEvents,
           criticalVulnerabilities: vulnerabilities.filter(
-            (v) => v.severity === "critical"
+            (v) => v.severity === "critical",
           ).length,
           highVulnerabilities: vulnerabilities.filter(
-            (v) => v.severity === "high"
+            (v) => v.severity === "high",
           ).length,
           activeThreats: auditStats.anomalies.length,
           lastScanTime: getLastScanTime(vulnerabilities),
@@ -64,14 +64,14 @@ async function handler(request: NextRequest) {
                 acc[v.severity] = (acc[v.severity] || 0) + 1;
                 return acc;
               },
-              {} as Record<string, number>
+              {} as Record<string, number>,
             ),
             byStatus: vulnerabilities.reduce(
               (acc, v) => {
                 acc[v.status] = (acc[v.status] || 0) + 1;
                 return acc;
               },
-              {} as Record<string, number>
+              {} as Record<string, number>,
             ),
           },
           events: auditStats.eventsByType,
@@ -148,7 +148,7 @@ async function handler(request: NextRequest) {
     logger.error("Security API error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -156,7 +156,7 @@ async function handler(request: NextRequest) {
 // Helper functions
 function calculateSecurityScore(
   auditStats: any,
-  vulnerabilities: any[]
+  vulnerabilities: any[],
 ): number {
   let score = 100;
 

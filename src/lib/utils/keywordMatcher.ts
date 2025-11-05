@@ -23,7 +23,7 @@ export function matchesKeywords(input: string, keywords: string[]): boolean {
 export function matchesAllKeywords(input: string, keywords: string[]): boolean {
   const lowerInput = input.toLowerCase();
   return keywords.every((keyword) =>
-    lowerInput.includes(keyword.toLowerCase())
+    lowerInput.includes(keyword.toLowerCase()),
   );
 }
 
@@ -35,10 +35,10 @@ export function matchesAllKeywords(input: string, keywords: string[]): boolean {
  */
 export function countMatchedKeywords(
   input: string,
-  keywords: string[]
+  keywords: string[],
 ): number {
   const lowerInput = input.toLowerCase();
   return keywords.filter((keyword) =>
-    lowerInput.includes(keyword.toLowerCase())
+    lowerInput.includes(keyword.toLowerCase()),
   ).length;
 }

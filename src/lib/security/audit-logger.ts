@@ -151,7 +151,7 @@ export class AuditLogger {
    */
   async logEvent(
     eventType: AuditEventType,
-    details: Partial<AuditEvent>
+    details: Partial<AuditEvent>,
   ): Promise<void> {
     // Skip if logging is disabled for this event type
     if (!this.shouldLog(eventType, details.outcome)) {
@@ -208,14 +208,14 @@ export class AuditLogger {
     // Filter by event types
     if (query.eventTypes && query.eventTypes.length > 0) {
       filteredEvents = filteredEvents.filter((event) =>
-        query.eventTypes!.includes(event.eventType)
+        query.eventTypes!.includes(event.eventType),
       );
     }
 
     // Filter by risk levels
     if (query.riskLevels && query.riskLevels.length > 0) {
       filteredEvents = filteredEvents.filter((event) =>
-        query.riskLevels!.includes(event.riskLevel)
+        query.riskLevels!.includes(event.riskLevel),
       );
     }
 
@@ -224,35 +224,35 @@ export class AuditLogger {
       filteredEvents = filteredEvents.filter(
         (event) =>
           event.timestamp >= query.dateRange!.start &&
-          event.timestamp <= query.dateRange!.end
+          event.timestamp <= query.dateRange!.end,
       );
     }
 
     // Filter by user ID
     if (query.userId) {
       filteredEvents = filteredEvents.filter(
-        (event) => event.userId === query.userId
+        (event) => event.userId === query.userId,
       );
     }
 
     // Filter by IP address
     if (query.ipAddress) {
       filteredEvents = filteredEvents.filter(
-        (event) => event.ipAddress === query.ipAddress
+        (event) => event.ipAddress === query.ipAddress,
       );
     }
 
     // Filter by outcome
     if (query.outcome) {
       filteredEvents = filteredEvents.filter(
-        (event) => event.outcome === query.outcome
+        (event) => event.outcome === query.outcome,
       );
     }
 
     // Filter by tags
     if (query.tags && query.tags.length > 0) {
       filteredEvents = filteredEvents.filter((event) =>
-        query.tags!.some((tag) => event.tags.includes(tag))
+        query.tags!.some((tag) => event.tags.includes(tag)),
       );
     }
 
@@ -292,7 +292,8 @@ export class AuditLogger {
     if (dateRange) {
       events = events.filter(
         (event) =>
-          event.timestamp >= dateRange.start && event.timestamp <= dateRange.end
+          event.timestamp >= dateRange.start &&
+          event.timestamp <= dateRange.end,
       );
     }
 
@@ -376,7 +377,7 @@ export class AuditLogger {
     userId?: string,
     ipAddress?: string,
     userAgent?: string,
-    details?: Record<string, any>
+    details?: Record<string, any>,
   ): Promise<void> {
     await this.logEvent(
       type === "success"
@@ -389,7 +390,7 @@ export class AuditLogger {
         outcome: type === "success" ? "success" : "failure",
         details,
         tags: ["authentication"],
-      }
+      },
     );
   }
 
@@ -400,7 +401,7 @@ export class AuditLogger {
     violationType: AuditEventType,
     ipAddress?: string,
     userAgent?: string,
-    details?: Record<string, any>
+    details?: Record<string, any>,
   ): Promise<void> {
     await this.logEvent(violationType, {
       ipAddress,
@@ -419,7 +420,7 @@ export class AuditLogger {
     action: string,
     userId?: string,
     outcome: "success" | "failure" = "success",
-    details?: Record<string, any>
+    details?: Record<string, any>,
   ): Promise<void> {
     await this.logEvent(AuditEventType.DATA_ACCESS, {
       resource,
@@ -436,7 +437,7 @@ export class AuditLogger {
    */
   async exportLogs(
     query: AuditQuery,
-    format: "json" | "csv" = "json"
+    format: "json" | "csv" = "json",
   ): Promise<string> {
     const events = await this.queryEvents(query);
 
@@ -472,7 +473,7 @@ export class AuditLogger {
 
   private calculateRiskLevel(
     eventType: AuditEventType,
-    details: Partial<AuditEvent>
+    details: Partial<AuditEvent>,
   ): RiskLevel {
     // Critical risk events
     const criticalEvents = [
@@ -567,10 +568,10 @@ export class AuditLogger {
         cutoffDate.setDate(cutoffDate.getDate() - this.config.retentionDays);
 
         this.events = this.events.filter(
-          (event) => event.timestamp > cutoffDate
+          (event) => event.timestamp > cutoffDate,
         );
       },
-      24 * 60 * 60 * 1000
+      24 * 60 * 60 * 1000,
     ); // Run daily
   }
 
@@ -625,10 +626,10 @@ export class AuditLogger {
 
     // Detect unusual login patterns
     const loginFailures = events.filter(
-      (e) => e.eventType === AuditEventType.LOGIN_FAILURE
+      (e) => e.eventType === AuditEventType.LOGIN_FAILURE,
     );
     const recentFailures = loginFailures.filter(
-      (e) => Date.now() - e.timestamp.getTime() < 60 * 60 * 1000 // Last hour
+      (e) => Date.now() - e.timestamp.getTime() < 60 * 60 * 1000, // Last hour
     );
 
     if (recentFailures.length > 10) {

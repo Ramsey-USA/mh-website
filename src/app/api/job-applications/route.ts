@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     if (!data.firstName || !data.lastName || !data.email || !data.position) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -110,7 +110,7 @@ Application ID: ${applicationId}
             type: "job-application",
             recipientEmail: "office@mhc-gc.com",
           }),
-        }
+        },
       );
 
       if (!emailResponse.ok) {
@@ -130,7 +130,7 @@ Application ID: ${applicationId}
     logger.error("Error submitting job application:", error);
     return NextResponse.json(
       { error: "Failed to submit application" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -144,7 +144,7 @@ export async function GET(request: NextRequest) {
       if (DB) {
         const db = createDbClient({ DB });
         const applications = await db.query<JobApplication>(
-          `SELECT * FROM job_applications ORDER BY created_at DESC LIMIT 100`
+          `SELECT * FROM job_applications ORDER BY created_at DESC LIMIT 100`,
         );
 
         return NextResponse.json({
@@ -168,7 +168,7 @@ export async function GET(request: NextRequest) {
     logger.error("Error fetching job applications:", error);
     return NextResponse.json(
       { error: "Failed to fetch applications" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

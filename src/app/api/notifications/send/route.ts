@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     if (!title || !body) {
       return NextResponse.json(
         { error: "Title and body are required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
         try {
           // Simulate sending notification
           logger.info(
-            `Simulating notification to ${sub.id}: ${title} - ${body}`
+            `Simulating notification to ${sub.id}: ${title} - ${body}`,
           );
           return { success: true, id: sub.id };
         } catch (error) {
@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
             error: error instanceof Error ? error.message : "Unknown error",
           };
         }
-      }
+      },
     );
 
     const successful = results.filter((r) => r.success).length;
@@ -97,7 +97,7 @@ export async function POST(request: NextRequest) {
     logger.error("Error sending notifications:", error);
     return NextResponse.json(
       { error: "Failed to send notifications" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -123,7 +123,7 @@ export async function GET() {
         logger.error(`Test notification failed for ${sub.id}:`, error);
         return { success: false, id: sub.id };
       }
-    }
+    },
   );
 
   const successful = results.filter((r) => r.success).length;

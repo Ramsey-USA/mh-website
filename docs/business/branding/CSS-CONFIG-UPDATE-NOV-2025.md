@@ -41,12 +41,12 @@ brand: {
   primary: "#386851", // Hunter Green - Main brand color
   "primary-light": "#4a7a63",
   "primary-dark": "#2d5240",
-  
+
   // SECONDARY BRAND COLOR: Leather Tan
   secondary: "#BD9264", // Leather Tan - Secondary brand color
   "secondary-light": "#c9a176",
   "secondary-dark": "#a67d52",
-  
+
   // GRAYSCALE ACCENTS (approved for use)
   accent: "#757575",
   "accent-light": "#9E9E9E",
@@ -76,7 +76,7 @@ boxShadow: {
   // PRIMARY BRAND SHADOWS (Hunter Green)
   brand: "0 10px 25px -5px rgba(56, 104, 81, 0.2), ...",
   "brand-lg": "0 20px 25px -5px rgba(56, 104, 81, 0.2), ...",
-  
+
   // SECONDARY BRAND SHADOWS (Leather Tan)
   "brand-secondary": "0 10px 25px -5px rgba(189, 146, 100, 0.2), ...",
   "brand-secondary-lg": "0 20px 25px -5px rgba(189, 146, 100, 0.2), ...",
@@ -123,20 +123,20 @@ boxShadow: {
      MH CONSTRUCTION BRAND COLORS
      PRIMARY: Hunter Green | SECONDARY: Leather Tan
      ============================================ */
-  
+
   /* PRIMARY BRAND COLOR: Hunter Green */
   --color-brand-primary: #386851;
   --color-brand-primary-light: #4a7a63;
   --color-brand-primary-dark: #2d5240;
-  
+
   /* SECONDARY BRAND COLOR: Leather Tan */
   --color-brand-secondary: #bd9264;
   --color-brand-secondary-light: #c9a176;
   --color-brand-secondary-dark: #a67d52;
-  
+
   /* GRAYSCALE PALETTE (approved for use) */
   --color-brand-accent: #757575;
-  --color-brand-accent-light: #9E9E9E;
+  --color-brand-accent-light: #9e9e9e;
   --color-brand-accent-dark: #424242;
   --color-brand-light: #f7f9f7;
 }
@@ -180,7 +180,7 @@ boxShadow: {
 /* AFTER: Cleaner dark mode with secondary shadow support */
 [data-theme="dark"] {
   --color-brand-light: #1a332a;
-  
+
   /* Enhanced shadows for dark mode */
   --shadow-brand: 0 4px 14px 0 rgba(56, 104, 81, 0.6);
   --shadow-brand-lg: 0 10px 25px -3px rgba(56, 104, 81, 0.5);
@@ -231,61 +231,61 @@ boxShadow: {
 
 ```tsx
 // Background colors
-className="bg-brand-primary"           // #386851
-className="bg-brand-primary-light"     // #4a7a63
-className="bg-brand-primary-dark"      // #2d5240
+className = "bg-brand-primary"; // #386851
+className = "bg-brand-primary-light"; // #4a7a63
+className = "bg-brand-primary-dark"; // #2d5240
 
 // Text colors
-className="text-brand-primary"
-className="text-brand-primary-light"
-className="text-brand-primary-dark"
+className = "text-brand-primary";
+className = "text-brand-primary-light";
+className = "text-brand-primary-dark";
 
 // Border colors
-className="border-brand-primary"
-className="border-brand-primary-light"
-className="border-brand-primary-dark"
+className = "border-brand-primary";
+className = "border-brand-primary-light";
+className = "border-brand-primary-dark";
 
 // Shadows
-className="shadow-brand"
-className="shadow-brand-lg"
+className = "shadow-brand";
+className = "shadow-brand-lg";
 ```
 
 #### Secondary Brand Color (Leather Tan)
 
 ```tsx
 // Background colors
-className="bg-brand-secondary"         // #BD9264
-className="bg-brand-secondary-light"   // #c9a176
-className="bg-brand-secondary-dark"    // #a67d52
+className = "bg-brand-secondary"; // #BD9264
+className = "bg-brand-secondary-light"; // #c9a176
+className = "bg-brand-secondary-dark"; // #a67d52
 
 // Text colors
-className="text-brand-secondary"
-className="text-brand-secondary-light"
-className="text-brand-secondary-dark"
+className = "text-brand-secondary";
+className = "text-brand-secondary-light";
+className = "text-brand-secondary-dark";
 
 // Border colors
-className="border-brand-secondary"
-className="border-brand-secondary-light"
-className="border-brand-secondary-dark"
+className = "border-brand-secondary";
+className = "border-brand-secondary-light";
+className = "border-brand-secondary-dark";
 
 // Shadows
-className="shadow-brand-secondary"
-className="shadow-brand-secondary-lg"
+className = "shadow-brand-secondary";
+className = "shadow-brand-secondary-lg";
 ```
 
 #### Grayscale (Supporting Colors)
 
 ```tsx
 // Accent colors
-className="bg-brand-accent"            // #757575
-className="text-brand-accent"
-className="border-brand-accent"
+className = "bg-brand-accent"; // #757575
+className = "text-brand-accent";
+className = "border-brand-accent";
 
 // Standard grayscale
-className="bg-gray-50"                 // Lightest
-className="bg-gray-900"                // Darkest
-className="text-gray-600"
-className="border-gray-300"
+className = "bg-gray-50"; // Lightest
+className = "bg-gray-900"; // Darkest
+className = "text-gray-600";
+className = "border-gray-300";
 ```
 
 ### Available CSS Variables
@@ -333,14 +333,14 @@ The following are NO LONGER AVAILABLE:
 
 ### Replacement Mapping
 
-| Deprecated | Use Instead |
-|------------|-------------|
-| `bg-brand-bronze` | `bg-brand-secondary` |
-| `text-brand-bronze` | `text-brand-secondary` |
-| `shadow-bronze` | `shadow-brand-secondary` |
-| `var(--shadow-bronze)` | `var(--shadow-brand-secondary)` |
-| `var(--color-bronze-500)` | `var(--color-brand-secondary)` |
-| `var(--color-forest-500)` | `var(--color-brand-primary)` |
+| Deprecated                | Use Instead                     |
+| ------------------------- | ------------------------------- |
+| `bg-brand-bronze`         | `bg-brand-secondary`            |
+| `text-brand-bronze`       | `text-brand-secondary`          |
+| `shadow-bronze`           | `shadow-brand-secondary`        |
+| `var(--shadow-bronze)`    | `var(--shadow-brand-secondary)` |
+| `var(--color-bronze-500)` | `var(--color-brand-secondary)`  |
+| `var(--color-forest-500)` | `var(--color-brand-primary)`    |
 
 ---
 
@@ -493,7 +493,7 @@ grep -r "#CD7F32\|#2C5440" src/ --include="*.tsx" --include="*.ts"
 Update any components using deprecated color classes:
 
 ```tsx
-// FIND: 
+// FIND:
 className="shadow-bronze"
 // REPLACE WITH:
 className="shadow-brand-secondary"

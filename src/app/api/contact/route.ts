@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
           error:
             "Missing required fields: name, email, and message are required",
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
     if (!emailRegex.test(data.email)) {
       return NextResponse.json(
         { error: "Invalid email address" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -160,13 +160,13 @@ export async function POST(request: NextRequest) {
             "D1 database not available, contact submission not persisted",
             {
               id: submissionId,
-            }
+            },
           );
         }
       } catch (dbError) {
         logger.error(
           "Failed to store contact submission in database:",
-          dbError
+          dbError,
         );
         // Continue even if DB fails - email was already sent
       }
@@ -187,7 +187,7 @@ export async function POST(request: NextRequest) {
     logger.error("Error processing contact form:", error);
     return NextResponse.json(
       { error: "Failed to process contact form submission" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -200,7 +200,7 @@ function generateEmailHTML(data: ContactRequest): string {
     ? Object.entries(data.metadata)
         .map(
           ([key, value]) =>
-            `<tr><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>${formatFieldName(key)}:</strong></td><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;">${value}</td></tr>`
+            `<tr><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>${formatFieldName(key)}:</strong></td><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;">${value}</td></tr>`,
         )
         .join("")
     : "";
@@ -344,7 +344,7 @@ export async function GET(request: NextRequest) {
       if (DB) {
         const db = createDbClient({ DB });
         const submissions = await db.query<ContactSubmission>(
-          `SELECT * FROM contact_submissions ORDER BY created_at DESC LIMIT 100`
+          `SELECT * FROM contact_submissions ORDER BY created_at DESC LIMIT 100`,
         );
 
         return NextResponse.json({
@@ -368,7 +368,7 @@ export async function GET(request: NextRequest) {
     logger.error("Error fetching contact submissions:", error);
     return NextResponse.json(
       { error: "Failed to fetch contact submissions" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

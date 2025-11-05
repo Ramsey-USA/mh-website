@@ -14,7 +14,7 @@
 # Create production database
 npx wrangler d1 create mh-construction-db
 
-# Create preview/development database  
+# Create preview/development database
 npx wrangler d1 create mh-construction-db-preview
 ```
 
@@ -118,13 +118,13 @@ npx wrangler pages deploy .vercel/output/static
 
 ## Database Schema Summary
 
-| Table | Records | Purpose |
-|-------|---------|---------|
-| `consultations` | Client bookings | Consultation requests with scheduling |
-| `job_applications` | Career applications | Employment applications with resume links |
-| `contact_submissions` | Contact forms | General inquiries and contact requests |
-| `users` | User accounts | Authentication and admin access |
-| `sessions` | Active sessions | JWT token management |
+| Table                 | Records             | Purpose                                   |
+| --------------------- | ------------------- | ----------------------------------------- |
+| `consultations`       | Client bookings     | Consultation requests with scheduling     |
+| `job_applications`    | Career applications | Employment applications with resume links |
+| `contact_submissions` | Contact forms       | General inquiries and contact requests    |
+| `users`               | User accounts       | Authentication and admin access           |
+| `sessions`            | Active sessions     | JWT token management                      |
 
 ---
 

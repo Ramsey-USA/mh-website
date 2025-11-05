@@ -19,20 +19,20 @@ export async function GET(request: NextRequest, context: RouteParams) {
     if (!DB) {
       return NextResponse.json(
         { error: "Database not available" },
-        { status: 503 }
+        { status: 503 },
       );
     }
 
     const db = createDbClient({ DB });
     const consultation = await db.queryOne<Consultation>(
       `SELECT * FROM consultations WHERE id = ?`,
-      id
+      id,
     );
 
     if (!consultation) {
       return NextResponse.json(
         { error: "Consultation not found" },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -44,7 +44,7 @@ export async function GET(request: NextRequest, context: RouteParams) {
     logger.error("Error fetching consultation:", error);
     return NextResponse.json(
       { error: "Failed to fetch consultation" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -59,7 +59,7 @@ export async function PUT(request: NextRequest, context: RouteParams) {
     if (!DB) {
       return NextResponse.json(
         { error: "Database not available" },
-        { status: 503 }
+        { status: 503 },
       );
     }
 
@@ -69,14 +69,14 @@ export async function PUT(request: NextRequest, context: RouteParams) {
     if (!updated) {
       return NextResponse.json(
         { error: "Consultation not found" },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
     // Fetch updated record
     const consultation = await db.queryOne<Consultation>(
       `SELECT * FROM consultations WHERE id = ?`,
-      id
+      id,
     );
 
     return NextResponse.json({
@@ -88,7 +88,7 @@ export async function PUT(request: NextRequest, context: RouteParams) {
     logger.error("Error updating consultation:", error);
     return NextResponse.json(
       { error: "Failed to update consultation" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -102,7 +102,7 @@ export async function DELETE(request: NextRequest, context: RouteParams) {
     if (!DB) {
       return NextResponse.json(
         { error: "Database not available" },
-        { status: 503 }
+        { status: 503 },
       );
     }
 
@@ -112,7 +112,7 @@ export async function DELETE(request: NextRequest, context: RouteParams) {
     if (!deleted) {
       return NextResponse.json(
         { error: "Consultation not found" },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -124,7 +124,7 @@ export async function DELETE(request: NextRequest, context: RouteParams) {
     logger.error("Error deleting consultation:", error);
     return NextResponse.json(
       { error: "Failed to delete consultation" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

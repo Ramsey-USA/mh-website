@@ -2,7 +2,7 @@
 // Includes professional statistics, career highlights, and vintage-specific fields
 
 // Import team data from JSON file
-import teamDataJson from './team-data.json';
+import teamDataJson from "./team-data.json";
 
 export interface VintageTeamMember {
   // Core identification
@@ -55,7 +55,8 @@ export interface VintageTeamMember {
 }
 
 // Export team members from JSON data
-export const vintageTeamMembers: VintageTeamMember[] = teamDataJson as VintageTeamMember[];
+export const vintageTeamMembers: VintageTeamMember[] =
+  teamDataJson as VintageTeamMember[];
 
 // Legacy team members interface for backward compatibility
 export interface TeamMember {

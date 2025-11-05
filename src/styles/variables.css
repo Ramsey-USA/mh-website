@@ -6,20 +6,20 @@
      MH CONSTRUCTION BRAND COLORS
      PRIMARY: Hunter Green | SECONDARY: Leather Tan
      ============================================ */
-  
+
   /* PRIMARY BRAND COLOR: Hunter Green */
   --color-brand-primary: #386851;
   --color-brand-primary-light: #4a7a63;
   --color-brand-primary-dark: #2d5240;
-  
+
   /* SECONDARY BRAND COLOR: Leather Tan */
   --color-brand-secondary: #bd9264;
   --color-brand-secondary-light: #c9a176;
   --color-brand-secondary-dark: #a67d52;
-  
+
   /* GRAYSCALE PALETTE (approved for use) */
   --color-brand-accent: #757575;
-  --color-brand-accent-light: #9E9E9E;
+  --color-brand-accent-light: #9e9e9e;
   --color-brand-accent-dark: #424242;
   --color-brand-light: #f7f9f7;
 

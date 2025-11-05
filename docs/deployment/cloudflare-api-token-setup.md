@@ -42,11 +42,11 @@ Your API token needs these permissions:
    ├── Account Settings → Read
    ├── D1 → Edit
    └── Workers Scripts → Edit
-   
+
    User:
    ├── Memberships → Read
    └── User Details → Read
-   
+
    Zone (optional):
    ├── Zone → Read
    └── DNS → Edit

@@ -38,7 +38,7 @@ export class ConversationPersistence {
       };
       localStorage.setItem(
         STORAGE_KEYS.CURRENT_SESSION,
-        JSON.stringify(sessionInfo)
+        JSON.stringify(sessionInfo),
       );
     } catch (error) {
       logger.error("Failed to save current session:", error);
@@ -85,7 +85,7 @@ export class ConversationPersistence {
 
       localStorage.setItem(
         STORAGE_KEYS.CONVERSATION_HISTORY,
-        JSON.stringify(trimmedHistory)
+        JSON.stringify(trimmedHistory),
       );
     } catch (error) {
       logger.error("Failed to save conversation history:", error);
@@ -178,7 +178,7 @@ export function useConversationHistory() {
       setHistory((prev) => [conversation, ...prev.slice(0, 9)]); // Keep only 10
       ConversationPersistence.clearCurrentSession();
     },
-    []
+    [],
   );
 
   // Export conversation
@@ -186,7 +186,7 @@ export function useConversationHistory() {
     (conversation: ConversationHistory) => {
       ConversationPersistence.downloadConversation(conversation);
     },
-    []
+    [],
   );
 
   // Clear all history
@@ -205,7 +205,7 @@ export function useConversationHistory() {
       ConversationPersistence.saveCurrentSession(messages, sessionData);
       setCurrentSession({ messages, sessionData });
     },
-    []
+    [],
   );
 
   return {
@@ -224,7 +224,7 @@ export class UserPreferences {
     try {
       localStorage.setItem(
         STORAGE_KEYS.USER_PREFERENCES,
-        JSON.stringify(preferences)
+        JSON.stringify(preferences),
       );
     } catch (error) {
       logger.error("Failed to save user preferences:", error);

@@ -178,7 +178,7 @@ try {
       console.log("━".repeat(60));
 
       const consultations = await db.query(
-        "SELECT * FROM consultations ORDER BY created_at DESC"
+        "SELECT * FROM consultations ORDER BY created_at DESC",
       );
       console.log("✅ Found consultations:", consultations.length);
 
@@ -233,7 +233,7 @@ try {
 
       const specific = await db.queryOne(
         "SELECT * FROM consultations WHERE id = ?",
-        "test-consultation-1"
+        "test-consultation-1",
       );
       console.log("✅ Found consultation:", specific?.id || "none");
 

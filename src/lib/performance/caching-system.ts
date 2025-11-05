@@ -368,7 +368,7 @@ export const useAICache = () => {
     prompt: string,
     response: string,
     context?: any,
-    ttl?: number
+    ttl?: number,
   ) => {
     aiResponseCache.set(prompt, response, context, ttl);
   };

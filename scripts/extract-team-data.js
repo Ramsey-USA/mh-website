@@ -37,7 +37,7 @@ try {
   fs.writeFileSync(jsonFilePath, JSON.stringify(teamData, null, 2));
 
   console.log(
-    `✅ Successfully extracted ${teamData.length} team members to team-data.json`
+    `✅ Successfully extracted ${teamData.length} team members to team-data.json`,
   );
   console.log(`📊 File size: ${fs.statSync(jsonFilePath).size} bytes`);
 } catch (error) {

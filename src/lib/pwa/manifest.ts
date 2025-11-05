@@ -248,7 +248,7 @@ export class AppBadge {
 
   static async update(
     newEstimates: number,
-    newMessages: number
+    newMessages: number,
   ): Promise<void> {
     const total = newEstimates + newMessages;
     if (total > 0) {
@@ -299,7 +299,7 @@ export class WebShare {
             } catch {
               return null;
             }
-          })
+          }),
         );
 
         const validFiles = files.filter(Boolean) as File[];

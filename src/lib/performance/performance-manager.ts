@@ -124,7 +124,7 @@ class PerformanceManager {
     key: string,
     data: T,
     ttl: number = 300000,
-    version: string = "1.0"
+    version: string = "1.0",
   ): void {
     if (!this.config.enableCaching) return;
 
@@ -204,7 +204,7 @@ class PerformanceManager {
       const largeChunks = chunks.filter((chunk) => chunk.size > 500 * 1024);
       if (largeChunks.length > 0) {
         recommendations.push(
-          "Large chunks detected - implement dynamic imports"
+          "Large chunks detected - implement dynamic imports",
         );
       }
     }
@@ -249,7 +249,7 @@ class PerformanceManager {
         // Check for missing width/height
         if (!img.width || !img.height) {
           recommendations.push(
-            "Add explicit width/height to prevent layout shift"
+            "Add explicit width/height to prevent layout shift",
           );
         }
 
@@ -270,7 +270,7 @@ class PerformanceManager {
       if (totalImageSize > 5 * 1024 * 1024) {
         // > 5MB
         globalRecommendations.push(
-          "Consider using Next.js Image component for automatic optimization"
+          "Consider using Next.js Image component for automatic optimization",
         );
       }
 
@@ -434,7 +434,7 @@ class PerformanceManager {
 
     if (exceeded) {
       logger.warn(
-        `Performance threshold exceeded: ${metric.name} (${metric.value}) > ${threshold}`
+        `Performance threshold exceeded: ${metric.name} (${metric.value}) > ${threshold}`,
       );
     }
   }
@@ -442,7 +442,7 @@ class PerformanceManager {
   // Analytics and Reporting
   getMetrics(
     type?: PerformanceMetric["type"],
-    limit?: number
+    limit?: number,
   ): PerformanceMetric[] {
     let filtered = this.metrics;
 
@@ -489,14 +489,14 @@ class PerformanceManager {
     if (summary.avg_memory > 50 * 1024 * 1024) {
       // > 50MB
       recommendations.push(
-        "High memory usage detected - check for memory leaks"
+        "High memory usage detected - check for memory leaks",
       );
     }
 
     // Cache statistics
     const cacheHits = this.metrics.filter((m) => m.name === "cache_hit").length;
     const cacheMisses = this.metrics.filter(
-      (m) => m.name === "cache_miss"
+      (m) => m.name === "cache_miss",
     ).length;
 
     return {
@@ -535,7 +535,7 @@ export class QueryOptimizer {
   cacheQuery<T>(
     key: string,
     queryFn: () => Promise<T>,
-    ttl: number = 300000
+    ttl: number = 300000,
   ): Promise<T> {
     const cached = this.queryCache.get(key);
 
@@ -583,7 +583,7 @@ export class QueryOptimizer {
 export class ImageOptimizer {
   static generateSrcSet(
     baseUrl: string,
-    widths: number[] = [320, 640, 768, 1024, 1280, 1536]
+    widths: number[] = [320, 640, 768, 1024, 1280, 1536],
   ): string {
     return widths.map((width) => `${baseUrl}?w=${width} ${width}w`).join(", ");
   }
@@ -592,7 +592,7 @@ export class ImageOptimizer {
     breakpoints: Array<{ minWidth?: number; maxWidth?: number; vw: number }> = [
       { maxWidth: 768, vw: 100 },
       { minWidth: 769, vw: 50 },
-    ]
+    ],
   ): string {
     return breakpoints
       .map(({ minWidth, maxWidth, vw }) => {

@@ -97,7 +97,7 @@ export async function performanceFetch(
     cache?: boolean;
     cacheKey?: string;
     cacheTTL?: number;
-  } = {}
+  } = {},
 ) {
   const startTime = performance.now();
   const { cache = true, cacheKey, cacheTTL, ...fetchOptions } = options;
@@ -181,7 +181,7 @@ export async function performanceFetch(
  */
 export function withPerformanceTracking<P extends Record<string, any>>(
   Component: React.ComponentType<P>,
-  componentName: string
+  componentName: string,
 ) {
   const WrappedComponent = React.forwardRef<any, P>((props, ref) => {
     const renderStart = React.useRef<number>(0);

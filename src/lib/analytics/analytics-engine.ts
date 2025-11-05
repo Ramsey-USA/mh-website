@@ -442,7 +442,7 @@ export class AdvancedAnalyticsEngine {
   trackInteraction(
     element: string,
     action: string,
-    properties: Record<string, any> = {}
+    properties: Record<string, any> = {},
   ): void {
     this.track("user_interaction", {
       element,
@@ -458,7 +458,7 @@ export class AdvancedAnalyticsEngine {
   trackConversion(
     type: ConversionEvent["type"],
     value: number,
-    properties: Record<string, any> = {}
+    properties: Record<string, any> = {},
   ): void {
     this.track("conversion_event", {
       conversionType: type,
@@ -537,7 +537,7 @@ export class AdvancedAnalyticsEngine {
    */
   registerCustomTracker(
     name: string,
-    tracker: (event: AnalyticsEvent) => void
+    tracker: (event: AnalyticsEvent) => void,
   ): void {
     this.customTrackers.set(name, tracker);
   }
@@ -555,7 +555,7 @@ export class AdvancedAnalyticsEngine {
   getEvents(
     type?: AnalyticsEventType,
     startTime?: Date,
-    endTime?: Date
+    endTime?: Date,
   ): AnalyticsEvent[] {
     return this.events.filter((event) => {
       if (type && event.type !== type) return false;
@@ -614,27 +614,27 @@ export class AdvancedAnalyticsEngine {
         const vitals = webVitals as any;
         if (vitals.onCLS) {
           vitals.onCLS((metric: any) =>
-            this.trackPerformance({ cumulativeLayoutShift: metric.value })
+            this.trackPerformance({ cumulativeLayoutShift: metric.value }),
           );
         }
         if (vitals.onFID) {
           vitals.onFID((metric: any) =>
-            this.trackPerformance({ firstInputDelay: metric.value })
+            this.trackPerformance({ firstInputDelay: metric.value }),
           );
         }
         if (vitals.onFCP) {
           vitals.onFCP((metric: any) =>
-            this.trackPerformance({ firstContentfulPaint: metric.value })
+            this.trackPerformance({ firstContentfulPaint: metric.value }),
           );
         }
         if (vitals.onLCP) {
           vitals.onLCP((metric: any) =>
-            this.trackPerformance({ largestContentfulPaint: metric.value })
+            this.trackPerformance({ largestContentfulPaint: metric.value }),
           );
         }
         if (vitals.onTTFB) {
           vitals.onTTFB((metric: any) =>
-            this.trackPerformance({ timeToInteractive: metric.value })
+            this.trackPerformance({ timeToInteractive: metric.value }),
           );
         }
       })
@@ -742,7 +742,7 @@ export class AdvancedAnalyticsEngine {
     const userAgent = navigator.userAgent;
     const isMobile =
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        userAgent
+        userAgent,
       );
     const isTablet =
       /iPad|Android/i.test(userAgent) && window.innerWidth >= 768;
@@ -960,7 +960,7 @@ export class AdvancedAnalyticsEngine {
     if (sessions.length === 0) return 0;
     const totalDuration = sessions.reduce(
       (sum, session) => sum + session.totalDuration,
-      0
+      0,
     );
     return totalDuration / sessions.length;
   }
@@ -976,7 +976,7 @@ export class AdvancedAnalyticsEngine {
     const sessions = Array.from(this.sessions.values());
     if (sessions.length === 0) return 0;
     const conversions = sessions.filter(
-      (session) => session.conversions.length > 0
+      (session) => session.conversions.length > 0,
     ).length;
     return (conversions / sessions.length) * 100;
   }
@@ -1167,7 +1167,7 @@ export const analyticsEngine = new AdvancedAnalyticsEngine();
 export const useAnalytics = () => {
   const track = (
     type: AnalyticsEventType,
-    properties?: Record<string, any>
+    properties?: Record<string, any>,
   ) => {
     analyticsEngine.track(type, properties);
   };
@@ -1179,7 +1179,7 @@ export const useAnalytics = () => {
   const trackInteraction = (
     element: string,
     action: string,
-    properties?: Record<string, any>
+    properties?: Record<string, any>,
   ) => {
     analyticsEngine.trackInteraction(element, action, properties);
   };
@@ -1187,7 +1187,7 @@ export const useAnalytics = () => {
   const trackConversion = (
     type: ConversionEvent["type"],
     value: number,
-    properties?: Record<string, any>
+    properties?: Record<string, any>,
   ) => {
     analyticsEngine.trackConversion(type, value, properties);
   };

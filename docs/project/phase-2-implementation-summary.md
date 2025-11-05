@@ -57,17 +57,17 @@
 
 ## Files Created
 
-| File | Lines | Purpose |
-|------|-------|---------|
-| `migrations/0001_create_consultations.sql` | 24 | Consultations table schema |
-| `migrations/0002_create_job_applications.sql` | 29 | Job applications table schema |
-| `migrations/0003_create_contact_submissions.sql` | 23 | Contact submissions table schema |
-| `migrations/0004_create_users.sql` | 19 | Users table schema |
-| `migrations/0005_create_sessions.sql` | 13 | Sessions table schema |
-| `migrations/README.md` | 135 | Migration guide |
-| `src/lib/db/client.ts` | 332 | Database client library |
-| `src/lib/db/env.ts` | 64 | Environment helpers |
-| `docs/deployment/d1-database-setup.md` | 203 | Deployment guide |
+| File                                             | Lines | Purpose                          |
+| ------------------------------------------------ | ----- | -------------------------------- |
+| `migrations/0001_create_consultations.sql`       | 24    | Consultations table schema       |
+| `migrations/0002_create_job_applications.sql`    | 29    | Job applications table schema    |
+| `migrations/0003_create_contact_submissions.sql` | 23    | Contact submissions table schema |
+| `migrations/0004_create_users.sql`               | 19    | Users table schema               |
+| `migrations/0005_create_sessions.sql`            | 13    | Sessions table schema            |
+| `migrations/README.md`                           | 135   | Migration guide                  |
+| `src/lib/db/client.ts`                           | 332   | Database client library          |
+| `src/lib/db/env.ts`                              | 64    | Environment helpers              |
+| `docs/deployment/d1-database-setup.md`           | 203   | Deployment guide                 |
 
 **Total:** 842 new lines of database infrastructure
 
@@ -75,13 +75,13 @@
 
 ## Files Modified
 
-| File | Changes | Purpose |
-|------|---------|---------|
-| `config/cloudflare/wrangler.toml` | +9 lines | Added D1 and R2 bindings |
-| `src/app/api/consultations/route.ts` | ~50 lines | D1 integration |
-| `src/app/api/consultations/[id]/route.ts` | ~80 lines | Full CRUD with D1 |
-| `src/app/api/job-applications/route.ts` | ~40 lines | D1 storage |
-| `src/app/api/contact/route.ts` | ~60 lines | D1 storage |
+| File                                      | Changes   | Purpose                  |
+| ----------------------------------------- | --------- | ------------------------ |
+| `config/cloudflare/wrangler.toml`         | +9 lines  | Added D1 and R2 bindings |
+| `src/app/api/consultations/route.ts`      | ~50 lines | D1 integration           |
+| `src/app/api/consultations/[id]/route.ts` | ~80 lines | Full CRUD with D1        |
+| `src/app/api/job-applications/route.ts`   | ~40 lines | D1 storage               |
+| `src/app/api/contact/route.ts`            | ~60 lines | D1 storage               |
 
 **Total:** ~230 lines modified for D1 integration
 

@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     if (!data.name || !data.email || !data.projectType) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -108,7 +108,7 @@ Submitted: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles
               location: data.location,
             },
           }),
-        }
+        },
       );
 
       if (!emailResponse.ok) {
@@ -128,7 +128,7 @@ Submitted: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles
     logger.error("Error creating consultation:", error);
     return NextResponse.json(
       { error: "Failed to create consultation" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -141,7 +141,7 @@ export async function GET(request: NextRequest) {
       if (DB) {
         const db = createDbClient({ DB });
         const consultations = await db.query<Consultation>(
-          `SELECT * FROM consultations ORDER BY created_at DESC LIMIT 100`
+          `SELECT * FROM consultations ORDER BY created_at DESC LIMIT 100`,
         );
 
         return NextResponse.json({
@@ -165,7 +165,7 @@ export async function GET(request: NextRequest) {
     logger.error("Error fetching consultations:", error);
     return NextResponse.json(
       { error: "Failed to fetch consultations" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

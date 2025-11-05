@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     if (!subscription || !subscription.endpoint) {
       return NextResponse.json(
         { error: "Invalid subscription object" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     logger.error("Error removing subscription:", error);
     return NextResponse.json(
       { error: "Failed to remove subscription" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
