@@ -20,11 +20,13 @@ export function getD1Database(): any | null {
       typeof globalThis !== "undefined" &&
       "getRequestContext" in globalThis
     ) {
-      const { env } = (globalThis as any).getRequestContext();
+      const context = (globalThis as any).getRequestContext();
+      const env = context?.env || context?.cloudflare?.env;
       return env?.DB || null;
     }
     return null;
-  } catch {
+  } catch (error) {
+    console.error("Error getting D1 database:", error);
     return null;
   }
 }
