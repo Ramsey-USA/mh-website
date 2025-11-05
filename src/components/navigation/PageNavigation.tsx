@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import { MaterialIcon } from "../icons/MaterialIcon";
 import { NavigationItem, getNavigationLabel } from "./navigationConfigs";

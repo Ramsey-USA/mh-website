@@ -3,7 +3,6 @@
  * Final step of the estimator form - shows summary and handles calculation
  */
 
-import React from "react";
 import { Button } from "../../ui";
 import { ProjectData, ValidationStatus } from "../types";
 

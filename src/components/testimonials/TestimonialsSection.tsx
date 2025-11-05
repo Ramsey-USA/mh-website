@@ -4,7 +4,6 @@
  * Can be embedded on multiple pages (About, Projects, etc.)
  */
 
-import React from "react";
 import Image from "next/image";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { mockTestimonials } from "@/lib/types/testimonials";
@@ -33,7 +32,7 @@ export default function TestimonialsSection({
   const displayTestimonials = mockTestimonials
     .filter(
       (testimonial) =>
-        testimonial.status === "approved" || testimonial.status === "featured",
+        testimonial.status === "approved" || testimonial.status === "featured"
     )
     .sort((a, b) => {
       // Featured first, then by rating, then by date

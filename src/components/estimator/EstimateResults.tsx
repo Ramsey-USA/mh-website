@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Button, Card, CardHeader, CardTitle, CardContent } from "../ui";
 
 interface EstimateData {
@@ -75,7 +74,7 @@ export function EstimateResults({
 
   const totalBeforeDiscount = Object.values(estimate.breakdown).reduce(
     (sum, amount) => sum + amount,
-    0,
+    0
   );
 
   return (
@@ -144,8 +143,8 @@ export function EstimateResults({
                     <span>
                       {formatCurrency(
                         Math.round(
-                          estimate.totalCost / parseInt(projectData.size),
-                        ),
+                          estimate.totalCost / parseInt(projectData.size)
+                        )
                       )}
                     </span>
                   </div>
@@ -171,7 +170,7 @@ export function EstimateResults({
               <div className="space-y-4">
                 {breakdownItems.map((item, index) => {
                   const percentage = Math.round(
-                    (item.amount / totalBeforeDiscount) * 100,
+                    (item.amount / totalBeforeDiscount) * 100
                   );
                   return (
                     <div key={index}>

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { MaterialIcon } from "../icons/MaterialIcon";
 import { VeteranStatus } from "@/lib/recommendations/SmartRecommendationEngine";
 

@@ -1,10 +1,10 @@
-import React from "react";
+import { memo, type FC, type CSSProperties } from "react";
 
 interface MaterialIconProps {
   icon: string;
   className?: string;
   size?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   primaryColor?: string;
   interactive?: boolean; // Indicates if icon will animate/change
 }
@@ -21,7 +21,7 @@ const sizeMap = {
   "4xl": 96, // 96px - hero/large display sizes
 };
 
-const MaterialIconComponent: React.FC<MaterialIconProps> = ({
+const MaterialIconComponent: FC<MaterialIconProps> = ({
   icon,
   className = "",
   size = "md",
@@ -60,7 +60,7 @@ const MaterialIconComponent: React.FC<MaterialIconProps> = ({
 
 // Memoize component to prevent unnecessary re-renders
 // Only re-render if props actually change
-export const MaterialIcon = React.memo(
+export const MaterialIcon = memo(
   MaterialIconComponent,
   (prevProps, nextProps) => {
     return (
@@ -71,7 +71,7 @@ export const MaterialIcon = React.memo(
       prevProps.interactive === nextProps.interactive &&
       JSON.stringify(prevProps.style) === JSON.stringify(nextProps.style)
     );
-  },
+  }
 );
 
 MaterialIcon.displayName = "MaterialIcon";

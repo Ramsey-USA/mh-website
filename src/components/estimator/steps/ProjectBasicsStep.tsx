@@ -3,7 +3,6 @@
  * First step of the estimator form - collects basic project information
  */
 
-import React from "react";
 import { Input } from "../../ui";
 import { ProjectData, EstimatorFormProps } from "../types";
 import { PROJECT_TYPES, LOCATIONS } from "../constants";

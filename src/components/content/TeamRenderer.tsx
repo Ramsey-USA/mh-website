@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { type FC } from "react";
 import ReactMarkdown from "react-markdown";
 import { ContentItem } from "@/lib/content/contentCache";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -21,7 +21,7 @@ interface TeamRendererProps {
   className?: string;
 }
 
-export const TeamRenderer: React.FC<TeamRendererProps> = ({
+export const TeamRenderer: FC<TeamRendererProps> = ({
   content,
   className = "",
 }) => {
@@ -120,7 +120,7 @@ export const TeamRenderer: React.FC<TeamRendererProps> = ({
       acc[member.category].push(member);
       return acc;
     },
-    {} as Record<string, TeamMember[]>,
+    {} as Record<string, TeamMember[]>
   );
 
   return (

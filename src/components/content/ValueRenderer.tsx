@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { type FC } from "react";
 import { ContentItem } from "@/lib/content/contentCache";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
@@ -23,7 +23,7 @@ interface ValueRendererProps {
   className?: string;
 }
 
-export const ValueRenderer: React.FC<ValueRendererProps> = ({
+export const ValueRenderer: FC<ValueRendererProps> = ({
   content,
   className = "",
 }) => {

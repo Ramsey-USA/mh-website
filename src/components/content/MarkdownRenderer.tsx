@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { type FC } from "react";
 import ReactMarkdown from "react-markdown";
 import { ContentItem } from "@/lib/content/contentCache";
 
@@ -9,7 +9,7 @@ interface MarkdownRendererProps {
   className?: string;
 }
 
-export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
+export const MarkdownRenderer: FC<MarkdownRendererProps> = ({
   content,
   className = "",
 }) => {
@@ -96,7 +96,7 @@ interface MarkdownSectionProps {
   className?: string;
 }
 
-export const MarkdownSection: React.FC<MarkdownSectionProps> = ({
+export const MarkdownSection: FC<MarkdownSectionProps> = ({
   title,
   content,
   className = "",

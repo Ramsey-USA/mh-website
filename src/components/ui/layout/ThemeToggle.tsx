@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { type MouseEvent } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { MaterialIcon } from "../../icons/MaterialIcon";
 
@@ -28,7 +28,7 @@ export function ThemeToggle({
     );
   }
 
-  const handleThemeToggle = (e: React.MouseEvent) => {
+  const handleThemeToggle = (e: MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     setTheme(isDarkMode ? "light" : "dark");

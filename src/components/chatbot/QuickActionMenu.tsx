@@ -3,7 +3,6 @@
  * Provides immediate access to common construction tasks and information
  */
 
-import React from "react";
 import { Button } from "../ui";
 import { MaterialIcon } from "../icons/MaterialIcon";
 

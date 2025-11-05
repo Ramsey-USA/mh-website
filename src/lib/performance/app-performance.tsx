@@ -3,7 +3,7 @@
  * App-wide performance configuration and optimization utilities
  */
 
-import React from "react";
+import { forwardRef, useRef, useLayoutEffect, createElement } from "react";
 import { performanceManager } from "./performance-manager";
 import { cacheManager, apiCache } from "./caching";
 import { logger } from "@/lib/utils/logger";
@@ -97,7 +97,7 @@ export async function performanceFetch(
     cache?: boolean;
     cacheKey?: string;
     cacheTTL?: number;
-  } = {},
+  } = {}
 ) {
   const startTime = performance.now();
   const { cache = true, cacheKey, cacheTTL, ...fetchOptions } = options;
@@ -181,16 +181,16 @@ export async function performanceFetch(
  */
 export function withPerformanceTracking<P extends Record<string, any>>(
   Component: React.ComponentType<P>,
-  componentName: string,
+  componentName: string
 ) {
-  const WrappedComponent = React.forwardRef<any, P>((props, ref) => {
-    const renderStart = React.useRef<number>(0);
+  const WrappedComponent = forwardRef<any, P>((props, ref) => {
+    const renderStart = useRef<number>(0);
 
     // Track render start
     renderStart.current = performance.now();
 
     // Track render completion
-    React.useLayoutEffect(() => {
+    useLayoutEffect(() => {
       if (renderStart.current) {
         const renderTime = performance.now() - renderStart.current;
         performanceManager.recordMetric({
@@ -211,7 +211,7 @@ export function withPerformanceTracking<P extends Record<string, any>>(
       (componentProps as any).ref = ref;
     }
 
-    return React.createElement(Component, componentProps);
+    return createElement(Component, componentProps);
   });
 
   WrappedComponent.displayName = `withPerformanceTracking(${componentName})`;

@@ -1,13 +1,13 @@
 "use client";
 
-import React from "react";
+import { type ReactNode, type FC } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  children: React.ReactNode;
+  children: ReactNode;
   size?: "sm" | "md" | "lg" | "xl";
   showVeteranBadge?: boolean;
 }
@@ -19,7 +19,7 @@ const sizeClasses = {
   xl: "max-w-4xl",
 };
 
-export const Modal: React.FC<ModalProps> = ({
+export const Modal: FC<ModalProps> = ({
   isOpen,
   onClose,
   title,

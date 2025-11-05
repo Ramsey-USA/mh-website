@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { type FC } from "react";
 import ReactMarkdown from "react-markdown";
 import { ContentItem } from "@/lib/content/contentCache";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -11,7 +11,7 @@ interface ServiceRendererProps {
   className?: string;
 }
 
-export const ServiceRenderer: React.FC<ServiceRendererProps> = ({
+export const ServiceRenderer: FC<ServiceRendererProps> = ({
   content,
   className = "",
 }) => {

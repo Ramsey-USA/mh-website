@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 interface LoadingPlaceholderProps {
   className?: string;
   variant?: "card" | "image" | "text" | "button";

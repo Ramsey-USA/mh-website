@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { useEffect } from "react";
 import Script from "next/script";
 
 interface GoogleAnalyticsProps {
@@ -48,7 +48,7 @@ export const analytics = {
   // Track custom events
   event: (
     eventName: string,
-    parameters?: Record<string, string | number | boolean | undefined>,
+    parameters?: Record<string, string | number | boolean | undefined>
   ) => {
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", eventName, parameters);
@@ -135,7 +135,7 @@ export const analytics = {
 
 // Hook for tracking page views in Next.js
 export function useAnalytics() {
-  React.useEffect(() => {
+  useEffect(() => {
     // Track initial page view
     analytics.pageView(window.location.href);
   }, []);
@@ -149,7 +149,7 @@ declare global {
     gtag: (
       command: "config" | "event" | "js",
       targetId: string | Date,
-      config?: Record<string, string | number | boolean | undefined>,
+      config?: Record<string, string | number | boolean | undefined>
     ) => void;
     dataLayer: unknown[];
   }

@@ -3,7 +3,6 @@
  * Second step of the estimator form - collects detailed project specifications
  */
 
-import React from "react";
 import { Input } from "../../ui";
 import { ProjectData, EstimatorFormProps } from "../types";
 import {

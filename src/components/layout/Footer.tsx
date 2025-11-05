@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -520,7 +519,7 @@ export default function Footer() {
                 onSubmit={(e) => {
                   e.preventDefault();
                   const searchInput = e.currentTarget.querySelector(
-                    "input",
+                    "input"
                   ) as HTMLInputElement;
                   if (searchInput?.value.trim()) {
                     window.location.href = `/projects?search=${encodeURIComponent(searchInput.value)}`;

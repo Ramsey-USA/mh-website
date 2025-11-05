@@ -4,7 +4,6 @@
  * Can be embedded on multiple pages (Homepage, About, Services, etc.)
  */
 
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -35,7 +34,7 @@ export default function BlogSection({
 }: BlogSectionProps) {
   // Filter and sort blog posts
   let displayPosts = mockBlogPosts.filter(
-    (post) => post.status === "published",
+    (post) => post.status === "published"
   );
 
   // Filter by featured if requested
@@ -46,14 +45,14 @@ export default function BlogSection({
   // Filter by category if specified
   if (category) {
     displayPosts = displayPosts.filter(
-      (post) => post.category.slug === category,
+      (post) => post.category.slug === category
     );
   }
 
   // Sort by date (newest first)
   displayPosts = displayPosts.sort(
     (a, b) =>
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
 
   // Limit number of posts
@@ -62,7 +61,7 @@ export default function BlogSection({
   // Get unique categories from displayed posts
   const categories = showCategories
     ? Array.from(new Set(postsToShow.map((post) => post.category))).sort(
-        (a, b) => a.name.localeCompare(b.name),
+        (a, b) => a.name.localeCompare(b.name)
       )
     : [];
 

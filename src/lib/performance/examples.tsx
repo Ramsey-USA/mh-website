@@ -5,7 +5,13 @@
 
 "use client";
 
-import React from "react";
+import {
+  useState,
+  useEffect,
+  Suspense,
+  Component,
+  type ReactNode,
+} from "react";
 import { logger } from "@/lib/utils/logger";
 import {
   initializePerformance,
@@ -68,7 +74,7 @@ const ExampleComponent = ({ title, data }: { title: string; data: any[] }) => {
 // Example 3: Wrap component with performance tracking
 export const TrackedExampleComponent = withPerformanceTracking(
   ExampleComponent,
-  "ExampleComponent",
+  "ExampleComponent"
 );
 
 // Example 4: Optimized data fetching
@@ -96,10 +102,10 @@ const LazyHeavyComponent = () => (
 
 // Example 6: Page component with performance monitoring
 export function OptimizedPage() {
-  const [users, setUsers] = React.useState<any[]>([]);
-  const [loading, setLoading] = React.useState(true);
+  const [users, setUsers] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Track page load
     const startTime = performance.now();
 
@@ -150,18 +156,18 @@ export function OptimizedPage() {
       <TrackedExampleComponent title="User List" data={users} />
 
       {/* Lazy loaded component */}
-      <React.Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
         <LazyHeavyComponent />
-      </React.Suspense>
+      </Suspense>
     </div>
   );
 }
 
 // Example 7: Performance monitoring hook
 export function usePagePerformance(pageName: string) {
-  const [metrics, setMetrics] = React.useState<any[]>([]);
+  const [metrics, setMetrics] = useState<any[]>([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       const pageMetrics = performanceManager
         .getMetrics("timing", 10)
@@ -182,8 +188,8 @@ export function usePagePerformance(pageName: string) {
 }
 
 // Example 8: Error boundary with performance tracking
-export class PerformanceErrorBoundary extends React.Component<
-  { children: React.ReactNode; componentName: string },
+export class PerformanceErrorBoundary extends Component<
+  { children: ReactNode; componentName: string },
   { hasError: boolean }
 > {
   constructor(props: any) {
