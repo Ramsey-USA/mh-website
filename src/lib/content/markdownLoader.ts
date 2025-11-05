@@ -1,4 +1,5 @@
 import fs from "fs";
+import { logger } from "@/lib/utils/logger";
 import path from "path";
 
 export interface MarkdownContent {
@@ -51,7 +52,7 @@ export async function loadMarkdownContent(
       excerpt: excerpt || undefined,
     };
   } catch (error) {
-    console.error(`Error loading markdown content from ${filePath}:`, error);
+    logger.error(`Error loading markdown content from ${filePath}:`, error);
     throw new Error(`Failed to load markdown content: ${filePath}`);
   }
 }
@@ -73,7 +74,7 @@ export async function loadMultipleMarkdownFiles(
       const key = path.basename(filePath, ".md");
       contents[key] = content;
     } catch (error) {
-      console.error(`Failed to load ${filePath}:`, error);
+      logger.error(`Failed to load ${filePath}:`, error);
     }
   }
 

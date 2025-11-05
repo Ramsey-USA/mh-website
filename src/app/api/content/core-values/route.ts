@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { logger } from "@/lib/utils/logger";
 import { getContent } from "@/lib/content/contentCache";
 
 export const runtime = "edge";
@@ -17,7 +18,7 @@ export async function GET() {
 
     return NextResponse.json(content);
   } catch (error) {
-    console.error("Error loading core values:", error);
+    logger.error("Error loading core values:", error);
     return NextResponse.json(
       { error: "Failed to load core values content" },
       { status: 500 },

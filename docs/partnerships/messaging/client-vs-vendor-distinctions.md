@@ -72,7 +72,7 @@ _File: `/docs/business/services.md`_
 
 #### For project clients seeking construction services
 
-**Visual Identity:** Handshake or event icon, warm MH brand colors (orange/green), relationship-focused
+**Visual Identity:** Handshake or event icon, MH brand colors (Hunter Green/Leather Tan), relationship-focused
 **Primary Icon:** `handshake` - Represents collaborative partnership (MaterialIcon component)
 **Alternative Icons:** `event`, `phone`, `engineering`, `place`
 
@@ -88,7 +88,7 @@ _File: `/docs/business/services.md`_
 
 #### For vendors/subcontractors seeking business opportunities
 
-**Visual Identity:** Construction icon, professional MH blue/gray, business-focused
+**Visual Identity:** Construction icon, professional MH brand colors (Hunter Green/Grayscale), business-focused
 **Primary Icon:** `construction` or `handyman` - Represents trade professionals (MaterialIcon component)
 **Alternative Icons:** `work`, `group`, `check_circle`, `engineering`
 
@@ -107,7 +107,7 @@ _File: `/docs/business/services.md`_
 ### **Client-Focused CTAs**
 
 **Icon Strategy:** Use relationship/scheduling MaterialIcons (`handshake`, `event`, `phone`)
-**Color Palette:** MH brand orange (#FF6B35) or partnership green
+**Color Palette:** Hunter Green (#386851) - Primary brand color
 **Button Style:** Welcoming, approachable, collaborative
 
 ````tsx
@@ -131,7 +131,7 @@ _File: `/docs/business/services.md`_
 ### **Vendor-Focused CTAs**
 
 **Icon Strategy:** Use business/professional MaterialIcons (`construction`, `work`, `check_circle`)
-**Color Palette:** Professional MH blue (#1E40AF) or neutral gray
+**Color Palette:** Leather Tan (#BD9264) - Secondary brand color
 **Button Style:** Professional, credible, opportunity-focused
 
 ```tsx

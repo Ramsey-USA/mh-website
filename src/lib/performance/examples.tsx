@@ -6,6 +6,7 @@
 "use client";
 
 import React from "react";
+import { logger } from "@/lib/utils/logger";
 import {
   initializePerformance,
   performanceFetch,
@@ -67,7 +68,7 @@ const ExampleComponent = ({ title, data }: { title: string; data: any[] }) => {
 // Example 3: Wrap component with performance tracking
 export const TrackedExampleComponent = withPerformanceTracking(
   ExampleComponent,
-  "ExampleComponent",
+  "ExampleComponent"
 );
 
 // Example 4: Optimized data fetching
@@ -80,7 +81,7 @@ export async function fetchUserData(userId: string) {
 
     return userData;
   } catch (error) {
-    console.error("Failed to fetch user data:", error);
+    logger.error("Failed to fetch user data:", error);
     throw error;
   }
 }

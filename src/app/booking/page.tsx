@@ -1,6 +1,7 @@
 "use client";
+import { logger } from "@/lib/utils/logger";
 
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   Button,
@@ -86,12 +87,12 @@ export default function BookingPage() {
   });
 
   // Sync local form data with global chatbot context
-  React.useEffect(() => {
+  useEffect(() => {
     setGlobalFormData(formData);
   }, [formData, setGlobalFormData]);
 
   // Handle URL parameters for pre-filling data from quick booking modal
-  React.useEffect(() => {
+  useEffect(() => {
     if (typeof window !== "undefined") {
       const urlParams = new URLSearchParams(window.location.search);
       const prefilledData: Partial<BookingFormData> = {};
@@ -177,7 +178,7 @@ export default function BookingPage() {
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >,
+    >
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -199,7 +200,7 @@ export default function BookingPage() {
         budget: formData.budget ? parseInt(formData.budget) : undefined,
         status: "pending" as const,
         scheduledDate: new Date(
-          `${formData.selectedDate}T${convertTo24Hour(formData.selectedTime)}`,
+          `${formData.selectedDate}T${convertTo24Hour(formData.selectedTime)}`
         ),
         notes: formData.additionalNotes,
       };
@@ -259,17 +260,17 @@ Please contact the client to confirm this consultation appointment.
         });
 
         if (!emailResponse.ok) {
-          console.error("Failed to send booking notification email");
+          logger.error("Failed to send booking notification email");
         }
       } catch (emailError) {
-        console.error("Error sending booking email:", emailError);
+        logger.error("Error sending booking email:", emailError);
         // Continue even if email fails
       }
 
       setSubmitStatus("success");
       setStep(3);
     } catch (error) {
-      console.error("Error booking partnership discussion:", error);
+      logger.error("Error booking partnership discussion:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -327,7 +328,7 @@ Please contact the client to confirm this consultation appointment.
                           month: "long",
                           day: "numeric",
                           year: "numeric",
-                        },
+                        }
                       )}
                     </p>
                     <p className="flex items-center justify-center gap-3 font-bold text-brand-primary dark:text-brand-primary-light text-xl">

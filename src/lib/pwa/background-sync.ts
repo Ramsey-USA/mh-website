@@ -1,4 +1,5 @@
 // Background Sync functionality for PWA
+import { logger } from "@/lib/utils/logger";
 // Handles offline form submissions and data synchronization
 
 // Queue for storing background sync requests
@@ -124,7 +125,7 @@ class BackgroundSyncManager {
   async addRequest(type: string, data: any, endpoint: string) {
     try {
       await this.queue.addRequest(type, data, endpoint);
-      console.log("[BackgroundSync] Request queued:", type, endpoint);
+      logger.log("[BackgroundSync] Request queued:", type, endpoint);
 
       // Try to process immediately if online
       if (navigator.onLine) {
@@ -133,7 +134,7 @@ class BackgroundSyncManager {
 
       return true;
     } catch (error) {
-      console.error("[BackgroundSync] Failed to queue request:", error);
+      logger.error("[BackgroundSync] Failed to queue request:", error);
       return false;
     }
   }
@@ -144,7 +145,7 @@ class BackgroundSyncManager {
     }
 
     this.isProcessing = true;
-    console.log("[BackgroundSync] Processing pending requests...");
+    logger.log("[BackgroundSync] Processing pending requests...");
 
     try {
       const requests = await this.queue.getRequests();
@@ -153,9 +154,9 @@ class BackgroundSyncManager {
         try {
           await this.processRequest(request);
           await this.queue.removeRequest(request.id);
-          console.log("[BackgroundSync] Successfully processed:", request.type);
+          logger.log("[BackgroundSync] Successfully processed:", request.type);
         } catch (error) {
-          console.error("[BackgroundSync] Failed to process request:", error);
+          logger.error("[BackgroundSync] Failed to process request:", error);
 
           // Increment retry count
           request.retries += 1;
@@ -163,7 +164,7 @@ class BackgroundSyncManager {
           if (request.retries >= request.maxRetries) {
             // Remove failed request after max retries
             await this.queue.removeRequest(request.id);
-            console.log(
+            logger.log(
               "[BackgroundSync] Removed failed request after max retries:",
               request.type,
             );
@@ -176,7 +177,7 @@ class BackgroundSyncManager {
         }
       }
     } catch (error) {
-      console.error("[BackgroundSync] Error processing queue:", error);
+      logger.error("[BackgroundSync] Error processing queue:", error);
     } finally {
       this.isProcessing = false;
     }
@@ -236,7 +237,7 @@ class BackgroundSyncManager {
       const requests = await this.queue.getRequests();
       return requests.length;
     } catch (error) {
-      console.error("[BackgroundSync] Error getting pending count:", error);
+      logger.error("[BackgroundSync] Error getting pending count:", error);
       return 0;
     }
   }
@@ -247,9 +248,9 @@ class BackgroundSyncManager {
       for (const request of requests) {
         await this.queue.removeRequest(request.id);
       }
-      console.log("[BackgroundSync] Queue cleared");
+      logger.log("[BackgroundSync] Queue cleared");
     } catch (error) {
-      console.error("[BackgroundSync] Error clearing queue:", error);
+      logger.error("[BackgroundSync] Error clearing queue:", error);
     }
   }
 }
@@ -287,7 +288,7 @@ export const getPendingSyncCount = async (): Promise<number> => {
     const manager = await getBackgroundSyncManager();
     return manager.getPendingCount();
   } catch (error) {
-    console.error("Error getting pending sync count:", error);
+    logger.error("Error getting pending sync count:", error);
     return 0;
   }
 };

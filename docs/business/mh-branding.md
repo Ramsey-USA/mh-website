@@ -25,6 +25,24 @@ This comprehensive guide contains ALL MH Construction branding standards. For fo
 - **[Icon Policy](./branding/icon-policy.md)** - Material Icons standards and enforcement
 - **[Implementation Guide](./branding/implementation-guide.md)** - Technical implementation details
 
+### 🔗 Development Standards Integration
+
+**IMPORTANT:** When implementing these brand standards, also consult:
+
+- **[Development Standards](../development/development-standards.md)** - Mandatory
+  coding standards, import patterns, animation rules
+- **[AI Development Guidelines](../development/ai-development-guidelines.md)** -
+  Critical rules for AI assistants working on codebase
+- **[Consistency Master Plan](../project/consistency-master-plan.md)** - Overall
+  consistency strategy and enforcement
+
+**Key Development Requirements:**
+
+- All imports MUST use `@/` prefix (never relative imports)
+- Animations MUST import from `@/components/animations/FramerMotionComponents`
+- Critical content must NEVER be wrapped in animations
+- All styling uses Tailwind utility classes (no custom CSS except for special cases)
+
 ---
 
 ## 🚨 **CRITICAL POLICY: EMOJI-FREE CODEBASE (v4.0.2)**
@@ -181,6 +199,12 @@ title: 'Update 🎯'
 **ENFORCED STANDARD:** MH Construction prohibits decorative section badges
 (bubble/pill-shaped containers with icons) to maintain professional visual hierarchy.
 
+**This policy applies to:**
+- Section headings (h2, h3, etc.)
+- Content area introductions
+- Feature section headers
+- All page sections
+
 ```tsx
 // ❌ PROHIBITED - Bubble/pill-shaped badge decorations at section beginnings
 <div className="inline-flex items-center bg-brand-primary/10 shadow-lg mb-8
@@ -191,7 +215,7 @@ title: 'Update 🎯'
   </span>
 </div>
 
-// ✅ REQUIRED - Clean, direct section headers
+// ✅ REQUIRED - Clean, direct section headers (NO decorative badges)
 <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100
   text-2xl sm:text-3xl md:text-4xl lg:text-5xl
   leading-tight tracking-tighter">
@@ -1000,9 +1024,9 @@ across the platform.
 import { MaterialIcon } from '@/components/icons/MaterialIcon';
 
 // Usage examples
-<MaterialIcon icon="smart_toy" size="xl" className="text-blue-600" />
-<MaterialIcon icon="event" size="lg" />
-<MaterialIcon icon="construction" size="2xl" className="text-orange-500" />
+<MaterialIcon icon="smart_toy" size="xl" className="text-brand-secondary" />
+<MaterialIcon icon="event" size="lg" className="text-brand-primary" />
+<MaterialIcon icon="construction" size="2xl" className="text-brand-primary" />
 ```text
 
 #### **Consistent Icon Standards**
@@ -1454,6 +1478,9 @@ export default {
 All buttons use the reusable `Button` component with pure Tailwind styling that
 automatically adapts to themes.
 
+**IMPORTANT**: No custom CSS classes are used. All styling is done with Tailwind
+utility classes directly in the component code.
+
 #### Button Component Implementation
 
 ```tsx
@@ -1542,19 +1569,21 @@ export function Button({
 #### Special Purpose Buttons
 
 ```tsx
-// Veteran program button
+// Special program button (uses brand colors)
 <Button
   variant="primary"
-  className="bg-veteran-red border-veteran-red hover:bg-red-700"
+  size="lg"
 >
+  <MaterialIcon icon="military_tech" size="lg" className="mr-3" />
   Wounded Warrior Program
 </Button>
 
-// Dashboard access button
+// Dashboard access button (uses brand colors)
 <Button
   variant="primary"
-  className="bg-veteran-blue border-veteran-blue hover:bg-blue-700"
+  size="lg"
 >
+  <MaterialIcon icon="admin_panel_settings" size="lg" className="mr-3" />
   Team Access
 </Button>
 ```text
@@ -1697,6 +1726,7 @@ without custom overrides.
 
 ```tsx
 // Enhanced Hero Section - Current Standard (v4.0.2)
+// NO BADGES, NO CTA BUTTONS - Content Only
 <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
   {/* Background Elements */}
   <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
@@ -1705,20 +1735,9 @@ without custom overrides.
   <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
     <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
 
-      {/* Veteran Badge (Optional) */}
-      <div className="inline-flex items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 border border-brand-primary/20 dark:border-brand-primary/30 rounded-full">
-        <MaterialIcon
-          icon="military_tech"
-          className="mr-2 sm:mr-3 text-brand-secondary text-base sm:text-lg"
-        />
-        <span className="font-bold text-brand-primary-light text-xs sm:text-sm uppercase tracking-wider">
-          Veteran-Owned Excellence
-        </span>
-      </div>
-
       {/* Main Title - Responsive scaling */}
       <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-        <span className="block text-white font-black drop-shadow-lg">
+        <span className="block text-brand-secondary font-black drop-shadow-lg">
           Your Partnership in Construction Excellence
         </span>
       </h1>
@@ -1730,7 +1749,7 @@ without custom overrides.
 
       {/* Description */}
       <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-        Partnering with Tri-Cities communities since 2010 - where veteran values meet collaborative construction management for extraordinary results.
+        "Building for the Owner, NOT the Dollar" — Partnering with Tri-Cities communities since 2010 - where veteran values meet collaborative construction management for extraordinary results.
       </p>
     </div>
   </div>
@@ -1746,7 +1765,9 @@ without custom overrides.
 #### Key Hero Section Features (v4.0.2)
 
 - **Exact Viewport Height**: `h-screen` ensures hero fills complete viewport (no gap to next section)
-- **No CTA Buttons**: Removed all Call-to-Action buttons from hero sections for cleaner design
+- **NO BADGES**: All decorative badges removed (veteran badges, military_tech icons, etc.)
+- **NO CTA BUTTONS**: Removed all Call-to-Action buttons from hero sections for cleaner design
+- **Content ONLY**: Title, subtitle, and description text only
 - **Heading Below Logo**: Top padding (`pt-16` to `pt-40`) positions content below header logo
 - **Responsive Typography**: Aggressive scaling from `text-lg` (mobile) to `xl:text-5xl` (desktop)
 - **Tight Spacing**: Reduced gaps (`space-y-2` to `space-y-6`) prevent overlap on small screens

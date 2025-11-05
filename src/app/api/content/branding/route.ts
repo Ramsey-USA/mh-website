@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { logger } from "@/lib/utils/logger";
 
 export const runtime = "edge";
 export const revalidate = 3600; // Revalidate every hour
@@ -29,7 +30,7 @@ Our brand emphasizes strength, reliability, and patriotic service.
 
     return NextResponse.json(branding);
   } catch (error) {
-    console.error("Error loading branding:", error);
+    logger.error("Error loading branding:", error);
     return NextResponse.json(
       { error: "Failed to load branding content" },
       { status: 500 },

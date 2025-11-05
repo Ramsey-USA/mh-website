@@ -3,6 +3,8 @@
  * Phase 6.4-6.6 Enhanced Veteran Experience
  */
 
+import { logger } from "@/lib/utils/logger";
+
 // Core Engines
 import {
   VeteranProfileEngine,
@@ -106,75 +108,14 @@ export type {
 } from "./VeteranBenefitsAutomation";
 
 /**
- * Quick Start Helper Functions
+ * Quick Start Guide:
+ *
+ * Use the classes directly instead of wrapper functions:
+ * - VeteranPersonalizationSystem.getInstance()
+ * - VeteranProfileEngine.getInstance().analyzeAndCreateProfile()
+ * - ContentPersonalizationEngine.getInstance().generatePersonalizedContent()
+ * - VeteranBenefitsAutomation.getInstance().generateBenefitsPackage()
  */
-
-/**
- * Initialize the complete veteran personalization system
- */
-export function initializeVeteranSystem() {
-  return VeteranPersonalizationSystem.getInstance();
-}
-
-/**
- * Analyze user input and create veteran profile
- */
-export function analyzeVeteranInput(
-  input: string,
-  formData?: any,
-  sessionData?: any,
-) {
-  const profileEngine = VeteranProfileEngine.getInstance();
-  return profileEngine.analyzeAndCreateProfile(input, formData, sessionData);
-}
-
-/**
- * Generate personalized content for veteran
- */
-export function generateVeteranContent(profile: VeteranProfile) {
-  const contentEngine = ContentPersonalizationEngine.getInstance();
-  return contentEngine.generatePersonalizedContent(profile);
-}
-
-/**
- * Get veteran benefits and discounts
- */
-export function getVeteranBenefits(profile: VeteranProfile) {
-  const benefitsEngine = VeteranBenefitsAutomation.getInstance();
-  return benefitsEngine.generateBenefitsPackage(profile);
-}
-
-/**
- * Apply veteran discounts to estimate
- */
-export function applyVeteranDiscounts(profile: VeteranProfile, amount: number) {
-  const benefitsEngine = VeteranBenefitsAutomation.getInstance();
-  return benefitsEngine.applyAutomaticDiscounts(profile, amount);
-}
-
-/**
- * Get comprehensive veteran experience
- */
-export async function getVeteranExperience(
-  userInput: string,
-  formData?: any,
-  sessionId?: string,
-) {
-  const veteranSystem = VeteranPersonalizationSystem.getInstance();
-  return await veteranSystem.initializeVeteranExperience(
-    userInput,
-    formData,
-    sessionId,
-  );
-}
-
-/**
- * Veteran System Status and Analytics
- */
-export function getVeteranSystemStatus() {
-  const veteranSystem = VeteranPersonalizationSystem.getInstance();
-  return veteranSystem.getVeteranAnalytics();
-}
 
 /**
  * Default Configuration for Veteran System
@@ -248,76 +189,13 @@ export const SERVICE_ERA_ICONS = {
 };
 
 /**
- * Utility Functions
+ * Utility Functions:
+ *
+ * Use the engine methods directly:
+ * - VeteranProfileEngine.getInstance().detectVeteranStatus()
+ * - VeteranProfileEngine.getInstance().detectServiceBranch()
+ * - ContentPersonalizationEngine.getInstance().generatePersonalizedContent()
  */
-
-/**
- * Check if user input indicates veteran status
- */
-export function isVeteranInput(input: string): boolean {
-  const profileEngine = VeteranProfileEngine.getInstance();
-  const detection = (profileEngine as any).detectVeteranStatus(
-    input.toLowerCase(),
-  );
-  return detection.isVeteran && detection.confidence >= 50;
-}
-
-/**
- * Get veteran branch from input
- */
-export function detectVeteranBranch(input: string): ServiceBranch {
-  const profileEngine = VeteranProfileEngine.getInstance();
-  return (profileEngine as any).detectServiceBranch(input.toLowerCase());
-}
-
-/**
- * Format veteran discount display
- */
-export function formatVeteranDiscount(discounts: any[]): string {
-  const totalPercentage = discounts.reduce((sum, d) => sum + d.percentage, 0);
-  const discountNames = discounts.map((d) => d.name).join(" + ");
-  return `${totalPercentage}% Total Savings (${discountNames})`;
-}
-
-/**
- * Generate veteran greeting message
- */
-export function generateVeteranGreeting(profile: VeteranProfile): string {
-  const contentEngine = ContentPersonalizationEngine.getInstance();
-  const content = contentEngine.generatePersonalizedContent(profile);
-  return content.greeting;
-}
-
-/**
- * Integration helpers for existing MH Construction AI
- */
-
-/**
- * Enhance military construction AI with veteran personalization
- */
-export function enhanceAIWithVeteranPersonalization(
-  aiResponse: any,
-  veteranProfile?: VeteranProfile,
-) {
-  if (!veteranProfile || !veteranProfile.isVeteran) {
-    return aiResponse;
-  }
-
-  const contentEngine = ContentPersonalizationEngine.getInstance();
-  const personalizedContent =
-    contentEngine.generatePersonalizedContent(veteranProfile);
-
-  // Enhance AI response with veteran-specific content
-  return {
-    ...aiResponse,
-    veteranEnhanced: true,
-    greeting: personalizedContent.greeting,
-    veteranMessage: personalizedContent.messaging.respectMessage,
-    priorityHandling: veteranProfile.priorityLevel !== "STANDARD",
-    discountsAvailable: personalizedContent.pricing.totalSavings,
-    specialistAssigned: true,
-  };
-}
 
 /**
  * Phase 6.4-6.6 Implementation Status
@@ -373,9 +251,9 @@ export const PHASE_6_STATUS = {
   },
 };
 
-console.log(
-  "[CHECK_CIRCLE] Enhanced Veteran Personalization System (Phase 6.4-6.6) - COMPLETE",
+logger.log(
+  "[CHECK_CIRCLE] Enhanced Veteran Personalization System (Phase 6.4-6.6) - COMPLETE"
 );
-console.log(
-  "[MILITARY_TECH] All veteran-focused features are operational and ready for deployment",
+logger.log(
+  "[MILITARY_TECH] All veteran-focused features are operational and ready for deployment"
 );

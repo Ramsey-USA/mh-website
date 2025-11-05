@@ -1,9 +1,11 @@
 /**
- * Core AI Engine
- * Main response generation and intelligence processing
+ * Military Construction AI Engine
+ * Core AI system with military personality and construction expertise
  */
 
 import type { ConstructionIntel, AIResponse } from "@/lib/ai/types";
+import { logger } from "@/lib/utils/logger";
+import { matchesKeywords } from "@/lib/utils/keywordMatcher";
 
 export class CoreAIEngine {
   private constructionIntel: ConstructionIntel;
@@ -71,7 +73,7 @@ export class CoreAIEngine {
 
     // Page-specific intelligence briefings
     if (
-      this.matchesKeywords(input, [
+      matchesKeywords(input, [
         "page",
         "help",
         "where",
@@ -84,18 +86,18 @@ export class CoreAIEngine {
     }
 
     // Estimate and cost intelligence with context integration
-    if (this.matchesKeywords(input, ["estimate", "cost", "price", "budget"])) {
+    if (matchesKeywords(input, ["estimate", "cost", "price", "budget"])) {
       return this.getCostIntelligence(input, context);
     }
 
     // Material intelligence
-    if (this.matchesKeywords(input, ["material", "supplies", "equipment"])) {
+    if (matchesKeywords(input, ["material", "supplies", "equipment"])) {
       return this.getMaterialIntelligence(input);
     }
 
     // Location intelligence
     if (
-      this.matchesKeywords(input, [
+      matchesKeywords(input, [
         "location",
         "area",
         "where",
@@ -109,7 +111,7 @@ export class CoreAIEngine {
 
     // Timeline intelligence
     if (
-      this.matchesKeywords(input, [
+      matchesKeywords(input, [
         "timeline",
         "schedule",
         "when",
@@ -122,7 +124,7 @@ export class CoreAIEngine {
 
     // Veteran protocols
     if (
-      this.matchesKeywords(input, [
+      matchesKeywords(input, [
         "veteran",
         "military",
         "service",
@@ -136,10 +138,6 @@ export class CoreAIEngine {
 
     // Default tactical guidance
     return this.getDefaultTacticalGuidance(input);
-  }
-
-  private matchesKeywords(input: string, keywords: string[]): boolean {
-    return keywords.some((keyword) => input.includes(keyword));
   }
 
   private getPageSpecificGuidance(currentPage: string, input: string): string {

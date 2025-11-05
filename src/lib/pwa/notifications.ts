@@ -6,6 +6,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { logger } from "@/lib/utils/logger";
 import { PUSH_CONFIG } from "@/lib/pwa/config";
 
 export interface NotificationPayload {
@@ -65,7 +66,7 @@ export class PushNotificationManager {
    */
   async initialize(): Promise<boolean> {
     if (!this.isSupported) {
-      console.warn("Push notifications not supported");
+      logger.warn("Push notifications not supported");
       return false;
     }
 
@@ -78,7 +79,7 @@ export class PushNotificationManager {
 
       return true;
     } catch (error) {
-      console.error("Failed to initialize push notifications:", error);
+      logger.error("Failed to initialize push notifications:", error);
       return false;
     }
   }
@@ -95,7 +96,7 @@ export class PushNotificationManager {
       this.permission = await Notification.requestPermission();
       return this.permission;
     } catch (error) {
-      console.error("Failed to request notification permission:", error);
+      logger.error("Failed to request notification permission:", error);
       return "denied";
     }
   }
@@ -128,7 +129,7 @@ export class PushNotificationManager {
       });
 
       const serializedSubscription = this.serializeSubscription(
-        this.subscription,
+        this.subscription
       );
 
       // Send subscription to server
@@ -136,7 +137,7 @@ export class PushNotificationManager {
 
       return serializedSubscription;
     } catch (error) {
-      console.error("Failed to subscribe to push notifications:", error);
+      logger.error("Failed to subscribe to push notifications:", error);
       return null;
     }
   }
@@ -160,7 +161,7 @@ export class PushNotificationManager {
 
       return success;
     } catch (error) {
-      console.error("Failed to unsubscribe from push notifications:", error);
+      logger.error("Failed to unsubscribe from push notifications:", error);
       return false;
     }
   }
@@ -177,7 +178,7 @@ export class PushNotificationManager {
       this.subscription = await this.registration.pushManager.getSubscription();
       return this.subscription !== null;
     } catch (error) {
-      console.error("Failed to check subscription status:", error);
+      logger.error("Failed to check subscription status:", error);
       return false;
     }
   }
@@ -187,7 +188,7 @@ export class PushNotificationManager {
    */
   async showNotification(payload: NotificationPayload): Promise<void> {
     if (!this.registration || this.permission !== "granted") {
-      console.warn("Cannot show notification: not granted or no registration");
+      logger.warn("Cannot show notification: not granted or no registration");
       return;
     }
 
@@ -218,7 +219,7 @@ export class PushNotificationManager {
 
       await this.registration.showNotification(payload.title, options);
     } catch (error) {
-      console.error("Failed to show notification:", error);
+      logger.error("Failed to show notification:", error);
     }
   }
 
@@ -431,7 +432,7 @@ export class PushNotificationManager {
   }
 
   private serializeSubscription(
-    subscription: PushSubscription,
+    subscription: PushSubscription
   ): NotificationSubscription {
     const keys = subscription.getKey("p256dh");
     const auth = subscription.getKey("auth");
@@ -457,7 +458,7 @@ export class PushNotificationManager {
   }
 
   private async sendSubscriptionToServer(
-    subscription: NotificationSubscription,
+    subscription: NotificationSubscription
   ): Promise<void> {
     try {
       await fetch("/api/notifications/subscribe", {
@@ -472,7 +473,7 @@ export class PushNotificationManager {
         }),
       });
     } catch (error) {
-      console.error("Failed to send subscription to server:", error);
+      logger.error("Failed to send subscription to server:", error);
     }
   }
 
@@ -488,7 +489,7 @@ export class PushNotificationManager {
         }),
       });
     } catch (error) {
-      console.error("Failed to remove subscription from server:", error);
+      logger.error("Failed to remove subscription from server:", error);
     }
   }
 }

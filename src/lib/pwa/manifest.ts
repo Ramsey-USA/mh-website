@@ -3,6 +3,7 @@
  * Generates dynamic manifest.json based on configuration
  */
 
+import { logger } from "@/lib/utils/logger";
 import { PWA_CONFIG } from "./config";
 
 /**
@@ -135,14 +136,14 @@ export async function updateManifest(): Promise<void> {
 
   try {
     // In a real implementation, this would update the public/manifest.json file
-    console.log("Generated manifest:", manifest);
+    logger.log("Generated manifest:", manifest);
 
     // Store in localStorage for runtime access
     if (typeof window !== "undefined") {
       localStorage.setItem("pwa-manifest", JSON.stringify(manifest));
     }
   } catch (error) {
-    console.error("Failed to update manifest:", error);
+    logger.error("Failed to update manifest:", error);
   }
 }
 
@@ -230,7 +231,7 @@ export class AppBadge {
       try {
         await (navigator as any).setAppBadge(count);
       } catch (error) {
-        console.warn("Failed to set app badge:", error);
+        logger.warn("Failed to set app badge:", error);
       }
     }
   }
@@ -240,14 +241,14 @@ export class AppBadge {
       try {
         await (navigator as any).clearAppBadge();
       } catch (error) {
-        console.warn("Failed to clear app badge:", error);
+        logger.warn("Failed to clear app badge:", error);
       }
     }
   }
 
   static async update(
     newEstimates: number,
-    newMessages: number,
+    newMessages: number
   ): Promise<void> {
     const total = newEstimates + newMessages;
     if (total > 0) {
@@ -298,7 +299,7 @@ export class WebShare {
             } catch {
               return null;
             }
-          }),
+          })
         );
 
         const validFiles = files.filter(Boolean) as File[];
@@ -313,7 +314,7 @@ export class WebShare {
       await navigator.share(shareData);
       return true;
     } catch (error) {
-      console.warn("Web share failed:", error);
+      logger.warn("Web share failed:", error);
       return false;
     }
   }
@@ -335,7 +336,7 @@ export class WebShare {
       });
       return true;
     } catch (error) {
-      console.warn("Estimate share failed:", error);
+      logger.warn("Estimate share failed:", error);
       return false;
     }
   }

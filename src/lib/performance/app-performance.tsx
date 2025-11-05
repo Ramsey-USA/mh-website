@@ -6,6 +6,7 @@
 import React from "react";
 import { performanceManager } from "./performance-manager";
 import { cacheManager, apiCache } from "./caching";
+import { logger } from "@/lib/utils/logger";
 
 /**
  * Performance configuration for the application
@@ -83,7 +84,7 @@ export function initializePerformance() {
       });
     });
 
-    console.log("Performance monitoring initialized");
+    logger.info("Performance monitoring initialized");
   }
 }
 
@@ -96,7 +97,7 @@ export async function performanceFetch(
     cache?: boolean;
     cacheKey?: string;
     cacheTTL?: number;
-  } = {},
+  } = {}
 ) {
   const startTime = performance.now();
   const { cache = true, cacheKey, cacheTTL, ...fetchOptions } = options;
@@ -180,7 +181,7 @@ export async function performanceFetch(
  */
 export function withPerformanceTracking<P extends Record<string, any>>(
   Component: React.ComponentType<P>,
-  componentName: string,
+  componentName: string
 ) {
   const WrappedComponent = React.forwardRef<any, P>((props, ref) => {
     const renderStart = React.useRef<number>(0);
@@ -257,6 +258,6 @@ export function preloadCriticalResources() {
 export function cleanupPerformance() {
   if (typeof window !== "undefined") {
     performanceManager.destroy();
-    console.log("Performance monitoring cleaned up");
+    logger.info("Performance monitoring cleaned up");
   }
 }

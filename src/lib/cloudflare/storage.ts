@@ -1,6 +1,8 @@
 // Cloudflare storage utilities for KV and D1 database
 // Cloudflare storage utilities for D1, KV, and R2
 
+import { logger } from "@/lib/utils/logger";
+
 // Type definitions for Cloudflare Workers
 type KVNamespace = any;
 type D1Database = any;
@@ -23,14 +25,14 @@ export class CloudflareKVStorage {
 
   async get<T>(key: string): Promise<T | null> {
     if (!this.kv) {
-      console.warn("KV namespace not initialized");
+      logger.warn("KV namespace not initialized");
       return null;
     }
     try {
       const value = await this.kv.get(key, "json");
       return value as T;
     } catch (error) {
-      console.error("KV get error:", error);
+      logger.error("KV get error:", error);
       return null;
     }
   }
@@ -38,45 +40,45 @@ export class CloudflareKVStorage {
   async set<T>(
     key: string,
     value: T,
-    expirationTtl?: number,
+    expirationTtl?: number
   ): Promise<boolean> {
     if (!this.kv) {
-      console.warn("KV namespace not initialized");
+      logger.warn("KV namespace not initialized");
       return false;
     }
     try {
       await this.kv.put(key, JSON.stringify(value), { expirationTtl });
       return true;
     } catch (error) {
-      console.error("KV set error:", error);
+      logger.error("KV set error:", error);
       return false;
     }
   }
 
   async delete(key: string): Promise<boolean> {
     if (!this.kv) {
-      console.warn("KV namespace not initialized");
+      logger.warn("KV namespace not initialized");
       return false;
     }
     try {
       await this.kv.delete(key);
       return true;
     } catch (error) {
-      console.error("KV delete error:", error);
+      logger.error("KV delete error:", error);
       return false;
     }
   }
 
   async list(prefix?: string): Promise<string[]> {
     if (!this.kv) {
-      console.warn("KV namespace not initialized");
+      logger.warn("KV namespace not initialized");
       return [];
     }
     try {
       const result = await this.kv.list({ prefix });
       return result.keys.map((k: any) => k.name);
     } catch (error) {
-      console.error("KV list error:", error);
+      logger.error("KV list error:", error);
       return [];
     }
   }
@@ -94,7 +96,7 @@ export class CloudflareD1Database {
 
   async query<T>(sql: string, params?: any[]): Promise<T[]> {
     if (!this.db) {
-      console.warn("D1 database not initialized");
+      logger.warn("D1 database not initialized");
       return [];
     }
     try {
@@ -104,14 +106,14 @@ export class CloudflareD1Database {
         .all();
       return result.results as T[];
     } catch (error) {
-      console.error("D1 query error:", error);
+      logger.error("D1 query error:", error);
       return [];
     }
   }
 
   async execute(sql: string, params?: any[]): Promise<boolean> {
     if (!this.db) {
-      console.warn("D1 database not initialized");
+      logger.warn("D1 database not initialized");
       return false;
     }
     try {
@@ -121,24 +123,24 @@ export class CloudflareD1Database {
         .run();
       return true;
     } catch (error) {
-      console.error("D1 execute error:", error);
+      logger.error("D1 execute error:", error);
       return false;
     }
   }
 
   async batch(statements: { sql: string; params?: any[] }[]): Promise<boolean> {
     if (!this.db) {
-      console.warn("D1 database not initialized");
+      logger.warn("D1 database not initialized");
       return false;
     }
     try {
       const prepared = statements.map((stmt) =>
-        this.db!.prepare(stmt.sql).bind(...(stmt.params || [])),
+        this.db!.prepare(stmt.sql).bind(...(stmt.params || []))
       );
       await this.db.batch(prepared);
       return true;
     } catch (error) {
-      console.error("D1 batch error:", error);
+      logger.error("D1 batch error:", error);
       return false;
     }
   }

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { logger } from "@/lib/utils/logger";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
@@ -38,7 +39,7 @@ export async function POST(request: NextRequest, context: RouteParams) {
         );
     }
   } catch (error) {
-    console.error("API function error:", error);
+    logger.error("API function error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },
@@ -83,7 +84,7 @@ async function handleGetUserData(data: any, user: any) {
       },
     });
   } catch (error) {
-    console.error("Error getting user data:", error);
+    logger.error("Error getting user data:", error);
     return NextResponse.json(
       { error: "Failed to get user data" },
       { status: 500 },

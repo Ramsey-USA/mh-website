@@ -10,6 +10,7 @@
 
 import React, { useState, useCallback } from "react";
 import dynamic from "next/dynamic";
+import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "../icons/MaterialIcon";
 import { Card, CardContent } from "../ui";
 import useSmartRecommendations from "@/hooks/useSmartRecommendations";
@@ -21,11 +22,11 @@ import type {
 // Dynamic imports for Framer Motion
 const MotionDiv = dynamic(
   () => import("framer-motion").then((mod) => mod.motion.div),
-  { ssr: false },
+  { ssr: false }
 );
 const AnimatePresence = dynamic(
   () => import("framer-motion").then((mod) => mod.AnimatePresence),
-  { ssr: false },
+  { ssr: false }
 );
 
 interface FeedbackCollectionProps {
@@ -118,7 +119,7 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
           });
         }
       } catch (error) {
-        console.error("Error submitting feedback:", error);
+        logger.error("Error submitting feedback:", error);
       } finally {
         setIsSubmitting(false);
       }
@@ -130,7 +131,7 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
       recordFeedback,
       trackExperimentEvent,
       onFeedbackSubmitted,
-    ],
+    ]
   );
 
   const handleRatingClick = useCallback(
@@ -143,7 +144,7 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
         handleSubmit(newFormData);
       }
     },
-    [formData, variant, showRatingOnly, handleSubmit],
+    [formData, variant, showRatingOnly, handleSubmit]
   );
 
   const renderStarRating = () => (
@@ -384,7 +385,7 @@ export function useFeedbackCollection(userId?: string) {
     async (
       recommendation: ProjectRecommendation,
       rating: number,
-      additionalData?: Partial<FeedbackFormData>,
+      additionalData?: Partial<FeedbackFormData>
     ) => {
       const feedback: RecommendationFeedback = {
         recommendationId: recommendation.id,
@@ -408,16 +409,16 @@ export function useFeedbackCollection(userId?: string) {
 
       return feedback;
     },
-    [userId, recordFeedback, trackExperimentEvent],
+    [userId, recordFeedback, trackExperimentEvent]
   );
 
   const getFeedbackForRecommendation = useCallback(
     (recommendationId: string) => {
       return feedbackHistory.filter(
-        (f) => f.recommendationId === recommendationId,
+        (f) => f.recommendationId === recommendationId
       );
     },
-    [feedbackHistory],
+    [feedbackHistory]
   );
 
   return {

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { logger } from "@/lib/utils/logger";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
@@ -12,7 +13,7 @@ export async function POST(request: NextRequest) {
     if (!data.firstName || !data.lastName || !data.email || !data.position) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -70,19 +71,19 @@ Application ID: ${application.id}
             type: "job-application",
             recipientEmail: "office@mhc-gc.com",
           }),
-        },
+        }
       );
 
       if (!emailResponse.ok) {
-        console.error("Failed to send email notification");
+        logger.error("Failed to send email notification");
       }
     } catch (emailError) {
-      console.error("Error sending email notification:", emailError);
+      logger.error("Error sending email notification:", emailError);
       // Continue even if email fails - don't block the application submission
     }
 
     // TODO: Store in Cloudflare D1 database or KV
-    console.log("New job application:", application);
+    logger.info("New job application:", application);
 
     // In production, you might want to:
     // 1. Store in Cloudflare D1 database
@@ -96,10 +97,10 @@ Application ID: ${application.id}
       data: { id: application.id },
     });
   } catch (error) {
-    console.error("Error submitting job application:", error);
+    logger.error("Error submitting job application:", error);
     return NextResponse.json(
       { error: "Failed to submit application" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
@@ -115,10 +116,10 @@ export async function GET(request: NextRequest) {
       data: applications,
     });
   } catch (error) {
-    console.error("Error fetching job applications:", error);
+    logger.error("Error fetching job applications:", error);
     return NextResponse.json(
       { error: "Failed to fetch applications" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

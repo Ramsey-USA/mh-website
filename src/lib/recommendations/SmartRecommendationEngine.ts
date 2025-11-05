@@ -7,6 +7,7 @@
  * profile analysis, and veteran status for enhanced user experience and conversion.
  */
 
+import { logger } from "@/lib/utils/logger";
 import { militaryConstructionAI, MilitaryConstructionAI } from "../ai";
 import ABTestingFramework, {
   VariantConfiguration,
@@ -142,7 +143,7 @@ export class SmartRecommendationEngine {
 
   constructor(
     aiEngine?: MilitaryConstructionAI,
-    enableABTesting: boolean = true,
+    enableABTesting: boolean = true
   ) {
     this.aiEngine = aiEngine || ({} as MilitaryConstructionAI); // Will be injected later
     this.userProfiles = new Map();
@@ -164,7 +165,7 @@ export class SmartRecommendationEngine {
    */
   async generateRecommendations(
     userProfile: UserProfile,
-    context?: RecommendationContext,
+    context?: RecommendationContext
   ): Promise<ProjectRecommendation[]> {
     try {
       // Get or assign user to experiment
@@ -172,7 +173,7 @@ export class SmartRecommendationEngine {
         this.abTestingFramework.assignUserToExperiment(
           userProfile.id,
           context?.sessionId || `session-${Date.now()}`,
-          userProfile,
+          userProfile
         );
 
       // Get variant configuration if in experiment
@@ -195,7 +196,7 @@ export class SmartRecommendationEngine {
       // Generate base recommendations using variant configuration
       const baseRecommendations = this.generateBaseRecommendations(
         profileAnalysis,
-        variantConfig,
+        variantConfig
       );
 
       // Apply veteran-specific enhancements
@@ -203,21 +204,21 @@ export class SmartRecommendationEngine {
         ? this.enhanceForVeterans(
             baseRecommendations,
             userProfile.veteranDetails!,
-            variantConfig,
+            variantConfig
           )
         : baseRecommendations;
 
       // Apply behavioral learning
       const behaviorEnhanced = this.applyBehavioralLearning(
         veteranEnhanced,
-        userProfile,
+        userProfile
       );
 
       // Score and rank recommendations using variant weights
       const scoredRecommendations = this.scoreRecommendations(
         behaviorEnhanced,
         userProfile,
-        variantConfig,
+        variantConfig
       );
 
       // Determine recommendation count from variant or default
@@ -232,7 +233,7 @@ export class SmartRecommendationEngine {
       this.storeRecommendations(
         userProfile.id,
         rankedRecommendations,
-        enhancedContext,
+        enhancedContext
       );
 
       // Track experiment event
@@ -252,7 +253,7 @@ export class SmartRecommendationEngine {
 
       return rankedRecommendations;
     } catch (error) {
-      console.error("Error generating recommendations:", error);
+      logger.error("Error generating recommendations:", error);
       return this.getFallbackRecommendations(userProfile);
     }
   }
@@ -263,12 +264,12 @@ export class SmartRecommendationEngine {
   private analyzeUserProfile(userProfile: UserProfile): any {
     const analysis = {
       budgetCategory: this.categorizeBudget(
-        userProfile.preferences.budgetRange,
+        userProfile.preferences.budgetRange
       ),
       projectInterests: userProfile.preferences.projectTypes,
       urgencyLevel: this.analyzeUrgency(userProfile.preferences.timeframe),
       behaviorPatterns: this.analyzeBehaviorPatterns(
-        userProfile.behaviorHistory,
+        userProfile.behaviorHistory
       ),
       locationFactors: this.analyzeLocationFactors(userProfile.location),
       veteranPriorities: userProfile.isVeteran
@@ -284,7 +285,7 @@ export class SmartRecommendationEngine {
    */
   private generateBaseRecommendations(
     analysis: any,
-    variantConfig?: VariantConfiguration | null,
+    variantConfig?: VariantConfiguration | null
   ): ProjectRecommendation[] {
     const recommendations: ProjectRecommendation[] = [];
 
@@ -294,28 +295,28 @@ export class SmartRecommendationEngine {
     // Residential projects
     if (analysis.projectInterests.includes("residential")) {
       recommendations.push(
-        ...this.generateResidentialRecommendations(analysis, algorithmType),
+        ...this.generateResidentialRecommendations(analysis, algorithmType)
       );
     }
 
     // Commercial projects
     if (analysis.projectInterests.includes("commercial")) {
       recommendations.push(
-        ...this.generateCommercialRecommendations(analysis, algorithmType),
+        ...this.generateCommercialRecommendations(analysis, algorithmType)
       );
     }
 
     // Renovation projects
     if (analysis.projectInterests.includes("renovation")) {
       recommendations.push(
-        ...this.generateRenovationRecommendations(analysis, algorithmType),
+        ...this.generateRenovationRecommendations(analysis, algorithmType)
       );
     }
 
     // Addition projects
     if (analysis.projectInterests.includes("addition")) {
       recommendations.push(
-        ...this.generateAdditionRecommendations(analysis, algorithmType),
+        ...this.generateAdditionRecommendations(analysis, algorithmType)
       );
     }
 
@@ -327,7 +328,7 @@ export class SmartRecommendationEngine {
    */
   private generateResidentialRecommendations(
     analysis: any,
-    algorithmType: string = "standard",
+    algorithmType: string = "standard"
   ): ProjectRecommendation[] {
     const recommendations: ProjectRecommendation[] = [];
 
@@ -389,7 +390,7 @@ export class SmartRecommendationEngine {
    */
   private generateCommercialRecommendations(
     analysis: any,
-    algorithmType: string = "standard",
+    algorithmType: string = "standard"
   ): ProjectRecommendation[] {
     const recommendations: ProjectRecommendation[] = [];
 
@@ -426,7 +427,7 @@ export class SmartRecommendationEngine {
    */
   private generateRenovationRecommendations(
     analysis: any,
-    algorithmType: string = "standard",
+    algorithmType: string = "standard"
   ): ProjectRecommendation[] {
     const recommendations: ProjectRecommendation[] = [];
 
@@ -463,7 +464,7 @@ export class SmartRecommendationEngine {
    */
   private generateAdditionRecommendations(
     analysis: any,
-    algorithmType: string = "standard",
+    algorithmType: string = "standard"
   ): ProjectRecommendation[] {
     const recommendations: ProjectRecommendation[] = [];
 
@@ -501,7 +502,7 @@ export class SmartRecommendationEngine {
   private enhanceForVeterans(
     recommendations: ProjectRecommendation[],
     veteranProfile: VeteranProfile,
-    variantConfig?: VariantConfiguration | null,
+    variantConfig?: VariantConfiguration | null
   ): ProjectRecommendation[] {
     return recommendations.map((rec) => {
       const veteranBenefits = this.generateVeteranBenefits(veteranProfile, rec);
@@ -523,7 +524,7 @@ export class SmartRecommendationEngine {
    */
   private generateVeteranBenefits(
     veteranProfile: VeteranProfile,
-    recommendation: ProjectRecommendation,
+    recommendation: ProjectRecommendation
   ): VeteranBenefit[] {
     const benefits: VeteranBenefit[] = [];
 
@@ -591,11 +592,11 @@ export class SmartRecommendationEngine {
    */
   private applyBehavioralLearning(
     recommendations: ProjectRecommendation[],
-    userProfile: UserProfile,
+    userProfile: UserProfile
   ): ProjectRecommendation[] {
     // Analyze user behavior patterns
     const behaviorScore = this.calculateBehaviorScore(
-      userProfile.behaviorHistory,
+      userProfile.behaviorHistory
     );
 
     return recommendations.map((rec) => {
@@ -606,7 +607,7 @@ export class SmartRecommendationEngine {
       const viewedSimilar = userProfile.behaviorHistory.filter(
         (behavior) =>
           behavior.action === "view" &&
-          behavior.data?.projectType === rec.projectType,
+          behavior.data?.projectType === rec.projectType
       ).length;
 
       confidenceBoost += Math.min(viewedSimilar * 2, 10);
@@ -615,7 +616,7 @@ export class SmartRecommendationEngine {
       const estimatedSimilar = userProfile.behaviorHistory.filter(
         (behavior) =>
           behavior.action === "estimate" &&
-          behavior.data?.projectType === rec.projectType,
+          behavior.data?.projectType === rec.projectType
       ).length;
 
       confidenceBoost += estimatedSimilar * 5;
@@ -633,7 +634,7 @@ export class SmartRecommendationEngine {
   private scoreRecommendations(
     recommendations: ProjectRecommendation[],
     userProfile: UserProfile,
-    variantConfig?: VariantConfiguration | null,
+    variantConfig?: VariantConfiguration | null
   ): ProjectRecommendation[] {
     // Get scoring weights from variant config or use defaults
     const weights = variantConfig?.scoringWeights || {
@@ -650,14 +651,14 @@ export class SmartRecommendationEngine {
       // Budget alignment score
       const budgetScore = this.calculateBudgetScore(
         rec.estimatedCost,
-        userProfile.preferences.budgetRange,
+        userProfile.preferences.budgetRange
       );
       score = (score + budgetScore) / 2;
 
       // Timeline preference score
       const timelineScore = this.calculateTimelineScore(
         rec.timeline,
-        userProfile.preferences.timeframe,
+        userProfile.preferences.timeframe
       );
       score = (score + timelineScore) / 2;
 
@@ -681,7 +682,7 @@ export class SmartRecommendationEngine {
   private storeRecommendations(
     userId: string,
     recommendations: ProjectRecommendation[],
-    context?: RecommendationContext,
+    context?: RecommendationContext
   ): void {
     this.recommendationHistory.set(userId, recommendations);
 
@@ -709,7 +710,7 @@ export class SmartRecommendationEngine {
     // Track experiment event if user is in experiment
     const userAssignment = this.abTestingFramework.assignUserToExperiment(
       feedback.userId,
-      `session-${Date.now()}`,
+      `session-${Date.now()}`
     );
     if (userAssignment) {
       this.abTestingFramework.trackEvent({
@@ -777,7 +778,7 @@ export class SmartRecommendationEngine {
   getUserExperimentAssignment(userId: string): UserAssignment | null {
     return this.abTestingFramework.assignUserToExperiment(
       userId,
-      `session-${Date.now()}`,
+      `session-${Date.now()}`
     );
   }
 
@@ -808,7 +809,7 @@ export class SmartRecommendationEngine {
   concludeExperiment(experimentId: string, winningVariantId?: string): any {
     return this.abTestingFramework.concludeExperiment(
       experimentId,
-      winningVariantId,
+      winningVariantId
     );
   }
 
@@ -898,7 +899,7 @@ export class SmartRecommendationEngine {
 
   private calculateBudgetScore(
     projectCost: { min: number; max: number },
-    userBudget: { min: number; max: number },
+    userBudget: { min: number; max: number }
   ): number {
     // Calculate overlap between project cost and user budget
     const projectAvg = (projectCost.min + projectCost.max) / 2;
@@ -915,7 +916,7 @@ export class SmartRecommendationEngine {
 
   private calculateTimelineScore(
     projectTimeline: string,
-    userTimeframe: string,
+    userTimeframe: string
   ): number {
     // Simplified timeline scoring
     // Would need more sophisticated parsing in production
@@ -944,7 +945,7 @@ export class SmartRecommendationEngine {
   }
 
   private getFallbackRecommendations(
-    userProfile: UserProfile,
+    userProfile: UserProfile
   ): ProjectRecommendation[] {
     // Provide basic fallback recommendations if main engine fails
     return [

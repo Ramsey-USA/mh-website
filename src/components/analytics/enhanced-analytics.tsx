@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import { logger } from "@/lib/utils/logger";
 import Script from "next/script";
 
 interface GoogleAnalyticsProps {
@@ -483,7 +484,7 @@ export function AnalyticsProvider({
   enableTimeTracking = true,
 }: AnalyticsProviderProps) {
   if (!measurementId) {
-    console.warn("Google Analytics measurement ID not provided");
+    logger.warn("Google Analytics measurement ID not provided");
     return <>{children}</>;
   }
 

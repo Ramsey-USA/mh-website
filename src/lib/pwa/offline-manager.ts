@@ -5,6 +5,7 @@
 
 "use client";
 
+import { logger } from "@/lib/utils/logger";
 import { OFFLINE_CONFIG, BACKGROUND_SYNC_CONFIG } from "@/lib/pwa/config";
 
 export interface StorageItem<T = any> {
@@ -142,7 +143,7 @@ export class OfflineStorage {
       syncStatus?: StorageItem["syncStatus"];
       userId?: string;
       since?: number;
-    },
+    }
   ): Promise<StorageItem<T>[]> {
     if (!this.db) throw new Error("Database not initialized");
 
@@ -250,7 +251,7 @@ export class BackgroundSyncManager {
     storeName: string,
     data: T,
     syncEndpoint: string,
-    userId?: string,
+    userId?: string
   ): Promise<string> {
     const id = this.generateId();
     const item: StorageItem<T> = {
@@ -287,28 +288,28 @@ export class BackgroundSyncManager {
     // Sync estimates
     const estimateResult = await this.syncStore(
       "estimates",
-      "/api/estimates/sync",
+      "/api/estimates/sync"
     );
     this.mergeResults(results, estimateResult);
 
     // Sync contact forms
     const contactResult = await this.syncStore(
       "contactForms",
-      "/api/contact/sync",
+      "/api/contact/sync"
     );
     this.mergeResults(results, contactResult);
 
     // Sync analytics
     const analyticsResult = await this.syncStore(
       "analytics",
-      "/api/analytics/sync",
+      "/api/analytics/sync"
     );
     this.mergeResults(results, analyticsResult);
 
     // Sync projects
     const projectsResult = await this.syncStore(
       "projects",
-      "/api/projects/sync",
+      "/api/projects/sync"
     );
     this.mergeResults(results, projectsResult);
 
@@ -319,7 +320,7 @@ export class BackgroundSyncManager {
 
   private async syncStore(
     storeName: string,
-    endpoint: string,
+    endpoint: string
   ): Promise<SyncResult> {
     const pendingItems = await this.storage.getAll(storeName, {
       syncStatus: "pending",
@@ -342,7 +343,7 @@ export class BackgroundSyncManager {
           results.failed.push(item.id);
         }
       } catch (error) {
-        console.error(`Failed to sync item ${item.id}:`, error);
+        logger.error(`Failed to sync item ${item.id}:`, error);
         results.failed.push(item.id);
       }
     }
@@ -353,7 +354,7 @@ export class BackgroundSyncManager {
   private async syncItem(
     storeName: string,
     itemId: string,
-    endpoint: string,
+    endpoint: string
   ): Promise<{
     success: boolean;
     conflict?: any;
@@ -426,7 +427,7 @@ export class BackgroundSyncManager {
           await (registration as any).sync.register(syncConfig.tag);
         }
       } catch (error) {
-        console.error("Failed to register background sync:", error);
+        logger.error("Failed to register background sync:", error);
       }
     }
   }
@@ -449,14 +450,14 @@ export class BackgroundSyncManager {
 export class ConflictResolver {
   static resolveByTimestamp<T>(
     local: StorageItem<T>,
-    remote: StorageItem<T>,
+    remote: StorageItem<T>
   ): StorageItem<T> {
     return local.lastModified > remote.lastModified ? local : remote;
   }
 
   static resolveByVersion<T>(
     local: StorageItem<T>,
-    remote: StorageItem<T>,
+    remote: StorageItem<T>
   ): StorageItem<T> {
     return local.version > remote.version ? local : remote;
   }
@@ -489,7 +490,7 @@ export class ConflictResolver {
 
   static mergeContactForms(
     local: StorageItem,
-    remote: StorageItem,
+    remote: StorageItem
   ): StorageItem {
     // Contact forms are typically not merged - use latest
     return local.lastModified > remote.lastModified ? local : remote;
@@ -526,7 +527,7 @@ export class OfflineDataManager {
       "estimates",
       estimate,
       "/api/estimates/submit",
-      userId,
+      userId
     );
   }
 
@@ -536,7 +537,7 @@ export class OfflineDataManager {
     return this.syncManager.queueForSync(
       "contactForms",
       form,
-      "/api/contact/submit",
+      "/api/contact/submit"
     );
   }
 
@@ -546,7 +547,7 @@ export class OfflineDataManager {
     return this.syncManager.queueForSync(
       "analytics",
       event,
-      "/api/analytics/track",
+      "/api/analytics/track"
     );
   }
 
@@ -605,12 +606,12 @@ export class OfflineDataManager {
         try {
           await this.storage.cleanup("analytics", oneWeekAgo);
           await this.storage.cleanup("cacheMetadata", oneWeekAgo);
-          console.log("Periodic cleanup completed");
+          logger.log("Periodic cleanup completed");
         } catch (error) {
-          console.error("Periodic cleanup failed:", error);
+          logger.error("Periodic cleanup failed:", error);
         }
       },
-      24 * 60 * 60 * 1000,
+      24 * 60 * 60 * 1000
     ); // 24 hours
   }
 }

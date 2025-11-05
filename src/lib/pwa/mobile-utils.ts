@@ -6,6 +6,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import { logger } from "@/lib/utils/logger";
 
 export interface ViewportInfo {
   width: number;
@@ -63,11 +64,11 @@ export function useViewport(): ViewportInfo {
       const computedStyle = getComputedStyle(document.documentElement);
       const safeAreaTop = parseInt(
         computedStyle.getPropertyValue("--safe-area-inset-top") || "0",
-        10,
+        10
       );
       const safeAreaBottom = parseInt(
         computedStyle.getPropertyValue("--safe-area-inset-bottom") || "0",
-        10,
+        10
       );
       const hasNotch = safeAreaTop > 0 || safeAreaBottom > 0;
 
@@ -108,7 +109,7 @@ export function useSwipeGesture(
     threshold?: number;
     velocityThreshold?: number;
     timeThreshold?: number;
-  } = {},
+  } = {}
 ) {
   const {
     threshold = 50,
@@ -173,7 +174,7 @@ export function useSwipeGesture(
       startPos.current = null;
       setIsGesturing(false);
     },
-    [onSwipe, threshold, velocityThreshold, timeThreshold],
+    [onSwipe, threshold, velocityThreshold, timeThreshold]
   );
 
   useEffect(() => {
@@ -208,7 +209,7 @@ export function useAppNavigation() {
       });
       setCurrentIndex((prev) => prev + 1);
     },
-    [currentIndex],
+    [currentIndex]
   );
 
   const goBack = useCallback(() => {
@@ -238,7 +239,7 @@ export function useAppNavigation() {
         if (path) window.history.pushState(null, "", path);
       }
     },
-    { threshold: 100, velocityThreshold: 0.5 },
+    { threshold: 100, velocityThreshold: 0.5 }
   );
 
   return {
@@ -261,7 +262,7 @@ export function usePullToRefresh(
     threshold?: number;
     resistance?: number;
     enabled?: boolean;
-  } = {},
+  } = {}
 ) {
   const { threshold = 80, resistance = 2.5, enabled = true } = options;
 
@@ -280,7 +281,7 @@ export function usePullToRefresh(
         isPulling.current = true;
       }
     },
-    [enabled, isRefreshing],
+    [enabled, isRefreshing]
   );
 
   const handleTouchMove = useCallback(
@@ -296,7 +297,7 @@ export function usePullToRefresh(
         setPullDistance(distance);
       }
     },
-    [enabled, resistance, threshold],
+    [enabled, resistance, threshold]
   );
 
   const handleTouchEnd = useCallback(async () => {
@@ -309,7 +310,7 @@ export function usePullToRefresh(
       try {
         await onRefresh();
       } catch (error) {
-        console.error("Refresh failed:", error);
+        logger.error("Refresh failed:", error);
       } finally {
         setIsRefreshing(false);
       }
@@ -346,7 +347,7 @@ export function useAppBar(
   options: {
     hideOnScroll?: boolean;
     threshold?: number;
-  } = {},
+  } = {}
 ) {
   const { hideOnScroll = true, threshold = 10 } = options;
   const [isVisible, setIsVisible] = useState(true);
@@ -517,7 +518,7 @@ export function useOrientation() {
         await (window.screen.orientation as any).lock(orientation);
         return true;
       } catch (error) {
-        console.warn("Failed to lock orientation:", error);
+        logger.warn("Failed to lock orientation:", error);
         return false;
       }
     }
@@ -549,7 +550,7 @@ export function useStatusBar() {
     (color: string, luminance: "light" | "dark" = "dark") => {
       // Set theme-color meta tag
       let themeColorMeta = document.querySelector(
-        'meta[name="theme-color"]',
+        'meta[name="theme-color"]'
       ) as HTMLMetaElement;
       if (!themeColorMeta) {
         themeColorMeta = document.createElement("meta");
@@ -560,7 +561,7 @@ export function useStatusBar() {
 
       // Set status bar style for iOS
       let statusBarMeta = document.querySelector(
-        'meta[name="apple-mobile-web-app-status-bar-style"]',
+        'meta[name="apple-mobile-web-app-status-bar-style"]'
       ) as HTMLMetaElement;
       if (!statusBarMeta) {
         statusBarMeta = document.createElement("meta");
@@ -570,7 +571,7 @@ export function useStatusBar() {
       statusBarMeta.content =
         luminance === "light" ? "black-translucent" : "default";
     },
-    [],
+    []
   );
 
   return {

@@ -223,7 +223,7 @@
   }
 
   .mh-button-glow-secondary {
-    box-shadow: var(--shadow-bronze);
+    box-shadow: var(--shadow-brand-secondary);
   }
 
   /* Enhanced button interactions */

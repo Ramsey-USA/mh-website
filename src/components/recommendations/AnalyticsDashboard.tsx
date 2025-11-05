@@ -9,6 +9,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
+import { logger } from "@/lib/utils/logger";
 import dynamic from "next/dynamic";
 import { MaterialIcon } from "../icons/MaterialIcon";
 import { Card, CardContent } from "../ui";
@@ -64,7 +65,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
           setSelectedExperiment(activeExps[0].id);
         }
       } catch (error) {
-        console.error("Error loading experiments:", error);
+        logger.error("Error loading experiments:", error);
       }
     };
 
@@ -92,7 +93,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
           },
         ]);
       } catch (error) {
-        console.error("Error loading experiment results:", error);
+        logger.error("Error loading experiment results:", error);
       } finally {
         setIsLoading(false);
       }

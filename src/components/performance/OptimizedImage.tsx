@@ -6,6 +6,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import { logger } from "@/lib/utils/logger";
 import Image from "next/image";
 import { useLazyImage, usePerformanceTiming } from "@/lib/performance/hooks";
 import { ImageOptimizer } from "@/lib/performance/performance-manager";
@@ -74,7 +75,7 @@ export function OptimizedImage({
     onLoad: () => {
       if (loadStartTime.current && trackPerformance) {
         const loadTime = performance.now() - loadStartTime.current;
-        console.log(`Image ${src} loaded in ${loadTime.toFixed(2)}ms`);
+        logger.log(`Image ${src} loaded in ${loadTime.toFixed(2)}ms`);
       }
       setIsLoaded(true);
       onLoad?.();
@@ -199,7 +200,7 @@ export function OptimizedImage({
       onLoad={() => {
         if (loadStartTime.current && trackPerformance) {
           const loadTime = performance.now() - loadStartTime.current;
-          console.log(`Image ${src} loaded in ${loadTime.toFixed(2)}ms`);
+          logger.log(`Image ${src} loaded in ${loadTime.toFixed(2)}ms`);
         }
         setIsLoaded(true);
         onLoad?.();

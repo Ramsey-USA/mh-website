@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 interface JobApplicationModalProps {
@@ -143,7 +144,7 @@ export function JobApplicationModal({
         });
       }, 2000);
     } catch (error) {
-      console.error("Error submitting application:", error);
+      logger.error("Error submitting application:", error);
       setSubmitError("Failed to submit application. Please try again.");
     } finally {
       setIsSubmitting(false);

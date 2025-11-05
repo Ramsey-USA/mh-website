@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { logger } from "@/lib/utils/logger";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
@@ -34,7 +35,7 @@ export async function POST(request: NextRequest) {
           error:
             "Missing required fields: name, email, and message are required",
         },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -43,7 +44,7 @@ export async function POST(request: NextRequest) {
     if (!emailRegex.test(data.email)) {
       return NextResponse.json(
         { error: "Invalid email address" },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -77,24 +78,24 @@ export async function POST(request: NextRequest) {
         });
 
         if (error) {
-          console.error("Resend API error:", error);
+          logger.error("Resend API error:", error);
           emailError = error;
         } else {
           emailSent = true;
-          console.log("Email sent successfully:", {
+          logger.info("Email sent successfully:", {
             id: emailResult?.id,
             to: emailData.to,
             subject: emailData.subject,
           });
         }
       } catch (error) {
-        console.error("Error sending email with Resend:", error);
+        logger.error("Error sending email with Resend:", error);
         emailError = error;
       }
     } else {
       // No API key configured - log warning
-      console.warn("⚠️  RESEND_API_KEY not configured. Email not sent.");
-      console.log("📧 Email that would be sent:", {
+      logger.warn("⚠️  RESEND_API_KEY not configured. Email not sent.");
+      logger.info("📧 Email that would be sent:", {
         to: emailData.to,
         subject: emailData.subject,
         from: emailData.from,
@@ -114,7 +115,7 @@ export async function POST(request: NextRequest) {
     };
 
     // TODO: Optionally store in Cloudflare D1 or KV for record keeping
-    console.log("Form submission:", submission);
+    logger.info("Form submission:", submission);
 
     return NextResponse.json({
       success: true,
@@ -128,10 +129,10 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error) {
-    console.error("Error processing contact form:", error);
+    logger.error("Error processing contact form:", error);
     return NextResponse.json(
       { error: "Failed to process contact form submission" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
@@ -144,7 +145,7 @@ function generateEmailHTML(data: ContactRequest): string {
     ? Object.entries(data.metadata)
         .map(
           ([key, value]) =>
-            `<tr><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>${formatFieldName(key)}:</strong></td><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;">${value}</td></tr>`,
+            `<tr><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>${formatFieldName(key)}:</strong></td><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;">${value}</td></tr>`
         )
         .join("")
     : "";

@@ -4,6 +4,7 @@
  */
 
 import { useCallback, useEffect, useState } from "react";
+import { logger } from "@/lib/utils/logger";
 
 export interface ConversationHistory {
   id: string;
@@ -37,10 +38,10 @@ export class ConversationPersistence {
       };
       localStorage.setItem(
         STORAGE_KEYS.CURRENT_SESSION,
-        JSON.stringify(sessionInfo),
+        JSON.stringify(sessionInfo)
       );
     } catch (error) {
-      console.error("Failed to save current session:", error);
+      logger.error("Failed to save current session:", error);
     }
   }
 
@@ -61,7 +62,7 @@ export class ConversationPersistence {
         }
       }
     } catch (error) {
-      console.error("Failed to load current session:", error);
+      logger.error("Failed to load current session:", error);
     }
     return null;
   }
@@ -70,7 +71,7 @@ export class ConversationPersistence {
     try {
       localStorage.removeItem(STORAGE_KEYS.CURRENT_SESSION);
     } catch (error) {
-      console.error("Failed to clear current session:", error);
+      logger.error("Failed to clear current session:", error);
     }
   }
 
@@ -84,10 +85,10 @@ export class ConversationPersistence {
 
       localStorage.setItem(
         STORAGE_KEYS.CONVERSATION_HISTORY,
-        JSON.stringify(trimmedHistory),
+        JSON.stringify(trimmedHistory)
       );
     } catch (error) {
-      console.error("Failed to save conversation history:", error);
+      logger.error("Failed to save conversation history:", error);
     }
   }
 
@@ -96,7 +97,7 @@ export class ConversationPersistence {
       const saved = localStorage.getItem(STORAGE_KEYS.CONVERSATION_HISTORY);
       return saved ? JSON.parse(saved) : [];
     } catch (error) {
-      console.error("Failed to load conversation history:", error);
+      logger.error("Failed to load conversation history:", error);
       return [];
     }
   }
@@ -177,7 +178,7 @@ export function useConversationHistory() {
       setHistory((prev) => [conversation, ...prev.slice(0, 9)]); // Keep only 10
       ConversationPersistence.clearCurrentSession();
     },
-    [],
+    []
   );
 
   // Export conversation
@@ -185,7 +186,7 @@ export function useConversationHistory() {
     (conversation: ConversationHistory) => {
       ConversationPersistence.downloadConversation(conversation);
     },
-    [],
+    []
   );
 
   // Clear all history
@@ -194,7 +195,7 @@ export function useConversationHistory() {
       localStorage.removeItem(STORAGE_KEYS.CONVERSATION_HISTORY);
       setHistory([]);
     } catch (error) {
-      console.error("Failed to clear history:", error);
+      logger.error("Failed to clear history:", error);
     }
   }, []);
 
@@ -204,7 +205,7 @@ export function useConversationHistory() {
       ConversationPersistence.saveCurrentSession(messages, sessionData);
       setCurrentSession({ messages, sessionData });
     },
-    [],
+    []
   );
 
   return {
@@ -223,10 +224,10 @@ export class UserPreferences {
     try {
       localStorage.setItem(
         STORAGE_KEYS.USER_PREFERENCES,
-        JSON.stringify(preferences),
+        JSON.stringify(preferences)
       );
     } catch (error) {
-      console.error("Failed to save user preferences:", error);
+      logger.error("Failed to save user preferences:", error);
     }
   }
 
@@ -235,7 +236,7 @@ export class UserPreferences {
       const saved = localStorage.getItem(STORAGE_KEYS.USER_PREFERENCES);
       return saved ? JSON.parse(saved) : {};
     } catch (error) {
-      console.error("Failed to load user preferences:", error);
+      logger.error("Failed to load user preferences:", error);
       return {};
     }
   }
@@ -244,7 +245,7 @@ export class UserPreferences {
     try {
       localStorage.removeItem(STORAGE_KEYS.USER_PREFERENCES);
     } catch (error) {
-      console.error("Failed to clear user preferences:", error);
+      logger.error("Failed to clear user preferences:", error);
     }
   }
 }

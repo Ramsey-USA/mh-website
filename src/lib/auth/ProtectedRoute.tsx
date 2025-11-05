@@ -1,7 +1,6 @@
 // Protected route component for role-based access control
 "use client";
 
-import React from "react";
 import { useRouter } from "next/navigation";
 import { useAuth, UserRole } from "./AuthContext";
 import { Card, CardContent, Button } from "@/components/ui";

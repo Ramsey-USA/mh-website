@@ -1,20 +1,22 @@
 /**
- * Veteran AI - Specialized AI handling for veteran-specific interactions
+ * Veteran AI System
+ * Specialized AI responses for veteran-related inquiries
  */
 
-import type { VeteranProfile } from "@/lib/veteran";
+import type { VeteranProfile } from "@/lib/veteran/VeteranProfileEngine";
+import { matchesKeywords } from "@/lib/utils/keywordMatcher";
 
 export class VeteranAI {
   generateVeteranResponse(
     input: string,
     veteranProfile?: VeteranProfile,
-    context?: any,
+    context?: any
   ): string {
     const inputLower = input.toLowerCase();
 
     // Accessibility guidance for veterans
     if (
-      this.matchesKeywords(inputLower, [
+      matchesKeywords(inputLower, [
         "accessibility",
         "disability",
         "ada",
@@ -27,7 +29,7 @@ export class VeteranAI {
 
     // Energy efficiency for veterans
     if (
-      this.matchesKeywords(inputLower, [
+      matchesKeywords(inputLower, [
         "energy",
         "efficiency",
         "saving",
@@ -40,7 +42,7 @@ export class VeteranAI {
 
     // Security enhancements for veterans
     if (
-      this.matchesKeywords(inputLower, [
+      matchesKeywords(inputLower, [
         "security",
         "safety",
         "protection",
@@ -52,7 +54,7 @@ export class VeteranAI {
 
     // VA benefits and construction support
     if (
-      this.matchesKeywords(inputLower, [
+      matchesKeywords(inputLower, [
         "va",
         "benefits",
         "grant",
@@ -65,7 +67,7 @@ export class VeteranAI {
 
     // PTSD and comfort-focused construction
     if (
-      this.matchesKeywords(inputLower, [
+      matchesKeywords(inputLower, [
         "ptsd",
         "anxiety",
         "comfort",
@@ -79,13 +81,9 @@ export class VeteranAI {
     return this.getGeneralVeteranGuidance(input, veteranProfile);
   }
 
-  private matchesKeywords(input: string, keywords: string[]): boolean {
-    return keywords.some((keyword) => input.includes(keyword));
-  }
-
   private getVeteranAccessibilityAdvice(
     input: string,
-    veteranProfile?: VeteranProfile,
+    veteranProfile?: VeteranProfile
   ): string {
     return `**VETERAN ACCESSIBILITY PROTOCOL** [ACCESSIBLE]
 
@@ -120,7 +118,7 @@ Our veteran-owned team understands the unique needs of service members. We've he
 
   private getVeteranEnergyAdvice(
     input: string,
-    veteranProfile?: VeteranProfile,
+    veteranProfile?: VeteranProfile
   ): string {
     return `**VETERAN ENERGY EFFICIENCY PROTOCOL** [ENERGY_SAVINGS_LEAF]
 
@@ -154,7 +152,7 @@ Energy independence aligns with military values of self-reliance and strategic r
 
   private getVeteranSecurityAdvice(
     input: string,
-    veteranProfile?: VeteranProfile,
+    veteranProfile?: VeteranProfile
   ): string {
     return `**VETERAN SECURITY ENHANCEMENT PROTOCOL** [SHIELD]
 
@@ -189,7 +187,7 @@ Our veteran-owned team understands the importance of feeling secure in your home
 
   private getVABenefitsAdvice(
     input: string,
-    veteranProfile?: VeteranProfile,
+    veteranProfile?: VeteranProfile
   ): string {
     return `**VA BENEFITS INTELLIGENCE CENTER** [MILITARY_TECH]
 
@@ -225,7 +223,7 @@ We handle all VA coordination so you can focus on enjoying your new construction
 
   private getPTSDFocusedAdvice(
     input: string,
-    veteranProfile?: VeteranProfile,
+    veteranProfile?: VeteranProfile
   ): string {
     return `**PTSD-AWARE CONSTRUCTION PROTOCOL** [HEALING]
 
@@ -264,7 +262,7 @@ All PTSD-related construction discussions are handled with complete confidential
 
   private getGeneralVeteranGuidance(
     input: string,
-    veteranProfile?: VeteranProfile,
+    veteranProfile?: VeteranProfile
   ): string {
     return `**VETERAN TACTICAL SUPPORT CENTER** [MILITARY_TECH]
 

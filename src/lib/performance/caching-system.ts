@@ -3,6 +3,8 @@
  * Provides intelligent caching with TTL and persistence
  */
 
+import { logger } from "@/lib/utils/logger";
+
 // Cache entry interface
 export interface CacheEntry<T = any> {
   key: string;
@@ -201,7 +203,7 @@ export class AIResponseCache {
         }
       }
     } catch (error) {
-      console.warn("Failed to load AI cache from storage:", error);
+      logger.warn("Failed to load AI cache from storage:", error);
     }
   }
 
@@ -221,7 +223,7 @@ export class AIResponseCache {
       };
       localStorage.setItem("ai_response_cache", JSON.stringify(data));
     } catch (error) {
-      console.warn("Failed to save AI cache to storage:", error);
+      logger.warn("Failed to save AI cache to storage:", error);
     }
   }
 }
@@ -304,7 +306,7 @@ export class FormDataCache {
         }
       }
     } catch (error) {
-      console.warn("Failed to load form cache from storage:", error);
+      logger.warn("Failed to load form cache from storage:", error);
     }
   }
 
@@ -322,7 +324,7 @@ export class FormDataCache {
       };
       localStorage.setItem("form_data_cache", JSON.stringify(data));
     } catch (error) {
-      console.warn("Failed to save form cache to storage:", error);
+      logger.warn("Failed to save form cache to storage:", error);
     }
   }
 }
@@ -366,7 +368,7 @@ export const useAICache = () => {
     prompt: string,
     response: string,
     context?: any,
-    ttl?: number,
+    ttl?: number
   ) => {
     aiResponseCache.set(prompt, response, context, ttl);
   };

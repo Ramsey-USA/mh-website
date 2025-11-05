@@ -1,4 +1,5 @@
 import { clsx, type ClassValue } from "clsx";
+import { logger } from "@/lib/utils/logger";
 import { twMerge } from "tailwind-merge";
 
 /**
@@ -187,7 +188,7 @@ export const validateClasses = (classes: string): boolean => {
   for (const prefix of conflictingPrefixes) {
     const prefixClasses = classArray.filter((cls) => cls.startsWith(prefix));
     if (prefixClasses.length > 1) {
-      console.warn(
+      logger.warn(
         `Potential class conflict detected: ${prefixClasses.join(", ")}`,
       );
     }

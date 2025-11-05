@@ -12,6 +12,23 @@ This document provides **mandatory guidelines** for AI assistants working on the
 MH Construction website codebase. Following these guidelines prevents the
 introduction of inconsistencies and bugs that have historically plagued this project.
 
+### 🔗 Related Documentation
+
+**Before making changes, familiarize yourself with:**
+
+- **[Development Standards](./development-standards.md)** - Mandatory coding standards
+  for all code
+- **[MH Branding](../business/mh-branding.md)** - Complete brand standards (colors,
+  typography, icons)
+- **[Typography Standards](../business/branding/typography.md)** - Hero section
+  requirements, responsive scaling
+- **[Icon Policy](../business/branding/icon-policy.md)** - Material Icons only
+  (NO emojis in code)
+- **[Consistency Master Plan](../project/consistency-master-plan.md)** - Overall
+  project consistency strategy
+
+**All brand and technical standards are mandatory and must be followed together.**
+
 ---
 
 ## 🚨 Critical Rules - NEVER VIOLATE

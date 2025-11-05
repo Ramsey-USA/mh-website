@@ -3,6 +3,8 @@
  * Phase 5: Intelligent caching for AI responses and form data
  */
 
+import { logger } from "@/lib/utils/logger";
+
 export interface CacheEntry {
   key: string;
   response: string;
@@ -190,7 +192,7 @@ class AIResponseCache {
       }
       localStorage.setItem("mh-ai-cache", JSON.stringify(cacheData));
     } catch (error) {
-      console.warn("Failed to save AI cache to localStorage:", error);
+      logger.warn("Failed to save AI cache to localStorage:", error);
     }
   }
 
@@ -211,7 +213,7 @@ class AIResponseCache {
       }
       localStorage.setItem("mh-form-cache", JSON.stringify(formCacheData));
     } catch (error) {
-      console.warn("Failed to save form cache to localStorage:", error);
+      logger.warn("Failed to save form cache to localStorage:", error);
     }
   }
 
@@ -237,7 +239,7 @@ class AIResponseCache {
       // Clean up expired entries on load
       this.cleanup();
     } catch (error) {
-      console.warn("Failed to load cache from localStorage:", error);
+      logger.warn("Failed to load cache from localStorage:", error);
       this.clear();
     }
   }
@@ -250,7 +252,7 @@ export const aiCache = new AIResponseCache();
 export const cacheAIResponse = (
   key: string,
   response: string,
-  expiryMs?: number,
+  expiryMs?: number
 ) => {
   aiCache.set(key, response, expiryMs);
 };
@@ -264,7 +266,7 @@ export const cacheFormData = (formId: string, data: Record<string, any>) => {
 };
 
 export const getCachedFormData = (
-  formId: string,
+  formId: string
 ): Record<string, any> | null => {
   return aiCache.getFormData(formId);
 };
@@ -272,7 +274,7 @@ export const getCachedFormData = (
 // Generate cache key for AI requests
 export const generateCacheKey = (
   type: string,
-  input: string | object,
+  input: string | object
 ): string => {
   const inputString = typeof input === "string" ? input : JSON.stringify(input);
   const hash = btoa(inputString)

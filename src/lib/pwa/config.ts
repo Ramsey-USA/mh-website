@@ -1,4 +1,5 @@
 /**
+import { logger } from "@/lib/utils/logger";
  * PWA Configuration
  * Progressive Web App configuration for MH Construction website
  */

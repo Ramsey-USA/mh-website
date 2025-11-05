@@ -2,40 +2,28 @@
 /* This file provides CSS custom properties that bridge the gap between Tailwind utilities and custom CSS */
 
 :root {
-  /* Brand Colors - Synchronized with Tailwind config */
+  /* ============================================
+     MH CONSTRUCTION BRAND COLORS
+     PRIMARY: Hunter Green | SECONDARY: Leather Tan
+     ============================================ */
+  
+  /* PRIMARY BRAND COLOR: Hunter Green */
   --color-brand-primary: #386851;
+  --color-brand-primary-light: #4a7a63;
+  --color-brand-primary-dark: #2d5240;
+  
+  /* SECONDARY BRAND COLOR: Leather Tan */
   --color-brand-secondary: #bd9264;
-  --color-brand-accent: #2d5443;
-  --color-brand-light: #e8f5f0;
-  --color-brand-dark: #1a332a;
+  --color-brand-secondary-light: #c9a176;
+  --color-brand-secondary-dark: #a67d52;
+  
+  /* GRAYSCALE PALETTE (approved for use) */
+  --color-brand-accent: #757575;
+  --color-brand-accent-light: #9E9E9E;
+  --color-brand-accent-dark: #424242;
+  --color-brand-light: #f7f9f7;
 
-  /* Forest Color Scale */
-  --color-forest-50: #f0f9f5;
-  --color-forest-100: #dcf2e6;
-  --color-forest-200: #bce5d2;
-  --color-forest-300: #90d1b6;
-  --color-forest-400: #5fb596;
-  --color-forest-500: #386851;
-  --color-forest-600: #2d5443;
-  --color-forest-700: #254237;
-  --color-forest-800: #1f362e;
-  --color-forest-900: #1a2c26;
-  --color-forest-950: #0f1a15;
-
-  /* Bronze Color Scale */
-  --color-bronze-50: #faf8f5;
-  --color-bronze-100: #f4f0e7;
-  --color-bronze-200: #e8ddc9;
-  --color-bronze-300: #dcc5a3;
-  --color-bronze-400: #cdaa7d;
-  --color-bronze-500: #bd9264;
-  --color-bronze-600: #a67d52;
-  --color-bronze-700: #8a6844;
-  --color-bronze-800: #70543a;
-  --color-bronze-900: #5c4530;
-  --color-bronze-950: #312318;
-
-  /* Semantic Colors */
+  /* Semantic Colors (UI states only) */
   --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
@@ -102,8 +90,8 @@
   /* Brand-specific shadows */
   --shadow-brand: 0 4px 14px 0 rgba(56, 104, 81, 0.39);
   --shadow-brand-lg: 0 10px 25px -3px rgba(56, 104, 81, 0.3);
-  --shadow-bronze: 0 4px 14px 0 rgba(189, 146, 100, 0.39);
-  --shadow-bronze-lg: 0 10px 25px -3px rgba(189, 146, 100, 0.3);
+  --shadow-brand-secondary: 0 4px 14px 0 rgba(189, 146, 100, 0.39);
+  --shadow-brand-secondary-lg: 0 10px 25px -3px rgba(189, 146, 100, 0.3);
 
   /* Animation Durations */
   --duration-75: 75ms;
@@ -169,11 +157,12 @@
 /* Dark mode variables */
 [data-theme="dark"] {
   --color-brand-light: #1a332a;
-  --color-brand-dark: #e8f5f0;
 
-  /* Invert shadows for dark mode */
+  /* Enhanced shadows for dark mode */
   --shadow-brand: 0 4px 14px 0 rgba(56, 104, 81, 0.6);
   --shadow-brand-lg: 0 10px 25px -3px rgba(56, 104, 81, 0.5);
+  --shadow-brand-secondary: 0 4px 14px 0 rgba(189, 146, 100, 0.6);
+  --shadow-brand-secondary-lg: 0 10px 25px -3px rgba(189, 146, 100, 0.5);
 }
 
 /* Reduced motion preferences */

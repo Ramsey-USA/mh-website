@@ -29,7 +29,7 @@ All updates follow **MH Construction branding standards** using MaterialIcon com
 | **Interaction**    | Digital/automated               | Personal/in-person                 |
 | **Best For**       | Research phase, budget planning | Project planning, ready to proceed |
 | **Site Visit**     | Not included                    | Included                           |
-| **Color Scheme**   | Blue/tech colors                | MH brand orange/green              |
+| **Color Scheme**   | Leather Tan (#BD9264) - Secondary | Hunter Green (#386851) - Primary   |
 | **Button Variant** | `secondary`                     | `primary`                          |
 
 ### CTA Examples
@@ -74,7 +74,7 @@ All updates follow **MH Construction branding standards** using MaterialIcon com
 | **MaterialIcon**      | `handshake` or `event`        | `construction` or `work`           |
 | **Purpose**           | Project collaboration         | Business relationship              |
 | **Language Focus**    | Collaborative, welcoming      | Professional, credible             |
-| **Color Scheme**      | MH warm colors (orange/green) | Professional blue/gray             |
+| **Color Scheme**      | Hunter Green (#386851) - Primary | Leather Tan (#BD9264) - Secondary |
 | **Contact Extension** |                               |                                    |
 | **Email**             | <office@mhc-gc.com>           | <office@mhc-gc.com>                |
 | **Button Variant**    | `primary`                     | `secondary`                        |

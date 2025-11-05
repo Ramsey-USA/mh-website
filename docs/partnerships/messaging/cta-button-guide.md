@@ -17,7 +17,7 @@ standards to distinguish between:
 ### **Automated Self-Service Cost Estimation**
 
 **MaterialIcon:** `smart_toy`
-**Color:** Blue/tech colors
+**Color:** Leather Tan (#BD9264) - Secondary brand color for AI features
 **Style:** Modern, digital, instant-action focused
 
 ````tsx
@@ -54,7 +54,7 @@ standards to distinguish between:
 ### **In-Person Professional Sales Consultation**
 
 **MaterialIcon:** `event` or `handshake`
-**Color:** MH brand orange/green
+**Color:** Hunter Green (#386851) - Primary brand color
 **Style:** Personal, professional, relationship-focused
 
 ```tsx
@@ -91,7 +91,7 @@ standards to distinguish between:
 ### **Project Client Collaborations**
 
 **MaterialIcon:** `handshake`, `event`, `engineering`
-**Color:** MH brand warm colors (orange/green)
+**Color:** Hunter Green (#386851) - Primary brand color
 **Style:** Welcoming, collaborative, partnership-focused
 
 ```tsx
@@ -154,7 +154,7 @@ standards to distinguish between:
 ### **Vendor/Subcontractor Business Relationships**
 
 **MaterialIcon:** `construction`, `work`, `check_circle`
-**Color:** Professional MH blue/gray
+**Color:** Leather Tan (#BD9264) - Secondary brand color
 **Style:** Professional, credible, business opportunity-focused
 
 ```tsx

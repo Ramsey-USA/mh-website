@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { logger } from "@/lib/utils/logger";
 import Image from "next/image";
 import { Button } from "@/components/ui/base/button";
 import { OptimizedImage } from "@/components/ui/media/OptimizedImage";
@@ -183,7 +184,7 @@ const InteractiveGallery = ({
         image_id: image.id,
       });
     } catch (error) {
-      console.error("Download failed:", error);
+      logger.error("Download failed:", error);
     }
   };
 
@@ -202,7 +203,7 @@ const InteractiveGallery = ({
           share_method: "native",
         });
       } catch (error) {
-        console.error("Share failed:", error);
+        logger.error("Share failed:", error);
       }
     } else {
       // Fallback to clipboard

@@ -19,19 +19,21 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          primary: "#386851", // Hunter Green
+          // PRIMARY BRAND COLOR: Hunter Green
+          primary: "#386851", // Hunter Green - Main brand color
           "primary-light": "#4a7a63", // Lighter hunter green
           "primary-dark": "#2d5240", // Darker hunter green
-          secondary: "#BD9264", // Leather Tan
+
+          // SECONDARY BRAND COLOR: Leather Tan
+          secondary: "#BD9264", // Leather Tan - Secondary brand color
           "secondary-light": "#c9a176", // Lighter tan
           "secondary-dark": "#a67d52", // Darker tan
+
+          // GRAYSCALE ACCENTS (approved for use)
           accent: "#757575", // Medium Gray accent
           "accent-light": "#9E9E9E", // Lighter gray
           "accent-dark": "#424242", // Darker gray
           light: "#f7f9f7", // Very light brand background
-          // Legacy aliases (keep for compatibility)
-          bronze: "#CD7F32",
-          dark: "#2C5440",
         },
         gray: {
           50: "#F9FAFB",
@@ -75,12 +77,16 @@ const config: Config = {
         "4xl": "2rem",
       },
       boxShadow: {
+        // PRIMARY BRAND SHADOWS (Hunter Green)
         brand:
           "0 10px 25px -5px rgba(56, 104, 81, 0.2), 0 10px 10px -5px rgba(56, 104, 81, 0.04)",
         "brand-lg":
           "0 20px 25px -5px rgba(56, 104, 81, 0.2), 0 10px 10px -5px rgba(56, 104, 81, 0.04)",
-        bronze:
-          "0 10px 25px -5px rgba(205, 127, 50, 0.2), 0 10px 10px -5px rgba(205, 127, 50, 0.04)",
+        // SECONDARY BRAND SHADOWS (Leather Tan)
+        "brand-secondary":
+          "0 10px 25px -5px rgba(189, 146, 100, 0.2), 0 10px 10px -5px rgba(189, 146, 100, 0.04)",
+        "brand-secondary-lg":
+          "0 20px 25px -5px rgba(189, 146, 100, 0.2), 0 10px 10px -5px rgba(189, 146, 100, 0.04)",
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-out",

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -28,7 +28,7 @@ function groupByDepartment(members: VintageTeamMember[]) {
       acc[dept].push(member);
       return acc;
     },
-    {} as Record<string, VintageTeamMember[]>,
+    {} as Record<string, VintageTeamMember[]>
   );
 }
 
