@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
+import { createDbClient, type Consultation } from "@/lib/db/client";
+import { getD1Database } from "@/lib/db/env";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
-// Consultation API routes using Cloudflare storage (D1, KV, or external DB)
+// Consultation API routes using Cloudflare D1 database
 
 export async function POST(request: NextRequest) {
   try {
@@ -18,13 +20,45 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Add metadata
-    const consultation = {
-      ...data,
-      id: crypto.randomUUID(),
-      createdAt: new Date().toISOString(),
-      status: "pending",
+    // Create consultation record
+    const consultationId = crypto.randomUUID();
+    const consultation: Omit<Consultation, "created_at" | "updated_at"> = {
+      id: consultationId,
+      client_name: data.name,
+      email: data.email,
+      phone: data.phone || null,
+      project_type: data.projectType,
+      project_description: data.projectDescription || null,
+      location: data.location || null,
+      budget: data.budget ? data.budget.toString() : null,
+      selected_date:
+        data.selectedDate || new Date().toISOString().split("T")[0],
+      selected_time: data.selectedTime || "10:00",
+      additional_notes: data.notes || null,
+      status: "new",
+      metadata: JSON.stringify({
+        timeline: data.timeline,
+        submittedAt: new Date().toISOString(),
+      }),
     };
+
+    // Store in D1 database (when deployed to Cloudflare)
+    // For local development, this will gracefully skip
+    try {
+      const DB = getD1Database();
+      if (DB) {
+        const db = createDbClient({ DB });
+        await db.insert("consultations", consultation);
+        logger.info("Consultation stored in database", { id: consultationId });
+      } else {
+        logger.info("D1 database not available, consultation not persisted", {
+          id: consultationId,
+        });
+      }
+    } catch (dbError) {
+      logger.error("Failed to store consultation in database:", dbError);
+      // Continue to send email even if DB fails
+    }
 
     // Send email notification to office@mhc-gc.com
     try {
@@ -47,7 +81,7 @@ Timeline: ${data.timeline || "Not specified"}
 Notes:
 ${data.notes || "No additional notes"}
 
-Consultation ID: ${consultation.id}
+Consultation ID: ${consultationId}
 Submitted: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })} PST
       `.trim();
 
@@ -68,7 +102,7 @@ Submitted: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles
             type: "consultation",
             recipientEmail: "office@mhc-gc.com",
             metadata: {
-              consultationId: consultation.id,
+              consultationId,
               projectType: data.projectType,
               budget: data.budget,
               location: data.location,
@@ -85,17 +119,10 @@ Submitted: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles
       // Continue even if email fails - don't block the consultation submission
     }
 
-    // TODO: Store in Cloudflare KV or D1 database
-    logger.info("New consultation:", consultation);
-
-    // In production, you might want to:
-    // 1. Store in Cloudflare D1 database
-    // 2. Add to CRM system
-
     return NextResponse.json({
       success: true,
       message: "Consultation request received",
-      data: consultation,
+      data: { ...consultation, id: consultationId },
     });
   } catch (error) {
     logger.error("Error creating consultation:", error);
@@ -108,13 +135,31 @@ Submitted: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles
 
 export async function GET(request: NextRequest) {
   try {
-    // TODO: Retrieve consultations from Cloudflare KV or D1
-    // For now, return empty array
-    const consultations: any[] = [];
+    // Retrieve consultations from D1 database (when deployed to Cloudflare)
+    try {
+      const DB = getD1Database();
+      if (DB) {
+        const db = createDbClient({ DB });
+        const consultations = await db.query<Consultation>(
+          `SELECT * FROM consultations ORDER BY created_at DESC LIMIT 100`
+        );
 
+        return NextResponse.json({
+          success: true,
+          data: consultations,
+          count: consultations.length,
+        });
+      }
+    } catch (dbError) {
+      logger.error("Error fetching from database:", dbError);
+    }
+
+    // Fallback for local development
     return NextResponse.json({
       success: true,
-      data: consultations,
+      data: [],
+      count: 0,
+      message: "D1 database not available in this environment",
     });
   } catch (error) {
     logger.error("Error fetching consultations:", error);

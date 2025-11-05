@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
+import { createDbClient, type JobApplication } from "@/lib/db/client";
+import { getD1Database } from "@/lib/db/env";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
-// Job applications API using Cloudflare storage
+// Job applications API using Cloudflare D1 database
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
@@ -17,13 +19,50 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Add metadata
-    const application = {
-      ...data,
-      id: crypto.randomUUID(),
-      createdAt: new Date().toISOString(),
+    // Create job application record
+    const applicationId = crypto.randomUUID();
+    const application: Omit<JobApplication, "created_at" | "updated_at"> = {
+      id: applicationId,
+      first_name: data.firstName,
+      last_name: data.lastName,
+      email: data.email,
+      phone: data.phone,
+      address: data.address || null,
+      city: data.city || null,
+      state: data.state || null,
+      zip_code: data.zipCode || null,
+      position: data.position,
+      experience: data.experience,
+      availability: data.availability || null,
+      cover_letter: data.coverLetter || null,
+      resume_url: data.resumeUrl || null, // Will be populated after R2 upload
+      veteran_status: data.veteranStatus || null,
+      referral_source: data.referralSource || null,
       status: "new",
+      metadata: JSON.stringify({
+        resumeFileName: data.resumeFileName,
+        submittedAt: new Date().toISOString(),
+      }),
     };
+
+    // Store in D1 database
+    try {
+      const DB = getD1Database();
+      if (DB) {
+        const db = createDbClient({ DB });
+        await db.insert("job_applications", application);
+        logger.info("Job application stored in database", {
+          id: applicationId,
+        });
+      } else {
+        logger.info("D1 database not available, application not persisted", {
+          id: applicationId,
+        });
+      }
+    } catch (dbError) {
+      logger.error("Failed to store job application in database:", dbError);
+      // Continue to send email even if DB fails
+    }
 
     // Send email notification to office@mhc-gc.com
     try {
@@ -50,7 +89,7 @@ Resume: ${data.resumeFileName || "Not uploaded"}
 Referral Source: ${data.referralSource || "Not provided"}
 
 Submitted: ${new Date().toLocaleString()}
-Application ID: ${application.id}
+Application ID: ${applicationId}
       `.trim();
 
       // Send email using fetch to a mail service endpoint
@@ -82,19 +121,10 @@ Application ID: ${application.id}
       // Continue even if email fails - don't block the application submission
     }
 
-    // TODO: Store in Cloudflare D1 database or KV
-    logger.info("New job application:", application);
-
-    // In production, you might want to:
-    // 1. Store in Cloudflare D1 database
-    // 2. Upload resume to Cloudflare R2
-    // 3. Send email notification to HR
-    // 4. Add to applicant tracking system
-
     return NextResponse.json({
       success: true,
       message: "Application submitted successfully",
-      data: { id: application.id },
+      data: { id: applicationId, status: "new" },
     });
   } catch (error) {
     logger.error("Error submitting job application:", error);
@@ -107,13 +137,32 @@ Application ID: ${application.id}
 
 export async function GET(request: NextRequest) {
   try {
-    // TODO: Retrieve job applications from Cloudflare KV or D1
-    // This would typically require authentication
-    const applications: any[] = [];
+    // Retrieve job applications from D1 database (when deployed to Cloudflare)
+    // This endpoint should typically require authentication
+    try {
+      const DB = getD1Database();
+      if (DB) {
+        const db = createDbClient({ DB });
+        const applications = await db.query<JobApplication>(
+          `SELECT * FROM job_applications ORDER BY created_at DESC LIMIT 100`
+        );
 
+        return NextResponse.json({
+          success: true,
+          data: applications,
+          count: applications.length,
+        });
+      }
+    } catch (dbError) {
+      logger.error("Error fetching from database:", dbError);
+    }
+
+    // Fallback for local development
     return NextResponse.json({
       success: true,
-      data: applications,
+      data: [],
+      count: 0,
+      message: "D1 database not available in this environment",
     });
   } catch (error) {
     logger.error("Error fetching job applications:", error);

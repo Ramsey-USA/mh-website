@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { logger } from "@/lib/utils/logger";
+import { createDbClient, type ContactSubmission } from "@/lib/db/client";
+import { getD1Database } from "@/lib/db/env";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
@@ -103,19 +105,72 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Store submission metadata
-    const submission = {
-      id: crypto.randomUUID(),
-      ...data,
-      recipientEmail,
-      status: emailSent ? "sent" : "pending",
-      emailSent,
-      emailError: emailError ? String(emailError) : undefined,
-      createdAt: new Date().toISOString(),
-    };
+    // Store submission in D1 database
+    const submissionId = crypto.randomUUID();
 
-    // TODO: Optionally store in Cloudflare D1 or KV for record keeping
-    logger.info("Form submission:", submission);
+    // For general contact forms, store in contact_submissions table
+    // (job-application and consultation types are stored in their own tables)
+    if (
+      data.type === "contact" ||
+      data.type === "general" ||
+      data.type === "urgent" ||
+      !data.type
+    ) {
+      try {
+        const DB = getD1Database();
+        if (DB) {
+          const db = createDbClient({ DB });
+
+          // Parse name into first and last name (simple split)
+          const nameParts = data.name.trim().split(/\s+/);
+          const firstName = nameParts[0] || data.name;
+          const lastName = nameParts.slice(1).join(" ") || "";
+
+          const contactSubmission: Omit<
+            ContactSubmission,
+            "created_at" | "updated_at"
+          > = {
+            id: submissionId,
+            first_name: firstName,
+            last_name: lastName,
+            email: data.email,
+            phone: data.phone || undefined,
+            project_type: data.metadata?.projectType || null,
+            project_location: data.metadata?.location || null,
+            budget: data.metadata?.budget?.toString() || null,
+            timeline: data.metadata?.timeline || null,
+            message: data.message,
+            urgency: data.type === "urgent" ? "high" : "medium",
+            preferred_contact: "either",
+            status: emailSent ? "new" : "in_progress",
+            metadata: JSON.stringify({
+              subject: data.subject,
+              emailSent,
+              emailError: emailError ? String(emailError) : undefined,
+              submittedAt: new Date().toISOString(),
+            }),
+          };
+
+          await db.insert("contact_submissions", contactSubmission);
+          logger.info("Contact submission stored in database", {
+            id: submissionId,
+          });
+        } else {
+          logger.info(
+            "D1 database not available, contact submission not persisted",
+            {
+              id: submissionId,
+            }
+          );
+        }
+      } catch (dbError) {
+        logger.error(
+          "Failed to store contact submission in database:",
+          dbError
+        );
+        // Continue even if DB fails - email was already sent
+      }
+    }
 
     return NextResponse.json({
       success: true,
@@ -123,7 +178,7 @@ export async function POST(request: NextRequest) {
         ? "Message sent successfully"
         : "Message received (email service not configured)",
       data: {
-        id: submission.id,
+        id: submissionId,
         recipientEmail,
         emailSent,
       },
@@ -274,4 +329,46 @@ function formatFieldName(fieldName: string): string {
     .replace(/([A-Z])/g, " $1")
     .replace(/^./, (str) => str.toUpperCase())
     .trim();
+}
+
+/**
+ * GET endpoint to retrieve contact submissions
+ * Should require authentication in production
+ */
+export async function GET(request: NextRequest) {
+  try {
+    // Retrieve contact submissions from D1 database (when deployed to Cloudflare)
+    // This endpoint should typically require authentication
+    try {
+      const DB = getD1Database();
+      if (DB) {
+        const db = createDbClient({ DB });
+        const submissions = await db.query<ContactSubmission>(
+          `SELECT * FROM contact_submissions ORDER BY created_at DESC LIMIT 100`
+        );
+
+        return NextResponse.json({
+          success: true,
+          data: submissions,
+          count: submissions.length,
+        });
+      }
+    } catch (dbError) {
+      logger.error("Error fetching from database:", dbError);
+    }
+
+    // Fallback for local development
+    return NextResponse.json({
+      success: true,
+      data: [],
+      count: 0,
+      message: "D1 database not available in this environment",
+    });
+  } catch (error) {
+    logger.error("Error fetching contact submissions:", error);
+    return NextResponse.json(
+      { error: "Failed to fetch contact submissions" },
+      { status: 500 }
+    );
+  }
 }

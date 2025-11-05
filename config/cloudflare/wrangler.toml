@@ -42,6 +42,17 @@ class_name = "ChatSessionDO"
 binding = "ASSETS"
 bucket_name = "mh-construction-assets"
 
+[[r2_buckets]]
+binding = "RESUMES"
+bucket_name = "mh-construction-resumes"
+
+# D1 Database bindings
+[[d1_databases]]
+binding = "DB"
+database_name = "mh-construction-db"
+database_id = "98ad144a-cfe2-4f19-a55c-c43140279840"
+preview_database_id = "6c6c5bd7-41b8-4968-8421-3cca5f97b160"
+
 # Security and performance settings
 [wrangler]
 send_metrics = false

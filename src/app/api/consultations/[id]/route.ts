@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
+import { createDbClient, type Consultation } from "@/lib/db/client";
+import { getD1Database } from "@/lib/db/env";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
@@ -12,13 +14,27 @@ export async function GET(request: NextRequest, context: RouteParams) {
   try {
     const { id } = await context.params;
 
-    // TODO: Retrieve consultation from Cloudflare KV or D1
-    // For now, return mock data
-    const consultation = {
-      id,
-      name: "Sample Consultation",
-      status: "pending",
-    };
+    // Retrieve consultation from D1 database
+    const DB = getD1Database();
+    if (!DB) {
+      return NextResponse.json(
+        { error: "Database not available" },
+        { status: 503 }
+      );
+    }
+
+    const db = createDbClient({ DB });
+    const consultation = await db.queryOne<Consultation>(
+      `SELECT * FROM consultations WHERE id = ?`,
+      id
+    );
+
+    if (!consultation) {
+      return NextResponse.json(
+        { error: "Consultation not found" },
+        { status: 404 }
+      );
+    }
 
     return NextResponse.json({
       success: true,
@@ -38,13 +54,35 @@ export async function PUT(request: NextRequest, context: RouteParams) {
     const { id } = await context.params;
     const updates = await request.json();
 
-    // TODO: Update consultation in Cloudflare KV or D1
-    logger.info("Updating consultation:", id, updates);
+    // Update consultation in D1 database
+    const DB = getD1Database();
+    if (!DB) {
+      return NextResponse.json(
+        { error: "Database not available" },
+        { status: 503 }
+      );
+    }
+
+    const db = createDbClient({ DB });
+    const updated = await db.update("consultations", id, updates);
+
+    if (!updated) {
+      return NextResponse.json(
+        { error: "Consultation not found" },
+        { status: 404 }
+      );
+    }
+
+    // Fetch updated record
+    const consultation = await db.queryOne<Consultation>(
+      `SELECT * FROM consultations WHERE id = ?`,
+      id
+    );
 
     return NextResponse.json({
       success: true,
       message: "Consultation updated",
-      data: { id, ...updates },
+      data: consultation,
     });
   } catch (error) {
     logger.error("Error updating consultation:", error);
@@ -59,8 +97,24 @@ export async function DELETE(request: NextRequest, context: RouteParams) {
   try {
     const { id } = await context.params;
 
-    // TODO: Delete consultation from Cloudflare KV or D1
-    logger.info("Deleting consultation:", id);
+    // Delete consultation from D1 database
+    const DB = getD1Database();
+    if (!DB) {
+      return NextResponse.json(
+        { error: "Database not available" },
+        { status: 503 }
+      );
+    }
+
+    const db = createDbClient({ DB });
+    const deleted = await db.delete("consultations", id);
+
+    if (!deleted) {
+      return NextResponse.json(
+        { error: "Consultation not found" },
+        { status: 404 }
+      );
+    }
 
     return NextResponse.json({
       success: true,
