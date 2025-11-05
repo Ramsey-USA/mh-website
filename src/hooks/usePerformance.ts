@@ -1,3 +1,4 @@
+import { logger } from "@/lib/utils/logger";
 /**
  * Performance Monitoring Hooks
  * Phase 5: Custom hooks for performance tracking
@@ -223,7 +224,7 @@ export function useBundleAnalysis() {
 
       setAnalysis(mockAnalysis);
     } catch (error) {
-      console.error("Bundle analysis failed:", error);
+      logger.error("Bundle analysis failed:", error);
     } finally {
       setLoading(false);
     }
@@ -319,7 +320,7 @@ export function useWebVitals() {
         try {
           observer.observe({ entryTypes: ["paint"] });
         } catch (e) {
-          console.warn("Performance Observer not supported");
+          logger.warn("Performance Observer not supported");
         }
       }
 

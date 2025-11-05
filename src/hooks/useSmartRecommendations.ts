@@ -1,3 +1,4 @@
+import { logger } from "@/lib/utils/logger";
 /**
  * React Hook for Smart Project Recommendations
  * Phase 6.1: Hook for integrating the Smart Recommendation Engine with React components
@@ -149,7 +150,7 @@ export function useSmartRecommendations(
             ? err.message
             : "Failed to generate recommendations";
         setError(errorMessage);
-        console.error("Error generating recommendations:", err);
+        logger.error("Error generating recommendations:", err);
       } finally {
         setIsLoading(false);
       }
@@ -188,7 +189,7 @@ export function useSmartRecommendations(
         const newMetrics = engine.getMetrics();
         setMetrics(newMetrics);
       } catch (err) {
-        console.error("Error recording feedback:", err);
+        logger.error("Error recording feedback:", err);
       }
     },
     [engine, enableTracking],
@@ -213,7 +214,7 @@ export function useSmartRecommendations(
           });
         }
       } catch (err) {
-        console.error("Error tracking behavior:", err);
+        logger.error("Error tracking behavior:", err);
       }
     },
     [engine, userId, enableTracking],
@@ -259,7 +260,7 @@ export function useSmartRecommendations(
           metadata: metadata || {},
         });
       } catch (err) {
-        console.error("Error tracking experiment event:", err);
+        logger.error("Error tracking experiment event:", err);
       }
     },
     [engine, enableABTesting, userId, experimentAssignment],
@@ -300,7 +301,7 @@ export function useSmartRecommendations(
       const currentMetrics = engine.getMetrics();
       setMetrics(currentMetrics);
     } catch (err) {
-      console.error("Error loading metrics:", err);
+      logger.error("Error loading metrics:", err);
     }
   }, [engine, recommendations]);
 

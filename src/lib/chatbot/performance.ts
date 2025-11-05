@@ -1,3 +1,4 @@
+import { logger } from "@/lib/utils/logger";
 /**
  * Chatbot Performance Optimization Utilities
  * Provides caching, memoization, and performance monitoring for the chatbot
@@ -93,7 +94,7 @@ export function usePerformanceMonitor(componentName: string) {
 
     // Log performance warnings for slow renders
     if (renderTime > 100) {
-      console.warn(`Slow render detected in ${componentName}: ${renderTime}ms`);
+      logger.warn(`Slow render detected in ${componentName}: ${renderTime}ms`);
     }
   });
 

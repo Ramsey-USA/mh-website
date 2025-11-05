@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { logger } from "@/lib/utils/logger";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
@@ -22,7 +23,7 @@ export async function POST(request: NextRequest) {
     if (!subscription || !subscription.endpoint) {
       return NextResponse.json(
         { error: "Invalid subscription object" },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -37,18 +38,18 @@ export async function POST(request: NextRequest) {
       id: subscriptionId,
     });
 
-    console.log(`New push subscription registered: ${subscriptionId}`);
-    console.log(`Total subscriptions: ${subscriptions.size}`);
+    logger.info(`New push subscription registered: ${subscriptionId}`);
+    logger.info(`Total subscriptions: ${subscriptions.size}`);
 
     return NextResponse.json({
       message: "Subscription saved successfully",
       id: subscriptionId,
     });
   } catch (error) {
-    console.error("Error saving subscription:", error);
+    logger.error("Error saving subscription:", error);
     return NextResponse.json(
       { error: "Failed to save subscription" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

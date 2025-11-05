@@ -4,7 +4,7 @@
     "MD013": {
       "line_length": 120,
       "code_blocks": false,
-      "tables": false,
+      "tables": false
     },
     "MD024": {
       "siblings_only": true,
@@ -24,11 +24,11 @@
     {
       "files": [
         "docs/business/branding/COLOR-SCHEME-CORRECTION-NOV-2025.md",
-        "docs/business/branding/CSS-CONFIG-UPDATE-NOV-2025.md"
+        "docs/business/branding/CSS-CONFIG-UPDATE-NOV-2025.md",
       ],
       "rules": {
-        "MD013": false
-      }
-    }
-  ]
+        "MD013": false,
+      },
+    },
+  ],
 }

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { logger } from "@/lib/utils/logger";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
@@ -13,7 +14,7 @@ export async function POST(request: NextRequest) {
     if (!data.name || !data.email || !data.projectType) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -73,19 +74,19 @@ Submitted: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles
               location: data.location,
             },
           }),
-        },
+        }
       );
 
       if (!emailResponse.ok) {
-        console.error("Failed to send consultation email notification");
+        logger.error("Failed to send consultation email notification");
       }
     } catch (emailError) {
-      console.error("Error sending consultation email:", emailError);
+      logger.error("Error sending consultation email:", emailError);
       // Continue even if email fails - don't block the consultation submission
     }
 
     // TODO: Store in Cloudflare KV or D1 database
-    console.log("New consultation:", consultation);
+    logger.info("New consultation:", consultation);
 
     // In production, you might want to:
     // 1. Store in Cloudflare D1 database
@@ -97,10 +98,10 @@ Submitted: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles
       data: consultation,
     });
   } catch (error) {
-    console.error("Error creating consultation:", error);
+    logger.error("Error creating consultation:", error);
     return NextResponse.json(
       { error: "Failed to create consultation" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
@@ -116,10 +117,10 @@ export async function GET(request: NextRequest) {
       data: consultations,
     });
   } catch (error) {
-    console.error("Error fetching consultations:", error);
+    logger.error("Error fetching consultations:", error);
     return NextResponse.json(
       { error: "Failed to fetch consultations" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

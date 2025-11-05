@@ -5,6 +5,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { withSecurity } from "@/middleware/security";
+import { logger } from "@/lib/utils/logger";
 import {
   auditLogger,
   AuditEventType,
@@ -116,7 +117,7 @@ async function handler(request: NextRequest) {
       if (!eventType || !Object.values(AuditEventType).includes(eventType)) {
         return NextResponse.json(
           { error: "Invalid event type" },
-          { status: 400 },
+          { status: 400 }
         );
       }
 
@@ -136,10 +137,10 @@ async function handler(request: NextRequest) {
 
     return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
   } catch (error) {
-    console.error("Security events API error:", error);
+    logger.error("Security events API error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
@@ -147,7 +148,7 @@ async function handler(request: NextRequest) {
 // Helper function to generate human-readable descriptions
 function getEventDescription(
   eventType: AuditEventType,
-  details: Record<string, any>,
+  details: Record<string, any>
 ): string {
   switch (eventType) {
     case AuditEventType.LOGIN_SUCCESS:

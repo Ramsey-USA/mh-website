@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { logger } from "@/lib/utils/logger";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
@@ -31,7 +32,7 @@ export async function POST(request: NextRequest) {
     if (!subscription || !subscription.endpoint) {
       return NextResponse.json(
         { error: "Invalid subscription object" },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -41,8 +42,8 @@ export async function POST(request: NextRequest) {
     // Remove the subscription
     const existed = global.subscriptionsStore.delete(subscriptionId);
 
-    console.log(`Push subscription unregistered: ${subscriptionId}`);
-    console.log(`Total subscriptions: ${global.subscriptionsStore.size}`);
+    logger.info(`Push subscription unregistered: ${subscriptionId}`);
+    logger.info(`Total subscriptions: ${global.subscriptionsStore.size}`);
 
     return NextResponse.json({
       message: existed
@@ -51,10 +52,10 @@ export async function POST(request: NextRequest) {
       id: subscriptionId,
     });
   } catch (error) {
-    console.error("Error removing subscription:", error);
+    logger.error("Error removing subscription:", error);
     return NextResponse.json(
       { error: "Failed to remove subscription" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
