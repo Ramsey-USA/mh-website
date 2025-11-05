@@ -118,6 +118,27 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
+  // URL redirects for short/legacy URLs
+  async redirects() {
+    return [
+      {
+        source: "/partners",
+        destination: "/trade-partners",
+        permanent: true, // 301 redirect
+      },
+      {
+        source: "/urgent",
+        destination: "/contact#urgent-support",
+        permanent: true, // 301 redirect
+      },
+      {
+        source: "/book",
+        destination: "/booking",
+        permanent: true, // 301 redirect
+      },
+    ];
+  },
+
   // Additional performance headers
   async headers() {
     return [

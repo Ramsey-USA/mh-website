@@ -80,6 +80,8 @@ const coreServices = [
       "Timely delivery and installation",
       "Proactive delay management",
     ],
+    ctaLink: "/trade-partners",
+    ctaLinkText: "Explore Our Trade Partners",
   },
   {
     iconName: "fact_check",
@@ -256,6 +258,8 @@ const whyChooseUs = [
     title: "Urgent Construction Support",
     description:
       "Expert construction consultation and rapid resource deployment for time-critical project needs.",
+    ctaLink: "/contact#urgent-support",
+    ctaLinkText: "Get Urgent Support",
   },
 ];
 
@@ -539,6 +543,25 @@ export default function ServicesPage() {
                                 {service.ctaText}
                               </p>
                             </div>
+                          )}
+
+                          {/* CTA Link Button */}
+                          {service.ctaLink && (
+                            <Link
+                              href={service.ctaLink}
+                              className="flex-shrink-0 bg-brand-secondary hover:bg-brand-secondary-dark mt-auto p-3 rounded-lg transition-all duration-300 hover:scale-105"
+                            >
+                              <div className="flex items-center justify-center text-white">
+                                <MaterialIcon
+                                  icon="arrow_forward"
+                                  size="sm"
+                                  className="mr-2"
+                                />
+                                <span className="font-bold text-xs sm:text-sm">
+                                  {service.ctaLinkText || "Learn More"}
+                                </span>
+                              </div>
+                            </Link>
                           )}
 
                           <div className="flex items-center justify-center mt-4 text-brand-secondary">
@@ -889,28 +912,47 @@ export default function ServicesPage() {
             </FadeInWhenVisible>
 
             <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto max-w-7xl">
-              {whyChooseUs.map((reason, index) => (
-                <Card
-                  key={index}
-                  className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
-                >
-                  <CardHeader className="flex-shrink-0">
-                    <MaterialIcon
-                      icon={reason.iconName}
-                      size="2xl"
-                      className="mb-3 text-brand-primary"
-                    />
-                    <CardTitle className="flex items-center min-h-[3rem] text-gray-900 dark:text-white text-lg">
-                      {reason.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex flex-grow items-start">
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      {reason.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
+              {whyChooseUs.map((reason, index) => {
+                const cardContent = (
+                  <Card className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1">
+                    <CardHeader className="flex-shrink-0">
+                      <MaterialIcon
+                        icon={reason.iconName}
+                        size="2xl"
+                        className="mb-3 text-brand-primary"
+                      />
+                      <CardTitle className="flex items-center min-h-[3rem] text-gray-900 dark:text-white text-lg">
+                        {reason.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex flex-col flex-grow">
+                      <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-4 flex-grow">
+                        {reason.description}
+                      </p>
+                      {reason.ctaLink && (
+                        <div className="flex items-center text-brand-primary dark:text-brand-primary-light hover:text-brand-accent dark:hover:text-brand-secondary transition-colors mt-auto pt-2">
+                          <MaterialIcon
+                            icon="arrow_forward"
+                            size="sm"
+                            className="mr-2"
+                          />
+                          <span className="font-semibold text-xs">
+                            {reason.ctaLinkText || "Learn More"}
+                          </span>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                );
+
+                return reason.ctaLink ? (
+                  <Link key={index} href={reason.ctaLink}>
+                    {cardContent}
+                  </Link>
+                ) : (
+                  <div key={index}>{cardContent}</div>
+                );
+              })}
             </StaggeredFadeIn>
           </div>
         </section>
