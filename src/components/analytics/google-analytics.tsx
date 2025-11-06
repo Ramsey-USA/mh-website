@@ -48,7 +48,7 @@ export const analytics = {
   // Track custom events
   event: (
     eventName: string,
-    parameters?: Record<string, string | number | boolean | undefined>
+    parameters?: Record<string, string | number | boolean | undefined>,
   ) => {
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", eventName, parameters);
@@ -149,7 +149,7 @@ declare global {
     gtag: (
       command: "config" | "event" | "js",
       targetId: string | Date,
-      config?: Record<string, string | number | boolean | undefined>
+      config?: Record<string, string | number | boolean | undefined>,
     ) => void;
     dataLayer: unknown[];
   }

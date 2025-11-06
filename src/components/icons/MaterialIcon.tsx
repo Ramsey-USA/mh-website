@@ -71,7 +71,7 @@ export const MaterialIcon = memo(
       prevProps.interactive === nextProps.interactive &&
       JSON.stringify(prevProps.style) === JSON.stringify(nextProps.style)
     );
-  }
+  },
 );
 
 MaterialIcon.displayName = "MaterialIcon";

@@ -19,7 +19,7 @@ export const FadeInWhenVisible = dynamic(
   {
     loading: () => null,
     ssr: false,
-  }
+  },
 );
 
 export const StaggeredFadeIn = dynamic(
@@ -30,7 +30,7 @@ export const StaggeredFadeIn = dynamic(
   {
     loading: () => null,
     ssr: false,
-  }
+  },
 );
 
 export const HoverScale = dynamic(
@@ -41,7 +41,7 @@ export const HoverScale = dynamic(
   {
     loading: () => null,
     ssr: false,
-  }
+  },
 );
 
 export const PageTransition = dynamic(
@@ -52,7 +52,7 @@ export const PageTransition = dynamic(
   {
     loading: () => null,
     ssr: false,
-  }
+  },
 );
 
 export const LoadingSpinner = dynamic(
@@ -65,7 +65,7 @@ export const LoadingSpinner = dynamic(
       <div className="border-2 border-t-transparent border-blue-600 rounded-full w-8 h-8 animate-spin" />
     ),
     ssr: false,
-  }
+  },
 );
 
 export const AnimatedButton = dynamic(
@@ -76,7 +76,7 @@ export const AnimatedButton = dynamic(
   {
     loading: () => null,
     ssr: false,
-  }
+  },
 );
 
 export const AnimatedCounter = dynamic(
@@ -87,7 +87,7 @@ export const AnimatedCounter = dynamic(
   {
     loading: () => null,
     ssr: false,
-  }
+  },
 );
 
 export const ParallaxScroll = dynamic(
@@ -98,7 +98,7 @@ export const ParallaxScroll = dynamic(
   {
     loading: () => null,
     ssr: false,
-  }
+  },
 );
 
 // Export animation variants for direct use

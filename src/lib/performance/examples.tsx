@@ -74,7 +74,7 @@ const ExampleComponent = ({ title, data }: { title: string; data: any[] }) => {
 // Example 3: Wrap component with performance tracking
 export const TrackedExampleComponent = withPerformanceTracking(
   ExampleComponent,
-  "ExampleComponent"
+  "ExampleComponent",
 );
 
 // Example 4: Optimized data fetching

@@ -22,7 +22,7 @@ export function LazyWrapper({
   const [ref, isIntersecting] = useIntersectionObserver(
     threshold,
     rootMargin,
-    true
+    true,
   );
 
   return (
@@ -74,7 +74,7 @@ export function GridSkeleton({
     <div
       className={`grid grid-cols-1 md:grid-cols-${Math.min(
         columns,
-        3
+        3,
       )} gap-6 ${className}`}
     >
       {Array.from({ length: count }).map((_, index) => (
