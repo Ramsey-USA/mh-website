@@ -274,7 +274,7 @@ export default function Home() {
           </div>
 
           <div className="text-center scroll-reveal">
-            <Link href="/testimonials">
+            <Link href="/about#testimonials">
               <Button
                 variant="secondary"
                 size="lg"

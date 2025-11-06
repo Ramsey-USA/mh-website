@@ -756,7 +756,8 @@ When creating a new page, ensure:
 
 - **[design-system.md](./design-system/design-system.md)** - Complete design system
 - **[icon-system-quick-reference.md](./icon-system-quick-reference.md)** - Icon usage
-- **[mh-branding.md](../business/mh-branding.md)** - Brand guidelines
+- **[consistency-guide.md](../../../development/consistency-guide.md)** - Implementation standards
+- **[mh-branding.md](../../../business/mh-branding.md)** - Complete brand reference
 - **[features.md](./features.md)** - Feature documentation
 
 ---

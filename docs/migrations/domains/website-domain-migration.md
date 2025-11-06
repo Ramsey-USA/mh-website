@@ -30,7 +30,7 @@ MD files to create a unified domain structure.
 - ✅ `/docs/business/services.md` - Updated website reference
 - ✅ `/README.md` - Updated website links (2 locations)
 - ✅ `/docs/project/company-profile.md` - Updated website link
-- ✅ `/docs/business/branding/branding-index.md` - Updated website link
+- ✅ `/docs/branding/branding-index.md` - Updated website link
 
 ### **Configuration Files**
 

@@ -17,13 +17,13 @@
 This comprehensive guide contains ALL MH Construction branding standards. For focused reading, see also our
 **modular branding documentation**:
 
-- **[Brand Documentation Index](./branding/branding-index.md)** - Navigation hub for all brand docs
-- **[Brand Overview](./branding/brand-overview.md)** - Core identity, taglines, positioning
-- **[Color System](./branding/color-system.md)** - Complete color palette and usage
-- **[Typography](./branding/typography.md)** - Font system and hierarchy
-- **[Messaging Guidelines](./branding/messaging.md)** - Voice, tone, and content standards
-- **[Icon Policy](./branding/icon-policy.md)** - Material Icons standards and enforcement
-- **[Implementation Guide](./branding/implementation-guide.md)** - Technical implementation details
+- **[Brand Documentation Index](../branding/branding-index.md)** - Navigation hub for all brand docs
+- **[Brand Overview](../branding/strategy/brand-overview.md)** - Core identity, taglines, positioning
+- **[Color System](../branding/standards/color-system.md)** - Complete color palette and usage
+- **[Typography](../branding/standards/typography.md)** - Font system and hierarchy
+- **[Messaging Guidelines](../branding/strategy/messaging.md)** - Voice, tone, and content standards
+- **[Icon Policy](../branding/standards/icon-policy.md)** - Material Icons standards and enforcement
+- **[Consistency Guide](../development/consistency-guide.md)** - Complete implementation standards
 
 ### 🔗 Development Standards Integration
 
@@ -264,7 +264,7 @@ title: 'Update 🎯'
 
 **UPDATED:** November 4, 2025 - v4.0.2 Hero Section Standards Finalized
 
-**MANDATORY STANDARD:** ALL pages must implement the standardized hero section format documented in [Typography Standards](./branding/typography.md#-hero-section-typography-standards).
+**MANDATORY STANDARD:** ALL pages must implement the standardized hero section format documented in [Typography Standards](../branding/standards/typography.md#-hero-section-typography-standards).
 
 **Key Requirements:**
 
@@ -1718,7 +1718,7 @@ without custom overrides.
 
 #### Comprehensive Documentation Reference
 
-**For complete hero section implementation details, see [Typography Standards - Hero Section](./branding/typography.md#-hero-section-typography-standards).**
+**For complete hero section implementation details, see [Typography Standards - Hero Section](../branding/standards/typography.md#-hero-section-typography-standards).**
 
 #### Full Viewport Hero Implementation
 

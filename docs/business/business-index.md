@@ -16,24 +16,15 @@
 
 ### 🎨 Brand & Marketing
 
-- [**Brand Guidelines Hub**](./branding/branding-index.md) - Complete brand documentation system
-- [**MH Branding**](./mh-branding.md) - Comprehensive brand guidelines v3.7.2
+- [**Brand Documentation Hub**](../branding/branding-index.md) - Complete brand documentation system
+- [**MH Branding Master Guide**](./mh-branding.md) - Comprehensive brand guidelines reference
+- [**Consistency Guide**](../development/consistency-guide.md) - Complete implementation standards
 
-#### 🎯 **LATEST: Brand Standards Implementation (November 4, 2025)**
+**Brand Structure:**
 
-**NEW:** Complete brand compliance audit and implementation
-
-- [**CTA Standardization Plan**](./branding/cta-standardization-plan.md) - ✅ **COMPLETED**
-  - Standardized all call-to-action language across 15+ instances
-  - Approved patterns: "Schedule Free Consultation", "View Our Work", "Begin Our Partnership"
-  - 100% compliance achieved across Homepage, Contact, Projects, About pages
-
-- [**Bubble Headings Policy v4.1.0**](./branding/bubble-headings-policy.md) - ✅ **ACTIVE POLICY**
-  - Professional heading guidelines for clean, minimal design
-  - Clear rules: Gradients OK on clean backgrounds, solid colors in bubble containers
-  - Implementation checklist for developers and designers
-
-**Impact:** Critical brand violations eliminated, CTA consistency achieved, professional appearance maintained
+- [Brand Strategy](../branding/strategy/) - Brand identity and messaging
+- [Visual Standards](../branding/standards/) - Colors, typography, components
+- [Implementation Reference](../branding/implementation/) - Developer quick reference
 
 ### 📋 Business Documentation
 
@@ -51,16 +42,11 @@ docs/business/
 ├── team-roster.md              # Complete team information
 ├── team-data-sync.md           # Team information synchronization
 ├── government-grant-projects.md # Grant expertise
-├── mh-branding.md              # Comprehensive brand guidelines
-├── branding/                   # Brand documentation system
-│   ├── branding-index.md       # Brand documentation hub
-│   ├── brand-overview.md       # Core brand identity
-│   ├── color-system.md         # Brand color system
-│   ├── typography.md           # Typography standards
-│   ├── messaging.md            # Brand messaging guidelines
-│   ├── icon-policy.md          # Icon usage standards
-│   └── implementation-guide.md # Technical implementation
+├── mh-branding.md              # Comprehensive brand reference (legacy)
 └── team-profiles/              # Individual team member profiles
+
+Brand documentation is now at: docs/branding/
+See: /docs/branding/branding-index.md for the new structure
     └── [18 team profile files]
 ```text
 

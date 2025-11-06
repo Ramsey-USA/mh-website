@@ -61,7 +61,7 @@ structure.
 - ✅ `/docs/business/mh-branding.md`
   - Updated technical contact: `developers@mhc-gc.com`
 
-- ✅ `/docs/business/branding/branding-index.md`
+- ✅ `/docs/branding/branding-index.md`
   - Updated website domain: `mhc-gc.com`
 
 ### **3. Project Documentation**

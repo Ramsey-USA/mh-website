@@ -66,7 +66,7 @@ Construction from competitors who work "for" clients.
 
 ## 🔗 Related Documentation
 
-- **Business Branding:** `/docs/business/branding/` - Brand guidelines and visual identity
+- **Business Branding:** `/docs/branding/` - Brand guidelines and visual identity
 - **Technical Implementation:** `/docs/technical/design-system/` - UI/UX specifications
 - **Project Roadmaps:** `/docs/project/roadmaps/` - Partnership feature development plans
 

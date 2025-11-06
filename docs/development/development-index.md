@@ -46,6 +46,8 @@ Quick reference guides, troubleshooting documentation, and developer resources.
 
 ### Development Guidelines
 
+- **[consistency-guide.md](./consistency-guide.md)** - **⭐ PRIMARY REFERENCE** - Complete
+  consistency standards for pages, sections, components, typography, colors, and mobile
 - **[terminology-guide.md](./terminology-guide.md)** - Project terminology and naming conventions
 - **[file-management.md](./file-management.md)** - File organization and management guidelines
 - **[development-standards.md](./development-standards.md)** - Core development standards and practices

@@ -6,26 +6,40 @@ export const revalidate = 3600; // Revalidate every hour
 
 export async function GET() {
   try {
-    // For branding, return inline content for now
-    // In production, this could be stored in Cloudflare KV
+    // Branding documentation is now in /docs/branding/
+    // This API provides metadata and links to the actual documentation
     const branding = {
       content: `# MH Construction Branding
 
-## Company Overview
-MH Construction is a veteran-owned construction company dedicated to excellence.
+## Documentation Structure
 
-## Brand Values
-- Quality craftsmanship
-- Veteran integrity
-- Community commitment
-- Professional service
+For complete branding guidelines, see:
 
-## Visual Identity
-Our brand emphasizes strength, reliability, and patriotic service.
+- **[Branding Index](/docs/branding/branding-index.md)** - Main navigation hub
+- **[Consistency Guide](/docs/development/consistency-guide.md)** - Complete implementation standards
+- **[Brand Strategy](/docs/branding/strategy/)** - Brand identity and messaging
+- **[Visual Standards](/docs/branding/standards/)** - Colors, typography, components
+- **[Master Brand Guide](/docs/business/mh-branding.md)** - Comprehensive reference
+
+## Core Brand Identity
+
+- **Company**: MH Construction LLC
+- **Tagline**: "Building for the Owner, NOT the Dollar"
+- **Primary Color**: Hunter Green (#386851)
+- **Secondary Color**: Leather Tan (#BD9264)
+- **Icon System**: Google Material Icons (no emojis in code)
+- **Typography**: Inter font family
 `,
       title: "MH Construction Branding",
       excerpt: "Brand guidelines and identity for MH Construction",
       lastUpdated: new Date().toISOString(),
+      documentation: {
+        index: "/docs/branding/branding-index.md",
+        consistency: "/docs/development/consistency-guide.md",
+        strategy: "/docs/branding/strategy/",
+        standards: "/docs/branding/standards/",
+        master: "/docs/business/mh-branding.md",
+      },
     };
 
     return NextResponse.json(branding);
