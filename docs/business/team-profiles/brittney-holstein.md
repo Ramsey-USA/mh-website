@@ -30,7 +30,7 @@ Team Building Excellence Award, HR Innovation Recognition
 ## Biography
 
 Brittney focuses on building a strong team culture that supports both employee growth and client
-service. She leads efforts to expand veteran hiring and support programs while maintaining high
+service. She leads efforts to expand veteran hiring and partnership development initiatives while maintaining high
 retention rates, reflecting MH Construction's commitment to honoring those who served and building
 a family-oriented workplace.
 

@@ -309,7 +309,7 @@ export function EstimateResults({
                   size="sm"
                   className="bg-blue-600 hover:bg-blue-700 w-full"
                 >
-                  Learn About Our Wounded Warrior Initiative
+                  Learn About Our Veteran Services
                 </Button>
               </CardContent>
             </Card>

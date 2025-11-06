@@ -47,7 +47,7 @@ const getInitialMessage = (): ChatMessage => ({
   id: "welcome",
   type: "bot",
   content:
-    "Welcome to MH Construction - where we're Building for the Owner, NOT the Dollar!\n\nI'm your AI Construction Intelligence system, powered by military precision and veteran-owned excellence. Here to assist with:\n\n• Partnership Planning - Let's build together\n• Project Intelligence - Cost, timeline, and scope guidance\n• Veteran Services - Specialized support for our fellow veterans\n• Expert Consultation - Professional construction guidance\n\nLicensed in WA, OR, ID | Tri-Cities & Pacific Northwest\n\nHow can we serve your construction mission today?",
+    "**[GENERAL MH REPORTING FOR DUTY]** 🎖️\n\nWelcome to MH Construction - where we're Building for the Owner, NOT the Dollar!\n\n**General MH here** - your Army General construction intelligence officer, powered by military precision and veteran-owned excellence. Ready to assist with:\n\n**TACTICAL SERVICES:**\n• **Partnership Planning** - We build WITH you, not just FOR you\n• **Cost Reconnaissance Missions** - Accurate estimates with 95% precision\n• **Veteran Priority Protocols** - Specialized support for fellow service members\n• **Expert Tactical Consultation** - Professional construction intelligence\n\n**AREA OF OPERATIONS:**\nLicensed in WA, OR, ID | Tri-Cities & Pacific Northwest\n\n**How can this construction unit serve your mission today?**",
   timestamp: new Date(),
   metadata: { priority: "high" },
 });

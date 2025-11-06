@@ -24,17 +24,17 @@ export function ChatbotHeader({
   showHistory,
 }: ChatbotHeaderProps) {
   return (
-    <div className="chatbot-header bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-t-lg flex items-center justify-between cursor-move">
+    <div className="chatbot-header bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white p-4 rounded-t-lg flex items-center justify-between cursor-move">
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-bold">
-          MH
+        <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+          <MaterialIcon icon="military_tech" size="md" />
         </div>
         <div>
-          <h3 className="font-bold text-lg">MH Construction AI</h3>
-          <p className="text-xs text-blue-100">
+          <h3 className="font-bold text-lg">General MH</h3>
+          <p className="text-xs opacity-90">
             {isTyping
-              ? "Typing..."
-              : "Online • Expert Construction Intelligence"}
+              ? "Tactical Planning..."
+              : "Active Duty • Army General Construction Intelligence"}
           </p>
         </div>
       </div>

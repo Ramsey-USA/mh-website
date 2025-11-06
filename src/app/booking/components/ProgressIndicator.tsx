@@ -10,9 +10,9 @@ interface ProgressIndicatorProps {
 }
 
 const steps = [
-  { number: 1, label: "Date & Time", icon: "event" },
-  { number: 2, label: "Your Details", icon: "person" },
-  { number: 3, label: "Confirmation", icon: "check_circle" },
+  { number: 1, label: "Mission Date & Time", icon: "event" },
+  { number: 2, label: "Intel Briefing", icon: "assignment" },
+  { number: 3, label: "Deployment Confirmed", icon: "check_circle" },
 ];
 
 export function ProgressIndicator({ currentStep }: ProgressIndicatorProps) {

@@ -1569,13 +1569,13 @@ export function Button({
 #### Special Purpose Buttons
 
 ```tsx
-// Special program button (uses brand colors)
+// Veteran services button (uses brand colors)
 <Button
   variant="primary"
   size="lg"
 >
   <MaterialIcon icon="military_tech" size="lg" className="mr-3" />
-  Wounded Warrior Program
+  Veteran Services
 </Button>
 
 // Dashboard access button (uses brand colors)

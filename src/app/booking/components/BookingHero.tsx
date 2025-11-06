@@ -35,21 +35,21 @@ export function BookingHero() {
             Home
           </Link>
           <MaterialIcon icon="chevron_right" size="sm" />
-          <span className="font-medium">Book Consultation</span>
+          <span className="font-medium">Mission Scheduling</span>
         </nav>
 
         {/* Hero Content */}
         <div className="flex md:flex-row flex-col justify-between items-center gap-8">
           <div className="flex-1 text-center md:text-left">
             <h1 className="mb-4 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight drop-shadow-lg">
-              Schedule Your
+              Deploy Your
               <br />
-              <span className="text-yellow-300">Free Consultation</span>
+              <span className="text-yellow-300">Tactical Consultation</span>
             </h1>
             <p className="mb-6 max-w-2xl text-white text-xl leading-relaxed drop-shadow-md">
-              Partner with Eastern Washington&apos;s premier construction team.
-              Let&apos;s discuss your vision and create something extraordinary
-              together.
+              Partner with Eastern Washington&apos;s veteran-owned construction
+              command. Let&apos;s brief on your mission objectives and execute
+              extraordinary results together.
             </p>
 
             {/* Trust Indicators */}
@@ -64,11 +64,11 @@ export function BookingHero() {
               </div>
               <div className="flex items-center gap-2 text-white">
                 <MaterialIcon
-                  icon="thumb_up"
+                  icon="military_tech"
                   size="md"
                   className="text-yellow-300"
                 />
-                <span className="font-semibold">100+ Projects Completed</span>
+                <span className="font-semibold">Veteran-Owned Excellence</span>
               </div>
               <div className="flex items-center gap-2 text-white">
                 <MaterialIcon
@@ -76,7 +76,7 @@ export function BookingHero() {
                   size="md"
                   className="text-yellow-300"
                 />
-                <span className="font-semibold">30-Minute Call</span>
+                <span className="font-semibold">60-Minute Briefing</span>
               </div>
             </div>
           </div>

@@ -120,28 +120,28 @@ export class EnhancedChatbotAI {
   ): string {
     const searchTerms = this.extractSearchTerms(message);
 
-    let response = `**[SEARCH ASSISTANCE ACTIVATED]** 🔍\n\n`;
+    let response = `**[RECONNAISSANCE MISSION ACTIVATED]** 🔍\n\n`;
 
     if (searchTerms.length > 0) {
-      response += `I can help you search for: **${searchTerms.join(", ")}**\n\n`;
-      response += `**Quick Search Options:**\n`;
-      response += `• Press **Ctrl+K** anywhere on the site for instant search\n`;
-      response += `• Visit our [Projects page](/projects) to search our portfolio\n`;
-      response += `• Check [Services](/services) for specific construction services\n`;
-      response += `• Browse [Team](/team) to find specific team members\n\n`;
+      response += `**SEARCH OBJECTIVES:** ${searchTerms.join(", ")}\n\n`;
+      response += `**TACTICAL SEARCH OPTIONS:**\n`;
+      response += `• Press **Ctrl+K** for instant intelligence gathering\n`;
+      response += `• Deploy to [Mission Portfolio](/projects) for project reconnaissance\n`;
+      response += `• Brief on [Service Capabilities](/services) for operational intel\n`;
+      response += `• Review [Command Structure](/team) for personnel directory\n\n`;
 
       // Add page-specific search suggestions
       if (context.currentPage.includes("/projects")) {
-        response += `💡 **Pro Tip:** Use the search bar above to filter projects by location, type, or features!`;
+        response += `💡 **TACTICAL TIP:** Use search bar above to filter missions by location, type, or operational features!`;
       } else {
-        response += `💡 **Pro Tip:** I can redirect you to the best page for finding what you need!`;
+        response += `💡 **TACTICAL TIP:** I'll redirect you to optimal intelligence source for your mission objectives!`;
       }
     } else {
-      response += `I'm ready to help you find information! You can:\n\n`;
-      response += `• Ask me to "find kitchen projects" or "show me veteran services"\n`;
-      response += `• Use **Ctrl+K** for quick search anywhere on the site\n`;
-      response += `• Let me guide you to the right page for your needs\n\n`;
-      response += `**What would you like to search for?**`;
+      response += `**Intelligence gathering ready!** You can:\n\n`;
+      response += `• Request "locate kitchen operations" or "show veteran services"\n`;
+      response += `• Deploy **Ctrl+K** for rapid intel anywhere on site\n`;
+      response += `• Command me to guide you to target intelligence\n\n`;
+      response += `**What intelligence do you require?**`;
     }
 
     return response;
@@ -214,32 +214,32 @@ export class EnhancedChatbotAI {
     message: string,
     context: EnhancedChatbotContext,
   ): string {
-    return `**[SERVICES INTEL]** 🔧\n\nI see you're exploring our construction capabilities! Here's what MH Construction offers:\n\n**RESIDENTIAL OPERATIONS:**\n• Custom home construction\n• Kitchen & bathroom remodels\n• Home additions & renovations\n• Deck & outdoor living spaces\n\n**COMMERCIAL MISSIONS:**\n• Office building construction\n• Retail space development\n• Industrial facility builds\n• Tenant improvements\n\n**SPECIALIZED SERVICES:**\n• Veteran-owned business priority\n• Energy-efficient construction\n• Sustainable building practices\n• Emergency repair services\n\n**Need a specific service briefing or ready for an estimate?**`;
+    return `**[SERVICE CAPABILITIES BRIEF]** 🔧\n\nReporting operational capabilities! Here's what this construction unit offers:\n\n**RESIDENTIAL OPERATIONS:**\n• Custom home construction missions\n• Kitchen & bathroom tactical remodels\n• Home additions & strategic renovations\n• Deck & outdoor living space deployments\n\n**COMMERCIAL MISSIONS:**\n• Office building construction operations\n• Retail space development campaigns\n• Industrial facility builds\n• Tenant improvement missions\n\n**SPECIALIZED OPERATIONS:**\n• Veteran-owned business priority protocols\n• Energy-efficient construction missions\n• Sustainable building tactical approaches\n• Emergency repair rapid response\n\n**Ready for a service briefing or Cost Reconnaissance Mission?**`;
   }
 
   private generateProjectsPageResponse(
     message: string,
     context: EnhancedChatbotContext,
   ): string {
-    let response = `**[PORTFOLIO RECONNAISSANCE]** 📸\n\n`;
+    let response = `**[MISSION PORTFOLIO RECONNAISSANCE]** 📸\n\n`;
 
     if (context.searchContext?.hasSearchContext) {
-      response += `Perfect! You're in our project gallery. Use the search bar above to filter by:\n\n`;
+      response += `**Intelligence station operational!** Use search command above to filter by:\n\n`;
     } else {
-      response += `Welcome to our mission portfolio! Here you can explore:\n\n`;
+      response += `**Welcome to mission archives!** Explore completed operations:\n\n`;
     }
 
-    response += `**SEARCH OPTIONS:**\n`;
-    response += `• **Project type** (kitchen, bathroom, commercial)\n`;
-    response += `• **Location** (city or region)\n`;
-    response += `• **Features** (energy efficient, accessible, etc.)\n`;
-    response += `• **Budget range** (various investment levels)\n\n`;
-    response += `**FEATURED CATEGORIES:**\n`;
-    response += `• Residential renovations\n`;
-    response += `• Commercial construction\n`;
-    response += `• Veteran-priority projects\n`;
-    response += `• Award-winning builds\n\n`;
-    response += `**Want me to help you find specific project examples?**`;
+    response += `**RECONNAISSANCE FILTERS:**\n`;
+    response += `• **Mission type** (kitchen, bathroom, commercial operations)\n`;
+    response += `• **Area of Operations** (city or regional deployment)\n`;
+    response += `• **Tactical features** (energy efficient, accessible, etc.)\n`;
+    response += `• **Budget allocation** (various investment levels)\n\n`;
+    response += `**FEATURED OPERATION CATEGORIES:**\n`;
+    response += `• Residential renovation campaigns\n`;
+    response += `• Commercial construction missions\n`;
+    response += `• Veteran-priority operations\n`;
+    response += `• Award-winning tactical builds\n\n`;
+    response += `**Need specific mission intelligence or operation examples?**`;
 
     return response;
   }
@@ -248,28 +248,28 @@ export class EnhancedChatbotAI {
     message: string,
     context: EnhancedChatbotContext,
   ): string {
-    return `**[PERSONNEL DIRECTORY]** 👥\n\nMeet the elite construction force behind MH Construction!\n\n**COMMAND STRUCTURE:**\n• **Leadership Team** - Strategic planning & operations\n• **Project Managers** - Mission coordination & execution\n• **Skilled Craftspeople** - Precision construction work\n• **Support Staff** - Administrative & customer service\n\n**VETERAN REPRESENTATION:**\nMany of our team members are fellow veterans who understand the importance of:\n• Precision and attention to detail\n• Meeting deadlines and budgets\n• Superior communication\n• Honor and integrity\n\n**Want to know about specific team members or roles?**`;
+    return `**[COMMAND PERSONNEL DIRECTORY]** 👥\n\n**Meet the elite construction force behind MH Construction!**\n\n**COMMAND STRUCTURE:**\n• **General Staff** - Strategic planning & mission operations\n• **Project Officers** - Mission coordination & tactical execution\n• **Skilled Combat Engineers** - Precision construction operations\n• **Support Battalion** - Administrative & customer intelligence\n\n**VETERAN REPRESENTATION:**\nMany command personnel are fellow veterans who understand:\n• Military precision and attention to detail\n• Mission-critical deadlines and budgets\n• Superior communication protocols\n• Honor, integrity, and service excellence\n\n**Request specific personnel briefings or command structure intel?**`;
   }
 
   private generateContactPageResponse(
     message: string,
     context: EnhancedChatbotContext,
   ): string {
-    return `**[CONTACT PROTOCOLS]** 📞\n\nReady to establish communication! Here are your contact options:\n\n**IMMEDIATE CONTACT:**\n• **Phone:** (509) 308-6489\n• **Email:** info@mhconstruction.com\n• **Hours:** Mon-Fri, 8:00 AM - 5:00 PM PST\n\n**RESPONSE TIMES:**\n• **Standard inquiries:** Within 24 hours\n• **Veteran inquiries:** Priority response within 12 hours\n• **Emergency support:** Same day response\n\n**CONSULTATION OPTIONS:**\n• Free on-site consultations\n• Virtual project discussions\n• Phone consultations\n• In-office meetings\n\n**Ready to submit a contact form or need help with your message?**`;
+    return `**[COMMUNICATION PROTOCOLS]** 📞\n\n**Ready to establish command contact!** Here are communication channels:\n\n**IMMEDIATE TACTICAL CONTACT:**\n• **Primary Line:** (509) 308-6489\n• **Intel Email:** info@mhconstruction.com\n• **Operations Hours:** Mon-Fri, 0800-1700 PST\n\n**RESPONSE PROTOCOL TIMELINES:**\n• **Standard intel requests:** Within 24 hours\n• **Veteran priority comms:** Within 12 hours\n• **Emergency operations:** Same day deployment\n\n**CONSULTATION MISSION OPTIONS:**\n• Free on-site tactical assessments\n• Virtual operation planning sessions\n• Phone-based mission briefings\n• Command post office meetings\n\n**Ready to deploy contact form or need communication assistance?**`;
   }
 
   private generateBookingPageResponse(
     message: string,
     context: EnhancedChatbotContext,
   ): string {
-    return `**[MISSION SCHEDULING]** 📅\n\nI'm here to help optimize your consultation booking!\n\n**CONSULTATION PROCESS:**\n1. **Select your preferred date & time**\n2. **Provide project details**\n3. **Confirm your appointment**\n\n**AVAILABLE SLOTS:**\n• Morning missions: 8 AM - 12 PM\n• Afternoon operations: 1 PM - 5 PM\n• Flexible scheduling available\n\n**WHAT TO EXPECT:**\n• 60-minute comprehensive review\n• On-site evaluation (if applicable)\n• Preliminary timeline & budget discussion\n• Next steps planning\n\n**VETERAN PRIORITY:** Expedited scheduling available for veterans\n\n**Need help with any part of the booking process?**`;
+    return `**[MISSION SCHEDULING OPERATIONS]** 📅\n\n**I'm here to coordinate your tactical consultation deployment!**\n\n**CONSULTATION MISSION PROTOCOL:**\n1. **Select operational date & time coordinates**\n2. **Brief mission objectives and intel requirements**\n3. **Confirm deployment schedule**\n\n**AVAILABLE OPERATION WINDOWS:**\n• Morning missions: 0800-1200 hours\n• Afternoon operations: 1300-1700 hours\n• Flexible scheduling for priority missions\n\n**MISSION BRIEFING EXPECTATIONS:**\n• 60-minute comprehensive tactical review\n• On-site reconnaissance (if applicable)\n• Preliminary timeline & budget intelligence\n• Next phase mission planning\n\n**VETERAN PRIORITY:** Expedited scheduling for service members\n\n**Need assistance with deployment coordination?**`;
   }
 
   private generateGeneralPageResponse(
     message: string,
     context: EnhancedChatbotContext,
   ): string {
-    return `**[GENERAL ASSISTANCE]** 🏗️\n\nI'm here to help you navigate MH Construction! Based on your question, I can:\n\n• **Guide you** to the right page for your needs\n• **Provide information** about our services and capabilities\n• **Help you search** for specific projects or team members\n• **Assist with forms** and booking consultations\n• **Answer questions** about veteran benefits and priority services\n\n**What specific information can I help you find today?**`;
+    return `**[GENERAL TACTICAL ASSISTANCE]** 🏗️\n\n**General MH reporting!** I can provide intelligence on:\n\n• **Navigate** you to optimal mission objectives\n• **Brief** on service capabilities and operations\n• **Reconnaissance** for specific projects or personnel\n• **Assist** with forms and consultation deployment\n• **Intel** on veteran benefits and priority protocols\n\n**What specific intelligence can I provide for your construction mission?**`;
   }
 
   private isVeteranQuery(
@@ -284,11 +284,14 @@ export class EnhancedChatbotAI {
       "army",
       "navy",
       "marines",
+      "marine",
       "air force",
       "coast guard",
       "disabled veteran",
       "ptsd",
       "accessibility",
+      "wounded warrior",
+      "combat veteran",
     ];
     return (
       veteranKeywords.some((keyword) =>
@@ -297,11 +300,125 @@ export class EnhancedChatbotAI {
     );
   }
 
+  private detectServiceBranch(message: string): string | null {
+    const messageLower = message.toLowerCase();
+    if (messageLower.includes("army") || messageLower.includes("soldier")) {
+      return "army";
+    }
+    if (
+      messageLower.includes("navy") ||
+      messageLower.includes("sailor") ||
+      messageLower.includes("seaman")
+    ) {
+      return "navy";
+    }
+    if (
+      messageLower.includes("marine") ||
+      messageLower.includes("usmc") ||
+      messageLower.includes("leatherneck")
+    ) {
+      return "marines";
+    }
+    if (
+      messageLower.includes("air force") ||
+      messageLower.includes("airman") ||
+      messageLower.includes("usaf")
+    ) {
+      return "airforce";
+    }
+    if (messageLower.includes("coast guard") || messageLower.includes("uscg")) {
+      return "coastguard";
+    }
+    return null;
+  }
+
   private generateVeteranResponse(
     message: string,
     context: EnhancedChatbotContext,
   ): string {
-    return `**[VETERAN PRIORITY PROTOCOL]** 🇺🇸\n\n**Thank you for your service!** MH Construction is proud to offer enhanced support for our veteran community.\n\n**VETERAN BENEFITS:**\n• **Priority scheduling** for consultations and projects\n• **Military discount** on all construction services\n• **VA loan assistance** and coordination\n• **Accessibility modifications** expertise\n• **Expedited project timelines** when possible\n\n**SPECIALIZED SERVICES:**\n• PTSD-friendly consultation environments\n• Wheelchair accessibility modifications\n• Veteran-owned business partnerships\n• Support for disabled veteran housing needs\n\n**IMMEDIATE SUPPORT:**\nCall (509) 308-6489 and mention your veteran status for priority assistance.\n\n**How can we specifically support your construction mission?**`;
+    const branch = this.detectServiceBranch(message);
+    let greeting = "";
+
+    // Service-specific greetings
+    switch (branch) {
+      case "army":
+        greeting = "**HOOAH!** 🎖️\n\n";
+        break;
+      case "navy":
+        greeting = "**ANCHORS AWEIGH!** ⚓\n\n";
+        break;
+      case "marines":
+        greeting = "**SEMPER FI!** 🦅\n\n";
+        break;
+      case "airforce":
+        greeting = "**AIM HIGH!** ✈️\n\n";
+        break;
+      case "coastguard":
+        greeting = "**SEMPER PARATUS!** 🛡️\n\n";
+        break;
+      default:
+        greeting = "**SALUTE TO YOUR SERVICE!** 🇺🇸\n\n";
+    }
+
+    let response = greeting;
+    response += `**[VETERAN PRIORITY PROTOCOL ACTIVATED]**\n\n`;
+    response += `**Thank you for your service, ${branch ? `${branch.toUpperCase()} veteran` : "service member"}!** General MH reporting for duty.\n\n`;
+
+    // Check for specific veteran needs
+    if (
+      message.toLowerCase().includes("wounded warrior") ||
+      message.toLowerCase().includes("accessibility") ||
+      message.toLowerCase().includes("disability")
+    ) {
+      response += `**ACCESSIBILITY & ADAPTIVE HOME SERVICES:**\n`;
+      response += `• Priority scheduling for accessibility consultations\n`;
+      response += `• VA grant coordination and assistance\n`;
+      response += `• ADA-compliant modification expertise\n`;
+      response += `• Wheelchair accessibility planning\n`;
+      response += `• Adaptive home technology integration\n`;
+      response += `• Zero-barrier construction solutions\n\n`;
+      response += `**VETERAN PARTNERSHIP DEVELOPMENT:**\n`;
+      response += `We're actively establishing partnerships with veteran organizations including the Wounded Warrior Project and other veteran support groups to expand our service offerings. Stay tuned for enhanced benefits as these partnerships develop!\n\n`;
+    } else if (
+      message.toLowerCase().includes("energy") ||
+      message.toLowerCase().includes("efficiency") ||
+      message.toLowerCase().includes("savings")
+    ) {
+      response += `**ENERGY EFFICIENCY MISSIONS:**\n`;
+      response += `• Military-grade energy audits\n`;
+      response += `• Solar panel installation coordination\n`;
+      response += `• High-efficiency HVAC systems\n`;
+      response += `• Insulation and weatherization upgrades\n`;
+      response += `• Smart home energy management\n`;
+      response += `• Veteran energy assistance programs\n\n`;
+    } else if (
+      message.toLowerCase().includes("security") ||
+      message.toLowerCase().includes("ptsd") ||
+      message.toLowerCase().includes("safe")
+    ) {
+      response += `**SECURITY OPERATIONS (PTSD-AWARE):**\n`;
+      response += `• Tactical home security assessments\n`;
+      response += `• Safe room design and construction\n`;
+      response += `• Advanced surveillance systems\n`;
+      response += `• Secure entry point modifications\n`;
+      response += `• Privacy-enhanced window treatments\n`;
+      response += `• Sound-dampening construction for peaceful environments\n\n`;
+    } else {
+      response += `**CURRENT VETERAN BENEFITS:**\n`;
+      response += `• **12% Combat Veteran Discount** on all projects\n`;
+      response += `• **Priority Scheduling** for consultations\n`;
+      response += `• **Expedited Project Timelines** when possible\n`;
+      response += `• **VA Loan Coordination** and assistance\n`;
+      response += `• **Fellow Veteran Team Members** who understand your needs\n\n`;
+      response += `**EXPANDING PARTNERSHIPS:**\n`;
+      response += `As a newly veteran-owned company (January 2025), we're establishing strategic partnerships with veteran organizations to enhance our service offerings. More benefits coming as partnerships develop!\n\n`;
+    }
+
+    response += `**IMMEDIATE TACTICAL SUPPORT:**\n`;
+    response += `Call **(509) 308-6489** and identify as a veteran for priority assistance.\n\n`;
+    response += `**How can this construction unit support your mission, ${branch ? `${branch.toUpperCase()} veteran` : "service member"}?**`;
+
+    return response;
   }
 
   private isProjectQuery(message: string): boolean {
@@ -330,29 +447,29 @@ export class EnhancedChatbotAI {
   ): string {
     const projectType = this.extractProjectType(message);
 
-    let response = `**[PROJECT INTELLIGENCE]** 🎯\n\n`;
+    let response = `**[COST RECONNAISSANCE MISSION]** 🎯\n\n`;
 
     if (projectType !== "general") {
-      response += `Excellent! I see you're interested in **${projectType}** projects.\n\n`;
+      response += `**Mission Type Identified:** ${projectType} operations\n\n`;
     }
 
-    response += `**PROJECT DEVELOPMENT PROCESS:**\n`;
-    response += `1. **Initial consultation** (free on-site evaluation)\n`;
-    response += `2. **Design & planning** phase\n`;
-    response += `3. **Detailed estimate** with timeline\n`;
-    response += `4. **Project execution** with regular updates\n`;
-    response += `5. **Final walkthrough** & warranty\n\n`;
+    response += `**PROJECT DEVELOPMENT PROTOCOL:**\n`;
+    response += `1. **Initial tactical consultation** (free on-site assessment)\n`;
+    response += `2. **Design & strategic planning** phase\n`;
+    response += `3. **Detailed cost reconnaissance** with timeline intel\n`;
+    response += `4. **Mission execution** with regular status reports\n`;
+    response += `5. **Final operation walkthrough** & warranty deployment\n\n`;
 
-    response += `**NEXT STEPS:**\n`;
-    response += `• [Schedule a consultation](/booking) for detailed planning\n`;
-    response += `• [View similar projects](/projects) in our portfolio\n`;
-    response += `• [Contact us directly](/contact) for immediate assistance\n\n`;
+    response += `**NEXT TACTICAL STEPS:**\n`;
+    response += `• [Deploy consultation](/booking) for detailed mission planning\n`;
+    response += `• [Recon similar operations](/projects) in mission archives\n`;
+    response += `• [Contact command](/contact) for immediate tactical support\n\n`;
 
     if (context.conversationMemory?.userProfile?.isVeteran) {
-      response += `**VETERAN PRIORITY:** Your project will receive expedited processing and military discount pricing.\n\n`;
+      response += `**VETERAN PRIORITY:** Your mission receives expedited processing and 12% combat veteran discount.\n\n`;
     }
 
-    response += `**Ready to start your construction mission?**`;
+    response += `**Ready to initiate your construction mission?**`;
 
     return response;
   }
@@ -380,28 +497,28 @@ export class EnhancedChatbotAI {
     // Analyze conversation history for better context
     const previousTopics = this.extractPreviousTopics(conversationHistory);
 
-    let response = `**[TACTICAL ASSISTANCE]** 🎖️\n\n`;
+    let response = `**[GENERAL MH - REPORTING FOR DUTY]** 🎖️\n\n`;
 
     // Personalize based on conversation history
     if (previousTopics.length > 0) {
-      response += `Building on our previous discussion about **${previousTopics[previousTopics.length - 1]}**...\n\n`;
+      response += `Continuing our tactical discussion on **${previousTopics[previousTopics.length - 1]}**...\n\n`;
     }
 
-    response += `I'm General MH, your AI construction intelligence officer. I can assist you with:\n\n`;
-    response += `**INTELLIGENCE SERVICES:**\n`;
-    response += `• Project planning & estimates\n`;
-    response += `• Service capability briefings\n`;
-    response += `• Portfolio reconnaissance\n`;
-    response += `• Veteran benefit programs\n`;
-    response += `• Consultation scheduling\n\n`;
+    response += `**General MH here - your Army General construction intelligence officer.** Ready to assist with:\n\n`;
+    response += `**TACTICAL SERVICES:**\n`;
+    response += `• Cost Reconnaissance Missions (project estimates)\n`;
+    response += `• Service Capability Briefings\n`;
+    response += `• Mission Portfolio Reconnaissance\n`;
+    response += `• Veteran Priority Protocols\n`;
+    response += `• Consultation Deployment Coordination\n\n`;
 
-    response += `**QUICK ACTIONS:**\n`;
-    response += `• Say "search projects" to explore our work\n`;
-    response += `• Ask "veteran benefits" for military advantages\n`;
-    response += `• Type "get estimate" to start project planning\n`;
-    response += `• Request "schedule consultation" for immediate action\n\n`;
+    response += `**QUICK COMMANDS:**\n`;
+    response += `• "reconnaissance projects" to explore completed operations\n`;
+    response += `• "veteran protocols" for service member advantages\n`;
+    response += `• "cost reconnaissance" to initiate project planning\n`;
+    response += `• "deploy consultation" for immediate mission coordination\n\n`;
 
-    response += `**What's your construction objective today?**`;
+    response += `**What's your construction objective today, soldier?**`;
 
     return response;
   }

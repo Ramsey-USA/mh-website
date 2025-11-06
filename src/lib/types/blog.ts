@@ -290,21 +290,24 @@ Military leadership training provides unique advantages in construction manageme
 - Proactive problem identification and solutions
 - Transparent discussion of challenges and timelines
 
-## Wounded Warrior Initiative
+## Veteran Community Commitment
 
 At MH Construction, we\'re committed to supporting our veteran community:
 
-### Special Programs
-- **10% Veteran Discount**: For all military families
-- **Flexible Payment Plans**: Understanding of veteran financial situations
-- **Peer Support Network**: Connection with other veteran-owned businesses
-- **Employment Opportunities**: Prioritizing veteran hiring in our expansion
+### Current Veteran Benefits
+- **12% Combat Veteran Discount**: For all military service members
+- **Priority Scheduling**: Expedited consultations and project timelines
+- **Fellow Veterans on Staff**: Team members who understand your needs
+- **VA Loan Coordination**: Assistance with veteran financing options
 
-### Community Impact
-- Supporting local veteran organizations
+### Expanding Our Support
+As a newly veteran-owned company (January 2025), we\'re actively establishing partnerships with veteran organizations to enhance our service offerings and create more opportunities for the veteran community.
+
+### Community Engagement
+- Building relationships with local veteran organizations
 - Mentoring veteran entrepreneurs
-- Participating in community service projects
-- Building homes for disabled veterans
+- Participating in veteran community service projects
+- Creating employment opportunities for veterans
 
 ## The Bottom Line
 
@@ -329,7 +332,7 @@ Ready to experience the veteran advantage? Contact MH Construction today for you
       "veteran owned",
       "military values",
       "construction quality",
-      "wounded warrior",
+      "veteran benefits",
     ],
     featuredImage: {
       url: "/images/blog/veteran-owned-advantages.jpg",
@@ -346,7 +349,7 @@ Ready to experience the veteran advantage? Contact MH Construction today for you
         "military contractors",
         "Pasco WA",
         "construction quality",
-        "wounded warrior",
+        "veteran benefits",
       ],
     },
     status: "published",

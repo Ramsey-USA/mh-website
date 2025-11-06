@@ -150,7 +150,7 @@ leadership committed to serving both clients and communities.
   - Team Development & Training
   - HR Compliance & Policy Management
 - **Focus**: Building a strong team culture that supports both employee growth and client service
-- **Initiative**: Leading efforts to expand veteran hiring and support programs
+- **Initiative**: Leading efforts to expand veteran hiring and partnership development initiatives
 
 ### Matt Ramsey - Project Engineer & Digital Marketing Manager
 
@@ -185,7 +185,7 @@ leadership committed to serving both clients and communities.
 - **Matt Ramsey**: Project Engineer & Digital Marketing Manager - Brings military
   precision to technology integration
 - **Veteran Hiring Initiative**: Active recruitment of qualified veterans across all departments
-- **Wounded Warrior Support**: Specialized services and support for wounded veterans
+- **Veteran Partnership Development**: Establishing relationships with veteran organizations to expand support services
 
 ### Military Values Integration
 

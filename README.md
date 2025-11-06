@@ -2,8 +2,29 @@
 
 🎯 **Production Ready** | ✅ **Cloudflare Optimized** | 🇺🇸 **Veteran-Owned Since January 2025**
 
-A modern Next.js construction platform featuring AI-powered cost estimation, military-themed chatbot
-assistance, and comprehensive project showcase capabilities.
+A modern Next.js construction platform featuring AI-powered cost estimation, military-themed "General MH" chatbot
+assistant with authentic Army General personality, and comprehensive project showcase capabilities.
+
+---
+
+## 🎖️ Veteran-Owned Excellence
+
+**MH Construction became veteran-owned in January 2025** under Army veteran leadership. We're actively
+establishing partnerships with veteran organizations to expand our service offerings and support the
+veteran community.
+
+### Current Veteran Benefits
+
+- **12% Combat Veteran Discount** on all construction projects
+- **Priority Scheduling** for consultations and project timelines
+- **Fellow Veteran Team Members** who understand your unique needs
+- **VA Loan Coordination** and assistance throughout the process
+- **Service Branch Recognition** by our "General MH" AI assistant (HOOAH, ANCHORS AWEIGH, SEMPER FI)
+
+### Growing Partnerships
+
+We're establishing strategic relationships with veteran organizations to enhance benefits and expand
+services. More opportunities coming as partnerships develop!
 
 ---
 
@@ -37,11 +58,12 @@ estimation.
 
 - **11 Main Pages**: Home, About, Services, Projects, Team, Careers, Contact, Booking, Estimator,
   Government, Trade Partners
-- **AI Chatbot**: Military-themed "General MH" assistant on every page
-- **Cost Estimator**: AI-powered project cost calculator with regional pricing
-- **Booking System**: Consultation scheduling with calendar integration
+- **AI Chatbot "General MH"**: Military-themed Army General assistant with authentic service branch recognition
+- **Cost Estimator**: AI-powered project cost calculator with 12% combat veteran discount
+- **Booking System**: Consultation scheduling with veteran priority protocols
 - **Responsive Design**: Mobile-first approach with dark/light theme support
 - **Email Integration**: Resend API for form submissions to `office@mhc-gc.com`
+- **Veteran Services**: Accessibility modifications, energy efficiency, security operations (PTSD-aware)
 
 ### Tech Stack
 

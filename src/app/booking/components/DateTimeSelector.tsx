@@ -42,11 +42,12 @@ export function DateTimeSelector({
               size="lg"
               className="mr-3 text-brand-primary"
             />
-            Select Date & Time
+            Mission Deployment Schedule
           </span>
         </CardTitle>
         <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-          Choose your preferred date and time for the consultation
+          Select operational date and time coordinates for your tactical
+          briefing
         </p>
       </CardHeader>
       <CardContent className="space-y-8">

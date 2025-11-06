@@ -49,12 +49,12 @@ export function ConfirmationPage({
               />
             </div>
             <h2 className="mb-4 font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white">
-              Consultation Scheduled!
+              Mission Briefing Confirmed!
             </h2>
             <p className="mb-6 max-w-2xl text-gray-700 text-lg dark:text-gray-300">
-              Thank you for partnering with MH Construction. We&apos;re excited
-              to discuss your project and explore how we can bring your vision
-              to life.
+              Thank you for choosing MH Construction. General MH and our
+              tactical team are ready to execute your construction mission with
+              military precision.
             </p>
           </div>
         </CardContent>
@@ -69,7 +69,7 @@ export function ConfirmationPage({
               size="lg"
               className="mr-3 text-brand-primary"
             />
-            Appointment Details
+            Mission Coordinates
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -125,10 +125,10 @@ export function ConfirmationPage({
       </Card>
 
       {/* Veteran Discount Notice */}
-      <Card className="bg-gradient-to-r from-blue-50 dark:from-blue-900/20 to-indigo-50 dark:to-indigo-900/20 border-2 border-blue-300 dark:border-blue-700">
+      <Card className="bg-gradient-to-r from-brand-primary/5 dark:from-brand-primary/10 to-brand-secondary/5 dark:to-brand-secondary/10 border-2 border-brand-primary/30 dark:border-brand-primary/40">
         <CardContent className="py-6">
           <div className="flex items-start gap-4">
-            <div className="bg-blue-500 shadow-md p-3 rounded-full">
+            <div className="bg-brand-primary shadow-md p-3 rounded-full">
               <MaterialIcon
                 icon="military_tech"
                 size="lg"
@@ -136,13 +136,13 @@ export function ConfirmationPage({
               />
             </div>
             <div className="flex-1">
-              <h3 className="mb-2 font-bold text-blue-900 text-xl dark:text-blue-100">
-                Veterans Appreciation Program
+              <h3 className="mb-2 font-bold text-brand-primary text-xl dark:text-brand-secondary">
+                Veteran-Owned Excellence
               </h3>
-              <p className="text-blue-800 dark:text-blue-200">
-                As a veteran-owned business, we&apos;re honored to offer special
-                pricing to military families. Ask about our veteran discount
-                during your consultation.
+              <p className="text-gray-800 dark:text-gray-200">
+                As a veteran-owned business, we&apos;re proud to offer 12%
+                combat veteran discount and priority scheduling. General MH will
+                recognize your service branch during your tactical briefing.
               </p>
             </div>
           </div>
@@ -158,7 +158,7 @@ export function ConfirmationPage({
               size="lg"
               className="mr-3 text-brand-primary"
             />
-            What Happens Next
+            Mission Operations Protocol
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -169,12 +169,12 @@ export function ConfirmationPage({
               </div>
               <div>
                 <p className="font-semibold text-gray-900 dark:text-white">
-                  Confirmation Email
+                  Intel Package Dispatch
                 </p>
                 <p className="text-gray-600 dark:text-gray-400">
                   You&apos;ll receive a confirmation email at{" "}
                   <span className="font-medium">{formData.email}</span> with
-                  calendar invite and meeting details.
+                  calendar coordinates and tactical briefing details.
                 </p>
               </div>
             </div>
@@ -184,11 +184,11 @@ export function ConfirmationPage({
               </div>
               <div>
                 <p className="font-semibold text-gray-900 dark:text-white">
-                  Pre-Consultation Prep
+                  Strategic Reconnaissance
                 </p>
                 <p className="text-gray-600 dark:text-gray-400">
-                  Our team will review your project details and prepare relevant
-                  questions and recommendations.
+                  Our tactical team will analyze your mission parameters and
+                  prepare strategic recommendations.
                 </p>
               </div>
             </div>
@@ -198,12 +198,12 @@ export function ConfirmationPage({
               </div>
               <div>
                 <p className="font-semibold text-gray-900 dark:text-white">
-                  Consultation Call
+                  Tactical Briefing
                 </p>
                 <p className="text-gray-600 dark:text-gray-400">
-                  We&apos;ll call you at{" "}
+                  We&apos;ll contact you at{" "}
                   <span className="font-medium">{formData.phone}</span> at your
-                  scheduled time to discuss your vision.
+                  scheduled time for your 60-minute mission briefing.
                 </p>
               </div>
             </div>
@@ -213,11 +213,11 @@ export function ConfirmationPage({
               </div>
               <div>
                 <p className="font-semibold text-gray-900 dark:text-white">
-                  Proposal & Next Steps
+                  Mission Plan Delivery
                 </p>
                 <p className="text-gray-600 dark:text-gray-400">
-                  After our call, we&apos;ll provide a detailed proposal and
-                  timeline for your project.
+                  After your briefing, we&apos;ll deploy a detailed action plan
+                  and operational timeline for your construction mission.
                 </p>
               </div>
             </div>

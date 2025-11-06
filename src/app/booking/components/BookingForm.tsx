@@ -41,15 +41,16 @@ export function BookingForm({
         <CardTitle className="mb-6 pb-2 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
           <span className="flex items-center text-brand-primary drop-shadow-sm">
             <MaterialIcon
-              icon="handshake"
+              icon="military_tech"
               size="lg"
               className="mr-3 text-brand-primary"
             />
-            Partnership Information
+            Mission Intelligence Brief
           </span>
         </CardTitle>
         <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-          Share your vision so we can partner together to bring it to life
+          Provide tactical details so we can coordinate the optimal construction
+          strategy
         </p>
       </CardHeader>
       <CardContent>

@@ -40,36 +40,36 @@ export default function GlobalChatbot({
         id: "services",
         label: "Services",
         icon: "build",
-        message: "Tell me about your services",
-        description: "Learn about our construction services",
+        message: "Brief me on your service capabilities",
+        description: "Learn about construction operations",
       },
       {
         id: "projects",
         label: "Projects",
         icon: "construction",
-        message: "Show me your past projects",
-        description: "View our portfolio",
+        message: "Show me your mission portfolio",
+        description: "View completed operations",
       },
       {
         id: "estimate",
         label: "Get Estimate",
         icon: "calculate",
-        message: "I need a cost estimate",
-        description: "Request a project estimate",
+        message: "I need a cost reconnaissance mission",
+        description: "Request project estimate",
       },
       {
         id: "veteran",
         label: "Veteran Services",
         icon: "military_tech",
-        message: "I'm a veteran, what benefits are available?",
-        description: "Veteran-specific services",
+        message: "I'm a veteran, what priority protocols are available?",
+        description: "Service member benefits",
       },
       {
         id: "contact",
         label: "Contact",
         icon: "phone",
-        message: "How do I contact your team?",
-        description: "Get in touch with us",
+        message: "How do I establish contact with command?",
+        description: "Communication protocols",
       },
     ],
     [],
@@ -81,15 +81,15 @@ export default function GlobalChatbot({
       <div className="fixed bottom-6 right-6 z-50">
         <button
           onClick={handlers.handleChatbotToggle}
-          className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center group"
-          aria-label="Open MH Construction AI Assistant"
+          className="bg-gradient-to-r from-brand-primary to-brand-primary-dark hover:from-brand-primary-dark hover:to-brand-primary text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center group"
+          aria-label="Open General MH - MH Construction AI Assistant"
         >
           <MaterialIcon
-            icon="smart_toy"
+            icon="military_tech"
             size="lg"
             className="group-hover:rotate-12 transition-transform duration-300"
           />
-          <span className="sr-only">Open Chatbot</span>
+          <span className="sr-only">Open General MH Assistant</span>
         </button>
       </div>
     );
@@ -107,11 +107,11 @@ export default function GlobalChatbot({
       >
         <button
           onClick={handlers.handleMinimizeToggle}
-          className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
-          aria-label="Restore chatbot"
+          className="bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
+          aria-label="Restore General MH assistant"
         >
-          <MaterialIcon icon="smart_toy" size="sm" />
-          <span className="font-semibold">MH Assistant</span>
+          <MaterialIcon icon="military_tech" size="sm" />
+          <span className="font-semibold">General MH</span>
         </button>
       </div>
     );
