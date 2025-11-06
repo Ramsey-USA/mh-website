@@ -197,7 +197,8 @@ export const localStorageService = {
     try {
       const item = localStorage.getItem(key);
       return item ? JSON.parse(item) : null;
-    } catch {
+    } catch (error) {
+      logger.error("LocalStorage get error:", { key, error });
       return null;
     }
   },
@@ -207,7 +208,8 @@ export const localStorageService = {
     try {
       localStorage.setItem(key, JSON.stringify(value));
       return true;
-    } catch {
+    } catch (error) {
+      logger.error("LocalStorage set error:", { key, error });
       return false;
     }
   },
@@ -217,7 +219,8 @@ export const localStorageService = {
     try {
       localStorage.removeItem(key);
       return true;
-    } catch {
+    } catch (error) {
+      logger.error("LocalStorage delete error:", { key, error });
       return false;
     }
   },

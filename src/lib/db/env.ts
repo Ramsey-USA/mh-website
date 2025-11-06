@@ -8,6 +8,8 @@
  * via getRequestContext() when deployed, but not in local development.
  */
 
+import { logger } from "@/lib/utils/logger";
+
 /**
  * Get Cloudflare D1 database binding
  * Returns null in local development where D1 is not available
@@ -26,7 +28,7 @@ export function getD1Database(): any | null {
     }
     return null;
   } catch (error) {
-    console.error("Error getting D1 database:", error);
+    logger.error("Error getting D1 database:", error);
     return null;
   }
 }
@@ -44,7 +46,8 @@ export function getKVNamespace(binding: string): any | null {
       return env?.[binding] || null;
     }
     return null;
-  } catch {
+  } catch (error) {
+    logger.error("Error getting KV namespace:", { binding, error });
     return null;
   }
 }
@@ -62,7 +65,8 @@ export function getR2Bucket(binding: string): any | null {
       return env?.[binding] || null;
     }
     return null;
-  } catch {
+  } catch (error) {
+    logger.error("Error getting R2 bucket:", { binding, error });
     return null;
   }
 }

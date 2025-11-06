@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Inter font via CSS for better stability */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
-
 /* Import CSS variables for cohesive design system */
 @import "../styles/variables.css";
 
@@ -13,19 +10,6 @@
 
 /* Import 3D card flip utilities */
 @import "../styles/card-flip.css";
-
-/* ============================================
-   PERFORMANCE-OPTIMIZED GOOGLE MATERIAL ICONS
-   ============================================ */
-
-@font-face {
-  font-family: "Material Icons";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap; /* Prevents FOIT (Flash of Invisible Text) */
-  src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2)
-    format("woff2");
-}
 
 .material-icons {
   font-family: "Material Icons";
@@ -41,13 +25,6 @@
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "liga";
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-smooth: always;
-  /* Performance optimization */
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
 /* ============================================
@@ -67,19 +44,6 @@
   /* Icon performance utilities */
   .icon-container {
     @apply flex items-center justify-center;
-    contain: layout style;
-  }
-
-  .icon-interactive {
-    will-change: var(--will-change-transform);
-    transition:
-      transform var(--duration-200) var(--ease-in-out),
-      opacity var(--duration-200) var(--ease-in-out);
-  }
-
-  .icon-static {
-    will-change: var(--will-change-auto);
-    transform: none;
   }
 
   /* 3D flip animation utilities */
@@ -97,13 +61,6 @@
 
   .rotate-y-180 {
     transform: rotateY(180deg);
-  }
-
-  /* GPU acceleration utility */
-  .animate-gpu {
-    transform: var(--gpu-acceleration);
-    will-change: var(--will-change-transform);
-    backface-visibility: var(--backface-hidden);
   }
 
   /* Focus styling for accessibility */
@@ -132,23 +89,6 @@
     box-shadow: var(--shadow-brand-lg);
   }
 
-  /* Performance utilities */
-  .contain-layout {
-    contain: layout;
-  }
-
-  .contain-style {
-    contain: style;
-  }
-
-  .contain-paint {
-    contain: paint;
-  }
-
-  .contain-strict {
-    contain: strict;
-  }
-
   /* Brand glow effect */
   .btn-glow:hover {
     box-shadow:
@@ -159,19 +99,6 @@
   /* Smooth scrolling */
   .scroll-smooth {
     scroll-behavior: smooth;
-  }
-
-  /* Animation utilities */
-  .animate-fade-in {
-    animation: fadeIn var(--duration-500) var(--ease-out);
-  }
-
-  .animate-slide-up {
-    animation: slideUp var(--duration-300) var(--ease-out);
-  }
-
-  .animate-scale-in {
-    animation: scaleIn var(--duration-200) var(--ease-out);
   }
 }
 /* ============================================
@@ -189,8 +116,6 @@
 
   body {
     @apply transition-colors duration-300;
-    /* Prevent layout shift during font loading */
-    font-display: swap;
   }
 
   /* Optimize rendering performance */
@@ -201,14 +126,6 @@
   /* Global focus styling for accessibility */
   *:focus-visible {
     @apply outline-2 outline-brand-primary outline-offset-2;
-  }
-
-  /* Ensure crisp text on transformed elements */
-  .transform,
-  .transition-transform {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
   }
 }
 

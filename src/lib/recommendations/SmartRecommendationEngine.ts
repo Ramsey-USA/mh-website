@@ -89,6 +89,7 @@ export interface UserPreferences {
   timeframe: string;
   priorities: string[]; // e.g., ['energy_efficiency', 'accessibility', 'security']
   communicationStyle: "formal" | "casual" | "military";
+  [key: string]: unknown; // Index signature for compatibility
 }
 
 export interface UserBehavior {

@@ -6,6 +6,42 @@
  * UI variants, and personalization strategies to optimize conversion rates.
  */
 
+export interface UserProfile {
+  isVeteran?: boolean;
+  budgetRange?: { min: number; max: number };
+  projectTypes?: string[];
+  location?: string;
+  deviceType?: "desktop" | "mobile" | "tablet";
+  userType?: "new" | "returning" | "high_value";
+  preferences?: {
+    budgetRange?: { min: number; max: number };
+    projectTypes?: string[];
+    [key: string]: unknown;
+  };
+}
+
+export interface StatisticalSignificanceResult {
+  variantId: string;
+  controlRate: number;
+  variantRate: number;
+  improvement: number;
+  zScore: number;
+  pValue: number;
+  isSignificant: boolean;
+  confidenceLevel: number;
+}
+
+export interface ExperimentConclusion {
+  experimentId: string;
+  winner: string | undefined;
+  results: ExperimentMetrics[];
+  significance: StatisticalSignificanceResult[] | null;
+  completedAt?: Date;
+  duration?: number;
+  totalParticipants: number;
+  recommendation?: string;
+}
+
 export interface Experiment {
   id: string;
   name: string;
@@ -162,7 +198,7 @@ export class ABTestingFramework {
   assignUserToExperiment(
     userId: string,
     sessionId: string,
-    userProfile?: any,
+    userProfile?: UserProfile,
   ): UserAssignment | null {
     if (!this.isEnabled) return null;
 
@@ -263,7 +299,7 @@ export class ABTestingFramework {
   calculateStatisticalSignificance(
     experimentId: string,
     metric: "click_through_rate" | "conversion_rate",
-  ): any {
+  ): StatisticalSignificanceResult[] | null {
     const metrics = this.experimentMetrics.get(experimentId);
     if (!metrics || metrics.length < 2) return null;
 
@@ -313,7 +349,10 @@ export class ABTestingFramework {
   /**
    * End experiment and determine winner
    */
-  concludeExperiment(experimentId: string, winningVariantId?: string): any {
+  concludeExperiment(
+    experimentId: string,
+    winningVariantId?: string,
+  ): ExperimentConclusion | null {
     const experiment = this.experiments.get(experimentId);
     if (!experiment) return null;
 
@@ -330,10 +369,10 @@ export class ABTestingFramework {
     if (!winner && significance) {
       // Auto-select winner based on highest conversion rate with significance
       const significantVariants = significance.filter(
-        (s: any) => s.isSignificant && s.improvement > 0,
+        (s) => s.isSignificant && s.improvement > 0,
       );
       if (significantVariants.length > 0) {
-        winner = significantVariants.reduce((best: any, current: any) =>
+        winner = significantVariants.reduce((best, current) =>
           current.improvement > best.improvement ? current : best,
         ).variantId;
       }
@@ -388,7 +427,10 @@ export class ABTestingFramework {
     }
   }
 
-  private isUserEligible(experiment: Experiment, userProfile?: any): boolean {
+  private isUserEligible(
+    experiment: Experiment,
+    userProfile?: UserProfile,
+  ): boolean {
     if (!experiment.segmentCriteria || !userProfile) return true;
 
     const criteria = experiment.segmentCriteria;
@@ -419,7 +461,7 @@ export class ABTestingFramework {
     // Check project types
     if (criteria.projectTypes && userProfile.preferences?.projectTypes) {
       const hasMatchingType = criteria.projectTypes.some((type) =>
-        userProfile.preferences.projectTypes.includes(type),
+        userProfile.preferences?.projectTypes?.includes(type),
       );
       if (!hasMatchingType) {
         return false;

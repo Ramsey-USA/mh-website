@@ -7,8 +7,17 @@ import React, {
   ReactNode,
   useEffect,
 } from "react";
-import { GlobalChatbot } from "@/components/chatbot/GlobalChatbot";
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
+
+// Dynamically import GlobalChatbot to reduce initial bundle size
+const GlobalChatbot = dynamic(
+  () => import("@/components/chatbot/GlobalChatbot"),
+  {
+    ssr: false,
+    loading: () => null, // No loading UI needed for chatbot
+  },
+);
 
 interface GlobalChatbotContextType {
   isVisible: boolean;

@@ -1,12 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    webpackBuildWorker: true,
-    optimizeCss: true,
     optimizePackageImports: [
       "framer-motion",
       "@radix-ui/react-icons",
       "react-markdown",
+      "lucide-react",
+      "@radix-ui/react-slot",
+      "@radix-ui/react-tabs",
+      "@radix-ui/react-progress",
     ],
   },
 
@@ -14,11 +16,10 @@ const nextConfig = {
   serverExternalPackages: [],
 
   poweredByHeader: false,
-  compress: true,
 
   onDemandEntries: {
-    maxInactiveAge: 25 * 1000,
-    pagesBufferLength: 2,
+    maxInactiveAge: 60 * 1000,
+    pagesBufferLength: 5,
   },
 
   // Enhanced performance configuration
@@ -27,70 +28,11 @@ const nextConfig = {
   },
 
   webpack: (config, { dev, isServer }) => {
-    // Enhanced filesystem caching
-    config.cache = {
-      type: "filesystem",
-      compression: "gzip",
-      maxMemoryGenerations: 1,
-    };
-
     // Exclude backup directories from compilation
     config.module.rules.push({
       test: /\.(ts|tsx|js|jsx)$/,
       exclude: [/node_modules/, /backups/, /\.backup\./, /\.next/],
     });
-
-    if (!dev) {
-      config.optimization.minimize = true;
-
-      // Improved chunk splitting strategy
-      if (!isServer) {
-        config.optimization.splitChunks = {
-          chunks: "all",
-          minSize: 20000,
-          maxSize: 244000,
-          cacheGroups: {
-            // Framework chunk (React/Next.js core)
-            framework: {
-              test: /[\\/]node_modules[\\/](react|react-dom|next)[\\/]/,
-              name: "framework",
-              chunks: "all",
-              priority: 40,
-              enforce: true,
-            },
-            // UI libraries
-            ui: {
-              test: /[\\/]node_modules[\\/](@radix-ui|framer-motion)[\\/]/,
-              name: "ui-libs",
-              chunks: "all",
-              priority: 25,
-            },
-            // Common vendor libraries
-            vendor: {
-              test: /[\\/]node_modules[\\/]/,
-              name: "vendors",
-              chunks: "all",
-              priority: 10,
-              minChunks: 2,
-            },
-          },
-        };
-      }
-
-      // Enhanced tree shaking
-      config.optimization.usedExports = true;
-      config.optimization.providedExports = true;
-      config.optimization.sideEffects = false;
-      config.optimization.innerGraph = true;
-    }
-
-    // Optimize bundle analysis performance
-    config.stats = {
-      chunks: false,
-      chunkModules: false,
-      modules: false,
-      assets: false,
-    };
 
     // Enhanced module resolution
     config.resolve.alias = {

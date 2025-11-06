@@ -6,6 +6,7 @@ import { AuthProvider } from "@/lib/auth/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { GlobalChatbotProvider } from "@/providers/GlobalChatbotProvider";
 import { WebVitalsReporter } from "@/components/performance/optimized-components";
+import { ErrorBoundary } from "@/components/error";
 import {
   StructuredData,
   generateEnhancedOrganizationSchema,
@@ -90,7 +91,7 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* Google Material Icons - Optimized with font-display in globals.css */}
+        {/* Google Material Icons - Optimized loading with font-display */}
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
           rel="stylesheet"
@@ -110,11 +111,13 @@ export default function RootLayout({
         <ThemeProvider defaultTheme="light" storageKey="mh-construction-theme">
           <AuthProvider>
             <GlobalChatbotProvider>
-              <Navigation />
-              <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
-                <main className="flex-grow">{children}</main>
-                <Footer />
-              </div>
+              <ErrorBoundary>
+                <Navigation />
+                <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
+                  <main className="flex-grow">{children}</main>
+                  <Footer />
+                </div>
+              </ErrorBoundary>
             </GlobalChatbotProvider>
           </AuthProvider>
         </ThemeProvider>

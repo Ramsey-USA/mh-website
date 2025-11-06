@@ -1,5 +1,8 @@
 export { AboutHero } from "./AboutHero";
 export { AboutValues, type CoreValue } from "./AboutValues";
+export { PartnershipPhilosophy } from "./PartnershipPhilosophy";
+export { CompanyStats, companyStats } from "./CompanyStats";
+export { LeadershipTeam, leadershipTeam } from "./LeadershipTeam";
 import type { CoreValue } from "./AboutValues";
 
 // Core Values Data

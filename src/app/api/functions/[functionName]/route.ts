@@ -1,5 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
+import { requireAuth } from "@/lib/auth/middleware";
+import {
+  verifyToken,
+  extractTokenFromHeader,
+  type JWTUser,
+} from "@/lib/auth/jwt";
+import {
+  sendNotification,
+  type NotificationOptions,
+} from "@/lib/notifications/notificationService";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
@@ -11,27 +21,48 @@ interface RouteParams {
   params: Promise<{ functionName: string }>;
 }
 
+interface AuthenticatedUser {
+  uid: string;
+  email?: string;
+  role?: string;
+}
+
+// Keep for backward compatibility, but JWTUser is preferred
+type UserType = JWTUser | AuthenticatedUser;
+
+interface NotificationData {
+  recipient: string;
+  message: string;
+  type?: "email" | "push" | "sms";
+  metadata?: Record<string, unknown>;
+}
+
+interface UserDataRequest {
+  userId?: string;
+  fields?: string[];
+}
+
 export async function POST(request: NextRequest, context: RouteParams) {
   try {
     const { functionName } = await context.params;
     const body = await request.json();
     const authHeader = request.headers.get("authorization");
 
-    // Basic authentication check (replace with your auth solution)
-    let user = null;
-    if (authHeader && authHeader.startsWith("Bearer ")) {
-      const token = authHeader.split("Bearer ")[1];
-      // TODO: Implement JWT verification or other auth mechanism
-      // For now, we'll just extract a user ID from token
-      user = { uid: token };
+    // JWT authentication
+    let user: JWTUser | null = null;
+    if (authHeader) {
+      const token = extractTokenFromHeader(authHeader);
+      if (token) {
+        user = await verifyToken(token);
+      }
     }
 
     // Route to specific functions
     switch (functionName) {
       case "sendNotification":
-        return await handleSendNotification(body, user);
+        return await handleSendNotification(body as NotificationData, user);
       case "getUserData":
-        return await handleGetUserData(body, user);
+        return await handleGetUserData(body as UserDataRequest, user);
       default:
         return NextResponse.json(
           { error: "Function not found" },
@@ -47,7 +78,10 @@ export async function POST(request: NextRequest, context: RouteParams) {
   }
 }
 
-async function handleSendNotification(data: any, user: any) {
+async function handleSendNotification(
+  data: NotificationData,
+  user: JWTUser | null,
+) {
   if (!user) {
     return NextResponse.json(
       { error: "Authentication required" },
@@ -55,17 +89,49 @@ async function handleSendNotification(data: any, user: any) {
     );
   }
 
-  // TODO: Implement notification sending logic
-  // Could use email service, push notifications, etc.
+  // Send notification using notification service
+  const result = await sendNotification({
+    recipient: data.recipient,
+    message: data.message,
+    type: data.type || "email",
+    metadata: {
+      ...data.metadata,
+      sentBy: user.uid,
+      timestamp: new Date().toISOString(),
+    },
+  });
+
+  if (!result.success) {
+    logger.error("Failed to send notification", {
+      error: result.error,
+      recipient: data.recipient,
+      type: data.type,
+    });
+
+    return NextResponse.json(
+      { error: "Failed to send notification", details: result.error },
+      { status: 500 },
+    );
+  }
+
+  logger.info("Notification sent successfully", {
+    userId: user.uid,
+    recipient: data.recipient,
+    messageId: result.messageId,
+  });
 
   return NextResponse.json({
     success: true,
     message: "Notification sent successfully",
-    data: { userId: user.uid, ...data },
+    data: {
+      userId: user.uid,
+      recipient: data.recipient,
+      messageId: result.messageId,
+    },
   });
 }
 
-async function handleGetUserData(data: any, user: any) {
+async function handleGetUserData(data: UserDataRequest, user: JWTUser | null) {
   if (!user) {
     return NextResponse.json(
       { error: "Authentication required" },
@@ -74,14 +140,40 @@ async function handleGetUserData(data: any, user: any) {
   }
 
   try {
-    // TODO: Implement user data retrieval from Cloudflare KV/D1
-    // For now, return mock data
+    // User data retrieval from Cloudflare D1/KV
+    // TODO: Connect to actual database when ready
+    // Example D1 query:
+    // const db = env.DB;
+    // const result = await db.prepare(
+    //   "SELECT id, email, name, role, created_at FROM users WHERE id = ?"
+    // ).bind(data.userId || user.uid).first();
+
+    // For now, return user data from JWT token
+    const userData = {
+      uid: user.uid,
+      email: user.email,
+      role: user.role,
+      name: user.name,
+      // Add additional fields as needed from database
+    };
+
+    // Filter fields if requested
+    if (data.fields && data.fields.length > 0) {
+      const filteredData: Record<string, unknown> = {};
+      for (const field of data.fields) {
+        if (field in userData) {
+          filteredData[field] = userData[field as keyof typeof userData];
+        }
+      }
+      return NextResponse.json({
+        success: true,
+        data: filteredData,
+      });
+    }
+
     return NextResponse.json({
       success: true,
-      data: {
-        uid: user.uid,
-        // Add other user fields as needed
-      },
+      data: userData,
     });
   } catch (error) {
     logger.error("Error getting user data:", error);

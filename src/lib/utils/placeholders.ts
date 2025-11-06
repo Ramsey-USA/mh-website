@@ -42,7 +42,17 @@ export const placeholderImages = {
   },
 };
 
-// Helper function to get placeholder image
+/**
+ * Retrieves a placeholder image path for a given category and filename
+ * @param category - The image category (blog, news, projects, or team)
+ * @param filename - The specific filename to look up
+ * @returns The placeholder image path, or a generic placeholder if not found
+ * @example
+ * ```ts
+ * const imagePath = getPlaceholderImage('blog', 'winter-construction-prep.jpg');
+ * // Returns: '/images/placeholder-blog.jpg'
+ * ```
+ */
 export function getPlaceholderImage(
   category: keyof typeof placeholderImages,
   filename: string,

@@ -329,8 +329,8 @@ export class VeteranPersonalizationSystem {
     }
 
     const discountResult = this.benefitsEngine.applyAutomaticDiscounts(
-      profile,
       estimateAmount,
+      profile,
     );
 
     // Generate veteran-specific message
