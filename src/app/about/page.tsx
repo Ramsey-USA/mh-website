@@ -47,12 +47,6 @@ export default function AboutPage() {
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-6xl">
-              <div className="flex justify-center items-center mb-6">
-                <MaterialIcon
-                  icon="shield"
-                  className="text-brand-primary text-6xl"
-                />
-              </div>
               <h2 className="mb-16 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-center leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                   Why Our Values
@@ -232,15 +226,6 @@ export default function AboutPage() {
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl text-center mb-12">
-              <div className="flex justify-center items-center mb-6">
-                <div className="bg-brand-primary/10 p-4 rounded-2xl">
-                  <MaterialIcon
-                    icon="star"
-                    size="xl"
-                    className="text-brand-primary"
-                  />
-                </div>
-              </div>
               <h2 className="mb-6 font-black text-gray-900 dark:text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                   Partnership
@@ -388,15 +373,6 @@ export default function AboutPage() {
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl text-center mb-12">
-              <div className="flex justify-center items-center mb-6">
-                <div className="bg-brand-primary/10 p-4 rounded-2xl">
-                  <MaterialIcon
-                    icon="security"
-                    size="xl"
-                    className="text-brand-primary"
-                  />
-                </div>
-              </div>
               <h2 className="mb-6 font-black text-gray-900 dark:text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                   Safety &
@@ -590,15 +566,6 @@ export default function AboutPage() {
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl text-center mb-12">
-              <div className="flex justify-center items-center mb-6">
-                <div className="bg-brand-primary/10 p-4 rounded-2xl">
-                  <MaterialIcon
-                    icon="emoji_events"
-                    size="xl"
-                    className="text-brand-primary"
-                  />
-                </div>
-              </div>
               <h2 className="mb-6 font-black text-gray-900 dark:text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                   Awards &
@@ -771,10 +738,6 @@ export default function AboutPage() {
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-16 text-center">
-            <MaterialIcon
-              icon="article"
-              className="mb-6 text-brand-primary text-6xl"
-            />
             <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
               <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 Construction Insights &
@@ -938,10 +901,6 @@ export default function AboutPage() {
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible className="mb-12 text-center">
-            <MaterialIcon
-              icon="article"
-              className="mb-6 text-brand-primary text-6xl"
-            />
             <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
               <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 Latest News &
@@ -1139,10 +1098,6 @@ export default function AboutPage() {
         <div className="z-10 relative mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-5xl text-center">
-              <MaterialIcon
-                icon="handshake"
-                className="mb-6 text-brand-secondary text-6xl"
-              />
               <h2 className="mb-6 font-black text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
                 <span className="block mb-3 font-semibold text-white/90 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                   Ready to Start Our
