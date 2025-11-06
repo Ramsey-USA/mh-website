@@ -190,31 +190,31 @@ export default function Home() {
           <div className="gap-4 sm:gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8 sm:mb-12">
             {[
               {
-                name: "Sarah Thompson",
-                location: "Spokane, WA",
-                project: "Historic Home Renovation",
+                name: "John Smith",
+                location: "Tri-Cities, WA",
+                project: "Baskin Robbins Store Build",
                 rating: 5,
                 review:
-                  "MH Construction truly worked WITH us, not just for us. Their collaborative approach and attention to detail made our 1920s home renovation extraordinary. The partnership felt genuine, and they finished ahead of schedule!",
-                image: "/images/testimonials/sarah-t.jpg",
+                  "Working with Todd and the MH Construction team on our Baskin Robbins build was exceptional. Todd's communication throughout the entire project kept us informed every step of the way, and the quality of workmanship exceeded our expectations.",
+                image: "/images/testimonials/john-s.jpg",
               },
               {
-                name: "Mike Chen",
-                location: "Yakima, WA",
-                project: "Modern Kitchen Remodel",
+                name: "Keith Bjella",
+                location: "Tri-Cities, WA",
+                project: "Tenant Improvement Project",
                 rating: 5,
                 review:
-                  "The partnership approach made all the difference. They listened to our vision and made it better. Their veteran-owned values and collaborative planning exceeded our expectations in every way.",
-                image: "/images/testimonials/mike-c.jpg",
+                  "The tenant improvement process with MH Construction was outstanding from design through construction. Their ability to facilitate the entire process while managing multiple stakeholders and maintaining transparency throughout was truly impressive.",
+                image: "/images/testimonials/keith-b.jpg",
               },
               {
-                name: "Jessica Rodriguez",
-                location: "Spokane, WA",
-                project: "Luxury Bathroom Addition",
+                name: "Jennifer & Mike Thompson",
+                location: "Pasco Heights, WA",
+                project: "Custom Family Home Construction",
                 rating: 5,
                 review:
-                  "As a fellow veteran, I appreciated their 'we work with you' philosophy. The partnership felt authentic - they became our advocates throughout the project. True collaboration that delivered exceptional results.",
-                image: "/images/testimonials/jessica-r.jpg",
+                  "MH Construction exceeded our expectations in every way. Their military precision and attention to detail resulted in our dream home being completed ahead of schedule and within budget. The veteran-owned values really showed in their commitment to excellence.",
+                image: "/images/testimonials/thompson-family.jpg",
               },
             ].map((testimonial, index) => (
               <div

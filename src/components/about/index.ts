@@ -8,24 +8,11 @@ import type { CoreValue } from "./AboutValues";
 // Core Values Data
 export const coreValues: CoreValue[] = [
   {
-    iconName: "visibility",
-    title: "Honesty & Transparency",
-    subtitle: "Full-disclosure approach in all communications",
+    iconName: "balance",
+    title: "Integrity First",
+    subtitle: "Doing What's Right, Every Time",
     description:
-      "No hidden costs, surprise changes, or unclear timelines. We provide transparent pricing with detailed breakdowns of every cost component.",
-    practices: [
-      "Pre-construction meetings with complete cost breakdowns",
-      "Regular project updates with photo documentation",
-      "Open-book approach to material costs and labor",
-      "Immediate notification of any project changes or delays",
-    ],
-  },
-  {
-    iconName: "verified_user",
-    title: "Integrity",
-    subtitle: "Unwavering commitment to what's right",
-    description:
-      "Ethical business practices, quality workmanship, and promise keeping. We never cut corners, even when no one is watching.",
+      "Ethical business practices, quality workmanship, and promise keeping. Making the right decision even when it costs us more, because our reputation is built on unwavering commitment to ethical practices.",
     practices: [
       "Recommending solutions that benefit you, not just our profit margin",
       "Using specified materials and methods, never substituting without approval",
@@ -34,55 +21,68 @@ export const coreValues: CoreValue[] = [
     ],
   },
   {
-    iconName: "precision_manufacturing",
-    title: "Precision & Experience",
-    subtitle: "150+ years combined team expertise",
+    iconName: "visibility",
+    title: "Owner-Focused Transparency",
+    subtitle: "No Surprises",
     description:
-      "Deep technical knowledge across all construction disciplines with a military-precision approach to every project aspect.",
+      "Open communication, detailed breakdowns, and honest assessments mean you're never left wondering what's happening with your project.",
     practices: [
-      "Detailed project planning with multiple contingency scenarios",
-      "Precise measurements, calculations, and material estimates",
-      "Quality control checkpoints at every project phase",
-      "Expert problem-solving when unexpected challenges arise",
+      "Pre-construction meetings with complete cost breakdowns",
+      "Regular project updates with photo documentation",
+      "Open-book approach to material costs and labor",
+      "Immediate notification of any project changes or delays",
     ],
   },
   {
     iconName: "handshake",
-    title: "Client-First Ethics",
-    subtitle: "Small-town values with big-city capabilities",
+    title: "Relationship ROI",
+    subtitle: "We Build Trust, Not Just Structures",
     description:
-      "Your vision comes first. We adapt our expertise to serve your goals and build lasting relationships, not just structures.",
+      "THE ROI IS THE RELATIONSHIP - investing in long-term partnerships that last well beyond project completion. We build trust, not just structures.",
     practices: [
-      "Initial consultations focused on understanding your unique needs",
-      "Flexible scheduling that works with your timeline and priorities",
-      "Multiple communication channels (phone, email, text, in-person)",
-      "Solutions scaled to your budget without compromising quality",
+      "Following up after project completion to ensure satisfaction",
+      "Being available for questions and support long after final payment",
+      "Building referral networks based on mutual trust",
+      "Treating every interaction as an investment in long-term partnership",
     ],
   },
   {
-    iconName: "settings",
-    title: "Professionalism & Control",
-    subtitle: '"You control it, we manage it"',
+    iconName: "military_tech",
+    title: "Veteran-Fueled Reliability",
+    subtitle: "Calm and Precise Under Pressure",
     description:
-      "Shared decision making where you maintain control while we provide expert guidance and handle all logistics.",
+      "Military-trained discipline meets construction expertise to deliver reliable results no matter the challenges. Staying calm when challenges arise.",
     practices: [
-      "Decision points clearly identified and explained before work proceeds",
-      "Daily briefings on progress and upcoming decisions needed",
-      "Professional appearance and conduct on your property",
-      "Coordination of all subcontractors and material deliveries",
+      "Systematic approach to problem-solving under pressure",
+      "Clear communication chains and decision-making processes",
+      "Adapting quickly to changing conditions without losing focus",
+      "Following through on commitments no matter the obstacles",
     ],
   },
   {
-    iconName: "shield",
-    title: "Trust (The Culmination)",
-    subtitle: "The ultimate goal of all other values",
+    iconName: "construction",
+    title: "Craftsmanship that Lasts",
+    subtitle: "Built for the Long Run",
     description:
-      "Trust isn't just another value—it's the result when all other values are consistently demonstrated. It's our ultimate goal and measurable foundation.",
+      "Quality over speed, attention to every detail, selecting materials that stand the test of time. Building structures that serve communities for generations.",
     practices: [
-      "Consistency: Delivering the same high standards on every project",
-      "Reliability: Being where we say we'll be, when we say we'll be there",
-      "Competence: Demonstrating expertise through quality results",
-      "Character: Doing the right thing, especially when it's difficult",
+      "Using proven construction methods refined over decades",
+      "Selecting materials based on longevity, not just cost",
+      "Quality control checkpoints at every project phase",
+      "Building structures that serve communities for generations",
+    ],
+  },
+  {
+    iconName: "precision_manufacturing",
+    title: "Precision & Experience",
+    subtitle: "150+ Years Combined Team Expertise",
+    description:
+      "Deep knowledge across all construction disciplines with time-tested approaches refined through decades of experience. Expert guidance that helps you avoid costly mistakes.",
+    practices: [
+      "Detailed project planning with multiple contingency scenarios",
+      "Precise measurements, calculations, and material estimates",
+      "Leveraging 150+ years of combined team experience",
+      "Expert guidance that helps you avoid costly mistakes",
     ],
   },
 ];

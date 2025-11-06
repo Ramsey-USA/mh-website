@@ -62,11 +62,18 @@ export default function TeamPage() {
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-              "Building for the Owner, NOT the Dollar"
+              "THE ROI IS THE RELATIONSHIP"
+            </p>
+
+            {/* Leadership Statement */}
+            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4 font-medium">
+              Our leadership, crafted through military structure, alongside a
+              team of skilled professionals, brings unwavering dedication and
+              owner-first focus to every project.
             </p>
 
             {/* Description */}
-            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
+            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/70 leading-relaxed px-4">
               Discover your dedicated partners through authentic vintage-style
               trading cards. Click any card to flip and explore professional
               statistics, career highlights, and personal stories of the team
@@ -346,11 +353,12 @@ export default function TeamPage() {
                 <div className="mt-12 text-center">
                   <blockquote className="mb-4 font-medium text-brand-primary text-2xl italic">
                     "When you join MH Construction, you're not just getting a
-                    job—you're joining a family that believes in your potential
-                    and invests in your future."
+                    job—you're joining a team that values integrity,
+                    transparency, and building relationships that last beyond
+                    project completion."
                   </blockquote>
                   <cite className="font-semibold text-brand-secondary">
-                    — Jeremy Thamert, Owner & General Manager
+                    — Jeremy Thamert, President
                   </cite>
                 </div>
               </div>

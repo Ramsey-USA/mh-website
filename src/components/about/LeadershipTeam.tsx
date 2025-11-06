@@ -14,18 +14,18 @@ import {
 export const leadershipTeam = [
   {
     name: "Jeremy Thamert",
-    role: "Owner & General Manager",
-    experience: "U.S. Army Veteran | 2 years leading MH Construction",
-    status: "U.S. Army Veteran",
+    role: "President",
+    experience: "Presidential leadership with focus on strategic operations",
+    status: "Civilian Leadership",
     specialties: [
-      "Strategic Vision & Business Development",
-      "Technology Integration & Innovation",
-      "AI Adoption & Digital Transformation",
-      "Operational Leadership & Team Management",
+      "Safety Management & Organizational Standards",
+      "Marketing Strategy & Brand Development",
+      "Workforce Development & Team Building",
+      "Human Resources & People-First Leadership",
     ],
     philosophy:
-      "Bringing veteran leadership and military precision to construction excellence",
-    icon: "military_tech",
+      "Operational excellence through strategic focus on people and safety",
+    icon: "account_balance",
   },
   {
     name: "Arnold Garcia",
@@ -78,8 +78,9 @@ export function LeadershipTeam() {
               </span>
             </h2>
             <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
-              Your partnership starts with leaders committed to serving both
-              clients and communities through collaborative excellence
+              Our leadership, crafted through military structure, alongside a
+              team of skilled professionals, brings unwavering dedication and
+              owner-first focus to every project
             </p>
           </div>
         </FadeInWhenVisible>

@@ -1,11 +1,11 @@
 [
   {
     "name": "Jeremy Thamert",
-    "role": "Owner & General Manager",
+    "role": "President",
     "department": "Executive Leadership",
     "cardNumber": 1,
-    "position": "General Manager",
-    "nickname": "The Visionary",
+    "position": "President",
+    "nickname": "The Leader",
     "yearsWithCompany": 2,
     "hometown": "Tri-Cities, WA",
     "education": "Business Management",
@@ -18,29 +18,29 @@
     "careerStats": {
       "totalProjects": 85,
       "yearsExperience": 2,
-      "specialtyAreas": 5,
+      "specialtyAreas": 4,
       "mentorships": 8
     },
-    "awards": "Army Commendation Medal, Army Achievement Medal",
-    "bio": "Jeremy Thamert, a U.S. military veteran, became owner of MH Construction in January 2025 after serving as General Manager for 2 years. He is the visionary behind MH Construction's pioneering approach, bringing extensive experience and a commitment to integrating cutting-edge technology. Under his veteran leadership, MH Construction continues to honor its values of discipline, integrity, and precision while embracing innovative construction technologies.",
+    "awards": "Presidential Leadership Excellence",
+    "bio": "Jeremy Thamert serves as the President of MH Construction, bringing focused leadership to key organizational pillars: Safety, Marketing, Workforce Development, and Human Resources. His role reflects a strategic blend of operational oversight and people-first management, ensuring each project aligns with MH's owner-centric approach. Under his leadership, MH Construction emphasizes operational excellence through strategic focus on people and safety.",
     "careerHighlights": [
-      "Led digital transformation initiative",
-      "Expanded service territories",
-      "Implemented AI-powered project management",
-      "Achieved 98% client satisfaction rating"
+      "Presidential oversight of strategic operations",
+      "Safety management & organizational standards",
+      "Workforce development & team building initiatives",
+      "HR & people-first leadership philosophy"
     ],
-    "funFact": "Jeremy was the first construction company owner in the region to implement AI-powered estimating tools.",
-    "certifications": "PMP, LEED AP",
-    "hobbies": "Technology, Golf",
-    "specialInterests": "AI & Automation",
+    "funFact": "Jeremy focuses on the foundational pillars that make MH Construction a people-first organization.",
+    "certifications": "Leadership Development, Safety Management",
+    "hobbies": "Team Building, Strategy",
+    "specialInterests": "People & Safety First",
     "specialties": [
-      "Strategic Vision & Business Development",
-      "Technology Integration & Innovation",
-      "AI Adoption & Digital Transformation",
-      "Operational Leadership & Team Management"
+      "Safety Management & Organizational Standards",
+      "Marketing Strategy & Brand Development",
+      "Workforce Development & Team Building",
+      "Human Resources & People-First Leadership"
     ],
     "avatar": "/images/team/jeremy-thamert.jpg",
-    "veteranStatus": "Army Veteran",
+    "veteranStatus": "Civilian Leadership",
     "active": true,
     "slug": "jeremy-thamert"
   },
@@ -157,17 +157,17 @@
       "mentorships": 12
     },
     "awards": "Perfect Project Delivery Award, Rising Star Recognition",
-    "bio": "Makayla Holstein, daughter of MH Construction founder Mike Holstein, is a highly-skilled Project Manager who excels at navigating complex project timelines and coordinating all project phases. She specializes in commercial and medical facility projects, bringing precision scheduling to every build while maintaining the family legacy of excellence.",
+    "bio": "Makayla Holstein brings 8 years of construction project management experience with expertise in project coordination and timeline management. She excels at client communication, stakeholder relations, and multi-phase project leadership. Her notable projects include the Baskin Robbins remodel (completed in 14 days) and a hydraulic building lift project where she raised a structure 5 feet to resolve height constraints. Known for her communication skills, organization, problem-solving, leadership, and client relationship building, Makayla takes pride in delivering quality jobs that make clients happy.",
     "careerHighlights": [
+      "Baskin Robbins remodel - completed in 14 days",
+      "Hydraulic building lift - raised structure 5 feet",
       "Zero project delays in 2025",
-      "Developed timeline optimization system",
-      "Led cross-functional team coordination",
       "Achieved 96% client satisfaction"
     ],
     "funFact": "Makayla has never had a project finish late, earning her the nickname \"The Scheduler\".",
-    "certifications": "PMP, CAPM",
+    "certifications": "PMP (Project Management Professional), AAS in Business Management",
     "hobbies": "Organization, Travel",
-    "specialInterests": "Project Efficiency",
+    "specialInterests": "Client satisfaction through quality delivery",
     "specialties": [
       "Project Coordination & Timeline Management",
       "Client Communication & Stakeholder Relations",
@@ -202,12 +202,12 @@
       "mentorships": 15
     },
     "awards": "Budget Excellence Award, Project Efficiency Recognition",
-    "bio": "Ben is a dedicated Project Manager with a focus on project efficiency and budget management. His strength lies in balancing project scope, timeline, and budget constraints while ensuring projects deliver maximum value. Ben exemplifies MH Construction's commitment to delivering exceptional results on time and within budget.",
+    "bio": "Ben is a dedicated Project Manager with 10 years experience focusing on project efficiency and budget management. His notable projects include Barhyte Specialty Foods Warehouse, Central Oregon Processing Pellet Mill, and Inland Desert Nursery Cold Storage. Ben's strength lies in balancing project scope, timeline, and budget constraints while ensuring projects deliver maximum value within client parameters.",
     "careerHighlights": [
-      "Managed $25M+ in project value",
-      "Implemented budget tracking systems",
-      "Led resource optimization initiatives",
-      "Trained junior project managers"
+      "Barhyte Specialty Foods Warehouse",
+      "Central Oregon Processing Pellet Mill",
+      "Inland Desert Nursery Cold Storage",
+      "Implemented budget tracking systems"
     ],
     "funFact": "Ben once completed a complex commercial project 3 weeks ahead of schedule and 5% under budget.",
     "certifications": "CAPM, CSM",
@@ -247,12 +247,12 @@
       "mentorships": 20
     },
     "awards": "Estimating Excellence Award, 20-Year Service Recognition",
-    "bio": "Todd brings over 20 years of construction estimation expertise to MH Construction. Known for accurate estimates that minimize budget surprises, he specializes in commercial project bidding and medical facility projects. His precision estimating supports MH Construction's commitment to transparent, honest pricing that builds lasting client relationships.",
+    "bio": "Todd brings over 20 years of construction estimation expertise to MH Construction. His notable projects include Amazon Oyster & Pearl (navigating COVID restrictions; expanded role to full Access Control installation) and Northwest Energy Security Towers (strict protocol coordination, minimal downtime during network integration). Known for attention to detail, clear communication, analytical thinking, dependability, and team orientation, Todd's accurate estimates minimize budget surprises through comprehensive analysis of all project variables and potential risks.",
     "careerHighlights": [
+      "Amazon Oyster & Pearl - COVID restrictions navigation",
+      "Northwest Energy Security Towers - Network integration",
       "Achieved 98% estimating accuracy rate",
-      "Led major commercial project bids",
-      "Developed cost control protocols",
-      "Mentored estimating team members"
+      "Developed cost control protocols"
     ],
     "funFact": "Todd's estimates are so accurate that actual costs typically vary by less than 2% from his initial projections.",
     "certifications": "CCE, ASPE",
@@ -292,15 +292,15 @@
       "mentorships": 25
     },
     "awards": "Perfect Safety Record Award, Field Leadership Excellence",
-    "bio": "Steve brings over 20 years of field operations leadership to MH Construction. His hands-on approach emphasizes safety-first practices and quality construction while managing complex projects with multiple subcontractors and phases. Steve embodies the company's military-precision approach to construction excellence.",
+    "bio": "Steve brings over 20 years of field operations leadership to MH Construction with hands-on approach emphasizing safety-first practices and quality construction. His notable projects include the Kadlec Richland Campus (10-story tower, NICU, outpatient facilities), Winery Tank Farm Expansion, and Bruchi Restaurant Builds. Steve's leadership strengths include problem-solving under pressure, expansive trade knowledge, mentorship, patience, dedication, loyalty, and pride in work. He ensures safe, on-time, on-budget delivery while maintaining code compliance and client satisfaction.",
     "careerHighlights": [
-      "Zero safety incidents in 2025",
-      "Led complex multi-phase projects",
-      "Implemented comprehensive safety protocols",
-      "Achieved perfect safety record over 5 years"
+      "Kadlec Richland Campus - 10-story tower complex",
+      "Winery Tank Farm Expansion projects",
+      "Bruchi Restaurant Builds",
+      "Perfect safety record over 5 years"
     ],
     "funFact": "Steve has worked on construction sites for over 20 years without a single recordable safety incident.",
-    "certifications": "OSHA 30, CPR",
+    "certifications": "CDL (Commercial Driver's License), Forklift Operator, Aerial/Scissor Lift Operator, CPR Certified, Certified Locksmith, OSHA 30",
     "hobbies": "Safety Training, Hiking",
     "specialInterests": "Safety Innovation",
     "specialties": [
@@ -337,12 +337,12 @@
       "mentorships": 18
     },
     "awards": "Proactive Leadership Award, Quality Assurance Excellence",
-    "bio": "Reagan brings 12 years of on-site operations experience with a proactive management style focusing on preventing issues before they arise. His approach maintains project momentum while ensuring quality standards meet MH Construction's reputation for excellence. Reagan's leadership keeps teams motivated and projects on track.",
+    "bio": "Reagan brings 12 years of on-site operations experience with a proactive management style focusing on preventing issues before they arise. His notable projects include Columbia Crest (managed foundation formwork), Mattawa Five Station (successfully completed through COVID-19), and Bruchi's & Baskin Robbins (oversaw full buildout). Reagan's strengths include skilled reading and interpreting construction prints, broad hands-on construction experience, strong communication, hardworking and dependable nature, and pride in delivering high-quality projects that meet client expectations.",
     "careerHighlights": [
-      "Proactive problem prevention systems",
-      "Maintained quality standards across all projects",
-      "Led crew productivity improvements",
-      "Mentored field operation teams"
+      "Columbia Crest - Foundation formwork management",
+      "Mattawa Five Station - COVID-19 completion",
+      "Bruchi's & Baskin Robbins - Full buildout oversight",
+      "Maintained quality standards across all projects"
     ],
     "funFact": "Reagan has an uncanny ability to predict potential construction issues 3-4 days before they typically occur.",
     "specialties": [
@@ -379,17 +379,17 @@
       "mentorships": 8
     },
     "awards": "Industrial Excellence Award, Heavy Equipment Mastery Recognition",
-    "bio": "Porter specializes in industrial and heavy commercial construction projects. His expertise in managing projects with specialized equipment and complex logistical requirements makes him invaluable for industrial builds. Porter brings military-style precision to complex operations, ensuring every detail meets MH Construction's high standards.",
+    "bio": "A superintendent with experience leading projects from foundation to finish. His career in construction began unexpectedly after a college injury shifted his focus toward building, where he started a company with his brother before advancing through several other firms. Known for his adaptability, leadership, and problem-solving, Porter thrives on the ever-changing challenges of the field and enjoys working alongside his crews to get the job done. He takes pride in guiding teams through demanding phases, maintaining strong client relationships, and ensuring every project is completed to a high standard and on schedule.",
     "careerHighlights": [
-      "Led major industrial facility projects",
+      "Led projects from foundation to finish",
+      "Started construction company with his brother",
       "Specialized heavy equipment coordination",
-      "Complex logistics management expertise",
-      "Industrial safety protocol development"
+      "Hands-on leadership working alongside crews"
     ],
-    "funFact": "Porter can operate over 15 different types of heavy construction equipment and trains others in their safe operation.",
-    "certifications": "CDL, NCCO",
-    "hobbies": "Heavy Machinery, Off-road",
-    "specialInterests": "Equipment Innovation",
+    "funFact": "Porter's construction career began unexpectedly after a college injury, turning a setback into a thriving career in building.",
+    "certifications": "Forklift Operator, CPR & First Aid Certified",
+    "hobbies": "Team Leadership, Problem-solving",
+    "specialInterests": "Guiding teams through demanding phases",
     "specialties": [
       "Industrial Project Management",
       "Field Coordination & Logistics",
@@ -648,7 +648,7 @@
       "Achieved consistent on-time project delivery"
     ],
     "funFact": "Derek can organize a construction site so efficiently that workers spend 20% less time searching for tools and materials.",
-    "certifications": "OSHA 30, CPR, First Aid",
+    "certifications": "Forklift Operator, Scissor Lift Operator, Snake Lift Operator, CPR Certified",
     "hobbies": "Organization, Fishing",
     "specialInterests": "Workflow Optimization",
     "specialties": [

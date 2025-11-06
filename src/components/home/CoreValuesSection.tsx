@@ -2,70 +2,70 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 const coreValues = [
   {
-    value: "Honesty & Transparency",
-    icon: "visibility",
+    value: "Integrity First",
+    icon: "balance",
     description:
-      "We provide full-disclosure transparency from day one. Our open-dialogue progress meetings include all stakeholders, ensuring every topic is vetted and documented.",
+      "Doing What's Right, Every Time. Ethical business practices, quality workmanship, and promise keeping—making the right decision even when it costs us more.",
     details:
-      "We believe you, the client, should have the most complete and up-to-date information—good or bad—to make truly educated decisions. We manage the project; you control it.",
+      "We recommend solutions that benefit you, not just our profit margin. Using specified materials and methods, never substituting without approval, and standing behind our work with comprehensive warranties.",
     color: "from-brand-primary to-brand-accent",
     bgColor: "bg-brand-primary/5",
+    stats: "Character-Driven Conduct",
+  },
+  {
+    value: "Owner-Focused Transparency",
+    icon: "visibility",
+    description:
+      "No Surprises. Open communication, detailed breakdowns, and honest assessments mean you're never left wondering what's happening with your project.",
+    details:
+      "Pre-construction meetings with complete cost breakdowns, regular updates with photo documentation, open-book approach to material costs, and immediate notification of any changes or delays.",
+    color: "from-forest-600 to-forest-800",
+    bgColor: "bg-forest-100 dark:bg-forest-900",
     stats: "Open-Book Progress Meetings",
   },
   {
-    value: "Integrity",
-    icon: "balance",
+    value: "Relationship ROI",
+    icon: "handshake",
     description:
-      "Integrity is the unwavering commitment to our word. As a team built on principles of accountability and trust, we view our business conduct as a direct reflection of our personal character.",
+      "We Build Trust, Not Just Structures. THE ROI IS THE RELATIONSHIP—investing in long-term partnerships that last well beyond project completion.",
     details:
-      "Our conversation, character, and conduct are consistently diligent, ensuring our actions on your project transcend the transactional relationship.",
-    color: "from-forest-600 to-forest-800",
-    bgColor: "bg-forest-100 dark:bg-forest-900",
-    stats: "Character-Driven Conduct",
+      "Following up after completion to ensure satisfaction, being available for questions long after final payment, and building referral networks based on mutual trust.",
+    color: "from-brand-secondary to-bronze-700",
+    bgColor: "bg-brand-secondary/5",
+    stats: "Long-Term Partnerships",
+  },
+  {
+    value: "Veteran-Fueled Reliability",
+    icon: "military_tech",
+    description:
+      "Calm and Precise Under Pressure. Military-trained discipline meets construction expertise to deliver reliable results no matter the challenges.",
+    details:
+      "Systematic approach to problem-solving under pressure, clear communication chains, adapting quickly to changing conditions, and following through on commitments no matter the obstacles.",
+    color: "from-brand-accent to-forest-800",
+    bgColor: "bg-brand-accent/5",
+    stats: "Military Precision",
+  },
+  {
+    value: "Craftsmanship that Lasts",
+    icon: "construction",
+    description:
+      "Built for the Long Run. Quality over speed, attention to every detail, selecting materials that stand the test of time.",
+    details:
+      "Using proven construction methods refined over decades, selecting materials based on longevity, quality control checkpoints at every phase, and building structures that serve communities for generations.",
+    color: "from-bronze-600 to-bronze-800",
+    bgColor: "bg-bronze-100 dark:bg-bronze-900",
+    stats: "Generational Quality",
   },
   {
     value: "Precision & Experience",
     icon: "precision_manufacturing",
     description:
-      "With over 150 years of combined experience in commercial construction, we offer a project team that has seen and managed virtually every challenge.",
+      "150+ Years Combined Team Expertise. Deep knowledge across all construction disciplines with time-tested approaches refined through decades of experience.",
     details:
-      "This collective wisdom is delivered in a neat, engineer-driven project package, providing the reliable foresight necessary to keep your project on track and minimize risk.",
-    color: "from-brand-secondary to-bronze-700",
-    bgColor: "bg-brand-secondary/5",
-    stats: "150+ Years Combined Experience",
-  },
-  {
-    value: "Client-First Ethics",
-    icon: "favorite",
-    description:
-      'Our foundation is built on small-town values: we are a "client" focused company, not just a "project" focused one.',
-    details:
-      "This means we are committed to acting solely in your best interest. We operate with discipline—staying organized, concise, and direct—so that your valuable time is respected and your decisions are always well-informed.",
-    color: "from-brand-accent to-forest-800",
-    bgColor: "bg-brand-accent/5",
-    stats: "Client-Focused Approach",
-  },
-  {
-    value: "Professionalism & Control",
-    icon: "engineering",
-    description:
-      "Professionalism here is the confident, controlled ability to navigate complex projects.",
-    details:
-      "Decades of experience navigating complex projects with levelheaded management and coordinated workflow.",
-    color: "from-bronze-600 to-bronze-800",
-    bgColor: "bg-bronze-100 dark:bg-bronze-900",
-    stats: "Harmonious Workflow Management",
-  },
-  {
-    value: "Trust (The Culmination)",
-    icon: "verified",
-    description:
-      "Earning your trust is not a starting point; it is the culmination of our consistent performance in all other core values.",
-    details:
-      "Trust is the measurable result that your project is on track, flowing smoothly, and supported by open, honest communication. We understand that your trust is the foundation upon which MH Construction exists.",
+      "Detailed project planning with multiple contingency scenarios, precise measurements and calculations, leveraging 150+ years of combined team experience, and expert guidance that helps you avoid costly mistakes.",
     color: "from-brand-primary to-brand-secondary",
     bgColor: "bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5",
-    stats: "Foundation of Our Existence",
+    stats: "150+ Years Combined Experience",
   },
 ];
 
@@ -96,21 +96,21 @@ export function CoreValuesSection() {
           </div>
           <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
             <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
-              Built on
+              THE ROI IS THE RELATIONSHIP
             </span>
             <span className="block text-brand-primary dark:text-brand-primary font-black">
-              Professional Foundation
+              Our Six Core Values
             </span>
           </h2>
           <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
-            Our foundation rests on{" "}
+            Building trust through{" "}
             <span className="font-medium text-gray-800 dark:text-gray-200">
-              six core principles
+              six foundational values
             </span>{" "}
             that guide every partnership, every decision, and every
-            collaborative relationship we build with{" "}
+            relationship—because{" "}
             <span className="text-brand-primary font-semibold">
-              trust as our ultimate goal
+              we build trust, not just structures
             </span>
             .
           </p>
