@@ -15,7 +15,8 @@
 
 ## 📋 Overview
 
-Comprehensive style guide for creating, maintaining, and organizing documentation in the MH Construction project. Follow these standards to ensure consistency, discoverability, and maintainability across all documentation.
+Comprehensive style guide for creating, maintaining, and organizing documentation in the MH Construction project.
+Follow these standards to ensure consistency, discoverability, and maintainability across all documentation.
 
 ---
 
@@ -581,7 +582,7 @@ For questions about documentation standards:
 
 ### Should I Create a New File or Update Existing?
 
-```
+```text
 Is this a completely new topic?
 ├─ YES → Create new file
 └─ NO → Is it related to existing file?
@@ -593,7 +594,7 @@ Is this a completely new topic?
 
 ### Should I Create an Index File?
 
-```
+```text
 How many files in folder?
 ├─ 0-2 files → No index needed
 ├─ 3-5 files → Probably yes
@@ -606,7 +607,7 @@ Are files related?
 
 ### Where Should This Documentation Go?
 
-```
+```text
 What type of documentation?
 ├─ Brand guidelines → branding/
 ├─ Code standards → development/

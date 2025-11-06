@@ -15,7 +15,8 @@
 
 ## 📋 Overview
 
-SEO and accessibility documentation covering search optimization, accessibility standards, and inclusive design practices for the MH Construction website.
+SEO and accessibility documentation covering search optimization, accessibility standards, and inclusive design
+practices for the MH Construction website.
 
 ---
 

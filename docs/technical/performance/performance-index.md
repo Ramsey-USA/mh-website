@@ -15,7 +15,8 @@
 
 ## 📋 Overview
 
-Performance optimization documentation covering build processes, performance analysis, implementation strategies, and optimization techniques for the MH Construction website.
+Performance optimization documentation covering build processes, performance analysis, implementation strategies, and
+optimization techniques for the MH Construction website.
 
 ---
 

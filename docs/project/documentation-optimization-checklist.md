@@ -202,7 +202,8 @@
 - ✅ `technical/seo/seo-index.md` (~15KB) - SEO & accessibility hub
 - ✅ `migrations/migrations-index.md` (already exists) - Migrations hub
 
-**Progress:** ✅ **COMPLETE** - All folder indices created with comprehensive navigation, quick starts, and troubleshooting sections.
+**Progress:** ✅ **COMPLETE** - All folder indices created with comprehensive navigation, quick starts, and
+troubleshooting sections.
 
 ---
 
@@ -522,7 +523,13 @@
 
 ## 🚀 Using the Improved Documentation
 
-**For New Developers:** 2. Update Status indicators (🔲 Not Started → 🔄 In Progress → ✅ Complete) 3. Add notes or issues encountered in comments 4. Update dates when phases are completed 5. Review before and after metrics as we progress
+**For New Developers:**
+
+1. Start with [MasterIndex.md](../MasterIndex.md) for complete documentation overview
+2. Update Status indicators (🔲 Not Started → 🔄 In Progress → ✅ Complete)
+3. Add notes or issues encountered in comments
+4. Update dates when phases are completed
+5. Review before and after metrics as we progress
 
 ---
 

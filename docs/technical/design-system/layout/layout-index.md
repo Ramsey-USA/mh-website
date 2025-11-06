@@ -15,7 +15,8 @@
 
 ## 📋 Overview
 
-Layout documentation for MH Construction website covering page structure, spacing standards, container widths, and responsive grid systems.
+Layout documentation for MH Construction website covering page structure, spacing standards, container widths, and
+responsive grid systems.
 
 ---
 
@@ -25,7 +26,8 @@ Layout documentation for MH Construction website covering page structure, spacin
 
 **[page-layout-standards.md](./page-layout-standards.md)** - Comprehensive layout reference
 
-Complete guide to page layout standards including spacing, padding, container widths, grid systems, and component arrangement patterns.
+Complete guide to page layout standards including spacing, padding, container widths, grid systems, and component
+arrangement patterns.
 
 **Topics Covered:**
 

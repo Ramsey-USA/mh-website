@@ -15,7 +15,9 @@
 
 ## 📋 Overview
 
-The MH Construction Design System provides comprehensive standards for creating consistent, accessible, and brand-aligned user interfaces. This hub connects all design system documentation including buttons, CTAs, icons, layout, typography, and mobile optimization.
+The MH Construction Design System provides comprehensive standards for creating consistent, accessible, and
+brand-aligned user interfaces. This hub connects all design system documentation including buttons, CTAs, icons,
+layout, typography, and mobile optimization.
 
 **What's Here:**
 
@@ -433,32 +435,32 @@ The design system implements brand standards from multiple sources:
 
 ### Common Issues
 
-**Issue: Inconsistent Colors**
+#### Issue: Inconsistent Colors
 
 - **Solution:** Use CSS variables (`var(--brand-primary)`) or Tailwind classes (`text-brand-primary`)
 - **Reference:** [Design System - Brand Colors](./design-system.md#brand-identity)
 
-**Issue: Typography Not Responsive**
+#### Issue: Typography Not Responsive
 
 - **Solution:** Use responsive classes with xs/sm/md/lg/xl prefixes
 - **Reference:** [Typography Examples](./typography-examples-clean.md)
 
-**Issue: Button Not Matching Design**
+#### Issue: Button Not Matching Design
 
 - **Solution:** Check variant prop and review button guide
 - **Reference:** [Buttons Complete Guide](./buttons-and-ctas/buttons-complete-guide.md)
 
-**Issue: Icon Not Displaying**
+#### Issue: Icon Not Displaying
 
 - **Solution:** Verify icon name exists in Material Icons library
 - **Reference:** [Icons Troubleshooting](./icons/icons-index.md#troubleshooting)
 
-**Issue: Mobile Layout Broken**
+#### Issue: Mobile Layout Broken
 
 - **Solution:** Review mobile-first approach and breakpoints
 - **Reference:** [Mobile Optimization Guide](./mobile-optimization-guide.md)
 
-**Issue: Dark Mode Colors Wrong**
+#### Issue: Dark Mode Colors Wrong
 
 - **Solution:** Ensure dark: prefix classes included for all colors
 - **Reference:** [Design System - Dark Mode](./design-system.md)

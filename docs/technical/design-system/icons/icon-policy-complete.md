@@ -26,7 +26,8 @@
 
 ### Core Policy Statement
 
-**MH Construction maintains a strict EMOJI-FREE source code policy. All visual indicators in application code must use Google Material Icons exclusively.**
+**MH Construction maintains a strict EMOJI-FREE source code policy. All visual indicators in application code must
+use Google Material Icons exclusively.**
 
 ### Authority & Implementation
 
@@ -714,15 +715,18 @@ In extremely rare cases where Material Icons cannot provide needed functionality
 
 **Brand Consistency:**
 
-The emoji-free policy ensures MH Construction maintains professional, military-precision standards across all digital platforms while preserving flexibility for enhanced documentation clarity.
+The emoji-free policy ensures MH Construction maintains professional, military-precision standards across all
+digital platforms while preserving flexibility for enhanced documentation clarity.
 
 **Technical Excellence:**
 
-By standardizing on Material Icons, the development team can focus on functionality and user experience rather than managing inconsistent icon implementations across different browsers and devices.
+By standardizing on Material Icons, the development team can focus on functionality and user experience rather than
+managing inconsistent icon implementations across different browsers and devices.
 
 **Veteran Values:**
 
-This policy reflects the military values of precision, consistency, and attention to detail that define MH Construction's veteran-owned identity.
+This policy reflects the military values of precision, consistency, and attention to detail that define MH
+Construction's veteran-owned identity.
 
 ---
 

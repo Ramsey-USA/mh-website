@@ -18,7 +18,8 @@
 
 ## 🚀 Overview
 
-Complete build optimization documentation for MH Construction website, covering webpack optimization, bundling strategies, and compilation performance improvements that achieved **63-66% faster build times**.
+Complete build optimization documentation for MH Construction website, covering webpack optimization, bundling
+strategies, and compilation performance improvements that achieved **63-66% faster build times**.
 
 **Project Achievements:**
 

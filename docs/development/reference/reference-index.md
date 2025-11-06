@@ -13,9 +13,10 @@
 
 ---
 
-## � Overview
+## 🎯 Overview
 
-Central hub for quick references, troubleshooting guides, and checklists across the MH Construction project. Find fast answers, implementation patterns, and ready-to-use code snippets.
+Central hub for quick references, troubleshooting guides, and checklists across the MH Construction project.
+Find fast answers, implementation patterns, and ready-to-use code snippets.
 
 ---
 
@@ -145,7 +146,8 @@ Solutions for common icon sizing and display issues.
 ## 🆘 Common Questions
 
 **Q: Which reference should I check first?**  
-A: Start with [Developer Checklist](./developer-checklist.md) for general development, then use specific references based on your task.
+A: Start with [Developer Checklist](./developer-checklist.md) for general development, then use specific
+references based on your task.
 
 **Q: How do I find a specific color code?**  
 A: Check [Branding Quick Reference](../../branding/implementation/branding-quick-reference.md) for all brand colors.

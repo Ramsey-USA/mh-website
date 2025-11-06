@@ -2,7 +2,8 @@
 
 **Welcome to the MH Construction Documentation Hub** | **Last Updated**: November 6, 2025
 
-This is your central navigation point for all MH Construction project documentation. Whether you're a developer, designer, content writer, or stakeholder, start here to find what you need.
+This is your central navigation point for all MH Construction project documentation. Whether you're a developer,
+designer, content writer, or stakeholder, start here to find what you need.
 
 ---
 
@@ -21,7 +22,7 @@ This is your central navigation point for all MH Construction project documentat
 
 ### 🎨 [Branding](./branding/branding-index.md)
 
-**Brand identity, visual standards, and guidelines**
+#### Brand identity, visual standards, and guidelines
 
 - **[Brand Strategy](./branding/strategy/)** - Brand identity, messaging, content standards
 - **[Visual Standards](./branding/standards/)** - Colors, typography, icons, components
@@ -39,7 +40,7 @@ This is your central navigation point for all MH Construction project documentat
 
 ### 💼 [Business](./business/business-index.md)
 
-**Company information, services, and team**
+#### Company information, services, and team
 
 - **[Services](./business/services.md)** - What we offer
 - **[Core Values](./business/core-values.md)** - Our principles
@@ -55,7 +56,7 @@ This is your central navigation point for all MH Construction project documentat
 
 ### 💻 [Development](./development/development-index.md)
 
-**Development standards, guidelines, and tools**
+#### Development standards, guidelines, and tools
 
 **⭐ Essential Reading:**
 
@@ -81,7 +82,7 @@ This is your central navigation point for all MH Construction project documentat
 
 ### 🔧 [Technical](./technical/technical-index.md)
 
-**Architecture, APIs, and technical implementation**
+#### Architecture, APIs, and technical implementation
 
 **System Architecture:**
 
@@ -109,7 +110,7 @@ This is your central navigation point for all MH Construction project documentat
 
 ### 🚀 [Deployment](./deployment/)
 
-**Deployment, hosting, and production**
+#### Deployment, hosting, and production
 
 **⚠️ No index file yet** - Files in this folder:
 
@@ -122,7 +123,7 @@ This is your central navigation point for all MH Construction project documentat
 
 ### 🏗️ [Project](./project/project-index.md)
 
-**Project management, roadmaps, and architecture**
+#### Project management, roadmaps, and architecture
 
 - **[History](./project/history/)** - Project evolution and decisions
 - **[Roadmaps](./project/roadmaps/)** - Future plans and milestones
@@ -136,7 +137,7 @@ This is your central navigation point for all MH Construction project documentat
 
 ### 🔄 [Migrations](./migrations/migrations-index.md)
 
-**Migration guides and transition documentation**
+#### Migration guides and transition documentation
 
 - **[Documentation Migrations](./migrations/documentation/)** - Doc structure changes
 - **[Domain Migrations](./migrations/domains/)** - Domain and email transitions
@@ -145,7 +146,7 @@ This is your central navigation point for all MH Construction project documentat
 
 ### 🤝 [Partnerships](./partnerships/partnerships-index.md)
 
-**Partner and vendor documentation**
+#### Partner and vendor documentation
 
 - **[Messaging](./partnerships/messaging/)** - Partnership communication standards
 - **[Vendor & Trade](./partnerships/vendor-trade/)** - Trade partner information
@@ -159,7 +160,7 @@ This is your central navigation point for all MH Construction project documentat
 
 ### ⚙️ [Operations](./operations/)
 
-**Operations, build processes, and optimization**
+#### Operations, build processes, and optimization
 
 **⚠️ No index file yet** - Subsections:
 
@@ -169,7 +170,7 @@ This is your central navigation point for all MH Construction project documentat
 
 ### 📄 [Templates](./templates/)
 
-**Document templates and boilerplates**
+#### Document templates and boilerplates
 
 **⚠️ No index file yet** - Template files for creating new documentation
 
@@ -254,7 +255,8 @@ This is your central navigation point for all MH Construction project documentat
 A: Read the [Consistency Guide](./development/consistency-guide.md) first, then [Development Standards](./development/development-standards.md).
 
 **Q: How do I implement brand standards?**  
-A: Start with [Branding Index](./branding/branding-index.md), then see [Consistency Guide](./development/consistency-guide.md) for code patterns.
+A: Start with [Branding Index](./branding/branding-index.md), then see
+[Consistency Guide](./development/consistency-guide.md) for code patterns.
 
 **Q: Where are the component examples?**  
 A: See [Design System](./technical/design-system/design-system.md) and [Component Standards](./branding/standards/component-standards.md).

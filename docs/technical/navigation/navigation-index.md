@@ -15,7 +15,8 @@
 
 ## 📋 Overview
 
-Complete navigation system documentation for MH Construction website, covering architecture, implementation, routing, and component patterns for both main navigation and page-specific navigation.
+Complete navigation system documentation for MH Construction website, covering architecture, implementation, routing,
+and component patterns for both main navigation and page-specific navigation.
 
 **What's Here:**
 
@@ -81,7 +82,8 @@ Comprehensive architecture documentation covering navigation system design, stru
 
 **[navigation-technical-guide.md](./navigation-technical-guide.md)** - Implementation guide (510 lines)
 
-Detailed technical implementation guide with code examples, patterns, and best practices for implementing navigation across the site.
+Detailed technical implementation guide with code examples, patterns, and best practices for implementing navigation
+across the site.
 
 **Topics Covered:**
 
@@ -208,7 +210,7 @@ import Link from 'next/link';
 
 ### Component Hierarchy
 
-```
+```text
 Navigation (Main site navigation)
 ├── Desktop Menu
 │   ├── Logo
@@ -253,7 +255,8 @@ PageNavigation (Page-specific navigation)
 - [Consistency Guide](../../development/consistency-guide.md) - Implementation patterns
 - [Development Standards](../../development/development-standards.md) - Coding conventions
 - [Component Standards](../../branding/standards/component-standards.md) - Component design standards
-- [Navigation Components Guide](../../../src/components/navigation/navigation-components-guide.md) - Navigation component implementation
+- [Navigation Components Guide](../../../src/components/navigation/navigation-components-guide.md) - Navigation
+  component implementation
 
 ### Technical
 

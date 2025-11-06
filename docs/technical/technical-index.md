@@ -17,7 +17,8 @@
 
 **[Design System Index](./design-system/design-system-index.md)** - Complete design system navigation hub
 
-Comprehensive design system documentation including typography standards, icons, buttons, CTAs, layout, mobile optimization, and visual elements.
+Comprehensive design system documentation including typography standards, icons, buttons, CTAs, layout, mobile
+optimization, and visual elements.
 
 **Key Files:**
 

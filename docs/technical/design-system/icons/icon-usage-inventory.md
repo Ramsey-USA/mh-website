@@ -112,7 +112,8 @@
 | **YouTube**     | `play_circle`  | Play button icon                 |
 | **LinkedIn**    | `work`         | Work/briefcase icon              |
 
-**Note:** X (Twitter) uses the `close` icon to represent the "X" branding. This is semantically appropriate for the platform name.
+**Note:** X (Twitter) uses the `close` icon to represent the "X" branding. This is semantically appropriate for
+the platform name.
 
 ---
 
@@ -376,7 +377,8 @@ Icons used in multiple contexts with clear rationale:
 - **Consistency Improvements:**
   - Ensured `handshake` is uniquely used for "Start Partnership"
   - Updated PageHero component navigation to match main Navigation component
-  - Fixed PageHero icon inconsistencies: `group` → `people`, `construction` → `build`, `work` → `photo_library`, `work_outline` → `badge`, `contact_mail` → `contact_phone`
+  - Fixed PageHero icon inconsistencies: `group` → `people`, `construction` → `build`, `work` → `photo_library`,
+    `work_outline` → `badge`, `contact_mail` → `contact_phone`
   - Applied MH brand colors (`brand-primary`) to PageHero navigation styling
 - **Impact:** Eliminates user confusion and clearly distinguishes internal capabilities from external partnerships
 
