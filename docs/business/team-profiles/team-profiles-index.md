@@ -3,6 +3,14 @@
 **Location:** `docs/business/team-profiles/`
 **Purpose:** Individual team member profiles and information
 **Maintained by:** HR and team leads
+**Last Updated:** November 6, 2025
+
+## 🧭 Quick Navigation
+
+- [🗂️ Master Documentation Index](../../MasterIndex.md) - Central hub for all documentation
+- [📋 Business Hub](../business-index.md) - Services, team roster, and operations
+- [👥 Team Roster](../team-roster.md) - Complete team overview
+- [💼 Core Values](../core-values.md) - Our professional foundation
 
 ---
 
@@ -92,6 +100,28 @@
 
 ---
 
-**Total Team Members:** 16 active profiles
-**Last Updated:** October 8, 2025
+## 🔗 Related Documentation
+
+### Business Documentation
+
+- [Business Index](../business-index.md) - Complete business documentation hub
+- [Team Roster](../team-roster.md) - Team overview and structure
+- [Core Values](../core-values.md) - Company principles and culture
+- [Services](../services.md) - What we offer
+- [MH Branding](../mh-branding.md) - Complete brand guide
+
+### Team & Culture
+
+- [Team Data Sync](../team-data-sync.md) - Team information management
+- [Government Grant Projects](../government-grant-projects.md) - Grant project team
+
+### Communication
+
+- [Partnership Messaging](../../partnerships/messaging/messaging-index.md) - Communication standards
+- [Content Standards](../../branding/strategy/content-messaging-standards.md) - Writing guidelines
+
+---
+
+**Total Team Members:** 16 active profiles  
+**Last Updated:** October 8, 2025  
 **Maintained by:** HR Department

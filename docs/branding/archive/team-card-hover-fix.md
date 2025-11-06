@@ -1,6 +1,6 @@
-# Archived: archive-branding-optimization-report-nov-2025
+# Archived: team-card-hover-fix
 
-**Original File:** archive-branding-optimization-report-nov-2025.md
+**Original File:** team-card-hover-fix.md
 **Archived:** November 6, 2025
 **Status:** 🗄️ Archived - Content moved to modular documentation
 

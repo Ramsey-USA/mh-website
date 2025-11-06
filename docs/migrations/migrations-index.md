@@ -1,5 +1,16 @@
 # Migrations Documentation Index
 
+**Last Updated:** November 6, 2025
+
+## 🧭 Quick Navigation
+
+- [🗂️ Master Documentation Index](../MasterIndex.md) - Central hub for all documentation
+- [📋 Business Documentation](../business/business-index.md) - Services and operations
+- [🚀 Deployment Documentation](../deployment/deployment-index.md) - Infrastructure and deployment
+- [⚙️ Operations Documentation](../operations/build-optimization/build-optimization-index.md) - Build and performance
+
+---
+
 This directory contains all documentation related to migrations, optimizations, and structural
 improvements for the MH Construction website and business processes.
 

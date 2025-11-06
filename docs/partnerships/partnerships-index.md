@@ -1,5 +1,16 @@
 # Partnership Documentation Index
 
+**Last Updated:** November 6, 2025
+
+## 🧭 Quick Navigation
+
+- [🗂️ Master Documentation Index](../MasterIndex.md) - Central hub for all documentation
+- [📋 Business Documentation](../business/business-index.md) - Services, team, and operations
+- [🎨 Branding & Identity](../branding/branding-index.md) - Brand standards and messaging guidelines
+- [💻 Development Guides](../development/development-index.md) - Implementation standards
+
+---
+
 Welcome to MH Construction's partnership documentation hub. This directory contains all materials
 related to client partnerships and vendor/trade relationships.
 

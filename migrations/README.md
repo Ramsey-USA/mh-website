@@ -4,7 +4,7 @@ This directory contains SQL migration files for the Cloudflare D1 database.
 
 ## Quick Start
 
-### 1. Create the D1 Database
+#[text](../src/app/partners)## 1. Create the D1 Database
 
 ```bash
 # Create production database

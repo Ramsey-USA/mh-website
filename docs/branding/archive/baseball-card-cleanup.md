@@ -1,6 +1,6 @@
-# Archived: archive-branding-optimization-report-nov-2025
+# Archived: baseball-card-cleanup
 
-**Original File:** archive-branding-optimization-report-nov-2025.md
+**Original File:** baseball-card-cleanup.md
 **Archived:** November 6, 2025
 **Status:** 🗄️ Archived - Content moved to modular documentation
 

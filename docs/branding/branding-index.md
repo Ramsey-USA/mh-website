@@ -4,6 +4,15 @@
 
 ---
 
+## 🧭 Quick Navigation
+
+- [🗂️ Master Documentation Index](../MasterIndex.md) - Central hub for all documentation
+- [💻 Development Guides](../development/development-index.md) - Development processes and implementation
+- [📋 Business Documentation](../business/business-index.md) - Services, team info, and operations
+- [🛠️ Technical Documentation](../technical/technical-index.md) - Design system and technical specs
+
+---
+
 ## 📋 Overview
 
 This is the central hub for all MH Construction branding documentation. All brand standards, guidelines, and
@@ -59,7 +68,21 @@ unified access.
 
 ### 📦 [archive/](./archive/)
 
-Historical documents, completed project reports, and deprecated guidelines.
+Historical documents and deprecated guidelines from documentation consolidation efforts. All content has been
+integrated into the current modular documentation structure.
+
+**Archived Files** (7 files):
+
+- `archive-branding-optimization-report-nov-2025.md` - Historical optimization report
+- `archive-color-scheme-correction-nov-2025.md` - Color scheme updates
+- `archive-css-config-update-nov-2025.md` - CSS configuration changes
+- `baseball-card-cleanup.md` - Component cleanup documentation
+- `team-card-hover-fix.md` - Bug fix documentation
+- `brand-development-integration.md` - Development integration notes
+- `branding-cohesion-update.md` - Cohesion update notes
+
+**Note**: These files have been emptied and standardized with archive notices. All relevant content has been moved
+to the current documentation structure.
 
 ---
 
