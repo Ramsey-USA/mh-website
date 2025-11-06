@@ -2,18 +2,18 @@
 
 /**
  * Build Validation Script
- * Ensures the website builds correctly without Cloudflare dependencies
+ * Ensures the website builds correctly for Cloudflare Pages deployment
  */
 
 const fs = require("fs");
 const path = require("path");
 
 console.log(
-  "🔍 Validating build configuration for Firebase-only deployment...",
+  "🔍 Validating build configuration for Cloudflare Pages deployment...",
 );
 
 // Check for required files
-const requiredFiles = ["next.config.js", "firebase.json", "package.json"];
+const requiredFiles = ["next.config.js", "package.json"];
 
 let allGood = true;
 
@@ -54,22 +54,22 @@ if (fs.existsSync(nextConfigPath)) {
 
 // Check environment requirements
 console.log("\n📋 Environment Variables Status:");
-console.log("✅ Firebase vars: Optional (can use demo mode)");
-console.log("✅ Cloudflare vars: Optional (gracefully skipped)");
+console.log("✅ Cloudflare vars: Configured via dashboard/wrangler");
 console.log("✅ CDN_PREFIX: Optional (defaults to empty)");
 
 console.log("\n🚀 Deployment Options Available:");
-console.log("✅ Firebase Hosting: npm run build:firebase && firebase deploy");
+console.log(
+  "✅ Cloudflare Pages: npm run build:cloudflare && npm run pages:deploy",
+);
 console.log("✅ Standard Build: npm run build && npm start");
-console.log("⏳ Cloudflare: Ready when you set it up");
 
 if (allGood) {
-  console.log("\n🎉 Your build is ready for Firebase-only deployment!");
-  console.log("   No Cloudflare configuration required.");
+  console.log("\n🎉 Your build is ready for Cloudflare Pages deployment!");
+  console.log("   All Cloudflare optimizations configured.");
 } else {
   console.log("\n⚠️  Please address the issues above before deploying.");
 }
 
 console.log(
-  "\n💡 Pro Tip: You can add Cloudflare later without any code changes!",
+  "\n💡 Pro Tip: Deploy with npm run deploy:production for full optimization!",
 );

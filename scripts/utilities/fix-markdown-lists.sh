@@ -9,7 +9,7 @@ echo "🔧 Fixing markdown ordered lists..."
 find . -name "*.md" \
   -not -path "*/node_modules/*" \
   -not -path "*/.next/*" \
-  -not -path "*/firebase/functions/node_modules/*" \
+  -not -path "*/.git/*" \
   -type f | while read -r file; do
   
   # Use sed to renumber lists - more complex, so doing manually per file

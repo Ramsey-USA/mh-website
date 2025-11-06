@@ -45,7 +45,7 @@ Setting: Cache Level = Bypass
 ```text
 Type: A
 Name: @
-Content: [Firebase Hosting IP]
+Content: [Cloudflare Pages IP]
 Proxy: Enabled (Orange Cloud)
 
 Type: CNAME

@@ -19,7 +19,6 @@ route = "mhc-gc.com/*"
 [vars]
 ENVIRONMENT = "production"
 API_BASE_URL = "https://api.mhc-gc.com"
-FIREBASE_PROJECT_ID = "${FIREBASE_PROJECT_ID}"
 
 # KV Namespaces for caching
 [[kv_namespaces]]

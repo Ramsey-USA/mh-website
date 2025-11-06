@@ -14,7 +14,7 @@ Automated testing scripts for the MH Construction website quality assurance.
 ## Security Testing
 
 - **`test-security-suite.sh`** - Comprehensive security validation script that tests
-  security features without requiring Firebase/Cloudflare connections
+  security features in the Cloudflare Pages environment
 
 ## Responsive Design Testing
 

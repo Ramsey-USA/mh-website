@@ -6,7 +6,7 @@
 echo "🔧 Auto-fixing markdown linting errors..."
 
 # Fix trailing newlines and spaces
-find . -name "*.md" -not -path "./node_modules/*" -not -path "./firebase/functions/node_modules/*" | while read -r file; do
+find . -name "*.md" -not -path "./node_modules/*" -not -path "*/.git/*" | while read -r file; do
     # Remove trailing spaces
     sed -i 's/[[:space:]]*$//' "$file"
     

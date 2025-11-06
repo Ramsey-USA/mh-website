@@ -20,7 +20,7 @@ Guides for setting up development tools, environments, and dependencies.
 
 **Planned Content:**
 
-- Firebase setup guides
+- Cloudflare Pages deployment setup
 - VSCode extension configurations
 - Development environment initialization
 
@@ -47,8 +47,8 @@ Quick reference guides, troubleshooting documentation, and developer resources.
 
 ### Setup & Configuration
 
-- **[firebase-setup.md](./firebase-setup.md)** - Firebase configuration and setup
 - **[vscode-extensions-guide.md](./vscode-extensions-guide.md)** - Recommended VSCode extensions
+- **[deployment-setup.md](../deployment/cloudflare-pages-setup.md)** - Cloudflare Pages deployment guide
 
 ### Development Guidelines
 
@@ -115,13 +115,13 @@ current and actively maintained.
 
 ---
 
-## � Quick Start for Developers
+## 📋 Quick Start for Developers
 
-1. Start with **[Firebase Setup](./firebase-setup.md)** for backend configuration
+1. Start with **[Cloudflare Pages Setup](../deployment/cloudflare-pages-setup.md)** for deployment configuration
 2. Install recommended extensions from **[VS Code Extensions Guide](./vscode-extensions-guide.md)**
 3. Follow **[File Management](./file-management.md)** for project organization
 
 ---
 
-**Last Updated:** October 9, 2025
+**Last Updated:** November 6, 2025
 **Maintained by:** MH Construction Development Team

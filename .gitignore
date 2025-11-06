@@ -18,6 +18,12 @@
 # misc
 .DS_Store
 *.pem
+*.bak
+*.backup
+*.backup.*
+*.old
+*.orig
+backups/
 
 # debug
 npm-debug.log*
@@ -40,18 +46,6 @@ next-env.d.ts
 dist/
 build/
 out/
-
-# Firebase
-firebase-debug.log
-firestore-debug.log
-ui-debug.log
-storage-debug.log
-functions/node_modules/
-functions/lib/
-firebase/functions/node_modules/
-firebase/functions/lib/
-.firebase/
-.firebaserc.bak
 
 # IDE
 .vscode/

@@ -9,7 +9,7 @@ echo "🔧 Fixing markdown code blocks..."
 find . -name "*.md" \
   -not -path "*/node_modules/*" \
   -not -path "*/.next/*" \
-  -not -path "*/firebase/functions/node_modules/*" \
+  -not -path "*/.git/*" \
   -type f | while read -r file; do
   
   # Check if file has triple backticks without language

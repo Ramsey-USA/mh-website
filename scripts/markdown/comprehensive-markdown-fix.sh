@@ -193,7 +193,7 @@ process_file() {
 
 # Find all markdown files and process them
 echo "🔍 Finding all markdown files..."
-find . -name "*.md" -not -path "./node_modules/*" -not -path "./firebase/functions/node_modules/*" | while read -r file; do
+find . -name "*.md" -not -path "./node_modules/*" -not -path "*/.git/*" | while read -r file; do
     process_file "$file"
 done
 

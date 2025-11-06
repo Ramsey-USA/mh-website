@@ -226,9 +226,8 @@ function createBuildOptimizationGuide() {
 - ✅ Package import optimization
 
 ### 2. Bundle Splitting Strategy
-- **React chunk**: Core React libraries
-- **Firebase chunk**: Firebase-specific modules
-- **UI chunk**: UI libraries (Radix, Framer Motion)
+- **React chunk**: React core modules (most critical for hydration)
+- **Framer Motion chunk**: Animation library modules
 - **Vendor chunk**: Other third-party libraries
 
 ### 3. Performance Monitoring

@@ -105,15 +105,13 @@ echo "🔍 Domain Setup Verification"
 echo "=============================="
 echo ""
 
-# Check if Firebase CLI is available
-if command_exists firebase; then
-    echo -e "${GREEN}✅ Firebase CLI is available${NC}"
-    
-    # Check Firebase project
-    echo -e "${YELLOW}Checking Firebase project...${NC}"
-    firebase projects:list 2>/dev/null || echo -e "${RED}❌ Not logged into Firebase CLI${NC}"
+# Check Cloudflare Pages deployment status
+echo -e "${YELLOW}Checking Cloudflare Pages deployment...${NC}"
+if command_exists wrangler; then
+    echo -e "${GREEN}✅ Wrangler CLI is available${NC}"
+    echo -e "${YELLOW}Run 'wrangler pages project list' to see deployments${NC}"
 else
-    echo -e "${RED}❌ Firebase CLI not found. Install with: npm install -g firebase-tools${NC}"
+    echo -e "${YELLOW}⚠️  Wrangler CLI not found. Install with: npm install -g wrangler${NC}"
 fi
 
 echo ""
@@ -166,20 +164,20 @@ else
     
     if ! $dns_success; then
         echo -e "${RED}❌ DNS issues detected${NC}"
-        echo "   → Check your Namecheap DNS settings"
+        echo "   → Check your Cloudflare DNS settings"
         echo "   → Allow 24-48 hours for DNS propagation"
     fi
     
     if ! $web_success; then
         echo -e "${RED}❌ Website accessibility issues${NC}"
-        echo "   → Ensure Firebase deployment is successful"
-        echo "   → Check Firebase hosting configuration"
+        echo "   → Ensure Cloudflare Pages deployment is successful"
+        echo "   → Check Cloudflare Pages configuration"
     fi
     
     if ! $ssl_success; then
         echo -e "${RED}❌ SSL certificate issues${NC}"
         echo "   → SSL certificates can take 2-4 hours after DNS propagation"
-        echo "   → Contact Firebase support if issues persist"
+        echo "   → Check Cloudflare SSL/TLS settings"
     fi
 fi
 
@@ -188,11 +186,10 @@ echo "📚 Next Steps"
 echo "============="
 echo ""
 echo "1. 📖 Read the complete setup guide:"
-echo "   docs/deployment/namecheap-domain-setup.md"
+echo "   docs/deployment/cloudflare-pages-setup.md"
 echo ""
 echo "2. 🛠️  Deploy your website:"
-echo "   npm run build"
-echo "   npm run firebase:deploy"
+echo "   npm run deploy:production"
 echo ""
 echo "3. 🔍 Monitor DNS propagation:"
 echo "   https://dnschecker.org"

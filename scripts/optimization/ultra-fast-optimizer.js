@@ -75,18 +75,11 @@ const nextConfig = {
               priority: 30,
               reuseExistingChunk: true,
             },
-            firebase: {
-              test: /[\\\\/]node_modules[\\\\/](firebase|@firebase)[\\\\/]/,
-              name: "firebase",
-              chunks: "all",
-              priority: 25,
-              reuseExistingChunk: true,
-            },
             ui: {
               test: /[\\\\/]node_modules[\\\\/](@radix-ui|framer-motion|lucide-react)[\\\\/]/,
               name: "ui-libs",
               chunks: "all",
-              priority: 20,
+              priority: 25,
               reuseExistingChunk: true,
             },
             utils: {
