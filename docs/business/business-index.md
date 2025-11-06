@@ -19,9 +19,10 @@
 
 - [**Services Overview**](./services.md) - Complete service offerings and construction capabilities
 - [**Core Values**](./core-values.md) - Six-value professional foundation system
+- [**Client Testimonials**](./testimonials.md) - Real client feedback and project success stories
 - [**Government Grant Projects**](./government-grant-projects.md) - Grant-funded construction expertise
 - [**Team Roster**](./team-roster.md) - Meet our experienced construction team
-- [**Team Data Sync**](./TEAM_DATA_SYNC.md) - Team information synchronization guidelines
+- [**Team Data Sync**](./team-data-sync.md) - Team information synchronization guidelines
 
 ### 🎨 Brand & Marketing
 
@@ -48,6 +49,7 @@ docs/business/
 ├── business-index.md           # This navigation hub
 ├── services.md                 # Complete service offerings
 ├── core-values.md              # Company principles and values
+├── testimonials.md             # Client feedback and success stories
 ├── team-roster.md              # Complete team information
 ├── team-data-sync.md           # Team information synchronization
 ├── government-grant-projects.md # Grant expertise

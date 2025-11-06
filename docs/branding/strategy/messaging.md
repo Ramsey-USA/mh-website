@@ -74,6 +74,46 @@ Our voice balances military precision with partnership warmth, creating communic
 > management to deliver exceptional results for commercial, industrial, and medical
 > facility projects throughout the Pacific Northwest."
 
+### Core Brand Slogans
+
+#### Primary Slogan: "Building for the Owner, NOT the Dollar"
+
+Our foundational message emphasizing partnership over profit, client success over company gain.
+
+#### Relationship-Focused Slogan: "THE ROI IS THE RELATIONSHIP"
+
+This powerful companion slogan reinforces our partnership-first philosophy. Use this for:
+
+- Hero sections emphasizing relationship-building
+- Marketing materials focused on long-term partnerships
+- Client communications highlighting value beyond numbers
+- Content emphasizing trust and collaboration
+- Headings that highlight our relationship-driven approach
+
+#### Partnership Call-to-Action: "Let's Build More than Just Structures"
+
+> "Let's Build More than Just Structures - Partner with a team that puts your vision—and your relationship—first."
+
+Use this slogan for:
+
+- Call-to-action sections inviting partnership
+- Marketing materials emphasizing vision and relationships
+- Client outreach highlighting partnership approach
+- Content that connects building with relationship-building
+- Headlines that invite collaboration
+
+**Supporting Scale Statement:**
+
+> "We're big enough to scale and small enough to stay personal."
+
+### Mission & Vision Statements
+
+**Mission**: We deliver high-quality construction rooted in integrity, clear communication, and long-term
+relationships.
+
+**Vision**: To be the Pacific Northwest's most trusted veteran-led construction partner - renowned for
+craftsmanship and character.
+
 ### Key Message Pillars
 
 #### 1. Partnership-Focused Approach
@@ -99,16 +139,23 @@ Our voice balances military precision with partnership warmth, creating communic
 
 **Supporting Points**:
 
+- Veteran-led leadership and values
 - Military-trained attention to detail
 - Systematic project management
 - Quality control at every phase
 - Commitment to timelines and budgets
+
+**Our Team Statement**:
+
+> "Our leadership, crafted through military structure, alongside a team of skilled professionals, brings
+> unwavering dedication and owner-first focus to every project."
 
 **Example Applications**:
 
 - "Military precision applied to construction management"
 - "Every detail matters, every timeline is sacred"
 - "Veteran values drive our commitment to excellence"
+- "Leadership crafted through military structure"
 
 #### 3. Regional Expertise
 

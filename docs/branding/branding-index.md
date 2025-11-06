@@ -121,7 +121,7 @@ to the current documentation structure.
 
 - **Primary**: Hunter Green (`#386851`)
 - **Secondary**: Leather Tan (`#BD9264`)
-- **Accent**: Forest Green (`#2f5d45`)
+- **Accent**: Forest Green (`#2d5240`)
 
 ### Icon System
 

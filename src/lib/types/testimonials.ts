@@ -69,6 +69,88 @@ export interface TestimonialFilter {
 export const mockTestimonials: ClientTestimonial[] = [
   {
     id: "testimonial-001",
+    clientName: "John Smith",
+    clientLocation: "Tri-Cities, WA",
+    projectType: "commercial",
+    projectTitle: "Baskin Robbins Store Build",
+    rating: 5,
+    testimonialText:
+      "Working with Todd and the MH Construction team on our Baskin Robbins build was exceptional. Todd's communication throughout the entire project kept us informed every step of the way, and the quality of workmanship exceeded our expectations. From start to finish, they demonstrated professionalism and attention to detail that made this build a success.",
+    projectValue: "$250,000",
+    completionDate: "2024-10-15",
+    submissionDate: "2024-10-20",
+    status: "featured",
+    featured: true,
+    images: {
+      after: [
+        "/images/testimonials/baskin-robbins-after-1.jpg",
+        "/images/testimonials/baskin-robbins-after-2.jpg",
+      ],
+    },
+    projectDetails: {
+      duration: "4 months",
+      highlights: [
+        "Excellent communication",
+        "Quality workmanship",
+        "Professional execution",
+        "On-time completion",
+      ],
+    },
+    contactPermission: true,
+    tags: [
+      "commercial construction",
+      "retail build",
+      "quality workmanship",
+      "Todd Schoeff",
+    ],
+    source: "email",
+    responseFromCompany:
+      "Thank you John! It was a pleasure working with you on the Baskin Robbins project. We're proud to have delivered the quality you expected and appreciate your trust in our team.",
+  },
+  {
+    id: "testimonial-002",
+    clientName: "Keith Bjella",
+    clientLocation: "Tri-Cities, WA",
+    projectType: "commercial",
+    projectTitle: "Tenant Improvement Project",
+    rating: 5,
+    testimonialText:
+      "The tenant improvement process with MH Construction was outstanding from design through construction. Their ability to facilitate the entire process while managing multiple stakeholders, coordinating various processes, overseeing employees and subcontractors, and maintaining transparency and fairness throughout was truly impressive. They made what could have been a complex project feel seamless.",
+    projectValue: "$320,000",
+    completionDate: "2024-11-30",
+    submissionDate: "2024-12-05",
+    status: "featured",
+    featured: true,
+    images: {
+      after: [
+        "/images/testimonials/bjella-tenant-improvement-1.jpg",
+        "/images/testimonials/bjella-tenant-improvement-2.jpg",
+      ],
+    },
+    projectDetails: {
+      duration: "5 months",
+      highlights: [
+        "Design through construction facilitation",
+        "Multiple stakeholder coordination",
+        "Transparent communication",
+        "Fair and professional management",
+        "Complex process made seamless",
+      ],
+    },
+    contactPermission: true,
+    tags: [
+      "tenant improvement",
+      "commercial project",
+      "stakeholder coordination",
+      "transparency",
+      "process management",
+    ],
+    source: "email",
+    responseFromCompany:
+      "Thank you Keith! Your tenant improvement project showcased exactly what we strive for—seamless coordination and transparent communication. We're grateful for the opportunity to work with you.",
+  },
+  {
+    id: "testimonial-003",
     clientName: "Jennifer & Mike Thompson",
     clientLocation: "Pasco Heights, WA",
     projectType: "residential",
@@ -114,7 +196,7 @@ export const mockTestimonials: ClientTestimonial[] = [
       "Thank you Jennifer and Mike! It was a pleasure working with you both. We're thrilled that you love your new home and appreciate your trust in our veteran team.",
   },
   {
-    id: "testimonial-002",
+    id: "testimonial-004",
     clientName: "Robert & Lisa Chen",
     clientLocation: "Richland, WA",
     projectType: "renovation",
@@ -154,7 +236,7 @@ export const mockTestimonials: ClientTestimonial[] = [
       "Thank you Robert and Lisa! Your kitchen and bathroom transformations turned out beautifully. We appreciate your patience during the renovation process.",
   },
   {
-    id: "testimonial-003",
+    id: "testimonial-005",
     clientName: "TechFlow Solutions",
     clientLocation: "Kennewick, WA",
     projectType: "commercial",
@@ -193,7 +275,7 @@ export const mockTestimonials: ClientTestimonial[] = [
       "Thank you TechFlow Solutions! We're glad your team loves the new workspace. It was a pleasure working with you on this transformation.",
   },
   {
-    id: "testimonial-004",
+    id: "testimonial-006",
     clientName: "David Rodriguez",
     clientLocation: "West Richland, WA",
     projectType: "emergency",
@@ -225,7 +307,7 @@ export const mockTestimonials: ClientTestimonial[] = [
       "Thank you for your service, David! We're honored to help a fellow veteran and glad we could restore your home quickly.",
   },
   {
-    id: "testimonial-005",
+    id: "testimonial-007",
     clientName: "Maria Gonzalez",
     clientLocation: "Pasco, WA",
     projectType: "residential",
@@ -256,7 +338,7 @@ export const mockTestimonials: ClientTestimonial[] = [
     source: "website",
   },
   {
-    id: "testimonial-006",
+    id: "testimonial-008",
     clientName: "James & Patricia Wilson",
     clientLocation: "Kennewick, WA",
     projectType: "renovation",

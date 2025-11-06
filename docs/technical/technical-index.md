@@ -35,53 +35,78 @@ optimization, and visual elements.
 - **[/icons/](./design-system/icons/)** - Complete icon system documentation hub
 - `/layout/` - Page layout standards and quick start guides
 
+### `/navigation/` - Navigation System
+
+**[Navigation Index](./navigation/navigation-index.md)** - Navigation system documentation hub
+
+Complete navigation architecture, technical implementation, and best practices.
+
+**Key Files:**
+
+- `navigation-index.md` - Navigation documentation hub
+- `navigation.md` - Navigation system overview
+- `navigation-architecture.md` - Complete dual navigation system documentation
+- `navigation-technical-guide.md` - Technical implementation details
+
 ### `/performance/` - Performance Optimization
+
+**[Performance Index](./performance/performance-index.md)** - Performance optimization hub
 
 Performance monitoring, optimization strategies, and implementation guides.
 
 **Key Files:**
 
+- `performance-index.md` - Performance documentation hub
 - `phase-5-performance-implementation.md` - Performance optimization implementation
+- `build-optimization.md` - Build performance optimization
+- `build-performance-analysis.md` - Performance analysis results
 
-### `/architecture/` - System Architecture
+### `/seo/` - SEO & Accessibility
 
-Technical architecture documentation, page layouts, and system design specifications.
+**[SEO Index](./seo/seo-index.md)** - SEO and accessibility documentation hub
+
+Search engine optimization, accessibility standards, and implementation guides.
+
+**Key Files:**
+
+- `seo-index.md` - SEO documentation hub
+- `seo-enhancement-guide.md` - SEO implementation guide
+- `search-accessibility-guide.md` - Search and accessibility standards
 
 ## 🛠️ Root Level Technical Files
 
 ### 🏗️ System Architecture & Design
 
 - [**Features Documentation**](./features.md) - Complete feature specifications
-- [**Page Layout Quick Start**](./page-layout-quick-start.md) - Copy-paste templates for new pages
-- [**Page Layout Standards**](./page-layout-standards.md) - Complete spacing, padding, typography reference
-- [**Icon System Quick Reference**](./icon-system-quick-reference.md) - Icon usage guide
-- [**Icon Hover Effects Guide**](./icon-hover-effects-guide.md) - Custom icon system and hover effects
+- [**Email System**](./email-system.md) - Email integration and templates
 - [**CSS JS Cohesion**](./css-js-cohesion.md) - CSS and JavaScript integration
 
-### 🧭 Navigation Architecture
+### 🧭 Navigation & Structure
 
-- [**Navigation Architecture**](./navigation-architecture.md) - Complete dual navigation system documentation
-- [**Navigation Technical Guide**](./navigation-technical-guide.md) - Technical implementation details
-- [**Navigation Audit Report**](./navigation-audit-report.md) - Navigation system audit findings
+For navigation documentation, see [Navigation Hub](./navigation/navigation-index.md)
+
+For design system and layout, see [Design System Hub](./design-system/design-system-index.md)
 
 ## Directory Structure
 
-````text
+```text
 docs/technical/
 ├── technical-index.md          # This navigation hub
 ├── features.md                 # Feature overview and capabilities
-├── build-optimization.md       # Build performance optimization
-├── navigation-architecture.md  # Navigation system design
-├── page-layout-standards.md    # Page layout guidelines
-├── DATABASE_SCHEMA.md          # Data structure documentation
-├── BUILD_SYSTEM.md             # Build and deployment
-├── ENVIRONMENT_CONFIG.md       # Configuration management
-├── DEPLOYMENT_GUIDE.md         # Production deployment
-├── MONITORING_SETUP.md         # System monitoring
-├── SYSTEM_REQUIREMENTS.md      # Technical requirements
-├── INTEGRATION_STANDARDS.md    # Integration guidelines
-└── TESTING_FRAMEWORK.md        # Testing implementation
-```text
+├── email-system.md             # Email integration documentation
+├── css-js-cohesion.md          # CSS and JavaScript integration
+├── design-system/              # Complete design system documentation
+│   ├── design-system-index.md  # Design system hub
+│   ├── buttons-and-ctas/       # Button and CTA documentation
+│   ├── icons/                  # Icon system documentation
+│   └── layout/                 # Layout standards and guides
+├── navigation/                 # Navigation system documentation
+│   └── navigation-index.md     # Navigation hub
+├── performance/                # Performance optimization
+│   └── performance-index.md    # Performance hub
+└── seo/                        # SEO and accessibility
+    └── seo-index.md            # SEO hub
+```
 
 ## Current Technical Status (v3.7.2)
 
@@ -110,26 +135,22 @@ docs/technical/
 ## Related Documentation Categories
 
 ### 🏢 Business Documentation
->
-> [Business Hub](../business/business-index.md) - Business operations and brand guidelines
 
-### 📝 Project Documentation
->
-> [Project Hub](../project/project-index.md) - Project plans and implementations
+[Business Hub](../business/business-index.md) - Business operations and brand guidelines
 
 ### 📚 Development Documentation
->
-> [Development Hub](../development/development-index.md) - Setup guides and workflows
 
-### 📖 Guidelines & Standards
->
-> [Guidelines Hub](../development/guidelines/guidelines-index.md) - Standards and best practices
+[Development Hub](../development/development-index.md) - Setup guides and workflows
 
-### 📑 Reference Materials
->
-> [Reference Hub](../development/reference/reference-index.md) - Quick references and templates
+### 🎨 Branding Documentation
 
-## Quick Technical Reference
+[Branding Hub](../branding/branding-index.md) - Brand standards and guidelines
+
+### � Project Documentation
+
+[Project Hub](../project/project-index.md) - Project plans and implementations
+
+--- Quick Technical Reference
 
 ### 🏗️ Architecture Overview
 
@@ -154,7 +175,6 @@ docs/technical/
 
 ---
 
-**Technical Authority**: MH Construction Development Team
-**Last Update**: October 9, 2025
+**Technical Authority**: MH Construction Development Team  
+**Last Update**: November 6, 2025  
 **Next Review**: Weekly technical architecture assessment
-````

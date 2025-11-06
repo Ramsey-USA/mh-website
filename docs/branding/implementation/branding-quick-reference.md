@@ -63,15 +63,51 @@ className="bg-[#BD9264]"
 
 ## 📝 Required Messaging
 
-### Primary Tagline
+### Core Brand Slogans
 
-Include "Building for the Owner, NOT the Dollar" on key pages
+**Primary Slogan:**
+
+> "Building for the Owner, NOT the Dollar"
+
+**Relationship-Focused Slogan:**
+
+> "THE ROI IS THE RELATIONSHIP"
+
+Use these companion slogans to emphasize our partnership-first approach.
+
+**Partnership Call-to-Action:**
+
+> "Let's Build More than Just Structures - Partner with a team that puts your vision—and your relationship—first."
+
+**Supporting Statement:**
+
+> "We're big enough to scale and small enough to stay personal."
+
+### Mission & Vision
+
+**Mission**: We deliver high-quality construction rooted in integrity, clear communication, and long-term
+relationships.
+
+**Vision**: To be the Pacific Northwest's most trusted veteran-led construction partner - renowned for
+craftsmanship and character.
 
 ### Partnership Language
 
 - "We Work With You"
 - "Partnership-Driven Construction"
 - "Collaborative Excellence"
+- "The ROI is the relationship"
+- "Your success comes first"
+
+### Our Owner-First Process
+
+1. **Pre-Construction Planning**
+2. **Budget Transparency**
+3. **Proactive Communication**
+4. **Quality Execution**
+5. **Seamless Close-Out**
+
+Use these process steps to communicate our systematic, client-focused approach.
 
 ### Regional Focus
 
@@ -84,6 +120,8 @@ Include "Building for the Owner, NOT the Dollar" on key pages
 - "Veteran-owned excellence"
 - "Military precision"
 - "Where military precision meets construction excellence"
+- "Our leadership, crafted through military structure, alongside a team of skilled professionals, brings unwavering
+  dedication and owner-first focus to every project"
 
 ## 🎨 Brand Colors
 

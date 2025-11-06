@@ -58,13 +58,12 @@ Quick reference guides, troubleshooting documentation, and developer resources.
 - **[file-management.md](./file-management.md)** - File organization and management guidelines
 - **[development-standards.md](./development-standards.md)** - Core development standards and practices
 - **[ai-development-guidelines.md](./ai-development-guidelines.md)** - AI-assisted development guidelines
-- **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** - Common issues and solutions
+- **[troubleshooting.md](./troubleshooting.md)** - Common issues and solutions
 
-### Implementation & Fixes
+### Documentation Guides
 
-- **[team-card-hover-fix.md](./team-card-hover-fix.md)** - Team card hover effect implementation
-- **[baseball-card-cleanup.md](./baseball-card-cleanup.md)** - Baseball card component cleanup
-- **[icon-usage-reference.md](./icon-usage-reference.md)** - Icon implementation reference
+- **[documentation-style-guide.md](./documentation-style-guide.md)** - Documentation formatting standards
+- **[documentation-maintenance-guide.md](./documentation-maintenance-guide.md)** - Documentation maintenance procedures
 
 ## 🎯 Purpose & Scope
 

@@ -5,21 +5,29 @@
 **Partnership Philosophy**: "We Work With You" - Our people-centered culture starts with
 leadership committed to serving both clients and communities.
 
+**Our Leadership**: Our leadership, crafted through military structure, alongside a team of skilled professionals,
+brings unwavering dedication and owner-first focus to every project.
+
 ---
 
 ## 🎖️ Executive Leadership
 
-### Jeremy Thamert - Owner & General Manager
+### Jeremy Thamert - President
 
-- **Experience**: 2 years in current role
-- **Status**: Civilian Supporter
+**PRESIDENT** - Jeremy Thamert serves as the President of MH Construction, bringing focused leadership to key
+organizational pillars: Safety, Marketing, Workforce Development, and Human Resources. His role reflects a strategic
+blend of operational oversight and people-first management, ensuring each project aligns with MH's owner-centric
+approach.
+
+- **Experience**: Presidential leadership with focus on strategic operations
+- **Status**: Civilian Leadership
 - **Core Specialties**:
-  - Strategic Vision & Business Development
-  - Technology Integration & Innovation
-  - AI Adoption & Digital Transformation
-  - Operational Leadership & Team Management
-- **Leadership Philosophy**: Bridging military precision with civilian innovation
-- **Contact**: Direct leadership oversight for major projects and strategic initiatives
+  - Safety Management & Organizational Standards
+  - Marketing Strategy & Brand Development
+  - Workforce Development & Team Building
+  - Human Resources & People-First Leadership
+- **Leadership Philosophy**: Operational excellence through strategic focus on people and safety
+- **Contact**: Presidential oversight for organizational strategy and key initiatives
 
 ### Mike Holstein - Founder (Retired)
 
@@ -52,12 +60,24 @@ leadership committed to serving both clients and communities.
 
 - **Experience**: 8 years construction project management
 - **Status**: Civilian Professional
+- **Certifications**:
+  - PMP (Project Management Professional)
+  - AAS in Business Management
 - **Core Specialties**:
   - Project Coordination & Timeline Management
   - Client Communication & Stakeholder Relations
   - Risk Mitigation & Problem Resolution
   - Multi-Phase Project Leadership
-- **Projects**: Specializes in commercial and medical facility projects
+- **Notable Projects**:
+  - Baskin Robbins remodel (completed in 14 days)
+  - Hydraulic building lift project (raising structure 5 feet to resolve height constraints)
+- **Strengths**:
+  - Communication
+  - Organization
+  - Problem-Solving
+  - Leadership
+  - Client Relationship Building
+  - Pride in Work - Delivering quality jobs that make clients happy, reflecting positively on the team
 - **Approach**: Detail-oriented coordination with emphasis on transparent communication
 
 ### Ben Woodall - Project Manager
@@ -69,6 +89,10 @@ leadership committed to serving both clients and communities.
   - Budget Management & Cost Control
   - Resource Planning & Allocation
   - Client Alignment & Expectation Management
+- **Notable Projects**:
+  - Barhyte Specialty Foods Warehouse
+  - Central Oregon Processing Pellet Mill
+  - Inland Desert Nursery Cold Storage
 - **Strength**: Balancing project scope, timeline, and budget constraints
 - **Focus**: Ensuring projects deliver maximum value within client parameters
 
@@ -81,6 +105,15 @@ leadership committed to serving both clients and communities.
   - Commercial Project Bidding
   - Medical Facility Specialization
   - Specialty Systems & Complex Projects
+- **Notable Projects**:
+  - Amazon Oyster & Pearl (navigating COVID restrictions; expanded role to full Access Control installation)
+  - Northwest Energy Security Towers (strict protocol coordination, minimal downtime during network integration)
+- **Strengths**:
+  - Attention to Detail
+  - Clear Communication
+  - Analytical Thinking
+  - Dependability
+  - Team Orientation
 - **Expertise**: Known for accurate estimates that minimize budget surprises
 - **Approach**: Comprehensive analysis of all project variables and potential risks
 
@@ -97,32 +130,85 @@ leadership committed to serving both clients and communities.
   - Multi-Phase Project Oversight
   - Safety Management & OSHA Compliance
   - Quality Assurance & Standards Enforcement
+- **Certifications**:
+  - CDL (Commercial Driver's License)
+  - Forklift Operator
+  - Aerial/Scissor Lift Operator
+  - CPR Certified
+  - Certified Locksmith
+  - OSHA 30
+- **Notable Projects**:
+  - Kadlec Richland Campus (10-story tower, NICU, outpatient facilities)
+  - Winery Tank Farm Expansion
+  - Bruchi Restaurant Builds
 - **Leadership Style**: Hands-on approach with emphasis on safety and quality
-- **Strength**: Managing complex projects with multiple subcontractors and phases
+- **Strengths**:
+  - Problem Solving Under Pressure
+  - Expansive Trade Knowledge
+  - Mentorship
+  - Patience
+  - Dedication
+  - Loyalty
+  - Pride in Work
+  - Safe, on-time, on-budget delivery; ensuring code compliance and client satisfaction
 
 ### Reagan Massey - Superintendent
 
 - **Experience**: 12 years on-site operations
 - **Status**: Civilian Professional
+- **Certifications**:
+  - Forklift Operator
+  - Scissor Lift Operator
+  - Snake Lift Operator
+  - CPR Certified
 - **Core Specialties**:
   - On-Site Operations & Daily Coordination
   - Crew Management & Productivity
   - Quality Control & Standards Compliance
   - Real-Time Problem Resolution
+- **Notable Projects**:
+  - Columbia Crest - Managed foundation formwork
+  - Mattawa Five Station - Successfully completed project through COVID-19
+  - Bruchi's & Baskin Robbins - Oversaw full buildout from start to finish
+- **Strengths**:
+  - Skilled at Reading and Interpreting Construction Prints
+  - Broad, Hands-On Construction Experience
+  - Strong Communication
+  - Hardworking and Dependable
+  - Pride in Work - Delivering high-quality projects that meet client expectations and bring lasting satisfaction
 - **Approach**: Proactive management style focusing on preventing issues before they arise
-- **Focus**: Maintaining project momentum while ensuring quality standards
 
 ### Porter Cline - Superintendent
 
+**BIO**: A superintendent with experience leading projects from foundation to finish. His career in construction began
+unexpectedly after a college injury shifted his focus toward building, where he started a company with his brother
+before advancing through several other firms. Known for his adaptability, leadership, and problem-solving, Porter
+thrives on the ever-changing challenges of the field and enjoys working alongside his crews to get the job done. He
+takes pride in guiding teams through demanding phases, maintaining strong client relationships, and ensuring every
+project is completed to a high standard and on schedule.
+
 - **Experience**: 5+ years specialized operations
 - **Status**: Civilian Professional
+- **Certifications**:
+  - Forklift Operator
+  - CPR & First Aid Certified
 - **Core Specialties**:
   - Industrial Project Management
   - Field Coordination & Logistics
   - Complex Systems Integration
   - Heavy Equipment Operations
+- **Notable Projects**:
+  - Multi-Story Building (2,500+ sq. ft.)
+  - Darigold
+  - Custom Home (5,000 sq. ft. home designed by an aeronautics engineer)
+- **Strengths**:
+  - Problem-Solving
+  - Team Leadership
+  - Communication
+  - Adaptability
+  - Pride in Work - Seeing a finished project come together while meeting deadlines and exceeding expectations with his crew
 - **Specialization**: Industrial and heavy commercial construction projects
-- **Strength**: Managing projects with specialized equipment and complex logistical requirements
+- **Leadership Philosophy**: Hands-on leadership working alongside crews through demanding phases
 
 ---
 

@@ -61,8 +61,8 @@ These documents define WHO MH Construction is and HOW we communicate our brand.
 
 ### Brand Colors
 
-- **Hunter Green**: `#3D5A3C` - Primary brand color (professionalism, growth)
-- **Leather Tan**: `#C8A882` - Secondary accent (warmth, craftsmanship)
+- **Hunter Green**: `#386851` - Primary brand color (professionalism, growth)
+- **Leather Tan**: `#BD9264` - Secondary accent (warmth, craftsmanship)
 
 ### Target Audience
 

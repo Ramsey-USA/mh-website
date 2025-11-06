@@ -54,6 +54,9 @@ Visit `http://localhost:3000` to see the site.
 This platform showcases services, manages client consultations, and provides AI-powered project
 estimation.
 
+**Our Team**: Our leadership, crafted through military structure, alongside a team of skilled professionals,
+brings unwavering dedication and owner-first focus to every project.
+
 ### Core Features
 
 - **11 Main Pages**: Home, About, Services, Projects, Team, Careers, Contact, Booking, Estimator,
@@ -242,6 +245,41 @@ export function FeatureSection({
 ---
 
 ## 🎨 Brand Standards
+
+### Core Brand Messages
+
+**Primary Slogans:**
+
+- "Building for the Owner, NOT the Dollar"
+- "THE ROI IS THE RELATIONSHIP"
+- "Let's Build More than Just Structures - Partner with a team that puts your vision—and your relationship—first."
+
+**Mission**: We deliver high-quality construction rooted in integrity, clear communication, and long-term
+relationships.
+
+**Vision**: To be the Pacific Northwest's most trusted veteran-led construction partner - renowned for
+craftsmanship and character.
+
+**Supporting Statement**: "We're big enough to scale and small enough to stay personal."
+
+### Core Values
+
+1. **Integrity First** - Doing What's Right, Every Time
+2. **Owner-Focused Transparency** - No Surprises
+3. **Relationship ROI** - We Build Trust, Not Just Structures
+4. **Veteran-Fueled Reliability** - Calm and Precise Under Pressure
+5. **Craftsmanship that Lasts** - Built for the Long Run
+6. **Precision & Experience** - 150+ Years Combined Team Expertise
+
+See [Core Values](./docs/business/core-values.md) for complete details.
+
+### Our Owner-First Process
+
+1. **Pre-Construction Planning** - Comprehensive planning and master scheduling
+2. **Budget Transparency** - Open-book pricing with detailed breakdowns
+3. **Proactive Communication** - Regular updates and immediate change notifications
+4. **Quality Execution** - Military precision with experienced craftsmen
+5. **Seamless Close-Out** - Complete documentation and ongoing support
 
 ### Colors
 

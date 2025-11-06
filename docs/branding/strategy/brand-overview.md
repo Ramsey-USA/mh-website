@@ -30,17 +30,33 @@
 
 ### Brand Mission
 
-> "Building for the Owner, NOT the Dollar"
->
-> Veteran-owned excellence where your success comes first
+**Mission**: We deliver high-quality construction rooted in integrity, clear communication, and long-term
+relationships.
+
+**Vision**: To be the Pacific Northwest's most trusted veteran-led construction partner - renowned for
+craftsmanship and character.
 
 ## Core Brand Taglines
 
-### Primary Partnership Message
+### Primary Slogans
+
+**Primary Partnership Message:**
 
 > "Building for the Owner, NOT the Dollar"
->
-> Veteran-owned excellence where your success comes first
+
+**Relationship-Focused Message:**
+
+> "THE ROI IS THE RELATIONSHIP"
+
+**Partnership Call-to-Action:**
+
+> "Let's Build More than Just Structures - Partner with a team that puts your vision—and your relationship—first."
+
+These companion slogans work together to emphasize our partnership-first, relationship-driven approach.
+
+**Supporting Statement:**
+
+> "We're big enough to scale and small enough to stay personal."
 
 ### Supporting Taglines
 
@@ -48,6 +64,7 @@
 - "Working WITH you to serve our communities"
 - "Where Military Precision Meets Construction Excellence"
 - "Partnership-Driven Construction Management"
+- "Veteran-owned excellence where your success comes first"
 
 ## Brand Positioning
 
@@ -64,6 +81,11 @@ projects throughout the Pacific Northwest.
 3. **Transparent Communication**: Open-book progress meetings
 4. **Regional Expertise**: Deep Tri-Cities area knowledge and connections
 5. **Full-Service Management**: From planning to completion
+
+### Our Team
+
+Our leadership, crafted through military structure, alongside a team of skilled professionals, brings
+unwavering dedication and owner-first focus to every project.
 
 ### Target Audience
 
@@ -112,32 +134,63 @@ projects throughout the Pacific Northwest.
 
 ## Brand Values
 
-### Core Values
+### Six Core Values
 
-1. **Integrity**: Unwavering commitment to our word
-2. **Partnership**: Building relationships alongside buildings
-3. **Excellence**: Military precision in every project detail
-4. **Transparency**: Open communication throughout the process
-5. **Community**: Serving and strengthening our local area
+**Trust-Centered Philosophy**: Building trust through six foundational values
+
+1. **Integrity First** - Doing What's Right, Every Time
+2. **Owner-Focused Transparency** - No Surprises
+3. **Relationship ROI** - We Build Trust, Not Just Structures
+4. **Veteran-Fueled Reliability** - Calm and Precise Under Pressure
+5. **Craftsmanship that Lasts** - Built for the Long Run
+6. **Precision & Experience** - 150+ Years Combined Team Expertise
 
 ### Value Statements
 
-#### Integrity
+#### Integrity First
 
-> "Integrity is the unwavering commitment to our word. As a team built on principles of
-> accountability and trust, we view our business conduct as a direct reflection of our
-> personal character."
+> "Doing what's right, every time. Making the right decision even when it costs us more, because our
+> reputation is built on unwavering commitment to ethical practices."
 
-#### Partnership
+#### Owner-Focused Transparency
 
-> "Partnership means building relationships alongside buildings. We work WITH you, not
-> FOR you, ensuring your vision guides every decision throughout the construction process."
+> "No surprises. Open communication, detailed breakdowns, and honest assessments mean you're never left
+> wondering what's happening with your project."
 
-#### Excellence
+#### Relationship ROI
 
-> "Excellence comes from military precision applied to construction management. Every
-> detail matters, every timeline is sacred, and every project reflects our commitment to
-> superior results."
+> "We build trust, not just structures. THE ROI IS THE RELATIONSHIP - investing in long-term partnerships
+> that last well beyond project completion."
+
+#### Veteran-Fueled Reliability
+
+> "Calm and precise under pressure. Military-trained discipline meets construction expertise to deliver
+> reliable results no matter the challenges."
+
+#### Craftsmanship that Lasts
+
+> "Built for the long run. Quality over speed, attention to every detail, selecting materials that stand
+> the test of time."
+
+#### Precision & Experience
+
+> "150+ years combined team expertise. Deep knowledge across all construction disciplines, refined through
+> decades of successful projects."
+
+**Ultimate Goal**: All six values work together to build **TRUST** - the foundation of every lasting
+partnership.
+
+### Our Owner-First Process
+
+How we put values into action on every project:
+
+1. **Pre-Construction Planning** - Comprehensive planning to understand your vision
+2. **Budget Transparency** - Detailed, open-book pricing with no surprises
+3. **Proactive Communication** - Regular updates and immediate notification of changes
+4. **Quality Execution** - Military precision with experienced craftsmen
+5. **Seamless Close-Out** - Comprehensive completion with ongoing support
+
+See [Core Values](../../business/core-values.md) for complete details on each process step.
 
 ## Current Architecture & Implementation
 
