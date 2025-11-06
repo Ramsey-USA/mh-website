@@ -16,7 +16,8 @@
 
 ## 🚀 Overview
 
-Complete deployment documentation for MH Construction website covering Cloudflare Pages deployment, D1 database setup, CI/CD pipeline configuration, and production environment management.
+Complete deployment documentation for MH Construction website covering Cloudflare Pages deployment, D1 database
+setup, CI/CD pipeline configuration, and production environment management.
 
 **Platform Stack:**
 

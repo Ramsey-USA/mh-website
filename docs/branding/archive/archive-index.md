@@ -15,7 +15,8 @@
 
 ## 📋 Overview
 
-This archive contains historical branding documentation that has been superseded by the current modular documentation structure. These files are preserved for reference and to maintain a record of branding evolution decisions.
+This archive contains historical branding documentation that has been superseded by the current modular documentation
+structure. These files are preserved for reference and to maintain a record of branding evolution decisions.
 
 **Archive Purpose:**
 
@@ -166,7 +167,8 @@ This archive contains historical branding documentation that has been superseded
 
 ### Why These Files Were Archived
 
-In November 2025, MH Construction underwent a comprehensive documentation optimization project (see [Documentation Optimization Checklist](../../project/documentation-optimization-checklist.md)). This project:
+In November 2025, MH Construction underwent a comprehensive documentation optimization project (see
+[Documentation Optimization Checklist](../../project/documentation-optimization-checklist.md)). This project:
 
 1. **Consolidated scattered documentation** into organized hubs
 2. **Created modular documentation structure** for better maintainability
@@ -174,7 +176,8 @@ In November 2025, MH Construction underwent a comprehensive documentation optimi
 4. **Improved navigation** through comprehensive indices
 5. **Standardized documentation format** across all files
 
-These archive files represented single-purpose documents that addressed specific issues or updates. Their content has been integrated into the current, more comprehensive documentation structure where it's easier to discover and maintain.
+These archive files represented single-purpose documents that addressed specific issues or updates. Their content has been
+integrated into the current, more comprehensive documentation structure where it's easier to discover and maintain.
 
 ---
 

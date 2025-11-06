@@ -24,7 +24,8 @@
 
 ## 🎯 Mission & Purpose
 
-This guide provides the **single source of truth** for all Call-to-Action (CTA) buttons, links, and navigation patterns across the MH Construction website.
+This guide provides the **single source of truth** for all Call-to-Action (CTA) buttons, links, and navigation patterns
+across the MH Construction website.
 
 ### Key Objectives
 
@@ -1017,7 +1018,7 @@ import { CONTACT_INFO } from '@/lib/constants';
    className = "hover:text-brand-primary dark:hover:text-bronze-400";
 
    // ❌ Wrong - Conflicting classes
-   className = "text-blue-500 text-brand-primary";
+   className = "text-blue-500 text-red-600"; // Multiple color classes conflict
    ```
 
 2. **Verify Dark Mode Classes:**
