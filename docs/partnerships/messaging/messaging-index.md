@@ -54,6 +54,16 @@ relationships, not just structures.
 - Terminology differences
 - Examples and use cases
 
+### Service Distinctions
+
+**[ai-estimator-vs-consultation.md](./ai-estimator-vs-consultation.md)** - AI vs in-person service messaging
+
+- AI Estimator service positioning
+- In-person consultation messaging
+- Clear service differentiation
+- Icon and visual identity guidelines
+- CTA language for each service type
+
 ---
 
 ## 🎯 Quick Reference

@@ -42,7 +42,6 @@
 
 - **[Jennifer Tenehuerta](./jennifer-tenehuerta.md)** - Administration
 - **[Lisa Kandle](./lisa-kandle.md)** - Administrative support
-- **[Lisa](./lisa.md)** - Administrative operations
 - **[Makayla Holstein](./makayla-holstein.md)** - Administrative coordination
 - **[Brittney Holstein](./brittney-holstein.md)** - Administrative support
 - **[Reagan Massey](./reagan-massey.md)** - Administrative operations
@@ -51,9 +50,7 @@
 
 ## Profile Management
 
-### Template
-
-- **[TEMPLATE.md](./TEMPLATE.md)** - Template for creating new team profiles
+All team profiles follow a consistent format. See the trigger utilities for profile updates and synchronization.
 
 ### Utilities
 

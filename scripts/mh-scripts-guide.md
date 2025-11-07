@@ -7,99 +7,87 @@ Organized automation scripts for the MH Construction website development workflo
 ### 📁 `/analysis/` - Code & Content Analysis
 
 - `analyze-content-quality.sh` - Content quality assessment
-- `analyze-docs-focused.sh` - Documentation-focused analysis
-- `analyze-docs-updated.sh` - Updated documentation analysis
-- `analyze-docs.sh` - General documentation analysis
-- `analyze-naming-patterns.sh` - Naming convention analysis
-- `analyze-phases.sh` - Project phase analysis
+- `build-bottleneck-analyzer.sh` - Identify build performance bottlenecks
+- `build-performance-analyzer.js` - Detailed build performance analysis
+- `large-file-analyzer.sh` - Find large files impacting performance
+- `post-optimization-analysis.js` - Post-optimization analysis reporting
 
 ### 📁 `/cleanup/` - Codebase Maintenance
 
 - `cleanup.sh` - General codebase cleanup
-- `cleanup-phase1.sh` - Phase 1 safe cleanup operations
-- `cleanup-phase2.sh` - Phase 2 cleanup operations
-- `cleanup-phase3.sh` - Phase 3 cleanup operations
-- `cleanup-redundant-files.sh` - Remove redundant files
-- `consolidate-phases.sh` - Consolidate cleanup phases
+- `post-optimization-cleanup.js` - Post-optimization cleanup tasks
 - `review-backups.sh` - Backup file review and cleanup
 
 ### 📁 `/markdown/` - Documentation Processing
 
-- `add-toc-to-markdown.sh` - Add table of contents to markdown files
 - `advanced-markdown-formatting.sh` - Advanced markdown formatting
 - `comprehensive-markdown-fix.sh` - Comprehensive markdown fixes
-- `fix-markdown-lint-comprehensive.sh` - Fix markdown linting issues
-- `fix-navigation-docs.sh` - Fix navigation documentation
-- `lint-markdown.sh` - Markdown linting
 - `quick-markdown-fix.sh` - Quick markdown fixes
 - `validate-markdown-links.sh` - Validate markdown links
 
 ### 📁 `/optimization/` - Code & Asset Optimization
 
-- `execute-naming-standardization.sh` - Execute naming standardization
-- `optimize-docs-phase1.sh` - Documentation optimization phase 1
+- `build-monitor.js` - Monitor build performance
+- `build-performance-optimizer.js` - Optimize build performance
+- `optimize-for-cloudflare.js` - Cloudflare-specific optimizations
 - `optimize-images.sh` - Image optimization
-- `standardize-imports.py` - Python import standardization
-- `standardize-imports.sh` - Shell import standardization
-- `standardize-naming-fixed.sh` - Fixed naming standardization
+- `ultra-fast-optimizer.js` - Ultra-fast build optimization
 
 ### 📁 `/utilities/` - General Purpose Tools
 
 - `add-cspell-word.sh` - Add words to cspell dictionary
-- `add-cspell-words-to-db.js` - Batch add cspell words (Node.js)
-- `organize-team-profiles.sh` - Organize team profile files
-- `preview-naming-changes.sh` - Preview naming changes before applying
+- `check-domain-setup.sh` - Verify domain configuration
+- `fix-markdown-code-blocks.sh` - Fix markdown code block issues
+- `fix-markdown-lists.sh` - Fix markdown list formatting
 
 ### 📁 `/validation/` - Quality Assurance
 
 - `health-check-final.sh` - Final health check validation
 - `validate-css-js-cohesion.sh` - CSS/JavaScript cohesion validation
 
-### 🚀 **Root Level - Core Operations**
+### �� **Root Level - Core Operations**
 
-- `deploy.sh` - Production deployment script
+- `extract-team-data.js` - Extract team member data
+- `test-api-endpoints.sh` - Test API endpoint functionality
+- `test-d1-integration.sh` - Test Cloudflare D1 database integration
+- `test-database.js` - Database testing utilities
 
 ## Usage Examples
 
-````bash
+```bash
 # Run analysis
-./analysis/analyze-content-quality.sh
+npm run analyze:content
 
 # Cleanup operations
-./cleanup/cleanup-phase1.sh
+npm run clean
 
 # Markdown processing
-./markdown/lint-markdown.sh
+npm run lint:markdown:fix
 
-# Optimization
-./optimization/optimize-images.sh
+# Image optimization
+npm run optimize:images
 
-# Utilities
-./utilities/add-cspell-word.sh "newword"
+# Domain setup check
+npm run domain:check
 
 # Validation
-./validation/health-check-final.sh
+./scripts/validation/health-check-final.sh
+```
 
-# Deployment
-./deploy.sh
-```text
+## Package.json Scripts
 
-## Script Permissions
+Access these scripts via npm:
 
-All shell scripts should be executable:
+- `npm run clean` - Run cleanup script
+- `npm run optimize:images` - Optimize images
+- `npm run lint:markdown` - Lint markdown files
+- `npm run lint:markdown:fix` - Auto-fix markdown issues
+- `npm run validate:links` - Validate markdown links
+- `npm run analyze:content` - Run content quality analysis
+- `npm run review:backups` - Review backup files
+- `npm run domain:check` - Check domain setup
 
-```bash
-find scripts/ -name "*.sh" -exec chmod +x {} \;
-```text
+---
 
-## Development Workflow
-
-1. **Analysis** - Understand current state
-2. **Cleanup** - Remove redundant/outdated files
-3. **Optimization** - Improve code and assets
-4. **Validation** - Verify quality and functionality
-5. **Documentation** - Process markdown files
-6. **Deployment** - Deploy to production
-
-This organization reduces clutter while maintaining clear separation of concerns and easy script discovery.
-````
+**Last Updated:** November 7, 2025
+**Maintainer:** MH Construction Development Team

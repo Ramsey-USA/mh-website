@@ -256,15 +256,12 @@ if (recommendations.length > 0) {
   });
 }
 
-// Generate cleanup script if issues found
+// Analysis complete
 if (issues.length > 0 || recommendations.length > 0) {
-  console.log("🛠️  AUTOMATED CLEANUP AVAILABLE");
-  console.log("===============================\n");
+  console.log("🛠️  MANUAL REVIEW RECOMMENDED");
+  console.log("=============================\n");
   console.log(
-    "Run: node scripts/cleanup/post-optimization-cleanup.js --execute",
-  );
-  console.log(
-    "This will create a detailed cleanup script for safe execution.\n",
+    "Review the issues and recommendations above to optimize the codebase.\n",
   );
 }
 

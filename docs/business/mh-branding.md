@@ -22,7 +22,7 @@ This comprehensive guide contains ALL MH Construction branding standards. For fo
 - **[Color System](../branding/standards/color-system.md)** - Complete color palette and usage
 - **[Typography](../branding/standards/typography.md)** - Font system and hierarchy
 - **[Messaging Guidelines](../branding/strategy/messaging.md)** - Voice, tone, and content standards
-- **[Icon Policy](../branding/standards/icon-policy.md)** - Material Icons standards and enforcement
+- **[Icon Policy Complete](../technical/design-system/icons/icon-policy-complete.md)** - Material Icons standards and enforcement
 - **[Consistency Guide](../development/consistency-guide.md)** - Complete implementation standards
 
 ### 🔗 Development Standards Integration
@@ -33,7 +33,7 @@ This comprehensive guide contains ALL MH Construction branding standards. For fo
   coding standards, import patterns, animation rules
 - **[AI Development Guidelines](../development/ai-development-guidelines.md)** -
   Critical rules for AI assistants working on codebase
-- **[Consistency Master Plan](../project/consistency-master-plan.md)** - Overall
+- **[Consistency Guide](../development/consistency-guide.md)** - Complete
   consistency strategy and enforcement
 
 **Key Development Requirements:**

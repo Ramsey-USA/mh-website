@@ -47,11 +47,13 @@ Visual design standards, typography, colors, icons, and component specifications
 
 - `color-system.md` - Brand colors and usage
 - `typography.md` - Typography system (consolidated)
-- `icon-policy.md` - Material Icons standards
 - `component-standards.md` - UI component specifications
 - `hero-section-standards.md` - Hero section requirements
 - `bubble-headings-policy.md` - Professional heading guidelines
 - `cta-standardization-plan.md` - Call-to-action standards
+
+**Note**: For complete icon policy, see
+[Icon Policy Complete](../technical/design-system/icons/icon-policy-complete.md) in the Design System documentation.
 
 ### 🔧 [implementation/](./implementation/)
 

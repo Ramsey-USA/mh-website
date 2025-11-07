@@ -131,7 +131,6 @@ designer, content writer, or stakeholder, start here to find what you need.
 **Key Documents:**
 
 - [Architecture](./project/architecture.md) - System design overview
-- [Branding Architecture](./project/branding-architecture.md) - Brand system design
 
 ---
 
