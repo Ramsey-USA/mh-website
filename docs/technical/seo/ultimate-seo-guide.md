@@ -7,7 +7,9 @@
 
 ## 🎯 Overview
 
-This document describes the ultimate SEO optimization system for MH Construction's website. The system is designed to automatically adapt to changes and maintain optimal SEO performance with minimal manual intervention.
+This document describes the ultimate SEO optimization system for MH Construction's website. The system is
+designed to automatically adapt to changes and maintain optimal SEO performance with minimal manual
+intervention.
 
 ---
 
@@ -90,7 +92,9 @@ export function getNewPageSEO(): Metadata & { schemas: object[] } {
       "veteran-owned construction",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/new-page`,
-    schemas: [/* your schema objects */],
+    schemas: [
+      /* your schema objects */
+    ],
   });
 }
 ```
@@ -111,7 +115,8 @@ export function getNewPageSEO(): Metadata & { schemas: object[] } {
 
 - ✅ "AI Cost Estimator | MH Construction" (40 chars)
 - ✅ "Services | MH Construction" (30 chars)
-- ❌ "Construction Services Including Residential, Commercial, and Government Projects | MH Construction" (95 chars - TOO LONG)
+- ❌ "Construction Services Including Residential, Commercial, and Government | MH Construction"
+  (91 chars - TOO LONG)
 
 ### Description Optimization
 
@@ -128,9 +133,9 @@ export function getNewPageSEO(): Metadata & { schemas: object[] } {
 
 **Example:**
 
-```
-Professional construction services from MH Construction. 
-Veteran-owned excellence serving the Pacific Northwest with 
+```text
+Professional construction services from MH Construction.
+Veteran-owned excellence serving the Pacific Northwest with
 AI-powered solutions. Schedule your free consultation today.
 (154 characters - PERFECT!)
 ```
@@ -157,13 +162,13 @@ AI-powered solutions. Schedule your free consultation today.
 
 ### Score Breakdown
 
-| Score Range | Grade | Status | Action |
-|------------|-------|---------|---------|
-| 90-100 | A+ | 🟢 Excellent | Maintain |
-| 80-89 | A | 🟢 Good | Minor tweaks |
-| 70-79 | B | 🟡 Fair | Improvements needed |
-| 60-69 | C | 🟠 Poor | Action required |
-| 0-59 | F | 🔴 Critical | Immediate fix |
+| Score Range | Grade | Status       | Action              |
+| ----------- | ----- | ------------ | ------------------- |
+| 90-100      | A+    | 🟢 Excellent | Maintain            |
+| 80-89       | A     | 🟢 Good      | Minor tweaks        |
+| 70-79       | B     | 🟡 Fair      | Improvements needed |
+| 60-69       | C     | 🟠 Poor      | Action required     |
+| 0-59        | F     | 🔴 Critical  | Immediate fix       |
 
 ### Score Factors
 
@@ -201,10 +206,10 @@ import {
   calculateSEOScore,
   validateSEO,
   detectPageType,
-} from '@/lib/seo/auto-seo-manager';
+} from "@/lib/seo/auto-seo-manager";
 
 // Auto-generate SEO for new page
-const seoConfig = autoGenerateSEO('/new-page');
+const seoConfig = autoGenerateSEO("/new-page");
 
 // Calculate score
 const score = calculateSEOScore(seoConfig);
@@ -219,17 +224,17 @@ const validation = validateSEO(seoConfig);
 
 The system auto-detects page types and applies appropriate defaults:
 
-| Category | Patterns | Priority | Change Freq | Schemas |
-|----------|----------|----------|-------------|---------|
-| **Homepage** | `/` | 1.0 | monthly | Organization, Website, LocalBusiness, FAQ |
-| **Services** | `/services`, `/service/` | 0.9 | monthly | Service, Offer |
-| **Projects** | `/projects`, `/portfolio` | 0.8 | weekly | CreativeWork |
-| **Team** | `/team`, `/about` | 0.7 | monthly | Person, Organization |
-| **Contact** | `/contact`, `/booking` | 0.9 | monthly | ContactPage, LocalBusiness |
-| **Careers** | `/careers`, `/jobs` | 0.7 | weekly | JobPosting |
-| **Tools** | `/estimator`, `/calculator` | 0.85 | monthly | SoftwareApplication |
-| **Emergency** | `/urgent`, `/emergency` | 0.85 | monthly | Service, EmergencyService |
-| **Partnerships** | `/partners`, `/government` | 0.75 | monthly | Service, Organization |
+| Category         | Patterns                    | Priority | Change Freq | Schemas                                   |
+| ---------------- | --------------------------- | -------- | ----------- | ----------------------------------------- |
+| **Homepage**     | `/`                         | 1.0      | monthly     | Organization, Website, LocalBusiness, FAQ |
+| **Services**     | `/services`, `/service/`    | 0.9      | monthly     | Service, Offer                            |
+| **Projects**     | `/projects`, `/portfolio`   | 0.8      | weekly      | CreativeWork                              |
+| **Team**         | `/team`, `/about`           | 0.7      | monthly     | Person, Organization                      |
+| **Contact**      | `/contact`, `/booking`      | 0.9      | monthly     | ContactPage, LocalBusiness                |
+| **Careers**      | `/careers`, `/jobs`         | 0.7      | weekly      | JobPosting                                |
+| **Tools**        | `/estimator`, `/calculator` | 0.85     | monthly     | SoftwareApplication                       |
+| **Emergency**    | `/urgent`, `/emergency`     | 0.85     | monthly     | Service, EmergencyService                 |
+| **Partnerships** | `/partners`, `/government`  | 0.75     | monthly     | Service, Organization                     |
 
 ---
 
@@ -286,14 +291,14 @@ Before deploying changes:
 
 ## 📊 Current SEO Status
 
-| Metric | Value | Status |
-|--------|-------|---------|
-| **Total Pages** | 13 | ✅ |
-| **Average Score** | 85+ | ✅ |
-| **Passing Pages** | 13/13 | ✅ |
-| **Sitemap Updated** | Auto | ✅ |
-| **Robots.txt** | Configured | ✅ |
-| **Schema Markup** | Active | ✅ |
+| Metric              | Value      | Status |
+| ------------------- | ---------- | ------ |
+| **Total Pages**     | 13         | ✅     |
+| **Average Score**   | 85+        | ✅     |
+| **Passing Pages**   | 13/13      | ✅     |
+| **Sitemap Updated** | Auto       | ✅     |
+| **Robots.txt**      | Configured | ✅     |
+| **Schema Markup**   | Active     | ✅     |
 
 ---
 
@@ -321,7 +326,7 @@ Before deploying changes:
 
 ```typescript
 // In page-seo-utils.ts
-import { generateServiceSchema } from '@/components/seo/enhanced-seo';
+import { generateServiceSchema } from "@/components/seo/enhanced-seo";
 
 export function getCustomPageSEO() {
   return generateEnhancedMetadata({
@@ -436,7 +441,7 @@ You now have an **ultimate SEO optimization system** that:
 ✅ **Scores and audits** all pages automatically  
 ✅ **Generates reports** for monitoring  
 ✅ **Requires minimal maintenance**  
-✅ **Scales with your site**  
+✅ **Scales with your site**
 
 **To add a new page:** Just add one line to the sitemap array!
 
