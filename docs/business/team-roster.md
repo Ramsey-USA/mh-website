@@ -58,6 +58,12 @@ approach.
 
 ### Makayla Holstein - Project Manager
 
+**BIO**: Makayla grew up immersed in construction, learning from her father and working hands-on in
+framing, roofing, and site problem-solving. Project management was a natural fit for her
+organizational and communication skills. As Project Manager, she oversees projects from estimating
+to close-out - managing contracts, budgets, submittals, RFIs, change orders, and field
+coordination.
+
 - **Experience**: 8 years construction project management
 - **Status**: Civilian Professional
 - **Certifications**:
@@ -122,6 +128,15 @@ approach.
 ## 🚧 Site & Field Operations
 
 ### Steve McClary - Senior Superintendent
+
+**BIO**: Steven began his career in construction as a teenager, starting on a residential crew
+clearing debris before swapping into a leadership position when they were short handed. Over the
+years he discovered his passion for construction outweighed his original pursuit of diesel and
+heavy equipment machines. Known for his staying busy and constantly learning new trades, Steve has
+built a career on reliability and skill diversity. As Senior Superintendent, Steve oversees all
+on-site construction operations - ensuring projects are safe, efficient, and on-plan. He
+coordinates subcontractor teams, mentors newcomers, manages resources, and serves as a key liaison
+between clients and design teams.
 
 - **Experience**: 20+ years field operations leadership
 - **Status**: Civilian Professional

@@ -220,7 +220,7 @@ export default function Footer() {
               </Link>
 
               <Link
-                href="/contact#urgent-support"
+                href="/urgent"
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon

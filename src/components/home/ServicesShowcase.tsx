@@ -6,42 +6,42 @@ const services = [
     icon: "explore",
     title: "Construction Management",
     description:
-      "Full Construction Management (CM) services throughout the Tri-Cities. We minimize 'on-the-fly' decisions through meticulous planning.",
+      "Partnership-focused Construction Management (CM) services throughout the Tri-Cities. Our priority is delivering an exceptional partnership experience from concept through completion, minimizing 'on-the-fly' decisions through meticulous Master Planning.",
     cta: "Call (509) 308-6489",
   },
   {
     icon: "architecture",
     title: "Master Planning",
     description:
-      "Comprehensive Pre-Construction & Master Planning services. Transform your vision into a practical, buildable reality.",
+      "Comprehensive Pre-Construction & Master Planning services transforming your vision into reality. We strategize and coordinate every component from concept through finishing touches, preventing last-minute changes and scope creep.",
     cta: "Learn More",
   },
   {
     icon: "build",
     title: "Commercial Buildings",
     description:
-      "Complete Commercial Construction Services for offices, retail, and industrial facilities across WA, OR, and ID.",
+      "Complete Commercial Construction Services for offices, retail, industrial, medical facilities, and religious spaces across WA, OR, and ID. From small professional offices to large dealerships—built for the Owner, NOT the Dollar.",
     cta: "Learn More",
   },
   {
     icon: "straighten",
-    title: "Medical Facilities",
+    title: "Procurement & Trade Partnerships",
     description:
-      "Specialized medical facility construction and clinic design. Precision planning for healthcare environments.",
+      "Comprehensive Trade Partnership Management specializing in sourcing quality materials and coordinating with our network of approved vendors. We handle all vendor coordination so you don't have to worry about managing multiple trade relationships.",
     cta: "Learn More",
   },
   {
     icon: "construction",
     title: "Light Industrial",
     description:
-      "Safe, durable, and highly functional industrial buildings. Warehouses to processing plants built to your specifications.",
+      "Safe, durable, and highly functional industrial buildings with 13+ years experience. Warehouses to processing plants built to your precise specifications with industry-leading materials and expert craftsmanship.",
     cta: "Learn More",
   },
   {
     icon: "gps_fixed",
     title: "Tenant Improvements",
     description:
-      "Expert Commercial Tenant Improvement (TI) Services. Transform your commercial space into a functional, beautiful environment.",
+      "Expert Commercial Tenant Improvement (TI) Services with decades of experience. Transform your commercial space quickly and efficiently with expert craftsmanship—licensed throughout WA, OR, and ID.",
     cta: "Learn More",
   },
 ];

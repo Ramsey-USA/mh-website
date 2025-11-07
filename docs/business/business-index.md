@@ -19,6 +19,7 @@
 
 - [**Services Overview**](./services.md) - Complete service offerings and construction capabilities
 - [**Core Values**](./core-values.md) - Six-value professional foundation system
+- [**Awards & Achievements**](./awards-achievements.md) - Recognition and safety excellence record
 - [**Client Testimonials**](./testimonials.md) - Real client feedback and project success stories
 - [**Government Grant Projects**](./government-grant-projects.md) - Grant-funded construction expertise
 - [**Team Roster**](./team-roster.md) - Meet our experienced construction team
@@ -49,6 +50,7 @@ docs/business/
 ├── business-index.md           # This navigation hub
 ├── services.md                 # Complete service offerings
 ├── core-values.md              # Company principles and values
+├── awards-achievements.md      # Recognition and safety excellence
 ├── testimonials.md             # Client feedback and success stories
 ├── team-roster.md              # Complete team information
 ├── team-data-sync.md           # Team information synchronization

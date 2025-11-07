@@ -4,34 +4,35 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 const partnershipValues = [
   {
-    icon: "security",
-    title: "We Work With You",
-    subtitle: "True Collaboration",
+    icon: "emoji_events",
+    title: "Award-Winning Safety",
+    subtitle: ".6 EMR Excellence",
     description:
-      "More than contractors - we're your construction partners. Your vision combined with our veteran-led expertise creates extraordinary results.",
+      "Multiple AGC-WA Top EMR Awards with .6 EMR—40% better than industry average. 3+ years without time-loss injury and OSHA VPP Star designation demonstrate our unwavering commitment to zero-incident workplace culture.",
+    iconColor: "text-brand-secondary",
   },
   {
-    icon: "favorite",
-    title: "Community Centered",
-    subtitle: "Pacific Northwest Roots",
+    icon: "workspace_premium",
+    title: "150+ Years Experience",
+    subtitle: "Proven Excellence",
     description:
-      "Every project strengthens our shared community. Local hiring, regional suppliers, and neighborhood focus.",
+      "Our team brings deep expertise across all construction disciplines—refined through decades of successful projects. We leverage proven methods refined through generations of construction excellence.",
     iconColor: "text-brand-secondary",
   },
   {
     icon: "visibility",
-    title: "Honest & Transparent",
+    title: "Owner-Focused Transparency",
     subtitle: "No Surprises Partnership",
     description:
-      "Open pricing, honest timelines, and constant communication. Veteran integrity means no hidden costs.",
+      "Open-book pricing, honest timelines, and constant communication. You control it, we manage it—full visibility into every decision. Veteran integrity means no hidden costs, ever.",
     iconColor: "text-brand-secondary",
   },
   {
     icon: "handshake",
-    title: "Lifelong Partners",
+    title: "THE ROI IS THE RELATIONSHIP",
     subtitle: "Beyond Project Completion",
     description:
-      "Our partnership doesn't end when construction finishes. Many clients become lifelong friends and community connections.",
+      "Our partnership doesn't end when construction finishes. 70% of our business comes from referrals and repeat clients—testament to lasting partnerships that become lifelong community connections.",
     iconColor: "text-brand-secondary",
   },
 ];

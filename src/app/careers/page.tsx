@@ -213,37 +213,37 @@ const companyBenefits = [
     icon: "health_and_safety",
     title: "Comprehensive Health Coverage",
     description:
-      "Medical, dental, and vision insurance with competitive premiums and low deductibles.",
+      "Medical, dental, and vision insurance with competitive premiums and low deductibles. Supporting your health and your family's well-being.",
   },
   {
     icon: "savings",
     title: "Retirement Planning",
     description:
-      "401(k) plan with generous company matching to help secure your financial future.",
+      "401(k) plan with generous company matching to help secure your financial future. We invest in your long-term success.",
   },
   {
     icon: "school",
-    title: "Professional Development",
+    title: "Professional Development & Continuous Learning",
     description:
-      "Continuing education, certifications, and training opportunities to advance your career. Regular training on new techniques, safety standards, and technology plus leadership development and mentorship programs.",
+      "Continuing education, certifications, and training opportunities to advance your career. Regular training on new techniques, safety standards (OSHA 30, VPP Star standards), and technology plus leadership development, structured mentorship programs, cross-training across multiple specialties, and active industry involvement.",
   },
   {
     icon: "work_history",
     title: "Work-Life Balance",
     description:
-      "Flexible scheduling and time off policies that respect your personal life.",
+      "Flexible scheduling and time off policies that respect your personal life and family commitments. We understand construction demands—and believe in supporting your well-being.",
   },
   {
     icon: "local_hospital",
-    title: "Safety First Culture",
+    title: "Award-Winning Safety First Culture",
     description:
-      "Industry-leading safety training and equipment to ensure everyone goes home safe. Presidential leadership focused on safety management, organizational standards, and OSHA compliance.",
+      "Industry-leading .6 EMR safety record (40% better than industry average), multiple AGC-WA Top EMR Awards (2019-2021, 2025 Most Improved), OSHA VPP Star designation, and 3+ consecutive years without time-loss injuries. Presidential leadership focused on safety management, organizational standards, proactive hazard identification, regular training, and high-quality equipment. Everyone goes home safe, every single day—no timeline or budget overrides safety.",
   },
   {
     icon: "military_tech",
-    title: "Veteran-Friendly Workplace",
+    title: "Veteran-Friendly Workplace & Hiring Initiative",
     description:
-      "Special recognition and support for military veterans transitioning to civilian careers. Active veteran hiring initiative and veteran partnership development with organizations across the Pacific Northwest.",
+      "Veteran-owned since January 2025 under Army veteran leadership. Special recognition and support for military veterans transitioning to civilian careers. Active veteran hiring initiative, veteran partnership development with organizations across the Pacific Northwest, and understanding of military precision, discipline, and service values. Veterans bring mission-focused reliability and staying calm under pressure.",
   },
 ];
 
@@ -253,28 +253,28 @@ const cultureValues = [
     icon: "handshake",
     title: "Integrity & Trust",
     description:
-      "We build relationships based on honesty, transparency, and mutual respect. Transparent communication and collaborative problem-solving define every interaction—from apprentice to owner.",
+      "We build relationships based on honesty, transparency, and mutual respect. 'Building for the Owner, NOT the Dollar' means transparent communication, open-book pricing, and collaborative problem-solving define every interaction—from apprentice to owner. 70% of our business comes from referrals and repeat clients.",
     color: "from-brand-primary to-brand-primary-dark",
   },
   {
     icon: "emoji_people",
-    title: "Team Unity",
+    title: "Team Unity & Military Precision",
     description:
-      "From veterans to civilians, office to field—we're one team with shared values. Military precision meets civilian innovation, combining disciplined excellence with creative problem-solving.",
+      "Veteran-owned since January 2025 under Army veteran leadership. From veterans to civilians, office to field—we're one team with shared values. Military discipline and structured processes meet civilian innovation, combining unwavering attention to detail with creative problem-solving and mission-focused reliability.",
     color: "from-brand-secondary to-brand-secondary-dark",
   },
   {
     icon: "trending_up",
-    title: "Excellence & Growth",
+    title: "Excellence & Continuous Growth",
     description:
-      "We pursue continuous improvement in everything we do, personally and professionally.",
+      "We pursue continuous improvement in everything we do, personally and professionally. 150+ years combined experience refined through mentorship programs, cross-training across multiple specialties, regular training on new techniques, safety standards, technology, and industry involvement. Your growth is our growth.",
     color: "from-brand-accent to-brand-accent-dark",
   },
   {
     icon: "favorite",
-    title: "Community Impact",
+    title: "Community Impact & Safety First",
     description:
-      "Building stronger communities, one project and one relationship at a time. Understanding that every project serves the broader community through quality craftsmanship and lasting relationships.",
+      "Building stronger communities, one project and one relationship at a time. Award-winning safety (.6 EMR—40% better than industry, multiple AGC-WA Top EMR Awards, OSHA VPP Star) ensures everyone goes home safe. Understanding that every project serves the broader community through quality craftsmanship and lasting relationships.",
     color: "from-brand-primary-light to-brand-primary",
   },
 ];
@@ -314,11 +314,13 @@ export default function CareersPage() {
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
               "Building for the Owner, NOT the Dollar" — Join a veteran-owned
-              company with over 150 years combined team experience that values
-              integrity, excellence, and community throughout the Pacific
-              Northwest. We're looking for dedicated professionals who share our
-              commitment to quality craftsmanship and partnership-driven
-              relationships.
+              company (January 2025) with award-winning safety (.6 EMR—40%
+              better than industry) and over 150 years combined team experience
+              that values integrity, excellence, and community throughout the
+              Pacific Northwest. We're looking for dedicated professionals who
+              share our commitment to quality craftsmanship, safety excellence,
+              and partnership-driven relationships where THE ROI IS THE
+              RELATIONSHIP.
             </p>
           </div>
         </div>
@@ -345,10 +347,14 @@ export default function CareersPage() {
                 </span>
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                We're more than just a construction company—we're a family that
-                invests in your success and future. With leadership crafted
-                through military structure and a team of skilled professionals,
-                we bring unwavering dedication to every project and team member.
+                We're more than just a construction company—we're a
+                veteran-owned family that invests in your success and future.
+                With leadership crafted through military structure and a team of
+                skilled professionals, we bring unwavering dedication,
+                award-winning safety culture (.6 EMR, 3+ years no time-loss
+                injury), and owner-first focus to every project and team member.
+                When you succeed, we all succeed—because THE ROI IS THE
+                RELATIONSHIP.
               </p>
             </div>
           </FadeInWhenVisible>
@@ -399,8 +405,11 @@ export default function CareersPage() {
                 benefits, continuous learning opportunities, and a supportive
                 work environment where everyone goes home safe, every single
                 day. Professional development includes regular training on new
-                techniques, safety standards, technology, plus cross-training,
-                mentorship programs, and industry involvement.
+                techniques, safety standards (OSHA 30, VPP Star), technology,
+                plus cross-training across specialties, structured mentorship
+                programs pairing experienced professionals with emerging
+                leaders, and industry involvement that keeps you at the
+                forefront of construction excellence.
               </p>
             </div>
           </FadeInWhenVisible>
@@ -595,9 +604,13 @@ export default function CareersPage() {
               </h2>
 
               <p className="mx-auto mb-10 max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                We're always looking for talented individuals to join our team.
-                Send us your resume and let us know how you'd like to contribute
-                to our mission.
+                We're always looking for talented individuals to join our
+                veteran-owned team. Whether you're a military veteran bringing
+                discipline and precision, an experienced professional seeking a
+                partnership-focused company, or someone passionate about quality
+                craftsmanship and safety excellence—send us your resume and let
+                us know how you'd like to contribute to our mission of building
+                relationships that last beyond project completion.
               </p>
 
               {/* CTA Buttons - Brand Standards */}

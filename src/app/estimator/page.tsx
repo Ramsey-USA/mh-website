@@ -74,11 +74,13 @@ export default function EstimatorPage() {
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
               "THE ROI IS THE RELATIONSHIP" — AI-powered technology from our
-              veteran-owned team provides preliminary budget estimates for
-              initial planning across the Pacific Northwest. For detailed
-              analysis, custom solutions, and transparent partnership, schedule
-              an in-person consultation with 150+ years combined team
-              experience.
+              veteran-owned team (January 2025) provides preliminary budget
+              estimates for initial planning across the Pacific Northwest.
+              Backed by award-winning safety (.6 EMR) and 150+ years combined
+              team experience. For detailed analysis, custom solutions,
+              transparent open-book pricing, and partnership-driven
+              collaboration, schedule an in-person consultation where you
+              control it, we manage it.
             </p>
           </div>
         </div>
@@ -105,7 +107,9 @@ export default function EstimatorPage() {
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Select the approach that best fits your project needs and
-                timeline
+                timeline—from instant AI estimates for quick budget planning to
+                comprehensive expert consultations for complex projects
+                requiring detailed analysis
               </p>
             </div>
 
@@ -152,9 +156,10 @@ export default function EstimatorPage() {
                       />
                       <span className="text-gray-700 dark:text-gray-300">
                         <strong className="font-bold text-brand-secondary">
-                          Data-Driven:
+                          Data-Driven Intelligence:
                         </strong>{" "}
-                        Based on 500+ completed projects
+                        Based on 500+ completed projects and 150+ years combined
+                        team experience
                       </span>
                     </li>
                     <li className="flex items-start">
@@ -240,9 +245,10 @@ export default function EstimatorPage() {
                       />
                       <span className="text-gray-700 dark:text-gray-300">
                         <strong className="font-bold text-brand-primary">
-                          Expert Analysis:
+                          Expert Partnership Analysis:
                         </strong>{" "}
-                        30+ years of construction experience
+                        150+ years combined experience, veteran-owned leadership
+                        with military precision
                       </span>
                     </li>
                     <li className="flex items-start">
@@ -266,9 +272,10 @@ export default function EstimatorPage() {
                       />
                       <span className="text-gray-700 dark:text-gray-300">
                         <strong className="font-bold text-brand-primary">
-                          Detailed Quote:
+                          Transparent Detailed Quote:
                         </strong>{" "}
-                        Accurate pricing with full scope breakdown
+                        Accurate open-book pricing with full scope breakdown—no
+                        hidden costs
                       </span>
                     </li>
                   </ul>
@@ -317,7 +324,9 @@ export default function EstimatorPage() {
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Get preliminary cost estimates instantly, powered by regional
-                construction data and AI technology for initial budget planning
+                Pacific Northwest construction data, AI technology, and backed
+                by award-winning safety (.6 EMR) and 150+ years combined team
+                experience for accurate initial budget planning
               </p>
             </div>
           </FadeInWhenVisible>
@@ -351,12 +360,13 @@ export default function EstimatorPage() {
                     />
                   </div>
                   <h3 className="mb-2 font-semibold text-xl">
-                    Market-Based Calculations
+                    Pacific Northwest Market-Based
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                    Trained on regional project data to provide helpful
-                    preliminary cost estimates for Pacific Northwest
-                    construction.
+                    Trained on regional project data from WA, OR, and ID to
+                    provide helpful preliminary cost estimates specific to
+                    Pacific Northwest construction markets and building
+                    requirements.
                   </p>
                 </CardContent>
               </Card>
@@ -372,11 +382,12 @@ export default function EstimatorPage() {
                     />
                   </div>
                   <h3 className="mb-2 font-semibold text-xl">
-                    No Hidden Costs
+                    Transparent Open-Book Pricing
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">
                     Transparent breakdown of materials, labor, permits, and all
-                    associated costs.
+                    associated costs. No hidden surprises—honest assessments you
+                    can trust for budget planning.
                   </p>
                 </CardContent>
               </Card>
@@ -400,7 +411,8 @@ export default function EstimatorPage() {
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Answer a few questions and get your preliminary construction
-                estimate for budget planning
+                estimate for budget planning—backed by veteran-owned expertise
+                and award-winning quality standards
               </p>
             </div>
           </FadeInWhenVisible>
@@ -464,15 +476,15 @@ export default function EstimatorPage() {
               </div>
               <div>
                 <div className="mb-2 font-bold text-brand-primary text-3xl">
-                  95%
+                  .6 EMR
                 </div>
-                <p className="text-gray-600">Accuracy Rate</p>
+                <p className="text-gray-600">Award-Winning Safety Record</p>
               </div>
               <div>
                 <div className="mb-2 font-bold text-brand-primary text-3xl">
-                  30+
+                  150+
                 </div>
-                <p className="text-gray-600">Years Experience</p>
+                <p className="text-gray-600">Years Combined Experience</p>
               </div>
               <div>
                 <div className="mb-2 font-bold text-brand-primary text-3xl">
@@ -498,9 +510,11 @@ export default function EstimatorPage() {
               </span>
             </h2>
             <p className="mx-auto mb-10 max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 leading-relaxed">
-              For complex projects, unique sites, or custom architectural
-              features, our expert team provides detailed consultations and site
-              evaluations.
+              For complex projects, unique sites, custom architectural features,
+              or projects requiring award-winning safety management (.6 EMR),
+              our veteran-owned expert team provides detailed consultations,
+              site evaluations, and transparent open-book pricing with 150+
+              years combined experience.
             </p>
             <div className="flex sm:flex-row flex-col justify-center gap-4">
               <Link href="/booking">

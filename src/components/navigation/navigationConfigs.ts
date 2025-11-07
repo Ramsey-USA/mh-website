@@ -420,6 +420,34 @@ export const navigationConfigs = {
       icon: "contact_phone",
     },
   ],
+
+  urgent: [
+    { href: "/", label: "Home", icon: "home" },
+    {
+      href: "/urgent#capabilities",
+      label: "Our Capabilities",
+      mobileLabel: "Capabilities",
+      icon: "engineering",
+    },
+    {
+      href: "/urgent#equipment",
+      label: "Equipment & Operators",
+      mobileLabel: "Equipment",
+      icon: "precision_manufacturing",
+    },
+    {
+      href: "/services#core-services",
+      label: "All Services",
+      mobileLabel: "Services",
+      icon: "build",
+    },
+    {
+      href: "/contact",
+      label: "Contact Now",
+      mobileLabel: "Contact",
+      icon: "phone",
+    },
+  ],
 };
 
 export type PageType = keyof typeof navigationConfigs;

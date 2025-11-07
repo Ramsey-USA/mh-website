@@ -59,8 +59,8 @@ brings unwavering dedication and owner-first focus to every project.
 
 ### Core Features
 
-- **11 Main Pages**: Home, About, Services, Projects, Team, Careers, Contact, Booking, Estimator,
-  Government, Trade Partners
+- **12 Main Pages**: Home, About, Services, Projects, Team, Careers, Contact, Booking, Estimator,
+  Government, Trade Partners, Urgent Support
 - **AI Chatbot "General MH"**: Military-themed Army General assistant with authentic service branch recognition
 - **Cost Estimator**: AI-powered project cost calculator with 12% combat veteran discount
 - **Booking System**: Consultation scheduling with veteran priority protocols
@@ -98,6 +98,7 @@ mh-website/
 │   │   ├── estimator/         # AI cost calculator
 │   │   ├── government/        # Government projects
 │   │   ├── trade-partners/    # Subcontractor network
+│   │   ├── urgent/            # Urgent construction support for GCs
 │   │   └── api/               # Edge API routes
 │   ├── components/            # React components
 │   │   ├── layout/           # Navigation, Footer
@@ -466,7 +467,7 @@ See [cloudflare-deployment.md](./cloudflare-deployment.md) for complete setup gu
 | **Build Time**  | ~34s                         |
 | **Bundle Size** | 102 KB shared JS             |
 | **Lighthouse**  | 94+                          |
-| **Routes**      | 25 total (11 pages + 14 API) |
+| **Routes**      | 26 total (12 pages + 14 API) |
 | **Components**  | 100+ reusable                |
 | **Type Safety** | 100% TypeScript              |
 

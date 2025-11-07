@@ -29,10 +29,12 @@ Perfect Project Delivery Award, Rising Star Recognition
 
 ## Biography
 
-Makayla Holstein, daughter of MH Construction founder Mike Holstein, is a highly-skilled Project Manager who excels
-at navigating complex project timelines and coordinating all project phases. She specializes in
-commercial and medical facility projects, bringing military-precision scheduling to every build
-while maintaining the family legacy of excellence.
+Makayla grew up immersed in construction, learning from her father and working hands-on in framing,
+roofing, and site problem-solving. Project management was a natural fit for her organizational and
+communication skills.
+
+As Project Manager, she oversees projects from estimating to close-out - managing contracts,
+budgets, submittals, RFIs, change orders, and field coordination.
 
 ## Career Highlights
 

@@ -45,16 +45,18 @@ export const coreServices: CoreService[] = [
   {
     iconName: "engineering",
     title: "Commercial Construction Management",
-    subtitle: "Streamline Your Project Success",
+    subtitle:
+      "Streamline Your Project Success with Partnership-Focused CM Services",
     description:
-      "Planning a new commercial building demands intricate details and expert oversight. Put your project in the right hands with comprehensive Construction Management (CM) services throughout the Tri-Cities area. Our priority is delivering an exceptional partnership experience from concept through completion. Trust our experienced team to manage the intricate details, allowing you to focus on your vision's success.",
+      "Planning a new commercial building demands intricate details and expert partnership oversight. Put your project in the right hands with comprehensive Construction Management (CM) services throughout the Tri-Cities area. Our priority is delivering an exceptional partnership experience from concept through completion, built on THE ROI IS THE RELATIONSHIP philosophy. We believe meticulous Master Planning and thorough communication are critical to streamlining the process in later stages, which is why we minimize 'on-the-fly' decisions. Trust our experienced team to manage the intricate details, allowing you to focus on your vision's success.",
     features: [
-      "Commercial Businesses (Retail, Offices)",
+      "Commercial Businesses (Retail Stores, Office Buildings)",
       "Medical Facilities & Healthcare Centers",
-      "Industrial Buildings & Manufacturing",
+      "Industrial Buildings & Manufacturing Centers",
       "Churches & Religious Facilities",
-      "Wineries & Vineyards",
+      "Wineries, Vineyards & Specialty Agricultural",
       "Government & Public Buildings",
+      "Educational Buildings (Schools, Training Centers)",
     ],
     benefits: [
       "Exceptional partnership experience from start to finish",
@@ -62,23 +64,26 @@ export const coreServices: CoreService[] = [
       "Streamlined process preventing costly on-the-fly decisions",
       "Expert oversight and intricate detail management",
       "Proven experience across all commercial sectors",
+      "Military precision applied to civilian construction",
+      "Building for the Owner, NOT the Dollar",
     ],
     ctaText:
-      "Ready to start your commercial construction project? Call (509) 308-6489 ext. 100 or schedule a free consultation to discuss your vision.",
+      "Ready to start your commercial construction project? Call (509) 308-6489 ext. 100 or schedule a free consultation to discuss your vision with our partnership-focused team.",
   },
   {
     iconName: "architecture",
-    title: "Master Planning",
-    subtitle: "Unlock Your Building's Potential",
+    title: "Master Planning (Pre-Construction)",
+    subtitle: "Unlock Your Building's Potential with Comprehensive Planning",
     description:
-      "We're passionate about transforming your vision into reality through comprehensive Master Planning. We strategize and coordinate every component of your building construction from concept through the finishing touches. Our skilled team works closely with you to create a plan designed to prevent last-minute changes and scope creep in later construction stages. Meticulous planning is critical to streamlining the process and minimizing costly adjustments.",
+      "At MH Construction, we're passionate about transforming your vision into reality through detailed Master Planning. We strategize and coordinate every component of your building construction from concept through the finishing touches. Our skilled team works closely with you to create a comprehensive plan designed to prevent last-minute changes and scope creep in later construction stages. This partnership approach ensures zero gaps in scope coverage during your construction planning. We meticulously consider every detail—from building location and infrastructure to local codes and your design preferences—providing the solid foundation for project success.",
     features: [
       "Building Location and Surrounding Infrastructure Analysis",
       "Local and State Building Codes Compliance (WA, OR, ID)",
-      "Detailed Budget Development and Cost Control",
-      "Project Timeline and Construction Sequencing",
+      "Detailed Budget Constraints and Cost Control",
+      "Project Timeline and Precise Sequencing",
       "Owner Design Preferences and Vision Integration",
-      "Site Analysis and Feasibility Studies",
+      "Site Analysis and Comprehensive Feasibility Studies",
+      "Multiple Budget Scenarios When Applicable",
     ],
     benefits: [
       "Zero gaps in scope coverage during construction planning",
@@ -86,22 +91,25 @@ export const coreServices: CoreService[] = [
       "Realistic timelines and achievable expectations",
       "Proactive problem identification and solutions",
       "Partnership-focused approach from day one",
+      "Prevents last-minute scope creep",
+      "Clear project scope definition and documentation",
     ],
   },
   {
     iconName: "inventory",
     title: "Procurement & Trade Partnership Management",
-    subtitle: "Reliable Material Sourcing & Vendor Coordination",
+    subtitle: "Reliable Material Sourcing & Professional Vendor Coordination",
     description:
-      "Navigating the logistics of construction requires extensive planning and coordination. We offer comprehensive Trade Partnership Management services throughout the Tri-Cities, specializing in sourcing quality materials and coordinating with our network of approved vendors tailored to your project goals. Our reliable Master Planning gives our trade partners the advanced notice necessary to streamline procurement and proactively manage long lead item delays, ensuring timely delivery and installation.",
+      "Navigating the logistics of construction requires extensive planning and coordination. At MH Construction, we offer comprehensive Trade Partnership Management services throughout the Tri-Cities, specializing in sourcing quality materials and coordinating with our network of approved vendors tailored to your project goals. Our reliable Master Planning gives our trade partners the advanced notice necessary to streamline procurement and proactively manage long lead item delays, ensuring timely delivery and installation. We handle all vendor coordination so you don't have to worry about managing multiple trade relationships—we work with our established network of quality professionals to deliver results.",
     features: [
-      "Quality Material Sourcing and Vetting",
-      "Supplier Management and Communication",
+      "Quality Material Sourcing and Professional Vetting",
+      "Comprehensive Supplier Management and Communication",
       "Budget Negotiation and Competitive Pricing",
-      "Purchase Orders and Documentation",
-      "Contract Management and Coordination",
-      "Delivery Scheduling and Logistics",
-      "Approved Vendor Network Management",
+      "Complete Purchase Orders and Documentation",
+      "Professional Contract Management and Coordination",
+      "Strategic Delivery Scheduling and Logistics",
+      "Curated Approved Vendor Network Management",
+      "Long Lead Item Proactive Management",
     ],
     benefits: [
       "Meticulous attention to detail throughout procurement",
@@ -109,38 +117,43 @@ export const coreServices: CoreService[] = [
       "Proactive management of long lead item delays",
       "Established network of quality trade professionals",
       "Eliminates client burden of vendor coordination",
+      "Advanced notice enables streamlined operations",
+      "Consistent project opportunities for trade partners",
     ],
     ctaLink: "/trade-partners",
-    ctaLinkText: "Explore Our Trade Partnership Network",
+    ctaLinkText: "Join Our Trade Partnership Network",
   },
   {
     iconName: "fact_check",
     title: "Constructability & Budget Control",
-    subtitle: "Proactive Feasibility Analysis & Cost Optimization",
+    subtitle: "Proactive Feasibility Review & Strategic Cost Optimization",
     description:
-      "Is your project possible? And if so, how can it be cost-effective? MH Construction is committed to improving project planning and execution by conducting early-stage analysis of construction feasibility and cost considerations. Our proactive approach involves partnering closely with our network of approved trade professionals throughout Washington, Oregon, and Idaho. This collaborative relationship eliminates guesswork and ensures realistic budgets and timelines.",
+      "Is your project possible? And if so, how can it be cost-effective? MH Construction is committed to improving project planning and execution by conducting comprehensive early-stage analysis of construction feasibility and cost considerations. We offer critical Constructability and Budget Control Services to clients throughout Washington, Oregon, and Idaho. Our partnership-driven process involves working closely with our network of approved trade professionals. This collaborative relationship eliminates guesswork, allowing us to determine the most efficient construction sequence and assembly, coordinate logistics for specialty items, and ensure precise parts ordering, timing, and cost control.",
     features: [
       "Most efficient construction sequence and assembly planning",
-      "Logistics coordination for specialty items (equipment, infrastructure)",
+      "Comprehensive logistics coordination for specialty items",
       "Precise parts ordering, timing, and cost control measures",
-      "Trade collaboration for accurate estimating",
-      "Risk mitigation and contingency planning",
+      "Early-stage trade collaboration for accurate estimating",
+      "Strategic risk mitigation and contingency planning",
       "Value engineering opportunities identification",
+      "Proactive budget control through expert consultation",
     ],
     benefits: [
       "Early collaboration with key trade partners eliminates surprises",
-      "Eliminates guesswork through expert consultation",
-      "Cost-effective project execution and budget adherence",
+      "Eliminates guesswork through expert professional consultation",
+      "Cost-effective project execution and strict budget adherence",
       "Proactive problem-solving before construction begins",
       "Realistic pricing based on actual trade expertise",
+      "Project stays on schedule and within budget",
+      "Confidence through constructability review process",
     ],
   },
   {
     iconName: "view_module",
-    title: "Modularization",
-    subtitle: "Strategic Project Division for Complex Builds",
+    title: "Modularization & Subproject Management",
+    subtitle: "Advanced Project Division for Complex Builds",
     description:
-      "Project Modularization involves strategically dividing a project into smaller, more manageable subprojects. This advanced process simplifies design, execution, and maintenance by breaking complex builds into focused phases. MH Construction specializes in Subproject Management to help partners complete large, complex projects more efficiently and consistently meet schedules across the Tri-Cities and Pacific Northwest. Replacing a single project manager with a team of phase specialists is the smartest decision you can make.",
+      "Project Modularization involves strategically dividing a project into smaller, more manageable subprojects. This advanced process simplifies design, execution, and maintenance by breaking complex builds into focused phases. MH Construction focuses on Subproject Management to help clients complete large, complex projects more efficiently and consistently meet schedules across the Tri-Cities and the Pacific Northwest. Ushering in a new era of project management—replacing a single project manager with a team of phase specialists is the smartest decision you can make. Our subproject management services help streamline the transitions between different construction phases, improve resource allocation and communication efficiency, and leverage our expertise specifically at each stage of the process.",
     features: [
       "Strategic division into manageable subprojects",
       "Streamlined transitions between construction phases",
@@ -148,6 +161,7 @@ export const coreServices: CoreService[] = [
       "Phase-specific expertise at each construction stage",
       "Focused execution with specialized oversight",
       "Timeline consistency across complex projects",
+      "Team of phase specialists approach",
     ],
     benefits: [
       "New era of project management for complex builds",
@@ -156,6 +170,7 @@ export const coreServices: CoreService[] = [
       "Better resource allocation and scheduling",
       "Reduced risk through specialized management",
       "Improved quality control at each phase",
+      "Leverages expertise specifically at each stage",
     ],
   },
 ];
@@ -165,9 +180,9 @@ export const specialtyServices: SpecialtyService[] = [
   {
     iconName: "business",
     title: "Markets We Serve",
-    subtitle: "Diverse Business Solutions Across the Pacific Northwest",
+    subtitle: "Diverse Business Solutions Across WA, OR, ID",
     description:
-      "We complete projects for a wide range of businesses throughout the Tri-Cities (Kennewick, Richland, Pasco) and the wider Pacific Northwest region. With over 150 years of combined construction experience, you can trust us to bring your unique vision to life—from specialty religious facilities to complex industrial centers, from boutique wineries to large-scale medical facilities.",
+      "At MH Construction, we complete projects for a wide range of businesses throughout the Tri-Cities (Kennewick, Richland, Pasco) and the wider Pacific Northwest region. With over 150 years of combined construction experience, you can trust us to bring your unique vision to life—from specialty religious facilities to complex industrial centers, from boutique wineries to large-scale medical facilities. We serve diverse markets across Washington, Idaho, and Oregon with the same commitment to quality and partnership excellence.",
     markets: [
       "Religious Facilities (Churches, Community Centers)",
       "Commercial Buildings (Retail Stores, Office Buildings)",
@@ -181,42 +196,44 @@ export const specialtyServices: SpecialtyService[] = [
   {
     iconName: "store",
     title: "Tenant Improvements",
-    subtitle: "Transform Your Commercial Space",
+    subtitle: "Transform Your Commercial Space in the Tri-Cities",
     description:
-      "If you've recently purchased a commercial building in the Tri-Cities area, MH Construction can help you transform it into your vision. We have decades of experience providing professional Tenant Improvement (TI) Services and are fully licensed to complete commercial renovation projects throughout Washington, Oregon, and Idaho. Whether you need a complete build-out or focused renovations, we'll help you bring your vision to life quickly and efficiently with expert craftsmanship.",
+      "If you've recently purchased a commercial building in the Tri-Cities area (Kennewick, Richland, Pasco, WA), MH Construction can help you transform it into your vision. We have decades of experience providing professional Tenant Improvement (TI) Services and are fully licensed to complete commercial renovation projects throughout Washington, Oregon, and Idaho. Whether you need a complete build-out or focused renovations, we'll help you bring your vision to life quickly and efficiently with expert craftsmanship. Our team understands the urgency of getting your business operational—we work diligently to minimize downtime while delivering exceptional results.",
     capabilities: [
-      "Complete commercial space transformation",
-      "Licensed throughout WA, OR, and ID",
-      "Quick and efficient project execution",
-      "Vision brought to life with expert guidance",
-      "Fast turnaround times for business needs",
-      "Existing building conversion and renovation",
+      "Complete commercial space transformation and renovation",
+      "Licensed throughout Washington, Oregon, and Idaho",
+      "Quick and efficient project execution for fast turnaround",
+      "Vision brought to life with expert guidance and craftsmanship",
+      "Fast turnaround times for business operational needs",
+      "Existing building conversion and renovation expertise",
+      "Decades of proven TI experience",
     ],
     ctaText:
-      "Ready for your tenant improvements? Call (509) 308-6489 ext. 100 to schedule a free consultation or book an on-site visit.",
+      "Ready for your tenant improvements? Call (509) 308-6489 ext. 100 to schedule a free consultation or book an on-site assessment to discuss your commercial space transformation.",
   },
   {
     iconName: "apartment",
     title: "Commercial New Build-Outs",
     subtitle: "Build Your Business Right from the Ground Up",
     description:
-      "Looking for a committed, quality construction partner for your new commercial building? We offer comprehensive Commercial Construction Services to business owners throughout Kennewick, WA and the entire Tri-Cities area. Whether you need a small professional office or a large automotive dealership, we construct functional spaces where your business can thrive. Our team uses top-grade materials and partners with the best architects to ensure your building meets your exact specifications and supports your business success.",
+      "Looking for a committed, quality construction partner for your new commercial building? We offer comprehensive Commercial Construction Services to business owners throughout Kennewick, WA and the entire Tri-Cities area. Whether you need a small professional office or a large automotive dealership, we construct functional spaces where your business can thrive. With over 150 years of combined experience, our crew uses top-grade materials and partners with the best architects in the Pacific Northwest to ensure your building meets your exact specifications and supports your business success. Every project is built with craftsmanship that lasts—quality construction that serves your business for generations.",
     buildTypes: [
       "Retail Construction (Stores, Shopping Centers)",
       "Medical Office Construction (Clinics, Healthcare)",
-      "Winery Construction (Tasting Rooms, Production)",
+      "Winery Construction (Tasting Rooms, Production Facilities)",
       "Automotive Dealership Construction",
       "Professional Office Buildings",
       "Boutique & Specialty Retail Spaces",
+      "Restaurant and Hospitality Construction",
     ],
-    note: "Every project built using top-grade materials and partnering with the best architects in the Pacific Northwest.",
+    note: "Every project built using top-grade materials and partnering with the best architects in the Pacific Northwest. From concept to completion, we're committed to creating spaces where your business can thrive.",
   },
   {
     iconName: "factory",
     title: "Light Industrial Construction",
     subtitle: "Functional & Safe Industrial Facilities",
     description:
-      "When choosing a contractor for light industrial facilities, experience is the most critical factor. MH Construction has been providing professional Light Industrial Construction Services for over 13 years to business owners in the Tri-Cities (Kennewick, WA) and surrounding states including Oregon and Idaho. Count on us to create a safe, functional, and code-compliant building—from warehouses to processing plants—all built to your precise specifications with industry-leading materials and expert craftsmanship.",
+      "When choosing a contractor for light industrial facilities, experience is the most critical factor. MH Construction has been providing professional Light Industrial Construction Services for over 13 years to business owners in the Tri-Cities (Kennewick, WA) and surrounding states including Oregon and Idaho. Count on us to create a safe, functional, and code-compliant building—from warehouses to processing plants—all built to your precise specifications with industry-leading materials and expert craftsmanship. Light industrial facilities demand durability, accessibility, and reliability—we deliver on all three fronts with meticulous attention to safety and functionality.",
     features: [
       "Advanced Fire Protection Systems",
       "Commercial-Grade Doors and Windows",
@@ -224,24 +241,27 @@ export const specialtyServices: SpecialtyService[] = [
       "Structural Metal Studs and Sheetrock",
       "OSHA-Compliant Safety Hand Railings",
       "Industrial Electrical and Mechanical Systems",
+      "Loading Docks and Material Handling Areas",
+      "Climate Control and Ventilation Systems",
     ],
-    note: "From warehouses to processing plants—all facilities built to your precise specifications with durability, accessibility, and reliability as top priorities.",
+    note: "From warehouses to processing plants—all facilities built to your precise specifications with durability, accessibility, and reliability as top priorities. Over 13 years of proven light industrial construction expertise.",
   },
   {
     iconName: "church",
     title: "Religious Facilities",
     subtitle: "Specialized Construction for Sacred Spaces",
     description:
-      "MH Construction provides dedicated commercial construction services for Churches, Community Centers, and Religious Facilities across Washington, Oregon, and Idaho. We deeply understand that these sacred spaces require thoughtful design, careful budgeting, and a profound respect for the community they serve. Trust our experienced team to manage every detail of your renovation or new construction project with the reverence and attention it deserves. We partner with religious communities to create spaces that inspire and serve for generations.",
+      "MH Construction provides dedicated commercial construction services for Churches, Community Centers, and Religious Facilities across Washington, Oregon, and Idaho. We deeply understand that these sacred spaces require thoughtful design, careful budgeting, and a profound respect for the community they serve. Trust our experienced team to manage every detail of your renovation or new construction project with the reverence and attention it deserves. We partner with religious communities to create spaces that inspire worship, foster fellowship, and serve congregations for generations to come. Our approach balances architectural beauty with practical functionality, ensuring your facility meets both spiritual and operational needs.",
     capabilities: [
-      "Thoughtful design respecting sacred purposes",
-      "Careful budgeting and transparent pricing",
+      "Thoughtful design respecting sacred purposes and traditions",
+      "Careful budgeting and transparent pricing for congregations",
       "Deep respect for community values and traditions",
       "Complete renovation or new construction services",
-      "Acoustics and specialized lighting design",
+      "Specialized acoustics and lighting design for worship",
       "Accessibility compliance and inclusive design",
+      "Multi-purpose spaces for worship and community events",
     ],
-    note: "Trust our experienced team to manage every detail of your project with reverence, ensuring your facility serves your community for generations to come.",
+    note: "Trust our experienced team to manage every detail of your project with reverence, ensuring your facility serves your community and congregation for generations to come. We understand the unique needs of religious spaces.",
   },
 ];
 
@@ -276,37 +296,49 @@ export const whyChooseUs: WhyChooseUsItem[] = [
     iconName: "workspace_premium",
     title: "150+ Years Combined Experience",
     description:
-      "Our team brings deep expertise across all construction disciplines—from foundation to finish. This experience has been refined through decades of successful projects across commercial, industrial, medical, and specialty facilities throughout the Pacific Northwest.",
+      "Our team brings deep expertise across all construction disciplines—from foundation to finish. This experience has been refined through decades of successful projects across commercial, industrial, medical, and specialty facilities throughout the Pacific Northwest. We leverage proven methods refined through generations of construction excellence.",
   },
   {
     iconName: "military_tech",
-    title: "Veteran-Owned Excellence",
+    title: "Veteran-Owned Excellence Since January 2025",
     description:
-      "Veteran-owned since January 2025 under Army veteran leadership. We apply military precision, discipline, and unwavering attention to detail to every construction project, ensuring reliable execution and mission-focused results.",
+      "Veteran-owned under Army veteran leadership. We apply military precision, discipline, and unwavering attention to detail to every construction project, ensuring reliable execution and mission-focused results. Our veteran-fueled reliability means staying calm and precise under pressure—delivering results when it matters most.",
+  },
+  {
+    iconName: "emoji_events",
+    title: "Award-Winning Safety Record",
+    description:
+      "Multiple AGC-WA Top EMR Awards (2019-2021, 2025 Most Improved). Our Experience Modification Rate of .6 is 40% better than industry average, demonstrating our unwavering commitment to worker safety and zero-incident workplace culture. Over 3 consecutive years without time-loss injuries and OSHA VPP Star designation.",
   },
   {
     iconName: "handshake",
-    title: "Partnership-Driven Approach",
+    title: "Partnership-Driven Approach: THE ROI IS THE RELATIONSHIP",
     description:
-      "We're not just contractors—we're community partners invested in the long-term success of the Pacific Northwest region. 'THE ROI IS THE RELATIONSHIP'—we build lasting partnerships that extend well beyond project completion.",
+      "We're not just contractors—we're community partners invested in the long-term success of the Pacific Northwest region. 'THE ROI IS THE RELATIONSHIP'—we build lasting partnerships that extend well beyond project completion. Building for the Owner, NOT the Dollar is more than a slogan—it's our commitment to you.",
   },
   {
     iconName: "verified",
     title: "Licensed & Insured Across Three States",
     description:
-      "Fully licensed for commercial construction across Washington, Oregon, and Idaho with comprehensive insurance coverage for your complete protection. Our multi-state licensing demonstrates our commitment to professional standards.",
+      "Fully licensed for commercial construction across Washington, Oregon, and Idaho with comprehensive insurance coverage for your complete protection. Our multi-state licensing demonstrates our commitment to professional standards and our ability to serve clients throughout the entire Pacific Northwest region.",
   },
   {
     iconName: "high_quality",
-    title: "Meticulous Quality Assurance",
+    title: "Craftsmanship that Lasts",
     description:
-      "Quality control processes at every project phase ensure work consistently meets our high standards and your expectations. We don't cut corners—we build it right the first time with materials that last.",
+      "Quality control processes at every project phase ensure work consistently meets our high standards and your expectations. We don't cut corners—we build it right the first time with materials that last. Pride in workmanship drives everything we do, building structures that serve communities for generations with unwavering attention to detail.",
+  },
+  {
+    iconName: "visibility",
+    title: "Owner-Focused Transparency: No Surprises",
+    description:
+      "Open-book approach with detailed cost breakdowns, regular photo documentation, and immediate notification of any changes. You control it, we manage it—full visibility into every decision. Transparent pricing, honest assessments, and clear documentation ensure you always know exactly where your project stands.",
   },
   {
     iconName: "engineering",
     title: "Urgent Construction Support",
     description:
-      "Specialized expertise, manpower, and equipment available for companies facing critical construction challenges. We partner with businesses to provide urgent structural consultation and repairs—fixing the source, not just symptoms.",
+      "Specialized expertise, manpower, and equipment available for companies facing critical construction challenges. We partner with businesses to provide urgent structural consultation and repairs—fixing the source of problems like damaged foundations, roofing systems, and structural issues causing leaks or failures. Expert response when you need it most.",
     ctaLink: "/contact#urgent-support",
     ctaLinkText: "Get Urgent Support",
   },

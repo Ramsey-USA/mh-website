@@ -11,27 +11,27 @@ import { whyChooseUs } from "./servicesData";
 
 export function WhyChooseUs() {
   return (
-    <section className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32 xl:py-40">
+    <section className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32">
       <div className="mx-auto px-4 container">
         <FadeInWhenVisible>
           <div className="mb-16 lg:mb-24 text-center scroll-reveal">
             {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
-            <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+            <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                 Why Partner With
               </span>
               <span className="block text-brand-primary dark:text-brand-primary font-black">
                 MH Construction
               </span>
             </h2>
-            <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
+            <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
               Your trusted partner for commercial construction excellence in the
               Pacific Northwest
             </p>
           </div>
         </FadeInWhenVisible>
 
-        <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto max-w-7xl">
+        <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto max-w-7xl">
           {whyChooseUs.map((reason, index) => {
             const cardContent = (
               <Card className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1">

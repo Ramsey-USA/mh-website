@@ -217,9 +217,9 @@ const hanfordCapabilities = [
   },
   {
     icon: "health_and_safety",
-    title: "Operational Safety Protocols",
+    title: "Award-Winning Safety Protocols",
     description:
-      "OSHA compliance and mission-specific safety system implementation",
+      ".6 EMR award-winning safety record (40% better than industry), OSHA VPP Star designation, and mission-specific safety system implementation",
   },
   {
     icon: "handshake",
@@ -235,8 +235,9 @@ const hanfordCapabilities = [
   },
   {
     icon: "workspace_premium",
-    title: "Quality Assurance Systems",
-    description: "Military-grade quality control exceeding federal standards",
+    title: "Military-Grade Quality Assurance",
+    description:
+      "Award-winning quality control exceeding federal standards with 150+ years combined team experience",
   },
 ];
 
@@ -262,9 +263,9 @@ const successFactors = [
   },
   {
     icon: "business_center",
-    title: "Qualified Government Contractor",
+    title: "Veteran-Owned Qualified Contractor",
     description:
-      "Veteran leadership with proven federal contracting capabilities",
+      "Veteran-owned since January 2025 under Army veteran leadership with proven federal contracting capabilities and 150+ years combined team experience",
   },
 ];
 
@@ -297,11 +298,13 @@ export default function GovernmentGrantsPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Under Army veteran leadership with over 150 years combined team
-              experience, MH Construction delivers mission-critical construction
-              services throughout the Pacific Northwest with unwavering
-              commitment to federal compliance, operational security, and
-              successful mission completion. Licensed in WA, OR, and ID.
+              Veteran-owned since January 2025 under Army veteran leadership
+              with over 150 years combined team experience, MH Construction
+              delivers mission-critical construction services throughout the
+              Pacific Northwest with award-winning safety (.6 EMR—40% better
+              than industry), unwavering commitment to federal compliance,
+              operational security, and successful mission completion. Licensed
+              in WA, OR, and ID with proven DOE & Hanford expertise.
             </p>
           </div>
         </div>
@@ -367,10 +370,12 @@ export default function GovernmentGrantsPage() {
                 </span>
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                Army veteran leadership delivers mission-critical construction
-                services with unwavering commitment to federal specifications,
-                operational success, and transparent partnership throughout the
-                application and execution process
+                Veteran-owned Army veteran leadership delivers mission-critical
+                construction services with unwavering commitment to federal
+                specifications, operational success, award-winning safety (.6
+                EMR), and transparent open-book partnership throughout the
+                application and execution process—Building for the Owner, NOT
+                the Dollar with 150+ years combined experience
               </p>
             </div>
           </FadeInWhenVisible>
@@ -442,9 +447,11 @@ export default function GovernmentGrantsPage() {
                   </span>
                 </h2>
                 <p className="mx-auto max-w-4xl font-light text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                  Proven operational excellence in high-security environments
-                  with comprehensive understanding of federal compliance
-                  requirements and mission-critical construction protocols
+                  Proven operational excellence in high-security DOE and Hanford
+                  environments with comprehensive understanding of federal
+                  compliance requirements, award-winning safety protocols (.6
+                  EMR—40% better than industry), mission-critical construction
+                  protocols, and veteran-owned reliability since January 2025
                 </p>
               </div>
 
@@ -533,7 +540,8 @@ export default function GovernmentGrantsPage() {
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Proven execution across federal, state, and mission-critical
-                construction contracts
+                construction contracts with veteran-owned expertise and
+                award-winning safety record
               </p>
             </div>
           </FadeInWhenVisible>
@@ -606,6 +614,7 @@ export default function GovernmentGrantsPage() {
                 </h2>
                 <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                   Five-phase military approach to federal contract success
+                  backed by Army veteran leadership and award-winning execution
                 </p>
               </div>
 
@@ -668,7 +677,8 @@ export default function GovernmentGrantsPage() {
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Licensed and mission-ready across diverse federal and government
-                facility projects
+                facility projects with veteran-owned precision and 150+ years
+                combined team experience
               </p>
             </div>
           </FadeInWhenVisible>
@@ -733,7 +743,9 @@ export default function GovernmentGrantsPage() {
                   </span>
                 </h2>
                 <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                  What ensures federal contract success and how we deliver
+                  What ensures federal contract success and how we deliver with
+                  award-winning safety, veteran-owned leadership, and
+                  transparent open-book partnership
                 </p>
               </div>
 

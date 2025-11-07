@@ -41,7 +41,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
                   className="text-brand-primary"
                 />
               </div>
-              <CardTitle className="mb-3 text-gray-900 dark:text-white text-xl sm:text-2xl font-black leading-tight">
+              <CardTitle className="mb-3 text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl font-black leading-tight">
                 {service.title}
               </CardTitle>
               <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-sm sm:text-base">
@@ -83,7 +83,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
                   icon={service.iconName}
                   className="mr-3 text-brand-secondary text-2xl sm:text-3xl"
                 />
-                <CardTitle className="text-white text-lg sm:text-xl font-black leading-tight">
+                <CardTitle className="text-white text-lg sm:text-xl md:text-2xl font-black leading-tight">
                   {service.title}
                 </CardTitle>
               </div>

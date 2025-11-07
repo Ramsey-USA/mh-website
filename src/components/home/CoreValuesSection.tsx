@@ -5,42 +5,42 @@ const coreValues = [
     value: "Integrity First",
     icon: "balance",
     description:
-      "Doing What's Right, Every Time. Ethical business practices, quality workmanship, and promise keeping—making the right decision even when it costs us more.",
+      "Doing What's Right, Every Time. Ethical business practices, quality workmanship, and promise keeping—making the right decision even when it costs us more. We never cut corners, even when no one is watching.",
     details:
-      "We recommend solutions that benefit you, not just our profit margin. Using specified materials and methods, never substituting without approval, and standing behind our work with comprehensive warranties.",
+      "We recommend solutions that benefit you, not just our profit margin. Using specified materials and methods, never substituting without approval, standing behind our work with comprehensive warranties, and treating your property with the same care we'd want for our own.",
     color: "from-brand-primary to-brand-accent",
     bgColor: "bg-brand-primary/5",
-    stats: "Character-Driven Conduct",
+    stats: "Character-Driven Excellence",
   },
   {
     value: "Owner-Focused Transparency",
     icon: "visibility",
     description:
-      "No Surprises. Open communication, detailed breakdowns, and honest assessments mean you're never left wondering what's happening with your project.",
+      "No Surprises. Open communication, transparent pricing, and honest assessments mean you're never left wondering what's happening with your project. You control it, we manage it—full visibility into every decision.",
     details:
-      "Pre-construction meetings with complete cost breakdowns, regular updates with photo documentation, open-book approach to material costs, and immediate notification of any changes or delays.",
+      "Pre-construction meetings with complete cost breakdowns, regular updates with photo documentation, open-book approach to material costs and labor, immediate notification of any changes or delays. All agreements, changes, and decisions in writing.",
     color: "from-forest-600 to-forest-800",
     bgColor: "bg-forest-100 dark:bg-forest-900",
-    stats: "Open-Book Progress Meetings",
+    stats: "Open-Book Progress",
   },
   {
     value: "Relationship ROI",
     icon: "handshake",
     description:
-      "We Build Trust, Not Just Structures. THE ROI IS THE RELATIONSHIP—investing in long-term partnerships that last well beyond project completion.",
+      "We Build Trust, Not Just Structures. THE ROI IS THE RELATIONSHIP—investing in long-term partnerships that last well beyond project completion. We measure success by relationships built, not just profit margins.",
     details:
-      "Following up after completion to ensure satisfaction, being available for questions long after final payment, and building referral networks based on mutual trust.",
+      "Following up after completion to ensure satisfaction, being available for questions long after final payment, building referral networks based on mutual trust, and treating every interaction as an investment in lasting partnerships. Prioritizing relationship value over short-term gains.",
     color: "from-brand-secondary to-bronze-700",
     bgColor: "bg-brand-secondary/5",
-    stats: "Long-Term Partnerships",
+    stats: "70% Referral Business",
   },
   {
     value: "Veteran-Fueled Reliability",
     icon: "military_tech",
     description:
-      "Calm and Precise Under Pressure. Military-trained discipline meets construction expertise to deliver reliable results no matter the challenges.",
+      "Calm and Precise Under Pressure. Military-trained discipline and attention to detail honed through service meet construction expertise to deliver reliable results no matter the challenges. Staying unshakably calm when challenges arise.",
     details:
-      "Systematic approach to problem-solving under pressure, clear communication chains, adapting quickly to changing conditions, and following through on commitments no matter the obstacles.",
+      "Systematic approach to problem-solving under pressure, clear communication chains and decision-making processes, adapting quickly to changing conditions without losing focus, and following through on commitments no matter the obstacles. Leading with confidence earned through military experience.",
     color: "from-brand-accent to-forest-800",
     bgColor: "bg-brand-accent/5",
     stats: "Military Precision",
@@ -49,9 +49,9 @@ const coreValues = [
     value: "Craftsmanship that Lasts",
     icon: "construction",
     description:
-      "Built for the Long Run. Quality over speed, attention to every detail, selecting materials that stand the test of time.",
+      "Built for the Long Run. Quality over speed, meticulous attention to every detail, and selecting durable materials that stand the test of time. Taking pride in work—building as if it's for our own families.",
     details:
-      "Using proven construction methods refined over decades, selecting materials based on longevity, quality control checkpoints at every phase, and building structures that serve communities for generations.",
+      "Using proven construction methods refined over decades, selecting materials based on longevity not just cost, quality control checkpoints at every phase, and building structures that serve communities for generations with unwavering attention to detail.",
     color: "from-bronze-600 to-bronze-800",
     bgColor: "bg-bronze-100 dark:bg-bronze-900",
     stats: "Generational Quality",
@@ -60,9 +60,9 @@ const coreValues = [
     value: "Precision & Experience",
     icon: "precision_manufacturing",
     description:
-      "150+ Years Combined Team Expertise. Deep knowledge across all construction disciplines with time-tested approaches refined through decades of experience.",
+      "150+ Years Combined Team Expertise. Deep technical mastery across all construction disciplines with time-tested approaches refined through decades of successful projects. Expert guidance that helps you avoid costly mistakes.",
     details:
-      "Detailed project planning with multiple contingency scenarios, precise measurements and calculations, leveraging 150+ years of combined team experience, and expert guidance that helps you avoid costly mistakes.",
+      "Detailed project planning with multiple contingency scenarios, precise measurements and calculations, leveraging 150+ years of combined team experience, continuous learning staying current with industry innovations, and bringing calm experienced leadership to complex projects.",
     color: "from-brand-primary to-brand-secondary",
     bgColor: "bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5",
     stats: "150+ Years Combined Experience",

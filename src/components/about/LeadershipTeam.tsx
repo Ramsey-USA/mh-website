@@ -10,36 +10,39 @@ import {
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
 
-// Leadership Team Data
+// Leadership Team Data - Enhanced with comprehensive details
 export const leadershipTeam = [
   {
     name: "Jeremy Thamert",
     role: "President",
-    experience: "Presidential leadership with focus on strategic operations",
-    status: "Civilian Leadership",
+    experience:
+      "Presidential leadership with strategic operational focus since January 2025",
+    status: "Veteran-Owned Leadership",
     specialties: [
       "Safety Management & Organizational Standards",
       "Marketing Strategy & Brand Development",
       "Workforce Development & Team Building",
       "Human Resources & People-First Leadership",
+      "Strategic Operations & Business Growth",
     ],
     philosophy:
-      "Operational excellence through strategic focus on people and safety",
+      "Operational excellence through strategic focus on people, safety, and partnership relationships",
     icon: "account_balance",
   },
   {
     name: "Arnold Garcia",
     role: "Vice President",
-    experience: "15 years with MH Construction",
-    status: "Civilian Leadership",
+    experience: "15+ years with MH Construction leading client partnerships",
+    status: "Senior Leadership",
     specialties: [
       "Client Relationships & Partnership Development",
       "Strategic Operations & Business Growth",
       "Service Excellence & Quality Assurance",
       "Project Oversight & Risk Management",
+      "Commercial & Industrial Project Leadership",
     ],
     philosophy:
-      "Primary client liaison for major commercial and industrial projects",
+      "Primary client liaison for major commercial and industrial projects—building partnerships that last beyond completion",
     icon: "business",
   },
   {
@@ -52,9 +55,10 @@ export const leadershipTeam = [
       "Quality Standards Development",
       "Client Trust & Reputation Building",
       "Mentorship & Succession Planning",
+      "Partnership Philosophy: 'We Work With You'",
     ],
     philosophy:
-      'Established the "We Work With You" partnership philosophy that defines MH Construction today',
+      'Established the "We Work With You, Not FOR You" partnership philosophy and THE ROI IS THE RELATIONSHIP mindset that defines MH Construction today',
     icon: "foundation",
   },
 ];

@@ -38,7 +38,7 @@ export function SpecialtyServiceCard({
                   className="text-brand-secondary"
                 />
               </div>
-              <CardTitle className="mb-2 text-gray-900 dark:text-white text-lg sm:text-xl font-bold leading-tight">
+              <CardTitle className="mb-2 text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl font-bold leading-tight">
                 {service.title}
               </CardTitle>
               <p className="font-semibold text-brand-secondary dark:text-brand-secondary-light text-sm">
@@ -78,7 +78,7 @@ export function SpecialtyServiceCard({
                   icon={service.iconName}
                   className="mr-2 text-white text-2xl"
                 />
-                <CardTitle className="text-white text-base sm:text-lg font-bold leading-tight">
+                <CardTitle className="text-white text-lg sm:text-xl md:text-2xl font-bold leading-tight">
                   {service.title}
                 </CardTitle>
               </div>

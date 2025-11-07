@@ -67,10 +67,12 @@ export default function TeamPage() {
 
             {/* Leadership Statement */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4 font-medium">
-              Our leadership, crafted through military structure, alongside a
-              team of skilled professionals with over 150 years combined
-              experience, brings unwavering dedication and owner-first focus to
-              every project throughout the Pacific Northwest.
+              Veteran-owned under Army veteran leadership, our team of skilled
+              professionals with over 150 years combined experience brings
+              military precision, unwavering dedication, and owner-first focus
+              to every project. From award-winning safety (.6 EMR) to
+              exceptional craftsmanship, we deliver results with discipline and
+              excellence throughout the Pacific Northwest.
             </p>
 
             {/* Description */}
@@ -78,8 +80,10 @@ export default function TeamPage() {
               Discover your dedicated partners through authentic vintage-style
               trading cards. Click any card to flip and explore professional
               statistics, career highlights, certifications, and personal
-              stories of the team working WITH you from pre-construction
-              planning through seamless close-out.
+              stories. Every team member embodies our "We Work With You"
+              philosophy—transparent communication, collaborative
+              problem-solving, and commitment to safety excellence from
+              pre-construction planning through seamless close-out.
             </p>
           </div>
         </div>
@@ -104,10 +108,12 @@ export default function TeamPage() {
               </span>
             </h2>
             <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
-              Experience our team through vintage-style baseball cards featuring
-              professional statistics, career achievements, and personal
-              stories. Each card showcases the expertise and dedication that
-              makes MH Construction a leader in Pacific Northwest construction.
+              Experience our award-winning team through vintage-style baseball
+              cards featuring professional statistics, career achievements, and
+              personal stories. Each card showcases the expertise, dedication,
+              and safety excellence that makes MH Construction a leader in
+              Pacific Northwest construction—from AGC-WA award recipients to
+              veteran leadership bringing military precision to every project.
             </p>
           </div>
 
@@ -161,7 +167,11 @@ export default function TeamPage() {
                   </h2>
                   <p className="mx-auto max-w-3xl font-light text-gray-700 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
                     "All for one, one for all" isn't just a motto—it's how we
-                    partner, grow, and succeed together with our partners.
+                    partner, grow, and succeed together. Our people-centered
+                    culture starts with leadership committed to serving both
+                    clients and communities, maintaining the highest standards
+                    of safety (.6 EMR award-winning), quality craftsmanship, and
+                    transparent communication that defines every partnership.
                   </p>
                 </div>
 
@@ -181,8 +191,11 @@ export default function TeamPage() {
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
                         From veterans to civilians, office to field—we're one
-                        partnership team with shared values. Every partner
-                        success belongs to all of us.
+                        partnership team with shared values forged through
+                        military discipline and construction excellence. Every
+                        partner success belongs to all of us, every safety
+                        milestone reflects our collective commitment, and every
+                        project showcases our unified dedication to quality.
                       </p>
                     </div>
                   </FadeInWhenVisible>
@@ -201,9 +214,12 @@ export default function TeamPage() {
                         Mutual Support
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
-                        We lift each other up, share knowledge freely, and
-                        ensure no one faces challenges alone. Your growth is our
-                        growth.
+                        We lift each other up through mentorship programs, share
+                        150+ years of combined knowledge freely, and ensure no
+                        one faces challenges alone. Your growth is our
+                        growth—from apprentice to master craftsman, from
+                        entry-level to leadership, we invest in continuous
+                        professional development and cross-training excellence.
                       </p>
                     </div>
                   </FadeInWhenVisible>
@@ -222,9 +238,13 @@ export default function TeamPage() {
                         Partnership Success
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
-                        When our partners win, we all win. Celebrating
-                        partnership achievements together and learning from
-                        setbacks as a unified team.
+                        When our partners win, we all win—from AGC-WA Top EMR
+                        Awards to 3+ years without time-loss injuries.
+                        Celebrating partnership achievements together (70%
+                        referral business), learning from setbacks as a unified
+                        team, and building lasting relationships that extend
+                        well beyond project completion. THE ROI IS THE
+                        RELATIONSHIP.
                       </p>
                     </div>
                   </FadeInWhenVisible>
@@ -252,12 +272,17 @@ export default function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
-                            Military Precision, Civilian Innovation
+                            Veteran-Owned Military Precision Meets Civilian
+                            Innovation
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
-                            Structured processes and attention to detail meet
-                            creative problem-solving—discipline, leadership,
-                            service, and excellence in every project
+                            Veteran-owned under Army veteran leadership since
+                            January 2025. Structured military processes and
+                            unwavering attention to detail meet creative
+                            civilian problem-solving—discipline, leadership,
+                            service, and excellence integrated into every
+                            project phase with mission-focused results and
+                            reliability under pressure.
                           </p>
                         </div>
                       </div>
@@ -271,12 +296,17 @@ export default function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
-                            Continuous Learning
+                            Continuous Learning & Professional Development
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
-                            Regular training on new techniques, safety
-                            standards, and technology—plus cross-training,
-                            mentorship programs, and industry involvement
+                            Regular training on new techniques, evolving safety
+                            standards (OSHA 30, VPP Star), and emerging
+                            technology integration. Cross-training across
+                            multiple specialties, structured mentorship programs
+                            pairing experienced professionals with emerging
+                            leaders, active industry involvement, and ongoing
+                            certification maintenance ensure our team stays at
+                            the forefront of construction excellence.
                           </p>
                         </div>
                       </div>
@@ -309,12 +339,17 @@ export default function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
-                            Open Communication
+                            Open Communication & Transparent Collaboration
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
                             Transparent, honest dialogue with clients and team
-                            members—every voice matters, from apprentice to
-                            owner, ensuring collaborative problem-solving
+                            members drives our partnership approach—every voice
+                            matters, from apprentice to owner, field crew to
+                            executive leadership. Regular project updates with
+                            photo documentation, immediate notification of
+                            changes, and open-book pricing ensure collaborative
+                            problem-solving and zero surprises. You control it,
+                            we manage it.
                           </p>
                         </div>
                       </div>
@@ -328,12 +363,17 @@ export default function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
-                            Community Focused
+                            Community Focused & Regional Roots
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
                             Understanding that every project serves the broader
-                            community—building stronger communities through
-                            quality craftsmanship and lasting relationships
+                            Pacific Northwest community—building stronger
+                            communities through quality craftsmanship, lasting
+                            relationships, and local hiring preferences. Team
+                            members are deeply rooted in the Tri-Cities (Pasco,
+                            Kennewick, Richland) and surrounding regions, with
+                            personal investment in community success and
+                            long-term regional development.
                           </p>
                         </div>
                       </div>
@@ -347,12 +387,19 @@ export default function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
-                            Safety First
+                            Award-Winning Safety First Culture
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
                             Presidential leadership focused on safety management
-                            and organizational standards—everyone goes home
-                            safe, every single day, with OSHA compliance
+                            drives our .6 EMR award-winning record—40% better
+                            than industry average. Multiple AGC-WA Top EMR
+                            Awards (2019-2021, 2025 Most Improved), OSHA VPP
+                            Star designation, and 3+ consecutive years without
+                            time-loss injuries prove that everyone goes home
+                            safe, every single day. No project timeline or
+                            budget overrides safety—proactive hazard
+                            identification, regular training, and high-quality
+                            equipment standards ensure zero-incident culture.
                           </p>
                         </div>
                       </div>
@@ -364,12 +411,15 @@ export default function TeamPage() {
                 <div className="mt-12 text-center">
                   <blockquote className="mb-4 font-medium text-brand-primary text-2xl italic">
                     "When you join MH Construction, you're not just getting a
-                    job—you're joining a team that values integrity,
-                    transparency, and building relationships that last beyond
-                    project completion. Our leadership focuses on Safety,
-                    Marketing, Workforce Development, and Human Resources—a
-                    strategic blend of operational oversight and people-first
-                    management."
+                    job—you're joining a veteran-owned team that values
+                    integrity, transparency, and building relationships that
+                    last beyond project completion. Our leadership focuses on
+                    Safety, Marketing, Workforce Development, and Human
+                    Resources—a strategic blend of operational oversight and
+                    people-first management. With award-winning safety (.6 EMR),
+                    150+ years combined experience, and military precision
+                    guiding every decision, we create an environment where
+                    excellence thrives and partnerships flourish."
                   </blockquote>
                   <cite className="font-semibold text-brand-secondary">
                     — Jeremy Thamert, President
@@ -394,9 +444,13 @@ export default function TeamPage() {
                 </h3>
                 <p className="mb-6 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                   Explore partnership opportunities and learn more about what
-                  makes MH Construction a great place to work. View our current
-                  openings and discover the benefits of joining our
-                  veteran-owned partnership company.
+                  makes MH Construction a great place to work— from
+                  award-winning safety culture (.6 EMR) to veteran hiring
+                  initiatives, continuous professional development to
+                  competitive benefits. View our current openings and discover
+                  the benefits of joining our veteran-owned partnership company
+                  where THE ROI IS THE RELATIONSHIP applies to employees and
+                  clients alike.
                 </p>
                 <Link href="/careers">
                   <Button

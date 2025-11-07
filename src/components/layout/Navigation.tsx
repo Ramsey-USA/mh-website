@@ -172,7 +172,7 @@ export function Navigation() {
                       icon: "handshake",
                     },
                     {
-                      href: "/contact#urgent-support",
+                      href: "/urgent",
                       label: "Urgent",
                       icon: "engineering",
                     },

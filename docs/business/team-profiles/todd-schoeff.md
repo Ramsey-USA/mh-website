@@ -29,10 +29,14 @@ Estimating Excellence Award, 20-Year Service Recognition
 
 ## Biography
 
-Todd brings over 20 years of construction estimation expertise to MH Construction. Known for
-accurate estimates that minimize budget surprises, he specializes in commercial project bidding and
-medical facility projects. His precision estimating supports MH Construction's commitment to
-transparent, honest pricing that builds lasting client relationships.
+Todd Schoeff serves as an Estimator for MH Construction, bringing over a decade of technical and field experience
+across commercial, government, and specialized infrastructure projects. With a background as a project foreman and
+lead technician, Todd has managed structured cabling, fiber optics, and access control installations within highly
+regulated environments, including nuclear and federal facilities. His depth of technical expertise and field
+coordination experience gives him a unique ability to accurately assess project scope, identify cost efficiencies,
+and ensure constructability from the earliest estimating stages. Todd's hands-on understanding of low-voltage
+systems, network infrastructure, and project team dynamics strengthens MH Construction's ability to deliver
+reliable, precise, and compliant results across diverse project types.
 
 ## Career Highlights
 

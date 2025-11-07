@@ -170,30 +170,30 @@ const partnerCategories = [
 const partnershipValues = [
   {
     icon: "handshake",
-    title: "Professional Respect",
+    title: "Professional Respect & Integrity",
     description:
-      "We treat our trade partners as valued business allies, building relationships on mutual respect, trust, and shared commitment to quality.",
+      "We treat our trade partners as valued business allies, building relationships on mutual respect, trust, and shared commitment to quality. Veteran-owned leadership brings military precision and unwavering integrity to every partnership.",
     color: "from-brand-primary to-brand-primary-dark",
   },
   {
     icon: "schedule",
-    title: "Reliable Scheduling",
+    title: "Reliable Scheduling & Clear Communication",
     description:
-      "Transparent communication and dependable project timelines help our trade partners plan effectively and manage their resources with confidence.",
+      "Transparent open-book communication and dependable project timelines help our trade partners plan effectively and manage their resources with confidence. You control it, we manage it—together with award-winning execution (.6 EMR safety record).",
     color: "from-brand-secondary to-brand-secondary-dark",
   },
   {
     icon: "payments",
-    title: "Fair & Prompt Payment",
+    title: "Fair & Prompt Payment Terms",
     description:
-      "Competitive compensation and reliable payment schedules support the financial health and business growth of our trade partners.",
+      "Competitive compensation and reliable payment schedules support the financial health and business growth of our trade partners. Building for the Owner, NOT the Dollar means treating partners with the same transparency and fairness we give clients.",
     color: "from-brand-accent to-brand-accent-dark",
   },
   {
     icon: "support",
-    title: "Collaborative Excellence",
+    title: "Collaborative Excellence & Safety First",
     description:
-      "Working together to solve challenges, share expertise, and deliver exceptional results that benefit all parties and strengthen our network.",
+      "Working together to solve challenges, share expertise, and deliver exceptional results with award-winning safety standards (.6 EMR—40% better than industry). Everyone goes home safe, every single day, strengthening our network through mutual success.",
     color: "from-brand-primary-light to-brand-primary",
   },
 ];
@@ -204,25 +204,25 @@ const partnershipBenefits = [
     icon: "trending_up",
     title: "Consistent Project Pipeline",
     description:
-      "Access to a steady flow of quality construction projects throughout the Pacific Northwest, providing reliable business opportunities year-round.",
+      "Access to a steady flow of quality construction projects throughout the Pacific Northwest, providing reliable business opportunities year-round backed by 150+ years combined team experience and veteran-owned reliability.",
   },
   {
     icon: "groups",
-    title: "Professional Network",
+    title: "Professional Network & Veteran Support",
     description:
-      "Join a network of trusted trade professionals and industry leaders, opening doors to collaboration and business development opportunities.",
+      "Join a network of trusted trade professionals and industry leaders, opening doors to collaboration and business development opportunities. Veteran-owned businesses receive priority consideration in our partnership network.",
   },
   {
     icon: "verified",
-    title: "Clear Quality Standards",
+    title: "Clear Quality Standards & Safety Excellence",
     description:
-      "Well-defined quality expectations and project specifications help trade partners deliver their best work with confidence and consistency.",
+      "Well-defined quality expectations and project specifications help trade partners deliver their best work with confidence and consistency. Award-winning safety protocols (.6 EMR) ensure everyone goes home safe while maintaining the highest standards.",
   },
   {
     icon: "school",
-    title: "Industry Collaboration",
+    title: "Industry Collaboration & Continuous Improvement",
     description:
-      "Share best practices, innovative solutions, and industry insights in a professional environment that values continuous improvement.",
+      "Share best practices, innovative solutions, and industry insights in a professional environment that values continuous improvement. 150+ years combined experience means learning from proven methods while embracing innovation.",
   },
   {
     icon: "security",
@@ -266,12 +266,15 @@ export default function TradePartnersPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              "THE ROI IS THE RELATIONSHIP" — Partner with MH Construction's
-              150+ years combined team experience to access reliable project
-              opportunities throughout the Pacific Northwest, professional
-              collaboration, and fair business practices. We believe in building
-              lasting relationships with quality trade professionals who share
-              our commitment to excellence and partnership-driven success.
+              "THE ROI IS THE RELATIONSHIP" — Partner with veteran-owned MH
+              Construction (January 2025) and our award-winning safety record
+              (.6 EMR—40% better than industry) backed by 150+ years combined
+              team experience to access reliable project opportunities
+              throughout the Pacific Northwest, professional collaboration, fair
+              open-book practices, and transparent communication. We believe in
+              building lasting relationships with quality trade professionals
+              who share our commitment to excellence and partnership-driven
+              success.
             </p>
           </div>
         </div>
@@ -345,10 +348,12 @@ export default function TradePartnersPage() {
                 </span>
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                "Quality construction is built through strong trade
-                partnerships. Our success depends on skilled subcontractors and
-                reliable vendors who bring expertise, professionalism, and
-                shared commitment to every project."
+                "Quality construction is built through strong trade partnerships
+                backed by veteran-owned leadership (January 2025), award-winning
+                safety (.6 EMR), and 150+ years combined experience. Our success
+                depends on skilled subcontractors and reliable vendors who bring
+                expertise, professionalism, and shared commitment to every
+                project with transparent open-book communication."
               </p>
               <cite className="block mt-4 font-semibold text-brand-secondary text-lg">
                 — MH Construction Leadership Team
@@ -399,7 +404,8 @@ export default function TradePartnersPage() {
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Meet the skilled professionals in our trade partnership network
                 who bring expertise, reliability, and quality workmanship to
-                every MH Construction project.
+                every MH Construction project—backed by veteran-owned leadership
+                and award-winning safety standards.
               </p>
             </div>
           </FadeInWhenVisible>
@@ -488,7 +494,9 @@ export default function TradePartnersPage() {
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 We're committed to creating mutually beneficial business
                 relationships that support the growth and success of our
-                approved vendors and trade professionals.
+                approved vendors and trade professionals with transparent
+                communication, award-winning safety culture, and veteran-owned
+                integrity in every partnership.
               </p>
             </div>
           </FadeInWhenVisible>
@@ -535,8 +543,9 @@ export default function TradePartnersPage() {
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 We seek qualified trade professionals who share our commitment
-                to quality, safety, and professional excellence. Here's what we
-                look for in approved vendors.
+                to quality, safety excellence (.6 EMR award-winning record), and
+                professional integrity. Here's what we look for in approved
+                vendors seeking partnership with our veteran-owned company.
               </p>
             </div>
           </FadeInWhenVisible>

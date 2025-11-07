@@ -43,12 +43,12 @@ export default function AboutPage() {
       <LeadershipTeam />
 
       {/* Why Values Matter Section */}
-      <section className="bg-white dark:bg-gray-900 py-16 lg:py-24">
+      <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
-            <div className="mx-auto max-w-6xl">
-              <h2 className="mb-16 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-center leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                   Why Our Values
                 </span>
                 <span className="block text-brand-primary dark:text-brand-primary font-black">
@@ -56,192 +56,199 @@ export default function AboutPage() {
                 </span>
               </h2>
 
-              <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-                <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-primary transition-all hover:-translate-y-2 duration-300">
-                  <CardHeader className="text-center">
-                    <MaterialIcon
-                      icon="people"
-                      className="mb-4 text-brand-primary text-5xl"
-                    />
-                    <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
-                      For Our Partners
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                        />
-                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                          Predictable, consistent experience
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                        />
-                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                          Peace of mind and confidence
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                        />
-                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                          Long-term partnership
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                        />
-                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                          Community impact
-                        </span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-secondary transition-all hover:-translate-y-2 duration-300">
-                  <CardHeader className="text-center">
-                    <MaterialIcon
-                      icon="location_city"
-                      className="mb-4 text-brand-secondary text-5xl"
-                    />
-                    <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
-                      For Our Community
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                        />
-                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                          Economic development
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                        />
-                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                          Quality standards
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                        />
-                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                          Veteran support
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                        />
-                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                          Sustainable growth
-                        </span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-accent transition-all hover:-translate-y-2 duration-300">
-                  <CardHeader className="text-center">
-                    <MaterialIcon
-                      icon="engineering"
-                      className="mb-4 text-brand-accent text-5xl"
-                    />
-                    <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
-                      For Our Team
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                        />
-                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                          Professional pride
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                        />
-                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                          Clear standards
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                        />
-                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                          Personal growth
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                        />
-                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                          Community connection
-                        </span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
-              </div>
+              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
+                Our commitment to integrity, transparency, and excellence drives
+                every project decision and partnership we build. These aren't
+                just words on a wall—they're the foundation of how we do
+                business and the promise we make to every client.
+              </p>
             </div>
           </FadeInWhenVisible>
+
+          <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-primary transition-all hover:-translate-y-2 duration-300">
+              <CardHeader className="text-center">
+                <MaterialIcon
+                  icon="people"
+                  className="mb-4 text-brand-primary text-5xl"
+                />
+                <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
+                  For Our Partners
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Predictable, consistent experience you can count on
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Peace of mind knowing your project is in capable hands
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Long-term partnership beyond project completion
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      True ROI—the return is the relationship
+                    </span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-secondary transition-all hover:-translate-y-2 duration-300">
+              <CardHeader className="text-center">
+                <MaterialIcon
+                  icon="location_city"
+                  className="mb-4 text-brand-secondary text-5xl"
+                />
+                <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
+                  For Our Community
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Economic development supporting local suppliers
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Raising quality standards in construction industry
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Veteran support and opportunities for military families
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Building structures serving communities for generations
+                    </span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-accent transition-all hover:-translate-y-2 duration-300">
+              <CardHeader className="text-center">
+                <MaterialIcon
+                  icon="engineering"
+                  className="mb-4 text-brand-accent text-5xl"
+                />
+                <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
+                  For Our Team
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Professional pride in meaningful work
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Clear standards and expectations in every interaction
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Personal growth in environment valuing excellence
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Being part of something larger than individual projects
+                    </span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </StaggeredFadeIn>
         </div>
       </section>
 
       {/* Client Reviews Section */}
       <section
         id="testimonials"
-        className="bg-gray-50 dark:bg-gray-800 py-16 lg:py-24"
+        className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32"
       >
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
-            <div className="mx-auto max-w-4xl text-center mb-12">
-              <h2 className="mb-6 font-black text-gray-900 dark:text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                   Partnership
                 </span>
                 <span className="block text-brand-primary dark:text-brand-primary font-black">
                   Reviews
                 </span>
               </h2>
-              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
                 Hear directly from our partners about their experience working
                 with MH Construction on their most important projects.
               </p>
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-8 grid grid-cols-1 lg:grid-cols-3 mx-auto max-w-7xl">
+          <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
             <Card className="bg-white dark:bg-gray-900 hover:shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 h-full">
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
@@ -377,27 +384,30 @@ export default function AboutPage() {
       </section>
 
       {/* Safety & Compliance Section */}
-      <section id="safety" className="bg-white dark:bg-gray-900 py-16 lg:py-24">
+      <section id="safety" className="bg-white dark:bg-gray-900 py-20 lg:py-32">
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
-            <div className="mx-auto max-w-4xl text-center mb-12">
-              <h2 className="mb-6 font-black text-gray-900 dark:text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                   Safety &
                 </span>
                 <span className="block text-brand-primary dark:text-brand-primary font-black">
                   Compliance
                 </span>
               </h2>
-              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
                 Safety is never compromised at MH Construction. Our
-                comprehensive safety programs and regulatory compliance ensure
-                every project meets the highest standards.
+                award-winning comprehensive safety programs and regulatory
+                compliance ensure every project meets the highest standards.
+                With multiple AGC-WA Top EMR Awards and a .6 EMR (40% better
+                than industry average), we demonstrate unwavering commitment to
+                zero-incident workplace culture.
               </p>
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-8 grid grid-cols-1 lg:grid-cols-3 mx-auto max-w-7xl">
+          <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
             <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-primary dark:border-brand-primary/50 transition-all duration-300 h-full">
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
@@ -419,7 +429,7 @@ export default function AboutPage() {
                       className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
                     />
                     <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                      Daily safety meetings and protocols
+                      Daily safety meetings and site-specific hazard protocols
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -428,7 +438,7 @@ export default function AboutPage() {
                       className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
                     />
                     <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                      OSHA-compliant safety training for all team members
+                      OSHA 30 leadership & OSHA 10 for all team members
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -437,7 +447,7 @@ export default function AboutPage() {
                       className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
                     />
                     <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                      Comprehensive safety equipment and monitoring
+                      Comprehensive safety equipment and continuous monitoring
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -447,6 +457,15 @@ export default function AboutPage() {
                     />
                     <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                       Zero-tolerance policy for safety violations
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      3+ years without time-loss injury - industry leading
                     </span>
                   </li>
                 </ul>
@@ -529,7 +548,7 @@ export default function AboutPage() {
                       className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
                     />
                     <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                      Multi-point quality inspections at every phase
+                      Multi-point quality inspections at every project phase
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -556,7 +575,16 @@ export default function AboutPage() {
                       className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
                     />
                     <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                      Comprehensive warranty and post-project support
+                      Comprehensive warranty and dedicated post-project support
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      Materials selected for longevity, not just cost
                     </span>
                   </li>
                 </ul>
@@ -569,20 +597,20 @@ export default function AboutPage() {
       {/* Awards & Recognition Section */}
       <section
         id="awards"
-        className="bg-gray-50 dark:bg-gray-800 py-16 lg:py-24"
+        className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32"
       >
         <div className="mx-auto px-4 container">
           <FadeInWhenVisible>
-            <div className="mx-auto max-w-4xl text-center mb-12">
-              <h2 className="mb-6 font-black text-gray-900 dark:text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                   Awards &
                 </span>
                 <span className="block text-brand-primary dark:text-brand-primary font-black">
                   Recognition
                 </span>
               </h2>
-              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
+              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
                 Our commitment to excellence has been recognized by industry
                 leaders and the communities we serve throughout the Pacific
                 Northwest.
@@ -590,7 +618,7 @@ export default function AboutPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-8 grid grid-cols-1 lg:grid-cols-3 mx-auto max-w-7xl">
+          <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
             <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-secondary dark:border-brand-secondary/50 transition-all duration-300 h-full">
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
@@ -599,7 +627,7 @@ export default function AboutPage() {
                     size="lg"
                     className="text-brand-secondary"
                   />
-                  <CardTitle className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl">
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Excellence in Construction
                   </CardTitle>
                 </div>
@@ -623,7 +651,7 @@ export default function AboutPage() {
                     size="lg"
                     className="text-brand-primary"
                   />
-                  <CardTitle className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl">
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Veteran Business Enterprise
                   </CardTitle>
                 </div>
@@ -648,7 +676,7 @@ export default function AboutPage() {
                     size="lg"
                     className="text-brand-accent"
                   />
-                  <CardTitle className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl">
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Sustainable Building Leader
                   </CardTitle>
                 </div>
@@ -672,7 +700,7 @@ export default function AboutPage() {
                     size="lg"
                     className="text-brand-primary"
                   />
-                  <CardTitle className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl">
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Safety Excellence
                   </CardTitle>
                 </div>
@@ -688,6 +716,105 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
+            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-primary dark:border-brand-primary/50 transition-all duration-300 h-full">
+              <CardHeader>
+                <div className="flex items-center space-x-3 mb-4">
+                  <MaterialIcon
+                    icon="emoji_events"
+                    size="lg"
+                    className="text-brand-primary"
+                  />
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
+                    2025 Most Improved EMR
+                  </CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm md:text-base">
+                  Associated General Contractors (AGC) - Washington Chapter
+                </p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
+                  25% EMR reduction from 2024 with 3+ years without time loss or
+                  impairment injury. L&I Claims Free Discount Program
+                  participation demonstrating sustained safety excellence under
+                  veteran-owned leadership.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-secondary dark:border-brand-secondary/50 transition-all duration-300 h-full">
+              <CardHeader>
+                <div className="flex items-center space-x-3 mb-4">
+                  <MaterialIcon
+                    icon="shield"
+                    size="lg"
+                    className="text-brand-secondary"
+                  />
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
+                    2021 Top EMR Award
+                  </CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm md:text-base">
+                  Associated General Contractors (AGC) - Washington Chapter
+                </p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
+                  'As Low as You Can Go' recognition at .6 EMR (40% better than
+                  industry average) with 7-year average EMR of .65 and 3+
+                  consecutive years claims-free
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-accent dark:border-brand-accent/50 transition-all duration-300 h-full">
+              <CardHeader>
+                <div className="flex items-center space-x-3 mb-4">
+                  <MaterialIcon
+                    icon="shield"
+                    size="lg"
+                    className="text-brand-accent"
+                  />
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
+                    2020 Top EMR Award
+                  </CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm md:text-base">
+                  Associated General Contractors (AGC) - Washington Chapter
+                </p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
+                  'As Low as You Can Go' at .6 EMR & 6-year average EMR of .66
+                  with 3+ years claims-free
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-primary dark:border-brand-primary/50 transition-all duration-300 h-full">
+              <CardHeader>
+                <div className="flex items-center space-x-3 mb-4">
+                  <MaterialIcon
+                    icon="shield"
+                    size="lg"
+                    className="text-brand-primary"
+                  />
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
+                    2019 Top EMR Award
+                  </CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm md:text-base">
+                  Associated General Contractors (AGC) - Washington Chapter
+                </p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
+                  'As Low as You Can Go' at .6 EMR & 5-year average EMR of .68
+                  with 3+ years claims-free
+                </p>
+              </CardContent>
+            </Card>
+
             <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-accent dark:border-brand-accent/50 transition-all duration-300 h-full">
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
@@ -696,7 +823,7 @@ export default function AboutPage() {
                     size="lg"
                     className="text-brand-accent"
                   />
-                  <CardTitle className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl">
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Community Partner
                   </CardTitle>
                 </div>
@@ -720,7 +847,7 @@ export default function AboutPage() {
                     size="lg"
                     className="text-brand-secondary"
                   />
-                  <CardTitle className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl">
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Industry Innovation
                   </CardTitle>
                 </div>
@@ -742,25 +869,27 @@ export default function AboutPage() {
       {/* Company News & Blog Section */}
       <section
         id="blog"
-        className="relative bg-gray-50 dark:bg-gray-800 py-16 lg:py-24"
+        className="relative bg-gray-50 dark:bg-gray-800 py-20 lg:py-32"
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible className="mb-16 text-center">
-            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
-              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
-                Construction Insights &
-              </span>
-              <span className="block text-brand-primary dark:text-brand-primary font-black">
-                Company Blog
-              </span>
-            </h2>
-            <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
-              Expert construction advice, industry insights, and stories from
-              our veteran-owned team
-            </p>
+          <FadeInWhenVisible>
+            <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-gray-100 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+                  Construction Insights &
+                </span>
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                  Company Blog
+                </span>
+              </h2>
+              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
+                Expert construction advice, industry insights, and stories from
+                our veteran-owned team
+              </p>
+            </div>
           </FadeInWhenVisible>
 
-          <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+          <div className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
             <FadeInWhenVisible>
               <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-2 duration-300">
                 <CardHeader>
@@ -905,25 +1034,27 @@ export default function AboutPage() {
       {/* Latest News & Updates Section */}
       <section
         id="news"
-        className="relative bg-white dark:bg-gray-900 py-16 sm:py-20 lg:py-24"
+        className="relative bg-white dark:bg-gray-900 py-20 lg:py-32"
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible className="mb-12 text-center">
-            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
-              <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
-                Latest News &
-              </span>
-              <span className="block text-brand-primary dark:text-brand-primary font-black">
-                Company Announcements
-              </span>
-            </h2>
-            <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
-              Stay updated with our latest projects, partnerships, and company
-              milestones
-            </p>
+          <FadeInWhenVisible>
+            <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-gray-100 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+                  Latest News &
+                </span>
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                  Company Announcements
+                </span>
+              </h2>
+              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
+                Stay updated with our latest projects, partnerships, and company
+                milestones
+              </p>
+            </div>
           </FadeInWhenVisible>
 
-          <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto max-w-7xl">
+          <div className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto max-w-7xl">
             <FadeInWhenVisible>
               <Card className="border-l-4 border-l-brand-primary h-full flex flex-col">
                 <CardContent className="pt-6 flex flex-col flex-grow">
@@ -1101,13 +1232,13 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark via-brand-primary-dark dark:via-gray-900 to-brand-primary dark:to-gray-800 py-16 lg:py-24 overflow-hidden text-white">
+      <section className="relative bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark via-brand-primary-dark dark:via-gray-900 to-brand-primary dark:to-gray-800 py-20 lg:py-32 overflow-hidden text-white">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="z-10 relative mx-auto px-4 container">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-5xl text-center">
-              <h2 className="mb-6 font-black text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
-                <span className="block mb-3 font-semibold text-white/90 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+              <h2 className="mb-8 pb-2 font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-white/90 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                   Ready to Start Our
                 </span>
                 <span className="block text-white font-black drop-shadow-lg">

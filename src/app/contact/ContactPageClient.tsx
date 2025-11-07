@@ -673,7 +673,7 @@ export default function ContactPageClient() {
           </div>
         </section>
 
-        {/* Urgent Support Banner */}
+        {/* Urgent Support Banner - Redirects to Dedicated Page */}
         <section
           id="urgent-support"
           className="bg-gradient-to-r from-orange-600 to-orange-700 dark:from-orange-700 dark:to-orange-800 py-16"
@@ -701,30 +701,31 @@ export default function ContactPageClient() {
                   Need Urgent Construction Support?
                 </h2>
                 <p className="mb-8 text-white/90 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
-                  When companies face critical structural challenges, MH
-                  Construction provides expert consultation, specialized
-                  manpower, and equipment to resolve urgent construction issues.
+                  When General Contractors face critical structural challenges,
+                  MH Construction provides expert consultation, heavy equipment
+                  with certified operators, and experienced crews for immediate
+                  deployment.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                  <Link
+                    href="/urgent"
+                    className="inline-flex items-center gap-3 bg-white hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-orange-700 transition-all duration-200 hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-white/50"
+                  >
+                    <MaterialIcon icon="construction" size="lg" />
+                    View Urgent Services
+                  </Link>
                   <a
                     href="tel:+15093086489"
                     aria-label="Call MH Construction urgently at 509-308-6489"
-                    className="inline-flex items-center gap-3 bg-white hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-orange-700 transition-all duration-200 hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-white/50"
-                  >
-                    <MaterialIcon icon="phone" size="lg" />
-                    Urgent: (509) 308-6489
-                  </a>
-                  <a
-                    href="mailto:office@mhc-gc.com?subject=Urgent%20Construction%20Support"
-                    aria-label="Email urgent construction support request to MH Construction"
                     className="inline-flex items-center gap-3 bg-orange-800 hover:bg-orange-900 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-200 hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-900/50"
                   >
-                    <MaterialIcon icon="email" size="lg" />
-                    Email Support Request
+                    <MaterialIcon icon="phone" size="lg" />
+                    Call: (509) 308-6489
                   </a>
                 </div>
                 <p className="mt-6 text-white/70 text-sm">
-                  Available Monday - Friday: 8:00 AM - 5:00 PM PST
+                  For General Contractors • Equipment & Operators Available •
+                  Monday - Friday: 8:00 AM - 5:00 PM PST
                 </p>
               </div>
             </FadeInWhenVisible>

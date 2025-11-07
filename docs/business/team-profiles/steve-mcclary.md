@@ -29,10 +29,15 @@ Perfect Safety Record Award, Field Leadership Excellence
 
 ## Biography
 
-Steve brings over 20 years of field operations leadership to MH Construction. His hands-on approach
-emphasizes safety-first practices and quality construction while managing complex projects with
-multiple subcontractors and phases. Steve embodies the company's military-precision approach to
-construction excellence.
+Steven began his career in construction as a teenager, starting on a residential crew clearing
+debris before swapping into a leadership position when they were short handed. Over the years he
+discovered his passion for construction outweighed his original pursuit of diesel and heavy
+equipment machines. Known for his staying busy and constantly learning new trades, Steve has built
+a career on reliability and skill diversity.
+
+As Senior Superintendent, Steve oversees all on-site construction operations - ensuring projects
+are safe, efficient, and on-plan. He coordinates subcontractor teams, mentors newcomers, manages
+resources, and serves as a key liaison between clients and design teams.
 
 ## Career Highlights
 

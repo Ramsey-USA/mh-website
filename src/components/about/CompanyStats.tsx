@@ -9,7 +9,7 @@ import {
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
 
-// Company Stats Data
+// Company Stats Data - Updated with Award-Winning Safety Record
 export const companyStats = [
   { iconName: "calendar_today", value: "2010", label: "Company Founded" },
   {
@@ -17,7 +17,11 @@ export const companyStats = [
     value: "150+",
     label: "Years Combined Team Experience",
   },
-  { iconName: "star", value: "98%", label: "Client Satisfaction Rate" },
+  {
+    iconName: "emoji_events",
+    value: ".6 EMR",
+    label: "Award-Winning Safety Record",
+  },
   {
     iconName: "diversity_3",
     value: "70%",

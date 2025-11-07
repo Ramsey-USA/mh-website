@@ -166,14 +166,14 @@ export default function Home() {
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="mb-12 sm:mb-16 lg:mb-20 text-center scroll-reveal">
-            <p className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-              <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 What Our
               </span>
               <span className="block text-brand-primary dark:text-brand-primary font-black">
                 Clients Say
               </span>
-            </p>
+            </h2>
             <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
               Read testimonials from{" "}
               <span className="font-medium text-gray-800 dark:text-gray-200">

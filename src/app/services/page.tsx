@@ -26,12 +26,12 @@ export default function ServicesPage() {
         <ServicesHero />
 
         {/* Construction Expertise Section */}
-        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
+        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mx-auto mb-16 lg:mb-24 max-w-4xl text-center">
-                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                     Partnership-Focused
                   </span>
                   <span className="block text-brand-primary dark:text-brand-primary font-black">
@@ -39,7 +39,7 @@ export default function ServicesPage() {
                   </span>
                 </h2>
 
-                <p className="mb-8 font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
+                <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
                   Planning a new commercial building demands intricate details
                   and expert partnership oversight. Work WITH us through
                   comprehensive Partnership-Focused Construction Management
@@ -88,20 +88,20 @@ export default function ServicesPage() {
         {/* Core Services Section */}
         <section
           id="core-services"
-          className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32 xl:py-40"
+          className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32"
         >
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mb-16 lg:mb-24 text-center scroll-reveal">
-                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                     Core Partnership
                   </span>
                   <span className="block text-brand-primary dark:text-brand-primary font-black">
                     Services
                   </span>
                 </h2>
-                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
+                <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
                   Comprehensive partnership-focused management services designed
                   to bring your vision to life through collaboration and
                   military precision
@@ -109,7 +109,7 @@ export default function ServicesPage() {
               </div>
             </FadeInWhenVisible>
 
-            <StaggeredFadeIn className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mx-auto max-w-7xl">
+            <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
               {coreServices.map((service, index) => (
                 <ServiceCard key={index} service={service} index={index} />
               ))}
@@ -118,19 +118,19 @@ export default function ServicesPage() {
         </section>
 
         {/* Specialty Services Section */}
-        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
+        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mb-16 lg:mb-24 text-center scroll-reveal">
-                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                     Specialized Partnership
                   </span>
                   <span className="block text-brand-primary dark:text-brand-primary font-black">
                     Solutions
                   </span>
                 </h2>
-                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
+                <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
                   Diverse collaborative construction expertise across the
                   Tri-Cities and Pacific Northwest region
                 </p>
@@ -150,12 +150,12 @@ export default function ServicesPage() {
         </section>
 
         {/* Service Areas Section */}
-        <section className="bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark to-brand-accent dark:to-gray-800 py-20 lg:py-32 xl:py-40 text-white">
+        <section className="bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark to-brand-accent dark:to-gray-800 py-20 lg:py-32 text-white">
           <div className="mx-auto px-4 container">
             <FadeInWhenVisible>
               <div className="mb-16 lg:mb-24 text-center">
-                <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-4 font-semibold text-white/80 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                <h2 className="mb-8 pb-2 font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                  <span className="block mb-4 font-semibold text-white/90 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                     Areas We
                   </span>
                   <span className="block text-white font-black">Serve</span>
@@ -163,7 +163,7 @@ export default function ServicesPage() {
               </div>
             </FadeInWhenVisible>
 
-            <StaggeredFadeIn className="gap-8 grid grid-cols-1 md:grid-cols-2 mx-auto max-w-4xl">
+            <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 md:grid-cols-2 mx-auto max-w-4xl">
               {serviceAreas.map((area, index) => (
                 <Card
                   key={index}
@@ -203,18 +203,18 @@ export default function ServicesPage() {
         <WhyChooseUs />
 
         {/* Portfolio Section - Simplified */}
-        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
+        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible className="mb-16 lg:mb-24 text-center scroll-reveal">
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                   Our Construction
                 </span>
                 <span className="block text-brand-primary dark:text-brand-primary font-black">
                   Portfolio
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
+              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
                 Explore our completed projects showcasing quality craftsmanship
                 across commercial, residential, and government sectors
               </p>
