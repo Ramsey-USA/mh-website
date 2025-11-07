@@ -206,7 +206,7 @@ designer, content writer, or stakeholder, start here to find what you need.
 2. **[Content Standards](./branding/strategy/content-messaging-standards.md)** - Writing rules
 3. **[Partnership Messaging](./partnerships/messaging/partnership-messaging-guide.md)** - Partner content
 4. **[SEO Best Practices](./technical/seo/ultimate-seo-guide.md)** - SEO content optimization
-4. **[CTA Standards](./branding/standards/cta-standardization-plan.md)** - Call-to-action patterns
+5. **[CTA Standards](./branding/standards/cta-standardization-plan.md)** - Call-to-action patterns
 
 ### **For Project Managers**
 
@@ -349,18 +349,18 @@ A: [Consistency Guide](./development/consistency-guide.md) has everything - it's
 
 ## 🌟 Quick Actions
 
-| I want to...             | Go here                                                     |
-| ------------------------ | ----------------------------------------------------------- |
-| **Start developing**     | [Consistency Guide](./development/consistency-guide.md)     |
-| **Add a new page**       | [Ultimate SEO Guide](./technical/seo/ultimate-seo-guide.md) |
+| I want to...             | Go here                                                               |
+| ------------------------ | --------------------------------------------------------------------- |
+| **Start developing**     | [Consistency Guide](./development/consistency-guide.md)               |
+| **Add a new page**       | [Ultimate SEO Guide](./technical/seo/ultimate-seo-guide.md)           |
 | **Check SEO**            | Run `npm run seo:audit` or [SEO Quick Ref](../SEO-QUICK-REFERENCE.md) |
-| **Learn the brand**      | [Branding Index](./branding/branding-index.md)              |
-| **See components**       | [Design System](./technical/design-system/design-system.md) |
-| **Deploy to production** | [Deployment](./deployment/cloudflare-deployment-ready.md)   |
-| **Write content**        | [Messaging Guidelines](./branding/strategy/messaging.md)    |
-| **Check the roadmap**    | [Project Roadmaps](./project/roadmaps/)                     |
-| **Fix an issue**         | [Troubleshooting](./development/troubleshooting.md)         |
-| **Contact the team**     | [Team Roster](./business/team-roster.md)                    |
+| **Learn the brand**      | [Branding Index](./branding/branding-index.md)                        |
+| **See components**       | [Design System](./technical/design-system/design-system.md)           |
+| **Deploy to production** | [Deployment](./deployment/cloudflare-deployment-ready.md)             |
+| **Write content**        | [Messaging Guidelines](./branding/strategy/messaging.md)              |
+| **Check the roadmap**    | [Project Roadmaps](./project/roadmaps/)                               |
+| **Fix an issue**         | [Troubleshooting](./development/troubleshooting.md)                   |
+| **Contact the team**     | [Team Roster](./business/team-roster.md)                              |
 
 ---
 

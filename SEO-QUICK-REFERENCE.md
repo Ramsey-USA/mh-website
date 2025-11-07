@@ -9,12 +9,14 @@
 ### Adding a New Page?
 
 1. **Create your page file:**
+
    ```bash
    mkdir -p src/app/new-page
    # Create your page.tsx
    ```
 
 2. **Add ONE line to sitemap:**
+
    ```typescript
    // src/app/sitemap.ts - Add to ACTIVE_PAGES array
    { path: "/new-page", priority: 0.8, changeFreq: "monthly" as const },
@@ -41,28 +43,31 @@ npm run build && npm run seo:audit
 
 ## 📊 SEO Scoring
 
-| Score | Status | What to Do |
-|-------|--------|-----------|
-| 90-100 | 🟢 Excellent | Nothing! Keep it up |
-| 80-89 | 🟡 Good | Minor tweaks recommended |
-| 70-79 | 🟠 Fair | Improvements needed |
-| 0-69 | 🔴 Poor | Fix immediately |
+| Score  | Status       | What to Do               |
+| ------ | ------------ | ------------------------ |
+| 90-100 | 🟢 Excellent | Nothing! Keep it up      |
+| 80-89  | 🟡 Good      | Minor tweaks recommended |
+| 70-79  | 🟠 Fair      | Improvements needed      |
+| 0-69   | 🔴 Poor      | Fix immediately          |
 
 ---
 
 ## ✅ SEO Best Practices (Auto-Enforced)
 
 ### Titles
+
 - ✅ 50 characters (optimal)
 - ⚠️ 30-60 range
 - Format: `[Page Name] | MH Construction`
 
 ### Descriptions
+
 - ✅ 150 characters (optimal)
 - ⚠️ 120-160 range
 - Include: keyword, location, CTA
 
 ### Keywords
+
 - ✅ 7 keywords (optimal)
 - ⚠️ 3-15 range
 - Always include: location, veteran-owned, service
@@ -71,17 +76,17 @@ npm run build && npm run seo:audit
 
 ## 🎯 Page Categories (Auto-Detected)
 
-| Type | Priority | Examples |
-|------|----------|----------|
-| Homepage | 1.0 | `/` |
-| Services | 0.9 | `/services` |
-| Contact | 0.9 | `/contact`, `/booking` |
-| Tools | 0.85 | `/estimator` |
-| Emergency | 0.85 | `/urgent` |
-| Projects | 0.8 | `/projects` |
-| Partnerships | 0.75 | `/government`, `/partners` |
-| Team/About | 0.7 | `/team`, `/about` |
-| Careers | 0.7 | `/careers` |
+| Type         | Priority | Examples                   |
+| ------------ | -------- | -------------------------- |
+| Homepage     | 1.0      | `/`                        |
+| Services     | 0.9      | `/services`                |
+| Contact      | 0.9      | `/contact`, `/booking`     |
+| Tools        | 0.85     | `/estimator`               |
+| Emergency    | 0.85     | `/urgent`                  |
+| Projects     | 0.8      | `/projects`                |
+| Partnerships | 0.75     | `/government`, `/partners` |
+| Team/About   | 0.7      | `/team`, `/about`          |
+| Careers      | 0.7      | `/careers`                 |
 
 ---
 
@@ -110,7 +115,7 @@ npm run type-check         # TypeScript check
 ✅ **90-100 scores** - All pages optimized  
 ✅ **Auto-sitemap** - Updates automatically  
 ✅ **Smart defaults** - Page types detected  
-✅ **Best practices** - Auto-enforced  
+✅ **Best practices** - Auto-enforced
 
 ---
 
@@ -136,6 +141,7 @@ npm run type-check         # TypeScript check
 **Main Guide:** [`docs/technical/seo/ultimate-seo-guide.md`](../docs/technical/seo/ultimate-seo-guide.md)
 
 **Quick Links:**
+
 - [SEO Index](../docs/technical/seo/seo-index.md)
 - [Compliance Status](../docs/technical/seo/seo-compliance-status.md)
 - [Enhancement Guide](../docs/technical/seo/seo-enhancement-guide.md)
@@ -148,7 +154,7 @@ npm run type-check         # TypeScript check
 ✨ **Automatic scoring** - Know your SEO health instantly  
 ✨ **Built-in validation** - Catch issues before deployment  
 ✨ **Smart defaults** - Best practices automatically applied  
-✨ **Scale friendly** - Works with 10 pages or 1000  
+✨ **Scale friendly** - Works with 10 pages or 1000
 
 ---
 

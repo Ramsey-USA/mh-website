@@ -26,7 +26,8 @@ practices for the MH Construction website.
 
 **[ultimate-seo-guide.md](./ultimate-seo-guide.md)** - Complete SEO optimization system ⭐
 
-**NEW!** Comprehensive guide to the auto-adaptive SEO system with smart scoring, automated auditing, and minimal maintenance requirements.
+**NEW!** Comprehensive guide to the auto-adaptive SEO system with smart scoring, automated auditing, and minimal
+maintenance requirements.
 
 **Topics Covered:**
 
