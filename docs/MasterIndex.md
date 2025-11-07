@@ -1,6 +1,6 @@
 # MH Construction Documentation Master Index
 
-**Welcome to the MH Construction Documentation Hub** | **Last Updated**: November 6, 2025
+**Welcome to the MH Construction Documentation Hub** | **Last Updated**: November 7, 2025
 
 This is your central navigation point for all MH Construction project documentation. Whether you're a developer,
 designer, content writer, or stakeholder, start here to find what you need.
@@ -215,7 +215,9 @@ designer, content writer, or stakeholder, start here to find what you need.
 - **Top-Level Categories**: 10
 - **Index/Navigation Files**: 20
 - **Largest File**: mh-branding.md (2,392 lines)
-- **Most Organized**: branding/ (17 files, 4 subdirectories)
+- **Most Organized**: branding/ (comprehensive structure)
+- **Build Time**: ~26s (optimized from 34s)
+- **Codebase Status**: Cleaned and optimized (10,500+ lines of unused code removed)
 
 ---
 
@@ -304,10 +306,16 @@ A: [Consistency Guide](./development/consistency-guide.md) has everything - it's
 
 ## 🔄 Keeping Documentation Current
 
-**Last Updated**: November 6, 2025
+**Last Updated**: November 7, 2025
 
 **Recent Updates**:
 
+- ✅ Major codebase cleanup (Nov 7, 2025)
+  - Removed 78 unused files (10,500+ lines of deprecated code)
+  - Deleted obsolete scripts (analysis, cleanup, markdown, optimization)
+  - Removed deprecated API routes (content, diagnostics, notifications)
+  - Cleaned up unused components (blog, veteran, PWA-related)
+  - Optimized build time from 34s to 26s
 - ✅ Consolidated branding documentation (Nov 6, 2025)
 - ✅ Created unified docs/branding/ structure
 - ✅ Added consistency-guide.md as primary implementation reference
@@ -349,5 +357,5 @@ A: [Consistency Guide](./development/consistency-guide.md) has everything - it's
 ---
 
 **Maintained by**: MH Construction Documentation Team  
-**Version**: 1.0.0  
-**Last Updated**: November 6, 2025
+**Version**: 1.1.0  
+**Last Updated**: November 7, 2025

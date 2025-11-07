@@ -99,30 +99,70 @@ mh-website/
 │   │   ├── government/        # Government projects
 │   │   ├── trade-partners/    # Subcontractor network
 │   │   ├── urgent/            # Urgent construction support for GCs
+│   │   ├── 3d-explorer/       # 3D model viewer
 │   │   └── api/               # Edge API routes
+│   │       ├── auth/         # Authentication endpoints
+│   │       ├── consultations/ # Consultation booking
+│   │       ├── contact/      # Contact form
+│   │       ├── job-applications/ # Career applications
+│   │       ├── functions/    # Dynamic function endpoints
+│   │       └── security/     # Security monitoring
 │   ├── components/            # React components
 │   │   ├── layout/           # Navigation, Footer
-│   │   ├── ui/               # Button, Card, Modal, etc.
+│   │   ├── ui/               # Reusable UI components
+│   │   │   ├── base/        # Base components (Button, Card, etc.)
+│   │   │   ├── forms/       # Form components
+│   │   │   ├── layout/      # Layout components
+│   │   │   ├── media/       # Media components
+│   │   │   ├── modals/      # Modal dialogs
+│   │   │   └── specialty/   # Specialty components
 │   │   ├── chatbot/          # AI assistant
-│   │   ├── blog/             # Blog section component
-│   │   ├── testimonials/     # Reviews section component
+│   │   ├── testimonials/     # Reviews section
+│   │   ├── estimator/        # Cost estimator components
+│   │   ├── navigation/       # Navigation system
+│   │   ├── performance/      # Performance monitoring
 │   │   └── [feature]/        # Feature-specific components
 │   ├── lib/                  # Utilities and services
 │   │   ├── ai/              # AI chatbot logic
+│   │   │   ├── core/        # Core AI functionality
+│   │   │   ├── estimator/   # Cost estimation AI
+│   │   │   └── veteran/     # Veteran-specific AI
+│   │   ├── api/             # API utilities
+│   │   ├── auth/            # Authentication
 │   │   ├── cloudflare/      # Cloudflare integrations
 │   │   ├── data/            # Static data (team, services)
+│   │   ├── db/              # Database utilities
+│   │   ├── security/        # Security utilities
 │   │   ├── types/           # TypeScript definitions
-│   │   └── utils/           # Helper functions
+│   │   ├── utils/           # Helper functions
+│   │   └── veteran/         # Veteran services
+│   ├── contexts/            # React contexts
+│   ├── hooks/               # Custom React hooks
+│   ├── providers/           # React providers
+│   ├── middleware/          # Request middleware
 │   └── styles/              # Global CSS
 ├── public/                  # Static assets
 │   ├── images/             # Photos and graphics
-│   └── icons/              # PWA icons
+│   ├── icons/              # PWA icons
+│   └── screenshots/        # App screenshots
 ├── docs/                   # Documentation
 │   ├── business/          # Business info, branding
+│   ├── branding/          # Brand guidelines
 │   ├── technical/         # Architecture, design system
 │   ├── development/       # Dev guidelines, references
-│   └── deployment/        # Setup guides
-└── scripts/               # Automation scripts
+│   ├── deployment/        # Setup guides
+│   ├── project/           # Project management
+│   ├── partnerships/      # Partner documentation
+│   ├── migrations/        # Migration guides
+│   └── operations/        # Operations docs
+├── scripts/               # Automation scripts
+│   ├── analysis/          # Code analysis tools
+│   ├── cleanup/           # Cleanup utilities
+│   ├── markdown/          # Markdown processing
+│   ├── optimization/      # Optimization scripts
+│   ├── utilities/         # General utilities
+│   └── validation/        # Validation scripts
+└── migrations/            # Database migrations
 ```
 
 ---
@@ -449,11 +489,11 @@ See [cloudflare-deployment.md](./cloudflare-deployment.md) for complete setup gu
 ## 📊 Project Status
 
 ```bash
-✅ Build: SUCCESS (~34s production build)
-✅ TypeScript: 188 files, zero errors
+✅ Build: SUCCESS (~26s production build)
+✅ TypeScript: Clean, zero errors
 ✅ ESLint: Clean, no warnings
 ✅ Branding: 100/100 compliance
-✅ Routes: 11 pages + 14 API endpoints
+✅ Routes: 12 pages + 8 API endpoints
 ✅ Navigation: All links validated
 ✅ Performance: 94+ Lighthouse score
 ✅ SEO: Sitemap, meta tags, structured data
@@ -462,14 +502,14 @@ See [cloudflare-deployment.md](./cloudflare-deployment.md) for complete setup gu
 
 ### Key Metrics
 
-| Metric          | Status                       |
-| --------------- | ---------------------------- |
-| **Build Time**  | ~34s                         |
-| **Bundle Size** | 102 KB shared JS             |
-| **Lighthouse**  | 94+                          |
-| **Routes**      | 26 total (12 pages + 14 API) |
-| **Components**  | 100+ reusable                |
-| **Type Safety** | 100% TypeScript              |
+| Metric          | Status                      |
+| --------------- | --------------------------- |
+| **Build Time**  | ~26s                        |
+| **Bundle Size** | 102 KB shared JS            |
+| **Lighthouse**  | 94+                         |
+| **Routes**      | 20 total (12 pages + 8 API) |
+| **Components**  | 100+ reusable               |
+| **Type Safety** | 100% TypeScript             |
 
 ---
 
@@ -491,8 +531,8 @@ See [contributing.md](./contributing.md) for development guidelines and contribu
 
 ---
 
-**Last Updated**: November 6, 2025  
-**Version**: 4.0.2  
+**Last Updated**: November 7, 2025  
+**Version**: 4.0.3  
 **Status**: Production Ready
 
 _Building partnerships, serving communities, creating lasting value in the Pacific Northwest._
