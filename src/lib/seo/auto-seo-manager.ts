@@ -172,13 +172,12 @@ export function generateSmartMetadata(config: SEOConfig): Metadata {
     ? title
     : `${title} | MH Construction`;
 
-  // Combine with default keywords
-  const allKeywords = [
-    ...new Set([
-      ...keywords,
-      ...enhancedSEO.defaultKeywords.slice(0, 5), // Add top 5 defaults
-    ]),
-  ];
+  // Combine with default keywords (deduplicate)
+  const keywordSet = new Set([
+    ...keywords,
+    ...enhancedSEO.defaultKeywords.slice(0, 5), // Add top 5 defaults
+  ]);
+  const allKeywords = Array.from(keywordSet);
 
   const metadata: Metadata = {
     title: fullTitle,
