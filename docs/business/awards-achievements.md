@@ -13,7 +13,10 @@
 
 ## Overview
 
-MH Construction has been recognized for excellence in safety, quality, and innovation throughout our history. This document chronicles our awards and achievements, with a particular focus on our industry-leading safety record and Experience Modification Rate (EMR) performance.
+MH Construction has been recognized for excellence in safety, quality, and innovation
+throughout our history. This document chronicles our awards and achievements, with a
+particular focus on our industry-leading safety record and Experience Modification Rate
+(EMR) performance.
 
 ---
 
@@ -21,7 +24,9 @@ MH Construction has been recognized for excellence in safety, quality, and innov
 
 ### Associated General Contractors of Washington (AGC-WA)
 
-MH Construction has maintained an exceptional safety record, earning consistent recognition from the Associated General Contractors of Washington chapter for our commitment to workplace safety and injury prevention.
+MH Construction has maintained an exceptional safety record, earning consistent
+recognition from the Associated General Contractors of Washington chapter for our
+commitment to workplace safety and injury prevention.
 
 #### **2025: Most Improved EMR Award**
 
@@ -33,7 +38,9 @@ MH Construction has maintained an exceptional safety record, earning consistent 
 - At least 3 continuous years without a time loss or impairment injury
 - Participation in the L&I Claims Free Discount Program
 
-**Significance:** This award recognizes our dramatic improvement in safety performance and our sustained commitment to zero-incident workplace culture under new veteran-owned leadership.
+**Significance:** This award recognizes our dramatic improvement in safety performance
+and our sustained commitment to zero-incident workplace culture under new
+veteran-owned leadership.
 
 ---
 
@@ -48,7 +55,9 @@ MH Construction has maintained an exceptional safety record, earning consistent 
 - L&I Claims Free Discount Program participation
 - 7-year average EMR of .65
 
-**Significance:** Maintaining an EMR of .6 represents exceptional safety performance - significantly below the industry standard of 1.0, demonstrating our commitment to worker protection and operational excellence.
+**Significance:** Maintaining an EMR of .6 represents exceptional safety performance -
+significantly below the industry standard of 1.0, demonstrating our commitment to
+worker protection and operational excellence.
 
 ---
 
@@ -63,7 +72,8 @@ MH Construction has maintained an exceptional safety record, earning consistent 
 - L&I Claims Free Discount Program participation
 - 6-year average EMR of .66
 
-**Significance:** Continued excellence in maintaining the lowest possible EMR rating while growing our project portfolio and team.
+**Significance:** Continued excellence in maintaining the lowest possible EMR rating
+while growing our project portfolio and team.
 
 ---
 
@@ -78,7 +88,8 @@ MH Construction has maintained an exceptional safety record, earning consistent 
 - L&I Claims Free Discount Program participation
 - 5-year average EMR of .68
 
-**Significance:** First recognition in this series of consecutive top safety performance awards, establishing our foundation of excellence.
+**Significance:** First recognition in this series of consecutive top safety performance
+awards, establishing our foundation of excellence.
 
 ---
 
@@ -86,7 +97,8 @@ MH Construction has maintained an exceptional safety record, earning consistent 
 
 ### What is Experience Modification Rate (EMR)?
 
-The Experience Modification Rate is an insurance industry metric that compares a company's workers' compensation claims history to industry averages:
+The Experience Modification Rate is an insurance industry metric that compares a
+company's workers' compensation claims history to industry averages:
 
 - **1.0 = Average** industry performance
 - **Below 1.0 = Better than average** (lower claims/safer workplace)
@@ -119,14 +131,14 @@ Our multi-year streak demonstrates sustained excellence, not just periodic compl
 
 ### AGC Washington Chapter
 
-**Outstanding Commercial Project Award**
+#### Outstanding Commercial Project Award
 
 - Recognition for innovation and quality craftsmanship
 - Awarded for exemplary commercial construction projects
 
 ### OSHA Voluntary Protection Program (VPP)
 
-**Star Designation**
+#### Star Designation
 
 - Exemplary workplace safety and health programs
 - Highest level of OSHA recognition
@@ -134,14 +146,14 @@ Our multi-year streak demonstrates sustained excellence, not just periodic compl
 
 ### Washington State Green Building Council
 
-**Sustainable Building Leader**
+#### Sustainable Building Leader
 
 - Commitment to sustainable construction practices
 - LEED compliance and environmental stewardship
 
 ### Tri-Cities Chamber of Commerce
 
-**Business Excellence Award**
+#### Business Excellence Award
 
 - Community involvement recognition
 - Economic development support
@@ -305,4 +317,5 @@ Our award-winning safety record provides clients with:
 
 ---
 
-_Last Updated: November 7, 2025 - Added 2019-2021 AGC-WA EMR awards and 2025 Most Improved EMR award_
+**Last Updated:** November 7, 2025 - Added 2019-2021 AGC-WA EMR awards and 2025
+Most Improved EMR award
