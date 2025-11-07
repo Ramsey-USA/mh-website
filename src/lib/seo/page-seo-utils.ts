@@ -254,3 +254,43 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     schemas: [generateLocalBusinessSchema()],
   });
 }
+
+// Urgent Support page SEO
+export function getUrgentSEO(): Metadata & { schemas: object[] } {
+  return generateEnhancedMetadata({
+    title:
+      "Urgent Construction Support | Emergency Structural Services | MH Construction",
+    description:
+      "Professional urgent construction support for General Contractors facing critical structural challenges. Expert consultation, specialized equipment, heavy machinery operators, and experienced crews available for immediate deployment in WA, OR, and ID.",
+    keywords: [
+      "urgent construction support",
+      "emergency structural repairs",
+      "construction equipment rental",
+      "heavy machinery operators",
+      "general contractor support",
+      "structural assessment",
+      "foundation repair urgent",
+      "Pacific Northwest urgent construction",
+    ],
+    canonicalUrl: `${enhancedSEO.siteUrl}/urgent`,
+    schemas: [],
+  });
+}
+
+// 3D Explorer page SEO
+export function get3DExplorerSEO(): Metadata & { schemas: object[] } {
+  return generateEnhancedMetadata({
+    title: "3D Project Explorer | Coming Soon | MH Construction",
+    description:
+      "Immersive 3D visualization platform for construction projects. Explore project designs, walk through virtual models, and experience MH Construction's innovative approach to project visualization. Coming soon.",
+    keywords: [
+      "3D construction visualization",
+      "virtual construction walkthrough",
+      "construction project 3D models",
+      "immersive construction experience",
+      "construction technology innovation",
+    ],
+    canonicalUrl: `${enhancedSEO.siteUrl}/3d-explorer`,
+    schemas: [],
+  });
+}
