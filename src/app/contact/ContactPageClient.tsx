@@ -170,13 +170,15 @@ export default function ContactPageClient() {
 
               {/* Subtitle */}
               <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-                Your Partnership Team is Ready to Connect
+                Your Partnership Team is Ready to Connect • Pacific Northwest
               </p>
 
               {/* Description */}
               <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-                "Building for the Owner, NOT the Dollar" — Monday - Friday: 8:00
-                AM - 5:00 PM PST
+                "THE ROI IS THE RELATIONSHIP" — Reach out for transparent
+                communication and collaborative problem-solving from your
+                veteran-owned construction partner. Monday - Friday: 8:00 AM -
+                5:00 PM PST
               </p>
             </div>
           </div>
@@ -209,7 +211,9 @@ export default function ContactPageClient() {
                   </span>
                 </h2>
                 <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                  Multiple ways to start your construction partnership
+                  Multiple ways to start your construction partnership with over
+                  150 years combined team experience serving the Pacific
+                  Northwest
                 </p>
               </div>
 
@@ -267,6 +271,251 @@ export default function ContactPageClient() {
                     </div>
                   </a>
                 ))}
+              </div>
+            </FadeInWhenVisible>
+          </div>
+        </section>
+
+        {/* Two Pathways to Partnership - Trade Partners vs Clients */}
+        <section
+          className="relative py-20 lg:py-32 xl:py-40 bg-gray-50 dark:bg-gray-800"
+          aria-labelledby="partnership-pathways-heading"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <FadeInWhenVisible>
+              <div className="mb-16 lg:mb-24 text-center">
+                <h2
+                  id="partnership-pathways-heading"
+                  className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter"
+                >
+                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+                    Two Pathways to
+                  </span>
+                  <span className="block text-brand-primary dark:text-brand-primary font-black">
+                    Partnership Success
+                  </span>
+                </h2>
+                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
+                  Whether you're a project owner or a trade professional, we
+                  have a pathway designed for you
+                </p>
+              </div>
+
+              {/* Two-Column Grid for Pathways */}
+              <div className="gap-8 lg:gap-12 grid grid-cols-1 lg:grid-cols-2">
+                {/* Client Services Pathway */}
+                <div className="bg-white dark:bg-gray-900 border-4 border-brand-primary p-8 lg:p-10 rounded-3xl shadow-2xl hover:shadow-brand-primary/20 transition-all duration-300">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="bg-brand-primary/10 dark:bg-brand-primary/20 p-4 rounded-2xl">
+                      <MaterialIcon
+                        icon="people"
+                        size="3xl"
+                        className="text-brand-primary"
+                      />
+                    </div>
+                    <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl">
+                      For Project Clients
+                    </h3>
+                  </div>
+
+                  <p className="mb-6 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                    Ready to begin your construction partnership? We're here to
+                    listen, collaborate, and bring your vision to life through
+                    professional construction management.
+                  </p>
+
+                  {/* Client Contact Info */}
+                  <div className="bg-gray-50 dark:bg-gray-800 p-6 border-l-4 border-brand-primary rounded-xl mb-6">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <MaterialIcon
+                          icon="phone"
+                          size="lg"
+                          className="text-brand-primary flex-shrink-0"
+                        />
+                        <div>
+                          <p className="font-semibold text-gray-900 dark:text-white text-sm">
+                            Client Services
+                          </p>
+                          <a
+                            href="tel:+15093086489,100"
+                            className="text-brand-primary hover:text-brand-accent text-lg font-bold transition-colors"
+                            aria-label="Call client services at 509-308-6489 extension 100"
+                          >
+                            (509) 308-6489 ext. 100
+                          </a>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <MaterialIcon
+                          icon="email"
+                          size="lg"
+                          className="text-brand-primary flex-shrink-0"
+                        />
+                        <div>
+                          <p className="font-semibold text-gray-900 dark:text-white text-sm">
+                            Email
+                          </p>
+                          <a
+                            href="mailto:office@mhc-gc.com?subject=Project%20Inquiry"
+                            className="text-brand-primary hover:text-brand-accent text-lg font-bold transition-colors"
+                            aria-label="Email office@mhc-gc.com for project inquiries"
+                          >
+                            office@mhc-gc.com
+                          </a>
+                        </div>
+                      </div>
+                      <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
+                        <p className="text-gray-600 dark:text-gray-400 text-sm italic">
+                          For: Free estimates, consultations, and project
+                          discussions
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Client CTAs */}
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-gray-900 dark:text-white text-lg mb-4">
+                      Get Started:
+                    </h4>
+                    <Link
+                      href="/booking"
+                      className="flex items-center justify-between bg-brand-primary hover:bg-brand-accent text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <MaterialIcon icon="event" size="lg" />
+                        <span>Schedule Free Consultation</span>
+                      </div>
+                      <MaterialIcon
+                        icon="arrow_forward"
+                        size="md"
+                        className="group-hover:translate-x-1 transition-transform"
+                      />
+                    </Link>
+                    <Link
+                      href="/estimator"
+                      className="flex items-center justify-between bg-white dark:bg-gray-700 border-2 border-brand-primary text-brand-primary dark:text-brand-secondary hover:bg-brand-primary hover:text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <MaterialIcon icon="calculate" size="lg" />
+                        <span>Get Instant AI Estimate</span>
+                      </div>
+                      <MaterialIcon
+                        icon="arrow_forward"
+                        size="md"
+                        className="group-hover:translate-x-1 transition-transform"
+                      />
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Trade Partners Pathway */}
+                <div className="bg-white dark:bg-gray-900 border-4 border-brand-secondary p-8 lg:p-10 rounded-3xl shadow-2xl hover:shadow-brand-secondary/20 transition-all duration-300">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="bg-brand-secondary/10 dark:bg-brand-secondary/20 p-4 rounded-2xl">
+                      <MaterialIcon
+                        icon="construction"
+                        size="3xl"
+                        className="text-brand-secondary"
+                      />
+                    </div>
+                    <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl">
+                      For Trade Partners
+                    </h3>
+                  </div>
+
+                  <p className="mb-6 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                    Looking to grow your business with a veteran-owned
+                    construction leader? Join our network of quality
+                    professionals serving the Pacific Northwest market.
+                  </p>
+
+                  {/* Trade Partner Contact Info */}
+                  <div className="bg-gray-50 dark:bg-gray-800 p-6 border-l-4 border-brand-secondary rounded-xl mb-6">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <MaterialIcon
+                          icon="phone"
+                          size="lg"
+                          className="text-brand-secondary flex-shrink-0"
+                        />
+                        <div>
+                          <p className="font-semibold text-gray-900 dark:text-white text-sm">
+                            Trade Partner Inquiries
+                          </p>
+                          <a
+                            href="tel:+15093086489,150"
+                            className="text-brand-secondary hover:text-brand-accent text-lg font-bold transition-colors"
+                            aria-label="Call trade partner inquiries at 509-308-6489 extension 150"
+                          >
+                            (509) 308-6489 ext. 150
+                          </a>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <MaterialIcon
+                          icon="email"
+                          size="lg"
+                          className="text-brand-secondary flex-shrink-0"
+                        />
+                        <div>
+                          <p className="font-semibold text-gray-900 dark:text-white text-sm">
+                            Email
+                          </p>
+                          <a
+                            href="mailto:office@mhc-gc.com?subject=Trade%20Partnership%20Inquiry"
+                            className="text-brand-secondary hover:text-brand-accent text-lg font-bold transition-colors"
+                            aria-label="Email office@mhc-gc.com for trade partnership inquiries"
+                          >
+                            office@mhc-gc.com
+                          </a>
+                        </div>
+                      </div>
+                      <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
+                        <p className="text-gray-600 dark:text-gray-400 text-sm italic">
+                          For: Vendor applications, trade partnerships, and
+                          business opportunities
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Trade Partner CTAs */}
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-gray-900 dark:text-white text-lg mb-4">
+                      Join Our Network:
+                    </h4>
+                    <Link
+                      href="/trade-partners"
+                      className="flex items-center justify-between bg-brand-secondary hover:bg-bronze-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <MaterialIcon icon="check_circle" size="lg" />
+                        <span>Apply as Approved Vendor</span>
+                      </div>
+                      <MaterialIcon
+                        icon="arrow_forward"
+                        size="md"
+                        className="group-hover:translate-x-1 transition-transform"
+                      />
+                    </Link>
+                    <Link
+                      href="/trade-partners#benefits"
+                      className="flex items-center justify-between bg-white dark:bg-gray-700 border-2 border-brand-secondary text-brand-secondary hover:bg-brand-secondary hover:text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <MaterialIcon icon="handshake" size="lg" />
+                        <span>View Partnership Benefits</span>
+                      </div>
+                      <MaterialIcon
+                        icon="arrow_forward"
+                        size="md"
+                        className="group-hover:translate-x-1 transition-transform"
+                      />
+                    </Link>
+                  </div>
+                </div>
               </div>
             </FadeInWhenVisible>
           </div>

@@ -39,10 +39,11 @@ export default function ThreeDExplorerPage() {
 
             {/* Description - Partnership Language */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              "Building for the Owner, NOT the Dollar" — We're developing an
-              immersive 3D visualization platform that combines military
-              precision with cutting-edge technology to bring your construction
-              projects to life before breaking ground.
+              "THE ROI IS THE RELATIONSHIP" — We're developing an immersive 3D
+              visualization platform from our veteran-owned team that combines
+              military precision with cutting-edge technology to bring your
+              construction projects to life before breaking ground. Serving the
+              Pacific Northwest with 150+ years combined experience.
             </p>
 
             {/* Under Construction Notice Card - Brand-Optimized */}

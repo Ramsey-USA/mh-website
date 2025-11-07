@@ -259,50 +259,12 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-300 mb-4 italic leading-relaxed text-sm sm:text-base md:text-lg">
-                  "MH Construction delivered exactly what they promised, on time
-                  and within budget. Their attention to detail and communication
-                  throughout the project was exceptional."
-                </p>
-                <div className="flex items-center space-x-3">
-                  <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <MaterialIcon
-                      icon="business"
-                      size="sm"
-                      className="text-brand-primary"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900 dark:text-white text-xs sm:text-sm md:text-base">
-                      Regional Medical Center
-                    </p>
-                    <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                      Healthcare Facility Project
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white dark:bg-gray-900 hover:shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 h-full">
-              <CardHeader>
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="flex space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <MaterialIcon
-                        key={i}
-                        icon="star"
-                        size="sm"
-                        className="text-brand-secondary"
-                      />
-                    ))}
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 italic leading-relaxed text-sm sm:text-base md:text-lg">
-                  "Working with MH Construction felt like having a true partner.
-                  They went above and beyond to ensure our vision became reality
-                  while staying mindful of our budget."
+                  "Working with Todd and the MH Construction team on our Baskin
+                  Robbins build was exceptional. Todd's communication throughout
+                  the entire project kept us informed every step of the way, and
+                  the quality of workmanship exceeded our expectations. From
+                  start to finish, they demonstrated professionalism and
+                  attention to detail that made this build a success."
                 </p>
                 <div className="flex items-center space-x-3">
                   <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -314,10 +276,10 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900 dark:text-white text-xs sm:text-sm md:text-base">
-                      Tri-Cities Retail Group
+                      John Smith
                     </p>
                     <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                      Commercial Retail Complex
+                      Baskin Robbins Store Build - $250K Project
                     </p>
                   </div>
                 </div>
@@ -341,24 +303,70 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-300 mb-4 italic leading-relaxed text-sm sm:text-base md:text-lg">
-                  "The military precision and attention to detail showed in
-                  every aspect of the project. Professional, reliable, and
-                  committed to excellence."
+                  "The tenant improvement process with MH Construction was
+                  outstanding from design through construction. Their ability to
+                  facilitate the entire process while managing multiple
+                  stakeholders, coordinating various processes, overseeing
+                  employees and subcontractors, and maintaining transparency and
+                  fairness throughout was truly impressive."
                 </p>
                 <div className="flex items-center space-x-3">
                   <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
                     <MaterialIcon
-                      icon="account_balance"
+                      icon="business"
                       size="sm"
                       className="text-brand-primary"
                     />
                   </div>
                   <div>
                     <p className="font-medium text-gray-900 dark:text-white text-xs sm:text-sm md:text-base">
-                      Municipal Services
+                      Keith Bjella
                     </p>
                     <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                      Government Facility Renovation
+                      Commercial Tenant Improvement - $320K Project
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white dark:bg-gray-900 hover:shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 h-full">
+              <CardHeader>
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="flex space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <MaterialIcon
+                        key={i}
+                        icon="star"
+                        size="sm"
+                        className="text-brand-secondary"
+                      />
+                    ))}
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 italic leading-relaxed text-sm sm:text-base md:text-lg">
+                  "MH Construction exceeded our expectations in every way. Their
+                  military precision and attention to detail resulted in our
+                  dream home being completed ahead of schedule and within
+                  budget. The veteran-owned values really showed in their
+                  commitment to excellence."
+                </p>
+                <div className="flex items-center space-x-3">
+                  <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <MaterialIcon
+                      icon="home"
+                      size="sm"
+                      className="text-brand-primary"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 dark:text-white text-xs sm:text-sm md:text-base">
+                      Jennifer & Mike Thompson
+                    </p>
+                    <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
+                      Custom Family Home - $475K Project
                     </p>
                   </div>
                 </div>

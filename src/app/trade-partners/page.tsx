@@ -260,16 +260,18 @@ export default function TradePartnersPage() {
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-              Grow Your Business with Veteran-Owned Excellence
+              Grow Your Business with Veteran-Owned Excellence • Pacific
+              Northwest
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              "Building for the Owner, NOT the Dollar" — Partner with MH
-              Construction to access reliable project opportunities,
-              professional collaboration, and fair business practices. We
-              believe in building lasting relationships with quality trade
-              professionals who share our commitment to excellence.
+              "THE ROI IS THE RELATIONSHIP" — Partner with MH Construction's
+              150+ years combined team experience to access reliable project
+              opportunities throughout the Pacific Northwest, professional
+              collaboration, and fair business practices. We believe in building
+              lasting relationships with quality trade professionals who share
+              our commitment to excellence and partnership-driven success.
             </p>
           </div>
         </div>

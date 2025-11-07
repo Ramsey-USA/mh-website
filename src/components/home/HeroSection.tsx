@@ -24,15 +24,17 @@ export function HeroSection() {
           {/* Subtitle */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
             Your trusted construction partner in Pasco, Kennewick, and Richland.
-            We build commercial, medical, and industrial projects with integrity
-            & precision.
+            We build commercial, medical, religious, and industrial projects
+            with integrity & precision.
           </p>
 
           {/* Description */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            "Building for the Owner, NOT the Dollar" — Veteran-owned excellence
-            serving the Pacific Northwest with authentic partnerships and
-            cutting-edge technology.
+            "THE ROI IS THE RELATIONSHIP" — Veteran-owned since January 2025
+            with 150+ years combined team experience serving the Pacific
+            Northwest. Licensed in WA, OR, and ID, we deliver authentic
+            partnerships and cutting-edge technology focused on owner-first
+            results.
           </p>
         </div>
       </div>

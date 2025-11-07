@@ -68,16 +68,18 @@ export default function TeamPage() {
             {/* Leadership Statement */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4 font-medium">
               Our leadership, crafted through military structure, alongside a
-              team of skilled professionals, brings unwavering dedication and
-              owner-first focus to every project.
+              team of skilled professionals with over 150 years combined
+              experience, brings unwavering dedication and owner-first focus to
+              every project throughout the Pacific Northwest.
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/70 leading-relaxed px-4">
               Discover your dedicated partners through authentic vintage-style
               trading cards. Click any card to flip and explore professional
-              statistics, career highlights, and personal stories of the team
-              working WITH you.
+              statistics, career highlights, certifications, and personal
+              stories of the team working WITH you from pre-construction
+              planning through seamless close-out.
             </p>
           </div>
         </div>
@@ -253,8 +255,9 @@ export default function TeamPage() {
                             Military Precision, Civilian Innovation
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
-                            Combining disciplined excellence with creative
-                            problem-solving
+                            Structured processes and attention to detail meet
+                            creative problem-solving—discipline, leadership,
+                            service, and excellence in every project
                           </p>
                         </div>
                       </div>
@@ -271,7 +274,9 @@ export default function TeamPage() {
                             Continuous Learning
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
-                            We invest in each other's growth and development
+                            Regular training on new techniques, safety
+                            standards, and technology—plus cross-training,
+                            mentorship programs, and industry involvement
                           </p>
                         </div>
                       </div>
@@ -307,7 +312,9 @@ export default function TeamPage() {
                             Open Communication
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
-                            Every voice matters, from apprentice to owner
+                            Transparent, honest dialogue with clients and team
+                            members—every voice matters, from apprentice to
+                            owner, ensuring collaborative problem-solving
                           </p>
                         </div>
                       </div>
@@ -324,7 +331,9 @@ export default function TeamPage() {
                             Community Focused
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
-                            Building stronger communities, one project at a time
+                            Understanding that every project serves the broader
+                            community—building stronger communities through
+                            quality craftsmanship and lasting relationships
                           </p>
                         </div>
                       </div>
@@ -341,7 +350,9 @@ export default function TeamPage() {
                             Safety First
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
-                            Everyone goes home safe, every single day
+                            Presidential leadership focused on safety management
+                            and organizational standards—everyone goes home
+                            safe, every single day, with OSHA compliance
                           </p>
                         </div>
                       </div>
@@ -355,7 +366,10 @@ export default function TeamPage() {
                     "When you join MH Construction, you're not just getting a
                     job—you're joining a team that values integrity,
                     transparency, and building relationships that last beyond
-                    project completion."
+                    project completion. Our leadership focuses on Safety,
+                    Marketing, Workforce Development, and Human Resources—a
+                    strategic blend of operational oversight and people-first
+                    management."
                   </blockquote>
                   <cite className="font-semibold text-brand-secondary">
                     — Jeremy Thamert, President

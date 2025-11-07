@@ -297,10 +297,11 @@ export default function GovernmentGrantsPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Under Army veteran leadership, MH Construction delivers
-              mission-critical construction services with unwavering commitment
-              to federal compliance, operational security, and successful
-              mission completion.
+              Under Army veteran leadership with over 150 years combined team
+              experience, MH Construction delivers mission-critical construction
+              services throughout the Pacific Northwest with unwavering
+              commitment to federal compliance, operational security, and
+              successful mission completion. Licensed in WA, OR, and ID.
             </p>
           </div>
         </div>
@@ -367,8 +368,9 @@ export default function GovernmentGrantsPage() {
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Army veteran leadership delivers mission-critical construction
-                services with unwavering commitment to federal specifications
-                and operational success
+                services with unwavering commitment to federal specifications,
+                operational success, and transparent partnership throughout the
+                application and execution process
               </p>
             </div>
           </FadeInWhenVisible>

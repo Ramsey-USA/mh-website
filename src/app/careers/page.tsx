@@ -225,7 +225,7 @@ const companyBenefits = [
     icon: "school",
     title: "Professional Development",
     description:
-      "Continuing education, certifications, and training opportunities to advance your career.",
+      "Continuing education, certifications, and training opportunities to advance your career. Regular training on new techniques, safety standards, and technology plus leadership development and mentorship programs.",
   },
   {
     icon: "work_history",
@@ -237,13 +237,13 @@ const companyBenefits = [
     icon: "local_hospital",
     title: "Safety First Culture",
     description:
-      "Industry-leading safety training and equipment to ensure everyone goes home safe.",
+      "Industry-leading safety training and equipment to ensure everyone goes home safe. Presidential leadership focused on safety management, organizational standards, and OSHA compliance.",
   },
   {
     icon: "military_tech",
     title: "Veteran-Friendly Workplace",
     description:
-      "Special recognition and support for military veterans transitioning to civilian careers.",
+      "Special recognition and support for military veterans transitioning to civilian careers. Active veteran hiring initiative and veteran partnership development with organizations across the Pacific Northwest.",
   },
 ];
 
@@ -253,14 +253,14 @@ const cultureValues = [
     icon: "handshake",
     title: "Integrity & Trust",
     description:
-      "We build relationships based on honesty, transparency, and mutual respect.",
+      "We build relationships based on honesty, transparency, and mutual respect. Transparent communication and collaborative problem-solving define every interaction—from apprentice to owner.",
     color: "from-brand-primary to-brand-primary-dark",
   },
   {
     icon: "emoji_people",
     title: "Team Unity",
     description:
-      "From veterans to civilians, office to field—we're one team with shared values.",
+      "From veterans to civilians, office to field—we're one team with shared values. Military precision meets civilian innovation, combining disciplined excellence with creative problem-solving.",
     color: "from-brand-secondary to-brand-secondary-dark",
   },
   {
@@ -274,7 +274,7 @@ const cultureValues = [
     icon: "favorite",
     title: "Community Impact",
     description:
-      "Building stronger communities, one project and one relationship at a time.",
+      "Building stronger communities, one project and one relationship at a time. Understanding that every project serves the broader community through quality craftsmanship and lasting relationships.",
     color: "from-brand-primary-light to-brand-primary",
   },
 ];
@@ -307,15 +307,18 @@ export default function CareersPage() {
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-              Partnership Culture • Professional Growth • Veteran-Friendly
+              Partnership Culture • Professional Growth • Veteran-Friendly •
+              Pacific Northwest
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
               "Building for the Owner, NOT the Dollar" — Join a veteran-owned
-              company that values integrity, excellence, and community. We're
-              looking for dedicated professionals who share our commitment to
-              quality craftsmanship.
+              company with over 150 years combined team experience that values
+              integrity, excellence, and community throughout the Pacific
+              Northwest. We're looking for dedicated professionals who share our
+              commitment to quality craftsmanship and partnership-driven
+              relationships.
             </p>
           </div>
         </div>
@@ -343,7 +346,9 @@ export default function CareersPage() {
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 We're more than just a construction company—we're a family that
-                invests in your success and future.
+                invests in your success and future. With leadership crafted
+                through military structure and a team of skilled professionals,
+                we bring unwavering dedication to every project and team member.
               </p>
             </div>
           </FadeInWhenVisible>
@@ -391,7 +396,11 @@ export default function CareersPage() {
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 We believe in taking care of our team members with comprehensive
-                benefits and a supportive work environment.
+                benefits, continuous learning opportunities, and a supportive
+                work environment where everyone goes home safe, every single
+                day. Professional development includes regular training on new
+                techniques, safety standards, technology, plus cross-training,
+                mentorship programs, and industry involvement.
               </p>
             </div>
           </FadeInWhenVisible>

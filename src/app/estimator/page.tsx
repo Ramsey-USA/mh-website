@@ -73,10 +73,12 @@ export default function EstimatorPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              "Building for the Owner, NOT the Dollar" — AI-powered technology
-              provides preliminary budget estimates for initial planning. For
-              detailed analysis and custom solutions, schedule an in-person
-              consultation.
+              "THE ROI IS THE RELATIONSHIP" — AI-powered technology from our
+              veteran-owned team provides preliminary budget estimates for
+              initial planning across the Pacific Northwest. For detailed
+              analysis, custom solutions, and transparent partnership, schedule
+              an in-person consultation with 150+ years combined team
+              experience.
             </p>
           </div>
         </div>
