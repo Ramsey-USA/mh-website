@@ -822,8 +822,10 @@ const coreValues = [
 
 **Content from brand-overview.md:**
 
-- **Mission:** "We deliver high-quality construction rooted in integrity, clear communication, and long-term relationships."
-- **Vision:** "To be the Pacific Northwest's most trusted veteran-led construction partner - renowned for craftsmanship and character."
+- **Mission:** "We deliver high-quality construction rooted in integrity, clear communication, and
+  long-term relationships."
+- **Vision:** "To be the Pacific Northwest's most trusted veteran-led construction partner - renowned for
+  craftsmanship and character."
 
 ##### 4. Core Values Section
 

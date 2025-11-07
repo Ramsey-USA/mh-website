@@ -16,7 +16,10 @@ MH Construction. These real experiences validate our core values and commitment 
 **Completion Date:** October 2024  
 **Rating:** ⭐⭐⭐⭐⭐
 
-> "Working with Todd and the MH Construction team on our Baskin Robbins build was exceptional. Todd's communication throughout the entire project kept us informed every step of the way, and the quality of workmanship exceeded our expectations. From start to finish, they demonstrated professionalism and attention to detail that made this build a success."
+> "Working with Todd and the MH Construction team on our Baskin Robbins build was exceptional. Todd's communication
+> throughout the entire project kept us informed every step of the way, and the quality of workmanship exceeded our
+> expectations. From start to finish, they demonstrated professionalism and attention to detail that made this build
+> a success."
 
 **Project Highlights:**
 
@@ -36,7 +39,10 @@ MH Construction. These real experiences validate our core values and commitment 
 **Completion Date:** November 2024  
 **Rating:** ⭐⭐⭐⭐⭐
 
-> "The tenant improvement process with MH Construction was outstanding from design through construction. Their ability to facilitate the entire process while managing multiple stakeholders, coordinating various processes, overseeing employees and subcontractors, and maintaining transparency and fairness throughout was truly impressive. They made what could have been a complex project feel seamless."
+> "The tenant improvement process with MH Construction was outstanding from design through construction. Their
+> ability to facilitate the entire process while managing multiple stakeholders, coordinating various processes,
+> overseeing employees and subcontractors, and maintaining transparency and fairness throughout was truly impressive.
+> They made what could have been a complex project feel seamless."
 
 **Project Highlights:**
 
@@ -90,7 +96,9 @@ MH Construction. These real experiences validate our core values and commitment 
 **Project Value:** $475,000  
 **Rating:** ⭐⭐⭐⭐⭐
 
-> "MH Construction exceeded our expectations in every way. Their military precision and attention to detail resulted in our dream home being completed ahead of schedule and within budget. The veteran-owned values really showed in their commitment to excellence."
+> "MH Construction exceeded our expectations in every way. Their military precision and attention to detail resulted
+> in our dream home being completed ahead of schedule and within budget. The veteran-owned values really showed in
+> their commitment to excellence."
 
 **Highlights:** Completed ahead of schedule, under budget, energy-efficient design
 
@@ -102,7 +110,9 @@ MH Construction. These real experiences validate our core values and commitment 
 **Project Value:** $92,000  
 **Rating:** ⭐⭐⭐⭐⭐
 
-> "Our kitchen and bathroom look absolutely amazing! The MH Construction team was professional, clean, and delivered exactly what they promised. Jim's custom cabinetry work is exceptional, and Sarah's design coordination made the whole process seamless."
+> "Our kitchen and bathroom look absolutely amazing! The MH Construction team was professional, clean, and delivered
+> exactly what they promised. Jim's custom cabinetry work is exceptional, and Sarah's design coordination made the
+> whole process seamless."
 
 **Highlights:** Custom cabinetry, professional execution, seamless process
 
@@ -114,7 +124,8 @@ MH Construction. These real experiences validate our core values and commitment 
 **Project Value:** $185,000  
 **Rating:** ⭐⭐⭐⭐⭐
 
-> "The team at MH Construction transformed our outdated office into a modern workspace that our employees love. The project was completed on time despite our tight timeline, and the quality exceeded our expectations."
+> "The team at MH Construction transformed our outdated office into a modern workspace that our employees love. The
+> project was completed on time despite our tight timeline, and the quality exceeded our expectations."
 
 **Highlights:** On-time completion, minimal disruption, modern transformation
 
@@ -126,7 +137,9 @@ MH Construction. These real experiences validate our core values and commitment 
 **Project Value:** $35,000  
 **Rating:** ⭐⭐⭐⭐⭐
 
-> "When a storm damaged our roof and siding, MH Construction responded immediately. They had a team out the same day for emergency repairs and completed the full restoration quickly and professionally. As a fellow veteran, I appreciated their prompt service and quality work during a stressful time."
+> "When a storm damaged our roof and siding, MH Construction responded immediately. They had a team out the same day
+> for emergency repairs and completed the full restoration quickly and professionally. As a fellow veteran, I
+> appreciated their prompt service and quality work during a stressful time."
 
 **Highlights:** Same-day emergency response, veteran-to-veteran service, quality restoration
 
@@ -168,4 +181,6 @@ We value every client relationship and would love to hear about your experience 
 
 ---
 
-_Last Updated: December 2024_
+## Last Updated
+
+December 2024
