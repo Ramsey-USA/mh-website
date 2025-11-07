@@ -27,7 +27,7 @@ practices for the MH Construction website.
 **[ultimate-seo-guide.md](./ultimate-seo-guide.md)** - Complete SEO optimization system ⭐
 
 **NEW!** Comprehensive guide to the auto-adaptive SEO system with smart scoring, automated auditing, and minimal
-maintenance requirements.
+maintenance requirements. **100/100 perfect score achieved!**
 
 **Topics Covered:**
 
@@ -46,6 +46,41 @@ maintenance requirements.
 - Understanding the SEO system
 - Troubleshooting SEO issues
 - Monthly SEO maintenance
+
+---
+
+### Advanced SEO Optimization
+
+**[advanced-seo-optimization.md](./advanced-seo-optimization.md)** - Beyond perfect scores ⭐ **NEW!**
+
+Comprehensive guide for maximizing visibility across all search engines with advanced optimization strategies.
+
+**Topics Covered:**
+
+- **Search Engine Submission** - Google, Bing, Yandex, Baidu
+- **Rich Snippets** - Breadcrumb, Review, Video, HowTo schemas
+- **Local SEO** - Google Business, Bing Places, Apple Maps
+- **Content Strategy** - Blog, FAQ optimization
+- **Technical SEO** - Image optimization, Core Web Vitals
+- **Link Building** - Internal and external strategies
+- **Analytics & Monitoring** - Performance tracking
+- **Voice Search** - Natural language optimization
+
+**New Schema Generators Created:**
+
+- `breadcrumb-schema.ts` - Site hierarchy for search engines
+- `review-schema.ts` - Star ratings and testimonials
+- `video-schema.ts` - Rich video previews
+- `howto-schema.ts` - Step-by-step guide snippets
+
+**When to Use:**
+
+- After achieving 100/100 score
+- Expanding search presence
+- Implementing rich snippets
+- Local SEO optimization
+- Building backlinks
+- International expansion
 
 ---
 
