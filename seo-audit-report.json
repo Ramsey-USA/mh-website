@@ -1,0 +1,167 @@
+{
+  "totalPages": 13,
+  "passing": 13,
+  "warnings": 0,
+  "errors": 0,
+  "pages": [
+    {
+      "pathname": "/",
+      "score": 90,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "Using default layout metadata - consider adding page-specific metadata"
+        }
+      ],
+      "hasMetadata": false,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/about",
+      "score": 90,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "Using default layout metadata - consider adding page-specific metadata"
+        }
+      ],
+      "hasMetadata": false,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/services",
+      "score": 90,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "Using default layout metadata - consider adding page-specific metadata"
+        }
+      ],
+      "hasMetadata": false,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/projects",
+      "score": 90,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "Using default layout metadata - consider adding page-specific metadata"
+        }
+      ],
+      "hasMetadata": false,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/team",
+      "score": 90,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "Using default layout metadata - consider adding page-specific metadata"
+        }
+      ],
+      "hasMetadata": false,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/contact",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/booking",
+      "score": 90,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "Using default layout metadata - consider adding page-specific metadata"
+        }
+      ],
+      "hasMetadata": false,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/careers",
+      "score": 90,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "Using default layout metadata - consider adding page-specific metadata"
+        }
+      ],
+      "hasMetadata": false,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/government",
+      "score": 90,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "Using default layout metadata - consider adding page-specific metadata"
+        }
+      ],
+      "hasMetadata": false,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/trade-partners",
+      "score": 90,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "Using default layout metadata - consider adding page-specific metadata"
+        }
+      ],
+      "hasMetadata": false,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/estimator",
+      "score": 90,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "Using default layout metadata - consider adding page-specific metadata"
+        }
+      ],
+      "hasMetadata": false,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/urgent",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/3d-explorer",
+      "score": 90,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "Using default layout metadata - consider adding page-specific metadata"
+        }
+      ],
+      "hasMetadata": false,
+      "inSitemap": true,
+      "pageExists": true
+    }
+  ]
+}

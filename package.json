@@ -41,6 +41,9 @@
     "cspell:fix": "npx cspell \"**/*.{md,js,ts,tsx,json}\" --no-progress --words-only --unique | head -20 && echo 'Add these words to cspell.json if they are valid'",
     "domain:check": "bash scripts/utilities/check-domain-setup.sh",
     "domain:help": "echo 'Domain Setup Guide: docs/deployment/cloudflare-pages-setup.md' && echo 'Domain Check: npm run domain:check'",
+    "seo:audit": "node scripts/seo-audit.js",
+    "seo:check": "npm run seo:audit && echo 'SEO audit complete!'",
+    "seo:report": "npm run seo:audit > seo-report.txt && cat seo-report.txt",
     "prepare": "husky"
   },
   "keywords": [

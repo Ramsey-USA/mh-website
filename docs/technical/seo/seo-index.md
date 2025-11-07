@@ -22,6 +22,47 @@ practices for the MH Construction website.
 
 ## 📚 Documentation Files
 
+### Ultimate SEO Guide
+
+**[ultimate-seo-guide.md](./ultimate-seo-guide.md)** - Complete SEO optimization system ⭐
+
+**NEW!** Comprehensive guide to the auto-adaptive SEO system with smart scoring, automated auditing, and minimal maintenance requirements.
+
+**Topics Covered:**
+
+- **Auto-Adaptive Sitemap** - Automatically updates when pages are added
+- **Smart SEO Scoring** - Real-time scoring with actionable recommendations
+- **Automated Auditing** - CLI tools for SEO validation
+- **Page Type Detection** - Auto-categorization and smart defaults
+- **Best Practices** - Auto-enforced SEO rules
+- **Quick Start Guide** - Add new pages in seconds
+- **Monitoring & Maintenance** - Automated reporting
+
+**When to Use:**
+
+- Setting up new pages (start here!)
+- Running SEO audits
+- Understanding the SEO system
+- Troubleshooting SEO issues
+- Monthly SEO maintenance
+
+---
+
+### SEO Compliance Status
+
+**[seo-compliance-status.md](./seo-compliance-status.md)** - Current SEO compliance tracking
+
+Complete inventory of all pages with SEO status, metadata compliance, schema implementation, and recommendations for optimization.
+
+**When to Use:**
+
+- Checking current SEO status
+- Reviewing page inventory
+- Planning SEO improvements
+- Quarterly audits
+
+---
+
 ### Search & Accessibility Guide
 
 **[search-accessibility-guide.md](./search-accessibility-guide.md)** - Combined SEO and accessibility

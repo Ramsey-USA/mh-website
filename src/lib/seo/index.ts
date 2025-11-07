@@ -4,3 +4,4 @@
  */
 
 export * from "./page-seo-utils";
+export * from "./auto-seo-manager";
