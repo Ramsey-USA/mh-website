@@ -57,13 +57,13 @@ function generateSEOAudit() {
 
     console.log(`\n📄 ${page}`);
     console.log(
-      `   Score: ${pageResults.score}/100 ${getScoreEmoji(pageResults.score)}`
+      `   Score: ${pageResults.score}/100 ${getScoreEmoji(pageResults.score)}`,
     );
 
     if (pageResults.issues.length > 0) {
       pageResults.issues.forEach((issue) => {
         console.log(
-          `   ${issue.type === "error" ? "❌" : "⚠️"}  ${issue.message}`
+          `   ${issue.type === "error" ? "❌" : "⚠️"}  ${issue.message}`,
         );
       });
     } else {
@@ -81,7 +81,7 @@ function generateSEOAudit() {
   const avgScore =
     results.pages.reduce((sum, p) => sum + p.score, 0) / results.pages.length;
   console.log(
-    `\n📊 Average Score: ${Math.round(avgScore)}/100 ${getScoreEmoji(avgScore)}`
+    `\n📊 Average Score: ${Math.round(avgScore)}/100 ${getScoreEmoji(avgScore)}`,
   );
 
   if (avgScore >= 90)
@@ -148,21 +148,48 @@ function auditPage(pathname) {
 }
 
 function checkMetadataExists(pathname) {
-  // Check for page-specific metadata
+  // Check for page-specific metadata in page.tsx
   const pagePath = path.join(
     __dirname,
     "..",
     "src",
     "app",
-    pathname === "/" ? "page.tsx" : `${pathname}/page.tsx`
+    pathname === "/" ? "page.tsx" : `${pathname}/page.tsx`,
+  );
+
+  // Check for layout-specific metadata in layout.tsx
+  const layoutPath = path.join(
+    __dirname,
+    "..",
+    "src",
+    "app",
+    pathname === "/" ? "layout.tsx" : `${pathname}/layout.tsx`,
   );
 
   try {
-    const content = fs.readFileSync(pagePath, "utf-8");
-    return (
-      content.includes("export const metadata") ||
-      content.includes("export function generateMetadata")
-    );
+    // Check page.tsx first
+    if (fs.existsSync(pagePath)) {
+      const pageContent = fs.readFileSync(pagePath, "utf-8");
+      if (
+        pageContent.includes("export const metadata") ||
+        pageContent.includes("export function generateMetadata")
+      ) {
+        return true;
+      }
+    }
+
+    // Check layout.tsx
+    if (fs.existsSync(layoutPath)) {
+      const layoutContent = fs.readFileSync(layoutPath, "utf-8");
+      if (
+        layoutContent.includes("export const metadata") ||
+        layoutContent.includes("export function generateMetadata")
+      ) {
+        return true;
+      }
+    }
+
+    return false;
   } catch {
     return false;
   }
@@ -184,7 +211,7 @@ function checkPageExists(pathname) {
     "..",
     "src",
     "app",
-    pathname === "/" ? "page.tsx" : `${pathname}/page.tsx`
+    pathname === "/" ? "page.tsx" : `${pathname}/page.tsx`,
   );
   return fs.existsSync(pagePath);
 }
