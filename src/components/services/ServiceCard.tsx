@@ -88,7 +88,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
                 </CardTitle>
               </div>
             </CardHeader>
-            <CardContent className="flex flex-col flex-grow pt-0 overflow-y-auto">
+            <CardContent className="flex flex-col flex-grow pt-0">
               <div className="mb-4">
                 <div className="flex items-center mb-2">
                   <MaterialIcon

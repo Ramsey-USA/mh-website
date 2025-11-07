@@ -83,7 +83,7 @@ export function SpecialtyServiceCard({
                 </CardTitle>
               </div>
             </CardHeader>
-            <CardContent className="flex flex-col flex-grow pt-0 overflow-y-auto">
+            <CardContent className="flex flex-col flex-grow pt-0">
               <div className="flex-grow">
                 {/* Markets List */}
                 {service.markets && (
