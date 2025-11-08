@@ -96,7 +96,7 @@ class PerformanceManager {
       value: duration,
       timestamp: Date.now(),
       type: "timing",
-      metadata,
+      ...(metadata && { metadata }),
     });
 
     return duration;
@@ -176,7 +176,7 @@ class PerformanceManager {
     // In a real implementation, this would analyze webpack bundle stats
     // For now, we'll simulate with performance entries
     if (typeof window !== "undefined") {
-      const navigationEntries = performance.getEntriesByType("navigation");
+      const _navigationEntries = performance.getEntriesByType("navigation");
       const resourceEntries = performance.getEntriesByType("resource");
 
       resourceEntries.forEach((entry) => {
@@ -199,7 +199,7 @@ class PerformanceManager {
       const largeChunks = chunks.filter((chunk) => chunk.size > 500 * 1024);
       if (largeChunks.length > 0) {
         recommendations.push(
-          "Large chunks detected - implement dynamic imports",
+          "Large chunks detected - implement dynamic imports"
         );
       }
     }
@@ -244,7 +244,7 @@ class PerformanceManager {
         // Check for missing width/height
         if (!img.width || !img.height) {
           recommendations.push(
-            "Add explicit width/height to prevent layout shift",
+            "Add explicit width/height to prevent layout shift"
           );
         }
 
@@ -265,7 +265,7 @@ class PerformanceManager {
       if (totalImageSize > 5 * 1024 * 1024) {
         // > 5MB
         globalRecommendations.push(
-          "Consider using Next.js Image component for automatic optimization",
+          "Consider using Next.js Image component for automatic optimization"
         );
       }
 
@@ -288,7 +288,7 @@ class PerformanceManager {
     // Monitor Core Web Vitals using the current web-vitals API
     import("web-vitals")
       .then(({ onCLS, onFCP, onLCP, onTTFB, onINP }) => {
-        onCLS((metric: unknown) => {
+        onCLS((metric: { value: number; id: string }) => {
           this.recordMetric({
             name: "cumulative_layout_shift",
             value: metric.value,
@@ -299,7 +299,7 @@ class PerformanceManager {
         });
 
         // Use onINP (Interaction to Next Paint) instead of FID
-        onINP((metric: unknown) => {
+        onINP((metric: { value: number; id: string }) => {
           this.recordMetric({
             name: "interaction_to_next_paint",
             value: metric.value,
@@ -309,7 +309,7 @@ class PerformanceManager {
           });
         });
 
-        onFCP((metric: unknown) => {
+        onFCP((metric: { value: number; id: string }) => {
           this.recordMetric({
             name: "first_contentful_paint",
             value: metric.value,
@@ -319,7 +319,7 @@ class PerformanceManager {
           });
         });
 
-        onLCP((metric: unknown) => {
+        onLCP((metric: { value: number; id: string }) => {
           this.recordMetric({
             name: "largest_contentful_paint",
             value: metric.value,
@@ -329,7 +329,7 @@ class PerformanceManager {
           });
         });
 
-        onTTFB((metric: unknown) => {
+        onTTFB((metric: { value: number; id: string }) => {
           this.recordMetric({
             name: "time_to_first_byte",
             value: metric.value,
@@ -429,7 +429,7 @@ class PerformanceManager {
 
     if (exceeded) {
       logger.warn(
-        `Performance threshold exceeded: ${metric.name} (${metric.value}) > ${threshold}`,
+        `Performance threshold exceeded: ${metric.name} (${metric.value}) > ${threshold}`
       );
     }
   }
@@ -437,7 +437,7 @@ class PerformanceManager {
   // Analytics and Reporting
   getMetrics(
     type?: PerformanceMetric["type"],
-    limit?: number,
+    limit?: number
   ): PerformanceMetric[] {
     let filtered = this.metrics;
 
@@ -478,20 +478,22 @@ class PerformanceManager {
     });
 
     // Generate recommendations based on metrics
-    if (summary.avg_rendering > 100) {
+    const avgRendering = summary["avg_rendering"];
+    if (avgRendering !== undefined && avgRendering > 100) {
       recommendations.push("Consider optimizing rendering performance");
     }
-    if (summary.avg_memory > 50 * 1024 * 1024) {
+    const avgMemory = summary["avg_memory"];
+    if (avgMemory !== undefined && avgMemory > 50 * 1024 * 1024) {
       // > 50MB
       recommendations.push(
-        "High memory usage detected - check for memory leaks",
+        "High memory usage detected - check for memory leaks"
       );
     }
 
     // Cache statistics
     const cacheHits = this.metrics.filter((m) => m.name === "cache_hit").length;
     const cacheMisses = this.metrics.filter(
-      (m) => m.name === "cache_miss",
+      (m) => m.name === "cache_miss"
     ).length;
 
     return {
@@ -530,12 +532,12 @@ export class QueryOptimizer {
   cacheQuery<T>(
     key: string,
     queryFn: () => Promise<T>,
-    ttl = 300000,
+    ttl = 300000
   ): Promise<T> {
     const cached = this.queryCache.get(key);
 
     if (cached && Date.now() - cached.timestamp < cached.ttl) {
-      return Promise.resolve(cached.result);
+      return Promise.resolve(cached.result as T);
     }
 
     const startTime = performance.now();
@@ -578,7 +580,7 @@ export class QueryOptimizer {
 export class ImageOptimizer {
   static generateSrcSet(
     baseUrl: string,
-    widths: number[] = [320, 640, 768, 1024, 1280, 1536],
+    widths: number[] = [320, 640, 768, 1024, 1280, 1536]
   ): string {
     return widths.map((width) => `${baseUrl}?w=${width} ${width}w`).join(", ");
   }
@@ -587,7 +589,7 @@ export class ImageOptimizer {
     breakpoints: Array<{ minWidth?: number; maxWidth?: number; vw: number }> = [
       { maxWidth: 768, vw: 100 },
       { minWidth: 769, vw: 50 },
-    ],
+    ]
   ): string {
     return breakpoints
       .map(({ minWidth, maxWidth, vw }) => {

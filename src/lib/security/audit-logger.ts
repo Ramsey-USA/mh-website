@@ -158,18 +158,22 @@ export class AuditLogger {
       return;
     }
 
+    const maskedIP = details.ipAddress
+      ? this.maskSensitiveData(details.ipAddress)
+      : undefined;
+
     const event: AuditEvent = {
       id: this.generateEventId(),
       timestamp: new Date(),
       eventType,
       riskLevel: this.calculateRiskLevel(eventType, details),
       source: details.source || "system",
-      userAgent: details.userAgent,
-      ipAddress: this.maskSensitiveData(details.ipAddress),
-      userId: details.userId,
-      sessionId: details.sessionId,
-      resource: details.resource,
-      action: details.action,
+      ...(details.userAgent && { userAgent: details.userAgent }),
+      ...(maskedIP && { ipAddress: maskedIP }),
+      ...(details.userId && { userId: details.userId }),
+      ...(details.sessionId && { sessionId: details.sessionId }),
+      ...(details.resource && { resource: details.resource }),
+      ...(details.action && { action: details.action }),
       outcome: details.outcome || "success",
       details: this.sanitizeDetails(details.details || {}),
       metadata: details.metadata || {},
@@ -328,7 +332,10 @@ export class AuditLogger {
     events.forEach((event) => {
       eventsByType[event.eventType]++;
       eventsByRiskLevel[event.riskLevel]++;
-      eventsByOutcome[event.outcome]++;
+      const outcome = event.outcome;
+      if (outcome && eventsByOutcome[outcome] !== undefined) {
+        eventsByOutcome[outcome]++;
+      }
 
       if (event.ipAddress) {
         ipCounts[event.ipAddress] = (ipCounts[event.ipAddress] || 0) + 1;
@@ -384,11 +391,11 @@ export class AuditLogger {
         ? AuditEventType.LOGIN_SUCCESS
         : AuditEventType.LOGIN_FAILURE,
       {
-        userId,
-        ipAddress,
-        userAgent,
+        ...(userId && { userId }),
+        ...(ipAddress && { ipAddress }),
+        ...(userAgent && { userAgent }),
         outcome: type === "success" ? "success" : "failure",
-        details,
+        ...(details && { details }),
         tags: ["authentication"],
       },
     );
@@ -404,10 +411,10 @@ export class AuditLogger {
     details?: Record<string, unknown>,
   ): Promise<void> {
     await this.logEvent(violationType, {
-      ipAddress,
-      userAgent,
+      ...(ipAddress && { ipAddress }),
+      ...(userAgent && { userAgent }),
       outcome: "failure",
-      details,
+      ...(details && { details }),
       tags: ["security", "violation"],
     });
   }
@@ -425,9 +432,9 @@ export class AuditLogger {
     await this.logEvent(AuditEventType.DATA_ACCESS, {
       resource,
       action,
-      userId,
+      ...(userId && { userId }),
       outcome,
-      details,
+      ...(details && { details }),
       tags: ["data", "access"],
     });
   }
@@ -473,7 +480,7 @@ export class AuditLogger {
 
   private calculateRiskLevel(
     eventType: AuditEventType,
-    details: Partial<AuditEvent>,
+    _details: Partial<AuditEvent>,
   ): RiskLevel {
     // Critical risk events
     const criticalEvents = [
@@ -555,7 +562,7 @@ export class AuditLogger {
     return sanitized;
   }
 
-  private async sendToExternalLogger(event: AuditEvent): Promise<void> {
+  private async sendToExternalLogger(_event: AuditEvent): Promise<void> {
     // In a real implementation, this would send to external logging services
     // like Elasticsearch, Splunk, or cloud logging services
     // For now, we'll just store locally
@@ -585,13 +592,16 @@ export class AuditLogger {
     const timeline: Record<string, { events: number; riskScore: number }> = {};
 
     events.forEach((event) => {
-      const date = event.timestamp.toISOString().split("T")[0];
+      const dateStr = event.timestamp.toISOString().split("T")[0];
+      if (!dateStr) return;
+
+      const date: string = dateStr;
 
       if (!timeline[date]) {
         timeline[date] = { events: 0, riskScore: 0 };
       }
 
-      timeline[date].events++;
+      timeline[date]!.events++;
 
       // Calculate risk score
       const riskScores = {
@@ -601,7 +611,7 @@ export class AuditLogger {
         [RiskLevel.CRITICAL]: 10,
       };
 
-      timeline[date].riskScore += riskScores[event.riskLevel];
+      timeline[date]!.riskScore += riskScores[event.riskLevel];
     });
 
     return Object.entries(timeline)

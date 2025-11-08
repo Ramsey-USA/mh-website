@@ -88,13 +88,13 @@ class CacheManager {
   async set<T>(
     key: string,
     data: T,
-    config: CacheConfig = { ttl: 300000, version: "1.0" },
+    config: CacheConfig = { ttl: 300000, version: "1.0" }
   ): Promise<void> {
     const {
-      ttl,
-      version,
-      tags = [],
-      priority = "medium",
+      ttl: _ttl,
+      version: _version,
+      tags: _tags = [],
+      priority: _priority = "medium",
       storage = "memory",
     } = config;
 
@@ -157,7 +157,7 @@ class CacheManager {
 
   private async getFromBrowser<T>(
     key: string,
-    version: string,
+    version: string
   ): Promise<CacheEntry<T> | null> {
     if (typeof window === "undefined") return null;
 
@@ -193,7 +193,7 @@ class CacheManager {
       // Try IndexedDB for larger items
       const idbEntry = await this.getFromIndexedDB<T>(key, version);
       if (idbEntry) return idbEntry;
-    } catch (_error) {
+    } catch (error) {
       logger.warn("Browser cache read error:", error);
     }
 
@@ -204,7 +204,7 @@ class CacheManager {
     key: string,
     data: T,
     config: CacheConfig,
-    storage: "session" | "local" | "indexeddb",
+    storage: "session" | "local" | "indexeddb"
   ): Promise<void> {
     if (typeof window === "undefined") return;
 
@@ -233,14 +233,14 @@ class CacheManager {
           await this.setInIndexedDB(key, entry);
           break;
       }
-    } catch (_error) {
+    } catch (error) {
       logger.warn("Browser cache write error:", error);
     }
   }
 
   private async getFromIndexedDB<T>(
     key: string,
-    version: string,
+    version: string
   ): Promise<CacheEntry<T> | null> {
     return new Promise((resolve) => {
       if (!window.indexedDB) {
@@ -291,7 +291,7 @@ class CacheManager {
 
   private async setInIndexedDB<T>(
     key: string,
-    entry: CacheEntry<T>,
+    entry: CacheEntry<T>
   ): Promise<void> {
     return new Promise((resolve, reject) => {
       if (!window.indexedDB) {
@@ -484,7 +484,7 @@ export class APICache {
 
   async cachedFetch<T>(
     url: string,
-    options: RequestInit & { cacheConfig?: CacheConfig } = {},
+    options: RequestInit & { cacheConfig?: CacheConfig } = {}
   ): Promise<T> {
     const { cacheConfig, ...fetchOptions } = options;
     const cacheKey = this.generateCacheKey(url, fetchOptions);
@@ -492,7 +492,7 @@ export class APICache {
     // Try to get from cache first
     const cached = await this.cacheManager.get<T>(
       cacheKey,
-      cacheConfig?.version || "1.0",
+      cacheConfig?.version || "1.0"
     );
     if (cached) {
       return cached;
@@ -508,7 +508,7 @@ export class APICache {
       }
 
       const data: T = await response.json();
-      const fetchTime = performance.now() - startTime;
+      const _fetchTime = performance.now() - startTime;
 
       // Cache the response
       await this.cacheManager.set(cacheKey, data, {
@@ -522,12 +522,12 @@ export class APICache {
       queryOptimizer.cacheQuery(
         `api_${cacheKey}`,
         () => Promise.resolve(data),
-        cacheConfig?.ttl || 300000,
+        cacheConfig?.ttl || 300000
       );
 
       return data;
-    } catch (_error) {
-      const fetchTime = performance.now() - startTime;
+    } catch (error) {
+      const _fetchTime = performance.now() - startTime;
       logger.error(`API fetch failed for ${url}:`, error);
       throw error;
     }
@@ -542,7 +542,7 @@ export class APICache {
 
     return btoa(`${url}_${JSON.stringify(sortedOptions)}`).replace(
       /[/+=]/g,
-      "_",
+      "_"
     );
   }
 
@@ -554,7 +554,7 @@ export class APICache {
     }
   }
 
-  async invalidateAPI(pattern: string): Promise<void> {
+  async invalidateAPI(_pattern: string): Promise<void> {
     await this.cacheManager.invalidateByTag("api");
   }
 }
@@ -571,7 +571,7 @@ export class DatabaseCache {
       version?: string;
       tags?: string[];
       dependencies?: string[];
-    } = {},
+    } = {}
   ): Promise<T> {
     const {
       ttl = 600000,

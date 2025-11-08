@@ -202,7 +202,7 @@ export class AIResponseCache {
           this.cache = new Map(data.entries);
         }
       }
-    } catch (_error) {
+    } catch (error) {
       logger.warn("Failed to load AI cache from storage:", error);
     }
   }
@@ -222,7 +222,7 @@ export class AIResponseCache {
         timestamp: Date.now(),
       };
       localStorage.setItem("ai_response_cache", JSON.stringify(data));
-    } catch (_error) {
+    } catch (error) {
       logger.warn("Failed to save AI cache to storage:", error);
     }
   }
@@ -305,7 +305,7 @@ export class FormDataCache {
           this.cache = new Map(data.entries);
         }
       }
-    } catch (_error) {
+    } catch (error) {
       logger.warn("Failed to load form cache from storage:", error);
     }
   }
@@ -323,7 +323,7 @@ export class FormDataCache {
         timestamp: Date.now(),
       };
       localStorage.setItem("form_data_cache", JSON.stringify(data));
-    } catch (_error) {
+    } catch (error) {
       logger.warn("Failed to save form cache to storage:", error);
     }
   }
@@ -362,7 +362,7 @@ export const useFormPersistence = (formId: string) => {
 export const useAICache = () => {
   const getCachedResponse = (
     prompt: string,
-    context?: unknown,
+    context?: unknown
   ): string | null => {
     return aiResponseCache.get(prompt, context);
   };
@@ -371,7 +371,7 @@ export const useAICache = () => {
     prompt: string,
     response: string,
     context?: unknown,
-    ttl?: number,
+    ttl?: number
   ) => {
     aiResponseCache.set(prompt, response, context, ttl);
   };

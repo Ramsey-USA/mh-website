@@ -5,7 +5,7 @@
 
 import { forwardRef, useRef, useLayoutEffect, createElement } from "react";
 import { performanceManager } from "./performance-manager";
-import { cacheManager, apiCache } from "./caching";
+import { apiCache } from "./caching";
 import { logger } from "@/lib/utils/logger";
 
 /**
@@ -97,7 +97,7 @@ export async function performanceFetch(
     cache?: boolean;
     cacheKey?: string;
     cacheTTL?: number;
-  } = {},
+  } = {}
 ) {
   const startTime = performance.now();
   const { cache = true, cacheKey, cacheTTL, ...fetchOptions } = options;
@@ -181,7 +181,7 @@ export async function performanceFetch(
  */
 export function withPerformanceTracking<P extends Record<string, any>>(
   Component: React.ComponentType<P>,
-  componentName: string,
+  componentName: string
 ) {
   const WrappedComponent = forwardRef<any, P>((props, ref) => {
     const renderStart = useRef<number>(0);

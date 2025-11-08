@@ -9,7 +9,7 @@ import { logger } from "@/lib/utils/logger";
 // Dynamic import wrapper with error handling
 export const dynamicImport = <T = any>(
   importFn: () => Promise<T>,
-  fallback?: T,
+  fallback?: T
 ): Promise<T> => {
   return importFn().catch((error) => {
     logger.error("Dynamic import failed:", error);
@@ -23,7 +23,7 @@ export const dynamicImport = <T = any>(
 // Lazy load heavy components with loading states
 export const createLazyComponent = <T extends React.ComponentType<unknown>>(
   importFn: () => Promise<{ default: T }>,
-  displayName?: string,
+  displayName?: string
 ) => {
   const LazyComponent = lazy(importFn);
   if (displayName) {
@@ -43,7 +43,7 @@ export const loadFormAssistantModule = () =>
 // Heavy UI components lazy loading - these require default exports
 export const LazySmartFormAssistant = createLazyComponent(
   () => import("../../components/forms/SmartFormAssistant"),
-  "LazySmartFormAssistant",
+  "LazySmartFormAssistant"
 );
 
 // Critical resource hints
@@ -70,7 +70,7 @@ export const preloadCriticalComponents = () => {
 export const getBundleInfo = () => {
   if (typeof window !== "undefined" && "performance" in window) {
     const navigation = performance.getEntriesByType(
-      "navigation",
+      "navigation"
     )[0] as PerformanceNavigationTiming;
     return {
       totalSize: navigation.transferSize || 0,
@@ -107,7 +107,7 @@ export const injectResourceHints = () => {
     preloadLink("/images/logo/mh-logo.png", "image");
 
     // DNS prefetch for external domains
-    const dnsPrefetch = (href: string) => {
+    const _dnsPrefetch = (href: string) => {
       const link = document.createElement("link");
       link.rel = "dns-prefetch";
       link.href = href;
@@ -115,6 +115,6 @@ export const injectResourceHints = () => {
     };
 
     // Add any external domains used
-    // dnsPrefetch('https://fonts.googleapis.com')
+    // _dnsPrefetch('https://fonts.googleapis.com')
   }
 };

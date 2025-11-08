@@ -47,7 +47,7 @@ class LightweightPerformanceManager {
       this.cache.delete(key);
       return null;
     }
-    return cached.value;
+    return cached.value as T | null;
   }
 
   setCache<T>(key: string, value: T, ttlMs = 300000): void {
@@ -65,7 +65,9 @@ class LightweightPerformanceManager {
     const lcpObserver = new PerformanceObserver((list) => {
       const entries = list.getEntries();
       const lastEntry = entries[entries.length - 1];
-      this.recordMetric("LCP", lastEntry.startTime);
+      if (lastEntry) {
+        this.recordMetric("LCP", lastEntry.startTime);
+      }
     });
 
     try {
@@ -129,7 +131,7 @@ export function usePerformanceTiming(componentName: string) {
 export function useOptimizedQuery<T>(
   key: string,
   queryFn: () => Promise<T>,
-  ttl = 300000,
+  ttl = 300000
 ) {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(false);

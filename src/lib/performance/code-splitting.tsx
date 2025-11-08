@@ -26,7 +26,7 @@ export interface LazyComponentProps {
 export function createDynamicImport<T extends ComponentType<unknown>>(
   importFn: () => Promise<{ default: T }>,
   componentName: string,
-  options: DynamicImportOptions = {},
+  options: DynamicImportOptions = {}
 ) {
   const {
     loading: LoadingComponent,
@@ -52,7 +52,7 @@ export function createDynamicImport<T extends ComponentType<unknown>>(
     importPromise = Promise.race([
       importFn(),
       new Promise<never>((_, reject) =>
-        setTimeout(() => reject(new Error("Import timeout")), timeout),
+        setTimeout(() => reject(new Error("Import timeout")), timeout)
       ),
     ]);
 
@@ -97,7 +97,7 @@ export function createDynamicImport<T extends ComponentType<unknown>>(
       if (retryCount < retries) {
         retryCount++;
         logger.warn(
-          `Import failed for ${componentName}, retrying... (${retryCount}/${retries})`,
+          `Import failed for ${componentName}, retrying... (${retryCount}/${retries})`
         );
         await new Promise((resolve) => setTimeout(resolve, 1000 * retryCount)); // Exponential backoff
         return executeImport();
@@ -130,7 +130,7 @@ export function createDynamicImport<T extends ComponentType<unknown>>(
         }
       >
         <ErrorBoundary
-          fallback={ErrorComponent}
+          {...(ErrorComponent && { fallback: ErrorComponent })}
           onError={(error) => {
             if (trackPerformance) {
               performanceManager.recordMetric({
@@ -183,7 +183,7 @@ class ErrorBoundary extends React.Component<
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+  override componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     logger.error("Component error caught by boundary:", error, errorInfo);
     this.props.onError?.(error);
   }
@@ -192,7 +192,7 @@ class ErrorBoundary extends React.Component<
     this.setState({ hasError: false, error: null });
   };
 
-  render() {
+  override render() {
     if (this.state.hasError && this.state.error) {
       if (this.props.fallback) {
         const FallbackComponent = this.props.fallback;
@@ -226,7 +226,7 @@ class ErrorBoundary extends React.Component<
 // Route-based code splitting utilities
 export const createRouteComponent = (
   importFn: () => Promise<{ default: ComponentType<unknown> }>,
-  routeName: string,
+  routeName: string
 ) => {
   return createDynamicImport(importFn, `Route_${routeName}`, {
     trackPerformance: true,
@@ -239,7 +239,7 @@ export const createRouteComponent = (
 export const createFeatureComponent = (
   importFn: () => Promise<{ default: ComponentType<unknown> }>,
   featureName: string,
-  critical = false,
+  critical = false
 ) => {
   return createDynamicImport(importFn, `Feature_${featureName}`, {
     trackPerformance: true,
@@ -301,20 +301,20 @@ export class BundleSplittingAnalyzer {
     const slowestChunk = loadTimes.reduce(
       (slowest, [name, time]) =>
         !slowest || time > slowest.time ? { name, time } : slowest,
-      null as { name: string; time: number } | null,
+      null as { name: string; time: number } | null
     );
 
     const recommendations: string[] = [];
 
     if (this.getAverageLoadTime() > 2000) {
       recommendations.push(
-        "Consider further code splitting to reduce chunk sizes",
+        "Consider further code splitting to reduce chunk sizes"
       );
     }
 
     if (slowestChunk && slowestChunk.time > 5000) {
       recommendations.push(
-        `Optimize ${slowestChunk.name} - it's taking too long to load`,
+        `Optimize ${slowestChunk.name} - it's taking too long to load`
       );
     }
 
@@ -354,7 +354,7 @@ export const preloadRoute = (routeImport: () => Promise<unknown>): void => {
 
 export const preloadOnHover = (
   element: HTMLElement,
-  importFn: () => Promise<unknown>,
+  importFn: () => Promise<unknown>
 ): (() => void) => {
   let preloaded = false;
 
@@ -386,7 +386,7 @@ export const preloadCriticalResources = (
     as: "script" | "style" | "font" | "image";
     type?: string;
     crossorigin?: "anonymous" | "use-credentials";
-  }>,
+  }>
 ): void => {
   if (typeof window === "undefined") return;
 

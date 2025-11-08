@@ -173,7 +173,7 @@ class RateLimitStore {
       () => {
         this.cleanup();
       },
-      5 * 60 * 1000
+      5 * 60 * 1000,
     );
   }
 
@@ -214,7 +214,7 @@ export class RateLimiter {
   private config: SecurityConfig["rateLimit"];
 
   constructor(
-    config: SecurityConfig["rateLimit"] = DEFAULT_SECURITY_CONFIG.rateLimit
+    config: SecurityConfig["rateLimit"] = DEFAULT_SECURITY_CONFIG.rateLimit,
   ) {
     this.config = config;
   }
@@ -265,7 +265,7 @@ export class RateLimiter {
       allowed,
       remaining,
       resetTime: entry.resetTime,
-      retryAfter: retryAfter,
+      ...(retryAfter !== undefined && { retryAfter }),
     };
   }
 
@@ -304,24 +304,24 @@ export class RateLimiter {
     if (this.config.standardHeaders) {
       response.headers.set(
         "RateLimit-Limit",
-        this.config.maxRequests.toString()
+        this.config.maxRequests.toString(),
       );
       response.headers.set("RateLimit-Remaining", info.remaining.toString());
       response.headers.set(
         "RateLimit-Reset",
-        new Date(info.resetTime).toISOString()
+        new Date(info.resetTime).toISOString(),
       );
     }
 
     if (this.config.legacyHeaders) {
       response.headers.set(
         "X-RateLimit-Limit",
-        this.config.maxRequests.toString()
+        this.config.maxRequests.toString(),
       );
       response.headers.set("X-RateLimit-Remaining", info.remaining.toString());
       response.headers.set(
         "X-RateLimit-Reset",
-        Math.ceil(info.resetTime / 1000).toString()
+        Math.ceil(info.resetTime / 1000).toString(),
       );
     }
 
@@ -349,7 +349,7 @@ export class CSRFProtection {
   generateToken(): string {
     const array = crypto.getRandomValues(new Uint8Array(32));
     return Array.from(array, (byte) => byte.toString(16).padStart(2, "0")).join(
-      ""
+      "",
     );
   }
 
@@ -371,7 +371,7 @@ export class CSRFProtection {
     if (!cookies) return null;
 
     const match = cookies.match(
-      new RegExp(`${this.config.cookieName}=([^;]+)`)
+      new RegExp(`${this.config.cookieName}=([^;]+)`),
     );
     return match && match[1] ? match[1] : null;
   }
@@ -405,7 +405,7 @@ export class InputValidator {
   private config: SecurityConfig["validation"];
 
   constructor(
-    config: SecurityConfig["validation"] = DEFAULT_SECURITY_CONFIG.validation
+    config: SecurityConfig["validation"] = DEFAULT_SECURITY_CONFIG.validation,
   ) {
     this.config = config;
   }
@@ -415,7 +415,7 @@ export class InputValidator {
    */
   validateText(
     input: string,
-    fieldName: string
+    fieldName: string,
   ): {
     isValid: boolean;
     sanitizedValue: string;
@@ -427,7 +427,7 @@ export class InputValidator {
     // Length validation
     if (input.length > this.config.maxFieldLength) {
       errors.push(
-        `${fieldName} exceeds maximum length of ${this.config.maxFieldLength} characters`
+        `${fieldName} exceeds maximum length of ${this.config.maxFieldLength} characters`,
       );
     }
 
@@ -488,7 +488,7 @@ export class InputValidator {
     // Size validation
     if (file.size > this.config.maxFileSize) {
       errors.push(
-        `File size exceeds maximum allowed size of ${this.config.maxFileSize / (1024 * 1024)}MB`
+        `File size exceeds maximum allowed size of ${this.config.maxFileSize / (1024 * 1024)}MB`,
       );
     }
 
@@ -551,7 +551,7 @@ export class SecurityHeaders {
   private config: SecurityConfig["helmet"];
 
   constructor(
-    config: SecurityConfig["helmet"] = DEFAULT_SECURITY_CONFIG.helmet
+    config: SecurityConfig["helmet"] = DEFAULT_SECURITY_CONFIG.helmet,
   ) {
     this.config = config;
   }
@@ -584,7 +584,7 @@ export class SecurityHeaders {
     if (this.config.frameguard) {
       response.headers.set(
         "X-Frame-Options",
-        this.config.frameguard.action.toUpperCase()
+        this.config.frameguard.action.toUpperCase(),
       );
     }
 
@@ -609,7 +609,7 @@ export class SecurityHeaders {
     const directives: string[] = [];
 
     for (const [directive, sources] of Object.entries(
-      this.config.contentSecurityPolicy.directives
+      this.config.contentSecurityPolicy.directives,
     )) {
       directives.push(`${directive} ${sources.join(" ")}`);
     }
@@ -682,7 +682,7 @@ export class SecurityManager {
   applyResponseSecurity(
     response: NextResponse,
     rateLimitInfo?: unknown,
-    csrfToken?: string
+    csrfToken?: string,
   ): NextResponse {
     // Apply security headers
     this.securityHeaders.applyHeaders(response);
