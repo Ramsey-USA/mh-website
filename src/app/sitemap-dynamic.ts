@@ -113,7 +113,7 @@ export function getSitemapStats() {
       acc[type] = (acc[type] || 0) + 1;
       return acc;
     },
-    {} as Record<string, number>
+    {} as Record<string, number>,
   );
 
   return {
