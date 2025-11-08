@@ -220,6 +220,10 @@ export class ABTestingFramework {
 
     // Select experiment (for now, just take the first active one)
     const experiment = activeExperiments[0];
+    
+    if (!experiment) {
+      return null; // No active experiments
+    }
 
     // Check traffic allocation
     if (Math.random() * 100 > experiment.trafficAllocation) {
@@ -483,7 +487,7 @@ export class ABTestingFramework {
     }
 
     // Fallback to first variant
-    return variants[0];
+    return variants[0] || variants[0]!;
   }
 
   private initializeVariantMetrics(

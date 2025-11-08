@@ -8,7 +8,7 @@
  */
 
 import { logger } from "@/lib/utils/logger";
-import { militaryConstructionAI, type MilitaryConstructionAI } from "../ai";
+import { type MilitaryConstructionAI } from "../ai";
 import ABTestingFramework, {
   type VariantConfiguration,
   type ExperimentEvent,
@@ -134,16 +134,25 @@ export interface RecommendationContext {
   variantConfig?: VariantConfiguration;
 }
 
+type ProfileAnalysis = {
+  budgetCategory: string;
+  projectInterests: string[];
+  urgencyLevel: string;
+  behaviorPatterns: unknown;
+  locationFactors: unknown;
+  veteranPriorities: unknown;
+};
+
 export class SmartRecommendationEngine {
-  private aiEngine: MilitaryConstructionAI;
+  private _aiEngine: MilitaryConstructionAI;
   private userProfiles: Map<string, UserProfile>;
   private recommendationHistory: Map<string, ProjectRecommendation[]>;
   private feedbackHistory: RecommendationFeedback[];
-  private learningData: Map<string, any>;
+  private learningData: Map<string, unknown>;
   private abTestingFramework: ABTestingFramework;
 
   constructor(aiEngine?: MilitaryConstructionAI, enableABTesting = true) {
-    this.aiEngine = aiEngine || ({} as MilitaryConstructionAI); // Will be injected later
+    this._aiEngine = aiEngine || ({} as MilitaryConstructionAI); // Will be injected later
     this.userProfiles = new Map();
     this.recommendationHistory = new Map();
     this.feedbackHistory = [];
@@ -155,7 +164,7 @@ export class SmartRecommendationEngine {
    * Set the AI engine (used to break circular dependency)
    */
   setAIEngine(aiEngine: MilitaryConstructionAI): void {
-    this.aiEngine = aiEngine;
+    this._aiEngine = aiEngine;
   }
 
   /**
@@ -182,10 +191,10 @@ export class SmartRecommendationEngine {
       // Update context with experiment info
       const enhancedContext: RecommendationContext = {
         sessionId: context?.sessionId || `session-${Date.now()}`,
-        pageUrl: context?.pageUrl,
-        userAgent: context?.userAgent,
-        experimentAssignment: experimentAssignment || undefined,
-        variantConfig: variantConfig || undefined,
+        ...(context?.pageUrl && { pageUrl: context.pageUrl }),
+        ...(context?.userAgent && { userAgent: context.userAgent }),
+        ...(experimentAssignment && { experimentAssignment }),
+        ...(variantConfig && { variantConfig }),
       };
 
       // Analyze user profile and behavior
@@ -243,14 +252,14 @@ export class SmartRecommendationEngine {
           eventType: "view",
           timestamp: new Date(),
           metadata: {
-            pageUrl: context?.pageUrl,
-            userAgent: context?.userAgent,
+            ...(context?.pageUrl && { pageUrl: context.pageUrl }),
+            ...(context?.userAgent && { userAgent: context.userAgent }),
           },
         });
       }
 
       return rankedRecommendations;
-    } catch (_error) {
+    } catch (error) {
       logger.error("Error generating recommendations:", error);
       return this.getFallbackRecommendations(userProfile);
     }
@@ -259,8 +268,8 @@ export class SmartRecommendationEngine {
   /**
    * Analyze user profile to understand preferences and needs
    */
-  private analyzeUserProfile(userProfile: UserProfile): unknown {
-    const analysis = {
+  private analyzeUserProfile(userProfile: UserProfile): ProfileAnalysis {
+    const analysis: ProfileAnalysis = {
       budgetCategory: this.categorizeBudget(
         userProfile.preferences.budgetRange,
       ),
@@ -282,7 +291,7 @@ export class SmartRecommendationEngine {
    * Generate base project recommendations
    */
   private generateBaseRecommendations(
-    analysis: unknown,
+    analysis: ProfileAnalysis,
     variantConfig?: VariantConfiguration | null,
   ): ProjectRecommendation[] {
     const recommendations: ProjectRecommendation[] = [];
