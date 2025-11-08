@@ -414,7 +414,7 @@ Contact the development team:
 ## 📚 Related Documentation
 
 - [API Documentation](./api-documentation.md)
-- [Cloudflare Deployment](../../cloudflare-deployment.md)
+- [Cloudflare Deployment](../deployment/cloudflare-complete-guide.md)
 - [Contributing Guidelines](../../contributing.md)
 - [Component Standards](../branding/standards/component-standards.md)
 - [Contact Form Components](../../src/components/contact/) - Contact form implementation

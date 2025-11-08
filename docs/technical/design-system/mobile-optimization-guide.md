@@ -456,7 +456,7 @@ export function MobileOptimizedSection() {
 ## 📚 Related Documentation
 
 - [Main Design System](/docs/technical/design-system/design-system.md)
-- [Component Library](/src/components/ui/mh-ui-guide.md)
+- [Component Library](../../components/ui/mh-ui-guide.md)
 
 ---
 

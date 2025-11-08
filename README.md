@@ -187,7 +187,7 @@ Current Status: **Phase 5 COMPLETE ✅** (All phases finished!)
 - **Mobile UX**: Significantly improved through content trimming and responsive components
 - **Production ready**: Zero errors, 31.0s build time, 225 kB optimized bundle
 
-**See**: `/docs/technical/website-structure-optimization-analysis.md` for complete Phase 1-4 details
+**See**: `/docs/optimization-results.md` for complete optimization metrics and phase summaries
 
 ---
 
@@ -570,6 +570,509 @@ See [Core Values](./docs/business/core-values.md) for complete details.
 
 ---
 
+## 🎯 AI Agent Onboarding Protocol
+
+**For AI Assistants & Future Developers: Read This First!**
+
+This section provides everything needed to understand the entire MH Construction codebase architecture,
+documentation system, styling patterns, and workflows in one comprehensive reference.
+
+### 📚 Documentation System Architecture
+
+**Central Hub**: [docs/MasterIndex.md](./docs/MasterIndex.md) - **ALWAYS START HERE**
+
+**Organization Rules:**
+
+- ✅ **All MD files MUST be in `/docs/` directory** (except root-level README.md, CONTRIBUTING.md)
+- ✅ **All MD files MUST be indexed** in MasterIndex.md or a category index
+- ✅ **Never put documentation in `/src/`** - Documentation belongs in `/docs/`, code belongs in `/src/`
+- ✅ **172 total MD files** organized across 11 top-level categories
+
+**File Organization:**
+
+```text
+docs/
+├── MasterIndex.md              # Central navigation hub (START HERE)
+├── branding/                   # Brand guidelines, color system, typography
+│   ├── branding-index.md      # Category hub
+│   ├── standards/             # Color system, icon policy, typography
+│   ├── strategy/              # Slogan rotation, homepage optimization
+│   └── implementation/        # Brand implementation guides
+├── business/                   # Company info, services, team data
+│   ├── business-index.md      # Category hub
+│   ├── core-values.md         # Company values
+│   ├── services.md            # Service offerings
+│   └── team-roster.md         # Team member data
+├── components/                 # Component documentation
+│   ├── components-index.md    # Category hub
+│   ├── ui/                    # UI component guides
+│   └── navigation/            # Navigation component guides
+├── development/                # Developer guides
+│   ├── development-index.md   # Category hub
+│   ├── consistency-guide.md   # Implementation standards (MANDATORY)
+│   ├── style-utilities-guide.md  # Centralized utilities (REQUIRED)
+│   └── reference/             # Quick references, checklists
+├── technical/                  # Architecture, design system
+│   ├── technical-index.md     # Category hub
+│   ├── design-system/         # Colors, typography, spacing, icons
+│   ├── seo/                   # SEO system documentation
+│   └── refactoring-roadmap.md # Code improvement history
+├── deployment/                 # Deployment guides
+├── migrations/                 # Migration documentation
+├── operations/                 # Operations guides
+├── partnerships/               # Partnership documentation
+├── project/                    # Project management
+└── templates/                  # Reusable templates
+```
+
+**When to Update Documentation:**
+
+1. **Moving files?** → Update MasterIndex.md + category index + all references
+2. **Creating new MD files?** → Add to appropriate category index AND MasterIndex.md
+3. **Changing features?** → Update relevant technical documentation
+4. **New components?** → Add to component documentation with usage examples
+
+**Documentation Verification:**
+
+```bash
+# Check if all MD files are indexed
+find docs -name "*.md" | wc -l  # Should match MasterIndex count (172)
+
+# Search for broken references
+grep -r "\[.*\](.*/.*\.md)" docs/ --include="*.md"
+```
+
+---
+
+### 🎨 CSS/JS/Tailwind Cohesion System
+
+**Three-Layer Architecture** (CRITICAL - Do NOT mix layers):
+
+```css
+/* src/app/globals.css - Three distinct layers */
+
+@layer base {
+  /* Only HTML element defaults - NO classes */
+  body {
+    font-family: ...;
+  }
+  h1,
+  h2,
+  h3 {
+    font-weight: ...;
+  }
+}
+
+@layer components {
+  /* Reusable component patterns */
+  .card {
+    @apply rounded-lg shadow-md p-6;
+  }
+  .btn-primary {
+    @apply bg-brand-primary text-white;
+  }
+}
+
+@layer utilities {
+  /* Single-purpose utility classes */
+  .text-balance {
+    text-wrap: balance;
+  }
+  .mobile-smooth {
+    -webkit-font-smoothing: antialiased;
+  }
+  .touch-target-sm {
+    min-width: 36px;
+    min-height: 36px;
+  }
+}
+```
+
+**Why Layers Matter:**
+
+- ✅ **Better tree-shaking** - Unused utilities are removed from production
+- ✅ **Predictable specificity** - base < components < utilities < inline styles
+- ✅ **No separate CSS files** - Everything in one system for easier maintenance
+
+**Color System Integration** (Tailwind ↔ CSS Variables):
+
+```typescript
+// tailwind.config.ts - Define colors
+export default {
+  theme: {
+    extend: {
+      colors: {
+        "brand-primary": "#386851", // Hunter Green
+        "brand-secondary": "#BD9264", // Leather Tan
+        "bronze-badge": {
+          DEFAULT: "#CD7F32", // Veteran badges ONLY
+          50: "#fef5ee",
+          // ... full scale 50-900
+        },
+      },
+    },
+  },
+};
+```
+
+```css
+/* src/styles/variables.css - CSS custom properties bridge */
+:root {
+  /* Light mode */
+  --color-primary: #386851;
+  --color-secondary: #bd9264;
+  --color-text-primary: #212121;
+  --color-bg-primary: #ffffff;
+}
+
+.dark {
+  /* Dark mode */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b0b0b0;
+  --color-bg-primary: #121212;
+  --color-bg-secondary: #1e1e1e;
+  /* Semantic colors */
+  --color-success: #22c55e;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+}
+```
+
+**Usage Pattern:**
+
+```tsx
+// ✅ CORRECT - Use Tailwind classes
+<div className="bg-brand-primary text-white">Hunter Green</div>
+<span className="bg-bronze-badge text-white">Veteran Owned</span>
+
+// ✅ CORRECT - Use CSS variables for custom CSS
+<div style={{ backgroundColor: 'var(--color-primary)' }}>Custom</div>
+
+// ❌ WRONG - Don't mix hex colors directly
+<div className="bg-[#386851]">Don't do this</div>
+```
+
+**Dark Mode Pattern:**
+
+```tsx
+// Automatic dark mode (recommended)
+<div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+  Content adapts to theme
+</div>
+
+// CSS variables adapt automatically
+<div style={{
+  color: 'var(--color-text-primary)',
+  backgroundColor: 'var(--color-bg-primary)'
+}}>
+  Automatically switches
+</div>
+```
+
+**Mobile-First Responsive Design:**
+
+```tsx
+// ✅ CORRECT - Mobile first, then scale up
+<div className="text-sm md:text-base lg:text-lg">
+  <h1 className="text-2xl sm:text-3xl lg:text-4xl">Title</h1>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    {/* Cards */}
+  </div>
+</div>
+
+// Touch targets for mobile
+<button className="touch-target-sm p-4">
+  {/* Minimum 36x36px touch target */}
+</button>
+
+// Mobile-specific utilities
+<div className="mobile-smooth">
+  {/* Hardware acceleration for smooth scrolling */}
+</div>
+```
+
+**Build Verification:**
+
+```bash
+npm run build  # Should complete in ~30s with zero errors
+npm run lint   # Zero warnings = CSS system is correct
+```
+
+---
+
+### 🛠️ Component & Page Patterns
+
+**Style Utilities System** (REQUIRED for all development):
+
+```tsx
+// ✅ CORRECT - Use centralized utilities
+import { cardStyles } from '@/lib/styles/card-variants';
+import { gridLayouts } from '@/lib/styles/layout-variants';
+
+// Card with elevation variant
+<div className={cardStyles.elevated}>
+  <h3>Elevated Card</h3>
+</div>
+
+// Responsive grid layout
+<div className={gridLayouts.responsive3Col}>
+  {items.map(item => <Card key={item.id} {...item} />)}
+</div>
+
+// ❌ WRONG - Don't inline repeated styles
+<div className="rounded-lg border border-gray-200 p-6 shadow-sm bg-white">
+  {/* This should use cardStyles.default */}
+</div>
+```
+
+**Available Utilities:**
+
+- **Card Variants**: `default`, `elevated`, `interactive`, `bordered`, `minimal`
+- **Grid Layouts**: `responsive2Col`, `responsive3Col`, `responsive4Col`, `auto-fit`, `masonry`
+- **Section Components**: `<Section>`, `<SectionHeader>` for consistent page sections
+- **Career Data**: Centralized job postings, benefits in `/src/lib/data/careers.ts`
+
+**See**: [Style Utilities Guide](./docs/development/style-utilities-guide.md) for complete API
+
+**Page Creation Pattern:**
+
+```tsx
+// app/new-page/page.tsx
+import { MaterialIcon } from "@/components/icons";
+import { Section, SectionHeader } from "@/components/ui/layout";
+import { cardStyles } from "@/lib/styles/card-variants";
+
+export const metadata = {
+  title: "Page Title | MH Construction",
+  description: "Page description...",
+};
+
+export default function NewPage() {
+  return (
+    <>
+      {/* Hero Section - ALWAYS FIRST */}
+      <section className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-gray-900 pt-20 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 lg:pb-24 text-white">
+        {/* Veteran Badge */}
+        <div className="flex justify-center items-center gap-2 mb-4">
+          <MaterialIcon
+            icon="military_tech"
+            size="lg"
+            className="text-bronze-300"
+          />
+          <span className="font-semibold text-bronze-300 text-sm sm:text-base tracking-wide uppercase">
+            Veteran-Owned Excellence
+          </span>
+        </div>
+
+        {/* Title with responsive sizing */}
+        <h1
+          className="text-center font-bold mb-6 text-brand-secondary"
+          style={{ fontSize: "clamp(2rem, 8vw, 6rem)" }}
+        >
+          Page Title
+        </h1>
+
+        {/* Tagline */}
+        <p
+          className="text-center mb-8 font-medium"
+          style={{ fontSize: "clamp(1.125rem, 3vw, 2.25rem)" }}
+        >
+          "Building for the Owner, <span className="text-bronze-300">NOT</span>{" "}
+          the Dollar"
+        </p>
+      </section>
+
+      {/* Content Section */}
+      <Section id="content">
+        <SectionHeader title="Section Title" subtitle="Optional subtitle" />
+        <div className={gridLayouts.responsive3Col}>{/* Content cards */}</div>
+      </Section>
+    </>
+  );
+}
+```
+
+**After Creating Page:**
+
+1. Add to sitemap: `src/app/sitemap.ts` (ONE line)
+2. Add to navigation: `src/components/navigation/navigationConfigs.ts` (if in menu)
+3. Run SEO audit: `npm run seo:audit`
+4. Build test: `npm run build`
+
+---
+
+### ✅ Pre-Deployment Validation Checklist
+
+**ALWAYS run these before committing:**
+
+```bash
+# 1. Type check
+npm run type-check
+# Expected: No TypeScript errors
+
+# 2. Lint check
+npm run lint
+# Expected: No ESLint warnings
+
+# 3. Build test
+npm run build
+# Expected: ~30s build time, zero errors
+
+# 4. SEO validation
+npm run seo:audit
+# Expected: 100/100 on all pages
+
+# 5. Documentation verification (if you moved/created MD files)
+find docs -name "*.md" | wc -l  # Should be 172
+grep -r "broken-link" docs/     # Should find nothing
+```
+
+**Common Errors & Fixes:**
+
+| Error                                    | Cause                        | Fix                                        |
+| ---------------------------------------- | ---------------------------- | ------------------------------------------ |
+| `Cannot find module '@/components/...'`  | Import path incorrect        | Check component exists in src/components   |
+| `Type 'X' is not assignable to type 'Y'` | TypeScript mismatch          | Add proper type annotation                 |
+| `className did not match`                | Tailwind class not in config | Check tailwind.config.ts includes class    |
+| `Hydration failed`                       | Server/client mismatch       | Remove dynamic content from initial render |
+| Build takes >60s                         | Import issue                 | Check for circular dependencies            |
+
+**Critical Files to NEVER Break:**
+
+- `src/app/layout.tsx` - Root layout (breaks entire site)
+- `src/components/navigation/Header.tsx` - Navigation (breaks all pages)
+- `tailwind.config.ts` - Styling system (breaks all styles)
+- `next.config.js` - Build config (breaks deployment)
+
+**Testing New Features:**
+
+```bash
+# Start dev server
+npm run dev
+
+# In another terminal, test API endpoints
+npm run test:api
+
+# Build locally before deploying
+npm run build
+npm run start  # Test production build locally
+```
+
+---
+
+### 🚀 Common Development Workflows
+
+**Adding a New Component:**
+
+```bash
+# 1. Create component file
+touch src/components/ui/NewComponent.tsx
+
+# 2. Implement with TypeScript
+# interface NewComponentProps { ... }
+# export function NewComponent({ ... }: NewComponentProps) { ... }
+
+# 3. Export from index
+echo "export * from './NewComponent';" >> src/components/ui/index.ts
+
+# 4. Use with absolute import
+# import { NewComponent } from '@/components/ui';
+
+# 5. Document (if reusable)
+# Add to docs/components/ui/mh-ui-guide.md
+```
+
+**Refactoring Repeated Code:**
+
+```bash
+# 1. Identify pattern (e.g., 20+ instances of same card styles)
+grep -r "rounded-lg border p-6" src/app --include="*.tsx"
+
+# 2. Create utility
+# Create src/lib/styles/card-variants.ts with TypeScript interfaces
+
+# 3. Replace instances one-by-one
+# Replace inline styles with cardStyles.default
+
+# 4. Verify build
+npm run build
+
+# 5. Document in style-utilities-guide.md
+```
+
+**Updating Documentation:**
+
+```bash
+# 1. Make changes to MD file
+vim docs/technical/some-guide.md
+
+# 2. Update last modified date in frontmatter
+# **Last Updated:** November 8, 2025
+
+# 3. Verify links work
+grep -r "\[.*\](.*some-guide.md)" docs/
+
+# 4. Update category index if needed
+# Add link to docs/technical/technical-index.md
+
+# 5. Verify in MasterIndex
+grep "some-guide.md" docs/MasterIndex.md
+```
+
+**Emergency Rollback:**
+
+```bash
+# If something breaks in production
+git log --oneline -10  # Find last good commit
+git revert <commit-hash>  # Revert bad commit
+npm run build  # Test
+git push  # Deploy fix
+```
+
+---
+
+### 💡 Pro Tips for AI Assistants
+
+**When Asked to "Add a Feature":**
+
+1. ✅ Read MasterIndex.md first to understand existing patterns
+2. ✅ Check style-utilities-guide.md for reusable utilities
+3. ✅ Search codebase for similar implementations: `grep -r "pattern" src/`
+4. ✅ Use TypeScript interfaces for all new code
+5. ✅ Follow existing naming conventions (PascalCase components, camelCase functions)
+6. ✅ Add to appropriate documentation
+7. ✅ Run full validation checklist before finishing
+
+**When Asked to "Fix Documentation":**
+
+1. ✅ Check file is in `/docs/` directory (not `/src/`)
+2. ✅ Verify file is indexed in MasterIndex.md
+3. ✅ Update all references if moving files
+4. ✅ Keep category indexes in sync
+5. ✅ Maintain 172 total MD file count
+
+**When Asked to "Update Styles":**
+
+1. ✅ Check if pattern exists in card-variants.ts or layout-variants.ts
+2. ✅ Use Tailwind classes, not inline styles
+3. ✅ Add to appropriate @layer in globals.css if needed
+4. ✅ Update variables.css for dark mode support
+5. ✅ Test mobile responsiveness (sm:, md:, lg: breakpoints)
+6. ✅ Verify build still completes in ~30s
+
+**Red Flags to Watch For:**
+
+- 🚩 MD files outside `/docs/` directory
+- 🚩 Inline styles repeated 3+ times (should be a utility)
+- 🚩 Hex colors in components (should use Tailwind classes)
+- 🚩 Build time >60s (import issue)
+- 🚩 TypeScript errors (zero tolerance)
+- 🚩 Missing documentation for new features
+- 🚩 Broken internal links in markdown files
+
+---
+
 ## 🔧 Development Workflow
 
 ### Environment Setup
@@ -680,11 +1183,11 @@ standards, and references.
 - **[Consistency Guide](./docs/development/consistency-guide.md)** - Complete consistency standards
 - **[Ultimate SEO Guide](./docs/technical/seo/ultimate-seo-guide.md)** - Auto-adaptive SEO system ⭐
 - **[Design System](./docs/technical/design-system/design-system.md)** - Colors, typography, spacing
-- **[Component Library](./src/components/ui/mh-ui-guide.md)** - UI component reference
+- **[Component Library](./docs/components/ui/mh-ui-guide.md)** - UI component reference
 
 **Setup & Deployment:**
 
-- **[Cloudflare Deployment](./cloudflare-deployment.md)** - Complete deployment setup
+- **[Cloudflare Deployment](./docs/deployment/cloudflare-complete-guide.md)** - Complete deployment setup
 - **[Development Guidelines](./docs/development/guidelines/development-guidelines.md)** - Coding workflow
 
 **Quick References:**
@@ -724,7 +1227,7 @@ npm run pages:deploy
 - Framework preset: Next.js (App Router)
 - Node version: 18+
 
-See [cloudflare-deployment.md](./cloudflare-deployment.md) for complete setup guide.
+See [docs/deployment/cloudflare-complete-guide.md](./docs/deployment/cloudflare-complete-guide.md) for complete setup guide.
 
 ---
 

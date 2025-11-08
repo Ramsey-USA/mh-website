@@ -468,7 +468,7 @@ className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
 
 ## 📚 **Related Documentation**
 
-- **[MH Branding Guidelines](../mh-branding.md)** - Complete brand system
+- **[MH Branding Index](../branding-index.md)** - Hub for all brand documentation
 - **[Typography Standards](./typography.md)** - Text and heading standards
 - **[Color System](./color-system.md)** - Brand color definitions
 - **[Icon Policy](./icon-policy.md)** - Material Icons standards

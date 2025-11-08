@@ -259,7 +259,7 @@ See [Core Values](../../business/core-values.md) for complete details on each pr
 - [**Typography**](./typography.md) - Font system and text guidelines
 - [**Messaging**](./messaging.md) - Detailed voice and tone guidelines
 - [**Implementation Guide**](./implementation-guide.md) - Technical implementation
-- [**Master Brand Guide**](../../business/mh-branding.md) - Complete comprehensive reference
+- [**Branding Index**](../branding-index.md) - Hub for all brand documentation
 
 ---
 

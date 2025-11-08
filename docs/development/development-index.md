@@ -56,6 +56,12 @@ Quick reference guides, troubleshooting documentation, and developer resources.
 - `icon-size-troubleshooting.md` - Icon sizing and troubleshooting guide
 - `reference-index.md` - Overview of reference materials
 
+### Component Documentation
+
+- **[Components Index](../components/components-index.md)** - Complete component documentation hub
+- **[UI Components](../components/ui/mh-ui-guide.md)** - UI component library
+- **[Navigation Components](../components/navigation/navigation-components-guide.md)** - Navigation patterns
+
 ## 🛠️ Root Level Development Files
 
 ### Setup & Configuration
@@ -81,6 +87,16 @@ Quick reference guides, troubleshooting documentation, and developer resources.
 - **[file-management.md](./file-management.md)** - File organization and management guidelines
 - **[ai-development-guidelines.md](./ai-development-guidelines.md)** - AI-assisted development guidelines
 - **[troubleshooting.md](./troubleshooting.md)** - Common issues and solutions
+
+### Scripts & Automation
+
+- **[mh-scripts-guide.md](../../scripts/mh-scripts-guide.md)** - Project automation scripts and utilities
+  - SEO auditing, team data extraction, database testing, API testing, and cleanup utilities
+
+### Testing & Quality Assurance
+
+- **[mh-testing-guide.md](../../testing/mh-testing-guide.md)** - Testing guidelines and test suites
+  - Responsive testing, security testing, cohesion testing, and quality assurance procedures
 
 ### Documentation Guides
 

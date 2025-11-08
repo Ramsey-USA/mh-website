@@ -105,7 +105,7 @@ All team profiles follow a consistent format. See the trigger utilities for prof
 - [Team Roster](../team-roster.md) - Team overview and structure
 - [Core Values](../core-values.md) - Company principles and culture
 - [Services](../services.md) - What we offer
-- [MH Branding](../mh-branding.md) - Complete brand guide
+- [MH Branding](../../branding/branding-index.md) - Modular brand docs
 
 ### Team & Culture
 

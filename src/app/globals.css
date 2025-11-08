@@ -58,6 +58,11 @@
     min-height: 44px;
   }
 
+  .touch-target-sm {
+    min-width: 36px;
+    min-height: 36px;
+  }
+
   /* Brand glow effect */
   .btn-glow:hover {
     box-shadow:
@@ -68,6 +73,35 @@
   /* Smooth scrolling */
   .scroll-smooth {
     scroll-behavior: smooth;
+  }
+
+  /* Mobile-specific text utilities */
+  .text-readable-min {
+    font-size: max(9px, 0.75rem);
+  }
+
+  /* Hardware acceleration for smooth mobile animations */
+  .mobile-smooth {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  /* Extra small mobile utilities */
+  @media (max-width: 374px) {
+    .mobile-sm\:text-micro {
+      font-size: 8px;
+      line-height: 10px;
+    }
+
+    .mobile-sm\:gap-micro {
+      gap: 2px;
+    }
+
+    .mobile-sm\:p-micro {
+      padding: 2px;
+    }
   }
 }
 /* ============================================

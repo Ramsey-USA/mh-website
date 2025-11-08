@@ -459,7 +459,7 @@ craftsmanship and character.
 - [**Typography**](./typography.md) - Text and font guidelines
 - [**Icon Policy**](./icon-policy.md) - Visual elements policy
 - [**Implementation Guide**](./implementation-guide.md) - Technical standards
-- [**Master Brand Guide**](../../business/mh-branding.md) - Complete comprehensive reference
+- [**Branding Index**](../branding-index.md) - Hub for all brand documentation
 
 ---
 

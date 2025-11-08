@@ -58,7 +58,7 @@ structure.
 - ✅ `/docs/business/core-values.md`
   - Updated contact: `office@mhc-gc.com`
 
-- ✅ `/docs/business/mh-branding.md`
+- ✅ `/docs/branding/` (modular brand docs)
   - Updated technical contact: `developers@mhc-gc.com`
 
 - ✅ `/docs/branding/branding-index.md`

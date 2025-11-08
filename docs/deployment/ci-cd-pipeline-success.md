@@ -187,7 +187,7 @@ npm run pages:deploy
 - **GitHub Actions Docs:** <https://docs.github.com/en/actions>
 - **Cloudflare Pages Docs:** <https://developers.cloudflare.com/pages/>
 - **Workflow File:** `.github/workflows/ci-cd.yml`
-- **Deployment Guide:** `cloudflare-deployment.md`
+- **Deployment Guide:** `cloudflare-complete-guide.md`
 
 ---
 

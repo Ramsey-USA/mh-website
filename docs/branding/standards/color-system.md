@@ -47,6 +47,43 @@
 **White:** `#FFFFFF` - Light backgrounds, inverted text
 **Gray Palette:** Professional neutral tones for text and backgrounds
 
+### Badge Colors
+
+#### Bronze - Veteran Designation
+
+**Hex:** `#CD7F32`
+**RGB:** `rgb(205, 127, 50)`
+**HSL:** `hsl(30, 61%, 50%)`
+**Use Case:** Military veteran badges, service designation indicators
+**Tailwind Class:** `bronze-badge` (with scale 50-900)
+
+**Design Notes:**
+
+- Use sparingly - reserved exclusively for veteran/military service recognition
+- Pairs well with dark backgrounds for maximum visibility
+- Available in full Tailwind scale: `bronze-badge-50` through `bronze-badge-900`
+- Default shade (`bronze-badge`) is the primary bronze (#CD7F32)
+
+**Accessibility:**
+
+- Ensure sufficient contrast when placing text over bronze backgrounds
+- Use `text-white` or `text-gray-900` for optimal readability depending on shade
+- Bronze badges should include descriptive `aria-label` attributes for screen readers
+
+**Example Usage:**
+
+```tsx
+// Veteran badge component
+<span className="bg-bronze-badge text-white px-3 py-1 rounded-full text-sm font-semibold">
+  Veteran Owned
+</span>
+
+// Light bronze background variant
+<div className="bg-bronze-badge-50 border-bronze-badge-200 border">
+  <span className="text-bronze-badge-900">Military Veteran</span>
+</div>
+```
+
 ## Light Mode Color Palette
 
 ### Text Colors
@@ -476,7 +513,7 @@ module.exports = {
 - [**Icon Policy**](./icon-policy.md) - Material Icons standards
 - [**Typography**](./typography.md) - Font system and text guidelines
 - [**Implementation Guide**](./implementation-guide.md) - Technical implementation
-- [**Master Brand Guide**](../mh-branding.md) - Complete comprehensive reference
+- [**Branding Index**](../branding-index.md) - Hub for all brand documentation
 
 ---
 

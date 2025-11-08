@@ -3,6 +3,8 @@ export { AboutValues, type CoreValue } from "./AboutValues";
 export { PartnershipPhilosophy } from "./PartnershipPhilosophy";
 export { CompanyStats, companyStats } from "./CompanyStats";
 export { LeadershipTeam, leadershipTeam } from "./LeadershipTeam";
+export { SafetySection } from "./SafetySection";
+export { AwardsSection } from "./AwardsSection";
 import type { CoreValue } from "./AboutValues";
 
 // Core Values Data - 6-Value Professional Foundation System

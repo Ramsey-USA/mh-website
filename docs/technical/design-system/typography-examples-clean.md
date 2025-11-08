@@ -236,17 +236,18 @@ Apply the brand gradient pattern for:
 
 ---
 
-## 📚 Related Resources
+## Related Documentation
 
-- [Complete Design System](./design-system.md) - Full typography system and standards
-- [Branding Standards](../../branding/standards/typography.md) - Brand typography specifications
-- [Consistency Guide](../../development/consistency-guide.md) - Implementation standards
-- [Component Library](/src/components/ui/mh-ui-guide.md) - UI component examples
+- [Component Library](../../components/ui/mh-ui-guide.md) - UI component examples
+- [Design System](./design-system.md) - Complete design system reference
 
 ---
 
-**Last Updated:** November 6, 2025
-**Status:** ✅ Active - Consolidated from multiple sources
+**Last Updated:** November 8, 2025
+**Status:** ✅ Current
+
+- [Component Library](../../components/ui/mh-ui-guide.md)
+- [Design System Hub](./design-system-index.md)
 ````
 
 `````text

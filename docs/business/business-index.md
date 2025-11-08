@@ -28,7 +28,7 @@
 ### 🎨 Brand & Marketing
 
 - [**Brand Documentation Hub**](../branding/branding-index.md) - Complete brand documentation system
-- [**MH Branding Master Guide**](./mh-branding.md) - Comprehensive brand guidelines reference
+- [**MH Branding Index**](../branding/branding-index.md) - Modular brand documentation hub
 - [**Consistency Guide**](../development/consistency-guide.md) - Complete implementation standards
 
 **Brand Structure:**
@@ -55,7 +55,7 @@ docs/business/
 ├── team-roster.md              # Complete team information
 ├── team-data-sync.md           # Team information synchronization
 ├── government-grant-projects.md # Grant expertise
-├── mh-branding.md              # Comprehensive brand reference (legacy)
+├── (removed)                   # See ../branding/ for modular brand docs
 └── team-profiles/              # Individual team member profiles
 
 Brand documentation is now at: docs/branding/

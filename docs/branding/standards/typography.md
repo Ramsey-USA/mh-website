@@ -944,7 +944,7 @@ className = "text-gray-900 dark:text-white";
 - [**Color System**](./color-system.md) - Color palette and usage
 - [**Icon Policy**](./icon-policy.md) - Material Icons standards
 - [**Implementation Guide**](./implementation-guide.md) - Technical implementation
-- [**Master Brand Guide**](../mh-branding.md) - Complete comprehensive reference
+- [**Branding Index**](../branding-index.md) - Hub for all brand documentation
 
 ---
 

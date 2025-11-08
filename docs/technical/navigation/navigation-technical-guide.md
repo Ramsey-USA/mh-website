@@ -492,7 +492,10 @@ const MaterialIcon = lazy(() => import("../icons/MaterialIcon"));
 
 - **[Navigation Architecture](./navigation-architecture.md)** - System overview and design principles
 - **[Material Design Icons](https://fonts.google.com/icons)** - Icon reference
-- **[Component Documentation](../../src/components/ui/mh-ui-guide.md)** - Component API reference
+- ### Component Documentation
+
+- **[Component Documentation](../../components/ui/mh-ui-guide.md)** - Component API reference
+- **[Navigation Components](../../components/navigation/navigation-components-guide.md)** - Navigation patterns
 - **[Design System](../design-system/design-system.md)** - Visual design standards
 
 ### **Code References**

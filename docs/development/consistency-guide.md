@@ -775,7 +775,7 @@ npm run build
 - **[Mobile Quick Reference](../technical/design-system/mobile-quick-reference.md)** - Mobile patterns
 - **[Brand Strategy](../branding/strategy/)** - Brand identity and messaging
 - **[Brand Standards](../branding/standards/)** - Visual and typography standards
-- **[Component Library](../../src/components/ui/mh-ui-guide.md)** - UI components
+- **[Component Library](../components/ui/mh-ui-guide.md)** - UI components
 - **[Developer Checklist](./reference/developer-checklist.md)** - Pre-commit checks
 
 ---

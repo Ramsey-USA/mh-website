@@ -165,7 +165,7 @@ guidelines on terminology, messaging, and implementation across all channels.
 - **[Consistency Guide](../development/consistency-guide.md)** - Complete implementation guide
 - **[Design System](../technical/design-system/design-system.md)** - Complete design system
 - **[Mobile Quick Reference](../technical/design-system/mobile-quick-reference.md)** - Mobile patterns
-- **[Component Library](../../src/components/ui/mh-ui-guide.md)** - UI components
+- **[Component Library](../components/ui/mh-ui-guide.md)** - UI components
 
 ---
 

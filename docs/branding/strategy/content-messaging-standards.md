@@ -271,7 +271,7 @@ Professional [service description] designed to [achieve specific outcome]. We co
 
 ## 📚 **Related Documentation**
 
-- **[MH Branding Guidelines](../../business/mh-branding.md)** - Complete brand system
+- **[MH Branding Index](../branding-index.md)** - Hub for all brand documentation
 - **[Typography Standards](./typography.md)** - Text formatting standards
 - **[Component Standards](./component-standards.md)** - UI component guidelines
 - **[Icon Policy](./icon-policy.md)** - Material Icons standards

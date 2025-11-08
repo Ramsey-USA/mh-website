@@ -17,7 +17,7 @@ These standards ensure consistency, maintainability, and prevent recurring bugs.
 
 **When implementing features, also consult our brand guidelines:**
 
-- **[MH Branding Master Guide](../business/mh-branding.md)** - Complete brand
+- **[MH Branding Index](../branding/branding-index.md)** - Modular brand docs
   standards and visual identity
 - **[Brand Documentation Index](../business/branding/branding-index.md)** - Modular
   brand documentation navigation

@@ -578,16 +578,34 @@ Created `/src/lib/styles/layout-variants.ts` with centralized grid utility funct
 - [ ] Delete performance/ version
 - [ ] Verify image optimization still works
 
-#### C. Deprecated FAQ Components
+#### C. Deprecated FAQ Components ✅ DELETED (Nov 8, 2025)
 
-- [ ] `/src/components/faq/FAQAccordion.deprecated.tsx`
-- [ ] `/src/components/faq/FAQAccordionSection.deprecated.tsx`
+**Status:** ✅ **COMPLETED** - Entire FAQ system deleted (809 lines saved)
 
-**Action Items:**
+**Deleted Files:**
 
-- [ ] Verify no imports exist (grep search)
-- [ ] Delete both deprecated files if truly unused
-- [ ] Update exports in `/src/components/faq/index.ts`
+- ✅ `/src/components/faq/FAQAccordion.deprecated.tsx` (181 lines)
+- ✅ `/src/components/faq/FAQAccordionSection.deprecated.tsx` (202 lines)
+- ✅ `/src/components/faq/FAQSection.tsx` (113 lines - never used)
+- ✅ `/src/components/faq/FAQCard.tsx` (71 lines - never used)
+- ✅ `/src/components/faq/index.ts` (6 lines)
+- ✅ `/src/lib/data/faqs.ts` (236 lines)
+
+**Rationale:**
+
+- ChatbotCTASection handles all FAQ functionality
+- Services, Booking, and Careers pages already use chatbot for Q&A
+- FAQ data was NOT integrated with chatbot knowledge base
+- Maintaining two Q&A systems was redundant
+- Chatbot provides better UX with conversational responses
+
+**Impact:**
+
+- ✅ Reduced source code by 809 lines (1.2%)
+- ✅ Eliminated duplicate Q&A maintenance
+- ✅ Single source of truth: Chatbot
+- ✅ Build time maintained at 32.2s
+- ✅ Zero errors after deletion
 
 ---
 

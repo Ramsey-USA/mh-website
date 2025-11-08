@@ -1174,7 +1174,7 @@ import { CONTACT_INFO } from '@/lib/constants';
 
 - **[Buttons Complete Guide](./buttons-complete-guide.md)** - Button system specifications and examples
 - **[Buttons & CTAs Index](./buttons-ctas-index.md)** - Navigation hub for all button/CTA documentation
-- **[MH Branding Guidelines](../../business/mh-branding.md)** - Brand identity and design system
+- **[MH Branding Index](../../../branding/branding-index.md)** - Modular brand docs
 - **[Partnership Messaging](../../partnerships/messaging/cta-button-guide.md)** - Partnership-specific CTA guidance
 
 ### Technical References

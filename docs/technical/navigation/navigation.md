@@ -61,7 +61,7 @@
 - **[design-system.md](../design-system/design-system.md)** - Brand colors, typography, component standards
 - **[terminology-guide.md](../../development/terminology-guide.md)** - ⭐ **CRITICAL:**
   "Our Team" vs "Trade Partners" distinction
-- **[mh-branding.md](../../business/mh-branding.md)** - Brand guidelines and messaging
+- **[branding-index.md](../../branding/branding-index.md)** - Brand guidelines hub
 
 ### **Icon System**
 
@@ -191,7 +191,7 @@ docs/
 │   ├── services.md
 │   ├── core-values.md
 │   ├── team-roster.md
-│   └── mh-branding.md
+│   └── (removed - see branding/)
 ├── development/
 │   ├── development-index.md
 │   └── firebase-setup.md
@@ -216,7 +216,7 @@ docs/
 | Create new page     | [page-layout-quick-start.md](./technical/page-layout-quick-start.md)         |
 | Style components    | [design-system.md](./technical/design-system/design-system.md)                             |
 | Add icons           | [icon-system-quick-reference.md](./technical/icon-system-quick-reference.md) |
-| Update branding     | [mh-branding.md](./business/mh-branding.md)                                  |
+| Update branding     | [branding-index.md](./branding/branding-index.md)                           |
 | Setup development   | [development-index.md](./development/development-index.md)                               |
 | Review architecture | [architecture.md](./project/architecture.md)                                 |
 

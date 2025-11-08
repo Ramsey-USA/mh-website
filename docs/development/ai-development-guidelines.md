@@ -18,7 +18,7 @@ introduction of inconsistencies and bugs that have historically plagued this pro
 
 - **[Development Standards](./development-standards.md)** - Mandatory coding standards
   for all code
-- **[MH Branding](../business/mh-branding.md)** - Complete brand standards (colors,
+- **[MH Branding](../branding/branding-index.md)** - Modular brand standards (colors,
   typography, icons)
 - **[Typography Standards](../business/branding/typography.md)** - Hero section
   requirements, responsive scaling

@@ -421,7 +421,7 @@ The design system implements brand standards from multiple sources:
 
 - [Branding Index](../../branding/branding-index.md) - All branding documentation
 - [Brand Standards](../../branding/standards/standards-index.md) - Visual standards
-- [MH Branding Guide](../../branding/mh-branding.md) - Complete brand reference
+- [MH Branding Index](../../branding/branding-index.md) - Modular brand docs
 
 ### Partnership Documentation
 

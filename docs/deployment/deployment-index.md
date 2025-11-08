@@ -32,9 +32,26 @@ setup, CI/CD pipeline configuration, and production environment management.
 
 ### Cloudflare Pages Deployment
 
+**[cloudflare-complete-guide.md](./cloudflare-complete-guide.md)** - Complete Cloudflare Pages deployment guide
+
+Comprehensive guide covering end-to-end Cloudflare Pages setup and deployment.
+
+**Topics Covered:**
+
+- Complete deployment workflow
+- CI/CD pipeline configuration (GitHub Actions)
+- Build configuration and optimization
+- Environment setup and variables
+- Node.js and Wrangler setup
+- Troubleshooting and best practices
+
+**When to Use:** First-time setup, comprehensive reference, troubleshooting
+
+---
+
 **[cloudflare-pages-setup.md](./cloudflare-pages-setup.md)** - Initial Cloudflare Pages configuration
 
-Complete setup guide for deploying to Cloudflare Pages.
+Quick start guide for deploying to Cloudflare Pages.
 
 **Topics Covered:**
 
@@ -44,7 +61,7 @@ Complete setup guide for deploying to Cloudflare Pages.
 - Custom domain configuration
 - Edge deployment settings
 
-**When to Use:** First-time deployment, new projects, platform migration
+**When to Use:** Quick setup reference, first-time deployment
 
 ---
 
@@ -93,6 +110,22 @@ Guide for setting up Cloudflare API tokens for CI/CD.
 - CI/CD integration
 
 **When to Use:** Setting up automated deployments, CI/CD configuration
+
+---
+
+**[cloudflare-security-config.md](./cloudflare-security-config.md)** - Cloudflare security configuration
+
+Security rules, WAF configuration, DNS settings, and rate limiting.
+
+**Topics Covered:**
+
+- WAF custom rules
+- Rate limiting configuration
+- Page rules and caching
+- DNS settings and records
+- Security best practices
+
+**When to Use:** Security hardening, WAF setup, DNS configuration
 
 ---
 
@@ -160,15 +193,17 @@ Archived build settings and configuration history.
 
 ## 🎯 When to Use Each Guide
 
-| Scenario                  | Use This Guide                                                                                    | Why                    |
-| ------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------- |
-| **First deployment**      | [Cloudflare Pages Setup](./cloudflare-pages-setup.md)                                             | Complete initial setup |
-| **Pre-deployment checks** | [Deployment Ready](./cloudflare-deployment-ready.md)                                              | Validation checklist   |
-| **Slow performance**      | [Cloudflare Optimization](./cloudflare-optimization.md)                                           | Edge optimization      |
-| **Database setup**        | [D1 Database Setup](./d1-database-setup.md)                                                       | DB configuration       |
-| **Migration issues**      | [Run Migrations Manually](./run-migrations-manually.md)                                           | Manual migration       |
-| **CI/CD setup**           | [API Token Setup](./cloudflare-api-token-setup.md) + [CI/CD Success](./ci-cd-pipeline-success.md) | Automation             |
-| **Build failures**        | [Deployment Ready](./cloudflare-deployment-ready.md) + Archives                                   | Troubleshooting        |
+| Scenario                  | Use This Guide                                                                                    | Why                     |
+| ------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------- |
+| **First deployment**      | [Complete Guide](./cloudflare-complete-guide.md) or [Pages Setup](./cloudflare-pages-setup.md)    | Full setup workflow     |
+| **Quick setup**           | [Cloudflare Pages Setup](./cloudflare-pages-setup.md)                                             | Fast initial setup      |
+| **Pre-deployment checks** | [Deployment Ready](./cloudflare-deployment-ready.md)                                              | Validation checklist    |
+| **Security setup**        | [Security Config](./cloudflare-security-config.md)                                                | WAF, DNS, rate limiting |
+| **Slow performance**      | [Cloudflare Optimization](./cloudflare-optimization.md)                                           | Edge optimization       |
+| **Database setup**        | [D1 Database Setup](./d1-database-setup.md)                                                       | DB configuration        |
+| **Migration issues**      | [Run Migrations Manually](./run-migrations-manually.md)                                           | Manual migration        |
+| **CI/CD setup**           | [API Token Setup](./cloudflare-api-token-setup.md) + [CI/CD Success](./ci-cd-pipeline-success.md) | Automation              |
+| **Build failures**        | [Deployment Ready](./cloudflare-deployment-ready.md) + Archives                                   | Troubleshooting         |
 
 ---
 
@@ -487,7 +522,7 @@ For deployment issues:
 
 ---
 
-**Last Updated:** November 6, 2025  
+**Last Updated:** November 8, 2025  
 **Status:** ✅ Active  
-**Files:** 8 (6 active guides + 1 CI/CD doc + 1 archive)  
+**Files:** 10 (8 active guides + 1 CI/CD doc + 1 archive)  
 **Maintained by:** MH Construction DevOps Team
