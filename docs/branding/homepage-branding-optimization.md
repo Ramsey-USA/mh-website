@@ -140,7 +140,8 @@ According to `/docs/branding/strategy/messaging.md`, this slogan should be used 
 
 **Analysis Against Phase 0 Best Practices**:
 
-According to `/docs/technical/seo/advanced-seo-optimization.md`, social proof (testimonials) should appear at ~25% page depth for optimal trust-building.
+According to `/docs/technical/seo/advanced-seo-optimization.md`, social proof (testimonials) should appear at ~25%
+page depth for optimal trust-building.
 
 **Current Placement**: Testimonials at position 6 (~40-50% depth)  
 **Recommended**: Move to position 4 (~25% depth)
@@ -246,7 +247,8 @@ className = "text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl";
 **Minor Refinement**:
 Two calculators on homepage (ProjectCostCalculator + QuickCostCalculator) might be redundant
 
-**Recommendation**: Keep ProjectCostCalculator (more comprehensive, chatbot integration) and consider removing/relocating QuickCostCalculator
+**Recommendation**: Keep ProjectCostCalculator (more comprehensive, chatbot integration) and consider
+removing/relocating QuickCostCalculator
 
 ---
 
