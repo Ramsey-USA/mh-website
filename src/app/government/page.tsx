@@ -298,13 +298,9 @@ export default function GovernmentGrantsPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Veteran-owned since January 2025 under Army veteran leadership
-              with over 150 years combined team experience, MH Construction
-              delivers mission-critical construction services throughout the
-              Pacific Northwest with award-winning safety (.6 EMR—40% better
-              than industry), unwavering commitment to federal compliance,
-              operational security, and successful mission completion. Licensed
-              in WA, OR, and ID with proven DOE & Hanford expertise.
+              Army veteran leadership, 150+ years combined experience.
+              Award-winning .6 EMR safety. Federal compliance, DOE & Hanford
+              expertise. Licensed WA, OR, ID.
             </p>
           </div>
         </div>

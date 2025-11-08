@@ -99,6 +99,24 @@ export const navigationConfigs = {
       icon: "build",
     },
     {
+      href: "/services#process",
+      label: "Our Process",
+      mobileLabel: "Process",
+      icon: "timeline",
+    },
+    {
+      href: "/services#testimonials",
+      label: "Client Reviews",
+      mobileLabel: "Reviews",
+      icon: "star",
+    },
+    {
+      href: "/services#faq",
+      label: "FAQ",
+      mobileLabel: "FAQ",
+      icon: "help",
+    },
+    {
       href: "/services#inspections",
       label: "Quality Inspections",
       mobileLabel: "Inspections",
@@ -168,6 +186,24 @@ export const navigationConfigs = {
       icon: "people",
     },
     {
+      href: "/team#company-culture",
+      label: "Company Culture",
+      mobileLabel: "Culture",
+      icon: "groups",
+    },
+    {
+      href: "/team#career-growth",
+      label: "Career Growth",
+      mobileLabel: "Growth",
+      icon: "trending_up",
+    },
+    {
+      href: "/team#employee-testimonials",
+      label: "Team Stories",
+      mobileLabel: "Stories",
+      icon: "star",
+    },
+    {
       href: "/about#safety",
       label: "Safety & Compliance",
       mobileLabel: "Safety",
@@ -196,10 +232,28 @@ export const navigationConfigs = {
   careers: [
     { href: "/", label: "Home", icon: "home" },
     {
+      href: "/careers#employee-stories",
+      label: "Employee Stories",
+      mobileLabel: "Stories",
+      icon: "star",
+    },
+    {
+      href: "/careers#application-process",
+      label: "How to Apply",
+      mobileLabel: "Apply",
+      icon: "timeline",
+    },
+    {
       href: "/careers#positions",
       label: "Open Positions",
       mobileLabel: "Positions",
       icon: "work",
+    },
+    {
+      href: "/careers#veteran-benefits",
+      label: "Veteran Benefits",
+      mobileLabel: "Veterans",
+      icon: "military_tech",
     },
     {
       href: "/team",
@@ -384,34 +438,22 @@ export const navigationConfigs = {
   booking: [
     { href: "/", label: "Home", icon: "home" },
     {
-      href: "/booking#consultation",
-      label: "Consultation",
-      mobileLabel: "Consult",
-      icon: "event",
+      href: "/booking#what-to-expect",
+      label: "What to Expect",
+      mobileLabel: "Expect",
+      icon: "info",
     },
     {
-      href: "/booking#project-types",
-      label: "Project Types",
-      mobileLabel: "Types",
+      href: "/services",
+      label: "Our Services",
+      mobileLabel: "Services",
       icon: "build",
     },
     {
       href: "/estimator",
-      label: "Get Estimate",
+      label: "Quick Estimate",
       mobileLabel: "Estimate",
       icon: "calculate",
-    },
-    {
-      href: "/services#core-services",
-      label: "Our Services",
-      mobileLabel: "Services",
-      icon: "build_circle",
-    },
-    {
-      href: "/about#team",
-      label: "Meet Team",
-      mobileLabel: "Team",
-      icon: "people",
     },
     {
       href: "/contact",

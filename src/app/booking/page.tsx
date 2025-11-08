@@ -228,6 +228,278 @@ Please contact the client to confirm this consultation appointment.
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-16 container">
         <FadeInWhenVisible>
+          {/* What to Expect Section */}
+          <div
+            id="what-to-expect"
+            className="mx-auto mb-16 max-w-5xl bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden"
+          >
+            <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-8 py-6">
+              <h2 className="flex items-center gap-3 font-bold text-2xl text-white md:text-3xl">
+                <span className="material-icons text-4xl">info</span>
+                What to Expect During Your Consultation
+              </h2>
+              <p className="mt-2 text-primary-100">
+                We make the process simple and transparent from start to finish
+              </p>
+            </div>
+
+            <div className="gap-8 grid md:grid-cols-2 p-8">
+              {/* Left Column: Before Your Consultation */}
+              <div className="space-y-6">
+                <div>
+                  <h3 className="flex items-center gap-2 mb-4 font-bold text-primary-600 text-xl dark:text-primary-400">
+                    <span className="material-icons">checklist</span>
+                    Before Your Consultation
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <span className="material-icons mt-1 text-accent-600 dark:text-accent-400">
+                        photo_library
+                      </span>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">
+                          Gather Project Photos
+                        </p>
+                        <p className="text-gray-600 text-sm dark:text-gray-400">
+                          Take photos of the project area from multiple angles
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <span className="material-icons mt-1 text-accent-600 dark:text-accent-400">
+                        architecture
+                      </span>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">
+                          Review Any Plans
+                        </p>
+                        <p className="text-gray-600 text-sm dark:text-gray-400">
+                          Have architectural drawings or sketches ready if
+                          available
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <span className="material-icons mt-1 text-accent-600 dark:text-accent-400">
+                        fact_check
+                      </span>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">
+                          Note Property Details
+                        </p>
+                        <p className="text-gray-600 text-sm dark:text-gray-400">
+                          Property age, lot size, access constraints, utilities
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <span className="material-icons mt-1 text-accent-600 dark:text-accent-400">
+                        schedule
+                      </span>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">
+                          Consider Your Timeline
+                        </p>
+                        <p className="text-gray-600 text-sm dark:text-gray-400">
+                          Ideal start date, project duration, any deadlines
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <span className="material-icons mt-1 text-accent-600 dark:text-accent-400">
+                        attach_money
+                      </span>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">
+                          Set a Budget Range
+                        </p>
+                        <p className="text-gray-600 text-sm dark:text-gray-400">
+                          Helps us tailor recommendations to your investment
+                          level
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <span className="material-icons mt-1 text-accent-600 dark:text-accent-400">
+                        lightbulb
+                      </span>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">
+                          List Your Priorities
+                        </p>
+                        <p className="text-gray-600 text-sm dark:text-gray-400">
+                          What matters most: speed, quality, budget, safety,
+                          etc.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: During & After */}
+              <div className="space-y-6">
+                <div>
+                  <h3 className="flex items-center gap-2 mb-4 font-bold text-primary-600 text-xl dark:text-primary-400">
+                    <span className="material-icons">event_available</span>
+                    During Your Consultation
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <span className="material-icons mt-1 text-secondary-600 dark:text-secondary-400">
+                        handshake
+                      </span>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">
+                          45-60 Minute Discussion
+                        </p>
+                        <p className="text-gray-600 text-sm dark:text-gray-400">
+                          Thorough review of your project goals and requirements
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <span className="material-icons mt-1 text-secondary-600 dark:text-secondary-400">
+                        engineering
+                      </span>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">
+                          Expert Recommendations
+                        </p>
+                        <p className="text-gray-600 text-sm dark:text-gray-400">
+                          Our 20+ years experience guides optimal solutions
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <span className="material-icons mt-1 text-secondary-600 dark:text-secondary-400">
+                        quiz
+                      </span>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">
+                          Q&A Session
+                        </p>
+                        <p className="text-gray-600 text-sm dark:text-gray-400">
+                          Ask anything about our process, safety, or
+                          capabilities
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <span className="material-icons mt-1 text-secondary-600 dark:text-secondary-400">
+                        explore
+                      </span>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">
+                          Site Visit Planning
+                        </p>
+                        <p className="text-gray-600 text-sm dark:text-gray-400">
+                          Schedule on-site assessment if needed (usually
+                          required)
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="flex items-center gap-2 mb-4 font-bold text-primary-600 text-xl dark:text-primary-400">
+                    <span className="material-icons">rocket_launch</span>
+                    After Your Consultation
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <span className="material-icons mt-1 text-primary-600 dark:text-primary-400">
+                        description
+                      </span>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">
+                          Detailed Proposal
+                        </p>
+                        <p className="text-gray-600 text-sm dark:text-gray-400">
+                          Receive comprehensive estimate within 3-5 business
+                          days
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <span className="material-icons mt-1 text-primary-600 dark:text-primary-400">
+                        support_agent
+                      </span>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">
+                          Dedicated Point of Contact
+                        </p>
+                        <p className="text-gray-600 text-sm dark:text-gray-400">
+                          Direct line to project manager for all questions
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <span className="material-icons mt-1 text-primary-600 dark:text-primary-400">
+                        event_note
+                      </span>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">
+                          Zero Obligation
+                        </p>
+                        <p className="text-gray-600 text-sm dark:text-gray-400">
+                          Take your time to review - no pressure to commit
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="gap-6 grid grid-cols-2 bg-gray-50 dark:bg-gray-900/50 p-6 border-t border-gray-200 dark:border-gray-700 md:grid-cols-4">
+              <div className="text-center">
+                <p className="font-bold text-2xl text-primary-600 dark:text-primary-400">
+                  Free
+                </p>
+                <p className="text-gray-600 text-sm dark:text-gray-400">
+                  Consultation
+                </p>
+              </div>
+              <div className="text-center">
+                <p className="font-bold text-2xl text-primary-600 dark:text-primary-400">
+                  24-48hr
+                </p>
+                <p className="text-gray-600 text-sm dark:text-gray-400">
+                  Response Time
+                </p>
+              </div>
+              <div className="text-center">
+                <p className="font-bold text-2xl text-primary-600 dark:text-primary-400">
+                  20+ Years
+                </p>
+                <p className="text-gray-600 text-sm dark:text-gray-400">
+                  Experience
+                </p>
+              </div>
+              <div className="text-center">
+                <p className="font-bold text-2xl text-primary-600 dark:text-primary-400">
+                  .6 EMR
+                </p>
+                <p className="text-gray-600 text-sm dark:text-gray-400">
+                  Safety Rating
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Progress Indicator */}
           <ProgressIndicator currentStep={step} />
 

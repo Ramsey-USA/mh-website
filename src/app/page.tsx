@@ -16,6 +16,8 @@ import {
   generateOrganizationStructuredData,
   StructuredData,
 } from "@/components/seo/seo-meta";
+import { TestimonialGrid } from "@/components/testimonials";
+import { getClientTestimonials } from "@/lib/data/testimonials";
 
 // Enhanced SEO for AI-powered veteran-owned construction
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
@@ -27,7 +29,6 @@ import {
   CoreValuesSection,
   ServicesShowcase,
   WhyPartnerSection,
-  BlogNewsSection,
   PartnershipCTA,
 } from "@/components/home";
 
@@ -158,6 +159,9 @@ export default function Home() {
       {/* Showcase of Services Section */}
       <ServicesShowcase />
 
+      {/* Why Partner With MH Construction Section - MOVED BEFORE TESTIMONIALS FOR TRUST BUILDING */}
+      <WhyPartnerSection />
+
       {/* Enhanced Client Testimonials */}
       <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-8 sm:py-12 lg:py-16 testimonials-section">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(189,146,100,0.05)_0%,transparent_50%)] opacity-60"></div>
@@ -187,110 +191,15 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="gap-4 sm:gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8 sm:mb-12">
-            {[
-              {
-                name: "John Smith",
-                location: "Tri-Cities, WA",
-                project: "Baskin Robbins Store Build",
-                rating: 5,
-                review:
-                  "Working with Todd and the MH Construction team on our Baskin Robbins build was exceptional. Todd's communication throughout the entire project kept us informed every step of the way, and the quality of workmanship exceeded our expectations.",
-                image: "/images/testimonials/john-s.jpg",
-              },
-              {
-                name: "Keith Bjella",
-                location: "Tri-Cities, WA",
-                project: "Tenant Improvement Project",
-                rating: 5,
-                review:
-                  "The tenant improvement process with MH Construction was outstanding from design through construction. Their ability to facilitate the entire process while managing multiple stakeholders and maintaining transparency throughout was truly impressive.",
-                image: "/images/testimonials/keith-b.jpg",
-              },
-              {
-                name: "Jennifer & Mike Thompson",
-                location: "Pasco Heights, WA",
-                project: "Custom Family Home Construction",
-                rating: 5,
-                review:
-                  "MH Construction exceeded our expectations in every way. Their military precision and attention to detail resulted in our dream home being completed ahead of schedule and within budget. The veteran-owned values really showed in their commitment to excellence.",
-                image: "/images/testimonials/thompson-family.jpg",
-              },
-            ].map((testimonial, index) => (
-              <div
-                key={index}
-                className="group scroll-reveal testimonial-card"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="relative bg-white dark:bg-gray-800 shadow-lg group-hover:shadow-2xl p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl h-full antialiased transform-gpu transition-all duration-500 min-h-[280px] sm:min-h-[320px]">
-                  {/* Quote Icon - Mobile optimized */}
-                  <div className="top-4 right-4 sm:top-6 sm:right-6 absolute flex justify-center items-center bg-brand-secondary/10 p-2 rounded-full w-10 h-10 sm:w-12 sm:h-12 group-hover:scale-110 transition-transform duration-300">
-                    <svg
-                      className="w-full h-full text-brand-secondary"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
-                    </svg>
-                  </div>
-
-                  <div className="flex items-start space-x-3 sm:space-x-4 mb-4 sm:mb-6">
-                    <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-primary to-brand-secondary shadow-lg p-2 sm:p-3 rounded-xl sm:rounded-2xl w-12 h-12 sm:w-16 sm:h-16 group-hover:scale-110 transition-transform duration-300">
-                      <span className="font-bold text-white text-lg sm:text-2xl">
-                        {testimonial.name.charAt(0)}
-                      </span>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="mb-1 sm:mb-2 font-black text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl tracking-tight">
-                        {testimonial.name}
-                      </p>
-                      <p className="mb-2 sm:mb-3 font-medium text-gray-600 dark:text-gray-400 text-xs sm:text-sm md:text-base tracking-wide">
-                        {testimonial.location} •{" "}
-                        <span className="font-bold text-brand-primary">
-                          {testimonial.project}
-                        </span>
-                      </p>
-                      <div className="flex space-x-1">
-                        {Array.from({ length: testimonial.rating }).map(
-                          (_, i) => (
-                            <MaterialIcon
-                              key={i}
-                              icon="star"
-                              size="sm"
-                              className="text-yellow-400"
-                            />
-                          ),
-                        )}
-                      </div>
-                    </div>
-                  </div>
-
-                  <blockquote className="font-light text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl italic leading-relaxed tracking-wide">
-                    "{testimonial.review}"
-                  </blockquote>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center scroll-reveal">
-            <Link href="/about#testimonials">
-              <Button
-                variant="secondary"
-                size="lg"
-                className="group transition-all duration-300 w-full sm:w-auto min-h-[48px] touch-manipulation"
-              >
-                <MaterialIcon
-                  icon="rate_review"
-                  size="lg"
-                  className="mr-2 sm:mr-3 flex-shrink-0"
-                />
-                <span className="font-medium text-sm sm:text-base">
-                  View All Partnership Stories
-                </span>
-              </Button>
-            </Link>
-          </div>
+          <TestimonialGrid
+            testimonials={getClientTestimonials(true)}
+            title=""
+            variant="client"
+            maxItems={3}
+            showViewMoreButton={true}
+            viewMoreHref="/about#testimonials"
+            className="!py-0"
+          />
         </div>
       </section>
 
@@ -330,8 +239,18 @@ export default function Home() {
                   window.gtag("event", "homepage_recommendation_click", {
                     project_type: recommendation.projectType,
                     confidence: recommendation.confidence,
+                    event_category: "engagement",
+                    event_label: "smart_recommendations",
                   });
                 }
+
+                // Track with analytics hook
+                trackEvent("smart_recommendation_click", {
+                  location: "homepage",
+                  project_type: recommendation.projectType,
+                  confidence_score: recommendation.confidence,
+                  recommendation_id: recommendation.id,
+                });
               }}
               onGetEstimate={(recommendation) => {
                 // Navigate to estimator with pre-filled data
@@ -344,8 +263,19 @@ export default function Home() {
                   window.gtag("event", "homepage_recommendation_estimate", {
                     project_type: recommendation.projectType,
                     estimated_value: recommendation.estimatedCost.min,
+                    event_category: "conversion",
+                    event_label: "estimate_from_recommendation",
                   });
                 }
+
+                // Track conversion event
+                trackEvent("estimate_from_recommendation", {
+                  location: "homepage",
+                  project_type: recommendation.projectType,
+                  estimated_min: recommendation.estimatedCost.min,
+                  estimated_max: recommendation.estimatedCost.max,
+                  recommendation_id: recommendation.id,
+                });
               }}
               className="bg-gradient-to-br from-blue-50 dark:from-gray-800 to-indigo-100 dark:to-gray-700 shadow-lg p-4 sm:p-6 lg:p-8 rounded-xl"
             />
@@ -353,11 +283,282 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Partner With MH Construction Section */}
-      <WhyPartnerSection />
+      {/* Quick Stats Bar - Instant Trust Indicators */}
+      <section className="relative bg-brand-primary/5 dark:bg-gray-800/50 py-12 lg:py-16">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <FadeInWhenVisible>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+              {/* Stat 1: Years Experience */}
+              <div className="text-center group">
+                <div className="flex justify-center items-center bg-brand-primary/10 dark:bg-brand-primary/20 mx-auto mb-4 rounded-full w-16 h-16 sm:w-20 sm:h-20 group-hover:scale-110 transition-transform duration-300">
+                  <MaterialIcon
+                    icon="engineering"
+                    size="xl"
+                    className="text-brand-primary"
+                  />
+                </div>
+                <div className="mb-2 font-black text-3xl sm:text-4xl text-brand-primary dark:text-brand-primary-light">
+                  20+
+                </div>
+                <div className="font-medium text-gray-700 text-sm sm:text-base dark:text-gray-300">
+                  Years Experience
+                </div>
+              </div>
 
-      {/* Latest Blog & News Section */}
-      <BlogNewsSection />
+              {/* Stat 2: Safety Rating */}
+              <div className="text-center group">
+                <div className="flex justify-center items-center bg-brand-secondary/10 dark:bg-brand-secondary/20 mx-auto mb-4 rounded-full w-16 h-16 sm:w-20 sm:h-20 group-hover:scale-110 transition-transform duration-300">
+                  <MaterialIcon
+                    icon="verified"
+                    size="xl"
+                    className="text-brand-secondary"
+                  />
+                </div>
+                <div className="mb-2 font-black text-3xl sm:text-4xl text-brand-secondary dark:text-brand-secondary-light">
+                  .6
+                </div>
+                <div className="font-medium text-gray-700 text-sm sm:text-base dark:text-gray-300">
+                  EMR Safety Rating
+                </div>
+              </div>
+
+              {/* Stat 3: Combined Experience */}
+              <div className="text-center group">
+                <div className="flex justify-center items-center bg-brand-accent/10 dark:bg-brand-accent/20 mx-auto mb-4 rounded-full w-16 h-16 sm:w-20 sm:h-20 group-hover:scale-110 transition-transform duration-300">
+                  <MaterialIcon
+                    icon="groups"
+                    size="xl"
+                    className="text-brand-accent"
+                  />
+                </div>
+                <div className="mb-2 font-black text-3xl sm:text-4xl text-brand-accent dark:text-brand-accent-light">
+                  150+
+                </div>
+                <div className="font-medium text-gray-700 text-sm sm:text-base dark:text-gray-300">
+                  Combined Years
+                </div>
+              </div>
+
+              {/* Stat 4: Support */}
+              <div className="text-center group">
+                <div className="flex justify-center items-center bg-brand-primary/10 dark:bg-brand-primary/20 mx-auto mb-4 rounded-full w-16 h-16 sm:w-20 sm:h-20 group-hover:scale-110 transition-transform duration-300">
+                  <MaterialIcon
+                    icon="support_agent"
+                    size="xl"
+                    className="text-brand-primary"
+                  />
+                </div>
+                <div className="mb-2 font-black text-3xl sm:text-4xl text-brand-primary dark:text-brand-primary-light">
+                  24/7
+                </div>
+                <div className="font-medium text-gray-700 text-sm sm:text-base dark:text-gray-300">
+                  Emergency Support
+                </div>
+              </div>
+            </div>
+          </FadeInWhenVisible>
+        </div>
+      </section>
+
+      {/* Next Steps Section */}
+      <section
+        id="next-steps"
+        className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 py-20 lg:py-32"
+      >
+        <div className="absolute inset-0 bg-[url('/images/textures/construction-pattern.png')] opacity-5"></div>
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="mb-16 text-center">
+            <h2 className="mb-6 font-black text-4xl text-white sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+              Ready to Start Your Project?
+            </h2>
+            <p className="mx-auto max-w-3xl font-light text-primary-100 text-xl sm:text-2xl md:text-3xl leading-relaxed">
+              Let's partner together to bring your construction vision to life
+              with veteran-owned excellence and military precision.
+            </p>
+          </div>
+
+          <div className="gap-8 grid grid-cols-1 md:grid-cols-3 mb-12">
+            {/* Option 1: Schedule Consultation */}
+            <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="flex justify-center items-center bg-gradient-to-br from-primary-500 to-primary-600 mx-auto mb-6 rounded-full w-20 h-20">
+                <MaterialIcon icon="event" size="xl" className="text-white" />
+              </div>
+              <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
+                Schedule Consultation
+              </h3>
+              <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
+                Book a free 45-60 minute consultation to discuss your project
+                goals, timeline, and budget.
+              </p>
+              <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400">
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-primary-600"
+                  />
+                  <span>Free consultation</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-primary-600"
+                  />
+                  <span>Expert recommendations</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-primary-600"
+                  />
+                  <span>No obligation</span>
+                </li>
+              </ul>
+              <Link href="/booking">
+                <Button variant="primary" size="lg" className="w-full">
+                  <MaterialIcon
+                    icon="calendar_today"
+                    size="md"
+                    className="mr-2"
+                  />
+                  Book Consultation
+                </Button>
+              </Link>
+            </div>
+
+            {/* Option 2: Get Quick Estimate */}
+            <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2 border-4 border-secondary-500">
+              <div className="bg-secondary-500 -top-4 left-1/2 absolute px-4 py-1 rounded-full -translate-x-1/2">
+                <span className="font-bold text-sm text-white uppercase tracking-wide">
+                  Most Popular
+                </span>
+              </div>
+              <div className="flex justify-center items-center bg-gradient-to-br from-secondary-500 to-secondary-600 mx-auto mb-6 rounded-full w-20 h-20">
+                <MaterialIcon
+                  icon="calculate"
+                  size="xl"
+                  className="text-white"
+                />
+              </div>
+              <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
+                Get Quick Estimate
+              </h3>
+              <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
+                Receive a detailed project estimate within 3-5 business days
+                with transparent pricing.
+              </p>
+              <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400">
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-secondary-600"
+                  />
+                  <span>3-5 day turnaround</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-secondary-600"
+                  />
+                  <span>Detailed line items</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-secondary-600"
+                  />
+                  <span>Open-book pricing</span>
+                </li>
+              </ul>
+              <Link href="/estimator">
+                <Button variant="secondary" size="lg" className="w-full">
+                  <MaterialIcon icon="description" size="md" className="mr-2" />
+                  Request Estimate
+                </Button>
+              </Link>
+            </div>
+
+            {/* Option 3: Contact Us */}
+            <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="flex justify-center items-center bg-gradient-to-br from-accent-500 to-accent-600 mx-auto mb-6 rounded-full w-20 h-20">
+                <MaterialIcon
+                  icon="contact_phone"
+                  size="xl"
+                  className="text-white"
+                />
+              </div>
+              <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
+                Contact Us Directly
+              </h3>
+              <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
+                Reach out via phone, email, or contact form for immediate
+                assistance with your project.
+              </p>
+              <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400">
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-accent-600"
+                  />
+                  <span>24-48hr response</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-accent-600"
+                  />
+                  <span>Multiple contact methods</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-accent-600"
+                  />
+                  <span>Direct team access</span>
+                </li>
+              </ul>
+              <Link href="/contact">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="w-full bg-accent-600 hover:bg-accent-700"
+                >
+                  <MaterialIcon icon="mail" size="md" className="mr-2" />
+                  Get In Touch
+                </Button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="gap-8 grid grid-cols-2 md:grid-cols-4 text-center text-white">
+            <div>
+              <p className="mb-2 font-black text-4xl">20+</p>
+              <p className="text-primary-100">Years Experience</p>
+            </div>
+            <div>
+              <p className="mb-2 font-black text-4xl">.6</p>
+              <p className="text-primary-100">EMR Safety Rating</p>
+            </div>
+            <div>
+              <p className="mb-2 font-black text-4xl">70%</p>
+              <p className="text-primary-100">Referral Business</p>
+            </div>
+            <div>
+              <p className="mb-2 font-black text-4xl">24/7</p>
+              <p className="text-primary-100">Emergency Support</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Enhanced Partnership Call to Action Section */}
       <PartnershipCTA />

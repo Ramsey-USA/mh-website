@@ -266,15 +266,9 @@ export default function TradePartnersPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              "THE ROI IS THE RELATIONSHIP" — Partner with veteran-owned MH
-              Construction (January 2025) and our award-winning safety record
-              (.6 EMR—40% better than industry) backed by 150+ years combined
-              team experience to access reliable project opportunities
-              throughout the Pacific Northwest, professional collaboration, fair
-              open-book practices, and transparent communication. We believe in
-              building lasting relationships with quality trade professionals
-              who share our commitment to excellence and partnership-driven
-              success.
+              Award-winning .6 EMR safety, 150+ years combined experience.
+              Reliable Pacific Northwest opportunities, fair practices,
+              transparent communication.
             </p>
           </div>
         </div>

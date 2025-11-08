@@ -30,13 +30,9 @@ export function HeroSection() {
 
           {/* Description */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            "THE ROI IS THE RELATIONSHIP" — Veteran-owned since January 2025
-            under Army veteran leadership with 150+ years combined team
-            experience serving the Pacific Northwest. Building for the Owner,
-            NOT the Dollar. Licensed in WA, OR, and ID with award-winning .6 EMR
-            safety record (40% better than industry average). We deliver
-            authentic partnerships through military precision and cutting-edge
-            technology focused on owner-first results.
+            Veteran-owned, 150+ years combined experience. Licensed WA, OR, ID.
+            Award-winning .6 EMR safety. Military precision meets cutting-edge
+            technology.
           </p>
         </div>
       </div>

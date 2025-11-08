@@ -15,6 +15,8 @@ import {
 } from "@/lib/data/vintage-team";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { TestimonialGrid } from "@/components/testimonials";
+import { getEmployeeTestimonials } from "@/lib/data/testimonials";
 import "../../styles/vintage-baseball-card.css";
 
 // Group team members by department
@@ -67,23 +69,15 @@ export default function TeamPage() {
 
             {/* Leadership Statement */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4 font-medium">
-              Veteran-owned under Army veteran leadership, our team of skilled
-              professionals with over 150 years combined experience brings
-              military precision, unwavering dedication, and owner-first focus
-              to every project. From award-winning safety (.6 EMR) to
-              exceptional craftsmanship, we deliver results with discipline and
-              excellence throughout the Pacific Northwest.
+              150+ years combined experience. Award-winning .6 EMR safety.
+              Military precision and owner-first focus across the Pacific
+              Northwest.
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/70 leading-relaxed px-4">
-              Discover your dedicated partners through authentic vintage-style
-              trading cards. Click any card to flip and explore professional
-              statistics, career highlights, certifications, and personal
-              stories. Every team member embodies our "We Work With You"
-              philosophy—transparent communication, collaborative
-              problem-solving, and commitment to safety excellence from
-              pre-construction planning through seamless close-out.
+              Click any card to explore professional stats, certifications, and
+              personal stories. We Work With You—every step.
             </p>
           </div>
         </div>
@@ -108,12 +102,9 @@ export default function TeamPage() {
               </span>
             </h2>
             <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
-              Experience our award-winning team through vintage-style baseball
-              cards featuring professional statistics, career achievements, and
-              personal stories. Each card showcases the expertise, dedication,
-              and safety excellence that makes MH Construction a leader in
-              Pacific Northwest construction—from AGC-WA award recipients to
-              veteran leadership bringing military precision to every project.
+              Vintage baseball cards featuring stats, achievements, and stories.
+              Award-winning team bringing military precision to Pacific
+              Northwest construction.
             </p>
           </div>
 
@@ -151,18 +142,18 @@ export default function TeamPage() {
             })}
           </div>
 
-          {/* Life at MH Section */}
-          <div className="mt-24">
+          {/* Company Culture Section */}
+          <div id="company-culture" className="mt-24">
             <FadeInWhenVisible>
               <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 p-12 rounded-2xl">
                 <div className="mb-12 text-center">
                   {/* Section Header - v4.0.2 Clean Standards */}
                   <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
                     <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                      Partnership Life at
+                      Our Partnership
                     </span>
                     <span className="block text-brand-primary dark:text-brand-primary font-black">
-                      MH Construction
+                      Company Culture
                     </span>
                   </h2>
                   <p className="mx-auto max-w-3xl font-light text-gray-700 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
@@ -272,8 +263,7 @@ export default function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
-                            Veteran-Owned Military Precision Meets Civilian
-                            Innovation
+                            Veteran-Owned Military Precision
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
                             Veteran-owned under Army veteran leadership since
@@ -281,8 +271,7 @@ export default function TeamPage() {
                             unwavering attention to detail meet creative
                             civilian problem-solving—discipline, leadership,
                             service, and excellence integrated into every
-                            project phase with mission-focused results and
-                            reliability under pressure.
+                            project phase with mission-focused results.
                           </p>
                         </div>
                       </div>
@@ -296,17 +285,15 @@ export default function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
-                            Continuous Learning & Professional Development
+                            Open Communication & Transparency
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
-                            Regular training on new techniques, evolving safety
-                            standards (OSHA 30, VPP Star), and emerging
-                            technology integration. Cross-training across
-                            multiple specialties, structured mentorship programs
-                            pairing experienced professionals with emerging
-                            leaders, active industry involvement, and ongoing
-                            certification maintenance ensure our team stays at
-                            the forefront of construction excellence.
+                            Every voice matters, from apprentice to owner, field
+                            crew to executive leadership. Regular project
+                            updates with photo documentation, immediate
+                            notification of changes, and open-book pricing
+                            ensure collaborative problem-solving and zero
+                            surprises.
                           </p>
                         </div>
                       </div>
@@ -320,10 +307,14 @@ export default function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
-                            Work-Life Balance
+                            Award-Winning Safety First
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
-                            Supporting families and personal well-being
+                            Presidential leadership focused on safety management
+                            drives our .6 EMR award-winning record—40% better
+                            than industry average. Multiple AGC-WA Top EMR
+                            Awards, OSHA VPP Star designation, and 3+
+                            consecutive years without time-loss injuries.
                           </p>
                         </div>
                       </div>
@@ -339,41 +330,14 @@ export default function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
-                            Open Communication & Transparent Collaboration
-                          </h4>
-                          <p className="text-gray-600 dark:text-gray-300">
-                            Transparent, honest dialogue with clients and team
-                            members drives our partnership approach—every voice
-                            matters, from apprentice to owner, field crew to
-                            executive leadership. Regular project updates with
-                            photo documentation, immediate notification of
-                            changes, and open-book pricing ensure collaborative
-                            problem-solving and zero surprises. You control it,
-                            we manage it.
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-4">
-                        <div className="flex flex-shrink-0 justify-center items-center bg-brand-secondary rounded-full w-8 h-8">
-                          <MaterialIcon
-                            icon="check"
-                            size="sm"
-                            className="text-white"
-                          />
-                        </div>
-                        <div>
-                          <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
                             Community Focused & Regional Roots
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
-                            Understanding that every project serves the broader
-                            Pacific Northwest community—building stronger
-                            communities through quality craftsmanship, lasting
-                            relationships, and local hiring preferences. Team
-                            members are deeply rooted in the Tri-Cities (Pasco,
-                            Kennewick, Richland) and surrounding regions, with
-                            personal investment in community success and
-                            long-term regional development.
+                            Building stronger communities through quality
+                            craftsmanship, lasting relationships, and local
+                            hiring preferences. Team members are deeply rooted
+                            in the Tri-Cities and surrounding regions, with
+                            personal investment in community success.
                           </p>
                         </div>
                       </div>
@@ -387,19 +351,33 @@ export default function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
-                            Award-Winning Safety First Culture
+                            Work-Life Balance
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
-                            Presidential leadership focused on safety management
-                            drives our .6 EMR award-winning record—40% better
-                            than industry average. Multiple AGC-WA Top EMR
-                            Awards (2019-2021, 2025 Most Improved), OSHA VPP
-                            Star designation, and 3+ consecutive years without
-                            time-loss injuries prove that everyone goes home
-                            safe, every single day. No project timeline or
-                            budget overrides safety—proactive hazard
-                            identification, regular training, and high-quality
-                            equipment standards ensure zero-incident culture.
+                            Supporting families and personal well-being while
+                            maintaining project excellence. Flexible scheduling
+                            when possible, predictable work hours, and respect
+                            for time away from work.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start space-x-4">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-brand-secondary rounded-full w-8 h-8">
+                          <MaterialIcon
+                            icon="check"
+                            size="sm"
+                            className="text-white"
+                          />
+                        </div>
+                        <div>
+                          <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
+                            Long-Term Partnership Mindset
+                          </h4>
+                          <p className="text-gray-600 dark:text-gray-300">
+                            THE ROI IS THE RELATIONSHIP. We invest in lasting
+                            partnerships that extend well beyond project
+                            completion, with 70% referral business proving the
+                            strength of our commitment to client success.
                           </p>
                         </div>
                       </div>
@@ -413,13 +391,7 @@ export default function TeamPage() {
                     "When you join MH Construction, you're not just getting a
                     job—you're joining a veteran-owned team that values
                     integrity, transparency, and building relationships that
-                    last beyond project completion. Our leadership focuses on
-                    Safety, Marketing, Workforce Development, and Human
-                    Resources—a strategic blend of operational oversight and
-                    people-first management. With award-winning safety (.6 EMR),
-                    150+ years combined experience, and military precision
-                    guiding every decision, we create an environment where
-                    excellence thrives and partnerships flourish."
+                    last beyond project completion."
                   </blockquote>
                   <cite className="font-semibold text-brand-secondary">
                     — Jeremy Thamert, President
@@ -427,6 +399,220 @@ export default function TeamPage() {
                 </div>
               </div>
             </FadeInWhenVisible>
+          </div>
+
+          {/* Career Growth Section */}
+          <div id="career-growth" className="mt-24">
+            <FadeInWhenVisible>
+              <div className="bg-gradient-to-br from-accent-500/5 to-primary-500/5 p-12 rounded-2xl">
+                <div className="mb-12 text-center">
+                  <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                    <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+                      Professional Development &
+                    </span>
+                    <span className="block text-brand-primary dark:text-brand-primary font-black">
+                      Career Growth
+                    </span>
+                  </h2>
+                  <p className="mx-auto max-w-3xl font-light text-gray-700 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
+                    We invest in your growth from day one. With structured
+                    training programs, mentorship opportunities, and clear
+                    advancement paths, your career trajectory is limited only by
+                    your ambition and dedication.
+                  </p>
+                </div>
+
+                <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-12">
+                  {/* Continuous Training */}
+                  <FadeInWhenVisible>
+                    <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
+                      <div className="flex justify-center items-center bg-gradient-to-r from-accent-600 to-accent-700 mx-auto mb-6 rounded-full w-16 h-16">
+                        <MaterialIcon
+                          icon="school"
+                          size="lg"
+                          className="text-white"
+                        />
+                      </div>
+                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
+                        Continuous Training
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
+                        Regular training on new techniques, evolving safety
+                        standards (OSHA 30, VPP Star), and emerging technology
+                        integration. Stay at the forefront of construction
+                        excellence with ongoing certification maintenance and
+                        skills development.
+                      </p>
+                    </div>
+                  </FadeInWhenVisible>
+
+                  {/* Cross-Training */}
+                  <FadeInWhenVisible>
+                    <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
+                      <div className="flex justify-center items-center bg-gradient-to-r from-primary-600 to-primary-700 mx-auto mb-6 rounded-full w-16 h-16">
+                        <MaterialIcon
+                          icon="swap_horiz"
+                          size="lg"
+                          className="text-white"
+                        />
+                      </div>
+                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
+                        Cross-Training Programs
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
+                        Expand your skillset across multiple specialties and
+                        construction disciplines. Learn from experienced
+                        professionals in different trades, increasing your
+                        versatility and value within the organization.
+                      </p>
+                    </div>
+                  </FadeInWhenVisible>
+
+                  {/* Mentorship */}
+                  <FadeInWhenVisible>
+                    <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
+                      <div className="flex justify-center items-center bg-gradient-to-r from-secondary-600 to-secondary-700 mx-auto mb-6 rounded-full w-16 h-16">
+                        <MaterialIcon
+                          icon="people"
+                          size="lg"
+                          className="text-white"
+                        />
+                      </div>
+                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
+                        Structured Mentorship
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
+                        Paired with experienced professionals who share 150+
+                        years of combined knowledge freely. From apprentice to
+                        master craftsman, from entry-level to leadership—your
+                        mentor guides your journey every step of the way.
+                      </p>
+                    </div>
+                  </FadeInWhenVisible>
+
+                  {/* Career Paths */}
+                  <FadeInWhenVisible>
+                    <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
+                      <div className="flex justify-center items-center bg-gradient-to-r from-accent-600 to-accent-700 mx-auto mb-6 rounded-full w-16 h-16">
+                        <MaterialIcon
+                          icon="trending_up"
+                          size="lg"
+                          className="text-white"
+                        />
+                      </div>
+                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
+                        Clear Advancement Paths
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
+                        Transparent career progression from apprentice →
+                        journeyman → foreman → superintendent → project manager.
+                        Your advancement is based on merit, skills, and
+                        demonstrated leadership—not politics or tenure.
+                      </p>
+                    </div>
+                  </FadeInWhenVisible>
+
+                  {/* Leadership Development */}
+                  <FadeInWhenVisible>
+                    <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
+                      <div className="flex justify-center items-center bg-gradient-to-r from-primary-600 to-primary-700 mx-auto mb-6 rounded-full w-16 h-16">
+                        <MaterialIcon
+                          icon="stars"
+                          size="lg"
+                          className="text-white"
+                        />
+                      </div>
+                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
+                        Leadership Development
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
+                        Emerging leaders receive specialized training in project
+                        management, team leadership, client relations, and
+                        business development. We build tomorrow's construction
+                        leaders today.
+                      </p>
+                    </div>
+                  </FadeInWhenVisible>
+
+                  {/* Industry Involvement */}
+                  <FadeInWhenVisible>
+                    <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
+                      <div className="flex justify-center items-center bg-gradient-to-r from-secondary-600 to-secondary-700 mx-auto mb-6 rounded-full w-16 h-16">
+                        <MaterialIcon
+                          icon="hub"
+                          size="lg"
+                          className="text-white"
+                        />
+                      </div>
+                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
+                        Industry Involvement
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
+                        Active participation in AGC, NAIOP, and other
+                        professional organizations. Network with industry
+                        leaders, stay current on regulations and best practices,
+                        and represent MH Construction in the broader community.
+                      </p>
+                    </div>
+                  </FadeInWhenVisible>
+                </div>
+
+                {/* Growth Stats */}
+                <div className="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-xl">
+                  <h3 className="mb-8 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl leading-tight tracking-tight text-center">
+                    <span className="block text-brand-primary">
+                      Investment in Your Success
+                    </span>
+                  </h3>
+                  <div className="gap-6 grid grid-cols-2 md:grid-cols-4">
+                    <div className="text-center">
+                      <p className="font-black text-4xl text-primary-600 dark:text-primary-400">
+                        150+
+                      </p>
+                      <p className="mt-2 text-gray-600 text-sm dark:text-gray-400">
+                        Years Combined Experience
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <p className="font-black text-4xl text-primary-600 dark:text-primary-400">
+                        100%
+                      </p>
+                      <p className="mt-2 text-gray-600 text-sm dark:text-gray-400">
+                        Training Funding
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <p className="font-black text-4xl text-primary-600 dark:text-primary-400">
+                        OSHA 30
+                      </p>
+                      <p className="mt-2 text-gray-600 text-sm dark:text-gray-400">
+                        Safety Certification
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <p className="font-black text-4xl text-primary-600 dark:text-primary-400">
+                        20+
+                      </p>
+                      <p className="mt-2 text-gray-600 text-sm dark:text-gray-400">
+                        Years in Business
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeInWhenVisible>
+          </div>
+
+          {/* Employee Testimonials Section */}
+          <div id="employee-testimonials" className="mt-24">
+            <TestimonialGrid
+              testimonials={getEmployeeTestimonials()}
+              title="What Our Team Members Say"
+              subtitle="Hear directly from the professionals who bring our partnership philosophy to life every day"
+              variant="employee"
+              columns={3}
+              className="!py-0"
+            />
           </div>
 
           {/* Call to Action - Careers Link */}
