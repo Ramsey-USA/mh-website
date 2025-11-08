@@ -78,10 +78,10 @@ export const teamMembers: TeamMember[] = vintageTeamMembers.map((member) => ({
   role: member.role,
   department: member.department,
   experienceYears: member.careerStats.yearsExperience,
-  veteranStatus: member.veteranStatus,
+  ...(member.veteranStatus && { veteranStatus: member.veteranStatus }),
   specialties: member.specialties,
   bio: member.bio,
   slug: member.slug,
-  active: member.active,
-  avatar: member.avatar,
+  ...(member.active !== undefined && { active: member.active }),
+  ...(member.avatar && { avatar: member.avatar }),
 }));

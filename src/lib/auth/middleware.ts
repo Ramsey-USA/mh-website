@@ -20,12 +20,12 @@ export function requireAuth(
   handler: (
     request: NextRequest,
     user: JWTUser,
-    context?: unknown,
-  ) => Promise<NextResponse>,
+    context?: unknown
+  ) => Promise<NextResponse>
 ) {
   return async function authHandler(
     request: NextRequest,
-    context?: unknown,
+    context?: unknown
   ): Promise<NextResponse> {
     const authHeader = request.headers.get("authorization");
     const token = extractTokenFromHeader(authHeader);
@@ -36,7 +36,7 @@ export function requireAuth(
           error: "Authentication required",
           message: "Missing or invalid authorization header",
         },
-        { status: 401 },
+        { status: 401 }
       );
     }
 
@@ -48,7 +48,7 @@ export function requireAuth(
           error: "Invalid token",
           message: "Token is invalid or expired",
         },
-        { status: 401 },
+        { status: 401 }
       );
     }
 
@@ -72,8 +72,8 @@ export function requireRole(
   handler: (
     request: NextRequest,
     user: JWTUser,
-    context?: unknown,
-  ) => Promise<NextResponse>,
+    context?: unknown
+  ) => Promise<NextResponse>
 ) {
   return requireAuth(async (request, user, context) => {
     if (!user.role || !allowedRoles.includes(user.role)) {
@@ -88,7 +88,7 @@ export function requireRole(
           error: "Insufficient permissions",
           message: `Required role: ${allowedRoles.join(" or ")}`,
         },
-        { status: 403 },
+        { status: 403 }
       );
     }
 
@@ -104,12 +104,12 @@ export function optionalAuth(
   handler: (
     request: NextRequest,
     user: JWTUser | null,
-    context?: unknown,
-  ) => Promise<NextResponse>,
+    context?: unknown
+  ) => Promise<NextResponse>
 ) {
   return async function optionalAuthHandler(
     request: NextRequest,
-    context?: unknown,
+    context?: unknown
   ): Promise<NextResponse> {
     const authHeader = request.headers.get("authorization");
     const token = extractTokenFromHeader(authHeader);
@@ -129,7 +129,7 @@ export function optionalAuth(
  * Throws error if not authenticated
  */
 export async function getAuthenticatedUser(
-  request: NextRequest,
+  request: NextRequest
 ): Promise<JWTUser> {
   const authHeader = request.headers.get("authorization");
   const token = extractTokenFromHeader(authHeader);
@@ -173,14 +173,14 @@ export function hasPermission(user: JWTUser, requiredRole: string): boolean {
  * Validate API key for service-to-service authentication
  */
 export function requireApiKey(
-  handler: (request: NextRequest, context?: unknown) => Promise<NextResponse>,
+  handler: (request: NextRequest, context?: unknown) => Promise<NextResponse>
 ) {
   return async function apiKeyHandler(
     request: NextRequest,
-    context?: unknown,
+    context?: unknown
   ): Promise<NextResponse> {
     const apiKey = request.headers.get("x-api-key");
-    const validApiKey = process.env.API_SECRET_KEY;
+    const validApiKey = process.env["API_SECRET_KEY"];
 
     if (!apiKey || !validApiKey || apiKey !== validApiKey) {
       logger.warn("Invalid API key attempt", {
@@ -193,7 +193,7 @@ export function requireApiKey(
           error: "Invalid API key",
           message: "Valid API key required for this endpoint",
         },
-        { status: 401 },
+        { status: 401 }
       );
     }
 
@@ -209,17 +209,17 @@ export function compose(
     (
       handler: (
         request: NextRequest,
-        context?: unknown,
-      ) => Promise<NextResponse>,
+        context?: unknown
+      ) => Promise<NextResponse>
     ) => (request: NextRequest, context?: unknown) => Promise<NextResponse>
   >
 ) {
   return (
-    handler: (request: NextRequest, context?: unknown) => Promise<NextResponse>,
+    handler: (request: NextRequest, context?: unknown) => Promise<NextResponse>
   ) => {
     return middlewares.reduceRight(
       (wrappedHandler, middleware) => middleware(wrappedHandler),
-      handler,
+      handler
     );
   };
 }

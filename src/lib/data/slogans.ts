@@ -330,6 +330,14 @@ export const SLOGANS: Record<string, Slogan> = {
 };
 
 /**
+ * Helper function to safely get slogan text
+ */
+const getSlogan = (key: string): string => {
+  const slogan = SLOGANS[key];
+  return slogan?.text || "";
+};
+
+/**
  * Page-specific slogan assignments
  *
  * Maps page routes/identifiers to their dedicated slogans
@@ -345,110 +353,110 @@ export const PAGE_SLOGANS: Record<
 > = {
   // Homepage
   homepage: {
-    hero: SLOGANS.ROI_IS_RELATIONSHIP.text,
-    tagline: SLOGANS.BUILDING_FOR_OWNER.text,
-    cta: SLOGANS.BUILD_MORE_THAN_STRUCTURES.text,
+    hero: getSlogan("ROI_IS_RELATIONSHIP"),
+    tagline: getSlogan("BUILDING_FOR_OWNER"),
+    cta: getSlogan("BUILD_MORE_THAN_STRUCTURES"),
   },
 
   // About Page
   about: {
-    hero: SLOGANS.PRECISION_MEETS_PARTNERSHIP.text,
+    hero: getSlogan("PRECISION_MEETS_PARTNERSHIP"),
     sections: {
-      history: SLOGANS.TRUST_BUILT_PROJECT_BY_PROJECT.text,
-      positioning: SLOGANS.BIG_ENOUGH_SMALL_ENOUGH.text,
+      history: getSlogan("TRUST_BUILT_PROJECT_BY_PROJECT"),
+      positioning: getSlogan("BIG_ENOUGH_SMALL_ENOUGH"),
     },
   },
 
   // Services Page
   services: {
-    hero: SLOGANS.YOUR_VISION_OUR_PRECISION.text,
+    hero: getSlogan("YOUR_VISION_OUR_PRECISION"),
     sections: {
-      quality: SLOGANS.EXCELLENCE_IN_EVERY_DETAIL.text,
-      process: SLOGANS.BUILDING_TRUST_THROUGH_TRANSPARENCY.text,
+      quality: getSlogan("EXCELLENCE_IN_EVERY_DETAIL"),
+      process: getSlogan("BUILDING_TRUST_THROUGH_TRANSPARENCY"),
     },
   },
 
   // Projects/Portfolio Page
   projects: {
-    hero: SLOGANS.TRUST_BUILT_PROJECT_BY_PROJECT.text,
+    hero: getSlogan("TRUST_BUILT_PROJECT_BY_PROJECT"),
     sections: {
-      timeline: SLOGANS.FROM_VISION_TO_VICTORY.text,
-      results: SLOGANS.RELATIONSHIPS_THAT_LAST.text,
+      timeline: getSlogan("FROM_VISION_TO_VICTORY"),
+      results: getSlogan("RELATIONSHIPS_THAT_LAST"),
     },
   },
 
   // Team Page
   team: {
-    hero: SLOGANS.ROI_IS_RELATIONSHIP.text,
+    hero: getSlogan("ROI_IS_RELATIONSHIP"),
     sections: {
-      expertise: SLOGANS.COMBINED_EXCELLENCE.text,
-      culture: SLOGANS.VETERAN_VALUES_COMMUNITY_RESULTS.text,
+      expertise: getSlogan("COMBINED_EXCELLENCE"),
+      culture: getSlogan("VETERAN_VALUES_COMMUNITY_RESULTS"),
     },
   },
 
   // Careers Page
   careers: {
-    hero: SLOGANS.PARTNER_WITH_PRECISION.text,
-    tagline: SLOGANS.ROI_IS_RELATIONSHIP.text,
+    hero: getSlogan("PARTNER_WITH_PRECISION"),
+    tagline: getSlogan("ROI_IS_RELATIONSHIP"),
     sections: {
-      standards: SLOGANS.EXCELLENCE_IN_EVERY_DETAIL.text,
+      standards: getSlogan("EXCELLENCE_IN_EVERY_DETAIL"),
     },
   },
 
   // Contact Page
   contact: {
-    hero: SLOGANS.BUILD_MORE_THAN_STRUCTURES.text,
-    tagline: SLOGANS.BUILDING_TRUST_THROUGH_TRANSPARENCY.text,
-    cta: SLOGANS.PARTNER_WITH_PRECISION.text,
+    hero: getSlogan("BUILD_MORE_THAN_STRUCTURES"),
+    tagline: getSlogan("BUILDING_TRUST_THROUGH_TRANSPARENCY"),
+    cta: getSlogan("PARTNER_WITH_PRECISION"),
   },
 
   // Booking/Consultation Page
   booking: {
-    hero: SLOGANS.BUILD_MORE_THAN_STRUCTURES.text,
-    tagline: SLOGANS.YOUR_PROJECT_PARTNER.text,
+    hero: getSlogan("BUILD_MORE_THAN_STRUCTURES"),
+    tagline: getSlogan("YOUR_PROJECT_PARTNER"),
     sections: {
-      journey: SLOGANS.FROM_VISION_TO_VICTORY.text,
+      journey: getSlogan("FROM_VISION_TO_VICTORY"),
     },
   },
 
   // Government Projects Page
   "government-projects": {
-    hero: SLOGANS.VETERAN_VALUES_COMMUNITY_RESULTS.text,
+    hero: getSlogan("VETERAN_VALUES_COMMUNITY_RESULTS"),
     sections: {
-      compliance: SLOGANS.BUILDING_TRUST_THROUGH_TRANSPARENCY.text,
-      quality: SLOGANS.EXCELLENCE_IN_EVERY_DETAIL.text,
+      compliance: getSlogan("BUILDING_TRUST_THROUGH_TRANSPARENCY"),
+      quality: getSlogan("EXCELLENCE_IN_EVERY_DETAIL"),
     },
   },
 
   // Trade Partners Page
   "trade-partners": {
-    hero: SLOGANS.BUILDING_PROFESSIONAL_PARTNERSHIPS.text,
-    tagline: SLOGANS.ROI_IS_RELATIONSHIP.text,
+    hero: getSlogan("BUILDING_PROFESSIONAL_PARTNERSHIPS"),
+    tagline: getSlogan("ROI_IS_RELATIONSHIP"),
     sections: {
-      network: SLOGANS.PACIFIC_NORTHWEST_ROOTS.text,
+      network: getSlogan("PACIFIC_NORTHWEST_ROOTS"),
     },
   },
 
   // Estimator/Calculator Page
   estimator: {
-    hero: SLOGANS.YOUR_VISION_OUR_PRECISION.text,
-    tagline: SLOGANS.BUILDING_TRUST_THROUGH_TRANSPARENCY.text,
-    cta: SLOGANS.PARTNER_WITH_PRECISION.text,
+    hero: getSlogan("YOUR_VISION_OUR_PRECISION"),
+    tagline: getSlogan("BUILDING_TRUST_THROUGH_TRANSPARENCY"),
+    cta: getSlogan("PARTNER_WITH_PRECISION"),
   },
 
   // 3D Explorer Page
   "3d-explorer": {
-    hero: SLOGANS.FROM_VISION_TO_VICTORY.text,
-    tagline: SLOGANS.YOUR_VISION_OUR_PRECISION.text,
-    cta: SLOGANS.BUILD_MORE_THAN_STRUCTURES.text,
+    hero: getSlogan("FROM_VISION_TO_VICTORY"),
+    tagline: getSlogan("YOUR_VISION_OUR_PRECISION"),
+    cta: getSlogan("BUILD_MORE_THAN_STRUCTURES"),
   },
 
   // Urgent Support Page
   "urgent-support": {
-    hero: SLOGANS.PARTNER_WITH_PRECISION.text,
+    hero: getSlogan("PARTNER_WITH_PRECISION"),
     sections: {
-      quality: SLOGANS.EXCELLENCE_IN_EVERY_DETAIL.text,
-      reliability: SLOGANS.VETERAN_VALUES_COMMUNITY_RESULTS.text,
+      quality: getSlogan("EXCELLENCE_IN_EVERY_DETAIL"),
+      reliability: getSlogan("VETERAN_VALUES_COMMUNITY_RESULTS"),
     },
   },
 };
@@ -471,7 +479,7 @@ export const PAGE_SLOGANS: Record<
  */
 export function getSloganForPage(
   page: string,
-  context: string,
+  context: string
 ): string | undefined {
   const pageSlogans = PAGE_SLOGANS[page];
   if (!pageSlogans) return undefined;
@@ -492,7 +500,7 @@ export function getSloganForPage(
  */
 export function getTier1Slogans(): Slogan[] {
   return Object.values(SLOGANS).filter(
-    (slogan) => slogan.tier === SloganTier.TIER_1_FOUNDATION,
+    (slogan) => slogan.tier === SloganTier.TIER_1_FOUNDATION
   );
 }
 
@@ -533,21 +541,21 @@ export function getSloganDetails(sloganText: string): Slogan | undefined {
  * Consistent weekly themes for social media posts
  */
 export const SOCIAL_MEDIA_SCHEDULE: Record<string, string> = {
-  monday: SLOGANS.EXCELLENCE_IN_EVERY_DETAIL.text,
-  tuesday: SLOGANS.COMBINED_EXCELLENCE.text,
-  wednesday: SLOGANS.FROM_VISION_TO_VICTORY.text,
-  thursday: SLOGANS.TRUST_BUILT_PROJECT_BY_PROJECT.text,
-  friday: SLOGANS.ROI_IS_RELATIONSHIP.text,
+  monday: getSlogan("EXCELLENCE_IN_EVERY_DETAIL"),
+  tuesday: getSlogan("COMBINED_EXCELLENCE"),
+  wednesday: getSlogan("FROM_VISION_TO_VICTORY"),
+  thursday: getSlogan("TRUST_BUILT_PROJECT_BY_PROJECT"),
+  friday: getSlogan("ROI_IS_RELATIONSHIP"),
 };
 
 /**
  * Print material slogan assignments
  */
 export const PRINT_MATERIALS: Record<string, string> = {
-  "business-cards": SLOGANS.BUILDING_FOR_OWNER.text,
-  "brochures-primary": SLOGANS.ROI_IS_RELATIONSHIP.text,
-  "vehicle-wraps": SLOGANS.PRECISION_MEETS_PARTNERSHIP.text,
-  "job-site-signs": SLOGANS.EXCELLENCE_IN_EVERY_DETAIL.text,
+  "business-cards": getSlogan("BUILDING_FOR_OWNER"),
+  "brochures-primary": getSlogan("ROI_IS_RELATIONSHIP"),
+  "vehicle-wraps": getSlogan("PRECISION_MEETS_PARTNERSHIP"),
+  "job-site-signs": getSlogan("EXCELLENCE_IN_EVERY_DETAIL"),
 };
 
 /**
@@ -558,11 +566,11 @@ export const EMAIL_SIGNATURES: Record<
   { signature: string; footer: string }
 > = {
   "client-communications": {
-    signature: SLOGANS.BUILDING_FOR_OWNER.text,
-    footer: SLOGANS.ROI_IS_RELATIONSHIP.text,
+    signature: getSlogan("BUILDING_FOR_OWNER"),
+    footer: getSlogan("ROI_IS_RELATIONSHIP"),
   },
   "trade-communications": {
-    signature: SLOGANS.BUILDING_PROFESSIONAL_PARTNERSHIPS.text,
-    footer: SLOGANS.ROI_IS_RELATIONSHIP.text,
+    signature: getSlogan("BUILDING_PROFESSIONAL_PARTNERSHIPS"),
+    footer: getSlogan("ROI_IS_RELATIONSHIP"),
   },
 };

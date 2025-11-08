@@ -9,8 +9,9 @@ import { SignJWT, jwtVerify, type JWTPayload } from "jose";
 
 // JWT configuration
 const JWT_SECRET =
-  process.env.JWT_SECRET || "your-secret-key-change-in-production";
-const JWT_ISSUER = process.env.NEXT_PUBLIC_BASE_URL || "https://www.mhc-gc.com";
+  process.env["JWT_SECRET"] || "your-secret-key-change-in-production";
+const JWT_ISSUER =
+  process.env["NEXT_PUBLIC_BASE_URL"] || "https://www.mhc-gc.com";
 const JWT_AUDIENCE = "mh-construction-api";
 
 // Token expiration times
@@ -108,7 +109,7 @@ export async function verifyToken(token: string): Promise<JWTUser | null> {
     });
 
     return payload as JWTUser;
-  } catch (error) {
+  } catch (_error) {
     // Token is invalid or expired
     return null;
   }
@@ -118,7 +119,7 @@ export async function verifyToken(token: string): Promise<JWTUser | null> {
  * Verify refresh token and return user ID
  */
 export async function verifyRefreshToken(
-  token: string,
+  token: string
 ): Promise<string | null> {
   try {
     const secret = getSecretKey();
@@ -128,12 +129,12 @@ export async function verifyRefreshToken(
       audience: JWT_AUDIENCE,
     });
 
-    if (payload.type === "refresh" && payload.uid) {
-      return payload.uid as string;
+    if (payload["type"] === "refresh" && payload["uid"]) {
+      return payload["uid"] as string;
     }
 
     return null;
-  } catch (error) {
+  } catch (_error) {
     return null;
   }
 }
@@ -143,7 +144,7 @@ export async function verifyRefreshToken(
  */
 export async function refreshAccessToken(
   refreshToken: string,
-  getUserById: (userId: string) => Promise<JWTUser | null>,
+  getUserById: (userId: string) => Promise<JWTUser | null>
 ): Promise<string | null> {
   const userId = await verifyRefreshToken(refreshToken);
 
@@ -166,7 +167,7 @@ export async function refreshAccessToken(
  * Extract token from Authorization header
  */
 export function extractTokenFromHeader(
-  authHeader: string | null,
+  authHeader: string | null
 ): string | null {
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return null;
@@ -186,9 +187,12 @@ export function decodeTokenUnsafe(token: string): JWTPayload | null {
     }
 
     const payload = parts[1];
+    if (!payload) {
+      return null;
+    }
     const decoded = atob(payload);
     return JSON.parse(decoded);
-  } catch (error) {
+  } catch (_error) {
     return null;
   }
 }
