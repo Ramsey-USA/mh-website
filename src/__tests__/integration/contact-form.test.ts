@@ -5,7 +5,6 @@
  * validation, API calls, and error handling
  */
 
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 // Mock fetch for API calls

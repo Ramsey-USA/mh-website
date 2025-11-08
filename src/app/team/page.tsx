@@ -1,14 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { VintageBaseballCard } from "@/components/ui/specialty/VintageBaseballCard";
-import {
-  FadeInWhenVisible,
-  StaggeredFadeIn,
-} from "@/components/animations/FramerMotionComponents";
+import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import {
   vintageTeamMembers,
   type VintageTeamMember,
@@ -70,7 +66,7 @@ export default function TeamPage() {
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              "Building for the Owner, NOT the Dollar"
+              &ldquo;Building for the Owner, NOT the Dollar&rdquo;
             </p>
 
             {/* Leadership Statement */}
@@ -170,12 +166,13 @@ export default function TeamPage() {
                     </span>
                   </h2>
                   <p className="mx-auto max-w-3xl font-light text-gray-700 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
-                    "All for one, one for all" isn't just a motto—it's how we
-                    partner, grow, and succeed together. Our people-centered
-                    culture starts with leadership committed to serving both
-                    clients and communities, maintaining the highest standards
-                    of safety (.6 EMR award-winning), quality craftsmanship, and
-                    transparent communication that defines every partnership.
+                    &ldquo;All for one, one for all&rdquo; isn&apos;t just a
+                    motto—it&apos;s how we partner, grow, and succeed together.
+                    Our people-centered culture starts with leadership committed
+                    to serving both clients and communities, maintaining the
+                    highest standards of safety (.6 EMR award-winning), quality
+                    craftsmanship, and transparent communication that defines
+                    every partnership.
                   </p>
                 </div>
 
@@ -194,8 +191,8 @@ export default function TeamPage() {
                         Partnership Unity
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
-                        From veterans to civilians, office to field—we're one
-                        partnership team with shared values forged through
+                        From veterans to civilians, office to field—we&apos;re
+                        one partnership team with shared values forged through
                         military discipline and construction excellence. Every
                         partner success belongs to all of us, every safety
                         milestone reflects our collective commitment, and every
@@ -401,10 +398,10 @@ export default function TeamPage() {
                 {/* Quote Section */}
                 <div className="mt-12 text-center">
                   <blockquote className="mb-4 font-medium text-brand-primary text-2xl italic">
-                    "When you join MH Construction, you're not just getting a
-                    job—you're joining a veteran-owned team that values
-                    integrity, transparency, and building relationships that
-                    last beyond project completion."
+                    &ldquo;When you join MH Construction, you&apos;re not just
+                    getting a job—you&apos;re joining a veteran-owned team that
+                    values integrity, transparency, and building relationships
+                    that last beyond project completion.&rdquo;
                   </blockquote>
                   <cite className="font-semibold text-brand-secondary">
                     — Jeremy Thamert, President
@@ -541,8 +538,8 @@ export default function TeamPage() {
                       <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
                         Emerging leaders receive specialized training in project
                         management, team leadership, client relations, and
-                        business development. We build tomorrow's construction
-                        leaders today.
+                        business development. We build tomorrow&apos;s
+                        construction leaders today.
                       </p>
                     </div>
                   </FadeInWhenVisible>

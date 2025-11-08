@@ -6,11 +6,6 @@
  */
 
 import "@testing-library/jest-dom";
-import {
-  generateTokenPair,
-  verifyToken,
-  refreshAccessToken,
-} from "@/lib/auth/jwt";
 
 // Mock fetch for API calls
 global.fetch = jest.fn();
