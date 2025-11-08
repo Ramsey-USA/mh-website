@@ -1,6 +1,6 @@
 "use client";
 
-import React, {
+import {
   createContext,
   useContext,
   useState,
@@ -36,9 +36,9 @@ const GlobalChatbotContext = createContext<
 
 export function GlobalChatbotProvider({ children }: { children: ReactNode }) {
   const [isVisible, setIsVisible] = useState(true); // Always visible by default
-  const [currentPageData, setCurrentPageData] = useState(null);
+  const [currentPageData, setCurrentPageData] = useState<unknown>(null);
   const [currentPage, setCurrentPage] = useState("");
-  const [formData, setFormData] = useState(null);
+  const [formData, setFormData] = useState<unknown>(null);
   const pathname = usePathname();
 
   useEffect(() => {

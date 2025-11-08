@@ -407,7 +407,7 @@ export async function validateFileUpload(
   return {
     isValid,
     errors,
-    sanitizedFile: isValid ? file : undefined,
+    ...(isValid && file ? { sanitizedFile: file } : {}),
   };
 }
 
@@ -419,7 +419,10 @@ export function generateCSPNonce(): string {
   // Convert to base64 without Buffer (Edge Runtime compatible)
   let binary = "";
   for (let i = 0; i < array.length; i++) {
-    binary += String.fromCharCode(array[i]);
+    const byte = array[i];
+    if (byte !== undefined) {
+      binary += String.fromCharCode(byte);
+    }
   }
   return btoa(binary);
 }
@@ -499,7 +502,8 @@ function getClientIP(request: NextRequest): string {
   const realIP = request.headers.get("x-real-ip");
 
   if (forwarded) {
-    return forwarded.split(",")[0].trim();
+    const firstIP = forwarded.split(",")[0];
+    return firstIP ? firstIP.trim() : "unknown";
   }
 
   if (realIP) {
