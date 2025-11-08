@@ -1,7 +1,11 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { logger } from "@/lib/utils/logger";
-import { createDbClient, type ContactSubmission } from "@/lib/db/client";
+import {
+  createDbClient,
+  type ContactSubmission,
+  type D1Database,
+} from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
 
 export const runtime = "edge";
@@ -57,7 +61,7 @@ export async function POST(request: NextRequest) {
 
     const emailData = {
       to: recipientEmail,
-      from: process.env.EMAIL_FROM || "noreply@mhc-gc.com",
+      from: process.env["EMAIL_FROM"] || "noreply@mhc-gc.com",
       subject: emailSubject,
       html: generateEmailHTML(data),
       text: generateEmailText(data),
@@ -67,9 +71,9 @@ export async function POST(request: NextRequest) {
     let emailSent = false;
     let emailError = null;
 
-    if (process.env.RESEND_API_KEY) {
+    if (process.env["RESEND_API_KEY"]) {
       try {
-        const resend = new Resend(process.env.RESEND_API_KEY);
+        const resend = new Resend(process.env["RESEND_API_KEY"]);
 
         const { data: emailResult, error } = await resend.emails.send({
           from: emailData.from,
@@ -119,12 +123,19 @@ export async function POST(request: NextRequest) {
       try {
         const DB = getD1Database();
         if (DB) {
-          const db = createDbClient({ DB });
+          const db = createDbClient({ DB: DB as D1Database });
 
           // Parse name into first and last name (simple split)
           const nameParts = data.name.trim().split(/\s+/);
           const firstName = nameParts[0] || data.name;
           const lastName = nameParts.slice(1).join(" ") || "";
+
+          // Extract metadata with proper type handling
+          const metadata = data.metadata as Record<string, unknown> | undefined;
+          const projectType = metadata?.["projectType"];
+          const location = metadata?.["location"];
+          const budget = metadata?.["budget"];
+          const timeline = metadata?.["timeline"];
 
           const contactSubmission: Omit<
             ContactSubmission,
@@ -134,11 +145,14 @@ export async function POST(request: NextRequest) {
             first_name: firstName,
             last_name: lastName,
             email: data.email,
-            phone: data.phone || undefined,
-            project_type: (data.metadata?.projectType as string) || undefined,
-            project_location: (data.metadata?.location as string) || undefined,
-            budget: data.metadata?.budget?.toString() || undefined,
-            timeline: (data.metadata?.timeline as string) || undefined,
+            phone: data.phone || "",
+            project_type:
+              (typeof projectType === "string" ? projectType : undefined) || "",
+            project_location:
+              (typeof location === "string" ? location : undefined) || "",
+            budget: budget?.toString() || "",
+            timeline:
+              (typeof timeline === "string" ? timeline : undefined) || "",
             message: data.message,
             urgency: data.type === "urgent" ? "high" : "medium",
             preferred_contact: "either",
@@ -342,7 +356,7 @@ export async function GET() {
     try {
       const DB = getD1Database();
       if (DB) {
-        const db = createDbClient({ DB });
+        const db = createDbClient({ DB: DB as D1Database });
         const submissions = await db.query<ContactSubmission>(
           `SELECT * FROM contact_submissions ORDER BY created_at DESC LIMIT 100`,
         );

@@ -40,24 +40,28 @@ async function handler(request: NextRequest) {
       const offset = parseInt(searchParams.get("offset") || "0");
       const format = searchParams.get("format") || "json";
 
-      // Build query
-      const query = {
-        eventTypes,
-        riskLevels,
-        dateRange:
-          startDate && endDate
-            ? {
-                start: new Date(startDate),
-                end: new Date(endDate),
-              }
-            : undefined,
-        userId,
-        ipAddress,
-        outcome,
+      // Build query with proper types - only include defined properties
+      const queryBase = {
         limit: Math.min(limit, 1000), // Cap at 1000
         offset,
         sortBy: "timestamp" as const,
         sortOrder: "desc" as const,
+      };
+
+      const query = {
+        ...queryBase,
+        ...(eventTypes && { eventTypes }),
+        ...(riskLevels && { riskLevels }),
+        ...(startDate &&
+          endDate && {
+            dateRange: {
+              start: new Date(startDate),
+              end: new Date(endDate),
+            },
+          }),
+        ...(userId && { userId }),
+        ...(ipAddress && { ipAddress }),
+        ...(outcome && { outcome }),
       };
 
       // Get events
@@ -84,7 +88,13 @@ async function handler(request: NextRequest) {
           ipAddress: event.ipAddress,
           userId: event.userId,
           outcome: event.outcome,
-          description: getEventDescription(event.eventType, event.details),
+          description: getEventDescription(
+            event.eventType,
+            event.details as Record<
+              string,
+              string | number | boolean | null | undefined
+            >,
+          ),
           details: event.details,
           tags: event.tags,
         })),
@@ -149,7 +159,7 @@ function getEventDescription(
     case AuditEventType.LOGIN_FAILURE:
       return "Failed login attempt";
     case AuditEventType.RATE_LIMIT_EXCEEDED:
-      return `Rate limit exceeded for ${details.path || "unknown endpoint"}`;
+      return `Rate limit exceeded for ${details["path"] || "unknown endpoint"}`;
     case AuditEventType.CSRF_TOKEN_INVALID:
       return "Request rejected due to invalid CSRF token";
     case AuditEventType.XSS_ATTEMPT:
@@ -157,23 +167,23 @@ function getEventDescription(
     case AuditEventType.SQL_INJECTION_ATTEMPT:
       return "SQL injection attempt detected";
     case AuditEventType.FILE_UPLOAD_BLOCKED:
-      return `File upload blocked: ${details.fileName || "unknown file"}`;
+      return `File upload blocked: ${details["fileName"] || "unknown file"}`;
     case AuditEventType.ACCESS_DENIED:
       return "Access denied to protected resource";
     case AuditEventType.VULNERABILITY_DETECTED:
-      return `Vulnerability detected: ${details.type || "unknown"}`;
+      return `Vulnerability detected: ${details["type"] || "unknown"}`;
     case AuditEventType.SECURITY_SCAN_STARTED:
       return "Security scan initiated";
     case AuditEventType.SECURITY_SCAN_COMPLETED:
-      return `Security scan completed with ${details.vulnerabilitiesFound || 0} vulnerabilities found`;
+      return `Security scan completed with ${details["vulnerabilitiesFound"] || 0} vulnerabilities found`;
     case AuditEventType.DATA_ACCESS:
-      return `Data accessed: ${details.resource || "unknown resource"}`;
+      return `Data accessed: ${details["resource"] || "unknown resource"}`;
     case AuditEventType.DATA_MODIFICATION:
-      return `Data modified: ${details.resource || "unknown resource"}`;
+      return `Data modified: ${details["resource"] || "unknown resource"}`;
     case AuditEventType.SUSPICIOUS_TRAFFIC:
       return "Suspicious network traffic detected";
     case AuditEventType.ERROR_OCCURRED:
-      return `System error: ${details.error || "unknown error"}`;
+      return `System error: ${details["error"] || "unknown error"}`;
     default:
       return "Security event occurred";
   }

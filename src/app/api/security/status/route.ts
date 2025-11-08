@@ -199,9 +199,12 @@ function getSystemStatus(score: number): "secure" | "warning" | "critical" {
 function getLastScanTime(vulnerabilities: Vulnerability[]): string | null {
   if (vulnerabilities.length === 0) return null;
 
+  const firstVulnerability = vulnerabilities[0];
+  if (!firstVulnerability) return null;
+
   const latest = vulnerabilities.reduce((latest, v) => {
     return v.discoveredAt > latest ? v.discoveredAt : latest;
-  }, vulnerabilities[0].discoveredAt);
+  }, firstVulnerability.discoveredAt);
 
   return latest.toISOString();
 }
@@ -213,8 +216,13 @@ function calculateTrend(
   if (timelineData.length < 2) return 0;
 
   const recent = timelineData.slice(-2);
-  const current = recent[1][metric] as number;
-  const previous = recent[0][metric] as number;
+  const currentItem = recent[1];
+  const previousItem = recent[0];
+
+  if (!currentItem || !previousItem) return 0;
+
+  const current = currentItem[metric] as number;
+  const previous = previousItem[metric] as number;
 
   return current - previous;
 }

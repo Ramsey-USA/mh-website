@@ -1,6 +1,10 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
-import { createDbClient, type Consultation } from "@/lib/db/client";
+import {
+  createDbClient,
+  type Consultation,
+  type D1Database,
+} from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
 
 export const runtime = "edge";
@@ -10,7 +14,7 @@ interface RouteParams {
   params: Promise<{ id: string }>;
 }
 
-export async function GET(request: NextRequest, context: RouteParams) {
+export async function GET(_request: NextRequest, context: RouteParams) {
   try {
     const { id } = await context.params;
 
@@ -23,7 +27,7 @@ export async function GET(request: NextRequest, context: RouteParams) {
       );
     }
 
-    const db = createDbClient({ DB });
+    const db = createDbClient({ DB: DB as D1Database });
     const consultation = await db.queryOne<Consultation>(
       `SELECT * FROM consultations WHERE id = ?`,
       id,
@@ -63,7 +67,7 @@ export async function PUT(request: NextRequest, context: RouteParams) {
       );
     }
 
-    const db = createDbClient({ DB });
+    const db = createDbClient({ DB: DB as D1Database });
     const updated = await db.update("consultations", id, updates);
 
     if (!updated) {
@@ -93,7 +97,7 @@ export async function PUT(request: NextRequest, context: RouteParams) {
   }
 }
 
-export async function DELETE(request: NextRequest, context: RouteParams) {
+export async function DELETE(_request: NextRequest, context: RouteParams) {
   try {
     const { id } = await context.params;
 
@@ -106,7 +110,7 @@ export async function DELETE(request: NextRequest, context: RouteParams) {
       );
     }
 
-    const db = createDbClient({ DB });
+    const db = createDbClient({ DB: DB as D1Database });
     const deleted = await db.delete("consultations", id);
 
     if (!deleted) {
