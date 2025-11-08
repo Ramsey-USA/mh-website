@@ -19,9 +19,9 @@ import {
 } from "@/components/services";
 import { TestimonialGrid } from "@/components/testimonials";
 import { getClientTestimonials } from "@/lib/data/testimonials";
-import { FAQSection } from "@/components/faq";
+import { ChatbotCTASection } from "@/components/chatbot";
 import { QuickCostCalculator } from "@/components/calculator";
-import { serviceFAQs } from "@/lib/data/faqs";
+import { InteractiveTimeline } from "@/components/timeline";
 
 export default function ServicesPage() {
   return (
@@ -217,7 +217,31 @@ export default function ServicesPage() {
           viewMoreHref="/about#testimonials"
         />
 
-        {/* Construction Process Overview Section */}
+        {/* Interactive Timeline Tool - Visualize Your Project */}
+        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
+          <div className="mx-auto px-4 container">
+            <FadeInWhenVisible>
+              <div className="mx-auto max-w-4xl text-center mb-12">
+                <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl">
+                  <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl">
+                    Visualize Your
+                  </span>
+                  <span className="block text-brand-primary dark:text-brand-primary">
+                    Project Timeline
+                  </span>
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 text-lg sm:text-xl leading-relaxed">
+                  Get an instant view of your project phases and timeline.
+                  Adjust complexity to see how different factors affect your
+                  construction schedule.
+                </p>
+              </div>
+            </FadeInWhenVisible>
+
+            <InteractiveTimeline />
+          </div>
+        </section>
+
         {/* Construction Process Overview Section */}
         <section
           id="process"
@@ -678,8 +702,19 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <FAQSection faqs={serviceFAQs} />
+        {/* Chatbot CTA - Ask Questions */}
+        <ChatbotCTASection
+          context="services"
+          title="Questions About Our Services?"
+          subtitle="Chat with General MH for instant answers about pricing, timelines, processes, and more"
+          exampleQuestions={[
+            "What are your payment terms?",
+            "Do you offer warranties?",
+            "What is your safety record?",
+            "How long do projects take?",
+            "Are you licensed and insured?",
+          ]}
+        />
 
         {/* Portfolio Section - Simplified */}
         <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">

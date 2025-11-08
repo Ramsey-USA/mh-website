@@ -34,3 +34,6 @@ export { OptimizedImage } from "./media/OptimizedImage";
 // Specialty Components
 export { BaseballCard } from "./specialty/BaseballCard";
 export { VintageBaseballCard } from "./specialty/VintageBaseballCard";
+
+// Interactive Components
+export { AnimatedCounter } from "./AnimatedCounter";

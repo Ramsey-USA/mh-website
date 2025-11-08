@@ -11,8 +11,9 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { consultationService } from "@/lib/cloudflare/storage";
 import { useGlobalChatbot } from "@/providers/GlobalChatbotProvider";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
+import { ChatbotCTASection } from "@/components/chatbot";
+import { FormProgress } from "@/components/forms";
 import { BookingHero } from "./components/BookingHero";
-import { ProgressIndicator } from "./components/ProgressIndicator";
 import { DateTimeSelector } from "./components/DateTimeSelector";
 import { BookingForm } from "./components/BookingForm";
 import { ConfirmationPage } from "./components/ConfirmationPage";
@@ -50,6 +51,40 @@ export default function BookingPage() {
   useEffect(() => {
     setGlobalFormData(formData);
   }, [formData, setGlobalFormData]);
+
+  // Load saved progress on mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedData = localStorage.getItem("booking_form_data");
+      if (savedData) {
+        try {
+          const parsed = JSON.parse(savedData);
+          const savedAt = new Date(parsed.savedAt);
+          const hoursSinceSave =
+            (Date.now() - savedAt.getTime()) / (1000 * 60 * 60);
+
+          // Only restore if saved within last 24 hours
+          if (hoursSinceSave < 24) {
+            if (
+              confirm("Would you like to continue from where you left off?")
+            ) {
+              setStep(parsed.step);
+              setSelectedDate(parsed.selectedDate || "");
+              setSelectedTime(parsed.selectedTime || "");
+              setFormData(parsed.formData);
+            } else {
+              localStorage.removeItem("booking_form_data");
+            }
+          } else {
+            // Clear old saved data
+            localStorage.removeItem("booking_form_data");
+          }
+        } catch (error) {
+          console.error("Error loading saved form data:", error);
+        }
+      }
+    }
+  }, []);
 
   // Handle URL parameters for pre-filling data from quick booking modal
   useEffect(() => {
@@ -501,7 +536,49 @@ Please contact the client to confirm this consultation appointment.
           </div>
 
           {/* Progress Indicator */}
-          <ProgressIndicator currentStep={step} />
+          <FormProgress
+            currentStep={step}
+            steps={[
+              {
+                number: 1,
+                label: "Date & Time",
+                icon: "event",
+                description: "Select your preferred consultation date and time",
+              },
+              {
+                number: 2,
+                label: "Project Details",
+                icon: "assignment",
+                description:
+                  "Tell us about your project and contact information",
+              },
+              {
+                number: 3,
+                label: "Confirmation",
+                icon: "check_circle",
+                description: "Review and confirm your consultation booking",
+              },
+            ]}
+            showPercentage={true}
+            enableSaveResume={true}
+            onSave={() => {
+              // Save form data to localStorage
+              if (typeof window !== "undefined") {
+                localStorage.setItem(
+                  "booking_form_data",
+                  JSON.stringify({
+                    step,
+                    selectedDate,
+                    selectedTime,
+                    formData,
+                    savedAt: new Date().toISOString(),
+                  }),
+                );
+              }
+            }}
+            variant="default"
+            showDescriptions={false}
+          />
 
           {/* Step Content */}
           <div className="mx-auto max-w-5xl">
@@ -536,6 +613,20 @@ Please contact the client to confirm this consultation appointment.
           </div>
         </FadeInWhenVisible>
       </div>
+
+      {/* Chatbot CTA - Consultation Questions */}
+      <ChatbotCTASection
+        context="booking"
+        title="Questions About Consultations?"
+        subtitle="Chat with General MH for instant answers about our free consultation process"
+        exampleQuestions={[
+          "Is the consultation really free?",
+          "How long does it take?",
+          "Can I do it virtually?",
+          "What should I prepare?",
+          "What happens after?",
+        ]}
+      />
 
       <PageNavigation items={navigationConfigs.booking} />
     </div>

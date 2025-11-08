@@ -54,6 +54,8 @@ Quick reference guides, troubleshooting documentation, and developer resources.
 
 - **[consistency-guide.md](./consistency-guide.md)** - **⭐ PRIMARY REFERENCE** - Complete
   consistency standards for pages, sections, components, typography, colors, and mobile
+- **[chatbot-first-strategy.md](./chatbot-first-strategy.md)** - **🤖 NEW (Nov 2025)** - Chatbot-first
+  user engagement strategy and implementation guide
 - **[terminology-guide.md](./terminology-guide.md)** - Project terminology and naming conventions
 - **[file-management.md](./file-management.md)** - File organization and management guidelines
 - **[development-standards.md](./development-standards.md)** - Core development standards and practices

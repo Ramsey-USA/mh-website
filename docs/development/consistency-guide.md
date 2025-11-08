@@ -13,8 +13,77 @@
 - [Page Layout Standards](#page-layout-standards)
 - [Section Standards](#section-standards)
 - [Component Standards](#component-standards)
+- [Chatbot-First User Engagement](#chatbot-first-user-engagement)
 - [Mobile Consistency](#mobile-consistency)
 - [Implementation Checklist](#implementation-checklist)
+
+---
+
+## 🤖 Chatbot-First User Engagement
+
+### Strategy (November 2025)
+
+**Replace static FAQs with interactive chatbot CTAs** to drive personalized engagement.
+
+### When to Use ChatbotCTASection
+
+✅ **USE ChatbotCTASection for:**
+
+- FAQ sections on service pages
+- Question prompts on booking/consultation pages
+- Career inquiry sections
+- Any "common questions" section
+
+❌ **DON'T USE ChatbotCTASection for:**
+
+- Simple informational content
+- Policy/legal text
+- Process steps (use numbered lists)
+- Contact information display
+
+### Implementation
+
+```tsx
+import { ChatbotCTASection } from "@/components/chatbot";
+
+<ChatbotCTASection
+  context="services" // or "booking", "careers", etc.
+  exampleQuestions={[
+    "What are your payment terms?",
+    "Do you offer warranties?",
+    "What's your safety record?",
+    "How long do projects typically take?",
+    "Are you licensed and insured?",
+  ]}
+/>;
+```
+
+### Component Props
+
+- **context**: `string` - Page context for chatbot (e.g., "services", "booking", "careers")
+- **exampleQuestions**: `string[]` - 4-6 example questions users can click
+- **title** (optional): Custom section title (default: "Have Questions?")
+- **subtitle** (optional): Custom subtitle
+
+### Benefits
+
+- ✅ **Personalized responses** - Context-aware answers vs. generic FAQs
+- ✅ **Lead capture** - Collect user info while answering
+- ✅ **24/7 availability** - Instant responses anytime
+- ✅ **Better analytics** - Track actual user questions
+- ✅ **Easy maintenance** - Update chatbot training once, not multiple FAQ pages
+- ✅ **Higher conversion** - Guide users to book/apply/contact
+
+### FAQ Data Repurposing
+
+Existing FAQ data in `/src/lib/data/faqs.ts` can be used to:
+
+- Train chatbot responses
+- Generate example questions
+- Create knowledge base articles
+- Inform chatbot personality/tone
+
+**Do NOT delete FAQ data** - repurpose it for chatbot training.
 
 ---
 

@@ -9,6 +9,8 @@ import {
   FadeInWhenVisible,
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
+import { TeamMemberTags } from "@/components/team";
+import { BeforeAfterSlider } from "@/components/slider";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -87,7 +89,9 @@ export interface CaseStudyData {
   team?: Array<{
     name: string;
     role: string;
-    photo?: string;
+    slug: string;
+    avatar?: string;
+    department?: string;
   }>;
 
   // Tags
@@ -419,6 +423,51 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
           </FadeInWhenVisible>
         </div>
       </section>
+
+      {/* Team Section - Who Worked On This Project */}
+      {data.team && data.team.length > 0 && (
+        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <FadeInWhenVisible>
+              <TeamMemberTags
+                title="On This Project"
+                members={data.team}
+                variant="compact"
+                showDepartments={true}
+                maxVisible={6}
+              />
+            </FadeInWhenVisible>
+          </div>
+        </section>
+      )}
+
+      {/* Before/After Section */}
+      {data.beforeAfterPhotos && data.beforeAfterPhotos.length > 0 && (
+        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <FadeInWhenVisible>
+              <h2 className="mb-12 font-black text-3xl text-center text-gray-900 sm:text-4xl dark:text-white">
+                <span className="block text-2xl sm:text-3xl font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                  Project
+                </span>
+                <span className="block text-brand-primary">Transformation</span>
+              </h2>
+              <div className="space-y-12">
+                {data.beforeAfterPhotos.map((photo, index) => (
+                  <BeforeAfterSlider
+                    key={index}
+                    beforeImage={photo.before}
+                    afterImage={photo.after}
+                    caption={photo.caption}
+                    beforeLabel="Before"
+                    afterLabel="After"
+                  />
+                ))}
+              </div>
+            </FadeInWhenVisible>
+          </div>
+        </section>
+      )}
 
       {/* Gallery Section */}
       {data.galleryPhotos && data.galleryPhotos.length > 0 && (

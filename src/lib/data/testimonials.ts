@@ -50,66 +50,6 @@ export const clientTestimonials: Testimonial[] = [
     category: "commercial",
     featured: true,
   },
-  {
-    id: "client-thompson-family",
-    name: "Jennifer & Mike Thompson",
-    location: "Pasco Heights, WA",
-    project: "Custom Family Home Construction",
-    rating: 5,
-    quote:
-      "MH Construction exceeded our expectations in every way. Their military precision and attention to detail resulted in our dream home being completed ahead of schedule and within budget. The veteran-owned values really showed in their commitment to excellence.",
-    image: "/images/testimonials/thompson-family.jpg",
-    type: "client",
-    category: "residential",
-    featured: true,
-    veteranStatus: true,
-  },
-  {
-    id: "client-medical-center",
-    name: "Sarah Johnson",
-    company: "Tri-Cities Medical Center",
-    location: "Kennewick, WA",
-    project: "Hospital Expansion",
-    rating: 5,
-    quote:
-      "MH Construction's expertise in healthcare projects was evident from day one. They maintained ICRA Level 4 protocols flawlessly, completed the project 2 weeks ahead of schedule, and had zero patient care disruptions. Exceptional work on a complex $8.5M expansion.",
-    type: "client",
-    category: "healthcare",
-    featured: true,
-  },
-  {
-    id: "client-retail-owner",
-    name: "David Martinez",
-    location: "Pasco, WA",
-    project: "Retail Store Build-Out",
-    rating: 5,
-    quote:
-      "From permits to punch list, MH Construction handled everything professionally. The 8-week timeline was aggressive but they delivered on time and on budget. The quality exceeded what I've seen from other contractors.",
-    type: "client",
-    category: "retail",
-  },
-  {
-    id: "client-restaurant",
-    name: "Maria Garcia",
-    location: "Richland, WA",
-    project: "Restaurant Renovation",
-    rating: 5,
-    quote:
-      "We needed our restaurant renovation done quickly to minimize downtime. MH Construction completed the work in 6 weeks, allowing us to reopen ahead of schedule. The craftsmanship and attention to detail were outstanding.",
-    type: "client",
-    category: "retail",
-  },
-  {
-    id: "client-emergency",
-    name: "Tom Wilson",
-    location: "Kennewick, WA",
-    project: "Emergency Storm Repair",
-    rating: 5,
-    quote:
-      "When our facility suffered storm damage, MH Construction responded within 2 hours with a full crew. They had temporary repairs done same-day and completed permanent repairs within a week. Their 24/7 emergency service saved our business.",
-    type: "client",
-    category: "emergency",
-  },
 ];
 
 // EMPLOYEE TESTIMONIALS - Team Member Experiences

@@ -30,6 +30,19 @@ These standards ensure consistency, maintainability, and prevent recurring bugs.
 
 **These branding standards are mandatory and enforced alongside technical standards.**
 
+### 🤖 Chatbot-First User Engagement (November 2025)
+
+**NEW STANDARD**: Replace static FAQ sections with interactive chatbot CTAs.
+
+**Implementation Rules:**
+
+- ✅ **USE**: `ChatbotCTASection` component for FAQ/Q&A sections
+- ✅ **PREFER**: Interactive chatbot prompts over static text
+- ✅ **REPURPOSE**: FAQ data for chatbot training, not static display
+- ❌ **AVOID**: Creating new static FAQ accordion sections
+
+**See**: [Chatbot-First User Engagement Guide](./consistency-guide.md#chatbot-first-user-engagement)
+
 ---
 
 ## 📦 Import Standards

@@ -1,0 +1,1 @@
+export { AggregateRating } from "./AggregateRating";

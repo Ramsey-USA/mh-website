@@ -1,6 +1,6 @@
 /**
  * Projects Stats Section
- * Displays key project metrics and achievements
+ * Displays key project metrics and achievements with animated counters
  */
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -9,6 +9,7 @@ import {
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
 import { projectStats } from "./projectsData";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 export function ProjectsStatsSection() {
   return (
@@ -50,7 +51,16 @@ export function ProjectsStatsSection() {
                     className="mb-4 text-brand-primary"
                   />
                   <div className="mb-2 font-bold text-gray-900 dark:text-white text-4xl lg:text-5xl">
-                    {stat.value}
+                    {stat.animated ? (
+                      <AnimatedCounter
+                        value={stat.value}
+                        suffix={stat.suffix || ""}
+                        decimals={stat.decimals || 0}
+                        duration={2000}
+                      />
+                    ) : (
+                      stat.value
+                    )}
                   </div>
                   <div className="font-medium text-gray-600 dark:text-gray-300 text-lg">
                     {stat.label}

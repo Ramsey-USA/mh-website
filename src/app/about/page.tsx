@@ -15,6 +15,8 @@ import {
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
 import { OptimizedImage } from "@/components/ui/media/OptimizedImage";
+import { AggregateRating } from "@/components/ratings";
+import { getClientTestimonials } from "@/lib/data/testimonials";
 import {
   AboutHero,
   AboutValues,
@@ -565,6 +567,17 @@ export default function AboutPage() {
               </CardContent>
             </Card>
           </StaggeredFadeIn>
+
+          {/* Aggregate Rating - SEO Enhanced */}
+          <div className="mt-16 lg:mt-24">
+            <AggregateRating
+              testimonials={getClientTestimonials()}
+              variant="default"
+              showBreakdown={true}
+              title="Overall Client Satisfaction"
+              className="max-w-2xl mx-auto"
+            />
+          </div>
         </div>
       </section>
 

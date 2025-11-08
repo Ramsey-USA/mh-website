@@ -5,9 +5,10 @@
 
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Card, CardHeader, CardTitle, CardContent } from "../ui";
 import { EstimateResults } from "./EstimateResults";
+import { FormProgress } from "../forms";
 
 // Import step components
 import { ProjectBasicsStep } from "./steps/ProjectBasicsStep";
@@ -33,6 +34,35 @@ export function EstimatorForm() {
   });
   const [estimate, setEstimate] = useState<EstimateData | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
+
+  // Load saved progress on mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedData = localStorage.getItem("estimator_form_data");
+      if (savedData) {
+        try {
+          const parsed = JSON.parse(savedData);
+          const savedAt = new Date(parsed.savedAt);
+          const hoursSinceSave =
+            (Date.now() - savedAt.getTime()) / (1000 * 60 * 60);
+
+          // Only restore if saved within last 7 days
+          if (hoursSinceSave < 168) {
+            if (confirm("Would you like to continue your previous estimate?")) {
+              setCurrentStep(parsed.currentStep);
+              setProjectData(parsed.projectData);
+            } else {
+              localStorage.removeItem("estimator_form_data");
+            }
+          } else {
+            localStorage.removeItem("estimator_form_data");
+          }
+        } catch (error) {
+          console.error("Error loading saved estimator data:", error);
+        }
+      }
+    }
+  }, []);
 
   // Get current season for pricing
   const getCurrentSeason = () => {
@@ -198,12 +228,6 @@ export function EstimatorForm() {
     "Review Your Information",
   ];
 
-  const steps = [
-    { number: 1, label: "Project Basics", completed: currentStep > 1 },
-    { number: 2, label: "Details & Features", completed: currentStep > 2 },
-    { number: 3, label: "Review & Calculate", completed: false },
-  ];
-
   if (estimate) {
     return (
       <EstimateResults
@@ -223,54 +247,57 @@ export function EstimatorForm() {
             features: [],
             isVeteran: false,
           });
+          // Clear saved data
+          if (typeof window !== "undefined") {
+            localStorage.removeItem("estimator_form_data");
+          }
         }}
       />
     );
   }
 
   return (
-    <div className="mx-auto max-w-4xl">
-      {/* Progress Steps */}
-      <div className="flex justify-center items-center mb-8">
-        {steps.map((step, index) => (
-          <div key={step.number} className="flex items-center">
-            {/* Step Circle */}
-            <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center border-2 font-medium text-sm ${
-                step.completed
-                  ? "bg-green-500 border-green-500 text-white"
-                  : currentStep === step.number
-                    ? "border-brand-primary text-brand-primary bg-white"
-                    : "border-gray-300 text-gray-400 bg-white"
-              }`}
-            >
-              {step.completed ? "✓" : step.number}
-            </div>
-
-            {/* Step Info */}
-            <div className="ml-2 mr-6">
-              <div
-                className={`text-sm font-medium ${
-                  step.completed || currentStep === step.number
-                    ? "text-gray-900"
-                    : "text-gray-400"
-                }`}
-              >
-                {step.label}
-              </div>
-            </div>
-
-            {/* Connector Line */}
-            {index < steps.length - 1 && (
-              <div
-                className={`w-16 h-0.5 ${
-                  step.completed ? "bg-green-500" : "bg-gray-300"
-                }`}
-              ></div>
-            )}
-          </div>
-        ))}
-      </div>
+    <div className="mx-auto max-w-4xl estimator-form">
+      {/* Progress Indicator */}
+      <FormProgress
+        currentStep={currentStep}
+        steps={[
+          {
+            number: 1,
+            label: "Project Basics",
+            icon: "info",
+            description: "Project type, location, and size",
+          },
+          {
+            number: 2,
+            label: "Details & Features",
+            icon: "tune",
+            description: "Materials, features, and timeline",
+          },
+          {
+            number: 3,
+            label: "Review & Calculate",
+            icon: "calculate",
+            description: "Review and get your estimate",
+          },
+        ]}
+        showPercentage={true}
+        enableSaveResume={true}
+        onSave={() => {
+          if (typeof window !== "undefined") {
+            localStorage.setItem(
+              "estimator_form_data",
+              JSON.stringify({
+                currentStep,
+                projectData,
+                savedAt: new Date().toISOString(),
+              }),
+            );
+          }
+        }}
+        variant="default"
+        className="mb-8"
+      />
 
       {/* Form Card */}
       <Card>

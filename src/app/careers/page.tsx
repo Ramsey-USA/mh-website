@@ -18,6 +18,7 @@ import {
 } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { ChatbotCTASection } from "@/components/chatbot";
 import { TestimonialGrid } from "@/components/testimonials";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
 
@@ -1206,6 +1207,20 @@ export default function CareersPage() {
           </FadeInWhenVisible>
         </section>
       </div>
+
+      {/* Chatbot CTA - Career Questions */}
+      <ChatbotCTASection
+        context="careers"
+        title="Questions About Careers?"
+        subtitle="Chat with General MH for instant answers about jobs, benefits, hiring process, and growth opportunities"
+        exampleQuestions={[
+          "What is your hiring process?",
+          "Do you have veteran benefits?",
+          "What are the pay ranges?",
+          "How do I apply?",
+          "What are career growth opportunities?",
+        ]}
+      />
 
       {/* Job Application Modal */}
       <JobApplicationModal

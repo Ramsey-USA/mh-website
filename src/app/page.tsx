@@ -18,7 +18,12 @@ import {
 } from "@/components/seo/seo-meta";
 import { TestimonialGrid } from "@/components/testimonials";
 import { getClientTestimonials } from "@/lib/data/testimonials";
-import { QuickCostCalculator } from "@/components/calculator";
+import { AggregateRating } from "@/components/ratings";
+import {
+  QuickCostCalculator,
+  ProjectCostCalculator,
+} from "@/components/calculator";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 // Enhanced SEO for AI-powered veteran-owned construction
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
@@ -65,6 +70,8 @@ import {
   useIntersectionObserver,
   useImagePreloader,
 } from "@/hooks/usePerformanceOptimization";
+import { ActivityFeed } from "@/components/activity";
+import { BeforeAfterSlider, BeforeAfterGallery } from "@/components/slider";
 
 export default function Home() {
   // Initialize analytics
@@ -201,6 +208,92 @@ export default function Home() {
             viewMoreHref="/about#testimonials"
             className="!py-0"
           />
+
+          {/* Aggregate Rating - SEO Enhanced */}
+          <div className="mt-12 lg:mt-16">
+            <AggregateRating
+              testimonials={getClientTestimonials()}
+              variant="hero"
+              title="Trusted by Clients Across the Pacific Northwest"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Before/After Showcase Section */}
+      <section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <FadeInWhenVisible>
+            <div className="mb-12 text-center">
+              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+                  See Our
+                </span>
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                  Quality Transformations
+                </span>
+              </h2>
+              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
+                Drag the slider to compare{" "}
+                <span className="font-medium text-gray-800 dark:text-gray-200">
+                  before and after
+                </span>{" "}
+                on our{" "}
+                <span className="text-brand-primary font-semibold">
+                  construction projects
+                </span>
+                .
+              </p>
+            </div>
+
+            <BeforeAfterSlider
+              beforeImage="/images/logo/mh-logo.png"
+              afterImage="/images/logo/mh-logo.png"
+              beforeAlt="Project before construction - MH Construction placeholder"
+              afterAlt="Project after construction - MH Construction placeholder"
+              caption="Example transformation - Real project images coming soon"
+              height="h-[400px] sm:h-[500px] lg:h-[600px]"
+              showLabels={true}
+            />
+          </FadeInWhenVisible>
+        </div>
+      </section>
+
+      {/* Project Cost Calculator Section */}
+      <section className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-20 lg:py-32">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <FadeInWhenVisible>
+            <ProjectCostCalculator
+              variant="featured"
+              showVeteranDiscount={true}
+              enableChatbotHandoff={true}
+              onGetDetailedEstimate={(data) => {
+                // Track calculator usage
+                if (typeof window !== "undefined" && window.gtag) {
+                  window.gtag("event", "cost_calculator_used", {
+                    project_type: data.projectType,
+                    quality: data.quality,
+                    estimated_min: data.estimatedCost.min,
+                    estimated_max: data.estimatedCost.max,
+                    is_veteran: data.isVeteran,
+                    event_category: "engagement",
+                    event_label: "homepage_calculator",
+                  });
+                }
+
+                // Track with analytics hook
+                trackEvent("project_cost_calculated", {
+                  location: "homepage",
+                  project_type: data.projectType,
+                  scope_level: data.scope,
+                  quality_level: data.quality,
+                  timeline: data.timeline,
+                  is_veteran: data.isVeteran,
+                  estimated_range: data.estimatedCost.display,
+                });
+              }}
+            />
+          </FadeInWhenVisible>
         </div>
       </section>
 
@@ -299,7 +392,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="mb-2 font-black text-3xl sm:text-4xl text-brand-primary dark:text-brand-primary-light">
-                  20+
+                  <AnimatedCounter value={20} suffix="+" duration={2000} />
                 </div>
                 <div className="font-medium text-gray-700 text-sm sm:text-base dark:text-gray-300">
                   Years Experience
@@ -316,7 +409,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="mb-2 font-black text-3xl sm:text-4xl text-brand-secondary dark:text-brand-secondary-light">
-                  .6
+                  <AnimatedCounter value={0.6} decimals={1} duration={2000} />
                 </div>
                 <div className="font-medium text-gray-700 text-sm sm:text-base dark:text-gray-300">
                   EMR Safety Rating
@@ -333,7 +426,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="mb-2 font-black text-3xl sm:text-4xl text-brand-accent dark:text-brand-accent-light">
-                  150+
+                  <AnimatedCounter value={150} suffix="+" duration={2000} />
                 </div>
                 <div className="font-medium text-gray-700 text-sm sm:text-base dark:text-gray-300">
                   Combined Years
@@ -380,6 +473,36 @@ export default function Home() {
             </p>
           </div>
           <QuickCostCalculator />
+        </div>
+      </section>
+
+      {/* Before & After Transformations */}
+      <section className="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 py-20 lg:py-32">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(189,146,100,0.05)_0%,transparent_50%)] opacity-60"></div>
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <FadeInWhenVisible>
+            <BeforeAfterGallery
+              title="Project Transformations"
+              description="See the remarkable changes we've made to transform spaces across the Pacific Northwest. Real projects, real results."
+              slides={[
+                {
+                  beforeImage: "/images/logo/mh-logo.png",
+                  afterImage: "/images/logo/mh-logo.png",
+                  beforeAlt: "Before construction - placeholder",
+                  afterAlt: "After completion - placeholder",
+                  caption: "Medical Center Expansion - Kennewick, WA",
+                },
+                {
+                  beforeImage: "/images/logo/mh-logo.png",
+                  afterImage: "/images/logo/mh-logo.png",
+                  beforeAlt: "Before renovation - placeholder",
+                  afterAlt: "After renovation - placeholder",
+                  caption: "Commercial Office Remodel - Pasco, WA",
+                },
+              ]}
+              layout="grid"
+            />
+          </FadeInWhenVisible>
         </div>
       </section>
 
@@ -585,6 +708,14 @@ export default function Home() {
 
       {/* Enhanced Partnership Call to Action Section */}
       <PartnershipCTA />
+
+      {/* Real-Time Activity Feed - Social Proof */}
+      <ActivityFeed
+        maxActivities={3}
+        enableChatbotIntegration={true}
+        autoDismissSeconds={0}
+        desktopOnly={true}
+      />
     </>
   );
 }

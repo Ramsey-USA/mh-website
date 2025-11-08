@@ -140,6 +140,23 @@ const triCitiesMedicalCenterData: CaseStudyData = {
     },
   ],
 
+  // Before/After Photos (optional)
+  beforeAfterPhotos: [
+    {
+      before: "/images/logo/mh-logo.png",
+      after: "/images/logo/mh-logo.png",
+      caption:
+        "Emergency Department Expansion - Placeholder images (Real photos coming soon)",
+    },
+    {
+      before: "/images/logo/mh-logo.png",
+      after: "/images/logo/mh-logo.png",
+      caption:
+        "Surgical Wing Addition - Placeholder images (Real photos coming soon)",
+    },
+  ],
+
+  // Gallery Photos
   galleryPhotos: [
     {
       src: "/images/projects/medical-center/exterior-complete.jpg",
@@ -177,16 +194,28 @@ const triCitiesMedicalCenterData: CaseStudyData = {
 
   team: [
     {
+      name: "Mike Hardy",
+      role: "Commercial General Manager",
+      slug: "mike-hardy",
+      department: "Leadership",
+    },
+    {
       name: "Jeremy Thamert",
       role: "President & Project Oversight",
+      slug: "jeremy-thamert",
+      department: "Executive",
     },
     {
       name: "Todd Weber",
       role: "Project Manager",
+      slug: "todd-weber",
+      department: "Project Management",
     },
     {
       name: "Steve Moritz",
       role: "Senior Superintendent",
+      slug: "steve-moritz",
+      department: "Field Operations",
     },
   ],
 

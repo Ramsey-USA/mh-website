@@ -1,6 +1,6 @@
 /**
  * Company Stats Section for About Page
- * Displays key company statistics and achievements
+ * Displays key company statistics and achievements with animated counters
  */
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -8,24 +8,38 @@ import {
   FadeInWhenVisible,
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 // Company Stats Data - Updated with Award-Winning Safety Record
 export const companyStats = [
-  { iconName: "calendar_today", value: "2010", label: "Company Founded" },
+  {
+    iconName: "calendar_today",
+    value: 2010,
+    label: "Company Founded",
+    animated: false,
+  },
   {
     iconName: "groups",
-    value: "150+",
+    value: 150,
     label: "Years Combined Team Experience",
+    suffix: "+",
+    animated: true,
   },
   {
     iconName: "emoji_events",
-    value: ".6 EMR",
+    value: 0.6,
     label: "Award-Winning Safety Record",
+    prefix: "",
+    suffix: " EMR",
+    decimals: 1,
+    animated: true,
   },
   {
     iconName: "diversity_3",
-    value: "70%",
+    value: 70,
     label: "Referral & Repeat Business",
+    suffix: "%",
+    animated: true,
   },
 ];
 
@@ -61,7 +75,17 @@ export function CompanyStats() {
                     className="mb-4 text-brand-secondary text-5xl"
                   />
                   <div className="mb-2 font-black text-5xl sm:text-6xl text-white drop-shadow-lg">
-                    {stat.value}
+                    {stat.animated ? (
+                      <AnimatedCounter
+                        value={stat.value}
+                        suffix={stat.suffix || ""}
+                        prefix={stat.prefix || ""}
+                        decimals={stat.decimals || 0}
+                        duration={2000}
+                      />
+                    ) : (
+                      stat.value
+                    )}
                   </div>
                   <div className="text-white/90 font-medium text-sm sm:text-base">
                     {stat.label}

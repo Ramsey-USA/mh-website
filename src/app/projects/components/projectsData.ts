@@ -14,10 +14,34 @@ export const categories = [
 
 // Project statistics - Updated with award-winning metrics
 export const projectStats = [
-  { icon: "check_circle", value: "50+", label: "Partnership Projects" },
-  { icon: "emoji_events", value: ".6 EMR", label: "Award-Winning Safety" },
-  { icon: "calendar_today", value: "2010", label: "Building Since" },
-  { icon: "handshake", value: "70%", label: "Referral & Repeat Business" },
+  {
+    icon: "check_circle",
+    value: 50,
+    suffix: "+",
+    label: "Partnership Projects",
+    animated: true,
+  },
+  {
+    icon: "emoji_events",
+    value: 0.6,
+    suffix: " EMR",
+    decimals: 1,
+    label: "Award-Winning Safety",
+    animated: true,
+  },
+  {
+    icon: "calendar_today",
+    value: 2010,
+    label: "Building Since",
+    animated: false,
+  },
+  {
+    icon: "handshake",
+    value: 70,
+    suffix: "%",
+    label: "Referral & Repeat Business",
+    animated: true,
+  },
 ];
 
 // Service capabilities - Enhanced with detailed descriptions
