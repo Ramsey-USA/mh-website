@@ -14,7 +14,7 @@ export interface MarkdownContent {
  * @returns Promise<MarkdownContent>
  */
 export async function loadMarkdownContent(
-  filePath: string,
+  filePath: string
 ): Promise<MarkdownContent> {
   try {
     const fullPath = path.join(process.cwd(), "docs", filePath);
@@ -22,7 +22,7 @@ export async function loadMarkdownContent(
 
     // Extract title from the first heading
     const titleMatch = fileContent.match(/^#\s+(.+)$/m);
-    const title = titleMatch ? titleMatch[1].trim() : undefined;
+    const title = titleMatch?.[1]?.trim();
 
     // Extract excerpt (first paragraph after title)
     const lines = fileContent.split("\n");
@@ -48,8 +48,8 @@ export async function loadMarkdownContent(
 
     return {
       content: fileContent,
-      title,
-      excerpt: excerpt || undefined,
+      ...(title && { title }),
+      ...(excerpt && { excerpt }),
     };
   } catch (error) {
     logger.error(`Error loading markdown content from ${filePath}:`, error);
@@ -63,7 +63,7 @@ export async function loadMarkdownContent(
  * @returns Promise<Record<string, MarkdownContent>>
  */
 export async function loadMultipleMarkdownFiles(
-  filePaths: string[],
+  filePaths: string[]
 ): Promise<Record<string, MarkdownContent>> {
   const contents: Record<string, MarkdownContent> = {};
 
