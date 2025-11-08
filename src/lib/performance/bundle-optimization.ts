@@ -7,9 +7,9 @@ import { lazy } from "react";
 import { logger } from "@/lib/utils/logger";
 
 // Dynamic import wrapper with error handling
-export const dynamicImport = <T = any>(
+export const dynamicImport = <T = unknown>(
   importFn: () => Promise<T>,
-  fallback?: T
+  fallback?: T,
 ): Promise<T> => {
   return importFn().catch((error) => {
     logger.error("Dynamic import failed:", error);
@@ -21,12 +21,14 @@ export const dynamicImport = <T = any>(
 };
 
 // Lazy load heavy components with loading states
-export const createLazyComponent = <T extends React.ComponentType<unknown>>(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const createLazyComponent = <T extends React.ComponentType<any>>(
   importFn: () => Promise<{ default: T }>,
-  displayName?: string
+  displayName?: string,
 ) => {
   const LazyComponent = lazy(importFn);
   if (displayName) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (LazyComponent as any).displayName = displayName;
   }
   return LazyComponent;
@@ -43,7 +45,7 @@ export const loadFormAssistantModule = () =>
 // Heavy UI components lazy loading - these require default exports
 export const LazySmartFormAssistant = createLazyComponent(
   () => import("../../components/forms/SmartFormAssistant"),
-  "LazySmartFormAssistant"
+  "LazySmartFormAssistant",
 );
 
 // Critical resource hints
@@ -70,7 +72,7 @@ export const preloadCriticalComponents = () => {
 export const getBundleInfo = () => {
   if (typeof window !== "undefined" && "performance" in window) {
     const navigation = performance.getEntriesByType(
-      "navigation"
+      "navigation",
     )[0] as PerformanceNavigationTiming;
     return {
       totalSize: navigation.transferSize || 0,
@@ -106,15 +108,14 @@ export const injectResourceHints = () => {
     // Preload critical fonts and images
     preloadLink("/images/logo/mh-logo.png", "image");
 
-    // DNS prefetch for external domains
-    const _dnsPrefetch = (href: string) => {
-      const link = document.createElement("link");
-      link.rel = "dns-prefetch";
-      link.href = href;
-      head.appendChild(link);
-    };
-
-    // Add any external domains used
-    // _dnsPrefetch('https://fonts.googleapis.com')
+    // DNS prefetch for external domains can be added here if needed
+    // Example:
+    // const dnsPrefetch = (href: string) => {
+    //   const link = document.createElement("link");
+    //   link.rel = "dns-prefetch";
+    //   link.href = href;
+    //   head.appendChild(link);
+    // };
+    // dnsPrefetch('https://fonts.googleapis.com')
   }
 };

@@ -23,7 +23,8 @@ export interface LazyComponentProps {
 }
 
 // Enhanced dynamic import with retry logic and performance tracking
-export function createDynamicImport<T extends ComponentType<unknown>>(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function createDynamicImport<T extends ComponentType<any>>(
   importFn: () => Promise<{ default: T }>,
   componentName: string,
   options: DynamicImportOptions = {}
@@ -225,7 +226,7 @@ class ErrorBoundary extends React.Component<
 
 // Route-based code splitting utilities
 export const createRouteComponent = (
-  importFn: () => Promise<{ default: ComponentType<unknown> }>,
+  importFn: () => Promise<{ default: ComponentType<any> }>, // eslint-disable-line @typescript-eslint/no-explicit-any
   routeName: string
 ) => {
   return createDynamicImport(importFn, `Route_${routeName}`, {
@@ -237,7 +238,7 @@ export const createRouteComponent = (
 
 // Feature-based code splitting
 export const createFeatureComponent = (
-  importFn: () => Promise<{ default: ComponentType<unknown> }>,
+  importFn: () => Promise<{ default: ComponentType<any> }>, // eslint-disable-line @typescript-eslint/no-explicit-any
   featureName: string,
   critical = false
 ) => {
