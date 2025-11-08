@@ -1087,6 +1087,20 @@ git push  # Deploy fix
 
 ## 🔧 Development Workflow
 
+### VS Code Setup (Recommended)
+
+**Complete setup guide:** [docs/development/vscode-setup-complete.md](./docs/development/vscode-setup-complete.md)
+
+We provide:
+
+- ✅ **24+ pre-configured extensions** (ESLint, Prettier, Tailwind, Jest, etc.)
+- ✅ **18 custom code snippets** - Type `mh-` to see all (page templates, components, tests)
+- ✅ **Auto-formatting on save** - Prettier + ESLint + Headwind (Tailwind class sorting)
+- ✅ **Jest Test Explorer** - Run tests directly in sidebar
+- ✅ **Path aliases configured** - `@/` autocomplete works out of the box
+
+**Quick start:** Open workspace → Install recommended extensions → Start coding!
+
 ### Environment Setup
 
 Create `.env.local`:
@@ -1199,6 +1213,7 @@ standards, and references.
 
 **Setup & Deployment:**
 
+- **[VS Code Complete Setup](./docs/development/vscode-setup-complete.md)** - ⭐ **NEW** - Full editor configuration
 - **[Cloudflare Deployment](./docs/deployment/cloudflare-complete-guide.md)** - Complete deployment setup
 - **[Development Guidelines](./docs/development/guidelines/development-guidelines.md)** - Coding workflow
 

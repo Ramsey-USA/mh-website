@@ -23,7 +23,7 @@ interface ConsultationData {
   notes?: string;
 }
 
-export async function POST(request: NextRequest) {
+export function POST(request: NextRequest) {
   return handleFormSubmission<ConsultationData>(request, {
     tableName: "consultations",
     submissionType: "Consultation",
@@ -84,6 +84,6 @@ Submitted: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles
   });
 }
 
-export async function GET() {
+export function GET() {
   return handleFormRetrieval("consultations");
 }

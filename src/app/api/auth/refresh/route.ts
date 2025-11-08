@@ -28,15 +28,15 @@ async function getUserById(userId: string): Promise<JWTUser | null> {
 
   // For development only
   if (userId === "demo-user-id") {
-    return {
+    return Promise.resolve({
       uid: userId,
       email: "demo@mhc-gc.com",
       role: "user",
       name: "Demo User",
-    };
+    });
   }
 
-  return null;
+  return Promise.resolve(null);
 }
 
 async function handleRefresh(request: NextRequest): Promise<NextResponse> {

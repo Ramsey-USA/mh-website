@@ -1,14 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { type ReactNode } from "react";
-
-// Loading fallback component
-const AnimationFallback = ({ children }: { children: ReactNode }) => (
-  <div className="opacity-0 animate-[fadeIn_0.3s_ease-out_forwards]">
-    {children}
-  </div>
-);
 
 // Dynamically load animation components to reduce initial bundle
 export const FadeInWhenVisible = dynamic(

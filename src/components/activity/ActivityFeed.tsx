@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { Button } from "@/components/ui";
 import { useGlobalChatbot } from "@/providers/GlobalChatbotProvider";
 
 // Activity types for the feed

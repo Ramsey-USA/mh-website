@@ -20,10 +20,7 @@ interface LoginRequest {
  * Verify user credentials
  * TODO: Connect to your user database (D1, KV, or external service)
  */
-async function verifyCredentials(
-  email: string,
-  password: string,
-): Promise<JWTUser | null> {
+function verifyCredentials(email: string, password: string): JWTUser | null {
   // IMPORTANT: Replace this with actual database lookup and password verification
   // This is a placeholder for demonstration
 
@@ -71,7 +68,7 @@ async function handleLogin(request: NextRequest): Promise<NextResponse> {
     }
 
     // Verify credentials
-    const user = await verifyCredentials(sanitizedEmail, password);
+    const user = verifyCredentials(sanitizedEmail, password);
 
     if (!user) {
       logger.warn("Failed login attempt", { email: sanitizedEmail });

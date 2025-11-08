@@ -118,7 +118,7 @@ async function handleSendNotification(
   });
 }
 
-async function handleGetUserData(data: UserDataRequest, user: JWTUser | null) {
+function handleGetUserData(data: UserDataRequest, user: JWTUser | null) {
   if (!user) {
     return NextResponse.json(
       { error: "Authentication required" },

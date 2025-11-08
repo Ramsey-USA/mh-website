@@ -66,7 +66,9 @@ Quick reference guides, troubleshooting documentation, and developer resources.
 
 ### Setup & Configuration
 
-- **[vscode-extensions-guide.md](./vscode-extensions-guide.md)** - Recommended VSCode extensions
+- **[vscode-setup-complete.md](./vscode-setup-complete.md)** - ⭐ **NEW (Nov 2025)** - Complete VS Code
+  setup with 24+ extensions, custom snippets, and configuration
+- **[vscode-extensions-guide.md](./vscode-extensions-guide.md)** - Detailed extension explanations and usage
 - **[deployment-setup.md](../deployment/cloudflare-pages-setup.md)** - Cloudflare Pages deployment guide
 
 ### Development Guidelines

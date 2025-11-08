@@ -13,12 +13,11 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
-  HoverScale,
 } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { getCardClassName } from "@/lib/styles/card-variants";
-import { gridPresets, getGridClassName } from "@/lib/styles/layout-variants";
+import { gridPresets } from "@/lib/styles/layout-variants";
 
 // Trade Partner Categories
 const partnerCategories = [
@@ -241,7 +240,9 @@ const partnershipBenefits = [
 ];
 
 export default function TradePartnersPage() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [_selectedCategory, _setSelectedCategory] = useState<string | null>(
+    null,
+  );
 
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">

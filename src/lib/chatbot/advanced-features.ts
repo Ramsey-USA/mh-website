@@ -41,7 +41,7 @@ export class ConversationPersistence {
         JSON.stringify(sessionInfo),
       );
     } catch (_error) {
-      logger.error("Failed to save current session:", error);
+      logger.error("Failed to save current session:", _error);
     }
   }
 
@@ -65,7 +65,7 @@ export class ConversationPersistence {
         }
       }
     } catch (_error) {
-      logger.error("Failed to load current session:", error);
+      logger.error("Failed to load current session:", _error);
     }
     return null;
   }
@@ -74,7 +74,7 @@ export class ConversationPersistence {
     try {
       localStorage.removeItem(STORAGE_KEYS.CURRENT_SESSION);
     } catch (_error) {
-      logger.error("Failed to clear current session:", error);
+      logger.error("Failed to clear current session:", _error);
     }
   }
 
@@ -91,7 +91,7 @@ export class ConversationPersistence {
         JSON.stringify(trimmedHistory),
       );
     } catch (_error) {
-      logger.error("Failed to save conversation history:", error);
+      logger.error("Failed to save conversation history:", _error);
     }
   }
 
@@ -100,7 +100,7 @@ export class ConversationPersistence {
       const saved = localStorage.getItem(STORAGE_KEYS.CONVERSATION_HISTORY);
       return saved ? JSON.parse(saved) : [];
     } catch (_error) {
-      logger.error("Failed to load conversation history:", error);
+      logger.error("Failed to load conversation history:", _error);
       return [];
     }
   }
@@ -198,7 +198,7 @@ export function useConversationHistory() {
       localStorage.removeItem(STORAGE_KEYS.CONVERSATION_HISTORY);
       setHistory([]);
     } catch (_error) {
-      logger.error("Failed to clear history:", error);
+      logger.error("Failed to clear history:", _error);
     }
   }, []);
 
@@ -230,7 +230,7 @@ export class UserPreferences {
         JSON.stringify(preferences),
       );
     } catch (_error) {
-      logger.error("Failed to save user preferences:", error);
+      logger.error("Failed to save user preferences:", _error);
     }
   }
 
@@ -239,7 +239,7 @@ export class UserPreferences {
       const saved = localStorage.getItem(STORAGE_KEYS.USER_PREFERENCES);
       return saved ? JSON.parse(saved) : {};
     } catch (_error) {
-      logger.error("Failed to load user preferences:", error);
+      logger.error("Failed to load user preferences:", _error);
       return {};
     }
   }
@@ -248,7 +248,7 @@ export class UserPreferences {
     try {
       localStorage.removeItem(STORAGE_KEYS.USER_PREFERENCES);
     } catch (_error) {
-      logger.error("Failed to clear user preferences:", error);
+      logger.error("Failed to clear user preferences:", _error);
     }
   }
 }

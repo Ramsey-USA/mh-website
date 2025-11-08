@@ -3,7 +3,6 @@
  * Hero header for the projects page
  */
 
-import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 

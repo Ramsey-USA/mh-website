@@ -175,7 +175,8 @@ We've adopted a **chatbot-first user engagement strategy** to replace static FAQ
 
 **Tools & Utilities:**
 
-- [VS Code Extensions Guide](./development/vscode-extensions-guide.md)
+- [VS Code Complete Setup](./development/vscode-setup-complete.md) - ⭐ **NEW (Nov 2025)** - Full configuration guide
+- [VS Code Extensions Guide](./development/vscode-extensions-guide.md) - Detailed extension documentation
 - [Scripts Guide](../scripts/mh-scripts-guide.md) - Automation scripts and utilities
 - [Testing Guide](../testing/mh-testing-guide.md) - Testing procedures and quality assurance
 - [Troubleshooting](./development/troubleshooting.md)
@@ -320,12 +321,13 @@ We've adopted a **chatbot-first user engagement strategy** to replace static FAQ
 4. **[Development Standards](./development/development-standards.md)** - Coding rules
 5. **[AI Guidelines](./development/ai-development-guidelines.md)** - AI assistant rules
 6. **[Design System](./technical/design-system/design-system.md)** - UI components
-7. **[VS Code Setup](./development/vscode-extensions-guide.md)** - Editor setup
+7. **[VS Code Complete Setup](./development/vscode-setup-complete.md)** - ⭐ **NEW** - Full configuration + custom snippets
 8. **[Refactoring Roadmap](./technical/refactoring-roadmap.md)** - Code improvement initiatives
 
 **Quick Actions:**
 
 - Use utilities: See [Quick Reference](./development/style-utilities-quick-reference.md)
+- Use code snippets: Type `mh-` in any `.tsx` file (see [VS Code Setup](./development/vscode-setup-complete.md))
 - Add new page: Update `src/app/sitemap.ts` + run `npm run seo:audit`
 - Check SEO: `npm run seo:audit`
 - See [SEO Quick Reference](../SEO-QUICK-REFERENCE.md)
@@ -337,6 +339,7 @@ We've adopted a **chatbot-first user engagement strategy** to replace static FAQ
 3. **[Typography](./branding/standards/typography.md)** - Font system
 4. **[Component Standards](./branding/standards/component-standards.md)** - UI specs
 5. **[Design System](./technical/design-system/design-system.md)** - Complete patterns
+6. **[VS Code Setup](./development/vscode-setup-complete.md)** - Editor configuration for design tokens
 
 ### **For Content Writers**
 

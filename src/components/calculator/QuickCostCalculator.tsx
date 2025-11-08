@@ -4,10 +4,7 @@ import { useState, useEffect } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Button } from "@/components/ui";
 import Link from "next/link";
-import {
-  FadeInWhenVisible,
-  HoverScale,
-} from "@/components/animations/FramerMotionComponents";
+import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 
 interface CostEstimate {
   low: number;

@@ -28,7 +28,7 @@ interface JobApplicationData {
   referralSource?: string;
 }
 
-export async function POST(request: NextRequest) {
+export function POST(request: NextRequest) {
   return handleFormSubmission<JobApplicationData>(request, {
     tableName: "job_applications",
     submissionType: "Job Application",
@@ -97,6 +97,6 @@ Submitted: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles
   });
 }
 
-export async function GET() {
+export function GET() {
   return handleFormRetrieval("job_applications");
 }

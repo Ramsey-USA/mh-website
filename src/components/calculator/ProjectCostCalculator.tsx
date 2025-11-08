@@ -143,7 +143,7 @@ export function ProjectCostCalculator({
   showVeteranDiscount = true,
   initialProjectType,
   enableChatbotHandoff = false,
-  onGetDetailedEstimate,
+  onGetDetailedEstimate: _onGetDetailedEstimate,
 }: ProjectCostCalculatorProps) {
   const [projectType, setProjectType] = useState<string>(
     initialProjectType || PROJECT_TYPES[0].id,
@@ -195,21 +195,6 @@ export function ProjectCostCalculator({
       display: `$${Math.round(minCost / 1000)}K - $${Math.round(maxCost / 1000)}K`,
     };
   }, [projectType, scope, quality, timeline, isVeteran]);
-
-  const handleGetDetailedEstimate = () => {
-    const data: CalculatorData = {
-      projectType,
-      scope,
-      quality,
-      timeline,
-      isVeteran,
-      estimatedCost: calculatedCost,
-    };
-
-    if (onGetDetailedEstimate) {
-      onGetDetailedEstimate(data);
-    }
-  };
 
   const handleChatbotHandoff = () => {
     const selectedProject = PROJECT_TYPES.find((p) => p.id === projectType);

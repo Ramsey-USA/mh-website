@@ -4,9 +4,9 @@
 
 // Debug mode - set to false in production
 const DEBUG = false;
-const log = DEBUG ? console.log.bind(console) : () => {};
+const _log = DEBUG ? console.log.bind(console) : () => {};
 
-const CACHE_NAME = "mh-construction-v4.0.0";
+const _CACHE_NAME = "mh-construction-v4.0.0";
 const STATIC_CACHE_NAME = "mh-construction-static-v4.0.0";
 const DYNAMIC_CACHE_NAME = "mh-construction-dynamic-v4.0.0";
 const IMAGE_CACHE_NAME = "mh-construction-images-v4.0.0";
@@ -47,7 +47,7 @@ const STATIC_ASSETS = [
 // API endpoints to cache with different strategies
 const CRITICAL_API_ENDPOINTS = ["/api/estimator", "/api/contact"];
 
-const API_ENDPOINTS = [
+const _API_ENDPOINTS = [
   ...CRITICAL_API_ENDPOINTS,
   "/api/booking",
   "/api/projects",
@@ -66,7 +66,7 @@ const CACHE_STRATEGIES = {
 
 // Skip waiting and claim clients immediately
 self.addEventListener("install", (event) => {
-  console.log("[SW] Installing service worker...");
+  console.info("[SW] Installing service worker...");
 
   event.waitUntil(
     Promise.all([
@@ -74,13 +74,13 @@ self.addEventListener("install", (event) => {
       caches
         .open(STATIC_CACHE_NAME)
         .then((cache) => {
-          console.log("[SW] Precaching critical assets");
+          console.info("[SW] Precaching critical assets");
           return cache.addAll(CRITICAL_ASSETS);
         })
         .then(() => {
           // Then cache remaining static assets
           return caches.open(STATIC_CACHE_NAME).then((cache) => {
-            console.log("[SW] Precaching remaining static assets");
+            console.info("[SW] Precaching remaining static assets");
             return cache.addAll(
               STATIC_ASSETS.filter((asset) => !CRITICAL_ASSETS.includes(asset)),
             );
@@ -93,7 +93,7 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
-  console.log("[SW] Activating service worker...");
+  console.info("[SW] Activating service worker...");
 
   event.waitUntil(
     Promise.all([
@@ -108,7 +108,7 @@ self.addEventListener("activate", (event) => {
               );
             })
             .map((cacheName) => {
-              console.log("[SW] Deleting old cache:", cacheName);
+              console.info("[SW] Deleting old cache:", cacheName);
               return caches.delete(cacheName);
             }),
         );
@@ -123,7 +123,7 @@ self.addEventListener("activate", (event) => {
 
 // Warm up critical API endpoints by making background requests
 async function warmupCriticalEndpoints() {
-  console.log("[SW] Warming up critical API endpoints");
+  console.info("[SW] Warming up critical API endpoints");
 
   for (const endpoint of CRITICAL_API_ENDPOINTS) {
     try {
@@ -131,17 +131,17 @@ async function warmupCriticalEndpoints() {
       if (response.ok) {
         const cache = await caches.open(API_CACHE_NAME);
         await cache.put(endpoint, response.clone());
-        console.log("[SW] Warmed up:", endpoint);
+        console.info("[SW] Warmed up:", endpoint);
       }
-    } catch (error) {
-      console.log("[SW] Could not warm up:", endpoint, error);
+    } catch (_error) {
+      console.info("[SW] Could not warm up:", endpoint);
     }
   }
 }
 
 // Enhanced service worker with background sync support
 self.addEventListener("sync", (event) => {
-  console.log("[SW] Background sync event:", event.tag);
+  console.info("[SW] Background sync event:", event.tag);
 
   if (event.tag === "background-sync") {
     event.waitUntil(handleBackgroundSync());
@@ -150,7 +150,7 @@ self.addEventListener("sync", (event) => {
 
 // Handle background sync
 async function handleBackgroundSync() {
-  console.log("[SW] Performing background sync...");
+  console.info("[SW] Performing background sync...");
 
   try {
     // Notify clients that sync is starting
@@ -192,7 +192,7 @@ async function handleBackgroundSync() {
 
 // Handle push notification events
 self.addEventListener("push", (event) => {
-  console.log("[SW] Push notification received:", event);
+  console.info("[SW] Push notification received:", event);
 
   if (event.data) {
     const data = event.data.json();
@@ -213,7 +213,7 @@ self.addEventListener("push", (event) => {
 
 // Handle notification click events
 self.addEventListener("notificationclick", (event) => {
-  console.log("[SW] Notification clicked:", event);
+  console.info("[SW] Notification clicked:", event);
 
   event.notification.close();
 
@@ -250,7 +250,7 @@ self.addEventListener("notificationclick", (event) => {
 
 // Message handling for communication with clients
 self.addEventListener("message", (event) => {
-  console.log("[SW] Message received:", event.data);
+  console.info("[SW] Message received:", event.data);
 
   if (event.data && event.data.type === "SKIP_WAITING") {
     self.skipWaiting();
@@ -377,8 +377,8 @@ async function handleApiRequest(request) {
           });
         }
       })
-      .catch((error) => {
-        console.log("[SW] Background update failed:", error);
+      .catch((_error) => {
+        console.info("[SW] Background update failed");
       });
 
     if (cachedResponse) {
@@ -403,8 +403,8 @@ async function handleApiRequest(request) {
     }
 
     return networkResponse;
-  } catch (error) {
-    console.log(
+  } catch (_error) {
+    console.info(
       "[SW] Network failed for API request, trying cache:",
       request.url,
     );
@@ -440,8 +440,8 @@ async function handleImageRequest(request) {
     }
 
     return networkResponse;
-  } catch (error) {
-    console.log(
+  } catch (_error) {
+    console.info(
       "[SW] Network failed for image, using cached version:",
       request.url,
     );
@@ -476,8 +476,8 @@ async function handleStaticRequest(request) {
     }
 
     return networkResponse;
-  } catch (error) {
-    console.log(
+  } catch (_error) {
+    console.info(
       "[SW] Network failed for static asset, using cached version:",
       request.url,
     );
@@ -505,8 +505,8 @@ async function handlePageRequest(request) {
     }
 
     return networkResponse;
-  } catch (error) {
-    console.log(
+  } catch (_error) {
+    console.info(
       "[SW] Network failed for page request, trying cache:",
       request.url,
     );
@@ -533,9 +533,9 @@ async function handleExternalRequest(request) {
   try {
     const networkResponse = await fetch(request);
     return networkResponse;
-  } catch (error) {
-    console.log("[SW] External request failed:", request.url);
-    throw error;
+  } catch (_error) {
+    console.info("[SW] External request failed:", request.url);
+    throw _error;
   }
 }
 
@@ -564,7 +564,7 @@ async function handleCloudflareRequest(request) {
           });
       }
 
-      console.log("[SW] Serving Cloudflare asset from cache:", request.url);
+      console.info("[SW] Serving Cloudflare asset from cache:", request.url);
       return cachedResponse;
     }
 
@@ -587,24 +587,24 @@ async function handleCloudflareRequest(request) {
     if (networkResponse.ok) {
       const cache = await caches.open(cacheName);
       cache.put(request, networkResponse.clone());
-      console.log("[SW] Cached Cloudflare asset:", request.url);
+      console.info("[SW] Cached Cloudflare asset:", request.url);
     }
 
     return networkResponse;
-  } catch (error) {
-    console.log("[SW] Cloudflare request failed:", request.url, error);
+  } catch (_error) {
+    console.info("[SW] Cloudflare request failed:", request.url);
 
     // Try to serve from cache as fallback
     const cachedResponse = await caches.match(request);
     if (cachedResponse) {
-      console.log(
+      console.info(
         "[SW] Serving stale Cloudflare asset from cache:",
         request.url,
       );
       return cachedResponse;
     }
 
-    throw error;
+    throw _error;
   }
 }
 
@@ -700,7 +700,7 @@ function createPlaceholderImage() {
 
 // Background sync for form submissions
 self.addEventListener("sync", (event) => {
-  console.log("[SW] Background sync triggered:", event.tag);
+  console.info("[SW] Background sync triggered:", event.tag);
 
   if (event.tag === "contact-form-sync") {
     event.waitUntil(syncContactForms());
@@ -727,14 +727,14 @@ async function syncContactForms() {
 
         if (response.ok) {
           await deletePendingForm(db, "contact-forms", form.id);
-          console.log("[SW] Synced contact form:", form.id);
+          console.info("[SW] Synced contact form:", form.id);
         }
-      } catch (error) {
-        console.log("[SW] Failed to sync contact form:", form.id, error);
+      } catch (_error) {
+        console.info("[SW] Failed to sync contact form:", form.id);
       }
     }
-  } catch (error) {
-    console.log("[SW] Contact form sync failed:", error);
+  } catch (_error) {
+    console.info("[SW] Contact form sync failed");
   }
 }
 
@@ -754,14 +754,14 @@ async function syncBookings() {
 
         if (response.ok) {
           await deletePendingForm(db, "bookings", booking.id);
-          console.log("[SW] Synced booking:", booking.id);
+          console.info("[SW] Synced booking:", booking.id);
         }
-      } catch (error) {
-        console.log("[SW] Failed to sync booking:", booking.id, error);
+      } catch (_error) {
+        console.info("[SW] Failed to sync booking:", booking.id);
       }
     }
-  } catch (error) {
-    console.log("[SW] Booking sync failed:", error);
+  } catch (_error) {
+    console.info("[SW] Booking sync failed");
   }
 }
 
@@ -781,14 +781,14 @@ async function syncTestimonials() {
 
         if (response.ok) {
           await deletePendingForm(db, "testimonials", testimonial.id);
-          console.log("[SW] Synced testimonial:", testimonial.id);
+          console.info("[SW] Synced testimonial:", testimonial.id);
         }
-      } catch (error) {
-        console.log("[SW] Failed to sync testimonial:", testimonial.id, error);
+      } catch (_error) {
+        console.info("[SW] Failed to sync testimonial:", testimonial.id);
       }
     }
-  } catch (error) {
-    console.log("[SW] Testimonial sync failed:", error);
+  } catch (_error) {
+    console.info("[SW] Testimonial sync failed");
   }
 }
 
@@ -852,7 +852,7 @@ function deletePendingForm(db, storeName, id) {
 
 // Push notification handling
 self.addEventListener("push", (event) => {
-  console.log("[SW] Push message received");
+  console.info("[SW] Push message received");
 
   let options = {
     body: "You have a new update from MH Construction",
@@ -883,8 +883,8 @@ self.addEventListener("push", (event) => {
     try {
       const data = event.data.json();
       options = { ...options, ...data };
-    } catch (error) {
-      console.log("[SW] Invalid push data format");
+    } catch (_error) {
+      console.info("[SW] Invalid push data format");
     }
   }
 
@@ -895,7 +895,7 @@ self.addEventListener("push", (event) => {
 
 // Notification click handling
 self.addEventListener("notificationclick", (event) => {
-  console.log("[SW] Notification clicked:", event.notification.tag);
+  console.info("[SW] Notification clicked:", event.notification.tag);
 
   event.notification.close();
 
@@ -941,7 +941,7 @@ async function cleanupExpiredCaches() {
         const response = await cache.match(request);
         if (response && isExpiredResponse(response, cacheName)) {
           await cache.delete(request);
-          console.log("[SW] Cleaned up expired cache entry:", request.url);
+          console.info("[SW] Cleaned up expired cache entry:", request.url);
         }
       }
     }
@@ -958,4 +958,4 @@ function isExpiredResponse(response, cacheName) {
   return isExpired(response, maxAge);
 }
 
-console.log("[SW] Service worker script loaded successfully");
+console.info("[SW] Service worker script loaded successfully");
