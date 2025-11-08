@@ -9,6 +9,7 @@ import {
   type ClientTestimonial,
 } from "@/lib/types/testimonials";
 import { formatDate } from "@/lib/utils/dateUtils";
+import { gridPresets } from "@/lib/styles/layout-variants";
 
 interface TestimonialsWidgetProps {
   title?: string;
@@ -371,7 +372,7 @@ function CardsTestimonialsWidget({
         </div>
 
         {/* Cards Grid */}
-        <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+        <div className={gridPresets.cards3Alt("lg", "mx-auto max-w-7xl")}>
           {testimonials.slice(0, 3).map((testimonial) => (
             <div
               key={testimonial.id}

@@ -9,6 +9,7 @@ import {
   FadeInWhenVisible,
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
+import { gridPresets } from "@/lib/styles/layout-variants";
 
 // Leadership Team Data - Enhanced with comprehensive details
 export const leadershipTeam = [
@@ -89,7 +90,9 @@ export function LeadershipTeam() {
           </div>
         </FadeInWhenVisible>
 
-        <StaggeredFadeIn className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+        <StaggeredFadeIn
+          className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
+        >
           {leadershipTeam.map((member, index) => (
             <div
               key={index}

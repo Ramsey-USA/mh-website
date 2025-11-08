@@ -16,305 +16,20 @@ import {
   StaggeredFadeIn,
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
+import { Section, SectionHeader } from "@/components/ui/layout";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { ChatbotCTASection } from "@/components/chatbot";
 import { TestimonialGrid } from "@/components/testimonials";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
-
-// Available positions
-const openPositions = [
-  {
-    title: "Equipment Operator (Civil)",
-    department: "Field Operations",
-    location: "Tri-Cities Area",
-    type: "Full-time",
-    experience: "3+ years",
-    description:
-      "Operate heavy equipment for civil construction projects including excavators, loaders, dozers, and graders. Safety-focused operation in compliance with all regulations.",
-    requirements: [
-      "3+ years of equipment operation experience",
-      "Valid commercial driver's license (CDL) preferred",
-      "Experience with excavators, loaders, dozers, and graders",
-      "Strong understanding of civil construction practices",
-      "OSHA safety certification",
-      "Ability to read grade stakes and construction plans",
-    ],
-    benefits: [
-      "Competitive hourly rate based on experience",
-      "Equipment maintenance training provided",
-      "Health, dental, and vision insurance",
-      "Safety incentive programs",
-      "Veteran preference for military equipment operators",
-    ],
-  },
-  {
-    title: "Lead Carpenter",
-    department: "Construction",
-    location: "Tri-Cities Area",
-    type: "Full-time",
-    experience: "5+ years",
-    description:
-      "Lead carpentry teams on commercial and residential projects, ensuring quality craftsmanship and project timelines. Mentor junior carpenters and coordinate with project management.",
-    requirements: [
-      "5+ years of professional carpentry experience",
-      "Proven leadership and team management skills",
-      "Expertise in framing, finish work, and trim carpentry",
-      "Ability to read blueprints and technical drawings",
-      "Own professional carpentry tools",
-      "Valid driver's license and reliable transportation",
-    ],
-    benefits: [
-      "Competitive salary with performance bonuses",
-      "Tool allowance and replacement program",
-      "Company vehicle for site travel",
-      "Health insurance package",
-      "Leadership development opportunities",
-    ],
-  },
-  {
-    title: "Shop Manager (Small Engines)",
-    department: "Equipment Management",
-    location: "Pasco, WA",
-    type: "Full-time",
-    experience: "4+ years",
-    description:
-      "Manage equipment shop operations, maintain small engines and power tools, coordinate maintenance schedules, and ensure all equipment is field-ready. Oversee inventory and ordering.",
-    requirements: [
-      "4+ years of small engine repair experience",
-      "Knowledge of 2-stroke and 4-stroke engines",
-      "Experience with power tools, generators, and compressors",
-      "Strong organizational and inventory management skills",
-      "Ability to diagnose and repair equipment efficiently",
-      "Parts ordering and vendor relationship management",
-    ],
-    benefits: [
-      "Competitive salary based on experience",
-      "Climate-controlled shop facility",
-      "Tool and equipment budget",
-      "Health and dental insurance",
-      "Professional certifications supported",
-    ],
-  },
-  {
-    title: "Drywaller/Taper",
-    department: "Construction",
-    location: "Tri-Cities Area",
-    type: "Full-time",
-    experience: "2+ years",
-    description:
-      "Install, finish, and texture drywall for commercial and residential projects. Ensure smooth, professional finishes that meet quality standards and project specifications.",
-    requirements: [
-      "2+ years of drywall installation and finishing experience",
-      "Expertise in taping, mudding, and texturing",
-      "Knowledge of various finish levels and techniques",
-      "Ability to work efficiently on scaffolding and lifts",
-      "Own basic drywall tools",
-      "Attention to detail and quality craftsmanship",
-    ],
-    benefits: [
-      "Competitive hourly rate with overtime opportunities",
-      "Tool replacement program",
-      "Health insurance after probation period",
-      "Material handling equipment provided",
-      "Steady work year-round",
-    ],
-  },
-  {
-    title: "Project Manager",
-    department: "Construction Management",
-    location: "Pasco, WA",
-    type: "Full-time",
-    experience: "3-5 years",
-    description:
-      "Lead construction projects from inception to completion, managing timelines, budgets, and partner relationships. Work WITH project owners to deliver exceptional results.",
-    requirements: [
-      "Bachelor's degree in Construction Management or related field",
-      "3+ years of project management experience",
-      "Strong communication and leadership skills",
-      "Knowledge of construction codes and regulations",
-      "PMP certification preferred",
-    ],
-    benefits: [
-      "Competitive salary with performance bonuses",
-      "Health, dental, and vision insurance",
-      "Retirement plan with company matching",
-      "Professional development opportunities",
-    ],
-  },
-  {
-    title: "Site Supervisor",
-    department: "Field Operations",
-    location: "Tri-Cities Area",
-    type: "Full-time",
-    experience: "5+ years",
-    description:
-      "Oversee daily construction activities, ensure safety compliance, and coordinate with subcontractors. Lead field teams with integrity and excellence.",
-    requirements: [
-      "5+ years of construction supervision experience",
-      "OSHA 30 certification required",
-      "Strong problem-solving abilities",
-      "Experience with commercial construction",
-      "Valid driver's license and reliable transportation",
-    ],
-    benefits: [
-      "Competitive hourly rate with overtime opportunities",
-      "Company vehicle and equipment provided",
-      "Health insurance package",
-      "Safety incentive programs",
-    ],
-  },
-  {
-    title: "Estimator",
-    department: "Pre-Construction",
-    location: "Pasco, WA (Remote flexibility)",
-    type: "Full-time",
-    experience: "2-4 years",
-    description:
-      "Prepare accurate cost estimates for commercial and residential projects using industry software. Partner with clients to understand project scope and deliver competitive bids.",
-    requirements: [
-      "Experience with estimating software (ProEst, PlanSwift, etc.)",
-      "2+ years of construction estimating experience",
-      "Strong analytical and mathematical skills",
-      "Attention to detail and accuracy",
-      "Understanding of construction methods and materials",
-    ],
-    benefits: [
-      "Competitive salary based on experience",
-      "Remote work flexibility",
-      "Professional software and training provided",
-      "Career advancement opportunities",
-    ],
-  },
-  {
-    title: "Administrative Assistant",
-    department: "Office Administration",
-    location: "Pasco, WA",
-    type: "Full-time",
-    experience: "Entry Level Welcome",
-    description:
-      "Support daily operations with scheduling, documentation, and partner communication. Be the welcoming face of our veteran-owned company.",
-    requirements: [
-      "High school diploma or equivalent",
-      "Excellent communication skills",
-      "Proficiency in Microsoft Office Suite",
-      "Strong organizational abilities",
-      "Customer service orientation",
-    ],
-    benefits: [
-      "Competitive starting salary",
-      "Comprehensive training program",
-      "Health and dental insurance",
-      "Growth opportunities within the company",
-    ],
-  },
-];
-
-// Company benefits
-const companyBenefits = [
-  {
-    icon: "health_and_safety",
-    title: "Comprehensive Health Coverage",
-    description:
-      "Medical, dental, and vision insurance with competitive premiums and low deductibles. Supporting your health and your family's well-being.",
-  },
-  {
-    icon: "savings",
-    title: "Retirement Planning",
-    description:
-      "401(k) plan with generous company matching to help secure your financial future. We invest in your long-term success.",
-  },
-  {
-    icon: "school",
-    title: "Professional Development & Continuous Learning",
-    description:
-      "Continuing education, certifications, and training opportunities to advance your career. Regular training on new techniques, safety standards (OSHA 30, VPP Star standards), and technology plus leadership development, structured mentorship programs, cross-training across multiple specialties, and active industry involvement.",
-  },
-  {
-    icon: "work_history",
-    title: "Work-Life Balance",
-    description:
-      "Flexible scheduling and time off policies that respect your personal life and family commitments. We understand construction demands—and believe in supporting your well-being.",
-  },
-  {
-    icon: "local_hospital",
-    title: "Award-Winning Safety First Culture",
-    description:
-      "Industry-leading .6 EMR safety record (40% better than industry average), multiple AGC-WA Top EMR Awards (2019-2021, 2025 Most Improved), OSHA VPP Star designation, and 3+ consecutive years without time-loss injuries. Presidential leadership focused on safety management, organizational standards, proactive hazard identification, regular training, and high-quality equipment. Everyone goes home safe, every single day—no timeline or budget overrides safety.",
-  },
-];
-
-// Veteran-specific benefits (separated for dedicated section)
-const veteranBenefits = [
-  {
-    icon: "military_tech",
-    title: "Veteran Hiring Priority",
-    description:
-      "Active veteran hiring initiative with priority consideration for qualified military veterans. We understand the value of military experience and actively recruit those who served.",
-  },
-  {
-    icon: "handshake",
-    title: "Military Skills Transfer",
-    description:
-      "Structured transition program helping veterans leverage military skills—equipment operation, team coordination, mission planning—directly into construction careers.",
-  },
-  {
-    icon: "school",
-    title: "GI Bill & Training Support",
-    description:
-      "Full support for veterans using GI Bill benefits for apprenticeships and continuing education. We'll work with your VA benefits to maximize your training opportunities.",
-  },
-  {
-    icon: "groups",
-    title: "Veteran Mentorship Program",
-    description:
-      "Connect with veteran leaders in our organization who understand the military-to-civilian transition. Army veteran leadership provides guidance and support.",
-  },
-  {
-    icon: "workspace_premium",
-    title: "Service Recognition",
-    description:
-      "We honor your service with recognition, respect, and understanding of military values—discipline, precision, mission focus, and service above self.",
-  },
-  {
-    icon: "support",
-    title: "Transition Assistance",
-    description:
-      "Comprehensive onboarding specifically designed for veterans, including military-to-construction terminology, civilian workplace culture, and career path planning.",
-  },
-];
-
-// Company culture values
-const cultureValues = [
-  {
-    icon: "handshake",
-    title: "Integrity & Trust",
-    description:
-      "We build relationships based on honesty, transparency, and mutual respect. 'Building for the Owner, NOT the Dollar' means transparent communication, open-book pricing, and collaborative problem-solving define every interaction—from apprentice to owner. 70% of our business comes from referrals and repeat clients.",
-    color: "from-brand-primary to-brand-primary-dark",
-  },
-  {
-    icon: "emoji_people",
-    title: "Team Unity & Military Precision",
-    description:
-      "Veteran-owned since January 2025 under Army veteran leadership. From veterans to civilians, office to field—we're one team with shared values. Military discipline and structured processes meet civilian innovation, combining unwavering attention to detail with creative problem-solving and mission-focused reliability.",
-    color: "from-brand-secondary to-brand-secondary-dark",
-  },
-  {
-    icon: "trending_up",
-    title: "Excellence & Continuous Growth",
-    description:
-      "We pursue continuous improvement in everything we do, personally and professionally. 150+ years combined experience refined through mentorship programs, cross-training across multiple specialties, regular training on new techniques, safety standards, technology, and industry involvement. Your growth is our growth.",
-    color: "from-brand-accent to-brand-accent-dark",
-  },
-  {
-    icon: "favorite",
-    title: "Community Impact & Safety First",
-    description:
-      "Building stronger communities, one project and one relationship at a time. Award-winning safety (.6 EMR—40% better than industry, multiple AGC-WA Top EMR Awards, OSHA VPP Star) ensures everyone goes home safe. Understanding that every project serves the broader community through quality craftsmanship and lasting relationships.",
-    color: "from-brand-primary-light to-brand-primary",
-  },
-];
+import {
+  openPositions,
+  companyBenefits,
+  veteranBenefits,
+  cultureValues,
+} from "@/lib/data/careers";
+import { getCardClassName } from "@/lib/styles/card-variants";
+import { gridPresets } from "@/lib/styles/layout-variants";
 
 export default function CareersPage() {
   const [showApplicationModal, setShowApplicationModal] = useState(false);
@@ -342,17 +57,22 @@ export default function CareersPage() {
               </span>
             </h1>
 
+            {/* ROI Slogan */}
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
+              THE ROI IS THE RELATIONSHIP
+            </p>
+
             {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
               Partnership Culture • Professional Growth • Veteran-Friendly •
               Pacific Northwest
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Award-winning .6 EMR safety. 150+ years combined experience.
-              Veteran-owned company valuing integrity, excellence, and
-              partnership.
+              "Building for the Owner, NOT the Dollar" — Award-winning .6 EMR
+              safety. 150+ years combined experience. Veteran-owned company
+              valuing integrity, excellence, and partnership.
             </p>
           </div>
         </div>
@@ -367,31 +87,19 @@ export default function CareersPage() {
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl">
         {/* Why Work With Us */}
         <section className="mb-20 lg:mb-32">
-          <FadeInWhenVisible>
-            <div className="mb-16 lg:mb-24 text-center scroll-reveal">
-              {/* NO SECTION BADGES - Clean section header */}
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                  Why Join
-                </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
-                  MH Construction
-                </span>
-              </h2>
-              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                Veteran-owned family investing in your success. Award-winning .6
-                EMR safety, 3+ years no time-loss injury. When you succeed, we
-                all succeed.
-              </p>
-            </div>
-          </FadeInWhenVisible>
+          <SectionHeader
+            subtitle="Why Join"
+            title={
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
+                MH Construction
+              </span>
+            }
+            description="Veteran-owned family investing in your success. Award-winning .6 EMR safety, 3+ years no time-loss injury. When you succeed, we all succeed."
+          />
 
-          <StaggeredFadeIn className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+          <StaggeredFadeIn className={gridPresets.cards4("lg")}>
             {cultureValues.map((value, index) => (
-              <Card
-                key={index}
-                className="flex flex-col bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
-              >
+              <Card key={index} className={getCardClassName("default")}>
                 <CardContent className="flex flex-col p-6 h-full text-center">
                   <div
                     className={`flex justify-center items-center bg-gradient-to-r ${value.color} mx-auto mb-4 rounded-full w-16 h-16`}
@@ -416,37 +124,19 @@ export default function CareersPage() {
 
         {/* Benefits & Perks */}
         <section className="mb-20 lg:mb-32">
-          <FadeInWhenVisible>
-            <div className="mb-16 lg:mb-24 text-center scroll-reveal">
-              {/* NO SECTION BADGES - Clean section header */}
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                  Employee Benefits
-                </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
-                  & Perks
-                </span>
-              </h2>
-              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                We believe in taking care of our team members with comprehensive
-                benefits, continuous learning opportunities, and a supportive
-                work environment where everyone goes home safe, every single
-                day. Professional development includes regular training on new
-                techniques, safety standards (OSHA 30, VPP Star), technology,
-                plus cross-training across specialties, structured mentorship
-                programs pairing experienced professionals with emerging
-                leaders, and industry involvement that keeps you at the
-                forefront of construction excellence.
-              </p>
-            </div>
-          </FadeInWhenVisible>
+          <SectionHeader
+            subtitle="Employee Benefits"
+            title={
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
+                & Perks
+              </span>
+            }
+            description="We believe in taking care of our team members with comprehensive benefits, continuous learning opportunities, and a supportive work environment where everyone goes home safe, every single day. Professional development includes regular training on new techniques, safety standards (OSHA 30, VPP Star), technology, plus cross-training across specialties, structured mentorship programs pairing experienced professionals with emerging leaders, and industry involvement that keeps you at the forefront of construction excellence."
+          />
 
-          <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-12">
+          <StaggeredFadeIn className={gridPresets.cards4("md", "mb-12")}>
             {companyBenefits.map((benefit, index) => (
-              <Card
-                key={index}
-                className="flex flex-col bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all"
-              >
+              <Card key={index} className={getCardClassName("static")}>
                 <CardContent className="flex flex-col p-6 h-full">
                   <div className="flex items-center mb-4">
                     <div className="flex justify-center items-center bg-brand-primary mr-4 rounded-full w-12 h-12">
@@ -473,42 +163,34 @@ export default function CareersPage() {
         <section id="veteran-benefits" className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
             <div className="bg-gradient-to-br from-brand-primary/5 via-forest-600/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:via-forest-600/10 dark:to-brand-secondary/10 p-12 lg:p-16 rounded-2xl">
-              <div className="mb-16 lg:mb-24 text-center scroll-reveal">
-                <div className="flex justify-center items-center mb-6">
-                  <MaterialIcon
-                    icon="military_tech"
-                    size="4xl"
-                    className="text-brand-primary dark:text-brand-primary"
-                  />
-                </div>
-                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                    Veteran Benefits
-                  </span>
+              <SectionHeader
+                icon="military_tech"
+                iconClassName="w-16 h-16"
+                subtitle="Veteran Benefits"
+                title={
                   <span className="block text-brand-primary dark:text-brand-primary font-black">
                     & Support Programs
                   </span>
-                </h2>
-                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                  <strong className="text-brand-primary font-semibold">
-                    Veteran-owned since January 2025 under Army veteran
-                    leadership.
-                  </strong>{" "}
-                  We honor your service with dedicated programs, priority
-                  hiring, and a workplace that understands military values—
-                  discipline, precision, mission focus, and service above self.
-                  Join a team where your military experience is not just
-                  recognized but celebrated and leveraged for construction
-                  excellence.
-                </p>
-              </div>
+                }
+                description={
+                  <>
+                    <strong className="text-brand-primary font-semibold">
+                      Veteran-owned since January 2025 under Army veteran
+                      leadership.
+                    </strong>{" "}
+                    We honor your service with dedicated programs, priority
+                    hiring, and a workplace that understands military values—
+                    discipline, precision, mission focus, and service above
+                    self. Join a team where your military experience is not just
+                    recognized but celebrated and leveraged for construction
+                    excellence.
+                  </>
+                }
+              />
 
-              <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-12">
+              <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
                 {veteranBenefits.map((benefit, index) => (
-                  <Card
-                    key={index}
-                    className="flex flex-col bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border-2 border-brand-primary dark:border-brand-primary/50 h-full transition-all hover:-translate-y-1"
-                  >
+                  <Card key={index} className={getCardClassName("primary")}>
                     <CardContent className="flex flex-col p-6 h-full">
                       <div className="flex items-center mb-4">
                         <div className="flex justify-center items-center bg-gradient-to-r from-brand-primary to-forest-600 mr-4 rounded-full w-12 h-12">
@@ -998,30 +680,16 @@ export default function CareersPage() {
 
         {/* Open Positions */}
         <section id="positions" className="mb-20 lg:mb-32">
-          <FadeInWhenVisible>
-            <div className="mb-16 lg:mb-24 text-center scroll-reveal">
-              {/* NO SECTION BADGES - Clean section header */}
-              <div className="flex justify-center items-center mb-6">
-                <MaterialIcon
-                  icon="work"
-                  size="xl"
-                  className="text-brand-primary dark:text-brand-primary"
-                />
-              </div>
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                  Current Career
-                </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
-                  Opportunities
-                </span>
-              </h2>
-              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                Explore our current job opportunities and find the perfect role
-                to advance your career with us.
-              </p>
-            </div>
-          </FadeInWhenVisible>
+          <SectionHeader
+            icon="work"
+            subtitle="Current Career"
+            title={
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
+                Opportunities
+              </span>
+            }
+            description="Explore our current job opportunities and find the perfect role to advance your career with us."
+          />
 
           <StaggeredFadeIn className="space-y-6">
             {openPositions.map((position, index) => (
@@ -1086,7 +754,7 @@ export default function CareersPage() {
                     </div>
                   </div>
 
-                  <div className="gap-8 grid grid-cols-1 lg:grid-cols-2">
+                  <div className={gridPresets.twoColumn("lg")}>
                     <div>
                       <h4 className="mb-3 font-semibold text-gray-900 dark:text-white">
                         Requirements

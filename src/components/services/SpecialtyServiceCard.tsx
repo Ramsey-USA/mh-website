@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { getCardClassName } from "@/lib/styles/card-variants";
 import type { SpecialtyService } from "./servicesData";
 
 interface SpecialtyServiceCardProps {
@@ -29,7 +30,12 @@ export function SpecialtyServiceCard({
           className="absolute inset-0 w-full h-full backface-hidden"
           style={{ backfaceVisibility: "hidden" }}
         >
-          <Card className="flex flex-col bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl h-full shadow-lg hover:shadow-2xl transition-all duration-300 p-6">
+          <Card
+            className={getCardClassName(
+              "static",
+              "rounded-3xl shadow-lg hover:shadow-2xl duration-300 p-6",
+            )}
+          >
             <CardHeader className="flex-shrink-0 pb-4">
               <div className="flex justify-center items-center bg-brand-secondary/10 mb-4 rounded-2xl w-14 h-14 p-2">
                 <MaterialIcon

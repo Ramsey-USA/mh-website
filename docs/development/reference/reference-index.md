@@ -66,6 +66,26 @@ Quick start guide for page layouts, spacing, and structure.
 
 ### Development References
 
+#### **[Slogan Implementation Guide](./slogan-implementation-guide.md)**
+
+Complete guide for implementing MH Construction's dedicated slogan system across the website.
+
+**Use When:** Adding slogans to pages, implementing brand messaging, hero sections
+
+**Topics:** Slogan components, page assignments, tier system, TypeScript constants, testing
+
+---
+
+#### **[Partnership Implementation Guide](./partnership-implementation-guide.md)**
+
+Quick reference for implementing Client Partnerships vs Trade Partnerships correctly in code.
+
+**Use When:** Building partnership-related features, forms, CTAs, or content
+
+**Topics:** Component naming, visual identity, routes, CTAs, form fields, testing patterns
+
+---
+
 #### **[Developer Checklist](./developer-checklist.md)**
 
 Complete development checklist covering code quality, testing, and deployment.
@@ -88,16 +108,17 @@ Solutions for common icon sizing and display issues.
 
 ---
 
-## � Find What You Need
+## 📖 Find What You Need
 
-| Need                     | Quick Reference                                                                                   | Why                   |
-| ------------------------ | ------------------------------------------------------------------------------------------------- | --------------------- |
-| **Brand colors & logos** | [Branding Quick Reference](../../branding/implementation/branding-quick-reference.md)             | Official brand assets |
-| **Icon implementation**  | [Icon System Quick Reference](../../technical/design-system/icons/icon-system-quick-reference.md) | Icon patterns & codes |
-| **Mobile patterns**      | [Mobile Quick Reference](../../technical/design-system/mobile-quick-reference.md)                 | Responsive design     |
-| **Page layouts**         | [Page Layout Quick Start](../../technical/design-system/layout/page-layout-quick-start.md)        | Layout structure      |
-| **Code checklist**       | [Developer Checklist](./developer-checklist.md)                                                   | Quality standards     |
-| **Icon problems**        | [Icon Size Troubleshooting](../../technical/design-system/icons/icon-size-troubleshooting.md)     | Fix icon issues       |
+| Need                           | Quick Reference                                                                                   | Why                          |
+| ------------------------------ | ------------------------------------------------------------------------------------------------- | ---------------------------- |
+| **Partnership implementation** | [Partnership Implementation Guide](./partnership-implementation-guide.md)                         | Client vs Trade distinctions |
+| **Brand colors & logos**       | [Branding Quick Reference](../../branding/implementation/branding-quick-reference.md)             | Official brand assets        |
+| **Icon implementation**        | [Icon System Quick Reference](../../technical/design-system/icons/icon-system-quick-reference.md) | Icon patterns & codes        |
+| **Mobile patterns**            | [Mobile Quick Reference](../../technical/design-system/mobile-quick-reference.md)                 | Responsive design            |
+| **Page layouts**               | [Page Layout Quick Start](../../technical/design-system/layout/page-layout-quick-start.md)        | Layout structure             |
+| **Code checklist**             | [Developer Checklist](./developer-checklist.md)                                                   | Quality standards            |
+| **Icon problems**              | [Icon Size Troubleshooting](../../technical/design-system/icons/icon-size-troubleshooting.md)     | Fix icon issues              |
 
 ---
 
@@ -145,6 +166,10 @@ Solutions for common icon sizing and display issues.
 
 ## 🆘 Common Questions
 
+**Q: How do I implement partnership features correctly?**  
+A: Use [Partnership Implementation Guide](./partnership-implementation-guide.md) to distinguish between
+Client Partnerships (project collaborations) and Trade Partnerships (vendor relationships).
+
 **Q: Which reference should I check first?**  
 A: Start with [Developer Checklist](./developer-checklist.md) for general development, then use specific
 references based on your task.
@@ -185,6 +210,8 @@ For questions about references or documentation:
 
 ---
 
-**Last Updated:** November 6, 2025  
+---
+
+**Last Updated:** November 8, 2025  
 **Status:** ✅ Active  
-**References:** 6 quick references + 1 troubleshooting guide
+**References:** 7 quick references + 1 troubleshooting guide

@@ -19,8 +19,15 @@ developers working on this project.
 ## 🏗️ Project Overview
 
 This is a partnership-driven foundation platform for MH Construction, a veteran-owned company
-serving the Pacific Northwest. The platform emphasizes community partnership, transparent
-communication, and veteran excellence.
+serving the Pacific Northwest. The platform emphasizes collaborative client partnerships, professional
+trade partnerships, and veteran excellence.
+
+**⚠️ CRITICAL PARTNERSHIP DISTINCTION:** The platform serves two distinct partnership audiences:
+
+- **Client Partnerships** 🏠 - Project collaborations with homeowners and businesses (routes: `/services`, `/booking`)
+- **Trade Partnerships** 🏗️ - Business relationships with subcontractors and vendors (routes: `/trade-partners`)
+
+See [Partnership Type Definitions](./docs/partnerships/partnership-type-definitions.md) for complete implementation guidelines.
 
 ### Current Status
 
@@ -535,9 +542,12 @@ All submissions are logged even if email service is unavailable (graceful fallba
 ### Business Contacts
 
 - **General Inquiries**: [(509) 308-6489](tel:+15093086489)
-  - **Client Contact**: [ext. 100](tel:+15093086489,100) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
-  - **Vendor Contact**: [ext. 150](tel:+15093086489,150) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+  - **Client Partnership Inquiries (projects)**: [ext. 100](tel:+15093086489,100) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+  - **Trade Partnership Inquiries (vendors)**: [ext. 150](tel:+15093086489,150) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 - **General Email**: <office@mhc-gc.com>
+
+**Partnership Distinction:** See [Partnership Type Definitions](./docs/partnerships/partnership-type-definitions.md)
+for guidance on client vs trade partnership communications.
 
 ---
 
@@ -545,13 +555,18 @@ All submissions are logged even if email service is unavailable (graceful fallba
 
 Remember that this project represents MH Construction's commitment to:
 
-- **Partnership**: "We Work With You" philosophy
+- **Client Partnerships**: "We Work With You" philosophy for project collaborations
+- **Trade Partnerships**: Professional business relationships with quality vendors and subcontractors
 - **Community**: Serving Pacific Northwest communities
 - **Excellence**: Veteran-owned quality and precision
 - **Transparency**: Open communication and honest practices
 
 Every contribution should reflect these values and support the company's mission of building lasting
 partnerships through exceptional construction services.
+
+**Partnership Implementation:** Always maintain clear distinction between Client Partnerships
+(homeowners/businesses hiring us) and Trade Partnerships (vendors/subcontractors working with us).
+See [Partnership Implementation Guide](./docs/development/reference/partnership-implementation-guide.md).
 
 ---
 

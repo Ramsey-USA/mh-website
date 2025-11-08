@@ -17,6 +17,8 @@ import {
 } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { getCardClassName } from "@/lib/styles/card-variants";
+import { gridPresets, getGridClassName } from "@/lib/styles/layout-variants";
 
 // Trade Partner Categories
 const partnerCategories = [
@@ -258,17 +260,22 @@ export default function TradePartnersPage() {
               </span>
             </h1>
 
+            {/* ROI Slogan */}
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
+              THE ROI IS THE RELATIONSHIP
+            </p>
+
             {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
               Grow Your Business with Veteran-Owned Excellence • Pacific
               Northwest
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Award-winning .6 EMR safety, 150+ years combined experience.
-              Reliable Pacific Northwest opportunities, fair practices,
-              transparent communication.
+              "Building for the Owner, NOT the Dollar" — Award-winning .6 EMR
+              safety, 150+ years combined experience. Reliable Pacific Northwest
+              opportunities, fair practices, transparent communication.
             </p>
           </div>
         </div>
@@ -355,12 +362,9 @@ export default function TradePartnersPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <StaggeredFadeIn className={gridPresets.compactCards("lg")}>
             {partnershipValues.map((value, index) => (
-              <Card
-                key={index}
-                className="flex flex-col bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
-              >
+              <Card key={index} className={getCardClassName("default")}>
                 <CardContent className="flex flex-col p-6 h-full text-center">
                   <div
                     className={`flex justify-center items-center bg-gradient-to-r ${value.color} mx-auto mb-4 rounded-full w-16 h-16`}
@@ -428,7 +432,7 @@ export default function TradePartnersPage() {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <div className="gap-6 grid grid-cols-1 lg:grid-cols-2">
+                    <div className={gridPresets.twoColumn("md")}>
                       {category.partners.map((partner, partnerIndex) => (
                         <div
                           key={partnerIndex}
@@ -495,7 +499,7 @@ export default function TradePartnersPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mb-12">
+          <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
             {partnershipBenefits.map((benefit, index) => (
               <Card
                 key={index}
@@ -544,7 +548,7 @@ export default function TradePartnersPage() {
             </div>
           </FadeInWhenVisible>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className={gridPresets.twoColumn("lg")}>
             <FadeInWhenVisible>
               <Card className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 h-full">
                 <CardHeader>
@@ -645,7 +649,7 @@ export default function TradePartnersPage() {
               </div>
             </FadeInWhenVisible>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className={gridPresets.compactCards("md")}>
               {[
                 {
                   step: "1",

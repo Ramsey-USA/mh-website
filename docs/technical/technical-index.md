@@ -80,6 +80,13 @@ Search engine optimization, accessibility standards, and implementation guides.
 - [**Features Documentation**](./features.md) - Complete feature specifications
 - [**Email System**](./email-system.md) - Email integration and templates
 - [**CSS JS Cohesion**](./css-js-cohesion.md) - CSS and JavaScript integration
+- [**Refactoring Roadmap**](./refactoring-roadmap.md) - ⭐ **NEW** - Code refactoring history and standards
+
+### 🎨 Code Quality & Standards
+
+- [**Style Utilities Guide**](../development/style-utilities-guide.md) - ⭐ **NEW** - Centralized style
+  utilities (cards, grids, sections)
+- [**Development Standards**](../development/development-standards.md) - Coding standards and best practices
 
 ### 🧭 Navigation & Structure
 

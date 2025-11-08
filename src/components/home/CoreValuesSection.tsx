@@ -1,4 +1,5 @@
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { gridPresets } from "@/lib/styles/layout-variants";
 
 const coreValues = [
   {
@@ -117,7 +118,7 @@ export function CoreValuesSection() {
         </div>
 
         {/* Value Cards */}
-        <div className="gap-4 sm:gap-6 lg:gap-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div className={gridPresets.cards3("sm")}>
           {coreValues.map((item, index) => (
             <div
               key={item.value}

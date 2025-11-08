@@ -6,6 +6,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
+import { getCardClassName } from "@/lib/styles/card-variants";
 
 export function PartnershipPhilosophy() {
   return (
@@ -76,7 +77,7 @@ export function PartnershipPhilosophy() {
             </div>
 
             <div className="gap-8 grid sm:grid-cols-1 md:grid-cols-2 mb-12">
-              <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-shadow">
+              <Card className={getCardClassName("static")}>
                 <CardHeader>
                   <MaterialIcon
                     icon="favorite"
@@ -152,7 +153,7 @@ export function PartnershipPhilosophy() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-shadow">
+              <Card className={getCardClassName("static")}>
                 <CardHeader>
                   <MaterialIcon
                     icon="public"

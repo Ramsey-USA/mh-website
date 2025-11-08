@@ -164,13 +164,7 @@ export default function Home() {
       {/* Core Values Section */}
       <CoreValuesSection />
 
-      {/* Showcase of Services Section */}
-      <ServicesShowcase />
-
-      {/* Why Partner With MH Construction Section - MOVED BEFORE TESTIMONIALS FOR TRUST BUILDING */}
-      <WhyPartnerSection />
-
-      {/* Enhanced Client Testimonials */}
+      {/* Enhanced Client Testimonials - MOVED UP for trust-building (Phase 0 optimization) */}
       <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-8 sm:py-12 lg:py-16 testimonials-section">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(189,146,100,0.05)_0%,transparent_50%)] opacity-60"></div>
         <div className="top-20 left-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-40 h-40"></div>
@@ -219,6 +213,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Why Partner With MH Construction Section */}
+      <WhyPartnerSection />
+
+      {/* Showcase of Services Section */}
+      <ServicesShowcase />
 
       {/* Before/After Showcase Section */}
       <section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32">
@@ -451,28 +451,6 @@ export default function Home() {
               </div>
             </div>
           </FadeInWhenVisible>
-        </div>
-      </section>
-
-      {/* Quick Cost Calculator */}
-      <section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <div className="mb-12 text-center">
-            <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                Estimate Your
-              </span>
-              <span className="block text-brand-primary dark:text-brand-primary font-black">
-                Project Cost
-              </span>
-            </h2>
-            <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed">
-              Get an instant ballpark estimate for your construction project in
-              seconds. Adjust the inputs to see how different factors affect
-              your budget.
-            </p>
-          </div>
-          <QuickCostCalculator />
         </div>
       </section>
 

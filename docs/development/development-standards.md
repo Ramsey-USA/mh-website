@@ -233,9 +233,107 @@ be gradually migrated during refactoring.
 **Rule**: Use Tailwind for all styling.
 
 ```tsx
+## 🎨 Styling Standards
+
+### **MANDATORY: Use Centralized Style Utilities**
+
+**Rule**: Use style utilities from `/src/lib/styles/` instead of repeating className strings.
+
+**See**: [Style Utilities Guide](./style-utilities-guide.md) for complete documentation.
+
+#### ✅ CORRECT - Use Style Utilities
+
+```tsx
+import { getCardClassName } from "@/lib/styles/card-variants";
+import { gridPresets } from "@/lib/styles/layout-variants";
+import { Section, SectionHeader } from "@/components/ui/layout";
+
+// Card styling
+<Card className={getCardClassName('default')}>
+  <CardContent>Content here</CardContent>
+</Card>
+
+// Grid layouts
+<div className={gridPresets.cards3("md", "mx-auto max-w-7xl")}>
+  {items.map(item => <Card key={item.id}>{item.content}</Card>)}
+</div>
+
+// Section components
+<Section variant="default" padding="default">
+  <SectionHeader
+    title="Section Title"
+    description="Section description"
+  />
+  {/* content */}
+</Section>
+```
+
+#### ❌ INCORRECT - Don't Repeat className Strings
+
+```tsx
+// DON'T DO THIS - repeated card styling
+<Card className="flex flex-col bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1">
+
+// DON'T DO THIS - repeated grid pattern
+<div className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+
+// DON'T DO THIS - repeated section markup
+<section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
+  <div className="mx-auto px-4 container">
+    <FadeInWhenVisible>
+      <div className="mx-auto mb-16 lg:mb-24 max-w-4xl text-center">
+        <h2>...</h2>
+      </div>
+    </FadeInWhenVisible>
+  </div>
+</section>
+```
+
+### **Available Style Utilities**
+
+1. **Card Variants** (`@/lib/styles/card-variants`)
+   - 5 predefined card styles (default, primary, secondary, accent, static)
+   - Consistent hover states and dark mode support
+   - 70% less code per card instance
+
+2. **Grid Layout Variants** (`@/lib/styles/layout-variants`)
+   - 5 responsive grid presets (cards3, cards4, twoColumn, compactCards, cards3Alt)
+   - Custom grid configuration support
+   - 60% less code per grid instance
+
+3. **Section Components** (`@/components/ui/layout`)
+   - Section wrapper with variants (default, gray, gradient)
+   - SectionHeader with flexible options
+   - 58% less code per section
+
+**Full Documentation**: [Style Utilities Guide](./style-utilities-guide.md)
+
+### **Primary: Tailwind Utility Classes**
+
+**Rule**: Use Tailwind for custom styling not covered by utilities.
+
+```tsx
 <div className="flex items-center gap-4 p-6 bg-white rounded-lg shadow-md">
   <h2 className="text-2xl font-bold text-gray-900">Title</h2>
 </div>
+```
+
+### **Responsive Design**
+
+Use Tailwind's responsive prefixes:
+
+```tsx
+<div className="text-base md:text-lg lg:text-xl">
+  Responsive text size
+</div>
+```
+
+### **Avoid**
+
+- ❌ Inline styles (`style={{}}`) - Use only for dynamic values
+- ❌ CSS Modules - Not used in this project
+- ❌ styled-components - Not used in this project
+- ❌ Repeated className strings - Use style utilities instead
 ```text
 
 ### **Responsive Design**
@@ -426,22 +524,36 @@ Before committing code, ensure:
 - [ ] All imports use `@/` prefix (no relative imports)
 - [ ] Animations import from `FramerMotionComponents`
 - [ ] Critical content is not wrapped in animations
+- [ ] Style utilities used instead of repeated className strings
+  - [ ] Cards use `getCardClassName()` from `@/lib/styles/card-variants`
+  - [ ] Grids use `gridPresets` from `@/lib/styles/layout-variants`
+  - [ ] Sections use `Section` and `SectionHeader` components
 - [ ] `npm run lint` passes with no errors
 - [ ] `npm run type-check` passes
 - [ ] Responsive design tested (mobile, tablet, desktop)
 - [ ] Animations respect `prefers-reduced-motion`
+- [ ] Dark mode tested and working
 
 ---
 
 ## 🔗 Related Documentation
 
+- [Style Utilities Guide](./style-utilities-guide.md) - **NEW** - Centralized style utilities
 - [Consistency Master Plan](../project/consistency-master-plan.md) - Overall consistency strategy
 - [AI Development Guidelines](./ai-development-guidelines.md) - Guidelines for AI assistants
 - [Troubleshooting Guide](./TROUBLESHOOTING.md) - Common issues and solutions
+- [Refactoring Roadmap](../technical/refactoring-roadmap.md) - Refactoring history and standards
 
 ---
 
 ## 📝 Changelog
+
+### 2025-11-08 - v1.1.0
+
+- **ADDED**: Style utilities standards (card variants, grid layouts, sections)
+- **ADDED**: Reference to Style Utilities Guide
+- **UPDATED**: Pre-commit checklist with style utility requirements
+- **UPDATED**: Styling standards section with mandatory utilities
 
 ### 2025-10-14 - v1.0.0
 

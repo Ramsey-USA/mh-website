@@ -4,6 +4,7 @@ import {
   FadeInWhenVisible,
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
+import { gridPresets } from "@/lib/styles/layout-variants";
 
 export const metadata: Metadata = {
   title:
@@ -148,9 +149,17 @@ export default function UrgentSupportPage() {
           Urgent Construction Support
         </h1>
 
+        {/* ROI Slogan - using yellow for urgent page theme */}
+        <p
+          className="text-center mb-4 font-bold text-yellow-300 tracking-wide"
+          style={{ fontSize: "clamp(1rem, 2.5vw, 1.5rem)" }}
+        >
+          THE ROI IS THE RELATIONSHIP
+        </p>
+
         {/* Subtitle */}
         <p
-          className="text-center mb-4 font-semibold text-yellow-300"
+          className="text-center mb-4 font-semibold text-yellow-200"
           style={{ fontSize: "clamp(1.25rem, 3vw, 2rem)" }}
         >
           For General Contractors Facing Critical Challenges
@@ -160,7 +169,8 @@ export default function UrgentSupportPage() {
           className="text-center mb-8 font-medium text-white/90 max-w-4xl mx-auto px-4"
           style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)" }}
         >
-          Expert Consultation • Heavy Equipment & Operators • Experienced Crews
+          "Building for the Owner, NOT the Dollar" — Expert Consultation • Heavy
+          Equipment & Operators • Experienced Crews
         </p>
 
         {/* Emergency Contact CTAs */}
@@ -329,7 +339,7 @@ export default function UrgentSupportPage() {
       {/* What We Provide / Don't Provide */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className={gridPresets.twoColumn("lg")}>
             {/* What We Provide */}
             <FadeInWhenVisible>
               <div className="bg-green-50 dark:bg-green-950/30 p-8 rounded-xl border border-green-200 dark:border-green-800">

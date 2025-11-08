@@ -55,6 +55,10 @@ Visual design standards, typography, colors, icons, and component specifications
 **Note**: For complete icon policy, see
 [Icon Policy Complete](../technical/design-system/icons/icon-policy-complete.md) in the Design System documentation.
 
+**Partnership Terminology**: See [Partnership Type Definitions](../partnerships/partnership-type-definitions.md)
+for clear distinctions between Client Partnerships (project collaborations) and Trade Partnerships
+(vendor/subcontractor relationships).
+
 ### 🔧 [implementation/](./implementation/)
 
 **Audience**: Developers
@@ -118,6 +122,16 @@ to the current documentation structure.
 - **Tagline**: "Building for the Owner, NOT the Dollar"
 - **Focus**: Veteran-owned, partnership-driven construction management
 - **Service Area**: Tri-Cities, WA | Licensed in WA, OR, ID
+
+### Partnership Philosophy
+
+MH Construction emphasizes two distinct partnership types:
+
+- **Client Partnerships**: Collaborative project relationships with homeowners and businesses
+- **Trade Partnerships**: Professional vendor/subcontractor business relationships
+
+See [Partnership Type Definitions](../partnerships/partnership-type-definitions.md) for comprehensive
+guidelines on terminology, messaging, and implementation across all channels.
 
 ### Brand Colors
 

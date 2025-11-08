@@ -14,6 +14,7 @@ import {
   StaggeredFadeIn,
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
+import { Section, SectionHeader } from "@/components/ui/layout";
 import { OptimizedImage } from "@/components/ui/media/OptimizedImage";
 import { AggregateRating } from "@/components/ratings";
 import { getClientTestimonials } from "@/lib/data/testimonials";
@@ -25,6 +26,8 @@ import {
   CompanyStats,
   LeadershipTeam,
 } from "@/components/about";
+import { getCardClassName } from "@/lib/styles/card-variants";
+import { gridPresets } from "@/lib/styles/layout-variants";
 
 export default function AboutPage() {
   return (
@@ -65,8 +68,12 @@ export default function AboutPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-secondary dark:border-brand-secondary/50 transition-all duration-300 h-full">
+          <StaggeredFadeIn
+            className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
+          >
+            <Card
+              className={getCardClassName("secondary", "h-full duration-300")}
+            >
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
                   <MaterialIcon
@@ -90,7 +97,9 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-primary dark:border-brand-primary/50 transition-all duration-300 h-full">
+            <Card
+              className={getCardClassName("primary", "h-full duration-300")}
+            >
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
                   <MaterialIcon
@@ -115,7 +124,7 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-accent dark:border-brand-accent/50 transition-all duration-300 h-full">
+            <Card className={getCardClassName("accent", "h-full duration-300")}>
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
                   <MaterialIcon
@@ -139,7 +148,9 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-primary dark:border-brand-primary/50 transition-all duration-300 h-full">
+            <Card
+              className={getCardClassName("primary", "h-full duration-300")}
+            >
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
                   <MaterialIcon
@@ -163,7 +174,9 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-primary dark:border-brand-primary/50 transition-all duration-300 h-full">
+            <Card
+              className={getCardClassName("primary", "h-full duration-300")}
+            >
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
                   <MaterialIcon
@@ -189,7 +202,9 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-secondary dark:border-brand-secondary/50 transition-all duration-300 h-full">
+            <Card
+              className={getCardClassName("secondary", "h-full duration-300")}
+            >
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
                   <MaterialIcon
@@ -214,7 +229,7 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-accent dark:border-brand-accent/50 transition-all duration-300 h-full">
+            <Card className={getCardClassName("accent", "h-full duration-300")}>
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
                   <MaterialIcon
@@ -238,7 +253,9 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-primary dark:border-brand-primary/50 transition-all duration-300 h-full">
+            <Card
+              className={getCardClassName("primary", "h-full duration-300")}
+            >
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
                   <MaterialIcon
@@ -262,7 +279,7 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-accent dark:border-brand-accent/50 transition-all duration-300 h-full">
+            <Card className={getCardClassName("accent", "h-full duration-300")}>
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
                   <MaterialIcon
@@ -286,7 +303,9 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-secondary dark:border-brand-secondary/50 transition-all duration-300 h-full">
+            <Card
+              className={getCardClassName("secondary", "h-full duration-300")}
+            >
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
                   <MaterialIcon
@@ -435,7 +454,9 @@ export default function AboutPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+          <StaggeredFadeIn
+            className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
+          >
             <Card className="bg-white dark:bg-gray-900 hover:shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 h-full">
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
@@ -585,187 +606,191 @@ export default function AboutPage() {
       <LeadershipTeam />
 
       {/* Why Values Matter Section */}
-      <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
-        <div className="mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                  Why Our Values
-                </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
-                  Matter
-                </span>
-              </h2>
+      <Section variant="default" padding="default">
+        <SectionHeader
+          subtitle="Why Our Values"
+          title={
+            <span className="block text-brand-primary dark:text-brand-primary font-black">
+              Matter
+            </span>
+          }
+          description="Our commitment to integrity, transparency, and excellence drives every project decision and partnership we build. These aren't just words on a wall—they're the foundation of how we do business and the promise we make to every client."
+          maxWidth="4xl"
+        />
 
-              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
-                Our commitment to integrity, transparency, and excellence drives
-                every project decision and partnership we build. These aren't
-                just words on a wall—they're the foundation of how we do
-                business and the promise we make to every client.
-              </p>
-            </div>
-          </FadeInWhenVisible>
+        <StaggeredFadeIn className={gridPresets.cards3("md")}>
+          <Card
+            className={getCardClassName(
+              "default",
+              "border-l-4 border-l-brand-primary hover:-translate-y-2 duration-300 hover:shadow-xl",
+            )}
+          >
+            <CardHeader className="text-center">
+              <MaterialIcon
+                icon="people"
+                className="mb-4 text-brand-primary text-5xl"
+              />
+              <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
+                For Our Partners
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="check_circle"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                  />
+                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                    Predictable, consistent experience you can count on
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="check_circle"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                  />
+                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                    Peace of mind knowing your project is in capable hands
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="check_circle"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                  />
+                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                    Long-term partnership beyond project completion
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="check_circle"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                  />
+                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                    True ROI—the return is the relationship
+                  </span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
-          <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-primary transition-all hover:-translate-y-2 duration-300">
-              <CardHeader className="text-center">
-                <MaterialIcon
-                  icon="people"
-                  className="mb-4 text-brand-primary text-5xl"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
-                  For Our Partners
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                    />
-                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                      Predictable, consistent experience you can count on
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                    />
-                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                      Peace of mind knowing your project is in capable hands
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                    />
-                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                      Long-term partnership beyond project completion
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                    />
-                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                      True ROI—the return is the relationship
-                    </span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+          <Card
+            className={getCardClassName(
+              "default",
+              "border-l-4 border-l-brand-secondary hover:-translate-y-2 duration-300 hover:shadow-xl",
+            )}
+          >
+            <CardHeader className="text-center">
+              <MaterialIcon
+                icon="location_city"
+                className="mb-4 text-brand-secondary text-5xl"
+              />
+              <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
+                For Our Community
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="check_circle"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                  />
+                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                    Economic development supporting local suppliers
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="check_circle"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                  />
+                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                    Raising quality standards in construction industry
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="check_circle"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                  />
+                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                    Veteran support and opportunities for military families
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="check_circle"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                  />
+                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                    Building structures serving communities for generations
+                  </span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-secondary transition-all hover:-translate-y-2 duration-300">
-              <CardHeader className="text-center">
-                <MaterialIcon
-                  icon="location_city"
-                  className="mb-4 text-brand-secondary text-5xl"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
-                  For Our Community
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                    />
-                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                      Economic development supporting local suppliers
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                    />
-                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                      Raising quality standards in construction industry
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                    />
-                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                      Veteran support and opportunities for military families
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                    />
-                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                      Building structures serving communities for generations
-                    </span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-accent transition-all hover:-translate-y-2 duration-300">
-              <CardHeader className="text-center">
-                <MaterialIcon
-                  icon="engineering"
-                  className="mb-4 text-brand-accent text-5xl"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
-                  For Our Team
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                    />
-                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                      Professional pride in meaningful work
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                    />
-                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                      Clear standards and expectations in every interaction
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                    />
-                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                      Personal growth in environment valuing excellence
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                    />
-                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                      Being part of something larger than individual projects
-                    </span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-          </StaggeredFadeIn>
-        </div>
-      </section>
+          <Card
+            className={getCardClassName(
+              "default",
+              "border-l-4 border-l-brand-accent hover:-translate-y-2 duration-300 hover:shadow-xl",
+            )}
+          >
+            <CardHeader className="text-center">
+              <MaterialIcon
+                icon="engineering"
+                className="mb-4 text-brand-accent text-5xl"
+              />
+              <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
+                For Our Team
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="check_circle"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                  />
+                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                    Professional pride in meaningful work
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="check_circle"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                  />
+                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                    Clear standards and expectations in every interaction
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="check_circle"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                  />
+                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                    Personal growth in environment valuing excellence
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="check_circle"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                  />
+                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                    Being part of something larger than individual projects
+                  </span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+        </StaggeredFadeIn>
+      </Section>
 
       {/* Safety & Compliance Section */}
       <section id="safety" className="bg-white dark:bg-gray-900 py-20 lg:py-32">
@@ -791,8 +816,12 @@ export default function AboutPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-primary dark:border-brand-primary/50 transition-all duration-300 h-full">
+          <StaggeredFadeIn
+            className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
+          >
+            <Card
+              className={getCardClassName("primary", "h-full duration-300")}
+            >
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
                   <MaterialIcon
@@ -856,7 +885,9 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-secondary dark:border-brand-secondary/50 transition-all duration-300 h-full">
+            <Card
+              className={getCardClassName("secondary", "h-full duration-300")}
+            >
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
                   <MaterialIcon
@@ -911,7 +942,7 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-brand-accent dark:border-brand-accent/50 transition-all duration-300 h-full">
+            <Card className={getCardClassName("accent", "h-full duration-300")}>
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
                   <MaterialIcon
@@ -1002,7 +1033,7 @@ export default function AboutPage() {
           </FadeInWhenVisible>
 
           {/* Combined grid with best content from both sections - 6 items total */}
-          <div className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+          <div className={gridPresets.cards3("md", "mx-auto max-w-7xl")}>
             {/* Company Milestone */}
             <FadeInWhenVisible>
               <Card className="border-l-4 border-l-brand-primary h-full flex flex-col">

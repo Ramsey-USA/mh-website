@@ -11,6 +11,36 @@ website to ensure consistent messaging and prevent user confusion.
 
 ## 🎯 **Primary Terminology Distinctions**
 
+### **Partnership Types: Client vs Trade**
+
+**CRITICAL FOUNDATION:** MH Construction uses "partnership" terminology in two fundamentally different contexts.
+Understanding this distinction is essential for all content creation and development.
+
+For comprehensive definitions, implementation guidelines, and examples, see:
+**[Partnership Type Definitions](../partnerships/partnership-type-definitions.md)**
+
+#### **Quick Overview**
+
+**Client Partnerships:**
+
+- **Who**: Homeowners, businesses hiring MH for projects
+- **What**: Project collaboration relationships
+- **Pages**: `/services`, `/booking`
+- **CTAs**: "Get Free Estimate", "Schedule Consultation"
+- **Icon**: `handshake` (collaborative partnership)
+- **Color**: Hunter Green (#386851)
+
+**Trade Partnerships:**
+
+- **Who**: Subcontractors, suppliers, vendors working with MH
+- **What**: B2B vendor/subcontractor relationships
+- **Pages**: `/trade-partners`
+- **CTAs**: "Apply to be Approved Vendor", "Join Trade Network"
+- **Icon**: `construction`, `business` (professional trades)
+- **Color**: Leather Tan (#BD9264)
+
+---
+
 ### **"Our Team" vs "Trade Partners"**
 
 **CRITICAL RULE:** These terms are NOT interchangeable and refer to completely different groups of people.
@@ -50,12 +80,23 @@ website to ensure consistent messaging and prevent user confusion.
 - **Definition:** The collaborative team formed between client + MH Construction
 - **Usage:** When describing the combined effort of client and MH working together
 - **Context:** Client-facing communications about collaboration
+- **Type:** Refers to CLIENT PARTNERSHIPS (project collaborations)
 
 #### **"Partnership-Focused Team"**
 
 - **Definition:** How we describe our internal team's approach to client relationships
 - **Usage:** Marketing and service descriptions
 - **Context:** Emphasizing our collaborative approach with clients
+- **Type:** Refers to CLIENT PARTNERSHIPS (project collaborations)
+
+#### **"Trade Partnership Network"**
+
+- **Definition:** The collective group of vendors, subcontractors, and suppliers
+- **Usage:** When describing our network of business partners
+- **Context:** Vendor recruitment and business development
+- **Type:** Refers to TRADE PARTNERSHIPS (vendor/subcontractor relationships)
+
+**See [Partnership Type Definitions](../partnerships/partnership-type-definitions.md) for complete guidelines.**
 
 ---
 

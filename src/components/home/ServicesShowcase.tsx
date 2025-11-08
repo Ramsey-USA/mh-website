@@ -1,5 +1,6 @@
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
+import { gridPresets } from "@/lib/styles/layout-variants";
 
 const services = [
   {
@@ -85,7 +86,7 @@ export function ServicesShowcase() {
         </FadeInWhenVisible>
 
         {/* Service Cards Grid */}
-        <FadeInWhenVisible className="gap-4 sm:gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <FadeInWhenVisible className={gridPresets.cards3("sm")}>
           {services.map((service, index) => (
             <div
               key={index}

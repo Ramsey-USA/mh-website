@@ -30,14 +30,16 @@ export function ProjectsCTASection() {
 
             {/* CTA Buttons */}
             <div className="flex sm:flex-row flex-col justify-center gap-6 mb-10">
-              <Link href="/contact">
+              <Link href="/booking">
                 <Button
                   variant="primary"
                   size="lg"
                   className="transition-all duration-300 border-2 border-white bg-white text-brand-primary hover:bg-brand-primary hover:text-white hover:border-white min-w-[280px]"
                 >
-                  <MaterialIcon icon="phone" size="lg" className="mr-3" />
-                  <span className="font-medium">Start Partnership</span>
+                  <MaterialIcon icon="event" size="lg" className="mr-3" />
+                  <span className="font-medium">
+                    Schedule Free Consultation
+                  </span>
                 </Button>
               </Link>
               <Link href="/services">
@@ -47,7 +49,7 @@ export function ProjectsCTASection() {
                   className="transition-all duration-300 border-2 border-white bg-transparent text-white hover:bg-white hover:text-brand-primary hover:border-white min-w-[280px]"
                 >
                   <MaterialIcon icon="build" size="lg" className="mr-3" />
-                  <span className="font-medium">View Services</span>
+                  <span className="font-medium">Explore Our Solutions</span>
                 </Button>
               </Link>
             </div>

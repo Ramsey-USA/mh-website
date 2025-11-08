@@ -8,6 +8,7 @@ import {
   FadeInWhenVisible,
 } from "@/components/animations/FramerMotionComponents";
 import { whyChooseUs } from "./servicesData";
+import { gridPresets } from "@/lib/styles/layout-variants";
 
 export function WhyChooseUs() {
   return (
@@ -31,7 +32,9 @@ export function WhyChooseUs() {
           </div>
         </FadeInWhenVisible>
 
-        <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto max-w-7xl">
+        <StaggeredFadeIn
+          className={gridPresets.cards4("md", "mx-auto max-w-7xl")}
+        >
           {whyChooseUs.map((reason, index) => {
             const cardContent = (
               <Card className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1">

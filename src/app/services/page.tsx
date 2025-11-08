@@ -7,6 +7,7 @@ import {
   FadeInWhenVisible,
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
+import { Section, SectionHeader } from "@/components/ui/layout";
 import {
   ServicesHero,
   ServiceCard,
@@ -22,6 +23,7 @@ import { getClientTestimonials } from "@/lib/data/testimonials";
 import { ChatbotCTASection } from "@/components/chatbot";
 import { QuickCostCalculator } from "@/components/calculator";
 import { InteractiveTimeline } from "@/components/timeline";
+import { gridPresets } from "@/lib/styles/layout-variants";
 
 export default function ServicesPage() {
   return (
@@ -31,19 +33,16 @@ export default function ServicesPage() {
         <ServicesHero />
 
         {/* Construction Expertise Section */}
-        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
-          <div className="mx-auto px-4 container">
-            <FadeInWhenVisible>
-              <div className="mx-auto mb-16 lg:mb-24 max-w-4xl text-center">
-                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                    Partnership-Focused
-                  </span>
-                  <span className="block text-brand-primary dark:text-brand-primary font-black">
-                    Construction Management
-                  </span>
-                </h2>
-
+        <Section variant="default" padding="default">
+          <SectionHeader
+            subtitle="Partnership-Focused"
+            title={
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
+                Construction Management
+              </span>
+            }
+            description={
+              <>
                 <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
                   Planning a new commercial building demands intricate details
                   and expert partnership oversight. Work WITH us through
@@ -81,78 +80,62 @@ export default function ServicesPage() {
                       className="transition-all duration-300 min-w-[280px]"
                     >
                       <MaterialIcon icon="event" size="lg" className="mr-3" />
-                      <span className="font-medium">Schedule Consultation</span>
+                      <span className="font-medium">
+                        Schedule Free Consultation
+                      </span>
                     </Button>
                   </Link>
                 </div>
-              </div>
-            </FadeInWhenVisible>
-          </div>
-        </section>
+              </>
+            }
+          />
+        </Section>
 
         {/* Core Services Section */}
-        <section
-          id="core-services"
-          className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32"
-        >
-          <div className="mx-auto px-4 container">
-            <FadeInWhenVisible>
-              <div className="mb-16 lg:mb-24 text-center scroll-reveal">
-                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                    Core Partnership
-                  </span>
-                  <span className="block text-brand-primary dark:text-brand-primary font-black">
-                    Services
-                  </span>
-                </h2>
-                <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
-                  Comprehensive partnership-focused management services designed
-                  to bring your vision to life through collaboration and
-                  military precision
-                </p>
-              </div>
-            </FadeInWhenVisible>
+        <Section id="core-services" variant="gray" padding="default">
+          <SectionHeader
+            subtitle="Core Partnership"
+            title={
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
+                Services
+              </span>
+            }
+            description="Comprehensive partnership-focused management services designed to bring your vision to life through collaboration and military precision"
+          />
 
-            <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
-              {coreServices.map((service, index) => (
-                <ServiceCard key={index} service={service} index={index} />
-              ))}
-            </StaggeredFadeIn>
-          </div>
-        </section>
+          <StaggeredFadeIn
+            className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
+          >
+            {coreServices.map((service, index) => (
+              <ServiceCard key={index} service={service} index={index} />
+            ))}
+          </StaggeredFadeIn>
+        </Section>
 
         {/* Specialty Services Section */}
-        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
-          <div className="mx-auto px-4 container">
-            <FadeInWhenVisible>
-              <div className="mb-16 lg:mb-24 text-center scroll-reveal">
-                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                    Specialized Partnership
-                  </span>
-                  <span className="block text-brand-primary dark:text-brand-primary font-black">
-                    Solutions
-                  </span>
-                </h2>
-                <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
-                  Diverse collaborative construction expertise across the
-                  Tri-Cities and Pacific Northwest region
-                </p>
-              </div>
-            </FadeInWhenVisible>
+        <Section variant="default" padding="default">
+          <SectionHeader
+            subtitle="Specialized Partnership"
+            title={
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
+                Solutions
+              </span>
+            }
+            description="Diverse collaborative construction expertise across the Tri-Cities and Pacific Northwest region"
+          />
 
-            <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
-              {specialtyServices.map((service, index) => (
-                <SpecialtyServiceCard
-                  key={index}
-                  service={service}
-                  index={index}
-                />
-              ))}
-            </StaggeredFadeIn>
-          </div>
-        </section>
+          <StaggeredFadeIn
+            className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
+          >
+            {specialtyServices.map((service, index) => (
+              <SpecialtyServiceCard
+                key={index}
+                service={service}
+                index={index}
+              />
+            ))}
+          </StaggeredFadeIn>
+        </Section>
 
         {/* Service Areas Section */}
         <section className="bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark to-brand-accent dark:to-gray-800 py-20 lg:py-32 text-white">
@@ -168,7 +151,9 @@ export default function ServicesPage() {
               </div>
             </FadeInWhenVisible>
 
-            <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 md:grid-cols-2 mx-auto max-w-4xl">
+            <StaggeredFadeIn
+              className={gridPresets.twoColumn("md", "mx-auto max-w-4xl")}
+            >
               {serviceAreas.map((area, index) => (
                 <Card
                   key={index}
@@ -528,7 +513,7 @@ export default function ServicesPage() {
                       >
                         <MaterialIcon icon="event" size="lg" className="mr-3" />
                         <span className="font-medium">
-                          Schedule Consultation
+                          Schedule Free Consultation
                         </span>
                       </Button>
                     </Link>
@@ -543,7 +528,7 @@ export default function ServicesPage() {
                           size="lg"
                           className="mr-3"
                         />
-                        <span className="font-medium">Get Quick Estimate</span>
+                        <span className="font-medium">Get Expert Estimate</span>
                       </Button>
                     </Link>
                   </div>
@@ -587,7 +572,7 @@ export default function ServicesPage() {
                   />
                 </div>
                 <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
-                  Request Estimate
+                  Get Expert Estimate
                 </h3>
                 <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
                   Get a detailed, transparent estimate with line-item pricing
@@ -595,12 +580,8 @@ export default function ServicesPage() {
                 </p>
                 <Link href="/estimator">
                   <Button variant="primary" size="lg" className="w-full">
-                    <MaterialIcon
-                      icon="description"
-                      size="md"
-                      className="mr-2"
-                    />
-                    Get Estimate
+                    <MaterialIcon icon="calculate" size="md" className="mr-2" />
+                    Get Expert Estimate
                   </Button>
                 </Link>
               </div>
@@ -611,7 +592,7 @@ export default function ServicesPage() {
                   <MaterialIcon icon="event" size="xl" className="text-white" />
                 </div>
                 <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
-                  Schedule Consultation
+                  Schedule Free Consultation
                 </h3>
                 <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
                   Book a free consultation to discuss your project scope,
@@ -624,7 +605,7 @@ export default function ServicesPage() {
                       size="md"
                       className="mr-2"
                     />
-                    Book Now
+                    Schedule Free Consultation
                   </Button>
                 </Link>
               </div>

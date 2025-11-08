@@ -19,8 +19,13 @@ export function AboutHero() {
             </span>
           </h1>
 
+          {/* ROI Slogan - Prominent relationship messaging */}
+          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
+            THE ROI IS THE RELATIONSHIP
+          </p>
+
           {/* Subtitle */}
-          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
             "Building for the Owner, NOT the Dollar"
           </p>
 

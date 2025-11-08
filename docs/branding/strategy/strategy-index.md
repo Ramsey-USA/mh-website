@@ -40,6 +40,14 @@ These documents define WHO MH Construction is and HOW we communicate our brand.
 - Messaging frameworks and templates
 - Communication principles
 
+**[slogan-rotation-guide.md](./slogan-rotation-guide.md)** ⭐ **NEW** - Complete slogan library and rotation strategy
+
+- 17 slogans across 5 strategic tiers
+- Page-by-page rotation assignments
+- Usage guidelines by context (email, social, print, ads)
+- Slogan pairing recommendations
+- Implementation checklist for teams
+
 ### Content Standards
 
 **[content-messaging-standards.md](./content-messaging-standards.md)** - Content writing standards
@@ -53,11 +61,22 @@ These documents define WHO MH Construction is and HOW we communicate our brand.
 
 ## 🎯 Quick Reference
 
-### Key Taglines
+### Key Taglines & Slogans
+
+**Tier 1 - Foundation Slogans:**
 
 - Primary: "Building for the Owner, NOT the Dollar"
-- Secondary: "Construction Excellence Built on Partnership"
-- Company: "MH Construction & General Contracting"
+- Philosophy: "THE ROI IS THE RELATIONSHIP"
+- CTA: "Let's Build More than Just Structures"
+
+**Popular Rotation Slogans:**
+
+- "Where Precision Meets Partnership"
+- "Your Vision, Our Precision"
+- "Trust Built, Project by Project"
+- "Excellence in Every Detail"
+
+**Complete Library:** See [Slogan Rotation Guide](./slogan-rotation-guide.md) for 17 slogans with usage guidelines.
 
 ### Brand Colors
 

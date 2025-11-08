@@ -8,6 +8,7 @@ import {
 } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { gridPresets } from "@/lib/styles/layout-variants";
 
 // Quick contact info with proper accessibility
 const quickContact = [
@@ -168,17 +169,22 @@ export default function ContactPageClient() {
                 </span>
               </h1>
 
+              {/* ROI Slogan - Prominent relationship messaging */}
+              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
+                THE ROI IS THE RELATIONSHIP
+              </p>
+
               {/* Subtitle */}
-              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
                 Your Partnership Team is Ready to Connect • Pacific Northwest
               </p>
 
               {/* Description */}
               <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-                "THE ROI IS THE RELATIONSHIP" — Reach out for transparent
-                communication and collaborative problem-solving from your
-                veteran-owned construction partner. Monday - Friday: 8:00 AM -
-                5:00 PM PST
+                Reach out for transparent communication and collaborative
+                problem-solving from your veteran-owned construction partner.
+                "Building for the Owner, NOT the Dollar" — Monday - Friday: 8:00
+                AM - 5:00 PM PST
               </p>
             </div>
           </div>
@@ -302,7 +308,7 @@ export default function ContactPageClient() {
               </div>
 
               {/* Two-Column Grid for Pathways */}
-              <div className="gap-8 lg:gap-12 grid grid-cols-1 lg:grid-cols-2">
+              <div className={gridPresets.twoColumn("xl")}>
                 {/* Client Services Pathway */}
                 <div className="bg-white dark:bg-gray-900 border-4 border-brand-primary p-8 lg:p-10 rounded-3xl shadow-2xl hover:shadow-brand-primary/20 transition-all duration-300">
                   <div className="flex items-center gap-4 mb-6">
@@ -610,7 +616,9 @@ export default function ContactPageClient() {
               </div>
 
               {/* CTA Grid - Following MH Standards for 6 cards */}
-              <StaggeredFadeIn className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 max-w-6xl mx-auto">
+              <StaggeredFadeIn
+                className={gridPresets.cards3("md", "max-w-6xl mx-auto")}
+              >
                 {mainCTAs.map((cta, index) => (
                   <Link
                     key={index}

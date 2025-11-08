@@ -15,12 +15,17 @@ export function ServicesHero() {
           {/* Main Title */}
           <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
             <span className="block text-brand-secondary font-black drop-shadow-lg">
-              Construction Excellence
+              Partnership-Focused Construction Management
             </span>
           </h1>
 
+          {/* ROI Slogan - Prominent relationship messaging */}
+          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
+            THE ROI IS THE RELATIONSHIP
+          </p>
+
           {/* Subtitle */}
-          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
             "Building for the Owner, NOT the Dollar"
           </p>
 

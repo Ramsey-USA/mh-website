@@ -17,6 +17,7 @@ import {
 } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { gridPresets } from "@/lib/styles/layout-variants";
 
 // Federal contracting services
 const grantSupportServices = [
@@ -291,16 +292,22 @@ export default function GovernmentGrantsPage() {
               </span>
             </h1>
 
+            {/* ROI Slogan - Grayscale styling for government page */}
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-snug px-2 font-bold tracking-wide">
+              THE ROI IS THE RELATIONSHIP
+            </p>
+
             {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
               Army Veteran Leadership • Federal Compliance • Mission Execution
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Army veteran leadership, 150+ years combined experience.
-              Award-winning .6 EMR safety. Federal compliance, DOE & Hanford
-              expertise. Licensed WA, OR, ID.
+              "Building for the Owner, NOT the Dollar" — Army veteran
+              leadership, 150+ years combined experience. Award-winning .6 EMR
+              safety. Federal compliance, DOE & Hanford expertise. Licensed WA,
+              OR, ID.
             </p>
           </div>
         </div>
@@ -376,7 +383,9 @@ export default function GovernmentGrantsPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+          <StaggeredFadeIn
+            className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
+          >
             {grantSupportServices.map((service, index) => (
               <Card
                 key={index}
@@ -451,7 +460,7 @@ export default function GovernmentGrantsPage() {
                 </p>
               </div>
 
-              <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-12">
+              <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
                 {hanfordCapabilities.map((capability, index) => (
                   <Card
                     key={index}
@@ -542,7 +551,9 @@ export default function GovernmentGrantsPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+          <StaggeredFadeIn
+            className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
+          >
             {grantTypes.map((type, index) => (
               <HoverScale key={index}>
                 <div
@@ -679,7 +690,9 @@ export default function GovernmentGrantsPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
+          <StaggeredFadeIn
+            className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
+          >
             {governmentProjects.map((project, index) => (
               <Card
                 key={index}

@@ -14,25 +14,30 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
         <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-          {/* Main Title */}
+          {/* Main Title - Relationship-focused */}
           <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
             <span className="block text-brand-secondary font-black drop-shadow-lg">
-              Commercial Construction Excellence
+              Building Partnerships, Not Just Projects
             </span>
           </h1>
 
+          {/* ROI Slogan - Prominent Brand Message */}
+          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
+            THE ROI IS THE RELATIONSHIP
+          </p>
+
           {/* Subtitle */}
-          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
+          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
             Your trusted construction partner in Pasco, Kennewick, and Richland.
             We build commercial, medical, religious, and industrial projects
             with integrity & precision.
           </p>
 
-          {/* Description */}
+          {/* Description with Primary Slogan */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            Veteran-owned, 150+ years combined experience. Licensed WA, OR, ID.
-            Award-winning .6 EMR safety. Military precision meets cutting-edge
-            technology.
+            "Building for the Owner, NOT the Dollar" — Veteran-owned, 150+ years
+            combined experience. Licensed WA, OR, ID. Award-winning .6 EMR
+            safety. Military precision meets genuine partnership.
           </p>
         </div>
       </div>

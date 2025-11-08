@@ -7,6 +7,7 @@ import {
   FadeInWhenVisible,
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
+import { gridPresets } from "@/lib/styles/layout-variants";
 
 /**
  * Simplified Project Type Cards
@@ -109,7 +110,7 @@ export function SimpleProjectCards({
       </FadeInWhenVisible>
 
       {/* Cards Grid */}
-      <StaggeredFadeIn className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <StaggeredFadeIn className={gridPresets.cards3Alt("md")}>
         {displayCards.map((project, index) => (
           <Link key={index} href={project.href}>
             <Card

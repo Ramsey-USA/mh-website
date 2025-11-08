@@ -11,6 +11,7 @@ import {
 } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { getAIEstimatorSEO } from "@/lib/seo/page-seo-utils";
+import { gridPresets } from "@/lib/styles/layout-variants";
 // Dynamically import heavy components
 const EstimatorForm = dynamic(
   () =>
@@ -331,7 +332,7 @@ export default function EstimatorPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-12">
+          <StaggeredFadeIn className={gridPresets.cards3("lg", "mb-12")}>
             <HoverScale>
               <Card className="text-center h-full">
                 <CardContent className="p-6">

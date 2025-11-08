@@ -18,6 +18,7 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { TestimonialGrid } from "@/components/testimonials";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
 import "../../styles/vintage-baseball-card.css";
+import { gridPresets, getGridClassName } from "@/lib/styles/layout-variants";
 
 // Group team members by department
 function groupByDepartment(members: VintageTeamMember[]) {
@@ -62,9 +63,14 @@ export default function TeamPage() {
               </span>
             </h1>
 
+            {/* ROI Slogan - Prominent relationship messaging */}
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
+              THE ROI IS THE RELATIONSHIP
+            </p>
+
             {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-              "THE ROI IS THE RELATIONSHIP"
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
+              "Building for the Owner, NOT the Dollar"
             </p>
 
             {/* Leadership Statement */}
@@ -126,7 +132,14 @@ export default function TeamPage() {
                     </div>
 
                     {/* Vintage cards grid */}
-                    <div className="justify-items-center gap-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    <div
+                      className={getGridClassName(
+                        { base: 1, md: 2, lg: 3, xl: 4 },
+                        "xl",
+                        false,
+                        "justify-items-center",
+                      )}
+                    >
                       {members.map((member, index) => (
                         <div
                           key={`${department}-${member.cardNumber || index}`}
@@ -251,7 +264,7 @@ export default function TeamPage() {
                       Culture Special
                     </span>
                   </h3>
-                  <div className="gap-8 grid grid-cols-1 md:grid-cols-2">
+                  <div className={gridPresets.twoColumn("lg")}>
                     <div className="space-y-6">
                       <div className="flex items-start space-x-4">
                         <div className="flex flex-shrink-0 justify-center items-center bg-brand-primary rounded-full w-8 h-8">
@@ -422,7 +435,7 @@ export default function TeamPage() {
                   </p>
                 </div>
 
-                <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-12">
+                <div className={gridPresets.cards3Alt("lg", "mb-12")}>
                   {/* Continuous Training */}
                   <FadeInWhenVisible>
                     <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">

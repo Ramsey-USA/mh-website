@@ -13,6 +13,7 @@ import {
 } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { OptimizedImage } from "@/components/ui/media/OptimizedImage";
+import { getCardClassName } from "@/lib/styles/card-variants";
 import type { ProjectPortfolio } from "@/lib/types";
 
 interface ProjectCardProps {
@@ -21,7 +22,12 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 overflow-hidden transition-all hover:-translate-y-1">
+    <Card
+      className={getCardClassName(
+        "default",
+        "overflow-hidden hover:-translate-y-1 hover:shadow-xl",
+      )}
+    >
       {/* Project Image */}
       <div className="relative bg-gray-200 dark:bg-gray-700 h-64">
         {project.images[0] ? (
