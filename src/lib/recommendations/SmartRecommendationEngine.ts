@@ -13,6 +13,7 @@ import ABTestingFramework, {
   type VariantConfiguration,
   type ExperimentEvent,
   type UserAssignment,
+  type Experiment,
 } from "./ABTestingFramework";
 
 // Core interfaces for the recommendation system
@@ -144,7 +145,8 @@ type ProfileAnalysis = {
 };
 
 export class SmartRecommendationEngine {
-  private _aiEngine: MilitaryConstructionAI;
+  // Reserved for future AI integration - currently unused
+  // private aiEngine: MilitaryConstructionAI;
   private userProfiles: Map<string, UserProfile>;
   private recommendationHistory: Map<string, ProjectRecommendation[]>;
   private feedbackHistory: RecommendationFeedback[];
@@ -152,7 +154,9 @@ export class SmartRecommendationEngine {
   private abTestingFramework: ABTestingFramework;
 
   constructor(aiEngine?: MilitaryConstructionAI, enableABTesting = true) {
-    this._aiEngine = aiEngine || ({} as MilitaryConstructionAI); // Will be injected later
+    // this.aiEngine = aiEngine || ({} as MilitaryConstructionAI); // Reserved for future use
+    // Suppress unused parameter warning
+    void aiEngine;
     this.userProfiles = new Map();
     this.recommendationHistory = new Map();
     this.feedbackHistory = [];
@@ -164,16 +168,18 @@ export class SmartRecommendationEngine {
    * Set the AI engine (used to break circular dependency)
    */
   setAIEngine(aiEngine: MilitaryConstructionAI): void {
-    this._aiEngine = aiEngine;
+    // this.aiEngine = aiEngine; // Reserved for future use
+    // Suppress unused parameter warning
+    void aiEngine;
   }
 
   /**
    * Generate personalized project recommendations for a user
    */
-  async generateRecommendations(
+  generateRecommendations(
     userProfile: UserProfile,
     context?: RecommendationContext,
-  ): Promise<ProjectRecommendation[]> {
+  ): ProjectRecommendation[] {
     try {
       // Get or assign user to experiment
       const experimentAssignment =
@@ -334,8 +340,8 @@ export class SmartRecommendationEngine {
    * Generate residential project recommendations
    */
   private generateResidentialRecommendations(
-    analysis: unknown,
-    algorithmType = "standard",
+    _analysis: unknown,
+    _algorithmType = "standard",
   ): ProjectRecommendation[] {
     const recommendations: ProjectRecommendation[] = [];
 
@@ -396,8 +402,8 @@ export class SmartRecommendationEngine {
    * Generate commercial project recommendations
    */
   private generateCommercialRecommendations(
-    analysis: unknown,
-    algorithmType = "standard",
+    _analysis: unknown,
+    _algorithmType = "standard",
   ): ProjectRecommendation[] {
     const recommendations: ProjectRecommendation[] = [];
 
@@ -433,8 +439,8 @@ export class SmartRecommendationEngine {
    * Generate renovation project recommendations
    */
   private generateRenovationRecommendations(
-    analysis: unknown,
-    algorithmType = "standard",
+    _analysis: unknown,
+    _algorithmType = "standard",
   ): ProjectRecommendation[] {
     const recommendations: ProjectRecommendation[] = [];
 
@@ -470,8 +476,8 @@ export class SmartRecommendationEngine {
    * Generate addition project recommendations
    */
   private generateAdditionRecommendations(
-    analysis: unknown,
-    algorithmType = "standard",
+    _analysis: unknown,
+    _algorithmType = "standard",
   ): ProjectRecommendation[] {
     const recommendations: ProjectRecommendation[] = [];
 
@@ -509,7 +515,7 @@ export class SmartRecommendationEngine {
   private enhanceForVeterans(
     recommendations: ProjectRecommendation[],
     veteranProfile: VeteranProfile,
-    variantConfig?: VariantConfiguration | null,
+    _variantConfig?: VariantConfiguration | null,
   ): ProjectRecommendation[] {
     return recommendations.map((rec) => {
       const veteranBenefits = this.generateVeteranBenefits(veteranProfile, rec);
@@ -531,7 +537,7 @@ export class SmartRecommendationEngine {
    */
   private generateVeteranBenefits(
     veteranProfile: VeteranProfile,
-    recommendation: ProjectRecommendation,
+    _recommendation: ProjectRecommendation,
   ): VeteranBenefit[] {
     const benefits: VeteranBenefit[] = [];
 
@@ -601,11 +607,6 @@ export class SmartRecommendationEngine {
     recommendations: ProjectRecommendation[],
     userProfile: UserProfile,
   ): ProjectRecommendation[] {
-    // Analyze user behavior patterns
-    const behaviorScore = this.calculateBehaviorScore(
-      userProfile.behaviorHistory,
-    );
-
     return recommendations.map((rec) => {
       // Boost confidence based on similar user behaviors
       let confidenceBoost = 0;
@@ -614,7 +615,8 @@ export class SmartRecommendationEngine {
       const viewedSimilar = userProfile.behaviorHistory.filter(
         (behavior) =>
           behavior.action === "view" &&
-          behavior.data?.projectType === rec.projectType,
+          (behavior.data as { projectType?: string })?.projectType ===
+            rec.projectType,
       ).length;
 
       confidenceBoost += Math.min(viewedSimilar * 2, 10);
@@ -623,7 +625,8 @@ export class SmartRecommendationEngine {
       const estimatedSimilar = userProfile.behaviorHistory.filter(
         (behavior) =>
           behavior.action === "estimate" &&
-          behavior.data?.projectType === rec.projectType,
+          (behavior.data as { projectType?: string })?.projectType ===
+            rec.projectType,
       ).length;
 
       confidenceBoost += estimatedSimilar * 5;
@@ -641,17 +644,8 @@ export class SmartRecommendationEngine {
   private scoreRecommendations(
     recommendations: ProjectRecommendation[],
     userProfile: UserProfile,
-    variantConfig?: VariantConfiguration | null,
+    _variantConfig?: VariantConfiguration | null,
   ): ProjectRecommendation[] {
-    // Get scoring weights from variant config or use defaults
-    const weights = variantConfig?.scoringWeights || {
-      budgetMatch: 30,
-      behaviorHistory: 25,
-      veteranStatus: 20,
-      projectSimilarity: 15,
-      timelineMatch: 10,
-    };
-
     return recommendations.map((rec) => {
       let score = rec.confidence;
 
@@ -775,7 +769,7 @@ export class SmartRecommendationEngine {
   /**
    * Create a new A/B test experiment
    */
-  createExperiment(experiment: unknown): unknown {
+  createExperiment(experiment: Omit<Experiment, "id">): unknown {
     return this.abTestingFramework.createExperiment(experiment);
   }
 
@@ -884,28 +878,6 @@ export class SmartRecommendationEngine {
     };
   }
 
-  private calculateBehaviorScore(behaviors: UserBehavior[]): number {
-    // Simple scoring based on behavior engagement
-    let score = 0;
-    behaviors.forEach((behavior) => {
-      switch (behavior.action) {
-        case "view":
-          score += 1;
-          break;
-        case "estimate":
-          score += 3;
-          break;
-        case "contact":
-          score += 5;
-          break;
-        case "convert":
-          score += 10;
-          break;
-      }
-    });
-    return Math.min(score, 50); // Cap at 50 points
-  }
-
   private calculateBudgetScore(
     projectCost: { min: number; max: number },
     userBudget: { min: number; max: number },
@@ -962,36 +934,38 @@ export class SmartRecommendationEngine {
     userProfile: UserProfile,
   ): ProjectRecommendation[] {
     // Provide basic fallback recommendations if main engine fails
-    return [
-      {
-        id: "fallback-kitchen",
-        projectType: "kitchen",
-        title: "Kitchen Upgrade",
-        description:
-          "Transform your kitchen with modern appliances and finishes.",
-        confidence: 70,
-        reasoning: [
-          "Popular project type",
-          "Good ROI",
-          "Essential home improvement",
-        ],
-        estimatedCost: { min: 25000, max: 60000, currency: "USD" },
-        timeline: "4-8 weeks",
-        priority: "medium",
-        tags: ["fallback", "kitchen", "popular"],
-        veteranBenefits: userProfile.isVeteran
-          ? [
-              {
-                type: "discount",
-                title: "Veteran Discount",
-                description: "10% off for veterans",
-                value: "10% discount",
-                icon: "military_tech",
-              },
-            ]
-          : undefined,
-      },
-    ];
+    const baseRecommendation: ProjectRecommendation = {
+      id: "fallback-kitchen",
+      projectType: "kitchen",
+      title: "Kitchen Upgrade",
+      description:
+        "Transform your kitchen with modern appliances and finishes.",
+      confidence: 70,
+      reasoning: [
+        "Popular project type",
+        "Good ROI",
+        "Essential home improvement",
+      ],
+      estimatedCost: { min: 25000, max: 60000, currency: "USD" },
+      timeline: "4-8 weeks",
+      priority: "medium",
+      tags: ["fallback", "kitchen", "popular"],
+    };
+
+    // Add veteran benefits if applicable
+    if (userProfile.isVeteran) {
+      baseRecommendation.veteranBenefits = [
+        {
+          type: "discount",
+          title: "Veteran Discount",
+          description: "10% off for veterans",
+          value: "10% discount",
+          icon: "military_tech",
+        },
+      ];
+    }
+
+    return [baseRecommendation];
   }
 }
 

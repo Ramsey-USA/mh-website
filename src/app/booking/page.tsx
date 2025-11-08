@@ -30,7 +30,7 @@ export default function BookingPage() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
+  const [_submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle");
 
@@ -65,9 +65,13 @@ export default function BookingPage() {
 
           // Only restore if saved within last 24 hours
           if (hoursSinceSave < 24) {
-            if (
-              confirm("Would you like to continue from where you left off?")
-            ) {
+            const shouldRestore =
+              typeof window !== "undefined" &&
+              // eslint-disable-next-line no-alert -- User confirmation for restoring form data
+              window.confirm(
+                "Would you like to continue from where you left off?",
+              );
+            if (shouldRestore) {
               setStep(parsed.step);
               setSelectedDate(parsed.selectedDate || "");
               setSelectedTime(parsed.selectedTime || "");
