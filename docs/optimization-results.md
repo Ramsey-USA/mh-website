@@ -85,7 +85,8 @@
 - **Size:** Varies
 - **Status:** Previously extracted, maintained
 
-**Note:** Component extraction does NOT reduce total line count (1,328 → 1,364 total including new component files), but significantly improves:
+**Note:** Component extraction does NOT reduce total line count (1,328 → 1,364 total including new component files),
+but significantly improves:
 
 - Maintainability (single responsibility principle)
 - Reusability across multiple pages

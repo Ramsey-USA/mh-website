@@ -12,10 +12,8 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
-  HoverScale,
 } from "@/components/animations/FramerMotionComponents";
 import { Section, SectionHeader } from "@/components/ui/layout";
-import { OptimizedImage } from "@/components/ui/media/OptimizedImage";
 import { AggregateRating } from "@/components/ratings";
 import { getClientTestimonials } from "@/lib/data/testimonials";
 import {
@@ -130,7 +128,7 @@ export default function AboutPage() {
                 Meet Our Team
               </h3>
               <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
-                Get to know the veteran-owned team behind your project's
+                Get to know the veteran-owned team behind your project&apos;s
                 success.
               </p>
               <Link href="/team">
@@ -191,12 +189,13 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-300 mb-4 italic leading-relaxed text-sm sm:text-base md:text-lg">
-                  "Working with Todd and the MH Construction team on our Baskin
-                  Robbins build was exceptional. Todd's communication throughout
-                  the entire project kept us informed every step of the way, and
-                  the quality of workmanship exceeded our expectations. From
-                  start to finish, they demonstrated professionalism and
-                  attention to detail that made this build a success."
+                  &ldquo;Working with Todd and the MH Construction team on our
+                  Baskin Robbins build was exceptional. Todd&apos;s
+                  communication throughout the entire project kept us informed
+                  every step of the way, and the quality of workmanship exceeded
+                  our expectations. From start to finish, they demonstrated
+                  professionalism and attention to detail that made this build a
+                  success.&rdquo;
                 </p>
                 <div className="flex items-center space-x-3">
                   <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -235,12 +234,12 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-300 mb-4 italic leading-relaxed text-sm sm:text-base md:text-lg">
-                  "The tenant improvement process with MH Construction was
+                  &ldquo;The tenant improvement process with MH Construction was
                   outstanding from design through construction. Their ability to
                   facilitate the entire process while managing multiple
                   stakeholders, coordinating various processes, overseeing
                   employees and subcontractors, and maintaining transparency and
-                  fairness throughout was truly impressive."
+                  fairness throughout was truly impressive.&rdquo;
                 </p>
                 <div className="flex items-center space-x-3">
                   <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -279,11 +278,11 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-300 mb-4 italic leading-relaxed text-sm sm:text-base md:text-lg">
-                  "MH Construction exceeded our expectations in every way. Their
-                  military precision and attention to detail resulted in our
-                  dream home being completed ahead of schedule and within
+                  &ldquo;MH Construction exceeded our expectations in every way.
+                  Their military precision and attention to detail resulted in
+                  our dream home being completed ahead of schedule and within
                   budget. The veteran-owned values really showed in their
-                  commitment to excellence."
+                  commitment to excellence.&rdquo;
                 </p>
                 <div className="flex items-center space-x-3">
                   <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -560,10 +559,10 @@ export default function AboutPage() {
                     50+ Successful Partnerships in Pacific Northwest
                   </h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
-                    We're proud to announce reaching a major milestone: over 50
-                    completed construction partnerships across Washington and
-                    Oregon. Thank you to all our clients and trade partners who
-                    made this possible.
+                    We&apos;re proud to announce reaching a major milestone:
+                    over 50 completed construction partnerships across
+                    Washington and Oregon. Thank you to all our clients and
+                    trade partners who made this possible.
                   </p>
                   <Link
                     href="/projects"
@@ -604,7 +603,7 @@ export default function AboutPage() {
                     Integrated CRM & Project Management Platform
                   </h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
-                    We're implementing High-Level CRM to provide seamless
+                    We&apos;re implementing High-Level CRM to provide seamless
                     communication, real-time project updates, and enhanced
                     client experience throughout your construction journey.
                   </p>
@@ -647,9 +646,9 @@ export default function AboutPage() {
                     Expanding Trade Partner Network
                   </h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
-                    We're actively growing our network of skilled trade partners
-                    to better serve our clients across the Pacific Northwest.
-                    Join our veteran-owned partnership program.
+                    We&apos;re actively growing our network of skilled trade
+                    partners to better serve our clients across the Pacific
+                    Northwest. Join our veteran-owned partnership program.
                   </p>
                   <Link
                     href="/trade-partners"
@@ -692,7 +691,7 @@ export default function AboutPage() {
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
                     Our commitment to safety excellence has been recognized by
                     industry organizations. Zero accidents, 100% compliance -
-                    that's the veteran-owned difference.
+                    that&apos;s the veteran-owned difference.
                   </p>
                   <Link
                     href="/about#safety"
@@ -747,11 +746,12 @@ export default function AboutPage() {
 
               <div className="bg-white/10 backdrop-blur-sm mb-10 p-6 border border-white/20 rounded-xl">
                 <p className="mb-2 font-bold text-brand-secondary text-xl md:text-2xl">
-                  "Building for the Owner, NOT the Dollar"
+                  &ldquo;Building for the Owner, NOT the Dollar&rdquo;
                 </p>
                 <p className="font-light text-white/90 text-lg md:text-xl leading-relaxed">
-                  Partner with a team that works WITH you, not FOR you. Let's
-                  discuss your vision and build something remarkable together.
+                  Partner with a team that works WITH you, not FOR you.
+                  Let&apos;s discuss your vision and build something remarkable
+                  together.
                 </p>
               </div>
 

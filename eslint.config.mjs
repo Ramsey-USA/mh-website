@@ -10,17 +10,14 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals"),
+  ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     rules: {
-      // Temporarily relax rules for testing purposes
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-unused-vars": "off",
-      "@typescript-eslint/no-unsafe-function-type": "off",
+      // Optimized production-ready rules
       "react-hooks/exhaustive-deps": "warn",
-      "no-console": "off",
-      "react/no-unescaped-entities": "off", // Disable unescaped entities for testing
-      // Keep only critical security rules but allow JSON-LD
+      "no-console": ["warn", { allow: ["warn", "error"] }], // Allow console.warn/error
+      "react/no-unescaped-entities": "warn",
+      // Security rules - allow JSON-LD structured data
       "react/no-danger": "off", // Allow for JSON-LD structured data
       "react/no-danger-with-children": "error",
     },
