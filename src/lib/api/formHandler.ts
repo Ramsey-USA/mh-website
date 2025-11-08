@@ -3,7 +3,7 @@
  * Handles validation, database storage, and email notifications for all form types
  */
 
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { createDbClient } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
@@ -78,7 +78,7 @@ export async function handleFormSubmission<T = any>(
           { id: submissionId },
         );
       }
-    } catch (dbError) {
+    } catch (_dbError) {
       logger.error(
         `Failed to store ${config.submissionType} in database:`,
         dbError,
@@ -123,7 +123,7 @@ export async function handleFormSubmission<T = any>(
       } else {
         logger.error(`Failed to send ${config.submissionType} email`);
       }
-    } catch (emailError) {
+    } catch (_emailError) {
       logger.error(`Error sending ${config.submissionType} email:`, emailError);
       // Continue even if email fails
     }
@@ -137,7 +137,7 @@ export async function handleFormSubmission<T = any>(
         dbStored,
       },
     });
-  } catch (error) {
+  } catch (_error) {
     logger.error(`Error processing ${config.submissionType}:`, error);
     return NextResponse.json(
       { error: `Failed to process ${config.submissionType}` },
@@ -176,7 +176,7 @@ export async function handleFormRetrieval(
       count: 0,
       message: "D1 database not available in this environment",
     });
-  } catch (error) {
+  } catch (_error) {
     logger.error(`Error fetching from ${tableName}:`, error);
     return NextResponse.json(
       { error: `Failed to fetch submissions` },

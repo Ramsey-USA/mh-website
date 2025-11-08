@@ -3,7 +3,7 @@
  * Handles Cloudflare security configuration and monitoring
  */
 
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { withSecurity } from "@/middleware/security";
 
 export const runtime = "edge";
@@ -35,7 +35,7 @@ async function handler(request: NextRequest) {
     }
 
     return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },

@@ -67,8 +67,8 @@ const columnClasses: Record<GridColumns, string> = {
 export function getGridClassName(
   columns: GridConfig,
   gap: GridGap = "md",
-  useResponsiveGap: boolean = false,
-  extraClasses: string = "",
+  useResponsiveGap = false,
+  extraClasses = "",
 ): string {
   const classes: string[] = ["grid"];
 

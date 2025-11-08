@@ -71,7 +71,7 @@ export class MetricsCalculator {
   /**
    * Get top pages by views
    */
-  getTopPages(events: AnalyticsEvent[], limit: number = 10): PageMetric[] {
+  getTopPages(events: AnalyticsEvent[], limit = 10): PageMetric[] {
     const pageViews = events.filter((e) => e.type === "page_view");
     const pageStats = new Map<
       string,
@@ -297,7 +297,7 @@ export class MetricsCalculator {
    */
   getActiveSessions(
     sessions: UserJourney[],
-    minutesThreshold: number = 30,
+    minutesThreshold = 30,
   ): UserJourney[] {
     const cutoff = new Date();
     cutoff.setMinutes(cutoff.getMinutes() - minutesThreshold);

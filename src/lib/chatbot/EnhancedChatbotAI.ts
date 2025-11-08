@@ -6,7 +6,7 @@
 
 export interface ChatbotSearchIntegration {
   searchQuery?: string;
-  searchResults?: any[];
+  searchResults?: unknown[];
   searchLocation?: string;
   hasSearchContext?: boolean;
 }
@@ -36,13 +36,13 @@ export interface EnhancedChatbotContext {
   currentPage: string;
   searchContext?: ChatbotSearchIntegration;
   conversationMemory?: ConversationMemory;
-  formData?: any;
-  estimatorData?: any;
+  formData?: unknown;
+  estimatorData?: unknown;
   pageContent?: {
     availableServices?: string[];
-    featuredProjects?: any[];
-    teamMembers?: any[];
-    testimonials?: any[];
+    featuredProjects?: unknown[];
+    teamMembers?: unknown[];
+    testimonials?: unknown[];
   };
 }
 
@@ -66,7 +66,7 @@ export class EnhancedChatbotAI {
   generateEnhancedResponse(
     userMessage: string,
     context: EnhancedChatbotContext,
-    conversationHistory: any[] = [],
+    conversationHistory: unknown[] = [],
   ): string {
     // Check if user is asking about search or wants to find something
     if (this.isSearchRelatedQuery(userMessage)) {
@@ -492,7 +492,7 @@ export class EnhancedChatbotAI {
   private generateGeneralResponse(
     message: string,
     context: EnhancedChatbotContext,
-    conversationHistory: any[],
+    conversationHistory: unknown[],
   ): string {
     // Analyze conversation history for better context
     const previousTopics = this.extractPreviousTopics(conversationHistory);
@@ -523,7 +523,7 @@ export class EnhancedChatbotAI {
     return response;
   }
 
-  private extractPreviousTopics(conversationHistory: any[]): string[] {
+  private extractPreviousTopics(conversationHistory: unknown[]): string[] {
     const topics: string[] = [];
     const topicKeywords = {
       estimates: ["estimate", "cost", "budget", "price"],

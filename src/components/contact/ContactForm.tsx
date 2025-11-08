@@ -93,8 +93,9 @@ export function ContactForm({
     const newErrors: Partial<ContactFormData> = {};
 
     // Required fields
-    if (!formData.firstName.trim())
+    if (!formData.firstName.trim()) {
       newErrors.firstName = "First name is required";
+    }
     if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
     if (!formData.email.trim()) newErrors.email = "Email is required";
     if (!formData.message.trim()) newErrors.message = "Message is required";
@@ -115,10 +116,12 @@ export function ContactForm({
 
     // Project-specific validation
     if (formType === "project") {
-      if (!formData.projectType)
+      if (!formData.projectType) {
         newErrors.projectType = "Please select a project type";
-      if (!formData.projectLocation.trim())
+      }
+      if (!formData.projectLocation.trim()) {
         newErrors.projectLocation = "Project location is required";
+      }
     }
 
     setErrors(newErrors);

@@ -1,5 +1,5 @@
 // Enhanced SEO and Schema Markup System
-import { Metadata } from "next";
+import { type Metadata } from "next";
 
 // Enhanced company information
 export const enhancedSEO = {

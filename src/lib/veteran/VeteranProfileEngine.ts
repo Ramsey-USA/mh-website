@@ -82,8 +82,8 @@ export class VeteranProfileEngine {
    */
   public analyzeAndCreateProfile(
     input: string,
-    formData?: any,
-    sessionData?: any,
+    formData?: unknown,
+    sessionData?: unknown,
   ): VeteranProfile {
     const keywords = input.toLowerCase();
 
@@ -192,7 +192,10 @@ export class VeteranProfileEngine {
   // Personal Status Detection
   // ============================================================================
 
-  private detectFamilyStatus(keywords: string, formData?: any): FamilyStatus {
+  private detectFamilyStatus(
+    keywords: string,
+    formData?: unknown,
+  ): FamilyStatus {
     if (keywords.includes("gold star") || keywords.includes("fallen")) {
       return "Gold Star Family";
     }
@@ -214,7 +217,7 @@ export class VeteranProfileEngine {
 
   private detectEmploymentStatus(
     keywords: string,
-    formData?: any,
+    formData?: unknown,
   ): EmploymentStatus {
     if (
       keywords.includes("retired military") ||
@@ -237,7 +240,10 @@ export class VeteranProfileEngine {
     return "Employed Full-Time"; // Default assumption
   }
 
-  private detectHousingStatus(keywords: string, formData?: any): HousingStatus {
+  private detectHousingStatus(
+    keywords: string,
+    formData?: unknown,
+  ): HousingStatus {
     if (keywords.includes("va loan") || keywords.includes("va home loan")) {
       return "VA Home Loan";
     }
@@ -258,7 +264,7 @@ export class VeteranProfileEngine {
 
   private estimateIncomeLevel(
     keywords: string,
-    formData?: any,
+    formData?: unknown,
   ): IncomeLevel | undefined {
     if (
       keywords.includes("va compensation only") ||
@@ -283,7 +289,7 @@ export class VeteranProfileEngine {
 
   private analyzeConstructionPriorities(
     keywords: string,
-    formData?: any,
+    formData?: unknown,
   ): ConstructionPriority[] {
     const priorities: ConstructionPriority[] = [];
 
@@ -315,7 +321,7 @@ export class VeteranProfileEngine {
 
   private analyzeAccessibilityRequirements(
     keywords: string,
-    formData?: any,
+    formData?: unknown,
   ): AccessibilityRequirement[] {
     const requirements: AccessibilityRequirement[] = [];
 
@@ -338,7 +344,10 @@ export class VeteranProfileEngine {
     return requirements;
   }
 
-  private detectPreferredTimeline(keywords: string, formData?: any): Timeline {
+  private detectPreferredTimeline(
+    keywords: string,
+    formData?: unknown,
+  ): Timeline {
     if (keywords.includes("emergency") || keywords.includes("urgent")) {
       return "Immediate (Emergency)";
     }
@@ -356,7 +365,7 @@ export class VeteranProfileEngine {
 
   private estimateBudgetRange(
     keywords: string,
-    formData?: any,
+    formData?: unknown,
   ): BudgetRange | undefined {
     const budgetPatterns = [
       { pattern: /\$?(\d+)k/, multiplier: 1000 },
@@ -408,7 +417,7 @@ export class VeteranProfileEngine {
 
   private detectPreferredContactMethod(
     keywords: string,
-    formData?: any,
+    formData?: unknown,
   ): ContactMethod {
     if (keywords.includes("call") || keywords.includes("phone")) {
       return "Phone Call";
@@ -473,8 +482,8 @@ export class VeteranProfileEngine {
    */
   private createNonVeteranProfile(
     input: string,
-    formData?: any,
-    sessionData?: any,
+    formData?: unknown,
+    sessionData?: unknown,
   ): VeteranProfile {
     const keywords = input.toLowerCase();
 

@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import { getPageMetadata } from "@/lib/seo/page-metadata";
 
 export const metadata: Metadata = getPageMetadata("/3d-explorer");

@@ -5,16 +5,16 @@
 
 import {
   VeteranProfileEngine,
-  VeteranProfile,
-  CommunicationStyle,
+  type VeteranProfile,
+  type CommunicationStyle,
 } from "./VeteranProfileEngine";
 import {
   ContentPersonalizationEngine,
-  PersonalizedContent,
+  type PersonalizedContent,
 } from "./ContentPersonalizationEngine";
 import {
   VeteranBenefitsAutomation,
-  VeteranBenefitsPackage,
+  type VeteranBenefitsPackage,
 } from "./VeteranBenefitsAutomation";
 
 export interface ComprehensiveVeteranExperience {
@@ -43,7 +43,7 @@ export interface VeteranInteraction {
     | "recommendation_click"
     | "discount_applied"
     | "specialist_contact";
-  details: any;
+  details: unknown;
   veteranSpecific: boolean;
 }
 
@@ -118,7 +118,7 @@ export class VeteranPersonalizationSystem {
    */
   public async initializeVeteranExperience(
     userInput: string,
-    formData?: any,
+    formData?: unknown,
     sessionId?: string,
   ): Promise<ComprehensiveVeteranExperience> {
     // Generate or retrieve veteran profile
@@ -180,7 +180,7 @@ export class VeteranPersonalizationSystem {
   public getContextualizedExperience(
     sessionId: string,
     context: "homepage" | "estimator" | "contact" | "projects" | "about",
-    additionalData?: any,
+    additionalData?: unknown,
   ): {
     personalizedContent?: Partial<PersonalizedContent>;
     recommendations?: VeteranRecommendation[];
@@ -237,11 +237,11 @@ export class VeteranPersonalizationSystem {
   public processVeteranFormSubmission(
     sessionId: string,
     formType: "contact" | "estimate" | "booking",
-    formData: any,
+    formData: unknown,
   ): {
-    response: any;
-    veteranBenefits?: any;
-    priorityHandling?: any;
+    response: unknown;
+    veteranBenefits?: unknown;
+    priorityHandling?: unknown;
     nextSteps: string[];
   } {
     const sessionData = this.activeSessions.get(sessionId);
@@ -315,11 +315,11 @@ export class VeteranPersonalizationSystem {
   public applyVeteranDiscounts(
     sessionId: string,
     estimateAmount: number,
-    projectDetails: any,
+    projectDetails: unknown,
   ): {
     originalAmount: number;
     discountedAmount: number;
-    appliedDiscounts: any[];
+    appliedDiscounts: unknown[];
     totalSavings: number;
     veteranMessage: string;
   } {
@@ -369,8 +369,8 @@ export class VeteranPersonalizationSystem {
     urgency: "standard" | "priority" | "emergency",
     message?: string,
   ): {
-    assignedSpecialist: any;
-    contactInfo: any;
+    assignedSpecialist: unknown;
+    contactInfo: unknown;
     expectedResponse: string;
     specialInstructions: string[];
   } {
@@ -431,10 +431,10 @@ export class VeteranPersonalizationSystem {
    */
   public getVeteranAnalytics(sessionId?: string): {
     totalVeterans: number;
-    veteranProfiles: any[];
-    engagementMetrics: any;
-    benefitUtilization: any;
-    topRecommendations: any[];
+    veteranProfiles: unknown[];
+    engagementMetrics: unknown;
+    benefitUtilization: unknown;
+    topRecommendations: unknown[];
   } {
     const allProfiles = this.profileEngine.getAllProfiles();
     const veteranProfiles = allProfiles.filter((p) => p.isVeteran);
@@ -676,7 +676,7 @@ export class VeteranPersonalizationSystem {
   private getContextualRecommendations(
     profile: VeteranProfile,
     context: string,
-    additionalData?: any,
+    additionalData?: unknown,
   ): VeteranRecommendation[] {
     // Context-specific recommendation logic would go here
     // For now, return relevant recommendations based on context
@@ -703,7 +703,7 @@ export class VeteranPersonalizationSystem {
 
   private generateEstimatorRecommendations(
     profile: VeteranProfile,
-    data?: any,
+    data?: unknown,
   ): VeteranRecommendation[] {
     const recommendations: VeteranRecommendation[] = [];
 
@@ -752,7 +752,7 @@ export class VeteranPersonalizationSystem {
 
   private updateProfileFromForm(
     profile: VeteranProfile,
-    formData: any,
+    formData: unknown,
   ): VeteranProfile {
     // Update profile with new information from form submission
     const updates: Partial<VeteranProfile> = {};
@@ -781,8 +781,8 @@ export class VeteranPersonalizationSystem {
   private generateVeteranFormResponse(
     profile: VeteranProfile,
     formType: string,
-    formData: any,
-  ): any {
+    formData: unknown,
+  ): unknown {
     // Generate appropriate response based on veteran status and form type
     if (!profile.isVeteran) {
       return this.generateStandardFormResponse(formType, formData);
@@ -800,7 +800,10 @@ export class VeteranPersonalizationSystem {
     };
   }
 
-  private generateStandardFormResponse(formType: string, formData: any): any {
+  private generateStandardFormResponse(
+    formType: string,
+    formData: unknown,
+  ): unknown {
     return {
       greeting: "Thank you for your interest in MH Construction!",
       message: "We'll review your information and get back to you soon.",
@@ -810,7 +813,10 @@ export class VeteranPersonalizationSystem {
     };
   }
 
-  private calculateFormBenefits(profile: VeteranProfile, formData: any): any {
+  private calculateFormBenefits(
+    profile: VeteranProfile,
+    formData: unknown,
+  ): unknown {
     // Calculate applicable benefits based on form data
     const benefitsPackage =
       this.benefitsEngine.generateBenefitsPackage(profile);
@@ -825,8 +831,8 @@ export class VeteranPersonalizationSystem {
   private initiatePriorityHandling(
     profile: VeteranProfile,
     formType: string,
-    formData: any,
-  ): any {
+    formData: unknown,
+  ): unknown {
     // Initiate priority handling procedures
     return {
       priorityLevel: profile.priorityLevel,
@@ -840,7 +846,7 @@ export class VeteranPersonalizationSystem {
   private generateNextSteps(
     profile: VeteranProfile,
     formType: string,
-    formData: any,
+    formData: unknown,
   ): string[] {
     const steps: string[] = [];
 
@@ -875,7 +881,7 @@ export class VeteranPersonalizationSystem {
 
   private generateDiscountMessage(
     profile: VeteranProfile,
-    discountResult: any,
+    discountResult: unknown,
   ): string {
     if (!profile.isVeteran || discountResult.totalSavings === 0) {
       return "Thank you for choosing MH Construction!";
@@ -884,7 +890,7 @@ export class VeteranPersonalizationSystem {
     const branch = profile.serviceBranch;
     const savings = discountResult.totalSavings;
     const discountText = discountResult.appliedDiscounts
-      .map((d: any) => d.name)
+      .map((d: unknown) => d.name)
       .join(", ");
 
     let message = `[FLAG] Thank you for your service, ${branch} veteran! `;
@@ -950,7 +956,7 @@ export class VeteranPersonalizationSystem {
     return this.profileEngine.getProfile(sessionData.sessionId);
   }
 
-  private calculateEngagementMetrics(profiles: VeteranProfile[]): any {
+  private calculateEngagementMetrics(profiles: VeteranProfile[]): unknown {
     // Calculate engagement metrics for veterans
     return {
       totalSessions: this.activeSessions.size,
@@ -960,7 +966,7 @@ export class VeteranPersonalizationSystem {
     };
   }
 
-  private calculateBenefitUtilization(profiles: VeteranProfile[]): any {
+  private calculateBenefitUtilization(profiles: VeteranProfile[]): unknown {
     // Calculate benefit utilization statistics
     const disabledVeterans = profiles.filter((p) => p.disabledVeteran).length;
     const combatVeterans = profiles.filter((p) => p.combatVeteran).length;
@@ -974,7 +980,7 @@ export class VeteranPersonalizationSystem {
     };
   }
 
-  private getTopRecommendations(profiles: VeteranProfile[]): any[] {
+  private getTopRecommendations(profiles: VeteranProfile[]): unknown[] {
     // Get most popular recommendations
     return [
       { type: "Accessibility Retrofit", usage: 65 },

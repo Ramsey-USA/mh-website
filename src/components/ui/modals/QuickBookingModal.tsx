@@ -103,6 +103,10 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-md"
         onClick={handleClose}
+        onKeyDown={(e) => e.key === "Escape" && handleClose()}
+        role="button"
+        tabIndex={0}
+        aria-label="Close modal"
       />
 
       {/* Enhanced Modal with better shadow and animation */}
@@ -220,6 +224,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                             : "hover:bg-brand-primary/20 hover:border-brand-primary/50 border-gray-300 dark:border-gray-600 hover:shadow-md bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
                         }`}
                         style={{ animationDelay: `${index * 50}ms` }}
+                        aria-label={`Select ${day.fullDate}`}
                       >
                         {selectedDate === day.date && (
                           <div className="-top-1 -right-1 absolute flex justify-center items-center bg-white shadow-md rounded-full w-6 h-6">
@@ -263,6 +268,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                               : "hover:bg-brand-primary/20 hover:border-brand-primary/50 border-gray-300 dark:border-gray-600 hover:shadow-md bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
                           }`}
                           style={{ animationDelay: `${index * 50}ms` }}
+                          aria-label={`Select ${time}`}
                         >
                           {selectedTime === time && (
                             <div className="-top-1 -right-1 absolute flex justify-center items-center bg-white shadow-md rounded-full w-6 h-6">

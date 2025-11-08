@@ -5,8 +5,6 @@ import Link from "next/link";
 import {
   Button,
   Card,
-  CardHeader,
-  CardTitle,
   CardContent,
   JobApplicationModal,
 } from "@/components/ui";
@@ -14,9 +12,8 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
-  HoverScale,
 } from "@/components/animations/FramerMotionComponents";
-import { Section, SectionHeader } from "@/components/ui/layout";
+import { SectionHeader } from "@/components/ui/layout";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { ChatbotCTASection } from "@/components/chatbot";
@@ -33,10 +30,9 @@ import { gridPresets } from "@/lib/styles/layout-variants";
 
 export default function CareersPage() {
   const [showApplicationModal, setShowApplicationModal] = useState(false);
-  const [selectedPosition, setSelectedPosition] = useState<string>("");
 
-  const handleApplyNow = (positionTitle: string) => {
-    setSelectedPosition(positionTitle);
+  const handleApplyNow = (_position?: string) => {
+    // Position parameter reserved for future use to pre-fill the application form
     setShowApplicationModal(true);
   };
 
@@ -70,9 +66,10 @@ export default function CareersPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              "Building for the Owner, NOT the Dollar" — Award-winning .6 EMR
-              safety. 150+ years combined experience. Veteran-owned company
-              valuing integrity, excellence, and partnership.
+              &ldquo;Building for the Owner, NOT the Dollar&rdquo; —
+              Award-winning .6 EMR safety. 150+ years combined experience.
+              Veteran-owned company valuing integrity, excellence, and
+              partnership.
             </p>
           </div>
         </div>

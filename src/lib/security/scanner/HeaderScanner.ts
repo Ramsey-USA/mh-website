@@ -3,13 +3,13 @@
  * Detects missing or misconfigured security headers
  */
 
-import type {
-  Vulnerability,
-  VulnerabilityType,
-  ScanConfig,
-  HttpResponse,
+import {
+  type Vulnerability,
+  type VulnerabilityType,
+  type ScanConfig,
+  type HttpResponse,
+  SeverityLevel,
 } from "./types";
-import { SeverityLevel } from "./types";
 
 export class HeaderScanner {
   private readonly requiredHeaders = [

@@ -31,7 +31,7 @@ export class CloudflareKVStorage {
     try {
       const value = await this.kv.get(key, "json");
       return value as T;
-    } catch (error) {
+    } catch (_error) {
       logger.error("KV get error:", error);
       return null;
     }
@@ -49,7 +49,7 @@ export class CloudflareKVStorage {
     try {
       await this.kv.put(key, JSON.stringify(value), { expirationTtl });
       return true;
-    } catch (error) {
+    } catch (_error) {
       logger.error("KV set error:", error);
       return false;
     }
@@ -63,7 +63,7 @@ export class CloudflareKVStorage {
     try {
       await this.kv.delete(key);
       return true;
-    } catch (error) {
+    } catch (_error) {
       logger.error("KV delete error:", error);
       return false;
     }
@@ -76,8 +76,8 @@ export class CloudflareKVStorage {
     }
     try {
       const result = await this.kv.list({ prefix });
-      return result.keys.map((k: any) => k.name);
-    } catch (error) {
+      return result.keys.map((k: unknown) => k.name);
+    } catch (_error) {
       logger.error("KV list error:", error);
       return [];
     }
@@ -94,7 +94,7 @@ export class CloudflareD1Database {
     this.db = database || null;
   }
 
-  async query<T>(sql: string, params?: any[]): Promise<T[]> {
+  async query<T>(sql: string, params?: unknown[]): Promise<T[]> {
     if (!this.db) {
       logger.warn("D1 database not initialized");
       return [];
@@ -105,13 +105,13 @@ export class CloudflareD1Database {
         .bind(...(params || []))
         .all();
       return result.results as T[];
-    } catch (error) {
+    } catch (_error) {
       logger.error("D1 query error:", error);
       return [];
     }
   }
 
-  async execute(sql: string, params?: any[]): Promise<boolean> {
+  async execute(sql: string, params?: unknown[]): Promise<boolean> {
     if (!this.db) {
       logger.warn("D1 database not initialized");
       return false;
@@ -122,13 +122,15 @@ export class CloudflareD1Database {
         .bind(...(params || []))
         .run();
       return true;
-    } catch (error) {
+    } catch (_error) {
       logger.error("D1 execute error:", error);
       return false;
     }
   }
 
-  async batch(statements: { sql: string; params?: any[] }[]): Promise<boolean> {
+  async batch(
+    statements: { sql: string; params?: unknown[] }[],
+  ): Promise<boolean> {
     if (!this.db) {
       logger.warn("D1 database not initialized");
       return false;
@@ -139,7 +141,7 @@ export class CloudflareD1Database {
       );
       await this.db.batch(prepared);
       return true;
-    } catch (error) {
+    } catch (_error) {
       logger.error("D1 batch error:", error);
       return false;
     }
@@ -150,7 +152,7 @@ export class CloudflareD1Database {
  * Consultation service using Cloudflare storage
  */
 export const consultationService = {
-  async create(data: any) {
+  async create(data: unknown) {
     // In a real implementation, this would call an API route
     // that has access to Cloudflare D1/KV
     const response = await fetch("/api/consultations", {
@@ -171,7 +173,7 @@ export const consultationService = {
     return response.json();
   },
 
-  async update(id: string, data: any) {
+  async update(id: string, data: unknown) {
     const response = await fetch(`/api/consultations/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -197,7 +199,7 @@ export const localStorageService = {
     try {
       const item = localStorage.getItem(key);
       return item ? JSON.parse(item) : null;
-    } catch (error) {
+    } catch (_error) {
       logger.error("LocalStorage get error:", { key, error });
       return null;
     }
@@ -208,7 +210,7 @@ export const localStorageService = {
     try {
       localStorage.setItem(key, JSON.stringify(value));
       return true;
-    } catch (error) {
+    } catch (_error) {
       logger.error("LocalStorage set error:", { key, error });
       return false;
     }
@@ -219,7 +221,7 @@ export const localStorageService = {
     try {
       localStorage.removeItem(key);
       return true;
-    } catch (error) {
+    } catch (_error) {
       logger.error("LocalStorage delete error:", { key, error });
       return false;
     }

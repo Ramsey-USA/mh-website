@@ -3,7 +3,7 @@
  * Advanced code splitting with performance monitoring and optimization
  */
 
-import React, { Suspense, lazy, ComponentType } from "react";
+import React, { Suspense, lazy, type ComponentType } from "react";
 import { performanceManager } from "./performance-manager";
 import { logger } from "@/lib/utils/logger";
 
@@ -23,7 +23,7 @@ export interface LazyComponentProps {
 }
 
 // Enhanced dynamic import with retry logic and performance tracking
-export function createDynamicImport<T extends ComponentType<any>>(
+export function createDynamicImport<T extends ComponentType<unknown>>(
   importFn: () => Promise<{ default: T }>,
   componentName: string,
   options: DynamicImportOptions = {},
@@ -225,7 +225,7 @@ class ErrorBoundary extends React.Component<
 
 // Route-based code splitting utilities
 export const createRouteComponent = (
-  importFn: () => Promise<{ default: ComponentType<any> }>,
+  importFn: () => Promise<{ default: ComponentType<unknown> }>,
   routeName: string,
 ) => {
   return createDynamicImport(importFn, `Route_${routeName}`, {
@@ -237,7 +237,7 @@ export const createRouteComponent = (
 
 // Feature-based code splitting
 export const createFeatureComponent = (
-  importFn: () => Promise<{ default: ComponentType<any> }>,
+  importFn: () => Promise<{ default: ComponentType<unknown> }>,
   featureName: string,
   critical = false,
 ) => {
@@ -333,7 +333,7 @@ export class BundleSplittingAnalyzer {
 }
 
 // Preloading utilities
-export const preloadRoute = (routeImport: () => Promise<any>): void => {
+export const preloadRoute = (routeImport: () => Promise<unknown>): void => {
   if (typeof window !== "undefined") {
     // Preload on idle or user interaction
     if ("requestIdleCallback" in window) {
@@ -354,7 +354,7 @@ export const preloadRoute = (routeImport: () => Promise<any>): void => {
 
 export const preloadOnHover = (
   element: HTMLElement,
-  importFn: () => Promise<any>,
+  importFn: () => Promise<unknown>,
 ): (() => void) => {
   let preloaded = false;
 

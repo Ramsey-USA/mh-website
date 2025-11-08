@@ -4,7 +4,7 @@
  */
 
 import { Button } from "../../ui";
-import { ProjectData, ValidationStatus } from "../types";
+import { type ProjectData, type ValidationStatus } from "../types";
 
 interface ReviewStepProps {
   projectData: ProjectData;

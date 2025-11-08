@@ -51,9 +51,9 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
   const { getExperimentResults, getActiveExperiments } =
     useSmartRecommendations({});
 
-  const [experiments, setExperiments] = useState<any[]>([]);
-  const [experimentResults, setExperimentResults] = useState<any[]>([]);
-  const [significanceResults, setSignificanceResults] = useState<any[]>([]);
+  const [experiments, setExperiments] = useState<unknown[]>([]);
+  const [experimentResults, setExperimentResults] = useState<unknown[]>([]);
+  const [significanceResults, setSignificanceResults] = useState<unknown[]>([]);
 
   useEffect(() => {
     const loadExperiments = async () => {

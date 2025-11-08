@@ -28,7 +28,7 @@ interface PredictiveCompletion {
   nextStepGuidance: string;
 }
 
-export function useSmartFormAssistant(formData: any) {
+export function useSmartFormAssistant(formData: unknown) {
   const [currentField, setCurrentField] = useState<string>("");
   const [fieldSuggestions, setFieldSuggestions] =
     useState<SmartFormSuggestion | null>(null);

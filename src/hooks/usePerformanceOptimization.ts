@@ -5,9 +5,9 @@ import { useEffect, useRef, useState, useCallback } from "react";
 
 // Intersection Observer hook with performance optimization
 export function useIntersectionObserver(
-  threshold: number = 0.1,
-  rootMargin: string = "50px",
-  triggerOnce: boolean = true,
+  threshold = 0.1,
+  rootMargin = "50px",
+  triggerOnce = true,
 ) {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const [element, setElement] = useState<Element | null>(null);
@@ -87,7 +87,7 @@ export function useImagePreloader(sources: string[]) {
 }
 
 // Debounced scroll handler
-export function useDebounceScroll(callback: () => void, delay: number = 100) {
+export function useDebounceScroll(callback: () => void, delay = 100) {
   const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   const debouncedCallback = useCallback(() => {
@@ -105,7 +105,7 @@ export function useDebounceScroll(callback: () => void, delay: number = 100) {
 }
 
 // Throttled resize handler
-export function useThrottleResize(callback: () => void, delay: number = 250) {
+export function useThrottleResize(callback: () => void, delay = 250) {
   const lastRan = useRef(Date.now());
 
   const throttledCallback = useCallback(() => {

@@ -190,6 +190,8 @@ We've adopted a **chatbot-first user engagement strategy** to replace static FAQ
 
 **System Architecture:**
 
+- **[Configuration Guide](./technical/configuration-guide.md)** - 🆕 **NEW** - Complete configuration system documentation
+- **[Config Directory Guide](../config/CONFIG-DIRECTORY-GUIDE.md)** - Deployment-specific configs (Cloudflare, Docker, CI/CD)
 - **[Design System Hub](./technical/design-system/design-system-index.md)** - Complete design system navigation
 - **[Design System Standards](./technical/design-system/design-system.md)** - Core design system
 - **[Features](./technical/features.md)** - Platform features and capabilities

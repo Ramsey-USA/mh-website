@@ -565,6 +565,19 @@ export default function GovernmentGrantsPage() {
                         : type.category,
                     )
                   }
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedGrantType(
+                        selectedGrantType === type.category
+                          ? null
+                          : type.category,
+                      );
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View ${type.category} grant programs`}
                 >
                   <Card className="dark:bg-gray-700 hover:shadow-xl dark:hover:shadow-gray-600/50 h-full transition-all">
                     <CardHeader>

@@ -1,15 +1,11 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
-import { requireAuth } from "@/lib/auth/middleware";
 import {
   verifyToken,
   extractTokenFromHeader,
   type JWTUser,
 } from "@/lib/auth/jwt";
-import {
-  sendNotification,
-  type NotificationOptions,
-} from "@/lib/notifications/notificationService";
+import { sendNotification } from "@/lib/notifications/notificationService";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
@@ -20,15 +16,6 @@ export const dynamic = "force-dynamic";
 interface RouteParams {
   params: Promise<{ functionName: string }>;
 }
-
-interface AuthenticatedUser {
-  uid: string;
-  email?: string;
-  role?: string;
-}
-
-// Keep for backward compatibility, but JWTUser is preferred
-type UserType = JWTUser | AuthenticatedUser;
 
 interface NotificationData {
   recipient: string;

@@ -4,7 +4,7 @@
  */
 
 import { logger } from "@/lib/utils/logger";
-import { SecurityConfig } from "./security-manager";
+import { type SecurityConfig } from "./security-manager";
 
 // Audit Event Types
 export enum AuditEventType {
@@ -73,7 +73,7 @@ export interface AuditEvent {
   resource?: string;
   action?: string;
   outcome: "success" | "failure" | "warning";
-  details: Record<string, any>;
+  details: Record<string, unknown>;
   metadata: {
     userLocation?: {
       country?: string;
@@ -139,7 +139,7 @@ export interface AuditStatistics {
 export class AuditLogger {
   private events: AuditEvent[] = [];
   private config: SecurityConfig["audit"];
-  private maxEvents: number = 10000; // In-memory limit
+  private maxEvents = 10000; // In-memory limit
 
   constructor(config: SecurityConfig["audit"]) {
     this.config = config;
@@ -377,7 +377,7 @@ export class AuditLogger {
     userId?: string,
     ipAddress?: string,
     userAgent?: string,
-    details?: Record<string, any>,
+    details?: Record<string, unknown>,
   ): Promise<void> {
     await this.logEvent(
       type === "success"
@@ -401,7 +401,7 @@ export class AuditLogger {
     violationType: AuditEventType,
     ipAddress?: string,
     userAgent?: string,
-    details?: Record<string, any>,
+    details?: Record<string, unknown>,
   ): Promise<void> {
     await this.logEvent(violationType, {
       ipAddress,
@@ -420,7 +420,7 @@ export class AuditLogger {
     action: string,
     userId?: string,
     outcome: "success" | "failure" = "success",
-    details?: Record<string, any>,
+    details?: Record<string, unknown>,
   ): Promise<void> {
     await this.logEvent(AuditEventType.DATA_ACCESS, {
       resource,
@@ -531,8 +531,10 @@ export class AuditLogger {
     return data;
   }
 
-  private sanitizeDetails(details: Record<string, any>): Record<string, any> {
-    const sanitized: Record<string, any> = {};
+  private sanitizeDetails(
+    details: Record<string, unknown>,
+  ): Record<string, unknown> {
+    const sanitized: Record<string, unknown> = {};
 
     for (const [key, value] of Object.entries(details)) {
       // Remove sensitive fields

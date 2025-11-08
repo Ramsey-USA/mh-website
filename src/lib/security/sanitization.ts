@@ -193,7 +193,7 @@ export function escapeHTML(input: string): string {
 /**
  * Validate and sanitize JSON input
  */
-export function sanitizeJSON(input: string): any | null {
+export function sanitizeJSON(input: string): unknown | null {
   if (!input) return null;
 
   try {
@@ -224,7 +224,9 @@ export interface SanitizedFormData {
   [key: string]: string | null;
 }
 
-export function sanitizeFormData(data: Record<string, any>): SanitizedFormData {
+export function sanitizeFormData(
+  data: Record<string, unknown>,
+): SanitizedFormData {
   const sanitized: SanitizedFormData = {};
 
   for (const [key, value] of Object.entries(data)) {

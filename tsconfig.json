@@ -1,28 +1,72 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "es6"],
-    "allowJs": true,
-    "skipLibCheck": true,
+    // === Strict Type Checking ===
     "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+
+    // === Additional Checks ===
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+
+    // === Library & Environment ===
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES2020",
+
+    // === Module Resolution (Next.js 15) ===
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "moduleDetection": "force",
+
+    // === JavaScript Support ===
+    "allowJs": true,
+    "checkJs": false,
+
+    // === Emit Configuration ===
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // === React/JSX ===
     "jsx": "preserve",
+    "jsxImportSource": "react",
+
+    // === Next.js Specific ===
     "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
     ],
+
+    // === Path Mapping ===
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "backups/**/*", "**/*.backup.*"]
+  "exclude": [
+    "node_modules",
+    ".next",
+    "out",
+    "build",
+    "dist",
+    "coverage",
+    ".config-backup"
+  ]
 }

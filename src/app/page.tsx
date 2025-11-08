@@ -3,26 +3,15 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { Button } from "@/components/ui";
 import {
-  Button,
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-} from "@/components/ui";
-import { PortfolioService } from "@/lib/services/portfolioService";
-import {
-  generateSEOMetadata,
   generateOrganizationStructuredData,
   StructuredData,
 } from "@/components/seo/seo-meta";
 import { TestimonialGrid } from "@/components/testimonials";
 import { getClientTestimonials } from "@/lib/data/testimonials";
 import { AggregateRating } from "@/components/ratings";
-import {
-  QuickCostCalculator,
-  ProjectCostCalculator,
-} from "@/components/calculator";
+import { ProjectCostCalculator } from "@/components/calculator";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 // Enhanced SEO for AI-powered veteran-owned construction
@@ -39,15 +28,6 @@ import {
 } from "@/components/home";
 
 // Dynamically import below-the-fold components
-const TestimonialsWidget = dynamic(
-  () => import("../components/testimonials/TestimonialsWidget"),
-  {
-    loading: () => (
-      <div className="bg-muted rounded-lg h-96 animate-pulse"></div>
-    ),
-    ssr: false,
-  },
-);
 const SmartRecommendations = dynamic(
   () => import("../components/recommendations/SmartRecommendations"),
   {
@@ -59,17 +39,9 @@ const SmartRecommendations = dynamic(
 );
 import Head from "next/head";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import {
-  FadeInWhenVisible,
-  StaggeredFadeIn,
-  HoverScale,
-} from "@/components/animations/FramerMotionComponents";
+import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { useAnalytics } from "@/components/analytics/enhanced-analytics";
-import { OptimizedImage } from "@/components/ui/media/OptimizedImage";
-import {
-  useIntersectionObserver,
-  useImagePreloader,
-} from "@/hooks/usePerformanceOptimization";
+import { useImagePreloader } from "@/hooks/usePerformanceOptimization";
 import { ActivityFeed } from "@/components/activity";
 import { BeforeAfterSlider, BeforeAfterGallery } from "@/components/slider";
 
@@ -86,7 +58,8 @@ export default function Home() {
     "/images/logo/mh-logo.png",
   ];
 
-  const preloadedImages = useImagePreloader(criticalImages);
+  // Preload critical images for performance
+  useImagePreloader(criticalImages);
 
   // Track page view
   useEffect(() => {

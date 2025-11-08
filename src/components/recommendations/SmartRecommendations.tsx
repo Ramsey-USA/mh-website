@@ -504,7 +504,7 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
               <RecommendationCard
                 recommendation={recommendation}
                 showVeteranBenefits={
-                  showVeteranBenefits && !!userProfile?.isVeteran
+                  showVeteranBenefits && Boolean(userProfile?.isVeteran)
                 }
                 showFeedback={showFeedback}
                 variant={variant}

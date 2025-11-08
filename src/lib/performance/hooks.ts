@@ -3,8 +3,7 @@
  * React hooks for component-level performance monitoring
  */
 
-import { useEffect, useRef, useCallback, useState, useMemo } from "react";
-import type React from "react";
+import { useEffect, useRef, useCallback, useState } from "react";
 import { logger } from "@/lib/utils/logger";
 import {
   performanceManager,
@@ -135,10 +134,7 @@ export function useOptimizedQuery<T>(
 }
 
 // Hook for monitoring memory usage
-export function useMemoryMonitoring(
-  componentName: string,
-  interval: number = 10000,
-) {
+export function useMemoryMonitoring(componentName: string, interval = 10000) {
   const [memoryInfo, setMemoryInfo] = useState<{
     usedJSHeapSize?: number;
     totalJSHeapSize?: number;
@@ -246,7 +242,7 @@ export function useLazyImage(
 }
 
 // Hook for performance metrics dashboard
-export function usePerformanceMetrics(refreshInterval: number = 5000) {
+export function usePerformanceMetrics(refreshInterval = 5000) {
   const [metrics, setMetrics] = useState<PerformanceMetric[]>([]);
   const [report, setReport] = useState<ReturnType<
     typeof performanceManager.getPerformanceReport

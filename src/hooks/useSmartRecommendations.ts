@@ -7,12 +7,12 @@ import { logger } from "@/lib/utils/logger";
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import SmartRecommendationEngine, {
-  ProjectRecommendation,
-  UserProfile,
-  RecommendationFeedback,
-  RecommendationMetrics,
-  UserBehavior,
-  RecommendationContext,
+  type ProjectRecommendation,
+  type UserProfile,
+  type RecommendationFeedback,
+  type RecommendationMetrics,
+  type UserBehavior,
+  type RecommendationContext,
 } from "@/lib/recommendations/SmartRecommendationEngine";
 import type {
   UserAssignment,
@@ -41,12 +41,12 @@ interface UseSmartRecommendationsReturn {
   ) => Promise<void>;
   recordFeedback: (feedback: RecommendationFeedback) => void;
   trackBehavior: (behavior: UserBehavior) => void;
-  trackExperimentEvent: (eventType: string, metadata?: any) => void;
+  trackExperimentEvent: (eventType: string, metadata?: unknown) => void;
   refreshRecommendations: () => Promise<void>;
   clearRecommendations: () => void;
   getExperimentResults: (experimentId: string) => any;
-  getActiveExperiments: () => any[];
-  createExperiment: (experiment: any) => any;
+  getActiveExperiments: () => unknown[];
+  createExperiment: (experiment: unknown) => any;
 }
 
 // Singleton instance of the recommendation engine
@@ -144,7 +144,7 @@ export function useSmartRecommendations(
             variant_id: experimentAssignment?.variantId,
           });
         }
-      } catch (err) {
+      } catch (_err) {
         const errorMessage =
           err instanceof Error
             ? err.message
@@ -188,7 +188,7 @@ export function useSmartRecommendations(
         // Update metrics after feedback
         const newMetrics = engine.getMetrics();
         setMetrics(newMetrics);
-      } catch (err) {
+      } catch (_err) {
         logger.error("Error recording feedback:", err);
       }
     },
@@ -213,7 +213,7 @@ export function useSmartRecommendations(
             page: behavior.page,
           });
         }
-      } catch (err) {
+      } catch (_err) {
         logger.error("Error tracking behavior:", err);
       }
     },
@@ -247,7 +247,7 @@ export function useSmartRecommendations(
    * Track experiment event
    */
   const trackExperimentEvent = useCallback(
-    (eventType: string, metadata?: any): void => {
+    (eventType: string, metadata?: unknown): void => {
       if (!enableABTesting || !userId || !experimentAssignment) return;
 
       try {
@@ -259,7 +259,7 @@ export function useSmartRecommendations(
           timestamp: new Date(),
           metadata: metadata || {},
         });
-      } catch (err) {
+      } catch (_err) {
         logger.error("Error tracking experiment event:", err);
       }
     },
@@ -270,7 +270,7 @@ export function useSmartRecommendations(
    * Get experiment results
    */
   const getExperimentResults = useCallback(
-    (experimentId: string): any => {
+    (experimentId: string): unknown => {
       return engine.getExperimentResults(experimentId);
     },
     [engine],
@@ -279,7 +279,7 @@ export function useSmartRecommendations(
   /**
    * Get active experiments
    */
-  const getActiveExperiments = useCallback((): any[] => {
+  const getActiveExperiments = useCallback((): unknown[] => {
     return engine.getActiveExperiments();
   }, [engine]);
 
@@ -287,7 +287,7 @@ export function useSmartRecommendations(
    * Create new experiment
    */
   const createExperiment = useCallback(
-    (experiment: any): any => {
+    (experiment: unknown): unknown => {
       return engine.createExperiment(experiment);
     },
     [engine],
@@ -300,7 +300,7 @@ export function useSmartRecommendations(
     try {
       const currentMetrics = engine.getMetrics();
       setMetrics(currentMetrics);
-    } catch (err) {
+    } catch (_err) {
       logger.error("Error loading metrics:", err);
     }
   }, [engine, recommendations]);
@@ -425,13 +425,13 @@ export function useRecommendationTracking(userId?: string) {
  * Hook for veteran-specific recommendations
  */
 export function useVeteranRecommendations(
-  veteranProfile?: any,
+  veteranProfile?: unknown,
   userId?: string,
 ) {
   const baseHook = useSmartRecommendations({ userId });
 
   const generateVeteranRecommendations = useCallback(
-    async (basePreferences: any, context?: any) => {
+    async (basePreferences: unknown, context?: unknown) => {
       if (!veteranProfile) return;
 
       const userProfile: UserProfile = {

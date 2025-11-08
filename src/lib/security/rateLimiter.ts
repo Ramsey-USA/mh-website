@@ -5,7 +5,7 @@
  * Can be configured per-route with different limits.
  */
 
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
 interface RateLimitConfig {
   /**
@@ -103,11 +103,11 @@ export function rateLimit(config: RateLimitConfig) {
   } = config;
 
   return function rateLimitMiddleware(
-    handler: (request: NextRequest, context?: any) => Promise<NextResponse>,
+    handler: (request: NextRequest, context?: unknown) => Promise<NextResponse>,
   ) {
     return async function rateLimitedHandler(
       request: NextRequest,
-      context?: any,
+      context?: unknown,
     ): Promise<NextResponse> {
       // Clean up expired entries periodically
       if (Math.random() < 0.01) {

@@ -21,7 +21,7 @@ export const dynamicImport = <T = any>(
 };
 
 // Lazy load heavy components with loading states
-export const createLazyComponent = <T extends React.ComponentType<any>>(
+export const createLazyComponent = <T extends React.ComponentType<unknown>>(
   importFn: () => Promise<{ default: T }>,
   displayName?: string,
 ) => {

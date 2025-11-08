@@ -68,7 +68,7 @@ export class CoreAIEngine {
     };
   }
 
-  generateResponse(userInput: string, context?: any): string {
+  generateResponse(userInput: string, context?: unknown): string {
     const input = userInput.toLowerCase();
 
     // Page-specific intelligence briefings
@@ -156,7 +156,7 @@ export class CoreAIEngine {
     return pageGuidance[currentPage] || this.getDefaultTacticalGuidance(input);
   }
 
-  private getCostIntelligence(input: string, context?: any): string {
+  private getCostIntelligence(input: string, context?: unknown): string {
     const budgetIntel = `**COST INTELLIGENCE BRIEFING** [CALCULATE]
 
 [MILITARY_TECH] **TACTICAL BUDGET ANALYSIS**

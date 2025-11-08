@@ -147,8 +147,13 @@ export async function securityMiddleware(
 /**
  * API route security wrapper
  */
-export function withSecurity(handler: Function) {
-  return async (request: NextRequest) => {
+export function withSecurity<
+  T extends (
+    request: NextRequest,
+    ...args: unknown[]
+  ) => Promise<Response> | Response,
+>(handler: T) {
+  return async (request: NextRequest, ..._args: unknown[]) => {
     const pathname = new URL(request.url).pathname;
     const userAgent = request.headers.get("user-agent") || "Unknown";
     const ipAddress = getClientIP(request);
@@ -205,7 +210,7 @@ export function withSecurity(handler: Function) {
               headers: request.headers,
               body: JSON.stringify(validation.sanitizedData),
             });
-          } catch (error) {
+          } catch (_error) {
             await auditLogger.logSecurityViolation(
               AuditEventType.XSS_ATTEMPT,
               ipAddress,
@@ -228,9 +233,19 @@ export function withSecurity(handler: Function) {
       // Call the actual API handler
       const response = await handler(request);
 
+      // Convert Response to NextResponse if needed
+      const nextResponse =
+        response instanceof NextResponse
+          ? response
+          : NextResponse.json(response.body ? await response.json() : null, {
+              status: response.status,
+              statusText: response.statusText,
+              headers: response.headers,
+            });
+
       // Apply security to response
       const securedResponse = securityManager.applyResponseSecurity(
-        response,
+        nextResponse,
         securityResult,
         securityResult.csrfToken,
       );
@@ -370,7 +385,7 @@ export async function validateFileUpload(
           break;
         }
       }
-    } catch (error) {
+    } catch (_error) {
       errors.push("Unable to scan file content");
     }
   }

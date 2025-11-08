@@ -18,8 +18,8 @@ import QuickActionMenu from "./QuickActionMenu";
 import ConversationHistoryPanel from "./ConversationHistoryPanel";
 
 interface GlobalChatbotProps {
-  estimatorData?: any;
-  onEstimateRequest?: (data: any) => void;
+  estimatorData?: unknown;
+  onEstimateRequest?: (data: unknown) => void;
   currentPage?: string;
 }
 
@@ -128,6 +128,8 @@ export default function GlobalChatbot({
       onMouseDown={handlers.handleMouseDown}
       onMouseMove={handlers.handleMouseMove}
       onMouseUp={handlers.handleMouseUp}
+      role="region"
+      aria-label="Draggable chatbot window"
     >
       <Card className="chatbot-window w-[400px] max-h-[600px] shadow-2xl flex flex-col">
         <ChatbotHeader

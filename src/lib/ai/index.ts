@@ -63,7 +63,7 @@ export class MilitaryConstructionAI {
   /**
    * Main response generation method
    */
-  generateResponse(userInput: string, context?: any): string {
+  generateResponse(userInput: string, context?: unknown): string {
     // Check cache first
     const cacheKey = generateCacheKey(userInput, context);
     const cachedResponse = getCachedAIResponse(cacheKey);
@@ -106,13 +106,13 @@ export class MilitaryConstructionAI {
    */
   async processEnhancedEstimate(
     projectType: string,
-    formData: any,
+    formData: unknown,
     sessionId?: string,
   ): Promise<{
     estimate: string;
-    leadIntelligence: any;
-    recommendations: any[];
-    veteranBenefits?: any;
+    leadIntelligence: unknown;
+    recommendations: unknown[];
+    veteranBenefits?: unknown;
   }> {
     try {
       // Create estimate input
@@ -142,7 +142,7 @@ export class MilitaryConstructionAI {
       );
 
       // Get recommendations - simplified for now
-      const recommendations: any[] = [];
+      const recommendations: unknown[] = [];
 
       // Get veteran benefits if applicable
       let veteranBenefits = undefined;
@@ -160,7 +160,7 @@ export class MilitaryConstructionAI {
         recommendations,
         veteranBenefits,
       };
-    } catch (error) {
+    } catch (_error) {
       logger.error("Enhanced estimate processing error:", error);
 
       // Fallback to basic estimate
@@ -182,7 +182,7 @@ export class MilitaryConstructionAI {
    */
   async processEnhancedForm(
     formType: FormType,
-    formData: any,
+    formData: unknown,
     sessionId?: string,
   ): Promise<EnhancedFormResult> {
     try {
@@ -214,7 +214,7 @@ export class MilitaryConstructionAI {
           "Detailed proposal will be provided",
         ],
       };
-    } catch (error) {
+    } catch (_error) {
       logger.error("Enhanced form processing error:", error);
 
       // Fallback to standard processing
@@ -233,7 +233,7 @@ export class MilitaryConstructionAI {
   }
 
   // Helper methods
-  private isVeteranQuery(input: string, context?: any): boolean {
+  private isVeteranQuery(input: string, context?: unknown): boolean {
     const veteranKeywords = [
       "veteran",
       "military",
@@ -256,7 +256,7 @@ export class MilitaryConstructionAI {
     );
   }
 
-  private parseEstimateInput(input: string, context?: any): EstimateInput {
+  private parseEstimateInput(input: string, context?: unknown): EstimateInput {
     // Extract project type from input
     const projectTypes = [
       "kitchen",
@@ -303,7 +303,10 @@ export class MilitaryConstructionAI {
   }
 
   // Missing methods that are called by existing components
-  getLeadQualificationGuidance(userMessage: string, pageContext?: any): string {
+  getLeadQualificationGuidance(
+    userMessage: string,
+    pageContext?: unknown,
+  ): string {
     return this.coreEngine.generateResponse(
       `Provide lead qualification guidance for: ${userMessage}`,
       pageContext || { type: "lead_qualification" },
@@ -330,8 +333,8 @@ export class MilitaryConstructionAI {
   }
 
   processVeteranPriority(
-    veteranAnalysis: any,
-    context: any,
+    veteranAnalysis: unknown,
+    context: unknown,
   ): {
     processingProtocol: string;
     specialAssignment: string;
@@ -358,14 +361,14 @@ export class MilitaryConstructionAI {
     };
   }
 
-  getContactFormAssistance(userMessage: string, pageContext?: any): string {
+  getContactFormAssistance(userMessage: string, pageContext?: unknown): string {
     return this.coreEngine.generateResponse(
       `Provide contact form assistance for: ${userMessage}`,
       pageContext || { type: "form_assistance" },
     );
   }
 
-  getBookingFormAssistance(userMessage: string, pageContext?: any): string {
+  getBookingFormAssistance(userMessage: string, pageContext?: unknown): string {
     return this.coreEngine.generateResponse(
       `Provide booking form assistance for: ${userMessage}`,
       pageContext || { type: "booking_assistance" },
@@ -373,9 +376,9 @@ export class MilitaryConstructionAI {
   }
 
   generateSmartFormSuggestions(
-    formData: any,
+    formData: unknown,
     field?: string,
-    value?: any,
+    value?: unknown,
   ): {
     suggestions: string[];
     autoComplete: string;
@@ -431,7 +434,7 @@ export class MilitaryConstructionAI {
     };
   }
 
-  generatePredictiveCompletion(formData: any): {
+  generatePredictiveCompletion(formData: unknown): {
     suggestions: { field: string; value: string; confidence: number }[];
     autoFillRecommendations: string[];
     nextStepGuidance: string;

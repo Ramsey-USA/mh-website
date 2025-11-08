@@ -12,7 +12,7 @@ export interface PerformanceMetric {
   value: number;
   timestamp: number;
   type: "timing" | "memory" | "network" | "rendering" | "interaction";
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 export interface CacheEntry<T = any> {
@@ -20,7 +20,7 @@ export interface CacheEntry<T = any> {
   timestamp: number;
   ttl: number;
   version: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 export interface PerformanceConfig {
@@ -81,7 +81,7 @@ class PerformanceManager {
     this.timers.set(name, performance.now());
   }
 
-  endTiming(name: string, metadata?: Record<string, any>): number {
+  endTiming(name: string, metadata?: Record<string, unknown>): number {
     const startTime = this.timers.get(name);
     if (!startTime) {
       logger.warn(`No start time found for timer: ${name}`);
@@ -103,7 +103,7 @@ class PerformanceManager {
   }
 
   // Memory Monitoring
-  recordMemoryUsage(context: string = "general"): void {
+  recordMemoryUsage(context = "general"): void {
     if (typeof window !== "undefined" && "memory" in performance) {
       const memory = (performance as any).memory;
       this.recordMetric({
@@ -120,12 +120,7 @@ class PerformanceManager {
   }
 
   // Advanced Caching
-  setCache<T>(
-    key: string,
-    data: T,
-    ttl: number = 300000,
-    version: string = "1.0",
-  ): void {
+  setCache<T>(key: string, data: T, ttl = 300000, version = "1.0"): void {
     if (!this.config.enableCaching) return;
 
     // Implement LRU eviction if cache is full
@@ -144,7 +139,7 @@ class PerformanceManager {
     });
   }
 
-  getCache<T>(key: string, version: string = "1.0"): T | null {
+  getCache<T>(key: string, version = "1.0"): T | null {
     if (!this.config.enableCaching) return null;
 
     const entry = this.cache.get(key);
@@ -293,7 +288,7 @@ class PerformanceManager {
     // Monitor Core Web Vitals using the current web-vitals API
     import("web-vitals")
       .then(({ onCLS, onFCP, onLCP, onTTFB, onINP }) => {
-        onCLS((metric: any) => {
+        onCLS((metric: unknown) => {
           this.recordMetric({
             name: "cumulative_layout_shift",
             value: metric.value,
@@ -304,7 +299,7 @@ class PerformanceManager {
         });
 
         // Use onINP (Interaction to Next Paint) instead of FID
-        onINP((metric: any) => {
+        onINP((metric: unknown) => {
           this.recordMetric({
             name: "interaction_to_next_paint",
             value: metric.value,
@@ -314,7 +309,7 @@ class PerformanceManager {
           });
         });
 
-        onFCP((metric: any) => {
+        onFCP((metric: unknown) => {
           this.recordMetric({
             name: "first_contentful_paint",
             value: metric.value,
@@ -324,7 +319,7 @@ class PerformanceManager {
           });
         });
 
-        onLCP((metric: any) => {
+        onLCP((metric: unknown) => {
           this.recordMetric({
             name: "largest_contentful_paint",
             value: metric.value,
@@ -334,7 +329,7 @@ class PerformanceManager {
           });
         });
 
-        onTTFB((metric: any) => {
+        onTTFB((metric: unknown) => {
           this.recordMetric({
             name: "time_to_first_byte",
             value: metric.value,
@@ -367,7 +362,7 @@ class PerformanceManager {
       });
       longTaskObserver.observe({ entryTypes: ["longtask"] });
       this.observers.set("longtask", longTaskObserver);
-    } catch (e) {
+    } catch (_e) {
       logger.warn("Long Task Observer not supported");
     }
 
@@ -388,7 +383,7 @@ class PerformanceManager {
       });
       layoutShiftObserver.observe({ entryTypes: ["layout-shift"] });
       this.observers.set("layout-shift", layoutShiftObserver);
-    } catch (e) {
+    } catch (_e) {
       logger.warn("Layout Shift Observer not supported");
     }
   }
@@ -525,7 +520,7 @@ class PerformanceManager {
 export class QueryOptimizer {
   private queryCache = new Map<
     string,
-    { result: any; timestamp: number; ttl: number }
+    { result: unknown; timestamp: number; ttl: number }
   >();
   private queryStats = new Map<
     string,
@@ -535,7 +530,7 @@ export class QueryOptimizer {
   cacheQuery<T>(
     key: string,
     queryFn: () => Promise<T>,
-    ttl: number = 300000,
+    ttl = 300000,
   ): Promise<T> {
     const cached = this.queryCache.get(key);
 

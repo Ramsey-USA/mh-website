@@ -4,7 +4,6 @@
  * NO veteran badges in hero - follows MH Construction brand standards
  */
 
-import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 

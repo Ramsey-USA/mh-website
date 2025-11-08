@@ -37,7 +37,7 @@ export interface InteractionEvent {
   type: "click" | "scroll" | "form_focus" | "form_submit" | "search" | "hover";
   element: string;
   timestamp: Date;
-  data: Record<string, any>;
+  data: Record<string, unknown>;
 }
 
 export interface DeviceInfo {
@@ -209,7 +209,7 @@ export class AnalyticsDataCollector {
   trackInteraction(
     type: InteractionEvent["type"],
     element: string,
-    data: Record<string, any> = {},
+    data: Record<string, unknown> = {},
   ): void {
     if (!this.currentSession) return;
 
@@ -233,7 +233,10 @@ export class AnalyticsDataCollector {
   /**
    * Track form submission
    */
-  trackFormSubmission(formName: string, formData: Record<string, any>): void {
+  trackFormSubmission(
+    formName: string,
+    formData: Record<string, unknown>,
+  ): void {
     this.trackEvent("form_submission", {
       form: formName,
       ...formData,
@@ -310,7 +313,7 @@ export class AnalyticsDataCollector {
   /**
    * Export session data
    */
-  exportSessionData(): any {
+  exportSessionData(): unknown {
     return {
       session: this.currentSession,
       events: this.eventQueue,
@@ -347,7 +350,7 @@ export class AnalyticsDataCollector {
 
   private trackEvent(
     type: AnalyticsEventType,
-    properties: Record<string, any>,
+    properties: Record<string, unknown>,
   ): void {
     const event: AnalyticsEvent = {
       id: `event_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
@@ -381,7 +384,7 @@ export class AnalyticsDataCollector {
     const veteranStatus = localStorage.getItem("user_veteran_status");
     const veteranInteractions = localStorage.getItem("veteran_interactions");
 
-    return veteranStatus === "true" || !!veteranInteractions;
+    return veteranStatus === "true" || Boolean(veteranInteractions);
   }
 
   private getDeviceInfo(): DeviceInfo {
@@ -514,7 +517,7 @@ export class AnalyticsDataCollector {
     document.addEventListener("submit", (event) => {
       const form = event.target as HTMLFormElement;
       const formData = new FormData(form);
-      const data: Record<string, any> = {};
+      const data: Record<string, unknown> = {};
 
       formData.forEach((value, key) => {
         data[key] =
@@ -607,14 +610,14 @@ export const useAnalyticsTracking = () => {
   const trackInteraction = (
     type: InteractionEvent["type"],
     element: string,
-    data?: Record<string, any>,
+    data?: Record<string, unknown>,
   ) => {
     dataCollector.trackInteraction(type, element, data);
   };
 
   const trackFormSubmission = (
     formName: string,
-    formData: Record<string, any>,
+    formData: Record<string, unknown>,
   ) => {
     dataCollector.trackFormSubmission(formName, formData);
   };

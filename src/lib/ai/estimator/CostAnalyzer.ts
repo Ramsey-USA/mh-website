@@ -23,7 +23,10 @@ export class CostAnalyzer {
     return this.generateEstimateReport(input, finalEstimate, isVeteran);
   }
 
-  generateLeadIntelligence(keywords: string, context?: any): LeadIntelligence {
+  generateLeadIntelligence(
+    keywords: string,
+    context?: unknown,
+  ): LeadIntelligence {
     const projectType = this.classifyProjectType(keywords);
     const budgetRange = this.analyzeBudgetRange(keywords, context);
     const timeline = this.analyzeTimeline(keywords);
@@ -206,7 +209,7 @@ Are you a veteran or active service member? Qualify for 12% service discount!
     return "General Construction";
   }
 
-  private analyzeBudgetRange(keywords: string, context?: any): string {
+  private analyzeBudgetRange(keywords: string, context?: unknown): string {
     const budgetIndicators = [
       {
         range: "Under $10K",
@@ -264,7 +267,7 @@ Are you a veteran or active service member? Qualify for 12% service discount!
     return "Timeline Planning Required";
   }
 
-  private assessPriority(keywords: string, context?: any): string {
+  private assessPriority(keywords: string, context?: unknown): string {
     if (keywords.includes("emergency") || keywords.includes("urgent")) {
       return "high";
     }
@@ -274,7 +277,10 @@ Are you a veteran or active service member? Qualify for 12% service discount!
     return "standard";
   }
 
-  private extractLocation(keywords: string, context?: any): string | undefined {
+  private extractLocation(
+    keywords: string,
+    context?: unknown,
+  ): string | undefined {
     const locations = ["seattle", "tacoma", "bellevue", "spokane", "olympia"];
     for (const location of locations) {
       if (keywords.toLowerCase().includes(location)) {
@@ -284,7 +290,7 @@ Are you a veteran or active service member? Qualify for 12% service discount!
     return context?.location;
   }
 
-  private detectVeteranStatus(keywords: string, context?: any): boolean {
+  private detectVeteranStatus(keywords: string, context?: unknown): boolean {
     const veteranKeywords = [
       "veteran",
       "military",
@@ -301,7 +307,7 @@ Are you a veteran or active service member? Qualify for 12% service discount!
 
   private generateAdvancedLeadClassification(
     keywords: string,
-    context?: any,
+    context?: unknown,
     projectType?: string,
     budgetRange?: string,
   ): string {

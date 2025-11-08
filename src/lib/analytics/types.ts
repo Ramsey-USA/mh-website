@@ -18,6 +18,14 @@ export type AnalyticsEventType =
   | "error_event"
   | "conversion_event";
 
+// Property value types for analytics events
+export type AnalyticsPropertyValue =
+  | string
+  | number
+  | boolean
+  | null
+  | undefined;
+
 // Core Analytics Interfaces
 export interface AnalyticsEvent {
   id: string;
@@ -25,7 +33,7 @@ export interface AnalyticsEvent {
   timestamp: Date;
   sessionId: string;
   userId?: string;
-  properties: Record<string, any>;
+  properties: Record<string, AnalyticsPropertyValue>;
   metadata: EventMetadata;
 }
 
@@ -83,7 +91,7 @@ export interface ConversionEvent {
     | "project_inquiry";
   value: number;
   timestamp: Date;
-  properties: Record<string, any>;
+  properties: Record<string, AnalyticsPropertyValue>;
 }
 
 export interface AnalyticsDashboardData {

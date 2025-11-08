@@ -37,7 +37,7 @@ export interface ValidationStatus {
 
 export interface EstimatorFormProps {
   projectData: ProjectData;
-  onDataChange: (field: keyof ProjectData, value: any) => void;
+  onDataChange: (field: keyof ProjectData, value: unknown) => void;
   onNext?: () => void;
   onPrevious?: () => void;
   validationStatus: ValidationStatus;

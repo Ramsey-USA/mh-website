@@ -2,6 +2,10 @@
 // Enhanced for Cloudflare Pages optimization
 // Provides offline capabilities, advanced caching, and PWA functionality
 
+// Debug mode - set to false in production
+const DEBUG = false;
+const log = DEBUG ? console.log.bind(console) : () => {};
+
 const CACHE_NAME = "mh-construction-v4.0.0";
 const STATIC_CACHE_NAME = "mh-construction-static-v4.0.0";
 const DYNAMIC_CACHE_NAME = "mh-construction-dynamic-v4.0.0";

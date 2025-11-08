@@ -1,12 +1,17 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  type ReactNode,
+} from "react";
 
 interface ChatbotContextType {
   isOpen: boolean;
   toggleChatbot: () => void;
-  currentEstimatorData: any;
-  setCurrentEstimatorData: (data: any) => void;
+  currentEstimatorData: unknown;
+  setCurrentEstimatorData: (data: unknown) => void;
   chatMode: "general" | "estimator" | "veteran-support";
   setChatMode: (mode: "general" | "estimator" | "veteran-support") => void;
 }

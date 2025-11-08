@@ -4,12 +4,12 @@
  */
 
 import { Input } from "../../ui";
-import { ProjectData, EstimatorFormProps } from "../types";
+import { type ProjectData, type EstimatorFormProps } from "../types";
 import { PROJECT_TYPES, LOCATIONS } from "../constants";
 
 interface ProjectBasicsStepProps extends EstimatorFormProps {
   projectData: ProjectData;
-  onDataChange: (field: keyof ProjectData, value: any) => void;
+  onDataChange: (field: keyof ProjectData, value: unknown) => void;
 }
 
 export function ProjectBasicsStep({

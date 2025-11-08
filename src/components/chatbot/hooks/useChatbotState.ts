@@ -16,7 +16,7 @@ export interface ChatMessage {
   content: string;
   timestamp: Date;
   metadata?: {
-    estimateData?: any;
+    estimateData?: unknown;
     actionRequired?: boolean;
     priority?: "low" | "medium" | "high" | "critical";
     responseTime?: number;
@@ -52,7 +52,7 @@ const getInitialMessage = (): ChatMessage => ({
   metadata: { priority: "high" },
 });
 
-export function useChatbotState(currentPage: string = "", estimatorData?: any) {
+export function useChatbotState(currentPage = "", estimatorData?: unknown) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [position, setPosition] = useState({ x: 24, y: 24 });

@@ -4,7 +4,7 @@
  * Uses Web Crypto API (Edge compatible) instead of Node.js crypto
  */
 
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
 // Security Configuration
 export interface SecurityConfig {
@@ -292,7 +292,7 @@ export class RateLimiter {
   /**
    * Apply rate limit headers to response
    */
-  applyHeaders(response: NextResponse, rateLimitInfo: any): NextResponse {
+  applyHeaders(response: NextResponse, rateLimitInfo: unknown): NextResponse {
     if (this.config.standardHeaders) {
       response.headers.set(
         "RateLimit-Limit",
@@ -679,7 +679,7 @@ export class SecurityManager {
    */
   applyResponseSecurity(
     response: NextResponse,
-    rateLimitInfo?: any,
+    rateLimitInfo?: unknown,
     csrfToken?: string,
   ): NextResponse {
     // Apply security headers
@@ -701,12 +701,12 @@ export class SecurityManager {
   /**
    * Validate input data
    */
-  validateInput(data: Record<string, any>): {
+  validateInput(data: Record<string, unknown>): {
     isValid: boolean;
-    sanitizedData: Record<string, any>;
+    sanitizedData: Record<string, unknown>;
     errors: Record<string, string[]>;
   } {
-    const sanitizedData: Record<string, any> = {};
+    const sanitizedData: Record<string, unknown> = {};
     const errors: Record<string, string[]> = {};
     let isValid = true;
 

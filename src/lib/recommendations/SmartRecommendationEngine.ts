@@ -8,11 +8,11 @@
  */
 
 import { logger } from "@/lib/utils/logger";
-import { militaryConstructionAI, MilitaryConstructionAI } from "../ai";
+import { militaryConstructionAI, type MilitaryConstructionAI } from "../ai";
 import ABTestingFramework, {
-  VariantConfiguration,
-  ExperimentEvent,
-  UserAssignment,
+  type VariantConfiguration,
+  type ExperimentEvent,
+  type UserAssignment,
 } from "./ABTestingFramework";
 
 // Core interfaces for the recommendation system
@@ -96,7 +96,7 @@ export interface UserBehavior {
   timestamp: Date;
   action: string;
   page: string;
-  data: any;
+  data: unknown;
   sessionDuration?: number;
   conversionEvent?: boolean;
 }
@@ -142,10 +142,7 @@ export class SmartRecommendationEngine {
   private learningData: Map<string, any>;
   private abTestingFramework: ABTestingFramework;
 
-  constructor(
-    aiEngine?: MilitaryConstructionAI,
-    enableABTesting: boolean = true,
-  ) {
+  constructor(aiEngine?: MilitaryConstructionAI, enableABTesting = true) {
     this.aiEngine = aiEngine || ({} as MilitaryConstructionAI); // Will be injected later
     this.userProfiles = new Map();
     this.recommendationHistory = new Map();
@@ -253,7 +250,7 @@ export class SmartRecommendationEngine {
       }
 
       return rankedRecommendations;
-    } catch (error) {
+    } catch (_error) {
       logger.error("Error generating recommendations:", error);
       return this.getFallbackRecommendations(userProfile);
     }
@@ -262,7 +259,7 @@ export class SmartRecommendationEngine {
   /**
    * Analyze user profile to understand preferences and needs
    */
-  private analyzeUserProfile(userProfile: UserProfile): any {
+  private analyzeUserProfile(userProfile: UserProfile): unknown {
     const analysis = {
       budgetCategory: this.categorizeBudget(
         userProfile.preferences.budgetRange,
@@ -285,7 +282,7 @@ export class SmartRecommendationEngine {
    * Generate base project recommendations
    */
   private generateBaseRecommendations(
-    analysis: any,
+    analysis: unknown,
     variantConfig?: VariantConfiguration | null,
   ): ProjectRecommendation[] {
     const recommendations: ProjectRecommendation[] = [];
@@ -328,8 +325,8 @@ export class SmartRecommendationEngine {
    * Generate residential project recommendations
    */
   private generateResidentialRecommendations(
-    analysis: any,
-    algorithmType: string = "standard",
+    analysis: unknown,
+    algorithmType = "standard",
   ): ProjectRecommendation[] {
     const recommendations: ProjectRecommendation[] = [];
 
@@ -390,8 +387,8 @@ export class SmartRecommendationEngine {
    * Generate commercial project recommendations
    */
   private generateCommercialRecommendations(
-    analysis: any,
-    algorithmType: string = "standard",
+    analysis: unknown,
+    algorithmType = "standard",
   ): ProjectRecommendation[] {
     const recommendations: ProjectRecommendation[] = [];
 
@@ -427,8 +424,8 @@ export class SmartRecommendationEngine {
    * Generate renovation project recommendations
    */
   private generateRenovationRecommendations(
-    analysis: any,
-    algorithmType: string = "standard",
+    analysis: unknown,
+    algorithmType = "standard",
   ): ProjectRecommendation[] {
     const recommendations: ProjectRecommendation[] = [];
 
@@ -464,8 +461,8 @@ export class SmartRecommendationEngine {
    * Generate addition project recommendations
    */
   private generateAdditionRecommendations(
-    analysis: any,
-    algorithmType: string = "standard",
+    analysis: unknown,
+    algorithmType = "standard",
   ): ProjectRecommendation[] {
     const recommendations: ProjectRecommendation[] = [];
 
@@ -769,7 +766,7 @@ export class SmartRecommendationEngine {
   /**
    * Create a new A/B test experiment
    */
-  createExperiment(experiment: any): any {
+  createExperiment(experiment: unknown): unknown {
     return this.abTestingFramework.createExperiment(experiment);
   }
 
@@ -793,21 +790,21 @@ export class SmartRecommendationEngine {
   /**
    * Get experiment results
    */
-  getExperimentResults(experimentId: string): any {
+  getExperimentResults(experimentId: string): unknown {
     return this.abTestingFramework.getExperimentResults(experimentId);
   }
 
   /**
    * Get active experiments
    */
-  getActiveExperiments(): any[] {
+  getActiveExperiments(): unknown[] {
     return this.abTestingFramework.getActiveExperiments();
   }
 
   /**
    * Conclude experiment and get results
    */
-  concludeExperiment(experimentId: string, winningVariantId?: string): any {
+  concludeExperiment(experimentId: string, winningVariantId?: string): unknown {
     return this.abTestingFramework.concludeExperiment(
       experimentId,
       winningVariantId,
@@ -838,14 +835,16 @@ export class SmartRecommendationEngine {
   }
 
   private analyzeUrgency(timeframe: string): "immediate" | "soon" | "planned" {
-    if (timeframe.includes("immediately") || timeframe.includes("asap"))
+    if (timeframe.includes("immediately") || timeframe.includes("asap")) {
       return "immediate";
-    if (timeframe.includes("month") || timeframe.includes("soon"))
+    }
+    if (timeframe.includes("month") || timeframe.includes("soon")) {
       return "soon";
+    }
     return "planned";
   }
 
-  private analyzeBehaviorPatterns(behaviors: UserBehavior[]): any {
+  private analyzeBehaviorPatterns(behaviors: UserBehavior[]): unknown {
     return {
       totalActions: behaviors.length,
       estimatorUsage: behaviors.filter((b) => b.action === "estimate").length,
@@ -854,7 +853,7 @@ export class SmartRecommendationEngine {
     };
   }
 
-  private analyzeLocationFactors(location?: string): any {
+  private analyzeLocationFactors(location?: string): unknown {
     if (!location) return null;
 
     // Pacific Northwest specific factors
@@ -866,7 +865,7 @@ export class SmartRecommendationEngine {
     };
   }
 
-  private analyzeVeteranPriorities(veteranProfile: VeteranProfile): any {
+  private analyzeVeteranPriorities(veteranProfile: VeteranProfile): unknown {
     return {
       accessibilityNeeds:
         veteranProfile.disabilityRating && veteranProfile.disabilityRating > 0,
@@ -921,10 +920,15 @@ export class SmartRecommendationEngine {
   ): number {
     // Simplified timeline scoring
     // Would need more sophisticated parsing in production
-    if (userTimeframe.includes("immediate") && projectTimeline.includes("week"))
+    if (
+      userTimeframe.includes("immediate") &&
+      projectTimeline.includes("week")
+    ) {
       return 90;
-    if (userTimeframe.includes("month") && projectTimeline.includes("week"))
+    }
+    if (userTimeframe.includes("month") && projectTimeline.includes("week")) {
       return 100;
+    }
     return 75; // Default moderate score
   }
 

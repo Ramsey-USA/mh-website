@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { MaterialIcon } from "../../icons/MaterialIcon";
-import { TeamMember } from "@/lib/data/team";
+import { type TeamMember } from "@/lib/data/team";
 
 /**
  * @deprecated This component has been replaced by VintageBaseballCard.tsx
@@ -22,8 +22,9 @@ export function BaseballCard({ member }: BaseballCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   // Get role icon based on role
   function getRoleIcon(role: string): string {
-    if (role.includes("Owner") || role.includes("General Manager"))
+    if (role.includes("Owner") || role.includes("General Manager")) {
       return "account_balance";
+    }
     if (role.includes("Founder")) return "foundation";
     if (role.includes("Vice President")) return "business_center";
     if (role.includes("Project Manager")) return "assignment_ind";
@@ -78,6 +79,12 @@ export function BaseballCard({ member }: BaseballCardProps) {
       <div
         className="relative w-full h-full perspective-1000 cursor-pointer"
         onClick={() => setIsFlipped(!isFlipped)}
+        onKeyDown={(e) =>
+          (e.key === "Enter" || e.key === " ") && setIsFlipped(!isFlipped)
+        }
+        role="button"
+        tabIndex={0}
+        aria-label={`Flip baseball card for ${member.name}`}
       >
         <div
           className={`absolute inset-0 w-full h-full transition-transform duration-700 preserve-3d ${

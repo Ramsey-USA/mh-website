@@ -5,7 +5,7 @@
 
 import {
   CaseStudyTemplate,
-  CaseStudyData,
+  type CaseStudyData,
 } from "@/components/projects/CaseStudyTemplate";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";

@@ -3,15 +3,13 @@
  * Enhanced middleware with Cloudflare optimization and security features
  */
 
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest } from "next/server";
 import { securityMiddleware } from "./src/middleware/security";
 
 export async function middleware(request: NextRequest) {
   // Get Cloudflare headers for enhanced processing
-  const cfRay = request.headers.get("cf-ray");
   const cfConnectingIP = request.headers.get("cf-connecting-ip");
   const cfCountry = request.headers.get("cf-ipcountry");
-  const cfCacheStatus = request.headers.get("cf-cache-status");
 
   // Apply security middleware
   const response = await securityMiddleware(request);
@@ -69,7 +67,10 @@ function generateNonce(): string {
   // Convert to base64 without Buffer (Edge Runtime compatible)
   let binary = "";
   for (let i = 0; i < array.length; i++) {
-    binary += String.fromCharCode(array[i]);
+    const byte = array[i];
+    if (byte !== undefined) {
+      binary += String.fromCharCode(byte);
+    }
   }
   return btoa(binary);
 }

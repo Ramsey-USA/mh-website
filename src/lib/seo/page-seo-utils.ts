@@ -1,5 +1,5 @@
 // Page-specific SEO utilities for MH Construction
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import {
   generateEnhancedMetadata,
   generateAIEstimatorSchema,

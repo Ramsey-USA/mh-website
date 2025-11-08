@@ -1,5 +1,18 @@
+/**
+ * MH Construction - Next.js Configuration
+ *
+ * Optimized for Next.js 15 with Cloudflare Pages deployment
+ * Production-ready configuration with performance optimizations
+ *
+ * @see https://nextjs.org/docs/app/api-reference/next-config-js
+ * @see docs/technical/configuration-guide.md
+ * @version 2.0.0
+ * @lastUpdated 2025-11-08
+ */
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // === PERFORMANCE OPTIMIZATIONS ===
   experimental: {
     optimizePackageImports: [
       "framer-motion",
@@ -12,44 +25,48 @@ const nextConfig = {
     ],
   },
 
-  // Server external packages (moved from experimental)
-  serverExternalPackages: [],
+  // === BUILD CONFIGURATION ===
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
 
-  poweredByHeader: false,
+  // Build directories
+  distDir: ".next",
+  cleanDistDir: true,
 
+  // On-demand entries configuration
   onDemandEntries: {
     maxInactiveAge: 60 * 1000,
     pagesBufferLength: 5,
   },
 
-  // Enhanced performance configuration
-  compiler: {
-    removeConsole: process.env.NODE_ENV === "production",
-  },
+  // === SECURITY ===
+  poweredByHeader: false,
 
+  // === WEBPACK CUSTOMIZATION ===
   webpack: (config, { dev, isServer }) => {
     // Exclude backup directories from compilation
     config.module.rules.push({
       test: /\.(ts|tsx|js|jsx)$/,
-      exclude: [/node_modules/, /backups/, /\.backup\./, /\.next/],
+      exclude: [
+        /node_modules/,
+        /backups/,
+        /\.backup\./,
+        /\.next/,
+        /\.config-backup/,
+      ],
     });
 
     // Enhanced module resolution
     config.resolve.alias = {
       ...config.resolve.alias,
-      // Optimize common imports
       "@": require("path").resolve(__dirname, "src"),
     };
 
     return config;
   },
 
-  // Removed 'output: "standalone"' for Cloudflare Pages compatibility
-  // Cloudflare Pages uses @cloudflare/next-on-pages which generates its own output
-  distDir: ".next",
-  cleanDistDir: true,
-
-  // Enhanced image optimization
+  // === IMAGE OPTIMIZATION ===
   images: {
     formats: ["image/webp", "image/avif"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -60,30 +77,31 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
-  // URL redirects for short/legacy URLs
+  // === REDIRECTS ===
   async redirects() {
     return [
       {
         source: "/partners",
         destination: "/trade-partners",
-        permanent: true, // 301 redirect
+        permanent: true, // 301
       },
       {
         source: "/urgent",
         destination: "/contact#urgent-support",
-        permanent: true, // 301 redirect
+        permanent: true, // 301
       },
       {
         source: "/book",
         destination: "/booking",
-        permanent: true, // 301 redirect
+        permanent: true, // 301
       },
     ];
   },
 
-  // Additional performance headers
+  // === HEADERS ===
   async headers() {
     return [
+      // Cache static assets
       {
         source: "/:all*(svg|jpg|jpeg|png|webp|avif|gif)",
         headers: [
@@ -93,6 +111,7 @@ const nextConfig = {
           },
         ],
       },
+      // Cache Next.js static files
       {
         source: "/_next/static/:path*",
         headers: [

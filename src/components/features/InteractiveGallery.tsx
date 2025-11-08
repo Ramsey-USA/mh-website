@@ -232,6 +232,12 @@ const InteractiveGallery = ({
             viewMode === "masonry" ? "break-inside-avoid mb-4" : "aspect-square"
           }`}
           onClick={() => openImage(image, index)}
+          onKeyDown={(e) =>
+            (e.key === "Enter" || e.key === " ") && openImage(image, index)
+          }
+          role="button"
+          tabIndex={0}
+          aria-label={`View ${image.title || image.alt}`}
         >
           <OptimizedImage
             src={image.src}

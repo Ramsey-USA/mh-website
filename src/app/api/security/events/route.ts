@@ -3,13 +3,13 @@
  * Provides access to security audit logs and events
  */
 
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { withSecurity } from "@/middleware/security";
 import { logger } from "@/lib/utils/logger";
 import {
   auditLogger,
   AuditEventType,
-  RiskLevel,
+  type RiskLevel,
 } from "@/lib/security/audit-logger";
 
 export const runtime = "edge";
@@ -105,14 +105,7 @@ async function handler(request: NextRequest) {
     if (request.method === "POST") {
       // Manual event logging (for testing or external integrations)
       const body = await request.json();
-      const {
-        eventType,
-        details,
-        riskLevel,
-        source,
-        userId,
-        outcome = "success",
-      } = body;
+      const { eventType, details, source, userId, outcome = "success" } = body;
 
       if (!eventType || !Object.values(AuditEventType).includes(eventType)) {
         return NextResponse.json(
@@ -148,7 +141,7 @@ async function handler(request: NextRequest) {
 // Helper function to generate human-readable descriptions
 function getEventDescription(
   eventType: AuditEventType,
-  details: Record<string, any>,
+  details: Record<string, string | number | boolean | null | undefined>,
 ): string {
   switch (eventType) {
     case AuditEventType.LOGIN_SUCCESS:

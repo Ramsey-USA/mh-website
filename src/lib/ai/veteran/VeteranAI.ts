@@ -10,7 +10,7 @@ export class VeteranAI {
   generateVeteranResponse(
     input: string,
     veteranProfile?: VeteranProfile,
-    context?: any,
+    context?: unknown,
   ): string {
     const inputLower = input.toLowerCase();
 

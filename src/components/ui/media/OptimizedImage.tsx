@@ -31,10 +31,7 @@ interface OptimizedImageProps {
 }
 
 // Generate a simple blur data URL for placeholder
-const generateBlurDataURL = (
-  width: number = 400,
-  height: number = 300,
-): string => {
+const generateBlurDataURL = (width = 400, height = 300): string => {
   const canvas = document.createElement("canvas");
   canvas.width = width;
   canvas.height = height;

@@ -93,9 +93,9 @@ export interface Vulnerability {
     successfulRequests?: number;
     cookie?: string;
     status?: number;
-    [key: string]: any;
+    [key: string]: unknown;
   };
-  metadata: Record<string, any>;
+  metadata: Record<string, unknown>;
 }
 
 // Scan Configuration
@@ -133,7 +133,7 @@ export interface ScanResult {
   vulnerabilities: Vulnerability[];
   summary: ScanSummary;
   coverage: ScanCoverage;
-  metadata: Record<string, any>;
+  metadata: Record<string, unknown>;
 }
 
 export interface ScanSummary {

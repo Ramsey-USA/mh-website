@@ -19,7 +19,7 @@ interface SimpleCache<T> {
 
 class LightweightPerformanceManager {
   private metrics: CoreMetric[] = [];
-  private cache: Map<string, { value: any; expires: number }> = new Map();
+  private cache: Map<string, { value: unknown; expires: number }> = new Map();
   private observers: PerformanceObserver[] = [];
 
   constructor() {
@@ -50,7 +50,7 @@ class LightweightPerformanceManager {
     return cached.value;
   }
 
-  setCache<T>(key: string, value: T, ttlMs: number = 300000): void {
+  setCache<T>(key: string, value: T, ttlMs = 300000): void {
     this.cache.set(key, {
       value,
       expires: Date.now() + ttlMs,
@@ -129,7 +129,7 @@ export function usePerformanceTiming(componentName: string) {
 export function useOptimizedQuery<T>(
   key: string,
   queryFn: () => Promise<T>,
-  ttl: number = 300000,
+  ttl = 300000,
 ) {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(false);

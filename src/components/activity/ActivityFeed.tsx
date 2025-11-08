@@ -311,6 +311,7 @@ export function ActivityFeed({
         const isDismissed = dismissedIds.has(activity.id);
 
         return (
+          // eslint-disable-next-line jsx-a11y/no-static-element-interactions -- Conditional interactivity with proper keyboard support
           <div
             key={activity.id}
             className={`
@@ -329,6 +330,11 @@ export function ActivityFeed({
             }
             role={enableChatbotIntegration ? "button" : "status"}
             tabIndex={enableChatbotIntegration ? 0 : undefined}
+            aria-label={
+              enableChatbotIntegration
+                ? `${activity.type} activity: ${activity.message}`
+                : undefined
+            }
             onKeyDown={(e) => {
               if (
                 enableChatbotIntegration &&

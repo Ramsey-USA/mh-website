@@ -3,7 +3,7 @@
  * POST /api/auth/refresh
  */
 
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { refreshAccessToken, type JWTUser } from "@/lib/auth/jwt";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rateLimiter";
 import { logger } from "@/lib/utils/logger";

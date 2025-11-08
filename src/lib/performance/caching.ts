@@ -60,7 +60,7 @@ class CacheManager {
     setInterval(() => this.cleanup(), 5 * 60 * 1000);
   }
 
-  async get<T>(key: string, version: string = "1.0"): Promise<T | null> {
+  async get<T>(key: string, version = "1.0"): Promise<T | null> {
     // Try memory cache first
     const memoryEntry = this.getFromMemory<T>(key, version);
     if (memoryEntry) {
@@ -193,7 +193,7 @@ class CacheManager {
       // Try IndexedDB for larger items
       const idbEntry = await this.getFromIndexedDB<T>(key, version);
       if (idbEntry) return idbEntry;
-    } catch (error) {
+    } catch (_error) {
       logger.warn("Browser cache read error:", error);
     }
 
@@ -233,7 +233,7 @@ class CacheManager {
           await this.setInIndexedDB(key, entry);
           break;
       }
-    } catch (error) {
+    } catch (_error) {
       logger.warn("Browser cache write error:", error);
     }
   }
@@ -378,7 +378,7 @@ class CacheManager {
     this.updateStats();
   }
 
-  private estimateSize(data: any): number {
+  private estimateSize(data: unknown): number {
     return new Blob([JSON.stringify(data)]).size;
   }
 
@@ -526,7 +526,7 @@ export class APICache {
       );
 
       return data;
-    } catch (error) {
+    } catch (_error) {
       const fetchTime = performance.now() - startTime;
       logger.error(`API fetch failed for ${url}:`, error);
       throw error;

@@ -4,8 +4,8 @@
  */
 
 import {
-  VeteranProfile,
-  ServiceBranch,
+  type VeteranProfile,
+  type ServiceBranch,
   VeteranPriority,
   CommunicationStyle,
   RespectLevel,

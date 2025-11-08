@@ -259,13 +259,20 @@ brings unwavering dedication and owner-first focus to every project.
 ### Tech Stack
 
 - **Framework**: Next.js 15.5.2 (App Router, React 19)
-- **Language**: TypeScript 5.9
+- **Language**: TypeScript 5.9 (Strict Mode)
 - **Styling**: Tailwind CSS 3.4.0
+- **Linting**: ESLint 9+ (Flat Config)
+- **Testing**: Jest 30+ with React Testing Library
 - **Icons**: Google Material Icons (font-based)
 - **Animations**: Framer Motion
 - **Deployment**: Cloudflare Pages with Edge Runtime
 - **Email**: Resend API
 - **Database**: Cloudflare D1 (SQL) / KV Storage
+
+**🆕 Configuration System**: All configs modernized (Nov 2025)
+
+- **[Configuration Guide](./docs/technical/configuration-guide.md)** - Complete configuration documentation
+- **[Config Directory](./config/CONFIG-DIRECTORY-GUIDE.md)** - Deployment-specific configs only
 
 ---
 
@@ -273,6 +280,11 @@ brings unwavering dedication and owner-first focus to every project.
 
 ```text
 mh-website/
+├── config/                    # Deployment-specific configs (Cloudflare, Docker, CI/CD)
+│   ├── cloudflare/           # Cloudflare Workers/Pages deployment
+│   ├── deployment/           # Docker configurations
+│   └── monitoring/           # CI/CD monitoring configs
+│   └── CONFIG-DIRECTORY-GUIDE.md  # 📖 Config directory documentation
 ├── src/
 │   ├── app/                    # Next.js app router pages
 │   │   ├── page.tsx           # Homepage

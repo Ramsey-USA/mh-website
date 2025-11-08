@@ -3,9 +3,9 @@
  * POST /api/auth/login
  */
 
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { generateTokenPair, type JWTUser } from "@/lib/auth/jwt";
-import { sanitizeEmail, sanitizeInput } from "@/lib/security/sanitization";
+import { sanitizeEmail } from "@/lib/security/sanitization";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rateLimiter";
 import { logger } from "@/lib/utils/logger";
 

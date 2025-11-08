@@ -13,7 +13,7 @@ interface MessageProps {
     content: string;
     timestamp: Date;
     metadata?: {
-      estimateData?: any;
+      estimateData?: unknown;
       actionRequired?: boolean;
       priority?: "low" | "medium" | "high" | "critical";
       responseTime?: number;
@@ -21,7 +21,7 @@ interface MessageProps {
       isVeteran?: boolean;
     };
   };
-  formattedContent: any[];
+  formattedContent: unknown[];
 }
 
 // Memoized message component to prevent unnecessary re-renders
@@ -44,7 +44,7 @@ const ChatMessage = memo(({ message, formattedContent }: MessageProps) => {
         <div className="w-full">
           {message.type === "bot" ? (
             <div className="prose prose-sm dark:prose-invert max-w-none text-sm break-words">
-              {formattedContent.map((item: any) => {
+              {formattedContent.map((item: unknown) => {
                 switch (item.type) {
                   case "header":
                     return (

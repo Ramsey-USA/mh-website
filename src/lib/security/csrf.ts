@@ -5,7 +5,7 @@
  * Implements double-submit cookie pattern.
  */
 
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { randomBytes } from "crypto";
 
 const CSRF_TOKEN_LENGTH = 32;
@@ -98,11 +98,11 @@ export function cleanupExpiredTokens(): void {
  * Middleware to require CSRF token for state-changing requests
  */
 export function requireCSRF(
-  handler: (request: NextRequest, context?: any) => Promise<NextResponse>,
+  handler: (request: NextRequest, context?: unknown) => Promise<NextResponse>,
 ) {
   return async function csrfProtectedHandler(
     request: NextRequest,
-    context?: any,
+    context?: unknown,
   ): Promise<NextResponse> {
     const method = request.method;
 
@@ -147,7 +147,7 @@ export function getCSRFToken(request: NextRequest): string | null {
  * Create a response with CSRF protection headers
  */
 export function createProtectedResponse(
-  data: any,
+  data: unknown,
   options?: ResponseInit,
 ): NextResponse {
   const response = NextResponse.json(data, options);

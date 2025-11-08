@@ -22,7 +22,7 @@ export function GoogleAnalytics({
     // Initialize gtag
     window.gtag =
       window.gtag ||
-      function (...args: any[]) {
+      function (...args: unknown[]) {
         (window.dataLayer = window.dataLayer || []).push(args);
       };
 
@@ -69,13 +69,13 @@ export function GoogleAnalytics({
 export function useAnalytics() {
   const trackEvent = (
     eventName: string,
-    parameters: Record<string, any> = {},
+    parameters: Record<string, string | number | boolean | undefined> = {},
   ) => {
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", eventName, {
         event_category: "engagement",
-        event_label: parameters.label || "",
-        value: parameters.value || 0,
+        event_label: (parameters.label as string) || "",
+        value: (parameters.value as number) || 0,
         ...parameters,
       });
     }
@@ -181,7 +181,7 @@ export function useAnalytics() {
     searchQuery: string,
     searchLocation: string,
     resultsCount: number,
-    searchType: string = "standard",
+    searchType = "standard",
   ) => {
     trackEvent("site_search", {
       event_category: "user_engagement",
@@ -458,9 +458,12 @@ export function TimeOnPageTracker() {
 }
 
 // Utility function for throttling
-function throttle(func: Function, limit: number) {
+function throttle<T extends (...args: unknown[]) => unknown>(
+  func: T,
+  limit: number,
+) {
   let inThrottle: boolean;
-  return function (this: any, ...args: any[]) {
+  return function (this: unknown, ...args: Parameters<T>) {
     if (!inThrottle) {
       func.apply(this, args);
       inThrottle = true;

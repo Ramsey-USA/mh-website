@@ -63,10 +63,12 @@ export function getRelativeTime(dateString: string): string {
 
   if (diffDays < 1) return "Today";
   if (diffDays < 7) return `${diffDays} day${diffDays > 1 ? "s" : ""} ago`;
-  if (diffDays < 30)
+  if (diffDays < 30) {
     return `${Math.floor(diffDays / 7)} week${Math.floor(diffDays / 7) > 1 ? "s" : ""} ago`;
-  if (diffDays < 365)
+  }
+  if (diffDays < 365) {
     return `${Math.floor(diffDays / 30)} month${Math.floor(diffDays / 30) > 1 ? "s" : ""} ago`;
+  }
 
   const years = Math.floor(diffDays / 365);
   return `${years} year${years > 1 ? "s" : ""} ago`;

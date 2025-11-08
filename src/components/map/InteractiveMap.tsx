@@ -230,6 +230,13 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                       : "border-gray-200 hover:border-brand-primary/50"
                   }`}
                   onClick={() => setSelectedLocation(location)}
+                  onKeyDown={(e) =>
+                    (e.key === "Enter" || e.key === " ") &&
+                    setSelectedLocation(location)
+                  }
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View ${location.title} on map`}
                 >
                   <div className="flex items-start">
                     <div className="mr-3 text-2xl">

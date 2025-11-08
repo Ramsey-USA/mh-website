@@ -102,7 +102,7 @@ export class DbClient {
       const bound = params.length > 0 ? stmt.bind(...params) : stmt;
       const result = await bound.first<T>();
 
-      logger.debug("Query one executed", { sql, found: !!result });
+      logger.debug("Query one executed", { sql, found: Boolean(result) });
 
       return result;
     } catch (error) {

@@ -166,10 +166,10 @@ export function usePerformanceMetrics(updateInterval = 5000) {
         error_rate: summary.errors?.errorRate || 0,
         cache_hit_rate:
           cacheStats && cacheStats.hits + cacheStats.misses > 0
-            ? (
+            ? `${(
                 (cacheStats.hits / (cacheStats.hits + cacheStats.misses)) *
                 100
-              ).toFixed(1) + "%"
+              ).toFixed(1)}%`
             : "0%",
       },
       recommendations,

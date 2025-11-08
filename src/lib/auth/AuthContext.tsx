@@ -21,7 +21,7 @@ export interface UserProfile {
 }
 
 interface AuthContextType {
-  user: any | null;
+  user: unknown | null;
   userProfile: UserProfile | null;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<void>;

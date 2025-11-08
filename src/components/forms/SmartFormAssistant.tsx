@@ -15,8 +15,8 @@ const AnimatePresence = dynamic(
 );
 
 interface SmartFormAssistantProps {
-  fieldSuggestions: any;
-  predictiveCompletion: any;
+  fieldSuggestions: unknown;
+  predictiveCompletion: unknown;
   isVeteranDetected: boolean;
   showSmartSuggestions: boolean;
   onSuggestionClick: (suggestion: string) => void;

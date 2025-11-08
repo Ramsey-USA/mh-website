@@ -9,7 +9,7 @@
  * 5. Provides real-time SEO scoring
  */
 
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import { enhancedSEO } from "@/components/seo/enhanced-seo";
 
 // ============================================================================

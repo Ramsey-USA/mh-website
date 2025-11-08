@@ -8,7 +8,7 @@
 
 import { useRef, useEffect } from "react";
 import ChatMessage from "./ChatMessage";
-import { useMessageFormatter } from "../../lib/chatbot/performance";
+import { useMessageFormatter } from "@/lib/chatbot/performance";
 import type { ChatMessage as ChatMessageType } from "./hooks/useChatbotState";
 
 interface ChatbotMessagesProps {

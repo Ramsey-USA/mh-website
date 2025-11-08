@@ -1,18 +1,36 @@
+/**
+ * MH Construction - Jest Configuration
+ *
+ * Test configuration for Next.js 15 with TypeScript
+ * Unit and integration testing with coverage tracking
+ *
+ * @see https://nextjs.org/docs/app/building-your-application/testing/jest
+ * @see docs/testing/mh-testing-guide.md
+ * @version 2.0.0
+ * @lastUpdated 2025-11-08
+ */
+
 const nextJest = require("next/jest");
 
 const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
+  // Provide path to Next.js app to load next.config.js and .env files
   dir: "./",
 });
 
-// Add any custom config to be passed to Jest
+// Custom Jest configuration
 const customJestConfig = {
+  // Setup files
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+
+  // Test environment
   testEnvironment: "jest-environment-jsdom",
+
+  // Module name mapping (path aliases)
   moduleNameMapper: {
-    // Handle module aliases (this will be automatically configured for you soon)
     "^@/(.*)$": "<rootDir>/src/$1",
   },
+
+  // Coverage collection
   collectCoverageFrom: [
     "src/**/*.{js,jsx,ts,tsx}",
     "!src/**/*.d.ts",
@@ -21,6 +39,8 @@ const customJestConfig = {
     "!src/app/layout.tsx",
     "!src/app/**/layout.tsx",
   ],
+
+  // Coverage thresholds
   coverageThreshold: {
     global: {
       branches: 60,
@@ -29,9 +49,24 @@ const customJestConfig = {
       statements: 60,
     },
   },
+
+  // Test file patterns
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
-  testPathIgnorePatterns: ["/node_modules/", "/.next/", "/backups/"],
+
+  // Ignore patterns
+  testPathIgnorePatterns: [
+    "/node_modules/",
+    "/.next/",
+    "/backups/",
+    "/.config-backup/",
+  ],
+
+  // Coverage report formats
+  coverageReporters: ["text", "lcov", "html", "json"],
+
+  // Max workers for CI
+  maxWorkers: process.env.CI ? 2 : "50%",
 };
 
-// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
+// Export Jest config
 module.exports = createJestConfig(customJestConfig);

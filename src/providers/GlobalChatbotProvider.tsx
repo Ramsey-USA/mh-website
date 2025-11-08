@@ -4,7 +4,7 @@ import React, {
   createContext,
   useContext,
   useState,
-  ReactNode,
+  type ReactNode,
   useEffect,
 } from "react";
 import dynamic from "next/dynamic";
@@ -22,12 +22,12 @@ const GlobalChatbot = dynamic(
 interface GlobalChatbotContextType {
   isVisible: boolean;
   setIsVisible: (visible: boolean) => void;
-  currentPageData?: any;
-  setCurrentPageData: (data: any) => void;
+  currentPageData?: unknown;
+  setCurrentPageData: (data: unknown) => void;
   currentPage?: string;
   setCurrentPage: (page: string) => void;
-  formData?: any;
-  setFormData: (data: any) => void;
+  formData?: unknown;
+  setFormData: (data: unknown) => void;
 }
 
 const GlobalChatbotContext = createContext<

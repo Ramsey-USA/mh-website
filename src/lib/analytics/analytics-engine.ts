@@ -25,7 +25,7 @@ export class AdvancedAnalyticsEngine {
   private collector: DataCollector;
   private calculator: MetricsCalculator;
   private isInitialized = false;
-  private analytics: any = null; // Google Analytics instance
+  private analytics: unknown = null; // Google Analytics instance
   private customTrackers: Map<string, (event: AnalyticsEvent) => void> =
     new Map();
 
@@ -56,7 +56,7 @@ export class AdvancedAnalyticsEngine {
 
       this.isInitialized = true;
       logger.log("Advanced Analytics Engine initialized successfully");
-    } catch (error) {
+    } catch (_error) {
       logger.error("Failed to initialize Analytics Engine:", error);
     }
   }
@@ -64,7 +64,10 @@ export class AdvancedAnalyticsEngine {
   /**
    * Track analytics event
    */
-  track(type: AnalyticsEventType, properties: Record<string, any> = {}): void {
+  track(
+    type: AnalyticsEventType,
+    properties: Record<string, unknown> = {},
+  ): void {
     const event = this.collector.createEvent(type, properties);
 
     // Store event
@@ -80,7 +83,7 @@ export class AdvancedAnalyticsEngine {
   /**
    * Track page view
    */
-  trackPageView(page: string, properties: Record<string, any> = {}): void {
+  trackPageView(page: string, properties: Record<string, unknown> = {}): void {
     this.track("page_view", {
       page,
       timestamp: new Date().toISOString(),
@@ -94,7 +97,7 @@ export class AdvancedAnalyticsEngine {
   trackInteraction(
     element: string,
     action: string,
-    properties: Record<string, any> = {},
+    properties: Record<string, unknown> = {},
   ): void {
     this.track("user_interaction", {
       element,
@@ -110,7 +113,7 @@ export class AdvancedAnalyticsEngine {
   trackConversion(
     type: ConversionEvent["type"],
     value: number,
-    properties: Record<string, any> = {},
+    properties: Record<string, unknown> = {},
   ): void {
     this.track("conversion_event", {
       conversionType: type,
@@ -133,7 +136,7 @@ export class AdvancedAnalyticsEngine {
   /**
    * Track error events
    */
-  trackError(error: Error, context: Record<string, any> = {}): void {
+  trackError(error: Error, context: Record<string, unknown> = {}): void {
     this.track("error_event", {
       error: error.message,
       stack: error.stack,
@@ -390,14 +393,14 @@ export class AdvancedAnalyticsEngine {
         // Observe FID
         const fidObserver = new PerformanceObserver((list) => {
           const entries = list.getEntries();
-          entries.forEach((entry: any) => {
+          entries.forEach((entry: unknown) => {
             this.trackPerformance({
               firstInputDelay: entry.processingStart - entry.startTime,
             } as any);
           });
         });
         fidObserver.observe({ entryTypes: ["first-input"] });
-      } catch (error) {
+      } catch (_error) {
         logger.error("Performance tracking setup failed:", error);
       }
     }
@@ -453,7 +456,7 @@ export class AdvancedAnalyticsEngine {
           user_id: event.userId,
           ...event.properties,
         });
-      } catch (error) {
+      } catch (_error) {
         logger.error("Failed to send to Google Analytics:", error);
       }
     }
@@ -463,7 +466,7 @@ export class AdvancedAnalyticsEngine {
     this.customTrackers.forEach((tracker, name) => {
       try {
         tracker(event);
-      } catch (error) {
+      } catch (_error) {
         logger.error(`Custom tracker "${name}" failed:`, error);
       }
     });

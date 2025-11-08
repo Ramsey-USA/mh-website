@@ -5,7 +5,7 @@
  * Adapts to new routes without manual updates
  */
 
-import { MetadataRoute } from "next";
+import { type MetadataRoute } from "next";
 import {
   generateSitemapEntries,
   detectPageType,

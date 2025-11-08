@@ -16,7 +16,11 @@ import { ProjectDetailsStep } from "./steps/ProjectDetailsStep";
 import { ReviewStep } from "./steps/ReviewStep";
 
 // Import types and constants
-import { ProjectData, EstimateData, ValidationStatus } from "./types";
+import {
+  type ProjectData,
+  type EstimateData,
+  type ValidationStatus,
+} from "./types";
 import { ENHANCED_FEATURES } from "./constants";
 
 export function EstimatorForm() {
@@ -80,16 +84,19 @@ export function EstimatorForm() {
     if (currentStep >= 1) {
       if (!projectData.projectType) issues.push("Please select a project type");
       if (!projectData.location) issues.push("Please select your location");
-      if (!projectData.size) issues.push("Please enter the project size");
-      else if (parseInt(projectData.size) < 100)
+      if (!projectData.size) {
+        issues.push("Please enter the project size");
+      } else if (parseInt(projectData.size) < 100) {
         issues.push("Project size seems too small (minimum 100 sq ft)");
-      else if (parseInt(projectData.size) > 50000)
+      } else if (parseInt(projectData.size) > 50000) {
         issues.push("Project size seems too large (maximum 50,000 sq ft)");
+      }
     }
 
     if (currentStep >= 2) {
-      if (projectData.materials.length === 0)
+      if (projectData.materials.length === 0) {
         issues.push("Please select a material quality level");
+      }
     }
 
     return {
@@ -97,12 +104,12 @@ export function EstimatorForm() {
       issues,
       canProceed:
         currentStep === 1
-          ? !!(
+          ? Boolean(
               projectData.projectType &&
-              projectData.location &&
-              projectData.size &&
-              parseInt(projectData.size) >= 100 &&
-              parseInt(projectData.size) <= 50000
+                projectData.location &&
+                projectData.size &&
+                parseInt(projectData.size) >= 100 &&
+                parseInt(projectData.size) <= 50000,
             )
           : currentStep === 2
             ? projectData.materials.length > 0

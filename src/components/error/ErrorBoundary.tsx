@@ -1,6 +1,6 @@
 "use client";
 
-import { Component, ReactNode } from "react";
+import { Component, type ReactNode } from "react";
 import { logger } from "@/lib/utils/logger";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";

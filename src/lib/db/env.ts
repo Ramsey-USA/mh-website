@@ -14,7 +14,7 @@ import { logger } from "@/lib/utils/logger";
  * Get Cloudflare D1 database binding
  * Returns null in local development where D1 is not available
  */
-export function getD1Database(): any | null {
+export function getD1Database(): unknown | null {
   try {
     // When deployed to Cloudflare Pages with @cloudflare/next-on-pages
     // the env bindings are available via getRequestContext()
@@ -36,7 +36,7 @@ export function getD1Database(): any | null {
 /**
  * Get Cloudflare KV namespace binding
  */
-export function getKVNamespace(binding: string): any | null {
+export function getKVNamespace(binding: string): unknown | null {
   try {
     if (
       typeof globalThis !== "undefined" &&
@@ -55,7 +55,7 @@ export function getKVNamespace(binding: string): any | null {
 /**
  * Get Cloudflare R2 bucket binding
  */
-export function getR2Bucket(binding: string): any | null {
+export function getR2Bucket(binding: string): unknown | null {
   try {
     if (
       typeof globalThis !== "undefined" &&

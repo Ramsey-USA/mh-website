@@ -116,8 +116,9 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
     if (
       role.toLowerCase().includes("ceo") ||
       role.toLowerCase().includes("president")
-    )
+    ) {
       return "business";
+    }
     if (role.toLowerCase().includes("admin")) return "admin_panel_settings";
     if (role.toLowerCase().includes("sales")) return "handshake";
     return "person";
@@ -134,7 +135,20 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
   };
 
   return (
-    <div className="vintage-card-container" onClick={handleCardClick}>
+    <div
+      className="vintage-card-container"
+      onClick={handleCardClick}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          e.stopPropagation();
+          setIsFlipped(!isFlipped);
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-label={`Flip vintage baseball card for ${member.name}`}
+    >
       <div
         className={`vintage-card-inner ${isFlipped ? "flipped" : ""}`}
         style={

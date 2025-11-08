@@ -7,12 +7,13 @@
  * - Provides consistent logging interface across the application
  */
 
+/* eslint-disable no-console */
 type LogLevel = "log" | "info" | "warn" | "error" | "debug";
 
 interface LoggerConfig {
   isDevelopment: boolean;
   enableProductionErrors: boolean;
-  externalLogger?: (level: LogLevel, message: string, data?: any) => void;
+  externalLogger?: (level: LogLevel, message: string, data?: unknown) => void;
 }
 
 class Logger {
@@ -29,7 +30,7 @@ class Logger {
   /**
    * General logging - only in development
    */
-  log(message: string, ...args: any[]): void {
+  log(message: string, ...args: unknown[]): void {
     if (this.config.isDevelopment) {
       console.log(`[LOG] ${message}`, ...args);
     }
@@ -38,7 +39,7 @@ class Logger {
   /**
    * Informational messages - only in development
    */
-  info(message: string, ...args: any[]): void {
+  info(message: string, ...args: unknown[]): void {
     if (this.config.isDevelopment) {
       console.info(`[INFO] ${message}`, ...args);
     }
@@ -47,7 +48,7 @@ class Logger {
   /**
    * Warnings - shown in development, sent to external service in production
    */
-  warn(message: string, ...args: any[]): void {
+  warn(message: string, ...args: unknown[]): void {
     if (this.config.isDevelopment) {
       console.warn(`[WARN] ${message}`, ...args);
     } else if (this.config.externalLogger) {
@@ -58,7 +59,7 @@ class Logger {
   /**
    * Errors - always logged (development console, production external service)
    */
-  error(message: string, error?: any, ...args: any[]): void {
+  error(message: string, error?: unknown, ...args: unknown[]): void {
     if (this.config.isDevelopment) {
       console.error(`[ERROR] ${message}`, error, ...args);
     } else if (this.config.enableProductionErrors) {
@@ -74,7 +75,7 @@ class Logger {
   /**
    * Debug messages - only in development
    */
-  debug(message: string, ...args: any[]): void {
+  debug(message: string, ...args: unknown[]): void {
     if (this.config.isDevelopment) {
       console.debug(`[DEBUG] ${message}`, ...args);
     }

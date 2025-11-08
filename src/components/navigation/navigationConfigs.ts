@@ -9,7 +9,7 @@ export interface NavigationItem {
 // Helper function to get appropriate label based on screen size
 export function getNavigationLabel(
   item: NavigationItem,
-  isMobile: boolean = false,
+  isMobile = false,
 ): string {
   return isMobile && item.mobileLabel ? item.mobileLabel : item.label;
 }

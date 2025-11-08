@@ -6,7 +6,7 @@
 import React, { memo, useState } from "react";
 import { Button } from "../ui";
 import { MaterialIcon } from "../icons/MaterialIcon";
-import { type ConversationHistory } from "../../lib/chatbot/advanced-features";
+import { type ConversationHistory } from "@/lib/chatbot/advanced-features";
 
 interface ConversationHistoryPanelProps {
   history: ConversationHistory[];
@@ -39,7 +39,7 @@ const ConversationHistoryPanel = memo(
         : `${remainingSeconds}s`;
     };
 
-    const getConversationPreview = (messages: any[]): string => {
+    const getConversationPreview = (messages: unknown[]): string => {
       const userMessages = messages.filter((m) => m.type === "user");
       if (userMessages.length === 0) return "No messages";
 
@@ -122,6 +122,13 @@ const ConversationHistoryPanel = memo(
                           : "hover:bg-gray-50 dark:hover:bg-gray-700/50"
                       }`}
                       onClick={() => setSelectedConversation(conversation)}
+                      onKeyDown={(e) =>
+                        (e.key === "Enter" || e.key === " ") &&
+                        setSelectedConversation(conversation)
+                      }
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`View conversation from ${conversation.timestamp.toLocaleDateString()}`}
                     >
                       <div className="flex justify-between items-start mb-1">
                         <span className="text-xs text-gray-500 dark:text-gray-400">

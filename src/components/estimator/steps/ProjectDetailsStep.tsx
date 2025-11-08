@@ -4,7 +4,7 @@
  */
 
 import { Input } from "../../ui";
-import { ProjectData, EstimatorFormProps } from "../types";
+import { type ProjectData, type EstimatorFormProps } from "../types";
 import {
   MATERIAL_OPTIONS,
   FEATURE_OPTIONS,
@@ -13,7 +13,7 @@ import {
 
 interface ProjectDetailsStepProps extends EstimatorFormProps {
   projectData: ProjectData;
-  onDataChange: (field: keyof ProjectData, value: any) => void;
+  onDataChange: (field: keyof ProjectData, value: unknown) => void;
   onArrayToggle: (field: keyof ProjectData, value: string) => void;
 }
 

@@ -1,6 +1,12 @@
 "use client";
 
-import { useState, useRef, useCallback, TouchEvent, MouseEvent } from "react";
+import {
+  useState,
+  useRef,
+  useCallback,
+  type TouchEvent,
+  type MouseEvent,
+} from "react";
 import Image from "next/image";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";

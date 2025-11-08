@@ -2,7 +2,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useAuth, UserRole } from "./AuthContext";
+import { useAuth, type UserRole } from "./AuthContext";
 import { Card, CardContent, Button } from "@/components/ui";
 
 interface ProtectedRouteProps {

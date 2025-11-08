@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { createDbClient, type Consultation } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";

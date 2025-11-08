@@ -3,7 +3,7 @@
  * Main orchestrator for automated security vulnerability detection
  */
 
-import { AuditLogger, AuditEventType } from "../audit-logger";
+import { type AuditLogger, AuditEventType } from "../audit-logger";
 import { XSSScanner } from "./XSSScanner";
 import { SQLInjectionScanner } from "./SQLInjectionScanner";
 import { HeaderScanner } from "./HeaderScanner";
@@ -26,7 +26,7 @@ export class VulnerabilityScanner {
   private sqlScanner: SQLInjectionScanner;
   private headerScanner: HeaderScanner;
   private vulnerabilities: Vulnerability[] = [];
-  private isScanning: boolean = false;
+  private isScanning = false;
 
   constructor(auditLogger: AuditLogger) {
     this.auditLogger = auditLogger;

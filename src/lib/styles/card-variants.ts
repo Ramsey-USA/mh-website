@@ -40,7 +40,7 @@ export type CardVariant =
  */
 export const getCardClassName = (
   variant: CardVariant = "default",
-  extraClasses: string = "",
+  extraClasses = "",
 ): string => {
   const classes: string[] = [cardStyles.base];
 

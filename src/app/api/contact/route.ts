@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { logger } from "@/lib/utils/logger";
 import { createDbClient, type ContactSubmission } from "@/lib/db/client";
@@ -23,7 +23,7 @@ interface ContactRequest {
   message: string;
   type?: "contact" | "job-application" | "consultation" | "urgent" | "general";
   recipientEmail?: string; // Defaults to office@mhc-gc.com
-  metadata?: Record<string, any>;
+  metadata?: Record<string, string | number | boolean | null>;
 }
 
 export async function POST(request: NextRequest) {
@@ -135,10 +135,10 @@ export async function POST(request: NextRequest) {
             last_name: lastName,
             email: data.email,
             phone: data.phone || undefined,
-            project_type: data.metadata?.projectType || null,
-            project_location: data.metadata?.location || null,
-            budget: data.metadata?.budget?.toString() || null,
-            timeline: data.metadata?.timeline || null,
+            project_type: (data.metadata?.projectType as string) || undefined,
+            project_location: (data.metadata?.location as string) || undefined,
+            budget: data.metadata?.budget?.toString() || undefined,
+            timeline: (data.metadata?.timeline as string) || undefined,
             message: data.message,
             urgency: data.type === "urgent" ? "high" : "medium",
             preferred_contact: "either",
@@ -335,7 +335,7 @@ function formatFieldName(fieldName: string): string {
  * GET endpoint to retrieve contact submissions
  * Should require authentication in production
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // Retrieve contact submissions from D1 database (when deployed to Cloudflare)
     // This endpoint should typically require authentication

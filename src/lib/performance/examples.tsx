@@ -48,7 +48,13 @@ export function initializeAppPerformance() {
 }
 
 // Example 2: Component with performance tracking
-const ExampleComponent = ({ title, data }: { title: string; data: any[] }) => {
+const ExampleComponent = ({
+  title,
+  data,
+}: {
+  title: string;
+  data: unknown[];
+}) => {
   const { trackInteraction } = usePerformanceTiming("ExampleComponent");
   const memoryInfo = useMemoryMonitoring("ExampleComponent");
 
@@ -102,7 +108,7 @@ const LazyHeavyComponent = () => (
 
 // Example 6: Page component with performance monitoring
 export function OptimizedPage() {
-  const [users, setUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -138,7 +144,7 @@ export function OptimizedPage() {
 
       {/* Optimized images */}
       <div className="grid grid-cols-3 gap-4">
-        {users.map((user: any) => (
+        {users.map((user: unknown) => (
           <div key={user.id}>
             <OptimizedImage
               src={user.avatar}
@@ -165,7 +171,7 @@ export function OptimizedPage() {
 
 // Example 7: Performance monitoring hook
 export function usePagePerformance(pageName: string) {
-  const [metrics, setMetrics] = useState<any[]>([]);
+  const [metrics, setMetrics] = useState<unknown[]>([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -192,7 +198,7 @@ export class PerformanceErrorBoundary extends Component<
   { children: ReactNode; componentName: string },
   { hasError: boolean }
 > {
-  constructor(props: any) {
+  constructor(props: unknown) {
     super(props);
     this.state = { hasError: false };
   }

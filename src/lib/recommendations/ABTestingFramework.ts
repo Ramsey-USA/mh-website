@@ -160,7 +160,7 @@ export class ABTestingFramework {
   private experimentEvents: ExperimentEvent[];
   private isEnabled: boolean;
 
-  constructor(isEnabled: boolean = true) {
+  constructor(isEnabled = true) {
     this.experiments = new Map();
     this.userAssignments = new Map();
     this.experimentMetrics = new Map();

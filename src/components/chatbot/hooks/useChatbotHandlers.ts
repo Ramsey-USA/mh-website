@@ -4,8 +4,13 @@
  * Contains all event handlers and user interactions for the GlobalChatbot
  */
 
-import { useCallback, useEffect, KeyboardEvent, MouseEvent } from "react";
-import { ChatMessage } from "./useChatbotState";
+import {
+  useCallback,
+  useEffect,
+  type KeyboardEvent,
+  type MouseEvent,
+} from "react";
+import { type ChatMessage } from "./useChatbotState";
 import {
   enhancedChatbotAI,
   type EnhancedChatbotContext,

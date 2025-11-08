@@ -258,26 +258,26 @@ export function withImagePerformanceTracking<P extends object>(
 }
 
 // Specialized components for common use cases
-export const HeroImage = withImagePerformanceTracking(function HeroImage(
-  props: OptimizedImageProps,
-) {
-  return (
-    <OptimizedImage
-      {...props}
-      priority={true}
-      lazy={false}
-      quality={90}
-      componentName="HeroImage"
-      breakpoints={[
-        { maxWidth: 768, vw: 100 },
-        { minWidth: 769, vw: 50 },
-      ]}
-    />
-  );
-});
+export const HeroImage = withImagePerformanceTracking(
+  (props: OptimizedImageProps) => {
+    return (
+      <OptimizedImage
+        {...props}
+        priority={true}
+        lazy={false}
+        quality={90}
+        componentName="HeroImage"
+        breakpoints={[
+          { maxWidth: 768, vw: 100 },
+          { minWidth: 769, vw: 50 },
+        ]}
+      />
+    );
+  },
+);
 
 export const ThumbnailImage = withImagePerformanceTracking(
-  function ThumbnailImage(props: OptimizedImageProps) {
+  (props: OptimizedImageProps) => {
     return (
       <OptimizedImage
         {...props}
@@ -294,26 +294,26 @@ export const ThumbnailImage = withImagePerformanceTracking(
   },
 );
 
-export const GalleryImage = withImagePerformanceTracking(function GalleryImage(
-  props: OptimizedImageProps,
-) {
-  return (
-    <OptimizedImage
-      {...props}
-      lazy={true}
-      quality={75}
-      componentName="GalleryImage"
-      breakpoints={[
-        { maxWidth: 640, vw: 100 },
-        { minWidth: 641, maxWidth: 1024, vw: 50 },
-        { minWidth: 1025, vw: 33 },
-      ]}
-    />
-  );
-});
+export const GalleryImage = withImagePerformanceTracking(
+  (props: OptimizedImageProps) => {
+    return (
+      <OptimizedImage
+        {...props}
+        lazy={true}
+        quality={75}
+        componentName="GalleryImage"
+        breakpoints={[
+          { maxWidth: 640, vw: 100 },
+          { minWidth: 641, maxWidth: 1024, vw: 50 },
+          { minWidth: 1025, vw: 33 },
+        ]}
+      />
+    );
+  },
+);
 
 // Image preloader utility
-export function preloadImages(imageSrcs: string[], quality: number = 75) {
+export function preloadImages(imageSrcs: string[], quality = 75) {
   if (typeof window === "undefined") return;
 
   imageSrcs.forEach((src) => {

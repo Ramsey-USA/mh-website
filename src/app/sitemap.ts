@@ -1,4 +1,4 @@
-import { MetadataRoute } from "next";
+import { type MetadataRoute } from "next";
 
 /**
  * Dynamic Sitemap - Auto-adapts to new pages

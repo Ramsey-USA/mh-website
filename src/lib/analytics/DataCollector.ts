@@ -94,7 +94,7 @@ export class DataCollector {
   /**
    * Clear old events (for memory management)
    */
-  clearOldEvents(daysToKeep: number = 30): void {
+  clearOldEvents(daysToKeep = 30): void {
     const cutoffDate = new Date();
     cutoffDate.setDate(cutoffDate.getDate() - daysToKeep);
 

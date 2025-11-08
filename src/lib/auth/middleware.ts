@@ -4,7 +4,7 @@
  * Provides route protection and authentication utilities for API routes
  */
 
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { verifyToken, extractTokenFromHeader, type JWTUser } from "./jwt";
 import { logger } from "@/lib/utils/logger";
 
@@ -20,12 +20,12 @@ export function requireAuth(
   handler: (
     request: NextRequest,
     user: JWTUser,
-    context?: any,
+    context?: unknown,
   ) => Promise<NextResponse>,
 ) {
   return async function authHandler(
     request: NextRequest,
-    context?: any,
+    context?: unknown,
   ): Promise<NextResponse> {
     const authHeader = request.headers.get("authorization");
     const token = extractTokenFromHeader(authHeader);
@@ -72,7 +72,7 @@ export function requireRole(
   handler: (
     request: NextRequest,
     user: JWTUser,
-    context?: any,
+    context?: unknown,
   ) => Promise<NextResponse>,
 ) {
   return requireAuth(async (request, user, context) => {
@@ -104,12 +104,12 @@ export function optionalAuth(
   handler: (
     request: NextRequest,
     user: JWTUser | null,
-    context?: any,
+    context?: unknown,
   ) => Promise<NextResponse>,
 ) {
   return async function optionalAuthHandler(
     request: NextRequest,
-    context?: any,
+    context?: unknown,
   ): Promise<NextResponse> {
     const authHeader = request.headers.get("authorization");
     const token = extractTokenFromHeader(authHeader);
@@ -173,11 +173,11 @@ export function hasPermission(user: JWTUser, requiredRole: string): boolean {
  * Validate API key for service-to-service authentication
  */
 export function requireApiKey(
-  handler: (request: NextRequest, context?: any) => Promise<NextResponse>,
+  handler: (request: NextRequest, context?: unknown) => Promise<NextResponse>,
 ) {
   return async function apiKeyHandler(
     request: NextRequest,
-    context?: any,
+    context?: unknown,
   ): Promise<NextResponse> {
     const apiKey = request.headers.get("x-api-key");
     const validApiKey = process.env.API_SECRET_KEY;
@@ -207,12 +207,15 @@ export function requireApiKey(
 export function compose(
   ...middlewares: Array<
     (
-      handler: (request: NextRequest, context?: any) => Promise<NextResponse>,
-    ) => (request: NextRequest, context?: any) => Promise<NextResponse>
+      handler: (
+        request: NextRequest,
+        context?: unknown,
+      ) => Promise<NextResponse>,
+    ) => (request: NextRequest, context?: unknown) => Promise<NextResponse>
   >
 ) {
   return (
-    handler: (request: NextRequest, context?: any) => Promise<NextResponse>,
+    handler: (request: NextRequest, context?: unknown) => Promise<NextResponse>,
   ) => {
     return middlewares.reduceRight(
       (wrappedHandler, middleware) => middleware(wrappedHandler),

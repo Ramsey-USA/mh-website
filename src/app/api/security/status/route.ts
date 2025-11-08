@@ -3,13 +3,14 @@
  * Provides security metrics and status information
  */
 
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { withSecurity } from "@/middleware/security";
-import { auditLogger } from "@/lib/security/audit-logger";
+import { auditLogger, type AuditStatistics } from "@/lib/security/audit-logger";
 import { logger } from "@/lib/utils/logger";
 import {
   VulnerabilityScanner,
   VulnerabilityType,
+  type Vulnerability,
 } from "@/lib/security/vulnerability-scanner";
 
 export const runtime = "edge";
@@ -155,8 +156,8 @@ async function handler(request: NextRequest) {
 
 // Helper functions
 function calculateSecurityScore(
-  auditStats: any,
-  vulnerabilities: any[],
+  auditStats: AuditStatistics,
+  vulnerabilities: Vulnerability[],
 ): number {
   let score = 100;
 
@@ -195,7 +196,7 @@ function getSystemStatus(score: number): "secure" | "warning" | "critical" {
   return "critical";
 }
 
-function getLastScanTime(vulnerabilities: any[]): string | null {
+function getLastScanTime(vulnerabilities: Vulnerability[]): string | null {
   if (vulnerabilities.length === 0) return null;
 
   const latest = vulnerabilities.reduce((latest, v) => {
@@ -205,17 +206,20 @@ function getLastScanTime(vulnerabilities: any[]): string | null {
   return latest.toISOString();
 }
 
-function calculateTrend(timelineData: any[], metric: string): number {
+function calculateTrend(
+  timelineData: Array<{ [key: string]: string | number }>,
+  metric: string,
+): number {
   if (timelineData.length < 2) return 0;
 
   const recent = timelineData.slice(-2);
-  const current = recent[1][metric];
-  const previous = recent[0][metric];
+  const current = recent[1][metric] as number;
+  const previous = recent[0][metric] as number;
 
   return current - previous;
 }
 
-function calculateVulnerabilityTrend(vulnerabilities: any[]): number {
+function calculateVulnerabilityTrend(vulnerabilities: Vulnerability[]): number {
   // Simplified: count vulnerabilities discovered in last 24 hours
   const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
   return vulnerabilities.filter((v) => v.discoveredAt > oneDayAgo).length;

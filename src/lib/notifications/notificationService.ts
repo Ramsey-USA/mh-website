@@ -230,7 +230,7 @@ export async function sendBulkNotifications(
  */
 export async function sendNotificationWithRetry(
   options: NotificationOptions,
-  maxRetries: number = 3,
+  maxRetries = 3,
 ): Promise<NotificationResult> {
   let lastError: string | undefined;
 

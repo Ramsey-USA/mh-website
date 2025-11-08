@@ -90,7 +90,7 @@ export function AggregateRating({
   }, [testimonials]);
 
   // Render star icons
-  const renderStars = (rating: number, size: string = "text-2xl") => {
+  const renderStars = (rating: number, size = "text-2xl") => {
     const stars = [];
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.5;

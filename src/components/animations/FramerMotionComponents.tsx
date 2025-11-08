@@ -1,9 +1,14 @@
 "use client";
 
 // Optimized imports - only import what we need to reduce bundle size
-import { motion } from "framer-motion";
-import { useScroll, useTransform, useSpring, useInView } from "framer-motion";
-import { useRef, ReactNode, useState, useEffect } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  useInView,
+} from "framer-motion";
+import { useRef, type ReactNode, useState, useEffect } from "react";
 
 // Fade in animation variants
 export const fadeInVariants = {

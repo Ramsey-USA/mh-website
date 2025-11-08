@@ -1,5 +1,5 @@
 // Portfolio service for managing project data
-import { ProjectPortfolio, ProjectFilter } from "../types";
+import { type ProjectPortfolio, type ProjectFilter } from "../types";
 
 // Sample portfolio data - in production, this would come from Cloudflare D1 or KV
 export const portfolioData: ProjectPortfolio[] = [
@@ -290,10 +290,7 @@ export class PortfolioService {
   }
 
   // Get related projects (same category, different project)
-  static getRelatedProjects(
-    projectId: string,
-    limit: number = 3,
-  ): ProjectPortfolio[] {
+  static getRelatedProjects(projectId: string, limit = 3): ProjectPortfolio[] {
     const currentProject = portfolioData.find((p) => p.id === projectId);
     if (!currentProject) return [];
 

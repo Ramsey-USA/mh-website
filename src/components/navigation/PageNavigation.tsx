@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { MaterialIcon } from "../icons/MaterialIcon";
-import { NavigationItem, getNavigationLabel } from "./navigationConfigs";
-import { useIsMobile } from "../../hooks/useBreakpoint";
+import { type NavigationItem, getNavigationLabel } from "./navigationConfigs";
+import { useIsMobile } from "@/hooks/useBreakpoint";
 
 /**
  * Props interface for PageNavigation component

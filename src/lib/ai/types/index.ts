@@ -14,14 +14,14 @@ export interface ConstructionIntel {
 export interface AIResponse {
   response: string;
   confidence?: number;
-  context?: any;
+  context?: unknown;
   sessionId?: string;
 }
 
 export interface EnhancedFormResult {
-  response: any;
-  veteranHandling?: any;
-  discounts?: any;
+  response: unknown;
+  veteranHandling?: unknown;
+  discounts?: unknown;
   nextSteps: string[];
 }
 

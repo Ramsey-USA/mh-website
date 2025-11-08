@@ -17,7 +17,7 @@ export interface CacheEntry<T = any> {
 // Form data cache entry
 export interface FormCacheEntry {
   formId: string;
-  data: Record<string, any>;
+  data: Record<string, unknown>;
   lastUpdated: number;
   version: string;
 }
@@ -53,7 +53,7 @@ export class AIResponseCache {
   /**
    * Generate cache key from prompt and context
    */
-  private generateKey(prompt: string, context?: any): string {
+  private generateKey(prompt: string, context?: unknown): string {
     const contextStr = context ? JSON.stringify(context) : "";
     return `ai_${this.hashString(prompt + contextStr)}`;
   }
@@ -74,7 +74,7 @@ export class AIResponseCache {
   /**
    * Get cached AI response
    */
-  get(prompt: string, context?: any): string | null {
+  get(prompt: string, context?: unknown): string | null {
     const key = this.generateKey(prompt, context);
     const entry = this.cache.get(key);
 
@@ -95,7 +95,7 @@ export class AIResponseCache {
   /**
    * Set AI response in cache
    */
-  set(prompt: string, response: string, context?: any, ttl?: number): void {
+  set(prompt: string, response: string, context?: unknown, ttl?: number): void {
     const key = this.generateKey(prompt, context);
     const expiry = Date.now() + (ttl || this.config.defaultTTL);
 
@@ -202,7 +202,7 @@ export class AIResponseCache {
           this.cache = new Map(data.entries);
         }
       }
-    } catch (error) {
+    } catch (_error) {
       logger.warn("Failed to load AI cache from storage:", error);
     }
   }
@@ -222,7 +222,7 @@ export class AIResponseCache {
         timestamp: Date.now(),
       };
       localStorage.setItem("ai_response_cache", JSON.stringify(data));
-    } catch (error) {
+    } catch (_error) {
       logger.warn("Failed to save AI cache to storage:", error);
     }
   }
@@ -243,7 +243,7 @@ export class FormDataCache {
   /**
    * Save form data
    */
-  saveFormData(formId: string, data: Record<string, any>): void {
+  saveFormData(formId: string, data: Record<string, unknown>): void {
     const entry: FormCacheEntry = {
       formId,
       data: { ...data },
@@ -258,7 +258,7 @@ export class FormDataCache {
   /**
    * Get saved form data
    */
-  getFormData(formId: string): Record<string, any> | null {
+  getFormData(formId: string): Record<string, unknown> | null {
     const entry = this.cache.get(formId);
     if (!entry) {
       return null;
@@ -305,7 +305,7 @@ export class FormDataCache {
           this.cache = new Map(data.entries);
         }
       }
-    } catch (error) {
+    } catch (_error) {
       logger.warn("Failed to load form cache from storage:", error);
     }
   }
@@ -323,7 +323,7 @@ export class FormDataCache {
         timestamp: Date.now(),
       };
       localStorage.setItem("form_data_cache", JSON.stringify(data));
-    } catch (error) {
+    } catch (_error) {
       logger.warn("Failed to save form cache to storage:", error);
     }
   }
@@ -339,11 +339,11 @@ export const formDataCache = new FormDataCache();
 
 // Hook for form persistence
 export const useFormPersistence = (formId: string) => {
-  const saveFormData = (data: Record<string, any>) => {
+  const saveFormData = (data: Record<string, unknown>) => {
     formDataCache.saveFormData(formId, data);
   };
 
-  const loadFormData = (): Record<string, any> | null => {
+  const loadFormData = (): Record<string, unknown> | null => {
     return formDataCache.getFormData(formId);
   };
 
@@ -360,14 +360,17 @@ export const useFormPersistence = (formId: string) => {
 
 // Hook for AI response caching
 export const useAICache = () => {
-  const getCachedResponse = (prompt: string, context?: any): string | null => {
+  const getCachedResponse = (
+    prompt: string,
+    context?: unknown,
+  ): string | null => {
     return aiResponseCache.get(prompt, context);
   };
 
   const setCachedResponse = (
     prompt: string,
     response: string,
-    context?: any,
+    context?: unknown,
     ttl?: number,
   ) => {
     aiResponseCache.set(prompt, response, context, ttl);

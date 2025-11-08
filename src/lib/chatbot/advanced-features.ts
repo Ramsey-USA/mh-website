@@ -9,7 +9,7 @@ import { logger } from "@/lib/utils/logger";
 export interface ConversationHistory {
   id: string;
   timestamp: Date;
-  messages: any[];
+  messages: unknown[];
   sessionDuration: number;
   userMetadata: {
     page: string;
@@ -28,7 +28,7 @@ const STORAGE_KEYS = {
 
 // Conversation persistence utilities
 export class ConversationPersistence {
-  static saveCurrentSession(messages: any[], sessionData: any): void {
+  static saveCurrentSession(messages: unknown[], sessionData: unknown): void {
     try {
       const sessionInfo = {
         messages,
@@ -40,12 +40,15 @@ export class ConversationPersistence {
         STORAGE_KEYS.CURRENT_SESSION,
         JSON.stringify(sessionInfo),
       );
-    } catch (error) {
+    } catch (_error) {
       logger.error("Failed to save current session:", error);
     }
   }
 
-  static loadCurrentSession(): { messages: any[]; sessionData: any } | null {
+  static loadCurrentSession(): {
+    messages: unknown[];
+    sessionData: unknown;
+  } | null {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.CURRENT_SESSION);
       if (saved) {
@@ -61,7 +64,7 @@ export class ConversationPersistence {
           };
         }
       }
-    } catch (error) {
+    } catch (_error) {
       logger.error("Failed to load current session:", error);
     }
     return null;
@@ -70,7 +73,7 @@ export class ConversationPersistence {
   static clearCurrentSession(): void {
     try {
       localStorage.removeItem(STORAGE_KEYS.CURRENT_SESSION);
-    } catch (error) {
+    } catch (_error) {
       logger.error("Failed to clear current session:", error);
     }
   }
@@ -87,7 +90,7 @@ export class ConversationPersistence {
         STORAGE_KEYS.CONVERSATION_HISTORY,
         JSON.stringify(trimmedHistory),
       );
-    } catch (error) {
+    } catch (_error) {
       logger.error("Failed to save conversation history:", error);
     }
   }
@@ -96,7 +99,7 @@ export class ConversationPersistence {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.CONVERSATION_HISTORY);
       return saved ? JSON.parse(saved) : [];
-    } catch (error) {
+    } catch (_error) {
       logger.error("Failed to load conversation history:", error);
       return [];
     }
@@ -150,7 +153,7 @@ ${conversation.userMetadata.leadGenerated ? "**Lead Generated:** Yes\n" : ""}
 // Hook for conversation history management
 export function useConversationHistory() {
   const [history, setHistory] = useState<ConversationHistory[]>([]);
-  const [currentSession, setCurrentSession] = useState<any>(null);
+  const [currentSession, setCurrentSession] = useState<unknown>(null);
 
   // Load history on mount
   useEffect(() => {
@@ -165,7 +168,7 @@ export function useConversationHistory() {
 
   // Save conversation to history
   const saveConversation = useCallback(
-    (messages: any[], sessionDuration: number, userMetadata: any) => {
+    (messages: unknown[], sessionDuration: number, userMetadata: unknown) => {
       const conversation: ConversationHistory = {
         id: `conv_${Date.now()}`,
         timestamp: new Date(),
@@ -194,14 +197,14 @@ export function useConversationHistory() {
     try {
       localStorage.removeItem(STORAGE_KEYS.CONVERSATION_HISTORY);
       setHistory([]);
-    } catch (error) {
+    } catch (_error) {
       logger.error("Failed to clear history:", error);
     }
   }, []);
 
   // Save current session (called periodically)
   const saveCurrentSession = useCallback(
-    (messages: any[], sessionData: any) => {
+    (messages: unknown[], sessionData: unknown) => {
       ConversationPersistence.saveCurrentSession(messages, sessionData);
       setCurrentSession({ messages, sessionData });
     },
@@ -220,22 +223,22 @@ export function useConversationHistory() {
 
 // User preferences management
 export class UserPreferences {
-  static save(preferences: any): void {
+  static save(preferences: unknown): void {
     try {
       localStorage.setItem(
         STORAGE_KEYS.USER_PREFERENCES,
         JSON.stringify(preferences),
       );
-    } catch (error) {
+    } catch (_error) {
       logger.error("Failed to save user preferences:", error);
     }
   }
 
-  static load(): any {
+  static load(): unknown {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.USER_PREFERENCES);
       return saved ? JSON.parse(saved) : {};
-    } catch (error) {
+    } catch (_error) {
       logger.error("Failed to load user preferences:", error);
       return {};
     }
@@ -244,7 +247,7 @@ export class UserPreferences {
   static clear(): void {
     try {
       localStorage.removeItem(STORAGE_KEYS.USER_PREFERENCES);
-    } catch (error) {
+    } catch (_error) {
       logger.error("Failed to clear user preferences:", error);
     }
   }
