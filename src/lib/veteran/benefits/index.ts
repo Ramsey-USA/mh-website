@@ -48,7 +48,7 @@ export class VeteranBenefitsAutomation {
    * Generate comprehensive veteran benefits package
    */
   public generateBenefitsPackage(
-    _profile: VeteranProfile,
+    profile: VeteranProfile,
   ): VeteranBenefitsPackage {
     return {
       discounts: this.discountCalculator.calculateDiscounts(profile),
@@ -65,7 +65,7 @@ export class VeteranBenefitsAutomation {
    */
   public applyAutomaticDiscounts(
     totalAmount: number,
-    _profile: VeteranProfile,
+    profile: VeteranProfile,
   ): {
     originalAmount: number;
     discountedAmount: number;
@@ -179,7 +179,7 @@ export class VeteranBenefitsAutomation {
    * Generate communication protocol
    */
   private generateCommunicationProtocol(
-    _profile: VeteranProfile,
+    profile: VeteranProfile,
   ): CommunicationProtocol {
     const escalationProcedure: EscalationLevel[] = [];
     const specialInstructions: string[] = [];
@@ -253,7 +253,7 @@ export class VeteranBenefitsAutomation {
    * Generate automated timeline based on priority
    */
   private generateAutomatedTimeline(
-    _profile: VeteranProfile,
+    profile: VeteranProfile,
   ): AutomatedTimeline {
     let initialResponse = "48 hours";
     let consultation = "1 week";

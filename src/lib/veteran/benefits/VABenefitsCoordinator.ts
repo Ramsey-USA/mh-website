@@ -203,7 +203,7 @@ export class VABenefitsCoordinator {
    * Create coordination services
    */
   private createCoordinationServices(
-    _profile: VeteranProfile,
+    profile: VeteranProfile,
   ): CoordinationService[] {
     return [
       {

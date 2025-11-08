@@ -133,7 +133,7 @@ export class DiscountCalculator {
    * Create base veteran discount
    */
   private createBaseVeteranDiscount(
-    _profile: VeteranProfile,
+    profile: VeteranProfile,
   ): AutomatedDiscount {
     return {
       id: "veteran_base",
@@ -179,7 +179,7 @@ export class DiscountCalculator {
    * Create disabled veteran discount
    */
   private createDisabledVeteranDiscount(
-    _profile: VeteranProfile,
+    profile: VeteranProfile,
   ): AutomatedDiscount {
     const disabilityPercentage = profile.disabilityRating || 30;
     let discountPercentage = 3;
