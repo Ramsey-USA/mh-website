@@ -5,12 +5,8 @@
  * Adapts to new routes without manual updates
  */
 
-import { type MetadataRoute } from "next";
-import {
-  generateSitemapEntries,
-  detectPageType,
-  PAGE_CATEGORIES,
-} from "@/lib/seo/auto-seo-manager";
+import type { MetadataRoute } from "next";
+import { detectPageType, PAGE_CATEGORIES } from "@/lib/seo/auto-seo-manager";
 
 // ============================================================================
 // ACTIVE PAGES REGISTRY
@@ -54,7 +50,8 @@ export const EXCLUDED_PATTERNS = [
 // ============================================================================
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.mhc-gc.com";
+  const baseUrl =
+    process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com";
   const currentDate = new Date();
 
   // Generate sitemap entries using auto-detection
@@ -85,7 +82,7 @@ export function getAllPages() {
   return ACTIVE_PAGES.map((path) => ({
     path,
     type: detectPageType(path),
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.mhc-gc.com"}${path}`,
+    url: `${process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com"}${path}`,
   }));
 }
 
@@ -99,7 +96,8 @@ export function shouldIncludeInSitemap(pathname: string): boolean {
   }
 
   // Must be in active pages list
-  return ACTIVE_PAGES.includes(pathname as any);
+  // ACTIVE_PAGES is a readonly tuple; narrow to string[] for runtime includes check
+  return (ACTIVE_PAGES as readonly string[]).includes(pathname);
 }
 
 /**

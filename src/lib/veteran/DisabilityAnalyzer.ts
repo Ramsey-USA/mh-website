@@ -51,7 +51,7 @@ export class DisabilityAnalyzer {
 
     for (const pattern of ratingPatterns) {
       const match = keywords.match(pattern);
-      if (match) {
+      if (match && match[1]) {
         const rating = parseInt(match[1]);
         // Validate rating is within reasonable range
         if (rating >= 0 && rating <= 100) {
@@ -143,14 +143,14 @@ export class DisabilityAnalyzer {
   }
 
   /**
-   * Analyze adaptive needs from keywords and form data
-   * @param keywords - Normalized lowercase text to analyze
-   * @param formData - Optional form data with additional context
+   * Analyzes adaptive needs from keywords and form data
+   * @param keywords - Keywords to analyze
+   * @param _formData - Optional form data with additional context (not currently used)
    * @returns Array of adaptive needs with severity and accommodations
    */
   analyzeAdaptiveNeeds(
     keywords: string,
-    formData?: Record<string, unknown>,
+    _formData?: Record<string, unknown>
   ): AdaptiveNeed[] {
     const needs: AdaptiveNeed[] = [];
 
@@ -281,7 +281,7 @@ export class DisabilityAnalyzer {
    */
   private determineSeverity(
     keywords: string,
-    severeIndicators: string[],
+    severeIndicators: string[]
   ): "mild" | "moderate" | "severe" {
     if (severeIndicators.some((indicator) => keywords.includes(indicator))) {
       return "severe";

@@ -111,7 +111,7 @@ export class SpecialistManager {
 
     return {
       assignedSpecialist,
-      backupSpecialist,
+      backupSpecialist: backupSpecialist || assignedSpecialist,
       contactInfo,
       specializations: assignedSpecialist.specializations,
       availability: this.generateSpecialistAvailability(profile.priorityLevel),
@@ -139,7 +139,7 @@ export class SpecialistManager {
     // Priority 1: Disabled veteran specialist for adaptive needs
     if (profile.disabledVeteran && profile.adaptiveNeeds.length > 0) {
       const specialist = this.specialists.find((s) =>
-        s.specializations.includes("Disabled Veteran Services"),
+        s.specializations.includes("Disabled Veteran Services")
       );
       if (specialist) return specialist;
     }
@@ -149,33 +149,35 @@ export class SpecialistManager {
       const specialist = this.specialists.find(
         (s) =>
           s.combatVeteran &&
-          s.specializations.includes("Combat Veteran Services"),
+          s.specializations.includes("Combat Veteran Services")
       );
       if (specialist) return specialist;
     }
 
     // Priority 3: Match by service branch
     const specialist = this.specialists.find(
-      (s) => s.branch === profile.serviceBranch,
+      (s) => s.branch === profile.serviceBranch
     );
     if (specialist) return specialist;
 
     // Default: First specialist
-    return this.specialists[0];
+    const firstSpecialist = this.specialists[0];
+    if (!firstSpecialist) {
+      throw new Error("No specialists available");
+    }
+    return firstSpecialist;
   }
 
   /**
    * Find backup specialist
    */
   private findBackupSpecialist(
-    primary: VeteranSpecialist,
+    primary: VeteranSpecialist
   ): VeteranSpecialist | undefined {
     return this.specialists.find(
       (s) =>
         s.id !== primary.id &&
-        s.specializations.some((spec) =>
-          primary.specializations.includes(spec),
-        ),
+        s.specializations.some((spec) => primary.specializations.includes(spec))
     );
   }
 
@@ -183,7 +185,7 @@ export class SpecialistManager {
    * Create general assignment for non-veterans
    */
   private createGeneralAssignment(
-    profile: VeteranProfile,
+    _profile: VeteranProfile
   ): SpecialistAssignment {
     return {
       assignedSpecialist: {
@@ -213,16 +215,18 @@ export class SpecialistManager {
    */
   private createContactInfo(
     specialist: VeteranSpecialist,
-    profile: VeteranProfile,
+    profile: VeteranProfile
   ): ContactInfo {
+    const emergencyContact =
+      profile.priorityLevel === "IMMEDIATE"
+        ? this.generateEmergencyContact()
+        : "";
+
     return {
       phone: this.generatePhoneNumber(),
       email: this.generateEmail(specialist.name),
       directLine: this.generateDirectLine(),
-      emergencyContact:
-        profile.priorityLevel === "IMMEDIATE"
-          ? this.generateEmergencyContact()
-          : undefined,
+      emergencyContact: emergencyContact,
       preferredMethod: (profile.preferredContactMethod ||
         "phone") as ContactInfo["preferredMethod"],
     };
@@ -238,7 +242,7 @@ export class SpecialistManager {
   /**
    * Generate email
    */
-  private generateEmail(name: string): string {
+  private generateEmail(_name: string): string {
     return "office@mhc-gc.com";
   }
 
@@ -275,7 +279,7 @@ export class SpecialistManager {
    * Generate specialist availability based on priority
    */
   private generateSpecialistAvailability(
-    priority: VeteranPriority,
+    priority: VeteranPriority
   ): AvailabilityWindow[] {
     const baseAvailability = this.generateStandardAvailability();
 
@@ -288,7 +292,10 @@ export class SpecialistManager {
         emergencyAvailable: true,
       });
 
-      baseAvailability[0].emergencyAvailable = true;
+      const firstAvailability = baseAvailability[0];
+      if (firstAvailability) {
+        firstAvailability.emergencyAvailable = true;
+      }
     }
 
     return baseAvailability;

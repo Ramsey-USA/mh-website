@@ -44,8 +44,8 @@ export class XSSScanner {
     config: ScanConfig,
     makeRequest: (
       url: string,
-      config: ScanConfig,
-    ) => Promise<HttpResponse | null>,
+      config: ScanConfig
+    ) => Promise<HttpResponse | null>
   ): Promise<Vulnerability[]> {
     const vulnerabilities: Vulnerability[] = [];
 
@@ -67,7 +67,7 @@ export class XSSScanner {
                   payload,
                   response: response.body.substring(0, 500),
                   severity: this.calculateSeverity(payload, response.body),
-                }),
+                })
               );
               break; // Found vulnerability, no need to test more payloads for this URL
             }
@@ -140,9 +140,9 @@ export class XSSScanner {
     url: string,
     makeRequest: (
       url: string,
-      config: ScanConfig,
+      config: ScanConfig
     ) => Promise<HttpResponse | null>,
-    config: ScanConfig,
+    config: ScanConfig
   ): Promise<Vulnerability[]> {
     const vulnerabilities: Vulnerability[] = [];
 
@@ -176,7 +176,7 @@ export class XSSScanner {
             response: "",
             severity: "medium" as SeverityLevel,
             matches,
-          }),
+          })
         );
       }
     } catch (error) {
@@ -191,7 +191,7 @@ export class XSSScanner {
    */
   private calculateSeverity(
     payload: string,
-    responseBody: string,
+    responseBody: string
   ): SeverityLevel {
     // Check if payload is in a script context (most dangerous)
     if (/<script[^>]*>[\s\S]*?<\/script>/gi.test(responseBody)) {
@@ -256,7 +256,7 @@ export class XSSScanner {
       evidence: {
         payload: data.payload,
         response: data.response,
-        matches: data.matches,
+        matches: data.matches || [],
       },
       metadata: {},
     };

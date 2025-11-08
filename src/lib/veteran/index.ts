@@ -5,28 +5,6 @@
 
 import { logger } from "@/lib/utils/logger";
 
-// Core Engines
-import {
-  VeteranProfileEngine,
-  VeteranProfile,
-  ServiceBranch,
-} from "./VeteranProfileEngine";
-import {
-  ContentPersonalizationEngine,
-  PersonalizedContent,
-} from "./ContentPersonalizationEngine";
-import {
-  VeteranBenefitsAutomation,
-  VeteranBenefitsPackage,
-} from "./VeteranBenefitsAutomation";
-import {
-  VeteranPersonalizationSystem,
-  ComprehensiveVeteranExperience,
-  VeteranSessionData,
-  VeteranRecommendation,
-  VeteranNotification,
-} from "./VeteranPersonalizationSystem";
-
 // Re-export everything
 export {
   VeteranProfileEngine,
@@ -252,8 +230,8 @@ export const PHASE_6_STATUS = {
 };
 
 logger.log(
-  "[CHECK_CIRCLE] Enhanced Veteran Personalization System (Phase 6.4-6.6) - COMPLETE",
+  "[CHECK_CIRCLE] Enhanced Veteran Personalization System (Phase 6.4-6.6) - COMPLETE"
 );
 logger.log(
-  "[MILITARY_TECH] All veteran-focused features are operational and ready for deployment",
+  "[MILITARY_TECH] All veteran-focused features are operational and ready for deployment"
 );

@@ -119,7 +119,7 @@ export class VeteranPersonalizationSystem {
   public async initializeVeteranExperience(
     userInput: string,
     formData?: unknown,
-    sessionId?: string,
+    _sessionId?: string,
   ): Promise<ComprehensiveVeteranExperience> {
     // Generate or retrieve veteran profile
     const profile = this.profileEngine.analyzeAndCreateProfile(
@@ -315,7 +315,7 @@ export class VeteranPersonalizationSystem {
   public applyVeteranDiscounts(
     sessionId: string,
     estimateAmount: number,
-    projectDetails: unknown,
+    _projectDetails: unknown,
   ): {
     originalAmount: number;
     discountedAmount: number;
@@ -367,7 +367,7 @@ export class VeteranPersonalizationSystem {
   public requestSpecialistContact(
     sessionId: string,
     urgency: "standard" | "priority" | "emergency",
-    message?: string,
+    _message?: string,
   ): {
     assignedSpecialist: unknown;
     contactInfo: unknown;
@@ -429,7 +429,7 @@ export class VeteranPersonalizationSystem {
   /**
    * Get veteran analytics and insights
    */
-  public getVeteranAnalytics(sessionId?: string): {
+  public getVeteranAnalytics(_sessionId?: string): {
     totalVeterans: number;
     veteranProfiles: unknown[];
     engagementMetrics: unknown;
@@ -463,7 +463,7 @@ export class VeteranPersonalizationSystem {
 
   private initializeSession(
     sessionId: string,
-    profile: VeteranProfile,
+    _profile: VeteranProfile,
   ): VeteranSessionData {
     const existing = this.activeSessions.get(sessionId);
 
@@ -520,8 +520,8 @@ export class VeteranPersonalizationSystem {
   }
 
   private generateVeteranRecommendations(
-    profile: VeteranProfile,
-    sessionData: VeteranSessionData,
+    _profile: VeteranProfile,
+    _sessionData: VeteranSessionData,
   ): VeteranRecommendation[] {
     const recommendations: VeteranRecommendation[] = [];
 
@@ -598,7 +598,7 @@ export class VeteranPersonalizationSystem {
   }
 
   private generateVeteranNotifications(
-    profile: VeteranProfile,
+    _profile: VeteranProfile,
     benefitsPackage: VeteranBenefitsPackage,
   ): VeteranNotification[] {
     const notifications: VeteranNotification[] = [];
@@ -674,8 +674,8 @@ export class VeteranPersonalizationSystem {
   }
 
   private getContextualRecommendations(
-    profile: VeteranProfile,
-    context: string,
+    _profile: VeteranProfile,
+    _context: string,
     additionalData?: unknown,
   ): VeteranRecommendation[] {
     // Context-specific recommendation logic would go here
@@ -694,16 +694,16 @@ export class VeteranPersonalizationSystem {
   }
 
   private getContextualNotifications(
-    profile: VeteranProfile,
-    context: string,
+    _profile: VeteranProfile,
+    _context: string,
   ): VeteranNotification[] {
     // Context-specific notification logic
     return [];
   }
 
   private generateEstimatorRecommendations(
-    profile: VeteranProfile,
-    data?: unknown,
+    _profile: VeteranProfile,
+    _data?: unknown,
   ): VeteranRecommendation[] {
     const recommendations: VeteranRecommendation[] = [];
 
@@ -724,7 +724,7 @@ export class VeteranPersonalizationSystem {
   }
 
   private generateContactRecommendations(
-    profile: VeteranProfile,
+    _profile: VeteranProfile,
   ): VeteranRecommendation[] {
     const recommendations: VeteranRecommendation[] = [];
 
@@ -744,14 +744,14 @@ export class VeteranPersonalizationSystem {
   }
 
   private generateProjectRecommendations(
-    profile: VeteranProfile,
+    _profile: VeteranProfile,
   ): VeteranRecommendation[] {
     // Project-specific recommendations based on veteran profile
     return [];
   }
 
   private updateProfileFromForm(
-    profile: VeteranProfile,
+    _profile: VeteranProfile,
     formData: unknown,
   ): VeteranProfile {
     // Update profile with new information from form submission
@@ -779,8 +779,8 @@ export class VeteranPersonalizationSystem {
   }
 
   private generateVeteranFormResponse(
-    profile: VeteranProfile,
-    formType: string,
+    _profile: VeteranProfile,
+    _formType: string,
     formData: unknown,
   ): unknown {
     // Generate appropriate response based on veteran status and form type
@@ -801,7 +801,7 @@ export class VeteranPersonalizationSystem {
   }
 
   private generateStandardFormResponse(
-    formType: string,
+    _formType: string,
     formData: unknown,
   ): unknown {
     return {
@@ -814,7 +814,7 @@ export class VeteranPersonalizationSystem {
   }
 
   private calculateFormBenefits(
-    profile: VeteranProfile,
+    _profile: VeteranProfile,
     formData: unknown,
   ): unknown {
     // Calculate applicable benefits based on form data
@@ -829,8 +829,8 @@ export class VeteranPersonalizationSystem {
   }
 
   private initiatePriorityHandling(
-    profile: VeteranProfile,
-    formType: string,
+    _profile: VeteranProfile,
+    _formType: string,
     formData: unknown,
   ): unknown {
     // Initiate priority handling procedures
@@ -844,8 +844,8 @@ export class VeteranPersonalizationSystem {
   }
 
   private generateNextSteps(
-    profile: VeteranProfile,
-    formType: string,
+    _profile: VeteranProfile,
+    _formType: string,
     formData: unknown,
   ): string[] {
     const steps: string[] = [];
@@ -880,7 +880,7 @@ export class VeteranPersonalizationSystem {
   }
 
   private generateDiscountMessage(
-    profile: VeteranProfile,
+    _profile: VeteranProfile,
     discountResult: unknown,
   ): string {
     if (!profile.isVeteran || discountResult.totalSavings === 0) {
@@ -908,9 +908,9 @@ export class VeteranPersonalizationSystem {
   }
 
   private generateSpecialistInstructions(
-    profile: VeteranProfile,
+    _profile: VeteranProfile,
     urgency: string,
-    message?: string,
+    _message?: string,
   ): string[] {
     const instructions: string[] = [];
 
@@ -956,7 +956,7 @@ export class VeteranPersonalizationSystem {
     return this.profileEngine.getProfile(sessionData.sessionId);
   }
 
-  private calculateEngagementMetrics(profiles: VeteranProfile[]): unknown {
+  private calculateEngagementMetrics(_profiles: VeteranProfile[]): unknown {
     // Calculate engagement metrics for veterans
     return {
       totalSessions: this.activeSessions.size,
@@ -966,7 +966,7 @@ export class VeteranPersonalizationSystem {
     };
   }
 
-  private calculateBenefitUtilization(profiles: VeteranProfile[]): unknown {
+  private calculateBenefitUtilization(_profiles: VeteranProfile[]): unknown {
     // Calculate benefit utilization statistics
     const disabledVeterans = profiles.filter((p) => p.disabledVeteran).length;
     const combatVeterans = profiles.filter((p) => p.combatVeteran).length;
@@ -980,7 +980,7 @@ export class VeteranPersonalizationSystem {
     };
   }
 
-  private getTopRecommendations(profiles: VeteranProfile[]): unknown[] {
+  private getTopRecommendations(_profiles: VeteranProfile[]): unknown[] {
     // Get most popular recommendations
     return [
       { type: "Accessibility Retrofit", usage: 65 },

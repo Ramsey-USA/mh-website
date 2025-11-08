@@ -78,7 +78,7 @@ export class BenefitCalculator {
    */
   determineEligiblePrograms(
     keywords: string,
-    isDisabled: boolean,
+    isDisabled: boolean
   ): VeteranProgram[] {
     const programs: VeteranProgram[] = [];
 
@@ -119,7 +119,7 @@ export class BenefitCalculator {
   calculatePriorityLevel(
     keywords: string,
     isCombat: boolean,
-    isDisabled: boolean,
+    isDisabled: boolean
   ): VeteranPriority {
     // Immediate priority for disabled or combat veterans
     if (isDisabled || isCombat) {
@@ -144,18 +144,18 @@ export class BenefitCalculator {
   }
 
   /**
-   * Analyze benefit eligibility based on service history
+   * Analyzes comprehensive benefit eligibility
    * @param serviceBranch - Branch of service
-   * @param serviceEra - Era of service
+   * @param _serviceEra - Era of service (currently not used in calculation)
    * @param yearsOfService - Years of service
    * @param isCombat - Combat veteran status
    * @returns Object describing eligibility for various benefits
    */
   analyzeBenefitEligibility(
     serviceBranch: string,
-    serviceEra: string,
+    _serviceEra: string,
     yearsOfService: number | undefined,
-    isCombat: boolean,
+    isCombat: boolean
   ): {
     vaLoanEligible: boolean;
     giBillEligible: boolean;
@@ -205,7 +205,7 @@ export class BenefitCalculator {
    */
   estimateBenefitValue(
     disabilityRating: number | undefined,
-    hasFamily: boolean,
+    hasFamily: boolean
   ): number | undefined {
     if (!disabilityRating) return undefined;
 

@@ -22,7 +22,9 @@ export function useIntersectionObserver(
     }
 
     observerRef.current = new IntersectionObserver(
-      ([entry]) => {
+      (entries) => {
+        const entry = entries[0];
+        if (!entry) return;
         if (entry.isIntersecting) {
           setIsIntersecting(true);
           if (triggerOnce) {
@@ -70,7 +72,8 @@ export function useImagePreloader(sources: string[]) {
       const loaded = new Set<string>();
       results.forEach((result, index) => {
         if (result.status === "fulfilled") {
-          loaded.add(sources[index]);
+          const s = sources[index];
+          if (s) loaded.add(s);
         }
       });
 
@@ -154,16 +157,26 @@ export function useMemoryMonitoring() {
   useEffect(() => {
     const updateMemoryInfo = () => {
       if ("memory" in performance) {
-        const memory = (performance as any).memory;
-        const used = memory.usedJSHeapSize / (1024 * 1024); // MB
-        const total = memory.totalJSHeapSize / (1024 * 1024); // MB
-        const percentage = Math.round((used / total) * 100);
+        const perfMemory = (
+          performance as unknown as {
+            memory?: { usedJSHeapSize: number; totalJSHeapSize: number };
+          }
+        ).memory;
+        if (
+          perfMemory &&
+          typeof perfMemory.usedJSHeapSize === "number" &&
+          typeof perfMemory.totalJSHeapSize === "number"
+        ) {
+          const used = perfMemory.usedJSHeapSize / (1024 * 1024); // MB
+          const total = perfMemory.totalJSHeapSize / (1024 * 1024); // MB
 
-        setMemoryInfo({
-          used: Math.round(used),
-          total: Math.round(total),
-          percentage,
-        });
+          setMemoryInfo({
+            used: Math.round(used),
+            total: Math.round(total),
+            percentage: Math.round((used / total) * 100),
+          });
+          return;
+        }
       }
     };
 
@@ -207,8 +220,12 @@ export function usePerformanceMetrics() {
     const clsObserver = new PerformanceObserver((list) => {
       let clsValue = 0;
       for (const entry of list.getEntries()) {
-        if (!(entry as any).hadRecentInput) {
-          clsValue += (entry as any).value;
+        const e = entry as unknown as {
+          hadRecentInput?: boolean;
+          value?: number;
+        };
+        if (!e.hadRecentInput && typeof e.value === "number") {
+          clsValue += e.value;
         }
       }
       setMetrics((prev) => ({ ...prev, cls: clsValue }));
@@ -219,10 +236,17 @@ export function usePerformanceMetrics() {
     // Collect FID
     const fidObserver = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
-        setMetrics((prev) => ({
-          ...prev,
-          fid: (entry as any).processingStart - entry.startTime,
-        }));
+        const e = entry as unknown as {
+          processingStart?: number;
+          startTime: number;
+        };
+        if (
+          typeof e.processingStart === "number" &&
+          typeof e.startTime === "number"
+        ) {
+          const fidVal = e.processingStart - e.startTime;
+          setMetrics((prev) => ({ ...prev, fid: fidVal }));
+        }
       }
     });
 

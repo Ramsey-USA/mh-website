@@ -36,9 +36,9 @@ export const analytics = {
     if (
       typeof window !== "undefined" &&
       window.gtag &&
-      process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+      process.env["NEXT_PUBLIC_GA_MEASUREMENT_ID"]
     ) {
-      window.gtag("config", process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID, {
+      window.gtag("config", process.env["NEXT_PUBLIC_GA_MEASUREMENT_ID"], {
         page_title: title || document.title,
         page_location: url,
       });

@@ -8,7 +8,7 @@ import { useState, useEffect, useCallback } from "react";
 
 // Mock implementations until the actual performance modules are ready
 const performanceMonitor = {
-  clear: () => {},
+  clear: () => undefined,
 };
 
 const getPerformanceSummary = () => ({
@@ -32,7 +32,7 @@ const aiCache = {
     aiCacheSize: 57,
     formCacheSize: 12,
   }),
-  clear: () => {},
+  clear: () => undefined,
 };
 
 export interface PerformanceMetric {
@@ -287,20 +287,33 @@ export function useWebVitals() {
           }
 
           if (entry.entryType === "first-input") {
-            const firstInputEntry = entry as any;
-            setVitals((prev) => ({
-              ...prev,
-              fid: firstInputEntry.processingStart - firstInputEntry.startTime,
-            }));
+            // Narrow entry safely and compute fid if possible
+            const firstInputEntry = entry as unknown as {
+              processingStart?: number;
+              startTime?: number;
+            };
+            if (
+              typeof firstInputEntry.processingStart === "number" &&
+              typeof firstInputEntry.startTime === "number"
+            ) {
+              const fidValue =
+                firstInputEntry.processingStart - firstInputEntry.startTime;
+              setVitals((prev) => ({ ...prev, fid: fidValue }));
+            }
           }
 
           if (entry.entryType === "layout-shift") {
-            const layoutShiftEntry = entry as any;
-            if (!layoutShiftEntry.hadRecentInput) {
-              setVitals((prev) => ({
-                ...prev,
-                cls: prev.cls + layoutShiftEntry.value,
-              }));
+            // LayoutShift entries expose hadRecentInput and value in some browsers
+            const layoutShiftEntry = entry as unknown as {
+              hadRecentInput?: boolean;
+              value?: number;
+            };
+            if (
+              !layoutShiftEntry.hadRecentInput &&
+              typeof layoutShiftEntry.value === "number"
+            ) {
+              const delta = layoutShiftEntry.value;
+              setVitals((prev) => ({ ...prev, cls: prev.cls + delta }));
             }
           }
         });
@@ -315,17 +328,17 @@ export function useWebVitals() {
             "layout-shift",
           ],
         });
-      } catch (e) {
+      } catch (_e) {
         // Fallback for browsers that don't support all entry types
         try {
           observer.observe({ entryTypes: ["paint"] });
-        } catch (e) {
+        } catch (_e) {
           logger.warn("Performance Observer not supported");
         }
       }
-
       return () => observer.disconnect();
     }
+    return undefined;
   }, []);
 
   return vitals;

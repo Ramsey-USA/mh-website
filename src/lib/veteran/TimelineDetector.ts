@@ -53,7 +53,7 @@ export class TimelineDetector {
   analyzeDeploymentHistory(
     keywords: string,
     serviceBranch: ServiceBranch,
-    isCombatVet: boolean,
+    isCombatVet: boolean
   ): DeploymentRecord[] {
     const deployments: DeploymentRecord[] = [];
 
@@ -195,7 +195,7 @@ export class TimelineDetector {
 
     for (const pattern of yearPatterns) {
       const match = keywords.match(pattern);
-      if (match) {
+      if (match && match[1]) {
         return parseInt(match[1]);
       }
     }

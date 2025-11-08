@@ -170,7 +170,7 @@ export class VABenefitsCoordinator {
   /**
    * Determine eligible loan programs
    */
-  private determineLoanPrograms(profile: VeteranProfile): LoanProgram[] {
+  private determineLoanPrograms(_profile: VeteranProfile): LoanProgram[] {
     const loans: LoanProgram[] = [];
 
     // VA Home Loan Program
@@ -203,7 +203,7 @@ export class VABenefitsCoordinator {
    * Create coordination services
    */
   private createCoordinationServices(
-    profile: VeteranProfile,
+    _profile: VeteranProfile,
   ): CoordinationService[] {
     return [
       {

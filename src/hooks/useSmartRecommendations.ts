@@ -44,9 +44,9 @@ interface UseSmartRecommendationsReturn {
   trackExperimentEvent: (eventType: string, metadata?: unknown) => void;
   refreshRecommendations: () => Promise<void>;
   clearRecommendations: () => void;
-  getExperimentResults: (experimentId: string) => any;
+  getExperimentResults: (experimentId: string) => unknown;
   getActiveExperiments: () => unknown[];
-  createExperiment: (experiment: unknown) => any;
+  createExperiment: (experiment: unknown) => unknown;
 }
 
 // Singleton instance of the recommendation engine
@@ -100,7 +100,7 @@ export function useSmartRecommendations(
 
       try {
         // Create context with session info
-        const enhancedContext: RecommendationContext = {
+        const enhancedContext = {
           sessionId: context?.sessionId || sessionId || `session-${Date.now()}`,
           pageUrl:
             context?.pageUrl ||
@@ -110,7 +110,7 @@ export function useSmartRecommendations(
             (typeof window !== "undefined" ? navigator.userAgent : undefined),
           experimentAssignment: context?.experimentAssignment,
           variantConfig: context?.variantConfig,
-        };
+        } as unknown as RecommendationContext;
 
         const recs = await engine.generateRecommendations(
           userProfile,
@@ -127,7 +127,6 @@ export function useSmartRecommendations(
           setExperimentAssignment(assignment);
 
           if (assignment) {
-            const config = engine.getUserExperimentAssignment(userId); // This would normally get variant config
             // For now, set to null - would need to implement getVariantConfiguration in engine
             setVariantConfig(null);
           }
@@ -144,13 +143,10 @@ export function useSmartRecommendations(
             variant_id: experimentAssignment?.variantId,
           });
         }
-      } catch (_err) {
-        const errorMessage =
-          err instanceof Error
-            ? err.message
-            : "Failed to generate recommendations";
-        setError(errorMessage);
-        logger.error("Error generating recommendations:", err);
+      } catch (err: unknown) {
+        const error = err instanceof Error ? err : new Error(String(err));
+        setError(error.message);
+        logger.error("Error generating recommendations:", error);
       } finally {
         setIsLoading(false);
       }
@@ -188,8 +184,9 @@ export function useSmartRecommendations(
         // Update metrics after feedback
         const newMetrics = engine.getMetrics();
         setMetrics(newMetrics);
-      } catch (_err) {
-        logger.error("Error recording feedback:", err);
+      } catch (err: unknown) {
+        const error = err instanceof Error ? err : new Error(String(err));
+        logger.error("Error recording feedback:", error);
       }
     },
     [engine, enableTracking],
@@ -213,8 +210,9 @@ export function useSmartRecommendations(
             page: behavior.page,
           });
         }
-      } catch (_err) {
-        logger.error("Error tracking behavior:", err);
+      } catch (err: unknown) {
+        const error = err instanceof Error ? err : new Error(String(err));
+        logger.error("Error tracking behavior:", error);
       }
     },
     [engine, userId, enableTracking],
@@ -251,16 +249,25 @@ export function useSmartRecommendations(
       if (!enableABTesting || !userId || !experimentAssignment) return;
 
       try {
+        const safeEventType = String(eventType) as unknown as
+          | "view"
+          | "click"
+          | "estimate"
+          | "contact"
+          | "conversion"
+          | "feedback";
+
         engine.trackExperimentEvent({
           experimentId: experimentAssignment.experimentId,
           variantId: experimentAssignment.variantId,
           userId,
-          eventType: eventType as any,
+          eventType: safeEventType,
           timestamp: new Date(),
           metadata: metadata || {},
         });
-      } catch (_err) {
-        logger.error("Error tracking experiment event:", err);
+      } catch (err: unknown) {
+        const error = err instanceof Error ? err : new Error(String(err));
+        logger.error("Error tracking experiment event:", error);
       }
     },
     [engine, enableABTesting, userId, experimentAssignment],
@@ -300,8 +307,9 @@ export function useSmartRecommendations(
     try {
       const currentMetrics = engine.getMetrics();
       setMetrics(currentMetrics);
-    } catch (_err) {
-      logger.error("Error loading metrics:", err);
+    } catch (err: unknown) {
+      const error = err instanceof Error ? err : new Error(String(err));
+      logger.error("Error loading metrics:", error);
     }
   }, [engine, recommendations]);
 
@@ -358,10 +366,9 @@ export function useSmartRecommendations(
  * Hook for tracking recommendation interactions
  */
 export function useRecommendationTracking(userId?: string) {
-  const { trackBehavior } = useSmartRecommendations({
-    userId,
-    enableTracking: true,
-  });
+  const { trackBehavior } = useSmartRecommendations(
+    userId ? { userId, enableTracking: true } : { enableTracking: true },
+  );
 
   const trackView = useCallback(
     (recommendationId: string, projectType: string) => {
@@ -428,34 +435,54 @@ export function useVeteranRecommendations(
   veteranProfile?: unknown,
   userId?: string,
 ) {
-  const baseHook = useSmartRecommendations({ userId });
+  const baseHook = useSmartRecommendations(userId ? { userId } : {});
 
   const generateVeteranRecommendations = useCallback(
     async (basePreferences: unknown, context?: unknown) => {
       if (!veteranProfile) return;
 
+      // Safely extract preferences from unknown basePreferences
+      const prefs = (basePreferences ?? {}) as Record<string, unknown>;
+      const budgetRange =
+        typeof prefs["budgetRange"] === "object" &&
+        prefs["budgetRange"] !== null
+          ? (prefs["budgetRange"] as { min: number; max: number })
+          : { min: 10000, max: 150000 };
+
+      const projectTypes = Array.isArray(prefs["projectTypes"])
+        ? (prefs["projectTypes"] as string[])
+        : ["residential", "renovation"];
+
+      const timeframe =
+        typeof prefs["timeframe"] === "string"
+          ? (prefs["timeframe"] as string)
+          : "planned";
+
       const userProfile: UserProfile = {
         id: userId || `veteran-${Date.now()}`,
         sessionId: `session-${Date.now()}`,
         isVeteran: true,
-        veteranDetails: veteranProfile,
+        // Trust the caller to provide a compatible veteranDetails shape
+        veteranDetails: veteranProfile as unknown as NonNullable<
+          UserProfile["veteranDetails"]
+        >,
         preferences: {
-          budgetRange: basePreferences.budgetRange || {
-            min: 10000,
-            max: 150000,
-          },
-          projectTypes: basePreferences.projectTypes || [
-            "residential",
-            "renovation",
-          ],
-          timeframe: basePreferences.timeframe || "planned",
+          budgetRange,
+          projectTypes,
+          timeframe,
           priorities: ["accessibility", "security", "energy_efficiency"],
           communicationStyle: "military",
         },
         behaviorHistory: [],
       };
 
-      await baseHook.generateRecommendations(userProfile, context);
+      // Only pass context if it looks like an object; otherwise undefined
+      const safeContext =
+        typeof context === "object" && context !== null
+          ? (context as RecommendationContext)
+          : undefined;
+
+      await baseHook.generateRecommendations(userProfile, safeContext);
     },
     [veteranProfile, userId, baseHook],
   );

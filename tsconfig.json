@@ -10,6 +10,8 @@
     "strictPropertyInitialization": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
+    "useUnknownInCatchVariables": true,
+    "exactOptionalPropertyTypes": true,
 
     // === Additional Checks ===
     "noUnusedLocals": true,

@@ -28,8 +28,8 @@ export class HeaderScanner {
     config: ScanConfig,
     makeRequest: (
       url: string,
-      config: ScanConfig,
-    ) => Promise<HttpResponse | null>,
+      config: ScanConfig
+    ) => Promise<HttpResponse | null>
   ): Promise<Vulnerability[]> {
     const vulnerabilities: Vulnerability[] = [];
 
@@ -62,17 +62,17 @@ export class HeaderScanner {
    */
   private checkMissingHeaders(
     url: string,
-    response: HttpResponse,
+    response: HttpResponse
   ): Vulnerability[] {
     const vulnerabilities: Vulnerability[] = [];
     const headers = new Map(
-      Object.entries(response.headers).map(([k, v]) => [k.toLowerCase(), v]),
+      Object.entries(response.headers).map(([k, v]) => [k.toLowerCase(), v])
     );
 
     for (const headerName of this.requiredHeaders) {
       if (!headers.has(headerName)) {
         vulnerabilities.push(
-          this.createMissingHeaderVulnerability(url, headerName),
+          this.createMissingHeaderVulnerability(url, headerName)
         );
       }
     }
@@ -85,11 +85,11 @@ export class HeaderScanner {
    */
   private checkHeaderValues(
     url: string,
-    response: HttpResponse,
+    response: HttpResponse
   ): Vulnerability[] {
     const vulnerabilities: Vulnerability[] = [];
     const headers = new Map(
-      Object.entries(response.headers).map(([k, v]) => [k.toLowerCase(), v]),
+      Object.entries(response.headers).map(([k, v]) => [k.toLowerCase(), v])
     );
 
     // Check CSP
@@ -113,7 +113,7 @@ export class HeaderScanner {
       if (maxAge && maxAge < 31536000) {
         // Less than 1 year
         vulnerabilities.push(
-          this.createWeakHSTSVulnerability(url, hsts, maxAge),
+          this.createWeakHSTSVulnerability(url, hsts, maxAge)
         );
       }
     }
@@ -126,11 +126,11 @@ export class HeaderScanner {
    */
   private checkInsecureHeaders(
     url: string,
-    response: HttpResponse,
+    response: HttpResponse
   ): Vulnerability[] {
     const vulnerabilities: Vulnerability[] = [];
     const headers = new Map(
-      Object.entries(response.headers).map(([k, v]) => [k.toLowerCase(), v]),
+      Object.entries(response.headers).map(([k, v]) => [k.toLowerCase(), v])
     );
 
     // Check for server header (information disclosure)
@@ -143,7 +143,7 @@ export class HeaderScanner {
     const poweredBy = headers.get("x-powered-by");
     if (poweredBy && poweredBy.length > 0) {
       vulnerabilities.push(
-        this.createPoweredByHeaderVulnerability(url, poweredBy),
+        this.createPoweredByHeaderVulnerability(url, poweredBy)
       );
     }
 
@@ -161,7 +161,7 @@ export class HeaderScanner {
    */
   private extractMaxAge(hsts: string): number | null {
     const match = hsts.match(/max-age=(\d+)/i);
-    return match ? parseInt(match[1], 10) : null;
+    return match && match[1] ? parseInt(match[1], 10) : null;
   }
 
   /**
@@ -169,7 +169,7 @@ export class HeaderScanner {
    */
   private createMissingHeaderVulnerability(
     url: string,
-    headerName: string,
+    headerName: string
   ): Vulnerability {
     const descriptions: Record<string, string> = {
       "content-security-policy":
@@ -280,7 +280,7 @@ export class HeaderScanner {
   private createWeakHSTSVulnerability(
     url: string,
     hsts: string,
-    maxAge: number,
+    maxAge: number
   ): Vulnerability {
     return {
       id: `header_weak_hsts_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
@@ -310,7 +310,7 @@ export class HeaderScanner {
    */
   private createServerHeaderVulnerability(
     url: string,
-    server: string,
+    server: string
   ): Vulnerability {
     return {
       id: `header_server_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
@@ -339,7 +339,7 @@ export class HeaderScanner {
    */
   private createPoweredByHeaderVulnerability(
     url: string,
-    poweredBy: string,
+    poweredBy: string
   ): Vulnerability {
     return {
       id: `header_poweredby_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
@@ -366,7 +366,7 @@ export class HeaderScanner {
    */
   private createWeakCORSVulnerability(
     url: string,
-    cors: string,
+    cors: string
   ): Vulnerability {
     return {
       id: `header_cors_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,

@@ -74,8 +74,8 @@ export function useAnalytics() {
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", eventName, {
         event_category: "engagement",
-        event_label: (parameters.label as string) || "",
-        value: (parameters.value as number) || 0,
+        event_label: (parameters["label"] as string) || "",
+        value: (parameters["value"] as number) || 0,
         ...parameters,
       });
     }
@@ -94,7 +94,7 @@ export function useAnalytics() {
   const trackConversion = (conversionType: string, value?: number) => {
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", "conversion", {
-        send_to: process.env.NEXT_PUBLIC_GA_CONVERSION_ID,
+        send_to: process.env["NEXT_PUBLIC_GA_CONVERSION_ID"],
         event_category: "conversion",
         event_label: conversionType,
         value: value || 0,

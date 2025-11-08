@@ -9,7 +9,14 @@
  */
 export function formatDate(dateString: string): string {
   // Parse the date components directly to avoid timezone issues
-  const [year, month, day] = dateString.split("-").map(Number);
+  const parts = dateString.split("-").map(Number);
+  const year = parts[0];
+  const month = parts[1];
+  const day = parts[2];
+
+  if (!year || !month || !day) {
+    return dateString; // Return original if parsing fails
+  }
 
   // Create date with explicit components (month is 0-indexed)
   const date = new Date(year, month - 1, day);
@@ -28,7 +35,15 @@ export function formatDate(dateString: string): string {
  * @returns Formatted date string (Month DD, YYYY)
  */
 export function formatDateLong(dateString: string): string {
-  const [year, month, day] = dateString.split("-").map(Number);
+  const parts = dateString.split("-").map(Number);
+  const year = parts[0];
+  const month = parts[1];
+  const day = parts[2];
+
+  if (!year || !month || !day) {
+    return dateString; // Return original if parsing fails
+  }
+
   const date = new Date(year, month - 1, day);
 
   const months = [
@@ -46,7 +61,10 @@ export function formatDateLong(dateString: string): string {
     "December",
   ];
 
-  return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+  const monthName = months[date.getMonth()];
+  return monthName
+    ? `${monthName} ${date.getDate()}, ${date.getFullYear()}`
+    : dateString;
 }
 
 /**
@@ -55,7 +73,15 @@ export function formatDateLong(dateString: string): string {
  * @returns Relative time string
  */
 export function getRelativeTime(dateString: string): string {
-  const [year, month, day] = dateString.split("-").map(Number);
+  const parts = dateString.split("-").map(Number);
+  const year = parts[0];
+  const month = parts[1];
+  const day = parts[2];
+
+  if (!year || !month || !day) {
+    return dateString; // Return original if parsing fails
+  }
+
   const date = new Date(year, month - 1, day);
   const now = new Date();
   const diffTime = now.getTime() - date.getTime();

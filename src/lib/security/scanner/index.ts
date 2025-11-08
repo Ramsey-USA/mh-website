@@ -142,7 +142,7 @@ export class VulnerabilityScanner {
    */
   private async runScanByType(
     type: VulnerabilityType,
-    config: ScanConfig,
+    config: ScanConfig
   ): Promise<Vulnerability[]> {
     const makeRequest = this.createRequestFunction(config);
 
@@ -177,17 +177,17 @@ export class VulnerabilityScanner {
    * Create HTTP request function for scanners
    */
   private createRequestFunction(
-    config: ScanConfig,
+    config: ScanConfig
   ): (url: string, requestConfig: ScanConfig) => Promise<HttpResponse | null> {
     return async (url: string): Promise<HttpResponse | null> => {
       try {
         const controller = new AbortController();
         const timeoutId = setTimeout(
           () => controller.abort(),
-          config.timeout || 30000,
+          config.timeout || 30000
         );
 
-        const response = await fetch(url, {
+        const fetchOptions: RequestInit = {
           method: config.method || "GET",
           headers: {
             "User-Agent": config.userAgent || "MH-Security-Scanner/2.0",
@@ -195,8 +195,13 @@ export class VulnerabilityScanner {
           },
           signal: controller.signal,
           redirect: config.followRedirects ? "follow" : "manual",
-          body: config.body,
-        });
+        };
+
+        if (config.body) {
+          fetchOptions.body = config.body;
+        }
+
+        const response = await fetch(url, fetchOptions);
 
         clearTimeout(timeoutId);
 
@@ -293,7 +298,7 @@ export class VulnerabilityScanner {
   /**
    * Scan for CORS misconfigurations
    */
-  private async scanCORS(config: ScanConfig): Promise<Vulnerability[]> {
+  private async scanCORS(_config: ScanConfig): Promise<Vulnerability[]> {
     // CORS scanning is handled by HeaderScanner
     return [];
   }
@@ -302,7 +307,7 @@ export class VulnerabilityScanner {
    * Scan for sensitive data exposure
    */
   private async scanSensitiveData(
-    config: ScanConfig,
+    config: ScanConfig
   ): Promise<Vulnerability[]> {
     const vulnerabilities: Vulnerability[] = [];
     const sensitivePatterns = [
