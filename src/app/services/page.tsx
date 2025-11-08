@@ -20,6 +20,7 @@ import {
 import { TestimonialGrid } from "@/components/testimonials";
 import { getClientTestimonials } from "@/lib/data/testimonials";
 import { FAQSection } from "@/components/faq";
+import { QuickCostCalculator } from "@/components/calculator";
 import { serviceFAQs } from "@/lib/data/faqs";
 
 export default function ServicesPage() {
@@ -652,6 +653,28 @@ export default function ServicesPage() {
                 <p className="text-accent-100">Emergency Support</p>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Quick Cost Calculator */}
+        <section className="relative bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-20 lg:py-32">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <div className="mb-12 text-center">
+              <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+                  Get Your Project
+                </span>
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                  Cost Estimate
+                </span>
+              </h2>
+              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed">
+                Use our interactive calculator to get an instant estimate for
+                your construction project. See how project type, size, quality,
+                and timeline affect your budget.
+              </p>
+            </div>
+            <QuickCostCalculator />
           </div>
         </section>
 

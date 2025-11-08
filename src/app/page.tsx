@@ -18,6 +18,7 @@ import {
 } from "@/components/seo/seo-meta";
 import { TestimonialGrid } from "@/components/testimonials";
 import { getClientTestimonials } from "@/lib/data/testimonials";
+import { QuickCostCalculator } from "@/components/calculator";
 
 // Enhanced SEO for AI-powered veteran-owned construction
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
@@ -40,7 +41,7 @@ const TestimonialsWidget = dynamic(
       <div className="bg-muted rounded-lg h-96 animate-pulse"></div>
     ),
     ssr: false,
-  },
+  }
 );
 const SmartRecommendations = dynamic(
   () => import("../components/recommendations/SmartRecommendations"),
@@ -49,7 +50,7 @@ const SmartRecommendations = dynamic(
       <div className="bg-muted rounded-lg h-64 animate-pulse"></div>
     ),
     ssr: false,
-  },
+  }
 );
 import Head from "next/head";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -94,7 +95,7 @@ export default function Home() {
     const handleScroll = () => {
       const scrollPercent = Math.round(
         (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
-          100,
+          100
       );
 
       if (scrollPercent >= 25 && !sessionStorage.getItem("scroll_25")) {
@@ -357,6 +358,28 @@ export default function Home() {
               </div>
             </div>
           </FadeInWhenVisible>
+        </div>
+      </section>
+
+      {/* Quick Cost Calculator */}
+      <section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <div className="mb-12 text-center">
+            <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+                Estimate Your
+              </span>
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
+                Project Cost
+              </span>
+            </h2>
+            <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed">
+              Get an instant ballpark estimate for your construction project in
+              seconds. Adjust the inputs to see how different factors affect
+              your budget.
+            </p>
+          </div>
+          <QuickCostCalculator />
         </div>
       </section>
 
