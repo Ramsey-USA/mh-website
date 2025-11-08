@@ -103,11 +103,6 @@ export default function RootLayout({
       </head>
       <body className="font-sans">
         <WebVitalsReporter />
-        {/* <AnalyticsProvider
-          measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
-          enableScrollTracking={true}
-          enableTimeTracking={true}
-        > */}
         <ThemeProvider defaultTheme="light" storageKey="mh-construction-theme">
           <AuthProvider>
             <GlobalChatbotProvider>
