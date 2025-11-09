@@ -1,4 +1,4 @@
-# ESLint Warning Resolution Progress
+# eslint-warning-resolution-progress
 
 **Last Updated:** November 8, 2025
 
@@ -201,10 +201,10 @@
 ### Available Scripts
 
 ```bash
-# Generate current lint report
+# generate-current-lint-report
 npm run lint 2>&1 > reports/lint-current.txt
 
-# Compare with baseline
+# compare-with-baseline
 diff reports/lint-baseline.txt reports/lint-current.txt
 
 # Count warnings by type

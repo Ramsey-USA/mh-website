@@ -99,21 +99,21 @@
 
 - **[FUTURE_PHASES_ROADMAP.md](../../project/roadmaps/future-phases-roadmap.md)** - ⭐
   Complete Phase 6+ roadmap & timeline
-- **[Next Phase Options](../README.md#-project-roadmap--next-phases)** - Phase 6+
+- **[Next Phase Options](../../../README.md#-project-roadmap--next-phases)** - Phase 6+
   Advanced Features roadmap
-- **[Future Enhancements](../README.md#-phase-6-advanced-features--scaling-future)** -
+- **[Future Enhancements](../../../README.md#-phase-6-advanced-features--scaling-future)** -
   Real-time collaboration, AI, mobile
-- **[Implementation Timeline](../README.md#-implementation-timeline-future-phases)** -
+- **[Implementation Timeline](../../../README.md#-implementation-timeline-future-phases)** -
   2026 development schedule
 
 ---
 
 ## 💼 Business & Content
 
-- **[services.md](./business/services.md)** - Service offerings
-- **[core-values.md](./business/core-values.md)** - Company values
-- **[team-roster.md](./business/team-roster.md)** - Team information
-- **[partnership-messaging-guide.md](./partnerships/messaging/partnership-messaging-guide.md)**
+- **[services.md](../../business/services.md)** - Service offerings
+- **[core-values.md](../../business/core-values.md)** - Company values
+- **[team-roster.md](../../business/team-roster.md)** - Team information
+- **[partnership-messaging-guide.md](../../partnerships/messaging/partnership-messaging-guide.md)**
   \- Partnership messaging
 
 ---
@@ -122,15 +122,15 @@
 
 ### **Architecture & Features**
 
-- **[architecture.md](./project/architecture.md)** - System architecture
-- **[features.md](./technical/features.md)** - Feature documentation
-- **[company-profile.md](./project/company-profile.md)** - Company profile
+- **[architecture.md](../../project/architecture.md)** - System architecture
+- **[features.md](../features.md)** - Feature documentation
+- **[company-profile.md](../../project/company-profile.md)** - Company profile
 
 ### **Development**
 
-- **[development-index.md](./development/development-index.md)** - Development setup
-- **[firebase-setup.md](./development/firebase-setup.md)** - Firebase configuration
-- **[vscode-extensions-guide.md](./development/vscode-extensions-guide.md)** - VS Code
+- **[development-index.md](../../development/development-index.md)** - Development setup
+- **[firebase-setup.md](../../development/firebase-setup.md)** - Firebase configuration
+- **[vscode-extensions-guide.md](../../development/vscode-extensions-guide.md)** - VS Code
   extensions for optimization ⭐ NEW
 
 ---
@@ -154,15 +154,15 @@ and reports that are no longer relevant have been consolidated into current docu
 
 ### Building a New Page?
 
-1. Read: [page-layout-quick-start.md](./technical/page-layout-quick-start.md)
+1. Read: [page-layout-quick-start.md](../design-system/layout/page-layout-quick-start.md)
 2. Copy section template
 3. Copy card template
 4. Customize content
-5. Verify against checklist in [page-layout-standards.md](./technical/page-layout-standards.md)
+5. Verify against checklist in [page-layout-standards.md](../design-system/layout/page-layout-standards.md)
 
 ### Adding Icons?
 
-1. Check: [icon-system-quick-reference.md](./technical/icon-system-quick-reference.md)
+1. Check: [icon-system-quick-reference.md](../design-system/icons/icon-system-quick-reference.md)
 2. Use standard sizes: `xl`, `2xl`, `3xl`
 3. Follow container patterns from layout standards
 
@@ -213,12 +213,12 @@ docs/
 
 | Task                | Documentation                                                                |
 | ------------------- | ---------------------------------------------------------------------------- |
-| Create new page     | [page-layout-quick-start.md](./technical/page-layout-quick-start.md)         |
-| Style components    | [design-system.md](./technical/design-system/design-system.md)                             |
-| Add icons           | [icon-system-quick-reference.md](./technical/icon-system-quick-reference.md) |
-| Update branding     | [branding-index.md](./branding/branding-index.md)                           |
-| Setup development   | [development-index.md](./development/development-index.md)                               |
-| Review architecture | [architecture.md](./project/architecture.md)                                 |
+| Create new page     | [page-layout-quick-start.md](../design-system/layout/page-layout-quick-start.md)         |
+| Style components    | [design-system.md](../design-system/design-system.md)                             |
+| Add icons           | [icon-system-quick-reference.md](../design-system/icons/icon-system-quick-reference.md) |
+| Update branding     | [branding-index.md](../../branding/branding-index.md)                           |
+| Setup development   | [development-index.md](../../development/development-index.md)                               |
+| Review architecture | [architecture.md](../../project/architecture.md)                                 |
 
 ---
 

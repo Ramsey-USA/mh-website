@@ -138,13 +138,13 @@ npm run type-check         # TypeScript check
 
 ## 📚 Documentation
 
-**Main Guide:** [`docs/technical/seo/ultimate-seo-guide.md`](../docs/technical/seo/ultimate-seo-guide.md)
+**Main Guide:** [`docs/technical/seo/ultimate-seo-guide.md`](./docs/technical/seo/ultimate-seo-guide.md)
 
 **Quick Links:**
 
-- [SEO Index](../docs/technical/seo/seo-index.md)
-- [Compliance Status](../docs/technical/seo/seo-compliance-status.md)
-- [Enhancement Guide](../docs/technical/seo/seo-enhancement-guide.md)
+- [SEO Index](./docs/technical/seo/seo-index.md)
+- [Compliance Status](./docs/technical/seo/seo-compliance-status.md)
+- [Enhancement Guide](./docs/technical/seo/seo-enhancement-guide.md)
 
 ---
 

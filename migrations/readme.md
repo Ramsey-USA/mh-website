@@ -1,4 +1,4 @@
-# Database Migrations
+# database-migrations
 
 This directory contains SQL migration files for the Cloudflare D1 database.
 
@@ -7,10 +7,10 @@ This directory contains SQL migration files for the Cloudflare D1 database.
 ### 1. Create the D1 Database
 
 ```bash
-# Create production database
+# create-production-database
 npx wrangler d1 create mh-construction-db
 
-# Create preview/development database
+# create-preview-development-database
 npx wrangler d1 create mh-construction-db-preview
 ```
 
@@ -19,14 +19,14 @@ Copy the `database_id` values into your `wrangler.toml` and `.env.local` files.
 ### 2. Run Migrations
 
 ```bash
-# Apply all migrations to local database
+# apply-all-migrations-to-local-database
 npx wrangler d1 execute mh-construction-db --local --file=./migrations/0001_create_consultations.sql
 npx wrangler d1 execute mh-construction-db --local --file=./migrations/0002_create_job_applications.sql
 npx wrangler d1 execute mh-construction-db --local --file=./migrations/0003_create_contact_submissions.sql
 npx wrangler d1 execute mh-construction-db --local --file=./migrations/0004_create_users.sql
 npx wrangler d1 execute mh-construction-db --local --file=./migrations/0005_create_sessions.sql
 
-# Apply to production (after testing!)
+# apply-to-production-after-testing
 npx wrangler d1 execute mh-construction-db --remote --file=./migrations/0001_create_consultations.sql
 # ... repeat for each migration
 ```
@@ -34,10 +34,10 @@ npx wrangler d1 execute mh-construction-db --remote --file=./migrations/0001_cre
 ### 3. Verify Schema
 
 ```bash
-# Check local database
+# check-local-database
 npx wrangler d1 execute mh-construction-db --local --command="SELECT name FROM sqlite_master WHERE type='table';"
 
-# Check production database
+# check-production-database
 npx wrangler d1 execute mh-construction-db --remote --command="SELECT name FROM sqlite_master WHERE type='table';"
 ```
 
@@ -93,19 +93,19 @@ npx wrangler d1 execute mh-construction-db --remote --command="SELECT name FROM 
 ## Helper Commands
 
 ```bash
-# Query consultations
+# query-consultations
 npx wrangler d1 execute mh-construction-db --local \
   --command="SELECT * FROM consultations LIMIT 10;"
 
-# Check table structure
+# check-table-structure
 npx wrangler d1 execute mh-construction-db --local \
   --command="PRAGMA table_info(consultations);"
 
-# Count records
+# count-records
 npx wrangler d1 execute mh-construction-db --local \
   --command="SELECT COUNT(*) as total FROM consultations;"
 
-# Drop table (CAREFUL!)
+# drop-table-careful
 npx wrangler d1 execute mh-construction-db --local \
   --command="DROP TABLE IF EXISTS consultations;"
 ```

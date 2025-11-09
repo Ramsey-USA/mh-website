@@ -177,7 +177,7 @@ export default Component;
 
 - **Tailwind Classes**: Use Tailwind utility classes
 - **Custom CSS**: Only when Tailwind is insufficient
-- **Responsive Design**: Mobile-first approach following [Mobile Optimization Guide](/docs/technical/design-system/mobile-optimization-guide.md)
+- **Responsive Design**: Mobile-first approach following [Mobile Optimization Guide](./docs/technical/design-system/mobile-optimization-guide.md)
 - **CSS Variables**: Use design system tokens
 - **Touch Optimization**: Include `touch-manipulation` class for all interactive elements
 

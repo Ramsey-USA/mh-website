@@ -152,11 +152,11 @@ For each new page requiring navigation:
 
 ## 📚 Related Documentation
 
-- **[Navigation Architecture](../../docs/technical/navigation-architecture.md)** - Complete system
+- **[Navigation Architecture](../../technical/navigation/navigation-architecture.md)** - Complete system
   overview
-- **[Navigation Technical Guide](../../docs/technical/navigation-technical-guide.md)** -
+- **[Navigation Technical Guide](../../technical/navigation/navigation-technical-guide.md)** -
   Implementation guide
-- **[Navigation Audit Report](../../docs/technical/navigation-audit-report.md)** - Current
+- **[Navigation Audit Report](../../technical/navigation/navigation-audit-report.md)** - Current
   implementation status
 
 ## 🔧 Development

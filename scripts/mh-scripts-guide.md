@@ -1,4 +1,4 @@
-# MH Website Scripts Organization
+# mh-website-scripts-organization
 
 Organized automation scripts for the MH Construction website development workflow.
 
@@ -55,22 +55,22 @@ Organized automation scripts for the MH Construction website development workflo
 ## Usage Examples
 
 ```bash
-# Run analysis
+# run-analysis
 npm run analyze:content
 
-# Cleanup operations
+# cleanup-operations
 npm run clean
 
-# Markdown processing
+# markdown-processing
 npm run lint:markdown:fix
 
-# Image optimization
+# image-optimization
 npm run optimize:images
 
-# Domain setup check
+# domain-setup-check
 npm run domain:check
 
-# Validation
+# validation
 ./scripts/validation/health-check-final.sh
 ```
 

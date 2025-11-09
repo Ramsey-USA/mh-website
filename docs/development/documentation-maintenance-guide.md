@@ -129,7 +129,7 @@ npm install
 
 # ❌ WRONG: Absolute paths
 
-[Consistency Guide](/docs/development/consistency-guide.md)
+[Consistency Guide](./consistency-guide.md)
 ```
 
 ---

@@ -366,13 +366,13 @@ When implementing new sections or components:
 
 ## 📚 Related Documentation
 
-- [Mobile Optimization Guide](/docs/technical/design-system/mobile-optimization-guide.md) - Comprehensive mobile standards
-- [Mobile Quick Reference](/docs/technical/design-system/mobile-quick-reference.md) - Developer quick reference
-- [Typography Examples](/docs/technical/design-system/typography-examples-clean.md)
+- [Mobile Optimization Guide](./mobile-optimization-guide.md) - Comprehensive mobile standards
+- [Mobile Quick Reference](./mobile-quick-reference.md) - Developer quick reference
+- [Typography Examples](./typography-examples-clean.md)
 - [Component Library](../../components/ui/mh-ui-guide.md)
-- [Consistency Guide](/docs/development/consistency-guide.md) - Complete implementation standards
-- [Brand Guidelines](/docs/branding/branding-index.md) - Modular brand docs
-- [Branding Documentation](/docs/branding/branding-index.md) - Modular brand docs
+- [Consistency Guide](../../development/consistency-guide.md) - Complete implementation standards
+- [Brand Guidelines](../../branding/branding-index.md) - Modular brand docs
+- [Branding Documentation](../../branding/branding-index.md) - Modular brand docs
 
 ## 🔄 Updates & Maintenance
 

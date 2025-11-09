@@ -141,10 +141,10 @@ config/
 
 ## 📚 Related Documentation
 
-- **[Configuration Guide](../docs/technical/configuration-guide.md)** - Complete configuration system documentation
-- **[Development Standards](../docs/development/development-standards.md)** - Coding standards and practices
-- **[Cloudflare Deployment](../docs/deployment/cloudflare-complete-guide.md)** - Deployment setup guide
-- **[Development Index](../docs/development/development-index.md)** - Developer resources
+- **[Configuration Guide](./../docs/technical/configuration-guide.md)** - Complete configuration system documentation
+- **[Development Standards](./../docs/development/development-standards.md)** - Coding standards and practices
+- **[Cloudflare Deployment](./../docs/deployment/cloudflare-complete-guide.md)** - Deployment setup guide
+- **[Development Index](./../docs/development/development-index.md)** - Developer resources
 
 ---
 
