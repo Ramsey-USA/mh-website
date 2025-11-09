@@ -224,7 +224,7 @@ export function useBundleAnalysis() {
 
       setAnalysis(mockAnalysis);
     } catch (_error) {
-      logger.error("Bundle analysis failed:", error);
+      logger.error("Bundle analysis failed:", _error);
     } finally {
       setLoading(false);
     }

@@ -6,7 +6,7 @@
 
 "use client";
 
-import { useMemo } from "react";
+// React import not required for modern JSX runtime; removed
 import { Card } from "../ui";
 import { MaterialIcon } from "../icons/MaterialIcon";
 import { useChatbotState } from "./hooks/useChatbotState";
@@ -32,47 +32,7 @@ export default function GlobalChatbot({
   // Initialize handlers
   const handlers = useChatbotHandlers(state);
 
-  // Quick actions - reserved for future feature
-  const _quickActions = useMemo(
-    () => [
-      {
-        id: "services",
-        label: "Services",
-        icon: "build",
-        message: "Brief me on your service capabilities",
-        description: "Learn about construction operations",
-      },
-      {
-        id: "projects",
-        label: "Projects",
-        icon: "construction",
-        message: "Show me your mission portfolio",
-        description: "View completed operations",
-      },
-      {
-        id: "estimate",
-        label: "Get Estimate",
-        icon: "calculate",
-        message: "I need a cost reconnaissance mission",
-        description: "Request project estimate",
-      },
-      {
-        id: "veteran",
-        label: "Veteran Services",
-        icon: "military_tech",
-        message: "I'm a veteran, what priority protocols are available?",
-        description: "Service member benefits",
-      },
-      {
-        id: "contact",
-        label: "Contact",
-        icon: "phone",
-        message: "How do I establish contact with command?",
-        description: "Communication protocols",
-      },
-    ],
-    [],
-  );
+  // Quick actions placeholder removed (reserved for future feature)
 
   // Render closed state (floating button)
   if (!state.isOpen) {

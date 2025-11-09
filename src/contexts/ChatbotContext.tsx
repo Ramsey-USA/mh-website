@@ -1,17 +1,12 @@
 "use client";
 
-import React, {
-  createContext,
-  useContext,
-  useState,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useState, type ReactNode } from "react";
 
 interface ChatbotContextType {
   isOpen: boolean;
   toggleChatbot: () => void;
-  currentEstimatorData: unknown;
-  setCurrentEstimatorData: (data: unknown) => void;
+  currentEstimatorData: unknown | null;
+  setCurrentEstimatorData: (data: unknown | null) => void;
   chatMode: "general" | "estimator" | "veteran-support";
   setChatMode: (mode: "general" | "estimator" | "veteran-support") => void;
 }
@@ -20,7 +15,9 @@ const ChatbotContext = createContext<ChatbotContextType | undefined>(undefined);
 
 export function ChatbotProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentEstimatorData, setCurrentEstimatorData] = useState(null);
+  const [currentEstimatorData, setEstimatorData] = useState<unknown | null>(
+    null,
+  );
   const [chatMode, setChatMode] = useState<
     "general" | "estimator" | "veteran-support"
   >("general");
@@ -33,7 +30,7 @@ export function ChatbotProvider({ children }: { children: ReactNode }) {
     isOpen,
     toggleChatbot,
     currentEstimatorData,
-    setCurrentEstimatorData,
+    setCurrentEstimatorData: (data: unknown | null) => setEstimatorData(data),
     chatMode,
     setChatMode,
   };

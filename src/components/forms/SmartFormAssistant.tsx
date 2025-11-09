@@ -14,9 +14,33 @@ const AnimatePresence = dynamic(
   { ssr: false },
 );
 
+interface FieldValidation {
+  isValid: boolean;
+  feedback: string;
+}
+
+interface MilitaryContext {
+  isVeteran: boolean;
+  suggestions: string[];
+  discounts: string[];
+}
+
+interface FieldSuggestions {
+  suggestions: string[];
+  autoComplete: string;
+  validation: FieldValidation;
+  militaryContext: MilitaryContext;
+}
+
+interface PredictiveCompletion {
+  suggestions: Array<{ field: string; value: string; confidence: number }>;
+  autoFillRecommendations: string[];
+  nextStepGuidance: string;
+}
+
 interface SmartFormAssistantProps {
-  fieldSuggestions: unknown;
-  predictiveCompletion: unknown;
+  fieldSuggestions: FieldSuggestions | null;
+  predictiveCompletion: PredictiveCompletion | null;
   isVeteranDetected: boolean;
   showSmartSuggestions: boolean;
   onSuggestionClick: (suggestion: string) => void;
@@ -155,9 +179,9 @@ export function SmartFormAssistant({
                         </div>
                         <div className="space-y-2">
                           {fieldSuggestions.suggestions.map(
-                            (suggestion: string, index: number) => (
+                            (suggestion: string, _index: number) => (
                               <Button
-                                key={index}
+                                key={_index}
                                 onClick={() => onSuggestionClick(suggestion)}
                                 variant="ghost"
                                 className="justify-start bg-yellow-50 hover:bg-yellow-100 p-3 border border-yellow-200 rounded-lg w-full text-left"
@@ -217,7 +241,8 @@ export function SmartFormAssistant({
 
           {/* Veteran Benefits */}
           {isVeteranDetected &&
-            fieldSuggestions?.militaryContext.discounts.length > 0 && (
+            fieldSuggestions?.militaryContext?.discounts &&
+            fieldSuggestions.militaryContext.discounts.length > 0 && (
               <Card className="bg-blue-50 border-blue-200">
                 <CardContent className="p-4">
                   <div className="flex items-center space-x-2 mb-3">
@@ -236,9 +261,9 @@ export function SmartFormAssistant({
                   </div>
                   <div className="space-y-2">
                     {fieldSuggestions.militaryContext.discounts.map(
-                      (discount: string, index: number) => (
+                      (discount: string, _index: number) => (
                         <div
-                          key={index}
+                          key={_index}
                           className="flex items-start space-x-2 bg-white p-2 border border-blue-200 rounded"
                         >
                           <MaterialIcon
@@ -265,7 +290,8 @@ export function SmartFormAssistant({
 
           {/* Veteran Suggestions */}
           {isVeteranDetected &&
-            fieldSuggestions?.militaryContext.suggestions.length > 0 && (
+            fieldSuggestions?.militaryContext?.suggestions &&
+            fieldSuggestions.militaryContext.suggestions.length > 0 && (
               <Card className="bg-green-50 border-green-200">
                 <CardContent className="p-4">
                   <div className="flex items-center space-x-2 mb-3">
@@ -281,9 +307,9 @@ export function SmartFormAssistant({
                   </div>
                   <div className="space-y-2">
                     {fieldSuggestions.militaryContext.suggestions.map(
-                      (suggestion: string, index: number) => (
+                      (suggestion: string, _index: number) => (
                         <Button
-                          key={index}
+                          key={_index}
                           onClick={() => onSuggestionClick(suggestion)}
                           variant="ghost"
                           className="justify-start bg-white hover:bg-green-100 p-3 border border-green-200 rounded-lg w-full text-left"
@@ -302,40 +328,41 @@ export function SmartFormAssistant({
             )}
 
           {/* Predictive Auto-Fill Recommendations */}
-          {predictiveCompletion?.autoFillRecommendations.length > 0 && (
-            <Card>
-              <CardContent className="p-4">
-                <div className="flex items-center space-x-2 mb-3">
-                  <MaterialIcon
-                    icon="auto_awesome"
-                    className="text-purple-600"
-                  />
-                  <h4 className="flex items-center gap-2 font-semibold text-gray-800 text-lg">
+          {predictiveCompletion?.autoFillRecommendations &&
+            predictiveCompletion.autoFillRecommendations.length > 0 && (
+              <Card>
+                <CardContent className="p-4">
+                  <div className="flex items-center space-x-2 mb-3">
                     <MaterialIcon
-                      icon="rocket_launch"
-                      size="md"
-                      className="text-blue-600"
+                      icon="auto_awesome"
+                      className="text-purple-600"
                     />
-                    Smart Recommendations
-                  </h4>
-                </div>
-                <div className="space-y-2">
-                  {predictiveCompletion.autoFillRecommendations.map(
-                    (recommendation: string, index: number) => (
-                      <div
-                        key={index}
-                        className="bg-purple-50 p-3 border border-purple-200 rounded-lg"
-                      >
-                        <span className="text-purple-800 text-sm">
-                          {recommendation}
-                        </span>
-                      </div>
-                    ),
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          )}
+                    <h4 className="flex items-center gap-2 font-semibold text-gray-800 text-lg">
+                      <MaterialIcon
+                        icon="rocket_launch"
+                        size="md"
+                        className="text-blue-600"
+                      />
+                      Smart Recommendations
+                    </h4>
+                  </div>
+                  <div className="space-y-2">
+                    {predictiveCompletion.autoFillRecommendations.map(
+                      (recommendation: string, _index: number) => (
+                        <div
+                          key={_index}
+                          className="bg-purple-50 p-3 border border-purple-200 rounded-lg"
+                        >
+                          <span className="text-purple-800 text-sm">
+                            {recommendation}
+                          </span>
+                        </div>
+                      ),
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
         </MotionDiv>
       )}
     </AnimatePresence>

@@ -26,7 +26,7 @@ export interface FormStep {
 }
 
 export interface FormProgressProps {
-  /** Current active step (1-based index) */
+  /** Current active step (1-based _index) */
   currentStep: number;
   /** Array of step configurations */
   steps: FormStep[];
@@ -78,7 +78,7 @@ export function FormProgress({
         setSaveStatus("idle");
       }, 2000);
     } catch (_error) {
-      console.error("Error saving form progress:", error);
+      console.error("Error saving form progress:", _error);
       setSaveStatus("idle");
     } finally {
       setIsSaving(false);
@@ -87,14 +87,15 @@ export function FormProgress({
 
   // Auto-save on step change (if enabled)
   useEffect(() => {
+    let timer: number | undefined;
     if (enableSaveResume && onSave && currentStep > 1) {
-      // Debounce auto-save
-      const timer = setTimeout(() => {
+      timer = window.setTimeout(() => {
         onSave();
       }, 1000);
-
-      return () => clearTimeout(timer);
     }
+    return () => {
+      if (timer !== undefined) clearTimeout(timer);
+    };
   }, [currentStep, enableSaveResume, onSave]);
 
   // Compact variant (minimal, for mobile)
@@ -399,7 +400,7 @@ export function FormProgress({
               </div>
 
               {/* Connector Line */}
-              {index < steps.length - 1 && (
+              {_index < steps.length - 1 && (
                 <div className="absolute top-5 left-1/2 w-full h-0.5 -z-10 hidden md:block">
                   <div
                     className={`h-full transition-all duration-300 ${

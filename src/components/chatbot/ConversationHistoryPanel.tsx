@@ -3,7 +3,7 @@
  * Shows past conversations with export and management features
  */
 
-import React, { memo, useState } from "react";
+import { memo, useState } from "react";
 import { Button } from "../ui";
 import { MaterialIcon } from "../icons/MaterialIcon";
 import { type ConversationHistory } from "@/lib/chatbot/advanced-features";
@@ -39,14 +39,22 @@ const ConversationHistoryPanel = memo(
         : `${remainingSeconds}s`;
     };
 
+    interface PreviewMessage {
+      type?: string;
+      content?: string;
+    }
     const getConversationPreview = (messages: unknown[]): string => {
-      const userMessages = messages.filter((m) => m.type === "user");
+      const userMessages = messages.filter(
+        (m): m is PreviewMessage =>
+          typeof m === "object" &&
+          m !== null &&
+          (m as PreviewMessage).type === "user",
+      );
       if (userMessages.length === 0) return "No messages";
-
-      const firstMessage = userMessages[0].content;
-      return firstMessage.length > 50
-        ? `${firstMessage.substring(0, 50)}...`
-        : firstMessage;
+      const firstContent = (userMessages[0] && userMessages[0].content) || "";
+      return firstContent.length > 50
+        ? `${firstContent.substring(0, 50)}...`
+        : firstContent;
     };
 
     return (
@@ -215,25 +223,52 @@ const ConversationHistoryPanel = memo(
                 <div className="flex-1 overflow-y-auto p-3 space-y-3">
                   {selectedConversation.messages.map((message, _index) => (
                     <div
-                      key={index}
-                      className={`flex ${message.type === "user" ? "justify-end" : "justify-start"}`}
+                      key={_index}
+                      className={`flex ${
+                        typeof message === "object" &&
+                        message !== null &&
+                        (message as { type?: string }).type === "user"
+                          ? "justify-end"
+                          : "justify-start"
+                      }`}
                     >
                       <div
                         className={`max-w-[85%] p-2 rounded-lg text-sm ${
-                          message.type === "user"
+                          typeof message === "object" &&
+                          message !== null &&
+                          (message as { type?: string }).type === "user"
                             ? "bg-green-600 text-white"
                             : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
                         }`}
                       >
-                        <div className="mb-1">{message.content}</div>
+                        <div className="mb-1">
+                          {typeof message === "object" &&
+                          message !== null &&
+                          (message as { content?: string }).content
+                            ? (message as { content?: string }).content
+                            : ""}
+                        </div>
                         <div
                           className={`text-xs ${
-                            message.type === "user"
+                            typeof message === "object" &&
+                            message !== null &&
+                            (message as { type?: string }).type === "user"
                               ? "text-white/70"
                               : "text-gray-500 dark:text-gray-400"
                           }`}
                         >
-                          {new Date(message.timestamp).toLocaleTimeString()}
+                          {new Date(
+                            typeof message === "object" &&
+                            message !== null &&
+                            (message as { timestamp?: number | string | Date })
+                              .timestamp
+                              ? (
+                                  message as {
+                                    timestamp?: number | string | Date;
+                                  }
+                                ).timestamp!
+                              : Date.now(),
+                          ).toLocaleTimeString()}
                         </div>
                       </div>
                     </div>

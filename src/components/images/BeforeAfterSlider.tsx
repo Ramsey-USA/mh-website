@@ -137,7 +137,8 @@ export function BeforeAfterSlider({
   const handleTouchMove = useCallback(
     (e: TouchEvent<HTMLDivElement>) => {
       if (!isDragging) return;
-      const touch = e.touches[0];
+      const touch = e.touches && e.touches[0];
+      if (!touch) return;
       const newPosition = calculatePosition(touch.clientX);
       setSliderPosition(newPosition);
     },

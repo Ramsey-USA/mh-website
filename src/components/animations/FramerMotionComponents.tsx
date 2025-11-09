@@ -216,14 +216,14 @@ export function StaggeredFadeIn({
     >
       {children.map((child, _index) => (
         <motion.div
-          key={index}
+          key={_index}
           variants={{
             hidden: { opacity: 0, y: 20 },
             visible: {
               opacity: 1,
               y: 0,
               transition: {
-                delay: index * staggerDelay,
+                delay: _index * staggerDelay,
                 duration: 0.6,
                 ease: [0.25, 0.25, 0, 1],
               },

@@ -139,14 +139,23 @@ export function ActivityFeed({
     const interval = setInterval(() => {
       // Randomly add a new activity
       if (Math.random() > 0.7 && activities.length < maxActivities) {
-        const newActivity =
-          mockActivities[Math.floor(Math.random() * mockActivities.length)];
+        const idx = Math.floor(Math.random() * mockActivities.length);
+        const newActivity = mockActivities[idx];
+        if (!newActivity) return;
         const activity: Activity = {
-          ...newActivity,
           id: `act-${Date.now()}`,
-          timestamp: new Date(),
+          type: newActivity.type,
+          message: newActivity.message,
+          location: newActivity.location,
           timeAgo: "Just now",
+          timestamp: new Date(),
         };
+        if (newActivity.projectType) {
+          activity.projectType = newActivity.projectType;
+        }
+        if (newActivity.estimatedValue) {
+          activity.estimatedValue = newActivity.estimatedValue;
+        }
 
         setActivities((prev) => [activity, ...prev].slice(0, maxActivities));
       }
@@ -158,15 +167,18 @@ export function ActivityFeed({
 
   // Auto-dismiss timer
   useEffect(() => {
+    const timers: number[] = [];
     if (autoDismissSeconds > 0) {
       activities.forEach((activity) => {
-        const timer = setTimeout(() => {
+        const t = window.setTimeout(() => {
           handleDismiss(activity.id);
         }, autoDismissSeconds * 1000);
-
-        return () => clearTimeout(timer);
+        timers.push(t);
       });
     }
+    return () => {
+      timers.forEach((t) => clearTimeout(t));
+    };
   }, [activities, autoDismissSeconds]);
 
   // Handle activity click - open chatbot with context
@@ -322,7 +334,7 @@ export function ActivityFeed({
               animate-slide-in-left
             `}
             style={{
-              animationDelay: `${index * 100}ms`,
+              animationDelay: `${_index * 100}ms`,
             }}
             onClick={() =>
               enableChatbotIntegration && handleActivityClick(activity)

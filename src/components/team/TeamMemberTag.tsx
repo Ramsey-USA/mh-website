@@ -260,10 +260,10 @@ export function TeamMemberTags({
             name={member.name}
             role={member.role}
             slug={member.slug}
-            avatar={member.avatar}
+            {...(member.avatar ? { avatar: member.avatar } : {})}
             variant={variant}
             showDepartment={showDepartments}
-            department={member.department}
+            {...(member.department ? { department: member.department } : {})}
           />
         ))}
 

@@ -85,7 +85,7 @@ export class DbClient {
 
       return result.results || [];
     } catch (_error) {
-      logger.error("Database query error", _error);
+      logger.error("Database query _error", _error);
       throw _error;
     }
   }
@@ -106,7 +106,7 @@ export class DbClient {
 
       return result;
     } catch (_error) {
-      logger.error("Database query one error", _error);
+      logger.error("Database query one _error", _error);
       throw _error;
     }
   }
@@ -134,7 +134,7 @@ export class DbClient {
         rowsAffected: result.meta.rows_written,
       };
     } catch (_error) {
-      logger.error("Database execute error", _error);
+      logger.error("Database execute _error", _error);
       throw _error;
     }
   }
@@ -166,7 +166,7 @@ export class DbClient {
         ),
       });
     } catch (_error) {
-      logger.error("Database batch error", _error);
+      logger.error("Database batch _error", _error);
       throw _error;
     }
   }

@@ -107,7 +107,7 @@ export default function ServicesPage() {
             className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
           >
             {coreServices.map((service, _index) => (
-              <ServiceCard key={index} service={service} index={index} />
+              <ServiceCard key={_index} service={service} />
             ))}
           </StaggeredFadeIn>
         </Section>
@@ -128,11 +128,7 @@ export default function ServicesPage() {
             className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
           >
             {specialtyServices.map((service, _index) => (
-              <SpecialtyServiceCard
-                key={index}
-                service={service}
-                index={index}
-              />
+              <SpecialtyServiceCard key={_index} service={service} />
             ))}
           </StaggeredFadeIn>
         </Section>
@@ -156,7 +152,7 @@ export default function ServicesPage() {
             >
               {serviceAreas.map((area, _index) => (
                 <Card
-                  key={index}
+                  key={_index}
                   className="bg-white/10 dark:bg-gray-900/30 backdrop-blur-sm border-white/30 p-8"
                 >
                   <div className="flex items-center mb-6">

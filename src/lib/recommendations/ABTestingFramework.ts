@@ -220,7 +220,7 @@ export class ABTestingFramework {
 
     // Select experiment (for now, just take the first active one)
     const experiment = activeExperiments[0];
-    
+
     if (!experiment) {
       return null; // No active experiments
     }
@@ -315,7 +315,9 @@ export class ABTestingFramework {
 
     if (!control) return null;
 
-    const variants = metrics.filter((m) => m.variantId !== control.variantId);
+    const variants = metrics.filter(
+      (m: any) => m.variantId !== control.variantId,
+    );
 
     return variants.map((variant) => {
       const controlRate =

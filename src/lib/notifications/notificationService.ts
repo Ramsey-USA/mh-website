@@ -49,8 +49,8 @@ async function sendEmail(
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${resendApiKey}`,
+        ["Content-Type"]: "application/json",
+        ["Authorization"]: `Bearer ${resendApiKey}`,
       },
       body: JSON.stringify({
         from: "MH Construction <noreply@mhc-gc.com>",
@@ -73,7 +73,10 @@ async function sendEmail(
 
     if (!response.ok) {
       const error = await response.text();
-      logger.error("Email send failed", { error, recipient });
+      logger.error("Email send failed", {
+        ["error"]: error,
+        ["recipient"]: recipient,
+      });
       return {
         success: false,
         error: `Failed to send email: ${error}`,
@@ -81,17 +84,23 @@ async function sendEmail(
     }
 
     const result = await response.json();
-    logger.info("Email sent successfully", { recipient, messageId: result.id });
+    logger.info("Email sent successfully", {
+      ["recipient"]: recipient,
+      ["messageId"]: result.id,
+    });
 
     return {
       success: true,
       messageId: result.id,
     };
   } catch (_error) {
-    logger.error("Email send error", { error, recipient });
+    logger.error("Email send _error", {
+      ["_error"]: _error,
+      ["recipient"]: recipient,
+    });
     return {
       success: false,
-      error: error instanceof Error ? error.message : "Unknown error",
+      error: _error instanceof Error ? _error.message : "Unknown error",
     };
   }
 }
@@ -100,9 +109,7 @@ async function sendEmail(
  * Send push notification
  * TODO: Integrate with push notification service (e.g., OneSignal, FCM)
  */
-async function sendPush(
-  options: NotificationOptions,
-): Promise<NotificationResult> {
+function sendPush(options: NotificationOptions): NotificationResult {
   const { recipient, message } = options;
 
   try {
@@ -128,10 +135,13 @@ async function sendPush(
       messageId: `push-${Date.now()}`,
     };
   } catch (_error) {
-    logger.error("Push notification error", { error, recipient });
+    logger.error("Push notification _error", {
+      ["_error"]: _error,
+      ["recipient"]: recipient,
+    });
     return {
       success: false,
-      error: error instanceof Error ? error.message : "Unknown error",
+      error: _error instanceof Error ? _error.message : "Unknown error",
     };
   }
 }
@@ -140,9 +150,7 @@ async function sendPush(
  * Send SMS notification
  * TODO: Integrate with SMS service (e.g., Twilio)
  */
-async function sendSMS(
-  options: NotificationOptions,
-): Promise<NotificationResult> {
+function sendSMS(options: NotificationOptions): NotificationResult {
   const { recipient, message } = options;
 
   try {
@@ -168,10 +176,13 @@ async function sendSMS(
       messageId: `sms-${Date.now()}`,
     };
   } catch (_error) {
-    logger.error("SMS send error", { error, recipient });
+    logger.error("SMS send _error", {
+      ["_error"]: _error,
+      ["recipient"]: recipient,
+    });
     return {
       success: false,
-      error: error instanceof Error ? error.message : "Unknown error",
+      error: _error instanceof Error ? _error.message : "Unknown error",
     };
   }
 }
@@ -179,27 +190,27 @@ async function sendSMS(
 /**
  * Send notification (routes to appropriate service)
  */
-export async function sendNotification(
+export function sendNotification(
   options: NotificationOptions,
 ): Promise<NotificationResult> {
   logger.info("Sending notification", {
-    type: options.type,
-    recipient: options.recipient,
-    priority: options.priority || "normal",
+    ["type"]: options.type,
+    ["recipient"]: options.recipient,
+    ["priority"]: options.priority || "normal",
   });
 
   switch (options.type) {
     case "email":
       return sendEmail(options);
     case "push":
-      return sendPush(options);
+      return Promise.resolve(sendPush(options));
     case "sms":
-      return sendSMS(options);
+      return Promise.resolve(sendSMS(options));
     default:
-      return {
+      return Promise.resolve({
         success: false,
         error: `Unknown notification type: ${options.type}`,
-      };
+      });
   }
 }
 
@@ -217,9 +228,9 @@ export async function sendBulkNotifications(
 
   const successCount = results.filter((r) => r.success).length;
   logger.info("Bulk notifications completed", {
-    total: results.length,
-    successful: successCount,
-    failed: results.length - successCount,
+    ["total"]: results.length,
+    ["successful"]: successCount,
+    ["failed"]: results.length - successCount,
   });
 
   return results;
@@ -243,8 +254,8 @@ export async function sendNotificationWithRetry(
 
     lastError = result.error;
     logger.warn(`Notification attempt ${attempt} failed`, {
-      recipient: options.recipient,
-      error: lastError,
+      ["recipient"]: options.recipient,
+      ["error"]: lastError,
     });
 
     // Wait before retry (exponential backoff)

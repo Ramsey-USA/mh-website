@@ -69,11 +69,11 @@ export function WhyChooseUs() {
             );
 
             return reason.ctaLink ? (
-              <Link key={index} href={reason.ctaLink}>
+              <Link key={_index} href={reason.ctaLink}>
                 {cardContent}
               </Link>
             ) : (
-              <div key={index}>{cardContent}</div>
+              <div key={_index}>{cardContent}</div>
             );
           })}
         </StaggeredFadeIn>

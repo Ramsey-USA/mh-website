@@ -14,7 +14,7 @@ export interface CacheConfig {
   storage?: "memory" | "session" | "local" | "indexeddb";
 }
 
-export interface CacheEntry<T = any> {
+export interface CacheEntry<T = unknown> {
   data: T;
   timestamp: number;
   ttl: number;
@@ -194,7 +194,7 @@ class CacheManager {
       const idbEntry = await this.getFromIndexedDB<T>(key, version);
       if (idbEntry) return idbEntry;
     } catch (_error) {
-      logger.warn("Browser cache read error:", _error);
+      logger.warn("Browser cache read _error:", _error);
     }
 
     return null;
@@ -234,11 +234,11 @@ class CacheManager {
           break;
       }
     } catch (_error) {
-      logger.warn("Browser cache write error:", _error);
+      logger.warn("Browser cache write _error:", _error);
     }
   }
 
-  private async getFromIndexedDB<T>(
+  private getFromIndexedDB<T>(
     key: string,
     version: string,
   ): Promise<CacheEntry<T> | null> {
@@ -289,10 +289,7 @@ class CacheManager {
     });
   }
 
-  private async setInIndexedDB<T>(
-    key: string,
-    entry: CacheEntry<T>,
-  ): Promise<void> {
+  private setInIndexedDB<T>(key: string, entry: CacheEntry<T>): Promise<void> {
     return new Promise((resolve, reject) => {
       if (!window.indexedDB) {
         resolve();
@@ -398,7 +395,7 @@ class CacheManager {
   }
 
   // Tag-based invalidation
-  async invalidateByTag(tag: string): Promise<void> {
+  invalidateByTag(tag: string): void {
     const keysToDelete: string[] = [];
 
     this.memoryCache.forEach((entry, key) => {
@@ -499,7 +496,7 @@ export class APICache {
     }
 
     // Fetch from network
-    const startTime = performance.now();
+    // Network fetch; performance timing captured in higher-level tools if needed
     try {
       const response = await fetch(url, fetchOptions);
 
@@ -508,7 +505,6 @@ export class APICache {
       }
 
       const data: T = await response.json();
-      const _fetchTime = performance.now() - startTime;
 
       // Cache the response
       await this.cacheManager.set(cacheKey, data, {
@@ -527,7 +523,6 @@ export class APICache {
 
       return data;
     } catch (_error) {
-      const _fetchTime = performance.now() - startTime;
       logger.error(`API fetch failed for ${url}:`, _error);
       throw _error;
     }

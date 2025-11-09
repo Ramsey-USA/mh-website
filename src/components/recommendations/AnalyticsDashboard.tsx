@@ -14,6 +14,11 @@ import dynamic from "next/dynamic";
 import { MaterialIcon } from "../icons/MaterialIcon";
 import { Card, CardContent } from "../ui";
 import useSmartRecommendations from "@/hooks/useSmartRecommendations";
+import type {
+  Experiment,
+  ExperimentMetrics,
+  StatisticalSignificanceResult,
+} from "@/lib/recommendations/ABTestingFramework";
 
 // Dynamic import for Framer Motion
 const MotionDiv = dynamic(
@@ -51,18 +56,23 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
   const { getExperimentResults, getActiveExperiments } =
     useSmartRecommendations({});
 
-  const [experiments, setExperiments] = useState<unknown[]>([]);
-  const [experimentResults, setExperimentResults] = useState<unknown[]>([]);
-  const [significanceResults, setSignificanceResults] = useState<unknown[]>([]);
+  const [experiments, setExperiments] = useState<Experiment[]>([]);
+  const [experimentResults, setExperimentResults] = useState<
+    ExperimentMetrics[]
+  >([]);
+  const [significanceResults, setSignificanceResults] = useState<
+    StatisticalSignificanceResult[]
+  >([]);
 
   useEffect(() => {
     const loadExperiments = () => {
       try {
-        const activeExps = getActiveExperiments();
+        const activeExps = getActiveExperiments() as Experiment[];
         setExperiments(activeExps);
 
         if (activeExps.length > 0 && !selectedExperiment) {
-          setSelectedExperiment(activeExps[0].id);
+          const first = activeExps[0];
+          if (first) setSelectedExperiment(first.id);
         }
       } catch (_error) {
         logger.error("Error loading experiments:", _error);
@@ -78,7 +88,9 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
 
       setIsLoading(true);
       try {
-        const results = getExperimentResults(selectedExperiment);
+        const results = getExperimentResults(selectedExperiment) as
+          | ExperimentMetrics[]
+          | undefined;
         setExperimentResults(results || []);
 
         // Mock significance results for demo
@@ -88,12 +100,14 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
             controlRate: 15.2,
             variantRate: 18.7,
             improvement: 23.0,
+            zScore: 2.1,
+            pValue: 0.035,
             isSignificant: true,
             confidenceLevel: 95.4,
           },
         ]);
       } catch (_error) {
-        logger.error("Error loading experiment results:", error);
+        logger.error("Error loading experiment results:", _error);
       } finally {
         setIsLoading(false);
       }
@@ -106,18 +120,21 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
     if (!experimentResults.length) return [];
 
     const totalUsers = experimentResults.reduce(
-      (sum, r) => sum + r.totalUsers,
+      (sum: number, r: ExperimentMetrics) => sum + r.totalUsers,
       0,
     );
     const totalConversions = experimentResults.reduce(
-      (sum, r) => sum + (r.conversionRate * r.totalUsers) / 100,
+      (sum: number, r: ExperimentMetrics) =>
+        sum + (r.conversionRate * r.totalUsers) / 100,
       0,
     );
     const avgConversionRate =
       totalUsers > 0 ? (totalConversions / totalUsers) * 100 : 0;
     const avgRating =
-      experimentResults.reduce((sum, r) => sum + r.averageRating, 0) /
-      experimentResults.length;
+      experimentResults.reduce(
+        (sum: number, r: ExperimentMetrics) => sum + r.averageRating,
+        0,
+      ) / experimentResults.length;
 
     return [
       {
@@ -152,15 +169,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
     ];
   }, [experimentResults, significanceResults]);
 
-  const _formatValue = (value: string | number, format?: string) => {
-    if (format === "percentage") {
-      return `${value}%`;
-    }
-    if (format === "currency") {
-      return `$${Number(value).toLocaleString()}`;
-    }
-    return value;
-  };
+  // reserved for potential future formatting needs
 
   const getColorClasses = (color: string) => {
     const colorMap: Record<string, string> = {
@@ -170,7 +179,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
       orange: "text-orange-600 bg-orange-50",
       red: "text-red-600 bg-red-50",
     };
-    return colorMap[color] || colorMap.blue;
+    return colorMap[color] || colorMap["blue"];
   };
 
   if (isLoading) {
@@ -210,7 +219,9 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
           {/* Time Range Selector */}
           <select
             value={timeRange}
-            onChange={(e) => setTimeRange(e.target.value as any)}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+              setTimeRange(e.target.value as "7d" | "30d" | "90d" | "all")
+            }
             className="px-3 py-2 border border-gray-300 focus:border-transparent rounded-lg focus:ring-2 focus:ring-brand-primary"
           >
             <option value="7d">Last 7 days</option>
@@ -226,7 +237,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
             className="px-3 py-2 border border-gray-300 focus:border-transparent rounded-lg focus:ring-2 focus:ring-brand-primary min-w-64"
           >
             <option value="">Select Experiment</option>
-            {experiments.map((exp) => (
+            {experiments.map((exp: Experiment) => (
               <option key={exp.id} value={exp.id}>
                 {exp.name}
               </option>
@@ -260,7 +271,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
                 key={metric.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: _index * 0.1 }}
               >
                 <Card>
                   <CardContent className="p-6">
@@ -328,97 +339,106 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
                       </tr>
                     </thead>
                     <tbody>
-                      {experimentResults.map((result, _index) => {
-                        const significance = significanceResults.find(
-                          (s) => s.variantId === result.variantId,
-                        );
-                        const isControl = index === 0;
+                      {experimentResults.map(
+                        (result: ExperimentMetrics, _index) => {
+                          const significance = significanceResults.find(
+                            (s: StatisticalSignificanceResult) =>
+                              s.variantId === result.variantId,
+                          );
+                          const isControl = _index === 0;
 
-                        return (
-                          <tr
-                            key={result.variantId}
-                            className="border-gray-100 border-b"
-                          >
-                            <td className="px-4 py-3">
-                              <div className="flex items-center space-x-2">
-                                <span className="font-medium">
-                                  {isControl ? "Control" : `Variant ${index}`}
-                                </span>
-                                {isControl && (
-                                  <span className="bg-blue-100 px-2 py-1 rounded-full text-blue-800 text-xs">
-                                    Control
-                                  </span>
-                                )}
-                              </div>
-                            </td>
-                            <td className="px-4 py-3">
-                              {result.totalUsers.toLocaleString()}
-                            </td>
-                            <td className="px-4 py-3">
-                              {result.clickThroughRate.toFixed(1)}%
-                            </td>
-                            <td className="px-4 py-3">
-                              <div className="flex items-center space-x-2">
-                                <span>{result.conversionRate.toFixed(1)}%</span>
-                                {significance && !isControl && (
-                                  <span
-                                    className={`text-sm ${
-                                      significance.improvement > 0
-                                        ? "text-green-600"
-                                        : "text-red-600"
-                                    }`}
-                                  >
-                                    ({significance.improvement > 0 ? "+" : ""}
-                                    {significance.improvement.toFixed(1)}%)
-                                  </span>
-                                )}
-                              </div>
-                            </td>
-                            <td className="px-4 py-3">
-                              <div className="flex items-center space-x-1">
-                                <MaterialIcon
-                                  icon="star"
-                                  className="text-yellow-400"
-                                  size="sm"
-                                />
-                                <span>{result.averageRating.toFixed(1)}</span>
-                              </div>
-                            </td>
-                            <td className="px-4 py-3">
-                              {significance && !isControl ? (
+                          return (
+                            <tr
+                              key={result.variantId}
+                              className="border-gray-100 border-b"
+                            >
+                              <td className="px-4 py-3">
                                 <div className="flex items-center space-x-2">
+                                  <span className="font-medium">
+                                    {isControl
+                                      ? "Control"
+                                      : `Variant ${_index}`}
+                                  </span>
+                                  {isControl && (
+                                    <span className="bg-blue-100 px-2 py-1 rounded-full text-blue-800 text-xs">
+                                      Control
+                                    </span>
+                                  )}
+                                </div>
+                              </td>
+                              <td className="px-4 py-3">
+                                {result.totalUsers.toLocaleString()}
+                              </td>
+                              <td className="px-4 py-3">
+                                {result.clickThroughRate.toFixed(1)}%
+                              </td>
+                              <td className="px-4 py-3">
+                                <div className="flex items-center space-x-2">
+                                  <span>
+                                    {result.conversionRate.toFixed(1)}%
+                                  </span>
+                                  {significance && !isControl && (
+                                    <span
+                                      className={`text-sm ${
+                                        significance.improvement > 0
+                                          ? "text-green-600"
+                                          : "text-red-600"
+                                      }`}
+                                    >
+                                      ({significance.improvement > 0 ? "+" : ""}
+                                      {significance.improvement.toFixed(1)}%)
+                                    </span>
+                                  )}
+                                </div>
+                              </td>
+                              <td className="px-4 py-3">
+                                <div className="flex items-center space-x-1">
                                   <MaterialIcon
-                                    icon={
-                                      significance.isSignificant
-                                        ? "verified"
-                                        : "schedule"
-                                    }
-                                    className={
-                                      significance.isSignificant
-                                        ? "text-green-600"
-                                        : "text-orange-600"
-                                    }
+                                    icon="star"
+                                    className="text-yellow-400"
                                     size="sm"
                                   />
-                                  <span
-                                    className={`text-sm ${
-                                      significance.isSignificant
-                                        ? "text-green-600"
-                                        : "text-orange-600"
-                                    }`}
-                                  >
-                                    {significance.isSignificant
-                                      ? `${significance.confidenceLevel.toFixed(1)}%`
-                                      : "Pending"}
-                                  </span>
+                                  <span>{result.averageRating.toFixed(1)}</span>
                                 </div>
-                              ) : (
-                                <span className="text-gray-400 text-sm">—</span>
-                              )}
-                            </td>
-                          </tr>
-                        );
-                      })}
+                              </td>
+                              <td className="px-4 py-3">
+                                {significance && !isControl ? (
+                                  <div className="flex items-center space-x-2">
+                                    <MaterialIcon
+                                      icon={
+                                        significance.isSignificant
+                                          ? "verified"
+                                          : "schedule"
+                                      }
+                                      className={
+                                        significance.isSignificant
+                                          ? "text-green-600"
+                                          : "text-orange-600"
+                                      }
+                                      size="sm"
+                                    />
+                                    <span
+                                      className={`text-sm ${
+                                        significance.isSignificant
+                                          ? "text-green-600"
+                                          : "text-orange-600"
+                                      }`}
+                                    >
+                                      {significance.isSignificant
+                                        ? `${significance.confidenceLevel.toFixed(1)}%`
+                                        : "Pending"}
+                                    </span>
+                                  </div>
+                                ) : (
+                                  <span className="text-gray-400 text-sm">
+                                    —
+                                  </span>
+                                )}
+                              </td>
+                            </tr>
+                          );
+                        },
+                      )}
                     </tbody>
                   </table>
                 </div>
@@ -444,7 +464,9 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
               </h3>
 
               <div className="space-y-3">
-                {significanceResults.some((s) => s.isSignificant) ? (
+                {significanceResults.some(
+                  (s: StatisticalSignificanceResult) => s.isSignificant,
+                ) ? (
                   <div className="bg-green-50 p-4 border border-green-200 rounded-lg">
                     <div className="flex items-start space-x-3">
                       <MaterialIcon

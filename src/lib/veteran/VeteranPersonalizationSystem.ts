@@ -116,7 +116,7 @@ export class VeteranPersonalizationSystem {
   /**
    * Initialize comprehensive veteran experience
    */
-  public async initializeVeteranExperience(
+  public initializeVeteranExperience(
     userInput: string,
     formData?: unknown,
     _sessionId?: string,
@@ -171,7 +171,7 @@ export class VeteranPersonalizationSystem {
       veteranSpecific: profile.isVeteran,
     });
 
-    return experience;
+    return Promise.resolve(experience);
   }
 
   /**
@@ -582,11 +582,11 @@ export class VeteranPersonalizationSystem {
     // Project-specific recommendations based on profile
     profile.constructionPriorities.forEach((priority, _index) => {
       recommendations.push({
-        id: `project00${index + 1}`,
+        id: `project00${_index + 1}`,
         type: "project",
         title: `${priority} Solutions`,
         description: `Specialized ${priority.toLowerCase()} options for veterans`,
-        relevanceScore: 75 - index * 5,
+        relevanceScore: 75 - _index * 5,
         veteranSpecific: true,
         urgent: priority === "Accessibility Compliance",
       });
@@ -640,7 +640,7 @@ export class VeteranPersonalizationSystem {
     benefitsPackage.vaBenefits.eligibleBenefits.forEach((benefit, _index) => {
       if (benefit.coordinationOffered) {
         notifications.push({
-          id: `benefit00${index + 1}`,
+          id: `benefit00${_index + 1}`,
           type: "benefit_opportunity",
           title: `${benefit.name} Available`,
           message: `You may qualify for ${benefit.maxBenefit} through ${benefit.name}`,

@@ -365,7 +365,7 @@ export default function TradePartnersPage() {
 
           <StaggeredFadeIn className={gridPresets.compactCards("lg")}>
             {partnershipValues.map((value, _index) => (
-              <Card key={index} className={getCardClassName("default")}>
+              <Card key={_index} className={getCardClassName("default")}>
                 <CardContent className="flex flex-col p-6 h-full text-center">
                   <div
                     className={`flex justify-center items-center bg-gradient-to-r ${value.color} mx-auto mb-4 rounded-full w-16 h-16`}
@@ -503,7 +503,7 @@ export default function TradePartnersPage() {
           <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
             {partnershipBenefits.map((benefit, _index) => (
               <Card
-                key={index}
+                key={_index}
                 className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 transition-all hover:-translate-y-1 h-full"
               >
                 <CardContent className="flex flex-col p-6 h-full">
@@ -576,7 +576,7 @@ export default function TradePartnersPage() {
                       "Commitment to safety standards and protocols",
                       "Alignment with MH Construction values and standards",
                     ].map((item, _index) => (
-                      <li key={index} className="flex items-start">
+                      <li key={_index} className="flex items-start">
                         <MaterialIcon
                           icon="check_circle"
                           size="sm"
@@ -618,7 +618,7 @@ export default function TradePartnersPage() {
                       "Technology-capable for project communication",
                       "Sustainable and community-minded business practices",
                     ].map((item, _index) => (
-                      <li key={index} className="flex items-start">
+                      <li key={_index} className="flex items-start">
                         <MaterialIcon
                           icon="star"
                           size="sm"
@@ -681,7 +681,7 @@ export default function TradePartnersPage() {
                     "Upon approval, receive vendor credentials and access to our trade partnership portal.",
                 },
               ].map((step, _index) => (
-                <FadeInWhenVisible key={index}>
+                <FadeInWhenVisible key={_index}>
                   <Card className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 border border-gray-200 dark:border-gray-600 h-full text-center transition-all hover:shadow-lg">
                     <CardContent className="p-6">
                       <div className="flex justify-center items-center bg-brand-primary mb-4 mx-auto rounded-full w-16 h-16">

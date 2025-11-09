@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { MaterialIcon } from "../../icons/MaterialIcon";
 import { type TeamMember } from "@/lib/data/team";
@@ -263,7 +263,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
                 <div className="flex flex-wrap justify-center gap-2">
                   {member.specialties?.map((specialty, _index) => (
                     <span
-                      key={index}
+                      key={_index}
                       className={`${
                         isMascot
                           ? "bg-amber-200 text-amber-800"

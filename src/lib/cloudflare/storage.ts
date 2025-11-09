@@ -4,14 +4,24 @@
 import { logger } from "@/lib/utils/logger";
 
 // Type definitions for Cloudflare Workers
-type KVNamespace = any;
-type D1Database = any;
-
-interface CloudflareEnv {
-  CACHE?: KVNamespace;
-  ANALYTICS?: KVNamespace;
-  DB?: D1Database;
+interface KVNamespace {
+  get(
+    key: string,
+    type?: "text" | "json" | "arrayBuffer" | "stream",
+  ): Promise<unknown>;
+  put(
+    key: string,
+    value: string,
+    options?: { expirationTtl?: number },
+  ): Promise<void>;
+  delete(key: string): Promise<void>;
+  list(options?: {
+    prefix?: string;
+  }): Promise<{ keys: Array<{ name: string }> }>;
 }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type D1Database = any;
 
 /**
  * Generic storage interface for Cloudflare KV
@@ -32,7 +42,7 @@ export class CloudflareKVStorage {
       const value = await this.kv.get(key, "json");
       return value as T;
     } catch (_error) {
-      logger.error("KV get error:", _error);
+      logger.error("KV get _error:", _error);
       return null;
     }
   }
@@ -47,10 +57,14 @@ export class CloudflareKVStorage {
       return false;
     }
     try {
-      await this.kv.put(key, JSON.stringify(value), { expirationTtl });
+      await this.kv.put(
+        key,
+        JSON.stringify(value),
+        expirationTtl !== undefined ? { expirationTtl } : undefined,
+      );
       return true;
     } catch (_error) {
-      logger.error("KV set error:", _error);
+      logger.error("KV set _error:", _error);
       return false;
     }
   }
@@ -64,7 +78,7 @@ export class CloudflareKVStorage {
       await this.kv.delete(key);
       return true;
     } catch (_error) {
-      logger.error("KV delete error:", _error);
+      logger.error("KV delete _error:", _error);
       return false;
     }
   }
@@ -75,10 +89,12 @@ export class CloudflareKVStorage {
       return [];
     }
     try {
-      const result = await this.kv.list({ prefix });
+      const result = await this.kv.list(
+        prefix !== undefined ? { prefix } : undefined,
+      );
       return result.keys.map((k: { name: string }) => k.name);
     } catch (_error) {
-      logger.error("KV list error:", _error);
+      logger.error("KV list _error:", _error);
       return [];
     }
   }
@@ -106,7 +122,7 @@ export class CloudflareD1Database {
         .all();
       return result.results as T[];
     } catch (_error) {
-      logger.error("D1 query error:", _error);
+      logger.error("D1 query _error:", _error);
       return [];
     }
   }
@@ -123,7 +139,7 @@ export class CloudflareD1Database {
         .run();
       return true;
     } catch (_error) {
-      logger.error("D1 execute error:", _error);
+      logger.error("D1 execute _error:", _error);
       return false;
     }
   }
@@ -142,7 +158,7 @@ export class CloudflareD1Database {
       await this.db.batch(prepared);
       return true;
     } catch (_error) {
-      logger.error("D1 batch error:", _error);
+      logger.error("D1 batch _error:", _error);
       return false;
     }
   }
@@ -200,7 +216,7 @@ export const localStorageService = {
       const item = localStorage.getItem(key);
       return item ? JSON.parse(item) : null;
     } catch (_error) {
-      logger.error("LocalStorage get error:", { key, error: _error });
+      logger.error("LocalStorage get _error:", { key, _error: _error });
       return null;
     }
   },
@@ -211,7 +227,7 @@ export const localStorageService = {
       localStorage.setItem(key, JSON.stringify(value));
       return true;
     } catch (_error) {
-      logger.error("LocalStorage set error:", { key, error: _error });
+      logger.error("LocalStorage set _error:", { key, _error: _error });
       return false;
     }
   },
@@ -222,7 +238,7 @@ export const localStorageService = {
       localStorage.removeItem(key);
       return true;
     } catch (_error) {
-      logger.error("LocalStorage delete error:", { key, error: _error });
+      logger.error("LocalStorage delete _error:", { key, _error: _error });
       return false;
     }
   },

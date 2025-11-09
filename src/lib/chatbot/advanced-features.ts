@@ -119,10 +119,24 @@ ${conversation.userMetadata.leadGenerated ? "**Lead Generated:** Yes\n" : ""}
 `;
 
     const messages = conversation.messages
-      .map((message) => {
-        const timestamp = new Date(message.timestamp).toLocaleTimeString();
-        const sender = message.type === "user" ? "You" : "General MH";
-        return `**[${timestamp}] ${sender}:**\n${message.content}\n`;
+      .map((message: unknown) => {
+        if (
+          typeof message === "object" &&
+          message !== null &&
+          "timestamp" in message &&
+          "type" in message &&
+          "content" in message
+        ) {
+          const safe = message as {
+            timestamp: string | number | Date;
+            type: string;
+            content: string;
+          };
+          const timestamp = new Date(safe.timestamp).toLocaleTimeString();
+          const sender = safe.type === "user" ? "You" : "General MH";
+          return `**[${timestamp}] ${sender}:**\n${safe.content}\n`;
+        }
+        return "";
       })
       .join("\n");
 
@@ -168,11 +182,21 @@ export function useConversationHistory() {
 
   // Save conversation to history
   const saveConversation = useCallback(
-    (messages: unknown[], sessionDuration: number, userMetadata: unknown) => {
+    (
+      messages: unknown[],
+      sessionDuration: number,
+      userMetadata: ConversationHistory["userMetadata"],
+    ) => {
       const conversation: ConversationHistory = {
         id: `conv_${Date.now()}`,
         timestamp: new Date(),
-        messages: messages.filter((m) => m.type !== "system"), // Exclude system messages
+        messages: messages.filter(
+          (m): m is { type: string } =>
+            typeof m === "object" &&
+            m !== null &&
+            "type" in m &&
+            m.type !== "system",
+        ), // Exclude system messages
         sessionDuration,
         userMetadata,
       };

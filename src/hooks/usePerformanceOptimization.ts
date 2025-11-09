@@ -72,7 +72,7 @@ export function useImagePreloader(sources: string[]) {
       const loaded = new Set<string>();
       results.forEach((result, _index) => {
         if (result.status === "fulfilled") {
-          const s = sources[index];
+          const s = sources[_index];
           if (s) loaded.add(s);
         }
       });

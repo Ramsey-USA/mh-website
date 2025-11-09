@@ -318,12 +318,12 @@ export function BeforeAfterGallery({
       >
         {slides.map((slide, _index) => (
           <BeforeAfterSlider
-            key={index}
+            key={_index}
             beforeImage={slide.beforeImage}
             afterImage={slide.afterImage}
-            beforeAlt={slide.beforeAlt}
-            afterAlt={slide.afterAlt}
-            caption={slide.caption}
+            {...(slide.beforeAlt ? { beforeAlt: slide.beforeAlt } : {})}
+            {...(slide.afterAlt ? { afterAlt: slide.afterAlt } : {})}
+            {...(slide.caption ? { caption: slide.caption } : {})}
           />
         ))}
       </div>

@@ -75,13 +75,17 @@ export function useProjectsSearch() {
 
   // Track search analytics (after projects is defined)
   useEffect(() => {
+    let timeoutId: number | undefined;
     if (searchQuery.trim()) {
-      const timeoutId = setTimeout(() => {
+      timeoutId = window.setTimeout(() => {
         trackSearchPerformed(searchQuery, "projects_page", projects.length);
       }, 1000); // Debounce tracking
-
-      return () => clearTimeout(timeoutId);
     }
+    return () => {
+      if (timeoutId !== undefined) {
+        clearTimeout(timeoutId);
+      }
+    };
   }, [searchQuery, projects.length, trackSearchPerformed]);
 
   // Track category filter usage

@@ -10,7 +10,7 @@ export class VeteranAI {
   generateVeteranResponse(
     input: string,
     veteranProfile?: VeteranProfile,
-    context?: unknown,
+    _context?: unknown,
   ): string {
     const inputLower = input.toLowerCase();
 
@@ -82,8 +82,8 @@ export class VeteranAI {
   }
 
   private getVeteranAccessibilityAdvice(
-    input: string,
-    veteranProfile?: VeteranProfile,
+    _input: string,
+    _veteranProfile?: VeteranProfile,
   ): string {
     return `**VETERAN ACCESSIBILITY PROTOCOL** [ACCESSIBLE]
 
@@ -117,8 +117,8 @@ Our veteran-owned team understands the unique needs of service members. We've he
   }
 
   private getVeteranEnergyAdvice(
-    input: string,
-    veteranProfile?: VeteranProfile,
+    _input: string,
+    _veteranProfile?: VeteranProfile,
   ): string {
     return `**VETERAN ENERGY EFFICIENCY PROTOCOL** [ENERGY_SAVINGS_LEAF]
 
@@ -151,8 +151,8 @@ Energy independence aligns with military values of self-reliance and strategic r
   }
 
   private getVeteranSecurityAdvice(
-    input: string,
-    veteranProfile?: VeteranProfile,
+    _input: string,
+    _veteranProfile?: VeteranProfile,
   ): string {
     return `**VETERAN SECURITY ENHANCEMENT PROTOCOL** [SHIELD]
 
@@ -186,8 +186,8 @@ Our veteran-owned team understands the importance of feeling secure in your home
   }
 
   private getVABenefitsAdvice(
-    input: string,
-    veteranProfile?: VeteranProfile,
+    _input: string,
+    _veteranProfile?: VeteranProfile,
   ): string {
     return `**VA BENEFITS INTELLIGENCE CENTER** [MILITARY_TECH]
 
@@ -222,8 +222,8 @@ We handle all VA coordination so you can focus on enjoying your new construction
   }
 
   private getPTSDFocusedAdvice(
-    input: string,
-    veteranProfile?: VeteranProfile,
+    _input: string,
+    _veteranProfile?: VeteranProfile,
   ): string {
     return `**PTSD-AWARE CONSTRUCTION PROTOCOL** [HEALING]
 
@@ -261,8 +261,8 @@ All PTSD-related construction discussions are handled with complete confidential
   }
 
   private getGeneralVeteranGuidance(
-    input: string,
-    veteranProfile?: VeteranProfile,
+    _input: string,
+    _veteranProfile?: VeteranProfile,
   ): string {
     return `**VETERAN TACTICAL SUPPORT CENTER** [MILITARY_TECH]
 

@@ -29,26 +29,23 @@ export type SloganVariant =
  * Slogan component props
  */
 export interface SloganProps {
-  /** Page identifier to get dedicated slogan (e.g., 'homepage', 'about', 'services') */
   page: string;
-
-  /** Context within the page (e.g., 'hero', 'tagline', 'cta', or section name) */
-  context?: string;
-
-  /** Display variant - affects size, weight, and styling */
-  variant?: SloganVariant;
-
-  /** Custom slogan text (overrides page assignment) - Use sparingly, prefer page assignments */
-  customText?: string;
-
-  /** Additional CSS classes */
-  className?: string;
-
-  /** Show tier badge for development/debugging */
-  showTierBadge?: boolean;
-
-  /** HTML element to render as (default: 'p') */
-  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
+  context?: string | undefined; // explicit undefined allowed for exactOptionalPropertyTypes
+  variant?: SloganVariant | undefined; // maintain optional exactness
+  customText?: string | undefined;
+  className?: string | undefined;
+  showTierBadge?: boolean | undefined;
+  as?:
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6"
+    | "p"
+    | "span"
+    | "div"
+    | undefined;
 }
 
 /**
@@ -165,7 +162,6 @@ function getVariantClasses(variant: SloganVariant): string {
  */
 export interface SloganDisplayProps
   extends Omit<SloganProps, "variant" | "as"> {
-  /** Display location preset */
   location:
     | "page-hero"
     | "page-subtitle"
@@ -360,8 +356,8 @@ export function SloganWithIcon({
   const sloganElement = (
     <Slogan
       page={page}
-      context={context}
-      variant={variant}
+      context={context ?? "hero"}
+      variant={variant ?? "tagline"}
       className={className}
       {...rest}
     />

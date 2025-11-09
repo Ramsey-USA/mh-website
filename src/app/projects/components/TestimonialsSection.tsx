@@ -37,7 +37,7 @@ export function TestimonialsSection({ projects }: TestimonialsSectionProps) {
 
         <div className="gap-8 grid md:grid-cols-2">
           {testimonialsProjects.map((project, _index) => (
-            <Card key={index} className={getCardClassName("static", "h-full")}>
+            <Card key={_index} className={getCardClassName("static", "h-full")}>
               <CardContent className="flex flex-col p-6 h-full">
                 <div className="flex flex-shrink-0 items-center mb-4">
                   {[...Array(project.clientTestimonial!.rating)].map((_, i) => (

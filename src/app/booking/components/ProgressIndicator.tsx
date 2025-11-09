@@ -57,7 +57,7 @@ export function ProgressIndicator({ currentStep }: ProgressIndicatorProps) {
             </div>
 
             {/* Connecting Line */}
-            {index < steps.length - 1 && (
+            {_index < steps.length - 1 && (
               <div className="relative mb-8 mx-4 w-24 h-1">
                 <div className="absolute inset-0 bg-gray-300 dark:bg-gray-700 rounded" />
                 <div

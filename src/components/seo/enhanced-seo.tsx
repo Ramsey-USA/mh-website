@@ -8,7 +8,7 @@ export const enhancedSEO = {
     "MH Construction - AI-Powered Veteran-Owned Construction Excellence",
   defaultDescription:
     "Revolutionary AI-powered construction intelligence with General MH military assistant. Founded 2010, veteran-owned since January 2025 under Army veteran leadership. Serving Pacific Northwest communities with authentic partnerships, transparent communication, and cutting-edge technology including AI cost estimation and military precision project management.",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.mhc-gc.com",
+  siteUrl: process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com",
   twitterHandle: "@MHConstruction",
   defaultKeywords: [
     "AI construction assistant",
@@ -495,7 +495,7 @@ export function generateBreadcrumbSchema(
     "@type": "BreadcrumbList",
     itemListElement: breadcrumbs.map((crumb, _index) => ({
       "@type": "ListItem",
-      position: index + 1,
+      position: _index + 1,
       name: crumb.name,
       item: crumb.url,
     })),
@@ -696,7 +696,7 @@ export function generateEnhancedMetadata({
     title: pageTitle,
     description: pageDescription,
     keywords: pageKeywords,
-    robots: noIndex ? "noindex,nofollow" : "index,follow",
+    robots: noIndex ? "noindex,nofollow" : "_index,follow",
 
     alternates: {
       canonical: pageUrl,

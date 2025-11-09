@@ -155,9 +155,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {/* Project Tags */}
         {project.tags && project.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-4">
-            {project.tags.slice(0, 3).map((tag: string, index: number) => (
+            {project.tags.slice(0, 3).map((tag: string, _index: number) => (
               <span
-                key={index}
+                key={_index}
                 className="inline-flex items-center bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-md text-gray-700 dark:text-gray-300 text-xs"
               >
                 {tag}

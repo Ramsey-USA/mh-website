@@ -58,7 +58,7 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
         >
           {coreValues.map((value, _index) => (
             <div
-              key={index}
+              key={_index}
               className="group perspective h-[400px] cursor-pointer"
               style={{ perspective: "1000px" }}
             >
@@ -73,7 +73,7 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
                           className="mr-3 text-brand-primary text-4xl"
                         />
                         <span className="font-bold text-brand-primary text-lg">
-                          {index + 1}
+                          {_index + 1}
                         </span>
                       </div>
                       <CardTitle className="mb-2 text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">

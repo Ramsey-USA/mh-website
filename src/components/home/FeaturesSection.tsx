@@ -244,7 +244,7 @@ export function FeaturesSection() {
           className="gap-3 sm:gap-4 lg:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-8 sm:mt-12"
         >
           {ctaButtons.map((cta, _index) => (
-            <div key={index} className="text-center">
+            <div key={_index} className="text-center">
               <Button
                 variant={cta.variant}
                 size="lg"

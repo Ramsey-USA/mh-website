@@ -99,9 +99,9 @@ async function handleLogin(request: NextRequest): Promise<NextResponse> {
       ...tokens,
     });
   } catch (_error) {
-    logger.error("Login error:", error);
+    logger.error("Login _error:", _error);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { _error: "Internal server _error" },
       { status: 500 },
     );
   }

@@ -96,7 +96,7 @@ export default function CareersPage() {
 
           <StaggeredFadeIn className={gridPresets.cards4("lg")}>
             {cultureValues.map((value, _index) => (
-              <Card key={index} className={getCardClassName("default")}>
+              <Card key={_index} className={getCardClassName("default")}>
                 <CardContent className="flex flex-col p-6 h-full text-center">
                   <div
                     className={`flex justify-center items-center bg-gradient-to-r ${value.color} mx-auto mb-4 rounded-full w-16 h-16`}
@@ -133,7 +133,7 @@ export default function CareersPage() {
 
           <StaggeredFadeIn className={gridPresets.cards4("md", "mb-12")}>
             {companyBenefits.map((benefit, _index) => (
-              <Card key={index} className={getCardClassName("static")}>
+              <Card key={_index} className={getCardClassName("static")}>
                 <CardContent className="flex flex-col p-6 h-full">
                   <div className="flex items-center mb-4">
                     <div className="flex justify-center items-center bg-brand-primary mr-4 rounded-full w-12 h-12">
@@ -187,7 +187,7 @@ export default function CareersPage() {
 
               <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
                 {veteranBenefits.map((benefit, _index) => (
-                  <Card key={index} className={getCardClassName("primary")}>
+                  <Card key={_index} className={getCardClassName("primary")}>
                     <CardContent className="flex flex-col p-6 h-full">
                       <div className="flex items-center mb-4">
                         <div className="flex justify-center items-center bg-gradient-to-r from-brand-primary to-forest-600 mr-4 rounded-full w-12 h-12">
@@ -691,7 +691,7 @@ export default function CareersPage() {
           <StaggeredFadeIn className="space-y-6">
             {openPositions.map((position, _index) => (
               <Card
-                key={index}
+                key={_index}
                 className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-all"
               >
                 <CardContent className="p-8">

@@ -84,7 +84,7 @@ export default function BookingPage() {
             localStorage.removeItem("booking_form_data");
           }
         } catch (_error) {
-          console.error("Error loading saved form data:", error);
+          console.error("Error loading saved form data:", _error);
         }
       }
     }
@@ -250,7 +250,7 @@ Please contact the client to confirm this consultation appointment.
       setSubmitStatus("success");
       setStep(3);
     } catch (_error) {
-      logger.error("Error booking partnership discussion:", error);
+      logger.error("Error booking partnership discussion:", _error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);

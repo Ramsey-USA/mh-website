@@ -115,7 +115,7 @@ export function ProjectDetailsStep({
             Please complete the following:
             <ul className="mt-2 list-disc list-inside">
               {validationStatus.issues.map((issue, _index) => (
-                <li key={index}>{issue}</li>
+                <li key={_index}>{issue}</li>
               ))}
             </ul>
           </div>

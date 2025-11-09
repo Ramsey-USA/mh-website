@@ -10,7 +10,8 @@ import type {
   DeviceInfo,
   LocationInfo,
   UserJourney,
-  ConversionEvent,
+  ConversionEvent as _ConversionEvent,
+  AnalyticsPropertyValue,
 } from "./types";
 
 export class DataCollector {
@@ -25,15 +26,18 @@ export class DataCollector {
     properties: Record<string, unknown> = {},
   ): AnalyticsEvent {
     const userId = this.getUserId();
-    return {
+    const event: AnalyticsEvent = {
       id: this.generateEventId(),
       type,
       timestamp: new Date(),
       sessionId: this.getSessionId(),
-      ...(userId ? { userId } : {}),
-      properties: properties as Record<string, unknown>,
+      properties: properties as Record<string, AnalyticsPropertyValue>,
       metadata: this.collectMetadata(),
-    } as AnalyticsEvent;
+    };
+    if (userId !== undefined) {
+      event.userId = userId;
+    }
+    return event;
   }
 
   /**

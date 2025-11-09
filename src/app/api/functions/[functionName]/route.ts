@@ -57,9 +57,9 @@ export async function POST(request: NextRequest, context: RouteParams) {
         );
     }
   } catch (_error) {
-    logger.error("API function error:", error);
+    logger.error("API function _error:", _error);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { _error: "Internal server _error" },
       { status: 500 },
     );
   }
@@ -163,9 +163,9 @@ function handleGetUserData(data: UserDataRequest, user: JWTUser | null) {
       data: userData,
     });
   } catch (_error) {
-    logger.error("Error getting user data:", error);
+    logger.error("Error getting user data:", _error);
     return NextResponse.json(
-      { error: "Failed to get user data" },
+      { _error: "Failed to get user data" },
       { status: 500 },
     );
   }

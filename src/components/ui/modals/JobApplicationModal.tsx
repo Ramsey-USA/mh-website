@@ -90,8 +90,9 @@ export function JobApplicationModal({
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFormData((prev) => ({ ...prev, resumeFile: e.target.files![0] }));
+    const file = e.target.files?.[0];
+    if (file) {
+      setFormData((prev) => ({ ...prev, resumeFile: file }));
     }
   };
 
@@ -144,7 +145,7 @@ export function JobApplicationModal({
         });
       }, 2000);
     } catch (_error) {
-      logger.error("Error submitting application:", error);
+      logger.error("Error submitting application:", _error);
       setSubmitError("Failed to submit application. Please try again.");
     } finally {
       setIsSubmitting(false);

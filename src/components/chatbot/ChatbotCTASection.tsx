@@ -164,7 +164,7 @@ export function ChatbotCTASection({
               <div className="flex flex-wrap justify-center gap-3">
                 {exampleQuestions.map((question, _index) => (
                   <button
-                    key={index}
+                    key={_index}
                     onClick={() => handleAskQuestion(question)}
                     className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 hover:bg-primary-50 dark:hover:bg-gray-700 shadow-md hover:shadow-lg px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-full transition-all duration-200 text-gray-700 text-sm dark:text-gray-300 hover:text-primary-700 dark:hover:text-primary-400"
                   >

@@ -145,9 +145,14 @@ export function ProjectCostCalculator({
   enableChatbotHandoff = false,
   onGetDetailedEstimate: _onGetDetailedEstimate,
 }: ProjectCostCalculatorProps) {
-  const [projectType, setProjectType] = useState<string>(
-    initialProjectType || PROJECT_TYPES[0].id,
-  );
+  const [projectType, setProjectType] = useState<string>(() => {
+    // Guard: ensure first project type exists; fallback to known id constant
+    const firstType: ProjectType | undefined = PROJECT_TYPES[0];
+    const fallback: string = firstType ? firstType.id : "commercial";
+    return typeof initialProjectType === "string" && initialProjectType.trim()
+      ? initialProjectType
+      : fallback;
+  });
   const [scope, setScope] = useState<number>(3); // 1-5 scale
   const [quality, setQuality] = useState<string>("standard");
   const [timeline, setTimeline] = useState<string>("standard");

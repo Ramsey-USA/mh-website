@@ -3,8 +3,11 @@
  * Core AI system with military personality and construction expertise
  */
 
-import type { ConstructionIntel, AIResponse } from "@/lib/ai/types";
-import { logger } from "@/lib/utils/logger";
+import type {
+  ConstructionIntel,
+  AIResponse as _AIResponse,
+} from "@/lib/ai/types";
+import { logger as _logger } from "@/lib/utils/logger";
 import { matchesKeywords } from "@/lib/utils/keywordMatcher";
 
 export class CoreAIEngine {
@@ -80,9 +83,12 @@ export class CoreAIEngine {
         "navigation",
         "guide",
       ]) &&
-      context?.currentPage
+      (context as Record<string, unknown>)["currentPage"]
     ) {
-      return this.getPageSpecificGuidance(context.currentPage, input);
+      return this.getPageSpecificGuidance(
+        (context as Record<string, unknown>)["currentPage"] as string,
+        input,
+      );
     }
 
     // Estimate and cost intelligence with context integration
@@ -156,7 +162,7 @@ export class CoreAIEngine {
     return pageGuidance[currentPage] || this.getDefaultTacticalGuidance(input);
   }
 
-  private getCostIntelligence(input: string, context?: unknown): string {
+  private getCostIntelligence(_input: string, _context?: unknown): string {
     const budgetIntel = `**COST INTELLIGENCE BRIEFING** [CALCULATE]
 
 [MILITARY_TECH] **TACTICAL BUDGET ANALYSIS**
@@ -179,7 +185,7 @@ Special operational discounts and VA benefit coordination available.
     return budgetIntel;
   }
 
-  private getMaterialIntelligence(input: string): string {
+  private getMaterialIntelligence(_input: string): string {
     return `**MATERIAL PROCUREMENT INTELLIGENCE** [HANDYMAN]
 
 [ENGINEERING] **TACTICAL SUPPLY CHAIN**
@@ -189,42 +195,42 @@ Special operational discounts and VA benefit coordination available.
 • **Weather-Resistant Compounds** - All-season operational capability
 
 **Primary Material Categories:**
-${Object.entries(this.constructionIntel.materialSpecs)
-  .map(([key, value]) => `• ${value}`)
+${Object.entries(this.constructionIntel["materialSpecs"])
+  .map(([_key, value]) => `• ${value}`)
   .join("\n")}
 
 [SHIELD] **QUALITY ASSURANCE PROTOCOL**
 Every material meets military-standard quality control procedures.`;
   }
 
-  private getLocationIntelligence(input: string): string {
+  private getLocationIntelligence(_input: string): string {
     return `**OPERATIONAL TERRITORY INTELLIGENCE** [LOCATION_ON]
 
 [GPS_FIXED] **PACIFIC NORTHWEST TACTICAL ZONE**
 
 **Primary Operating Areas:**
-${Object.entries(this.constructionIntel.locationIntel)
-  .map(([key, value]) => `• ${value}`)
+${Object.entries(this.constructionIntel["locationIntel"])
+  .map(([_key, value]) => `• ${value}`)
   .join("\n")}
 
 [SHIELD] **SERVICE RADIUS**: 50-mile tactical deployment zone
 **RAPID RESPONSE**: Same-day consultation within operational parameters`;
   }
 
-  private getTimelineIntelligence(input: string): string {
+  private getTimelineIntelligence(_input: string): string {
     return `**OPERATIONAL TIMELINE INTELLIGENCE** [SCHEDULE]
 
 [MILITARY_TECH] **MISSION TIMELINE CATEGORIES**
 
-${Object.entries(this.constructionIntel.timelineStrategies)
-  .map(([key, value]) => `• ${value}`)
+${Object.entries(this.constructionIntel["timelineStrategies"])
+  .map(([_key, value]) => `• ${value}`)
   .join("\n")}
 
 [CHECK_CIRCLE] **TIMELINE COMMITMENT PROTOCOL**
 Every mission timeline includes buffer zones for weather and unforeseen tactical challenges.`;
   }
 
-  private getVeteranProtocols(input: string): string {
+  private getVeteranProtocols(_input: string): string {
     return `**VETERAN TACTICAL PROTOCOLS** [MILITARY_TECH]
 
 [SHIELD] **VETERAN-FIRST OPERATIONAL PRIORITY**
@@ -234,15 +240,15 @@ Every mission timeline includes buffer zones for weather and unforeseen tactical
 • **Veteran Discounts**: Automatic service-connected savings applied
 • **VA Benefit Coordination**: Expert assistance with benefit utilization
 
-${Object.entries(this.constructionIntel.veteranProtocols)
-  .map(([key, value]) => `• ${value}`)
+${Object.entries(this.constructionIntel["veteranProtocols"])
+  .map(([_key, value]) => `• ${value}`)
   .join("\n")}
 
 [HANDSHAKE] **VETERAN COMMITMENT**
 Our veteran-owned team understands military precision and attention to detail.`;
   }
 
-  private getDefaultTacticalGuidance(input: string): string {
+  private getDefaultTacticalGuidance(_input: string): string {
     return `**GENERAL TACTICAL GUIDANCE** [INFO]
 
 [MILITARY_TECH] **MH CONSTRUCTION COMMAND CENTER**

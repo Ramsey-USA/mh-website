@@ -89,7 +89,7 @@ export function ServicesShowcase() {
         <FadeInWhenVisible className={gridPresets.cards3("sm")}>
           {services.map((service, _index) => (
             <div
-              key={index}
+              key={_index}
               className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 rounded-2xl sm:rounded-3xl hover:scale-105 transition-all duration-300 min-h-[280px] sm:min-h-[320px]"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-2xl sm:rounded-3xl transition-opacity duration-300"></div>

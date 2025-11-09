@@ -103,11 +103,11 @@ export class VulnerabilityScanner {
         outcome: "failure",
         details: {
           scanId,
-          error: error instanceof Error ? error.message : "Unknown error",
+          _error: _error instanceof Error ? _error.message : "Unknown _error",
         },
         tags: ["security", "scan", "error"],
       });
-      throw error;
+      throw _error;
     } finally {
       this.isScanning = false;
     }
@@ -140,7 +140,7 @@ export class VulnerabilityScanner {
   /**
    * Scan specific vulnerability type
    */
-  private async runScanByType(
+  private runScanByType(
     type: VulnerabilityType,
     config: ScanConfig,
   ): Promise<Vulnerability[]> {
@@ -169,7 +169,7 @@ export class VulnerabilityScanner {
       case "cross_site_request_forgery":
         return this.scanCSRF(config);
       default:
-        return [];
+        return Promise.resolve([]);
     }
   }
 
@@ -226,11 +226,11 @@ export class VulnerabilityScanner {
   /**
    * Scan for SSL/TLS vulnerabilities
    */
-  private async scanSSL(config: ScanConfig): Promise<Vulnerability[]> {
+  private scanSSL(config: ScanConfig): Promise<Vulnerability[]> {
     const vulnerabilities: Vulnerability[] = [];
 
     if (!config.checkSSL || !config.targets.urls) {
-      return vulnerabilities;
+      return Promise.resolve(vulnerabilities);
     }
 
     for (const url of config.targets.urls) {
@@ -259,17 +259,17 @@ export class VulnerabilityScanner {
       }
     }
 
-    return vulnerabilities;
+    return Promise.resolve(vulnerabilities);
   }
 
   /**
    * Scan for outdated dependencies
    */
-  private async scanDependencies(config: ScanConfig): Promise<Vulnerability[]> {
+  private scanDependencies(config: ScanConfig): Promise<Vulnerability[]> {
     const vulnerabilities: Vulnerability[] = [];
 
     if (!config.targets.files) {
-      return vulnerabilities;
+      return Promise.resolve(vulnerabilities);
     }
 
     // Simplified dependency check
@@ -292,23 +292,21 @@ export class VulnerabilityScanner {
       }
     }
 
-    return vulnerabilities;
+    return Promise.resolve(vulnerabilities);
   }
 
   /**
    * Scan for CORS misconfigurations
    */
-  private async scanCORS(_config: ScanConfig): Promise<Vulnerability[]> {
+  private scanCORS(_config: ScanConfig): Promise<Vulnerability[]> {
     // CORS scanning is handled by HeaderScanner
-    return [];
+    return Promise.resolve([]);
   }
 
   /**
    * Scan for sensitive data exposure
    */
-  private async scanSensitiveData(
-    config: ScanConfig,
-  ): Promise<Vulnerability[]> {
+  private scanSensitiveData(config: ScanConfig): Promise<Vulnerability[]> {
     const vulnerabilities: Vulnerability[] = [];
     const sensitivePatterns = [
       /api[_-]?key/i,
@@ -320,7 +318,7 @@ export class VulnerabilityScanner {
     ];
 
     if (!config.targets.files) {
-      return vulnerabilities;
+      return Promise.resolve(vulnerabilities);
     }
 
     for (const file of config.targets.files) {
@@ -346,7 +344,7 @@ export class VulnerabilityScanner {
       }
     }
 
-    return vulnerabilities;
+    return Promise.resolve(vulnerabilities);
   }
 
   /**

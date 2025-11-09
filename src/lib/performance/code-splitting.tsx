@@ -89,7 +89,7 @@ export function createDynamicImport<T extends ComponentType<any>>(
           metadata: {
             component: componentName,
             retryCount,
-            error: error instanceof Error ? error.message : "Unknown error",
+            _error: _error instanceof Error ? _error.message : "Unknown _error",
           },
         });
         performanceManager.endTiming(`dynamic_import_${componentName}`);
@@ -104,7 +104,10 @@ export function createDynamicImport<T extends ComponentType<any>>(
         return executeImport();
       }
 
-      throw error;
+      if (_error instanceof Error) {
+        throw _error;
+      }
+      throw new Error(String(_error));
     }
   };
 

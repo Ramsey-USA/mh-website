@@ -45,9 +45,9 @@ export async function GET(_request: NextRequest, context: RouteParams) {
       data: consultation,
     });
   } catch (_error) {
-    logger.error("Error fetching consultation:", error);
+    logger.error("Error fetching consultation:", _error);
     return NextResponse.json(
-      { error: "Failed to fetch consultation" },
+      { _error: "Failed to fetch consultation" },
       { status: 500 },
     );
   }
@@ -89,9 +89,9 @@ export async function PUT(request: NextRequest, context: RouteParams) {
       data: consultation,
     });
   } catch (_error) {
-    logger.error("Error updating consultation:", error);
+    logger.error("Error updating consultation:", _error);
     return NextResponse.json(
-      { error: "Failed to update consultation" },
+      { _error: "Failed to update consultation" },
       { status: 500 },
     );
   }
@@ -125,9 +125,9 @@ export async function DELETE(_request: NextRequest, context: RouteParams) {
       message: "Consultation deleted",
     });
   } catch (_error) {
-    logger.error("Error deleting consultation:", error);
+    logger.error("Error deleting consultation:", _error);
     return NextResponse.json(
-      { error: "Failed to delete consultation" },
+      { _error: "Failed to delete consultation" },
       { status: 500 },
     );
   }

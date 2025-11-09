@@ -160,7 +160,9 @@ export function InteractiveTimeline({
   showBookingCTA = true,
   onTimelineCustomized,
 }: InteractiveTimelineProps) {
-  const [projectType, setProjectType] = useState<string>(PROJECT_TYPES[0].id);
+  const [projectType, setProjectType] = useState<string>(
+    PROJECT_TYPES[0]?.id ?? "",
+  );
   const [complexity, setComplexity] = useState<number>(3); // 1-5 scale
   const { setIsVisible, setCurrentPageData } = useGlobalChatbot();
 
@@ -171,7 +173,7 @@ export function InteractiveTimeline({
 
     // Complexity multiplier: 1=0.7x, 2=0.85x, 3=1.0x, 4=1.2x, 5=1.5x
     const complexityMultipliers = [0.7, 0.85, 1.0, 1.2, 1.5];
-    const multiplier = complexityMultipliers[complexity - 1];
+    const multiplier = complexityMultipliers[complexity - 1] ?? 1;
 
     const adjustedPhases = BASE_PHASES.map((phase) => ({
       ...phase,
@@ -361,7 +363,6 @@ export function InteractiveTimeline({
 
         <div className="space-y-4">
           {timelineData.phases.map((phase, _index) => {
-            const _isFirst = _index === 0;
             const isLast = _index === timelineData.phases.length - 1;
 
             return (

@@ -227,7 +227,7 @@ export default function ContactPageClient() {
               <div className="gap-6 lg:gap-8 grid grid-cols-1 md:grid-cols-3 mb-16">
                 {quickContact.map((contact, _index) => (
                   <a
-                    key={index}
+                    key={_index}
                     href={contact.link}
                     target={
                       contact.icon === "location_on" ? "_blank" : undefined
@@ -621,7 +621,7 @@ export default function ContactPageClient() {
               >
                 {mainCTAs.map((cta, _index) => (
                   <Link
-                    key={index}
+                    key={_index}
                     href={cta.link}
                     aria-label={cta.ariaLabel}
                     className="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-primary p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-brand-primary/50"

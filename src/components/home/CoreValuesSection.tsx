@@ -123,7 +123,7 @@ export function CoreValuesSection() {
             <div
               key={item.value}
               className="group perspective-1000 scroll-reveal value-card"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              style={{ animationDelay: `${_index * 0.1}s` }}
             >
               <div className="relative w-full h-auto min-h-[280px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[380px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}

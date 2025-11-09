@@ -8,6 +8,7 @@ import {
   type AnalyticsEvent,
   type AnalyticsEventType,
 } from "./analytics-engine";
+import { type AnalyticsPropertyValue } from "./types";
 
 export interface DataCollectionConfig {
   enableAutoTracking: boolean;
@@ -89,7 +90,7 @@ export class AnalyticsDataCollector {
   private scrollDepthThresholds = [25, 50, 75, 90, 100];
   private timeTrackers: Map<string, number> = new Map();
   private heatmapClicks: HeatmapClick[] = [];
-  private flushTimer: NodeJS.Timeout | null = null;
+  private _flushTimer: NodeJS.Timeout | null = null;
 
   constructor(config: Partial<DataCollectionConfig> = {}) {
     this.config = {
@@ -142,7 +143,10 @@ export class AnalyticsDataCollector {
 
     this.trackEvent("user_interaction", {
       action: "session_start",
-      sessionData: this.currentSession,
+      sessionId: sessionId,
+      userId: this.currentSession.userId,
+      isVeteran: this.currentSession.isVeteran,
+      deviceType: this.currentSession.deviceInfo.type,
     });
   }
 
@@ -223,10 +227,12 @@ export class AnalyticsDataCollector {
     this.currentSession.interactions.push(interaction);
     this.currentSession.lastActivity = new Date();
 
+    const sanitized = this.sanitizeProperties(data);
+
     this.trackEvent("user_interaction", {
       interactionType: type,
       element,
-      ...data,
+      ...sanitized,
     });
   }
 
@@ -338,7 +344,7 @@ export class AnalyticsDataCollector {
     if (this.heatmapClicks.length > 0) {
       this.trackEvent("user_interaction", {
         action: "heatmap_batch",
-        clicks: this.heatmapClicks,
+        clicksCount: this.heatmapClicks.length,
         timestamp: new Date().toISOString(),
       });
 
@@ -350,14 +356,13 @@ export class AnalyticsDataCollector {
 
   private trackEvent(
     type: AnalyticsEventType,
-    properties: Record<string, unknown>,
+    properties: Record<string, AnalyticsPropertyValue>,
   ): void {
     const event: AnalyticsEvent = {
       id: `event_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       type,
       timestamp: new Date(),
       sessionId: this.currentSession?.sessionId || "unknown",
-      userId: this.currentSession?.userId,
       properties,
       metadata: {
         page: window.location.pathname,
@@ -370,6 +375,11 @@ export class AnalyticsDataCollector {
         },
       },
     };
+
+    if (this.currentSession?.userId) {
+      // Only include optional userId when present (exactOptionalPropertyTypes compliant)
+      event.userId = this.currentSession.userId;
+    }
 
     this.eventQueue.push(event);
 
@@ -475,7 +485,6 @@ export class AnalyticsDataCollector {
   private setupClickHeatmapTracking(): void {
     document.addEventListener("click", (event) => {
       const target = event.target as HTMLElement;
-      const _rect = target.getBoundingClientRect();
 
       const heatmapClick: HeatmapClick = {
         x: event.clientX,
@@ -573,6 +582,9 @@ export class AnalyticsDataCollector {
 
     // Flush remaining data
     this.flush();
+
+    // Stop the flush timer
+    this.stopFlushTimer();
   }
 
   private handleVisibilityChange(): void {
@@ -592,9 +604,41 @@ export class AnalyticsDataCollector {
   }
 
   private startFlushTimer(): void {
-    this.flushTimer = setInterval(() => {
+    this._flushTimer = setInterval(() => {
       this.flush();
     }, this.config.flushInterval);
+  }
+
+  private stopFlushTimer(): void {
+    if (this._flushTimer) {
+      clearInterval(this._flushTimer);
+      this._flushTimer = null;
+    }
+  }
+
+  private sanitizeProperties(
+    input: Record<string, unknown>,
+  ): Record<string, AnalyticsPropertyValue> {
+    const out: Record<string, AnalyticsPropertyValue> = {};
+    for (const [key, value] of Object.entries(input)) {
+      if (
+        value === null ||
+        typeof value === "string" ||
+        typeof value === "number" ||
+        typeof value === "boolean" ||
+        typeof value === "undefined"
+      ) {
+        out[key] = value as AnalyticsPropertyValue;
+      } else {
+        // Fallback: serialize complex values
+        try {
+          out[key] = JSON.stringify(value);
+        } catch {
+          out[key] = String(value);
+        }
+      }
+    }
+    return out;
   }
 }
 

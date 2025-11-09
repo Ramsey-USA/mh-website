@@ -155,8 +155,8 @@ describe("Contact Form Integration Tests", () => {
         });
         fail("Should have thrown an error");
       } catch (_error) {
-        expect(error).toBeInstanceOf(Error);
-        expect((error as Error).message).toBe("Network error");
+        expect(_error).toBeInstanceOf(Error);
+        expect((_error as Error).message).toBe("Network error");
       }
     });
 

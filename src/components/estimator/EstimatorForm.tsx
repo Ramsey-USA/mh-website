@@ -5,7 +5,7 @@
 
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button, Card, CardHeader, CardTitle, CardContent } from "../ui";
 import { EstimateResults } from "./EstimateResults";
 import { FormProgress } from "../forms";
@@ -65,7 +65,7 @@ export function EstimatorForm() {
             localStorage.removeItem("estimator_form_data");
           }
         } catch (_error) {
-          console.error("Error loading saved estimator data:", error);
+          console.error("Error loading saved estimator data:", _error);
         }
       }
     }
@@ -222,7 +222,7 @@ export function EstimatorForm() {
       breakdown,
       timeline: "4-8 weeks",
       accuracy: 85,
-      veteranDiscount: projectData.isVeteran ? veteranDiscount : undefined,
+      veteranDiscount: projectData.isVeteran ? veteranDiscount : 0,
     };
 
     setEstimate(estimate);
@@ -268,6 +268,7 @@ export function EstimatorForm() {
 
   return (
     <div className="mx-auto max-w-4xl estimator-form">
+      {/** onDataChange is adapted inline to coerce unknown to allowed union */}
       {/* Progress Indicator */}
       <FormProgress
         currentStep={currentStep}
@@ -321,7 +322,12 @@ export function EstimatorForm() {
           {currentStep === 1 && (
             <ProjectBasicsStep
               projectData={projectData}
-              onDataChange={handleInputChange}
+              onDataChange={(field, value) =>
+                handleInputChange(
+                  field,
+                  value as string | string[] | number | boolean,
+                )
+              }
               validationStatus={validationStatus}
             />
           )}
@@ -329,7 +335,12 @@ export function EstimatorForm() {
           {currentStep === 2 && (
             <ProjectDetailsStep
               projectData={projectData}
-              onDataChange={handleInputChange}
+              onDataChange={(field, value) =>
+                handleInputChange(
+                  field,
+                  value as string | string[] | number | boolean,
+                )
+              }
               onArrayToggle={handleArrayToggle}
               validationStatus={validationStatus}
             />

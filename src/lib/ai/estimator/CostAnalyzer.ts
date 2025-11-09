@@ -2,12 +2,7 @@
  * Cost Analyzer - Estimate processing and budget intelligence
  */
 
-import type {
-  EstimateInput,
-  LeadIntelligence,
-  BudgetRange,
-  TimelineCategory,
-} from "@/lib/ai/types";
+import type { EstimateInput, LeadIntelligence } from "@/lib/ai/types";
 
 export class CostAnalyzer {
   private pacificNorthwestMultiplier = 1.15; // 15% higher costs due to location
@@ -25,13 +20,15 @@ export class CostAnalyzer {
 
   generateLeadIntelligence(
     keywords: string,
-    context?: unknown,
+    context?: Record<string, unknown>,
   ): LeadIntelligence {
     const projectType = this.classifyProjectType(keywords);
     const budgetRange = this.analyzeBudgetRange(keywords, context);
     const timeline = this.analyzeTimeline(keywords);
     const priority = this.assessPriority(keywords, context);
 
+    const location = this.extractLocation(keywords, context);
+    const veteranStatus = this.detectVeteranStatus(keywords, context);
     return {
       projectType,
       budgetRange,
@@ -43,8 +40,8 @@ export class CostAnalyzer {
         projectType,
         budgetRange,
       ),
-      location: this.extractLocation(keywords, context),
-      veteranStatus: this.detectVeteranStatus(keywords, context),
+      ...(location ? { location } : {}),
+      ...(veteranStatus ? { veteranStatus } : {}),
     };
   }
 
@@ -72,14 +69,6 @@ export class CostAnalyzer {
   }
 
   private getBudgetMultiplier(budgetRange: string): number {
-    const _multipliers: Record<string, number> = {
-      under_10k: 0.3,
-      "10k_25k": 0.6,
-      "25k_50k": 1.0,
-      "50k_100k": 1.8,
-      "100k_plus": 3.0,
-    };
-
     // Try to match budget ranges from user input
     if (budgetRange.includes("10") && budgetRange.includes("k")) return 0.6;
     if (budgetRange.includes("25") && budgetRange.includes("k")) return 0.8;
@@ -209,7 +198,10 @@ Are you a veteran or active service member? Qualify for 12% service discount!
     return "General Construction";
   }
 
-  private analyzeBudgetRange(keywords: string, context?: unknown): string {
+  private analyzeBudgetRange(
+    keywords: string,
+    _context?: Record<string, unknown>,
+  ): string {
     const budgetIndicators = [
       {
         range: "Under $10K",
@@ -267,7 +259,10 @@ Are you a veteran or active service member? Qualify for 12% service discount!
     return "Timeline Planning Required";
   }
 
-  private assessPriority(keywords: string, context?: unknown): string {
+  private assessPriority(
+    keywords: string,
+    _context?: Record<string, unknown>,
+  ): string {
     if (keywords.includes("emergency") || keywords.includes("urgent")) {
       return "high";
     }
@@ -279,7 +274,7 @@ Are you a veteran or active service member? Qualify for 12% service discount!
 
   private extractLocation(
     keywords: string,
-    context?: unknown,
+    context?: Record<string, unknown>,
   ): string | undefined {
     const locations = ["seattle", "tacoma", "bellevue", "spokane", "olympia"];
     for (const location of locations) {
@@ -287,10 +282,14 @@ Are you a veteran or active service member? Qualify for 12% service discount!
         return location.charAt(0).toUpperCase() + location.slice(1);
       }
     }
-    return context?.location;
+    const ctxLocation = context && context["location"];
+    return typeof ctxLocation === "string" ? ctxLocation : undefined;
   }
 
-  private detectVeteranStatus(keywords: string, context?: unknown): boolean {
+  private detectVeteranStatus(
+    keywords: string,
+    _context?: Record<string, unknown>,
+  ): boolean {
     const veteranKeywords = [
       "veteran",
       "military",
@@ -307,9 +306,9 @@ Are you a veteran or active service member? Qualify for 12% service discount!
 
   private generateAdvancedLeadClassification(
     keywords: string,
-    context?: unknown,
-    projectType?: string,
-    budgetRange?: string,
+    _context?: Record<string, unknown>,
+    _projectType?: string,
+    _budgetRange?: string,
   ): string {
     const urgencyIndicators = ["emergency", "urgent", "asap"];
     const highValueIndicators = ["100k", "luxury", "custom", "extensive"];

@@ -3,7 +3,13 @@
  * App-wide performance configuration and optimization utilities
  */
 
-import { forwardRef, useRef, useLayoutEffect, createElement } from "react";
+import {
+  forwardRef,
+  useRef,
+  useLayoutEffect,
+  createElement,
+  type PropsWithoutRef,
+} from "react";
 import { performanceManager } from "./performance-manager";
 import { apiCache } from "./caching";
 import { logger } from "@/lib/utils/logger";
@@ -164,7 +170,7 @@ export async function performanceFetch(
       name: "api_request_duration",
       value: duration,
       timestamp: Date.now(),
-      metadata: { url, error: true },
+      metadata: { url, _error: true },
     });
 
     performanceManager.recordMetric({
@@ -174,50 +180,49 @@ export async function performanceFetch(
       timestamp: Date.now(),
       metadata: {
         url,
-        error: error instanceof Error ? error.message : String(error),
+        error: _error instanceof Error ? _error.message : String(_error),
       },
     });
-    throw error;
+    throw _error;
   }
 }
 
 /**
  * Performance-optimized component wrapper
  */
-export function withPerformanceTracking<P extends Record<string, any>>(
+export function withPerformanceTracking<P extends object>(
   Component: React.ComponentType<P>,
   componentName: string,
 ) {
-  const WrappedComponent = forwardRef<any, P>((props, ref) => {
-    const renderStart = useRef<number>(0);
+  const WrappedComponent = forwardRef<unknown, PropsWithoutRef<P>>(
+    (props, ref) => {
+      const renderStart = useRef<number>(0);
 
-    // Track render start
-    renderStart.current = performance.now();
+      // Track render start
+      renderStart.current = performance.now();
 
-    // Track render completion
-    useLayoutEffect(() => {
-      if (renderStart.current) {
-        const renderTime = performance.now() - renderStart.current;
-        performanceManager.recordMetric({
-          type: "timing",
-          name: "component_render_time",
-          value: renderTime,
-          timestamp: Date.now(),
-          metadata: {
-            component: componentName,
-          },
-        });
-      }
-    });
+      // Track render completion
+      useLayoutEffect(() => {
+        if (renderStart.current) {
+          const renderTime = performance.now() - renderStart.current;
+          performanceManager.recordMetric({
+            type: "timing",
+            name: "component_render_time",
+            value: renderTime,
+            timestamp: Date.now(),
+            metadata: {
+              component: componentName,
+            },
+          });
+        }
+      });
 
-    // Use a typed approach for props spreading
-    const componentProps = { ...props } as P;
-    if (ref) {
-      (componentProps as any).ref = ref;
-    }
+      // Use a typed approach for props spreading
+      const componentProps = { ...props, ref } as P;
 
-    return createElement(Component, componentProps);
-  });
+      return createElement(Component, componentProps);
+    },
+  );
 
   WrappedComponent.displayName = `withPerformanceTracking(${componentName})`;
   return WrappedComponent;

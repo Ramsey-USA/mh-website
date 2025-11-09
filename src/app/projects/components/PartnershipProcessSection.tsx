@@ -29,7 +29,7 @@ export function PartnershipProcessSection() {
 
         <div className="space-y-6">
           {partnershipProcess.map((process, _index) => (
-            <Card key={index} className={getCardClassName("static")}>
+            <Card key={_index} className={getCardClassName("static")}>
               <CardContent className="p-6">
                 <div className="flex items-start min-h-[5rem]">
                   <div className="flex-shrink-0 mr-4">

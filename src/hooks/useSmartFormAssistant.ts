@@ -1,13 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { militaryConstructionAI } from "@/lib/ai";
-
-// Form field interface for type safety
-interface _FormField {
-  name: string;
-  value: string;
-  isValid: boolean;
-  feedback: string;
-}
 
 interface SmartFormSuggestion {
   suggestions: string[];
@@ -30,6 +22,12 @@ interface PredictiveCompletion {
 }
 
 export function useSmartFormAssistant(formData: unknown) {
+  // Normalize and memoize unknown formData into a record for safe operations
+  const formObj = useMemo(() => {
+    return formData && typeof formData === "object"
+      ? (formData as Record<string, unknown>)
+      : ({} as Record<string, unknown>);
+  }, [formData]);
   const [currentField, setCurrentField] = useState<string>("");
   const [fieldSuggestions, setFieldSuggestions] =
     useState<SmartFormSuggestion | null>(null);
@@ -47,7 +45,7 @@ export function useSmartFormAssistant(formData: unknown) {
       }
 
       const suggestions = militaryConstructionAI.generateSmartFormSuggestions(
-        formData,
+        formObj,
         field,
         value,
       );
@@ -55,22 +53,22 @@ export function useSmartFormAssistant(formData: unknown) {
       setFieldSuggestions(suggestions);
       setIsVeteranDetected(suggestions.militaryContext.isVeteran);
     },
-    [formData],
+    [formObj],
   );
 
   // Generate predictive completion for entire form
   const generatePredictiveCompletion = useCallback(() => {
     const completion =
-      militaryConstructionAI.generatePredictiveCompletion(formData);
+      militaryConstructionAI.generatePredictiveCompletion(formObj);
     setPredictiveCompletion(completion);
-  }, [formData]);
+  }, [formObj]);
 
   // Auto-generate predictions when form data changes
   useEffect(() => {
-    if (Object.keys(formData).length > 0) {
+    if (Object.keys(formObj).length > 0) {
       generatePredictiveCompletion();
     }
-  }, [formData, generatePredictiveCompletion]);
+  }, [formObj, generatePredictiveCompletion]);
 
   // Handle field focus
   const handleFieldFocus = useCallback((fieldName: string) => {
@@ -108,13 +106,13 @@ export function useSmartFormAssistant(formData: unknown) {
       // Generate quick validation
       const quickSuggestion =
         militaryConstructionAI.generateSmartFormSuggestions(
-          formData,
+          formObj,
           fieldName,
           value,
         );
       return quickSuggestion.validation;
     },
-    [fieldSuggestions, currentField, formData],
+    [fieldSuggestions, currentField, formObj],
   );
 
   // Get veteran discounts display
@@ -124,13 +122,13 @@ export function useSmartFormAssistant(formData: unknown) {
 
   // Get completion progress
   const getCompletionProgress = useCallback(() => {
-    const completedFields = Object.values(formData).filter(
+    const completedFields = Object.values(formObj).filter(
       (value) => value && typeof value === "string" && value.trim().length > 0,
     ).length;
 
-    const totalFields = Object.keys(formData).length;
+    const totalFields = Object.keys(formObj).length;
     return Math.round((completedFields / totalFields) * 100);
-  }, [formData]);
+  }, [formObj]);
 
   return {
     // State

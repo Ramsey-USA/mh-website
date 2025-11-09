@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { logger } from "@/lib/utils/logger";
 import Image from "next/image";
 import { OptimizedImage } from "@/components/ui/media/OptimizedImage";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
@@ -72,7 +73,7 @@ const InteractiveGallery = ({
           : (currentIndex - 1 + filteredImages.length) % filteredImages.length;
 
       setCurrentIndex(newIndex);
-      setSelectedImage(filteredImages[newIndex]);
+      setSelectedImage(filteredImages[newIndex] ?? null);
       setZoom(1);
       setRotation(0);
     },
@@ -81,13 +82,15 @@ const InteractiveGallery = ({
 
   // Auto-play functionality
   useEffect(() => {
+    let interval: number | undefined;
     if (autoPlay && selectedImage && !isFullscreen) {
-      const interval = setInterval(() => {
+      interval = window.setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % filteredImages.length);
       }, autoPlayInterval);
-
-      return () => clearInterval(interval);
     }
+    return () => {
+      if (interval !== undefined) clearInterval(interval);
+    };
   }, [
     autoPlay,
     selectedImage,
@@ -128,9 +131,9 @@ const InteractiveGallery = ({
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [selectedImage, navigateImage]);
 
-  const openImage = (image: GalleryImage, index: number) => {
+  const openImage = (image: GalleryImage, _index: number) => {
     setSelectedImage(image);
-    setCurrentIndex(index);
+    setCurrentIndex(_index);
     setZoom(1);
     setRotation(0);
 
@@ -182,7 +185,7 @@ const InteractiveGallery = ({
         image_id: image.id,
       });
     } catch (_error) {
-      logger.error("Download failed:", error);
+      logger.error("Download failed:", _error);
     }
   };
 
@@ -191,7 +194,7 @@ const InteractiveGallery = ({
       try {
         await navigator.share({
           title: image.title || image.alt,
-          text: image.description,
+          text: image.description ?? "",
           url: window.location.href,
         });
 
@@ -201,7 +204,7 @@ const InteractiveGallery = ({
           share_method: "native",
         });
       } catch (_error) {
-        logger.error("Share failed:", error);
+        logger.error("Share failed:", _error);
       }
     } else {
       // Fallback to clipboard
@@ -229,9 +232,9 @@ const InteractiveGallery = ({
           className={`group relative overflow-hidden rounded-lg cursor-pointer transform transition-all duration-300 ${
             viewMode === "masonry" ? "break-inside-avoid mb-4" : "aspect-square"
           }`}
-          onClick={() => openImage(image, index)}
+          onClick={() => openImage(image, _index)}
           onKeyDown={(e) =>
-            (e.key === "Enter" || e.key === " ") && openImage(image, index)
+            (e.key === "Enter" || e.key === " ") && openImage(image, _index)
           }
           role="button"
           tabIndex={0}

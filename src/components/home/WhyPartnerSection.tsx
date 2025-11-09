@@ -72,7 +72,7 @@ export function WhyPartnerSection() {
         {/* Core Partnership Values - Mobile optimized 4 Flip Cards */}
         <div className="gap-3 sm:gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {partnershipValues.map((value, _index) => (
-            <div key={index} className="group h-56 sm:h-64 perspective-1000">
+            <div key={_index} className="group h-56 sm:h-64 perspective-1000">
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
                 <div className="absolute inset-0 backface-hidden">

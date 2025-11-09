@@ -62,7 +62,7 @@ export function OptimizedPortfolioCard({
 interface OptimizedGalleryProps {
   images: Array<{ url: string; caption?: string }>;
   activeIndex: number;
-  onImageClick: (index: number) => void;
+  onImageClick: (_index: number) => void;
 }
 
 export function OptimizedGallery({
@@ -90,17 +90,17 @@ export function OptimizedGallery({
         <div className="gap-2 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8">
           {images.map((image, _index) => (
             <div
-              key={index}
+              key={_index}
               className={`relative h-16 sm:h-18 md:h-20 rounded cursor-pointer transition-opacity ${
-                index === activeIndex
+                _index === activeIndex
                   ? "ring-2 ring-primary-500"
                   : "hover:opacity-80"
               }`}
-              onClick={() => onImageClick(index)}
+              onClick={() => onImageClick(_index)}
             >
               <Image
                 src={image.url}
-                alt={image.caption || `Project image ${index + 1}`}
+                alt={image.caption || `Project image ${_index + 1}`}
                 fill
                 className="rounded object-cover"
                 sizes="80px"

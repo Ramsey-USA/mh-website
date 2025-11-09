@@ -1,20 +1,11 @@
 /**
  * MH Construction AI System
- * Main entry point for the modularized AI system
+ * Clean implementation (fixed corrupted previous version).
  */
-
 import { logger } from "@/lib/utils/logger";
-
-// Core AI Engine
 export { CoreAIEngine } from "./core/AIEngine";
-
-// Estimator and Cost Analysis
 export { CostAnalyzer } from "./estimator/CostAnalyzer";
-
-// Veteran-Specific AI
 export { VeteranAI } from "./veteran/VeteranAI";
-
-// Type definitions
 export type {
   ConstructionIntel,
   AIResponse,
@@ -29,7 +20,6 @@ export type {
   TimelineCategory,
 } from "./types";
 
-// Main AI Class - Orchestrates all modules
 import { CoreAIEngine } from "./core/AIEngine";
 import { CostAnalyzer } from "./estimator/CostAnalyzer";
 import { VeteranAI } from "./veteran/VeteranAI";
@@ -38,7 +28,6 @@ import {
   VeteranPersonalizationSystem,
   type VeteranProfile,
 } from "@/lib/veteran";
-import SmartRecommendationEngine from "@/lib/recommendations/SmartRecommendationEngine";
 import {
   cacheAIResponse,
   getCachedAIResponse,
@@ -46,67 +35,49 @@ import {
 } from "@/lib/cache/AIResponseCache";
 
 export class MilitaryConstructionAI {
-  private coreEngine: CoreAIEngine;
-  private costAnalyzer: CostAnalyzer;
-  private veteranAI: VeteranAI;
-  private recommendationEngine: SmartRecommendationEngine;
-  private veteranSystem: VeteranPersonalizationSystem;
-
-  constructor() {
-    this.coreEngine = new CoreAIEngine();
-    this.costAnalyzer = new CostAnalyzer();
-    this.veteranAI = new VeteranAI();
-    this.recommendationEngine = new SmartRecommendationEngine();
-    this.veteranSystem = VeteranPersonalizationSystem.getInstance();
-  }
+  private coreEngine = new CoreAIEngine();
+  private costAnalyzer = new CostAnalyzer();
+  private veteranAI = new VeteranAI();
+  private veteranSystem = VeteranPersonalizationSystem.getInstance();
 
   /**
-   * Main response generation method
+   * Generate AI response with caching + veteran detection
    */
-  generateResponse(userInput: string, context?: unknown): string {
-    // Check cache first
-    const cacheKey = generateCacheKey(userInput, context);
-    const cachedResponse = getCachedAIResponse(cacheKey);
-
-    if (cachedResponse) {
-      return cachedResponse;
-    }
+  generateResponse(
+    userInput: string,
+    context?: Record<string, unknown>,
+  ): string {
+    const cacheKey = generateCacheKey(userInput, context || {});
+    const cached = getCachedAIResponse(cacheKey);
+    if (cached) return cached;
 
     let response: string;
-
-    // Check if this is a veteran-specific query
     if (this.isVeteranQuery(userInput, context)) {
-      const veteranProfile = context?.veteranProfile;
+      const veteranProfile = context?.["veteranProfile"] as
+        | VeteranProfile
+        | undefined;
       response = this.veteranAI.generateVeteranResponse(
         userInput,
         veteranProfile,
         context,
       );
-    }
-    // Check if this is an estimate request
-    else if (this.isEstimateQuery(userInput)) {
+    } else if (this.isEstimateQuery(userInput)) {
       const estimateInput = this.parseEstimateInput(userInput, context);
       const isVeteran =
-        context?.veteranProfile || this.detectVeteranStatus(userInput);
+        Boolean(context?.["veteranProfile"]) ||
+        this.detectVeteranStatus(userInput);
       response = this.costAnalyzer.processEstimate(estimateInput, isVeteran);
-    }
-    // Use core engine for general queries
-    else {
+    } else {
       response = this.coreEngine.generateResponse(userInput, context);
     }
 
-    // Cache the response
     cacheAIResponse(cacheKey, response);
-
     return response;
   }
 
-  /**
-   * Enhanced estimate processing with veteran support
-   */
   async processEnhancedEstimate(
     projectType: string,
-    formData: unknown,
+    formData: Record<string, unknown>,
     sessionId?: string,
   ): Promise<{
     estimate: string;
@@ -115,37 +86,32 @@ export class MilitaryConstructionAI {
     veteranBenefits?: unknown;
   }> {
     try {
-      // Create estimate input
-      const estimateInput: EstimateInput = {
-        projectType,
-        budget: formData.budget,
-        timeline: formData.timeline,
-        location: formData.location,
-        description: formData.message || formData.description,
-      };
+      const estimateInput: EstimateInput = { projectType };
+      const budget = formData["budget"] as string | undefined;
+      const timeline = formData["timeline"] as string | undefined;
+      const location = formData["location"] as string | undefined;
+      const description =
+        (formData["message"] as string) || (formData["description"] as string);
+      if (budget) estimateInput.budget = budget;
+      if (timeline) estimateInput.timeline = timeline;
+      if (location) estimateInput.location = location;
+      if (description) estimateInput.description = description;
 
-      // Check for veteran status
       const isVeteran = sessionId
         ? await this.checkVeteranStatus(sessionId)
         : this.detectVeteranStatus(JSON.stringify(formData));
 
-      // Process estimate
       const estimate = this.costAnalyzer.processEstimate(
         estimateInput,
         isVeteran,
       );
-
-      // Generate lead intelligence
       const leadIntelligence = this.costAnalyzer.generateLeadIntelligence(
-        `${projectType} ${formData.message || ""} ${formData.budget || ""}`,
+        `${projectType} ${(formData["message"] as string) || ""} ${(formData["budget"] as string) || ""}`,
         formData,
       );
 
-      // Get recommendations - simplified for now
       const recommendations: unknown[] = [];
-
-      // Get veteran benefits if applicable
-      let veteranBenefits = undefined;
+      let veteranBenefits: unknown | undefined;
       if (isVeteran && sessionId) {
         veteranBenefits = await this.veteranSystem.processVeteranFormSubmission(
           sessionId,
@@ -154,86 +120,73 @@ export class MilitaryConstructionAI {
         );
       }
 
-      return {
-        estimate,
-        leadIntelligence,
-        recommendations,
-        veteranBenefits,
-      };
+      return { estimate, leadIntelligence, recommendations, veteranBenefits };
     } catch (_error) {
-      logger.error("Enhanced estimate processing error:", error);
-
-      // Fallback to basic estimate
-      const estimateInput: EstimateInput = {
+      logger.error("Enhanced estimate processing _error:", _error);
+      const fallbackInput: EstimateInput = {
         projectType,
         description: "Basic estimate request",
       };
-
       return {
-        estimate: this.costAnalyzer.processEstimate(estimateInput),
+        estimate: this.costAnalyzer.processEstimate(fallbackInput),
         leadIntelligence: { projectType, priority: "standard" },
         recommendations: [],
       };
     }
   }
 
-  /**
-   * Enhanced form processing with veteran personalization
-   */
-  async processEnhancedForm(
+  processEnhancedForm(
     formType: FormType,
-    formData: unknown,
+    formData: Record<string, unknown>,
     sessionId?: string,
   ): Promise<EnhancedFormResult> {
     try {
-      // Process with veteran system if session exists
       if (sessionId) {
         const result = this.veteranSystem.processVeteranFormSubmission(
           sessionId,
           formType,
           formData,
         );
-
-        return {
+        return Promise.resolve({
           response: result.response,
           veteranHandling: result.priorityHandling,
           discounts: result.veteranBenefits,
           nextSteps: result.nextSteps,
-        };
+        });
       }
-
-      // Fallback to standard processing
-      return {
-        response: this.generateResponse(
-          `${formData.name || ""} ${formData.message || ""} ${formData.projectType || ""}`,
-          formData,
-        ),
+      const response = this.generateResponse(
+        `${(formData["name"] as string) || ""} ${(formData["message"] as string) || ""} ${(formData["projectType"] as string) || ""}`,
+        formData,
+      );
+      return Promise.resolve({
+        response,
         nextSteps: [
           "Our team will review your request and contact you within 24 hours",
           "Free consultation will be scheduled",
           "Detailed proposal will be provided",
         ],
-      };
+      });
     } catch (_error) {
-      logger.error("Enhanced form processing error:", error);
-
-      // Fallback to standard processing
-      return {
-        response: this.generateResponse(
-          `${formData.name || ""} ${formData.message || ""} ${formData.projectType || ""}`,
-          formData,
-        ),
+      logger.error("Enhanced form processing _error:", _error);
+      const response = this.generateResponse(
+        `${(formData["name"] as string) || ""} ${(formData["message"] as string) || ""} ${(formData["projectType"] as string) || ""}`,
+        formData,
+      );
+      return Promise.resolve({
+        response,
         nextSteps: [
           "Our team will review your request and contact you within 48 hours",
           "Free consultation will be scheduled",
           "Detailed proposal will be provided",
         ],
-      };
+      });
     }
   }
 
-  // Helper methods
-  private isVeteranQuery(input: string, context?: unknown): boolean {
+  private isVeteranQuery(
+    input: string,
+    context?: Record<string, unknown>,
+  ): boolean {
     const veteranKeywords = [
       "veteran",
       "military",
@@ -243,21 +196,20 @@ export class MilitaryConstructionAI {
       "accessibility",
     ];
     return (
-      veteranKeywords.some((keyword) =>
-        input.toLowerCase().includes(keyword),
-      ) || Boolean(context?.veteranProfile)
+      veteranKeywords.some((k) => input.toLowerCase().includes(k)) ||
+      Boolean(context?.["veteranProfile"])
     );
   }
 
   private isEstimateQuery(input: string): boolean {
     const estimateKeywords = ["estimate", "cost", "price", "budget", "quote"];
-    return estimateKeywords.some((keyword) =>
-      input.toLowerCase().includes(keyword),
-    );
+    return estimateKeywords.some((k) => input.toLowerCase().includes(k));
   }
 
-  private parseEstimateInput(input: string, context?: unknown): EstimateInput {
-    // Extract project type from input
+  private parseEstimateInput(
+    input: string,
+    context?: Record<string, unknown>,
+  ): EstimateInput {
     const projectTypes = [
       "kitchen",
       "bathroom",
@@ -267,20 +219,22 @@ export class MilitaryConstructionAI {
       "commercial",
     ];
     const detectedType =
-      projectTypes.find((type) => input.toLowerCase().includes(type)) ||
-      "general";
-
-    return {
+      projectTypes.find((t) => input.toLowerCase().includes(t)) || "general";
+    const estimateInput: EstimateInput = {
       projectType: detectedType,
-      budget: context?.budget,
-      timeline: context?.timeline,
-      location: context?.location,
       description: input,
     };
+    const budget = context?.["budget"] as string | undefined;
+    const timeline = context?.["timeline"] as string | undefined;
+    const location = context?.["location"] as string | undefined;
+    if (budget) estimateInput.budget = budget;
+    if (timeline) estimateInput.timeline = timeline;
+    if (location) estimateInput.location = location;
+    return estimateInput;
   }
 
   private detectVeteranStatus(input: string): boolean {
-    const veteranIndicators = [
+    const indicators = [
       "veteran",
       "military",
       "army",
@@ -288,29 +242,11 @@ export class MilitaryConstructionAI {
       "marines",
       "air force",
     ];
-    return veteranIndicators.some((indicator) =>
-      input.toLowerCase().includes(indicator),
-    );
+    return indicators.some((i) => input.toLowerCase().includes(i));
   }
 
-  private async checkVeteranStatus(sessionId: string): Promise<boolean> {
-    try {
-      // Simplified check for now - would need to implement session data retrieval
-      return false;
-    } catch {
-      return false;
-    }
-  }
-
-  // Missing methods that are called by existing components
-  getLeadQualificationGuidance(
-    userMessage: string,
-    pageContext?: unknown,
-  ): string {
-    return this.coreEngine.generateResponse(
-      `Provide lead qualification guidance for: ${userMessage}`,
-      pageContext || { type: "lead_qualification" },
-    );
+  private checkVeteranStatus(_sessionId: string): boolean {
+    return false; // placeholder
   }
 
   analyzeVeteranStatus(userMessage: string): {
@@ -321,36 +257,39 @@ export class MilitaryConstructionAI {
     expeditedTimeline?: boolean;
   } {
     const isVeteran = this.detectVeteranStatus(userMessage);
-    return {
+    const base = {
       isVeteran,
       processingProtocol: isVeteran ? "veteran_priority" : "standard",
-      specialAssignment: isVeteran ? "veteran_support" : undefined,
       supportServices: isVeteran
         ? ["VA Benefits", "Military Discount", "Priority Scheduling"]
         : [],
       expeditedTimeline: isVeteran,
+    } as {
+      isVeteran: boolean;
+      processingProtocol?: string;
+      specialAssignment?: string;
+      supportServices?: string[];
+      expeditedTimeline?: boolean;
     };
+    if (isVeteran) base.specialAssignment = "veteran_support";
+    return base;
   }
 
   processVeteranPriority(
-    veteranAnalysis: unknown,
-    context: unknown,
+    _analysis: unknown,
+    context: Record<string, unknown>,
   ): {
     processingProtocol: string;
     specialAssignment: string;
     supportServices: string[];
     expeditedTimeline: boolean;
   } {
-    const message = context.message || "";
-
-    // Check for priority indicators
-    const isUrgent =
-      message.toLowerCase().includes("urgent") ||
-      message.toLowerCase().includes("asap") ||
-      message.toLowerCase().includes("emergency");
-
+    const message = (context["message"] as string) || "";
+    const urgent = ["urgent", "asap", "emergency"].some((w) =>
+      message.toLowerCase().includes(w),
+    );
     return {
-      processingProtocol: isUrgent ? "veteran_urgent" : "veteran_priority",
+      processingProtocol: urgent ? "veteran_urgent" : "veteran_priority",
       specialAssignment: "veteran_support",
       supportServices: [
         "VA Benefits",
@@ -361,31 +300,14 @@ export class MilitaryConstructionAI {
     };
   }
 
-  getContactFormAssistance(userMessage: string, pageContext?: unknown): string {
-    return this.coreEngine.generateResponse(
-      `Provide contact form assistance for: ${userMessage}`,
-      pageContext || { type: "form_assistance" },
-    );
-  }
-
-  getBookingFormAssistance(userMessage: string, pageContext?: unknown): string {
-    return this.coreEngine.generateResponse(
-      `Provide booking form assistance for: ${userMessage}`,
-      pageContext || { type: "booking_assistance" },
-    );
-  }
-
   generateSmartFormSuggestions(
-    formData: unknown,
+    formData: Record<string, unknown>,
     field?: string,
     value?: unknown,
   ): {
     suggestions: string[];
     autoComplete: string;
-    validation: {
-      isValid: boolean;
-      feedback: string;
-    };
+    validation: { isValid: boolean; feedback: string };
     militaryContext: {
       isVeteran: boolean;
       suggestions: string[];
@@ -395,10 +317,8 @@ export class MilitaryConstructionAI {
     const isVeteran = this.detectVeteranStatus(
       JSON.stringify(formData) + (value || ""),
     );
-
     let suggestions: string[] = [];
     let autoComplete = "";
-
     if (field === "projectType") {
       suggestions = ["Residential", "Commercial", "Renovation", "Addition"];
       autoComplete = "Residential";
@@ -406,20 +326,16 @@ export class MilitaryConstructionAI {
       suggestions = ["Under $50k", "$50k-$100k", "$100k-$200k", "Over $200k"];
       autoComplete = "$50k-$100k";
     } else {
-      suggestions = [
-        "Complete all required fields",
-        "Add additional details if helpful",
-      ];
+      suggestions = ["Complete required fields", "Add helpful details"];
       autoComplete = "";
     }
-
     return {
       suggestions,
       autoComplete,
       validation: {
         isValid: true,
         feedback: isVeteran
-          ? "Veteran benefits available for this project"
+          ? "Veteran benefits available"
           : "Standard processing",
       },
       militaryContext: {
@@ -434,14 +350,13 @@ export class MilitaryConstructionAI {
     };
   }
 
-  generatePredictiveCompletion(formData: unknown): {
+  generatePredictiveCompletion(formData: Record<string, unknown>): {
     suggestions: { field: string; value: string; confidence: number }[];
     autoFillRecommendations: string[];
     nextStepGuidance: string;
   } {
-    const projectType = formData.projectType || "residential";
-    const budget = formData.budget || "moderate";
-
+    const projectType = (formData["projectType"] as string) || "residential";
+    const budget = (formData["budget"] as string) || "moderate";
     return {
       suggestions: [
         { field: "timeline", value: "3-6 months", confidence: 0.8 },
@@ -458,5 +373,4 @@ export class MilitaryConstructionAI {
   }
 }
 
-// Export singleton instance
 export const militaryConstructionAI = new MilitaryConstructionAI();

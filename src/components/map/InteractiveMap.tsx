@@ -223,7 +223,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {allLocations.map((location, _index) => (
                 <div
-                  key={index}
+                  key={_index}
                   className={`p-4 rounded-lg border cursor-pointer transition-all hover:shadow-md ${
                     selectedLocation === location
                       ? "border-brand-primary bg-brand-primary/5"
@@ -373,7 +373,7 @@ export const ServiceAreaOverview: React.FC = () => {
   return (
     <div className="gap-6 grid grid-cols-1 md:grid-cols-2">
       {serviceAreas.map((area, _index) => (
-        <Card key={index} className="hover:shadow-lg transition-shadow">
+        <Card key={_index} className="hover:shadow-lg transition-shadow">
           <CardHeader>
             <CardTitle className="flex justify-between items-center">
               <span>

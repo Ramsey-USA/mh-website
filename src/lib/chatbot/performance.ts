@@ -4,13 +4,7 @@ import { logger } from "@/lib/utils/logger";
  * Provides caching, memoization, and performance monitoring for the chatbot
  */
 
-import React, {
-  useMemo,
-  useCallback,
-  useRef,
-  useEffect,
-  useState,
-} from "react";
+import { useMemo, useRef, useEffect, useState } from "react";
 
 // Message cache for storing responses
 class MessageCache {
@@ -152,27 +146,27 @@ export const useMessageFormatter = () => {
               return {
                 type: "header",
                 content: line.replace(/\*\*/g, ""),
-                key: `header-${index}`,
+                key: `header-${_index}`,
               };
             }
             if (line.startsWith("•")) {
               return {
                 type: "list-item",
                 content: line.substring(1).trim(),
-                key: `list-${index}`,
+                key: `list-${_index}`,
               };
             }
             if (line.startsWith("###")) {
               return {
                 type: "subheader",
                 content: line.substring(3).trim(),
-                key: `sub-${index}`,
+                key: `sub-${_index}`,
               };
             }
             return {
               type: "text",
               content: line,
-              key: `text-${index}`,
+              key: `text-${_index}`,
             };
           })
           .filter((item) => item.content.trim() !== "");

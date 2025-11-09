@@ -43,7 +43,7 @@ export function ProjectsStatsSection() {
 
           <div className="gap-8 grid grid-cols-2 md:grid-cols-4 mx-auto max-w-6xl">
             {projectStats.map((stat, _index) => (
-              <HoverScale key={index}>
+              <HoverScale key={_index}>
                 <div className="bg-gradient-to-br from-brand-primary/5 dark:from-brand-primary/10 to-brand-secondary/5 dark:to-brand-secondary/10 hover:shadow-xl dark:hover:shadow-gray-600/50 p-6 border border-brand-primary/20 dark:border-brand-primary/30 rounded-xl text-center transition-all duration-300">
                   <MaterialIcon
                     icon={stat.icon}

@@ -68,7 +68,7 @@ export function CompanyStats() {
           </div>
           <div className="gap-8 grid grid-cols-2 md:grid-cols-4 mx-auto max-w-6xl">
             {companyStats.map((stat, _index) => (
-              <HoverScale key={index}>
+              <HoverScale key={_index}>
                 <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300">
                   <MaterialIcon
                     icon={stat.iconName}

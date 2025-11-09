@@ -1,7 +1,7 @@
 // User profile component for dashboard
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { useAuth } from "@/lib/auth/AuthContext";
 import { Button, Card, CardContent, CardHeader, CardTitle, Input } from "../ui";
 
@@ -46,6 +46,13 @@ export function UserProfile() {
     return null;
   }
 
+  // Guard against loosely-typed user from context
+  // Narrow user shape without resorting to 'any'
+  const userEmail: string | undefined =
+    typeof (user as { email?: unknown }).email === "string"
+      ? (user as { email?: string }).email
+      : undefined;
+
   const roleColors = {
     admin: "bg-red-100 text-red-800",
     team_member: "bg-blue-100 text-blue-800",
@@ -81,14 +88,14 @@ export function UserProfile() {
           <div className="flex items-center space-x-4">
             <div className="flex justify-center items-center bg-brand-primary rounded-full w-16 h-16 font-bold text-white text-xl">
               {userProfile.displayName?.charAt(0) ||
-                user.email?.charAt(0) ||
+                userEmail?.charAt(0) ||
                 "U"}
             </div>
             <div>
               <h3 className="font-semibold text-gray-900 text-lg">
                 {userProfile.displayName || "User"}
               </h3>
-              <p className="text-text-secondary">{user.email}</p>
+              <p className="text-text-secondary">{userEmail || "Unknown"}</p>
               <div className="flex items-center space-x-2 mt-1">
                 <span
                   className={`px-2 py-1 rounded-full text-xs font-medium ${

@@ -224,10 +224,10 @@ export function useChatbotHandlers(props: ChatbotHandlersProps) {
       updateConversationMemory(updatedMemory);
       updateEnhancedContext({ conversationMemory: updatedMemory });
     } catch (_error) {
-      console.error("Chatbot error:", error);
+      console.error("Chatbot _error:", _error);
 
       const errorMessage: ChatMessage = {
-        id: `bot-error-${Date.now()}`,
+        id: `bot-_error-${Date.now()}`,
         type: "bot",
         content:
           "I apologize, but I'm experiencing technical difficulties. Please try refreshing the page or contact us directly at (509) 783-8100.",

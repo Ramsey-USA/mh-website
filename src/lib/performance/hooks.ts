@@ -328,7 +328,7 @@ export function useBundleAnalysis() {
       const result = await performanceManager.analyzeBundleSize();
       setAnalysis(result);
     } catch (_error) {
-      logger.error("Bundle analysis failed:", error);
+      logger.error("Bundle analysis failed:", _error);
     } finally {
       setLoading(false);
     }

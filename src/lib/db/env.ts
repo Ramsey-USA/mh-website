@@ -47,7 +47,7 @@ export function getKVNamespace(binding: string): unknown | null {
     }
     return null;
   } catch (_error) {
-    logger.error("Error getting KV namespace:", { binding, error: _error });
+    logger.error("Error getting KV namespace:", { binding, _error: _error });
     return null;
   }
 }
@@ -66,7 +66,7 @@ export function getR2Bucket(binding: string): unknown | null {
     }
     return null;
   } catch (_error) {
-    logger.error("Error getting R2 bucket:", { binding, error: _error });
+    logger.error("Error getting R2 bucket:", { binding, _error: _error });
     return null;
   }
 }

@@ -124,7 +124,7 @@ export async function securityMiddleware(
 
     return securedResponse;
   } catch (_error) {
-    // Log error and continue with minimal security
+    // Log _error and continue with minimal security
     await auditLogger.logEvent(AuditEventType.ERROR_OCCURRED, {
       source: "middleware",
       ipAddress,
@@ -133,7 +133,7 @@ export async function securityMiddleware(
       details: {
         path: pathname,
         method: request.method,
-        error: _error instanceof Error ? _error.message : "Unknown error",
+        _error: _error instanceof Error ? _error.message : "Unknown _error",
       },
       tags: ["error", "middleware"],
     });
@@ -218,7 +218,7 @@ export function withSecurity<
               {
                 path: pathname,
                 method: request.method,
-                error: "Invalid JSON",
+                _error: "Invalid JSON",
               },
             );
 
@@ -272,7 +272,7 @@ export function withSecurity<
         details: {
           path: pathname,
           method: request.method,
-          error: _error instanceof Error ? _error.message : "Unknown error",
+          _error: _error instanceof Error ? _error.message : "Unknown _error",
         },
         tags: ["error", "api"],
       });

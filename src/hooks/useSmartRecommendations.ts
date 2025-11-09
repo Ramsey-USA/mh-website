@@ -13,6 +13,7 @@ import SmartRecommendationEngine, {
   type RecommendationMetrics,
   type UserBehavior,
   type RecommendationContext,
+  type Experiment,
 } from "@/lib/recommendations/SmartRecommendationEngine";
 import type {
   UserAssignment,
@@ -46,7 +47,7 @@ interface UseSmartRecommendationsReturn {
   clearRecommendations: () => void;
   getExperimentResults: (experimentId: string) => unknown;
   getActiveExperiments: () => unknown[];
-  createExperiment: (experiment: unknown) => unknown;
+  createExperiment: (experiment: Omit<Experiment, "id">) => unknown;
 }
 
 // Singleton instance of the recommendation engine
@@ -294,7 +295,7 @@ export function useSmartRecommendations(
    * Create new experiment
    */
   const createExperiment = useCallback(
-    (experiment: unknown): unknown => {
+    (experiment: Omit<Experiment, "id">): unknown => {
       return engine.createExperiment(experiment);
     },
     [engine],

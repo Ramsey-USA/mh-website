@@ -19,14 +19,18 @@ export function LazyWrapper({
   rootMargin = "50px",
   className = "",
 }: LazyWrapperProps) {
-  const [ref, isIntersecting] = useIntersectionObserver(
+  const [setObservedEl, isIntersecting] = useIntersectionObserver(
     threshold,
     rootMargin,
     true,
   );
 
+  // The hook returns a state setter; assign it to a div via callback ref
   return (
-    <div ref={ref as any} className={className}>
+    <div
+      ref={setObservedEl as React.RefCallback<Element>}
+      className={className}
+    >
       {isIntersecting ? children : fallback}
     </div>
   );
@@ -78,7 +82,7 @@ export function GridSkeleton({
       )} gap-6 ${className}`}
     >
       {Array.from({ length: count }).map((_, _index) => (
-        <div key={index} className="space-y-4">
+        <div key={_index} className="space-y-4">
           <SkeletonLoader height="12rem" />
           <SkeletonLoader height="1.5rem" width="75%" />
           <SkeletonLoader height="1rem" width="50%" />
@@ -100,9 +104,9 @@ export function TextSkeleton({
     <div className={`space-y-2 ${className}`}>
       {Array.from({ length: lines }).map((_, _index) => (
         <SkeletonLoader
-          key={index}
+          key={_index}
           height="1rem"
-          width={index === lines - 1 ? "60%" : "100%"}
+          width={_index === lines - 1 ? "60%" : "100%"}
         />
       ))}
     </div>

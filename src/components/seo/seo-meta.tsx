@@ -1,21 +1,5 @@
 import { type Metadata } from "next";
-
-// SEO configuration interface for type safety
-interface _SEOProps {
-  title?: string;
-  description?: string;
-  keywords?: string[];
-  canonicalUrl?: string;
-  ogImage?: string;
-  ogType?: "website" | "article" | "profile";
-  twitterCard?: "summary" | "summary_large_image" | "app" | "player";
-  publishedTime?: string;
-  modifiedTime?: string;
-  author?: string;
-  noIndex?: boolean;
-  structuredData?: object;
-}
-
+// Removed unused interface _SEOProps to satisfy lint rule
 interface GenerateMetadataProps {
   title?: string;
   description?: string;
@@ -28,7 +12,7 @@ interface GenerateMetadataProps {
 
 const defaultSEO = {
   siteName: "MH Construction",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.mhc-gc.com",
+  siteUrl: process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com",
   defaultTitle:
     "MH Construction - Veteran-Owned Construction Excellence in the Pacific Northwest",
   defaultDescription:
@@ -91,7 +75,7 @@ export function generateSEOMetadata({
     title: pageTitle,
     description: pageDescription,
     keywords: pageKeywords,
-    robots: noIndex ? "noindex,nofollow" : "index,follow",
+    robots: noIndex ? "noindex,nofollow" : "_index,follow",
 
     // Canonical URL
     alternates: {
@@ -256,7 +240,7 @@ export function generateBreadcrumbStructuredData(
     "@type": "BreadcrumbList",
     itemListElement: breadcrumbs.map((crumb, _index) => ({
       "@type": "ListItem",
-      position: index + 1,
+      position: _index + 1,
       name: crumb.name,
       item: crumb.url,
     })),

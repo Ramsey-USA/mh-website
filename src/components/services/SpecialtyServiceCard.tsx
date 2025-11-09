@@ -7,16 +7,11 @@ import type { SpecialtyService } from "./servicesData";
 
 interface SpecialtyServiceCardProps {
   service: SpecialtyService;
-  index: number;
 }
 
-export function SpecialtyServiceCard({
-  service,
-  index,
-}: SpecialtyServiceCardProps) {
+export function SpecialtyServiceCard({ service }: SpecialtyServiceCardProps) {
   return (
     <div
-      key={index}
       className="group perspective h-[450px] cursor-pointer"
       style={{ perspective: "1000px" }}
     >

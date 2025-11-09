@@ -71,9 +71,9 @@ async function handleRefresh(request: NextRequest): Promise<NextResponse> {
       expiresIn: 900, // 15 minutes
     });
   } catch (_error) {
-    logger.error("Token refresh error:", _error);
+    logger.error("Token refresh _error:", _error);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { _error: "Internal server _error" },
       { status: 500 },
     );
   }

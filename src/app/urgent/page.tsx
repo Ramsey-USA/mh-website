@@ -251,7 +251,7 @@ export default function UrgentSupportPage() {
           <StaggeredFadeIn>
             {capabilities.map((item, _index) => (
               <div
-                key={index}
+                key={_index}
                 className="bg-background p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-border mb-8"
               >
                 <div className="flex items-start gap-4">
@@ -302,7 +302,7 @@ export default function UrgentSupportPage() {
             <StaggeredFadeIn>
               {equipmentList.map((equipment, _index) => (
                 <div
-                  key={index}
+                  key={_index}
                   className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:bg-white/20 transition-colors mb-6"
                 >
                   <div className="flex items-start gap-4">
@@ -355,7 +355,7 @@ export default function UrgentSupportPage() {
                 </div>
                 <ul className="space-y-3">
                   {whatWeProvide.map((item, _index) => (
-                    <li key={index} className="flex items-start gap-3">
+                    <li key={_index} className="flex items-start gap-3">
                       <MaterialIcon
                         icon="check"
                         className="text-green-600 dark:text-green-400 flex-shrink-0 mt-1"
@@ -382,7 +382,7 @@ export default function UrgentSupportPage() {
                 </div>
                 <ul className="space-y-3">
                   {whatWeDontDo.map((item, _index) => (
-                    <li key={index} className="flex items-start gap-3">
+                    <li key={_index} className="flex items-start gap-3">
                       <MaterialIcon
                         icon="close"
                         className="text-red-600 dark:text-red-400 flex-shrink-0 mt-1"

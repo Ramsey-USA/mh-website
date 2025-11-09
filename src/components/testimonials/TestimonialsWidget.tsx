@@ -54,8 +54,8 @@ export default function TestimonialsWidget({
     return () => clearInterval(interval);
   }, [isAutoPlaying, featuredTestimonials.length, slideDuration]);
 
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
+  const goToSlide = (_index: number) => {
+    setCurrentIndex(_index);
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(autoSlide), 3000); // Resume auto-play after 3 seconds
   };
@@ -111,7 +111,7 @@ export default function TestimonialsWidget({
                 <div
                   key={testimonial.id}
                   className={`absolute inset-0 transition-opacity duration-500 ${
-                    index === currentIndex ? "opacity-100" : "opacity-0"
+                    _index === currentIndex ? "opacity-100" : "opacity-0"
                   }`}
                 >
                   <TestimonialSlide testimonial={testimonial} />
@@ -145,14 +145,14 @@ export default function TestimonialsWidget({
             <div className="flex justify-center gap-2 mt-8">
               {featuredTestimonials.map((_, _index) => (
                 <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
+                  key={_index}
+                  onClick={() => goToSlide(_index)}
                   className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                    index === currentIndex
+                    _index === currentIndex
                       ? "bg-blue-600 scale-125"
                       : "bg-gray-300 hover:bg-gray-400"
                   }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
+                  aria-label={`Go to testimonial ${_index + 1}`}
                 />
               ))}
             </div>
@@ -220,7 +220,7 @@ function TestimonialSlide({ testimonial }: { testimonial: ClientTestimonial }) {
               key={i}
               icon="star"
               className={`h-6 w-6 ${
-                i < testimonial.rating
+                i < (testimonial.rating ?? 0)
                   ? "fill-yellow-400 text-yellow-400"
                   : "text-gray-300"
               }`}
@@ -295,7 +295,10 @@ function CompactTestimonialsWidget({
     return () => clearInterval(interval);
   }, [testimonials.length]);
 
-  const currentTestimonial = testimonials[currentIndex];
+  if (testimonials.length === 0) {
+    return null;
+  }
+  const currentTestimonial = testimonials[currentIndex] ?? testimonials[0]!;
 
   return (
     <div className="bg-white shadow-sm p-6 border rounded-lg">
@@ -339,9 +342,9 @@ function CompactTestimonialsWidget({
         <div className="flex justify-center gap-1 mt-4">
           {testimonials.map((_, _index) => (
             <div
-              key={index}
+              key={_index}
               className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentIndex ? "bg-blue-600" : "bg-gray-300"
+                _index === currentIndex ? "bg-blue-600" : "bg-gray-300"
               }`}
             />
           ))}

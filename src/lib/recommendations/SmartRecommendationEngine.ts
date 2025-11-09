@@ -14,6 +14,8 @@ import ABTestingFramework, {
   type ExperimentEvent,
   type UserAssignment,
   type Experiment,
+  type ExperimentMetrics,
+  type ExperimentConclusion,
 } from "./ABTestingFramework";
 
 // Core interfaces for the recommendation system
@@ -265,7 +267,8 @@ export class SmartRecommendationEngine {
       }
 
       return rankedRecommendations;
-    } catch (_error) {
+    } catch (err: unknown) {
+      const error = err instanceof Error ? err : new Error(String(err));
       logger.error("Error generating recommendations:", error);
       return this.getFallbackRecommendations(userProfile);
     }
@@ -769,7 +772,7 @@ export class SmartRecommendationEngine {
   /**
    * Create a new A/B test experiment
    */
-  createExperiment(experiment: Omit<Experiment, "id">): unknown {
+  createExperiment(experiment: Omit<Experiment, "id">): Experiment {
     return this.abTestingFramework.createExperiment(experiment);
   }
 
@@ -793,21 +796,24 @@ export class SmartRecommendationEngine {
   /**
    * Get experiment results
    */
-  getExperimentResults(experimentId: string): unknown {
+  getExperimentResults(experimentId: string): ExperimentMetrics[] {
     return this.abTestingFramework.getExperimentResults(experimentId);
   }
 
   /**
    * Get active experiments
    */
-  getActiveExperiments(): unknown[] {
+  getActiveExperiments(): Experiment[] {
     return this.abTestingFramework.getActiveExperiments();
   }
 
   /**
    * Conclude experiment and get results
    */
-  concludeExperiment(experimentId: string, winningVariantId?: string): unknown {
+  concludeExperiment(
+    experimentId: string,
+    winningVariantId?: string,
+  ): ExperimentConclusion | null {
     return this.abTestingFramework.concludeExperiment(
       experimentId,
       winningVariantId,
@@ -970,3 +976,6 @@ export class SmartRecommendationEngine {
 }
 
 export default SmartRecommendationEngine;
+
+// Re-export commonly used A/B testing types for convenience
+export type { Experiment } from "./ABTestingFramework";

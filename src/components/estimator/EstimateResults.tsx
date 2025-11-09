@@ -173,7 +173,7 @@ export function EstimateResults({
                     (item.amount / totalBeforeDiscount) * 100,
                   );
                   return (
-                    <div key={index}>
+                    <div key={_index}>
                       <div className="flex justify-between items-center mb-2">
                         <span className="font-medium">{item.label}</span>
                         <span className="font-semibold">
@@ -233,7 +233,7 @@ export function EstimateResults({
                     <div className="mt-1 ml-2">
                       {projectData.features.map((feature, _index) => (
                         <div
-                          key={index}
+                          key={_index}
                           className="inline-block bg-gray-100 mr-1 mb-1 px-2 py-1 rounded text-xs"
                         >
                           {feature}
@@ -347,11 +347,11 @@ export function EstimateResults({
               },
             ].map((phase, _index) => (
               <div
-                key={index}
+                key={_index}
                 className="bg-gray-50 p-4 rounded-lg text-center"
               >
                 <div className="flex justify-center items-center bg-brand-primary mx-auto mb-2 rounded-full w-8 h-8 font-bold text-white text-sm">
-                  {index + 1}
+                  {_index + 1}
                 </div>
                 <h4 className="mb-1 font-semibold text-brand-primary">
                   {phase.phase}

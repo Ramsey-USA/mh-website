@@ -138,7 +138,7 @@ export default function TeamPage() {
                     >
                       {members.map((member, _index) => (
                         <div
-                          key={`${department}-${member.cardNumber || index}`}
+                          key={`${department}-${member.cardNumber || _index}`}
                           className="transition-none"
                         >
                           <VintageBaseballCard member={member} />

@@ -95,7 +95,7 @@ export function LeadershipTeam() {
         >
           {leadershipTeam.map((member, _index) => (
             <div
-              key={index}
+              key={_index}
               className="group perspective h-[450px] cursor-pointer"
               style={{ perspective: "1000px" }}
             >

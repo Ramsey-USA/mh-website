@@ -111,8 +111,8 @@ export function SimpleProjectCards({
 
       {/* Cards Grid */}
       <StaggeredFadeIn className={gridPresets.cards3Alt("md")}>
-        {displayCards.map((project, _index) => (
-          <Link key={index} href={project.href}>
+        {displayCards.map((project, cardIndex) => (
+          <Link key={cardIndex} href={project.href}>
             <Card
               className={`h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer group ${
                 project.featured

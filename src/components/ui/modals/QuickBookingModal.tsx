@@ -217,13 +217,13 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                     {quickDays.map((day, _index) => (
                       <button
                         key={day.date}
-                        onClick={() => setSelectedDate(day.date)}
+                        onClick={() => day.date && setSelectedDate(day.date)}
                         className={`group relative p-4 border-2 rounded-xl text-center transition-all duration-300 hover:scale-105 animate-in slide-in-from-bottom ${
                           selectedDate === day.date
                             ? "bg-brand-primary border-brand-primary text-white shadow-lg shadow-brand-primary/25 scale-105"
                             : "hover:bg-brand-primary/20 hover:border-brand-primary/50 border-gray-300 dark:border-gray-600 hover:shadow-md bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
                         }`}
-                        style={{ animationDelay: `${index * 50}ms` }}
+                        style={{ animationDelay: `${_index * 50}ms` }}
                         aria-label={`Select ${day.fullDate}`}
                       >
                         {selectedDate === day.date && (
@@ -267,7 +267,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                               ? "bg-brand-primary border-brand-primary text-white shadow-lg shadow-brand-primary/25 scale-105"
                               : "hover:bg-brand-primary/20 hover:border-brand-primary/50 border-gray-300 dark:border-gray-600 hover:shadow-md bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
                           }`}
-                          style={{ animationDelay: `${index * 50}ms` }}
+                          style={{ animationDelay: `${_index * 50}ms` }}
                           aria-label={`Select ${time}`}
                         >
                           {selectedTime === time && (

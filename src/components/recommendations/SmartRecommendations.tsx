@@ -257,7 +257,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
               <ul className="space-y-1">
                 {recommendation.reasoning.slice(0, 3).map((reason, _index) => (
                   <li
-                    key={index}
+                    key={_index}
                     className="flex items-start text-gray-600 text-sm"
                   >
                     <MaterialIcon
@@ -287,7 +287,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
                 </h4>
                 <div className="space-y-2">
                   {recommendation.veteranBenefits.map((benefit, _index) => (
-                    <VeteranBenefitDisplay key={index} benefit={benefit} />
+                    <VeteranBenefitDisplay key={_index} benefit={benefit} />
                   ))}
                 </div>
               </div>
@@ -299,7 +299,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
               <div className="flex flex-wrap gap-2">
                 {recommendation.tags.slice(0, 4).map((tag, _index) => (
                   <span
-                    key={index}
+                    key={_index}
                     className="bg-gray-100 px-2 py-1 rounded-full text-gray-700 text-xs"
                   >
                     {tag}
@@ -389,8 +389,12 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
   className = "",
 }) => {
   const [showAll, setShowAll] = useState(false);
-  const { recommendations, isLoading, _error, generateRecommendations } =
-    useSmartRecommendations({ maxRecommendations });
+  const {
+    recommendations,
+    isLoading,
+    error: recommendationsError,
+    generateRecommendations,
+  } = useSmartRecommendations({ maxRecommendations });
 
   const { trackView, trackClick } = useRecommendationTracking(userProfile?.id);
 
@@ -422,13 +426,13 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
     );
   }
 
-  if (error) {
+  if (recommendationsError) {
     return (
       <div className={`${className}`}>
         <div className="py-8 text-center">
           <MaterialIcon icon="error" className="mb-4 text-red-500" size="2xl" />
           <p className="mb-2 text-red-600">Failed to load recommendations</p>
-          <p className="text-gray-500 text-sm">{error}</p>
+          <p className="text-gray-500 text-sm">{recommendationsError}</p>
         </div>
       </div>
     );
@@ -503,7 +507,7 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: _index * 0.1 }}
             >
               <RecommendationCard
                 recommendation={recommendation}
@@ -530,7 +534,9 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
           </p>
           <div className="flex justify-center space-x-4">
             <button
-              onClick={() => onGetEstimate(recommendations[0])}
+              onClick={() =>
+                recommendations[0] && onGetEstimate(recommendations[0])
+              }
               className="flex items-center space-x-2 bg-[#BD9264] hover:bg-[#A67B4F] px-6 py-3 rounded-lg font-semibold text-white transition-colors duration-200"
             >
               <MaterialIcon icon="smart_toy" size="sm" />

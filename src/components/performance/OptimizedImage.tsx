@@ -15,11 +15,11 @@ import { cn } from "@/lib/utils";
 interface OptimizedImageProps {
   src: string;
   alt: string;
-  width?: number;
-  height?: number;
+  width?: number | `${number}`;
+  height?: number | `${number}`;
   className?: string;
   priority?: boolean;
-  quality?: number;
+  quality?: number | `${number}`;
   sizes?: string;
   fill?: boolean;
   placeholder?: "blur" | "empty";
@@ -58,8 +58,6 @@ export function OptimizedImage({
   rootMargin = "50px",
   threshold = 0.1,
   breakpoints,
-  widths = [320, 640, 768, 1024, 1280, 1536],
-  ..._props
 }: OptimizedImageProps & React.ImgHTMLAttributes<HTMLImageElement>) {
   const [imageError, setImageError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -92,7 +90,7 @@ export function OptimizedImage({
   });
 
   // Generate responsive image attributes
-  const _srcSet = ImageOptimizer.generateSrcSet(src, widths);
+  // srcSet generation skipped (Next/Image handles responsive sources).
   const imageSizes =
     sizes ||
     (breakpoints
@@ -178,17 +176,29 @@ export function OptimizedImage({
     );
   }
 
+  const imageSizeProps: Partial<{
+    width: number | `${number}`;
+    height: number | `${number}`;
+  }> = {};
+  if (!fill) {
+    imageSizeProps.width = (width !== undefined ? width : 500) as
+      | number
+      | `${number}`;
+    imageSizeProps.height = (height !== undefined ? height : 300) as
+      | number
+      | `${number}`;
+  }
+
   const imageElement = (
     <Image
       src={!lazy || priority || inView ? optimizedSrc : src}
       alt={alt}
-      width={!fill ? width || 500 : undefined}
-      height={!fill ? height || 300 : undefined}
+      {...imageSizeProps}
       sizes={!lazy || priority || inView ? imageSizes : undefined}
       priority={priority}
       quality={quality}
       placeholder={placeholder}
-      blurDataURL={blurDataURL}
+      blurDataURL={blurDataURL ?? (undefined as unknown as string)}
       fill={fill}
       className={cn(
         "transition-opacity duration-300",

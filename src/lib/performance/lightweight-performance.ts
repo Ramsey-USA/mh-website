@@ -11,11 +11,7 @@ interface CoreMetric {
   timestamp: number;
 }
 
-interface SimpleCache<T> {
-  get(key: string): T | null;
-  set(key: string, value: T, ttl?: number): void;
-  clear(): void;
-}
+// Note: Removed unused SimpleCache interface to keep the module minimal and lint-clean
 
 class LightweightPerformanceManager {
   private metrics: CoreMetric[] = [];
@@ -73,7 +69,7 @@ class LightweightPerformanceManager {
     try {
       lcpObserver.observe({ entryTypes: ["largest-contentful-paint"] });
       this.observers.push(lcpObserver);
-    } catch (e) {
+    } catch (_e) {
       // Silently fail if not supported
     }
 
@@ -88,7 +84,7 @@ class LightweightPerformanceManager {
     try {
       fidObserver.observe({ entryTypes: ["first-input"] });
       this.observers.push(fidObserver);
-    } catch (e) {
+    } catch (_e) {
       // Silently fail if not supported
     }
   }
@@ -131,7 +127,7 @@ export function usePerformanceTiming(componentName: string) {
 export function useOptimizedQuery<T>(
   key: string,
   queryFn: () => Promise<T>,
-  ttl = 300000
+  ttl = 300000,
 ) {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(false);

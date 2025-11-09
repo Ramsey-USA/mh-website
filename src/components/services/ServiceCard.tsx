@@ -7,10 +7,9 @@ import type { CoreService } from "./servicesData";
 
 interface ServiceCardProps {
   service: CoreService;
-  index: number;
 }
 
-export function ServiceCard({ service, index }: ServiceCardProps) {
+export function ServiceCard({ service }: ServiceCardProps) {
   const cardId = service.title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
@@ -18,7 +17,6 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
 
   return (
     <div
-      key={index}
       id={cardId}
       className="group perspective h-[500px] cursor-pointer"
       style={{ perspective: "1000px" }}

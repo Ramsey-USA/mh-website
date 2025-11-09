@@ -20,10 +20,10 @@ import {
   usePerformanceTiming,
   useMemoryMonitoring,
   OptimizedImage,
-  createDynamicImport,
   performanceManager,
   cleanupPerformance,
 } from "./index";
+import type { PerformanceMetric } from "./performance-manager";
 
 // Example 1: Initialize performance monitoring in your app
 export function initializeAppPerformance() {
@@ -93,8 +93,8 @@ export async function fetchUserData(userId: string) {
 
     return userData;
   } catch (_error) {
-    logger.error("Failed to fetch user data:", error);
-    throw error;
+    logger.error("Failed to fetch user data:", _error);
+    throw _error;
   }
 }
 
@@ -107,8 +107,27 @@ const LazyHeavyComponent = () => (
 );
 
 // Example 6: Page component with performance monitoring
+interface DemoUser {
+  id: string;
+  name: string;
+  avatar: string;
+}
+
+function isDemoUser(value: unknown): value is DemoUser {
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    "id" in value &&
+    "name" in value &&
+    "avatar" in value &&
+    typeof (value as { id: unknown }).id === "string" &&
+    typeof (value as { name: unknown }).name === "string" &&
+    typeof (value as { avatar: unknown }).avatar === "string"
+  );
+}
+
 export function OptimizedPage() {
-  const [users, setUsers] = useState<unknown[]>([]);
+  const [users, setUsers] = useState<DemoUser[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -120,7 +139,8 @@ export function OptimizedPage() {
       fetchUserData("2"),
       fetchUserData("3"),
     ]).then((userData) => {
-      setUsers(userData);
+      const normalized = userData.filter(isDemoUser);
+      setUsers(normalized);
       setLoading(false);
 
       // Record page load time
@@ -144,7 +164,7 @@ export function OptimizedPage() {
 
       {/* Optimized images */}
       <div className="grid grid-cols-3 gap-4">
-        {users.map((user: unknown) => (
+        {users.map((user) => (
           <div key={user.id}>
             <OptimizedImage
               src={user.avatar}
@@ -171,13 +191,13 @@ export function OptimizedPage() {
 
 // Example 7: Performance monitoring hook
 export function usePagePerformance(pageName: string) {
-  const [metrics, setMetrics] = useState<unknown[]>([]);
+  const [metrics, setMetrics] = useState<PerformanceMetric[]>([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       const pageMetrics = performanceManager
         .getMetrics("timing", 10)
-        .filter((metric) => metric.metadata?.page === pageName);
+        .filter((metric) => metric.metadata?.["page"] === pageName);
       setMetrics(pageMetrics);
     }, 5000);
 
@@ -198,16 +218,16 @@ export class PerformanceErrorBoundary extends Component<
   { children: ReactNode; componentName: string },
   { hasError: boolean }
 > {
-  constructor(props: unknown) {
+  constructor(props: { children: ReactNode; componentName: string }) {
     super(props);
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error: Error) {
+  static getDerivedStateFromError(_error: Error) {
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+  override componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     // Track the error
     performanceManager.recordMetric({
       type: "interaction",
@@ -223,7 +243,7 @@ export class PerformanceErrorBoundary extends Component<
     });
   }
 
-  render() {
+  override render() {
     if (this.state.hasError) {
       return (
         <div className="p-4 border border-red-200 rounded">

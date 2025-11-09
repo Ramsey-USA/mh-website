@@ -17,18 +17,23 @@ export function generateCalendarDays(): CalendarDay[] {
     date.setDate(today.getDate() + i);
 
     // Skip weekends for business consultations
-    if (date.getDay() !== 0 && date.getDay() !== 6) {
-      days.push({
-        date: date.toISOString().split("T")[0],
-        displayDate: date.getDate(),
-        dayName: date.toLocaleDateString("en-US", { weekday: "short" }),
-        fullDate: date.toLocaleDateString("en-US", {
-          weekday: "long",
-          month: "long",
-          day: "numeric",
-        }),
-      });
+    const dayOfWeek = date.getDay();
+    if (dayOfWeek === 0 || dayOfWeek === 6) {
+      continue; // skip weekends
     }
+    const iso = date.toISOString();
+    const [isoDate] = iso.split("T");
+    const datePart = isoDate || iso; // always a string
+    days.push({
+      date: datePart,
+      displayDate: date.getDate(),
+      dayName: date.toLocaleDateString("en-US", { weekday: "short" }),
+      fullDate: date.toLocaleDateString("en-US", {
+        weekday: "long",
+        month: "long",
+        day: "numeric",
+      }),
+    });
   }
   return days;
 }
@@ -37,16 +42,24 @@ export function generateCalendarDays(): CalendarDay[] {
  * Convert 12-hour time format to 24-hour format
  */
 export function convertTo24Hour(time12h: string): string {
-  const [time, modifier] = time12h.split(" ");
-  const [hoursStr, minutes] = time.split(":");
+  if (!time12h || typeof time12h !== "string") {
+    return "00:00:00";
+  }
+  const parts = time12h.trim().split(" ");
+  if (parts.length < 1) return "00:00:00";
+  const time = parts[0] ?? "00:00";
+  const modifier = parts[1] || "AM";
+  const timeSegments = time.split(":");
+  const hoursStr = timeSegments[0] || "00";
+  const minutes = timeSegments[1] || "00";
   let hours = hoursStr;
 
   if (hours === "12") {
     hours = "00";
   }
-  if (modifier === "PM") {
-    hours = (parseInt(hours, 10) + 12).toString();
+  if (modifier.toUpperCase() === "PM" && hours !== "00") {
+    hours = (parseInt(hours, 10) + 12).toString().padStart(2, "0");
   }
 
-  return `${hours}:${minutes || "00"}:00`;
+  return `${hours}:${minutes}:00`;
 }

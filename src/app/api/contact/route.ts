@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
       try {
         const resend = new Resend(process.env["RESEND_API_KEY"]);
 
-        const { data: emailResult, _error } = await resend.emails.send({
+        const { data: emailResult, error } = await resend.emails.send({
           from: emailData.from,
           to: emailData.to,
           subject: emailData.subject,
@@ -95,8 +95,8 @@ export async function POST(request: NextRequest) {
           });
         }
       } catch (_error) {
-        logger.error("Error sending email with Resend:", error);
-        emailError = error;
+        logger.error("Error sending email with Resend:", _error);
+        emailError = _error;
       }
     } else {
       // No API key configured - log warning
@@ -198,9 +198,9 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (_error) {
-    logger.error("Error processing contact form:", error);
+    logger.error("Error processing contact form:", _error);
     return NextResponse.json(
-      { error: "Failed to process contact form submission" },
+      { _error: "Failed to process contact form submission" },
       { status: 500 },
     );
   }
@@ -379,9 +379,9 @@ export async function GET() {
       message: "D1 database not available in this environment",
     });
   } catch (_error) {
-    logger.error("Error fetching contact submissions:", error);
+    logger.error("Error fetching contact submissions:", _error);
     return NextResponse.json(
-      { error: "Failed to fetch contact submissions" },
+      { _error: "Failed to fetch contact submissions" },
       { status: 500 },
     );
   }

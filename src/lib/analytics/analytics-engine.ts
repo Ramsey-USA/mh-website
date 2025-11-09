@@ -25,7 +25,7 @@ export class AdvancedAnalyticsEngine {
   private collector: DataCollector;
   private calculator: MetricsCalculator;
   private isInitialized = false;
-  private analytics: unknown = null; // Google Analytics instance
+  private analytics: ((...args: unknown[]) => void) | null = null; // Google Analytics instance
   private customTrackers: Map<string, (event: AnalyticsEvent) => void> =
     new Map();
 
@@ -57,7 +57,7 @@ export class AdvancedAnalyticsEngine {
       this.isInitialized = true;
       logger.log("Advanced Analytics Engine initialized successfully");
     } catch (_error) {
-      logger.error("Failed to initialize Analytics Engine:", error);
+      logger.error("Failed to initialize Analytics Engine:", _error);
     }
   }
 
@@ -213,10 +213,10 @@ export class AdvancedAnalyticsEngine {
 
   // Private methods for dashboard data generation
 
-  private async getOverviewMetrics(
+  private getOverviewMetrics(
     events: AnalyticsEvent[],
     sessions: UserJourney[],
-  ): Promise<OverviewMetrics> {
+  ): OverviewMetrics {
     const totalUsers = this.calculator.countUniqueUsers(events);
     const totalConversions = this.calculator.countTotalConversions(sessions);
 
@@ -240,10 +240,10 @@ export class AdvancedAnalyticsEngine {
     };
   }
 
-  private async getUserBehaviorMetrics(
+  private getUserBehaviorMetrics(
     events: AnalyticsEvent[],
-    sessions: UserJourney[],
-  ): Promise<UserBehaviorMetrics> {
+    _sessions: UserJourney[],
+  ): UserBehaviorMetrics {
     return {
       userFlows: [],
       popularFeatures: [],
@@ -263,20 +263,20 @@ export class AdvancedAnalyticsEngine {
         topRecommendations: [],
       },
       deviceBreakdown: {
-        desktop: events.filter((e) => e.metadata.device.type === "desktop")
+        desktop: events.filter((e) => e.metadata.device["type"] === "desktop")
           .length,
-        tablet: events.filter((e) => e.metadata.device.type === "tablet")
+        tablet: events.filter((e) => e.metadata.device["type"] === "tablet")
           .length,
-        mobile: events.filter((e) => e.metadata.device.type === "mobile")
+        mobile: events.filter((e) => e.metadata.device["type"] === "mobile")
           .length,
       },
       geographicDistribution: [],
     };
   }
 
-  private async getPerformanceAnalytics(
+  private getPerformanceAnalytics(
     events: AnalyticsEvent[],
-  ): Promise<PerformanceAnalytics> {
+  ): PerformanceAnalytics {
     return {
       coreWebVitals: this.calculator.calculateCoreWebVitals(events),
       pageLoadTimes: [],
@@ -297,10 +297,10 @@ export class AdvancedAnalyticsEngine {
     };
   }
 
-  private async getConversionAnalytics(
+  private getConversionAnalytics(
     events: AnalyticsEvent[],
-    sessions: UserJourney[],
-  ): Promise<ConversionAnalytics> {
+    _sessions: UserJourney[],
+  ): ConversionAnalytics {
     return {
       funnelAnalysis: [],
       conversionsBySource: [],
@@ -316,10 +316,10 @@ export class AdvancedAnalyticsEngine {
     };
   }
 
-  private async getVeteranAnalytics(
+  private getVeteranAnalytics(
     events: AnalyticsEvent[],
-    sessions: UserJourney[],
-  ): Promise<VeteranAnalytics> {
+    _sessions: UserJourney[],
+  ): VeteranAnalytics {
     return {
       veteranUsers: this.calculator.countVeteranUsers(events),
       branchDistribution: [],
@@ -337,10 +337,10 @@ export class AdvancedAnalyticsEngine {
     };
   }
 
-  private async getRealTimeMetrics(
+  private getRealTimeMetrics(
     events: AnalyticsEvent[],
     sessions: UserJourney[],
-  ): Promise<RealTimeMetrics> {
+  ): RealTimeMetrics {
     const activeSessions = this.calculator.getActiveSessions(sessions, 30);
     const recentEvents = events.slice(-100);
 
@@ -348,7 +348,7 @@ export class AdvancedAnalyticsEngine {
       activeUsers: activeSessions.length,
       currentSessions: activeSessions.map((s) => ({
         sessionId: s.sessionId,
-        userId: s.userId,
+        userId: s.userId ?? "",
         startTime: s.startTime,
         currentPage: s.pages[s.pages.length - 1] || "/",
         eventCount: s.events.length,
@@ -366,11 +366,17 @@ export class AdvancedAnalyticsEngine {
 
   // Setup methods
 
-  private async initializeGA4(): Promise<void> {
+  private initializeGA4(): void {
     // Initialize Google Analytics 4 (placeholder)
-    if (typeof window !== "undefined" && (window as any).gtag) {
-      this.analytics = (window as any).gtag;
-      logger.log("Google Analytics 4 initialized");
+    if (typeof window !== "undefined") {
+      interface GAWindow {
+        gtag?: (...args: unknown[]) => void;
+      }
+      const w = window as unknown as GAWindow;
+      if (typeof w.gtag === "function") {
+        this.analytics = w.gtag;
+        logger.log("Google Analytics 4 initialized");
+      }
     }
   }
 
@@ -384,24 +390,31 @@ export class AdvancedAnalyticsEngine {
         const lcpObserver = new PerformanceObserver((list) => {
           const entries = list.getEntries();
           const lastEntry = entries[entries.length - 1];
+          if (!lastEntry) return;
           this.trackPerformance({
-            largestContentfulPaint: lastEntry.startTime,
-          } as any);
+            largestContentfulPaint: (lastEntry as PerformanceEntry).startTime,
+          });
         });
         lcpObserver.observe({ entryTypes: ["largest-contentful-paint"] });
 
         // Observe FID
         const fidObserver = new PerformanceObserver((list) => {
           const entries = list.getEntries();
-          entries.forEach((entry: unknown) => {
-            this.trackPerformance({
-              firstInputDelay: entry.processingStart - entry.startTime,
-            } as any);
+          entries.forEach((entry) => {
+            const e = entry as PerformanceEntry & { processingStart?: number };
+            if (
+              typeof e.startTime === "number" &&
+              typeof e.processingStart === "number"
+            ) {
+              this.trackPerformance({
+                firstInputDelay: e.processingStart - e.startTime,
+              });
+            }
           });
         });
         fidObserver.observe({ entryTypes: ["first-input"] });
       } catch (_error) {
-        logger.error("Performance tracking setup failed:", error);
+        logger.error("Performance tracking setup failed:", _error);
       }
     }
   }
@@ -457,7 +470,7 @@ export class AdvancedAnalyticsEngine {
           ...event.properties,
         });
       } catch (_error) {
-        logger.error("Failed to send to Google Analytics:", error);
+        logger.error("Failed to send to Google Analytics:", _error);
       }
     }
   }
@@ -467,7 +480,7 @@ export class AdvancedAnalyticsEngine {
       try {
         tracker(event);
       } catch (_error) {
-        logger.error(`Custom tracker "${name}" failed:`, error);
+        logger.error(`Custom tracker "${name}" failed:`, _error);
       }
     });
   }

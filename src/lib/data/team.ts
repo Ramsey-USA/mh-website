@@ -250,5 +250,5 @@ export const teamMembers: TeamMember[] = [
 ];
 
 export function getActiveTeam(): TeamMember[] {
-  return teamMembers.filter((m) => m.active);
+  return teamMembers.filter((m: any) => m.active);
 }

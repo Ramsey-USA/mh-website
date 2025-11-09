@@ -104,16 +104,7 @@ export async function handleFormSubmission<T = unknown>(
           ? (formData["name"] as string)
           : `${typeof formData["firstName"] === "string" ? (formData["firstName"] as string) : ""} ${typeof formData["lastName"] === "string" ? (formData["lastName"] as string) : ""}`.trim();
 
-      const emailPayload = {
-        name: name || undefined,
-        email:
-          typeof formData["email"] === "string"
-            ? (formData["email"] as string)
-            : undefined,
-        phone:
-          typeof formData["phone"] === "string"
-            ? (formData["phone"] as string)
-            : undefined,
+      const emailPayload: Record<string, unknown> = {
         subject: emailSubject,
         message: emailMessage,
         type: config.submissionType.toLowerCase().replace(/\s+/g, "-"),
@@ -122,7 +113,14 @@ export async function handleFormSubmission<T = unknown>(
           submissionId,
           submissionType: config.submissionType,
         },
-      } as Record<string, unknown>;
+        ...(name ? { name } : {}),
+        ...(typeof formData["email"] === "string"
+          ? { email: formData["email"] }
+          : {}),
+        ...(typeof formData["phone"] === "string"
+          ? { phone: formData["phone"] }
+          : {}),
+      };
 
       const emailResponse = await fetch(
         `${request.nextUrl.origin}/api/contact`,
@@ -199,9 +197,9 @@ export async function handleFormRetrieval(
       message: "D1 database not available in this environment",
     });
   } catch (_error) {
-    const err = _error as unknown;
-    const error = err instanceof Error ? err : new Error(String(err));
-    logger.error(`Error fetching from ${tableName}:`, error);
+    const normalizedError =
+      _error instanceof Error ? _error : new Error(String(_error));
+    logger.error(`Error fetching from ${tableName}:`, normalizedError);
     return NextResponse.json(
       { error: `Failed to fetch submissions` },
       { status: 500 },

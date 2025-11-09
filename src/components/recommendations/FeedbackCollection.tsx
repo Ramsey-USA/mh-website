@@ -69,9 +69,10 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
-  const { recordFeedback, trackExperimentEvent } = useSmartRecommendations({
-    userId,
-  });
+  // Pass userId only if defined to satisfy exactOptionalPropertyTypes
+  const { recordFeedback, trackExperimentEvent } = useSmartRecommendations(
+    userId ? { userId } : {},
+  );
 
   const handleSubmit = useCallback(
     async (data?: FeedbackFormData) => {
@@ -87,8 +88,9 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
           rating: feedbackData.rating,
           clicked: feedbackData.clicked,
           converted: feedbackData.converted,
-          feedback: feedbackData.feedback || undefined,
           timestamp: new Date(),
+          // Include optional feedback only when present to satisfy exactOptionalPropertyTypes
+          ...(feedbackData.feedback ? { feedback: feedbackData.feedback } : {}),
         };
 
         // Record feedback through hook
@@ -119,7 +121,7 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
           });
         }
       } catch (_error) {
-        logger.error("Error submitting feedback:", error);
+        logger.error("Error submitting feedback:", _error);
       } finally {
         setIsSubmitting(false);
       }
@@ -374,9 +376,9 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
  * Hook for enhanced feedback collection
  */
 export function useFeedbackCollection(userId?: string) {
-  const { recordFeedback, trackExperimentEvent } = useSmartRecommendations({
-    userId,
-  });
+  const { recordFeedback, trackExperimentEvent } = useSmartRecommendations(
+    userId ? { userId } : {},
+  );
   const [feedbackHistory, setFeedbackHistory] = useState<
     RecommendationFeedback[]
   >([]);
@@ -393,8 +395,10 @@ export function useFeedbackCollection(userId?: string) {
         rating,
         clicked: additionalData?.clicked || false,
         converted: additionalData?.converted || false,
-        feedback: additionalData?.feedback,
         timestamp: new Date(),
+        ...(additionalData?.feedback
+          ? { feedback: additionalData.feedback }
+          : {}),
       };
 
       recordFeedback(feedback);

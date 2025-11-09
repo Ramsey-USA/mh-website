@@ -211,14 +211,14 @@ export class EnhancedChatbotAI {
   }
 
   private generateServicesPageResponse(
-    message: string,
-    context: EnhancedChatbotContext,
+    _message: string,
+    _context: EnhancedChatbotContext,
   ): string {
     return `**[SERVICE CAPABILITIES BRIEF]** 🔧\n\nReporting operational capabilities! Here's what this construction unit offers:\n\n**RESIDENTIAL OPERATIONS:**\n• Custom home construction missions\n• Kitchen & bathroom tactical remodels\n• Home additions & strategic renovations\n• Deck & outdoor living space deployments\n\n**COMMERCIAL MISSIONS:**\n• Office building construction operations\n• Retail space development campaigns\n• Industrial facility builds\n• Tenant improvement missions\n\n**SPECIALIZED OPERATIONS:**\n• Veteran-owned business priority protocols\n• Energy-efficient construction missions\n• Sustainable building tactical approaches\n• Emergency repair rapid response\n\n**Ready for a service briefing or Cost Reconnaissance Mission?**`;
   }
 
   private generateProjectsPageResponse(
-    message: string,
+    _message: string,
     context: EnhancedChatbotContext,
   ): string {
     let response = `**[MISSION PORTFOLIO RECONNAISSANCE]** 📸\n\n`;
@@ -245,29 +245,29 @@ export class EnhancedChatbotAI {
   }
 
   private generateTeamPageResponse(
-    message: string,
-    context: EnhancedChatbotContext,
+    _message: string,
+    _context: EnhancedChatbotContext,
   ): string {
     return `**[COMMAND PERSONNEL DIRECTORY]** 👥\n\n**Meet the elite construction force behind MH Construction!**\n\n**COMMAND STRUCTURE:**\n• **General Staff** - Strategic planning & mission operations\n• **Project Officers** - Mission coordination & tactical execution\n• **Skilled Combat Engineers** - Precision construction operations\n• **Support Battalion** - Administrative & customer intelligence\n\n**VETERAN REPRESENTATION:**\nMany command personnel are fellow veterans who understand:\n• Military precision and attention to detail\n• Mission-critical deadlines and budgets\n• Superior communication protocols\n• Honor, integrity, and service excellence\n\n**Request specific personnel briefings or command structure intel?**`;
   }
 
   private generateContactPageResponse(
-    message: string,
-    context: EnhancedChatbotContext,
+    _message: string,
+    _context: EnhancedChatbotContext,
   ): string {
     return `**[COMMUNICATION PROTOCOLS]** 📞\n\n**Ready to establish command contact!** Here are communication channels:\n\n**IMMEDIATE TACTICAL CONTACT:**\n• **Primary Line:** (509) 308-6489\n• **Intel Email:** info@mhconstruction.com\n• **Operations Hours:** Mon-Fri, 0800-1700 PST\n\n**RESPONSE PROTOCOL TIMELINES:**\n• **Standard intel requests:** Within 24 hours\n• **Veteran priority comms:** Within 12 hours\n• **Emergency operations:** Same day deployment\n\n**CONSULTATION MISSION OPTIONS:**\n• Free on-site tactical assessments\n• Virtual operation planning sessions\n• Phone-based mission briefings\n• Command post office meetings\n\n**Ready to deploy contact form or need communication assistance?**`;
   }
 
   private generateBookingPageResponse(
-    message: string,
-    context: EnhancedChatbotContext,
+    _message: string,
+    _context: EnhancedChatbotContext,
   ): string {
     return `**[MISSION SCHEDULING OPERATIONS]** 📅\n\n**I'm here to coordinate your tactical consultation deployment!**\n\n**CONSULTATION MISSION PROTOCOL:**\n1. **Select operational date & time coordinates**\n2. **Brief mission objectives and intel requirements**\n3. **Confirm deployment schedule**\n\n**AVAILABLE OPERATION WINDOWS:**\n• Morning missions: 0800-1200 hours\n• Afternoon operations: 1300-1700 hours\n• Flexible scheduling for priority missions\n\n**MISSION BRIEFING EXPECTATIONS:**\n• 60-minute comprehensive tactical review\n• On-site reconnaissance (if applicable)\n• Preliminary timeline & budget intelligence\n• Next phase mission planning\n\n**VETERAN PRIORITY:** Expedited scheduling for service members\n\n**Need assistance with deployment coordination?**`;
   }
 
   private generateGeneralPageResponse(
-    message: string,
-    context: EnhancedChatbotContext,
+    _message: string,
+    _context: EnhancedChatbotContext,
   ): string {
     return `**[GENERAL TACTICAL ASSISTANCE]** 🏗️\n\n**General MH reporting!** I can provide intelligence on:\n\n• **Navigate** you to optimal mission objectives\n• **Brief** on service capabilities and operations\n• **Reconnaissance** for specific projects or personnel\n• **Assist** with forms and consultation deployment\n• **Intel** on veteran benefits and priority protocols\n\n**What specific intelligence can I provide for your construction mission?**`;
   }
@@ -334,7 +334,7 @@ export class EnhancedChatbotAI {
 
   private generateVeteranResponse(
     message: string,
-    context: EnhancedChatbotContext,
+    _context: EnhancedChatbotContext,
   ): string {
     const branch = this.detectServiceBranch(message);
     let greeting = "";
@@ -490,8 +490,8 @@ export class EnhancedChatbotAI {
   }
 
   private generateGeneralResponse(
-    message: string,
-    context: EnhancedChatbotContext,
+    _message: string,
+    _context: EnhancedChatbotContext,
     conversationHistory: unknown[],
   ): string {
     // Analyze conversation history for better context
@@ -533,12 +533,12 @@ export class EnhancedChatbotAI {
       veterans: ["veteran", "military", "service"],
     };
 
-    conversationHistory.forEach((message) => {
-      if (message.type === "user") {
+    conversationHistory.forEach((msg) => {
+      if (this.isChatMessage(msg) && msg.type === "user") {
         Object.entries(topicKeywords).forEach(([topic, keywords]) => {
           if (
             keywords.some((keyword) =>
-              message.content.toLowerCase().includes(keyword),
+              msg.content.toLowerCase().includes(keyword),
             ) &&
             !topics.includes(topic)
           ) {
@@ -549,6 +549,18 @@ export class EnhancedChatbotAI {
     });
 
     return topics;
+  }
+
+  private isChatMessage(
+    value: unknown,
+  ): value is { type: string; content: string } {
+    return (
+      typeof value === "object" &&
+      value !== null &&
+      "type" in value &&
+      "content" in value &&
+      typeof (value as { content: unknown }).content === "string"
+    );
   }
 }
 
