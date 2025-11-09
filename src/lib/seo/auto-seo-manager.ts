@@ -138,12 +138,12 @@ export const PAGE_CATEGORIES = {
 // ============================================================================
 
 export function detectPageType(
-  pathname: string
+  pathname: string,
 ): keyof typeof PAGE_CATEGORIES | null {
   for (const [type, config] of Object.entries(PAGE_CATEGORIES)) {
     if (
       config.patterns.some(
-        (pattern) => pathname === pattern || pathname.startsWith(pattern)
+        (pattern) => pathname === pattern || pathname.startsWith(pattern),
       )
     ) {
       return type as keyof typeof PAGE_CATEGORIES;
@@ -246,12 +246,12 @@ export function calculateSEOScore(config: SEOConfig): PageSEOScore {
   if (titleLength < SEO_RULES.title.minLength) {
     titleScore -= 30;
     recommendations.push(
-      `Title too short (${titleLength} chars). Aim for ${SEO_RULES.title.optimal} chars.`
+      `Title too short (${titleLength} chars). Aim for ${SEO_RULES.title.optimal} chars.`,
     );
   } else if (titleLength > SEO_RULES.title.maxLength) {
     titleScore -= 20;
     recommendations.push(
-      `Title too long (${titleLength} chars). Keep under ${SEO_RULES.title.maxLength} chars.`
+      `Title too long (${titleLength} chars). Keep under ${SEO_RULES.title.maxLength} chars.`,
     );
   }
   if (!config.title.includes("|") && !config.title.includes("-")) {
@@ -264,12 +264,12 @@ export function calculateSEOScore(config: SEOConfig): PageSEOScore {
   if (descLength < SEO_RULES.description.minLength) {
     descriptionScore -= 30;
     recommendations.push(
-      `Description too short (${descLength} chars). Aim for ${SEO_RULES.description.optimal} chars.`
+      `Description too short (${descLength} chars). Aim for ${SEO_RULES.description.optimal} chars.`,
     );
   } else if (descLength > SEO_RULES.description.maxLength) {
     descriptionScore -= 20;
     recommendations.push(
-      `Description too long (${descLength} chars). Keep under ${SEO_RULES.description.maxLength} chars.`
+      `Description too long (${descLength} chars). Keep under ${SEO_RULES.description.maxLength} chars.`,
     );
   }
 
@@ -278,12 +278,12 @@ export function calculateSEOScore(config: SEOConfig): PageSEOScore {
   if (keywordCount < SEO_RULES.keywords.min) {
     keywordsScore -= 30;
     recommendations.push(
-      `Too few keywords (${keywordCount}). Add ${SEO_RULES.keywords.min - keywordCount} more.`
+      `Too few keywords (${keywordCount}). Add ${SEO_RULES.keywords.min - keywordCount} more.`,
     );
   } else if (keywordCount > SEO_RULES.keywords.max) {
     keywordsScore -= 15;
     recommendations.push(
-      `Too many keywords (${keywordCount}). Focus on ${SEO_RULES.keywords.optimal} most relevant.`
+      `Too many keywords (${keywordCount}). Focus on ${SEO_RULES.keywords.optimal} most relevant.`,
     );
   }
 
@@ -292,12 +292,12 @@ export function calculateSEOScore(config: SEOConfig): PageSEOScore {
   if (schemaCount === 0) {
     schemaScore -= 40;
     recommendations.push(
-      "Add structured data schemas for better search visibility."
+      "Add structured data schemas for better search visibility.",
     );
   } else if (schemaCount === 1) {
     schemaScore -= 10;
     recommendations.push(
-      "Consider adding more relevant schemas (e.g., LocalBusiness, Service)."
+      "Consider adding more relevant schemas (e.g., LocalBusiness, Service).",
     );
   }
 
@@ -305,14 +305,14 @@ export function calculateSEOScore(config: SEOConfig): PageSEOScore {
   if (!config.ogImage) {
     imageScore -= 20;
     recommendations.push(
-      "Add custom Open Graph image for better social sharing."
+      "Add custom Open Graph image for better social sharing.",
     );
   }
 
   // Canonical URL check
   if (!config.canonicalUrl) {
     recommendations.push(
-      "Add canonical URL to prevent duplicate content issues."
+      "Add canonical URL to prevent duplicate content issues.",
     );
   }
 
@@ -322,7 +322,7 @@ export function calculateSEOScore(config: SEOConfig): PageSEOScore {
       descriptionScore * 0.25 +
       keywordsScore * 0.2 +
       schemaScore * 0.2 +
-      imageScore * 0.1
+      imageScore * 0.1,
   );
 
   return {
@@ -342,7 +342,7 @@ export function calculateSEOScore(config: SEOConfig): PageSEOScore {
 
 export function autoGenerateSEO(
   pathname: string,
-  customTitle?: string
+  customTitle?: string,
 ): SEOConfig {
   const pageType = detectPageType(pathname);
   const category = pageType ? PAGE_CATEGORIES[pageType] : null;
@@ -429,7 +429,7 @@ export function validateSEO(config: SEOConfig): SEOValidationResult {
   // Title validations
   if (config.title.length > 70) {
     errors.push(
-      "Title exceeds 70 characters and will be truncated in search results"
+      "Title exceeds 70 characters and will be truncated in search results",
     );
   }
   if (config.title.length < 30) {
@@ -503,7 +503,7 @@ export function generateSitemapEntries(pages: string[]): SitemapEntry[] {
 // ============================================================================
 
 export function generateSEOReport(
-  pages: Array<{ path: string; config: SEOConfig }>
+  pages: Array<{ path: string; config: SEOConfig }>,
 ): string {
   let report = "# SEO Audit Report\n\n";
   report += `Generated: ${new Date().toISOString()}\n`;

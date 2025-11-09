@@ -119,7 +119,7 @@ export async function verifyToken(token: string): Promise<JWTUser | null> {
  * Verify refresh token and return user ID
  */
 export async function verifyRefreshToken(
-  token: string
+  token: string,
 ): Promise<string | null> {
   try {
     const secret = getSecretKey();
@@ -144,7 +144,7 @@ export async function verifyRefreshToken(
  */
 export async function refreshAccessToken(
   refreshToken: string,
-  getUserById: (userId: string) => Promise<JWTUser | null>
+  getUserById: (userId: string) => Promise<JWTUser | null>,
 ): Promise<string | null> {
   const userId = await verifyRefreshToken(refreshToken);
 
@@ -167,7 +167,7 @@ export async function refreshAccessToken(
  * Extract token from Authorization header
  */
 export function extractTokenFromHeader(
-  authHeader: string | null
+  authHeader: string | null,
 ): string | null {
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return null;

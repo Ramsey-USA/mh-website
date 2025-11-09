@@ -98,11 +98,11 @@ export function cleanupExpiredTokens(): void {
  * Middleware to require CSRF token for state-changing requests
  */
 export function requireCSRF(
-  handler: (request: NextRequest, context?: unknown) => Promise<NextResponse>
+  handler: (request: NextRequest, context?: unknown) => Promise<NextResponse>,
 ) {
   return async function csrfProtectedHandler(
     request: NextRequest,
-    context?: unknown
+    context?: unknown,
   ): Promise<NextResponse> {
     const method = request.method;
 
@@ -115,7 +115,7 @@ export function requireCSRF(
             message:
               "Invalid or missing CSRF token. Please refresh the page and try again.",
           },
-          { status: 403 }
+          { status: 403 },
         );
       }
     }
@@ -148,7 +148,7 @@ export function getCSRFToken(request: NextRequest): string | null {
  */
 export function createProtectedResponse(
   data: unknown,
-  options?: ResponseInit
+  options?: ResponseInit,
 ): NextResponse {
   const response = NextResponse.json(data, options);
 
@@ -181,7 +181,7 @@ export function validateOrigin(request: NextRequest): boolean {
   // Check if origin matches allowed origins
   if (origin) {
     return allowedOrigins.some(
-      (allowed) => origin === allowed || origin.startsWith(allowed)
+      (allowed) => origin === allowed || origin.startsWith(allowed),
     );
   }
 

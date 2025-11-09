@@ -150,7 +150,7 @@ export class DisabilityAnalyzer {
    */
   analyzeAdaptiveNeeds(
     keywords: string,
-    _formData?: Record<string, unknown>
+    _formData?: Record<string, unknown>,
   ): AdaptiveNeed[] {
     const needs: AdaptiveNeed[] = [];
 
@@ -281,7 +281,7 @@ export class DisabilityAnalyzer {
    */
   private determineSeverity(
     keywords: string,
-    severeIndicators: string[]
+    severeIndicators: string[],
   ): "mild" | "moderate" | "severe" {
     if (severeIndicators.some((indicator) => keywords.includes(indicator))) {
       return "severe";

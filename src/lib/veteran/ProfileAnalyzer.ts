@@ -295,7 +295,7 @@ export class ProfileAnalyzer {
     if (highestScore === 0) return "Unknown";
 
     const topBranch = Object.entries(branchScores).find(
-      ([_, score]) => score === highestScore
+      ([_, score]) => score === highestScore,
     )?.[0];
     return (topBranch as ServiceBranch) || "Unknown";
   }
@@ -328,7 +328,7 @@ export class ProfileAnalyzer {
     ];
 
     const hasMultiService = multiServiceKeywords.some((keyword) =>
-      keywords.includes(keyword)
+      keywords.includes(keyword),
     );
 
     if (!hasMultiService) return [];
@@ -338,8 +338,8 @@ export class ProfileAnalyzer {
       (branch) =>
         branch !== primaryBranch &&
         this.detectServiceBranch(
-          keywords.replace(primaryBranch.toLowerCase(), "")
-        ) === branch
+          keywords.replace(primaryBranch.toLowerCase(), ""),
+        ) === branch,
     );
   }
 
@@ -420,7 +420,7 @@ export class ProfileAnalyzer {
 
     // Check for multiple eras
     const erasWithScores = Object.entries(eraScores).filter(
-      ([_, score]) => score > 0
+      ([_, score]) => score > 0,
     );
     if (erasWithScores.length > 1) {
       return "Multiple Eras";
@@ -430,7 +430,7 @@ export class ProfileAnalyzer {
     if (highestScore === 0) return "Unknown";
 
     const topEra = Object.entries(eraScores).find(
-      ([_, score]) => score === highestScore
+      ([_, score]) => score === highestScore,
     )?.[0];
     return (topEra as ServiceEra) || "Unknown";
   }

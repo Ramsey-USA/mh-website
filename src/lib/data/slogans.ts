@@ -479,7 +479,7 @@ export const PAGE_SLOGANS: Record<
  */
 export function getSloganForPage(
   page: string,
-  context: string
+  context: string,
 ): string | undefined {
   const pageSlogans = PAGE_SLOGANS[page];
   if (!pageSlogans) return undefined;
@@ -500,7 +500,7 @@ export function getSloganForPage(
  */
 export function getTier1Slogans(): Slogan[] {
   return Object.values(SLOGANS).filter(
-    (slogan) => slogan.tier === SloganTier.TIER_1_FOUNDATION
+    (slogan) => slogan.tier === SloganTier.TIER_1_FOUNDATION,
   );
 }
 

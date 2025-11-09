@@ -53,7 +53,7 @@ export class TimelineDetector {
   analyzeDeploymentHistory(
     keywords: string,
     serviceBranch: ServiceBranch,
-    isCombatVet: boolean
+    isCombatVet: boolean,
   ): DeploymentRecord[] {
     const deployments: DeploymentRecord[] = [];
 

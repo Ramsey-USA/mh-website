@@ -1,5 +1,13 @@
-# Run lint-staged to check and fix code
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+set -e
+
+echo "Pre-commit: running lint-staged (eslint + prettier on staged files)..."
 npx lint-staged
 
-# Run type check
-npm run type-check
+# Optional: keep for stronger guarantees; can be moved to pre-push if too slow
+echo "Pre-commit: running TypeScript type-check..."
+npm run --silent type-check
+
+echo "Pre-commit: all checks passed."

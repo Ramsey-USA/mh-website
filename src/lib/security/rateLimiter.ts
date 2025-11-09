@@ -43,7 +43,7 @@ const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
  */
 function getClientIdentifier(
   request: NextRequest,
-  config: RateLimitConfig
+  config: RateLimitConfig,
 ): string {
   if (config.useIP !== false) {
     // Try to get IP from various headers (Cloudflare, proxies, etc.)
@@ -101,11 +101,11 @@ export function rateLimit(config: RateLimitConfig) {
   } = config;
 
   return function rateLimitMiddleware(
-    handler: (request: NextRequest, context?: unknown) => Promise<NextResponse>
+    handler: (request: NextRequest, context?: unknown) => Promise<NextResponse>,
   ) {
     return async function rateLimitedHandler(
       request: NextRequest,
-      context?: unknown
+      context?: unknown,
     ): Promise<NextResponse> {
       // Clean up expired entries periodically
       if (Math.random() < 0.01) {
@@ -148,7 +148,7 @@ export function rateLimit(config: RateLimitConfig) {
               "X-RateLimit-Remaining": "0",
               "X-RateLimit-Reset": rateLimit.resetTime.toString(),
             },
-          }
+          },
         );
       }
 
@@ -158,7 +158,7 @@ export function rateLimit(config: RateLimitConfig) {
       response.headers.set("X-RateLimit-Limit", maxRequests.toString());
       response.headers.set(
         "X-RateLimit-Remaining",
-        (maxRequests - rateLimit.count).toString()
+        (maxRequests - rateLimit.count).toString(),
       );
       response.headers.set("X-RateLimit-Reset", rateLimit.resetTime.toString());
 
@@ -219,7 +219,7 @@ export const rateLimitPresets = {
  */
 export function getRateLimitStatus(
   request: NextRequest,
-  config: RateLimitConfig
+  config: RateLimitConfig,
 ): {
   limit: number;
   remaining: number;
