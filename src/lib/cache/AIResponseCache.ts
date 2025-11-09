@@ -192,7 +192,7 @@ class AIResponseCache {
       }
       localStorage.setItem("mh-ai-cache", JSON.stringify(cacheData));
     } catch (_error) {
-      logger.warn("Failed to save AI cache to localStorage:", error);
+      logger.warn("Failed to save AI cache to localStorage:", _error);
     }
   }
 
@@ -213,7 +213,7 @@ class AIResponseCache {
       }
       localStorage.setItem("mh-form-cache", JSON.stringify(formCacheData));
     } catch (_error) {
-      logger.warn("Failed to save form cache to localStorage:", error);
+      logger.warn("Failed to save form cache to localStorage:", _error);
     }
   }
 
@@ -239,7 +239,7 @@ class AIResponseCache {
       // Clean up expired entries on load
       this.cleanup();
     } catch (_error) {
-      logger.warn("Failed to load cache from localStorage:", error);
+      logger.warn("Failed to load cache from localStorage:", _error);
       this.clear();
     }
   }

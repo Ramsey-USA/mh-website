@@ -194,7 +194,7 @@ class CacheManager {
       const idbEntry = await this.getFromIndexedDB<T>(key, version);
       if (idbEntry) return idbEntry;
     } catch (_error) {
-      logger.warn("Browser cache read error:", error);
+      logger.warn("Browser cache read error:", _error);
     }
 
     return null;
@@ -234,7 +234,7 @@ class CacheManager {
           break;
       }
     } catch (_error) {
-      logger.warn("Browser cache write error:", error);
+      logger.warn("Browser cache write error:", _error);
     }
   }
 
@@ -528,8 +528,8 @@ export class APICache {
       return data;
     } catch (_error) {
       const _fetchTime = performance.now() - startTime;
-      logger.error(`API fetch failed for ${url}:`, error);
-      throw error;
+      logger.error(`API fetch failed for ${url}:`, _error);
+      throw _error;
     }
   }
 

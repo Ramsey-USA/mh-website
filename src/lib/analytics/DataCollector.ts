@@ -22,17 +22,18 @@ export class DataCollector {
    */
   createEvent(
     type: AnalyticsEventType,
-    properties: Record<string, any> = {},
+    properties: Record<string, unknown> = {},
   ): AnalyticsEvent {
+    const userId = this.getUserId();
     return {
       id: this.generateEventId(),
       type,
       timestamp: new Date(),
       sessionId: this.getSessionId(),
-      userId: this.getUserId(),
-      properties,
+      ...(userId ? { userId } : {}),
+      properties: properties as Record<string, unknown>,
       metadata: this.collectMetadata(),
-    };
+    } as AnalyticsEvent;
   }
 
   /**
@@ -235,9 +236,9 @@ export class DataCollector {
     let journey = this.sessions.get(sessionId);
 
     if (!journey) {
-      journey = {
+      const newJourney: UserJourney = {
         sessionId,
-        userId: event.userId,
+        ...(event.userId ? { userId: event.userId } : {}),
         startTime: event.timestamp,
         events: [],
         pages: [],
@@ -245,16 +246,22 @@ export class DataCollector {
         totalDuration: 0,
         bounceRate: false,
       };
-      this.sessions.set(sessionId, journey);
+      this.sessions.set(sessionId, newJourney);
+      journey = newJourney;
     }
 
     // Add event to journey
     journey.events.push(event);
 
     // Track page visits
-    if (event.type === "page_view" && event.properties.page) {
-      if (!journey.pages.includes(event.properties.page)) {
-        journey.pages.push(event.properties.page);
+    if (event.type === "page_view") {
+      const page = (event.properties["page"] ?? event.metadata.page) as
+        | string
+        | undefined;
+      if (typeof page === "string") {
+        if (!journey.pages.includes(page)) {
+          journey.pages.push(page);
+        }
       }
     }
 
@@ -283,7 +290,7 @@ export class DataCollector {
       const trimmed = events.slice(-100);
       localStorage.setItem("analytics_events", JSON.stringify(trimmed));
     } catch (_error) {
-      console.error("Failed to store event locally:", error);
+      console.error("Failed to store event locally:", _error);
     }
   }
 }

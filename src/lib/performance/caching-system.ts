@@ -203,7 +203,7 @@ export class AIResponseCache {
         }
       }
     } catch (_error) {
-      logger.warn("Failed to load AI cache from storage:", error);
+      logger.warn("Failed to load AI cache from storage:", _error);
     }
   }
 
@@ -223,7 +223,7 @@ export class AIResponseCache {
       };
       localStorage.setItem("ai_response_cache", JSON.stringify(data));
     } catch (_error) {
-      logger.warn("Failed to save AI cache to storage:", error);
+      logger.warn("Failed to save AI cache to storage:", _error);
     }
   }
 }
@@ -306,7 +306,7 @@ export class FormDataCache {
         }
       }
     } catch (_error) {
-      logger.warn("Failed to load form cache from storage:", error);
+      logger.warn("Failed to load form cache from storage:", _error);
     }
   }
 
@@ -324,7 +324,7 @@ export class FormDataCache {
       };
       localStorage.setItem("form_data_cache", JSON.stringify(data));
     } catch (_error) {
-      logger.warn("Failed to save form cache to storage:", error);
+      logger.warn("Failed to save form cache to storage:", _error);
     }
   }
 }

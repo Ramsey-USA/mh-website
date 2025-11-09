@@ -54,12 +54,15 @@ export class MetricsCalculator {
   ): number {
     if (totalUsers === 0) return 0;
 
-    const veteranEvents = events.filter(
-      (e) =>
-        e.properties.isVeteran ||
+    const veteranEvents = events.filter((e) => {
+      const isVeteran = e.properties["isVeteran"];
+      const userType = e.properties["userType"];
+      return (
+        isVeteran === true ||
         e.type === "veteran_benefit_view" ||
-        e.properties.userType === "veteran",
-    );
+        userType === "veteran"
+      );
+    });
 
     const uniqueVeteranUsers = new Set(
       veteranEvents.map((e) => e.userId).filter(Boolean),
@@ -84,7 +87,9 @@ export class MetricsCalculator {
     >();
 
     pageViews.forEach((event) => {
-      const page = event.properties.page || event.metadata.page;
+      const page = (event.properties["page"] ?? event.metadata.page) as
+        | string
+        | undefined;
       if (!page) return;
 
       const stats = pageStats.get(page) || {
@@ -96,10 +101,12 @@ export class MetricsCalculator {
 
       stats.views++;
       if (event.userId) stats.uniqueUsers.add(event.userId);
-      if (event.properties.timeOnPage) {
-        stats.totalTime += event.properties.timeOnPage;
+      const timeOnPage = event.properties["timeOnPage"] as number | undefined;
+      if (typeof timeOnPage === "number") {
+        stats.totalTime += timeOnPage;
       }
-      if (event.properties.bounced) {
+      const bounced = event.properties["bounced"] as boolean | undefined;
+      if (bounced) {
         stats.bounces++;
       }
 
@@ -127,7 +134,7 @@ export class MetricsCalculator {
    */
   getTrafficSources(
     events: AnalyticsEvent[],
-    sessions: UserJourney[],
+    _sessions: UserJourney[],
   ): TrafficSource[] {
     const sources = new Map<
       string,
@@ -139,8 +146,9 @@ export class MetricsCalculator {
     >();
 
     events.forEach((event) => {
-      const source =
-        event.properties.source || event.metadata.referrer || "direct";
+      const source = ((event.properties["source"] as string | undefined) ||
+        event.metadata.referrer ||
+        "direct") as string;
 
       const stats = sources.get(source) || {
         sessions: new Set(),
@@ -282,12 +290,15 @@ export class MetricsCalculator {
    * Count veteran users
    */
   countVeteranUsers(events: AnalyticsEvent[]): number {
-    const veteranEvents = events.filter(
-      (e) =>
-        e.properties.isVeteran ||
+    const veteranEvents = events.filter((e) => {
+      const isVeteran = e.properties["isVeteran"];
+      const userType = e.properties["userType"];
+      return (
+        isVeteran === true ||
         e.type === "veteran_benefit_view" ||
-        e.properties.userType === "veteran",
-    );
+        userType === "veteran"
+      );
+    });
 
     return new Set(veteranEvents.map((e) => e.userId).filter(Boolean)).size;
   }
@@ -313,9 +324,15 @@ export class MetricsCalculator {
    */
   calculatePercentile(values: number[], percentile: number): number {
     if (values.length === 0) return 0;
+    if (percentile <= 0) return Math.min(...values);
+    if (percentile >= 100) return Math.max(...values);
 
     const sorted = [...values].sort((a, b) => a - b);
-    const index = Math.ceil((percentile / 100) * sorted.length) - 1;
-    return sorted[Math.max(0, index)];
+    const rawIndex = (percentile / 100) * (sorted.length - 1);
+    const lowerIndex = Math.floor(rawIndex);
+    const upperIndex = Math.ceil(rawIndex);
+    if (lowerIndex === upperIndex) return sorted[lowerIndex]!;
+    const weight = rawIndex - lowerIndex;
+    return sorted[lowerIndex]! * (1 - weight) + sorted[upperIndex]! * weight;
   }
 }

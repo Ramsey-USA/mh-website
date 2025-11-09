@@ -28,7 +28,7 @@ export function getD1Database(): unknown | null {
     }
     return null;
   } catch (_error) {
-    logger.error("Error getting D1 database:", error);
+    logger.error("Error getting D1 database:", _error);
     return null;
   }
 }
@@ -47,7 +47,7 @@ export function getKVNamespace(binding: string): unknown | null {
     }
     return null;
   } catch (_error) {
-    logger.error("Error getting KV namespace:", { binding, error });
+    logger.error("Error getting KV namespace:", { binding, error: _error });
     return null;
   }
 }
@@ -66,7 +66,7 @@ export function getR2Bucket(binding: string): unknown | null {
     }
     return null;
   } catch (_error) {
-    logger.error("Error getting R2 bucket:", { binding, error });
+    logger.error("Error getting R2 bucket:", { binding, error: _error });
     return null;
   }
 }
