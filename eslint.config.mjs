@@ -70,8 +70,8 @@ const eslintConfig = [
   },
 
   // === BASE CONFIGURATION ===
-  // Extend Next.js recommended configs
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  // Extend Next.js recommended configs (ensure Next plugin detected)
+  ...compat.extends("next", "next/core-web-vitals", "next/typescript"),
 
   // === CUSTOM RULES ===
   {

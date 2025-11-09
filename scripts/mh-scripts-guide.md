@@ -82,6 +82,7 @@ Access these scripts via npm:
 - `npm run optimize:images` - Optimize images
 - `npm run lint:markdown` - Lint markdown files
 - `npm run lint:markdown:fix` - Auto-fix markdown issues
+- `npm run lint:devdocs` - Lint only development docs (`docs/development/**/*.md`)
 - `npm run validate:links` - Validate markdown links
 - `npm run analyze:content` - Run content quality analysis
 - `npm run review:backups` - Review backup files
