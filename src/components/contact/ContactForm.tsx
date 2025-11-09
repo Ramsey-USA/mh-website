@@ -215,12 +215,13 @@ ${formData.message}
           preferredContact: "either",
         });
       }, 3000);
-    } catch (error) {
+    } catch (_error) {
       logger.error("Form submission error:", error);
       // Handle error (show error message)
-      alert(
+      console.error(
         "There was an error submitting your form. Please try again or call us at (509) 308-6489.",
       );
+      // TODO: Replace with proper toast notification system
     } finally {
       setIsSubmitting(false);
     }

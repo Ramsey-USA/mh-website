@@ -31,7 +31,7 @@ export class CloudflareKVStorage {
     try {
       const value = await this.kv.get(key, "json");
       return value as T;
-    } catch (error) {
+    } catch (_error) {
       logger.error("KV get error:", error);
       return null;
     }
@@ -40,7 +40,7 @@ export class CloudflareKVStorage {
   async set<T>(
     key: string,
     value: T,
-    expirationTtl?: number
+    expirationTtl?: number,
   ): Promise<boolean> {
     if (!this.kv) {
       logger.warn("KV namespace not initialized");
@@ -49,7 +49,7 @@ export class CloudflareKVStorage {
     try {
       await this.kv.put(key, JSON.stringify(value), { expirationTtl });
       return true;
-    } catch (error) {
+    } catch (_error) {
       logger.error("KV set error:", error);
       return false;
     }
@@ -63,7 +63,7 @@ export class CloudflareKVStorage {
     try {
       await this.kv.delete(key);
       return true;
-    } catch (error) {
+    } catch (_error) {
       logger.error("KV delete error:", error);
       return false;
     }
@@ -77,7 +77,7 @@ export class CloudflareKVStorage {
     try {
       const result = await this.kv.list({ prefix });
       return result.keys.map((k: { name: string }) => k.name);
-    } catch (error) {
+    } catch (_error) {
       logger.error("KV list error:", error);
       return [];
     }
@@ -105,7 +105,7 @@ export class CloudflareD1Database {
         .bind(...(params || []))
         .all();
       return result.results as T[];
-    } catch (error) {
+    } catch (_error) {
       logger.error("D1 query error:", error);
       return [];
     }
@@ -122,14 +122,14 @@ export class CloudflareD1Database {
         .bind(...(params || []))
         .run();
       return true;
-    } catch (error) {
+    } catch (_error) {
       logger.error("D1 execute error:", error);
       return false;
     }
   }
 
   async batch(
-    statements: { sql: string; params?: unknown[] }[]
+    statements: { sql: string; params?: unknown[] }[],
   ): Promise<boolean> {
     if (!this.db) {
       logger.warn("D1 database not initialized");
@@ -137,11 +137,11 @@ export class CloudflareD1Database {
     }
     try {
       const prepared = statements.map((stmt) =>
-        this.db!.prepare(stmt.sql).bind(...(stmt.params || []))
+        this.db!.prepare(stmt.sql).bind(...(stmt.params || [])),
       );
       await this.db.batch(prepared);
       return true;
-    } catch (error) {
+    } catch (_error) {
       logger.error("D1 batch error:", error);
       return false;
     }
@@ -199,7 +199,7 @@ export const localStorageService = {
     try {
       const item = localStorage.getItem(key);
       return item ? JSON.parse(item) : null;
-    } catch (error) {
+    } catch (_error) {
       logger.error("LocalStorage get error:", { key, error });
       return null;
     }
@@ -210,7 +210,7 @@ export const localStorageService = {
     try {
       localStorage.setItem(key, JSON.stringify(value));
       return true;
-    } catch (error) {
+    } catch (_error) {
       logger.error("LocalStorage set error:", { key, error });
       return false;
     }
@@ -221,7 +221,7 @@ export const localStorageService = {
     try {
       localStorage.removeItem(key);
       return true;
-    } catch (error) {
+    } catch (_error) {
       logger.error("LocalStorage delete error:", { key, error });
       return false;
     }

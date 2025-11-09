@@ -386,7 +386,7 @@ export default function GovernmentGrantsPage() {
           <StaggeredFadeIn
             className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
           >
-            {grantSupportServices.map((service, index) => (
+            {grantSupportServices.map((service, _index) => (
               <Card
                 key={index}
                 className="dark:bg-gray-800 hover:shadow-2xl dark:hover:shadow-gray-600/50 border-gray-800 dark:border-gray-600 border-t-4 transition-all hover:-translate-y-2"
@@ -461,7 +461,7 @@ export default function GovernmentGrantsPage() {
               </div>
 
               <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
-                {hanfordCapabilities.map((capability, index) => (
+                {hanfordCapabilities.map((capability, _index) => (
                   <Card
                     key={index}
                     className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border-white/20 transition-all"
@@ -554,7 +554,7 @@ export default function GovernmentGrantsPage() {
           <StaggeredFadeIn
             className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
           >
-            {grantTypes.map((type, index) => (
+            {grantTypes.map((type, _index) => (
               <HoverScale key={index}>
                 <div
                   className="h-full cursor-pointer"
@@ -639,7 +639,7 @@ export default function GovernmentGrantsPage() {
               </div>
 
               <div className="space-y-6">
-                {processSteps.map((process, index) => (
+                {processSteps.map((process, _index) => (
                   <Card
                     key={index}
                     className="dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border-gray-800 dark:border-gray-600 border-l-4 transition-shadow"
@@ -706,7 +706,7 @@ export default function GovernmentGrantsPage() {
           <StaggeredFadeIn
             className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
           >
-            {governmentProjects.map((project, index) => (
+            {governmentProjects.map((project, _index) => (
               <Card
                 key={index}
                 className="dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 transition-all hover:-translate-y-1"
@@ -772,7 +772,7 @@ export default function GovernmentGrantsPage() {
               </div>
 
               <div className="gap-6 grid md:grid-cols-2">
-                {successFactors.map((factor, index) => (
+                {successFactors.map((factor, _index) => (
                   <Card
                     key={index}
                     className="dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 transition-shadow"

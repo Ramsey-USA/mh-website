@@ -23,7 +23,7 @@ export function CapabilitiesSection() {
       />
 
       <StaggeredFadeIn className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
-        {capabilities.map((capability, index) => (
+        {capabilities.map((capability, _index) => (
           <Card
             key={index}
             className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"

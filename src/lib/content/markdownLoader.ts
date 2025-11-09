@@ -14,7 +14,7 @@ export interface MarkdownContent {
  * @returns Promise<MarkdownContent>
  */
 export async function loadMarkdownContent(
-  filePath: string
+  filePath: string,
 ): Promise<MarkdownContent> {
   try {
     const fullPath = path.join(process.cwd(), "docs", filePath);
@@ -51,7 +51,7 @@ export async function loadMarkdownContent(
       ...(title && { title }),
       ...(excerpt && { excerpt }),
     };
-  } catch (error) {
+  } catch (_error) {
     logger.error(`Error loading markdown content from ${filePath}:`, error);
     throw new Error(`Failed to load markdown content: ${filePath}`);
   }
@@ -63,7 +63,7 @@ export async function loadMarkdownContent(
  * @returns Promise<Record<string, MarkdownContent>>
  */
 export async function loadMultipleMarkdownFiles(
-  filePaths: string[]
+  filePaths: string[],
 ): Promise<Record<string, MarkdownContent>> {
   const contents: Record<string, MarkdownContent> = {};
 
@@ -73,7 +73,7 @@ export async function loadMultipleMarkdownFiles(
       // Use filename without extension as key
       const key = path.basename(filePath, ".md");
       contents[key] = content;
-    } catch (error) {
+    } catch (_error) {
       logger.error(`Failed to load ${filePath}:`, error);
     }
   }

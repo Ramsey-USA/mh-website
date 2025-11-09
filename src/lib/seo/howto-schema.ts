@@ -29,9 +29,9 @@ export function generateHowToSchema(howTo: HowToSchemaProps) {
     description: howTo.description,
     totalTime: howTo.totalTime,
     estimatedCost: howTo.estimatedCost,
-    step: howTo.steps.map((step, index) => ({
+    step: howTo.steps.map((step, _index) => ({
       "@type": "HowToStep",
-      position: index + 1,
+      position: _index + 1,
       name: step.name,
       text: step.text,
       image: step.image,

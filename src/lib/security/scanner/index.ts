@@ -98,7 +98,7 @@ export class VulnerabilityScanner {
       });
 
       return result;
-    } catch (error) {
+    } catch (_error) {
       await this.auditLogger.logEvent(AuditEventType.ERROR_OCCURRED, {
         outcome: "failure",
         details: {
@@ -142,7 +142,7 @@ export class VulnerabilityScanner {
    */
   private async runScanByType(
     type: VulnerabilityType,
-    config: ScanConfig
+    config: ScanConfig,
   ): Promise<Vulnerability[]> {
     const makeRequest = this.createRequestFunction(config);
 
@@ -177,14 +177,14 @@ export class VulnerabilityScanner {
    * Create HTTP request function for scanners
    */
   private createRequestFunction(
-    config: ScanConfig
+    config: ScanConfig,
   ): (url: string, requestConfig: ScanConfig) => Promise<HttpResponse | null> {
     return async (url: string): Promise<HttpResponse | null> => {
       try {
         const controller = new AbortController();
         const timeoutId = setTimeout(
           () => controller.abort(),
-          config.timeout || 30000
+          config.timeout || 30000,
         );
 
         const fetchOptions: RequestInit = {
@@ -217,7 +217,7 @@ export class VulnerabilityScanner {
           headers,
           body,
         };
-      } catch (error) {
+      } catch (_error) {
         return null;
       }
     };
@@ -254,7 +254,7 @@ export class VulnerabilityScanner {
             metadata: {},
           });
         }
-      } catch (error) {
+      } catch (_error) {
         // Invalid URL
       }
     }
@@ -307,7 +307,7 @@ export class VulnerabilityScanner {
    * Scan for sensitive data exposure
    */
   private async scanSensitiveData(
-    config: ScanConfig
+    config: ScanConfig,
   ): Promise<Vulnerability[]> {
     const vulnerabilities: Vulnerability[] = [];
     const sensitivePatterns = [
@@ -459,7 +459,7 @@ export class VulnerabilityScanner {
             }
           }
         }
-      } catch (error) {
+      } catch (_error) {
         // Continue with next URL
       }
     }
@@ -506,7 +506,7 @@ export class VulnerabilityScanner {
             });
           }
         }
-      } catch (error) {
+      } catch (_error) {
         // Continue with next URL
       }
     }

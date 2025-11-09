@@ -19,7 +19,7 @@ export function ProgressIndicator({ currentStep }: ProgressIndicatorProps) {
   return (
     <div className="mb-12">
       <div className="flex justify-center items-center">
-        {steps.map((step, index) => (
+        {steps.map((step, _index) => (
           <div key={step.number} className="flex items-center">
             {/* Step Circle */}
             <div className="flex flex-col items-center">

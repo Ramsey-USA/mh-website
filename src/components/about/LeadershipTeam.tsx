@@ -93,7 +93,7 @@ export function LeadershipTeam() {
         <StaggeredFadeIn
           className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
         >
-          {leadershipTeam.map((member, index) => (
+          {leadershipTeam.map((member, _index) => (
             <div
               key={index}
               className="group perspective h-[450px] cursor-pointer"

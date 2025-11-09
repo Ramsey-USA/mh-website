@@ -77,7 +77,7 @@ export function FormProgress({
       setTimeout(() => {
         setSaveStatus("idle");
       }, 2000);
-    } catch (error) {
+    } catch (_error) {
       console.error("Error saving form progress:", error);
       setSaveStatus("idle");
     } finally {
@@ -173,7 +173,7 @@ export function FormProgress({
         {/* Step Details */}
         <div className="p-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {steps.map((step, index) => {
+            {steps.map((step, _index) => {
               const isCompleted = currentStep > step.number;
               const isCurrent = currentStep === step.number;
               const isUpcoming = currentStep < step.number;
@@ -345,7 +345,7 @@ export function FormProgress({
 
       {/* Steps */}
       <div className="flex justify-between items-start">
-        {steps.map((step, index) => {
+        {steps.map((step, _index) => {
           const isCompleted = currentStep > step.number;
           const isCurrent = currentStep === step.number;
 

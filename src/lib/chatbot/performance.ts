@@ -147,7 +147,7 @@ export const useMessageFormatter = () => {
         // Format the message
         const formatted = content
           .split("\n")
-          .map((line, index) => {
+          .map((line, _index) => {
             if (line.startsWith("**") && line.endsWith("**")) {
               return {
                 type: "header",

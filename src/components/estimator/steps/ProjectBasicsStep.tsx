@@ -134,7 +134,7 @@ export function ProjectBasicsStep({
           <div className="text-red-800 text-sm">
             Please complete the following:
             <ul className="mt-2 list-disc list-inside">
-              {validationStatus.issues.map((issue, index) => (
+              {validationStatus.issues.map((issue, _index) => (
                 <li key={index}>{issue}</li>
               ))}
             </ul>

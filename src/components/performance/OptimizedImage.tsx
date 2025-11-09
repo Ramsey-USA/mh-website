@@ -59,7 +59,7 @@ export function OptimizedImage({
   threshold = 0.1,
   breakpoints,
   widths = [320, 640, 768, 1024, 1280, 1536],
-  ...props
+  ..._props
 }: OptimizedImageProps & React.ImgHTMLAttributes<HTMLImageElement>) {
   const [imageError, setImageError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -69,7 +69,12 @@ export function OptimizedImage({
   const { trackInteraction } = usePerformanceTiming(componentName);
 
   // Lazy loading with performance tracking
-  const { imgRef, loaded, error, inView } = useLazyImage(src, {
+  const {
+    imgRef: _imgRef,
+    loaded: _loaded,
+    error: _error,
+    inView,
+  } = useLazyImage(src, {
     rootMargin: lazy ? rootMargin : "0px",
     threshold: lazy ? threshold : 0,
     onLoad: () => {
@@ -87,7 +92,7 @@ export function OptimizedImage({
   });
 
   // Generate responsive image attributes
-  const srcSet = ImageOptimizer.generateSrcSet(src, widths);
+  const _srcSet = ImageOptimizer.generateSrcSet(src, widths);
   const imageSizes =
     sizes ||
     (breakpoints

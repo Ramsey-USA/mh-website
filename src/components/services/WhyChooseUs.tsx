@@ -35,7 +35,7 @@ export function WhyChooseUs() {
         <StaggeredFadeIn
           className={gridPresets.cards4("md", "mx-auto max-w-7xl")}
         >
-          {whyChooseUs.map((reason, index) => {
+          {whyChooseUs.map((reason, _index) => {
             const cardContent = (
               <Card className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1">
                 <CardHeader className="flex-shrink-0">

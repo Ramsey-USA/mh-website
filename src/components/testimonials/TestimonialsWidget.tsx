@@ -107,7 +107,7 @@ export default function TestimonialsWidget({
         <div className="relative mx-auto max-w-6xl">
           <div className="bg-white shadow-xl rounded-2xl overflow-hidden">
             <div className="relative min-h-[180px] sm:min-h-[280px] md:min-h-[340px] lg:min-h-[400px]">
-              {featuredTestimonials.map((testimonial, index) => (
+              {featuredTestimonials.map((testimonial, _index) => (
                 <div
                   key={testimonial.id}
                   className={`absolute inset-0 transition-opacity duration-500 ${
@@ -143,7 +143,7 @@ export default function TestimonialsWidget({
           {/* Dots Navigation */}
           {featuredTestimonials.length > 1 && (
             <div className="flex justify-center gap-2 mt-8">
-              {featuredTestimonials.map((_, index) => (
+              {featuredTestimonials.map((_, _index) => (
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
@@ -337,7 +337,7 @@ function CompactTestimonialsWidget({
       {/* Progress Dots */}
       {testimonials.length > 1 && (
         <div className="flex justify-center gap-1 mt-4">
-          {testimonials.map((_, index) => (
+          {testimonials.map((_, _index) => (
             <div
               key={index}
               className={`w-2 h-2 rounded-full transition-colors ${

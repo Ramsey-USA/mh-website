@@ -56,7 +56,7 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
         <StaggeredFadeIn
           className={gridPresets.cards3Alt("md", "mx-auto max-w-7xl")}
         >
-          {coreValues.map((value, index) => (
+          {coreValues.map((value, _index) => (
             <div
               key={index}
               className="group perspective h-[400px] cursor-pointer"

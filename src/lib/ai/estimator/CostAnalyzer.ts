@@ -72,7 +72,7 @@ export class CostAnalyzer {
   }
 
   private getBudgetMultiplier(budgetRange: string): number {
-    const multipliers: Record<string, number> = {
+    const _multipliers: Record<string, number> = {
       under_10k: 0.3,
       "10k_25k": 0.6,
       "25k_50k": 1.0,

@@ -18,7 +18,7 @@ interface RefreshRequest {
  * Get user by ID from database
  * TODO: Connect to your user database
  */
-async function getUserById(userId: string): Promise<JWTUser | null> {
+function getUserById(userId: string): Promise<JWTUser | null> {
   // IMPORTANT: Replace with actual database lookup
   // Example: Query Cloudflare D1 database
   // const db = env.DB;
@@ -70,8 +70,8 @@ async function handleRefresh(request: NextRequest): Promise<NextResponse> {
       accessToken: newAccessToken,
       expiresIn: 900, // 15 minutes
     });
-  } catch (error) {
-    logger.error("Token refresh error:", error);
+  } catch (_error) {
+    logger.error("Token refresh error:", _error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },

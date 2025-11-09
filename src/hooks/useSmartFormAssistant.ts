@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { militaryConstructionAI } from "@/lib/ai";
 
-interface FormField {
+// Form field interface for type safety
+interface _FormField {
   name: string;
   value: string;
   isValid: boolean;

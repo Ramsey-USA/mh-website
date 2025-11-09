@@ -52,7 +52,7 @@ export interface D1ExecResult {
 export function getDb(env: { DB?: D1Database }): D1Database {
   if (!env.DB) {
     throw new Error(
-      "D1 database binding not found. Ensure DB is configured in wrangler.toml"
+      "D1 database binding not found. Ensure DB is configured in wrangler.toml",
     );
   }
   return env.DB;
@@ -84,9 +84,9 @@ export class DbClient {
       });
 
       return result.results || [];
-    } catch (error) {
-      logger.error("Database query error", error);
-      throw error;
+    } catch (_error) {
+      logger.error("Database query error", _error);
+      throw _error;
     }
   }
 
@@ -105,9 +105,9 @@ export class DbClient {
       logger.debug("Query one executed", { sql, found: Boolean(result) });
 
       return result;
-    } catch (error) {
-      logger.error("Database query one error", error);
-      throw error;
+    } catch (_error) {
+      logger.error("Database query one error", _error);
+      throw _error;
     }
   }
 
@@ -133,9 +133,9 @@ export class DbClient {
         success: result.success,
         rowsAffected: result.meta.rows_written,
       };
-    } catch (error) {
-      logger.error("Database execute error", error);
-      throw error;
+    } catch (_error) {
+      logger.error("Database execute error", _error);
+      throw _error;
     }
   }
 
@@ -143,7 +143,7 @@ export class DbClient {
    * Execute multiple statements in a transaction
    */
   async batch(
-    statements: { sql: string; params?: unknown[] }[]
+    statements: { sql: string; params?: unknown[] }[],
   ): Promise<void> {
     try {
       const prepared = statements.map(({ sql, params = [] }) => {
@@ -162,12 +162,12 @@ export class DbClient {
         count: statements.length,
         totalRowsWritten: results.reduce(
           (sum, r) => sum + r.meta.rows_written,
-          0
+          0,
         ),
       });
-    } catch (error) {
-      logger.error("Database batch error", error);
-      throw error;
+    } catch (_error) {
+      logger.error("Database batch error", _error);
+      throw _error;
     }
   }
 
@@ -176,7 +176,6 @@ export class DbClient {
    */
   async insert(table: string, data: Record<string, unknown>): Promise<string> {
     const keys = Object.keys(data);
-    const _values = Object.values(data);
     const placeholders = keys.map(() => "?").join(", ");
 
     const sql = `
@@ -198,7 +197,7 @@ export class DbClient {
   async update(
     table: string,
     id: string,
-    data: Record<string, unknown>
+    data: Record<string, unknown>,
   ): Promise<boolean> {
     const keys = Object.keys(data);
     const values = Object.values(data);
@@ -237,7 +236,7 @@ export class DbClient {
    */
   async count(
     table: string,
-    where?: { column: string; value: unknown }
+    where?: { column: string; value: unknown },
   ): Promise<number> {
     let sql = `SELECT COUNT(*) as count FROM ${table}`;
     const params: unknown[] = [];

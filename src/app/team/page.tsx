@@ -136,7 +136,7 @@ export default function TeamPage() {
                         "justify-items-center",
                       )}
                     >
-                      {members.map((member, index) => (
+                      {members.map((member, _index) => (
                         <div
                           key={`${department}-${member.cardNumber || index}`}
                           className="transition-none"

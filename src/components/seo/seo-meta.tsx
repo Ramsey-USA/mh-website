@@ -1,6 +1,7 @@
 import { type Metadata } from "next";
 
-interface SEOProps {
+// SEO configuration interface for type safety
+interface _SEOProps {
   title?: string;
   description?: string;
   keywords?: string[];
@@ -253,7 +254,7 @@ export function generateBreadcrumbStructuredData(
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: breadcrumbs.map((crumb, index) => ({
+    itemListElement: breadcrumbs.map((crumb, _index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: crumb.name,

@@ -12,9 +12,9 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
+    itemListElement: items.map((item, _index) => ({
       "@type": "ListItem",
-      position: index + 1,
+      position: _index + 1,
       name: item.name,
       item: item.url,
     })),

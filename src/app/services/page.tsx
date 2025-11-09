@@ -106,7 +106,7 @@ export default function ServicesPage() {
           <StaggeredFadeIn
             className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
           >
-            {coreServices.map((service, index) => (
+            {coreServices.map((service, _index) => (
               <ServiceCard key={index} service={service} index={index} />
             ))}
           </StaggeredFadeIn>
@@ -127,7 +127,7 @@ export default function ServicesPage() {
           <StaggeredFadeIn
             className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
           >
-            {specialtyServices.map((service, index) => (
+            {specialtyServices.map((service, _index) => (
               <SpecialtyServiceCard
                 key={index}
                 service={service}
@@ -154,7 +154,7 @@ export default function ServicesPage() {
             <StaggeredFadeIn
               className={gridPresets.twoColumn("md", "mx-auto max-w-4xl")}
             >
-              {serviceAreas.map((area, index) => (
+              {serviceAreas.map((area, _index) => (
                 <Card
                   key={index}
                   className="bg-white/10 dark:bg-gray-900/30 backdrop-blur-sm border-white/30 p-8"

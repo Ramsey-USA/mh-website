@@ -282,7 +282,7 @@ export class DataCollector {
       // Keep only last 100 events in local storage
       const trimmed = events.slice(-100);
       localStorage.setItem("analytics_events", JSON.stringify(trimmed));
-    } catch (error) {
+    } catch (_error) {
       console.error("Failed to store event locally:", error);
     }
   }

@@ -265,7 +265,7 @@ export class SmartRecommendationEngine {
       }
 
       return rankedRecommendations;
-    } catch (error) {
+    } catch (_error) {
       logger.error("Error generating recommendations:", error);
       return this.getFallbackRecommendations(userProfile);
     }

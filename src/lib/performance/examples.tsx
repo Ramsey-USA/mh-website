@@ -92,7 +92,7 @@ export async function fetchUserData(userId: string) {
     });
 
     return userData;
-  } catch (error) {
+  } catch (_error) {
     logger.error("Failed to fetch user data:", error);
     throw error;
   }

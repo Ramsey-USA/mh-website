@@ -3,8 +3,13 @@
  * Memoized message rendering for better performance
  */
 
-import React, { memo } from "react";
-import { MaterialIcon } from "../icons/MaterialIcon";
+import { memo } from "react";
+
+interface FormattedContentItem {
+  type: "header" | "list-item" | "subheader" | "text";
+  key: string;
+  content: string;
+}
 
 interface MessageProps {
   message: {
@@ -21,7 +26,7 @@ interface MessageProps {
       isVeteran?: boolean;
     };
   };
-  formattedContent: unknown[];
+  formattedContent: FormattedContentItem[];
 }
 
 // Memoized message component to prevent unnecessary re-renders
@@ -44,7 +49,7 @@ const ChatMessage = memo(({ message, formattedContent }: MessageProps) => {
         <div className="w-full">
           {message.type === "bot" ? (
             <div className="prose prose-sm dark:prose-invert max-w-none text-sm break-words">
-              {formattedContent.map((item: unknown) => {
+              {formattedContent.map((item: FormattedContentItem) => {
                 switch (item.type) {
                   case "header":
                     return (

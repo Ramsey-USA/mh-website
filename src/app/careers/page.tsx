@@ -95,7 +95,7 @@ export default function CareersPage() {
           />
 
           <StaggeredFadeIn className={gridPresets.cards4("lg")}>
-            {cultureValues.map((value, index) => (
+            {cultureValues.map((value, _index) => (
               <Card key={index} className={getCardClassName("default")}>
                 <CardContent className="flex flex-col p-6 h-full text-center">
                   <div
@@ -132,7 +132,7 @@ export default function CareersPage() {
           />
 
           <StaggeredFadeIn className={gridPresets.cards4("md", "mb-12")}>
-            {companyBenefits.map((benefit, index) => (
+            {companyBenefits.map((benefit, _index) => (
               <Card key={index} className={getCardClassName("static")}>
                 <CardContent className="flex flex-col p-6 h-full">
                   <div className="flex items-center mb-4">
@@ -186,7 +186,7 @@ export default function CareersPage() {
               />
 
               <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
-                {veteranBenefits.map((benefit, index) => (
+                {veteranBenefits.map((benefit, _index) => (
                   <Card key={index} className={getCardClassName("primary")}>
                     <CardContent className="flex flex-col p-6 h-full">
                       <div className="flex items-center mb-4">
@@ -689,7 +689,7 @@ export default function CareersPage() {
           />
 
           <StaggeredFadeIn className="space-y-6">
-            {openPositions.map((position, index) => (
+            {openPositions.map((position, _index) => (
               <Card
                 key={index}
                 className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-all"

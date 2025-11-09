@@ -143,7 +143,7 @@ export function JobApplicationModal({
           referralSource: "",
         });
       }, 2000);
-    } catch (error) {
+    } catch (_error) {
       logger.error("Error submitting application:", error);
       setSubmitError("Failed to submit application. Please try again.");
     } finally {

@@ -4,7 +4,11 @@
 
 // Debug mode - set to false in production
 const DEBUG = false;
-const _log = DEBUG ? console.log.bind(console) : () => {};
+const _log = DEBUG
+  ? console.info.bind(console)
+  : () => {
+      // Empty function for production - no logging
+    };
 
 const _CACHE_NAME = "mh-construction-v4.0.0";
 const STATIC_CACHE_NAME = "mh-construction-static-v4.0.0";

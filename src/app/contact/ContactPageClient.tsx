@@ -225,7 +225,7 @@ export default function ContactPageClient() {
 
               {/* Contact Cards Grid */}
               <div className="gap-6 lg:gap-8 grid grid-cols-1 md:grid-cols-3 mb-16">
-                {quickContact.map((contact, index) => (
+                {quickContact.map((contact, _index) => (
                   <a
                     key={index}
                     href={contact.link}
@@ -619,7 +619,7 @@ export default function ContactPageClient() {
               <StaggeredFadeIn
                 className={gridPresets.cards3("md", "max-w-6xl mx-auto")}
               >
-                {mainCTAs.map((cta, index) => (
+                {mainCTAs.map((cta, _index) => (
                   <Link
                     key={index}
                     href={cta.link}

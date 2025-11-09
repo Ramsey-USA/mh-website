@@ -371,7 +371,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
                 <div className="vintage-highlights">
                   {member.careerHighlights
                     .slice(0, 3)
-                    .map((highlight, index) => (
+                    .map((highlight, _index) => (
                       <div key={index} className="highlight-item">
                         {highlight}
                       </div>

@@ -56,7 +56,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
   const [significanceResults, setSignificanceResults] = useState<unknown[]>([]);
 
   useEffect(() => {
-    const loadExperiments = async () => {
+    const loadExperiments = () => {
       try {
         const activeExps = getActiveExperiments();
         setExperiments(activeExps);
@@ -64,8 +64,8 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
         if (activeExps.length > 0 && !selectedExperiment) {
           setSelectedExperiment(activeExps[0].id);
         }
-      } catch (error) {
-        logger.error("Error loading experiments:", error);
+      } catch (_error) {
+        logger.error("Error loading experiments:", _error);
       }
     };
 
@@ -73,7 +73,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
   }, [getActiveExperiments, selectedExperiment]);
 
   useEffect(() => {
-    const loadResults = async () => {
+    const loadResults = () => {
       if (!selectedExperiment) return;
 
       setIsLoading(true);
@@ -92,7 +92,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
             confidenceLevel: 95.4,
           },
         ]);
-      } catch (error) {
+      } catch (_error) {
         logger.error("Error loading experiment results:", error);
       } finally {
         setIsLoading(false);
@@ -152,7 +152,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
     ];
   }, [experimentResults, significanceResults]);
 
-  const formatValue = (value: string | number, format?: string) => {
+  const _formatValue = (value: string | number, format?: string) => {
     if (format === "percentage") {
       return `${value}%`;
     }
@@ -255,7 +255,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
         <div className="space-y-6">
           {/* Summary Metrics */}
           <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            {summaryMetrics.map((metric, index) => (
+            {summaryMetrics.map((metric, _index) => (
               <MotionDiv
                 key={metric.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -328,7 +328,7 @@ const AnalyticsDashboard: React.FC<ExperimentResultsProps> = ({
                       </tr>
                     </thead>
                     <tbody>
-                      {experimentResults.map((result, index) => {
+                      {experimentResults.map((result, _index) => {
                         const significance = significanceResults.find(
                           (s) => s.variantId === result.variantId,
                         );

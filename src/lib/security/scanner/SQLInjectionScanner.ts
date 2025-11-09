@@ -57,8 +57,8 @@ export class SQLInjectionScanner {
     config: ScanConfig,
     makeRequest: (
       url: string,
-      config: ScanConfig
-    ) => Promise<HttpResponse | null>
+      config: ScanConfig,
+    ) => Promise<HttpResponse | null>,
   ): Promise<Vulnerability[]> {
     const vulnerabilities: Vulnerability[] = [];
 
@@ -83,7 +83,7 @@ export class SQLInjectionScanner {
                     response: response.body.substring(0, 500),
                     errorDetected: true,
                     severity: "critical" as SeverityLevel,
-                  })
+                  }),
                 );
                 break; // Found vulnerability
               }
@@ -93,14 +93,14 @@ export class SQLInjectionScanner {
                 url,
                 payload,
                 makeRequest,
-                config
+                config,
               );
               if (blindVuln) {
                 vulnerabilities.push(blindVuln);
                 break;
               }
             }
-          } catch (error) {
+          } catch (_error) {
             // Continue with next payload
           }
         }
@@ -110,7 +110,7 @@ export class SQLInjectionScanner {
       const timeVulns = await this.checkTimeBasedSQLInjection(
         url,
         makeRequest,
-        config
+        config,
       );
       vulnerabilities.push(...timeVulns);
     }
@@ -154,9 +154,9 @@ export class SQLInjectionScanner {
     _payload: string,
     makeRequest: (
       url: string,
-      config: ScanConfig
+      config: ScanConfig,
     ) => Promise<HttpResponse | null>,
-    config: ScanConfig
+    config: ScanConfig,
   ): Promise<Vulnerability | null> {
     try {
       // Test true condition
@@ -172,7 +172,7 @@ export class SQLInjectionScanner {
       if (trueResponse && falseResponse) {
         // If responses are significantly different, might be blind SQL injection
         const sizeDiff = Math.abs(
-          trueResponse.body.length - falseResponse.body.length
+          trueResponse.body.length - falseResponse.body.length,
         );
         const statusDiff = trueResponse.status !== falseResponse.status;
 
@@ -186,7 +186,7 @@ export class SQLInjectionScanner {
           });
         }
       }
-    } catch (error) {
+    } catch (_error) {
       // Ignore errors
     }
 
@@ -200,9 +200,9 @@ export class SQLInjectionScanner {
     url: string,
     makeRequest: (
       url: string,
-      config: ScanConfig
+      config: ScanConfig,
     ) => Promise<HttpResponse | null>,
-    config: ScanConfig
+    config: ScanConfig,
   ): Promise<Vulnerability[]> {
     const vulnerabilities: Vulnerability[] = [];
 
@@ -229,11 +229,11 @@ export class SQLInjectionScanner {
               response: `Response time: ${duration}ms (expected delay: 5000ms)`,
               errorDetected: false,
               severity: "high" as SeverityLevel,
-            })
+            }),
           );
           break; // Found time-based vulnerability
         }
-      } catch (error) {
+      } catch (_error) {
         // Continue with next payload
       }
     }

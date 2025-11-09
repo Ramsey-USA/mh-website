@@ -261,7 +261,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
                   </span>
                 </div>
                 <div className="flex flex-wrap justify-center gap-2">
-                  {member.specialties?.map((specialty, index) => (
+                  {member.specialties?.map((specialty, _index) => (
                     <span
                       key={index}
                       className={`${

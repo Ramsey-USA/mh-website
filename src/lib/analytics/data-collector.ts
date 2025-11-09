@@ -475,7 +475,7 @@ export class AnalyticsDataCollector {
   private setupClickHeatmapTracking(): void {
     document.addEventListener("click", (event) => {
       const target = event.target as HTMLElement;
-      const rect = target.getBoundingClientRect();
+      const _rect = target.getBoundingClientRect();
 
       const heatmapClick: HeatmapClick = {
         x: event.clientX,

@@ -360,9 +360,9 @@ export function InteractiveTimeline({
         </h3>
 
         <div className="space-y-4">
-          {timelineData.phases.map((phase, index) => {
-            const isFirst = index === 0;
-            const isLast = index === timelineData.phases.length - 1;
+          {timelineData.phases.map((phase, _index) => {
+            const _isFirst = _index === 0;
+            const isLast = _index === timelineData.phases.length - 1;
 
             return (
               <div key={phase.id} className="relative">

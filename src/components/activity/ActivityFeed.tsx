@@ -305,7 +305,7 @@ export function ActivityFeed({
       role="complementary"
       aria-label="Recent activity feed"
     >
-      {visibleActivities.map((activity, index) => {
+      {visibleActivities.map((activity, _index) => {
         const colors = getActivityColors(activity.type);
         const isDismissed = dismissedIds.has(activity.id);
 

@@ -83,7 +83,7 @@ export default function BookingPage() {
             // Clear old saved data
             localStorage.removeItem("booking_form_data");
           }
-        } catch (error) {
+        } catch (_error) {
           console.error("Error loading saved form data:", error);
         }
       }
@@ -249,7 +249,7 @@ Please contact the client to confirm this consultation appointment.
 
       setSubmitStatus("success");
       setStep(3);
-    } catch (error) {
+    } catch (_error) {
       logger.error("Error booking partnership discussion:", error);
       setSubmitStatus("error");
     } finally {

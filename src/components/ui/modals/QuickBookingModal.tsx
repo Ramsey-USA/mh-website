@@ -214,7 +214,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                     </div>
                   </div>
                   <div className="gap-3 grid grid-cols-4 stagger-animation">
-                    {quickDays.map((day, index) => (
+                    {quickDays.map((day, _index) => (
                       <button
                         key={day.date}
                         onClick={() => setSelectedDate(day.date)}
@@ -258,7 +258,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                       </div>
                     </div>
                     <div className="gap-3 grid grid-cols-4 stagger-animation">
-                      {timeSlots.map((time, index) => (
+                      {timeSlots.map((time, _index) => (
                         <button
                           key={time}
                           onClick={() => setSelectedTime(time)}

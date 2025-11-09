@@ -580,7 +580,7 @@ export class VeteranPersonalizationSystem {
     });
 
     // Project-specific recommendations based on profile
-    profile.constructionPriorities.forEach((priority, index) => {
+    profile.constructionPriorities.forEach((priority, _index) => {
       recommendations.push({
         id: `project00${index + 1}`,
         type: "project",
@@ -637,7 +637,7 @@ export class VeteranPersonalizationSystem {
     }
 
     // Benefits opportunity notifications
-    benefitsPackage.vaBenefits.eligibleBenefits.forEach((benefit, index) => {
+    benefitsPackage.vaBenefits.eligibleBenefits.forEach((benefit, _index) => {
       if (benefit.coordinationOffered) {
         notifications.push({
           id: `benefit00${index + 1}`,

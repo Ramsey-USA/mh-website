@@ -4,7 +4,6 @@ import { useState, useEffect, useMemo, useCallback } from "react";
 import { Button } from "@/components/ui/base/button";
 import {
   FadeInWhenVisible,
-  StaggeredFadeIn,
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
 import { OptimizedImage } from "@/components/ui/media/OptimizedImage";
@@ -331,7 +330,7 @@ const DynamicSearch = ({
 
   const renderGridView = () => (
     <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {filteredItems.map((item, index) => (
+      {filteredItems.map((item, _index) => (
         <HoverScale key={item.id}>
           <div
             className="bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg dark:shadow-gray-900/20 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden transition-all duration-300 cursor-pointer transform hover:scale-105"
@@ -404,7 +403,7 @@ const DynamicSearch = ({
 
   const renderListView = () => (
     <div className="space-y-4">
-      {filteredItems.map((item, index) => (
+      {filteredItems.map((item, _index) => (
         <FadeInWhenVisible key={item.id}>
           <div
             className="bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg dark:shadow-gray-900/20 p-4 border border-gray-200 dark:border-gray-700 rounded-lg transition-all duration-300 cursor-pointer hover:border-brand-primary/50"

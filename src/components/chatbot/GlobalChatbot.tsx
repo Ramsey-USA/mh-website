@@ -6,7 +6,7 @@
 
 "use client";
 
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { Card } from "../ui";
 import { MaterialIcon } from "../icons/MaterialIcon";
 import { useChatbotState } from "./hooks/useChatbotState";
@@ -15,7 +15,6 @@ import { ChatbotHeader } from "./ChatbotHeader";
 import { ChatbotMessages } from "./ChatbotMessages";
 import { ChatbotInput } from "./ChatbotInput";
 import QuickActionMenu from "./QuickActionMenu";
-import ConversationHistoryPanel from "./ConversationHistoryPanel";
 
 interface GlobalChatbotProps {
   estimatorData?: unknown;
@@ -33,8 +32,8 @@ export default function GlobalChatbot({
   // Initialize handlers
   const handlers = useChatbotHandlers(state);
 
-  // Quick actions
-  const quickActions = useMemo(
+  // Quick actions - reserved for future feature
+  const _quickActions = useMemo(
     () => [
       {
         id: "services",

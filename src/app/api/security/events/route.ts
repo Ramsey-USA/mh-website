@@ -139,7 +139,7 @@ async function handler(request: NextRequest) {
     }
 
     return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
-  } catch (error) {
+  } catch (_error) {
     logger.error("Security events API error:", error);
     return NextResponse.json(
       { error: "Internal server error" },

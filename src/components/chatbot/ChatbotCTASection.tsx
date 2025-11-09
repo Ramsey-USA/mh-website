@@ -162,7 +162,7 @@ export function ChatbotCTASection({
                 Popular Questions
               </p>
               <div className="flex flex-wrap justify-center gap-3">
-                {exampleQuestions.map((question, index) => (
+                {exampleQuestions.map((question, _index) => (
                   <button
                     key={index}
                     onClick={() => handleAskQuestion(question)}

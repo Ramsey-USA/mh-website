@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
       try {
         const resend = new Resend(process.env["RESEND_API_KEY"]);
 
-        const { data: emailResult, error } = await resend.emails.send({
+        const { data: emailResult, _error } = await resend.emails.send({
           from: emailData.from,
           to: emailData.to,
           subject: emailData.subject,
@@ -94,7 +94,7 @@ export async function POST(request: NextRequest) {
             subject: emailData.subject,
           });
         }
-      } catch (error) {
+      } catch (_error) {
         logger.error("Error sending email with Resend:", error);
         emailError = error;
       }
@@ -197,7 +197,7 @@ export async function POST(request: NextRequest) {
         emailSent,
       },
     });
-  } catch (error) {
+  } catch (_error) {
     logger.error("Error processing contact form:", error);
     return NextResponse.json(
       { error: "Failed to process contact form submission" },
@@ -378,7 +378,7 @@ export async function GET() {
       count: 0,
       message: "D1 database not available in this environment",
     });
-  } catch (error) {
+  } catch (_error) {
     logger.error("Error fetching contact submissions:", error);
     return NextResponse.json(
       { error: "Failed to fetch contact submissions" },

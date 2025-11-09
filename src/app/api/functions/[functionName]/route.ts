@@ -56,7 +56,7 @@ export async function POST(request: NextRequest, context: RouteParams) {
           { status: 404 },
         );
     }
-  } catch (error) {
+  } catch (_error) {
     logger.error("API function error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
@@ -162,7 +162,7 @@ function handleGetUserData(data: UserDataRequest, user: JWTUser | null) {
       success: true,
       data: userData,
     });
-  } catch (error) {
+  } catch (_error) {
     logger.error("Error getting user data:", error);
     return NextResponse.json(
       { error: "Failed to get user data" },

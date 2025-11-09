@@ -119,7 +119,7 @@ export function CoreValuesSection() {
 
         {/* Value Cards */}
         <div className={gridPresets.cards3("sm")}>
-          {coreValues.map((item, index) => (
+          {coreValues.map((item, _index) => (
             <div
               key={item.value}
               className="group perspective-1000 scroll-reveal value-card"

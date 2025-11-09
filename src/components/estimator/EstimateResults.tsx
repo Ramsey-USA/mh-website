@@ -168,7 +168,7 @@ export function EstimateResults({
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {breakdownItems.map((item, index) => {
+                {breakdownItems.map((item, _index) => {
                   const percentage = Math.round(
                     (item.amount / totalBeforeDiscount) * 100,
                   );
@@ -231,7 +231,7 @@ export function EstimateResults({
                   <div>
                     <span className="text-gray-600">Features:</span>
                     <div className="mt-1 ml-2">
-                      {projectData.features.map((feature, index) => (
+                      {projectData.features.map((feature, _index) => (
                         <div
                           key={index}
                           className="inline-block bg-gray-100 mr-1 mb-1 px-2 py-1 rounded text-xs"
@@ -345,7 +345,7 @@ export function EstimateResults({
                 duration: "2-3 weeks",
                 description: "Final details, inspections, walkthrough",
               },
-            ].map((phase, index) => (
+            ].map((phase, _index) => (
               <div
                 key={index}
                 className="bg-gray-50 p-4 rounded-lg text-center"

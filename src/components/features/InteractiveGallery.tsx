@@ -1,9 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { logger } from "@/lib/utils/logger";
 import Image from "next/image";
-import { Button } from "@/components/ui/base/button";
 import { OptimizedImage } from "@/components/ui/media/OptimizedImage";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { useAnalytics } from "@/components/analytics/enhanced-analytics";
@@ -38,7 +36,7 @@ interface InteractiveGalleryProps {
 const InteractiveGallery = ({
   images = [],
   title,
-  showThumbnails = true,
+  showThumbnails: _showThumbnails = true,
   showCategories = true,
   enableDownload = false,
   enableSharing = true,
@@ -183,7 +181,7 @@ const InteractiveGallery = ({
         event_category: "user_engagement",
         image_id: image.id,
       });
-    } catch (error) {
+    } catch (_error) {
       logger.error("Download failed:", error);
     }
   };
@@ -202,7 +200,7 @@ const InteractiveGallery = ({
           image_id: image.id,
           share_method: "native",
         });
-      } catch (error) {
+      } catch (_error) {
         logger.error("Share failed:", error);
       }
     } else {
@@ -225,7 +223,7 @@ const InteractiveGallery = ({
           : "grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3"
       }`}
     >
-      {filteredImages.map((image, index) => (
+      {filteredImages.map((image, _index) => (
         <div
           key={image.id}
           className={`group relative overflow-hidden rounded-lg cursor-pointer transform transition-all duration-300 ${

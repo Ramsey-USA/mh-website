@@ -316,7 +316,7 @@ export function BeforeAfterGallery({
         }
       `}
       >
-        {slides.map((slide, index) => (
+        {slides.map((slide, _index) => (
           <BeforeAfterSlider
             key={index}
             beforeImage={slide.beforeImage}

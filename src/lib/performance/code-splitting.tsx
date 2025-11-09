@@ -27,7 +27,7 @@ export interface LazyComponentProps {
 export function createDynamicImport<T extends ComponentType<any>>(
   importFn: () => Promise<{ default: T }>,
   componentName: string,
-  options: DynamicImportOptions = {}
+  options: DynamicImportOptions = {},
 ) {
   const {
     loading: LoadingComponent,
@@ -53,7 +53,7 @@ export function createDynamicImport<T extends ComponentType<any>>(
     importPromise = Promise.race([
       importFn(),
       new Promise<never>((_, reject) =>
-        setTimeout(() => reject(new Error("Import timeout")), timeout)
+        setTimeout(() => reject(new Error("Import timeout")), timeout),
       ),
     ]);
 
@@ -77,7 +77,7 @@ export function createDynamicImport<T extends ComponentType<any>>(
       }
 
       return result;
-    } catch (error) {
+    } catch (_error) {
       importPromise = null; // Reset for retry
 
       if (trackPerformance) {
@@ -98,7 +98,7 @@ export function createDynamicImport<T extends ComponentType<any>>(
       if (retryCount < retries) {
         retryCount++;
         logger.warn(
-          `Import failed for ${componentName}, retrying... (${retryCount}/${retries})`
+          `Import failed for ${componentName}, retrying... (${retryCount}/${retries})`,
         );
         await new Promise((resolve) => setTimeout(resolve, 1000 * retryCount)); // Exponential backoff
         return executeImport();
@@ -227,7 +227,7 @@ class ErrorBoundary extends React.Component<
 // Route-based code splitting utilities
 export const createRouteComponent = (
   importFn: () => Promise<{ default: ComponentType<any> }>, // eslint-disable-line @typescript-eslint/no-explicit-any
-  routeName: string
+  routeName: string,
 ) => {
   return createDynamicImport(importFn, `Route_${routeName}`, {
     trackPerformance: true,
@@ -240,7 +240,7 @@ export const createRouteComponent = (
 export const createFeatureComponent = (
   importFn: () => Promise<{ default: ComponentType<any> }>, // eslint-disable-line @typescript-eslint/no-explicit-any
   featureName: string,
-  critical = false
+  critical = false,
 ) => {
   return createDynamicImport(importFn, `Feature_${featureName}`, {
     trackPerformance: true,
@@ -302,20 +302,20 @@ export class BundleSplittingAnalyzer {
     const slowestChunk = loadTimes.reduce(
       (slowest, [name, time]) =>
         !slowest || time > slowest.time ? { name, time } : slowest,
-      null as { name: string; time: number } | null
+      null as { name: string; time: number } | null,
     );
 
     const recommendations: string[] = [];
 
     if (this.getAverageLoadTime() > 2000) {
       recommendations.push(
-        "Consider further code splitting to reduce chunk sizes"
+        "Consider further code splitting to reduce chunk sizes",
       );
     }
 
     if (slowestChunk && slowestChunk.time > 5000) {
       recommendations.push(
-        `Optimize ${slowestChunk.name} - it's taking too long to load`
+        `Optimize ${slowestChunk.name} - it's taking too long to load`,
       );
     }
 
@@ -355,7 +355,7 @@ export const preloadRoute = (routeImport: () => Promise<unknown>): void => {
 
 export const preloadOnHover = (
   element: HTMLElement,
-  importFn: () => Promise<unknown>
+  importFn: () => Promise<unknown>,
 ): (() => void) => {
   let preloaded = false;
 
@@ -387,7 +387,7 @@ export const preloadCriticalResources = (
     as: "script" | "style" | "font" | "image";
     type?: string;
     crossorigin?: "anonymous" | "use-credentials";
-  }>
+  }>,
 ): void => {
   if (typeof window === "undefined") return;
 

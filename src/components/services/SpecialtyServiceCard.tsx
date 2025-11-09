@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { getCardClassName } from "@/lib/styles/card-variants";

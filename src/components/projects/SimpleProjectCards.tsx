@@ -89,7 +89,7 @@ interface SimpleProjectCardsProps {
 export function SimpleProjectCards({
   maxCards = 6,
   showFeaturedOnly = false,
-  variant = "default",
+  variant: _variant = "default",
   className = "",
 }: SimpleProjectCardsProps) {
   const displayCards = showFeaturedOnly
@@ -111,7 +111,7 @@ export function SimpleProjectCards({
 
       {/* Cards Grid */}
       <StaggeredFadeIn className={gridPresets.cards3Alt("md")}>
-        {displayCards.map((project, index) => (
+        {displayCards.map((project, _index) => (
           <Link key={index} href={project.href}>
             <Card
               className={`h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer group ${

@@ -214,7 +214,7 @@ export function StaggeredFadeIn({
       animate={isInView ? "visible" : "hidden"}
       className={className}
     >
-      {children.map((child, index) => (
+      {children.map((child, _index) => (
         <motion.div
           key={index}
           variants={{

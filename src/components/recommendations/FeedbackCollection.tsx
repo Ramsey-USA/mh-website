@@ -118,7 +118,7 @@ const FeedbackCollection: React.FC<FeedbackCollectionProps> = ({
             project_type: recommendation.projectType,
           });
         }
-      } catch (error) {
+      } catch (_error) {
         logger.error("Error submitting feedback:", error);
       } finally {
         setIsSubmitting(false);

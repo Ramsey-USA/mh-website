@@ -25,7 +25,7 @@ export interface NotificationResult {
  * Send email notification using Resend or other email service
  */
 async function sendEmail(
-  options: NotificationOptions
+  options: NotificationOptions,
 ): Promise<NotificationResult> {
   const {
     recipient,
@@ -87,7 +87,7 @@ async function sendEmail(
       success: true,
       messageId: result.id,
     };
-  } catch (error) {
+  } catch (_error) {
     logger.error("Email send error", { error, recipient });
     return {
       success: false,
@@ -101,7 +101,7 @@ async function sendEmail(
  * TODO: Integrate with push notification service (e.g., OneSignal, FCM)
  */
 async function sendPush(
-  options: NotificationOptions
+  options: NotificationOptions,
 ): Promise<NotificationResult> {
   const { recipient, message } = options;
 
@@ -127,7 +127,7 @@ async function sendPush(
       success: true,
       messageId: `push-${Date.now()}`,
     };
-  } catch (error) {
+  } catch (_error) {
     logger.error("Push notification error", { error, recipient });
     return {
       success: false,
@@ -141,7 +141,7 @@ async function sendPush(
  * TODO: Integrate with SMS service (e.g., Twilio)
  */
 async function sendSMS(
-  options: NotificationOptions
+  options: NotificationOptions,
 ): Promise<NotificationResult> {
   const { recipient, message } = options;
 
@@ -167,7 +167,7 @@ async function sendSMS(
       success: true,
       messageId: `sms-${Date.now()}`,
     };
-  } catch (error) {
+  } catch (_error) {
     logger.error("SMS send error", { error, recipient });
     return {
       success: false,
@@ -180,7 +180,7 @@ async function sendSMS(
  * Send notification (routes to appropriate service)
  */
 export async function sendNotification(
-  options: NotificationOptions
+  options: NotificationOptions,
 ): Promise<NotificationResult> {
   logger.info("Sending notification", {
     type: options.type,
@@ -207,12 +207,12 @@ export async function sendNotification(
  * Send multiple notifications in parallel
  */
 export async function sendBulkNotifications(
-  notifications: NotificationOptions[]
+  notifications: NotificationOptions[],
 ): Promise<NotificationResult[]> {
   logger.info("Sending bulk notifications", { count: notifications.length });
 
   const results = await Promise.all(
-    notifications.map((notification) => sendNotification(notification))
+    notifications.map((notification) => sendNotification(notification)),
   );
 
   const successCount = results.filter((r) => r.success).length;
@@ -230,7 +230,7 @@ export async function sendBulkNotifications(
  */
 export async function sendNotificationWithRetry(
   options: NotificationOptions,
-  maxRetries = 3
+  maxRetries = 3,
 ): Promise<NotificationResult> {
   let lastError: string | undefined;
 
@@ -250,7 +250,7 @@ export async function sendNotificationWithRetry(
     // Wait before retry (exponential backoff)
     if (attempt < maxRetries) {
       await new Promise((resolve) =>
-        setTimeout(resolve, Math.pow(2, attempt) * 1000)
+        setTimeout(resolve, Math.pow(2, attempt) * 1000),
       );
     }
   }

@@ -255,7 +255,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
                 Why this recommendation?
               </h4>
               <ul className="space-y-1">
-                {recommendation.reasoning.slice(0, 3).map((reason, index) => (
+                {recommendation.reasoning.slice(0, 3).map((reason, _index) => (
                   <li
                     key={index}
                     className="flex items-start text-gray-600 text-sm"
@@ -286,7 +286,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
                   [MILITARY_TECH] Veteran Benefits
                 </h4>
                 <div className="space-y-2">
-                  {recommendation.veteranBenefits.map((benefit, index) => (
+                  {recommendation.veteranBenefits.map((benefit, _index) => (
                     <VeteranBenefitDisplay key={index} benefit={benefit} />
                   ))}
                 </div>
@@ -297,7 +297,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
           {recommendation.tags.length > 0 && (
             <div className="mb-4">
               <div className="flex flex-wrap gap-2">
-                {recommendation.tags.slice(0, 4).map((tag, index) => (
+                {recommendation.tags.slice(0, 4).map((tag, _index) => (
                   <span
                     key={index}
                     className="bg-gray-100 px-2 py-1 rounded-full text-gray-700 text-xs"
@@ -380,12 +380,16 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
   showFeedback = true,
   maxRecommendations = 6,
   variant = "default",
-  onRecommendationClick = () => {},
-  onGetEstimate = () => {},
+  onRecommendationClick = () => {
+    // Default empty handler - override with prop
+  },
+  onGetEstimate = () => {
+    // Default empty handler - override with prop
+  },
   className = "",
 }) => {
   const [showAll, setShowAll] = useState(false);
-  const { recommendations, isLoading, error, generateRecommendations } =
+  const { recommendations, isLoading, _error, generateRecommendations } =
     useSmartRecommendations({ maxRecommendations });
 
   const { trackView, trackClick } = useRecommendationTracking(userProfile?.id);
@@ -493,7 +497,7 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
         }`}
       >
         <AnimatePresence>
-          {displayRecommendations.map((recommendation, index) => (
+          {displayRecommendations.map((recommendation, _index) => (
             <MotionDiv
               key={recommendation.id}
               initial={{ opacity: 0, y: 20 }}

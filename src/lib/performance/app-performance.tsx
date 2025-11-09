@@ -97,10 +97,15 @@ export async function performanceFetch(
     cache?: boolean;
     cacheKey?: string;
     cacheTTL?: number;
-  } = {}
+  } = {},
 ) {
   const startTime = performance.now();
-  const { cache = true, cacheKey, cacheTTL, ...fetchOptions } = options;
+  const {
+    cache = true,
+    cacheKey: _cacheKey,
+    cacheTTL,
+    ...fetchOptions
+  } = options;
 
   try {
     // Use API cache if enabled
@@ -152,7 +157,7 @@ export async function performanceFetch(
     }
 
     return data;
-  } catch (error) {
+  } catch (_error) {
     const duration = performance.now() - startTime;
     performanceManager.recordMetric({
       type: "timing",
@@ -181,7 +186,7 @@ export async function performanceFetch(
  */
 export function withPerformanceTracking<P extends Record<string, any>>(
   Component: React.ComponentType<P>,
-  componentName: string
+  componentName: string,
 ) {
   const WrappedComponent = forwardRef<any, P>((props, ref) => {
     const renderStart = useRef<number>(0);

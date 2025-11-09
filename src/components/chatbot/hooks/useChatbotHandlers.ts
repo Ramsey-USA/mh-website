@@ -59,10 +59,10 @@ export function useChatbotHandlers(props: ChatbotHandlersProps) {
     isMinimized,
     isDragging,
     inputValue,
-    conversationTurn,
+    conversationTurn: _conversationTurn,
     sessionStartTime,
     hasBeenOpened,
-    showQuickActions,
+    showQuickActions: _showQuickActions,
     showHistory,
     messages,
     enhancedContext,
@@ -116,7 +116,7 @@ export function useChatbotHandlers(props: ChatbotHandlersProps) {
   }, [showHistory, setShowHistory]);
 
   // Send message
-  const handleSendMessage = useCallback(async () => {
+  const handleSendMessage = useCallback(() => {
     if (!inputValue.trim()) return;
 
     const userMessage: ChatMessage = {
@@ -223,7 +223,7 @@ export function useChatbotHandlers(props: ChatbotHandlersProps) {
 
       updateConversationMemory(updatedMemory);
       updateEnhancedContext({ conversationMemory: updatedMemory });
-    } catch (error) {
+    } catch (_error) {
       console.error("Chatbot error:", error);
 
       const errorMessage: ChatMessage = {

@@ -4,7 +4,7 @@
  */
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { Button, Card, CardContent } from "@/components/ui";
+import { Button, Card } from "@/components/ui";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -117,7 +117,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
                   <span className="bg-accent-500 px-3 py-1 rounded-full font-semibold text-sm text-white">
                     {data.category}
                   </span>
-                  {data.tags.slice(0, 2).map((tag, index) => (
+                  {data.tags.slice(0, 2).map((tag, _index) => (
                     <span
                       key={index}
                       className="bg-white/20 px-3 py-1 rounded-full text-sm text-white"
@@ -186,7 +186,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
       <section className="bg-gray-50 dark:bg-gray-800 py-12">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <StaggeredFadeIn className="gap-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
-            {data.specifications.map((spec, index) => (
+            {data.specifications.map((spec, _index) => (
               <div
                 key={index}
                 className="flex flex-col items-center p-4 text-center"
@@ -237,7 +237,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
                   Key Challenges:
                 </h3>
                 <ul className="space-y-3">
-                  {data.challenge.keyPoints.map((point, index) => (
+                  {data.challenge.keyPoints.map((point, _index) => (
                     <li key={index} className="flex items-start gap-3">
                       <MaterialIcon
                         icon="arrow_right"
@@ -285,7 +285,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
                   Key Solutions:
                 </h3>
                 <ul className="space-y-3">
-                  {data.solution.keyPoints.map((point, index) => (
+                  {data.solution.keyPoints.map((point, _index) => (
                     <li key={index} className="flex items-start gap-3">
                       <MaterialIcon
                         icon="check_circle"
@@ -306,7 +306,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
                   Our Approach:
                 </h3>
                 <ul className="space-y-3">
-                  {data.solution.approach.map((point, index) => (
+                  {data.solution.approach.map((point, _index) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="flex flex-shrink-0 justify-center items-center bg-primary-600 mt-1 rounded-full w-6 h-6">
                         <span className="font-bold text-white text-xs">
@@ -347,7 +347,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
 
             {/* Metrics */}
             <div className="gap-6 grid grid-cols-2 md:grid-cols-4 mb-12">
-              {data.results.metrics.map((metric, index) => (
+              {data.results.metrics.map((metric, _index) => (
                 <div
                   key={index}
                   className="bg-white dark:bg-gray-800 shadow-xl p-6 rounded-2xl text-center"
@@ -373,7 +373,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
                 Project Outcomes:
               </h3>
               <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
-                {data.results.outcomes.map((outcome, index) => (
+                {data.results.outcomes.map((outcome, _index) => (
                   <div key={index} className="flex items-start gap-3">
                     <MaterialIcon
                       icon="star"
@@ -453,7 +453,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
                 <span className="block text-brand-primary">Transformation</span>
               </h2>
               <div className="space-y-12">
-                {data.beforeAfterPhotos.map((photo, index) => (
+                {data.beforeAfterPhotos.map((photo, _index) => (
                   <BeforeAfterSlider
                     key={index}
                     beforeImage={photo.before}
@@ -478,7 +478,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
                 Project Gallery
               </h2>
               <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                {data.galleryPhotos.map((photo, index) => (
+                {data.galleryPhotos.map((photo, _index) => (
                   <div
                     key={index}
                     className="group relative rounded-xl overflow-hidden h-64"

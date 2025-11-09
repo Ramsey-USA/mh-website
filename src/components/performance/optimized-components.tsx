@@ -1,13 +1,6 @@
 "use client";
 
-import { logger } from "@/lib/utils/logger";
-
-import React, { Suspense, lazy } from "react";
 import Image from "next/image";
-import {
-  PortfolioCardSkeleton,
-  LoadingPlaceholder,
-} from "@/components/ui/layout/loading-placeholder";
 
 // Lazy load heavy components
 // PortfolioImage and ProjectGalleryImage lazy imports removed for clean slate migration
@@ -95,7 +88,7 @@ export function OptimizedGallery({
       <div className="space-y-4">
         <h3 className="font-semibold text-lg">Project Gallery</h3>
         <div className="gap-2 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8">
-          {images.map((image, index) => (
+          {images.map((image, _index) => (
             <div
               key={index}
               className={`relative h-16 sm:h-18 md:h-20 rounded cursor-pointer transition-opacity ${

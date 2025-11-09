@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "../ui/layout/ThemeToggle";
@@ -57,6 +57,10 @@ export function Navigation() {
         <div
           className="z-40 fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-300 cursor-pointer"
           onClick={() => setIsMenuOpen(false)}
+          onKeyDown={(e) => e.key === "Escape" && setIsMenuOpen(false)}
+          role="button"
+          tabIndex={0}
+          aria-label="Close menu"
         />
       )}
 
@@ -181,7 +185,7 @@ export function Navigation() {
                       label: "Book",
                       icon: "calendar_today",
                     },
-                  ].map((item, index) => (
+                  ].map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
