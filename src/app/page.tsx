@@ -11,7 +11,6 @@ import {
 import { TestimonialGrid } from "@/components/testimonials";
 import { getClientTestimonials } from "@/lib/data/testimonials";
 import { AggregateRating } from "@/components/ratings";
-import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 // Enhanced SEO for AI-powered veteran-owned construction
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
@@ -25,6 +24,7 @@ import {
   WhyPartnerSection,
   PartnershipCTA,
 } from "@/components/home";
+import { CompanyStats } from "@/components/about/CompanyStats";
 
 // Dynamically import below-the-fold components
 const SmartRecommendations = dynamic(
@@ -531,82 +531,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quick Stats Bar - Instant Trust Indicators */}
-      <section className="relative bg-brand-primary/5 dark:bg-gray-800/50 py-12 lg:py-16">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
-              {/* Stat 1: Years Experience */}
-              <div className="text-center group">
-                <div className="flex justify-center items-center bg-brand-primary/10 dark:bg-brand-primary/20 mx-auto mb-4 rounded-full w-16 h-16 sm:w-20 sm:h-20 group-hover:scale-110 transition-transform duration-300">
-                  <MaterialIcon
-                    icon="engineering"
-                    size="xl"
-                    className="text-brand-primary"
-                  />
-                </div>
-                <div className="mb-2 font-black text-3xl sm:text-4xl text-brand-primary dark:text-brand-primary-light">
-                  <AnimatedCounter value={20} suffix="+" duration={2000} />
-                </div>
-                <div className="font-medium text-gray-700 text-sm sm:text-base dark:text-gray-300">
-                  Years Experience
-                </div>
-              </div>
-
-              {/* Stat 2: Safety Rating */}
-              <div className="text-center group">
-                <div className="flex justify-center items-center bg-brand-secondary/10 dark:bg-brand-secondary/20 mx-auto mb-4 rounded-full w-16 h-16 sm:w-20 sm:h-20 group-hover:scale-110 transition-transform duration-300">
-                  <MaterialIcon
-                    icon="verified"
-                    size="xl"
-                    className="text-brand-secondary"
-                  />
-                </div>
-                <div className="mb-2 font-black text-3xl sm:text-4xl text-brand-secondary dark:text-brand-secondary-light">
-                  <AnimatedCounter value={0.6} decimals={1} duration={2000} />
-                </div>
-                <div className="font-medium text-gray-700 text-sm sm:text-base dark:text-gray-300">
-                  EMR Safety Rating
-                </div>
-              </div>
-
-              {/* Stat 3: Combined Experience */}
-              <div className="text-center group">
-                <div className="flex justify-center items-center bg-brand-accent/10 dark:bg-brand-accent/20 mx-auto mb-4 rounded-full w-16 h-16 sm:w-20 sm:h-20 group-hover:scale-110 transition-transform duration-300">
-                  <MaterialIcon
-                    icon="groups"
-                    size="xl"
-                    className="text-brand-accent"
-                  />
-                </div>
-                <div className="mb-2 font-black text-3xl sm:text-4xl text-brand-accent dark:text-brand-accent-light">
-                  <AnimatedCounter value={150} suffix="+" duration={2000} />
-                </div>
-                <div className="font-medium text-gray-700 text-sm sm:text-base dark:text-gray-300">
-                  Combined Years
-                </div>
-              </div>
-
-              {/* Stat 4: Support */}
-              <div className="text-center group">
-                <div className="flex justify-center items-center bg-brand-primary/10 dark:bg-brand-primary/20 mx-auto mb-4 rounded-full w-16 h-16 sm:w-20 sm:h-20 group-hover:scale-110 transition-transform duration-300">
-                  <MaterialIcon
-                    icon="support_agent"
-                    size="xl"
-                    className="text-brand-primary"
-                  />
-                </div>
-                <div className="mb-2 font-black text-3xl sm:text-4xl text-brand-primary dark:text-brand-primary-light">
-                  24/7
-                </div>
-                <div className="font-medium text-gray-700 text-sm sm:text-base dark:text-gray-300">
-                  Emergency Support
-                </div>
-              </div>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
+      {/* Company Stats Section */}
+      <CompanyStats
+        subtitle=""
+        title="Trusted by the Community"
+        description=""
+        variant="primary"
+      />
 
       {/* Next Steps Section */}
       <section
@@ -791,26 +722,6 @@ export default function Home() {
                   Get In Touch
                 </Button>
               </Link>
-            </div>
-          </div>
-
-          {/* Trust Indicators */}
-          <div className="gap-8 grid grid-cols-2 md:grid-cols-4 text-center text-white">
-            <div>
-              <p className="mb-2 font-black text-4xl">20+</p>
-              <p className="text-primary-100">Years Experience</p>
-            </div>
-            <div>
-              <p className="mb-2 font-black text-4xl">.6</p>
-              <p className="text-primary-100">EMR Safety Rating</p>
-            </div>
-            <div>
-              <p className="mb-2 font-black text-4xl">70%</p>
-              <p className="text-primary-100">Referral Business</p>
-            </div>
-            <div>
-              <p className="mb-2 font-black text-4xl">24/7</p>
-              <p className="text-primary-100">Emergency Support</p>
             </div>
           </div>
         </div>
