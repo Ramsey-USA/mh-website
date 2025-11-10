@@ -1,7 +1,12 @@
 export { AboutHero } from "./AboutHero";
 export { AboutValues, type CoreValue } from "./AboutValues";
 export { PartnershipPhilosophy } from "./PartnershipPhilosophy";
-export { CompanyStats, companyStats } from "./CompanyStats";
+export {
+  CompanyStats,
+  companyStats,
+  type CompanyStatsProps,
+  type StatItem,
+} from "./CompanyStats";
 export { LeadershipTeam, leadershipTeam } from "./LeadershipTeam";
 export { SafetySection } from "./SafetySection";
 export { AwardsSection } from "./AwardsSection";
