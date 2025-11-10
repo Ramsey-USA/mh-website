@@ -1,6 +1,6 @@
 # MH Construction Documentation Master Index
 
-**Welcome to the MH Construction Documentation Hub** | **Last Updated**: November 9, 2025
+**Welcome to the MH Construction Documentation Hub** | **Last Updated**: November 10, 2025
 
 This is your central navigation point for all MH Construction project documentation. Whether you're a developer,
 designer, content writer, or stakeholder, start here to find what you need.
@@ -56,7 +56,7 @@ Use `ChatbotCTASection` + contextual prompts for lead capture & analytics.
 - **[Brand Strategy](./branding/strategy/)** - Brand identity, messaging, content standards
 - **[Visual Standards](./branding/standards/)** - Colors, typography, icons, components
 - **[Implementation Reference](./branding/implementation/)** - Developer quick reference
-- **[Archive](./branding/archive/)** - Historical brand documents
+- **[Branding Archive](./archive/branding-archive/)** - Historical brand documents (8 files)
 
 **Key Files:**
 
@@ -126,8 +126,9 @@ Use `ChatbotCTASection` + contextual prompts for lead capture & analytics.
 
 - [VS Code Complete Setup](./development/vscode-setup-complete.md) - ⭐ **NEW (Nov 2025)** - Full configuration guide
 - [VS Code Extensions Guide](./development/vscode-extensions-guide.md) - Detailed extension documentation
-- [Scripts Guide](../scripts/mh-scripts-guide.md) - Automation scripts and utilities
-- [Testing Guide](../testing/mh-testing-guide.md) - Testing procedures and quality assurance
+- [Scripts Guide](../scripts/mh-scripts-guide.md) - ⭐ **ESSENTIAL** - Automation scripts (SEO, testing, cleanup, optimization)
+- [Testing Guide](../testing/mh-testing-guide.md) - ⭐ **ESSENTIAL** - Comprehensive testing suites (cohesion, security, responsive)
+- [Config Directory Guide](../config/config-directory-guide.md) - Deployment configs (Cloudflare, Docker, monitoring)
 - [Troubleshooting](./development/troubleshooting.md)
 - [Terminology Guide](./development/terminology-guide.md)
 - [Documentation Maintenance](./development/documentation-maintenance-guide.md)
@@ -300,17 +301,18 @@ Document & code templates for rapid creation.
 
 ## 📊 Snapshot Metrics (Nov 2025)
 
-| Metric                    | Value            |
-| ------------------------- | ---------------- |
-| Markdown Files            | 174              |
-| Categories                | 11               |
-| Index Files               | 29               |
-| Build Time                | 31.0s            |
-| SEO Coverage              | 13/13 pages 100% |
-| Static Pages Generated    | 21               |
-| Quality Score             | 97–98/100        |
-| Interactive Systems       | 6                |
-| Lines Optimized (removed) | 10,500+          |
+| Metric                    | Value                                       |
+| ------------------------- | ------------------------------------------- |
+| Markdown Files            | 174                                         |
+| Categories                | 11                                          |
+| Index Files               | 29                                          |
+| Root-Level Guides         | 4 (scripts, testing, config, seo-quick-ref) |
+| Build Time                | 31.0s                                       |
+| SEO Coverage              | 13/13 pages 100%                            |
+| Static Pages Generated    | 21                                          |
+| Quality Score             | 97–98/100                                   |
+| Interactive Systems       | 6                                           |
+| Lines Optimized (removed) | 10,500+                                     |
 
 ---
 
@@ -340,7 +342,7 @@ Document & code templates for rapid creation.
 - **Guides**: Check `partnerships/messaging/` or `technical/`
 - **References**: See `development/reference/`
 - **Templates**: Browse `templates/`
-- **Archives**: Check `branding/archive/` or folder-specific archives
+- **Archives**: Check central `archive/` directory (15 files organized by category)
 
 ---
 
@@ -414,20 +416,22 @@ Maintenance: Weekly (incremental), Monthly (index audit), Quarterly (full review
 
 ## 🌟 Quick Actions
 
-| I want to...             | Go here                                                               |
-| ------------------------ | --------------------------------------------------------------------- |
-| **Start developing**     | [Consistency Guide](./development/consistency-guide.md)               |
-| **Use style utilities**  | [Style Utilities Guide](./development/style-utilities-guide.md)       |
-| **Add a new page**       | [Ultimate SEO Guide](./technical/seo/ultimate-seo-guide.md)           |
-| **Check SEO**            | Run `npm run seo:audit` or [SEO Quick Ref](../seo-quick-reference.md) |
-| **Learn the brand**      | [Branding Index](./branding/branding-index.md)                        |
-| **See components**       | [Design System](./technical/design-system/design-system.md)           |
-| **View refactoring**     | [Refactoring Roadmap](./technical/refactoring-roadmap.md)             |
-| **Deploy to production** | [Deployment](./deployment/cloudflare-deployment-ready.md)             |
-| **Write content**        | [Messaging Guidelines](./branding/strategy/messaging.md)              |
-| **Check the roadmap**    | [Project Roadmaps](./project/roadmaps/)                               |
-| **Fix an issue**         | [Troubleshooting](./development/troubleshooting.md)                   |
-| **Contact the team**     | [Team Roster](./business/team-roster.md)                              |
+| I want to...             | Go here                                                                          |
+| ------------------------ | -------------------------------------------------------------------------------- |
+| **Start developing**     | [Consistency Guide](./development/consistency-guide.md)                          |
+| **Use style utilities**  | [Style Utilities Guide](./development/style-utilities-guide.md)                  |
+| **Add a new page**       | [Ultimate SEO Guide](./technical/seo/ultimate-seo-guide.md)                      |
+| **Check SEO**            | Run `npm run seo:audit` or [SEO Quick Ref](../seo-quick-reference.md)            |
+| **Run tests**            | [Testing Guide](../testing/mh-testing-guide.md) - Cohesion, security, responsive |
+| **Use automation**       | [Scripts Guide](../scripts/mh-scripts-guide.md) - SEO, cleanup, optimization     |
+| **Learn the brand**      | [Branding Index](./branding/branding-index.md)                                   |
+| **See components**       | [Design System](./technical/design-system/design-system.md)                      |
+| **View refactoring**     | [Refactoring Roadmap](./technical/refactoring-roadmap.md)                        |
+| **Deploy to production** | [Deployment](./deployment/cloudflare-deployment-ready.md)                        |
+| **Write content**        | [Messaging Guidelines](./branding/strategy/messaging.md)                         |
+| **Check the roadmap**    | [Project Roadmaps](./project/roadmaps/)                                          |
+| **Fix an issue**         | [Troubleshooting](./development/troubleshooting.md)                              |
+| **Contact the team**     | [Team Roster](./business/team-roster.md)                                         |
 
 ---
 
@@ -444,9 +448,10 @@ Maintenance: Weekly (incremental), Monthly (index audit), Quarterly (full review
 ---
 
 **Maintained by**: MH Construction Documentation Team  
-**Version**: 4.0.0 (aligned with application package.json)  
-**Last Updated**: November 9, 2025
+**Version**: 4.0.1 (aligned with application package.json)  
+**Last Updated**: November 10, 2025
 
-> Internal Cohesion Note: Links corrected (config directory, SEO quick reference).
-> Metrics count reflects current repository scan (Nov 9, 2025).
+> Internal Cohesion Note: Enhanced visibility for root-level guides (scripts, testing).
+> All 29 index files verified current (Nov 6-10, 2025).
+> Root-level guides prominently featured in Quick Actions and Tools & Utilities.
 > Re-run `find . -name '*.md' | wc -l` and `npm run validate:links` monthly.

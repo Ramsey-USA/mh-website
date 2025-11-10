@@ -1,5 +1,13 @@
 # COMPLETE Implementation Guide (Stub)
 
+> **⚠️ ARCHIVED:** November 10, 2025 - Stub document no longer needed  
+> **Status:** Historical reference only  
+> **Current Implementation Guides:** See [Consistency Guide](../../development/consistency-guide.md)  
+> **Last Updated (Active):** November 9, 2025
+>
+> This stub document was archived as implementation guidance is now provided through
+> the comprehensive Consistency Guide and other active development documentation.
+
 Referenced in `project-index.md`. Restored as a stub to prevent broken link.
 
 ## Purpose

@@ -1,5 +1,13 @@
 # Codebase Optimization Results
 
+> **⚠️ ARCHIVED:** November 10, 2025 - Optimization tracking completed  
+> **Status:** Historical reference only  
+> **Current Status:** See [Refactoring Roadmap](../../technical/refactoring-roadmap.md)  
+> **Last Updated (Active):** November 8, 2025
+>
+> This document was archived because optimization work is complete and tracked elsewhere.
+> Current optimization status is in the Refactoring Roadmap and project indexes.
+
 **Date:** November 8, 2025  
 **Optimization Session:** Bloat Reduction & Component Reorganization
 

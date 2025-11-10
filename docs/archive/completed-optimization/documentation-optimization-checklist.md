@@ -1,6 +1,15 @@
 # Documentation Optimization Checklist
 
-**Project:** MH Construction Documentation Structure Optimization  
+> **⚠️ ARCHIVED:** November 10, 2025 - Documentation optimization phases completed  
+> **Status:** Historical reference only  
+> **Current Documentation:** See [Documentation Consolidation Review](../../project/documentation-consolidation-review-nov-2025.md)  
+> **Last Updated (Active):** November 6, 2025
+>
+> This document was archived because the documentation optimization project has been completed.
+> Content is preserved for historical reference but is no longer actively maintained.
+> All improvements have been integrated into active documentation.
+
+**Project:** MH Construction Documentation Enhancement Initiative  
 **Started:** November 6, 2025  
 **Completed:** November 6, 2025  
 **Status:** ✅ **COMPLETE**  

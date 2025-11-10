@@ -1,6 +1,6 @@
 # MH Construction Branding Documentation
 
-**Last Updated**: November 6, 2025 | **Version**: 4.0.2 | **Status**: Official
+**Last Updated**: November 10, 2025 | **Version**: 4.0.3 | **Status**: Official
 
 ---
 
@@ -92,23 +92,14 @@ Developer quick references, code patterns, and implementation checklists.
 **Note**: Detailed implementation details have been consolidated into `/docs/development/consistency-guide.md` for
 unified access.
 
-### 📦 [archive/](./archive/)
+### 📦 Archive
 
-Historical documents and deprecated guidelines from documentation consolidation efforts. All content has been
-integrated into the current modular documentation structure.
+Historical branding documents moved to central archive for better organization.
 
-**Archived Files** (7 files):
+**See**: [Branding Archive](../archive/branding-archive/) for historical optimization reports, bug fixes,
+and superseded guidelines from documentation consolidation efforts (8 archived files).
 
-- `archive-branding-optimization-report-nov-2025.md` - Historical optimization report
-- `archive-color-scheme-correction-nov-2025.md` - Color scheme updates
-- `archive-css-config-update-nov-2025.md` - CSS configuration changes
-- `baseball-card-cleanup.md` - Component cleanup documentation
-- `team-card-hover-fix.md` - Bug fix documentation
-- `brand-development-integration.md` - Development integration notes
-- `branding-cohesion-update.md` - Cohesion update notes
-
-**Note**: These files have been emptied and standardized with archive notices. All relevant content has been moved
-to the current documentation structure.
+**Note**: All relevant content has been integrated into the current modular documentation structure.
 
 ---
 
@@ -191,6 +182,7 @@ guidelines on terminology, messaging, and implementation across all channels.
 
 ## 📝 Version History
 
+- **4.0.3** (Nov 10, 2025): Moved archive to central location, removed empty directories
 - **4.0.2** (Nov 6, 2025): Consolidated branding documentation structure
 - **4.0.1** (Nov 4, 2025): Hero section standards finalized
 - **4.0.0** (Nov 2025): Major brand guidelines update
