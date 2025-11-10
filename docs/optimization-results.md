@@ -128,7 +128,7 @@ but significantly improves:
 
 ### Build Output
 
-```
+```text
 Route (app)                                 Size  First Load JS
 ├ ○ /about                               15.3 kB         204 kB
 ├ ○ /team                                12.3 kB         209 kB
@@ -217,4 +217,6 @@ Route (app)                                 Size  First Load JS
 
 ---
 
-**Session completed with zero errors and significant bloat reduction. Build remains fast and maintainable. 🎉**
+## Session Summary
+
+Session completed with zero errors and significant bloat reduction. Build remains fast and maintainable. 🎉

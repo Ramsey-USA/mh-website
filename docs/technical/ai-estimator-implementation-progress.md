@@ -65,7 +65,7 @@ Scoring factors:
 
 Added **Confidence Score Badge:**
 
-```
+```text
 Confidence Score: 88% (VERY HIGH)
 [========================================] 88%
 Data completeness: 100%
@@ -74,7 +74,7 @@ Data completeness: 100%
 
 Added **Estimate Range Display:**
 
-```
+```text
 Estimate Range: $85,000 - $115,000
 ```
 
@@ -222,14 +222,14 @@ Shows users the expected cost variation.
 
 ### Accuracy Improvements
 
-```
+```text
 Current Accuracy:  ~85%
 After Phase 1:     ~95-97% (+10-12%)
 ```
 
 ### User Experience Metrics
 
-```
+```text
 Form Completion Rate:     60% → 75% (+25%)
 Time to Complete:         5-8 min → 3-5 min (-40%)
 User Satisfaction:        3.5/5 → 4.2/5 (+20%)
@@ -238,7 +238,7 @@ Confidence in Estimate:   60% → 80% (+33%)
 
 ### Business Metrics
 
-```
+```text
 Conversion to Consultation:  15% → 22% (+47%)
 Estimate-to-Quote Gap:       25% → 18% (-28%)
 Follow-up Questions:         40% → 25% (-38%)
