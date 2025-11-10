@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, Card, CardHeader, CardTitle, CardContent } from "../ui";
+import { CostBreakdownChart } from "./CostBreakdownChart";
 
 interface EstimateData {
   totalCost: number;
@@ -13,6 +14,22 @@ interface EstimateData {
   };
   timeline: string;
   accuracy: number;
+  confidenceScore: number;
+  confidenceLevel: "low" | "medium" | "high" | "very-high";
+  dataQualityFactors: {
+    hasSize: boolean;
+    hasMaterials: boolean;
+    hasFeatures: boolean;
+    hasComplexity: boolean;
+    hasTimeline: boolean;
+    completenessPercentage: number;
+  };
+  costPerSqFt: number;
+  estimateRange: {
+    low: number;
+    expected: number;
+    high: number;
+  };
   veteranDiscount?: number;
 }
 
@@ -48,30 +65,6 @@ export function EstimateResults({
     }).format(amount);
   };
 
-  const breakdownItems = [
-    {
-      label: "Materials",
-      amount: estimate.breakdown.materials,
-      color: "bg-blue-500",
-    },
-    { label: "Labor", amount: estimate.breakdown.labor, color: "bg-green-500" },
-    {
-      label: "Permits & Fees",
-      amount: estimate.breakdown.permits,
-      color: "bg-yellow-500",
-    },
-    {
-      label: "Overhead",
-      amount: estimate.breakdown.overhead,
-      color: "bg-purple-500",
-    },
-    {
-      label: "Contingency",
-      amount: estimate.breakdown.contingency,
-      color: "bg-red-500",
-    },
-  ];
-
   const totalBeforeDiscount = Object.values(estimate.breakdown).reduce(
     (sum, amount) => sum + amount,
     0,
@@ -102,6 +95,57 @@ export function EstimateResults({
           here&apos;s your preliminary construction estimate. Please note this
           is for planning purposes only.
         </p>
+
+        {/* Confidence Score Display */}
+        <div className="mt-4 mx-auto max-w-md">
+          <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg">
+            <div className="flex justify-between items-center mb-2">
+              <span className="font-semibold text-gray-700">
+                Confidence Score:
+              </span>
+              <span
+                className={`font-bold text-lg ${
+                  estimate.confidenceLevel === "very-high"
+                    ? "text-green-600"
+                    : estimate.confidenceLevel === "high"
+                      ? "text-blue-600"
+                      : estimate.confidenceLevel === "medium"
+                        ? "text-yellow-600"
+                        : "text-orange-600"
+                }`}
+              >
+                {estimate.confidenceScore}% (
+                {estimate.confidenceLevel.replace("-", " ").toUpperCase()})
+              </span>
+            </div>
+            <div className="bg-gray-200 rounded-full w-full h-2">
+              <div
+                className={`h-2 rounded-full ${
+                  estimate.confidenceLevel === "very-high"
+                    ? "bg-green-500"
+                    : estimate.confidenceLevel === "high"
+                      ? "bg-blue-500"
+                      : estimate.confidenceLevel === "medium"
+                        ? "bg-yellow-500"
+                        : "bg-orange-500"
+                }`}
+                style={{ width: `${estimate.confidenceScore}%` }}
+              />
+            </div>
+            <p className="mt-2 text-gray-600 text-sm">
+              Data completeness:{" "}
+              {estimate.dataQualityFactors.completenessPercentage}%
+              {estimate.confidenceLevel === "low" &&
+                " - Consider providing more details for a more accurate estimate"}
+              {estimate.confidenceLevel === "medium" &&
+                " - Good foundation, additional details will improve accuracy"}
+              {estimate.confidenceLevel === "high" &&
+                " - Well-detailed estimate with good accuracy"}
+              {estimate.confidenceLevel === "very-high" &&
+                " - Comprehensive data provided for highly accurate estimate"}
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="gap-8 grid grid-cols-1 lg:grid-cols-3">
@@ -140,12 +184,13 @@ export function EstimateResults({
                 <div className="text-gray-200">
                   <div className="flex justify-between">
                     <span>Cost per sq ft:</span>
+                    <span>{formatCurrency(estimate.costPerSqFt)}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Estimate Range:</span>
                     <span>
-                      {formatCurrency(
-                        Math.round(
-                          estimate.totalCost / parseInt(projectData.size),
-                        ),
-                      )}
+                      {formatCurrency(estimate.estimateRange.low)} -{" "}
+                      {formatCurrency(estimate.estimateRange.high)}
                     </span>
                   </div>
                   <div className="flex justify-between">
@@ -161,35 +206,20 @@ export function EstimateResults({
             </CardContent>
           </Card>
 
-          {/* Cost Breakdown */}
+          {/* Cost Breakdown with Visual Chart */}
           <Card className="mt-6">
             <CardHeader>
-              <CardTitle>Detailed Cost Breakdown</CardTitle>
+              <CardTitle>Visual Cost Breakdown</CardTitle>
+              <p className="text-gray-600 text-sm">
+                Interactive breakdown of your project costs - hover over
+                segments for details
+              </p>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
-                {breakdownItems.map((item, _index) => {
-                  const percentage = Math.round(
-                    (item.amount / totalBeforeDiscount) * 100,
-                  );
-                  return (
-                    <div key={_index}>
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-medium">{item.label}</span>
-                        <span className="font-semibold">
-                          {formatCurrency(item.amount)} ({percentage}%)
-                        </span>
-                      </div>
-                      <div className="bg-gray-200 rounded-full w-full h-2">
-                        <div
-                          className={`h-2 rounded-full ${item.color}`}
-                          style={{ width: `${percentage}%` }}
-                        />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+              <CostBreakdownChart
+                breakdown={estimate.breakdown}
+                totalCost={totalBeforeDiscount}
+              />
             </CardContent>
           </Card>
         </div>

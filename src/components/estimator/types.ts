@@ -26,13 +26,31 @@ export interface EstimateData {
   };
   timeline: string;
   accuracy: number;
+  confidenceScore: number; // 0-100, based on data completeness
+  confidenceLevel: "low" | "medium" | "high" | "very-high";
+  dataQualityFactors: {
+    hasSize: boolean;
+    hasMaterials: boolean;
+    hasFeatures: boolean;
+    hasComplexity: boolean;
+    hasTimeline: boolean;
+    completenessPercentage: number;
+  };
+  costPerSqFt: number;
+  estimateRange: {
+    low: number;
+    expected: number;
+    high: number;
+  };
   veteranDiscount?: number;
 }
 
 export interface ValidationStatus {
   isValid: boolean;
   issues: string[];
+  warnings: string[]; // Non-blocking suggestions
   canProceed: boolean;
+  dataQuality: number; // 0-100 percentage
 }
 
 export interface EstimatorFormProps {

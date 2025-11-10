@@ -22,6 +22,7 @@ import {
   type ValidationStatus,
 } from "./types";
 import { ENHANCED_FEATURES } from "./constants";
+import { computeEstimatePreview, suggestDefaults } from "./SmartDefaults";
 
 export function EstimatorForm() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -38,6 +39,8 @@ export function EstimatorForm() {
   });
   const [estimate, setEstimate] = useState<EstimateData | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
+  const [preview, setPreview] = useState<Partial<EstimateData> | null>(null);
+  const [suggestions, setSuggestions] = useState<Record<string, unknown>>({});
 
   // Load saved progress on mount
   useEffect(() => {
@@ -83,6 +86,7 @@ export function EstimatorForm() {
   // Enhanced form validation with helpful messages
   const getValidationStatus = (): ValidationStatus => {
     const issues = [];
+    const warnings = [];
 
     if (currentStep >= 1) {
       if (!projectData.projectType) issues.push("Please select a project type");
@@ -94,17 +98,55 @@ export function EstimatorForm() {
       } else if (parseInt(projectData.size) > 50000) {
         issues.push("Project size seems too large (maximum 50,000 sq ft)");
       }
+
+      // Add warnings for better accuracy
+      if (!projectData.timeline) {
+        warnings.push("💡 Adding a timeline helps improve estimate accuracy");
+      }
+      if (!projectData.budget) {
+        warnings.push(
+          "💡 Budget range helps us provide more targeted estimates",
+        );
+      }
     }
 
     if (currentStep >= 2) {
       if (projectData.materials.length === 0) {
         issues.push("Please select a material quality level");
       }
+      if (projectData.features.length === 0) {
+        warnings.push(
+          "💡 Adding features helps create a more detailed estimate",
+        );
+      }
+      if (!projectData.complexity) {
+        warnings.push(
+          "💡 Project complexity affects timeline and coordination",
+        );
+      }
     }
+
+    // Calculate data quality score
+    const totalPossibleFields = 9; // All fields in ProjectData
+    const filledFields = [
+      projectData.projectType,
+      projectData.location,
+      projectData.size,
+      projectData.timeline,
+      projectData.budget,
+      projectData.complexity,
+      projectData.materials.length > 0,
+      projectData.features.length > 0,
+      projectData.isVeteran !== undefined,
+    ].filter(Boolean).length;
+
+    const dataQuality = Math.round((filledFields / totalPossibleFields) * 100);
 
     return {
       isValid: issues.length === 0,
       issues,
+      warnings,
+      dataQuality,
       canProceed:
         currentStep === 1
           ? Boolean(
@@ -217,11 +259,58 @@ export function EstimatorForm() {
       totalCost -= veteranDiscount;
     }
 
+    // Calculate confidence score based on data completeness
+    const dataQualityFactors = {
+      hasSize: Boolean(projectData.size),
+      hasMaterials: projectData.materials.length > 0,
+      hasFeatures: projectData.features.length > 0,
+      hasComplexity: Boolean(projectData.complexity),
+      hasTimeline: Boolean(projectData.timeline),
+      completenessPercentage: 0,
+    };
+
+    // Calculate completeness
+    const factors = Object.values(dataQualityFactors).filter(
+      (v) => typeof v === "boolean",
+    );
+    dataQualityFactors.completenessPercentage = Math.round(
+      (factors.filter(Boolean).length / factors.length) * 100,
+    );
+
+    // Confidence score: base 60% + up to 40% from data quality
+    const confidenceScore = Math.min(
+      60 + Math.round(dataQualityFactors.completenessPercentage * 0.4),
+      95,
+    );
+
+    // Confidence level
+    let confidenceLevel: "low" | "medium" | "high" | "very-high";
+    if (confidenceScore >= 85) confidenceLevel = "very-high";
+    else if (confidenceScore >= 75) confidenceLevel = "high";
+    else if (confidenceScore >= 65) confidenceLevel = "medium";
+    else confidenceLevel = "low";
+
+    // Calculate cost per square foot
+    const costPerSqFt = Math.round(totalCost / parseInt(projectData.size));
+
+    // Calculate estimate range (±15% with confidence adjustments)
+    const rangeMultiplier = confidenceScore >= 80 ? 0.12 : 0.15;
+    const estimateRange = {
+      low: Math.round(totalCost * (1 - rangeMultiplier)),
+      expected: totalCost,
+      high: Math.round(totalCost * (1 + rangeMultiplier)),
+    };
+
     const estimate: EstimateData = {
       totalCost,
       breakdown,
       timeline: "4-8 weeks",
       accuracy: 85,
+      confidenceScore,
+      confidenceLevel,
+      dataQualityFactors,
+      costPerSqFt,
+      estimateRange,
       veteranDiscount: projectData.isVeteran ? veteranDiscount : 0,
     };
 
@@ -230,6 +319,22 @@ export function EstimatorForm() {
   };
 
   const validationStatus = getValidationStatus();
+
+  // Compute a lightweight preview and suggestions on projectData changes (debounced)
+  useEffect(() => {
+    const tid = setTimeout(() => {
+      try {
+        const p = computeEstimatePreview(projectData);
+        setPreview(p);
+        setSuggestions(suggestDefaults(projectData));
+      } catch {
+        setPreview(null);
+        setSuggestions({});
+      }
+    }, 200);
+
+    return () => clearTimeout(tid);
+  }, [projectData]);
 
   // Step titles
   const stepTitles = [
@@ -353,6 +458,60 @@ export function EstimatorForm() {
               onCalculateEstimate={calculateEstimate}
               validationStatus={validationStatus}
             />
+          )}
+
+          {/* Real-time preview and smart defaults (Phase 1.3) */}
+          {preview && (
+            <div className="mt-6 p-4 rounded-md border bg-gray-50">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-xs text-gray-500">Live preview</div>
+                  <div className="text-2xl font-semibold">
+                    {preview.estimateRange
+                      ? `$${preview.estimateRange.expected.toLocaleString()}`
+                      : preview.totalCost
+                        ? `$${preview.totalCost.toLocaleString()}`
+                        : "—"}
+                  </div>
+                  {preview.costPerSqFt ? (
+                    <div className="text-sm text-gray-600">
+                      {`~ $${preview.costPerSqFt.toLocaleString()} / sq ft`}
+                    </div>
+                  ) : null}
+                </div>
+
+                {preview.estimateRange ? (
+                  <div className="text-right text-sm text-gray-600">
+                    <div className="text-xs">Range</div>
+                    <div>
+                      ${preview.estimateRange.low.toLocaleString()} — $
+                      {preview.estimateRange.high.toLocaleString()}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+
+              {Object.keys(suggestions).length > 0 && (
+                <div className="mt-3 grid gap-2">
+                  {Object.entries(suggestions).map(([k, v]) => {
+                    const s = v as { suggested?: string; reasoning?: string };
+                    return (
+                      <div key={k} className="p-2 bg-white rounded border">
+                        <div className="text-sm font-medium">{k}</div>
+                        <div className="text-sm text-gray-700">
+                          {s.suggested}
+                        </div>
+                        {s.reasoning ? (
+                          <div className="text-xs text-gray-500">
+                            {s.reasoning}
+                          </div>
+                        ) : null}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
           )}
 
           {/* Navigation Buttons */}
