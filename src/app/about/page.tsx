@@ -28,6 +28,7 @@ import {
 } from "@/components/about";
 import { getCardClassName } from "@/lib/styles/card-variants";
 import { gridPresets } from "@/lib/styles/layout-variants";
+import { PartnershipCTA } from "@/components/home/PartnershipCTA";
 
 export default function AboutPage() {
   return (
@@ -50,97 +51,206 @@ export default function AboutPage() {
       {/* Next Steps Section */}
       <section
         id="next-steps"
-        className="relative bg-gradient-to-br from-secondary-600 via-secondary-700 to-primary-600 py-20 lg:py-32"
+        className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 py-20 lg:py-32"
       >
         <div className="absolute inset-0 bg-[url('/images/textures/construction-pattern.png')] opacity-5"></div>
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="mb-16 text-center">
             <h2 className="mb-6 font-black text-4xl text-white sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-              Partner With Us Today
+              Ready to Start Your Project?
             </h2>
-            <p className="mx-auto max-w-3xl font-light text-secondary-100 text-xl sm:text-2xl md:text-3xl leading-relaxed">
-              Experience the MH Construction difference—veteran-owned
-              excellence, military precision, and partnerships that last beyond
-              project completion.
+            <p className="mx-auto max-w-3xl font-light text-primary-100 text-xl sm:text-2xl md:text-3xl leading-relaxed">
+              Let's partner together to bring your construction vision to life
+              with veteran-owned excellence and military precision.
             </p>
           </div>
 
-          <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
-            {/* Option 1: Start Your Project */}
-            <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="flex justify-center items-center bg-gradient-to-br from-primary-500 to-primary-600 mx-auto mb-6 rounded-full w-20 h-20">
+          <div className="gap-8 grid grid-cols-1 md:grid-cols-3 mb-12">
+            {/* Option 1: Schedule Consultation */}
+            <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+              <div className="flex justify-center items-center bg-gradient-to-br from-primary-500 to-primary-600 mx-auto mb-6 rounded-full w-20 h-20 shadow-lg">
+                <MaterialIcon icon="event" size="xl" className="text-white" />
+              </div>
+              <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
+                Schedule Consultation
+              </h3>
+              <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
+                Book a free 45-60 minute consultation to discuss your project
+                goals, timeline, and budget.
+              </p>
+              <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400">
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-primary-600 flex-shrink-0"
+                  />
+                  <span>Free consultation</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-primary-600 flex-shrink-0"
+                  />
+                  <span>Expert recommendations</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-primary-600 flex-shrink-0"
+                  />
+                  <span>No obligation</span>
+                </li>
+              </ul>
+              <Link href="/booking">
+                <Button variant="primary" size="lg" className="w-full group">
+                  <MaterialIcon
+                    icon="calendar_today"
+                    size="md"
+                    className="mr-2 group-hover:scale-110 transition-transform"
+                  />
+                  Book Consultation
+                </Button>
+              </Link>
+            </div>
+
+            {/* Option 2: Get Quick Estimate */}
+            <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 border-4 border-secondary-500">
+              <div className="bg-secondary-500 -top-4 left-1/2 absolute px-4 py-1 rounded-full -translate-x-1/2 shadow-md">
+                <span className="font-bold text-sm text-white uppercase tracking-wide">
+                  Most Popular
+                </span>
+              </div>
+              <div className="flex justify-center items-center bg-gradient-to-br from-secondary-500 to-secondary-600 mx-auto mb-6 rounded-full w-20 h-20 shadow-lg">
                 <MaterialIcon
-                  icon="rocket_launch"
+                  icon="calculate"
                   size="xl"
                   className="text-white"
                 />
               </div>
-              <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
-                Start Your Project
+              <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
+                Get Quick Estimate
               </h3>
               <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
-                Ready to begin? Get a detailed estimate and project timeline
-                within 3-5 business days.
+                Receive a detailed project estimate within 3-5 business days
+                with transparent pricing.
               </p>
-              <Link href="/estimator">
-                <Button variant="primary" size="lg" className="w-full">
-                  <MaterialIcon icon="calculate" size="md" className="mr-2" />
-                  Get Estimate
-                </Button>
-              </Link>
-            </div>
-
-            {/* Option 2: Book Consultation */}
-            <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2 border-4 border-accent-500">
-              <div className="bg-accent-500 -top-4 left-1/2 absolute px-4 py-1 rounded-full -translate-x-1/2">
-                <span className="font-bold text-sm text-white uppercase tracking-wide">
-                  Recommended
-                </span>
-              </div>
-              <div className="flex justify-center items-center bg-gradient-to-br from-accent-500 to-accent-600 mx-auto mb-6 rounded-full w-20 h-20">
-                <MaterialIcon icon="event" size="xl" className="text-white" />
-              </div>
-              <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
-                Book Consultation
-              </h3>
-              <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
-                Schedule a free consultation to discuss your vision and receive
-                expert guidance.
-              </p>
-              <Link href="/booking">
-                <Button variant="secondary" size="lg" className="w-full">
+              <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400">
+                <li className="flex items-center gap-2">
                   <MaterialIcon
-                    icon="calendar_today"
-                    size="md"
-                    className="mr-2"
+                    icon="check_circle"
+                    size="sm"
+                    className="text-secondary-600 flex-shrink-0"
                   />
-                  Schedule Now
+                  <span>3-5 day turnaround</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-secondary-600 flex-shrink-0"
+                  />
+                  <span>Detailed line items</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-secondary-600 flex-shrink-0"
+                  />
+                  <span>Open-book pricing</span>
+                </li>
+              </ul>
+              <Link href="/estimator">
+                <Button variant="secondary" size="lg" className="w-full group">
+                  <MaterialIcon
+                    icon="description"
+                    size="md"
+                    className="mr-2 group-hover:scale-110 transition-transform"
+                  />
+                  Request Estimate
                 </Button>
               </Link>
             </div>
 
-            {/* Option 3: Meet Our Team */}
-            <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="flex justify-center items-center bg-gradient-to-br from-secondary-500 to-secondary-600 mx-auto mb-6 rounded-full w-20 h-20">
-                <MaterialIcon icon="groups" size="xl" className="text-white" />
+            {/* Option 3: Contact Us */}
+            <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+              <div className="flex justify-center items-center bg-gradient-to-br from-accent-500 to-accent-600 mx-auto mb-6 rounded-full w-20 h-20 shadow-lg">
+                <MaterialIcon
+                  icon="contact_phone"
+                  size="xl"
+                  className="text-white"
+                />
               </div>
-              <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
-                Meet Our Team
+              <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
+                Contact Us Directly
               </h3>
               <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
-                Get to know the veteran-owned team behind your project&apos;s
-                success.
+                Reach out via phone, email, or contact form for immediate
+                assistance with your project.
               </p>
-              <Link href="/team">
+              <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400">
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-accent-600 flex-shrink-0"
+                  />
+                  <span>24-48hr response</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-accent-600 flex-shrink-0"
+                  />
+                  <span>Multiple contact methods</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MaterialIcon
+                    icon="check_circle"
+                    size="sm"
+                    className="text-accent-600 flex-shrink-0"
+                  />
+                  <span>Direct team access</span>
+                </li>
+              </ul>
+              <Link href="/contact">
                 <Button
                   variant="primary"
                   size="lg"
-                  className="w-full bg-secondary-600 hover:bg-secondary-700"
+                  className="w-full bg-accent-600 hover:bg-accent-700 group"
                 >
-                  <MaterialIcon icon="people" size="md" className="mr-2" />
-                  View Team
+                  <MaterialIcon
+                    icon="mail"
+                    size="md"
+                    className="mr-2 group-hover:scale-110 transition-transform"
+                  />
+                  Get In Touch
                 </Button>
               </Link>
+            </div>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="gap-8 grid grid-cols-2 md:grid-cols-4 text-center text-white">
+            <div>
+              <p className="mb-2 font-black text-4xl">20+</p>
+              <p className="text-primary-100">Years Experience</p>
+            </div>
+            <div>
+              <p className="mb-2 font-black text-4xl">.6</p>
+              <p className="text-primary-100">EMR Safety Rating</p>
+            </div>
+            <div>
+              <p className="mb-2 font-black text-4xl">70%</p>
+              <p className="text-primary-100">Referral Business</p>
+            </div>
+            <div>
+              <p className="mb-2 font-black text-4xl">24/7</p>
+              <p className="text-primary-100">Emergency Support</p>
             </div>
           </div>
         </div>
@@ -729,102 +839,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark via-brand-primary-dark dark:via-gray-900 to-brand-primary dark:to-gray-800 py-20 lg:py-32 overflow-hidden text-white">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="z-10 relative mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mx-auto max-w-5xl text-center">
-              <h2 className="mb-8 pb-2 font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-white/90 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                  Ready to Start Our
-                </span>
-                <span className="block text-white font-black drop-shadow-lg">
-                  Partnership?
-                </span>
-              </h2>
-
-              <div className="bg-white/10 backdrop-blur-sm mb-10 p-6 border border-white/20 rounded-xl">
-                <p className="mb-2 font-bold text-brand-secondary text-xl md:text-2xl">
-                  &ldquo;Building for the Owner, NOT the Dollar&rdquo;
-                </p>
-                <p className="font-light text-white/90 text-lg md:text-xl leading-relaxed">
-                  Partner with a team that works WITH you, not FOR you.
-                  Let&apos;s discuss your vision and build something remarkable
-                  together.
-                </p>
-              </div>
-
-              <div className="flex sm:flex-row flex-col justify-center gap-4 mb-10">
-                <Link href="/booking">
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    className="shadow-xl hover:shadow-2xl transition-all duration-300 w-full sm:w-auto"
-                  >
-                    <MaterialIcon icon="event" size="lg" className="mr-3" />
-                    Schedule Free Consultation
-                  </Button>
-                </Link>
-                <Link href="/services">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-brand-primary shadow-xl hover:shadow-2xl transition-all duration-300 w-full sm:w-auto"
-                  >
-                    <MaterialIcon icon="build" size="lg" className="mr-3" />
-                    Explore Our Solutions
-                  </Button>
-                </Link>
-              </div>
-
-              <div className="flex sm:flex-row flex-col justify-center gap-4">
-                <a href="tel:+15093086489" className="w-full sm:w-auto">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="bg-white/10 backdrop-blur-sm border-2 border-brand-secondary text-white hover:bg-brand-secondary hover:border-brand-secondary-dark shadow-lg hover:shadow-xl transition-all duration-300 w-full"
-                  >
-                    <MaterialIcon icon="phone" size="lg" className="mr-3" />
-                    <div className="flex flex-col items-start">
-                      <span className="text-xs text-white/70 uppercase tracking-wide">
-                        Call Now
-                      </span>
-                      <span className="font-bold">(509) 308-6489</span>
-                    </div>
-                  </Button>
-                </a>
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=3111+N.+Capital+Ave.+Pasco+WA+99301"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto"
-                >
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="bg-white/10 backdrop-blur-sm border-2 border-brand-secondary text-white hover:bg-brand-secondary hover:border-brand-secondary-dark shadow-lg hover:shadow-xl transition-all duration-300 w-full"
-                  >
-                    <MaterialIcon
-                      icon="location_on"
-                      size="lg"
-                      className="mr-3"
-                    />
-                    <div className="flex flex-col items-start">
-                      <span className="text-xs text-white/70 uppercase tracking-wide">
-                        Visit Us
-                      </span>
-                      <span className="font-bold">
-                        3111 N. Capital Ave., Pasco, WA
-                      </span>
-                    </div>
-                  </Button>
-                </a>
-              </div>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
+      {/* Enhanced Partnership Call to Action Section */}
+      <PartnershipCTA />
     </div>
   );
 }

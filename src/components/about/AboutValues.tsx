@@ -59,14 +59,14 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
           {coreValues.map((value, _index) => (
             <div
               key={_index}
-              className="group perspective h-[400px] cursor-pointer"
+              className="group perspective min-h-[550px] cursor-pointer"
               style={{ perspective: "1000px" }}
             >
               <div className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
                 {/* Front of card */}
                 <div className="absolute inset-0 backface-hidden">
-                  <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-primary h-full">
-                    <CardHeader className="pb-4">
+                  <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-primary w-full h-full flex flex-col overflow-hidden">
+                    <CardHeader className="pb-4 flex-shrink-0 px-4 sm:px-6">
                       <div className="flex items-center mb-4">
                         <MaterialIcon
                           icon={value.iconName}
@@ -83,8 +83,8 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
                         {value.subtitle}
                       </p>
                     </CardHeader>
-                    <CardContent className="pt-0">
-                      <p className="mb-6 text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
+                    <CardContent className="pt-0 flex-grow px-4 sm:px-6">
+                      <p className="mb-6 text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed break-words">
                         {value.description}
                       </p>
                       <div className="flex items-center justify-center mt-8 text-brand-primary">
@@ -105,8 +105,8 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
                   className="absolute inset-0 backface-hidden rotate-y-180"
                   style={{ transform: "rotateY(180deg)" }}
                 >
-                  <Card className="bg-gradient-to-br from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-gray-900 border border-brand-primary dark:border-brand-primary/50 h-full">
-                    <CardHeader className="pb-4">
+                  <Card className="bg-gradient-to-br from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-gray-900 border border-brand-primary dark:border-brand-primary/50 w-full h-full flex flex-col overflow-hidden">
+                    <CardHeader className="pb-4 flex-shrink-0 px-4 sm:px-6">
                       <div className="flex items-center mb-4">
                         <MaterialIcon
                           icon="checklist"
@@ -117,7 +117,7 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
                         </p>
                       </div>
                     </CardHeader>
-                    <CardContent className="pt-0">
+                    <CardContent className="pt-0 flex-grow px-4 sm:px-6">
                       <ul className="space-y-3">
                         {value.practices.map((practice, pIndex) => (
                           <li key={pIndex} className="flex items-start">
@@ -125,7 +125,7 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
                               icon="check_circle"
                               className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary text-base sm:text-lg"
                             />
-                            <span className="text-white leading-relaxed text-xs sm:text-sm md:text-base">
+                            <span className="text-white leading-relaxed text-xs sm:text-sm md:text-base break-words">
                               {practice}
                             </span>
                           </li>
