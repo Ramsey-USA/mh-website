@@ -55,7 +55,7 @@ export function TestimonialsCarousel({
   return (
     <div className={`relative mx-auto max-w-5xl ${className}`}>
       {/* Main Carousel Card */}
-      <div className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 min-h-[400px] sm:min-h-[450px] flex flex-col justify-between">
+      <div className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-between">
         {/* Quote Icon */}
         <div className="absolute top-6 right-6 sm:top-8 sm:right-8 flex justify-center items-center bg-brand-secondary/10 p-3 rounded-full w-14 h-14 sm:w-16 sm:h-16">
           <svg

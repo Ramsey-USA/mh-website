@@ -96,13 +96,13 @@ export function LeadershipTeam() {
           {leadershipTeam.map((member, _index) => (
             <div
               key={_index}
-              className="group h-full min-h-[600px]"
+              className="group h-full"
               style={{ perspective: "1000px" }}
             >
-              <div className="relative w-full h-full min-h-[600px] transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
+              <div className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
                 {/* Front of card */}
                 <div className="absolute inset-0 backface-hidden">
-                  <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 w-full h-full flex flex-col overflow-hidden">
+                  <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 w-full h-full flex flex-col">
                     <CardHeader className="pb-6 text-center flex-shrink-0 px-4 sm:px-6">
                       <div className="flex justify-center items-center bg-brand-primary mx-auto mb-4 p-4 rounded-full w-20 h-20">
                         <MaterialIcon
@@ -155,7 +155,7 @@ export function LeadershipTeam() {
                   className="absolute inset-0 backface-hidden rotate-y-180"
                   style={{ transform: "rotateY(180deg)" }}
                 >
-                  <Card className="bg-gradient-to-br from-brand-secondary to-brand-primary dark:from-brand-primary-dark dark:to-gray-900 border border-brand-secondary dark:border-brand-secondary/50 w-full h-full flex flex-col overflow-hidden">
+                  <Card className="bg-gradient-to-br from-brand-secondary to-brand-primary dark:from-brand-primary-dark dark:to-gray-900 border border-brand-secondary dark:border-brand-secondary/50 w-full h-full flex flex-col">
                     <CardHeader className="pb-4 text-center flex-shrink-0 px-4 sm:px-6">
                       <div className="flex justify-center items-center bg-white/20 mx-auto mb-4 p-4 rounded-full w-20 h-20">
                         <MaterialIcon

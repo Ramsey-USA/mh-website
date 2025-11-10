@@ -267,8 +267,7 @@ body {
   max-width: 100vw;
 }
 
-/* Ensure all sections and containers stay within viewport */
-section,
+/* Ensure containers stay within viewport but allow sections to handle their own overflow for 3D effects */
 main,
 .container {
   max-width: 100%;
