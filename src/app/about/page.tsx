@@ -45,7 +45,179 @@ export default function AboutPage() {
       {/* Core Values Section */}
       <AboutValues coreValues={coreValues} />
 
-      {/* Awards & Recognition Section - MOVED BEFORE TESTIMONIALS FOR CREDIBILITY */}
+      {/* Client Reviews Section - POSITIONED AT 25% PAGE DEPTH FOR SEO (Phase 0 optimization) */}
+      <section
+        id="testimonials"
+        className="bg-white dark:bg-gray-900 py-20 lg:py-32"
+      >
+        <div className="mx-auto px-4 container">
+          <FadeInWhenVisible>
+            <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+                  Partnership
+                </span>
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                  Reviews
+                </span>
+              </h2>
+              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
+                Hear directly from our partners about their experience working
+                with MH Construction on their most important projects.
+              </p>
+            </div>
+          </FadeInWhenVisible>
+
+          <StaggeredFadeIn
+            className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
+          >
+            <Card className="bg-white dark:bg-gray-900 hover:shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 h-full">
+              <CardHeader>
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="flex space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <MaterialIcon
+                        key={i}
+                        icon="star"
+                        size="sm"
+                        className="text-brand-secondary"
+                      />
+                    ))}
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 italic leading-relaxed text-sm sm:text-base md:text-lg">
+                  &ldquo;Working with Todd and the MH Construction team on our
+                  Baskin Robbins build was exceptional. Todd&apos;s
+                  communication throughout the entire project kept us informed
+                  every step of the way, and the quality of workmanship exceeded
+                  our expectations. From start to finish, they demonstrated
+                  professionalism and attention to detail that made this build a
+                  success.&rdquo;
+                </p>
+                <div className="flex items-center space-x-3">
+                  <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <MaterialIcon
+                      icon="store"
+                      size="sm"
+                      className="text-brand-primary"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 dark:text-white text-xs sm:text-sm md:text-base">
+                      John Smith
+                    </p>
+                    <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
+                      Baskin Robbins Store Build - $250K Project
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white dark:bg-gray-900 hover:shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 h-full">
+              <CardHeader>
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="flex space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <MaterialIcon
+                        key={i}
+                        icon="star"
+                        size="sm"
+                        className="text-brand-secondary"
+                      />
+                    ))}
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 italic leading-relaxed text-sm sm:text-base md:text-lg">
+                  &ldquo;The tenant improvement process with MH Construction was
+                  outstanding from design through construction. Their ability to
+                  facilitate the entire process while managing multiple
+                  stakeholders, coordinating various processes, overseeing
+                  employees and subcontractors, and maintaining transparency and
+                  fairness throughout was truly impressive.&rdquo;
+                </p>
+                <div className="flex items-center space-x-3">
+                  <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <MaterialIcon
+                      icon="business"
+                      size="sm"
+                      className="text-brand-primary"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 dark:text-white text-xs sm:text-sm md:text-base">
+                      Keith Bjella
+                    </p>
+                    <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
+                      Commercial Tenant Improvement - $320K Project
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white dark:bg-gray-900 hover:shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 h-full">
+              <CardHeader>
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="flex space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <MaterialIcon
+                        key={i}
+                        icon="star"
+                        size="sm"
+                        className="text-brand-secondary"
+                      />
+                    ))}
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 italic leading-relaxed text-sm sm:text-base md:text-lg">
+                  &ldquo;MH Construction exceeded our expectations in every way.
+                  Their military precision and attention to detail resulted in
+                  our dream home being completed ahead of schedule and within
+                  budget. The veteran-owned values really showed in their
+                  commitment to excellence.&rdquo;
+                </p>
+                <div className="flex items-center space-x-3">
+                  <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <MaterialIcon
+                      icon="home"
+                      size="sm"
+                      className="text-brand-primary"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 dark:text-white text-xs sm:text-sm md:text-base">
+                      Jennifer & Mike Thompson
+                    </p>
+                    <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
+                      Custom Family Home - $475K Project
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </StaggeredFadeIn>
+
+          {/* Aggregate Rating - SEO Enhanced */}
+          <div className="mt-16 lg:mt-24">
+            <AggregateRating
+              testimonials={getClientTestimonials()}
+              variant="default"
+              showBreakdown={true}
+              title="Overall Client Satisfaction"
+              className="max-w-2xl mx-auto"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Awards & Recognition Section */}
       <AwardsSection />
 
       {/* Next Steps Section */}
@@ -232,178 +404,6 @@ export default function AboutPage() {
                 </Button>
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Client Reviews Section - AFTER AWARDS FOR SEO */}
-      <section
-        id="testimonials"
-        className="bg-white dark:bg-gray-900 py-20 lg:py-32"
-      >
-        <div className="mx-auto px-4 container">
-          <FadeInWhenVisible>
-            <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                  Partnership
-                </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
-                  Reviews
-                </span>
-              </h2>
-              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
-                Hear directly from our partners about their experience working
-                with MH Construction on their most important projects.
-              </p>
-            </div>
-          </FadeInWhenVisible>
-
-          <StaggeredFadeIn
-            className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
-          >
-            <Card className="bg-white dark:bg-gray-900 hover:shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 h-full">
-              <CardHeader>
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="flex space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <MaterialIcon
-                        key={i}
-                        icon="star"
-                        size="sm"
-                        className="text-brand-secondary"
-                      />
-                    ))}
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 italic leading-relaxed text-sm sm:text-base md:text-lg">
-                  &ldquo;Working with Todd and the MH Construction team on our
-                  Baskin Robbins build was exceptional. Todd&apos;s
-                  communication throughout the entire project kept us informed
-                  every step of the way, and the quality of workmanship exceeded
-                  our expectations. From start to finish, they demonstrated
-                  professionalism and attention to detail that made this build a
-                  success.&rdquo;
-                </p>
-                <div className="flex items-center space-x-3">
-                  <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <MaterialIcon
-                      icon="store"
-                      size="sm"
-                      className="text-brand-primary"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900 dark:text-white text-xs sm:text-sm md:text-base">
-                      John Smith
-                    </p>
-                    <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                      Baskin Robbins Store Build - $250K Project
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white dark:bg-gray-900 hover:shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 h-full">
-              <CardHeader>
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="flex space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <MaterialIcon
-                        key={i}
-                        icon="star"
-                        size="sm"
-                        className="text-brand-secondary"
-                      />
-                    ))}
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 italic leading-relaxed text-sm sm:text-base md:text-lg">
-                  &ldquo;The tenant improvement process with MH Construction was
-                  outstanding from design through construction. Their ability to
-                  facilitate the entire process while managing multiple
-                  stakeholders, coordinating various processes, overseeing
-                  employees and subcontractors, and maintaining transparency and
-                  fairness throughout was truly impressive.&rdquo;
-                </p>
-                <div className="flex items-center space-x-3">
-                  <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <MaterialIcon
-                      icon="business"
-                      size="sm"
-                      className="text-brand-primary"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900 dark:text-white text-xs sm:text-sm md:text-base">
-                      Keith Bjella
-                    </p>
-                    <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                      Commercial Tenant Improvement - $320K Project
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white dark:bg-gray-900 hover:shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 h-full">
-              <CardHeader>
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="flex space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <MaterialIcon
-                        key={i}
-                        icon="star"
-                        size="sm"
-                        className="text-brand-secondary"
-                      />
-                    ))}
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 italic leading-relaxed text-sm sm:text-base md:text-lg">
-                  &ldquo;MH Construction exceeded our expectations in every way.
-                  Their military precision and attention to detail resulted in
-                  our dream home being completed ahead of schedule and within
-                  budget. The veteran-owned values really showed in their
-                  commitment to excellence.&rdquo;
-                </p>
-                <div className="flex items-center space-x-3">
-                  <div className="bg-brand-primary/20 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <MaterialIcon
-                      icon="home"
-                      size="sm"
-                      className="text-brand-primary"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900 dark:text-white text-xs sm:text-sm md:text-base">
-                      Jennifer & Mike Thompson
-                    </p>
-                    <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                      Custom Family Home - $475K Project
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </StaggeredFadeIn>
-
-          {/* Aggregate Rating - SEO Enhanced */}
-          <div className="mt-16 lg:mt-24">
-            <AggregateRating
-              testimonials={getClientTestimonials()}
-              variant="default"
-              showBreakdown={true}
-              title="Overall Client Satisfaction"
-              className="max-w-2xl mx-auto"
-            />
           </div>
         </div>
       </section>
