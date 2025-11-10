@@ -60,7 +60,7 @@ _This tagline emphasizes our commitment to client success over profit maximizati
 **Messaging Language:**
 
 - "Instant preliminary pricing"
-- "AI-powered cost calculator"
+- "AI-powered estimator"
 - "24/7 automated estimates"
 - "Smart cost estimation"
 - "Preliminary budget planning"
@@ -405,7 +405,7 @@ Form Submissions:
 "About" → "Our Story & Values"
 "Portfolio" → "Partnership Success Stories"
 "Booking" → "Schedule Consultation"
-"Estimator" → "Project Calculator"
+"Estimator" → "AI Estimator"
 
 // VENDOR-FOCUSED NAVIGATION
 "Trade Partners" → "Trade Partnership Network"

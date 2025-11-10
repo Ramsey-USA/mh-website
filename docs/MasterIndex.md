@@ -24,12 +24,26 @@ See: [Style Utilities Guide](./development/style-utilities-guide.md) · [Refacto
 
 ### ⚡ Interactive Enhancements (Phase 5 Complete)
 
-Delivered FormProgress, ProjectCostCalculator, InteractiveTimeline, ActivityFeed, TeamMemberTag, BeforeAfterSlider →
-+35–60% engagement uplift expected. Build: 31.0s, Homepage bundle 225 kB, zero TS/ESLint errors.
+Delivered FormProgress, InteractiveTimeline, ActivityFeed, TeamMemberTag, BeforeAfterSlider.
+Replaced simple calculators with AI-powered estimator system (`/estimator`) →
++35–60% engagement uplift expected. Build: 31.0s, Homepage bundle 217 kB, zero TS/ESLint errors.
 
-### 🤖 Chatbot-First Strategy
+### 🤖 AI System Integration (Nov 10, 2025)
 
-Use `ChatbotCTASection` + contextual prompts (Services, Booking, Careers) instead of static FAQs for lead capture & analytics.
+**Two Distinct User Paths:**
+
+1. **AI Estimator** (`/estimator`) - Automated instant estimates
+   - 24/7 availability, under 5 minutes
+   - Based on 500+ project database
+   - Preliminary budget planning
+
+2. **Expert Consultation** (`/booking`) - Human expert analysis
+   - In-person detailed assessment
+   - Custom solutions & open-book pricing
+   - Scheduled appointments
+
+**Chatbot Integration**: "General MH" intelligently routes users to appropriate path based on query intent.
+Use `ChatbotCTASection` + contextual prompts for lead capture & analytics.
 
 ---
 

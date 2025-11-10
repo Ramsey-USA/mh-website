@@ -11,7 +11,6 @@ import {
 import { TestimonialGrid } from "@/components/testimonials";
 import { getClientTestimonials } from "@/lib/data/testimonials";
 import { AggregateRating } from "@/components/ratings";
-import { ProjectCostCalculator } from "@/components/calculator";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 // Enhanced SEO for AI-powered veteran-owned construction
@@ -232,40 +231,222 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Project Cost Calculator Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-20 lg:py-32">
+      {/* AI-Powered Cost Estimator CTA Section */}
+      <section className="bg-gradient-to-br from-brand-primary/10 via-brand-secondary/5 to-gray-50 dark:from-gray-900 dark:to-gray-800 py-20 lg:py-32">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
-            <ProjectCostCalculator
-              variant="featured"
-              showVeteranDiscount={true}
-              enableChatbotHandoff={true}
-              onGetDetailedEstimate={(data) => {
-                // Track calculator usage
-                if (typeof window !== "undefined" && window.gtag) {
-                  window.gtag("event", "cost_calculator_used", {
-                    project_type: data.projectType,
-                    quality: data.quality,
-                    estimated_min: data.estimatedCost.min,
-                    estimated_max: data.estimatedCost.max,
-                    is_veteran: data.isVeteran,
-                    event_category: "engagement",
-                    event_label: "homepage_calculator",
-                  });
-                }
+            <div className="bg-white dark:bg-gray-800 shadow-2xl rounded-3xl overflow-hidden">
+              <div className="grid md:grid-cols-2 gap-0">
+                {/* Left Side - Content */}
+                <div className="p-8 lg:p-12 flex flex-col justify-center">
+                  <div className="mb-6">
+                    <div className="inline-flex items-center bg-brand-secondary/10 text-brand-secondary px-4 py-2 rounded-full text-sm font-bold mb-4">
+                      <MaterialIcon
+                        icon="auto_awesome"
+                        size="sm"
+                        className="mr-2"
+                      />
+                      AI-Powered Technology
+                    </div>
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight">
+                      Get Your AI-Powered
+                      <span className="block text-brand-primary">
+                        Cost Estimate
+                      </span>
+                    </h2>
+                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                      Our advanced AI estimator analyzes 500+ completed projects
+                      and 150+ years of combined team experience to provide
+                      accurate preliminary budget planning in under 5 minutes.
+                    </p>
+                  </div>
 
-                // Track with analytics hook
-                trackEvent("project_cost_calculated", {
-                  location: "homepage",
-                  project_type: data.projectType,
-                  scope_level: data.scope,
-                  quality_level: data.quality,
-                  timeline: data.timeline,
-                  is_veteran: data.isVeteran,
-                  estimated_range: data.estimatedCost.display,
-                });
-              }}
-            />
+                  {/* Key Features */}
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0 w-10 h-10 bg-brand-primary/10 rounded-full flex items-center justify-center mr-4">
+                        <MaterialIcon
+                          icon="speed"
+                          size="sm"
+                          className="text-brand-primary"
+                        />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900 dark:text-white mb-1">
+                          Under 5 Minutes
+                        </h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                          Complete detailed estimates fast, 24/7 availability
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0 w-10 h-10 bg-brand-secondary/10 rounded-full flex items-center justify-center mr-4">
+                        <MaterialIcon
+                          icon="analytics"
+                          size="sm"
+                          className="text-brand-secondary"
+                        />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900 dark:text-white mb-1">
+                          Data-Driven Intelligence
+                        </h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                          Pacific Northwest market data from WA, OR, and ID
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0 w-10 h-10 bg-brand-primary/10 rounded-full flex items-center justify-center mr-4">
+                        <MaterialIcon
+                          icon="military_tech"
+                          size="sm"
+                          className="text-brand-primary"
+                        />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900 dark:text-white mb-1">
+                          Veteran-Owned Expertise
+                        </h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                          Military precision backed by award-winning .6 EMR
+                          safety
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CTA Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Link href="/estimator" className="flex-1">
+                      <Button
+                        variant="primary"
+                        size="lg"
+                        className="w-full"
+                        onClick={() => {
+                          // Track CTA click
+                          if (typeof window !== "undefined" && window.gtag) {
+                            window.gtag("event", "ai_estimator_cta_click", {
+                              event_category: "conversion",
+                              event_label: "homepage_estimator_cta",
+                              location: "homepage",
+                            });
+                          }
+                          trackEvent("ai_estimator_cta_click", {
+                            location: "homepage",
+                            section: "estimator_cta",
+                          });
+                        }}
+                      >
+                        <MaterialIcon
+                          icon="calculate"
+                          size="md"
+                          className="mr-2"
+                        />
+                        Start AI Estimate
+                      </Button>
+                    </Link>
+                    <Link href="/booking" className="flex-1">
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="w-full"
+                        onClick={() => {
+                          trackEvent("consultation_cta_click", {
+                            location: "homepage",
+                            section: "estimator_cta",
+                          });
+                        }}
+                      >
+                        <MaterialIcon icon="event" size="md" className="mr-2" />
+                        Book Consultation
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Right Side - Visual/Stats */}
+                <div className="bg-gradient-to-br from-brand-primary to-brand-primary-dark p-8 lg:p-12 flex flex-col justify-center text-white">
+                  <h3 className="text-2xl font-bold mb-8">
+                    Trusted by Pacific Northwest Businesses
+                  </h3>
+
+                  <div className="space-y-6">
+                    <div className="flex items-center">
+                      <div className="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center mr-4">
+                        <MaterialIcon
+                          icon="dataset"
+                          size="lg"
+                          className="text-white"
+                        />
+                      </div>
+                      <div>
+                        <div className="text-3xl font-black">500+</div>
+                        <div className="text-white/80 text-sm">
+                          Projects Analyzed
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center">
+                      <div className="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center mr-4">
+                        <MaterialIcon
+                          icon="verified"
+                          size="lg"
+                          className="text-white"
+                        />
+                      </div>
+                      <div>
+                        <div className="text-3xl font-black">.6 EMR</div>
+                        <div className="text-white/80 text-sm">
+                          Award-Winning Safety
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center">
+                      <div className="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center mr-4">
+                        <MaterialIcon
+                          icon="engineering"
+                          size="lg"
+                          className="text-white"
+                        />
+                      </div>
+                      <div>
+                        <div className="text-3xl font-black">150+</div>
+                        <div className="text-white/80 text-sm">
+                          Years Combined Experience
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center">
+                      <div className="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center mr-4">
+                        <MaterialIcon
+                          icon="schedule"
+                          size="lg"
+                          className="text-white"
+                        />
+                      </div>
+                      <div>
+                        <div className="text-3xl font-black">24/7</div>
+                        <div className="text-white/80 text-sm">
+                          Always Available
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 pt-8 border-t border-white/20">
+                    <p className="text-sm text-white/80 italic">
+                      "Get transparent, open-book pricing for your project. No
+                      hidden costs, just honest assessments you can trust."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </FadeInWhenVisible>
         </div>
       </section>

@@ -79,7 +79,7 @@ const features = [
 const ctaButtons = [
   {
     title: "Get Instant AI Estimate",
-    description: "Try our AI cost calculator",
+    description: "Try our AI-powered estimator",
     href: "/estimator",
     variant: "secondary" as const,
     icon: "smart_toy",

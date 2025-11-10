@@ -21,7 +21,6 @@ import {
 import { TestimonialGrid } from "@/components/testimonials";
 import { getClientTestimonials } from "@/lib/data/testimonials";
 import { ChatbotCTASection } from "@/components/chatbot";
-import { QuickCostCalculator } from "@/components/calculator";
 import { InteractiveTimeline } from "@/components/timeline";
 import { gridPresets } from "@/lib/styles/layout-variants";
 
@@ -657,25 +656,110 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Quick Cost Calculator */}
-        <section className="relative bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-20 lg:py-32">
-          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-            <div className="mb-12 text-center">
-              <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                  Get Your Project
-                </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
-                  Cost Estimate
-                </span>
-              </h2>
-              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed">
-                Use our interactive calculator to get an instant estimate for
-                your construction project. See how project type, size, quality,
-                and timeline affect your budget.
-              </p>
+        {/* AI Estimator CTA - Services Page */}
+        <section className="relative bg-gradient-to-br from-brand-primary/5 via-brand-secondary/5 to-gray-50 dark:from-gray-900 dark:to-gray-800 py-20 lg:py-32">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+            <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden">
+              <div className="p-8 lg:p-12 text-center">
+                <div className="mb-8">
+                  <div className="inline-flex items-center bg-brand-secondary/10 text-brand-secondary px-5 py-2 rounded-full text-sm font-bold mb-6">
+                    <MaterialIcon
+                      icon="auto_awesome"
+                      size="sm"
+                      className="mr-2"
+                    />
+                    AI-Powered Precision
+                  </div>
+                  <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                    <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+                      Ready to Get
+                    </span>
+                    <span className="block text-brand-primary dark:text-brand-primary font-black">
+                      Your AI Estimate?
+                    </span>
+                  </h2>
+                  <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8">
+                    Get a detailed, AI-powered cost estimate in under 5 minutes.
+                    Our advanced system analyzes 500+ projects and Pacific
+                    Northwest market data to provide accurate preliminary budget
+                    planning.
+                  </p>
+                </div>
+
+                {/* Features Grid */}
+                <div className="grid md:grid-cols-3 gap-6 mb-10 max-w-3xl mx-auto">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-brand-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <MaterialIcon
+                        icon="speed"
+                        size="md"
+                        className="text-brand-primary"
+                      />
+                    </div>
+                    <div className="font-bold text-gray-900 dark:text-white mb-1">
+                      Under 5 Minutes
+                    </div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">
+                      Fast & thorough analysis
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-brand-secondary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <MaterialIcon
+                        icon="analytics"
+                        size="md"
+                        className="text-brand-secondary"
+                      />
+                    </div>
+                    <div className="font-bold text-gray-900 dark:text-white mb-1">
+                      500+ Projects
+                    </div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">
+                      Data-driven intelligence
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-brand-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <MaterialIcon
+                        icon="military_tech"
+                        size="md"
+                        className="text-brand-primary"
+                      />
+                    </div>
+                    <div className="font-bold text-gray-900 dark:text-white mb-1">
+                      Veteran-Owned
+                    </div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">
+                      Military precision & .6 EMR
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
+                  <Link href="/estimator" className="flex-1">
+                    <Button variant="primary" size="lg" className="w-full">
+                      <MaterialIcon
+                        icon="calculate"
+                        size="md"
+                        className="mr-2"
+                      />
+                      Start AI Estimate
+                    </Button>
+                  </Link>
+                  <Link href="/booking" className="flex-1">
+                    <Button variant="outline" size="lg" className="w-full">
+                      <MaterialIcon icon="event" size="md" className="mr-2" />
+                      Book Consultation
+                    </Button>
+                  </Link>
+                </div>
+
+                <p className="mt-6 text-sm text-gray-500 dark:text-gray-400 italic">
+                  No appointment needed • Available 24/7 • Transparent pricing
+                </p>
+              </div>
             </div>
-            <QuickCostCalculator />
           </div>
         </section>
 

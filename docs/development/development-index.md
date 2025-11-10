@@ -18,10 +18,22 @@
 ### New Developer Onboarding Path
 
 1. **[Consistency Guide](./consistency-guide.md)** - ⭐ **MANDATORY** - Complete implementation standards
+   (includes AI Estimator vs. Consultation distinction)
 2. **[Cohesion Checklist](./cohesion-checklist.md)** - ⭐ **NEW** - Ensure consistency when creating/editing pages
 3. **[Style Utilities Guide](./style-utilities-guide.md)** - ⭐ **MANDATORY** - Centralized style utilities
 4. **[Quick Reference](./style-utilities-quick-reference.md)** - Daily cheat sheet for common patterns
 5. **[Development Standards](./development-standards.md)** - Core coding standards
+
+### 🤖 AI System Architecture (Nov 10, 2025)
+
+**Critical Understanding - Two Distinct Paths:**
+
+- **AI Estimator** (`/estimator`) - Automated instant estimates (AI-powered, 24/7, under 5 min)
+- **Expert Consultation** (`/booking`) - Human expert analysis (scheduled, detailed, customized)
+- **Chatbot Integration** - "General MH" routes users intelligently based on query intent
+
+See [Consistency Guide - AI System Architecture](./consistency-guide.md#-ai-system-architecture-nov-10-2025)
+for complete details.
 
 ---
 

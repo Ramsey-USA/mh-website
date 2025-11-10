@@ -23,12 +23,20 @@ interface QuickAction {
 
 const QUICK_ACTIONS: QuickAction[] = [
   {
+    id: "ai-estimator",
+    label: "AI Estimator",
+    icon: "smart_toy",
+    message: "I want to use the AI Estimator to get instant project pricing",
+    description: "Get instant AI-powered cost estimates in under 5 minutes",
+    priority: "high",
+  },
+  {
     id: "get-partnership-estimate",
-    label: "Partnership Estimate",
+    label: "Expert Consultation",
     icon: "handshake",
     message:
-      "I'd like to explore a construction partnership and get an estimate",
-    description: "Start your building partnership with MH Construction",
+      "I'd like to schedule an expert consultation for detailed project analysis",
+    description: "Book in-person consultation with construction experts",
     priority: "high",
   },
   {

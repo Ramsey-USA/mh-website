@@ -45,16 +45,16 @@ preliminary project pricing based on user input.
 
 - "Get Instant AI Estimate"
 - "Try Our AI Estimator"
-- "Calculate Project Cost Now"
+- "Get Instant AI Estimate"
 - "Get Smart Estimate"
-- "Use AI Cost Calculator"
+- "Start AI Estimate"
 - "See Pricing Instantly"
 
 #### Descriptive Language
 
 - "AI-powered cost estimation"
 - "Instant preliminary pricing"
-- "Automated project calculator"
+- "Automated estimator system"
 - "Smart cost estimation tool"
 - "Digital pricing intelligence"
 - "Self-service estimation"
@@ -62,7 +62,7 @@ preliminary project pricing based on user input.
 #### Benefit Statements
 
 - "Get instant preliminary pricing with our AI estimator"
-- "Explore project costs 24/7 with our automated calculator"
+- "Explore project costs 24/7 with our automated estimator"
 - "See ballpark estimates in seconds using advanced AI"
 - "Plan your budget with instant intelligent cost analysis"
 - "No waiting - get preliminary pricing right now"
@@ -183,7 +183,7 @@ visits your site, understands your vision, and provides detailed professional es
 #### 1. Instant AI Estimator
 
 Icon: MaterialIcon "smart_toy"
-Get preliminary project costs in seconds with our AI-powered calculator.
+Get preliminary project costs in seconds with our AI-powered estimator.
 Available 24/7 for immediate budget planning.
 [Try AI Estimator →]
 
@@ -242,7 +242,7 @@ Expert guidance tailored to your specific project.
 
 - Prominent placement in mobile navigation
 - Quick access from sticky header
-- Full-screen calculator experience
+- Full-screen estimator experience
 - Easy parameter adjustment
 - Share/save functionality
 

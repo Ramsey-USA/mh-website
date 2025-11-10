@@ -52,7 +52,7 @@ commercial, industrial, and specialty businesses, including:
 **Ready to Start?** Schedule a free consultation to discuss your commercial construction project.
 
 - **Schedule Free Consultation** - Meet with our specialists (`event`)
-- **Get Instant AI Estimate** - Try our automated calculator (`smart_toy`)
+- **Get Instant AI Estimate** - Try our AI-powered estimator (`smart_toy`)
 
 **Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
@@ -359,11 +359,11 @@ bring your vision to life through professional construction management.
 
 #### 1. Instant AI Estimate
 
-Get preliminary project costs in seconds with our AI-powered calculator.
+Get preliminary project costs in seconds with our AI-powered estimator.
 Available 24/7 for immediate budget planning.
 
 - **Get Instant AI Estimate** - Automated preliminary pricing (`smart_toy`)
-- **Try AI Cost Calculator** - Quick budget estimation (`calculate`)
+- **Try AI Estimator** - Quick budget estimation (`calculate`)
 
 #### 2. Professional Consultation
 

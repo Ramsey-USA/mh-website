@@ -19,9 +19,9 @@ See: [Style Utilities Guide](./docs/development/style-utilities-guide.md)
 
 ### Interactive Enhancements (Phase 5 ✅)
 
-Delivered FormProgress, ProjectCostCalculator, InteractiveTimeline,
-ActivityFeed, TeamMemberTag, BeforeAfterSlider.
-Build 31.0s, Homepage bundle 225 kB, zero TS/ESLint errors.
+Delivered FormProgress, InteractiveTimeline, ActivityFeed, TeamMemberTag, BeforeAfterSlider.
+Replaced simple calculators with AI-powered estimator system (`/estimator`).
+Build 31.0s, Homepage bundle 217 kB, zero TS/ESLint errors.
 Expected uplift: +35–60% engagement / +25–50% qualified leads.
 Metrics: [Optimization Results](./docs/optimization-results.md).
 
@@ -63,11 +63,32 @@ Serving Pacific Northwest (WA/OR/ID). Veteran-led team; AI-assisted estimation &
 ### Core Features
 
 - 12 primary pages + interactive components
-- AI chatbot "General MH" (context-aware, lead capture)
-- Cost Estimator with veteran discount logic
+- **AI Chatbot "General MH"** (context-aware, lead capture, intelligent routing)
+- **AI Estimator** (`/estimator`) - Instant automated cost estimates 24/7
+- **Expert Consultation Booking** (`/booking`) - In-person detailed project analysis
 - Booking & consultation prioritization for veterans
 - Responsive, dark/light, accessibility focused
 - Resend email integration (`office@mhc-gc.com`)
+
+### Estimation System Architecture
+
+**Two Distinct Paths:**
+
+1. **AI Estimator** (`/estimator`):
+   - Automated, instant preliminary pricing
+   - Available 24/7, under 5 minutes
+   - Based on 500+ completed projects
+   - Pacific Northwest market data
+   - AI-powered cost analysis
+
+2. **Expert Consultation** (`/booking`):
+   - In-person human expert assessment
+   - Detailed customized analysis
+   - On-site evaluation
+   - Open-book transparent pricing
+   - Scheduled appointments
+
+**Chatbot Integration**: "General MH" intelligently routes users to the appropriate path based on their needs.
 
 ### Tech Stack
 

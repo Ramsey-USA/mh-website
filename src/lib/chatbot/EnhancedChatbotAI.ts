@@ -214,7 +214,7 @@ export class EnhancedChatbotAI {
     _message: string,
     _context: EnhancedChatbotContext,
   ): string {
-    return `**[SERVICE CAPABILITIES BRIEF]** 🔧\n\nReporting operational capabilities! Here's what this construction unit offers:\n\n**RESIDENTIAL OPERATIONS:**\n• Custom home construction missions\n• Kitchen & bathroom tactical remodels\n• Home additions & strategic renovations\n• Deck & outdoor living space deployments\n\n**COMMERCIAL MISSIONS:**\n• Office building construction operations\n• Retail space development campaigns\n• Industrial facility builds\n• Tenant improvement missions\n\n**SPECIALIZED OPERATIONS:**\n• Veteran-owned business priority protocols\n• Energy-efficient construction missions\n• Sustainable building tactical approaches\n• Emergency repair rapid response\n\n**Ready for a service briefing or Cost Reconnaissance Mission?**`;
+    return `**[SERVICE CAPABILITIES BRIEF]** 🔧\n\nReporting operational capabilities! Here's what this construction unit offers:\n\n**RESIDENTIAL OPERATIONS:**\n• Custom home construction missions\n• Kitchen & bathroom tactical remodels\n• Home additions & strategic renovations\n• Deck & outdoor living space deployments\n\n**COMMERCIAL MISSIONS:**\n• Office building construction operations\n• Retail space development campaigns\n• Industrial facility builds\n• Tenant improvement missions\n\n**SPECIALIZED OPERATIONS:**\n• Veteran-owned business priority protocols\n• Energy-efficient construction missions\n• Sustainable building tactical approaches\n• Emergency repair rapid response\n\n**INTELLIGENCE GATHERING OPTIONS:**\n• [AI Estimator →](/estimator) - Instant preliminary intel (24/7)\n• [Expert Consultation →](/booking) - Detailed mission analysis\n\n**Ready for instant cost intel or expert briefing?**`;
   }
 
   private generateProjectsPageResponse(
@@ -425,6 +425,7 @@ export class EnhancedChatbotAI {
     const projectKeywords = [
       "project",
       "estimate",
+      "estimator",
       "cost",
       "budget",
       "build",
@@ -434,7 +435,11 @@ export class EnhancedChatbotAI {
       "addition",
       "quote",
       "price",
+      "pricing",
       "timeline",
+      "ai estimate",
+      "ai estimator",
+      "calculator",
     ];
     return projectKeywords.some((keyword) =>
       message.toLowerCase().includes(keyword),
@@ -453,23 +458,27 @@ export class EnhancedChatbotAI {
       response += `**Mission Type Identified:** ${projectType} operations\n\n`;
     }
 
-    response += `**PROJECT DEVELOPMENT PROTOCOL:**\n`;
-    response += `1. **Initial tactical consultation** (free on-site assessment)\n`;
-    response += `2. **Design & strategic planning** phase\n`;
-    response += `3. **Detailed cost reconnaissance** with timeline intel\n`;
-    response += `4. **Mission execution** with regular status reports\n`;
-    response += `5. **Final operation walkthrough** & warranty deployment\n\n`;
+    response += `**CHOOSE YOUR MISSION PATH:**\n\n`;
 
-    response += `**NEXT TACTICAL STEPS:**\n`;
-    response += `• [Deploy consultation](/booking) for detailed mission planning\n`;
-    response += `• [Recon similar operations](/projects) in mission archives\n`;
-    response += `• [Contact command](/contact) for immediate tactical support\n\n`;
+    response += `**🤖 AI ESTIMATOR (Instant):**\n`;
+    response += `• Get preliminary cost intel in under 5 minutes\n`;
+    response += `• Available 24/7 for immediate budget planning\n`;
+    response += `• Based on 500+ completed missions\n`;
+    response += `• [Launch AI Estimator →](/estimator)\n\n`;
+
+    response += `**👤 EXPERT CONSULTATION (Detailed):**\n`;
+    response += `• Schedule in-person tactical assessment\n`;
+    response += `• Customized mission planning with human experts\n`;
+    response += `• Detailed open-book pricing & timeline intel\n`;
+    response += `• [Schedule Consultation →](/booking)\n\n`;
+
+    response += `**RECOMMENDED:** Start with AI Estimator for instant preliminary pricing, then schedule consultation for detailed analysis.\n\n`;
 
     if (context.conversationMemory?.userProfile?.isVeteran) {
-      response += `**VETERAN PRIORITY:** Your mission receives expedited processing and 12% combat veteran discount.\n\n`;
+      response += `**VETERAN PRIORITY:** Your mission receives expedited processing and 12% combat veteran discount on both paths.\n\n`;
     }
 
-    response += `**Ready to initiate your construction mission?**`;
+    response += `**Which tactical path suits your mission objectives?**`;
 
     return response;
   }

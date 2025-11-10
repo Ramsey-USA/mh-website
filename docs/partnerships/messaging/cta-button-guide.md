@@ -29,20 +29,20 @@ standards to distinguish between:
 
 <Button variant="secondary" size="lg">
   <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
-  <span className="font-medium">Try AI Cost Calculator</span>
+  <span className="font-medium">Try AI Estimator</span>
 </Button>
 
 <Button variant="secondary" size="lg">
   <MaterialIcon icon="calculate" size="lg" className="mr-3" />
-  <span className="font-medium">Calculate Project Cost</span>
+  <span className="font-medium">Get AI Estimate</span>
 </Button>
 ```text
 
 **Button Text Options:**
 
 - "Get Instant AI Estimate"
-- "Try AI Cost Calculator"
-- "Calculate Project Cost Now"
+- "Try AI Estimator"
+- "Start AI Estimate"
 - "See Pricing Instantly"
 - "Use Smart Estimator"
 - "Get Preliminary Pricing"

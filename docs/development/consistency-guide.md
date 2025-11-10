@@ -25,6 +25,36 @@
 
 **Replace static FAQs with interactive chatbot CTAs** to drive personalized engagement.
 
+### 🎯 AI System Architecture (Nov 10, 2025)
+
+**Two Distinct User Paths:**
+
+#### 1. AI Estimator (`/estimator`) - Automated
+
+- **Purpose**: Instant preliminary cost estimates
+- **Technology**: AI-powered analysis, 500+ project database
+- **Availability**: 24/7, under 5 minutes
+- **User Flow**: Automated form → AI calculation → Preliminary pricing
+- **Color**: Leather Tan (`#BD9264`)
+- **Icons**: `smart_toy`, `calculate`
+- **CTAs**: "Get AI Estimate", "Try AI Estimator", "Start AI Estimate"
+
+#### 2. Expert Consultation (`/booking`) - Human
+
+- **Purpose**: Detailed in-person project assessment
+- **Technology**: Scheduled appointments with human experts
+- **Availability**: Scheduled consultations
+- **User Flow**: Booking form → Calendar scheduling → Expert consultation
+- **Color**: Hunter Green (`#386851`)
+- **Icons**: `handshake`, `event`
+- **CTAs**: "Schedule Consultation", "Book Expert Analysis", "Get Detailed Quote"
+
+**Chatbot Integration**: "General MH" intelligently routes users based on query:
+
+- Cost/price/estimate queries → Presents BOTH options with distinction
+- Quick/instant queries → Emphasizes AI Estimator
+- Detailed/custom queries → Emphasizes Expert Consultation
+
 ### When to Use ChatbotCTASection
 
 ✅ **USE ChatbotCTASection for:**
@@ -33,6 +63,7 @@
 - Question prompts on booking/consultation pages
 - Career inquiry sections
 - Any "common questions" section
+- Routing users to appropriate estimation path
 
 ❌ **DON'T USE ChatbotCTASection for:**
 

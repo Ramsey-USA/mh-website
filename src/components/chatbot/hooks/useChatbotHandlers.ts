@@ -256,8 +256,28 @@ export function useChatbotHandlers(props: ChatbotHandlersProps) {
 
   // Quick action select
   const handleQuickActionSelect = useCallback(
-    (action: string) => {
-      setInputValue(action);
+    (actionId: string, message: string) => {
+      // Handle AI Estimator action - direct navigation
+      if (actionId === "ai-estimator") {
+        if (typeof window !== "undefined") {
+          window.location.href = "/estimator";
+        }
+        return;
+      }
+
+      // Handle consultation action - direct navigation
+      if (
+        actionId === "get-partnership-estimate" ||
+        actionId === "schedule-consultation"
+      ) {
+        if (typeof window !== "undefined") {
+          window.location.href = "/booking";
+        }
+        return;
+      }
+
+      // For other actions, use the message in chat
+      setInputValue(message);
       setShowQuickActions(false);
     },
     [setInputValue, setShowQuickActions],
@@ -336,7 +356,7 @@ export function useChatbotHandlers(props: ChatbotHandlersProps) {
   // Set up keyboard shortcuts
   useEffect(() => {
     const listener = (e: globalThis.KeyboardEvent) => {
-      handleKeyDown(e as any);
+      handleKeyDown(e as unknown as KeyboardEvent);
     };
     window.addEventListener("keydown", listener);
     return () => window.removeEventListener("keydown", listener);

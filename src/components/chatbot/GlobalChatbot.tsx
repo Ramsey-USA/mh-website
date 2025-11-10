@@ -119,8 +119,8 @@ export default function GlobalChatbot({
           <>
             {state.showQuickActions && (
               <QuickActionMenu
-                onActionSelect={(_, message) =>
-                  handlers.handleQuickActionSelect(message)
+                onActionSelect={(actionId, message) =>
+                  handlers.handleQuickActionSelect(actionId, message)
                 }
                 isVisible={state.showQuickActions}
                 currentPage={currentPage}
