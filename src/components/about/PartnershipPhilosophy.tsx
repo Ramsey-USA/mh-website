@@ -14,7 +14,7 @@ export function PartnershipPhilosophy() {
       id="partnership-philosophy"
       className="bg-white dark:bg-gray-900 py-16 lg:py-24"
     >
-      <div className="mx-auto px-4 container">
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <FadeInWhenVisible>
           <div className="mx-auto max-w-4xl">
             <div className="mb-12 text-center">

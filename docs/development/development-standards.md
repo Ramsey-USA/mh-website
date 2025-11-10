@@ -277,9 +277,21 @@ import { Section, SectionHeader } from "@/components/ui/layout";
 // DON'T DO THIS - repeated grid pattern
 <div className="gap-6 lg:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
 
-// DON'T DO THIS - repeated section markup
+// ❌ CRITICAL: DON'T USE .container CLASS IN SECTION WRAPPERS
+// This creates scroll capture issues (sections create internal scrollbars)
 <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
-  <div className="mx-auto px-4 container">
+  <div className="mx-auto px-4 container">  {/* ❌ WRONG - causes scroll issues */}
+    <FadeInWhenVisible>
+      <div className="mx-auto mb-16 lg:mb-24 max-w-4xl text-center">
+        <h2>...</h2>
+      </div>
+    </FadeInWhenVisible>
+  </div>
+</section>
+
+// ✅ CORRECT: Use max-w-7xl instead (matches home page pattern)
+<section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
+  <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">  {/* ✅ CORRECT */}
     <FadeInWhenVisible>
       <div className="mx-auto mb-16 lg:mb-24 max-w-4xl text-center">
         <h2>...</h2>
@@ -288,6 +300,9 @@ import { Section, SectionHeader } from "@/components/ui/layout";
   </div>
 </section>
 ```
+
+**Why**: The `.container` class has `overflow-x: hidden` which creates a scroll container,
+causing sections to capture scroll events. Use `max-w-7xl` for proper page-level scrolling.
 
 ### **Available Style Utilities**
 

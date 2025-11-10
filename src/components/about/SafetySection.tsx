@@ -16,7 +16,7 @@ import { gridPresets } from "@/lib/styles/layout-variants";
 export function SafetySection() {
   return (
     <section id="safety" className="bg-white dark:bg-gray-900 py-20 lg:py-32">
-      <div className="mx-auto px-4 container">
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <FadeInWhenVisible>
           <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
             <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">

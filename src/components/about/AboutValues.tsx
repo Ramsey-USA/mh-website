@@ -23,7 +23,7 @@ interface AboutValuesProps {
 export function AboutValues({ coreValues }: AboutValuesProps) {
   return (
     <section id="values" className="bg-white dark:bg-gray-900 py-16 lg:py-24">
-      <div className="mx-auto px-4 container">
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <FadeInWhenVisible>
           <div className="mb-16 text-center">
             <MaterialIcon
@@ -59,13 +59,13 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
           {coreValues.map((value, _index) => (
             <div
               key={_index}
-              className="group h-full"
+              className="group h-96 sm:h-[450px] lg:h-[550px]"
               style={{ perspective: "1000px" }}
             >
               <div className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
                 {/* Front of card */}
                 <div className="absolute inset-0 backface-hidden">
-                  <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-primary w-full h-full flex flex-col">
+                  <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-primary w-full h-full flex flex-col overflow-hidden">
                     <CardHeader className="pb-4 flex-shrink-0 px-4 sm:px-6">
                       <div className="flex items-center mb-4">
                         <MaterialIcon
@@ -105,7 +105,7 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
                   className="absolute inset-0 backface-hidden rotate-y-180"
                   style={{ transform: "rotateY(180deg)" }}
                 >
-                  <Card className="bg-gradient-to-br from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-gray-900 border border-brand-primary dark:border-brand-primary/50 w-full h-full flex flex-col">
+                  <Card className="bg-gradient-to-br from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-gray-900 border border-brand-primary dark:border-brand-primary/50 w-full h-full flex flex-col overflow-hidden">
                     <CardHeader className="pb-4 flex-shrink-0 px-4 sm:px-6">
                       <div className="flex items-center mb-4">
                         <MaterialIcon

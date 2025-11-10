@@ -1,12 +1,62 @@
 # Troubleshooting Guide - MH Construction Website
 
-**Last Updated**: October 14, 2025  
-**Version**: 1.0.0  
+**Last Updated**: November 10, 2025  
+**Version**: 1.1.0  
 **Purpose**: Quick fixes for common issues
 
 ---
 
 ## 🚨 Critical Issues
+
+### Sections Capturing Scroll (Internal Scroll Containers)
+
+**Symptoms**:
+
+- While scrolling the main page, individual sections "capture" the scroll wheel
+- Sections create their own internal scrollbars
+- User must scroll out of a section before scrolling the rest of the page
+- Home page works fine, but About/Services pages have this issue
+
+**Root Cause**:
+
+The `.container` class has `overflow-x: hidden` which creates a new stacking context and scroll
+container, causing sections to capture scroll events.
+
+**Solution**:
+
+```tsx
+// ❌ PROBLEM: Using .container class in section wrapper
+<section id="values" className="bg-white dark:bg-gray-900 py-16 lg:py-24">
+  <div className="mx-auto px-4 container">
+    {/* content */}
+  </div>
+</section>
+
+// ✅ FIX: Use max-w-7xl instead (matches home page pattern)
+<section id="values" className="bg-white dark:bg-gray-900 py-16 lg:py-24">
+  <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    {/* content */}
+  </div>
+</section>
+```
+
+**Why This Works**:
+
+- `max-w-7xl` constrains width without creating overflow context
+- `relative` positioning allows absolute children to position correctly
+- Responsive padding (`sm:px-6 lg:px-8`) ensures proper spacing at all breakpoints
+- No `overflow-x: hidden` means no scroll container is created
+
+**When to Apply**:
+
+- ✅ All page sections (About, Services, Team, etc.)
+- ✅ Any wrapper that contains multiple subsections
+- ❌ Do NOT use in Hero sections (they need different treatment)
+- ❌ Do NOT use in modals or fixed-position overlays
+
+**Reference**: Home page components (FeaturesSection, CoreValuesSection) use this pattern correctly.
+
+---
 
 ### Content Not Appearing on Page
 
