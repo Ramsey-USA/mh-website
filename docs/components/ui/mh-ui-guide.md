@@ -39,7 +39,17 @@ Organized component library for the MH Construction website with logical categor
 - `BaseballCard.tsx` - Team member display component
 - `VintageBaseballCard.tsx` - Vintage-styled team member card
 
-## Import Usage
+### 📁 `/shared-sections/` - Reusable Page Sections
+
+Located at `/src/components/shared-sections/` (separate from `/ui/`)
+
+- `TestimonialsSection.tsx` - Testimonials carousel section
+- `NextStepsSection.tsx` - Three-option CTA cards section
+- `AIEstimatorCTA.tsx` - AI estimator promotional section
+
+**Note**: See [Shared Sections Guide](../shared-sections-guide.md) for detailed documentation on these components.
+
+---
 
 ### Recommended: Use Index Exports
 
@@ -109,7 +119,16 @@ Custom components with specific themes or unique functionality.
 - Brand-specific visual elements
 - Unique interaction patterns
 
-## Development Guidelines
+### Shared Section Components
+
+Reusable full-page sections for consistent implementation across multiple pages. Located in `/src/components/shared-sections/`.
+
+- Testimonials carousel sections
+- CTA card layouts
+- Promotional sections with analytics
+- See [Shared Sections Guide](../shared-sections-guide.md) for details
+
+---
 
 ### Adding New Components
 

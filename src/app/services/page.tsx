@@ -24,6 +24,9 @@ import { ChatbotCTASection } from "@/components/chatbot";
 import { InteractiveTimeline } from "@/components/timeline";
 import { gridPresets } from "@/lib/styles/layout-variants";
 
+// Import shared sections
+import { AIEstimatorCTA } from "@/components/shared-sections";
+
 export default function ServicesPage() {
   // Structured Data for SEO
   const serviceSchema = {
@@ -1532,127 +1535,7 @@ export default function ServicesPage() {
         </section>
 
         {/* AI Estimator CTA - Services Page */}
-        <section className="relative bg-gradient-to-br from-brand-primary/5 via-brand-secondary/5 to-gray-50 dark:from-gray-900 dark:to-gray-800 py-20 lg:py-32 overflow-hidden">
-          {/* Decorative background elements */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-brand-primary/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-secondary/5 rounded-full blur-3xl"></div>
-
-          <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-            <div className="bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-850 dark:to-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-[0_25px_80px_-20px_rgba(56,104,81,0.2)] transition-shadow duration-500">
-              <div className="p-8 lg:p-12 text-center">
-                <div className="mb-8">
-                  <div className="inline-flex items-center bg-brand-secondary/10 text-brand-secondary px-5 py-2 rounded-full text-sm font-bold mb-6 hover:bg-brand-secondary/20 transition-colors duration-300">
-                    <MaterialIcon
-                      icon="auto_awesome"
-                      size="sm"
-                      className="mr-2"
-                    />
-                    AI-Powered Precision
-                  </div>
-                  <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                    <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                      Ready to Get
-                    </span>
-                    <span className="block text-brand-primary dark:text-brand-primary font-black">
-                      Your AI Estimate?
-                    </span>
-                  </h2>
-                  <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8">
-                    Get a detailed, AI-powered cost estimate in under 5 minutes.
-                    Our advanced system analyzes 500+ projects and Pacific
-                    Northwest market data to provide accurate preliminary budget
-                    planning.
-                  </p>
-                </div>
-
-                {/* Features Grid */}
-                <div className="grid md:grid-cols-3 gap-6 mb-10 max-w-3xl mx-auto">
-                  <div className="text-center group">
-                    <div className="w-14 h-14 bg-gradient-to-br from-brand-primary/10 to-brand-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                      <MaterialIcon
-                        icon="speed"
-                        size="md"
-                        className="text-brand-primary group-hover:scale-110 transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="font-bold text-gray-900 dark:text-white mb-1 text-lg">
-                      Under 5 Minutes
-                    </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">
-                      Fast & thorough analysis
-                    </div>
-                  </div>
-                  <div className="text-center group">
-                    <div className="w-14 h-14 bg-gradient-to-br from-brand-secondary/10 to-brand-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                      <MaterialIcon
-                        icon="analytics"
-                        size="md"
-                        className="text-brand-secondary group-hover:scale-110 transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="font-bold text-gray-900 dark:text-white mb-1 text-lg">
-                      500+ Projects
-                    </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">
-                      Data-driven intelligence
-                    </div>
-                  </div>
-                  <div className="text-center group">
-                    <div className="w-14 h-14 bg-gradient-to-br from-brand-primary/10 to-brand-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                      <MaterialIcon
-                        icon="military_tech"
-                        size="md"
-                        className="text-brand-primary group-hover:scale-110 transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="font-bold text-gray-900 dark:text-white mb-1 text-lg">
-                      Veteran-Owned
-                    </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">
-                      Military precision & .6 EMR
-                    </div>
-                  </div>
-                </div>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
-                  <Link href="/estimator" className="flex-1">
-                    <Button
-                      variant="primary"
-                      size="lg"
-                      className="w-full group/btn hover:scale-105 transition-all duration-200"
-                    >
-                      <MaterialIcon
-                        icon="calculate"
-                        size="md"
-                        className="mr-2 group-hover/btn:rotate-12 transition-transform duration-300"
-                      />
-                      Start AI Estimate
-                    </Button>
-                  </Link>
-                  <Link href="/booking" className="flex-1">
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="w-full group/btn hover:scale-105 transition-all duration-200"
-                    >
-                      <MaterialIcon
-                        icon="event"
-                        size="md"
-                        className="mr-2 group-hover/btn:rotate-12 transition-transform duration-300"
-                      />
-                      Book Consultation
-                    </Button>
-                  </Link>
-                </div>
-
-                <p className="mt-6 text-sm text-gray-500 dark:text-gray-400 italic">
-                  No appointment needed • Available 24/7 • Transparent pricing
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <AIEstimatorCTA variant="compact" location="services" />
 
         {/* Chatbot CTA - Ask Questions */}
         <ChatbotCTASection

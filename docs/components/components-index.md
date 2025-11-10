@@ -80,6 +80,37 @@ Interactive image comparison slider with draggable divider.
 
 ---
 
+### Shared Section Components
+
+**[shared-sections-guide.md](./shared-sections-guide.md)** - Shared Section Components Guide
+
+Reusable, full-featured sections for consistent implementation across pages.
+
+**Components Included:**
+
+- **TestimonialsSection** - Client testimonials carousel with customizable content
+- **NextStepsSection** - Three-option CTA cards (Consultation, Estimate, Contact)
+- **AIEstimatorCTA** - AI estimator promotional section with two variants
+
+**Topics Covered:**
+
+- Component APIs and props
+- Usage examples and implementation
+- When to use vs create custom sections
+- Refactoring metrics and benefits
+- Analytics integration patterns
+
+**Refactoring Impact:**
+
+- 425 lines of duplicate code removed
+- 490 lines of reusable code created
+- 3 pages refactored (homepage, about, services)
+- Consistent sections across multiple pages
+
+**When to Use:** Building new pages, ensuring consistency, reducing code bloat, maintaining sections in one place
+
+---
+
 ### About Page Components
 
 **SafetySection & AwardsSection** - Extracted reusable About page components
@@ -157,6 +188,14 @@ import { SafetySection, AwardsSection } from "@/components/about";
 - **Safety Section** - Safety culture and compliance display
 - **Awards Section** - Recognition and certifications showcase
 - **Chatbot CTA** - Interactive Q&A replacing traditional FAQs
+
+### Shared Section Components
+
+- **TestimonialsSection** - Reusable testimonials carousel section
+- **NextStepsSection** - Three-option CTA cards for key actions
+- **AIEstimatorCTA** - AI estimator promotional section with analytics
+
+**Impact**: ~425 lines removed, 3 pages refactored. See [Shared Sections Guide](./shared-sections-guide.md).
 
 ---
 
@@ -242,13 +281,14 @@ import { SafetySection, AwardsSection } from "@/components/about";
 
 ## 🔗 Quick Links
 
-| Component Type          | Documentation                                                | Location                         |
-| ----------------------- | ------------------------------------------------------------ | -------------------------------- |
-| **UI Components**       | [UI Guide](./ui/mh-ui-guide.md)                              | `/docs/components/ui/`           |
-| **Navigation**          | [Nav Guide](./navigation/navigation-components-guide.md)     | `/docs/components/navigation/`   |
-| **Before/After Slider** | [Slider Guide](./before-after-slider-guide.md)               | `/docs/components/`              |
-| **Style Utilities**     | [Style Guide](../development/style-utilities-guide.md)       | `/src/lib/styles/`               |
-| **Design System**       | [Design System](../technical/design-system/design-system.md) | `/docs/technical/design-system/` |
+| Component Type          | Documentation                                                | Location                           |
+| ----------------------- | ------------------------------------------------------------ | ---------------------------------- |
+| **UI Components**       | [UI Guide](./ui/mh-ui-guide.md)                              | `/docs/components/ui/`             |
+| **Navigation**          | [Nav Guide](./navigation/navigation-components-guide.md)     | `/docs/components/navigation/`     |
+| **Before/After Slider** | [Slider Guide](./before-after-slider-guide.md)               | `/docs/components/`                |
+| **Shared Sections**     | [Shared Sections Guide](./shared-sections-guide.md)          | `/src/components/shared-sections/` |
+| **Style Utilities**     | [Style Guide](../development/style-utilities-guide.md)       | `/src/lib/styles/`                 |
+| **Design System**       | [Design System](../technical/design-system/design-system.md) | `/docs/technical/design-system/`   |
 
 ---
 
@@ -262,7 +302,7 @@ For component questions:
 
 ---
 
-**Last Updated:** November 8, 2025  
+**Last Updated:** November 10, 2025  
 **Status:** ✅ Active  
-**Files:** 3 component guides + SafetySection + AwardsSection  
+**Files:** 4 component guides + SafetySection + AwardsSection + 3 shared sections  
 **Maintained by:** MH Construction Development Team

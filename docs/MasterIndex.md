@@ -45,6 +45,19 @@ Replaced simple calculators with AI-powered estimator system (`/estimator`) →
 **Chatbot Integration**: "General MH" intelligently routes users to appropriate path based on query intent.
 Use `ChatbotCTASection` + contextual prompts for lead capture & analytics.
 
+### 🧩 Shared Section Components (Nov 10, 2025)
+
+Created reusable page sections to eliminate duplicate code across website.
+
+**Components Created:**
+
+- `TestimonialsSection` - Testimonials carousel with customizable content
+- `NextStepsSection` - Three-option CTA cards (Consultation, Estimate, Contact)
+- `AIEstimatorCTA` - AI estimator promotion with full/compact variants
+
+**Impact:** ~425 lines removed, 3 pages refactored (homepage, about, services).
+See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Components Index](./components/components-index.md).
+
 ---
 
 ## 📚 Documentation Categories
@@ -303,7 +316,7 @@ Document & code templates for rapid creation.
 
 | Metric                    | Value                                       |
 | ------------------------- | ------------------------------------------- |
-| Markdown Files            | 174                                         |
+| Markdown Files            | 175                                         |
 | Categories                | 11                                          |
 | Index Files               | 29                                          |
 | Root-Level Guides         | 4 (scripts, testing, config, seo-quick-ref) |
@@ -312,7 +325,7 @@ Document & code templates for rapid creation.
 | Static Pages Generated    | 21                                          |
 | Quality Score             | 97–98/100                                   |
 | Interactive Systems       | 6                                           |
-| Lines Optimized (removed) | 10,500+                                     |
+| Lines Optimized (removed) | 10,925+ (includes shared sections)          |
 
 ---
 
