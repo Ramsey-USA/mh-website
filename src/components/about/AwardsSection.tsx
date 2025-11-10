@@ -6,12 +6,41 @@
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import {
-  FadeInWhenVisible,
-  StaggeredFadeIn,
-} from "@/components/animations/FramerMotionComponents";
+import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { getCardClassName } from "@/lib/styles/card-variants";
-import { gridPresets } from "@/lib/styles/layout-variants";
+
+const emrTimeline = [
+  {
+    year: "2025",
+    title: "Most Improved EMR",
+    achievement: "25% EMR reduction from 2024",
+    details:
+      "3+ years without time loss or impairment injury. L&I Claims Free Discount Program participation.",
+    icon: "emoji_events",
+  },
+  {
+    year: "2021",
+    title: "Top EMR Award",
+    achievement: ".6 EMR - 'As Low as You Can Go'",
+    details:
+      "40% better than industry average with 7-year average EMR of .65 and 3+ consecutive years claims-free",
+    icon: "shield",
+  },
+  {
+    year: "2020",
+    title: "Top EMR Award",
+    achievement: ".6 EMR - 'As Low as You Can Go'",
+    details: "6-year average EMR of .66 with 3+ years claims-free",
+    icon: "shield",
+  },
+  {
+    year: "2019",
+    title: "Top EMR Award",
+    achievement: ".6 EMR - 'As Low as You Can Go'",
+    details: "5-year average EMR of .68 with 3+ years claims-free",
+    icon: "shield",
+  },
+];
 
 export function AwardsSection() {
   return (
@@ -35,259 +64,184 @@ export function AwardsSection() {
           </div>
         </FadeInWhenVisible>
 
-        <StaggeredFadeIn
-          className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
-        >
-          <Card
-            className={getCardClassName("secondary", "h-full duration-300")}
-          >
-            <CardHeader>
-              <div className="flex items-center space-x-3 mb-4">
-                <MaterialIcon
-                  icon="workspace_premium"
-                  size="lg"
-                  className="text-brand-secondary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                  Excellence in Construction
-                </CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm md:text-base">
-                Associated General Contractors (AGC) - Washington Chapter
-              </p>
-              <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                Outstanding Commercial Project Award for innovation and quality
-                craftsmanship
-              </p>
-            </CardContent>
-          </Card>
+        {/* Industry Recognition Cards - 4 Key Awards */}
+        <FadeInWhenVisible>
+          <div className="mb-20">
+            <h3 className="mb-8 font-bold text-center text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl">
+              Industry Recognition
+            </h3>
+            <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto max-w-7xl">
+              <Card
+                className={getCardClassName(
+                  "primary",
+                  "h-full duration-300 hover:scale-105",
+                )}
+              >
+                <CardHeader className="text-center">
+                  <MaterialIcon
+                    icon="military_tech"
+                    size="xl"
+                    className="mx-auto mb-3 text-brand-primary"
+                  />
+                  <CardTitle className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl">
+                    Veteran Business Enterprise
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
+                    Certified VOSB
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                    Department of Veterans Affairs certification
+                  </p>
+                </CardContent>
+              </Card>
 
-          <Card className={getCardClassName("primary", "h-full duration-300")}>
-            <CardHeader>
-              <div className="flex items-center space-x-3 mb-4">
-                <MaterialIcon
-                  icon="military_tech"
-                  size="lg"
-                  className="text-brand-primary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                  Veteran Business Enterprise
-                </CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm md:text-base">
-                Certified Veteran-Owned Small Business (VOSB)
-              </p>
-              <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                Veteran-owned since January 2025 under Army veteran leadership.
-                Department of Veterans Affairs certification recognizing veteran
-                entrepreneurship excellence.
-              </p>
-            </CardContent>
-          </Card>
+              <Card
+                className={getCardClassName(
+                  "secondary",
+                  "h-full duration-300 hover:scale-105",
+                )}
+              >
+                <CardHeader className="text-center">
+                  <MaterialIcon
+                    icon="workspace_premium"
+                    size="xl"
+                    className="mx-auto mb-3 text-brand-secondary"
+                  />
+                  <CardTitle className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl">
+                    Excellence in Construction
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
+                    AGC Washington
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                    Outstanding Commercial Project Award
+                  </p>
+                </CardContent>
+              </Card>
 
-          <Card className={getCardClassName("accent", "h-full duration-300")}>
-            <CardHeader>
-              <div className="flex items-center space-x-3 mb-4">
-                <MaterialIcon
-                  icon="eco"
-                  size="lg"
-                  className="text-brand-accent"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                  Sustainable Building Leader
-                </CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm md:text-base">
-                Washington State Green Building Council
-              </p>
-              <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                Recognition for commitment to sustainable construction practices
-                and LEED compliance
-              </p>
-            </CardContent>
-          </Card>
+              <Card
+                className={getCardClassName(
+                  "accent",
+                  "h-full duration-300 hover:scale-105",
+                )}
+              >
+                <CardHeader className="text-center">
+                  <MaterialIcon
+                    icon="eco"
+                    size="xl"
+                    className="mx-auto mb-3 text-brand-accent"
+                  />
+                  <CardTitle className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl">
+                    Sustainable Building Leader
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
+                    WA Green Building Council
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                    LEED compliance & sustainable practices
+                  </p>
+                </CardContent>
+              </Card>
 
-          <Card className={getCardClassName("primary", "h-full duration-300")}>
-            <CardHeader>
-              <div className="flex items-center space-x-3 mb-4">
-                <MaterialIcon
-                  icon="verified_user"
-                  size="lg"
-                  className="text-brand-primary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                  Safety Excellence
-                </CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm md:text-base">
-                OSHA Voluntary Protection Program (VPP)
-              </p>
-              <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                Star designation for exemplary workplace safety and health
-                programs
-              </p>
-            </CardContent>
-          </Card>
+              <Card
+                className={getCardClassName(
+                  "primary",
+                  "h-full duration-300 hover:scale-105",
+                )}
+              >
+                <CardHeader className="text-center">
+                  <MaterialIcon
+                    icon="verified_user"
+                    size="xl"
+                    className="mx-auto mb-3 text-brand-primary"
+                  />
+                  <CardTitle className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl">
+                    Safety Excellence
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
+                    OSHA VPP Star
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                    Exemplary workplace safety programs
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </FadeInWhenVisible>
 
-          <Card className={getCardClassName("primary", "h-full duration-300")}>
-            <CardHeader>
-              <div className="flex items-center space-x-3 mb-4">
-                <MaterialIcon
-                  icon="emoji_events"
-                  size="lg"
-                  className="text-brand-primary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                  2025 Most Improved EMR
-                </CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm md:text-base">
-                Associated General Contractors (AGC) - Washington Chapter
-              </p>
-              <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                25% EMR reduction from 2024 with 3+ years without time loss or
-                impairment injury. L&I Claims Free Discount Program
-                participation demonstrating sustained safety excellence under
-                veteran-owned leadership.
-              </p>
-            </CardContent>
-          </Card>
+        {/* AGC Safety Awards Timeline */}
+        <FadeInWhenVisible>
+          <div>
+            <h3 className="mb-8 font-bold text-center text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl">
+              AGC Washington - Safety Awards Timeline
+            </h3>
+            <div className="relative mx-auto max-w-5xl">
+              {/* Timeline vertical line */}
+              <div className="top-0 bottom-0 left-8 md:left-1/2 absolute bg-brand-primary dark:bg-brand-primary-light w-1 transform md:-translate-x-1/2"></div>
 
-          <Card
-            className={getCardClassName("secondary", "h-full duration-300")}
-          >
-            <CardHeader>
-              <div className="flex items-center space-x-3 mb-4">
-                <MaterialIcon
-                  icon="shield"
-                  size="lg"
-                  className="text-brand-secondary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                  2021 Top EMR Award
-                </CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm md:text-base">
-                Associated General Contractors (AGC) - Washington Chapter
-              </p>
-              <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                'As Low as You Can Go' recognition at .6 EMR (40% better than
-                industry average) with 7-year average EMR of .65 and 3+
-                consecutive years claims-free
-              </p>
-            </CardContent>
-          </Card>
+              {/* Timeline items */}
+              <div className="space-y-12">
+                {emrTimeline.map((item, index) => (
+                  <div
+                    key={index}
+                    className={`relative flex items-center ${
+                      index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                    }`}
+                  >
+                    {/* Year badge - centered on timeline */}
+                    <div className="left-8 md:left-1/2 absolute flex justify-center items-center bg-brand-primary dark:bg-brand-primary-dark shadow-lg rounded-full w-16 h-16 transform md:-translate-x-1/2 z-10">
+                      <MaterialIcon
+                        icon={item.icon}
+                        size="lg"
+                        className="text-white"
+                      />
+                    </div>
 
-          <Card className={getCardClassName("accent", "h-full duration-300")}>
-            <CardHeader>
-              <div className="flex items-center space-x-3 mb-4">
-                <MaterialIcon
-                  icon="shield"
-                  size="lg"
-                  className="text-brand-accent"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                  2020 Top EMR Award
-                </CardTitle>
+                    {/* Content card */}
+                    <div
+                      className={`ml-28 md:ml-0 w-full md:w-[calc(50%-4rem)] ${
+                        index % 2 === 0 ? "md:pr-16" : "md:pl-16"
+                      }`}
+                    >
+                      <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl border-l-4 border-l-brand-primary dark:border-l-brand-primary-light transition-all duration-300">
+                        <CardHeader>
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="font-black text-brand-primary text-3xl">
+                              {item.year}
+                            </span>
+                            <span className="bg-brand-primary/10 dark:bg-brand-primary/20 px-3 py-1 rounded-full font-semibold text-brand-primary text-xs">
+                              AGC Award
+                            </span>
+                          </div>
+                          <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl">
+                            {item.title}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="mb-2 font-semibold text-brand-secondary text-sm sm:text-base">
+                            {item.achievement}
+                          </p>
+                          <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm">
+                            {item.details}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+                ))}
               </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm md:text-base">
-                Associated General Contractors (AGC) - Washington Chapter
-              </p>
-              <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                'As Low as You Can Go' at .6 EMR & 6-year average EMR of .66
-                with 3+ years claims-free
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className={getCardClassName("primary", "h-full duration-300")}>
-            <CardHeader>
-              <div className="flex items-center space-x-3 mb-4">
-                <MaterialIcon
-                  icon="shield"
-                  size="lg"
-                  className="text-brand-primary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                  2019 Top EMR Award
-                </CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm md:text-base">
-                Associated General Contractors (AGC) - Washington Chapter
-              </p>
-              <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                'As Low as You Can Go' at .6 EMR & 5-year average EMR of .68
-                with 3+ years claims-free
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className={getCardClassName("accent", "h-full duration-300")}>
-            <CardHeader>
-              <div className="flex items-center space-x-3 mb-4">
-                <MaterialIcon
-                  icon="groups"
-                  size="lg"
-                  className="text-brand-accent"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                  Community Partner
-                </CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm md:text-base">
-                Tri-Cities Chamber of Commerce
-              </p>
-              <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                Business Excellence Award for community involvement and economic
-                development support
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card
-            className={getCardClassName("secondary", "h-full duration-300")}
-          >
-            <CardHeader>
-              <div className="flex items-center space-x-3 mb-4">
-                <MaterialIcon
-                  icon="trending_up"
-                  size="lg"
-                  className="text-brand-secondary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                  Industry Innovation
-                </CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm md:text-base">
-                Construction Technology Advancement
-              </p>
-              <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-                Recognition for innovative use of technology in project
-                management and execution
-              </p>
-            </CardContent>
-          </Card>
-        </StaggeredFadeIn>
+            </div>
+          </div>
+        </FadeInWhenVisible>
       </div>
     </section>
   );

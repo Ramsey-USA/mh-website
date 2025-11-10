@@ -464,40 +464,6 @@ export default function EstimatorPage() {
         </div>
       </section>
 
-      {/* Trust Indicators */}
-      <section className="bg-white py-20 lg:py-32 xl:py-40 border-t">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible>
-            <div className="gap-8 grid md:grid-cols-4 text-center">
-              <div>
-                <div className="mb-2 font-bold text-brand-primary text-3xl">
-                  500+
-                </div>
-                <p className="text-gray-600">Projects in AI Database</p>
-              </div>
-              <div>
-                <div className="mb-2 font-bold text-brand-primary text-3xl">
-                  .6 EMR
-                </div>
-                <p className="text-gray-600">Award-Winning Safety Record</p>
-              </div>
-              <div>
-                <div className="mb-2 font-bold text-brand-primary text-3xl">
-                  150+
-                </div>
-                <p className="text-gray-600">Years Combined Experience</p>
-              </div>
-              <div>
-                <div className="mb-2 font-bold text-brand-primary text-3xl">
-                  24/7
-                </div>
-                <p className="text-gray-600">Always Available</p>
-              </div>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
-
       {/* CTA for Complex Projects */}
       <section className="bg-gradient-to-r from-gray-900 to-brand-primary-dark py-20 lg:py-32 xl:py-40 text-white">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">

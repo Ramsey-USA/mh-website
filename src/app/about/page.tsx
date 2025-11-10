@@ -233,26 +233,6 @@ export default function AboutPage() {
               </Link>
             </div>
           </div>
-
-          {/* Trust Indicators */}
-          <div className="gap-8 grid grid-cols-2 md:grid-cols-4 text-center text-white">
-            <div>
-              <p className="mb-2 font-black text-4xl">20+</p>
-              <p className="text-primary-100">Years Experience</p>
-            </div>
-            <div>
-              <p className="mb-2 font-black text-4xl">.6</p>
-              <p className="text-primary-100">EMR Safety Rating</p>
-            </div>
-            <div>
-              <p className="mb-2 font-black text-4xl">70%</p>
-              <p className="text-primary-100">Referral Business</p>
-            </div>
-            <div>
-              <p className="mb-2 font-black text-4xl">24/7</p>
-              <p className="text-primary-100">Emergency Support</p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -809,6 +789,92 @@ export default function AboutPage() {
                   >
                     <span className="font-medium text-xs sm:text-sm">
                       Safety Standards
+                    </span>
+                    <MaterialIcon
+                      icon="arrow_forward"
+                      size="sm"
+                      className="ml-1"
+                    />
+                  </Link>
+                </CardContent>
+              </Card>
+            </FadeInWhenVisible>
+
+            <FadeInWhenVisible>
+              <Card className="border-l-4 border-l-brand-primary h-full flex flex-col">
+                <CardContent className="pt-6 flex flex-col flex-grow">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <MaterialIcon
+                        icon="lightbulb"
+                        className="text-brand-primary"
+                        size="md"
+                      />
+                      <span className="font-semibold text-brand-primary text-xs sm:text-sm">
+                        Industry Insight
+                      </span>
+                    </div>
+                    <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
+                      Aug 2025
+                    </span>
+                  </div>
+                  <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
+                    Best Practices for Commercial Construction Projects
+                  </h3>
+                  <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
+                    Drawing from our years of experience, we share key insights
+                    for successful commercial builds: planning, communication,
+                    and partnership-focused collaboration.
+                  </p>
+                  <Link
+                    href="/services"
+                    className="inline-flex items-center text-brand-primary hover:text-brand-accent transition-colors mt-auto"
+                  >
+                    <span className="font-medium text-xs sm:text-sm">
+                      Our Services
+                    </span>
+                    <MaterialIcon
+                      icon="arrow_forward"
+                      size="sm"
+                      className="ml-1"
+                    />
+                  </Link>
+                </CardContent>
+              </Card>
+            </FadeInWhenVisible>
+
+            <FadeInWhenVisible>
+              <Card className="border-l-4 border-l-brand-accent h-full flex flex-col">
+                <CardContent className="pt-6 flex flex-col flex-grow">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <MaterialIcon
+                        icon="military_tech"
+                        className="text-brand-accent"
+                        size="md"
+                      />
+                      <span className="font-semibold text-brand-accent text-xs sm:text-sm">
+                        Veteran Initiative
+                      </span>
+                    </div>
+                    <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
+                      Jul 2025
+                    </span>
+                  </div>
+                  <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
+                    Supporting Veteran-Owned Businesses
+                  </h3>
+                  <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
+                    As a veteran-owned company, we prioritize partnerships with
+                    fellow veteran businesses and support programs that help
+                    veterans transition to civilian careers.
+                  </p>
+                  <Link
+                    href="/about"
+                    className="inline-flex items-center text-brand-accent hover:text-brand-primary transition-colors mt-auto"
+                  >
+                    <span className="font-medium text-xs sm:text-sm">
+                      Our Values
                     </span>
                     <MaterialIcon
                       icon="arrow_forward"

@@ -501,42 +501,6 @@ Please contact the client to confirm this consultation appointment.
                 </div>
               </div>
             </div>
-
-            {/* Trust Indicators */}
-            <div className="gap-6 grid grid-cols-2 bg-gray-50 dark:bg-gray-900/50 p-6 border-t border-gray-200 dark:border-gray-700 md:grid-cols-4">
-              <div className="text-center">
-                <p className="font-bold text-2xl text-primary-600 dark:text-primary-400">
-                  Free
-                </p>
-                <p className="text-gray-600 text-sm dark:text-gray-400">
-                  Consultation
-                </p>
-              </div>
-              <div className="text-center">
-                <p className="font-bold text-2xl text-primary-600 dark:text-primary-400">
-                  24-48hr
-                </p>
-                <p className="text-gray-600 text-sm dark:text-gray-400">
-                  Response Time
-                </p>
-              </div>
-              <div className="text-center">
-                <p className="font-bold text-2xl text-primary-600 dark:text-primary-400">
-                  20+ Years
-                </p>
-                <p className="text-gray-600 text-sm dark:text-gray-400">
-                  Experience
-                </p>
-              </div>
-              <div className="text-center">
-                <p className="font-bold text-2xl text-primary-600 dark:text-primary-400">
-                  .6 EMR
-                </p>
-                <p className="text-gray-600 text-sm dark:text-gray-400">
-                  Safety Rating
-                </p>
-              </div>
-            </div>
           </div>
 
           {/* Progress Indicator */}

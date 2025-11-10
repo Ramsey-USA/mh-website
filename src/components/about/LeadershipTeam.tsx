@@ -96,10 +96,10 @@ export function LeadershipTeam() {
           {leadershipTeam.map((member, _index) => (
             <div
               key={_index}
-              className="group perspective min-h-[600px] cursor-pointer"
+              className="group h-full min-h-[600px]"
               style={{ perspective: "1000px" }}
             >
-              <div className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
+              <div className="relative w-full h-full min-h-[600px] transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
                 {/* Front of card */}
                 <div className="absolute inset-0 backface-hidden">
                   <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 w-full h-full flex flex-col overflow-hidden">

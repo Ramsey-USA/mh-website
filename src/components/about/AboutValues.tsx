@@ -59,10 +59,10 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
           {coreValues.map((value, _index) => (
             <div
               key={_index}
-              className="group perspective min-h-[550px] cursor-pointer"
+              className="group h-full min-h-[550px]"
               style={{ perspective: "1000px" }}
             >
-              <div className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
+              <div className="relative w-full h-full min-h-[550px] transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
                 {/* Front of card */}
                 <div className="absolute inset-0 backface-hidden">
                   <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-primary w-full h-full flex flex-col overflow-hidden">
