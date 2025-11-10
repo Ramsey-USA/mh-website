@@ -16,21 +16,22 @@ export function PartnershipCTA() {
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
         <FadeInWhenVisible>
           <div className="flex justify-center items-center mb-4 sm:mb-6">
-            <MaterialIcon icon="launch" size="xl" className="text-white" />
+            <MaterialIcon icon="handshake" size="xl" className="text-white" />
           </div>
           <h2 className="mb-4 sm:mb-6 font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-            Ready to Start Our Partnership?
+            Ready to Start Your Partnership?
           </h2>
           <p className="mx-auto mb-8 sm:mb-12 max-w-4xl font-light text-white/90 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed px-2">
-            Join business partners across the{" "}
-            <span className="font-medium text-white">Tri-Cities area</span> who
-            chose collaborative construction management for their commercial,
-            industrial, and medical facility projects.
+            Join our network of{" "}
+            <span className="font-medium text-white">trade partners</span> and
+            grow your business with consistent project opportunities including{" "}
+            <span className="font-medium text-white">government contracts</span>{" "}
+            across the Pacific Northwest.
           </p>
 
-          {/* Commercial CTA Buttons - Mobile optimized 4 Button Grid */}
+          {/* Trade Partnership CTA Buttons - Mobile optimized 4 Button Grid */}
           <div className="gap-3 sm:gap-4 lg:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto mb-4 sm:mb-6 max-w-6xl">
-            <Link href="/booking">
+            <Link href="/trade-partners">
               <Button
                 variant="primary"
                 size="lg"
@@ -38,20 +39,20 @@ export function PartnershipCTA() {
               >
                 <div className="flex flex-col justify-center items-center">
                   <MaterialIcon
-                    icon="event"
+                    icon="diversity_3"
                     size="lg"
                     className="flex-shrink-0 mb-1"
                   />
                   <span className="font-medium text-center text-xs sm:text-sm leading-tight">
-                    Schedule Free
+                    Become a Trade
                     <br />
-                    Consultation
+                    Partner
                   </span>
                 </div>
               </Button>
             </Link>
 
-            <Link href="/estimator">
+            <Link href="/government">
               <Button
                 variant="secondary"
                 size="lg"
@@ -59,14 +60,14 @@ export function PartnershipCTA() {
               >
                 <div className="flex flex-col justify-center items-center">
                   <MaterialIcon
-                    icon="smart_toy"
+                    icon="flag"
                     size="lg"
                     className="flex-shrink-0 mb-1"
                   />
                   <span className="font-medium text-center text-xs sm:text-sm leading-tight">
-                    Get Instant AI
+                    Government
                     <br />
-                    Estimate
+                    Contracts
                   </span>
                 </div>
               </Button>
@@ -80,18 +81,18 @@ export function PartnershipCTA() {
               >
                 <div className="flex flex-col justify-center items-center">
                   <MaterialIcon
-                    icon="visibility"
+                    icon="photo_library"
                     size="xl"
                     className="flex-shrink-0 mb-1"
                   />
                   <span className="font-bold text-center text-sm sm:text-base leading-tight">
-                    View Our Work
+                    View Portfolio
                   </span>
                 </div>
               </Button>
             </Link>
 
-            <a href="tel:+15093086489">
+            <Link href="/contact">
               <Button
                 variant="primary"
                 size="lg"
@@ -99,18 +100,18 @@ export function PartnershipCTA() {
               >
                 <div className="flex flex-col justify-center items-center">
                   <MaterialIcon
-                    icon="phone"
+                    icon="contact_phone"
                     size="lg"
                     className="flex-shrink-0 mb-1"
                   />
                   <span className="font-medium text-center text-xs sm:text-sm leading-tight">
-                    Call Now
+                    Contact Us
                     <br />
                     (509) 308-6489
                   </span>
                 </div>
               </Button>
-            </a>
+            </Link>
           </div>
         </FadeInWhenVisible>
       </div>

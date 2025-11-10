@@ -122,20 +122,20 @@ export function CoreValuesSection() {
           {coreValues.map((item, _index) => (
             <div
               key={item.value}
-              className="group perspective-1000 scroll-reveal value-card"
+              className="group perspective-1000 scroll-reveal value-card h-80 sm:h-96 lg:h-[420px]"
               style={{ animationDelay: `${_index * 0.1}s` }}
             >
-              <div className="relative w-full h-auto min-h-[280px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[380px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
+              <div className="relative w-full h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
-                <div className="absolute inset-0 bg-white dark:bg-gray-800 shadow-lg hover:shadow-brand-primary/10 hover:shadow-xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-300 backface-hidden">
+                <div className="absolute inset-0 bg-white dark:bg-gray-800 shadow-2xl hover:shadow-brand-primary/10 p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden transition-all duration-300 backface-hidden hover:scale-105">
                   <div
-                    className={`absolute inset-0 ${item.bgColor} rounded-2xl sm:rounded-3xl`}
+                    className={`absolute inset-0 ${item.bgColor} rounded-3xl`}
                   ></div>
 
                   <div className="z-10 relative flex flex-col justify-between h-full text-center">
                     <div>
                       <div
-                        className={`w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br ${item.color} rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg p-3`}
+                        className={`w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br ${item.color} rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg p-3`}
                       >
                         <MaterialIcon
                           icon={item.icon}
@@ -143,10 +143,10 @@ export function CoreValuesSection() {
                           className="text-white"
                         />
                       </div>
-                      <h3 className="mb-3 sm:mb-4 font-black text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-tight tracking-tight">
+                      <h3 className="mb-3 sm:mb-4 font-black text-gray-900 dark:text-gray-100 text-lg sm:text-xl lg:text-2xl leading-tight tracking-tight">
                         {item.value}
                       </h3>
-                      <p className="font-light text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-base leading-relaxed">
+                      <p className="font-light text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                         {item.description}
                       </p>
                     </div>
@@ -161,27 +161,28 @@ export function CoreValuesSection() {
                 </div>
 
                 {/* Back of Card */}
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary to-brand-secondary shadow-xl hover:shadow-2xl p-3 sm:p-4 md:p-5 lg:p-6 rounded-2xl sm:rounded-3xl overflow-hidden rotate-y-180 transition-shadow duration-300 backface-hidden">
-                  <div className="flex flex-col justify-between h-full text-white text-center">
-                    <div className="flex-shrink-0">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary to-brand-secondary shadow-2xl p-4 sm:p-5 lg:p-6 rounded-3xl overflow-hidden rotate-y-180 transition-shadow duration-300 backface-hidden">
+                  <div className="flex flex-col h-full text-white text-center">
+                    <div className="flex-shrink-0 mb-3">
                       <MaterialIcon
                         icon={item.icon}
                         size="lg"
-                        className="mx-auto mb-2 sm:mb-3 text-white"
+                        className="mx-auto text-white"
                       />
-                      <h3 className="mb-2 font-black text-base sm:text-lg lg:text-xl">
+                      <h3 className="mt-2 mb-2 font-bold text-base sm:text-lg leading-tight">
                         {item.value} in Action
                       </h3>
-                      <p className="mb-3 font-light text-white/90 text-sm sm:text-base leading-snug">
-                        {item.details}
-                      </p>
                     </div>
 
-                    <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm p-2 sm:p-3 md:p-4 border border-white/10 rounded-xl">
-                      <div className="mb-1 sm:mb-2 font-medium text-white/80 text-xs sm:text-sm uppercase tracking-wider">
+                    <p className="flex-shrink-0 mb-3 font-light text-white/90 text-xs sm:text-sm leading-snug">
+                      {item.details}
+                    </p>
+
+                    <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm mt-auto p-3 sm:p-4 border border-white/10 rounded-xl">
+                      <div className="mb-2 font-medium text-white/90 text-xs sm:text-sm uppercase tracking-wider">
                         Key Metric
                       </div>
-                      <div className="font-bold text-sm sm:text-base lg:text-lg xl:text-xl">
+                      <div className="font-bold text-sm sm:text-base lg:text-lg">
                         {item.stats}
                       </div>
                     </div>

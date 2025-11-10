@@ -90,18 +90,18 @@ export function ServicesShowcase() {
           {services.map((service, _index) => (
             <div
               key={_index}
-              className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 rounded-2xl sm:rounded-3xl hover:scale-105 transition-all duration-300 min-h-[280px] sm:min-h-[320px]"
+              className="group relative bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-6 sm:p-8 border border-gray-200 dark:border-gray-700 rounded-3xl hover:scale-105 transition-all duration-300 h-80 sm:h-96"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-2xl sm:rounded-3xl transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
               <div className="relative flex flex-col h-full">
-                <div className="flex justify-center items-center bg-brand-primary/10 mb-4 sm:mb-6 p-2 rounded-xl sm:rounded-2xl w-12 h-12 sm:w-16 sm:h-16">
+                <div className="flex justify-center items-center bg-brand-primary/10 group-hover:bg-brand-primary/20 mb-4 sm:mb-6 rounded-2xl w-16 h-16 sm:w-20 sm:h-20 shadow-md transition-all duration-300">
                   <MaterialIcon
                     icon={service.icon}
-                    size="lg"
-                    className="text-brand-primary"
+                    size="xl"
+                    className="text-brand-primary group-hover:scale-110 transition-transform"
                   />
                 </div>
-                <h3 className="mb-3 sm:mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-lg sm:text-xl lg:text-2xl transition-colors">
+                <h3 className="mb-3 sm:mb-4 font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-primary text-lg sm:text-xl lg:text-2xl transition-colors leading-tight">
                   {service.title}
                 </h3>
                 <p className="flex-grow mb-4 sm:mb-6 text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
@@ -111,8 +111,8 @@ export function ServicesShowcase() {
                   <span className="mr-2">{service.cta}</span>
                   <MaterialIcon
                     icon="arrow_forward"
-                    size="lg"
-                    className="group-hover:scale-110 transition-all group-hover:translate-x-2 duration-300"
+                    size="md"
+                    className="group-hover:translate-x-2 transition-transform duration-300"
                   />
                 </div>
               </div>

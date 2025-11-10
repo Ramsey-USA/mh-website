@@ -42,7 +42,7 @@ import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponent
 import { useAnalytics } from "@/components/analytics/enhanced-analytics";
 import { useImagePreloader } from "@/hooks/usePerformanceOptimization";
 import { ActivityFeed } from "@/components/activity";
-import { BeforeAfterSlider, BeforeAfterGallery } from "@/components/slider";
+import { BeforeAfterSlider } from "@/components/slider";
 
 export default function Home() {
   // Initialize analytics
@@ -608,36 +608,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Before & After Transformations */}
-      <section className="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 py-20 lg:py-32">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(189,146,100,0.05)_0%,transparent_50%)] opacity-60"></div>
-        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible>
-            <BeforeAfterGallery
-              title="Project Transformations"
-              description="See the remarkable changes we've made to transform spaces across the Pacific Northwest. Real projects, real results."
-              slides={[
-                {
-                  beforeImage: "/images/logo/mh-logo.png",
-                  afterImage: "/images/logo/mh-logo.png",
-                  beforeAlt: "Before construction - placeholder",
-                  afterAlt: "After completion - placeholder",
-                  caption: "Medical Center Expansion - Kennewick, WA",
-                },
-                {
-                  beforeImage: "/images/logo/mh-logo.png",
-                  afterImage: "/images/logo/mh-logo.png",
-                  beforeAlt: "Before renovation - placeholder",
-                  afterAlt: "After renovation - placeholder",
-                  caption: "Commercial Office Remodel - Pasco, WA",
-                },
-              ]}
-              layout="grid"
-            />
-          </FadeInWhenVisible>
-        </div>
-      </section>
-
       {/* Next Steps Section */}
       <section
         id="next-steps"
@@ -657,11 +627,11 @@ export default function Home() {
 
           <div className="gap-8 grid grid-cols-1 md:grid-cols-3 mb-12">
             {/* Option 1: Schedule Consultation */}
-            <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="flex justify-center items-center bg-gradient-to-br from-primary-500 to-primary-600 mx-auto mb-6 rounded-full w-20 h-20">
+            <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+              <div className="flex justify-center items-center bg-gradient-to-br from-primary-500 to-primary-600 mx-auto mb-6 rounded-full w-20 h-20 shadow-lg">
                 <MaterialIcon icon="event" size="xl" className="text-white" />
               </div>
-              <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
+              <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
                 Schedule Consultation
               </h3>
               <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
@@ -673,7 +643,7 @@ export default function Home() {
                   <MaterialIcon
                     icon="check_circle"
                     size="sm"
-                    className="text-primary-600"
+                    className="text-primary-600 flex-shrink-0"
                   />
                   <span>Free consultation</span>
                 </li>
@@ -681,7 +651,7 @@ export default function Home() {
                   <MaterialIcon
                     icon="check_circle"
                     size="sm"
-                    className="text-primary-600"
+                    className="text-primary-600 flex-shrink-0"
                   />
                   <span>Expert recommendations</span>
                 </li>
@@ -689,17 +659,17 @@ export default function Home() {
                   <MaterialIcon
                     icon="check_circle"
                     size="sm"
-                    className="text-primary-600"
+                    className="text-primary-600 flex-shrink-0"
                   />
                   <span>No obligation</span>
                 </li>
               </ul>
               <Link href="/booking">
-                <Button variant="primary" size="lg" className="w-full">
+                <Button variant="primary" size="lg" className="w-full group">
                   <MaterialIcon
                     icon="calendar_today"
                     size="md"
-                    className="mr-2"
+                    className="mr-2 group-hover:scale-110 transition-transform"
                   />
                   Book Consultation
                 </Button>
@@ -707,20 +677,20 @@ export default function Home() {
             </div>
 
             {/* Option 2: Get Quick Estimate */}
-            <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2 border-4 border-secondary-500">
-              <div className="bg-secondary-500 -top-4 left-1/2 absolute px-4 py-1 rounded-full -translate-x-1/2">
+            <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 border-4 border-secondary-500">
+              <div className="bg-secondary-500 -top-4 left-1/2 absolute px-4 py-1 rounded-full -translate-x-1/2 shadow-md">
                 <span className="font-bold text-sm text-white uppercase tracking-wide">
                   Most Popular
                 </span>
               </div>
-              <div className="flex justify-center items-center bg-gradient-to-br from-secondary-500 to-secondary-600 mx-auto mb-6 rounded-full w-20 h-20">
+              <div className="flex justify-center items-center bg-gradient-to-br from-secondary-500 to-secondary-600 mx-auto mb-6 rounded-full w-20 h-20 shadow-lg">
                 <MaterialIcon
                   icon="calculate"
                   size="xl"
                   className="text-white"
                 />
               </div>
-              <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
+              <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
                 Get Quick Estimate
               </h3>
               <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
@@ -732,7 +702,7 @@ export default function Home() {
                   <MaterialIcon
                     icon="check_circle"
                     size="sm"
-                    className="text-secondary-600"
+                    className="text-secondary-600 flex-shrink-0"
                   />
                   <span>3-5 day turnaround</span>
                 </li>
@@ -740,7 +710,7 @@ export default function Home() {
                   <MaterialIcon
                     icon="check_circle"
                     size="sm"
-                    className="text-secondary-600"
+                    className="text-secondary-600 flex-shrink-0"
                   />
                   <span>Detailed line items</span>
                 </li>
@@ -748,29 +718,33 @@ export default function Home() {
                   <MaterialIcon
                     icon="check_circle"
                     size="sm"
-                    className="text-secondary-600"
+                    className="text-secondary-600 flex-shrink-0"
                   />
                   <span>Open-book pricing</span>
                 </li>
               </ul>
               <Link href="/estimator">
-                <Button variant="secondary" size="lg" className="w-full">
-                  <MaterialIcon icon="description" size="md" className="mr-2" />
+                <Button variant="secondary" size="lg" className="w-full group">
+                  <MaterialIcon
+                    icon="description"
+                    size="md"
+                    className="mr-2 group-hover:scale-110 transition-transform"
+                  />
                   Request Estimate
                 </Button>
               </Link>
             </div>
 
             {/* Option 3: Contact Us */}
-            <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="flex justify-center items-center bg-gradient-to-br from-accent-500 to-accent-600 mx-auto mb-6 rounded-full w-20 h-20">
+            <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+              <div className="flex justify-center items-center bg-gradient-to-br from-accent-500 to-accent-600 mx-auto mb-6 rounded-full w-20 h-20 shadow-lg">
                 <MaterialIcon
                   icon="contact_phone"
                   size="xl"
                   className="text-white"
                 />
               </div>
-              <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
+              <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
                 Contact Us Directly
               </h3>
               <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
@@ -782,7 +756,7 @@ export default function Home() {
                   <MaterialIcon
                     icon="check_circle"
                     size="sm"
-                    className="text-accent-600"
+                    className="text-accent-600 flex-shrink-0"
                   />
                   <span>24-48hr response</span>
                 </li>
@@ -790,7 +764,7 @@ export default function Home() {
                   <MaterialIcon
                     icon="check_circle"
                     size="sm"
-                    className="text-accent-600"
+                    className="text-accent-600 flex-shrink-0"
                   />
                   <span>Multiple contact methods</span>
                 </li>
@@ -798,7 +772,7 @@ export default function Home() {
                   <MaterialIcon
                     icon="check_circle"
                     size="sm"
-                    className="text-accent-600"
+                    className="text-accent-600 flex-shrink-0"
                   />
                   <span>Direct team access</span>
                 </li>
@@ -807,9 +781,13 @@ export default function Home() {
                 <Button
                   variant="primary"
                   size="lg"
-                  className="w-full bg-accent-600 hover:bg-accent-700"
+                  className="w-full bg-accent-600 hover:bg-accent-700 group"
                 >
-                  <MaterialIcon icon="mail" size="md" className="mr-2" />
+                  <MaterialIcon
+                    icon="mail"
+                    size="md"
+                    className="mr-2 group-hover:scale-110 transition-transform"
+                  />
                   Get In Touch
                 </Button>
               </Link>

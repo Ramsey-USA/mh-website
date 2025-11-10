@@ -117,29 +117,29 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
       <MotionDiv
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        whileHover={{ y: -2 }}
+        whileHover={{ y: -2, scale: 1.02 }}
         className="cursor-pointer"
         onClick={handleCardClick}
       >
-        <Card className="hover:shadow-lg h-full transition-shadow duration-200">
-          <CardContent className="p-4">
+        <Card className="hover:shadow-2xl h-full transition-all duration-300 rounded-2xl border-2 hover:border-brand-primary/20">
+          <CardContent className="p-4 sm:p-5">
             <div className="flex items-start space-x-3">
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 bg-brand-primary/10 p-2 rounded-xl">
                 <MaterialIcon
                   icon={getProjectIcon(recommendation.projectType)}
-                  className="text-[#386851]"
+                  className="text-brand-primary"
                   size="lg"
                 />
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-gray-800 truncate">
+                <h3 className="font-semibold text-gray-800 dark:text-gray-100 truncate">
                   {recommendation.title}
                 </h3>
-                <p className="mt-1 text-gray-600 text-sm line-clamp-2">
+                <p className="mt-1 text-gray-600 dark:text-gray-300 text-sm line-clamp-2">
                   {recommendation.description}
                 </p>
                 <div className="flex justify-between items-center mt-2">
-                  <span className="font-medium text-[#386851] text-sm">
+                  <span className="font-medium text-brand-primary text-sm">
                     {formatCurrency(recommendation.estimatedCost.min)} -{" "}
                     {formatCurrency(recommendation.estimatedCost.max)}
                   </span>
@@ -161,23 +161,23 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
     <MotionDiv
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -4 }}
+      whileHover={{ y: -4, scale: 1.02 }}
       className="cursor-pointer"
       onClick={handleCardClick}
     >
-      <Card className="hover:shadow-xl h-full overflow-hidden transition-all duration-300">
+      <Card className="hover:shadow-2xl h-full overflow-hidden transition-all duration-300 rounded-3xl border-2 hover:border-brand-primary/20">
         {recommendation.images && recommendation.images[0] && (
-          <div className="relative bg-gradient-to-br from-blue-50 to-indigo-100 h-48">
+          <div className="relative bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-700 h-48">
             <div className="absolute inset-0 flex justify-center items-center">
               <MaterialIcon
                 icon={getProjectIcon(recommendation.projectType)}
-                className="opacity-20 text-[#386851]"
+                className="opacity-20 text-brand-primary"
                 size="4xl"
               />
             </div>
             <div className="top-3 right-3 absolute">
               <span
-                className={`px-3 py-1 rounded-full text-sm font-semibold ${getPriorityColor(recommendation.priority)}`}
+                className={`px-3 py-1 rounded-full text-sm font-semibold shadow-md ${getPriorityColor(recommendation.priority)}`}
               >
                 {recommendation.confidence}% Match
               </span>
@@ -190,10 +190,10 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
             <div className="flex items-center space-x-2">
               <MaterialIcon
                 icon={getProjectIcon(recommendation.projectType)}
-                className="text-[#386851]"
+                className="text-brand-primary"
                 size="lg"
               />
-              <span className="font-medium text-gray-500 text-xs uppercase tracking-wider">
+              <span className="font-medium text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">
                 {recommendation.projectType}
               </span>
             </div>
@@ -204,11 +204,11 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
             </span>
           </div>
 
-          <h3 className="mb-2 font-bold text-gray-800 text-xl">
+          <h3 className="mb-2 font-bold text-gray-800 dark:text-gray-100 text-xl">
             {recommendation.title}
           </h3>
 
-          <p className="mb-4 text-gray-600 line-clamp-3">
+          <p className="mb-4 text-gray-600 dark:text-gray-300 line-clamp-3">
             {recommendation.description}
           </p>
 

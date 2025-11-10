@@ -154,19 +154,19 @@ export function FeaturesSection() {
             <div
               key={feature.id}
               id={`feature-${feature.id}`}
-              className="group perspective-1000 feature-card"
+              className="group perspective-1000 feature-card h-80 sm:h-96 lg:h-[450px]"
             >
-              <div className="relative w-full h-auto min-h-[280px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[420px] group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
+              <div className="relative w-full h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
-                <div className="absolute inset-0 bg-white dark:bg-gray-800 shadow-lg hover:shadow-brand-primary/10 hover:shadow-xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-300 backface-hidden">
+                <div className="absolute inset-0 bg-white dark:bg-gray-800 shadow-2xl hover:shadow-brand-primary/10 p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden transition-all duration-300 backface-hidden hover:scale-105">
                   <div
-                    className={`absolute inset-0 ${feature.bgColor} rounded-2xl sm:rounded-3xl`}
+                    className={`absolute inset-0 ${feature.bgColor} rounded-3xl`}
                   ></div>
 
                   <div className="z-10 relative flex flex-col h-full">
                     <div className="flex-grow">
                       <div
-                        className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${feature.color} rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg p-2`}
+                        className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg p-2`}
                       >
                         <MaterialIcon
                           icon={feature.icon}
@@ -175,11 +175,11 @@ export function FeaturesSection() {
                         />
                       </div>
 
-                      <h3 className="mb-3 sm:mb-4 font-black text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-tight tracking-tight">
+                      <h3 className="mb-3 sm:mb-4 font-black text-gray-900 dark:text-gray-100 text-lg sm:text-xl lg:text-2xl leading-tight tracking-tight">
                         {feature.title}
                       </h3>
 
-                      <p className="font-light text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
+                      <p className="font-light text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
@@ -195,36 +195,37 @@ export function FeaturesSection() {
 
                 {/* Back of Card */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${feature.color} shadow-xl hover:shadow-2xl transition-shadow duration-300 p-3 sm:p-4 md:p-5 lg:p-6 rounded-2xl sm:rounded-3xl backface-hidden rotate-y-180 overflow-hidden`}
+                  className={`absolute inset-0 bg-gradient-to-br ${feature.color} shadow-2xl transition-shadow duration-300 p-4 sm:p-5 lg:p-6 rounded-3xl backface-hidden rotate-y-180 overflow-hidden`}
                 >
                   <div className="flex flex-col h-full text-white text-center">
-                    <div className="flex flex-col flex-grow min-h-0">
+                    <div className="flex-shrink-0 mb-3">
                       <MaterialIcon
                         icon={feature.icon}
                         size="lg"
-                        className="mx-auto mb-2 text-white"
+                        className="mx-auto text-white"
                       />
-                      <h3 className="mb-2 font-black text-sm sm:text-base lg:text-lg xl:text-xl">
+                      <h3 className="mt-2 mb-2 font-bold text-sm sm:text-base lg:text-lg leading-tight">
                         {feature.title}
                       </h3>
-                      <p className="mb-3 font-light text-white/90 text-xs sm:text-sm lg:text-base leading-tight overflow-hidden">
-                        {feature.details}
-                      </p>
                     </div>
 
-                    <div className="bg-white/20 backdrop-blur-sm flex-shrink-0 p-2 sm:p-2.5 border border-white/10 rounded-lg">
-                      <div className="mb-1 font-medium text-white/80 text-xs uppercase tracking-wider">
+                    <p className="flex-shrink-0 mb-3 font-light text-white/90 text-xs sm:text-sm leading-snug">
+                      {feature.details}
+                    </p>
+
+                    <div className="bg-white/20 backdrop-blur-sm flex-shrink-0 mt-auto p-3 border border-white/10 rounded-lg">
+                      <div className="mb-2 font-medium text-white/90 text-xs uppercase tracking-wider">
                         Key Features
                       </div>
-                      <ul className="space-y-0.5 text-xs">
+                      <ul className="space-y-1.5 text-xs">
                         {feature.features.map((feat, idx) => (
-                          <li key={idx} className="flex items-start text-left">
+                          <li key={idx} className="flex items-center text-left">
                             <MaterialIcon
                               icon="check_circle"
                               size="sm"
-                              className="flex-shrink-0 mt-0.5 mr-1.5 text-white/80"
+                              className="flex-shrink-0 mr-2 text-white/90"
                             />
-                            <span className="font-light leading-tight text-xs break-words">
+                            <span className="font-light leading-snug text-xs">
                               {feat}
                             </span>
                           </li>

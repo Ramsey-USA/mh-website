@@ -72,22 +72,25 @@ export function WhyPartnerSection() {
         {/* Core Partnership Values - Mobile optimized 4 Flip Cards */}
         <div className="gap-3 sm:gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {partnershipValues.map((value, _index) => (
-            <div key={_index} className="group h-56 sm:h-64 perspective-1000">
+            <div
+              key={_index}
+              className="group h-64 sm:h-72 lg:h-80 perspective-1000"
+            >
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
                 <div className="absolute inset-0 backface-hidden">
-                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-lg sm:rounded-xl h-full text-center">
-                    <div className="mb-2 sm:mb-3">
+                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-4 sm:p-5 border border-white/20 rounded-lg sm:rounded-xl h-full text-center">
+                    <div className="mb-3">
                       <MaterialIcon
                         icon={value.icon}
                         size="xl"
                         className={`drop-shadow-lg mx-auto ${value.iconColor || "text-white"}`}
                       />
                     </div>
-                    <h3 className="font-black text-white text-lg sm:text-xl md:text-2xl tracking-tight">
+                    <h3 className="font-black text-white text-lg sm:text-xl md:text-2xl tracking-tight leading-tight px-2">
                       {value.title}
                     </h3>
-                    <p className="mt-1 text-white/70 text-xs">
+                    <p className="mt-2 text-white/70 text-xs sm:text-sm">
                       <span className="hidden sm:inline">
                         Hover to learn more
                       </span>
@@ -98,20 +101,22 @@ export function WhyPartnerSection() {
 
                 {/* Back of Card */}
                 <div className="absolute inset-0 rotate-y-180 backface-hidden">
-                  <div className="flex flex-col justify-center bg-brand-primary/90 backdrop-blur-sm p-3 sm:p-4 border border-white/20 rounded-lg sm:rounded-xl h-full text-center">
-                    <div className="mb-2 sm:mb-3">
+                  <div className="flex flex-col bg-brand-primary/90 backdrop-blur-sm p-4 sm:p-5 border border-white/20 rounded-lg sm:rounded-xl h-full text-center overflow-hidden">
+                    <div className="flex-shrink-0 mb-2">
                       <MaterialIcon
                         icon={value.icon}
-                        size="lg"
+                        size="md"
                         className={`mx-auto ${value.iconColor || "text-white"}`}
                       />
                     </div>
-                    <h3 className="mb-2 sm:mb-3 font-black text-white text-base sm:text-lg md:text-xl">
+                    <h3 className="flex-shrink-0 mb-2 sm:mb-3 font-bold text-white text-sm sm:text-base leading-tight">
                       {value.subtitle}
                     </h3>
-                    <p className="text-white/90 text-xs sm:text-sm md:text-base leading-relaxed">
-                      {value.description}
-                    </p>
+                    <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent px-1">
+                      <p className="text-white/90 text-xs sm:text-sm leading-relaxed">
+                        {value.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
