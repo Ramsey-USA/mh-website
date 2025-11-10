@@ -8,9 +8,8 @@ import {
   generateOrganizationStructuredData,
   StructuredData,
 } from "@/components/seo/seo-meta";
-import { TestimonialGrid } from "@/components/testimonials";
+import { TestimonialsCarousel } from "@/components/testimonials";
 import { getClientTestimonials } from "@/lib/data/testimonials";
-import { AggregateRating } from "@/components/ratings";
 
 // Enhanced SEO for AI-powered veteran-owned construction
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
@@ -41,7 +40,6 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { useAnalytics } from "@/components/analytics/enhanced-analytics";
 import { useImagePreloader } from "@/hooks/usePerformanceOptimization";
-import { ActivityFeed } from "@/components/activity";
 import { BeforeAfterSlider } from "@/components/slider";
 
 export default function Home() {
@@ -165,24 +163,11 @@ export default function Home() {
             </p>
           </div>
 
-          <TestimonialGrid
-            testimonials={getClientTestimonials(true)}
-            title=""
-            variant="client"
-            maxItems={3}
-            showViewMoreButton={true}
-            viewMoreHref="/about#testimonials"
-            className="!py-0"
+          <TestimonialsCarousel
+            testimonials={getClientTestimonials()}
+            autoPlay={true}
+            autoPlayInterval={5000}
           />
-
-          {/* Aggregate Rating - SEO Enhanced */}
-          <div className="mt-12 lg:mt-16">
-            <AggregateRating
-              testimonials={getClientTestimonials()}
-              variant="hero"
-              title="Trusted by Clients Across the Pacific Northwest"
-            />
-          </div>
         </div>
       </section>
 
@@ -729,14 +714,6 @@ export default function Home() {
 
       {/* Enhanced Partnership Call to Action Section */}
       <PartnershipCTA />
-
-      {/* Real-Time Activity Feed - Social Proof */}
-      <ActivityFeed
-        maxActivities={3}
-        enableChatbotIntegration={true}
-        autoDismissSeconds={0}
-        desktopOnly={true}
-      />
     </>
   );
 }
