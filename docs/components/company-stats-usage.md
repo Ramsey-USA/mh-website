@@ -9,7 +9,8 @@
 
 ## Overview
 
-The `CompanyStats` component is a flexible, reusable statistics display section that can be used on any page to showcase numerical achievements, milestones, or key metrics. It features:
+The `CompanyStats` component is a flexible, reusable statistics display section that can be used
+on any page to showcase numerical achievements, milestones, or key metrics. It features:
 
 - ✅ **Equal-height cards** with flex layout for consistent sizing
 - ✅ **Animated counters** for engaging number displays
@@ -178,7 +179,8 @@ export default function ProjectsPage() {
       stats={projectStats}
       title="Achievements"
       subtitle="Project"
-      description="A proven track record of successful construction partnerships across the Pacific Northwest"
+      description="A proven track record of successful construction partnerships
+        across the Pacific Northwest"
       headerIcon="workspace_premium"
       variant="secondary"
     />

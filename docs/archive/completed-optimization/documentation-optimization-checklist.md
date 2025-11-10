@@ -2,7 +2,8 @@
 
 > **⚠️ ARCHIVED:** November 10, 2025 - Documentation optimization phases completed  
 > **Status:** Historical reference only  
-> **Current Documentation:** See [Documentation Consolidation Review](../../project/documentation-consolidation-review-nov-2025.md)  
+> **Current Documentation:**
+> See [Documentation Consolidation Review](../../project/documentation-consolidation-review-nov-2025.md)  
 > **Last Updated (Active):** November 6, 2025
 >
 > This document was archived because the documentation optimization project has been completed.

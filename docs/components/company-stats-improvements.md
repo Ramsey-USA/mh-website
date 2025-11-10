@@ -8,7 +8,9 @@
 
 ## Summary
 
-Refactored the "Our Track Record" section (`CompanyStats` component) on the about page to ensure consistent card sizing and full adherence to MH branding guidelines. The component is now fully reusable across any page in the website.
+Refactored the "Our Track Record" section (`CompanyStats` component) on the about page to ensure
+consistent card sizing and full adherence to MH branding guidelines. The component is now fully
+reusable across any page in the website.
 
 ---
 
