@@ -134,7 +134,10 @@ export default function Home() {
       {/* Core Values Section */}
       <CoreValuesSection />
 
-      {/* Enhanced Client Testimonials - MOVED UP for trust-building (Phase 0 optimization) */}
+      {/* Showcase of Services Section - Positioned early for SEO (primary offerings) */}
+      <ServicesShowcase />
+
+      {/* Enhanced Client Testimonials - Social proof at optimal 25-30% page depth (Phase 0 optimization) */}
       <section className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-8 sm:py-12 lg:py-16 testimonials-section">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(189,146,100,0.05)_0%,transparent_50%)] opacity-60"></div>
         <div className="top-20 left-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-40 h-40"></div>
@@ -173,9 +176,6 @@ export default function Home() {
 
       {/* Why Partner With MH Construction Section */}
       <WhyPartnerSection />
-
-      {/* Showcase of Services Section */}
-      <ServicesShowcase />
 
       {/* Before/After Showcase Section */}
       <section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32">
