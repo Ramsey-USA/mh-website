@@ -320,7 +320,7 @@ export default function GovernmentGrantsPage() {
       </section>
       {/* Veteran-Owned Badge Section */}
       <section className="bg-gradient-to-r from-gray-800 to-black py-8 text-white">
-        <div className="mx-auto px-4 container">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="flex flex-wrap justify-center items-center gap-8 text-center">
               <div className="flex items-center">
@@ -356,7 +356,7 @@ export default function GovernmentGrantsPage() {
       </section>
       {/* Grant Support Services */}
       <section className="bg-white dark:bg-gray-900 py-20">
-        <div className="mx-auto px-4 container">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-16 lg:mb-24 text-center">
               <MaterialIcon
@@ -434,7 +434,7 @@ export default function GovernmentGrantsPage() {
       </section>
       {/* Hanford & DOE Section */}
       <section className="bg-gradient-to-br from-gray-900 to-black py-20 text-white">
-        <div className="mx-auto px-4 container">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-6xl">
               <div className="mb-16 text-center">
@@ -527,7 +527,7 @@ export default function GovernmentGrantsPage() {
       </section>
       {/* Grant Types Section */}
       <section className="bg-gray-50 dark:bg-gray-800 py-20">
-        <div className="mx-auto px-4 container">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-16 lg:mb-24 text-center">
               <MaterialIcon
@@ -615,7 +615,7 @@ export default function GovernmentGrantsPage() {
       </section>{" "}
       {/* Process Steps */}
       <section className="bg-white dark:bg-gray-900 py-20">
-        <div className="mx-auto px-4 container">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-5xl">
               <div className="mb-16 text-center">
@@ -679,7 +679,7 @@ export default function GovernmentGrantsPage() {
       </section>
       {/* Government Project Types */}
       <section className="bg-gray-50 py-20">
-        <div className="mx-auto px-4 container">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-16 text-center">
               <MaterialIcon
@@ -747,7 +747,7 @@ export default function GovernmentGrantsPage() {
       </section>
       {/* Success Factors */}
       <section className="bg-white dark:bg-gray-900 py-20">
-        <div className="mx-auto px-4 container">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-6xl">
               <div className="mb-16 text-center">
@@ -814,7 +814,7 @@ export default function GovernmentGrantsPage() {
             }}
           ></div>
         </div>
-        <div className="z-10 relative mx-auto px-4 container">
+        <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl text-center">
               <MaterialIcon

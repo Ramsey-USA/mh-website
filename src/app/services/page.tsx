@@ -596,7 +596,7 @@ export default function ServicesPage() {
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-primary-dark/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
           </div>
 
-          <div className="relative mx-auto px-4 container">
+          <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
               <div className="mb-16 lg:mb-24 text-center">
                 <h2 className="mb-8 pb-2 font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter drop-shadow-lg">
@@ -671,7 +671,7 @@ export default function ServicesPage() {
 
         {/* Interactive Timeline Tool - Visualize Your Project */}
         <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
-          <div className="mx-auto px-4 container">
+          <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
               <div className="mx-auto max-w-4xl text-center mb-12">
                 <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl">
@@ -699,7 +699,7 @@ export default function ServicesPage() {
           id="process"
           className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32"
         >
-          <div className="mx-auto px-4 container">
+          <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
               <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
                 <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
@@ -1035,7 +1035,7 @@ export default function ServicesPage() {
 
         {/* Partnership Types Section - Client vs Trade */}
         <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
-          <div className="mx-auto px-4 container max-w-7xl">
+          <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
               <div className="mx-auto max-w-4xl text-center mb-16">
                 <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">

@@ -260,18 +260,27 @@
    RESPONSIVE DESIGN IMPROVEMENTS
    ============================================ */
 
-/* Prevent horizontal scrolling on all screen sizes */
+/* Prevent horizontal scrolling on the root viewport only. Keep sections free to
+   manage their own horizontal overflow so they won't capture pointer/scroll
+   events (avoid creating scroll containers at section-level). */
 html,
 body {
   overflow-x: hidden;
   max-width: 100vw;
 }
 
-/* Ensure containers stay within viewport but allow sections to handle their own overflow for 3D effects */
-main,
+/* Ensure main and container sizing remain full-width but do NOT force
+   overflow-x hidden here — sections/components should opt-in when they
+   intentionally need to hide overflow (e.g. carousels or 3D effects). */
+main {
+  max-width: 100%;
+}
+
 .container {
   max-width: 100%;
-  overflow-x: hidden;
+  /* NOTE: intentionally do NOT set overflow-x here to avoid creating
+     scroll-capturing containers. Use utility classes where necessary
+     on the specific components that require overflow control. */
 }
 
 /* Improve mobile touch interactions */

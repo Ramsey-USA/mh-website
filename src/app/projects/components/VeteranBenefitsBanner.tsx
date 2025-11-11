@@ -12,7 +12,7 @@ export function VeteranBenefitsBanner() {
       id="veteran-owned"
       className="bg-gradient-to-r from-brand-primary/10 dark:from-brand-primary/20 to-brand-primary/5 dark:to-brand-primary/10 py-12"
     >
-      <div className="mx-auto px-4 container">
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <FadeInWhenVisible>
           <div className="flex md:flex-row flex-col justify-center items-center gap-8 mx-auto max-w-4xl">
             <div className="flex items-center">

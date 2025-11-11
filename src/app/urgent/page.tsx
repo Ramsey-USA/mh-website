@@ -200,7 +200,7 @@ export default function UrgentSupportPage() {
 
       {/* Our Focus Section */}
       <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 max-w-6xl">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <FadeInWhenVisible>
             <div className="text-center mb-12">
               <div className="flex justify-center mb-4">
@@ -241,7 +241,7 @@ export default function UrgentSupportPage() {
 
       {/* What We Provide */}
       <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4 max-w-6xl">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <FadeInWhenVisible>
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">
               Our Capabilities
@@ -277,7 +277,7 @@ export default function UrgentSupportPage() {
 
       {/* Large Equipment Section */}
       <section className="py-16 bg-gradient-to-br from-brand-primary to-brand-accent text-white">
-        <div className="container mx-auto px-4 max-w-6xl">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <FadeInWhenVisible>
             <div className="text-center mb-12">
               <div className="flex justify-center mb-4">
@@ -338,7 +338,7 @@ export default function UrgentSupportPage() {
 
       {/* What We Provide / Don't Provide */}
       <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 max-w-6xl">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <div className={gridPresets.twoColumn("lg")}>
             {/* What We Provide */}
             <FadeInWhenVisible>
@@ -399,7 +399,7 @@ export default function UrgentSupportPage() {
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-orange-600 to-orange-700 text-white">
-        <div className="container mx-auto px-4 max-w-4xl text-center">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
           <FadeInWhenVisible>
             <MaterialIcon
               icon="support_agent"

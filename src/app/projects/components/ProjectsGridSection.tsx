@@ -31,7 +31,7 @@ export function ProjectsGridSection({
       id="portfolio"
       className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40"
     >
-      <div className="mx-auto px-4 container">
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <FadeInWhenVisible>
           <div className="mb-16 lg:mb-24 text-center scroll-reveal">
             <div className="flex justify-center items-center mb-6">

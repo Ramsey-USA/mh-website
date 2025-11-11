@@ -11,7 +11,7 @@ import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponent
 export function ProjectsCTASection() {
   return (
     <section className="bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark to-brand-primary-dark dark:to-brand-primary py-20 lg:py-32 xl:py-40 text-white">
-      <div className="mx-auto px-4 container">
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <FadeInWhenVisible>
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">

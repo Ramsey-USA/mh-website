@@ -25,7 +25,7 @@ export function ProjectsFilterSection({
 }: ProjectsFilterSectionProps) {
   return (
     <section className="bg-gray-50 dark:bg-gray-800 py-12 border-gray-200 border-y dark:border-gray-700">
-      <div className="mx-auto px-4 container">
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <FadeInWhenVisible>
           <div className="mb-8 text-center scroll-reveal">
             <h3 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight tracking-tighter">
