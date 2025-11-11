@@ -551,6 +551,39 @@ export default function TradePartnersPage() {
             </div>
           </FadeInWhenVisible>
 
+          {/* Veteran Trade Partner Priority Callout */}
+          <FadeInWhenVisible>
+            <div className="bg-gradient-to-r from-brand-primary/10 via-brand-secondary/10 to-brand-primary/10 dark:from-brand-primary/20 dark:via-brand-secondary/20 dark:to-brand-primary/20 p-8 lg:p-10 border-2 border-brand-primary/30 rounded-xl shadow-lg mb-12">
+              <div className="flex flex-col lg:flex-row items-center gap-6 text-center lg:text-left">
+                <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full shadow-lg">
+                  <MaterialIcon
+                    icon="military_tech"
+                    className="text-white text-5xl"
+                  />
+                </div>
+                <div className="flex-1">
+                  <h3 className="mb-3 font-black text-gray-900 dark:text-white text-2xl lg:text-3xl">
+                    Veteran-Owned Trade Partners: Priority Consideration
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-4">
+                    As a veteran-owned company led by Army and Navy veterans, we
+                    prioritize partnerships with fellow veteran-owned
+                    businesses. Veteran trade partners receive expedited
+                    application review, preferential bidding opportunities, and
+                    dedicated support for business growth.
+                  </p>
+                  <Link
+                    href="/veterans"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary hover:bg-brand-accent text-white transition-all duration-300 rounded-lg font-bold shadow-md hover:shadow-lg"
+                  >
+                    <MaterialIcon icon="phishing" size="md" />
+                    <span>Learn About Our Veterans Initiative</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </FadeInWhenVisible>
+
           <div className={gridPresets.twoColumn("lg")}>
             <FadeInWhenVisible>
               <Card className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 h-full">

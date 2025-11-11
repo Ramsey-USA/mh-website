@@ -20,6 +20,7 @@ const ACTIVE_PAGES = [
   { path: "/careers", priority: 0.7, changeFreq: "weekly" as const },
   { path: "/government", priority: 0.8, changeFreq: "monthly" as const },
   { path: "/trade-partners", priority: 0.7, changeFreq: "monthly" as const },
+  { path: "/veterans", priority: 0.85, changeFreq: "monthly" as const },
   { path: "/estimator", priority: 0.95, changeFreq: "monthly" as const },
   { path: "/urgent", priority: 0.85, changeFreq: "monthly" as const },
   { path: "/3d-explorer", priority: 0.5, changeFreq: "monthly" as const },

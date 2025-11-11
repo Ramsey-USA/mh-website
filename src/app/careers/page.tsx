@@ -305,6 +305,20 @@ export default function CareersPage() {
                       />
                       <span className="font-medium">Apply as Veteran</span>
                     </Button>
+                    <Link href="/veterans">
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="transition-all duration-300 min-w-[260px]"
+                      >
+                        <MaterialIcon
+                          icon="phishing"
+                          size="lg"
+                          className="mr-3"
+                        />
+                        <span className="font-medium">Veterans Initiative</span>
+                      </Button>
+                    </Link>
                     <Link href="/contact">
                       <Button
                         variant="outline"

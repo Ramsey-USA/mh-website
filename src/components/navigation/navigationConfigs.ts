@@ -518,6 +518,46 @@ export const navigationConfigs = {
       icon: "notifications",
     },
   ],
+
+  veterans: [
+    { href: "/", label: "Home", icon: "home" },
+    {
+      href: "/veterans#fishing-event",
+      label: "Fishing Event",
+      mobileLabel: "Event",
+      icon: "phishing",
+    },
+    {
+      href: "/veterans#sponsorship",
+      label: "Become a Sponsor",
+      mobileLabel: "Sponsor",
+      icon: "handshake",
+    },
+    {
+      href: "/about#team",
+      label: "Veteran Leadership",
+      mobileLabel: "Leadership",
+      icon: "military_tech",
+    },
+    {
+      href: "/careers#veteran-benefits",
+      label: "Veteran Careers",
+      mobileLabel: "Careers",
+      icon: "work",
+    },
+    {
+      href: "/trade-partners",
+      label: "Veteran Trade Partners",
+      mobileLabel: "Partners",
+      icon: "business",
+    },
+    {
+      href: "/contact",
+      label: "Get Involved",
+      mobileLabel: "Involve",
+      icon: "contact_phone",
+    },
+  ],
 };
 
 export type PageType = keyof typeof navigationConfigs;

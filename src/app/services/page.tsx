@@ -27,6 +27,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 
 // Import shared sections
 import { AIEstimatorCTA } from "@/components/shared-sections";
+import { VeteranBadgeSection } from "@/components/veterans/VeteranBadgeSection";
 
 export default function ServicesPage() {
   // Structured Data for SEO
@@ -161,6 +162,9 @@ export default function ServicesPage() {
         <Breadcrumb
           items={[{ label: "Home", href: "/" }, { label: "Services" }]}
         />
+
+        {/* Veteran-Owned Badge Section */}
+        <VeteranBadgeSection variant="full" showCTA={true} />
 
         {/* Construction Expertise Section */}
         <Section variant="default" padding="default">

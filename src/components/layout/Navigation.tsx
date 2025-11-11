@@ -181,6 +181,11 @@ export function Navigation() {
                       icon: "handshake",
                     },
                     {
+                      href: "/veterans",
+                      label: "Veterans",
+                      icon: "military_tech",
+                    },
+                    {
                       href: "/urgent",
                       label: "Urgent",
                       icon: "engineering",

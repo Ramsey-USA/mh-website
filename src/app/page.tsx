@@ -27,6 +27,7 @@ import {
   NextStepsSection,
   AIEstimatorCTA,
 } from "@/components/shared-sections";
+import { VeteranBadgeSection } from "@/components/veterans/VeteranBadgeSection";
 
 // Dynamically import below-the-fold components
 const SmartRecommendations = dynamic(
@@ -129,6 +130,9 @@ export default function Home() {
 
       {/* Home Page Hero Section */}
       <HeroSection />
+
+      {/* Veteran-Owned Badge Section */}
+      <VeteranBadgeSection variant="full" showCTA={true} />
 
       {/* Revolutionary Features Section */}
       <FeaturesSection />

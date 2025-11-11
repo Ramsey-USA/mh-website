@@ -93,6 +93,7 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 - **[Core Values](./business/core-values.md)** - Our principles
 - **[Team Roster](./business/team-roster.md)** - Meet the team
 - **[Team Profiles](./business/team-profiles/)** - Individual team members
+- **[Veterans Initiative](./business/veterans.md)** - Veteran-owned status, community programs, and our annual fishing event
 - **[Government Projects](./business/government-grant-projects.md)** - Grant expertise
 
 **Master Reference:**
