@@ -54,19 +54,19 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <video
           ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover z-0"
           loop
           playsInline
         >
           <source src="/videos/mh_veterans_day_vid.mp4" type="video/mp4" />
         </video>
         {/* Light overlay for subtle darkening if needed */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-gray-900/30 to-brand-secondary/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-gray-900/30 to-brand-secondary/20 z-10 pointer-events-none"></div>
       </div>
 
       {/* Large Play Button Overlay - Shows initially */}
       {showPlayButton && (
-        <div className="absolute inset-0 z-30 flex items-center justify-center bg-black/30 backdrop-blur-sm">
+        <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/30 backdrop-blur-sm">
           <button
             onClick={handlePlayWithSound}
             className="bg-brand-primary/90 hover:bg-brand-primary backdrop-blur-sm p-8 rounded-full transition-all duration-300 hover:scale-110 shadow-2xl"
@@ -84,7 +84,7 @@ export function HeroSection() {
 
       {/* Video Controls - Top Right */}
       {!showPlayButton && (
-        <div className="absolute top-20 right-4 z-20 flex gap-2">
+        <div className="absolute top-20 right-4 z-50 flex gap-2">
           <button
             onClick={togglePlay}
             className="bg-black/50 hover:bg-black/70 backdrop-blur-sm p-3 rounded-full transition-all duration-300"
@@ -111,7 +111,7 @@ export function HeroSection() {
       )}
 
       {/* Veterans Day Message - Moved higher above navigation */}
-      <div className="absolute bottom-32 left-0 right-0 z-10 text-center">
+      <div className="absolute bottom-36 left-0 right-0 z-40 text-center pointer-events-none">
         <p className="text-brand-secondary text-2xl sm:text-3xl md:text-4xl font-bold drop-shadow-lg">
           Happy Veterans Day!
         </p>
