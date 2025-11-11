@@ -290,19 +290,19 @@ When creating a new page, develop a unique hero tagline following these principl
 
 ### Creation Process
 
-**Step 1: Define Page Purpose**
+#### Step 1: Define Page Purpose
 
 Write one sentence: "This page exists to..."
 
-**Step 2: Identify Key Value**
+#### Step 2: Identify Key Value
 
 What's the ONE main benefit visitors get from this page?
 
-**Step 3: Draft 5-10 Options**
+#### Step 3: Draft 5-10 Options
 
 Create multiple variations focusing on different angles.
 
-**Step 4: Apply Criteria**
+#### Step 4: Apply Criteria
 
 Check each option against:
 
@@ -312,7 +312,7 @@ Check each option against:
 - Clarity (immediately clear?)
 - Uniqueness (different from others?)
 
-**Step 5: Test & Refine**
+#### Step 5: Test & Refine
 
 Ask 3-5 people:
 
@@ -320,7 +320,7 @@ Ask 3-5 people:
 - What would you expect from a page with this tagline?
 - Is this memorable?
 
-**Step 6: Document**
+#### Step 6: Document
 
 Add to this guide with strategy explanation.
 

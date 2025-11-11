@@ -69,7 +69,7 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 #### Homepage Hero Tagline
 
-**"Where Vision Meets Execution"**
+**Tagline:** "Where Vision Meets Execution"
 
 - **Focus:** Partnership + delivery excellence
 - **Tone:** Confident, action-oriented
@@ -78,7 +78,7 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 #### About Page Hero Tagline
 
-**"Excellence Through Experience"**
+**Tagline:** "Excellence Through Experience"
 
 - **Focus:** Veteran values + proven quality
 - **Tone:** Professional, credible
@@ -87,7 +87,7 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 #### Services Page Hero Tagline
 
-**"Your project deserves expert oversight"**
+**Tagline:** "Your project deserves expert oversight"
 
 - **Focus:** Service quality and client-centric approach
 - **Tone:** Empowering, professional
@@ -96,7 +96,7 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 #### Projects Page Hero Tagline
 
-**"Proven Results, Trusted Partnerships"**
+**Tagline:** "Proven Results, Trusted Partnerships"
 
 - **Focus:** Track record + relationship emphasis
 - **Tone:** Achievement-oriented, trustworthy
@@ -105,7 +105,7 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 #### Team Page Hero Tagline
 
-**"Experience You Can Trust"**
+**Tagline:** "Experience You Can Trust"
 
 - **Focus:** Team expertise and reliability
 - **Tone:** Confident, reassuring
@@ -114,7 +114,7 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 #### Careers Page Hero Tagline
 
-**"Your Future Starts Here"**
+**Tagline:** "Your Future Starts Here"
 
 - **Focus:** Career growth and opportunity
 - **Tone:** Inspirational, forward-looking
@@ -123,7 +123,7 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 #### Booking Page Hero Tagline
 
-**"Start Your Project With Confidence"**
+**Tagline:** "Start Your Project With Confidence"
 
 - **Focus:** Consultation confidence and partnership beginning
 - **Tone:** Encouraging, reassuring
@@ -132,7 +132,7 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 #### Urgent Support Page Hero Tagline
 
-**"When Time Is Critical, We Respond"**
+**Tagline:** "When Time Is Critical, We Respond"
 
 - **Focus:** Rapid response and reliability
 - **Tone:** Urgent, capable
@@ -141,7 +141,7 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 #### Government Page Hero Tagline
 
-**"Mission-Ready, Compliance-Driven"**
+**Tagline:** "Mission-Ready, Compliance-Driven"
 
 - **Focus:** Federal expertise and regulatory compliance
 - **Tone:** Professional, military-adjacent
@@ -150,7 +150,7 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 #### Trade Partners Page Hero Tagline
 
-**"Building Success Together"**
+**Tagline:** "Building Success Together"
 
 - **Focus:** B2B partnership and mutual growth
 - **Tone:** Collaborative, professional
@@ -159,7 +159,7 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 #### Estimator Page Hero Tagline
 
-**"Smart Planning Starts Here"**
+**Tagline:** "Smart Planning Starts Here"
 
 - **Focus:** AI estimation and preliminary planning
 - **Tone:** Modern, intelligent
@@ -168,7 +168,7 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 #### 3D Explorer Page Hero Tagline
 
-**"Innovation Meets Construction Excellence"**
+**Tagline:** "Innovation Meets Construction Excellence"
 
 - **Focus:** Technology integration and forward-thinking
 - **Tone:** Innovative, progressive

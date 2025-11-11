@@ -367,7 +367,7 @@ When you identify duplicate sections across pages:
 
 ## 📁 Directory Structure
 
-```
+```text
 /src/components/shared-sections/
 ├── index.ts                      # Barrel export file
 ├── TestimonialsSection.tsx       # 120 lines
