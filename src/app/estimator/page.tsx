@@ -74,7 +74,7 @@ export default function EstimatorPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              "THE ROI IS THE RELATIONSHIP" — AI-powered technology from our
+              Smart Planning Starts Here. AI-powered technology from our
               veteran-owned team (January 2025) provides preliminary budget
               estimates for initial planning across the Pacific Northwest.
               Backed by award-winning safety (.6 EMR) and 150+ years combined
@@ -106,7 +106,7 @@ export default function EstimatorPage() {
                   Path Forward
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
+              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
                 Select the approach that best fits your project needs and
                 timeline—from instant AI estimates for quick budget planning to
                 comprehensive expert consultations for complex projects
@@ -323,7 +323,7 @@ export default function EstimatorPage() {
                   AI Estimator?
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
+              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
                 Get preliminary cost estimates instantly, powered by regional
                 Pacific Northwest construction data, AI technology, and backed
                 by award-winning safety (.6 EMR) and 150+ years combined team

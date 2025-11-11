@@ -59,11 +59,6 @@ export default function TeamPage() {
               </span>
             </h1>
 
-            {/* ROI Slogan - Prominent relationship messaging */}
-            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
-              THE ROI IS THE RELATIONSHIP
-            </p>
-
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
               &ldquo;Building for the Owner, NOT the Dollar&rdquo;
@@ -71,9 +66,9 @@ export default function TeamPage() {
 
             {/* Leadership Statement */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4 font-medium">
-              150+ years combined experience. Award-winning .6 EMR safety.
-              Military precision and owner-first focus across the Pacific
-              Northwest.
+              Experience You Can Trust. 150+ years combined experience.
+              Award-winning .6 EMR safety. Military precision and owner-first
+              focus across the Pacific Northwest.
             </p>
 
             {/* Description */}

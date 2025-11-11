@@ -101,12 +101,10 @@ export function EstimatorForm() {
 
       // Add warnings for better accuracy
       if (!projectData.timeline) {
-        warnings.push("💡 Adding a timeline helps improve estimate accuracy");
+        warnings.push("Adding a timeline helps improve estimate accuracy");
       }
       if (!projectData.budget) {
-        warnings.push(
-          "💡 Budget range helps us provide more targeted estimates",
-        );
+        warnings.push("Budget range helps us provide more targeted estimates");
       }
     }
 
@@ -115,14 +113,10 @@ export function EstimatorForm() {
         issues.push("Please select a material quality level");
       }
       if (projectData.features.length === 0) {
-        warnings.push(
-          "💡 Adding features helps create a more detailed estimate",
-        );
+        warnings.push("Adding features helps create a more detailed estimate");
       }
       if (!projectData.complexity) {
-        warnings.push(
-          "💡 Project complexity affects timeline and coordination",
-        );
+        warnings.push("Project complexity affects timeline and coordination");
       }
     }
 

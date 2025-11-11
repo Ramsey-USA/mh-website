@@ -2,13 +2,14 @@
 
 ## Comprehensive Standards for Pages, Sections, Components, and Mobile
 
-**Last Updated**: November 6, 2025 | **Version**: 1.0.0 | **Status**: Official Standard
+**Last Updated**: November 11, 2025 | **Version**: 1.1.0 | **Status**: Official Standard
 
 ---
 
 ## 📋 Table of Contents
 
 - [Brand Foundation](#brand-foundation)
+- [Hero Section Tagline Strategy](#hero-section-tagline-strategy)
 - [Typography System](#typography-system)
 - [Page Layout Standards](#page-layout-standards)
 - [Section Standards](#section-standards)
@@ -16,6 +17,86 @@
 - [Chatbot-First User Engagement](#chatbot-first-user-engagement)
 - [Mobile Consistency](#mobile-consistency)
 - [Implementation Checklist](#implementation-checklist)
+
+---
+
+## 🎯 Hero Section Tagline Strategy
+
+### November 11, 2025 Update
+
+**NEW STANDARD:** Each page's hero section features a **unique, page-specific tagline**
+instead of repeating "THE ROI IS THE RELATIONSHIP" across all pages.
+
+### Why This Change?
+
+- **Reduces tagline fatigue** - Visitors see the same phrase less often
+- **Increases message retention** - Variety makes messages more memorable
+- **Reinforces page purpose** - Each tagline directly relates to page content
+- **Maintains brand consistency** - All taglines align with core values
+
+### Creating Effective Hero Taglines
+
+**Guidelines:**
+
+1. **Length**: Keep to 3-7 words for maximum impact
+2. **Relevance**: Connect directly to the page's primary purpose
+3. **Brand alignment**: Reflect MH Construction's values (integrity, partnership, quality)
+4. **Clarity**: Immediately understandable without additional context
+5. **Uniqueness**: Different from other pages' taglines
+
+**Examples of Strong Taglines:**
+
+- "Where Vision Meets Execution" (Homepage - partnership + delivery)
+- "Excellence Through Experience" (About - veteran values + quality)
+- "Experience You Can Trust" (Team - expertise focus)
+- "Mission-Ready, Compliance-Driven" (Government - federal expertise)
+
+**Avoid:**
+
+- Generic phrases that could apply to any construction company
+- Overusing "THE ROI IS THE RELATIONSHIP" in hero sections
+- Taglines longer than one sentence
+- Industry jargon without context
+
+### Where "THE ROI IS THE RELATIONSHIP" Still Belongs
+
+This phrase remains powerful and should be used in:
+
+- **Body content** - Within page descriptions and value propositions
+- **Testimonials** - When explaining our relationship-first approach
+- **Team bios** - Describing company culture and philosophy
+- **About sections** - Explaining our business model
+- **Partnership pages** - Emphasizing relationship focus
+
+Just not repeated in every single hero section.
+
+### Implementation Checklist
+
+When creating a new page hero section:
+
+- [ ] Create a unique tagline specific to this page's purpose
+- [ ] Verify tagline is 3-7 words
+- [ ] Ensure tagline aligns with brand values
+- [ ] Check that no other page uses the same tagline
+- [ ] Test tagline clarity with team members
+- [ ] Document the tagline in this guide's reference table
+
+### Current Hero Taglines Reference
+
+| Page           | Unique Hero Tagline                        | Focus Area               |
+| -------------- | ------------------------------------------ | ------------------------ |
+| Homepage       | "Where Vision Meets Execution"             | Partnership + delivery   |
+| About          | "Excellence Through Experience"            | Veteran values + quality |
+| Services       | "Your project deserves expert oversight"   | Service quality          |
+| Projects       | "Proven Results, Trusted Partnerships"     | Track record             |
+| Team           | "Experience You Can Trust"                 | Team expertise           |
+| Careers        | "Your Future Starts Here"                  | Career growth            |
+| Booking        | "Start Your Project With Confidence"       | Consultation confidence  |
+| Urgent         | "When Time Is Critical, We Respond"        | Rapid response           |
+| Government     | "Mission-Ready, Compliance-Driven"         | Federal expertise        |
+| Trade Partners | "Building Success Together"                | B2B partnership          |
+| Estimator      | "Smart Planning Starts Here"               | AI estimation            |
+| 3D Explorer    | "Innovation Meets Construction Excellence" | Technology               |
 
 ---
 

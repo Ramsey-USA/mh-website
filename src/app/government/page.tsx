@@ -292,11 +292,6 @@ export default function GovernmentGrantsPage() {
               </span>
             </h1>
 
-            {/* ROI Slogan - Grayscale styling for government page */}
-            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-snug px-2 font-bold tracking-wide">
-              THE ROI IS THE RELATIONSHIP
-            </p>
-
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
               Army Veteran Leadership • Federal Compliance • Mission Execution
@@ -304,10 +299,10 @@ export default function GovernmentGrantsPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              "Building for the Owner, NOT the Dollar" — Army veteran
-              leadership, 150+ years combined experience. Award-winning .6 EMR
-              safety. Federal compliance, DOE & Hanford expertise. Licensed WA,
-              OR, ID.
+              Mission-Ready, Compliance-Driven. "Building for the Owner, NOT the
+              Dollar" — Army veteran leadership, 150+ years combined experience.
+              Award-winning .6 EMR safety. Federal compliance, DOE & Hanford
+              expertise. Licensed WA, OR, ID.
             </p>
           </div>
         </div>

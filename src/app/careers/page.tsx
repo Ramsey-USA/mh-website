@@ -53,11 +53,6 @@ export default function CareersPage() {
               </span>
             </h1>
 
-            {/* ROI Slogan */}
-            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
-              THE ROI IS THE RELATIONSHIP
-            </p>
-
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
               Partnership Culture • Professional Growth • Veteran-Friendly •
@@ -66,10 +61,10 @@ export default function CareersPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              &ldquo;Building for the Owner, NOT the Dollar&rdquo; —
-              Award-winning .6 EMR safety. 150+ years combined experience.
-              Veteran-owned company valuing integrity, excellence, and
-              partnership.
+              Your Future Starts Here. &ldquo;Building for the Owner, NOT the
+              Dollar&rdquo; — Award-winning .6 EMR safety. 150+ years combined
+              experience. Veteran-owned company valuing integrity, excellence,
+              and partnership.
             </p>
           </div>
         </div>
@@ -822,7 +817,7 @@ export default function CareersPage() {
                 </span>
               </h2>
 
-              <p className="mx-auto mb-10 max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
+              <p className="mx-auto mb-10 max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
                 We're always looking for talented individuals to join our
                 veteran-owned team. Whether you're a military veteran bringing
                 discipline and precision, an experienced professional seeking a

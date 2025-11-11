@@ -384,8 +384,25 @@ Full navigation: [MasterIndex](./docs/MasterIndex.md)
 
 "Building for the Owner, NOT the Dollar"
 
-Additional slogans available for rotation:
-[Slogan Rotation Guide](./docs/branding/strategy/slogan-rotation-guide.md)
+### Hero Section Tagline Strategy
+
+Each page features a **unique, page-specific tagline** instead of repeating
+"THE ROI IS THE RELATIONSHIP" across all hero sections. This approach:
+
+- Reinforces each page's unique purpose and value proposition
+- Reduces tagline fatigue and improves message retention
+- Provides targeted messaging relevant to the page context
+- Maintains brand consistency while adding variety
+
+**Examples:**
+
+- Homepage: "Where Vision Meets Execution"
+- About: "Excellence Through Experience"
+- Services: "Your project deserves expert oversight"
+- Team: "Experience You Can Trust"
+
+Complete guide:
+[Slogan & Tagline Guide](./docs/branding/strategy/slogan-rotation-guide.md)
 
 ### Brand Colors
 

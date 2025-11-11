@@ -149,14 +149,6 @@ export default function UrgentSupportPage() {
           Urgent Construction Support
         </h1>
 
-        {/* ROI Slogan - using yellow for urgent page theme */}
-        <p
-          className="text-center mb-4 font-bold text-yellow-300 tracking-wide"
-          style={{ fontSize: "clamp(1rem, 2.5vw, 1.5rem)" }}
-        >
-          THE ROI IS THE RELATIONSHIP
-        </p>
-
         {/* Subtitle */}
         <p
           className="text-center mb-4 font-semibold text-yellow-200"
@@ -169,8 +161,9 @@ export default function UrgentSupportPage() {
           className="text-center mb-8 font-medium text-white/90 max-w-4xl mx-auto px-4"
           style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)" }}
         >
-          "Building for the Owner, NOT the Dollar" — Expert Consultation • Heavy
-          Equipment & Operators • Experienced Crews
+          When Time Is Critical, We Respond. "Building for the Owner, NOT the
+          Dollar" — Expert Consultation • Heavy Equipment & Operators •
+          Experienced Crews
         </p>
 
         {/* Emergency Contact CTAs */}

@@ -1,15 +1,66 @@
 # MH Construction Hero Section Standards
 
-**Version:** 4.0.2  
-**Date:** November 4, 2025  
-**Status:** ✅ Official Standard  
+**Version:** 4.1.0
+**Date:** November 11, 2025
+**Status:** ✅ Official Standard
 **Category:** Brand Standards - Hero Sections
 
 ---
 
 ## Quick Reference
 
-This document defines the official MH Construction hero section standard implemented across all website pages.
+This document defines the official MH Construction hero section standard implemented
+across all website pages, including the November 2025 update for unique page-specific taglines.
+
+## 🎯 Tagline Strategy Update (November 11, 2025)
+
+### NEW: Page-Specific Taglines
+
+Each hero section now features a **unique, page-specific tagline** instead of repeating
+"THE ROI IS THE RELATIONSHIP" across all pages. This strategy:
+
+- **Reduces tagline fatigue** - Avoids overuse of a single phrase
+- **Reinforces page purpose** - Each tagline connects to the specific page context
+- **Improves message retention** - Variety helps visitors remember key messages
+- **Maintains brand consistency** - All taglines align with core values
+
+### Implementation Guidelines
+
+**DO:**
+
+- Create taglines that reflect the specific page's purpose
+- Keep taglines concise (3-7 words typically)
+- Align with brand voice (professional, partnership-focused)
+- Test for clarity and impact
+
+**DON'T:**
+
+- Reuse "THE ROI IS THE RELATIONSHIP" in hero descriptions
+- Use generic taglines that could apply to any page
+- Create taglines longer than one sentence
+- Deviate from brand tone and values
+
+### Current Page-Specific Taglines
+
+| Page           | Unique Tagline                             | Purpose                  |
+| -------------- | ------------------------------------------ | ------------------------ |
+| Homepage       | "Where Vision Meets Execution"             | Partnership + delivery   |
+| About          | "Excellence Through Experience"            | Veteran values + quality |
+| Services       | "Your project deserves expert oversight"   | Service quality focus    |
+| Projects       | "Proven Results, Trusted Partnerships"     | Track record emphasis    |
+| Team           | "Experience You Can Trust"                 | Team expertise focus     |
+| Careers        | "Your Future Starts Here"                  | Career growth focus      |
+| Booking        | "Start Your Project With Confidence"       | Consultation confidence  |
+| Urgent         | "When Time Is Critical, We Respond"        | Rapid response emphasis  |
+| Government     | "Mission-Ready, Compliance-Driven"         | Federal expertise focus  |
+| Trade Partners | "Building Success Together"                | B2B partnership focus    |
+| Estimator      | "Smart Planning Starts Here"               | AI estimation focus      |
+| 3D Explorer    | "Innovation Meets Construction Excellence" | Technology focus         |
+
+**Note:** "THE ROI IS THE RELATIONSHIP" remains important in body content,
+testimonials, and value propositions—just not repeated in every hero section.
+
+---
 
 ## 🚨 Critical Rules
 

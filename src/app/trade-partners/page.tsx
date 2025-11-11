@@ -261,11 +261,6 @@ export default function TradePartnersPage() {
               </span>
             </h1>
 
-            {/* ROI Slogan */}
-            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
-              THE ROI IS THE RELATIONSHIP
-            </p>
-
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
               Grow Your Business with Veteran-Owned Excellence • Pacific
@@ -274,9 +269,10 @@ export default function TradePartnersPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              "Building for the Owner, NOT the Dollar" — Award-winning .6 EMR
-              safety, 150+ years combined experience. Reliable Pacific Northwest
-              opportunities, fair practices, transparent communication.
+              Building Success Together. "Building for the Owner, NOT the
+              Dollar" — Award-winning .6 EMR safety, 150+ years combined
+              experience. Reliable Pacific Northwest opportunities, fair
+              practices, transparent communication.
             </p>
           </div>
         </div>

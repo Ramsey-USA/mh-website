@@ -21,11 +21,6 @@ export function HeroSection() {
             </span>
           </h1>
 
-          {/* ROI Slogan - Prominent Brand Message */}
-          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
-            THE ROI IS THE RELATIONSHIP
-          </p>
-
           {/* Subtitle */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
             Your trusted construction partner in Pasco, Kennewick, and Richland.
@@ -35,9 +30,10 @@ export function HeroSection() {
 
           {/* Description with Primary Slogan */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            "Building for the Owner, NOT the Dollar" — Veteran-owned, 150+ years
-            combined experience. Licensed WA, OR, ID. Award-winning .6 EMR
-            safety. Military precision meets genuine partnership.
+            Where Vision Meets Execution. "Building for the Owner, NOT the
+            Dollar" — Veteran-owned, 150+ years combined experience. Licensed
+            WA, OR, ID. Award-winning .6 EMR safety. Military precision meets
+            genuine partnership.
           </p>
         </div>
       </div>

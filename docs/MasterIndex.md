@@ -74,11 +74,13 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 **Key Files:**
 
 - [Brand Overview](./branding/strategy/brand-overview.md) - Core brand identity
-- [Messaging Guidelines](./branding/strategy/messaging.md) - Voice, tone, and communication standards
-- [Slogan Rotation Guide](./branding/strategy/slogan-rotation-guide.md) - ⭐ **NEW** - Complete slogan library
-  with rotation strategy
+- [Messaging Guidelines](./branding/strategy/messaging.md) - Voice, tone, communication
+- [Slogan Rotation Guide](./branding/strategy/slogan-rotation-guide.md) - Complete slogan library
+- [Hero Tagline Strategy](./branding/strategy/hero-tagline-strategy.md) - ⭐ **NEW** (Nov 2025) -
+  Page-specific hero taglines
 - [Color System](./branding/standards/color-system.md) - Complete color palette
 - [Typography](./branding/standards/typography.md) - Font system and hierarchy
+- [Hero Section Standards](./branding/standards/hero-section-standards.md) - Hero implementation
 - [Icons Hub](./technical/design-system/icons/icons-index.md) - Complete icon system
 
 ---

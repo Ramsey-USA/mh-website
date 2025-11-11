@@ -21,7 +21,7 @@ export function PartnershipCTA() {
           <h2 className="mb-4 sm:mb-6 font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
             Ready to Start Your Partnership?
           </h2>
-          <p className="mx-auto mb-8 sm:mb-12 max-w-4xl font-light text-white/90 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed px-2">
+          <p className="mx-auto mb-8 sm:mb-12 max-w-4xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4 break-words">
             Join our network of{" "}
             <span className="font-medium text-white">trade partners</span> and
             grow your business with consistent project opportunities including{" "}

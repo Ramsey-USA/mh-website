@@ -169,11 +169,6 @@ export default function ContactPageClient() {
                 </span>
               </h1>
 
-              {/* ROI Slogan - Prominent relationship messaging */}
-              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
-                THE ROI IS THE RELATIONSHIP
-              </p>
-
               {/* Subtitle */}
               <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
                 Your Partnership Team is Ready to Connect • Pacific Northwest
@@ -181,10 +176,10 @@ export default function ContactPageClient() {
 
               {/* Description */}
               <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-                Reach out for transparent communication and collaborative
-                problem-solving from your veteran-owned construction partner.
-                "Building for the Owner, NOT the Dollar" — Monday - Friday: 8:00
-                AM - 5:00 PM PST
+                THE ROI IS THE RELATIONSHIP. Reach out for transparent
+                communication and collaborative problem-solving from your
+                veteran-owned construction partner. "Building for the Owner, NOT
+                the Dollar" — Monday - Friday: 8:00 AM - 5:00 PM PST
               </p>
             </div>
           </div>
@@ -216,7 +211,7 @@ export default function ContactPageClient() {
                     Your Partnership Team
                   </span>
                 </h2>
-                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
+                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
                   Multiple ways to start your construction partnership with over
                   150 years combined team experience serving the Pacific
                   Northwest
@@ -301,7 +296,7 @@ export default function ContactPageClient() {
                     Partnership Success
                   </span>
                 </h2>
-                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
+                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
                   Whether you're a project owner or a trade professional, we
                   have a pathway designed for you
                 </p>
@@ -546,7 +541,7 @@ export default function ContactPageClient() {
                     Office Location
                   </span>
                 </h2>
-                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
+                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
                   <span itemProp="address">
                     3111 N. Capital Ave., Pasco, WA 99301
                   </span>
@@ -610,7 +605,7 @@ export default function ContactPageClient() {
                     Partnership Options
                   </span>
                 </h2>
-                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
+                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
                   Discover how we can build together
                 </p>
               </div>

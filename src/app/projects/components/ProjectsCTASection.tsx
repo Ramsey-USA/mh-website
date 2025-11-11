@@ -34,9 +34,13 @@ export function ProjectsCTASection() {
                 <Button
                   variant="primary"
                   size="lg"
-                  className="transition-all duration-300 border-2 border-white bg-white text-brand-primary hover:bg-brand-primary hover:text-white hover:border-white min-w-[280px]"
+                  className="transition-all duration-300 min-w-[280px] group"
                 >
-                  <MaterialIcon icon="event" size="lg" className="mr-3" />
+                  <MaterialIcon
+                    icon="event"
+                    size="lg"
+                    className="mr-3 group-hover:scale-110 transition-transform duration-300"
+                  />
                   <span className="font-medium">
                     Schedule Free Consultation
                   </span>
@@ -46,9 +50,13 @@ export function ProjectsCTASection() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="transition-all duration-300 border-2 border-white bg-transparent text-white hover:bg-white hover:text-brand-primary hover:border-white min-w-[280px]"
+                  className="transition-all duration-300 min-w-[280px] group"
                 >
-                  <MaterialIcon icon="build" size="lg" className="mr-3" />
+                  <MaterialIcon
+                    icon="build"
+                    size="lg"
+                    className="mr-3 group-hover:scale-110 transition-transform duration-300"
+                  />
                   <span className="font-medium">Explore Our Solutions</span>
                 </Button>
               </Link>

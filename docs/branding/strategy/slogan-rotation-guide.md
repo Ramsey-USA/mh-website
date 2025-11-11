@@ -1,6 +1,6 @@
-# MH Construction Slogan Assignment Guide
+# MH Construction Slogan & Hero Tagline Guide
 
-**Last Updated:** November 8, 2025 | **Version:** 2.0.0 | **Status:** Official Brand Standard
+**Last Updated:** November 11, 2025 | **Version:** 3.0.0 | **Status:** Official Brand Standard
 
 ---
 
@@ -15,17 +15,197 @@
 
 ## 🎯 Purpose
 
-This guide provides MH Construction's complete slogan library with dedicated page assignments to:
+This guide provides MH Construction's complete slogan library WITH dedicated hero section
+tagline strategy to:
 
 - **Maintain consistency** by locking in specific slogans for each page
+- **Reduce tagline fatigue** by using unique hero taglines per page (NEW November 2025)
 - **Target specific audiences** with context-appropriate messaging
 - **Reinforce page purpose** with dedicated, memorable taglines
 - **Build recognition** through consistent page-specific slogans
 
+### Major Update - November 11, 2025
+
+**Hero Section Tagline Strategy:** Each page now features a unique, page-specific tagline
+in its hero section instead of repeating "THE ROI IS THE RELATIONSHIP" across all pages.
+
+**Why This Change?**
+
+- Reduces overuse of a single phrase (tagline fatigue)
+- Improves message retention through variety
+- Reinforces each page's unique purpose
+- Maintains brand consistency while adding contextual relevance
+
+**Where "THE ROI IS THE RELATIONSHIP" Still Belongs:**
+
+- Body content and value propositions
+- Testimonials and relationship discussions
+- Team pages and culture sections
+- Partnership philosophy explanations
+- About sections and company history
+
+Just not repeated in every single hero section.
+
 ### Assignment Strategy
 
-**Tier 1 (Foundation Slogans):** Can be reused across multiple pages - these are our core brand messages  
-**Tier 2-5 (Specialized Slogans):** Dedicated to specific pages - each page has its unique slogan
+**Tier 1 (Foundation Slogans):** Can be reused across multiple pages - core brand messages
+**Tier 2-5 (Specialized Slogans):** Dedicated to specific pages - unique to each context
+**Hero Taglines:** NEW - Unique to each page's hero section only
+
+---
+
+## 🎭 Hero Section Taglines (NEW - November 2025)
+
+### Strategy Overview
+
+Each page's hero section features a **unique, context-specific tagline** that:
+
+- Immediately communicates the page's primary value
+- Differentiates from other pages for better recall
+- Aligns with overall brand messaging
+- Keeps visitors engaged with varied messaging
+
+### Current Hero Taglines by Page
+
+#### Homepage Hero Tagline
+
+**"Where Vision Meets Execution"**
+
+- **Focus:** Partnership + delivery excellence
+- **Tone:** Confident, action-oriented
+- **Context:** Sets expectation for collaborative building process
+- **Replaces:** Generic use of "THE ROI IS THE RELATIONSHIP"
+
+#### About Page Hero Tagline
+
+**"Excellence Through Experience"**
+
+- **Focus:** Veteran values + proven quality
+- **Tone:** Professional, credible
+- **Context:** Emphasizes team's cumulative expertise
+- **Replaces:** Repetitive relationship messaging
+
+#### Services Page Hero Tagline
+
+**"Your project deserves expert oversight"**
+
+- **Focus:** Service quality and client-centric approach
+- **Tone:** Empowering, professional
+- **Context:** Positions services as essential value
+- **Replaces:** Generic ROI messaging
+
+#### Projects Page Hero Tagline
+
+**"Proven Results, Trusted Partnerships"**
+
+- **Focus:** Track record + relationship emphasis
+- **Tone:** Achievement-oriented, trustworthy
+- **Context:** Showcases dual commitment to outcomes and relationships
+- **Replaces:** Overused relationship tagline
+
+#### Team Page Hero Tagline
+
+**"Experience You Can Trust"**
+
+- **Focus:** Team expertise and reliability
+- **Tone:** Confident, reassuring
+- **Context:** Highlights team credentials and dependability
+- **Replaces:** Generic relationship focus
+
+#### Careers Page Hero Tagline
+
+**"Your Future Starts Here"**
+
+- **Focus:** Career growth and opportunity
+- **Tone:** Inspirational, forward-looking
+- **Context:** Appeals to job seekers' aspirations
+- **Replaces:** Company-focused messaging
+
+#### Booking Page Hero Tagline
+
+**"Start Your Project With Confidence"**
+
+- **Focus:** Consultation confidence and partnership beginning
+- **Tone:** Encouraging, reassuring
+- **Context:** Reduces booking hesitation
+- **Replaces:** Generic partnership message
+
+#### Urgent Support Page Hero Tagline
+
+**"When Time Is Critical, We Respond"**
+
+- **Focus:** Rapid response and reliability
+- **Tone:** Urgent, capable
+- **Context:** Emphasizes speed and availability
+- **Replaces:** Standard relationship messaging
+
+#### Government Page Hero Tagline
+
+**"Mission-Ready, Compliance-Driven"**
+
+- **Focus:** Federal expertise and regulatory compliance
+- **Tone:** Professional, military-adjacent
+- **Context:** Appeals to government procurement standards
+- **Replaces:** Generic partnership language
+
+#### Trade Partners Page Hero Tagline
+
+**"Building Success Together"**
+
+- **Focus:** B2B partnership and mutual growth
+- **Tone:** Collaborative, professional
+- **Context:** Positions trade partnerships as mutually beneficial
+- **Replaces:** Client-focused relationship messaging
+
+#### Estimator Page Hero Tagline
+
+**"Smart Planning Starts Here"**
+
+- **Focus:** AI estimation and preliminary planning
+- **Tone:** Modern, intelligent
+- **Context:** Positions tool as strategic planning resource
+- **Replaces:** Traditional relationship focus
+
+#### 3D Explorer Page Hero Tagline
+
+**"Innovation Meets Construction Excellence"**
+
+- **Focus:** Technology integration and forward-thinking
+- **Tone:** Innovative, progressive
+- **Context:** Showcases commitment to cutting-edge solutions
+- **Replaces:** Standard excellence messaging
+
+### Creating New Hero Taglines
+
+When developing a new page, create a unique hero tagline following these guidelines:
+
+**DO:**
+
+- Keep to 3-7 words maximum
+- Reflect the specific page's primary purpose
+- Use active, engaging language
+- Align with brand values (integrity, partnership, quality)
+- Test for immediate comprehension
+
+**DON'T:**
+
+- Reuse existing hero taglines from other pages
+- Default to "THE ROI IS THE RELATIONSHIP" in hero
+- Create generic taglines that could apply anywhere
+- Use jargon without clear context
+- Exceed one sentence in length
+
+### Hero Tagline Testing Checklist
+
+Before finalizing a hero tagline:
+
+- [ ] Is it 3-7 words?
+- [ ] Does it reflect this specific page's purpose?
+- [ ] Is it different from all other page taglines?
+- [ ] Can someone understand it without additional context?
+- [ ] Does it align with brand voice and values?
+- [ ] Would you remember it after visiting the page?
+- [ ] Does it avoid overusing "THE ROI IS THE RELATIONSHIP"?
 
 ---
 

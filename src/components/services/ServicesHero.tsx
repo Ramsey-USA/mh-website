@@ -19,20 +19,16 @@ export function ServicesHero() {
             </span>
           </h1>
 
-          {/* ROI Slogan - Prominent relationship messaging */}
-          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
-            THE ROI IS THE RELATIONSHIP
-          </p>
-
-          {/* Subtitle */}
+          {/* Subtitle - Brand Tagline */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
             "Building for the Owner, NOT the Dollar"
           </p>
 
           {/* Description */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            We Work WITH You Every Step. Military Precision. Advanced
-            Technology. Serving the Pacific Northwest since 2010.
+            We Work WITH You Every Step. Your project deserves expert
+            oversight—Military precision, advanced technology, and
+            partnership-driven excellence serving the Pacific Northwest.
           </p>
         </div>
       </div>

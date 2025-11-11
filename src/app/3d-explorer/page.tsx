@@ -39,8 +39,8 @@ export default function ThreeDExplorerPage() {
 
             {/* Description - Partnership Language */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              &ldquo;THE ROI IS THE RELATIONSHIP&rdquo; — We&apos;re developing
-              an immersive 3D visualization platform from our veteran-owned team
+              Innovation Meets Construction Excellence. We&apos;re developing an
+              immersive 3D visualization platform from our veteran-owned team
               that combines military precision with cutting-edge technology to
               bring your construction projects to life before breaking ground.
               Serving the Pacific Northwest with 150+ years combined experience.

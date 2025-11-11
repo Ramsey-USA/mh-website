@@ -27,7 +27,7 @@ export function SafetySection() {
                 Compliance
               </span>
             </h2>
-            <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
+            <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
               Safety is never compromised at MH Construction. Our award-winning
               comprehensive safety programs and regulatory compliance ensure
               every project meets the highest standards. With multiple AGC-WA

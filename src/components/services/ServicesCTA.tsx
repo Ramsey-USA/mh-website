@@ -21,7 +21,7 @@ export function ServicesCTA() {
               </span>
             </h2>
 
-            <p className="mb-10 text-white/90 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed px-2">
+            <p className="mb-10 text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4 break-words">
               Contact us today for a free consultation and let's discuss how we
               can bring your vision to life through partnership and
               collaboration.

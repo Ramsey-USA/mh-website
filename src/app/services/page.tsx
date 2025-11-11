@@ -167,7 +167,7 @@ export default function ServicesPage() {
             }
             description={
               <>
-                <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
+                <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4 break-words">
                   Planning a new commercial building demands intricate details
                   and expert partnership oversight. Work WITH us through
                   comprehensive Partnership-Focused Construction Management
@@ -308,7 +308,7 @@ export default function ServicesPage() {
                         className="text-white"
                       />
                     </div>
-                    <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl leading-tight">
+                    <h3 className="font-black text-gray-900 dark:text-white text-xl sm:text-2xl lg:text-3xl leading-tight break-words">
                       Comprehensive Government Project Management
                     </h3>
                   </div>
@@ -710,7 +710,7 @@ export default function ServicesPage() {
                     Construction Process
                   </span>
                 </h2>
-                <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
+                <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4 break-words">
                   From initial consultation to project completion, we guide you
                   through every step with transparency, communication, and
                   collaborative excellence
@@ -1014,16 +1014,16 @@ export default function ServicesPage() {
                     </Link>
                     <Link href="/estimator">
                       <Button
-                        variant="outline"
+                        variant="secondary"
                         size="lg"
                         className="transition-all duration-300 min-w-[260px]"
                       >
                         <MaterialIcon
-                          icon="calculate"
+                          icon="smart_toy"
                           size="lg"
                           className="mr-3"
                         />
-                        <span className="font-medium">Get Expert Estimate</span>
+                        <span className="font-medium">Get AI Estimate</span>
                       </Button>
                     </Link>
                   </div>
@@ -1046,7 +1046,7 @@ export default function ServicesPage() {
                     Partnership Excellence
                   </span>
                 </h2>
-                <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed px-4 break-words">
                   Whether you're a client with a construction project or a trade
                   professional seeking partnership opportunities, MH
                   Construction offers dedicated pathways to collaboration and
@@ -1162,12 +1162,12 @@ export default function ServicesPage() {
                     <div className="space-y-3 mt-auto">
                       <Link href="/estimator" className="block">
                         <Button
-                          variant="primary"
+                          variant="secondary"
                           size="lg"
-                          className="w-full bg-brand-primary hover:bg-brand-primary-dark hover:scale-105 transition-transform duration-300 group"
+                          className="w-full hover:scale-105 transition-transform duration-300 group"
                         >
                           <MaterialIcon
-                            icon="calculate"
+                            icon="smart_toy"
                             size="md"
                             className="mr-2 group-hover:scale-110 transition-transform duration-300"
                           />
@@ -1307,9 +1307,9 @@ export default function ServicesPage() {
                     <div className="space-y-3 mt-auto">
                       <Link href="/trade-partners" className="block">
                         <Button
-                          variant="primary"
+                          variant="secondary"
                           size="lg"
-                          className="w-full bg-brand-secondary hover:bg-brand-secondary-dark hover:scale-105 transition-transform duration-300 group"
+                          className="w-full hover:scale-105 transition-transform duration-300 group"
                         >
                           <MaterialIcon
                             icon="construction"
@@ -1564,7 +1564,7 @@ export default function ServicesPage() {
                   Portfolio
                 </span>
               </h2>
-              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
+              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4 break-words">
                 Explore our completed projects showcasing quality craftsmanship
                 across commercial, residential, and government sectors
               </p>

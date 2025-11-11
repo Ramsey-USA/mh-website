@@ -22,21 +22,17 @@ export function ProjectsHero() {
             </span>
           </h1>
 
-          {/* ROI Slogan - Prominent relationship messaging */}
-          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
-            THE ROI IS THE RELATIONSHIP
-          </p>
-
-          {/* Subtitle */}
+          {/* Subtitle - Brand Tagline */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
             "Building for the Owner, NOT the Dollar"
           </p>
 
           {/* Description */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            Building Excellence Together Across the Pacific Northwest - Explore
-            our comprehensive portfolio showcasing decades of collaborative
-            partnerships throughout the Tri-Cities area.
+            Proven Results, Trusted Partnerships. Building excellence together
+            across the Pacific Northwest—explore our comprehensive portfolio
+            showcasing decades of collaborative partnerships throughout the
+            Tri-Cities area.
           </p>
 
           {/* CTA Button */}
