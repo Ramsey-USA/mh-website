@@ -1,7 +1,7 @@
 # Navigation Documentation Index
 
 **Category:** Technical - Navigation System  
-**Last Updated:** November 6, 2025  
+**Last Updated:** November 11, 2025  
 **Status:** ✅ Active
 
 ## 🧭 Quick Navigation
@@ -139,6 +139,22 @@ import { Navigation } from "@/components/layout";
 <Navigation />;
 ```
 
+### Breadcrumb Navigation
+
+Add hierarchical breadcrumb navigation to show user location in site structure:
+
+```tsx
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+
+<Breadcrumb
+  items={[
+    { label: "Home", href: "/" },
+    { label: "Parent Page", href: "/parent" },
+    { label: "Current Page" }, // No href for current page
+  ]}
+/>;
+```
+
 ### Page-Specific Navigation
 
 Add contextual navigation to individual pages:
@@ -152,6 +168,11 @@ export default function MyPage() {
     <div>
       {/* Hero section */}
       <section>{/* Hero content */}</section>
+
+      {/* Breadcrumb navigation */}
+      <Breadcrumb
+        items={[{ label: "Home", href: "/" }, { label: "My Page" }]}
+      />
 
       {/* Page navigation */}
       <PageNavigation items={navigationConfigs.myPage} />
@@ -222,6 +243,11 @@ Navigation (Main site navigation)
     ├── Social Links
     └── Close Button
 
+Breadcrumb (Hierarchical navigation)
+├── Home Link
+├── Parent Links (optional)
+└── Current Page (text only)
+
 PageNavigation (Page-specific navigation)
 ├── Navigation Items
 │   ├── Icon
@@ -235,8 +261,10 @@ PageNavigation (Page-specific navigation)
 | File                     | Location                      | Purpose                              |
 | ------------------------ | ----------------------------- | ------------------------------------ |
 | **Navigation.tsx**       | `/src/components/layout/`     | Main site navigation                 |
+| **Breadcrumb.tsx**       | `/src/components/navigation/` | Hierarchical breadcrumb navigation   |
 | **PageNavigation.tsx**   | `/src/components/navigation/` | Page-specific navigation             |
 | **navigationConfigs.ts** | `/src/components/navigation/` | Centralized navigation configuration |
+| **index.ts**             | `/src/components/navigation/` | Navigation exports barrel file       |
 | **Footer.tsx**           | `/src/components/layout/`     | Footer navigation                    |
 
 ---
@@ -270,7 +298,8 @@ PageNavigation (Page-specific navigation)
 When implementing navigation:
 
 - [ ] Use Next.js `<Link>` for internal links (not `<a>`)
-- [ ] Include PageNavigation below hero section on content pages
+- [ ] Include Breadcrumb navigation below hero section on all pages
+- [ ] Include PageNavigation below breadcrumb on content pages
 - [ ] Add page config to `navigationConfigs.ts`
 - [ ] Use Material Icons for navigation icons
 - [ ] Include aria-labels for accessibility
@@ -279,6 +308,7 @@ When implementing navigation:
 - [ ] Check focus indicators visible
 - [ ] Test on all breakpoints
 - [ ] Ensure smooth scrolling for anchor links
+- [ ] Verify breadcrumb trail is accurate and complete
 
 ---
 
@@ -349,6 +379,7 @@ When implementing navigation:
 **Current Implementation:**
 
 - **Main Navigation Links:** 11 primary pages
+- **Breadcrumb Navigation:** ✅ Implemented across all major pages (November 2025)
 - **Page Navigation:** Implemented on major content pages
 - **Footer Navigation:** Comprehensive footer links + resources
 - **Social Media Links:** 5 platforms integrated
@@ -357,10 +388,22 @@ When implementing navigation:
 **Navigation Types:**
 
 - Main site navigation (persistent header)
+- Breadcrumb navigation (hierarchical context) - **NEW**
 - Page-specific navigation (contextual)
 - Footer navigation (comprehensive links)
-- Breadcrumb navigation (where appropriate)
 - Anchor navigation (section jumps)
+
+**Pages with Breadcrumb Navigation:**
+
+- 3D Explorer (`/3d-explorer`)
+- Booking (`/booking`)
+- Careers (`/careers`)
+- Estimator (`/estimator`)
+- Government Projects (`/government`)
+- Projects (`/projects`)
+- Team (`/team`)
+- Trade Partners (`/trade-partners`)
+- Urgent Support (`/urgent`)
 
 ---
 
@@ -374,6 +417,12 @@ For questions about navigation implementation:
 
 ---
 
-**Last Updated:** November 6, 2025  
+**Last Updated:** November 11, 2025  
 **Status:** ✅ Active  
-**Files:** 3 (Overview, Architecture, Technical Guide)
+**Files:** 4 (Overview, Architecture, Technical Guide, Breadcrumb Component)
+
+**Recent Updates:**
+
+- November 11, 2025: Added Breadcrumb navigation component and documentation
+- November 6, 2025: Updated navigation system documentation
+- October 13, 2025: Created comprehensive navigation technical guide

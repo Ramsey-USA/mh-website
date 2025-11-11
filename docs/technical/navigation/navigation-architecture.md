@@ -208,11 +208,79 @@ All navigation configurations are centralized in
 
 ### **Potential Additions**
 
-- Breadcrumb navigation for deep pages
+- ✅ ~~Breadcrumb navigation for deep pages~~ (Implemented November 2025)
 - Search functionality integration
 - Favorite pages/bookmarking
 - Context-aware navigation suggestions
 - Multi-language navigation support
+
+---
+
+## 🍞 Breadcrumb Navigation
+
+### **Overview**
+
+Breadcrumb navigation has been implemented to provide hierarchical navigation context across the site. This helps users understand their location in the site structure and provides quick access to parent pages.
+
+### **Implementation Status**
+
+- ✅ **Breadcrumb Component Created**: `src/components/navigation/Breadcrumb.tsx`
+- ✅ **Exported from Navigation Index**: `src/components/navigation/index.ts`
+- ✅ **Implemented Across All Pages**: All major pages now include breadcrumb navigation
+- ✅ **SEO Integration**: Connected with breadcrumb schema generation
+
+### **Breadcrumb Design**
+
+```typescript
+interface BreadcrumbItem {
+  label: string;
+  href?: string; // Optional - last item (current page) has no link
+}
+
+// Example usage
+<Breadcrumb
+  items={[
+    { label: "Home", href: "/" },
+    { label: "Projects", href: "/projects" },
+    { label: "Current Project" } // No href for current page
+  ]}
+/>
+```
+
+### **Placement Strategy**
+
+Breadcrumbs are placed immediately after the hero section and before the main content on each page:
+
+```
+Page Structure:
+├── Hero Section
+├── Breadcrumb Navigation ← NEW
+├── Page Navigation (contextual)
+└── Page Content
+```
+
+### **Key Features**
+
+- Material Design chevron separators
+- Theme-aware styling (light/dark mode)
+- Keyboard navigable with proper focus states
+- ARIA labels for accessibility
+- Mobile optimized with horizontal scrolling
+- Last item (current page) not clickable
+- Semantic HTML with `<nav>` and `<ol>` elements
+
+### **Implementation Across Pages**
+
+Breadcrumbs have been implemented on:
+- `/3d-explorer` - 3D Project Explorer
+- `/booking` - Book Consultation
+- `/careers` - Career Opportunities
+- `/estimator` - AI Estimator
+- `/government` - Government Projects
+- `/projects` - Portfolio
+- `/team` - Our Team
+- `/trade-partners` - Trade Partners
+- `/urgent` - Urgent Support
 
 ---
 

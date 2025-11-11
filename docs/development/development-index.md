@@ -1,8 +1,8 @@
 # Development Documentation Index
 
 **Category:** Development Processes & Guidelines  
-**Last Updated:** November 8, 2025  
-**Status:** ✅ Active - Enhanced with Refactoring Documentation
+**Last Updated:** November 11, 2025  
+**Status:** ✅ Active - Enhanced with Breadcrumb Navigation
 
 ## 🧭 Quick Navigation
 
@@ -17,12 +17,13 @@
 
 ### New Developer Onboarding Path
 
-1. **[Consistency Guide](./consistency-guide.md)** - ⭐ **MANDATORY** - Complete implementation standards
+1. **[New Page Development Guide](./new-page-development-guide.md)** - ⭐ **NEW** - Complete page creation workflow
+2. **[Consistency Guide](./consistency-guide.md)** - ⭐ **MANDATORY** - Complete implementation standards
    (includes AI Estimator vs. Consultation distinction)
-2. **[Cohesion Checklist](./cohesion-checklist.md)** - ⭐ **NEW** - Ensure consistency when creating/editing pages
-3. **[Style Utilities Guide](./style-utilities-guide.md)** - ⭐ **MANDATORY** - Centralized style utilities
-4. **[Quick Reference](./style-utilities-quick-reference.md)** - Daily cheat sheet for common patterns
-5. **[Development Standards](./development-standards.md)** - Core coding standards
+3. **[Cohesion Checklist](./cohesion-checklist.md)** - ⭐ **NEW** - Ensure consistency when creating/editing pages
+4. **[Style Utilities Guide](./style-utilities-guide.md)** - ⭐ **MANDATORY** - Centralized style utilities
+5. **[Quick Reference](./style-utilities-quick-reference.md)** - Daily cheat sheet for common patterns
+6. **[Development Standards](./development-standards.md)** - Core coding standards
 
 ### 🤖 AI System Architecture (Nov 10, 2025)
 
@@ -85,6 +86,8 @@ Quick reference guides, troubleshooting documentation, and developer resources.
 
 ### Development Guidelines
 
+- **[new-page-development-guide.md](./new-page-development-guide.md)** - **⭐ NEW (Nov 11, 2025)** -
+  Complete standardized workflow for creating new pages with navigation, breadcrumbs, and SEO
 - **[consistency-guide.md](./consistency-guide.md)** - **⭐ PRIMARY REFERENCE** - Complete
   consistency standards for pages, sections, components, typography, colors, and mobile
 - **[cohesion-checklist.md](./cohesion-checklist.md)** - **⭐ NEW (Nov 2025)** - Comprehensive

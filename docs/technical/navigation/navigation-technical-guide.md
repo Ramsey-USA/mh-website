@@ -29,6 +29,13 @@
 **File**: `/src/components/layout/Navigation.tsx`
 
 ````typescript
+## 🔧 Component Implementation
+
+### **Global Hamburger Menu Implementation**
+
+**File**: `/src/components/layout/Navigation.tsx`
+
+```typescript
 // Already implemented - no changes needed
 // Automatically appears on all pages via layout.tsx
 import { Navigation } from "../components/layout";
@@ -44,6 +51,113 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+```
+
+### **Breadcrumb Navigation Implementation**
+
+**Status:** ✅ Implemented (November 2025)
+
+**File**: `/src/components/navigation/Breadcrumb.tsx`
+
+```typescript
+"use client";
+import Link from "next/link";
+import { MaterialIcon } from "../icons/MaterialIcon";
+
+export interface BreadcrumbItem {
+  label: string;
+  href?: string; // Optional - last item typically has no link
+}
+
+interface BreadcrumbProps {
+  items: BreadcrumbItem[];
+  className?: string;
+}
+
+export function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
+  return (
+    <nav
+      aria-label="Breadcrumb navigation"
+      className={`bg-white dark:bg-gray-800 border-b border-gray-200
+        dark:border-gray-700 py-3 ${className}`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ol className="flex items-center space-x-2 text-sm overflow-x-auto
+          scrollbar-hide">
+          {items.map((item, index) => {
+            const isLast = index === items.length - 1;
+            return (
+              <li key={index} className="flex items-center flex-shrink-0">
+                {index > 0 && (
+                  <MaterialIcon
+                    icon="chevron_right"
+                    size="sm"
+                    className="text-gray-400 dark:text-gray-500 mx-1"
+                    aria-hidden="true"
+                  />
+                )}
+                {isLast || !item.href ? (
+                  <span className="text-gray-900 dark:text-white font-medium"
+                    aria-current="page">
+                    {item.label}
+                  </span>
+                ) : (
+                  <Link href={item.href}
+                    className="text-gray-600 dark:text-gray-400
+                      hover:text-brand-primary dark:hover:text-brand-primary
+                      transition-colors duration-200">
+                    {item.label}
+                  </Link>
+                )}
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    </nav>
+  );
+}
+```
+
+**Usage in Pages:**
+
+```typescript
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+
+export default function MyPage() {
+  return (
+    <div>
+      {/* Hero Section */}
+      <section>{/* Hero content */}</section>
+
+      {/* Breadcrumb Navigation - Place after hero */}
+      <Breadcrumb
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Parent Page", href: "/parent" },
+          { label: "Current Page" } // No href for current page
+        ]}
+      />
+
+      {/* Page Navigation */}
+      <PageNavigation items={navigationConfigs.myPage} />
+
+      {/* Page Content */}
+      <main>{/* Content */}</main>
+    </div>
+  );
+}
+```
+
+**Key Features:**
+- Semantic HTML with `<nav>` and `<ol>` elements
+- Material Design chevron separators
+- Theme-aware styling (light/dark mode)
+- Keyboard navigable with proper focus states
+- ARIA labels for accessibility
+- Mobile optimized with horizontal scrolling
+- Last item (current page) not clickable
+- Clean integration with existing navigation
 ```text
 
 ### **Page Sectional Navigation Implementation**
@@ -165,8 +279,9 @@ export const navigationConfigs = {
 1. **Import and use in page component:**
 
 ```typescript
-import { PageNavigation } from "../../components/navigation/PageNavigation";
-import { navigationConfigs } from "../../components/navigation/navigationConfigs";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
 export default function NewPage() {
   return (
@@ -175,6 +290,15 @@ export default function NewPage() {
       <section className="hero-section">
         {/* Hero content */}
       </section>
+
+      {/* Breadcrumb Navigation - Add after hero */}
+      <Breadcrumb
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Parent Category", href: "/parent" }, // Optional
+          { label: "New Page" } // Current page - no href
+        ]}
+      />
 
       {/* Page-Specific Navigation */}
       <PageNavigation items={navigationConfigs.newPage} />
@@ -186,7 +310,13 @@ export default function NewPage() {
     </div>
   );
 }
-```text
+```
+
+**Standard Page Structure Order:**
+1. **Hero Section** - Full-height section with background and main title
+2. **Breadcrumb Navigation** - Hierarchical context (Home > Parent > Current)
+3. **Page Navigation** - Contextual section/page links with icons
+4. **Main Content** - Page sections and componentstext
 
 ---
 
