@@ -128,7 +128,9 @@ export class EnhancedChatbotAI {
       response += `• Press **Ctrl+K** for instant intelligence gathering\n`;
       response += `• Deploy to [Mission Portfolio](/projects) for project reconnaissance\n`;
       response += `• Brief on [Service Capabilities](/services) for operational intel\n`;
-      response += `• Review [Command Structure](/team) for personnel directory\n\n`;
+      response += `• Review [Command Structure](/team) for personnel directory\n`;
+      response += `• Explore [3D Visualization](/3d-explorer) for immersive project previews\n`;
+      response += `• Check [Career Opportunities](/careers) to join our elite force\n\n`;
 
       // Add page-specific search suggestions
       if (context.currentPage.includes("/projects")) {
@@ -181,6 +183,12 @@ export class EnhancedChatbotAI {
       "/about": ["about", "company", "history", "story"],
       "/contact": ["contact", "phone", "email", "address", "location"],
       "/booking": ["schedule", "appointment", "consultation", "meeting"],
+      "/estimator": ["estimator", "estimate", "cost", "price", "pricing"],
+      "/3d-explorer": ["3d", "explorer", "visualization", "virtual", "tour"],
+      "/government": ["government", "grants", "public", "municipal", "federal"],
+      "/trade-partners": ["trade", "partners", "subcontractor", "partnership"],
+      "/urgent": ["urgent", "emergency", "immediate", "rapid", "support"],
+      "/careers": ["careers", "jobs", "employment", "hiring", "join team"],
     };
 
     const currentPageKeywords =
@@ -205,6 +213,20 @@ export class EnhancedChatbotAI {
         return this.generateContactPageResponse(message, context);
       case "/booking":
         return this.generateBookingPageResponse(message, context);
+      case "/estimator":
+        return this.generateEstimatorPageResponse(message, context);
+      case "/3d-explorer":
+        return this.generate3DExplorerPageResponse(message, context);
+      case "/government":
+        return this.generateGovernmentPageResponse(message, context);
+      case "/trade-partners":
+        return this.generateTradePartnersPageResponse(message, context);
+      case "/urgent":
+        return this.generateUrgentPageResponse(message, context);
+      case "/careers":
+        return this.generateCareersPageResponse(message, context);
+      case "/about":
+        return this.generateAboutPageResponse(message, context);
       default:
         return this.generateGeneralPageResponse(message, context);
     }
@@ -270,6 +292,55 @@ export class EnhancedChatbotAI {
     _context: EnhancedChatbotContext,
   ): string {
     return `**[GENERAL TACTICAL ASSISTANCE]** 🏗️\n\n**General MH reporting!** I can provide intelligence on:\n\n• **Navigate** you to optimal mission objectives\n• **Brief** on service capabilities and operations\n• **Reconnaissance** for specific projects or personnel\n• **Assist** with forms and consultation deployment\n• **Intel** on veteran benefits and priority protocols\n\n**What specific intelligence can I provide for your construction mission?**`;
+  }
+
+  private generateEstimatorPageResponse(
+    _message: string,
+    _context: EnhancedChatbotContext,
+  ): string {
+    return `**[AI INTELLIGENCE SYSTEM]** 🤖\n\n**Welcome to the AI Cost Estimator station!**\n\n**INSTANT INTEL CAPABILITIES:**\n• Get preliminary budget intelligence in under 5 minutes\n• Receive strategic cost analysis for your mission\n• No commitment - completely free reconnaissance\n• Available 24/7 for instant mission planning\n\n**OPERATION PROTOCOL:**\n1. **Input mission parameters** (project type, size, scope)\n2. **AI processes tactical data** using our intelligence database\n3. **Receive preliminary cost intelligence** instantly\n4. **Optional: Schedule expert consultation** for detailed analysis\n\n**ACCURACY INTEL:** Our AI is trained on thousands of completed missions in the Pacific Northwest region.\n\n**Need help with the estimator form or have questions?**`;
+  }
+
+  private generate3DExplorerPageResponse(
+    _message: string,
+    _context: EnhancedChatbotContext,
+  ): string {
+    return `**[3D VISUALIZATION OPERATIONS]** 🏗️\n\n**Welcome to the 3D Project Explorer!** This advanced tactical visualization platform is currently under development.\n\n**UPCOMING CAPABILITIES:**\n• **Immersive 3D walkthroughs** of project designs\n• **Real-time design modifications** and adjustments\n• **Collaborative planning tools** for your construction team\n• **Virtual reality integration** for ultimate project visualization\n• **HD rendering** of your vision before construction begins\n\n**CURRENT OPTIONS:**\n• **[AI Estimator →](/estimator)** - Get instant project intelligence\n• **[Book Consultation →](/booking)** - Meet with our team for detailed planning\n• **[View Portfolio →](/projects)** - See our completed missions\n\n**Want to be notified when 3D Explorer launches? Contact us!**`;
+  }
+
+  private generateGovernmentPageResponse(
+    _message: string,
+    _context: EnhancedChatbotContext,
+  ): string {
+    return `**[GOVERNMENT OPERATIONS DIVISION]** 🏛️\n\n**Specialized government and public sector construction intelligence!**\n\n**OUR CAPABILITIES:**\n• Federal construction projects and contracting\n• Municipal and state building operations\n• Public works and infrastructure missions\n• Grant-funded construction coordination\n• Veteran-owned business certifications (SDVOSB/VOSB)\n• Compliance with government procurement protocols\n\n**VETERAN ADVANTAGE:**\nAs a veteran-owned business, we have priority access to:\n• VA construction projects\n• Federal set-aside contracts\n• State veteran preference programs\n• Military installation work opportunities\n\n**GRANT ASSISTANCE:**\n• Help identifying eligible funding sources\n• Grant application support and coordination\n• Budget compliance and documentation\n\n**Ready to discuss government project opportunities?** [Contact Our Team →](/contact)`;
+  }
+
+  private generateTradePartnersPageResponse(
+    _message: string,
+    _context: EnhancedChatbotContext,
+  ): string {
+    return `**[STRATEGIC PARTNERSHIPS DIVISION]** 🤝\n\n**Building construction excellence through partnership!**\n\n**PARTNER OPPORTUNITIES:**\n• Become part of our trusted subcontractor network\n• Access to consistent project pipeline\n• Fair payment terms and professional respect\n• Collaborative project management approach\n• Long-term partnership development\n\n**WHAT WE SEEK:**\n• **Quality craftsmen** committed to excellence\n• **Licensed professionals** in their trade\n• **Reliable partners** who value communication\n• **Safety-conscious** teams (we maintain 0.6 EMR)\n• **Veteran-owned businesses** (priority consideration)\n\n**PARTNERSHIP BENEFITS:**\n• Steady work opportunities across WA, OR, ID\n• Direct communication with project management\n• Fair bidding and negotiation processes\n• Payment reliability and transparency\n\n**Interested in partnering?** [Join Our Network →](/contact)`;
+  }
+
+  private generateUrgentPageResponse(
+    _message: string,
+    _context: EnhancedChatbotContext,
+  ): string {
+    return `**[URGENT SUPPORT OPERATIONS]** 🚨\n\n**Rapid response construction support for General Contractors!**\n\n**EMERGENCY CAPABILITIES:**\n• **Expert consultation** for critical structural challenges\n• **Heavy equipment & operators** available for immediate hire\n• **Experienced construction crews** ready for deployment\n• **Specialized tools and equipment** rental\n• **Foundation and structural repairs** - fix the source!\n• **Emergency roof and wall system restoration**\n\n**RESPONSE PROTOCOL:**\n• **Contact:** (509) 308-6489\n• **Email:** office@mhc-gc.com\n• **Hours:** Monday-Friday, 8:00 AM - 5:00 PM PST\n\n**WHAT WE PROVIDE:**\n✓ Urgent structural assessments\n✓ Heavy machinery with certified operators\n✓ Skilled construction professionals\n✓ Material handling and logistics support\n✓ On-site project management\n\n**NOT first responder services** - We solve structural construction problems!\n\n**Need immediate construction support?** [Contact Now →](/contact)`;
+  }
+
+  private generateCareersPageResponse(
+    _message: string,
+    _context: EnhancedChatbotContext,
+  ): string {
+    return `**[RECRUITMENT OPERATIONS]** 💼\n\n**Join the MH Construction elite construction force!**\n\n**WHY JOIN OUR RANKS:**\n• **Veteran-owned values** - Military precision meets construction excellence\n• **Award-winning safety** - Industry-leading 0.6 EMR safety record\n• **Career growth** - 150+ years combined team experience to learn from\n• **Competitive benefits** - Health, dental, vision, 401(k)\n• **Work-life balance** - Respect for family and personal time\n• **Tri-Cities based** - Serving WA, OR, ID communities\n\n**CURRENT OPPORTUNITIES:**\n• Project Managers & Superintendents\n• Skilled Carpenters & Craftsmen\n• Heavy Equipment Operators\n• Construction Laborers\n• Administrative Support\n\n**VETERAN PRIORITY:** We actively recruit and prioritize veteran hiring!\n\n**WHAT WE VALUE:**\n• Commitment to quality and excellence\n• Strong work ethic and reliability\n• Team collaboration and communication\n• Safety-first mindset\n• Professional growth mindset\n\n**Ready to join our team?** [View Openings →](/careers) or [Apply Now →](/contact)`;
+  }
+
+  private generateAboutPageResponse(
+    _message: string,
+    _context: EnhancedChatbotContext,
+  ): string {
+    return `**[COMMAND INTELLIGENCE BRIEF]** 📋\n\n**Learn about MH Construction's mission and values!**\n\n**OUR FOUNDATION:**\n• **Veteran-Owned** - Military precision applied to construction\n• **150+ Years Combined Experience** - Elite construction expertise\n• **Licensed WA, OR, ID** - Serving the Pacific Northwest\n• **Award-Winning Safety** - Industry-leading 0.6 EMR\n• **"Building for the Owner, NOT the Dollar"** - Our core philosophy\n\n**CORE VALUES:**\n• **Partnership Over Profit** - The ROI is the relationship\n• **Military Precision** - Attention to detail in every mission\n• **Transparent Communication** - No surprises, just solutions\n• **Quality Excellence** - Craftsmanship in every build\n• **Veteran Values** - Honor, integrity, service\n\n**OUR STORY:**\nFounded by veterans who understand discipline, accountability, and mission success. We bring military-grade excellence to every construction project.\n\n**EXPLORE MORE:**\n• [Meet Our Team →](/team)\n• [View Our Work →](/projects)\n• [Client Testimonials →](/about#testimonials)\n• [Awards & Recognition →](/about#awards)\n\n**Want to partner with us?** [Get Started →](/booking)`;
   }
 
   private isVeteranQuery(

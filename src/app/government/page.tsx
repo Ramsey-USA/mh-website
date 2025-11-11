@@ -16,6 +16,7 @@ import {
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
 
@@ -313,6 +314,10 @@ export default function GovernmentGrantsPage() {
           className="absolute bottom-0 left-0 right-0"
         />
       </section>
+      {/* Breadcrumb Navigation */}
+      <Breadcrumb
+        items={[{ label: "Home", href: "/" }, { label: "Government Projects" }]}
+      />
       {/* Veteran-Owned Badge Section */}
       <section className="bg-gradient-to-r from-gray-800 to-black py-8 text-white">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">

@@ -5,6 +5,9 @@ import {
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
 import { gridPresets } from "@/lib/styles/layout-variants";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
 export const metadata: Metadata = {
   title:
@@ -125,7 +128,7 @@ export default function UrgentSupportPage() {
     <>
       {/* Hero Section */}
       <section
-        className="relative bg-gradient-to-br from-orange-600 via-orange-700 to-red-700 pt-20 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 lg:pb-24 text-white"
+        className="relative bg-gradient-to-br from-orange-600 via-orange-700 to-red-700 pt-20 sm:pt-24 lg:pt-32 pb-20 sm:pb-24 lg:pb-32 text-white"
         aria-labelledby="hero-heading"
       >
         {/* Veteran Badge */}
@@ -189,7 +192,18 @@ export default function UrgentSupportPage() {
         <p className="text-center mt-6 text-white/80 text-sm">
           Available Monday - Friday: 8:00 AM - 5:00 PM PST
         </p>
+
+        {/* Page-Specific Navigation Bar */}
+        <PageNavigation
+          items={navigationConfigs.urgent}
+          className="absolute bottom-0 left-0 right-0"
+        />
       </section>
+
+      {/* Breadcrumb Navigation */}
+      <Breadcrumb
+        items={[{ label: "Home", href: "/" }, { label: "Urgent Support" }]}
+      />
 
       {/* Our Focus Section */}
       <section className="py-16 bg-background">

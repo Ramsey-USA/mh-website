@@ -65,11 +65,19 @@ const QUICK_ACTIONS: QuickAction[] = [
   },
   {
     id: "emergency-support",
-    label: "Emergency Help",
+    label: "Urgent Support",
     icon: "emergency",
-    message: "I need emergency construction support",
+    message: "I need urgent construction support for a critical project",
     description: "Get immediate assistance for urgent construction needs",
     priority: "high",
+  },
+  {
+    id: "3d-explorer",
+    label: "3D Explorer",
+    icon: "view_in_ar",
+    message: "Tell me about the 3D Project Explorer visualization platform",
+    description: "Explore immersive 3D project visualization technology",
+    priority: "medium",
   },
   {
     id: "project-portfolio",
@@ -89,12 +97,28 @@ const QUICK_ACTIONS: QuickAction[] = [
     priority: "medium",
   },
   {
-    id: "financing-options",
-    label: "Financing Info",
+    id: "government-services",
+    label: "Government Projects",
     icon: "account_balance",
-    message:
-      "Tell me about financing and payment options for construction projects",
-    description: "Explore project financing solutions and payment plans",
+    message: "Tell me about government and public sector construction services",
+    description: "Learn about federal, state, and municipal project expertise",
+    priority: "medium",
+  },
+  {
+    id: "trade-partners",
+    label: "Trade Partners",
+    icon: "handshake",
+    message: "How can I become a trade partner or subcontractor?",
+    description: "Join our trusted network of construction professionals",
+    priority: "low",
+  },
+  {
+    id: "career-opportunities",
+    label: "Join Our Team",
+    icon: "badge",
+    message: "What career opportunities are available at MH Construction?",
+    description:
+      "Explore employment opportunities with our veteran-owned company",
     priority: "medium",
   },
 ];

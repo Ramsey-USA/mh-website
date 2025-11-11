@@ -6,6 +6,7 @@
 "use client";
 
 import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { PortfolioService } from "@/lib/services/portfolioService";
 import { useProjectsSearch } from "./components/useProjectsSearch";
@@ -40,6 +41,11 @@ export default function ProjectsPage() {
 
       {/* Hero Section */}
       <ProjectsHero />
+
+      {/* Breadcrumb Navigation */}
+      <Breadcrumb
+        items={[{ label: "Home", href: "/" }, { label: "Projects" }]}
+      />
 
       {/* Stats Section */}
       <ProjectsStatsSection />

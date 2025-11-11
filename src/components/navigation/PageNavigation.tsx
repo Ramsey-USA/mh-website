@@ -30,6 +30,9 @@ interface PageNavigationProps {
  * - Backdrop blur background with brand accent border
  * - Dark/light theme support
  * - Configurable per-page navigation items
+ * - Full keyboard navigation support
+ * - Accessible with proper ARIA labels
+ * - Smooth scroll behavior for hash links
  *
  * Usage Patterns:
  * - Section anchors within current page (e.g., "/services#section")
@@ -49,25 +52,54 @@ interface PageNavigationProps {
 export function PageNavigation({ items, className = "" }: PageNavigationProps) {
   const isMobile = useIsMobile();
 
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    // Handle smooth scroll for hash links on the same page
+    if (href.includes("#")) {
+      const [path, hash] = href.split("#");
+      if (hash && (!path || path === window.location.pathname)) {
+        e.preventDefault();
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+          // Update URL without triggering page reload
+          window.history.pushState(null, "", href);
+        }
+      }
+    }
+  };
+
   return (
     <nav
-      className={`bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t-4 border-brand-primary ${className}`}
+      className={`bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t-4 border-brand-primary shadow-md ${className}`}
+      aria-label="Page navigation"
+      role="navigation"
     >
       <div className="max-w-7xl mx-auto px-2 mobile-sm:px-1 xs:px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center py-3 mobile-sm:py-2 xs:py-4">
-          <div className="flex space-x-0.5 mobile-sm:space-x-0 xs:space-x-1 overflow-x-auto">
+          <div
+            className="flex space-x-0.5 mobile-sm:space-x-0 xs:space-x-1 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+            role="list"
+          >
             {items.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="group flex flex-col items-center hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 px-2 mobile-sm:px-1.5 xs:px-4 py-3 mobile-sm:py-2.5 xs:py-4 min-w-[60px] mobile-sm:min-w-[56px] xs:min-w-[80px] transition-colors duration-200 rounded-lg"
+                onClick={(e) => handleClick(e, item.href)}
+                className="group flex flex-col items-center hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 focus:bg-brand-primary/10 dark:focus:bg-brand-primary/20 px-2 mobile-sm:px-1.5 xs:px-4 py-3 mobile-sm:py-2.5 xs:py-4 min-w-[60px] mobile-sm:min-w-[56px] xs:min-w-[80px] transition-colors duration-200 rounded-lg snap-start focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+                role="listitem"
+                aria-label={`Navigate to ${getNavigationLabel(item, isMobile)}`}
+                tabIndex={0}
               >
                 <MaterialIcon
                   icon={item.icon}
                   size="sm"
-                  className="mb-0.5 mobile-sm:mb-0 xs:mb-1 text-gray-600 dark:text-gray-400 group-hover:text-brand-primary transition-colors duration-200 mobile-sm:w-4 mobile-sm:h-4"
+                  className="mb-0.5 mobile-sm:mb-0 xs:mb-1 text-gray-600 dark:text-gray-400 group-hover:text-brand-primary group-focus:text-brand-primary transition-colors duration-200 mobile-sm:w-4 mobile-sm:h-4"
+                  aria-hidden="true"
                 />
-                <span className="text-[10px] mobile-sm:text-[9px] xs:text-xs text-gray-700 dark:text-gray-300 group-hover:text-brand-primary font-medium transition-colors duration-200 text-center leading-tight mobile-sm:leading-none">
+                <span className="text-[10px] mobile-sm:text-[9px] xs:text-xs text-gray-700 dark:text-gray-300 group-hover:text-brand-primary group-focus:text-brand-primary font-medium transition-colors duration-200 text-center leading-tight mobile-sm:leading-none">
                   {getNavigationLabel(item, isMobile)}
                 </span>
               </Link>

@@ -166,6 +166,11 @@ export function Navigation() {
                       icon: "calculate",
                     },
                     {
+                      href: "/3d-explorer",
+                      label: "3D Explorer",
+                      icon: "view_in_ar",
+                    },
+                    {
                       href: "/government",
                       label: "Government",
                       icon: "account_balance",

@@ -311,7 +311,7 @@ export const navigationConfigs = {
       href: "/services",
       label: "Our Services",
       mobileLabel: "Services",
-      icon: "construction",
+      icon: "build",
     },
     {
       href: "/projects",
@@ -320,10 +320,10 @@ export const navigationConfigs = {
       icon: "photo_library",
     },
     {
-      href: "/team",
-      label: "Meet Team",
-      mobileLabel: "Team",
-      icon: "groups",
+      href: "/about",
+      label: "About Us",
+      mobileLabel: "About",
+      icon: "info",
     },
     {
       href: "/careers",
@@ -488,6 +488,34 @@ export const navigationConfigs = {
       label: "Contact Now",
       mobileLabel: "Contact",
       icon: "phone",
+    },
+  ],
+
+  "3dExplorer": [
+    { href: "/", label: "Home", icon: "home" },
+    {
+      href: "/estimator",
+      label: "AI Estimator",
+      mobileLabel: "Estimator",
+      icon: "calculate",
+    },
+    {
+      href: "/services",
+      label: "Our Services",
+      mobileLabel: "Services",
+      icon: "build",
+    },
+    {
+      href: "/projects",
+      label: "Our Projects",
+      mobileLabel: "Projects",
+      icon: "photo_library",
+    },
+    {
+      href: "/contact",
+      label: "Get Notified",
+      mobileLabel: "Notify",
+      icon: "notifications",
     },
   ],
 };

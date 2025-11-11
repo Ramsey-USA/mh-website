@@ -40,6 +40,7 @@ import {
   HoverScale,
 } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { StructuredData } from "@/components/seo/enhanced-seo";
 
@@ -92,6 +93,11 @@ export default function EstimatorPage() {
           className="absolute bottom-0 left-0 right-0"
         />
       </section>
+
+      {/* Breadcrumb Navigation */}
+      <Breadcrumb
+        items={[{ label: "Home", href: "/" }, { label: "AI Estimator" }]}
+      />
 
       {/* Key Differences - AI vs In-Person Consultation */}
       <section className="py-20 lg:py-32 xl:py-40 bg-white dark:bg-gray-900">

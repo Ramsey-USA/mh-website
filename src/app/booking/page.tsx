@@ -7,6 +7,7 @@
 import { logger } from "@/lib/utils/logger";
 import { useState, useEffect } from "react";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { consultationService } from "@/lib/cloudflare/storage";
 import { useGlobalChatbot } from "@/providers/GlobalChatbotProvider";
@@ -594,6 +595,11 @@ Please contact the client to confirm this consultation appointment.
           "What should I prepare?",
           "What happens after?",
         ]}
+      />
+
+      {/* Breadcrumb Navigation */}
+      <Breadcrumb
+        items={[{ label: "Home", href: "/" }, { label: "Book Consultation" }]}
       />
 
       <PageNavigation items={navigationConfigs.booking} />

@@ -4,6 +4,9 @@ import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
 /**
  * 3D Explorer - Under Construction Page
@@ -45,7 +48,24 @@ export default function ThreeDExplorerPage() {
               bring your construction projects to life before breaking ground.
               Serving the Pacific Northwest with 150+ years combined experience.
             </p>
+          </div>
 
+          {/* Page-Specific Navigation Bar */}
+          <div className="absolute bottom-0 left-0 right-0 z-20">
+            <PageNavigation items={navigationConfigs["3dExplorer"]} />
+          </div>
+        </div>
+      </section>
+
+      {/* Breadcrumb Navigation */}
+      <Breadcrumb
+        items={[{ label: "Home", href: "/" }, { label: "3D Explorer" }]}
+      />
+
+      {/* Under Construction Details Section */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 py-16 sm:py-20 lg:py-24 text-white">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-8">
             {/* Under Construction Notice Card - Brand-Optimized */}
             <FadeInWhenVisible>
               <div className="bg-white/5 backdrop-blur-sm p-6 sm:p-8 border border-white/10 rounded-3xl max-w-3xl mx-auto mt-8 shadow-2xl hover:shadow-3xl transition-all duration-300">

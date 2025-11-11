@@ -15,6 +15,7 @@ import {
 } from "@/components/animations/FramerMotionComponents";
 import { SectionHeader } from "@/components/ui/layout";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { ChatbotCTASection } from "@/components/chatbot";
 import { TestimonialGrid } from "@/components/testimonials";
@@ -75,6 +76,11 @@ export default function CareersPage() {
           className="absolute bottom-0 left-0 right-0"
         />
       </section>
+
+      {/* Breadcrumb Navigation */}
+      <Breadcrumb
+        items={[{ label: "Home", href: "/" }, { label: "Careers" }]}
+      />
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl">
         {/* Why Work With Us */}

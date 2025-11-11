@@ -69,4 +69,8 @@ export const breadcrumbPatterns = {
     { name: "Home", url: "https://www.mhc-gc.com" },
     { name: "Urgent Support", url: "https://www.mhc-gc.com/urgent" },
   ],
+  "3dExplorer": [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "3D Explorer", url: "https://www.mhc-gc.com/3d-explorer" },
+  ],
 };

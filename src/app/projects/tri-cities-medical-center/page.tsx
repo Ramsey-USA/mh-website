@@ -8,6 +8,7 @@ import {
   type CaseStudyData,
 } from "@/components/projects/CaseStudyTemplate";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
 // Example case study data
@@ -232,6 +233,16 @@ export default function TriCitiesMedicalCenterCaseStudy() {
   return (
     <>
       <PageNavigation items={navigationConfigs.projects} />
+
+      {/* Breadcrumb Navigation */}
+      <Breadcrumb
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Projects", href: "/projects" },
+          { label: "Tri-Cities Medical Center" },
+        ]}
+      />
+
       <CaseStudyTemplate data={triCitiesMedicalCenterData} />
     </>
   );

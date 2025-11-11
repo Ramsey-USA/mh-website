@@ -10,6 +10,7 @@ import {
   type VintageTeamMember,
 } from "@/lib/data/vintage-team";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { TestimonialGrid } from "@/components/testimonials";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
@@ -85,6 +86,11 @@ export default function TeamPage() {
           className="absolute bottom-0 left-0 right-0"
         />
       </section>
+
+      {/* Breadcrumb Navigation */}
+      <Breadcrumb
+        items={[{ label: "Home", href: "/" }, { label: "Our Team" }]}
+      />
 
       <div className="bg-gray-50 dark:bg-gray-900 py-16">
         <div className="mx-auto px-4 max-w-7xl">
