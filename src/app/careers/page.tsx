@@ -151,6 +151,17 @@ export default function CareersPage() {
           </StaggeredFadeIn>
         </section>
 
+        {/* Employee Stories Section - POSITIONED AT 25-30% PAGE DEPTH FOR SEO */}
+        <section id="employee-stories" className="mb-20 lg:mb-32">
+          <TestimonialGrid
+            testimonials={getEmployeeTestimonials()}
+            title="Hear From Our Team Members"
+            subtitle="Real stories from real people who chose to build their careers with MH Construction—from military veterans to skilled tradespeople"
+            variant="employee"
+            columns={3}
+          />
+        </section>
+
         {/* Veteran Benefits Section - DEDICATED */}
         <section id="veteran-benefits" className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
@@ -309,6 +320,130 @@ export default function CareersPage() {
               </FadeInWhenVisible>
             </div>
           </FadeInWhenVisible>
+        </section>
+
+        {/* Open Positions - MOVED EARLIER for primary conversion focus */}
+        <section id="positions" className="mb-20 lg:mb-32">
+          <SectionHeader
+            icon="work"
+            subtitle="Current Career"
+            title={
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
+                Opportunities
+              </span>
+            }
+            description="Explore our current job opportunities and find the perfect role to advance your career with us."
+          />
+
+          <StaggeredFadeIn className="space-y-6">
+            {openPositions.map((position, _index) => (
+              <Card
+                key={_index}
+                className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-all"
+              >
+                <CardContent className="p-8">
+                  <div className="flex sm:flex-row flex-col justify-between items-start mb-6">
+                    <div className="flex-grow">
+                      <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-2xl">
+                        {position.title}
+                      </h3>
+                      <div className="flex flex-wrap gap-4 mb-4">
+                        <span className="flex items-center text-gray-600 dark:text-gray-300">
+                          <MaterialIcon
+                            icon="business"
+                            className="mr-1"
+                            size="sm"
+                          />
+                          {position.department}
+                        </span>
+                        <span className="flex items-center text-gray-600 dark:text-gray-300">
+                          <MaterialIcon
+                            icon="location_on"
+                            className="mr-1"
+                            size="sm"
+                          />
+                          {position.location}
+                        </span>
+                        <span className="flex items-center text-gray-600 dark:text-gray-300">
+                          <MaterialIcon
+                            icon="schedule"
+                            className="mr-1"
+                            size="sm"
+                          />
+                          {position.type}
+                        </span>
+                        <span className="flex items-center text-gray-600 dark:text-gray-300">
+                          <MaterialIcon
+                            icon="work"
+                            className="mr-1"
+                            size="sm"
+                          />
+                          {position.experience}
+                        </span>
+                      </div>
+                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        {position.description}
+                      </p>
+                    </div>
+                    <div className="mt-4 sm:mt-0 sm:ml-6">
+                      <Button
+                        onClick={() => handleApplyNow(position.title)}
+                        variant="primary"
+                        size="lg"
+                        className="transition-all duration-300 min-w-[180px]"
+                      >
+                        <MaterialIcon icon="send" size="lg" className="mr-3" />
+                        Apply Now
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className={gridPresets.twoColumn("lg")}>
+                    <div>
+                      <h4 className="mb-3 font-semibold text-gray-900 dark:text-white">
+                        Requirements
+                      </h4>
+                      <ul className="space-y-2">
+                        {position.requirements.map((req, reqIndex) => (
+                          <li
+                            key={reqIndex}
+                            className="flex items-start text-gray-600 dark:text-gray-300 text-sm"
+                          >
+                            <MaterialIcon
+                              icon="check_circle"
+                              className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary"
+                              size="sm"
+                            />
+                            {req}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="mb-3 font-semibold text-gray-900 dark:text-white">
+                        What We Offer
+                      </h4>
+                      <ul className="space-y-2">
+                        {position.benefits.map((benefit, benefitIndex) => (
+                          <li
+                            key={benefitIndex}
+                            className="flex items-start text-gray-600 dark:text-gray-300 text-sm"
+                          >
+                            <MaterialIcon
+                              icon="star"
+                              className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
+                              size="sm"
+                            />
+                            {benefit}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </StaggeredFadeIn>
         </section>
 
         {/* Employee Stories Section */}
@@ -668,130 +803,6 @@ export default function CareersPage() {
               </div>
             </div>
           </FadeInWhenVisible>
-        </section>
-
-        {/* Open Positions */}
-        <section id="positions" className="mb-20 lg:mb-32">
-          <SectionHeader
-            icon="work"
-            subtitle="Current Career"
-            title={
-              <span className="block text-brand-primary dark:text-brand-primary font-black">
-                Opportunities
-              </span>
-            }
-            description="Explore our current job opportunities and find the perfect role to advance your career with us."
-          />
-
-          <StaggeredFadeIn className="space-y-6">
-            {openPositions.map((position, _index) => (
-              <Card
-                key={_index}
-                className="bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-all"
-              >
-                <CardContent className="p-8">
-                  <div className="flex sm:flex-row flex-col justify-between items-start mb-6">
-                    <div className="flex-grow">
-                      <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-2xl">
-                        {position.title}
-                      </h3>
-                      <div className="flex flex-wrap gap-4 mb-4">
-                        <span className="flex items-center text-gray-600 dark:text-gray-300">
-                          <MaterialIcon
-                            icon="business"
-                            className="mr-1"
-                            size="sm"
-                          />
-                          {position.department}
-                        </span>
-                        <span className="flex items-center text-gray-600 dark:text-gray-300">
-                          <MaterialIcon
-                            icon="location_on"
-                            className="mr-1"
-                            size="sm"
-                          />
-                          {position.location}
-                        </span>
-                        <span className="flex items-center text-gray-600 dark:text-gray-300">
-                          <MaterialIcon
-                            icon="schedule"
-                            className="mr-1"
-                            size="sm"
-                          />
-                          {position.type}
-                        </span>
-                        <span className="flex items-center text-gray-600 dark:text-gray-300">
-                          <MaterialIcon
-                            icon="work"
-                            className="mr-1"
-                            size="sm"
-                          />
-                          {position.experience}
-                        </span>
-                      </div>
-                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                        {position.description}
-                      </p>
-                    </div>
-                    <div className="mt-4 sm:mt-0 sm:ml-6">
-                      <Button
-                        onClick={() => handleApplyNow(position.title)}
-                        variant="primary"
-                        size="lg"
-                        className="transition-all duration-300 min-w-[180px]"
-                      >
-                        <MaterialIcon icon="send" size="lg" className="mr-3" />
-                        Apply Now
-                      </Button>
-                    </div>
-                  </div>
-
-                  <div className={gridPresets.twoColumn("lg")}>
-                    <div>
-                      <h4 className="mb-3 font-semibold text-gray-900 dark:text-white">
-                        Requirements
-                      </h4>
-                      <ul className="space-y-2">
-                        {position.requirements.map((req, reqIndex) => (
-                          <li
-                            key={reqIndex}
-                            className="flex items-start text-gray-600 dark:text-gray-300 text-sm"
-                          >
-                            <MaterialIcon
-                              icon="check_circle"
-                              className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary"
-                              size="sm"
-                            />
-                            {req}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="mb-3 font-semibold text-gray-900 dark:text-white">
-                        What We Offer
-                      </h4>
-                      <ul className="space-y-2">
-                        {position.benefits.map((benefit, benefitIndex) => (
-                          <li
-                            key={benefitIndex}
-                            className="flex items-start text-gray-600 dark:text-gray-300 text-sm"
-                          >
-                            <MaterialIcon
-                              icon="star"
-                              className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
-                              size="sm"
-                            />
-                            {benefit}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </StaggeredFadeIn>
         </section>
 
         {/* Call to Action */}

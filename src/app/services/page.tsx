@@ -280,6 +280,16 @@ export default function ServicesPage() {
           </StaggeredFadeIn>
         </Section>
 
+        {/* Client Testimonials Section - POSITIONED AT 25-30% PAGE DEPTH FOR SEO OPTIMIZATION */}
+        <TestimonialGrid
+          testimonials={getClientTestimonials()}
+          title="What Our Partners Say About Us"
+          subtitle="Real feedback from partners who trust us with their commercial and residential construction projects"
+          variant="client"
+          showViewMoreButton={true}
+          viewMoreHref="/about#testimonials"
+        />
+
         {/* Government & Grant-Funded Projects Section */}
         <Section variant="gray" padding="default">
           <SectionHeader
@@ -658,16 +668,6 @@ export default function ServicesPage() {
 
         {/* Why Choose Us Section */}
         <WhyChooseUs />
-
-        {/* Client Testimonials Section - SERVICE FOCUSED */}
-        <TestimonialGrid
-          testimonials={getClientTestimonials()}
-          title="What Our Partners Say About Us"
-          subtitle="Real feedback from partners who trust us with their commercial and residential construction projects"
-          variant="client"
-          showViewMoreButton={true}
-          viewMoreHref="/about#testimonials"
-        />
 
         {/* Interactive Timeline Tool - Visualize Your Project */}
         <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">

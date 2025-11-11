@@ -43,7 +43,7 @@ export default function AboutPage() {
       {/* Core Values Section */}
       <AboutValues coreValues={coreValues} />
 
-      {/* Client Reviews Section - POSITIONED AT 25% PAGE DEPTH FOR SEO (Phase 0 optimization) */}
+      {/* Client Reviews Section - POSITIONED AT 25-30% PAGE DEPTH FOR SEO OPTIMIZATION */}
       <TestimonialsSection
         id="testimonials"
         subtitle="Partnership"
@@ -51,14 +51,11 @@ export default function AboutPage() {
         description="Hear directly from our partners about their experience working with MH Construction on their most important projects."
       />
 
+      {/* Leadership Team Section - MOVED EARLIER: Faces build trust and connection */}
+      <LeadershipTeam />
+
       {/* Awards & Recognition Section */}
       <AwardsSection />
-
-      {/* Next Steps Section */}
-      <NextStepsSection />
-
-      {/* Leadership Team Section */}
-      <LeadershipTeam />
 
       {/* Why Values Matter Section */}
       <Section variant="default" padding="default">
@@ -553,6 +550,9 @@ export default function AboutPage() {
           </FadeInWhenVisible>
         </div>
       </section>
+
+      {/* Next Steps Section - MOVED TO PROPER CONVERSION POSITION (80-90% page depth) */}
+      <NextStepsSection />
 
       {/* Enhanced Partnership Call to Action Section */}
       <PartnershipCTA />
