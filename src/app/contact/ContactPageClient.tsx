@@ -7,6 +7,7 @@ import {
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
 
@@ -190,6 +191,11 @@ export default function ContactPageClient() {
             className="absolute bottom-0 left-0 right-0"
           />
         </section>
+
+        {/* Breadcrumb Navigation */}
+        <Breadcrumb
+          items={[{ label: "Home", href: "/" }, { label: "Contact" }]}
+        />
 
         {/* Quick Contact Section */}
         <section

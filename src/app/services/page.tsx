@@ -23,6 +23,7 @@ import { getClientTestimonials } from "@/lib/data/testimonials";
 import { ChatbotCTASection } from "@/components/chatbot";
 import { InteractiveTimeline } from "@/components/timeline";
 import { gridPresets } from "@/lib/styles/layout-variants";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 
 // Import shared sections
 import { AIEstimatorCTA } from "@/components/shared-sections";
@@ -155,6 +156,11 @@ export default function ServicesPage() {
       <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
         {/* Hero Section */}
         <ServicesHero />
+
+        {/* Breadcrumb Navigation */}
+        <Breadcrumb
+          items={[{ label: "Home", href: "/" }, { label: "Services" }]}
+        />
 
         {/* Construction Expertise Section */}
         <Section variant="default" padding="default">

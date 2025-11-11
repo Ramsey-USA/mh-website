@@ -21,6 +21,7 @@ import {
 import { getCardClassName } from "@/lib/styles/card-variants";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { PartnershipCTA } from "@/components/home/PartnershipCTA";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 
 // Import shared sections
 import {
@@ -33,6 +34,9 @@ export default function AboutPage() {
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       {/* Hero Section */}
       <AboutHero />
+
+      {/* Breadcrumb Navigation */}
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About" }]} />
 
       {/* Partnership Philosophy Section */}
       <PartnershipPhilosophy />
