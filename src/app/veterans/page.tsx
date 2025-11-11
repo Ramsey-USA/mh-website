@@ -47,12 +47,33 @@ export default function VeteransPage() {
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
-        {/* Background Elements */}
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          style={{ backgroundImage: "url('/images/logo/mh-veteran-bg.png')" }}
+        ></div>
+
+        {/* Background Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content - Clean and Simple */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
           <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+            {/* Veterans Day Honor Badge */}
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <MaterialIcon
+                icon="military_tech"
+                className="text-brand-secondary text-2xl sm:text-3xl md:text-4xl animate-pulse"
+              />
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-brand-secondary font-bold tracking-wide">
+                Honoring Veterans Day 2025
+              </p>
+              <MaterialIcon
+                icon="military_tech"
+                className="text-brand-secondary text-2xl sm:text-3xl md:text-4xl animate-pulse"
+              />
+            </div>
+
             {/* Main Title - REQUIRED RESPONSIVE SCALING */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block text-brand-secondary font-black drop-shadow-lg">
@@ -66,11 +87,22 @@ export default function VeteransPage() {
               Events
             </p>
 
+            {/* Veterans Day Message */}
+            <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-brand-secondary/30">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/95 leading-relaxed font-semibold italic">
+                "Today we honor all who have served. Your sacrifice, courage,
+                and dedication inspire everything we do. Thank you to all
+                veterans, past and present."
+              </p>
+              <p className="mt-2 text-xs sm:text-sm text-brand-secondary font-bold">
+                — Jeremy Thamert (Army Veteran) & Matt Ramsey (Navy Veteran)
+              </p>
+            </div>
+
             {/* Description - REQUIRED */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
               "Building for the Owner, NOT the Dollar" — As a veteran-owned
-              company led by Army veteran Jeremy Thamert and Navy veteran Matt
-              Ramsey, we're committed to supporting those who've served through
+              company, we're committed to supporting those who've served through
               community initiatives, hiring programs, and our annual fishing
               benefit event.
             </p>
@@ -165,7 +197,224 @@ export default function VeteransPage() {
         </FadeInWhenVisible>
       </Section>
 
-      {/* Annual Fishing Event Section */}
+      {/* Year-Round Support Section - MOVED EARLIER FOR SEO */}
+      <Section variant="gray" padding="default">
+        <SectionHeader
+          subtitle="Beyond the Event"
+          title={
+            <span className="block text-brand-primary dark:text-brand-primary font-black">
+              Year-Round Veterans Support
+            </span>
+          }
+          description="Our commitment to veterans extends throughout the year with hiring initiatives, partnerships, and community engagement."
+          maxWidth="4xl"
+        />
+
+        <StaggeredFadeIn className={gridPresets.cards3("md")}>
+          <Card className={getCardClassName("default")}>
+            <CardHeader>
+              <MaterialIcon
+                icon="work"
+                className="mb-4 text-brand-primary text-5xl"
+              />
+              <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
+                Veteran Hiring Priority
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4">
+                Qualified veterans receive priority consideration for all
+                positions, with apprenticeship programs for transitioning
+                service members.
+              </p>
+              <Link
+                href="/careers"
+                className="inline-flex items-center text-brand-primary hover:text-brand-accent transition-colors font-semibold"
+              >
+                <span>View Career Opportunities</span>
+                <MaterialIcon icon="arrow_forward" size="sm" className="ml-1" />
+              </Link>
+            </CardContent>
+          </Card>
+
+          <Card className={getCardClassName("default")}>
+            <CardHeader>
+              <MaterialIcon
+                icon="handshake"
+                className="mb-4 text-brand-secondary text-5xl"
+              />
+              <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
+                Veteran Trade Partners
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4">
+                Actively recruiting veteran-owned subcontractors with
+                preferential bidding and support for business growth.
+              </p>
+              <Link
+                href="/trade-partners"
+                className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors font-semibold"
+              >
+                <span>Become a Trade Partner</span>
+                <MaterialIcon icon="arrow_forward" size="sm" className="ml-1" />
+              </Link>
+            </CardContent>
+          </Card>
+
+          <Card className={getCardClassName("default")}>
+            <CardHeader>
+              <MaterialIcon
+                icon="school"
+                className="mb-4 text-brand-accent text-5xl"
+              />
+              <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
+                Training & Education
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4">
+                Scholarships for veterans pursuing construction trades,
+                internships for student veterans, and GI Bill apprenticeship
+                programs.
+              </p>
+              <Link
+                href="/about"
+                className="inline-flex items-center text-brand-accent hover:text-brand-primary transition-colors font-semibold"
+              >
+                <span>Learn About Our Values</span>
+                <MaterialIcon icon="arrow_forward" size="sm" className="ml-1" />
+              </Link>
+            </CardContent>
+          </Card>
+        </StaggeredFadeIn>
+      </Section>
+
+      {/* Military Standards Section */}
+      <Section variant="default" padding="default">
+        <SectionHeader
+          subtitle="Our Foundation"
+          title={
+            <span className="block text-brand-primary dark:text-brand-primary font-black">
+              Military Standards in Every Project
+            </span>
+          }
+          description="The values we learned in service guide everything we do in construction."
+          maxWidth="4xl"
+        />
+
+        <StaggeredFadeIn className={gridPresets.twoColumn("md")}>
+          <Card
+            className={getCardClassName(
+              "default",
+              "border-l-4 border-l-brand-primary",
+            )}
+          >
+            <CardContent className="pt-6">
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300">
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="military_tech"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-2xl"
+                  />
+                  <div>
+                    <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
+                      Discipline
+                    </h4>
+                    <p className="text-base">
+                      Consistent execution and accountability on every project
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="workspace_premium"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-2xl"
+                  />
+                  <div>
+                    <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
+                      Excellence
+                    </h4>
+                    <p className="text-base">
+                      High standards in craftsmanship and service delivery
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="verified"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-2xl"
+                  />
+                  <div>
+                    <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
+                      Integrity
+                    </h4>
+                    <p className="text-base">
+                      Honest communication and transparent pricing always
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card
+            className={getCardClassName(
+              "default",
+              "border-l-4 border-l-brand-secondary",
+            )}
+          >
+            <CardContent className="pt-6">
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300">
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="emoji_people"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-secondary text-2xl"
+                  />
+                  <div>
+                    <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
+                      Service
+                    </h4>
+                    <p className="text-base">
+                      Putting client mission above company profit
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="groups"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-secondary text-2xl"
+                  />
+                  <div>
+                    <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
+                      Teamwork
+                    </h4>
+                    <p className="text-base">
+                      Collaborative approach to solving complex challenges
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <MaterialIcon
+                    icon="psychology"
+                    className="flex-shrink-0 mt-1 mr-3 text-brand-secondary text-2xl"
+                  />
+                  <div>
+                    <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
+                      Precision
+                    </h4>
+                    <p className="text-base">
+                      Attention to detail in planning and execution
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+        </StaggeredFadeIn>
+      </Section>
+
+      {/* Annual Fishing Event Section - MOVED LATER FOR SEO */}
       <section
         id="fishing-event"
         className="relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 py-20 lg:py-32"
@@ -620,223 +869,6 @@ export default function VeteransPage() {
           </FadeInWhenVisible>
         </div>
       </section>
-
-      {/* Year-Round Support Section */}
-      <Section variant="gray" padding="default">
-        <SectionHeader
-          subtitle="Beyond the Event"
-          title={
-            <span className="block text-brand-primary dark:text-brand-primary font-black">
-              Year-Round Veterans Support
-            </span>
-          }
-          description="Our commitment to veterans extends throughout the year with hiring initiatives, partnerships, and community engagement."
-          maxWidth="4xl"
-        />
-
-        <StaggeredFadeIn className={gridPresets.cards3("md")}>
-          <Card className={getCardClassName("default")}>
-            <CardHeader>
-              <MaterialIcon
-                icon="work"
-                className="mb-4 text-brand-primary text-5xl"
-              />
-              <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
-                Veteran Hiring Priority
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4">
-                Qualified veterans receive priority consideration for all
-                positions, with apprenticeship programs for transitioning
-                service members.
-              </p>
-              <Link
-                href="/careers"
-                className="inline-flex items-center text-brand-primary hover:text-brand-accent transition-colors font-semibold"
-              >
-                <span>View Career Opportunities</span>
-                <MaterialIcon icon="arrow_forward" size="sm" className="ml-1" />
-              </Link>
-            </CardContent>
-          </Card>
-
-          <Card className={getCardClassName("default")}>
-            <CardHeader>
-              <MaterialIcon
-                icon="handshake"
-                className="mb-4 text-brand-secondary text-5xl"
-              />
-              <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
-                Veteran Trade Partners
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4">
-                Actively recruiting veteran-owned subcontractors with
-                preferential bidding and support for business growth.
-              </p>
-              <Link
-                href="/trade-partners"
-                className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors font-semibold"
-              >
-                <span>Become a Trade Partner</span>
-                <MaterialIcon icon="arrow_forward" size="sm" className="ml-1" />
-              </Link>
-            </CardContent>
-          </Card>
-
-          <Card className={getCardClassName("default")}>
-            <CardHeader>
-              <MaterialIcon
-                icon="school"
-                className="mb-4 text-brand-accent text-5xl"
-              />
-              <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
-                Training & Education
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4">
-                Scholarships for veterans pursuing construction trades,
-                internships for student veterans, and GI Bill apprenticeship
-                programs.
-              </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center text-brand-accent hover:text-brand-primary transition-colors font-semibold"
-              >
-                <span>Learn About Our Values</span>
-                <MaterialIcon icon="arrow_forward" size="sm" className="ml-1" />
-              </Link>
-            </CardContent>
-          </Card>
-        </StaggeredFadeIn>
-      </Section>
-
-      {/* Military Standards Section */}
-      <Section variant="default" padding="default">
-        <SectionHeader
-          subtitle="Our Foundation"
-          title={
-            <span className="block text-brand-primary dark:text-brand-primary font-black">
-              Military Standards in Every Project
-            </span>
-          }
-          description="The values we learned in service guide everything we do in construction."
-          maxWidth="4xl"
-        />
-
-        <StaggeredFadeIn className={gridPresets.twoColumn("md")}>
-          <Card
-            className={getCardClassName(
-              "default",
-              "border-l-4 border-l-brand-primary",
-            )}
-          >
-            <CardContent className="pt-6">
-              <ul className="space-y-4 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="military_tech"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-2xl"
-                  />
-                  <div>
-                    <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
-                      Discipline
-                    </h4>
-                    <p className="text-base">
-                      Consistent execution and accountability on every project
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="workspace_premium"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-2xl"
-                  />
-                  <div>
-                    <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
-                      Excellence
-                    </h4>
-                    <p className="text-base">
-                      High standards in craftsmanship and service delivery
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="verified"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-2xl"
-                  />
-                  <div>
-                    <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
-                      Integrity
-                    </h4>
-                    <p className="text-base">
-                      Honest communication and transparent pricing always
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card
-            className={getCardClassName(
-              "default",
-              "border-l-4 border-l-brand-secondary",
-            )}
-          >
-            <CardContent className="pt-6">
-              <ul className="space-y-4 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="emoji_people"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-secondary text-2xl"
-                  />
-                  <div>
-                    <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
-                      Service
-                    </h4>
-                    <p className="text-base">
-                      Putting client mission above company profit
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="groups"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-secondary text-2xl"
-                  />
-                  <div>
-                    <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
-                      Teamwork
-                    </h4>
-                    <p className="text-base">
-                      Collaborative approach to solving complex challenges
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="psychology"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-secondary text-2xl"
-                  />
-                  <div>
-                    <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
-                      Precision
-                    </h4>
-                    <p className="text-base">
-                      Attention to detail in planning and execution
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
-        </StaggeredFadeIn>
-      </Section>
 
       {/* Next Steps Section */}
       <NextStepsSection />
