@@ -8,7 +8,8 @@
 
 ## 📊 Overview
 
-Successfully optimized the section ordering across all major pages of the MH Construction website to ensure testimonials and social proof appear at the optimal 25-30% page depth for SEO performance.
+Successfully optimized the section ordering across all major pages of the MH Construction website to ensure
+testimonials and social proof appear at the optimal 25-30% page depth for SEO performance.
 
 ---
 
@@ -295,7 +296,8 @@ Successfully optimized section ordering across 3 major pages:
 - **About Page:** Structural improvements (leadership earlier, next steps properly positioned)
 - **Careers Page:** Conversion flow optimization (stories earlier, positions prioritized)
 
-All changes follow SEO best practices with testimonials positioned at optimal 25-30% page depth for maximum impact on search engine rankings and user engagement.
+All changes follow SEO best practices with testimonials positioned at optimal 25-30% page depth for
+maximum impact on search engine rankings and user engagement.
 
 **Total Expected SEO Impact:** +11-22 points across optimized pages  
 **Implementation Status:** ✅ Complete  
