@@ -224,17 +224,17 @@ const validation = validateSEO(seoConfig);
 
 The system auto-detects page types and applies appropriate defaults:
 
-| Category         | Patterns                    | Priority | Change Freq | Schemas                                   |
-| ---------------- | --------------------------- | -------- | ----------- | ----------------------------------------- |
-| **Homepage**     | `/`                         | 1.0      | monthly     | Organization, Website, LocalBusiness, FAQ |
-| **Services**     | `/services`, `/service/`    | 0.9      | monthly     | Service, Offer                            |
-| **Projects**     | `/projects`, `/portfolio`   | 0.8      | weekly      | CreativeWork                              |
-| **Team**         | `/team`, `/about`           | 0.7      | monthly     | Person, Organization                      |
-| **Contact**      | `/contact`, `/booking`      | 0.9      | monthly     | ContactPage, LocalBusiness                |
-| **Careers**      | `/careers`, `/jobs`         | 0.7      | weekly      | JobPosting                                |
-| **Tools**        | `/estimator`, `/calculator` | 0.85     | monthly     | SoftwareApplication                       |
-| **Emergency**    | `/urgent`, `/emergency`     | 0.85     | monthly     | Service, EmergencyService                 |
-| **Partnerships** | `/partners`, `/government`  | 0.75     | monthly     | Service, Organization                     |
+| Category         | Patterns                         | Priority | Change Freq | Schemas                                   |
+| ---------------- | -------------------------------- | -------- | ----------- | ----------------------------------------- |
+| **Homepage**     | `/`                              | 1.0      | monthly     | Organization, Website, LocalBusiness, FAQ |
+| **Services**     | `/services`, `/service/`         | 0.9      | monthly     | Service, Offer                            |
+| **Projects**     | `/projects`, `/portfolio`        | 0.8      | weekly      | CreativeWork                              |
+| **Team**         | `/team`, `/about`                | 0.7      | monthly     | Person, Organization                      |
+| **Contact**      | `/contact`, `/booking`           | 0.9      | monthly     | ContactPage, LocalBusiness                |
+| **Careers**      | `/careers`, `/jobs`              | 0.7      | weekly      | JobPosting                                |
+| **Tools**        | `/estimator`, `/calculator`      | 0.85     | monthly     | SoftwareApplication                       |
+| **Emergency**    | `/urgent`, `/emergency`          | 0.85     | monthly     | Service, EmergencyService                 |
+| **Partnerships** | `/trade-partners`, `/government` | 0.75     | monthly     | Service, Organization                     |
 
 ---
 
