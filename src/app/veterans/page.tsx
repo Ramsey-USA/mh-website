@@ -140,15 +140,15 @@ export default function VeteransPage() {
                 Matt Ramsey
               </CardTitle>
               <p className="text-brand-secondary font-semibold text-lg mt-2">
-                Project Manager | Navy Veteran
+                Digital Marketing Manager | Navy Veteran
               </p>
             </CardHeader>
             <CardContent>
               <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                Navy veteran Matt Ramsey combines technical expertise with
-                military discipline, ensuring project excellence through
-                meticulous planning and execution that honors service while
-                delivering exceptional results.
+                Navy veteran Matt Ramsey developed MH Construction's website and
+                digital presence, bringing military precision to marketing
+                technology and promoting veteran-owned business status through
+                innovative digital solutions.
               </p>
             </CardContent>
           </Card>

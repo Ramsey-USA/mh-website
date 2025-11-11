@@ -17,7 +17,9 @@
 
 ## Overview
 
-MH Construction is proud to be a **veteran-owned business** led by Army veteran Jeremy Thamert and Navy veteran Matt Ramsey. Our commitment to supporting veterans extends beyond our leadership—it's woven into every aspect of our operations, community engagement, and long-term vision.
+MH Construction is proud to be a **veteran-owned business** led by Army veteran Jeremy Thamert and
+Navy veteran Matt Ramsey. Our commitment to supporting veterans extends beyond our leadership—it's
+woven into every aspect of our operations, community engagement, and long-term vision.
 
 ### Our Veteran Identity
 
@@ -33,7 +35,9 @@ MH Construction is proud to be a **veteran-owned business** led by Army veteran 
 
 ### Event Vision
 
-Starting **Spring 2026**, MH Construction will host an **Annual Veterans Fishing Benefit Event** to honor our service members, connect the veteran community, and provide therapeutic outdoor experiences for those who've served.
+Starting **Spring 2026**, MH Construction will host an **Annual Veterans Fishing Benefit Event** to
+honor our service members, connect the veteran community, and provide therapeutic outdoor
+experiences for those who've served.
 
 ### Event Details
 
@@ -311,15 +315,20 @@ We also welcome in-kind donations including:
 
 ### Military Leadership
 
-> "As an Army veteran and owner of MH Construction, I know firsthand the challenges veterans face transitioning to civilian life. This fishing event is about more than catching fish—it's about creating community, providing peace, and showing our veterans they're not forgotten."  
+> "As an Army veteran and owner of MH Construction, I know firsthand the challenges veterans face
+> transitioning to civilian life. This fishing event is about more than catching fish—it's about
+> creating community, providing peace, and showing our veterans they're not forgotten."  
 > **— Jeremy Thamert, Owner & Army Veteran**
-
-> "The military taught me discipline, precision, and service above self. Those values drive everything we do at MH Construction, from our construction projects to our community initiatives like this fishing event."  
-> **— Matt Ramsey, Co-Founder & Navy Veteran**
+>
+> "The military taught me discipline, precision, and service above self. Those values drive
+> everything we do at MH Construction, from our construction projects to our community initiatives
+> like this fishing event."  
+> **— Matt Ramsey, Digital Marketing Manager & Navy Veteran**
 
 ### Community Support
 
-_"We're honored to support MH Construction's veteran fishing event. As a local business, we understand the sacrifices our service members have made, and we're proud to give back."_  
+_"We're honored to support MH Construction's veteran fishing event. As a local business, we
+understand the sacrifices our service members have made, and we're proud to give back."_  
 — [Sponsor testimonials to be added]
 
 ---
@@ -485,4 +494,5 @@ A: Typically 3-4 veterans per boat (based on vessel capacity).
 **Version:** 1.0.0  
 **Status:** ✅ Active Initiative
 
-> **Note**: This is a living document that will be updated as the initiative develops. Check back regularly for event updates, sponsor announcements, and registration information.
+> **Note**: This is a living document that will be updated as the initiative develops. Check back
+> regularly for event updates, sponsor announcements, and registration information.

@@ -6,7 +6,10 @@
 
 ## Overview
 
-MH Construction is a veteran-owned company committed to honoring service members and supporting veterans in our communities. Our leadership includes Army veteran Jeremy Thamert and Navy veteran Matt Ramsey. This document outlines our public-facing Veterans Initiative, annual event planning, sponsorship opportunities, and developer notes for maintaining related website content.
+MH Construction is a veteran-owned company committed to honoring service members and supporting
+veterans in our communities. Our leadership includes Army veteran Jeremy Thamert and Navy veteran
+Matt Ramsey. This document outlines our public-facing Veterans Initiative, annual event planning,
+sponsorship opportunities, and developer notes for maintaining related website content.
 
 ## Our Commitment
 
@@ -41,7 +44,8 @@ Registration:
 Sponsorship makes the event possible. Typical sponsorship levels and benefits (mirrored on the public web page):
 
 - Platinum Sponsor — $10,000+
-  - Title sponsor recognition, logo on t-shirts and promotional materials, speaking opportunity, social promotion, 10 complimentary registrations.
+  - Title sponsor recognition, logo on t-shirts and promotional materials, speaking opportunity,
+    social promotion, 10 complimentary registrations.
 
 - Gold Sponsor — $5,000+
   - Premier recognition, logo on t-shirts and banners, social promotion, 6 complimentary registrations.
@@ -67,16 +71,21 @@ Contact for sponsorship inquiries:
 
 ## Developer & Content Notes
 
-- Public page: `src/app/veterans/page.tsx` — primary public-facing page for this initiative. The page already contains hero, event, sponsorship tiers, schedule, and CTAs.
-- Navigation: Global `Navigation` includes a link to `/veterans`; `Footer` has a Veterans link and a Veteran-Owned badge.
-- SEO: `src/app/veterans/page.tsx` includes `metadata` and `openGraph` fields — update them when event details change.
-- If you want the public page to render from markdown, consider adding an MDX pipeline (`next-mdx` or similar) and moving content to `docs/business/veterans.md` as source of truth.
+- Public page: `src/app/veterans/page.tsx` — primary public-facing page for this initiative. The
+  page already contains hero, event, sponsorship tiers, schedule, and CTAs.
+- Navigation: Global `Navigation` includes a link to `/veterans`; `Footer` has a Veterans link and
+  a Veteran-Owned badge.
+- SEO: `src/app/veterans/page.tsx` includes `metadata` and `openGraph` fields — update them when
+  event details change.
+- If you want the public page to render from markdown, consider adding an MDX pipeline (`next-mdx`
+  or similar) and moving content to `docs/business/veterans.md` as source of truth.
 
 ## Next Steps (for the team)
 
 - Finalize marina and exact event date for Spring 2026.
 - Confirm sponsor outreach list and start sponsor invitations Q1 2026.
-- Create registration form (veteran sign-up) and sponsor intake form (could be simple `/contact?sponsor=veterans` link or a dedicated form endpoint).
+- Create registration form (veteran sign-up) and sponsor intake form (could be simple
+  `/contact?sponsor=veterans` link or a dedicated form endpoint).
 - Consider adding an events archive page after the first event with photos and outcomes.
 
 ---

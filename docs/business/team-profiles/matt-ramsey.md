@@ -4,7 +4,7 @@
 
 ## 📋 Quick Facts
 
-- **Role**: Project Engineer & Digital Marketing Manager
+- **Role**: Digital Marketing Manager
 - **Years with Company**: 1
 - **Hometown**: Richland, WA
 - **Education**: BAS Operations Management (PM Minor), AAS Business Administration
@@ -29,24 +29,24 @@ Two Navy Achievement Medals
 
 ## 👤 Biography
 
-Matt bridges technology innovation with practical construction applications, bringing military
-precision to technology integration. His unique role promotes MH Construction's technological
-capabilities and veteran-owned status while developing cutting-edge solutions that keep the company
-at the forefront of construction innovation.
+Matt developed MH Construction's website and manages the company's digital marketing presence,
+bringing military precision to technology and marketing innovation. His role focuses on promoting
+MH Construction's capabilities and veteran-owned status while developing cutting-edge digital
+solutions that keep the company at the forefront of online presence and client engagement.
 
 ## ⭐ Career Highlights
 
-- Developed AI estimator systems
-- Led technology integration projects
-- Enhanced brand marketing strategies
-- Promoted veteran-owned business status
+- Developed MH Construction website and digital presence
+- Led digital marketing and brand strategy
+- Enhanced veteran-owned business visibility
+- Created AI estimator systems and digital tools
 
 ## 🔧 Professional Specialties
 
-- Marketing Coordination & Brand Management
-- Technology Advocacy & Innovation
-- Client Presentations & Proposals
-- AI Estimator Development & Promotion
+- Digital Marketing & Brand Management
+- Website Development & Design
+- AI Estimator Development & Implementation
+- Client Presentations & Digital Proposals
 
 ## 📜 Certifications
 

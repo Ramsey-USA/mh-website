@@ -15,7 +15,9 @@
 
 ## 📋 Overview
 
-This guide provides a standardized approach to creating new pages for the MH Construction website. Following these conventions ensures consistency, maintainability, and optimal user experience across the entire site.
+This guide provides a standardized approach to creating new pages for the MH Construction website.
+Following these conventions ensures consistency, maintainability, and optimal user experience across
+the entire site.
 
 ---
 
