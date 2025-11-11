@@ -140,14 +140,14 @@ export default function VeteransPage() {
                 Matt Ramsey
               </CardTitle>
               <p className="text-brand-secondary font-semibold text-lg mt-2">
-                Co-Founder | Navy Veteran
+                Project Manager | Navy Veteran
               </p>
             </CardHeader>
             <CardContent>
               <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                 Navy veteran Matt Ramsey combines technical expertise with
-                military discipline, promoting veteran-owned business status and
-                developing innovative solutions that honor service while
+                military discipline, ensuring project excellence through
+                meticulous planning and execution that honors service while
                 delivering exceptional results.
               </p>
             </CardContent>
