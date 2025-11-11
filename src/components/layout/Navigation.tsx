@@ -72,7 +72,7 @@ export function Navigation() {
             <div className="flex-shrink-0">
               <Link
                 href="/"
-                className="flex items-center hover:scale-105 transition-all duration-300"
+                className="flex items-center hover:scale-105 transition-all duration-300 bg-gradient-to-r from-brand-primary/80 via-brand-primary/60 to-transparent px-4 py-2 rounded-lg backdrop-blur-sm"
               >
                 <Image
                   src="/images/logo/mh-logo.png"
