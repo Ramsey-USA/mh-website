@@ -20,7 +20,7 @@ export function HeroSection() {
           <source src="/videos/mh_veterans_day_vid.mp4" type="video/mp4" />
         </video>
         {/* Light overlay for subtle darkening if needed */}
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-gray-900/30 to-brand-secondary/20"></div>
       </div>
 
       {/* Page-Specific Navigation Bar */}
