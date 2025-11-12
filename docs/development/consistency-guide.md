@@ -97,6 +97,7 @@ When creating a new page hero section:
 | Trade Partners | "Building Success Together"                | B2B partnership          |
 | Estimator      | "Smart Planning Starts Here"               | AI estimation            |
 | 3D Explorer    | "Innovation Meets Construction Excellence" | Technology               |
+| Veterans       | "Honoring Those Who Served"                | Veteran support          |
 
 ---
 

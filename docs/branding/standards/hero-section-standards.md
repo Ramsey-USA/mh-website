@@ -56,6 +56,7 @@ Each hero section now features a **unique, page-specific tagline** instead of re
 | Trade Partners | "Building Success Together"                | B2B partnership focus    |
 | Estimator      | "Smart Planning Starts Here"               | AI estimation focus      |
 | 3D Explorer    | "Innovation Meets Construction Excellence" | Technology focus         |
+| Veterans       | "Honoring Those Who Served"                | Veteran support          |
 
 **Note:** "THE ROI IS THE RELATIONSHIP" remains important in body content,
 testimonials, and value propositions—just not repeated in every hero section.
