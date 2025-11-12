@@ -2,7 +2,8 @@
 
 ## Overview
 
-This document details the comprehensive responsive design fixes implemented to resolve text overflow issues on smaller screens, particularly on card components throughout the MH Construction website.
+This document details the comprehensive responsive design fixes implemented to resolve text overflow issues on
+smaller screens, particularly on card components throughout the MH Construction website.
 
 ## Problem Statement
 
@@ -309,11 +310,11 @@ All responsive changes follow mobile-first methodology:
 
 ### Styles
 
-8. `src/app/globals.css`
+1. `src/app/globals.css`
 
 ### Testing
 
-9. `scripts/validation/test-responsive-fixes.sh` (new)
+1. `scripts/validation/test-responsive-fixes.sh` (new)
 
 ## Browser Testing Recommendations
 

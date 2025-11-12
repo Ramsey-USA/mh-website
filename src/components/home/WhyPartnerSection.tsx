@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 const partnershipValues = [
@@ -10,6 +11,14 @@ const partnershipValues = [
     description:
       "Multiple AGC-WA Top EMR Awards with .6 EMR—40% better than industry average. 3+ years without time-loss injury and OSHA VPP Star designation demonstrate our unwavering commitment to zero-incident workplace culture.",
     iconColor: "text-brand-secondary",
+    highlights: [
+      ".6 EMR (40% better than industry)",
+      "3+ years without time-loss injury",
+      "OSHA VPP Star designation",
+      "Multiple AGC-WA Top EMR Awards",
+    ],
+    stat: ".6 EMR",
+    statLabel: "Safety Rating",
   },
   {
     icon: "workspace_premium",
@@ -18,6 +27,14 @@ const partnershipValues = [
     description:
       "Our team brings deep expertise across all construction disciplines—refined through decades of successful projects. We leverage proven methods refined through generations of construction excellence.",
     iconColor: "text-brand-secondary",
+    highlights: [
+      "150+ years combined team experience",
+      "Expertise across all disciplines",
+      "Proven methods & best practices",
+      "Continuous learning & innovation",
+    ],
+    stat: "150+",
+    statLabel: "Years Combined Experience",
   },
   {
     icon: "visibility",
@@ -26,6 +43,14 @@ const partnershipValues = [
     description:
       "Open-book pricing, honest timelines, and constant communication. You control it, we manage it—full visibility into every decision. Veteran integrity means no hidden costs, ever.",
     iconColor: "text-brand-secondary",
+    highlights: [
+      "Open-book pricing & budgets",
+      "Real-time project updates",
+      "Complete cost transparency",
+      "Honest timelines & expectations",
+    ],
+    stat: "100%",
+    statLabel: "Transparency Promise",
   },
   {
     icon: "handshake",
@@ -34,6 +59,46 @@ const partnershipValues = [
     description:
       "Our partnership doesn't end when construction finishes. 70% of our business comes from referrals and repeat clients—testament to lasting partnerships that become lifelong community connections.",
     iconColor: "text-brand-secondary",
+    highlights: [
+      "70% referral & repeat business",
+      "Lifelong partnership commitment",
+      "Post-project support & service",
+      "Community-focused relationships",
+    ],
+    stat: "70%",
+    statLabel: "Referral Business",
+  },
+  {
+    icon: "military_tech",
+    title: "Veteran-Fueled Reliability",
+    subtitle: "Military Precision Meets Construction",
+    description:
+      "Army veteran leadership brings military discipline, attention to detail, and calm decision-making under pressure. We deliver reliable results no matter the challenges, backed by service-earned integrity.",
+    iconColor: "text-brand-secondary",
+    highlights: [
+      "Army veteran-owned since Jan 2025",
+      "Military precision & discipline",
+      "Calm under pressure leadership",
+      "Service-earned integrity values",
+    ],
+    stat: "Veteran",
+    statLabel: "Owned & Operated",
+  },
+  {
+    icon: "verified_user",
+    title: "Licensed & Insured",
+    subtitle: "Multi-State Capabilities",
+    description:
+      "Fully licensed general contractor across Washington, Oregon, and Idaho. Comprehensive insurance coverage and bonding provide peace of mind for every project phase.",
+    iconColor: "text-brand-secondary",
+    highlights: [
+      "Licensed in WA, OR, and ID",
+      "Full insurance & bonding",
+      "Compliant with all regulations",
+      "Regular credential updates",
+    ],
+    stat: "3 States",
+    statLabel: "Licensed Coverage",
   },
 ];
 
@@ -69,59 +134,115 @@ export function WhyPartnerSection() {
           </div>
         </div>
 
-        {/* Core Partnership Values - Mobile optimized 4 Flip Cards */}
-        <div className="gap-3 sm:gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Core Partnership Values - Interactive Flip Cards */}
+        <div className="gap-4 sm:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-8 sm:mb-12">
           {partnershipValues.map((value, _index) => (
-            <div
-              key={_index}
-              className="group h-64 sm:h-72 lg:h-80 perspective-1000"
-            >
+            <div key={_index} className="group h-80 sm:h-96 perspective-1000">
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
                 <div className="absolute inset-0 backface-hidden">
-                  <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-5 border border-white/20 rounded-lg sm:rounded-xl h-full text-center">
-                    <div className="mb-2 sm:mb-3">
-                      <MaterialIcon
-                        icon={value.icon}
-                        size="xl"
-                        className={`drop-shadow-lg mx-auto ${value.iconColor || "text-white"}`}
-                      />
+                  <div className="flex flex-col justify-between bg-white/10 backdrop-blur-sm p-6 sm:p-8 border border-white/20 rounded-lg sm:rounded-xl h-full">
+                    <div>
+                      <div className="mb-4">
+                        <MaterialIcon
+                          icon={value.icon}
+                          size="xl"
+                          className={`drop-shadow-lg ${value.iconColor || "text-white"}`}
+                        />
+                      </div>
+                      <h3 className="font-black text-white text-xl sm:text-2xl lg:text-3xl tracking-tight leading-tight mb-2 break-words">
+                        {value.title}
+                      </h3>
+                      <p className="text-brand-secondary text-sm sm:text-base font-semibold mb-4">
+                        {value.subtitle}
+                      </p>
+                      <p className="text-white/80 text-sm sm:text-base leading-relaxed break-words">
+                        {value.description.split(".")[0]}.
+                      </p>
                     </div>
-                    <h3 className="font-black text-white text-base sm:text-lg md:text-xl lg:text-2xl tracking-tight leading-tight px-2 break-words">
-                      {value.title}
-                    </h3>
-                    <p className="mt-1.5 sm:mt-2 text-white/70 text-xs sm:text-sm">
+                    <div className="flex items-center gap-2 text-white/60 text-xs sm:text-sm">
+                      <MaterialIcon icon="touch_app" size="sm" />
                       <span className="hidden sm:inline">
-                        Hover to learn more
+                        Hover for details
                       </span>
-                      <span className="sm:hidden">Tap to learn more</span>
-                    </p>
+                      <span className="sm:hidden">Tap for details</span>
+                    </div>
                   </div>
                 </div>
 
-                {/* Back of Card */}
+                {/* Back of Card - Detailed highlights and stats */}
                 <div className="absolute inset-0 rotate-y-180 backface-hidden">
-                  <div className="flex flex-col bg-brand-primary/90 backdrop-blur-sm p-3 sm:p-4 lg:p-5 border border-white/20 rounded-lg sm:rounded-xl h-full text-center overflow-hidden">
-                    <div className="flex-shrink-0 mb-1.5 sm:mb-2">
-                      <MaterialIcon
-                        icon={value.icon}
-                        size="md"
-                        className={`mx-auto ${value.iconColor || "text-white"}`}
-                      />
+                  <div className="h-full rounded-lg sm:rounded-xl bg-gradient-to-br from-brand-primary/95 via-brand-accent/95 to-gray-900/95 p-6 sm:p-8 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+                    {/* Stat Highlight */}
+                    <div className="mb-6 text-center">
+                      <div className="text-4xl sm:text-5xl font-bold text-brand-secondary mb-1">
+                        {value.stat}
+                      </div>
+                      <div className="text-sm sm:text-base text-brand-secondary/80 font-medium">
+                        {value.statLabel}
+                      </div>
                     </div>
-                    <h3 className="flex-shrink-0 mb-2 sm:mb-3 font-bold text-white text-xs sm:text-sm md:text-base leading-tight break-words px-1">
-                      {value.subtitle}
-                    </h3>
-                    <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent px-1">
-                      <p className="text-white/90 text-xs sm:text-sm leading-relaxed break-words">
-                        {value.description}
-                      </p>
+
+                    {/* Description */}
+                    <p className="text-sm sm:text-base text-white/90 mb-6 leading-relaxed break-words">
+                      {value.description}
+                    </p>
+
+                    {/* Highlights List */}
+                    <div className="space-y-3">
+                      <h4 className="text-sm font-semibold text-brand-secondary uppercase tracking-wider mb-3">
+                        Key Highlights
+                      </h4>
+                      {value.highlights.map((highlight, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-start gap-2 text-white/90"
+                        >
+                          <MaterialIcon
+                            icon="check_circle"
+                            className="text-brand-secondary flex-shrink-0 mt-0.5"
+                            size="sm"
+                          />
+                          <span className="text-xs sm:text-sm leading-snug break-words">
+                            {highlight}
+                          </span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Bottom CTA Section */}
+        <div className="text-center mt-8 sm:mt-12">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 bg-brand-secondary hover:bg-brand-secondary/90 text-brand-primary font-bold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-base sm:text-lg"
+            >
+              <MaterialIcon icon="info" size="sm" />
+              Learn More About Us
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-lg border-2 border-white/30 transition-all duration-300 text-base sm:text-lg"
+            >
+              <MaterialIcon icon="handshake" size="sm" />
+              Start a Partnership
+            </Link>
+          </div>
+          <p className="mt-6 text-white/70 text-sm sm:text-base">
+            Ready to experience the difference? Call us at{" "}
+            <a
+              href="tel:+15093086489"
+              className="text-brand-secondary hover:text-brand-secondary/80 font-semibold transition-colors"
+            >
+              (509) 308-6489
+            </a>
+          </p>
         </div>
       </div>
 

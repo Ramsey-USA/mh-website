@@ -111,7 +111,7 @@ All cards now link to relevant pages:
 
 ### 6. Bottom CTA Section
 
-**NEW: Dual Action Buttons**
+#### NEW: Dual Action Buttons
 
 ```tsx
 <Link href="/services">View All Services</Link>
