@@ -297,8 +297,8 @@ Our award-winning safety record provides clients with:
 
 **Partnership Opportunities:**
 
-- Veteran Business Partnerships: ext. 100
-- Safety Collaboration: ext. 220
+- Veteran Business Partnerships: (509) 308-6489
+- Safety Collaboration: (509) 308-6489
 
 ---
 

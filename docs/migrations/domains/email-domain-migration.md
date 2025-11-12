@@ -13,13 +13,13 @@ structure.
 ### **Primary Contact Emails**
 
 - **General Information**: `office@mhc-gc.com`
-- **Project Consultations**: `office@mhc-gc.com` (Extension 100)
-- **Vendor Relations**: `office@mhc-gc.com` (Extension 150)
+- **Project Consultations**: `office@mhc-gc.com`
+- **Vendor Relations**: `office@mhc-gc.com`
 - **Office Contact**: `office@mhc-gc.com`
 
 ### **Specialized Contact Emails (All routed through `office@mhc-gc.com`)**
 
-- **Safety & Compliance**: `office@mhc-gc.com` (Extension 220)
+- **Safety & Compliance**: `office@mhc-gc.com`
 - **Development Team**: `office@mhc-gc.com`
 - **Project Manager**: `office@mhc-gc.com`
 - **Emergency Support**: `office@mhc-gc.com`

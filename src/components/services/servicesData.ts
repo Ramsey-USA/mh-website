@@ -68,7 +68,7 @@ export const coreServices: CoreService[] = [
       "Building for the Client, NOT the Dollar",
     ],
     ctaText:
-      "Ready to start your commercial construction project? Call (509) 308-6489 ext. 100 or schedule a free consultation to discuss your vision with our partnership-focused team.",
+      "Ready to start your commercial construction project? Call (509) 308-6489 or schedule a free consultation to discuss your vision with our partnership-focused team.",
   },
   {
     iconName: "architecture",
@@ -209,7 +209,7 @@ export const specialtyServices: SpecialtyService[] = [
       "Decades of proven TI experience",
     ],
     ctaText:
-      "Ready for your tenant improvements? Call (509) 308-6489 ext. 100 to schedule a free consultation or book an on-site assessment to discuss your commercial space transformation.",
+      "Ready for your tenant improvements? Call (509) 308-6489 to schedule a free consultation or book an on-site assessment to discuss your commercial space transformation.",
   },
   {
     iconName: "apartment",

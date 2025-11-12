@@ -172,7 +172,6 @@ partnership/
 │   ├── contact-forms.md
 │   └── email-templates.md
 └── reference/
-    ├── phone-extensions.md
     └── domain-structure.md
 ```text
 

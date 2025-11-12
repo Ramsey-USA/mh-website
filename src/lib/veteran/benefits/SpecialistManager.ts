@@ -252,7 +252,7 @@ export class SpecialistManager {
    * Generate direct line
    */
   private generateDirectLine(): string {
-    return "(509) 308-6489 ext. 100";
+    return "(509) 308-6489";
   }
 
   /**

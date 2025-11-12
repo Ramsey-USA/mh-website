@@ -316,7 +316,7 @@ Trade Partnership Team:
 │   ├── Active project coordination and management
 │   └── Ongoing partnership support and communication
 └── Safety and Compliance Officer
-    ├── Phone: (509) 308-6489 ext. 220
+    ├── Phone: (509) 308-6489
     ├── Email: office@mhc-gc.com
     ├── Safety requirements and training
     └── Compliance monitoring and support
@@ -328,7 +328,7 @@ Trade Partnership Team:
 
 **Project Coordination:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
-**Safety & Compliance:** [(509) 308-6489](tel:+15093086489) ext. 220 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+**Safety & Compliance:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ---
 

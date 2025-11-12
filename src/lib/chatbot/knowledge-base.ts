@@ -8,11 +8,6 @@
 
 export interface CompanyContact {
   phone: string;
-  phoneExtensions: {
-    clientServices: string;
-    tradePartners: string;
-    veterans: string;
-  };
   email: string;
   hours: string;
   hoursDetails: string[];
@@ -77,11 +72,6 @@ export interface CompanyKnowledge {
 export const companyKnowledge: CompanyKnowledge = {
   contact: {
     phone: "(509) 308-6489",
-    phoneExtensions: {
-      clientServices: "ext. 100",
-      tradePartners: "ext. 150",
-      veterans: "Ask for priority service",
-    },
     email: "office@mhc-gc.com",
     hours: "Monday-Friday, 8:00 AM - 5:00 PM PST",
     hoursDetails: [
@@ -194,10 +184,7 @@ export const companyKnowledge: CompanyKnowledge = {
 export function getContactInfo(): string {
   const { contact } = companyKnowledge;
   return (
-    `**Phone:** ${contact.phone}\n` +
-    `• Client Services: ${contact.phoneExtensions.clientServices}\n` +
-    `• Trade Partners: ${contact.phoneExtensions.tradePartners}\n` +
-    `• Veterans: ${contact.phoneExtensions.veterans}\n\n` +
+    `**Phone:** ${contact.phone}\n\n` +
     `**Email:** ${contact.email}\n\n` +
     `**Hours:** ${contact.hours}\n\n` +
     `**Office:** ${contact.address}, ${contact.city}, ${contact.state} ${contact.zip}\n` +

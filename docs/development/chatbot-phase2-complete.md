@@ -25,7 +25,7 @@ its ability to answer common questions with detailed, helpful responses.
 **Response Method:** `generateContactResponse()`
 
 - Provides comprehensive contact details
-- Phone: (509) 308-6489 with extensions
+- Phone: (509) 308-6489
 - Email: <office@mhc-gc.com>
 - Hours: Monday-Friday, 8:00 AM - 5:00 PM PST
 - Office address with Google Maps link

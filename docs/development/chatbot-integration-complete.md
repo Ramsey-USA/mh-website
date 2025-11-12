@@ -189,8 +189,6 @@ See `/docs/development/chatbot-enhancement-guide.md` for complete roadmap:
 **Quick Reference for FAQ Updates:**
 
 - **Phone:** (509) 308-6489
-  - Client Services: ext. 100
-  - Trade Partners: ext. 150
 - **Email:** <office@mhc-gc.com>
 - **Hours:** Monday-Friday, 8:00 AM - 5:00 PM PST
 - **Address:** 3111 N. Capital Ave., Pasco, WA 99301

@@ -644,9 +644,6 @@ Full documentation: [Partnership Type Definitions](./docs/partnerships/partnersh
 
 **Phone:** (509) 308-6489
 
-- Extension 100: Client inquiries
-- Extension 150: Trade partner applications
-
 **Email:** [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 **Address:** 3111 N. Capital Ave., Pasco, WA 99301

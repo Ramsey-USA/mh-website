@@ -69,7 +69,6 @@ consistency with the rest of the MH Construction website.
 - [ ] **Trade Partnerships:** Use construction icon (🏗️), leather tan, "Building Professional Partnerships"
 - [ ] **Proper Routes:** Client (`/services`, `/booking`) vs Trade (`/trade-partners`)
 - [ ] **Correct CTAs:** "Schedule Consultation" (clients) vs "Join Our Network" (trades)
-- [ ] **Phone Extensions:** 100 for clients, 150 for trades
 - [ ] **Visual Identity:** Consistent colors, icons, and messaging per partnership type
 
 **Reference:** [Partnership Implementation Guide](./reference/partnership-implementation-guide.md)

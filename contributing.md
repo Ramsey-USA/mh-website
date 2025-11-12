@@ -698,9 +698,7 @@ All submissions are logged even if email service is unavailable (graceful fallba
 
 ### Business Contacts
 
-- **General Inquiries**: [(509) 308-6489](tel:+15093086489)
-  - **Client Partnership Inquiries (projects)**: [ext. 100](tel:+15093086489,100) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
-  - **Trade Partnership Inquiries (vendors)**: [ext. 150](tel:+15093086489,150) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+- **General Inquiries**: [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 - **General Email**: <office@mhc-gc.com>
 
 **Partnership Distinction:** See [Partnership Type Definitions](./docs/partnerships/partnership-type-definitions.md)

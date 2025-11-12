@@ -301,7 +301,7 @@ Experience these values in action on your next construction project.
 
 - **Apply to be Approved Vendor** - Join our professional network
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 150
+**Contact:** [(509) 308-6489](tel:+15093086489)
 
 ---
 

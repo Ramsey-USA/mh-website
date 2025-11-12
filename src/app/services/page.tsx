@@ -1200,7 +1200,7 @@ export default function ServicesPage() {
                           size="sm"
                           className="inline mr-1"
                         />
-                        Call (509) 308-6489 ext. 100
+                        Call (509) 308-6489
                       </p>
                     </div>
                   </CardContent>
@@ -1348,7 +1348,7 @@ export default function ServicesPage() {
                           size="sm"
                           className="inline mr-1"
                         />
-                        Call (509) 308-6489 ext. 150
+                        Call (509) 308-6489
                       </p>
                     </div>
                   </CardContent>

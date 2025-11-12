@@ -15,7 +15,7 @@ export const faqDatabase: FAQItem[] = [
   {
     keywords: ["phone", "call", "number", "telephone", "contact"],
     question: "What is your phone number?",
-    answer: `**[CONTACT INFORMATION]** 📞\n\n**Main Line:** (509) 308-6489\n\n**Extensions:**\n• **Client Services (ext. 100)** - Free estimates, consultations, project discussions\n• **Trade Partners (ext. 150)** - Vendor applications, partnerships\n\n**Email:** office@mhc-gc.com\n\n**Hours:** Monday-Friday, 8:00 AM - 5:00 PM PST\n\n**[Schedule Consultation →](/booking)** or **[Contact Form →](/contact)**`,
+    answer: `**[CONTACT INFORMATION]** 📞\n\n**Main Line:** (509) 308-6489\n\n**Email:** office@mhc-gc.com\n\n**Hours:** Monday-Friday, 8:00 AM - 5:00 PM PST\n\n**[Schedule Consultation →](/booking)** or **[Contact Form →](/contact)**`,
     category: "contact",
   },
   {

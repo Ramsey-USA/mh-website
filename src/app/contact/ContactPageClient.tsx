@@ -348,11 +348,11 @@ export default function ContactPageClient() {
                             Client Services
                           </p>
                           <a
-                            href="tel:+15093086489,100"
+                            href="tel:+15093086489"
                             className="text-brand-primary hover:text-brand-accent text-lg font-bold transition-colors"
-                            aria-label="Call client services at 509-308-6489 extension 100"
+                            aria-label="Call client services at 509-308-6489"
                           >
-                            (509) 308-6489 ext. 100
+                            (509) 308-6489
                           </a>
                         </div>
                       </div>
@@ -455,11 +455,11 @@ export default function ContactPageClient() {
                             Trade Partner Inquiries
                           </p>
                           <a
-                            href="tel:+15093086489,150"
+                            href="tel:+15093086489"
                             className="text-brand-secondary hover:text-brand-accent text-lg font-bold transition-colors"
-                            aria-label="Call trade partner inquiries at 509-308-6489 extension 150"
+                            aria-label="Call trade partner inquiries at 509-308-6489"
                           >
-                            (509) 308-6489 ext. 150
+                            (509) 308-6489
                           </a>
                         </div>
                       </div>

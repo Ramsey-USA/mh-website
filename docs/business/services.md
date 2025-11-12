@@ -54,7 +54,7 @@ commercial, industrial, and specialty businesses, including:
 - **Schedule Free Consultation** - Meet with our specialists (`event`)
 - **Budget Planning Tool** - Prepare for your consultation (`smart_toy`)
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+**Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ---
 
@@ -198,7 +198,7 @@ quickly and efficiently.
 - **Schedule Free Consultation** - Discuss your renovation project (`event`)
 - **Book Site Visit** - On-location space assessment (`place`)
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+**Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ---
 
@@ -329,7 +329,7 @@ Try our helpful budget planning tool for preliminary estimates - available 24/7 
 
 - **Budget Planning Tool** - Preliminary cost estimates (`smart_toy`)
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+**Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ### **Service Request Process**
 
@@ -376,7 +376,7 @@ Available 24/7 to prepare for your consultation.
 - **Book Site Visit** - Arrange an on-location assessment (`place`)
 - **Request Project Review** - Submit plans for expert analysis (`visibility`)
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+**Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ### **For Trade Partners**
 
@@ -389,7 +389,7 @@ network of quality professionals serving the Pacific Northwest market.
 - **Join Trade Partnership Network** - Partner with established contractor (`construction`)
 - **Download Vendor Package** - Get requirements and materials (`download`)
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 150 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+**Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ---
 
@@ -397,13 +397,13 @@ network of quality professionals serving the Pacific Northwest market.
 
 ### **Project Consultations** (Client Partnerships)
 
-**Phone:** [(509) 308-6489](tel:+15093086489) ext. 100
+**Phone:** [(509) 308-6489](tel:+15093086489)
 **Email:** [office@mhc-gc.com](mailto:office@mhc-gc.com)
 **For:** Free estimates, consultations, and project discussions
 
 ### **Trade Partnership Inquiries** (Vendor Partnerships)
 
-**Phone:** [(509) 308-6489](tel:+15093086489) ext. 150
+**Phone:** [(509) 308-6489](tel:+15093086489)
 **Email:** [office@mhc-gc.com](mailto:office@mhc-gc.com)
 **For:** Vendor applications, trade partnerships, and business opportunities
 

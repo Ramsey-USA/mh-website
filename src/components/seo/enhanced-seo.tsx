@@ -33,8 +33,6 @@ export const enhancedSEO = {
     name: "MH Construction LLC",
     legalName: "MH Construction Limited Liability Company - Veteran-Owned",
     telephone: "(509) 308-6489",
-    clientExtension: "ext. 100",
-    vendorExtension: "ext. 150",
     email: "office@mhc-gc.com",
     address: {
       streetAddress: "3111 N. Capital Ave.",
@@ -437,7 +435,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "How can I get started with my construction project?",
       answer:
-        "We recommend starting with a personal consultation—schedule your free on-site evaluation for personalized assessment. You can also use our 24/7 Budget Planning Tool for preliminary estimates to help prepare for our meeting. Contact us at (509) 308-6489 - ext. 100 for client partnerships or ext. 150 for vendor partnerships.",
+        "We recommend starting with a personal consultation—schedule your free on-site evaluation for personalized assessment. You can also use our 24/7 Budget Planning Tool for preliminary estimates to help prepare for our meeting. Contact us at (509) 308-6489.",
     },
     {
       question: "Are you a veteran-owned business?",

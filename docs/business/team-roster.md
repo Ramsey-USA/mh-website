@@ -379,7 +379,7 @@ Connect with our experienced team to discuss your construction project needs.
 - **Schedule Free Consultation** - Meet with our specialists (`event`)
 - **Request Project Review** - Submit plans for expert analysis (`visibility`)
 
-**Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+**Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ### Project Team Contacts
 

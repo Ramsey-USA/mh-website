@@ -872,8 +872,6 @@ export class EnhancedChatbotAI {
     return (
       `**[CONTACT COMMAND CENTER]** 📞\n\n` +
       `**PHONE:** (509) 308-6489\n` +
-      `• Client Services: ext. 100\n` +
-      `• Trade Partners: ext. 150\n` +
       `• Veterans: Ask for priority service\n\n` +
       `**EMAIL:** office@mhc-gc.com\n\n` +
       `**HOURS:** Monday-Friday, 8:00 AM - 5:00 PM PST\n` +
