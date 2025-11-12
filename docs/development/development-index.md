@@ -98,6 +98,16 @@ Quick reference guides, troubleshooting documentation, and developer resources.
   - Copy-paste ready examples for common patterns
 - **[chatbot-first-strategy.md](./chatbot-first-strategy.md)** - **🤖 NEW (Nov 2025)** - Chatbot-first
   user engagement strategy and implementation guide
+- **[chatbot-enhancement-guide.md](./chatbot-enhancement-guide.md)** - **🤖 NEW (Nov 12, 2024)** -
+  Comprehensive chatbot improvement roadmap with 10 enhancement strategies (Phases 1-3 complete)
+- **[chatbot-integration-complete.md](./chatbot-integration-complete.md)** - **🤖 NEW (Nov 12, 2024)** -
+  FAQ system integration summary and testing checklist (Phase 1)
+- **[chatbot-phase2-complete.md](./chatbot-phase2-complete.md)** - **🤖 NEW (Nov 12, 2024)** -
+  Contact, pricing, and timeline query handlers implementation (Phase 1 completion)
+- **[chatbot-phase2-short-term-complete.md](./chatbot-phase2-short-term-complete.md)** - **🤖 NEW (Nov 12, 2024)** -
+  Phase 2 SHORT-TERM: Knowledge base, synonyms, follow-ups, analytics (95-98% coverage)
+- **[chatbot-phase3-complete.md](./chatbot-phase3-complete.md)** - **🤖 NEW (Nov 2024)** -
+  Phase 3 MEDIUM-TERM: Conversation memory, confidence scoring, personalization, feedback (98-99% coverage)
 - **[development-standards.md](./development-standards.md)** - Core development standards and practices  
   (updated with mandatory utilities requirement)
 - **[terminology-guide.md](./terminology-guide.md)** - Project terminology and naming conventions

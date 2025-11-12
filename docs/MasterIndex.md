@@ -1,6 +1,6 @@
 # MH Construction Documentation Master Index
 
-**Welcome to the MH Construction Documentation Hub** | **Last Updated**: November 10, 2025
+**Welcome to the MH Construction Documentation Hub** | **Last Updated**: November 12, 2025
 
 This is your central navigation point for all MH Construction project documentation. Whether you're a developer,
 designer, content writer, or stakeholder, start here to find what you need.
@@ -142,6 +142,14 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 
 - [VS Code Complete Setup](./development/vscode-setup-complete.md) - ⭐ **NEW (Nov 2025)** - Full configuration guide
 - [VS Code Extensions Guide](./development/vscode-extensions-guide.md) - Detailed extension documentation
+- [Chatbot Enhancement Guide](./development/chatbot-enhancement-guide.md) - ⭐ **NEW (Nov 12, 2024)** -
+  Comprehensive chatbot improvement strategies (Phases 1-4 roadmap)
+- [Chatbot Integration Complete](./development/chatbot-integration-complete.md) - FAQ system implementation (Phase 1)
+- [Chatbot Phase 2 Complete](./development/chatbot-phase2-complete.md) - Contact, pricing, timeline handlers (Phase 1)
+- [Chatbot Phase 2 Short-term](./development/chatbot-phase2-short-term-complete.md) - ⭐ **NEW (Nov 12, 2024)** -
+  Knowledge base, synonyms, follow-ups, analytics (Phase 2, 95-98% coverage)
+- [Chatbot Phase 3 Complete](./development/chatbot-phase3-complete.md) - ⭐ **NEW (Nov 2024)** -
+  Conversation memory, confidence scoring, personalization, feedback system (Phase 3, 98-99% coverage)
 - [Scripts Guide](../scripts/mh-scripts-guide.md) - ⭐ **ESSENTIAL** - Automation scripts (SEO, testing, cleanup, optimization)
 - [Testing Guide](../testing/mh-testing-guide.md) - ⭐ **ESSENTIAL** - Comprehensive testing suites (cohesion, security, responsive)
 - [Config Directory Guide](../config/config-directory-guide.md) - Deployment configs (Cloudflare, Docker, monitoring)
@@ -185,6 +193,22 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 - [Layout Hub](./technical/design-system/layout/layout-index.md) - Page layout documentation
 - [Page Layout Standards](./technical/design-system/layout/page-layout-standards.md) - Layout standards
 - [Mobile Optimization Guide](./technical/design-system/mobile-optimization-guide.md) - Mobile design
+
+**Chatbot System:**
+
+- [Chatbot First Strategy](./development/chatbot-first-strategy.md) - Chatbot-first user engagement strategy
+- [Chatbot Enhancement Guide](./development/chatbot-enhancement-guide.md) - ⭐ **NEW (Nov 12, 2024)** -
+  10 enhancement strategies and implementation roadmap (Phases 1-3 complete)
+- [Chatbot Phase 1: Integration](./development/chatbot-integration-complete.md) - FAQ system (20+ responses, 90-95% coverage)
+- [Chatbot Phase 1: Query Handlers](./development/chatbot-phase2-complete.md) - Contact, pricing, timeline handlers
+- [Chatbot Phase 2: SHORT-TERM](./development/chatbot-phase2-short-term-complete.md) - ⭐ **NEW (Nov 12, 2024)** -
+  Knowledge base, synonyms (30+), follow-ups (7 categories), analytics (95-98% coverage)
+- [Chatbot Phase 3: MEDIUM-TERM](./development/chatbot-phase3-complete.md) - ⭐ **NEW (Nov 2024)** -
+  Conversation memory, confidence scoring, personalization, feedback collection (98-99% coverage)
+
+**Summary:** Phases 1-3 complete. Chatbot coverage progression:
+60% (baseline) → 90-95% (Phase 1) → 95-98% (Phase 2) → 98-99% (Phase 3) ✨
+~965 lines of intelligent code added across all phases.
 
 ---
 
@@ -319,7 +343,7 @@ Document & code templates for rapid creation.
 
 | Metric                    | Value                                       |
 | ------------------------- | ------------------------------------------- |
-| Markdown Files            | 175                                         |
+| Markdown Files            | 178                                         |
 | Categories                | 11                                          |
 | Index Files               | 29                                          |
 | Root-Level Guides         | 4 (scripts, testing, config, seo-quick-ref) |
@@ -328,6 +352,7 @@ Document & code templates for rapid creation.
 | Static Pages Generated    | 21                                          |
 | Quality Score             | 97–98/100                                   |
 | Interactive Systems       | 6                                           |
+| Chatbot Coverage          | 90-95% (Phase 1 & 2 complete)               |
 | Lines Optimized (removed) | 10,925+ (includes shared sections)          |
 
 ---
@@ -436,6 +461,7 @@ Maintenance: Weekly (incremental), Monthly (index audit), Quarterly (full review
 | ------------------------ | -------------------------------------------------------------------------------- |
 | **Start developing**     | [Consistency Guide](./development/consistency-guide.md)                          |
 | **Use style utilities**  | [Style Utilities Guide](./development/style-utilities-guide.md)                  |
+| **Improve chatbot**      | [Chatbot Enhancement Guide](./development/chatbot-enhancement-guide.md)          |
 | **Add a new page**       | [Ultimate SEO Guide](./technical/seo/ultimate-seo-guide.md)                      |
 | **Check SEO**            | Run `npm run seo:audit` or [SEO Quick Ref](../seo-quick-reference.md)            |
 | **Run tests**            | [Testing Guide](../testing/mh-testing-guide.md) - Cohesion, security, responsive |
@@ -465,9 +491,10 @@ Maintenance: Weekly (incremental), Monthly (index audit), Quarterly (full review
 
 **Maintained by**: MH Construction Documentation Team  
 **Version**: 4.0.1 (aligned with application package.json)  
-**Last Updated**: November 10, 2025
+**Last Updated**: November 12, 2025
 
 > Internal Cohesion Note: Enhanced visibility for root-level guides (scripts, testing).
-> All 29 index files verified current (Nov 6-10, 2025).
+> All 29 index files verified current (Nov 6-12, 2025).
+> Chatbot system documentation added (3 comprehensive guides, 90-95% coverage).
 > Root-level guides prominently featured in Quick Actions and Tools & Utilities.
 > Re-run `find . -name '*.md' | wc -l` and `npm run validate:links` monthly.

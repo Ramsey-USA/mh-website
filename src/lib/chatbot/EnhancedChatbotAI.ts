@@ -4,6 +4,8 @@
  * search integration, conversation memory, and intelligent responses
  */
 
+import { matchFAQ } from "./faq-responses";
+
 export interface ChatbotSearchIntegration {
   searchQuery?: string;
   searchResults?: unknown[];
@@ -11,24 +13,50 @@ export interface ChatbotSearchIntegration {
   hasSearchContext?: boolean;
 }
 
+export interface ResponseFeedback {
+  responseId: string;
+  rating: "positive" | "negative";
+  timestamp: Date;
+  userMessage: string;
+  botResponse: string;
+  responseType?: string;
+  confidence?: number;
+  comment?: string;
+}
+
 export interface ConversationMemory {
   userProfile?: {
     isVeteran?: boolean;
+    veteranBranch?: string;
     previousProjects?: string[];
     interests?: string[];
     budget?: string;
     location?: string;
+    preferredContactMethod?: "phone" | "email" | "form";
+    hasRequestedEstimate?: boolean;
+    hasScheduledConsultation?: boolean;
   };
   sessionMetrics?: {
     messageCount: number;
     sessionDuration: number;
     leadsGenerated: number;
     topicsDiscussed: string[];
+    satisfactionRating?: number; // 1-5 scale
+    feedbackProvided?: boolean;
+    responseFeedback?: ResponseFeedback[];
   };
   conversationFlow?: {
     currentTopic?: string;
     previousTopics: string[];
     nextSuggestedTopics: string[];
+    lastResponseType?: string;
+    lastResponseConfidence?: number;
+  };
+  sessionInfo?: {
+    sessionId: string;
+    startTime: Date;
+    lastActivity: Date;
+    totalInteractions: number;
   };
 }
 
@@ -62,42 +90,262 @@ export class EnhancedChatbotAI {
 
   /**
    * Generate contextually aware responses with search integration
+   * Phase 3: Now includes conversation memory, confidence scoring, and personalization
    */
   generateEnhancedResponse(
     userMessage: string,
     context: EnhancedChatbotContext,
     conversationHistory: unknown[] = [],
   ): string {
-    // Check for company information queries (leadership, ownership, etc.)
-    if (this.isCompanyInfoQuery(userMessage)) {
-      return this.generateCompanyInfoResponse(userMessage, context);
+    // Normalize the query to handle synonyms and variations
+    const normalizedMessage = this.normalizeQuery(userMessage);
+
+    let responseType = "general";
+    let baseResponse = "";
+    let confidence = 0.5;
+
+    // Add personalized greeting if available
+    const greeting = this.getPersonalizedGreeting(context);
+    const personalizedPrefix = greeting || "";
+
+    // PRIORITY 1: Check FAQ database first - handles most common questions
+    const faqMatch = matchFAQ(normalizedMessage);
+    if (faqMatch) {
+      responseType = "faq";
+      baseResponse = faqMatch.answer + this.formatFollowups(faqMatch.category);
+      confidence = this.calculateConfidence(responseType, userMessage);
+
+      this.updateConversationMemory(context, { topic: faqMatch.category });
+      this.logAnalytics({
+        question: userMessage,
+        responseType,
+        wasAnswered: true,
+      });
+
+      return (
+        personalizedPrefix +
+        this.addConfidenceEscalation(baseResponse, confidence)
+      );
     }
 
-    // Check if user is asking about search or wants to find something
-    if (this.isSearchRelatedQuery(userMessage)) {
-      return this.generateSearchResponse(userMessage, context);
+    // PRIORITY 2: Check for specific contact queries (detailed responses)
+    if (this.isContactQuery(normalizedMessage)) {
+      responseType = "contact";
+      baseResponse =
+        this.generateContactResponse() + this.formatFollowups("contact");
+      confidence = this.calculateConfidence(responseType, userMessage);
+
+      this.updateConversationMemory(context, { topic: "contact" });
+      this.logAnalytics({
+        question: userMessage,
+        responseType,
+        wasAnswered: true,
+      });
+
+      return (
+        personalizedPrefix +
+        this.addConfidenceEscalation(baseResponse, confidence)
+      );
     }
 
-    // Check if user needs help with current page content
-    if (this.isPageSpecificQuery(userMessage, context)) {
-      return this.generatePageSpecificResponse(userMessage, context);
+    // PRIORITY 3: Check for pricing queries (budget and cost questions)
+    if (this.isPricingQuery(normalizedMessage)) {
+      responseType = "pricing";
+      baseResponse =
+        this.generatePricingResponse(normalizedMessage) +
+        this.formatFollowups("pricing");
+      confidence = this.calculateConfidence(responseType, userMessage);
+
+      this.updateConversationMemory(context, {
+        topic: "pricing",
+        interest: "pricing",
+      });
+      this.logAnalytics({
+        question: userMessage,
+        responseType,
+        wasAnswered: true,
+      });
+
+      return (
+        personalizedPrefix +
+        this.addConfidenceEscalation(baseResponse, confidence)
+      );
     }
 
-    // Check for veteran-specific queries
-    if (this.isVeteranQuery(userMessage, context)) {
-      return this.generateVeteranResponse(userMessage, context);
+    // PRIORITY 4: Check for timeline/schedule queries
+    if (this.isTimelineQuery(normalizedMessage)) {
+      responseType = "timeline";
+      baseResponse =
+        this.generateTimelineResponse(normalizedMessage) +
+        this.formatFollowups("timeline");
+      confidence = this.calculateConfidence(responseType, userMessage);
+
+      this.updateConversationMemory(context, { topic: "timeline" });
+      this.logAnalytics({
+        question: userMessage,
+        responseType,
+        wasAnswered: true,
+      });
+
+      return (
+        personalizedPrefix +
+        this.addConfidenceEscalation(baseResponse, confidence)
+      );
     }
 
-    // Check for project/estimate queries
-    if (this.isProjectQuery(userMessage)) {
-      return this.generateProjectResponse(userMessage, context);
+    // PRIORITY 5: Check for SEO/technical queries
+    if (this.isSEOQuery(normalizedMessage)) {
+      responseType = "seo";
+      baseResponse =
+        this.generateSEOResponse(normalizedMessage) +
+        this.formatFollowups("technical");
+      confidence = this.calculateConfidence(responseType, userMessage);
+
+      this.updateConversationMemory(context, {
+        topic: "seo",
+        interest: "technical website optimization",
+      });
+      this.logAnalytics({
+        question: userMessage,
+        responseType,
+        wasAnswered: true,
+      });
+
+      return (
+        personalizedPrefix +
+        this.addConfidenceEscalation(baseResponse, confidence)
+      );
     }
 
-    // Generate general response with enhanced context
-    return this.generateGeneralResponse(
-      userMessage,
+    // PRIORITY 6: Check for company information queries (leadership, ownership, etc.)
+    if (this.isCompanyInfoQuery(normalizedMessage)) {
+      responseType = "company";
+      baseResponse =
+        this.generateCompanyInfoResponse(normalizedMessage, context) +
+        this.formatFollowups("company");
+      confidence = this.calculateConfidence(responseType, userMessage);
+
+      this.updateConversationMemory(context, { topic: "company" });
+      this.logAnalytics({
+        question: userMessage,
+        responseType,
+        wasAnswered: true,
+      });
+
+      return (
+        personalizedPrefix +
+        this.addConfidenceEscalation(baseResponse, confidence)
+      );
+    }
+
+    // PRIORITY 6: Check if user is asking about search or wants to find something
+    if (this.isSearchRelatedQuery(normalizedMessage)) {
+      responseType = "search";
+      baseResponse = this.generateSearchResponse(normalizedMessage, context);
+      confidence = this.calculateConfidence(responseType, userMessage);
+
+      this.logAnalytics({
+        question: userMessage,
+        responseType,
+        wasAnswered: true,
+      });
+
+      return (
+        personalizedPrefix +
+        this.addConfidenceEscalation(baseResponse, confidence)
+      );
+    }
+
+    // PRIORITY 7: Check if user needs help with current page content
+    if (this.isPageSpecificQuery(normalizedMessage, context)) {
+      responseType = "page-specific";
+      baseResponse = this.generatePageSpecificResponse(
+        normalizedMessage,
+        context,
+      );
+      confidence = this.calculateConfidence(responseType, userMessage);
+
+      this.logAnalytics({
+        question: userMessage,
+        responseType,
+        wasAnswered: true,
+      });
+
+      return (
+        personalizedPrefix +
+        this.addConfidenceEscalation(baseResponse, confidence)
+      );
+    }
+
+    // PRIORITY 8: Check for veteran-specific queries
+    if (this.isVeteranQuery(normalizedMessage, context)) {
+      responseType = "veteran";
+      baseResponse =
+        this.generateVeteranResponse(normalizedMessage, context) +
+        this.formatFollowups("veteran");
+      confidence = this.calculateConfidence(responseType, userMessage);
+
+      // Detect veteran status and branch
+      const branch = this.detectVeteranBranch(normalizedMessage);
+      this.updateConversationMemory(context, {
+        isVeteran: true,
+        ...(branch && { veteranBranch: branch }),
+        topic: "veteran",
+      });
+      this.logAnalytics({
+        question: userMessage,
+        responseType,
+        wasAnswered: true,
+      });
+
+      return (
+        personalizedPrefix +
+        this.addConfidenceEscalation(baseResponse, confidence)
+      );
+    }
+
+    // PRIORITY 9: Check for project/estimate queries
+    if (this.isProjectQuery(normalizedMessage)) {
+      responseType = "project";
+      baseResponse =
+        this.generateProjectResponse(normalizedMessage, context) +
+        this.formatFollowups("project");
+      confidence = this.calculateConfidence(responseType, userMessage);
+
+      this.updateConversationMemory(context, {
+        topic: "project",
+        action: "estimate",
+      });
+      this.logAnalytics({
+        question: userMessage,
+        responseType,
+        wasAnswered: true,
+      });
+
+      return (
+        personalizedPrefix +
+        this.addConfidenceEscalation(baseResponse, confidence)
+      );
+    }
+
+    // PRIORITY 10: Generate general response with enhanced context
+    responseType = "general";
+    baseResponse = this.generateGeneralResponse(
+      normalizedMessage,
       context,
       conversationHistory,
+    );
+    confidence = this.calculateConfidence(responseType, userMessage);
+
+    this.logAnalytics({
+      question: userMessage,
+      responseType,
+      wasAnswered: false,
+    });
+
+    return (
+      personalizedPrefix +
+      this.addConfidenceEscalation(baseResponse, confidence)
     );
   }
 
@@ -477,6 +725,13 @@ export class EnhancedChatbotAI {
     return null;
   }
 
+  /**
+   * Alias for detectServiceBranch for conversation memory
+   */
+  private detectVeteranBranch(message: string): string | undefined {
+    return this.detectServiceBranch(message) || undefined;
+  }
+
   private generateVeteranResponse(
     message: string,
     _context: EnhancedChatbotContext,
@@ -591,6 +846,305 @@ export class EnhancedChatbotAI {
     );
   }
 
+  private isContactQuery(message: string): boolean {
+    const contactKeywords = [
+      "phone",
+      "call",
+      "number",
+      "email",
+      "address",
+      "location",
+      "hours",
+      "open",
+      "contact",
+      "reach you",
+      "get in touch",
+      "where are you",
+      "how do i contact",
+      "talk to someone",
+    ];
+    return contactKeywords.some((keyword) =>
+      message.toLowerCase().includes(keyword),
+    );
+  }
+
+  private generateContactResponse(): string {
+    return (
+      `**[CONTACT COMMAND CENTER]** 📞\n\n` +
+      `**PHONE:** (509) 308-6489\n` +
+      `• Client Services: ext. 100\n` +
+      `• Trade Partners: ext. 150\n` +
+      `• Veterans: Ask for priority service\n\n` +
+      `**EMAIL:** office@mhc-gc.com\n\n` +
+      `**HOURS:** Monday-Friday, 8:00 AM - 5:00 PM PST\n` +
+      `• Saturday consultations available by appointment\n\n` +
+      `**OFFICE:** 3111 N. Capital Ave., Pasco, WA 99301\n` +
+      `[**Get Directions →**](https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301)\n\n` +
+      `**RESPONSE TIMES:**\n` +
+      `• Standard inquiries: Within 24 hours\n` +
+      `• Veterans: Within 12 hours\n` +
+      `• Emergency support: Same day\n\n` +
+      `**QUICK ACTIONS:**\n` +
+      `• **[Schedule Consultation →](/booking)**\n` +
+      `• **[Contact Form →](/contact)**\n` +
+      `• **[Get AI Estimate →](/estimator)**\n\n` +
+      `**How can we support your construction mission today?**`
+    );
+  }
+
+  private isPricingQuery(message: string): boolean {
+    const pricingKeywords = [
+      "how much",
+      "cost",
+      "price",
+      "pricing",
+      "expensive",
+      "cheap",
+      "rate",
+      "fee",
+      "charge",
+      "payment",
+      "financing",
+      "afford",
+      "budget",
+      "dollar",
+      "money",
+    ];
+    return pricingKeywords.some((keyword) =>
+      message.toLowerCase().includes(keyword),
+    );
+  }
+
+  private generatePricingResponse(message: string): string {
+    const projectType = this.extractProjectType(message);
+
+    let response = `**[PRICING INTELLIGENCE BRIEFING]** 💰\n\n`;
+
+    if (projectType === "kitchen") {
+      response += `**KITCHEN REMODEL RANGE:**\n`;
+      response += `• Minor refresh: $15,000 - $30,000\n`;
+      response += `• Mid-range upgrade: $30,000 - $60,000\n`;
+      response += `• High-end transformation: $60,000 - $100,000+\n\n`;
+    } else if (projectType === "bathroom") {
+      response += `**BATHROOM RENOVATION RANGE:**\n`;
+      response += `• Basic update: $8,000 - $15,000\n`;
+      response += `• Standard remodel: $15,000 - $30,000\n`;
+      response += `• Luxury upgrade: $30,000 - $50,000+\n\n`;
+    } else if (projectType === "addition") {
+      response += `**HOME ADDITION RANGE:**\n`;
+      response += `• Basic addition: $100 - $200 per sq ft\n`;
+      response += `• Standard quality: $200 - $300 per sq ft\n`;
+      response += `• Premium finish: $300 - $400+ per sq ft\n\n`;
+    } else {
+      response += `**GENERAL PRICING INFO:**\n`;
+      response += `Every project is unique! Costs depend on:\n`;
+      response += `• Scope and complexity\n`;
+      response += `• Materials and finishes\n`;
+      response += `• Structural requirements\n`;
+      response += `• Permits and inspections\n`;
+      response += `• Timeline and scheduling\n\n`;
+    }
+
+    response += `**FREE ESTIMATE OPTIONS:**\n`;
+    response += `• **[AI Estimator →](/estimator)** - Get instant ballpark pricing\n`;
+    response += `• **[Schedule Consultation →](/booking)** - Detailed on-site assessment\n`;
+    response += `• **[Call (509) 308-6489](tel:5093086489)** - Speak with our team\n\n`;
+    response += `**VETERAN DISCOUNT:** 12% off for combat veterans!\n\n`;
+    response += `**PAYMENT OPTIONS:**\n`;
+    response += `• Competitive financing available\n`;
+    response += `• Flexible payment schedules\n`;
+    response += `• Progress-based billing\n\n`;
+    response += `**Ready to get your precise estimate?**`;
+
+    return response;
+  }
+
+  private isTimelineQuery(message: string): boolean {
+    const timelineKeywords = [
+      "how long",
+      "timeline",
+      "duration",
+      "time",
+      "takes",
+      "schedule",
+      "when",
+      "fast",
+      "quick",
+      "weeks",
+      "months",
+      "days",
+      "finish",
+      "complete",
+    ];
+    return timelineKeywords.some((keyword) =>
+      message.toLowerCase().includes(keyword),
+    );
+  }
+
+  private isSEOQuery(message: string): boolean {
+    const seoKeywords = [
+      "seo",
+      "search engine",
+      "google",
+      "ranking",
+      "optimize",
+      "visibility",
+      "meta",
+      "metadata",
+      "sitemap",
+      "robots.txt",
+      "lighthouse",
+      "performance score",
+      "page speed",
+      "search result",
+      "crawl",
+      "index",
+      "keywords",
+    ];
+    return seoKeywords.some((keyword) =>
+      message.toLowerCase().includes(keyword),
+    );
+  }
+
+  private generateSEOResponse(message: string): string {
+    const messageLower = message.toLowerCase();
+    let response = `**[SEO COMMAND CENTER]** 🔍\n\n`;
+
+    // Specific SEO topic detection
+    if (
+      messageLower.includes("sitemap") ||
+      messageLower.includes("robots") ||
+      messageLower.includes("crawl")
+    ) {
+      response += `**SITEMAP & CRAWLING OPERATIONS:**\n\n`;
+      response += `✅ **Automatic sitemap generation active!**\n\n`;
+      response += `**Add pages to sitemap:**\n`;
+      response += `\`\`\`typescript\n`;
+      response += `// src/app/sitemap.ts - ACTIVE_PAGES\n`;
+      response += `{ path: "/new-page", priority: 0.8, changeFreq: "monthly" }\n`;
+      response += `\`\`\`\n\n`;
+      response += `**Auto-generated:**\n`;
+      response += `• XML sitemap at \`/sitemap.xml\`\n`;
+      response += `• Sitemap index at \`/sitemap-index.xml\`\n`;
+      response += `• Robots.txt with proper directives\n`;
+      response += `• Canonical URLs for all pages\n\n`;
+    } else if (
+      messageLower.includes("meta") ||
+      messageLower.includes("title") ||
+      messageLower.includes("description")
+    ) {
+      response += `**METADATA CONFIGURATION:**\n\n`;
+      response += `**Page metadata template:**\n`;
+      response += `\`\`\`typescript\n`;
+      response += `export const metadata: Metadata = {\n`;
+      response += `  title: "Page Name | MH Construction",\n`;
+      response += `  description: "150-char with keywords + CTA",\n`;
+      response += `  keywords: ["construction", "Tri-Cities", "veteran-owned"]\n`;
+      response += `};\n`;
+      response += `\`\`\`\n\n`;
+      response += `**Auto-validation checks:**\n`;
+      response += `• Title: 30-60 characters (50 optimal)\n`;
+      response += `• Description: 120-160 characters (150 optimal)\n`;
+      response += `• Keywords: 3-15 terms (7 optimal)\n\n`;
+    } else if (
+      messageLower.includes("lighthouse") ||
+      messageLower.includes("score") ||
+      messageLower.includes("performance")
+    ) {
+      response += `**PERFORMANCE MONITORING:**\n\n`;
+      response += `**Quick audit commands:**\n`;
+      response += `\`\`\`bash\n`;
+      response += `npm run seo:audit     # Full SEO check\n`;
+      response += `npm run seo:report    # Detailed report\n`;
+      response += `\`\`\`\n\n`;
+      response += `**Target scores (all 90-100):**\n`;
+      response += `🟢 SEO: 100/100 (Current)\n`;
+      response += `🟢 Performance: 90+\n`;
+      response += `🟢 Accessibility: 90+\n`;
+      response += `🟢 Best Practices: 90+\n\n`;
+      response += `**Current status:** Ultimate SEO system active!\n\n`;
+    } else {
+      // General SEO overview
+      response += `**SITE SEO STATUS: EXCELLENT** 🎯\n\n`;
+      response += `This website has **100/100 SEO score** with auto-optimization!\n\n`;
+      response += `**Quick SEO Commands:**\n`;
+      response += `\`\`\`bash\n`;
+      response += `npm run seo:audit     # Quick SEO check\n`;
+      response += `npm run seo:report    # Detailed report\n`;
+      response += `npm run build && npm run seo:audit  # Pre-deploy\n`;
+      response += `\`\`\`\n\n`;
+      response += `**Auto-Enforced Best Practices:**\n`;
+      response += `✅ Optimized titles (50 chars)\n`;
+      response += `✅ Meta descriptions (150 chars)\n`;
+      response += `✅ Strategic keywords (7 per page)\n`;
+      response += `✅ Mobile-first responsive design\n`;
+      response += `✅ Automatic sitemap generation\n`;
+      response += `✅ Lighthouse CI monitoring\n\n`;
+    }
+
+    response += `**SEO RESOURCES:**\n`;
+    response += `• [SEO Quick Reference](/seo-quick-reference.md)\n`;
+    response += `• [Ultimate SEO Guide](./docs/technical/seo/ultimate-seo-guide.md)\n`;
+    response += `• [SEO Index](./docs/technical/seo/seo-index.md)\n\n`;
+    response += `**Need specific SEO help?** Ask about metadata, sitemaps, performance, or rankings!`;
+
+    return response;
+  }
+
+  private generateTimelineResponse(message: string): string {
+    const projectType = this.extractProjectType(message);
+
+    let response = `**[TIMELINE RECONNAISSANCE]** ⏱️\n\n`;
+
+    if (projectType === "kitchen") {
+      response += `**KITCHEN REMODEL TIMELINE:**\n`;
+      response += `• Design & permits: 2-4 weeks\n`;
+      response += `• Construction: 4-8 weeks\n`;
+      response += `• **Total:** 6-12 weeks typically\n\n`;
+    } else if (projectType === "bathroom") {
+      response += `**BATHROOM RENOVATION TIMELINE:**\n`;
+      response += `• Design & permits: 1-3 weeks\n`;
+      response += `• Construction: 2-4 weeks\n`;
+      response += `• **Total:** 3-7 weeks typically\n\n`;
+    } else if (projectType === "addition") {
+      response += `**HOME ADDITION TIMELINE:**\n`;
+      response += `• Design & permits: 4-8 weeks\n`;
+      response += `• Foundation & framing: 4-8 weeks\n`;
+      response += `• Finishing work: 4-8 weeks\n`;
+      response += `• **Total:** 3-6 months typically\n\n`;
+    } else if (projectType === "deck") {
+      response += `**DECK CONSTRUCTION TIMELINE:**\n`;
+      response += `• Permits: 1-2 weeks\n`;
+      response += `• Construction: 1-3 weeks\n`;
+      response += `• **Total:** 2-5 weeks typically\n\n`;
+    } else {
+      response += `**GENERAL PROJECT TIMELINES:**\n`;
+      response += `Timeline varies based on:\n`;
+      response += `• Project scope and complexity\n`;
+      response += `• Permit approval process\n`;
+      response += `• Material availability\n`;
+      response += `• Weather conditions\n`;
+      response += `• Inspection schedules\n\n`;
+    }
+
+    response += `**OUR PROCESS:**\n`;
+    response += `1. **Consultation:** 1-2 days to schedule\n`;
+    response += `2. **Design & Estimate:** 1-2 weeks\n`;
+    response += `3. **Permits:** 2-6 weeks (varies by jurisdiction)\n`;
+    response += `4. **Construction:** Project-specific\n`;
+    response += `5. **Final Inspection:** 1 week\n\n`;
+    response += `**FAST-TRACK OPTIONS:**\n`;
+    response += `• Expedited permits available for urgent projects\n`;
+    response += `• Veterans receive priority scheduling\n`;
+    response += `• Emergency repair services within 24-48 hours\n\n`;
+    response += `**Want a specific timeline for your project?**\n`;
+    response += `• **[Schedule Consultation →](/booking)**\n`;
+    response += `• **[Call (509) 308-6489)](tel:5093086489)**\n`;
+    response += `• **[Get AI Estimate →](/estimator)**`;
+
+    return response;
+  }
+
   private generateProjectResponse(
     message: string,
     context: EnhancedChatbotContext,
@@ -644,12 +1198,17 @@ export class EnhancedChatbotAI {
   }
 
   private generateGeneralResponse(
-    _message: string,
+    message: string,
     _context: EnhancedChatbotContext,
     conversationHistory: unknown[],
   ): string {
     // Analyze conversation history for better context
     const previousTopics = this.extractPreviousTopics(conversationHistory);
+
+    // If this is the first message and we couldn't match anything specific, provide fallback
+    if (previousTopics.length === 0 && message.length > 5) {
+      return this.generateFallbackResponse(message);
+    }
 
     let response = `**[GENERAL MH - REPORTING FOR DUTY]** 🎖️\n\n`;
 
@@ -715,6 +1274,511 @@ export class EnhancedChatbotAI {
       "content" in value &&
       typeof (value as { content: unknown }).content === "string"
     );
+  }
+
+  /**
+   * Generate helpful fallback when chatbot doesn't understand the query
+   */
+  private generateFallbackResponse(message: string): string {
+    return (
+      `**[ASSISTANCE NEEDED]** 🤔\n\n` +
+      `I want to help, but I'm not quite understanding your question: "${message.substring(0, 50)}${message.length > 50 ? "..." : ""}"\n\n` +
+      `**Here's what I can help with:**\n` +
+      `• Project estimates and pricing\n` +
+      `• Service information and capabilities\n` +
+      `• Contact details and business hours\n` +
+      `• Scheduling consultations\n` +
+      `• Veteran benefits and discounts\n` +
+      `• Company information and leadership\n` +
+      `• Safety record and certifications\n\n` +
+      `**Try asking:**\n` +
+      `• "What are your business hours?"\n` +
+      `• "How do I get an estimate?"\n` +
+      `• "What services do you offer?"\n` +
+      `• "Do you offer veteran discounts?"\n` +
+      `• "Who's the boss?"\n` +
+      `• "What's your phone number?"\n\n` +
+      `**Or contact us directly:**\n` +
+      `• **Phone:** (509) 308-6489\n` +
+      `• **Email:** office@mhc-gc.com\n` +
+      `• **[Contact Form →](/contact)**\n` +
+      `• **[Schedule Consultation →](/booking)**`
+    );
+  }
+
+  /**
+   * Normalize query to handle synonyms and variations
+   * Improves keyword matching by converting common variations to standard terms
+   */
+  private normalizeQuery(message: string): string {
+    const synonymMap: Record<string, string> = {
+      // Leadership synonyms
+      boss: "president",
+      owner: "president",
+      "in charge": "president",
+      runs: "president",
+      ceo: "president",
+      manager: "president",
+
+      // Pricing synonyms
+      costs: "pricing",
+      rates: "pricing",
+      fees: "pricing",
+      charges: "pricing",
+      "how much": "pricing",
+      expensive: "pricing",
+      cheap: "pricing",
+      afford: "pricing",
+
+      // Contact synonyms
+      reach: "contact",
+      "get in touch": "contact",
+      "talk to": "contact",
+      "speak with": "contact",
+
+      // Timeline synonyms
+      "how long": "timeline",
+      duration: "timeline",
+      "time frame": "timeline",
+      takes: "timeline",
+
+      // Service synonyms
+      offerings: "services",
+      capabilities: "services",
+      "what do you do": "services",
+      "can you": "services",
+
+      // Project synonyms
+      build: "project",
+      construct: "project",
+      remodel: "project",
+      renovate: "project",
+      "work on": "project",
+    };
+
+    let normalized = message.toLowerCase();
+
+    // Replace synonyms with standard terms
+    Object.entries(synonymMap).forEach(([synonym, standard]) => {
+      const regex = new RegExp(`\\b${synonym}\\b`, "gi");
+      normalized = normalized.replace(regex, standard);
+    });
+
+    return normalized;
+  }
+
+  /**
+   * Get suggested follow-up questions based on response type
+   * Helps guide users to related information
+   */
+  private getSuggestedFollowups(responseType: string): string[] {
+    const followupMap: Record<string, string[]> = {
+      contact: [
+        "What are your business hours?",
+        "How do I schedule a consultation?",
+        "Do you offer free estimates?",
+      ],
+      pricing: [
+        "What's included in your estimates?",
+        "Do you offer financing?",
+        "What payment methods do you accept?",
+      ],
+      timeline: [
+        "How do I get started?",
+        "What's your construction process?",
+        "Can you expedite my project?",
+      ],
+      services: [
+        "Can you show me examples of your work?",
+        "What areas do you serve?",
+        "Do you offer warranties?",
+      ],
+      veteran: [
+        "What services qualify for the veteran discount?",
+        "How do I schedule a consultation?",
+        "Can you help with VA home loans?",
+      ],
+      company: [
+        "What's your safety record?",
+        "Are you licensed and insured?",
+        "How many projects have you completed?",
+      ],
+      project: [
+        "How long will my project take?",
+        "What's your payment schedule?",
+        "Do you handle permits?",
+      ],
+      technical: [
+        "How do I check SEO scores?",
+        "How do I add pages to the sitemap?",
+        "What are the performance targets?",
+      ],
+    };
+
+    return (
+      followupMap[responseType] || [
+        "What services do you offer?",
+        "How do I get an estimate?",
+        "What are your business hours?",
+      ]
+    );
+  }
+
+  /**
+   * Format follow-up suggestions for response
+   */
+  private formatFollowups(responseType: string): string {
+    const followups = this.getSuggestedFollowups(responseType);
+    const followupList = followups.map((q) => `• ${q}`).join("\n");
+    return `\n\n**You might also want to know:**\n${followupList}`;
+  }
+
+  /**
+   * Log analytics for chatbot interactions
+   * Tracks question types, response types, and unanswered queries
+   */
+  private logAnalytics(data: {
+    question: string;
+    responseType: string;
+    wasAnswered: boolean;
+    timestamp?: Date;
+  }): void {
+    // In production, this would send to analytics service
+    // For now, we'll use console logging (can be disabled in production)
+    if (process.env.NODE_ENV === "development") {
+      console.info("[Chatbot Analytics]", {
+        ...data,
+        timestamp: data.timestamp || new Date(),
+      });
+    }
+
+    // Log unanswered questions for improvement
+    if (!data.wasAnswered) {
+      this.logUnansweredQuestion(data.question);
+    }
+  }
+
+  /**
+   * Track unanswered questions for continuous improvement
+   */
+  private logUnansweredQuestion(question: string): void {
+    // In production, this would store to database for analysis
+    if (process.env.NODE_ENV === "development") {
+      console.warn("[Unanswered Question]", {
+        question,
+        timestamp: new Date().toISOString(),
+        needsReview: true,
+      });
+    }
+
+    // TODO: Implement database storage for production
+    // Example: await db.unansweredQuestions.create({ question, timestamp: new Date() });
+  }
+
+  /**
+   * Update conversation memory with user information
+   * Tracks preferences, actions, and conversation context
+   */
+  private updateConversationMemory(
+    context: EnhancedChatbotContext,
+    updates: {
+      isVeteran?: boolean;
+      veteranBranch?: string;
+      interest?: string;
+      topic?: string;
+      action?: string;
+    },
+  ): void {
+    if (!context.conversationMemory) {
+      return;
+    }
+
+    const { conversationMemory } = context;
+
+    // Update user profile
+    if (updates.isVeteran !== undefined) {
+      if (!conversationMemory.userProfile) {
+        conversationMemory.userProfile = {};
+      }
+      conversationMemory.userProfile.isVeteran = updates.isVeteran;
+    }
+
+    if (updates.veteranBranch) {
+      if (!conversationMemory.userProfile) {
+        conversationMemory.userProfile = {};
+      }
+      conversationMemory.userProfile.veteranBranch = updates.veteranBranch;
+    }
+
+    // Track interests
+    if (updates.interest) {
+      if (!conversationMemory.userProfile) {
+        conversationMemory.userProfile = {};
+      }
+      if (!conversationMemory.userProfile.interests) {
+        conversationMemory.userProfile.interests = [];
+      }
+      if (
+        !conversationMemory.userProfile.interests.includes(updates.interest)
+      ) {
+        conversationMemory.userProfile.interests.push(updates.interest);
+      }
+    }
+
+    // Track topics discussed
+    if (updates.topic) {
+      if (!conversationMemory.sessionMetrics) {
+        conversationMemory.sessionMetrics = {
+          messageCount: 0,
+          sessionDuration: 0,
+          leadsGenerated: 0,
+          topicsDiscussed: [],
+        };
+      }
+      if (
+        !conversationMemory.sessionMetrics.topicsDiscussed.includes(
+          updates.topic,
+        )
+      ) {
+        conversationMemory.sessionMetrics.topicsDiscussed.push(updates.topic);
+      }
+    }
+
+    // Track actions (estimate requested, consultation scheduled, etc.)
+    if (updates.action) {
+      if (!conversationMemory.userProfile) {
+        conversationMemory.userProfile = {};
+      }
+      if (updates.action === "estimate") {
+        conversationMemory.userProfile.hasRequestedEstimate = true;
+      }
+      if (updates.action === "consultation") {
+        conversationMemory.userProfile.hasScheduledConsultation = true;
+      }
+    }
+
+    // Update session info
+    if (conversationMemory.sessionInfo) {
+      conversationMemory.sessionInfo.lastActivity = new Date();
+      conversationMemory.sessionInfo.totalInteractions++;
+    }
+  }
+
+  /**
+   * Get personalized greeting based on conversation memory
+   */
+  private getPersonalizedGreeting(
+    context: EnhancedChatbotContext,
+  ): string | null {
+    const memory = context.conversationMemory;
+    if (!memory?.userProfile) {
+      return null;
+    }
+
+    const { userProfile } = memory;
+
+    // Personalized veteran greeting
+    if (userProfile.isVeteran && userProfile.veteranBranch) {
+      return `Welcome back, ${userProfile.veteranBranch} veteran! `;
+    }
+
+    // Return visitor greeting
+    if (memory.sessionInfo && memory.sessionInfo.totalInteractions > 3) {
+      return `Welcome back! `;
+    }
+
+    return null;
+  }
+
+  /**
+   * Calculate confidence score for a response
+   * Returns a score from 0 (no confidence) to 1 (high confidence)
+   */
+  private calculateConfidence(
+    responseType: string,
+    userMessage: string,
+  ): number {
+    // High confidence responses (exact matches)
+    const highConfidenceTypes = [
+      "faq",
+      "contact",
+      "pricing",
+      "timeline",
+      "seo",
+    ];
+    if (highConfidenceTypes.includes(responseType)) {
+      return 0.95;
+    }
+
+    // Medium-high confidence (specialized handlers)
+    const mediumHighTypes = ["company", "veteran", "project"];
+    if (mediumHighTypes.includes(responseType)) {
+      return 0.85;
+    }
+
+    // Medium confidence (page-specific)
+    if (responseType === "page-specific") {
+      return 0.75;
+    }
+
+    // Lower confidence (search or general)
+    if (responseType === "search") {
+      return 0.65;
+    }
+
+    // Low confidence (fallback)
+    if (responseType === "general") {
+      // Check message length and complexity
+      const wordCount = userMessage.split(/\s+/).length;
+      if (wordCount < 3) {
+        return 0.3; // Very short, unclear query
+      }
+      if (wordCount > 20) {
+        return 0.4; // Very long, complex query
+      }
+      return 0.5; // Standard fallback confidence
+    }
+
+    return 0.5; // Default medium-low confidence
+  }
+
+  /**
+   * Add confidence-based escalation offer
+   */
+  private addConfidenceEscalation(
+    response: string,
+    confidence: number,
+  ): string {
+    // Only add escalation for low confidence responses
+    if (confidence >= 0.7) {
+      return response;
+    }
+
+    const escalation =
+      `\n\n**🤝 Need More Help?**\n` +
+      `I might not have all the details you need. For the most accurate information:\n` +
+      `• **Call:** (509) 308-6489 (speak with our team)\n` +
+      `• **Schedule:** [Book a Consultation →](/booking)\n` +
+      `• **Email:** office@mhc-gc.com\n\n` +
+      `Our team can provide detailed answers and personalized guidance.`;
+
+    return response + escalation;
+  }
+
+  /**
+   * Record user feedback for a response
+   */
+  public recordFeedback(
+    context: EnhancedChatbotContext,
+    feedback: Omit<ResponseFeedback, "timestamp">,
+  ): void {
+    const memory = context.conversationMemory;
+    if (!memory) {
+      return;
+    }
+
+    // Initialize session metrics if needed
+    if (!memory.sessionMetrics) {
+      memory.sessionMetrics = {
+        messageCount: 0,
+        sessionDuration: 0,
+        leadsGenerated: 0,
+        topicsDiscussed: [],
+      };
+    }
+
+    // Initialize feedback array if needed
+    if (!memory.sessionMetrics.responseFeedback) {
+      memory.sessionMetrics.responseFeedback = [];
+    }
+
+    // Add feedback with timestamp
+    const fullFeedback: ResponseFeedback = {
+      ...feedback,
+      timestamp: new Date(),
+    };
+
+    memory.sessionMetrics.responseFeedback.push(fullFeedback);
+    memory.sessionMetrics.feedbackProvided = true;
+
+    // Calculate satisfaction rating based on feedback
+    this.updateSatisfactionRating(memory);
+
+    // Log feedback analytics
+    if (process.env.NODE_ENV === "development") {
+      console.info("[Chatbot Feedback]", {
+        event: "feedback_received",
+        rating: feedback.rating,
+        responseType: feedback.responseType,
+        confidence: feedback.confidence,
+        sessionId: memory.sessionInfo?.sessionId,
+        timestamp: new Date(),
+      });
+    }
+  }
+
+  /**
+   * Update satisfaction rating based on feedback history
+   */
+  private updateSatisfactionRating(memory: ConversationMemory): void {
+    const feedback = memory.sessionMetrics?.responseFeedback;
+    if (!feedback || feedback.length === 0) {
+      return;
+    }
+
+    // Calculate rating: positive = 5, negative = 1
+    const totalRating = feedback.reduce((sum, fb) => {
+      return sum + (fb.rating === "positive" ? 5 : 1);
+    }, 0);
+
+    const averageRating = totalRating / feedback.length;
+
+    if (memory.sessionMetrics) {
+      memory.sessionMetrics.satisfactionRating = Math.round(averageRating);
+    }
+  }
+
+  /**
+   * Get feedback statistics for analytics
+   */
+  public getFeedbackStats(context: EnhancedChatbotContext): {
+    totalFeedback: number;
+    positiveCount: number;
+    negativeCount: number;
+    satisfactionRate: number;
+    averageConfidence: number;
+  } {
+    const feedback =
+      context.conversationMemory?.sessionMetrics?.responseFeedback || [];
+
+    if (feedback.length === 0) {
+      return {
+        totalFeedback: 0,
+        positiveCount: 0,
+        negativeCount: 0,
+        satisfactionRate: 0,
+        averageConfidence: 0,
+      };
+    }
+
+    const positiveCount = feedback.filter(
+      (fb) => fb.rating === "positive",
+    ).length;
+    const negativeCount = feedback.length - positiveCount;
+    const satisfactionRate = (positiveCount / feedback.length) * 100;
+
+    const totalConfidence = feedback.reduce((sum, fb) => {
+      return sum + (fb.confidence || 0);
+    }, 0);
+    const averageConfidence = totalConfidence / feedback.length;
+
+    return {
+      totalFeedback: feedback.length,
+      positiveCount,
+      negativeCount,
+      satisfactionRate: Math.round(satisfactionRate),
+      averageConfidence: Math.round(averageConfidence * 100) / 100,
+    };
   }
 }
 
