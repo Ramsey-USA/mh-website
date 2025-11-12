@@ -55,7 +55,7 @@ export function Navigation() {
       {/* Backdrop overlay when menu is open */}
       {isMenuOpen && (
         <div
-          className="z-40 fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-300 cursor-pointer"
+          className="z-[60] fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-300 cursor-pointer"
           onClick={() => setIsMenuOpen(false)}
           onKeyDown={(e) => e.key === "Escape" && setIsMenuOpen(false)}
           role="button"
@@ -65,7 +65,7 @@ export function Navigation() {
       )}
 
       {/* Main Header - Transparent and absolute positioning */}
-      <header className="top-0 left-0 right-0 z-40 absolute bg-transparent">
+      <header className="top-0 left-0 right-0 z-[70] absolute bg-transparent">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex justify-start items-center py-3 sm:py-4 md:py-5 h-auto">
             {/* Logo - Far Left with mobile optimization (20% smaller) */}
@@ -89,7 +89,7 @@ export function Navigation() {
       </header>
 
       {/* Theme Toggle and Hamburger Menu - Fixed right edge with mobile optimization */}
-      <div className="top-3 right-3 sm:top-4 sm:right-4 lg:right-6 z-50 fixed flex items-center gap-2 sm:gap-3">
+      <div className="top-3 right-3 sm:top-4 sm:right-4 lg:right-6 z-[70] fixed flex items-center gap-2 sm:gap-3">
         {/* Theme Toggle */}
         <ThemeToggle compact size="sm" />
 
@@ -122,7 +122,7 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 right-0 bottom-0 z-40 transition-all duration-500 ease-in-out ${
+        className={`fixed top-0 left-0 right-0 bottom-0 z-[60] transition-all duration-500 ease-in-out ${
           isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
