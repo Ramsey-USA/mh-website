@@ -170,7 +170,9 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 - **[Design System Hub](./technical/design-system/design-system-index.md)** - Complete design system navigation
 - **[Design System Standards](./technical/design-system/design-system.md)** - Core design system
 - **[Features](./technical/features.md)** - Platform features and capabilities
-- **[Email System](./technical/email-system.md)** - Email infrastructure
+- **[Email System](./technical/email-system.md)** - Email infrastructure (dual recipients: office@ + matt@)
+- **[Phone Tracking System](./technical/phone-tracking-system.md)** - ⭐ **NEW (Nov 2025)** -
+  Phone call tracking with instant notifications
 
 **Subsystems:**
 

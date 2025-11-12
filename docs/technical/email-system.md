@@ -1,13 +1,19 @@
 # MH Construction Email System
 
-**Complete Form-to-Email Integration** | Last Updated: November 4, 2025
+**Complete Form-to-Email Integration with Dual Recipients** | Last Updated: November 12, 2025
 
 ---
 
 ## 📧 Overview
 
-All website forms now send email notifications to **<office@mhc-gc.com>** using Resend
-transactional email service, ensuring zero missed leads and instant notification of all inquiries.
+All website forms and phone tracking send email notifications using Resend transactional email service.
+
+**CRITICAL: Dual Email Recipients (November 2025)**
+
+- **Primary (Public)**: `office@mhc-gc.com` - Displayed on website, main business email
+- **CC (Private)**: `matt@mhc-gc.com` - Receives copies, NOT displayed publicly
+
+This ensures zero missed leads and instant notification of all inquiries to both addresses.
 
 ## ✅ System Status
 
@@ -15,7 +21,9 @@ transactional email service, ensuring zero missed leads and instant notification
 - **Email Service**: Resend (<https://resend.com>)
 - **Domain Verification**: ✅ mhc-gc.com verified
 - **API Integration**: ✅ Complete
+- **Phone Tracking**: ✅ Active (Nov 2025)
 - **Setup Date**: November 4, 2025
+- **Last Updated**: November 12, 2025 (Dual recipients + phone tracking)
 
 ---
 
@@ -70,40 +78,64 @@ transactional email service, ensuring zero missed leads and instant notification
 - Budget and timeline
 - Consultation preferences
 
+### 5. Phone Call Tracking (`/api/track-phone-call`) ⭐ NEW Nov 2025
+
+**Sends**: Instant notifications when visitors click phone numbers
+
+**Data Included**:
+
+- Phone number clicked: (509) 308-6489
+- Source location (e.g., "header", "footer", "map")
+- Timestamp (PST timezone)
+- Page URL where click occurred
+- Referrer information
+- Device/browser details
+- **Alert**: "Hot lead! Be prepared for incoming call"
+
+**Recipients**: `matt@mhc-gc.com` AND `office@mhc-gc.com`
+
+**Implementation**: See [Phone Tracking System Guide](./phone-tracking-system.md) for complete documentation.
+
 ---
 
 ## 🔧 Technical Implementation
 
 ### Architecture
 
+**IMPORTANT: All emails sent to BOTH addresses - <office@mhc-gc.com> AND <matt@mhc-gc.com>**
+
 ```text
 ┌─────────────────┐
 │  Website Forms  │
+│  Phone Tracking │
 └────────┬────────┘
          │
          ▼
-┌─────────────────────────────────┐
-│  /api/contact/route.ts          │
-│  (Unified Email Handler)        │
-│  - Validates input              │
-│  - Generates HTML/text emails   │
-│  - Calls Resend API             │
-│  - Logs submissions             │
-└────────┬────────────────────────┘
+┌──────────────────────────────────┐
+│  Email APIs                      │
+│  - /api/contact/route.ts         │
+│  - /api/track-phone-call/route.ts│
+│  - Validates input               │
+│  - Generates HTML/text emails    │
+│  - Calls Resend API              │
+│  - Logs submissions              │
+└────────┬─────────────────────────┘
          │
          ▼
-┌─────────────────────────────────┐
-│  Resend Email Service           │
-│  - Sends branded emails         │
-│  - Handles delivery             │
-│  - Provides sending status      │
-└────────┬────────────────────────┘
+┌──────────────────────────────────┐
+│  Resend Email Service            │
+│  - Sends to BOTH recipients      │
+│  - Handles delivery              │
+│  - Provides sending status       │
+└────────┬─────────────────────────┘
          │
-         ▼
-┌─────────────────────────────────┐
-│  office@mhc-gc.com             │
-│  (MH Construction Office)       │
-└─────────────────────────────────┘
+         ├─────────────────┬────────────────┐
+         ▼                 ▼                │
+┌──────────────────┐ ┌────────────────────┐│
+│ office@mhc-gc.com│ │ matt@mhc-gc.com    ││
+│ (Public/Display) │ │ (Private CC)       ││
+└──────────────────┘ └────────────────────┘│
+                                            │
 ```
 
 ### API Endpoint
@@ -111,6 +143,8 @@ transactional email service, ensuring zero missed leads and instant notification
 **Path**: `/api/contact/route.ts`
 
 **Method**: `POST`
+
+**Recipients**: `["office@mhc-gc.com", "matt@mhc-gc.com"]` (Both addresses receive all form submissions)
 
 **Request Body**:
 

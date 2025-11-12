@@ -128,6 +128,22 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   };
 
   const handleCallOffice = () => {
+    // Track the phone call click
+    if (typeof fetch !== "undefined") {
+      fetch("/api/track-phone-call", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          source: "interactive-map",
+          phoneNumber: "(509) 308-6489",
+          timestamp: new Date().toISOString(),
+        }),
+      }).catch((error) => {
+        // Log error but don't block the phone call
+        console.error("Failed to track phone call:", error);
+      });
+    }
+
     window.location.href = "tel:+15093086489";
   };
 

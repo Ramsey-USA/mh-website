@@ -530,23 +530,39 @@ Brief description of changes
 
 ### Email System Integration (November 2025)
 
-**All website forms now send email notifications to <office@mhc-gc.com> using Resend:**
+**IMPORTANT: Dual Email Recipients**
 
-- **Contact Forms**: General inquiries and project requests
-- **Job Applications**: Career submissions with resume uploads
-- **Consultation Bookings**: Partnership discussion scheduling
-- **AI Estimator**: Project estimates and follow-ups
+All website forms and phone tracking send to **TWO email addresses**:
+- **Primary (Public)**: `office@mhc-gc.com` - Displayed on website, primary business email
+- **CC (Private)**: `matt@mhc-gc.com` - Receives copies but NOT displayed publicly
+
+**Form Submissions** (Contact, Job Applications, Consultations):
+- API: `/src/app/api/contact/route.ts`
+- Recipients: Both `office@mhc-gc.com` AND `matt@mhc-gc.com`
+- Handler: `/src/lib/api/formHandler.ts`
+
+**Phone Call Tracking** (New Feature - Nov 2025):
+- API: `/src/app/api/track-phone-call/route.ts`
+- Recipients: Both `matt@mhc-gc.com` AND `office@mhc-gc.com`
+- Hook: `/src/hooks/usePhoneTracking.ts`
+- Utility: `/src/lib/utils/phoneTracking.ts`
+- Tracks when visitors click phone numbers and sends instant notifications
 
 **Email Service Details:**
 
 - **Provider**: Resend (<https://resend.com>)
-- **API Endpoint**: `/src/app/api/contact/route.ts`
 - **Environment Variables**: `RESEND_API_KEY`, `EMAIL_FROM`
 - **Status**: ✅ Operational with domain verification complete
 
 **For Development:**
 When testing forms locally, ensure `.env.local` has the Resend API key configured.
 All submissions are logged even if email service is unavailable (graceful fallback).
+
+**⚠️ CRITICAL FOR DEVELOPERS:**
+- NEVER remove `matt@mhc-gc.com` from email recipient arrays
+- Only display `office@mhc-gc.com` in UI components
+- Phone tracking should be added to ALL phone number links/buttons
+- See `/docs/technical/phone-tracking-system.md` for implementation guide
 
 ### Development Team
 

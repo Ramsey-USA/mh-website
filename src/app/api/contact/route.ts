@@ -12,9 +12,11 @@ export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 /**
- * Contact API - Handles all form submissions and sends emails to office@mhc-gc.com
+ * Contact API - Handles all form submissions and sends emails to office@mhc-gc.com and matt@mhc-gc.com
  * This endpoint serves as the central hub for all contact forms, job applications,
  * consultations, and other submissions that need to be emailed to the office.
+ *
+ * Note: office@mhc-gc.com is the displayed/public email, matt@mhc-gc.com receives copies but is not displayed
  *
  * Email Service: Resend (https://resend.com)
  */
@@ -26,7 +28,7 @@ interface ContactRequest {
   subject?: string;
   message: string;
   type?: "contact" | "job-application" | "consultation" | "urgent" | "general";
-  recipientEmail?: string; // Defaults to office@mhc-gc.com
+  recipientEmail?: string; // Primary recipient (defaults to office@mhc-gc.com), matt@mhc-gc.com is auto-CC'd
   metadata?: Record<string, string | number | boolean | null>;
 }
 
@@ -59,8 +61,11 @@ export async function POST(request: NextRequest) {
     const emailSubject =
       data.subject || `New ${data.type || "Contact"} Form Submission`;
 
+    // Send to both office@ (displayed) and matt@ (CC'd, not displayed)
+    const emailRecipients = [recipientEmail, "matt@mhc-gc.com"];
+
     const emailData = {
-      to: recipientEmail,
+      to: emailRecipients,
       from: process.env["EMAIL_FROM"] || "noreply@mhc-gc.com",
       subject: emailSubject,
       html: generateEmailHTML(data),
@@ -90,7 +95,7 @@ export async function POST(request: NextRequest) {
           emailSent = true;
           logger.info("Email sent successfully:", {
             id: emailResult?.id,
-            to: emailData.to,
+            to: recipientEmail, // Log only the primary recipient for clarity
             subject: emailData.subject,
           });
         }
@@ -102,7 +107,7 @@ export async function POST(request: NextRequest) {
       // No API key configured - log warning
       logger.warn("⚠️  RESEND_API_KEY not configured. Email not sent.");
       logger.info("📧 Email that would be sent:", {
-        to: emailData.to,
+        to: recipientEmail, // Log only primary recipient
         subject: emailData.subject,
         from: emailData.from,
         sentAt: new Date().toISOString(),

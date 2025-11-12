@@ -108,7 +108,7 @@ export async function handleFormSubmission<T = unknown>(
         subject: emailSubject,
         message: emailMessage,
         type: config.submissionType.toLowerCase().replace(/\s+/g, "-"),
-        recipientEmail: "office@mhc-gc.com",
+        recipientEmail: "office@mhc-gc.com", // This will be expanded to include matt@ in the contact API
         metadata: {
           submissionId,
           submissionType: config.submissionType,

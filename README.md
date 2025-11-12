@@ -259,7 +259,14 @@ NEXT_PUBLIC_GA_ID=your_google_analytics_id
   - Activity feeds
   - Before/after sliders
   - Team member tags
-- **Email Integration** via Resend API (`office@mhc-gc.com`)
+- **Email Integration** via Resend API
+  - **Primary**: `office@mhc-gc.com` (public/displayed)
+  - **CC**: `matt@mhc-gc.com` (private notifications)
+  - All forms send to BOTH addresses
+- **Phone Call Tracking** (New Nov 2025)
+  - Instant notifications when visitors click phone numbers
+  - Tracks source, timestamp, device info
+  - See `/docs/technical/phone-tracking-system.md`
 - **Dark/Light Mode** with theme persistence
 - **Full Accessibility** - WCAG 2.1 AA compliant
 
