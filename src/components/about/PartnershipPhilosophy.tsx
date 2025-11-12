@@ -31,8 +31,11 @@ export function PartnershipPhilosophy() {
                 </span>
               </h2>
               <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                At MH Construction, we don't just build structures - we build
-                lasting relationships. We work WITH you, not FOR you.
+                At MH Construction, we believe in old school business values:
+                where handshakes still matter, your word is your bond, and trust
+                is earned through character. We don't just build structures - we
+                build lasting relationships that outlast the buildings
+                themselves.
               </p>
             </div>
 
@@ -221,9 +224,12 @@ export function PartnershipPhilosophy() {
               />
               <p className="mb-4 text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl italic leading-relaxed">
                 "When you choose MH Construction, you're not hiring a contractor
-                - you're gaining a partner who works WITH you at every step. We
-                bring veteran values of discipline, integrity, and excellence to
-                every project—building for the owner, not the dollar."
+                - you're gaining a partner who believes in face-to-face
+                conversations, firm handshakes, and keeping promises. We bring
+                veteran values of discipline, integrity, and honor to every
+                project. In an age of automation, we still believe relationships
+                are built person-to-person, trust is earned through action, and
+                your word is your bond."
               </p>
               <div className="flex items-center">
                 <MaterialIcon

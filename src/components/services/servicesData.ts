@@ -65,7 +65,7 @@ export const coreServices: CoreService[] = [
       "Expert oversight and intricate detail management",
       "Proven experience across all commercial sectors",
       "Military precision applied to civilian construction",
-      "Building for the Owner, NOT the Dollar",
+      "Building for the Client, NOT the Dollar",
     ],
     ctaText:
       "Ready to start your commercial construction project? Call (509) 308-6489 ext. 100 or schedule a free consultation to discuss your vision with our partnership-focused team.",
@@ -312,9 +312,9 @@ export const whyChooseUs: WhyChooseUsItem[] = [
   },
   {
     iconName: "handshake",
-    title: "Partnership-Driven Approach: THE ROI IS THE RELATIONSHIP",
+    title: "Partnership-Driven: Where Handshakes Still Matter",
     description:
-      "We're not just contractors—we're community partners invested in the long-term success of the Pacific Northwest region. 'THE ROI IS THE RELATIONSHIP'—we build lasting partnerships that extend well beyond project completion. Building for the Owner, NOT the Dollar is more than a slogan—it's our commitment to you.",
+      "We believe in old school business values—where your word is your bond and trust is earned face-to-face. THE ROI IS THE RELATIONSHIP—we build lasting partnerships through genuine commitment, not just contracts. Building for the Client, NOT the Dollar is our promise to you, because real partnerships are built person-to-person and last well beyond project completion.",
   },
   {
     iconName: "verified",
@@ -324,15 +324,15 @@ export const whyChooseUs: WhyChooseUsItem[] = [
   },
   {
     iconName: "high_quality",
-    title: "Craftsmanship that Lasts",
+    title: "Craftsmanship Built to Last Generations",
     description:
-      "Quality control processes at every project phase ensure work consistently meets our high standards and your expectations. We don't cut corners—we build it right the first time with materials that last. Pride in workmanship drives everything we do, building structures that serve communities for generations with unwavering attention to detail.",
+      "We build it right the first time with quality that endures. No shortcuts, no compromises—just honest craftsmanship where pride in workmanship drives everything we do. Our commitment is to build structures that serve communities for generations, with attention to detail earned through years of experience and maintained through personal integrity.",
   },
   {
     iconName: "visibility",
-    title: "Owner-Focused Transparency: No Surprises",
+    title: "Complete Transparency: No Surprises, Ever",
     description:
-      "Open-book approach with detailed cost breakdowns, regular photo documentation, and immediate notification of any changes. You control it, we manage it—full visibility into every decision. Transparent pricing, honest assessments, and clear documentation ensure you always know exactly where your project stands.",
+      "Open-book pricing where you see everything—detailed cost breakdowns, regular updates, and honest assessments. We believe in doing business the right way: total transparency, clear communication, and keeping our promises. You control it, we manage it—full visibility into every decision. Your trust is earned through action, not just words.",
   },
   {
     iconName: "engineering",

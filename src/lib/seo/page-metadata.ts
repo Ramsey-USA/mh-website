@@ -46,7 +46,7 @@ export const pageMetadata: Record<string, Metadata> = {
     title:
       "About MH Construction | Veteran-Owned Partnership-Driven Excellence - Pasco, WA",
     description:
-      "Founded in 2010, veteran-owned since January 2025 under Army veteran leadership. MH Construction brings military precision, authentic partnerships, and cutting-edge technology to commercial construction in the Tri-Cities area. Meet our leadership team committed to Building for the Owner, NOT the Dollar.",
+      "Founded in 2010, veteran-owned since January 2025 under Army veteran leadership. MH Construction brings military precision, authentic partnerships, and cutting-edge technology to commercial construction in the Tri-Cities area. Meet our leadership team committed to Building for the Client, NOT the Dollar.",
     keywords: [
       "veteran-owned construction company",
       "military precision construction",

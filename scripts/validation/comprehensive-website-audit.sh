@@ -69,8 +69,8 @@ echo "   ✅ Leather Tan (#BD9264): $leather_tan_usage instances"
 
 # 4. PRIMARY TAGLINE VALIDATION
 echo "💬 Primary Tagline Analysis..."
-tagline_files=$(find $SRC_DIR -name "*.tsx" | xargs grep -l "Building for the Owner, NOT the Dollar" | wc -l)
-tagline_variations=$(find $SRC_DIR -name "*.tsx" | xargs grep -c "Building for the Owner\|NOT the Dollar" | paste -sd+ | bc)
+tagline_files=$(find $SRC_DIR -name "*.tsx" | xargs grep -l "Building for the Client, NOT the Dollar" | wc -l)
+tagline_variations=$(find $SRC_DIR -name "*.tsx" | xargs grep -c "Building for the Client\|NOT the Dollar" | paste -sd+ | bc)
 
 echo "   ✅ $tagline_files pages include primary tagline"
 echo "   📝 $tagline_variations total tagline references"

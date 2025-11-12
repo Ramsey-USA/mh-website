@@ -63,26 +63,25 @@ export default function EstimatorPage() {
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block text-brand-secondary font-black drop-shadow-lg">
-                AI-Powered Cost Estimator
+                Quick Budget Planning Tool
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-              Instant Preliminary Estimates • 24/7 Available • No Appointment
-              Needed
+              Convenient Preliminary Estimates • Prepares You for Our
+              Conversation
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Smart Planning Starts Here. AI-powered technology from our
-              veteran-owned team (January 2025) provides preliminary budget
-              estimates for initial planning across the Pacific Northwest.
-              Backed by award-winning safety (.6 EMR) and 150+ years combined
-              team experience. For detailed analysis, custom solutions,
-              transparent open-book pricing, and partnership-driven
-              collaboration, schedule an in-person consultation where you
-              control it, we manage it.
+              A helpful planning tool to prepare for your personal consultation.
+              Get preliminary budget guidance based on 500+ completed projects
+              and 150+ years combined team experience. For accurate estimates,
+              transparent open-book pricing, and genuine partnership, schedule a
+              face-to-face consultation where we shake hands and earn your trust
+              through honest conversation. That's how we prefer to start every
+              project.
             </p>
           </div>
         </div>
@@ -96,103 +95,205 @@ export default function EstimatorPage() {
 
       {/* Breadcrumb Navigation */}
       <Breadcrumb
-        items={[{ label: "Home", href: "/" }, { label: "AI Estimator" }]}
+        items={[{ label: "Home", href: "/" }, { label: "Budget Tool" }]}
       />
 
-      {/* Key Differences - AI vs In-Person Consultation */}
+      {/* Key Differences - Quick Tool vs Personal Consultation */}
       <section className="py-20 lg:py-32 xl:py-40 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
             <div className="mb-16 lg:mb-24 text-center">
               <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                 <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                  Choose Your
+                  We Recommend
                 </span>
                 <span className="block text-brand-primary dark:text-brand-primary font-black">
-                  Path Forward
+                  Personal Consultation First
                 </span>
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                Select the approach that best fits your project needs and
-                timeline—from instant AI estimates for quick budget planning to
-                comprehensive expert consultations for complex projects
-                requiring detailed analysis
+                Real partnerships start with real conversations. While our quick
+                budget tool can help with preliminary planning, accurate
+                estimates and genuine partnerships are built face-to-face where
+                we shake hands and earn your trust through honest dialogue.
               </p>
             </div>
 
             <div className="gap-8 grid md:grid-cols-2">
-              {/* AI Estimator Card - LEATHER TAN (Secondary) */}
-              <Card className="border-brand-secondary/30 dark:border-brand-secondary/40 hover:border-brand-secondary transition-all duration-300 shadow-xl hover:shadow-2xl">
-                <CardHeader className="bg-gradient-to-br from-brand-secondary/10 to-brand-secondary/5 dark:from-brand-secondary/20 dark:to-brand-secondary/10 pb-8">
+              {/* Personal Consultation Card - HUNTER GREEN (PRIMARY) - RECOMMENDED */}
+              <Card className="border-brand-primary/30 dark:border-brand-primary/40 hover:border-brand-primary transition-all duration-300 shadow-xl hover:shadow-2xl relative">
+                {/* RECOMMENDED Badge */}
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                  <div className="bg-brand-primary text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">
+                    ⭐ RECOMMENDED
+                  </div>
+                </div>
+                <CardHeader className="bg-gradient-to-br from-brand-primary/10 to-brand-primary/5 dark:from-brand-primary/20 dark:to-brand-primary/10 pb-8 pt-10">
                   <div className="flex justify-center items-center mb-6">
-                    <div className="flex justify-center items-center bg-brand-secondary/10 dark:bg-brand-secondary/20 shadow-lg backdrop-blur-sm w-20 h-20 border border-brand-secondary/30 rounded-full">
+                    <div className="flex justify-center items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm w-20 h-20 border border-brand-primary/30 rounded-full">
                       <MaterialIcon
-                        icon="smart_toy"
+                        icon="handshake"
                         size="lg"
-                        className="text-brand-secondary"
+                        className="text-brand-primary"
                       />
                     </div>
                   </div>
-                  <CardTitle className="mb-3 font-black text-3xl text-brand-secondary text-center">
-                    AI Estimator
+                  <CardTitle className="mb-3 font-black text-3xl text-brand-primary text-center">
+                    Personal Consultation
                   </CardTitle>
-                  <p className="font-semibold text-brand-secondary/80 text-center text-lg">
-                    Preliminary Budget Planning
+                  <p className="font-semibold text-brand-primary/80 text-center text-lg">
+                    Where Partnerships Begin
                   </p>
                 </CardHeader>
                 <CardContent className="pt-8 pb-6">
                   <ul className="space-y-4 mb-8">
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="flash_on"
+                        icon="person"
                         size="sm"
-                        className="flex-shrink-0 mr-3 mt-1 text-brand-secondary"
+                        className="flex-shrink-0 mr-3 mt-1 text-brand-primary"
                       />
                       <span className="text-gray-700 dark:text-gray-300">
-                        <strong className="font-bold text-brand-secondary">
-                          Instant Results:
+                        <strong className="font-bold text-brand-primary">
+                          Face-to-Face Trust:
                         </strong>{" "}
-                        Under 5 minutes, 24/7 availability
+                        Meet in person where handshakes still matter
                       </span>
                     </li>
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="analytics"
+                        icon="visibility"
                         size="sm"
-                        className="flex-shrink-0 mr-3 mt-1 text-brand-secondary"
+                        className="flex-shrink-0 mr-3 mt-1 text-brand-primary"
                       />
                       <span className="text-gray-700 dark:text-gray-300">
-                        <strong className="font-bold text-brand-secondary">
-                          Data-Driven Intelligence:
+                        <strong className="font-bold text-brand-primary">
+                          Complete Transparency:
                         </strong>{" "}
-                        Based on 500+ completed projects and 150+ years combined
-                        team experience
+                        Open-book pricing with no hidden costs
                       </span>
                     </li>
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="article"
+                        icon="engineering"
                         size="sm"
-                        className="flex-shrink-0 mr-3 mt-1 text-brand-secondary"
+                        className="flex-shrink-0 mr-3 mt-1 text-brand-primary"
                       />
                       <span className="text-gray-700 dark:text-gray-300">
-                        <strong className="font-bold text-brand-secondary">
-                          Preliminary Estimate:
+                        <strong className="font-bold text-brand-primary">
+                          Expert Assessment:
                         </strong>{" "}
-                        Budget range for initial planning
+                        Detailed on-site evaluation by experienced professionals
                       </span>
                     </li>
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="devices"
+                        icon="verified"
+                        size="sm"
+                        className="flex-shrink-0 mr-3 mt-1 text-brand-primary"
+                      />
+                      <span className="text-gray-700 dark:text-gray-300">
+                        <strong className="font-bold text-brand-primary">
+                          Accurate Pricing:
+                        </strong>{" "}
+                        Customized estimates based on your specific needs
+                      </span>
+                    </li>
+                  </ul>
+                  <div className="border-brand-primary/20 bg-brand-primary/5 dark:bg-brand-primary/10 p-4 border-l-4 rounded">
+                    <p className="font-medium text-brand-primary text-sm">
+                      <MaterialIcon
+                        icon="star"
+                        size="sm"
+                        className="inline mr-2"
+                      />
+                      This is how we prefer to start every project—building
+                      trust through personal connection.
+                    </p>
+                  </div>
+                  <Link href="/booking" className="mt-6 block">
+                    <Button
+                      size="lg"
+                      className="w-full bg-brand-primary hover:bg-brand-primary/90 text-white font-bold text-lg h-14"
+                    >
+                      Schedule Free Consultation
+                      <MaterialIcon icon="arrow_forward" className="ml-2" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              {/* Quick Budget Tool Card - LEATHER TAN (Secondary) - Optional Helper */}
+              <Card className="border-brand-secondary/30 dark:border-brand-secondary/40 hover:border-brand-secondary transition-all duration-300 shadow-xl hover:shadow-2xl">
+                <CardHeader className="bg-gradient-to-br from-brand-secondary/10 to-brand-secondary/5 dark:from-brand-secondary/20 dark:to-brand-secondary/10 pb-8">
+                  <div className="flex justify-center items-center mb-6">
+                    <div className="flex justify-center items-center bg-brand-secondary/10 dark:bg-brand-secondary/20 shadow-lg backdrop-blur-sm w-20 h-20 border border-brand-secondary/30 rounded-full">
+                      <MaterialIcon
+                        icon="calculate"
+                        size="lg"
+                        className="text-brand-secondary"
+                      />
+                    </div>
+                  </div>
+                  <CardTitle className="mb-3 font-black text-3xl text-brand-secondary text-center">
+                    Quick Budget Tool
+                  </CardTitle>
+                  <p className="font-semibold text-brand-secondary/80 text-center text-lg">
+                    Preliminary Planning Helper
+                  </p>
+                </CardHeader>
+                <CardContent className="pt-8 pb-6">
+                  <ul className="space-y-4 mb-8">
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="schedule"
                         size="sm"
                         className="flex-shrink-0 mr-3 mt-1 text-brand-secondary"
                       />
                       <span className="text-gray-700 dark:text-gray-300">
                         <strong className="font-bold text-brand-secondary">
-                          No Appointment:
+                          Convenient:
                         </strong>{" "}
-                        Get started immediately online
+                        Available 24/7 for preliminary planning
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="insights"
+                        size="sm"
+                        className="flex-shrink-0 mr-3 mt-1 text-brand-secondary"
+                      />
+                      <span className="text-gray-700 dark:text-gray-300">
+                        <strong className="font-bold text-brand-secondary">
+                          Helpful Guidance:
+                        </strong>{" "}
+                        Based on 500+ completed projects
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="description"
+                        size="sm"
+                        className="flex-shrink-0 mr-3 mt-1 text-brand-secondary"
+                      />
+                      <span className="text-gray-700 dark:text-gray-300">
+                        <strong className="font-bold text-brand-secondary">
+                          Budget Range:
+                        </strong>{" "}
+                        General estimates for initial planning
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="trending_up"
+                        size="sm"
+                        className="flex-shrink-0 mr-3 mt-1 text-brand-secondary"
+                      />
+                      <span className="text-gray-700 dark:text-gray-300">
+                        <strong className="font-bold text-brand-secondary">
+                          Next Step:
+                        </strong>{" "}
+                        Prepares you for personal consultation
                       </span>
                     </li>
                   </ul>
@@ -203,98 +304,13 @@ export default function EstimatorPage() {
                         size="sm"
                         className="inline mr-2"
                       />
-                      Perfect for preliminary budget planning and feasibility
-                      assessment
+                      Perfect for preliminary budget planning—then schedule your
+                      personal consultation for accurate estimates.
                     </p>
                   </div>
-                </CardContent>
-              </Card>
-
-              {/* In-Person Consultation Card - HUNTER GREEN (Primary) */}
-              <Card className="border-brand-primary/30 dark:border-brand-primary/40 hover:border-brand-primary transition-all duration-300 shadow-xl hover:shadow-2xl">
-                <CardHeader className="bg-gradient-to-br from-brand-primary/10 to-brand-primary/5 dark:from-brand-primary/20 dark:to-brand-primary/10 pb-8">
-                  <div className="flex justify-center items-center mb-6">
-                    <div className="flex justify-center items-center bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg backdrop-blur-sm w-20 h-20 border border-brand-primary/30 rounded-full">
-                      <MaterialIcon
-                        icon="engineering"
-                        size="lg"
-                        className="text-brand-primary"
-                      />
-                    </div>
-                  </div>
-                  <CardTitle className="mb-3 font-black text-3xl text-brand-primary text-center">
-                    Expert Consultation
-                  </CardTitle>
-                  <p className="font-semibold text-brand-primary/80 text-center text-lg">
-                    Detailed Custom Analysis
-                  </p>
-                </CardHeader>
-                <CardContent className="pt-8 pb-6">
-                  <ul className="space-y-4 mb-8">
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="location_on"
-                        size="sm"
-                        className="flex-shrink-0 mr-3 mt-1 text-brand-primary"
-                      />
-                      <span className="text-gray-700 dark:text-gray-300">
-                        <strong className="font-bold text-brand-primary">
-                          On-Site Visit:
-                        </strong>{" "}
-                        Comprehensive property assessment
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="handshake"
-                        size="sm"
-                        className="flex-shrink-0 mr-3 mt-1 text-brand-primary"
-                      />
-                      <span className="text-gray-700 dark:text-gray-300">
-                        <strong className="font-bold text-brand-primary">
-                          Expert Partnership Analysis:
-                        </strong>{" "}
-                        150+ years combined experience, veteran-owned leadership
-                        with military precision
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="construction"
-                        size="sm"
-                        className="flex-shrink-0 mr-3 mt-1 text-brand-primary"
-                      />
-                      <span className="text-gray-700 dark:text-gray-300">
-                        <strong className="font-bold text-brand-primary">
-                          Custom Solutions:
-                        </strong>{" "}
-                        Tailored to your unique requirements
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="description"
-                        size="sm"
-                        className="flex-shrink-0 mr-3 mt-1 text-brand-primary"
-                      />
-                      <span className="text-gray-700 dark:text-gray-300">
-                        <strong className="font-bold text-brand-primary">
-                          Transparent Detailed Quote:
-                        </strong>{" "}
-                        Accurate open-book pricing with full scope breakdown—no
-                        hidden costs
-                      </span>
-                    </li>
-                  </ul>
-                  <div className="border-brand-primary/20 bg-brand-primary/5 dark:bg-brand-primary/10 p-4 border-l-4 rounded">
-                    <p className="font-medium text-brand-primary text-sm">
-                      <MaterialIcon
-                        icon="workspace_premium"
-                        size="sm"
-                        className="inline mr-2"
-                      />
-                      Essential for complex projects requiring expert custom
-                      analysis
+                  <div className="mt-6 text-center">
+                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+                      Use the tool below, then book your consultation
                     </p>
                   </div>
                 </CardContent>

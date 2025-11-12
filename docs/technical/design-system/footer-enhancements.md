@@ -166,7 +166,7 @@ hover:bg-gradient-to-r hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#00418
 
 ```tsx
 <p className="group cursor-default text-brand-primary hover:text-brand-primary-dark transition-all duration-300 hover:scale-105 select-none">
-  "Building for the Owner, NOT the Dollar"
+  "Building for the Client, NOT the Dollar"
   <MaterialIcon
     icon="favorite"
     size="sm"

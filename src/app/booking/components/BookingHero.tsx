@@ -19,22 +19,23 @@ export function BookingHero() {
           {/* Main Title */}
           <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
             <span className="block text-brand-secondary font-black drop-shadow-lg">
-              Schedule Your Free Consultation
+              Where Great Partnerships Begin
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            Partnership-Driven Planning • Expert Guidance • Transparent Process
+            Personal Consultation • Face-to-Face Trust • Your PRIMARY Path
           </p>
 
           {/* Description */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            Start Your Project With Confidence. "Building for the Owner, NOT the
-            Dollar" — Partner with Eastern Washington's veteran-owned
-            construction leader. Schedule a complimentary 60-minute consultation
-            to discuss your project vision and discover how we can work WITH you
-            to achieve extraordinary results.
+            Real partnerships start with real conversations. "Building for the
+            Client, NOT the Dollar" — Meet with our veteran-owned team where we
+            shake hands, listen to your vision, and earn your trust through
+            honest dialogue. This is how we prefer to start every
+            project—person-to-person, building trust that lasts beyond the
+            construction.
           </p>
         </div>
       </div>

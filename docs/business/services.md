@@ -52,7 +52,7 @@ commercial, industrial, and specialty businesses, including:
 **Ready to Start?** Schedule a free consultation to discuss your commercial construction project.
 
 - **Schedule Free Consultation** - Meet with our specialists (`event`)
-- **Get Instant AI Estimate** - Try our AI-powered estimator (`smart_toy`)
+- **Budget Planning Tool** - Prepare for your consultation (`smart_toy`)
 
 **Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
@@ -316,18 +316,18 @@ standards and your expectations.
 
 ### **Two Pathways to Begin Your Project**
 
-#### Instant AI Estimate
-
-Try our AI-powered cost estimator for immediate preliminary pricing - available 24/7, no appointment needed.
-
-- **Get Instant AI Estimate** - Automated cost calculation (`smart_toy`)
-
-#### Professional Consultation
+#### Professional Consultation (Recommended)
 
 Schedule a personalized consultation with our experienced team for expert guidance and detailed planning.
 
 - **Schedule Free Consultation** - Meet with our project specialists (`event`)
 - **Book Site Visit** - On-location assessment (`place`)
+
+#### Budget Planning Tool
+
+Try our helpful budget planning tool for preliminary estimates - available 24/7 to prepare for your consultation.
+
+- **Budget Planning Tool** - Preliminary cost estimates (`smart_toy`)
 
 **Contact:** [(509) 308-6489](tel:+15093086489) ext. 100 | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
@@ -357,22 +357,22 @@ bring your vision to life through professional construction management.
 
 **Two Ways to Get Started:**
 
-#### 1. Instant AI Estimate
+#### 1. Professional Consultation (Recommended)
 
-Get preliminary project costs in seconds with our AI-powered estimator.
-Available 24/7 for immediate budget planning.
-
-- **Get Instant AI Estimate** - Automated preliminary pricing (`smart_toy`)
-- **Try AI Estimator** - Quick budget estimation (`calculate`)
-
-#### 2. Professional Consultation
-
-Schedule a personalized consultation with our experienced sales team for
-detailed professional estimates and expert guidance.
+Schedule a personalized consultation with our experienced team for detailed professional estimates and expert guidance.
 
 **Client Services:**
 
 - **Schedule Free Consultation** - Meet with our project specialists (`event`)
+- **Book Site Visit** - On-location assessment (`place`)
+
+#### 2. Budget Planning Tool
+
+Get preliminary project cost estimates with our helpful planning tool.
+Available 24/7 to prepare for your consultation.
+
+- **Budget Planning Tool** - Preliminary estimates (`smart_toy`)
+- **Quick Budget Planner** - Helpful preparation tool (`calculate`)
 - **Book Site Visit** - Arrange an on-location assessment (`place`)
 - **Request Project Review** - Submit plans for expert analysis (`visibility`)
 

@@ -28,7 +28,6 @@ import {
   TestimonialsSection,
   NextStepsSection,
 } from "@/components/shared-sections";
-import { VeteranBadgeSection } from "@/components/veterans/VeteranBadgeSection";
 
 export default function AboutPage() {
   return (
@@ -38,9 +37,6 @@ export default function AboutPage() {
 
       {/* Breadcrumb Navigation */}
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About" }]} />
-
-      {/* Veteran-Owned Badge Section */}
-      <VeteranBadgeSection variant="full" showCTA={true} />
 
       {/* Partnership Philosophy Section */}
       <PartnershipPhilosophy />

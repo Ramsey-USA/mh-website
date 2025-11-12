@@ -31,7 +31,7 @@ Two Navy Achievement Medals
 
 Matt developed MH Construction's website and manages the company's digital marketing presence,
 bringing military precision to technology and marketing innovation. His role focuses on promoting
-MH Construction's capabilities and veteran-owned status while developing cutting-edge digital
+MH Construction's capabilities and veteran-owned status while developing helpful digital
 solutions that keep the company at the forefront of online presence and client engagement.
 
 ## ⭐ Career Highlights
@@ -39,13 +39,13 @@ solutions that keep the company at the forefront of online presence and client e
 - Developed MH Construction website and digital presence
 - Led digital marketing and brand strategy
 - Enhanced veteran-owned business visibility
-- Created AI estimator systems and digital tools
+- Created budget planning tools and digital systems
 
 ## 🔧 Professional Specialties
 
 - Digital Marketing & Brand Management
 - Website Development & Design
-- AI Estimator Development & Implementation
+- Planning Tool Development & Implementation
 - Client Presentations & Digital Proposals
 
 ## 📜 Certifications

@@ -39,28 +39,19 @@ const quickContact = [
   },
 ];
 
-// Main CTAs - Strategic navigation to important pages/sections
+// Main CTAs - Strategic navigation with consultation prioritized
 const mainCTAs = [
   {
-    icon: "calculate",
-    label: "Get AI Estimate",
-    description: "Instant project budgeting",
-    link: "/estimator",
-    variant: "secondary" as const,
-    ariaLabel:
-      "Navigate to AI estimate calculator for instant project budgeting",
-  },
-  {
     icon: "calendar_month",
-    label: "Book Consultation",
-    description: "Expert in-person review",
+    label: "Schedule Consultation",
+    description: "Personal expert assessment",
     link: "/booking",
     variant: "primary" as const,
-    ariaLabel: "Book a consultation with MH Construction experts",
+    ariaLabel: "Schedule a personal consultation with MH Construction experts",
   },
   {
     icon: "construction",
-    label: "Explore Our Solutions",
+    label: "Our Services",
     description: "What we build together",
     link: "/services",
     variant: "primary" as const,
@@ -69,18 +60,10 @@ const mainCTAs = [
   {
     icon: "photo_library",
     label: "View Our Work",
-    description: "See our partnerships",
+    description: "See completed projects",
     link: "/projects",
     variant: "primary" as const,
     ariaLabel: "View completed projects and partnerships",
-  },
-  {
-    icon: "work",
-    label: "Join Our Team",
-    description: "Career opportunities",
-    link: "/careers",
-    variant: "secondary" as const,
-    ariaLabel: "Explore career opportunities at MH Construction",
   },
   {
     icon: "groups",
@@ -89,6 +72,23 @@ const mainCTAs = [
     link: "/team",
     variant: "primary" as const,
     ariaLabel: "Meet the MH Construction partnership team",
+  },
+  {
+    icon: "calculate",
+    label: "Quick Budget Tool",
+    description: "Preliminary planning help",
+    link: "/estimator",
+    variant: "secondary" as const,
+    ariaLabel:
+      "Use quick budget tool for preliminary planning (leads to consultation)",
+  },
+  {
+    icon: "work",
+    label: "Join Our Team",
+    description: "Career opportunities",
+    link: "/careers",
+    variant: "secondary" as const,
+    ariaLabel: "Explore career opportunities at MH Construction",
   },
 ];
 
@@ -126,7 +126,7 @@ export default function ContactPageClient() {
       "@type": "State",
       name: "Washington",
     },
-    slogan: "Building for the Owner, NOT the Dollar",
+    slogan: "Building for the Client, NOT the Dollar",
   };
 
   return (
@@ -166,21 +166,23 @@ export default function ContactPageClient() {
                 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight"
               >
                 <span className="block text-brand-secondary font-black drop-shadow-lg">
-                  Let's Build Your Vision Together
+                  Let's Start with a Conversation
                 </span>
               </h1>
 
               {/* Subtitle */}
               <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-                Your Partnership Team is Ready to Connect • Pacific Northwest
+                Where Handshakes Matter and Relationships Begin • Pacific
+                Northwest
               </p>
 
               {/* Description */}
               <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-                THE ROI IS THE RELATIONSHIP. Reach out for transparent
-                communication and collaborative problem-solving from your
-                veteran-owned construction partner. "Building for the Owner, NOT
-                the Dollar" — Monday - Friday: 8:00 AM - 5:00 PM PST
+                We believe in personal connection and face-to-face trust. Reach
+                out for honest communication and genuine partnership from your
+                veteran-owned construction team. "Building for the Client, NOT
+                the Dollar" — we look forward to shaking your hand. Monday -
+                Friday: 8:00 AM - 5:00 PM PST
               </p>
             </div>
           </div>
@@ -218,9 +220,10 @@ export default function ContactPageClient() {
                   </span>
                 </h2>
                 <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                  Multiple ways to start your construction partnership with over
-                  150 years combined team experience serving the Pacific
-                  Northwest
+                  We believe every great partnership starts with a conversation.
+                  Multiple ways to connect with our team—phone, email, or visit
+                  us in person. Over 150 years combined experience serving the
+                  Pacific Northwest with integrity and personal attention.
                 </p>
               </div>
 

@@ -15,7 +15,7 @@
 
 - **Professional Authority:** Confident, knowledgeable, expert tone
 - **Veteran Values:** Honor, integrity, precision, reliability
-- **Client-Focused:** Building for the owner, not the dollar
+- **Client-Focused:** Building for the client, not the dollar
 - **Solution-Oriented:** Problem-solving mindset in all copy
 
 ### **Required Messaging Patterns**

@@ -268,7 +268,7 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
   /* Hero Tagline */
 }
 <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-  "Building for the Owner, NOT the Dollar"
+  "Building for the Client, NOT the Dollar"
 </p>;
 
 {
@@ -402,7 +402,7 @@ export default function PageName() {
       className="text-center mb-8 font-medium"
       style={{ fontSize: "clamp(1.125rem, 3vw, 2.25rem)" }}
     >
-      "Building for the Owner,
+      "Building for the Client,
       <span className="text-bronze-300">NOT</span> the Dollar"
     </p>
   </div>
@@ -765,7 +765,7 @@ npm run build
 **Required Elements**:
 
 - Company name: "MH Construction LLC"
-- Primary tagline: "Building for the Owner, NOT the Dollar"
+- Primary tagline: "Building for the Client, NOT the Dollar"
 - Phone: (509) 308-6489
 - Address: "3111 N. Capital Ave., Pasco, WA 99301"
 - Email: <office@mhc-gc.com>
@@ -782,7 +782,7 @@ npm run build
   </div>
   <div style="font-weight: 600; margin-bottom: 4px;">MH Construction LLC</div>
   <div style="color: #757575; margin-bottom: 8px;">
-    Building for the Owner, NOT the Dollar
+    Building for the Client, NOT the Dollar
   </div>
   <div style="margin-bottom: 4px;">
     Phone: <a href="tel:+15093086489" style="color: #386851;">(509) 308-6489</a>

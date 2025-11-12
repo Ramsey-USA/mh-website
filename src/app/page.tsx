@@ -7,7 +7,7 @@ import {
   StructuredData,
 } from "@/components/seo/seo-meta";
 
-// Enhanced SEO for AI-powered veteran-owned construction
+// Enhanced SEO for veteran-owned construction with traditional values
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
 
 // Homepage sections
@@ -27,7 +27,6 @@ import {
   NextStepsSection,
   AIEstimatorCTA,
 } from "@/components/shared-sections";
-import { VeteranBadgeSection } from "@/components/veterans/VeteranBadgeSection";
 
 // Dynamically import below-the-fold components
 const SmartRecommendations = dynamic(
@@ -98,20 +97,21 @@ export default function Home() {
 
   return (
     <>
-      {/* Enhanced SEO structured data for AI-powered veteran-owned construction */}
+      {/* Enhanced SEO structured data for veteran-owned construction excellence */}
       <StructuredData data={homepageSEO.schemas} />
 
       <Head>
         <title>
-          MH Construction - AI-Powered Veteran-Owned Construction Excellence
+          MH Construction - Building for the Client, NOT the Dollar |
+          Veteran-Owned
         </title>
         <meta
           name="description"
-          content="Revolutionary AI construction intelligence with General MH military assistant. Founded 2010, veteran-owned since January 2025 under Army veteran leadership. Serving Pacific Northwest communities with authentic partnerships and cutting-edge technology."
+          content="Where handshakes matter and your word is your bond. Founded 2010, veteran-owned since January 2025 under Army veteran leadership. Serving Pacific Northwest communities with traditional business values and face-to-face trust."
         />
         <meta
           name="keywords"
-          content="veteran-owned construction, military precision construction, commercial construction management, Tri-Cities construction, Pasco construction, Kennewick construction, Richland construction, veteran business, AI-powered construction, construction management services"
+          content="veteran-owned construction, military precision construction, traditional business values, commercial construction management, Tri-Cities construction, Pasco construction, Kennewick construction, Richland construction, veteran business, trust-based construction, construction management services"
         />
         <meta
           property="og:title"
@@ -131,10 +131,7 @@ export default function Home() {
       {/* Home Page Hero Section */}
       <HeroSection />
 
-      {/* Veteran-Owned Badge Section */}
-      <VeteranBadgeSection variant="full" showCTA={true} />
-
-      {/* Revolutionary Features Section */}
+      {/* Modern Tools & Features Section */}
       <FeaturesSection />
 
       {/* Core Values Section */}
@@ -192,7 +189,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI-Powered Cost Estimator CTA Section */}
+      {/* Budget Planning Tool CTA Section */}
       <AIEstimatorCTA variant="full" location="homepage" />
 
       {/* Smart Project Recommendations */}

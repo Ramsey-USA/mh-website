@@ -293,7 +293,7 @@ Experience these values in action on your next construction project.
 ### **For Project Clients**
 
 - **Schedule Free Consultation** - Discuss your project with our team
-- **Get Instant AI Estimate** - Try our AI-powered estimator
+- **Budget Planning Tool** - Prepare for your consultation
 
 **Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
@@ -305,8 +305,8 @@ Experience these values in action on your next construction project.
 
 ---
 
-**Partnership Philosophy**: "Building for the Owner, NOT the Dollar"  
-**Core Message**: "THE ROI IS THE RELATIONSHIP"  
+**Partnership Philosophy**: "Building for the Client, NOT the Dollar"
+**Core Message**: "THE ROI IS THE RELATIONSHIP"
 **Community Focus**: Serving Pacific Northwest Communities with Excellence
 
 ---

@@ -122,7 +122,7 @@ gap-6 lg:gap-8
 
 ### Primary Slogans
 
-1. **"Building for the Owner, NOT the Dollar"** - Foundation message
+1. **"Building for the Client, NOT the Dollar"** - Foundation message
 2. **"THE ROI IS THE RELATIONSHIP"** - Partnership emphasis
 3. **"Let's Build More than Just Structures"** - CTA slogan
 

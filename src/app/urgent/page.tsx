@@ -164,7 +164,7 @@ export default function UrgentSupportPage() {
           className="text-center mb-8 font-medium text-white/90 max-w-4xl mx-auto px-4"
           style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)" }}
         >
-          When Time Is Critical, We Respond. "Building for the Owner, NOT the
+          When Time Is Critical, We Respond. "Building for the Client, NOT the
           Dollar" — Expert Consultation • Heavy Equipment & Operators •
           Experienced Crews
         </p>

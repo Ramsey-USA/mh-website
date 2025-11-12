@@ -5,29 +5,29 @@ import { type Metadata } from "next";
 export const enhancedSEO = {
   siteName: "MH Construction",
   defaultTitle:
-    "MH Construction - AI-Powered Veteran-Owned Construction Excellence",
+    "MH Construction - Building for the Client, NOT the Dollar | Veteran-Owned",
   defaultDescription:
-    "Revolutionary AI-powered construction intelligence with General MH military assistant. Founded 2010, veteran-owned since January 2025 under Army veteran leadership. Serving Pacific Northwest communities with authentic partnerships, transparent communication, and cutting-edge technology including AI cost estimation and military precision project management.",
+    "Where handshakes matter and your word is your bond. Founded 2010, veteran-owned since January 2025 under Army veteran leadership. Serving Pacific Northwest communities with traditional business values, face-to-face trust, and helpful modern tools including budget planning and military precision project management.",
   siteUrl: process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com",
   twitterHandle: "@MHConstruction",
   defaultKeywords: [
-    "AI construction assistant",
     "veteran-owned contractor",
+    "traditional business values construction",
     "military precision construction",
     "Pacific Northwest builder",
-    "AI cost estimator",
-    "General MH military AI",
-    "construction intelligence",
+    "construction budget planner",
+    "handshake business construction",
+    "trust-based construction",
     "veteran benefits construction",
     "Tri-Cities WA contractor",
     "transparent construction partnerships",
-    "real-time cost estimation",
+    "personal consultation construction",
     "military-style project management",
     "Washington Oregon Idaho contractor",
-    "sustainable construction technology",
+    "relationship-focused building",
     "community-focused building",
     "partnership-driven construction",
-    "authentic relationships builder",
+    "face-to-face trust builder",
   ],
   companyInfo: {
     name: "MH Construction LLC",
@@ -150,25 +150,25 @@ export function generateEnhancedOrganizationSchema() {
       "Construction Consulting",
       "Green Building",
       "LEED Certification",
-      "AI-Powered Cost Estimation",
+      "Budget Planning Tools",
       "Military Precision Construction Management",
     ],
     veteranOwned: true,
     ownershipType: "Veteran-Owned Small Business",
-    slogan: "We Work With You - Collaborative Construction Partners",
+    slogan: "Building for the Client, NOT the Dollar",
     mission:
-      "Building partnerships, serving communities, creating lasting value in the Pacific Northwest",
+      "Building partnerships through traditional values, serving communities with face-to-face trust, creating lasting value in the Pacific Northwest",
     technology: {
       "@type": "SoftwareApplication",
-      name: "General MH - Military AI Construction Assistant",
+      name: "General MH - Construction Planning Assistant",
       description:
-        "Revolutionary AI-powered construction intelligence with military precision",
+        "Helpful construction planning tools with military precision",
       applicationCategory: "Construction Management Software",
       features: [
-        "Real-time cost estimation",
+        "Budget planning estimates",
         "Military-style project assessment",
         "Veteran recognition and benefits",
-        "Construction intelligence guidance",
+        "Construction guidance",
         "Lead qualification system",
       ],
     },
@@ -207,8 +207,8 @@ export function generateEnhancedOrganizationSchema() {
       },
     ],
     award: [
-      "First-in-Industry Military AI Construction Assistant Implementation",
-      "Revolutionary Construction Intelligence Technology 2025",
+      "Award-Winning .6 EMR Safety Record",
+      "Traditional Business Values Excellence 2025",
       "Veteran Business Excellence - Pacific Northwest 2025",
     ],
     sameAs: [
@@ -229,9 +229,9 @@ export function generateEnhancedOrganizationSchema() {
         name: "Schedule Free Consultation",
       },
       {
-        "@type": "UseAction",
+        "@type": "OrderAction",
         target: `${enhancedSEO.siteUrl}/estimator`,
-        name: "Get AI-Powered Cost Estimate",
+        name: "Get Budget Planning Estimate",
       },
     ],
   };
@@ -286,18 +286,19 @@ export function generateAIEstimatorSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "@id": `${enhancedSEO.siteUrl}/estimator#ai-estimator`,
-    name: "AI Construction Cost Estimator",
+    "@id": `${enhancedSEO.siteUrl}/estimator#budget-planner`,
+    name: "Construction Budget Planning Tool",
     description:
-      "Revolutionary AI-powered construction cost estimation system providing instant preliminary project pricing with regional intelligence and veteran benefits integration",
+      "Helpful budget planning tool providing preliminary project cost estimates with regional intelligence and veteran benefits integration to prepare for personal consultation",
     applicationCategory: "Construction Estimation Software",
     operatingSystem: "Web Browser",
     offers: {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
-      name: "Free AI Cost Estimation",
-      description: "Instant, AI-powered cost estimation service available 24/7",
+      name: "Free Budget Planning",
+      description:
+        "Helpful budget estimation service available 24/7 to prepare for consultation",
     },
     provider: {
       "@id": `${enhancedSEO.siteUrl}/#organization`,
@@ -421,22 +422,22 @@ export function generateConstructionFAQSchema() {
     {
       question: "What makes MH Construction different from other contractors?",
       answer:
-        "We are the first construction company with revolutionary AI-powered construction intelligence, featuring General MH military assistant with Army General personality. Founded in 2010, veteran-owned since January 2025 under Army veteran leadership, we combine military precision with cutting-edge technology, transparent partnerships, and authentic community relationships using our 'We Work With You' philosophy.",
+        "We're a veteran-owned construction company where traditional business values come first: handshakes matter, your word is your bond, and face-to-face trust defines every partnership. Founded in 2010, veteran-owned since January 2025 under Army veteran leadership, we combine military precision with helpful modern planning tools, transparent communication, and authentic community relationships. Our motto: 'Building for the Client, NOT the Dollar.'",
     },
     {
-      question: "How does the AI construction assistant work?",
+      question: "How does the construction planning assistant work?",
       answer:
-        "General MH is our military AI construction intelligence officer available 24/7 on every page. It provides tactical construction support, real-time cost analysis, veteran recognition, lead qualification (0-100 scoring), and construction intelligence with military-style precision. The assistant is draggable and uses Army terminology for professional communication.",
+        "General MH is our helpful construction planning assistant available 24/7 on every page. It provides construction support, preliminary budget planning, veteran recognition, lead qualification, and construction guidance with military-style professionalism. The assistant uses helpful tools to prepare you for your in-person consultation with our team.",
     },
     {
       question: "What types of construction services do you provide?",
       answer:
-        "MH Construction offers comprehensive construction services including residential, commercial, industrial, and government projects. We specialize in renovation services, project management, construction consulting, green building, LEED certification, and military precision construction management with AI-powered cost estimation.",
+        "MH Construction offers comprehensive construction services including residential, commercial, industrial, and government projects. We specialize in renovation services, project management, construction consulting, green building, LEED certification, and military precision construction management with helpful budget planning tools.",
     },
     {
       question: "How can I get started with my construction project?",
       answer:
-        "You have two options: Use our 24/7 AI Estimator for instant preliminary estimates (perfect for research phase), or schedule a free IRL Consultation for personalized on-site evaluation. Contact us at (509) 308-6489 - ext. 100 for client partnerships or ext. 150 for vendor partnerships.",
+        "We recommend starting with a personal consultation—schedule your free on-site evaluation for personalized assessment. You can also use our 24/7 Budget Planning Tool for preliminary estimates to help prepare for our meeting. Contact us at (509) 308-6489 - ext. 100 for client partnerships or ext. 150 for vendor partnerships.",
     },
     {
       question: "Are you a veteran-owned business?",

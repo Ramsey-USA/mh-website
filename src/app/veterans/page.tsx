@@ -75,21 +75,22 @@ export default function VeteransPage() {
               {/* Main Title - REQUIRED RESPONSIVE SCALING */}
               <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
                 <span className="block text-brand-secondary font-black drop-shadow-lg">
-                  Veterans Initiative & Fishing Classic
+                  Service Never Ends — Supporting Those Who Served
                 </span>
               </h1>
 
               {/* Subtitle - REQUIRED */}
               <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-                Honoring Those Who Served
+                Veteran-to-Veteran Trust • Where Your Service is Honored
               </p>
 
               {/* Description - REQUIRED */}
               <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-                "Building for the Owner, NOT the Dollar" — As a veteran-owned
-                company, we're committed to supporting those who've served
-                through community initiatives, hiring programs, and our annual
-                fishing benefit event.
+                As fellow veterans, we understand commitment, integrity, and
+                keeping your word. "Building for the Client, NOT the Dollar" —
+                We honor your service through genuine support, hiring programs,
+                and community initiatives that give back to those who've given
+                so much.
               </p>
             </div>
           </div>
@@ -113,8 +114,8 @@ export default function VeteransPage() {
         <Section variant="default" padding="default">
           <SectionHeader
             subtitle="Leadership"
-            title="Veteran-Owned Excellence"
-            description="MH Construction is led by Army veteran Jeremy Thamert and Navy veteran Matt Ramsey, bringing military precision and discipline to every project we undertake."
+            title="Veteran-to-Veteran Partnership"
+            description="MH Construction is led by Army veteran Jeremy Thamert and Navy veteran Matt Ramsey. We understand military values—integrity, discipline, and keeping your word. When veterans work with veterans, trust is built on shared experience and mutual respect."
             maxWidth="4xl"
           />
 
@@ -139,10 +140,12 @@ export default function VeteransPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                  As an Army veteran and owner of MH Construction, Jeremy brings
-                  military leadership and commitment to excellence to every
-                  project. His vision extends beyond construction—building
-                  community and supporting fellow veterans.
+                  As an Army veteran and owner of MH Construction, Jeremy
+                  understands that your word is your bond. His military service
+                  taught him the value of integrity, commitment, and personal
+                  accountability—values that define every partnership we build.
+                  Building for fellow veterans isn't just business, it's
+                  brotherhood.
                 </p>
               </CardContent>
             </Card>
@@ -167,10 +170,12 @@ export default function VeteransPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                  Navy veteran Matt Ramsey developed MH Construction's website
-                  and digital presence, bringing military precision to marketing
-                  technology and promoting veteran-owned business status through
-                  innovative digital solutions.
+                  Navy veteran Matt Ramsey brings military discipline to digital
+                  innovation, ensuring our veteran-owned business stays
+                  connected with those we serve. His service taught him that
+                  trust is earned through consistent action and genuine
+                  commitment—principles that guide our entire digital presence
+                  and veteran outreach.
                 </p>
               </CardContent>
             </Card>

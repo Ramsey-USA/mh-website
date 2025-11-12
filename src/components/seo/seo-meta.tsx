@@ -16,7 +16,7 @@ const defaultSEO = {
   defaultTitle:
     "MH Construction - Veteran-Owned Construction Excellence in the Pacific Northwest",
   defaultDescription:
-    "MH Construction delivers exceptional residential, commercial, and industrial construction services throughout the Pacific Northwest. Veteran-owned with AI-powered project management.",
+    "MH Construction delivers exceptional residential, commercial, and industrial construction services throughout the Pacific Northwest. Veteran-owned where handshakes matter and your word is your bond.",
   defaultKeywords: [
     "construction",
     "building",

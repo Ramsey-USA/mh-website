@@ -1,10 +1,11 @@
-# MH Construction – Modern Construction Platform
+# MH Construction – Trusted Construction Partnership
 
 🎯 Production Ready | ✅ Cloudflare Optimized | 🇺🇸 Veteran-Owned (Since Jan 2025)
 
-Modern Next.js 15 platform built with AI-first approach for construction services.
-Features intelligent cost estimation, veteran-focused consultation workflows,
-interactive project showcase, and military-themed "General MH" chatbot assistant.
+**Building for the Client, NOT the Dollar** — Where traditional business values meet modern tools.
+Next.js 15 platform emphasizing personal relationships, veteran integrity, and proven craftsmanship.
+Features consultation-first workflows, transparent pricing, and helpful tools like AI estimation and
+interactive project showcase to serve our clients better.
 
 ---
 
@@ -204,11 +205,11 @@ NEXT_PUBLIC_GA_ID=your_google_analytics_id
 
 **Frontend:**
 
-- **Next.js 15.5.2** - App Router with React Server Components
-- **React 18.3.1** - Latest concurrent features
-- **TypeScript 5.9** - Strict mode with comprehensive type safety
-- **Tailwind CSS 3.4** - Utility-first styling with custom design system
-- **Framer Motion 12.23** - Advanced animations and interactions
+- **Next.js 15.5.2** - Modern platform for reliable performance
+- **React 18.3.1** - Industry-standard framework
+- **TypeScript 5.9** - Type safety for quality assurance
+- **Tailwind CSS 3.4** - Consistent design system
+- **Framer Motion 12.23** - Smooth, professional animations
 
 **Backend & Infrastructure:**
 
@@ -228,27 +229,26 @@ NEXT_PUBLIC_GA_ID=your_google_analytics_id
 
 ### Core Features
 
+#### Relationship-First Approach with Modern Tools
+
 - **21+ Pages** including dynamic routes and case studies
-- **AI Chatbot "General MH"** - Military-themed intelligent assistant ⭐ **Phases 1-3 Complete (November 2024)**
-  - **98-99% question coverage** with advanced personalization and memory
-  - Context-aware responses with intelligent routing
-  - Conversation memory tracking user preferences and veteran status
-  - Confidence scoring (0-1 scale) with smart human escalation
-  - Personalized greetings based on conversation history
-  - User feedback collection (thumbs up/down) for continuous improvement
-  - Contact, pricing, and timeline query handlers
-  - Natural language synonym recognition (30+ variations)
-  - Conversation follow-ups (7 categories of suggestions)
-  - Analytics tracking and satisfaction ratings (1-5 scale)
+- **Personal Consultation Priority** - Face-to-face meetings where relationships begin
+  - Expert on-site assessments with transparent pricing
+  - Open-book methodology - no hidden costs
+  - Veteran priority scheduling
+  - Primary path: `/booking` for consultation requests
+- **"General MH" Assistant** - Helpful 24/7 support tool ⭐ **Phases 1-3 Complete (November 2024)**
+  - 98-99% question coverage to help clients find information
+  - Context-aware responses guiding to personal consultation
   - Veteran service branch recognition
-  - Centralized knowledge base for easy maintenance
+  - Supports relationship-building, doesn't replace it
   - [Phase 1 Report](./docs/development/chatbot-integration-complete.md) |
     [Phase 2 Report](./docs/development/chatbot-phase2-complete.md) |
-    [Phase 3 Report](./docs/development/chatbot-phase3-complete.md) |
-    [Enhancement Guide](./docs/development/chatbot-enhancement-guide.md)
-- **Dual Estimation System:**
-  - AI Estimator (`/estimator`) - Instant automated estimates 24/7
-  - Expert Consultation (`/booking`) - In-person detailed analysis
+    [Phase 3 Report](./docs/development/chatbot-phase3-complete.md)
+- **Helpful Planning Tools:**
+  - AI Estimator (`/estimator`) - Convenient preliminary budget planning
+  - 3D Explorer - Visualization tool to support conversations
+  - These tools serve the relationship, guiding clients to personal consultation
 - **Veteran Benefits Integration:**
   - 12% Combat Veteran Discount
   - Priority scheduling
@@ -270,29 +270,31 @@ NEXT_PUBLIC_GA_ID=your_google_analytics_id
 - **Dark/Light Mode** with theme persistence
 - **Full Accessibility** - WCAG 2.1 AA compliant
 
-### Estimation System Architecture
+### Our Approach: People First, Tools Second
 
-MH Construction offers two distinct paths for project estimation:
+MH Construction believes in **personal relationships and face-to-face conversations**.
+Our tools exist to serve you better, not replace the human touch.
 
-**1. AI Estimator (`/estimator`):**
+**1. Start with Conversation (`/booking`) — RECOMMENDED:**
 
-- Automated, instant preliminary pricing
-- Available 24/7, results in under 5 minutes
-- Based on 500+ completed Pacific Northwest projects
-- AI-powered cost analysis with market data
-- Ideal for: Initial budget planning, quick estimates, exploratory phase
+- Personal consultation with experienced professionals
+- On-site assessment where we shake hands and earn your trust
+- Open-book transparent pricing - see everything
+- Detailed project planning together
+- Priority scheduling for veterans
+- **This is how real partnerships begin**
 
-**2. Expert Consultation (`/booking`):**
+**2. Quick Planning Tool (`/estimator`) — OPTIONAL:**
 
-- In-person human expert assessment
-- Detailed customized project analysis
-- On-site evaluation with measurements
-- Open-book transparent pricing methodology
-- Scheduled appointments with priority veteran scheduling
-- Ideal for: Complex projects, detailed planning, final estimates
+- Convenient preliminary budget estimates
+- Available 24/7 for your convenience
+- Helps you prepare for our conversation
+- Based on 500+ completed regional projects
+- **Always leads to personal consultation for accurate estimates**
 
-**Intelligent Routing:** "General MH" chatbot analyzes user needs and intelligently
-routes to the appropriate path, maximizing conversion and customer satisfaction.
+**Our Philosophy:** Technology should make us more accessible and transparent,
+not more impersonal. Every tool guides you toward a real conversation with real people
+who care about your project.
 
 ---
 
@@ -407,15 +409,20 @@ Full navigation: [MasterIndex](./docs/MasterIndex.md)
 
 ### Core Values
 
-- **Integrity** - Honest, transparent communication
-- **Veteran Reliability** - Military precision and discipline
-- **Relationship ROI** - Long-term partnerships over short-term profit
-- **Lasting Craftsmanship** - Quality that endures
-- **Transparency** - Open-book pricing and processes
+#### "Old School Business" — Where Your Word is Your Bond
+
+- **Integrity First** - Doing what's right, every time. Honest communication where handshakes matter
+- **Veteran Reliability** - Military-trained discipline and promise-keeping
+- **Relationship ROI** - Long-term partnerships over short-term profit. THE ROI IS THE RELATIONSHIP
+- **Lasting Craftsmanship** - Quality that endures generations
+- **Owner-Focused Transparency** - Open-book pricing, no surprises, full visibility
+- **Trust Over Transactions** - Building relationships that last longer than buildings
 
 ### Core Slogan
 
-"Building for the Owner, NOT the Dollar"
+#### "Building for the Client, NOT the Dollar"
+
+_Where handshakes matter, promises are kept, and relationships last longer than buildings._
 
 ### Hero Section Tagline Strategy
 
@@ -621,12 +628,15 @@ See: [Cloudflare Complete Guide](./docs/deployment/cloudflare-complete-guide.md)
 
 ## 🤝 Partnership Types
 
-MH Construction serves two distinct partnership types:
+MH Construction builds lasting relationships with two distinct groups:
 
-| Type      | Audience               | Primary CTA       | Color        | Icon         | Routes             |
-| --------- | ---------------------- | ----------------- | ------------ | ------------ | ------------------ |
-| Client 🏠 | Project owners         | Get Free Estimate | Hunter Green | handshake    | /services /booking |
-| Trade 🏗️  | Subcontractors/vendors | Apply to Network  | Leather Tan  | construction | /trade-partners    |
+| Type      | Audience               | Primary CTA           | Color        | Icon         | Routes             |
+| --------- | ---------------------- | --------------------- | ------------ | ------------ | ------------------ |
+| Client 🏠 | Project owners         | Schedule Consultation | Hunter Green | handshake    | /booking /services |
+| Trade 🏗️  | Subcontractors/vendors | Join Our Network      | Leather Tan  | construction | /trade-partners    |
+
+**Our Approach:** Every partnership starts with a conversation, builds through trust,
+and succeeds through mutual commitment. We shake hands, keep promises, and build together.
 
 Full documentation: [Partnership Type Definitions](./docs/partnerships/partnership-type-definitions.md)
 

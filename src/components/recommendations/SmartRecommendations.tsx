@@ -471,7 +471,7 @@ const SmartRecommendations: React.FC<SmartRecommendationsProps> = ({
               [MILITARY_TECH] Smart Project Recommendations
             </h2>
             <p className="text-gray-600">
-              AI-powered suggestions tailored to your needs
+              Helpful project suggestions based on Pacific Northwest trends
               {userProfile?.isVeteran && " and veteran benefits"}
             </p>
           </div>

@@ -42,7 +42,7 @@ craftsmanship and character.
 
 **Primary Partnership Message:**
 
-> "Building for the Owner, NOT the Dollar"
+> "Building for the Client, NOT the Dollar"
 
 **Relationship-Focused Message:**
 

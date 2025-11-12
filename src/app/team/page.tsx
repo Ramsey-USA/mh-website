@@ -16,7 +16,6 @@ import { TestimonialGrid } from "@/components/testimonials";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
 import "../../styles/vintage-baseball-card.css";
 import { gridPresets, getGridClassName } from "@/lib/styles/layout-variants";
-import { VeteranBadgeSection } from "@/components/veterans/VeteranBadgeSection";
 
 // Group team members by department
 function groupByDepartment(members: VintageTeamMember[]) {
@@ -63,7 +62,7 @@ export default function TeamPage() {
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              &ldquo;Building for the Owner, NOT the Dollar&rdquo;
+              &ldquo;Building for the Client, NOT the Dollar&rdquo;
             </p>
 
             {/* Leadership Statement */}
@@ -92,9 +91,6 @@ export default function TeamPage() {
       <Breadcrumb
         items={[{ label: "Home", href: "/" }, { label: "Our Team" }]}
       />
-
-      {/* Veteran-Owned Badge Section */}
-      <VeteranBadgeSection variant="full" showCTA={true} />
 
       <div className="bg-gray-50 dark:bg-gray-900 py-16">
         <div className="mx-auto px-4 max-w-7xl">

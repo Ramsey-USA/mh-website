@@ -9,11 +9,11 @@ const features = [
   {
     id: "ai-estimator",
     icon: "smart_toy",
-    title: "AI Project Estimator",
+    title: "Quick Budget Planner",
     description:
-      "AI-powered cost estimation system providing preliminary budget planning with regional market intelligence.",
+      "Helpful planning tool providing preliminary budget estimates with regional market intelligence to prepare for your consultation.",
     details:
-      "Our AI analyzes regional project data, material costs, and labor factors to provide helpful preliminary estimates for budget planning.",
+      "Our planning tool analyzes regional project data, material costs, and labor factors to help you prepare for your in-person consultation with accurate budget expectations.",
     features: [
       "Regional Market Data",
       "Real-time Material Pricing",
@@ -60,11 +60,11 @@ const features = [
   {
     id: "ai-assistant",
     icon: "security",
-    title: "24/7 AI Assistant",
+    title: "24/7 Support Assistant",
     description:
-      "Military-grade support with enhanced chatbot providing context-aware veteran assistance and instant responses.",
+      "Helpful support tool with enhanced chatbot providing context-aware veteran assistance and instant responses.",
     details:
-      "Our AI assistant understands construction terminology, veteran benefits, and project specifics to provide personalized, accurate assistance.",
+      "Our support assistant understands construction terminology, veteran benefits, and project specifics to provide personalized assistance while you prepare for your personal consultation.",
     features: [
       "Veteran-Aware Support",
       "Construction Expertise",
@@ -78,22 +78,22 @@ const features = [
 
 const ctaButtons = [
   {
-    title: "Get Instant AI Estimate",
-    description: "Try our AI-powered estimator",
-    href: "/estimator",
-    variant: "secondary" as const,
-    icon: "smart_toy",
-  },
-  {
     title: "Schedule Free Consultation",
-    description: "Book your site visit",
+    description: "Start with a personal conversation",
     href: "/booking",
     variant: "primary" as const,
     icon: "event",
   },
   {
+    title: "Quick Budget Planner",
+    description: "Helpful tool to prepare for meeting",
+    href: "/estimator",
+    variant: "secondary" as const,
+    icon: "smart_toy",
+  },
+  {
     title: "View Our Work",
-    description: "Explore our collaborations",
+    description: "Explore our partnerships",
     href: "/services#portfolio",
     variant: "outline" as const,
     icon: "visibility",
@@ -108,13 +108,13 @@ const ctaButtons = [
 ];
 
 /**
- * Revolutionary Features Section
- * Showcases AI-powered features with flip cards and CTAs
+ * Modern Tools & Features Section
+ * Showcases helpful planning tools with flip cards and CTAs
  */
 export function FeaturesSection() {
   return (
     <section
-      id="revolutionary-features"
+      id="helpful-features"
       className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-8 sm:py-12 lg:py-16 features-section"
     >
       {/* Background Effects */}
@@ -127,22 +127,22 @@ export function FeaturesSection() {
         <FadeInWhenVisible className="mb-8 sm:mb-10 lg:mb-12 text-center">
           <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
             <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
-              The Future of
+              Traditional Values Meet
             </span>
             <span className="block text-brand-primary dark:text-brand-primary font-black">
-              Construction
+              Modern Tools
             </span>
           </h2>
           <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
             Where{" "}
             <span className="font-medium text-gray-800 dark:text-gray-200">
-              collaborative partnership meets cutting-edge AI
+              personal partnerships meet helpful technology
             </span>
-            . Our veteran-led team works with you to combine decades of service
-            experience with revolutionary technology to deliver construction
-            management that{" "}
+            . Our veteran-led team combines decades of experience and old school
+            business values with modern planning tools to deliver construction
+            management built on{" "}
             <span className="text-brand-primary font-semibold">
-              serves your vision
+              trust and face-to-face relationships
             </span>
             .
           </p>

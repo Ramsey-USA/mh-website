@@ -130,7 +130,7 @@ and superseded guidelines from documentation consolidation efforts (8 archived f
 ### Core Identity
 
 - **Company**: MH Construction LLC
-- **Tagline**: "Building for the Owner, NOT the Dollar"
+- **Tagline**: "Building for the Client, NOT the Dollar"
 - **Focus**: Veteran-owned, partnership-driven construction management
 - **Service Area**: Tri-Cities, WA | Licensed in WA, OR, ID
 

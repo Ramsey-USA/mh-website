@@ -433,7 +433,7 @@ consistency with the rest of the MH Construction website.
 - [ ] **Trade Focus:** "Building Professional Partnerships", "Join Our Network"
 - [ ] **Veteran Heritage:** Emphasize veteran ownership and values appropriately
 - [ ] **ROI Definition:** "THE ROI IS THE RELATIONSHIP" as core message
-- [ ] **Owner-First:** "Building for the Owner, NOT the Dollar"
+- [ ] **Client-First:** "Building for the Client, NOT the Dollar"
 
 **Reference:** [Messaging Guidelines](../branding/strategy/messaging.md)
 

@@ -24,7 +24,7 @@ export function ProjectsHero() {
 
           {/* Subtitle - Brand Tagline */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            "Building for the Owner, NOT the Dollar"
+            "Building for the Client, NOT the Dollar"
           </p>
 
           {/* Description */}

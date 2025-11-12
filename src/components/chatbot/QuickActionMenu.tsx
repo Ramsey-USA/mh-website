@@ -24,10 +24,11 @@ interface QuickAction {
 const QUICK_ACTIONS: QuickAction[] = [
   {
     id: "ai-estimator",
-    label: "AI Estimator",
+    label: "Budget Planner",
     icon: "smart_toy",
-    message: "I want to use the AI Estimator to get instant project pricing",
-    description: "Get instant AI-powered cost estimates in under 5 minutes",
+    message:
+      "I want to use the Budget Planning Tool to prepare for my consultation",
+    description: "Get preliminary budget estimates to prepare for consultation",
     priority: "high",
   },
   {

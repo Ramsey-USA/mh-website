@@ -23,7 +23,7 @@ messaging impact, and user engagement.
 - ✅ Material Icons consistently used throughout
 - ✅ Brand colors (Hunter Green, Leather Tan) properly applied
 - ✅ Typography scales responsively across breakpoints
-- ✅ Core messaging ("Building for the Owner, NOT the Dollar") prominently featured
+- ✅ Core messaging ("Building for the Client, NOT the Dollar") prominently featured
 - ✅ Veteran-owned branding present but not overwhelming
 - ✅ Interactive components (calculator, sliders) align with Phase 5 strategy
 
@@ -77,7 +77,7 @@ messaging impact, and user engagement.
 </p>
 
 <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-  "Building for the Owner, NOT the Dollar" — Veteran-owned commercial construction management serving the Tri-Cities with military precision and genuine partnership. 150+ years combined experience. Licensed WA, OR, ID.
+  "Building for the Client, NOT the Dollar" — Veteran-owned commercial construction management serving the Tri-Cities with military precision and genuine partnership. 150+ years combined experience. Licensed WA, OR, ID.
 </p>
 ```
 
@@ -89,7 +89,7 @@ messaging impact, and user engagement.
 
 **Primary Slogan Usage**: Excellent
 
-The homepage prominently features "Building for the Owner, NOT the Dollar" in multiple locations:
+The homepage prominently features "Building for the Client, NOT the Dollar" in multiple locations:
 
 - WhyPartnerSection (with emphasis on "NOT")
 - Strategic placement reinforces brand philosophy
@@ -454,7 +454,7 @@ export function HeroSection() {
 
           {/* Description with primary slogan */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            "Building for the Owner, NOT the Dollar" — Veteran-owned commercial
+            "Building for the Client, NOT the Dollar" — Veteran-owned commercial
             construction management. 150+ years combined experience. Licensed
             WA, OR, ID. Award-winning .6 EMR safety. Military precision meets
             genuine partnership.

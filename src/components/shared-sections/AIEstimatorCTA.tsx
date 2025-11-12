@@ -1,6 +1,6 @@
 /**
- * Shared AI Estimator CTA Section Component
- * Promotional section highlighting the AI-powered cost estimator
+ * Shared Budget Planning Tool CTA Section Component
+ * Promotional section highlighting the helpful budget planning tool
  * Used on: Homepage, Services pages
  */
 
@@ -64,21 +64,21 @@ export function AIEstimatorCTA({
                     size="sm"
                     className="mr-2"
                   />
-                  AI-Powered Precision
+                  Helpful Planning Tool
                 </div>
                 <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                    Ready to Get
+                    Ready to Prepare for
                   </span>
                   <span className="block text-brand-primary dark:text-brand-primary font-black">
-                    Your AI Estimate?
+                    Your Consultation?
                   </span>
                 </h2>
                 <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8">
-                  Get a detailed, AI-powered cost estimate in under 5 minutes.
-                  Our advanced system analyzes 500+ projects and Pacific
-                  Northwest market data to provide accurate preliminary budget
-                  planning.
+                  Get a preliminary budget estimate in under 5 minutes to
+                  prepare for your in-person consultation. Our planning tool
+                  analyzes Pacific Northwest market data to help you understand
+                  project costs before we meet.
                 </p>
               </div>
 
@@ -131,24 +131,9 @@ export function AIEstimatorCTA({
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
-                <Link href="/estimator" className="flex-1">
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    className="w-full group/btn hover:scale-105 transition-all duration-200"
-                    onClick={handleEstimatorClick}
-                  >
-                    <MaterialIcon
-                      icon="calculate"
-                      size="md"
-                      className="mr-2 group-hover/btn:rotate-12 transition-transform duration-300"
-                    />
-                    Start AI Estimate
-                  </Button>
-                </Link>
                 <Link href="/booking" className="flex-1">
                   <Button
-                    variant="outline"
+                    variant="primary"
                     size="lg"
                     className="w-full group/btn hover:scale-105 transition-all duration-200"
                     onClick={handleConsultationClick}
@@ -158,13 +143,29 @@ export function AIEstimatorCTA({
                       size="md"
                       className="mr-2 group-hover/btn:rotate-12 transition-transform duration-300"
                     />
-                    Book Consultation
+                    Schedule Consultation
+                  </Button>
+                </Link>
+                <Link href="/estimator" className="flex-1">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full group/btn hover:scale-105 transition-all duration-200"
+                    onClick={handleEstimatorClick}
+                  >
+                    <MaterialIcon
+                      icon="calculate"
+                      size="md"
+                      className="mr-2 group-hover/btn:rotate-12 transition-transform duration-300"
+                    />
+                    Try Budget Tool
                   </Button>
                 </Link>
               </div>
 
               <p className="mt-6 text-sm text-gray-500 dark:text-gray-400 italic">
-                No appointment needed • Available 24/7 • Transparent pricing
+                Personal consultation recommended first • Planning tool
+                available 24/7
               </p>
             </div>
           </div>
@@ -191,18 +192,19 @@ export function AIEstimatorCTA({
                       size="sm"
                       className="mr-2"
                     />
-                    AI-Powered Technology
+                    Helpful Planning Tool
                   </div>
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight">
-                    Get Your AI-Powered
+                    Prepare for Your
                     <span className="block text-brand-primary">
-                      Cost Estimate
+                      Personal Consultation
                     </span>
                   </h2>
                   <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                    Our advanced AI estimator analyzes 500+ completed projects
-                    and 150+ years of combined team experience to provide
-                    accurate preliminary budget planning in under 5 minutes.
+                    Our planning tool analyzes Pacific Northwest market data to
+                    provide preliminary budget estimates in under 5
+                    minutes—helping you prepare for your in-person consultation
+                    with realistic cost expectations.
                   </p>
                 </div>
 
@@ -263,9 +265,20 @@ export function AIEstimatorCTA({
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/estimator" className="flex-1">
+                  <Link href="/booking" className="flex-1">
                     <Button
                       variant="primary"
+                      size="lg"
+                      className="w-full"
+                      onClick={handleConsultationClick}
+                    >
+                      <MaterialIcon icon="event" size="md" className="mr-2" />
+                      Schedule Consultation
+                    </Button>
+                  </Link>
+                  <Link href="/estimator" className="flex-1">
+                    <Button
+                      variant="outline"
                       size="lg"
                       className="w-full"
                       onClick={handleEstimatorClick}
@@ -275,18 +288,7 @@ export function AIEstimatorCTA({
                         size="md"
                         className="mr-2"
                       />
-                      Start AI Estimate
-                    </Button>
-                  </Link>
-                  <Link href="/booking" className="flex-1">
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="w-full"
-                      onClick={handleConsultationClick}
-                    >
-                      <MaterialIcon icon="event" size="md" className="mr-2" />
-                      Book Consultation
+                      Try Planning Tool
                     </Button>
                   </Link>
                 </div>

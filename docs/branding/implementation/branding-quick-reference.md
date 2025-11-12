@@ -67,7 +67,7 @@ className="bg-[#BD9264]"
 
 **Primary Slogan:**
 
-> "Building for the Owner, NOT the Dollar"
+> "Building for the Client, NOT the Dollar"
 
 **Relationship-Focused Slogan:**
 

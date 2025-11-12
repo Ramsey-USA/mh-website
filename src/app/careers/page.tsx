@@ -62,7 +62,7 @@ export default function CareersPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Your Future Starts Here. &ldquo;Building for the Owner, NOT the
+              Your Future Starts Here. &ldquo;Building for the Client, NOT the
               Dollar&rdquo; — Award-winning .6 EMR safety. 150+ years combined
               experience. Veteran-owned company valuing integrity, excellence,
               and partnership.

@@ -146,7 +146,7 @@ flexibility for Tier 1 foundation slogans.
 
 ✅ Can be used across multiple pages
 
-1. "Building for the Owner, NOT the Dollar"
+1. "Building for the Client, NOT the Dollar"
 2. "THE ROI IS THE RELATIONSHIP"
 3. "Let's Build More than Just Structures"
 
@@ -447,4 +447,4 @@ import { SloganWithIcon } from "@/components/ui/Slogan";
 
 ---
 
-**Signature:** "THE ROI IS THE RELATIONSHIP" - Building for the Owner, NOT the Dollar
+**Signature:** "THE ROI IS THE RELATIONSHIP" - Building for the Client, NOT the Dollar

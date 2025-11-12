@@ -302,7 +302,7 @@ export const cultureValues: CultureValue[] = [
     icon: "handshake",
     title: "Integrity & Trust",
     description:
-      "We build relationships based on honesty, transparency, and mutual respect. 'Building for the Owner, NOT the Dollar' means transparent communication, open-book pricing, and collaborative problem-solving define every interaction—from apprentice to owner. 70% of our business comes from referrals and repeat clients.",
+      "We build relationships based on honesty, transparency, and mutual respect. 'Building for the Client, NOT the Dollar' means transparent communication, open-book pricing, and collaborative problem-solving define every interaction—from apprentice to owner. 70% of our business comes from referrals and repeat clients.",
     color: "from-brand-primary to-brand-primary-dark",
   },
   {

@@ -300,10 +300,10 @@ export default function GovernmentGrantsPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Mission-Ready, Compliance-Driven. "Building for the Owner, NOT the
-              Dollar" — Army veteran leadership, 150+ years combined experience.
-              Award-winning .6 EMR safety. Federal compliance, DOE & Hanford
-              expertise. Licensed WA, OR, ID.
+              Mission-Ready, Compliance-Driven. "Building for the Client, NOT
+              the Dollar" — Army veteran leadership, 150+ years combined
+              experience. Award-winning .6 EMR safety. Federal compliance, DOE &
+              Hanford expertise. Licensed WA, OR, ID.
             </p>
           </div>
         </div>
@@ -318,42 +318,6 @@ export default function GovernmentGrantsPage() {
       <Breadcrumb
         items={[{ label: "Home", href: "/" }, { label: "Government Projects" }]}
       />
-      {/* Veteran-Owned Badge Section */}
-      <section className="bg-gradient-to-r from-gray-800 to-black py-8 text-white">
-        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible>
-            <div className="flex flex-wrap justify-center items-center gap-8 text-center">
-              <div className="flex items-center">
-                <MaterialIcon icon="military_tech" size="lg" className="mr-3" />
-                <div className="text-left">
-                  <p className="font-bold text-lg">Army Veteran Owned</p>
-                  <p className="text-gray-300 text-sm">
-                    Veteran-Owned Since January 2025
-                  </p>
-                </div>
-              </div>
-              <div className="hidden md:block bg-gray-600 w-px h-12"></div>
-              <div className="flex items-center">
-                <MaterialIcon icon="verified" size="lg" className="mr-3" />
-                <div className="text-left">
-                  <p className="font-bold text-lg">Federal Compliance Ready</p>
-                  <p className="text-gray-300 text-sm">WA, OR, ID Licensed</p>
-                </div>
-              </div>
-              <div className="hidden md:block bg-gray-600 w-px h-12"></div>
-              <div className="flex items-center">
-                <MaterialIcon icon="science" size="lg" className="mr-3" />
-                <div className="text-left">
-                  <p className="font-bold text-lg">DOE & Hanford Qualified</p>
-                  <p className="text-gray-300 text-sm">
-                    Mission-Critical Experience
-                  </p>
-                </div>
-              </div>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
       {/* Grant Support Services */}
       <section className="bg-white dark:bg-gray-900 py-20">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -377,7 +341,7 @@ export default function GovernmentGrantsPage() {
                 construction services with unwavering commitment to federal
                 specifications, operational success, award-winning safety (.6
                 EMR), and transparent open-book partnership throughout the
-                application and execution process—Building for the Owner, NOT
+                application and execution process—Building for the Client, NOT
                 the Dollar with 150+ years combined experience
               </p>
             </div>

@@ -30,23 +30,23 @@ Army Commendation Medal, Army Achievement Medal
 ## 👤 Biography
 
 Jeremy Thamert, a U.S. military veteran, became owner of MH Construction in January 2025 after
-serving as General Manager for 2 years. He is the visionary behind MH Construction's pioneering
-approach, bringing extensive experience and a commitment to integrating cutting-edge technology.
+serving as General Manager for 2 years. He is the visionary behind MH Construction's traditional
+business values approach, bringing extensive experience and a commitment to face-to-face relationships and trust-based partnerships.
 Under his veteran leadership, MH Construction continues to honor its values of discipline, integrity,
-and precision while embracing innovative construction technologies.
+and precision while using helpful modern tools to support client relationships.
 
 ## ⭐ Career Highlights
 
-- Led digital transformation initiative
+- Led traditional values repositioning initiative
 - Expanded service territories
-- Implemented AI-powered project management
+- Implemented helpful planning tools for client support
 - Achieved 98% client satisfaction rating
 
 ## 🔧 Professional Specialties
 
 - Strategic Vision & Business Development
-- Technology Integration & Innovation
-- AI Adoption & Digital Transformation
+- Traditional Business Values & Client Relationships
+- Helpful Tool Integration
 - Operational Leadership & Team Management
 
 ## 📜 Certifications
@@ -56,11 +56,12 @@ PMP, LEED AP
 ## 🎯 Personal Interests
 
 - **Hobbies**: Technology, Golf
-- **Special Interests**: AI & Automation
+- **Special Interests**: Business Innovation & Client Relations
 
 ## 💡 Fun Fact
 
-Jeremy was the first construction company owner in the region to implement AI-powered estimating tools.
+Jeremy champions the philosophy "Building for the Client, NOT the Dollar" -
+emphasizing traditional business values where handshakes matter and your word is your bond.
 
 ---
 

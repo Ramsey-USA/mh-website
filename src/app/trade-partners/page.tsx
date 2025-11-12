@@ -172,9 +172,9 @@ const partnerCategories = [
 const partnershipValues = [
   {
     icon: "handshake",
-    title: "Professional Respect & Integrity",
+    title: "Where Handshakes Still Matter",
     description:
-      "We treat our trade partners as valued business allies, building relationships on mutual respect, trust, and shared commitment to quality. Veteran-owned leadership brings military precision and unwavering integrity to every partnership.",
+      "Your word is your bond. We treat our trade partners with the same integrity and respect we give our clients—building relationships through face-to-face trust, mutual respect, and shared commitment to doing what's right. Veteran-owned leadership brings honor, accountability, and unwavering integrity to every partnership.",
     color: "from-brand-primary to-brand-primary-dark",
   },
   {
@@ -188,7 +188,7 @@ const partnershipValues = [
     icon: "payments",
     title: "Fair & Prompt Payment Terms",
     description:
-      "Competitive compensation and reliable payment schedules support the financial health and business growth of our trade partners. Building for the Owner, NOT the Dollar means treating partners with the same transparency and fairness we give clients.",
+      "Competitive compensation and reliable payment schedules support the financial health and business growth of our trade partners. Building for the Client, NOT the Dollar means treating partners with the same transparency and fairness we give clients.",
     color: "from-brand-accent to-brand-accent-dark",
   },
   {
@@ -264,16 +264,16 @@ export default function TradePartnersPage() {
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              Grow Your Business with Veteran-Owned Excellence • Pacific
-              Northwest
+              Where Your Word is Your Bond • Veteran-Owned Integrity
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Building Success Together. "Building for the Owner, NOT the
-              Dollar" — Award-winning .6 EMR safety, 150+ years combined
-              experience. Reliable Pacific Northwest opportunities, fair
-              practices, transparent communication.
+              Building Partnerships on Trust and Respect. Veteran-owned
+              leadership where handshakes matter, promises are kept, and mutual
+              success defines every relationship. Award-winning .6 EMR safety,
+              150+ years combined experience, transparent open-book
+              communication.
             </p>
           </div>
         </div>
@@ -345,19 +345,20 @@ export default function TradePartnersPage() {
             <div className="mb-12 lg:mb-16 text-center">
               <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                 <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                  Trade Partnership
+                  Where Handshakes Matter
                 </span>
                 <span className="block text-brand-primary dark:text-brand-primary font-black">
-                  Philosophy
+                  In Every Partnership
                 </span>
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                "Quality construction is built through strong trade partnerships
-                backed by veteran-owned leadership (January 2025), award-winning
-                safety (.6 EMR), and 150+ years combined experience. Our success
-                depends on skilled subcontractors and reliable vendors who bring
-                expertise, professionalism, and shared commitment to every
-                project with transparent open-book communication."
+                "Building for the Client, NOT the Dollar means treating our
+                trade partners with the same integrity we give our clients.
+                Quality construction is built through trusted
+                relationships—where your word is your bond, handshakes matter,
+                and mutual respect defines every partnership. Backed by
+                veteran-owned leadership, award-winning safety (.6 EMR), and
+                150+ years combined experience."
               </p>
               <cite className="block mt-4 font-semibold text-brand-secondary text-lg">
                 — MH Construction Leadership Team

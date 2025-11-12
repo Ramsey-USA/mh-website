@@ -112,7 +112,7 @@ export const whyChooseReasons = [
     iconName: "handshake",
     title: "Partnership-Driven Approach: THE ROI IS THE RELATIONSHIP",
     description:
-      "We're not just contractors—we're community partners invested in the long-term success of the Pacific Northwest region. 'THE ROI IS THE RELATIONSHIP'—we build lasting partnerships that extend well beyond project completion. Building for the Owner, NOT the Dollar is more than a slogan—it's our commitment to you.",
+      "We're not just contractors—we're community partners invested in the long-term success of the Pacific Northwest region. 'THE ROI IS THE RELATIONSHIP'—we build lasting partnerships that extend well beyond project completion. Building for the Client, NOT the Dollar is more than a slogan—it's our commitment to you.",
   },
   {
     iconName: "verified",

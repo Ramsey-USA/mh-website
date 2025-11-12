@@ -44,7 +44,7 @@ Our voice balances military precision with partnership warmth, creating communic
 
 **Example**:
 
-> "Building for the Owner, NOT the Dollar. Our veteran-owned team combines military
+> "Building for the Client, NOT the Dollar. Our veteran-owned team combines military
 > precision with partnership-driven construction management to deliver exceptional
 > results for commercial projects throughout the Pacific Northwest."
 
@@ -76,7 +76,7 @@ Our voice balances military precision with partnership warmth, creating communic
 
 ### Core Brand Slogans
 
-#### Primary Slogan: "Building for the Owner, NOT the Dollar"
+#### Primary Slogan: "Building for the Client, NOT the Dollar"
 
 Our foundational message emphasizing partnership over profit, client success over company gain.
 

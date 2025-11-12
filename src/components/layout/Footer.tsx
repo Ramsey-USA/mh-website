@@ -678,7 +678,7 @@ export default function Footer() {
           {/* Interactive Brand Tagline */}
           <div className="text-center mt-6 pt-4 border-t border-gray-700/50 dark:border-gray-600/50">
             <p className="group cursor-default text-brand-primary dark:text-brand-primary text-sm font-semibold italic hover:text-brand-primary-dark transition-all duration-300 hover:scale-105 select-none">
-              "Building for the Owner, NOT the Dollar"
+              "Building for the Client, NOT the Dollar"
               <MaterialIcon
                 icon="favorite"
                 size="sm"

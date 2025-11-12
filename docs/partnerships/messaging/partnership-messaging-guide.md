@@ -29,7 +29,7 @@ reinforce our core belief: **we work WITH clients, not just FOR them**.
 
 ### **🏗️ Primary Brand Message**
 
-**"Building for the Owner, NOT the Dollar"**
+**"Building for the Client, NOT the Dollar"**
 _This tagline emphasizes our commitment to client success over profit maximization
 — the heart of veteran-owned business values._
 
