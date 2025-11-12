@@ -69,7 +69,7 @@ The chatbot should now comprehensively answer:
 
 ### Contact Information
 
-```
+```text
 ✅ "What's your phone number?"
 ✅ "What are your business hours?"
 ✅ "Where are you located?"
@@ -79,7 +79,7 @@ The chatbot should now comprehensively answer:
 
 ### Pricing & Estimates
 
-```
+```text
 ✅ "How much does a kitchen remodel cost?"
 ✅ "Do you offer free estimates?"
 ✅ "How do I get a quote?"
@@ -88,7 +88,7 @@ The chatbot should now comprehensively answer:
 
 ### Services
 
-```
+```text
 ✅ "What services do you offer?"
 ✅ "Do you build decks?"
 ✅ "Can you help with commercial projects?"
@@ -97,7 +97,7 @@ The chatbot should now comprehensively answer:
 
 ### Company Information
 
-```
+```text
 ✅ "Who's the boss?" (Already working)
 ✅ "Who founded the company?"
 ✅ "What's your safety record?"
@@ -106,7 +106,7 @@ The chatbot should now comprehensively answer:
 
 ### Veteran Benefits
 
-```
+```text
 ✅ "Do you offer veteran discounts?"
 ✅ "What veteran benefits do you have?"
 ✅ "I'm a veteran, what do I get?"
@@ -114,7 +114,7 @@ The chatbot should now comprehensively answer:
 
 ### Process & Timeline
 
-```
+```text
 ✅ "How long does a project take?"
 ✅ "What's your construction process?"
 ✅ "Do you offer warranties?"
@@ -218,9 +218,11 @@ See `/docs/development/chatbot-enhancement-guide.md` for complete roadmap:
 
 ## 🎖️ Mission Success
 
-The chatbot is now **significantly more comprehensive** and can handle the majority of common user questions with detailed, helpful responses while maintaining the "General MH" military-themed personality.
+The chatbot is now **significantly more comprehensive** and can handle the majority of common user questions
+with detailed, helpful responses while maintaining the "General MH" military-themed personality.
 
-**Result:** Users get immediate, accurate answers to common questions, leading to better user experience and higher conversion rates for estimates and consultations.
+**Result:** Users get immediate, accurate answers to common questions, leading to better user experience
+and higher conversion rates for estimates and consultations.
 
 ---
 

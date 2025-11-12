@@ -141,7 +141,7 @@ private addConfidenceEscalation(
 
 **Escalation Content:**
 
-```
+```text
 🤝 Need More Help?
 I might not have all the details you need. For the most accurate information:
 • Call: (509) 308-6489 (speak with our team)
@@ -377,7 +377,7 @@ memory.sessionMetrics.satisfactionRating = Math.round(averageRating);
 
 **Output:**
 
-```
+```text
 Welcome back, Army veteran! Yes, MH Construction is veteran-owned and operated...
 [rest of response]
 ```
@@ -392,7 +392,7 @@ Welcome back, Army veteran! Yes, MH Construction is veteran-owned and operated..
 
 **Output:**
 
-```
+```text
 [Chatbot attempts general answer]
 
 🤝 Need More Help?

@@ -2,7 +2,8 @@
 
 ## 🎯 **Overview**
 
-This guide outlines strategies to ensure MH Construction's chatbot provides comprehensive, accurate, and helpful responses to user queries.
+This guide outlines strategies to ensure MH Construction's chatbot provides comprehensive, accurate, and
+helpful responses to user queries.
 
 ---
 
@@ -123,7 +124,7 @@ if (lastTopic === "pricing") {
 
 #### Needed Additions
 
-**A. Contact Information Queries**
+#### A. Contact Information Queries
 
 ```typescript
 private isContactQuery(message: string): boolean {
@@ -135,7 +136,7 @@ private isContactQuery(message: string): boolean {
 }
 ```
 
-**B. Pricing/Cost Queries**
+#### B. Pricing/Cost Queries
 
 ```typescript
 private isPricingQuery(message: string): boolean {
@@ -147,7 +148,7 @@ private isPricingQuery(message: string): boolean {
 }
 ```
 
-**C. Timeline/Schedule Queries**
+#### C. Timeline/Schedule Queries
 
 ```typescript
 private isTimelineQuery(message: string): boolean {
@@ -369,7 +370,8 @@ return {
 
 **Documentation:** See `/docs/development/chatbot-phase3-complete.md`
 
-**Impact:** Enhanced UX with 98-99% coverage through personalization, memory, and intelligent escalation.
+**Impact:** Enhanced UX with 98-99% coverage through personalization, memory, and intelligent
+escalation.
 
 ### Phase 4: LONG-TERM (Months 4-6)
 
@@ -586,4 +588,6 @@ For chatbot development questions:
 
 ---
 
-**Remember:** A comprehensive chatbot is never "done" - it continuously improves based on user interactions and feedback. The goal is to answer 80%+ of common questions accurately while gracefully handing off complex queries to humans.
+**Remember:** A comprehensive chatbot is never "done" - it continuously improves based on user interactions
+and feedback. The goal is to answer 80%+ of common questions accurately while gracefully handing off complex
+queries to humans.

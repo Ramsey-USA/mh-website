@@ -7,7 +7,8 @@
 
 ## Overview
 
-The phone call tracking system monitors when visitors click phone numbers on the website and automatically sends email notifications to `matt@mhc-gc.com` and `office@mhc-gc.com`.
+The phone call tracking system monitors when visitors click phone numbers on the website and automatically
+sends email notifications to `matt@mhc-gc.com` and `office@mhc-gc.com`.
 
 ## How It Works
 

@@ -8,7 +8,7 @@
 
 All website forms and phone tracking send email notifications using Resend transactional email service.
 
-**CRITICAL: Dual Email Recipients (November 2025)**
+### CRITICAL: Dual Email Recipients (November 2025)
 
 - **Primary (Public)**: `office@mhc-gc.com` - Displayed on website, main business email
 - **CC (Private)**: `matt@mhc-gc.com` - Receives copies, NOT displayed publicly

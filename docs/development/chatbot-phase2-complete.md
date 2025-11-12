@@ -8,7 +8,8 @@
 
 ## 🎯 **Implementation Summary**
 
-Successfully added **3 new query handler systems** to the MH Construction chatbot, significantly expanding its ability to answer common questions with detailed, helpful responses.
+Successfully added **3 new query handler systems** to the MH Construction chatbot, significantly expanding
+its ability to answer common questions with detailed, helpful responses.
 
 ---
 
@@ -18,7 +19,8 @@ Successfully added **3 new query handler systems** to the MH Construction chatbo
 
 **Detection Method:** `isContactQuery()`
 
-- Detects: phone, call, number, email, address, location, hours, open, contact, reach you, get in touch, where are you, how do i contact, talk to someone
+- Detects: phone, call, number, email, address, location, hours, open, contact, reach you, get in touch,
+  where are you, how do i contact, talk to someone
 
 **Response Method:** `generateContactResponse()`
 
@@ -44,7 +46,8 @@ Successfully added **3 new query handler systems** to the MH Construction chatbo
 
 **Detection Method:** `isPricingQuery()`
 
-- Detects: how much, cost, price, pricing, expensive, cheap, rate, fee, charge, payment, financing, afford, budget, dollar, money
+- Detects: how much, cost, price, pricing, expensive, cheap, rate, fee, charge, payment, financing, afford,
+  budget, dollar, money
 
 **Response Method:** `generatePricingResponse(message)`
 
@@ -292,4 +295,5 @@ For questions about these enhancements:
 
 **Status:** Phase 2 enhancements are COMPLETE and ready for production testing! 🎉
 
-The chatbot now handles contact, pricing, and timeline questions with comprehensive, helpful responses that guide users toward action while maintaining the distinctive "General MH" military personality.
+The chatbot now handles contact, pricing, and timeline questions with comprehensive, helpful responses that
+guide users toward action while maintaining the distinctive "General MH" military personality.
