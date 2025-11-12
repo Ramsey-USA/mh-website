@@ -135,7 +135,7 @@ export function CoreValuesSection() {
                   <div className="z-10 relative flex flex-col justify-between h-full text-center">
                     <div>
                       <div
-                        className={`w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br ${item.color} rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg p-3`}
+                        className={`w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-br ${item.color} rounded-3xl flex items-center justify-center mx-auto mb-3 sm:mb-4 lg:mb-6 shadow-lg p-2 sm:p-3`}
                       >
                         <MaterialIcon
                           icon={item.icon}
@@ -143,15 +143,15 @@ export function CoreValuesSection() {
                           className="text-white"
                         />
                       </div>
-                      <h3 className="mb-3 sm:mb-4 font-black text-gray-900 dark:text-gray-100 text-lg sm:text-xl lg:text-2xl leading-tight tracking-tight">
+                      <h3 className="mb-2 sm:mb-3 lg:mb-4 font-black text-gray-900 dark:text-gray-100 text-base sm:text-lg lg:text-xl xl:text-2xl leading-tight tracking-tight break-words px-2">
                         {item.value}
                       </h3>
-                      <p className="font-light text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                      <p className="font-light text-gray-600 dark:text-gray-300 text-xs sm:text-sm lg:text-base leading-relaxed break-words px-2">
                         {item.description}
                       </p>
                     </div>
 
-                    <div className="mt-4 font-semibold text-brand-primary dark:text-bronze-400 text-xs uppercase tracking-wider">
+                    <div className="mt-3 sm:mt-4 font-semibold text-brand-primary dark:text-bronze-400 text-xs uppercase tracking-wider">
                       <span className="hidden sm:inline">
                         Hover to learn more
                       </span>
@@ -163,26 +163,28 @@ export function CoreValuesSection() {
                 {/* Back of Card */}
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-primary to-brand-secondary shadow-2xl p-4 sm:p-5 lg:p-6 rounded-3xl overflow-hidden rotate-y-180 transition-shadow duration-300 backface-hidden">
                   <div className="flex flex-col h-full text-white text-center">
-                    <div className="flex-shrink-0 mb-3">
+                    <div className="flex-shrink-0 mb-2 sm:mb-3">
                       <MaterialIcon
                         icon={item.icon}
                         size="lg"
                         className="mx-auto text-white"
                       />
-                      <h3 className="mt-2 mb-2 font-bold text-base sm:text-lg leading-tight">
+                      <h3 className="mt-2 mb-1.5 sm:mb-2 font-bold text-sm sm:text-base lg:text-lg leading-tight break-words px-2">
                         {item.value} in Action
                       </h3>
                     </div>
 
-                    <p className="flex-shrink-0 mb-3 font-light text-white/90 text-xs sm:text-sm leading-snug">
-                      {item.details}
-                    </p>
+                    <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent px-2">
+                      <p className="font-light text-white/90 text-xs sm:text-sm leading-snug break-words">
+                        {item.details}
+                      </p>
+                    </div>
 
-                    <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm mt-auto p-3 sm:p-4 border border-white/10 rounded-xl">
-                      <div className="mb-2 font-medium text-white/90 text-xs sm:text-sm uppercase tracking-wider">
+                    <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm mt-3 sm:mt-4 p-2.5 sm:p-3 lg:p-4 border border-white/10 rounded-xl">
+                      <div className="mb-1.5 sm:mb-2 font-medium text-white/90 text-xs sm:text-sm uppercase tracking-wider">
                         Key Metric
                       </div>
-                      <div className="font-bold text-sm sm:text-base lg:text-lg">
+                      <div className="font-bold text-xs sm:text-sm lg:text-base xl:text-lg break-words">
                         {item.stats}
                       </div>
                     </div>

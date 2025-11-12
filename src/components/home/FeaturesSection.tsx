@@ -166,7 +166,7 @@ export function FeaturesSection() {
                   <div className="z-10 relative flex flex-col h-full">
                     <div className="flex-grow">
                       <div
-                        className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg p-2`}
+                        className={`w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-3 sm:mb-4 lg:mb-6 shadow-lg p-2`}
                       >
                         <MaterialIcon
                           icon={feature.icon}
@@ -175,16 +175,16 @@ export function FeaturesSection() {
                         />
                       </div>
 
-                      <h3 className="mb-3 sm:mb-4 font-black text-gray-900 dark:text-gray-100 text-lg sm:text-xl lg:text-2xl leading-tight tracking-tight">
+                      <h3 className="mb-2 sm:mb-3 lg:mb-4 font-black text-gray-900 dark:text-gray-100 text-base sm:text-lg lg:text-xl xl:text-2xl leading-tight tracking-tight break-words">
                         {feature.title}
                       </h3>
 
-                      <p className="font-light text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                      <p className="font-light text-gray-600 dark:text-gray-300 text-xs sm:text-sm lg:text-base leading-relaxed break-words">
                         {feature.description}
                       </p>
                     </div>
 
-                    <div className="mt-auto pt-4 sm:pt-6 font-semibold text-brand-primary dark:text-bronze-400 text-xs uppercase tracking-wider">
+                    <div className="mt-auto pt-3 sm:pt-4 lg:pt-6 font-semibold text-brand-primary dark:text-bronze-400 text-xs uppercase tracking-wider">
                       <span className="hidden sm:inline">
                         Hover for details
                       </span>
@@ -198,34 +198,36 @@ export function FeaturesSection() {
                   className={`absolute inset-0 bg-gradient-to-br ${feature.color} shadow-2xl transition-shadow duration-300 p-4 sm:p-5 lg:p-6 rounded-3xl backface-hidden rotate-y-180 overflow-hidden`}
                 >
                   <div className="flex flex-col h-full text-white text-center">
-                    <div className="flex-shrink-0 mb-3">
+                    <div className="flex-shrink-0 mb-2 sm:mb-3">
                       <MaterialIcon
                         icon={feature.icon}
                         size="lg"
                         className="mx-auto text-white"
                       />
-                      <h3 className="mt-2 mb-2 font-bold text-sm sm:text-base lg:text-lg leading-tight">
+                      <h3 className="mt-2 mb-1.5 sm:mb-2 font-bold text-sm sm:text-base lg:text-lg leading-tight break-words">
                         {feature.title}
                       </h3>
                     </div>
 
-                    <p className="flex-shrink-0 mb-3 font-light text-white/90 text-xs sm:text-sm leading-snug">
-                      {feature.details}
-                    </p>
+                    <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent px-1">
+                      <p className="font-light text-white/90 text-xs sm:text-sm leading-snug mb-3 break-words">
+                        {feature.details}
+                      </p>
+                    </div>
 
-                    <div className="bg-white/20 backdrop-blur-sm flex-shrink-0 mt-auto p-3 border border-white/10 rounded-lg">
-                      <div className="mb-2 font-medium text-white/90 text-xs uppercase tracking-wider">
+                    <div className="bg-white/20 backdrop-blur-sm flex-shrink-0 mt-auto p-2.5 sm:p-3 border border-white/10 rounded-lg">
+                      <div className="mb-1.5 sm:mb-2 font-medium text-white/90 text-xs uppercase tracking-wider">
                         Key Features
                       </div>
-                      <ul className="space-y-1.5 text-xs">
+                      <ul className="space-y-1 sm:space-y-1.5 text-xs">
                         {feature.features.map((feat, idx) => (
                           <li key={idx} className="flex items-center text-left">
                             <MaterialIcon
                               icon="check_circle"
                               size="sm"
-                              className="flex-shrink-0 mr-2 text-white/90"
+                              className="flex-shrink-0 mr-1.5 sm:mr-2 text-white/90"
                             />
-                            <span className="font-light leading-snug text-xs">
+                            <span className="font-light leading-snug text-xs break-words">
                               {feat}
                             </span>
                           </li>

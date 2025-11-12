@@ -360,6 +360,51 @@ main {
   hyphens: auto;
 }
 
+/* Global word-wrap utilities for all text content */
+* {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Enhanced scrollbar styling for card overflow */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.dark .scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.scrollbar-thumb-white\/20::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.scrollbar-thumb-gray-300::-webkit-scrollbar-thumb {
+  background: rgb(209, 213, 219);
+}
+
+.dark .scrollbar-thumb-gray-600::-webkit-scrollbar-thumb {
+  background: rgb(75, 85, 99);
+}
+
+.scrollbar-track-transparent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 /* Fix for fixed height cards on mobile */
 @media (max-width: 640px) {
   .feature-card .relative {
@@ -391,6 +436,36 @@ main {
     font-size: inherit;
     width: 1em;
     height: 1em;
+  }
+
+  /* Prevent horizontal overflow on small screens */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Ensure cards don't overflow container */
+  .card-container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+/* Responsive container padding for all screen sizes */
+@media (max-width: 375px) {
+  .container,
+  .max-w-7xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Improve touch targets on mobile */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
   }
 }
 
