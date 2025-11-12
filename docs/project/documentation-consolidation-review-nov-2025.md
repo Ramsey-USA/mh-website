@@ -310,7 +310,7 @@ visibility of critical root-level guides.
 ✅ **Navigation Structure:**
 
 ```text
-MasterIndex.md (Central Hub)
+master-index.md (Central Hub)
 ├── Business Index
 │   ├── Team Profiles Index
 │   └── Individual profiles

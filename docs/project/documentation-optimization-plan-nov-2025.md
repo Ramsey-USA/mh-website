@@ -94,8 +94,8 @@ rmdir /workspaces/mh-website/docs/migrations/optimizations
 **Files to update after moves:**
 
 1. `/docs/branding/branding-index.md` - Update archive references
-2. `/docs/archive/ARCHIVE_README.md` - Add branding-archive section
-3. `/docs/MasterIndex.md` - Verify no broken links
+2. `/docs/archive/archive-readme.md` - Add branding-archive section
+3. `/docs/master-index.md` - Verify no broken links
 4. Any files linking to branding archive
 
 ### Phase 5: Simplify Project Documentation (Medium Priority)
@@ -119,9 +119,9 @@ rmdir /workspaces/mh-website/docs/migrations/optimizations
 
 ```text
 docs/
-├── MasterIndex.md                    # Main entry point
+├── master-index.md                    # Main entry point
 ├── archive/                          # SINGLE archive location
-│   ├── ARCHIVE_README.md            # Archive guide
+│   ├── archive-readme.md            # Archive guide
 │   ├── branding-archive/            # NEW - Consolidated branding history
 │   │   ├── archive-branding-optimization-report-nov-2025.md
 │   │   ├── archive-color-scheme-correction-nov-2025.md
@@ -243,7 +243,7 @@ Historical branding documents moved to central archive.
 See [Branding Archive](../archive/branding-archive/) for historical content.
 ```
 
-### 2. docs/archive/ARCHIVE_README.md
+### 2. docs/archive/archive-readme.md
 
 **Add section:**
 
@@ -261,7 +261,7 @@ from the branding documentation consolidation efforts.
 - Component cleanup documentation
 ```
 
-### 3. docs/MasterIndex.md
+### 3. docs/master-index.md
 
 **Verify and update if needed:**
 

@@ -30,7 +30,7 @@ Many docs don't need updates but should be periodically verified for accuracy, e
 
 **Priority Docs:**
 
-- [MasterIndex.md](../MasterIndex.md)
+- [master-index.md](../master-index.md)
 - [Consistency Guide](../development/consistency-guide.md)
 - [Style Utilities Guide](../development/style-utilities-guide.md)
 - [Branding Index](../branding/branding-index.md)
@@ -94,7 +94,7 @@ When reviewing a document, add or update this metadata at the top:
 
 | File                  | Last Updated | Last Reviewed | Status     |
 | --------------------- | ------------ | ------------- | ---------- |
-| MasterIndex.md        | Nov 10, 2025 | Nov 10, 2025  | ✅ Current |
+| master-index.md       | Nov 10, 2025 | Nov 10, 2025  | ✅ Current |
 | branding-index.md     | Nov 6, 2025  | Nov 10, 2025  | ✅ Current |
 | business-index.md     | Nov 6, 2025  | Nov 10, 2025  | ✅ Current |
 | components-index.md   | Nov 8, 2025  | Nov 10, 2025  | ✅ Current |
@@ -183,7 +183,7 @@ grep -r "TODO\|FIXME" docs/**/*.md
 
 ```bash
 # Open critical docs
-code docs/MasterIndex.md
+code docs/master-index.md
 code docs/development/consistency-guide.md
 code docs/development/style-utilities-guide.md
 
@@ -277,7 +277,7 @@ npm run analyze:docs  # If you create this script
 
 - [Documentation Maintenance Guide](../development/documentation-maintenance-guide.md)
 - [Documentation Style Guide](../development/documentation-style-guide.md)
-- [Archive README](../archive/ARCHIVE_README.md)
+- [Archive README](../archive/archive-readme.md)
 - [Documentation Consolidation Review](../project/documentation-consolidation-review-nov-2025.md)
 
 ---

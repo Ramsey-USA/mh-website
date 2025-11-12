@@ -6,7 +6,7 @@
 
 ## 🧭 Quick Navigation
 
-- **[📚 Master Index](../MasterIndex.md)** - All documentation
+- **[📚 Master Index](../master-index.md)** - All documentation
 - **[🎨 Branding](../branding/branding-index.md)** - Brand guidelines
 - **[🔧 Technical](../technical/technical-index.md)** - Technical documentation
 - **[📋 Business](../business/business-index.md)** - Business information

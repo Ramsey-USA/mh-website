@@ -6,7 +6,7 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../MasterIndex.md) - Central hub for all documentation
+- [🗂️ Master Documentation Index](../master-index.md) - Central hub for all documentation
 - [🏢 Business Documentation Hub](./business-index.md) - Business operations and strategy
 
 ---

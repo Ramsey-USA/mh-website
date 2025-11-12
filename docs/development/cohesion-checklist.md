@@ -10,7 +10,7 @@
 - [🗂️ Development Index](./development-index.md)
 - [📖 Consistency Guide](./consistency-guide.md) - Complete implementation standards
 - [🎨 Component Standards](../branding/standards/component-standards.md)
-- [🏠 Master Index](../MasterIndex.md)
+- [🏠 Master Index](../master-index.md)
 
 ---
 

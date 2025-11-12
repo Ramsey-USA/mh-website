@@ -9,7 +9,7 @@
 - [🗂️ Brand Strategy Index](./strategy-index.md)
 - [📝 Slogan Guide](./slogan-rotation-guide.md)
 - [🏠 Hero Section Standards](../standards/hero-section-standards.md)
-- [🏠 Master Documentation Index](../../MasterIndex.md)
+- [🏠 Master Documentation Index](../../master-index.md)
 
 ---
 

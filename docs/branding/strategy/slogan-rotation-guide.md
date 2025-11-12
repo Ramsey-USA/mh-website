@@ -9,7 +9,7 @@
 - [🗂️ Brand Strategy Index](./strategy-index.md)
 - [📝 Messaging Guidelines](./messaging.md)
 - [🎨 Branding Index](../branding-index.md)
-- [🏠 Master Documentation Index](../../MasterIndex.md)
+- [🏠 Master Documentation Index](../../master-index.md)
 
 ---
 

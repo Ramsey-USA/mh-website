@@ -144,7 +144,7 @@ mv /workspaces/mh-website/seo-quick-reference.md \
 
 **Update references in:**
 
-- `docs/MasterIndex.md`
+- `docs/master-index.md`
 - `docs/technical/seo/seo-index.md`
 - Any other cross-references
 
@@ -271,7 +271,7 @@ docs/technical/
 
    ```bash
    mv seo-quick-reference.md docs/technical/seo/
-   # Update: MasterIndex.md, seo-index.md
+   # Update: master-index.md, seo-index.md
    ```
 
 2. **Review Homepage Branding Optimization**

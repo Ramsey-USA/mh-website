@@ -6,7 +6,7 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../../MasterIndex.md) - Central hub for all documentation
+- [🗂️ Master Documentation Index](../../master-index.md) - Central hub for all documentation
 - [💻 Development Hub](../development-index.md) - Development processes and standards
 - [�️ Technical Documentation](../../technical/technical-index.md) - Design system and architecture
 - [�📋 Guidelines Hub](../guidelines/guidelines-index.md) - Standards and policies

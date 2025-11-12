@@ -441,7 +441,7 @@ Phase 2 is COMPLETE. The chatbot is now production-ready with:
 
 - ✅ `/src/lib/chatbot/EnhancedChatbotAI.ts` (+480 lines of functionality)
 - ✅ `/docs/development/chatbot-enhancement-guide.md` (updated Phase 2 status)
-- ✅ `/docs/MasterIndex.md` (added chatbot documentation references)
+- ✅ `/docs/master-index.md` (added chatbot documentation references)
 - ✅ `/docs/development/development-index.md` (added chatbot guides)
 
 ---

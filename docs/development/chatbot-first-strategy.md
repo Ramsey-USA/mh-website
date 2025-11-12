@@ -268,7 +268,7 @@ As we collect user questions through the chatbot:
 - **[Consistency Guide - Chatbot Section](./consistency-guide.md#chatbot-first-user-engagement)**
 - **[Development Standards - Chatbot Standard](./development-standards.md)**
 - **[AI Development Guidelines - Chatbot Rules](./ai-development-guidelines.md#chatbot-first-user-engagement-new---november-2025)**
-- **[MasterIndex - Chatbot Strategy](../MasterIndex.md)**
+- **[MasterIndex - Chatbot Strategy](../master-index.md)**
 - **[GlobalChatbotProvider Documentation](../../src/providers/GlobalChatbotProvider.tsx)**
 
 ---

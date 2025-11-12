@@ -7,7 +7,7 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../../MasterIndex.md) - Central hub for all documentation
+- [🗂️ Master Documentation Index](../../master-index.md) - Central hub for all documentation
 - [📋 Business Hub](../business-index.md) - Services, team roster, and operations
 - [👥 Team Roster](../team-roster.md) - Complete team overview
 - [💼 Core Values](../core-values.md) - Our professional foundation

@@ -2,16 +2,17 @@
 
 ## Table of Contents
 
-- [🏗️ Project Overview](#️-project-overview)
-  - [Current Status](#current-status)
-- [🚀 Getting Started](#-getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Development Setup](#development-setup)
-- [📋 Development Workflow](#-development-workflow)
-  - [Branch Strategy](#branch-strategy)
-  - [Creating a Feature](#creating-a-feature)
-- [💻 Code Standards](#-code-standards)
-  - [TypeScript Guidelines](#typescript-guidelines)
+- [Contributing to MH Construction Website](#contributing-to-mh-construction-website)
+  - [Table of Contents](#table-of-contents)
+  - [🏗️ Project Overview](#️-project-overview)
+    - [Current Status](#current-status)
+  - [🚀 Getting Started](#-getting-started)
+    - [Prerequisites](#prerequisites)
+  - [📋 Development Workflow](#-development-workflow)
+    - [Branch Strategy](#branch-strategy)
+    - [Creating a Feature](#creating-a-feature)
+  - [💻 Code Standards](#-code-standards)
+    - [TypeScript Guidelines](#typescript-guidelines)
 
 We welcome contributions to the MH Construction website! This document provides guidelines for
 developers working on this project.
@@ -32,18 +33,19 @@ See [Partnership Type Definitions](./docs/partnerships/partnership-type-definiti
 ### Current Status
 
 - **Foundation-Only Architecture**: Clean slate approach with homepage and core components
-- **Technology Stack**: Next.js 15.5.2, TypeScript 5.9, Tailwind CSS 3.4.0
+- **Technology Stack**: Next.js 15.5.2, TypeScript 5.9, Tailwind CSS 3.4.17
 - **Build Status**: Production-ready with zero TypeScript errors
+- **Node Environment**: Node.js 22.17.0, npm 9.8.1
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-````bash
-Node.js >= 18.0.0
-npm >= 8.0.0
+```bash
+Node.js >= 18.0.0 (v22.17.0 recommended)
+npm >= 8.0.0 (v9.8.1 recommended)
 Git
-```text
+```
 
 ### Development Setup
 
@@ -52,28 +54,28 @@ Git
    ```bash
    git clone https://github.com/Ramsey-USA/mh-website.git
    cd mh-website
-````
+   ```
 
-1. **Install dependencies**
+2. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-1. **Environment setup**
+3. **Environment setup**
 
    ```bash
    cp .env.example .env.local
    # Add your environment variables for Cloudflare if needed
    ```
 
-1. **Start development server**
+4. **Start development server**
 
    ```bash
    npm run dev
    ```
 
-1. **Verify setup**
+5. **Verify setup**
 
    ```bash
    npm run build
@@ -230,9 +232,18 @@ src/
 
 - **Components**: PascalCase (`Button.tsx`, `NavBar.tsx`)
 - **Files**: kebab-case for non-components (`api-client.ts`)
+- **Documentation**: kebab-case for all markdown files (`master-index.md`, `archive-readme.md`)
 - **Variables**: camelCase (`userName`, `isLoading`)
 - **Constants**: UPPER_SNAKE_CASE (`API_BASE_URL`)
 - **CSS Classes**: kebab-case (`btn-primary`, `nav-item`)
+
+**⚠️ IMPORTANT - Documentation File Naming:**
+All markdown documentation files MUST follow kebab-case naming convention:
+- ✅ `master-index.md`, `archive-readme.md`, `phase-consolidation-plan.md`
+- ❌ `MasterIndex.md`, `ARCHIVE_README.md`, `PHASE_CONSOLIDATION_PLAN.md`
+
+This ensures consistency across the project and improves maintainability for future developers.
+See the [Master Documentation Index](./docs/master-index.md) for the complete documentation structure.
 
 ## 🎨 Design System Compliance
 
@@ -267,6 +278,55 @@ src/
 
 ## ✅ Quality Assurance
 
+### Available Development Tools
+
+The project includes comprehensive utility scripts for development and maintenance:
+
+**Linting & Formatting:**
+
+```bash
+npm run lint              # JavaScript/TypeScript linting
+npm run lint:fix          # Auto-fix linting issues
+npm run lint:markdown     # Markdown linting
+npm run lint:markdown:fix # Auto-fix markdown issues
+npm run format            # Format all files with Prettier
+npm run format:check      # Check formatting without changes
+```
+
+**Testing & Validation:**
+
+```bash
+npm run test              # Run test suite
+npm run test:coverage     # Generate coverage report
+npm run type-check        # TypeScript validation
+npm run validate:links    # Validate markdown links
+```
+
+**Performance & Optimization:**
+
+```bash
+npm run build:analyze     # Bundle size analysis
+npm run seo:audit        # SEO performance audit
+npm run performance:check # Full performance check
+npm run optimize:images   # Optimize image assets
+```
+
+**Documentation:**
+
+```bash
+npm run lint:devdocs      # Lint development docs
+npm run analyze:content   # Content quality analysis
+npm run format:markdown   # Advanced markdown formatting
+```
+
+**Maintenance:**
+
+```bash
+npm run clean             # Clean build artifacts
+npm run maintenance       # Full maintenance cycle
+npm run cspell:check      # Spell check
+```
+
 ### Code Quality Checks
 
 ```bash
@@ -274,26 +334,40 @@ src/
 npm run lint              # ESLint check
 npm run lint:fix          # Auto-fix ESLint issues
 
+# Markdown linting
+npm run lint:markdown     # Check markdown files
+npm run lint:markdown:fix # Auto-fix markdown issues
+
 # Type checking
 npm run type-check        # TypeScript validation
 
 # Building
 npm run build            # Production build test
-```text
+npm run build:cloudflare # Cloudflare Pages build
+
+# Testing
+npm run test             # Run tests
+npm run test:coverage    # Run tests with coverage
+
+# Formatting
+npm run format           # Format with Prettier
+npm run format:check     # Check formatting
+```
 
 ### Testing Standards
 
-- **Unit Tests**: Test individual components and functions
-- **Integration Tests**: Test component interactions
-- **Accessibility Tests**: Ensure WCAG compliance
-- **Performance Tests**: Monitor Core Web Vitals
+- **Unit Tests**: Test individual components and functions (Jest)
+- **Integration Tests**: Test component interactions (@testing-library/react)
+- **Accessibility Tests**: Ensure WCAG compliance (@testing-library/jest-dom)
+- **Performance Tests**: Monitor Core Web Vitals (web-vitals)
 
 ```bash
-# Testing commands (when implemented)
-npm run test             # Run all tests
-npm run test:watch       # Watch mode
-npm run test:coverage    # Coverage report
-```text
+# Testing commands
+npm run test              # Run all tests
+npm run test:watch        # Watch mode for development
+npm run test:coverage     # Coverage report
+npm run test:ci           # CI-optimized test run
+```
 
 ### Performance Standards
 
@@ -303,6 +377,16 @@ npm run test:coverage    # Coverage report
 | **First Contentful Paint** | <1.5s | ✅ <1.2s |
 | **TypeScript Errors** | 0 | ✅ 0 |
 | **Build Time** | <30s | ✅ <20s |
+| **Bundle Size** | Optimized | ✅ Monitored |
+
+**Available Performance Commands:**
+
+```bash
+npm run build:analyze      # Analyze bundle size
+npm run bundle:size        # Check bundle sizes
+npm run performance:check  # Full performance check
+npm run seo:audit         # SEO performance audit
+```
 
 ## 🔐 Security Guidelines
 
@@ -325,7 +409,7 @@ npm run test:coverage    # Coverage report
 - Review security implications of new packages
 - Security handled by Cloudflare security layer
 
-## ♿ Accessibility Requirements
+### Accessibility Requirements
 
 ### WCAG 2.1 AA Compliance
 
@@ -333,13 +417,14 @@ npm run test:coverage    # Coverage report
 - **Keyboard Navigation**: All interactive elements accessible
 - **Screen Readers**: Proper semantic HTML and ARIA labels
 - **Focus Management**: Clear focus indicators
+- **Touch Targets**: Minimum 44px × 44px for mobile
 
 ### Testing Accessibility
 
-```bash
-# Accessibility testing tools
-npm run test:a11y        # (When implemented)
-```text
+- Use @testing-library/jest-dom for accessibility assertions
+- Test keyboard navigation manually
+- Verify screen reader compatibility
+- Check color contrast ratios
 
 ### Implementation Checklist
 
@@ -361,11 +446,24 @@ npm run test:a11y        # (When implemented)
 
 ### Documentation Structure
 
+```text
 docs/
-├── business/           # Business documentation
-├── technical/          # Technical documentation
-├── project/           # Project-specific docs
-└── development/       # Development guides
+├── master-index.md        # Central documentation hub (START HERE)
+├── archive/              # Historical documentation
+│   └── archive-readme.md # Archive guide
+├── branding/             # Brand guidelines
+├── business/             # Business documentation
+├── components/           # Component guides
+├── deployment/           # Deployment guides
+├── development/          # Development guides
+│   └── documentation-naming-standards.md  # File naming guide
+├── migrations/           # Database migrations
+├── operations/           # Operations documentation
+├── partnerships/         # Partnership guides
+├── project/              # Project documentation
+├── technical/            # Technical documentation
+└── templates/            # Documentation templates
+```
 
 ### Writing Guidelines
 
@@ -393,9 +491,15 @@ npm run build:cloudflare
 # Deploy to Cloudflare Pages
 npm run pages:deploy
 
+# Full production deployment
+npm run deploy:production
+
 # Or push to Git for automatic deployment
 git push origin main
-```text
+
+# Development server with Turbo (faster)
+npm run dev:turbo
+```
 
 ## 🐛 Bug Reports
 
@@ -452,11 +556,15 @@ If applicable
 
 ```bash
 # Bundle analysis
-npm run analyze
+npm run build:analyze
 
 # Performance audits
-npm run lighthouse    # (When implemented)
-```text
+npm run performance:check
+npm run seo:audit
+
+# Lighthouse CI (configured)
+npx lhci autorun
+```
 
 ## 🤝 Community Guidelines
 
@@ -475,6 +583,24 @@ npm run lighthouse    # (When implemented)
 - **Contact**: development team at <office@mhc-gc.com>
 
 ## 📋 Pull Request Process
+
+### Automated Quality Checks
+
+**Pre-commit Hooks (Husky + lint-staged):**
+
+The project uses automated quality checks on commit:
+
+- **JavaScript/TypeScript files**: Auto-lint and format
+- **JSON/Markdown/CSS files**: Auto-format with Prettier
+- **Commit messages**: Validated with commitlint
+
+```json
+// lint-staged configuration
+{
+  "*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write"],
+  "*.{json,md,css,scss}": ["prettier --write"]
+}
+```
 
 ### PR Template
 
@@ -603,5 +729,12 @@ See [Partnership Implementation Guide](./docs/development/reference/partnership-
 
 **Thank you for contributing to MH Construction's digital presence!**
 
-### Last updated: October 2025 | MH Construction Development Team
+### Last updated: November 12, 2025 | MH Construction Development Team
+
+**Project Version**: 4.0.0
+**Node.js**: 22.17.0
+**npm**: 9.8.1
+**Next.js**: 15.5.2
+**TypeScript**: 5.9.2
+**Tailwind CSS**: 3.4.17
 ````

@@ -7,7 +7,7 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../../MasterIndex.md) - Central hub for all documentation
+- [🗂️ Master Documentation Index](../../master-index.md) - Central hub for all documentation
 - [⚙️ Operations Index](../operations-index.md) - Operations documentation
 - [🚀 Deployment Documentation](../../deployment/deployment-index.md) - Deployment guides
 - [⚡ Performance Hub](../../technical/performance/performance-index.md) - Performance optimization

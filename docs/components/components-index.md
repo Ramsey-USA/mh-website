@@ -6,7 +6,7 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../MasterIndex.md) - Central hub for all documentation
+- [🗂️ Master Documentation Index](../master-index.md) - Central hub for all documentation
 - [🎨 Branding Index](../branding/branding-index.md) - Brand guidelines
 - [🔧 Technical Index](../technical/technical-index.md) - Technical documentation
 - [💻 Development Index](../development/development-index.md) - Development standards

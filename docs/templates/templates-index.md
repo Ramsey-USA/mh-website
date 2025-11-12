@@ -52,8 +52,8 @@ Quick reference for markdown documentation standards and conventions.
 
 - [Documentation Maintenance Guide](../development/documentation-maintenance-guide.md)
 - [Consistency Guide](../development/consistency-guide.md)
-- [Master Index](../MasterIndex.md)
+- [Master Index](../master-index.md)
 
 ---
 
-**Questions?** See the [Development Index](../development/development-index.md) or [Master Index](../MasterIndex.md)
+**Questions?** See the [Development Index](../development/development-index.md) or [Master Index](../master-index.md)

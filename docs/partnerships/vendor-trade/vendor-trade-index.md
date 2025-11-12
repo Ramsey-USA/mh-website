@@ -6,7 +6,7 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../../MasterIndex.md) - Central hub for all documentation
+- [🗂️ Master Documentation Index](../../master-index.md) - Central hub for all documentation
 - [🤝 Partnerships Hub](../partnerships-index.md) - Complete partnership documentation
 - [💬 Partnership Messaging](../messaging/messaging-index.md) - Communication guidelines
 - [📋 Business Services](../../business/services.md) - Service offerings

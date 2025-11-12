@@ -24,9 +24,9 @@
 
 ```text
 docs/archive/
-├── ARCHIVE_README.md                          # ⭐ NEW - Archive guide & index
+├── archive-readme.md                          # ⭐ NEW - Archive guide & index
 ├── completed-phases/                          # Phase documentation
-│   └── PHASE_CONSOLIDATION_PLAN.md           # Existing
+│   └── phase-consolidation-plan.md           # Existing
 ├── completed-optimization/                    # ⭐ NEW - Completed optimization projects
 │   ├── documentation-optimization-checklist.md
 │   ├── documentation-optimization-phase-2.md
@@ -119,7 +119,7 @@ Each file now has a standardized notice at the top:
 
 ### New Documentation
 
-1. **`docs/archive/ARCHIVE_README.md`** (270 lines)
+1. **`docs/archive/archive-readme.md`** (270 lines)
    - Complete archive guide
    - Archiving guidelines and process
    - Statistics tracking
@@ -253,8 +253,8 @@ Each file now has a standardized notice at the top:
 ### Archive System
 
 - **Archive Directory:** `docs/archive/`
-- **Archive Guide:** `docs/archive/ARCHIVE_README.md`
-- **Archiving Guidelines:** In ARCHIVE_README.md
+- **Archive Guide:** `docs/archive/archive-readme.md`
+- **Archiving Guidelines:** In archive-readme.md
 
 ### Review System
 
@@ -265,7 +265,7 @@ Each file now has a standardized notice at the top:
 ### Updated Indexes
 
 - **Project Index:** `docs/project/project-index.md`
-- **Master Index:** `docs/MasterIndex.md` (unchanged, still accurate)
+- **Master Index:** `docs/master-index.md` (unchanged, still accurate)
 
 ---
 

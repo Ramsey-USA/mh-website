@@ -6,7 +6,7 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../MasterIndex.md) - Central hub
+- [🗂️ Master Documentation Index](../master-index.md) - Central hub
 - [💻 Development Index](./development-index.md) - Development documentation
 - [📋 Guidelines Index](./guidelines/guidelines-index.md) - Development guidelines
 - [📝 Documentation Maintenance Guide](./documentation-maintenance-guide.md) - Maintenance procedures
@@ -162,7 +162,7 @@ Create an index file (`folder-name-index.md`) when:
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../MasterIndex.md)
+- [🗂️ Master Documentation Index](../master-index.md)
 - [Parent Index](./parent-index.md)
 - [Related Doc 1](./related-doc-1.md)
 
@@ -203,7 +203,7 @@ Brief description of what this document covers (2-3 sentences).
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../../MasterIndex.md)
+- [🗂️ Master Documentation Index](../../master-index.md)
 - [Parent Index](../parent-index.md)
 
 ---

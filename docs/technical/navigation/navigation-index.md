@@ -6,7 +6,7 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../../MasterIndex.md) - Central hub for all documentation
+- [🗂️ Master Documentation Index](../../master-index.md) - Central hub for all documentation
 - [🛠️ Technical Index](../technical-index.md) - Technical documentation hub
 - [🎨 Design System Hub](../design-system/design-system-index.md) - Design system navigation
 - [🔘 Buttons & CTAs](../design-system/buttons-and-ctas/buttons-ctas-index.md) - Navigation link patterns

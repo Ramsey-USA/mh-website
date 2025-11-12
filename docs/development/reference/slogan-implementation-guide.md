@@ -8,7 +8,7 @@
 
 - [📚 Slogan Assignment Guide](../../branding/strategy/slogan-rotation-guide.md)
 - [🗂️ Development Reference Index](./reference-index.md)
-- [🏠 Master Documentation Index](../../MasterIndex.md)
+- [🏠 Master Documentation Index](../../master-index.md)
 
 ---
 

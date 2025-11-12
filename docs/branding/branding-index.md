@@ -6,7 +6,7 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../MasterIndex.md) - Central hub for all documentation
+- [🗂️ Master Documentation Index](../master-index.md) - Central hub for all documentation
 - [💻 Development Guides](../development/development-index.md) - Development processes and implementation
 - [📋 Business Documentation](../business/business-index.md) - Services, team info, and operations
 - [🛠️ Technical Documentation](../technical/technical-index.md) - Design system and technical specs

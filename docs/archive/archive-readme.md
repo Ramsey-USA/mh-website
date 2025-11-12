@@ -23,7 +23,7 @@ This directory contains documentation that is:
 
 ```text
 docs/archive/
-├── ARCHIVE_README.md                   # This file
+├── archive-readme.md                   # This file
 ├── branding-archive/                   # Historical branding documentation
 │   ├── archive-index.md               # Branding archive index
 │   ├── archive-branding-optimization-report-nov-2025.md
@@ -52,7 +52,7 @@ docs/archive/
 
 For current, active documentation, see:
 
-- **[Master Index](../MasterIndex.md)** - Central documentation hub
+- **[Master Index](../master-index.md)** - Central documentation hub
 - **[Project Index](../project/project-index.md)** - Current project documentation
 - **[Roadmaps](../project/roadmaps/)** - Future planning (Phase 6+)
 - **[Development Index](../development/development-index.md)** - Active development guides
@@ -214,7 +214,7 @@ This is the **archive** for historical content. For current, maintained document
 
 **📚 Start Here:**
 
-- [Master Documentation Index](../MasterIndex.md)
+- [Master Documentation Index](../master-index.md)
 - [Development Index](../development/development-index.md)
 - [Project Index](../project/project-index.md)
 

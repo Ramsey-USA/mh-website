@@ -6,7 +6,7 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../MasterIndex.md)
+- [🗂️ Master Documentation Index](../master-index.md)
 - [🤝 Partnerships Index](./partnerships-index.md)
 - [📋 Business Documentation](../business/business-index.md)
 - [💻 Development Terminology Guide](../development/terminology-guide.md)

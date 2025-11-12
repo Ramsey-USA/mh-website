@@ -4,7 +4,7 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../MasterIndex.md) - Central hub for all documentation
+- [🗂️ Master Documentation Index](../master-index.md) - Central hub for all documentation
 - [📋 Business Documentation](../business/business-index.md) - Services and operations
 - [🚀 Deployment Documentation](../deployment/deployment-index.md) - Infrastructure and deployment
 - [⚙️ Operations Documentation](../operations/build-optimization/build-optimization-index.md) - Build and performance

@@ -76,7 +76,7 @@
 - [x] Add cross-references between technical and messaging docs - ✅ Complete (no updates needed)
 - [x] Update all references in other documentation - ✅ Complete (no external refs)
 - [x] Delete old consolidated files - ✅ 5 files deleted
-- [x] Update MasterIndex.md with new structure - ✅ Updated
+- [x] Update master-index.md with new structure - ✅ Updated
 
 **Expected Result:** 8 files → 5 files (1 index, 2 consolidated guides, 1 messaging guide, 1 branding standard)
 **Progress:** ✅ **COMPLETE** - All button/CTA documentation consolidated and cleaned up.
@@ -107,7 +107,7 @@
 - [x] Add cross-references between all icon docs - ✅ Complete
 - [x] Update all references in other documentation - ✅ Complete
 - [x] Delete old consolidated files - ✅ 3 files deleted
-- [x] Update MasterIndex.md with new structure - ✅ Updated (3 references)
+- [x] Update master-index.md with new structure - ✅ Updated (3 references)
 
 **Expected Result:** 5 scattered files → 6 organized files in unified location  
 **Progress:** ✅ **COMPLETE** - All icon documentation consolidated, enhanced, and organized.
@@ -133,7 +133,7 @@
 - [x] Add quick navigation to common tasks - ✅ Decision matrix included
 - [x] Include "what to use when" guidance - ✅ Comprehensive guidance added
 - [x] Update technical-index.md to reference new hub - ✅ Updated
-- [x] Update MasterIndex.md with new navigation structure - ✅ Updated
+- [x] Update master-index.md with new navigation structure - ✅ Updated
 
 **Expected Result:** Central navigation hub for entire design system  
 **Progress:** ✅ **COMPLETE** - Comprehensive design system index created with navigation, quick starts, and decision matrices.
@@ -362,12 +362,12 @@ troubleshooting sections.
 
 - [ ] Run automated link checker (if available)
 - [ ] Manually verify links in all index files
-- [ ] Check links in MasterIndex.md
+- [ ] Check links in master-index.md
       **Link Verification:**
 
 - [x] Run automated link verification for all new index files
 - [x] Manually verify links in all index files - ✅ All working
-- [x] Check links in MasterIndex.md - ✅ Updated with new hubs
+- [x] Check links in master-index.md - ✅ Updated with new hubs
 - [x] Verify relative path links are correct - ✅ All verified
 - [x] Test links in newly consolidated files - ✅ All working
 
@@ -384,7 +384,7 @@ troubleshooting sections.
 
 ---
 
-### 3.4 Update MasterIndex.md
+### 3.4 Update master-index.md
 
 **Status:** ✅ Complete (Nov 6, 2025)
 
@@ -401,7 +401,7 @@ troubleshooting sections.
 
 **Expected Result:** Accurate, up-to-date master navigation
 
-**Progress:** ✅ **COMPLETE** - MasterIndex.md updated with all new navigation hubs and indices.
+**Progress:** ✅ **COMPLETE** - master-index.md updated with all new navigation hubs and indices.
 
 ---
 
@@ -535,7 +535,7 @@ troubleshooting sections.
 
 **For New Developers:**
 
-1. Start with [MasterIndex.md](../MasterIndex.md) for complete documentation overview
+1. Start with [master-index.md](../master-index.md) for complete documentation overview
 2. Update Status indicators (🔲 Not Started → 🔄 In Progress → ✅ Complete)
 3. Add notes or issues encountered in comments
 4. Update dates when phases are completed

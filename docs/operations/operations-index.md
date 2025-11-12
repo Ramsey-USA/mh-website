@@ -6,7 +6,7 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../MasterIndex.md) - Central hub for all documentation
+- [🗂️ Master Documentation Index](../master-index.md) - Central hub for all documentation
 - [⚡ Build Optimization](./build-optimization/build-optimization-index.md) - Build performance details
 - [🚀 Deployment Documentation](../deployment/deployment-index.md) - Infrastructure and deployment
 - [🛠️ Technical Documentation](../technical/technical-index.md) - Design system and architecture
@@ -52,7 +52,7 @@ Our build process is highly optimized:
 
 ## 🔗 Related Documentation
 
-- **[Main Documentation](../MasterIndex.md)** - Master index
+- **[Main Documentation](../master-index.md)** - Master index
 - **[Deployment](../deployment/deployment-index.md)** - Deployment procedures
 - **[Technical](../technical/technical-index.md)** - Technical architecture
 - **[Development](../development/development-index.md)** - Development standards
@@ -87,7 +87,7 @@ Our build process is highly optimized:
 
 ---
 
-**🏠 [Back to Master Index](../MasterIndex.md)**
+**🏠 [Back to Master Index](../master-index.md)**
 
 ---
 

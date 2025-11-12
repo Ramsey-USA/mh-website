@@ -326,7 +326,7 @@ mh-website/
 │   ├── providers/        # Provider components
 │   └── types/            # TypeScript definitions
 ├── docs/                 # Comprehensive documentation (470+ files)
-│   ├── MasterIndex.md    # Documentation hub (START HERE)
+│   ├── master-index.md    # Documentation hub (START HERE)
 │   ├── branding/         # Brand guidelines
 │   ├── components/       # Component documentation
 │   ├── development/      # Development guides
@@ -346,7 +346,7 @@ mh-website/
 └── coverage/             # Test coverage reports
 ```
 
-Full navigation: [MasterIndex](./docs/MasterIndex.md)
+Full navigation: [MasterIndex](./docs/master-index.md)
 
 ---
 
@@ -354,7 +354,7 @@ Full navigation: [MasterIndex](./docs/MasterIndex.md)
 
 ### Start Here
 
-**[MasterIndex](./docs/MasterIndex.md)** - Central documentation hub with complete navigation
+**[MasterIndex](./docs/master-index.md)** - Central documentation hub with complete navigation
 
 ### Key Documentation Areas
 
@@ -799,7 +799,7 @@ npm run build:profile
 
 ### Getting Help
 
-1. Check [MasterIndex](./docs/MasterIndex.md) for relevant documentation
+1. Check [MasterIndex](./docs/master-index.md) for relevant documentation
 2. Review [Development Index](./docs/development/development-index.md)
 3. Search existing documentation (470+ files)
 4. Check component documentation in [Components Index](./docs/components/components-index.md)

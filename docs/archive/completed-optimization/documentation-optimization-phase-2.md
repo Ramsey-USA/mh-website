@@ -2,7 +2,7 @@
 
 > **⚠️ ARCHIVED:** November 10, 2025 - Documentation optimization phases completed  
 > **Status:** Historical reference only  
-> **Current Documentation:** See [Master Index](../../MasterIndex.md) and
+> **Current Documentation:** See [Master Index](../../master-index.md) and
 > [Project Index](../../project/project-index.md)  
 > **Last Updated (Active):** November 6, 2025
 >
@@ -198,7 +198,7 @@ hubs now fully cross-referenced.
 - [x] Audit all directories for empty folders
 - [x] Remove empty `docs/development/components/` directory
 - [x] Fix 7 broken references to deleted folder
-- [x] Update MasterIndex.md with correct component links
+- [x] Update master-index.md with correct component links
 - [x] Update 5 technical indices (navigation, design-system, icons, buttons-ctas, email-system)
 - [x] Point to actual component documentation locations
 - [x] Verify all new link targets exist

@@ -6,7 +6,7 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../../MasterIndex.md) - Central hub for all documentation
+- [🗂️ Master Documentation Index](../../master-index.md) - Central hub for all documentation
 - [🛠️ Technical Index](../technical-index.md) - Technical documentation hub
 - [📱 Mobile Optimization](../design-system/mobile-optimization-guide.md) - Mobile performance
 - [🏗️ Operations](../../operations/operations-index.md) - Build and deployment

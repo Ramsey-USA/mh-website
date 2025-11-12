@@ -6,7 +6,7 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../MasterIndex.md) - Central hub for all documentation
+- [🗂️ Master Documentation Index](../master-index.md) - Central hub for all documentation
 - [🧩 Components Index](./components-index.md) - Component documentation hub
 - [🎨 Branding Index](../branding/branding-index.md) - Brand guidelines
 - [💻 Development Index](../development/development-index.md) - Development standards
@@ -565,4 +565,4 @@ For shared section questions:
 
 ---
 
-[🔙 Back to Components Index](./components-index.md) | [🏠 Back to Master Index](../MasterIndex.md)
+[🔙 Back to Components Index](./components-index.md) | [🏠 Back to Master Index](../master-index.md)

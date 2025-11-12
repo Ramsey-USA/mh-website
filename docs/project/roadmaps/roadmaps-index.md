@@ -25,7 +25,7 @@ Strategic planning documents for upcoming development phases and feature release
 
 - [Project Index](../project-index.md)
 - [Project History](../history/)
-- [Master Index](../../MasterIndex.md)
+- [Master Index](../../master-index.md)
 
 ---
 

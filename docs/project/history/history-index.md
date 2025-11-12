@@ -24,7 +24,7 @@ This folder contains chronological records of project development, decisions, an
 
 - [Project Index](../project-index.md)
 - [Project Roadmaps](../roadmaps/)
-- [Master Index](../../MasterIndex.md)
+- [Master Index](../../master-index.md)
 
 ---
 

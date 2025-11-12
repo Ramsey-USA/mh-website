@@ -7,7 +7,7 @@
 ## 🧭 Quick Navigation
 
 - [🔘 Button System Hub](./buttons-ctas-index.md) - Buttons & CTAs documentation hub
-- [🗂️ Master Documentation Index](../../MasterIndex.md) - Central hub for all documentation
+- [🗂️ Master Documentation Index](../../master-index.md) - Central hub for all documentation
 - [🎨 Branding Standards](../../branding/standards/cta-standardization-plan.md) - Brand CTA standards
 - [💬 Partnership Messaging](../../partnerships/messaging/cta-button-guide.md) - CTA messaging guide
 

@@ -6,7 +6,7 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Master Documentation Index](../MasterIndex.md)
+- [🗂️ Master Documentation Index](../master-index.md)
 - [🛠️ Technical Index](../technical/technical-index.md)
 - [🧭 Navigation System](../technical/navigation/navigation-index.md)
 - [🎨 Design System](../technical/design-system/design-system-index.md)
