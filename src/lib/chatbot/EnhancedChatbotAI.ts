@@ -68,6 +68,11 @@ export class EnhancedChatbotAI {
     context: EnhancedChatbotContext,
     conversationHistory: unknown[] = [],
   ): string {
+    // Check for company information queries (leadership, ownership, etc.)
+    if (this.isCompanyInfoQuery(userMessage)) {
+      return this.generateCompanyInfoResponse(userMessage, context);
+    }
+
     // Check if user is asking about search or wants to find something
     if (this.isSearchRelatedQuery(userMessage)) {
       return this.generateSearchResponse(userMessage, context);
@@ -94,6 +99,75 @@ export class EnhancedChatbotAI {
       context,
       conversationHistory,
     );
+  }
+
+  private isCompanyInfoQuery(message: string): boolean {
+    const companyInfoKeywords = [
+      "who is the boss",
+      "who's the boss",
+      "who is the owner",
+      "who's the owner",
+      "who owns",
+      "who is the president",
+      "who's the president",
+      "who runs",
+      "who is in charge",
+      "who's in charge",
+      "company owner",
+      "company president",
+      "who founded",
+      "who started",
+      "leadership team",
+      "management team",
+      "who are the leaders",
+      "jeremy thamert",
+      "mike holstein",
+      "arnold garcia",
+    ];
+    const messageLower = message.toLowerCase();
+    return companyInfoKeywords.some((keyword) =>
+      messageLower.includes(keyword.toLowerCase()),
+    );
+  }
+
+  private generateCompanyInfoResponse(
+    message: string,
+    _context: EnhancedChatbotContext,
+  ): string {
+    const messageLower = message.toLowerCase();
+
+    // Check for specific person queries
+    if (
+      messageLower.includes("jeremy") ||
+      messageLower.includes("thamert") ||
+      messageLower.includes("boss") ||
+      messageLower.includes("president") ||
+      messageLower.includes("in charge") ||
+      messageLower.includes("runs")
+    ) {
+      return `**[COMMAND LEADERSHIP BRIEF]** 🎖️\n\n**Jeremy Thamert** is the President of MH Construction!\n\n**LEADERSHIP OVERVIEW:**\n• **Position:** President\n• **Focus Areas:** Safety, Marketing, Workforce Development & HR\n• **Leadership Style:** People-first management with strategic operational oversight\n• **Philosophy:** "Building for the Owner, NOT the Dollar"\n\n**KEY RESPONSIBILITIES:**\n✓ Presidential oversight of strategic operations\n✓ Safety management & organizational standards\n✓ Workforce development & team building initiatives\n✓ Human Resources & people-first leadership\n\n**COMPANY FOUNDATION:**\nMH Construction was originally **founded by Mike Holstein** (now retired) in 2010, establishing the company's reputation for integrity and quality. Under Jeremy's current leadership, the company maintains these core values while focusing on operational excellence through strategic emphasis on people and safety.\n\n**LEADERSHIP TEAM:**\n• **Jeremy Thamert** - President\n• **Arnold Garcia** - Vice President (Client Relations & Strategic Operations)\n• **Mike Holstein** - Founder (Retired, Advisory Role)\n\n**Want to meet the entire team?** [View Team Cards →](/team)\n\n**Ready to work with veteran-owned leadership?** [Contact Us →](/contact)`;
+    }
+
+    if (
+      messageLower.includes("mike") ||
+      messageLower.includes("holstein") ||
+      messageLower.includes("founder") ||
+      messageLower.includes("founded") ||
+      messageLower.includes("started")
+    ) {
+      return `**[COMPANY HISTORY BRIEF]** 📋\n\n**Mike Holstein** is the founder of MH Construction!\n\n**FOUNDER PROFILE:**\n• **Position:** Founder (Now Retired)\n• **Founded:** 2010\n• **Legacy:** 30+ years construction experience, 500+ projects completed\n• **Philosophy:** Established "We Work With You" partnership approach\n\n**FOUNDING STORY:**\nMike started MH Construction in 2010 with just a pickup truck and a toolbox, building it into a regional construction leader known for integrity, quality, and precision. His vision established the core values that still define MH Construction today.\n\n**CURRENT LEADERSHIP:**\nThe company is now led by **Jeremy Thamert** (President) who continues Mike's legacy while bringing strategic focus on safety, workforce development, and operational excellence.\n\n**Meet the full team:** [View Team Cards →](/team)\n**Learn about our history:** [About Us →](/about)`;
+    }
+
+    if (
+      messageLower.includes("arnold") ||
+      messageLower.includes("garcia") ||
+      messageLower.includes("vice president")
+    ) {
+      return `**[VICE PRESIDENT BRIEF]** 🤝\n\n**Arnold Garcia** serves as Vice President of MH Construction!\n\n**VP PROFILE:**\n• **Position:** Vice President\n• **Years with Company:** 15 years\n• **Focus Areas:** Client Relations & Strategic Operations\n• **Experience:** 425+ projects, $50M+ in project oversight\n\n**KEY RESPONSIBILITIES:**\n✓ Primary client liaison for major commercial/industrial projects\n✓ Strategic operations & business growth\n✓ Service excellence & quality assurance\n✓ Project oversight & risk management\n\n**PHILOSOPHY:**\nArnold embodies the "We Work With You" philosophy that defines MH Construction's approach to partnership-driven construction.\n\n**LEADERSHIP TEAM:**\n• **Jeremy Thamert** - President\n• **Arnold Garcia** - Vice President\n• **Mike Holstein** - Founder (Retired)\n\n**Meet the entire team:** [View Team Cards →](/team)`;
+    }
+
+    // General leadership/management query
+    return `**[LEADERSHIP COMMAND STRUCTURE]** 🎖️\n\n**EXECUTIVE LEADERSHIP:**\n\n**Jeremy Thamert - President**\n• Strategic oversight & operational leadership\n• Focus: Safety, Marketing, Workforce Development & HR\n• Leadership philosophy: People-first management\n\n**Arnold Garcia - Vice President**\n• Client relations & strategic operations\n• 15 years experience, $50M+ project oversight\n• Primary liaison for major commercial/industrial projects\n\n**Mike Holstein - Founder (Retired)**\n• Founded MH Construction in 2010\n• Established company core values & "We Work With You" philosophy\n• 30+ years construction experience, 500+ projects\n\n**COMPANY FOUNDATION:**\n• **Veteran-Owned** under Army veteran leadership (January 2025)\n• **150+ Years Combined Team Experience**\n• **Licensed in WA, OR, ID**\n• **Award-Winning 0.6 EMR Safety Record**\n• **"Building for the Owner, NOT the Dollar"** - Our Core Philosophy\n\n**Want to meet the full team?** [View Team Cards →](/team)\n\n**Ready to partner with veteran-owned leadership?** [Contact Us →](/contact)`;
   }
 
   private isSearchRelatedQuery(message: string): boolean {
