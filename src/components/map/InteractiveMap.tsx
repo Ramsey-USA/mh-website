@@ -289,12 +289,12 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
           {/* Selected Location Details */}
           {selectedLocation && (
-            <div className="bg-gray-50 p-6 border-t">
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 border-t border-gray-200 dark:border-gray-700">
               <div className="max-w-2xl">
                 <h3 className="mb-2 font-semibold text-lg">
                   {selectedLocation.title}
                 </h3>
-                <p className="mb-4 text-gray-600">
+                <p className="mb-4 text-gray-600 dark:text-gray-400">
                   {selectedLocation.description}
                 </p>
                 <div className="flex flex-wrap gap-3">

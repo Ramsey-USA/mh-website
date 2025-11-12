@@ -21,32 +21,38 @@ export function ReviewStep({
 }: ReviewStepProps) {
   return (
     <div className="space-y-6">
-      <div className="bg-gray-50 p-6 rounded-lg">
+      <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
         <h3 className="mb-4 font-semibold text-lg">Project Summary</h3>
         <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
           <div>
-            <span className="text-gray-600">Project Type:</span>
+            <span className="text-gray-600 dark:text-gray-400">
+              Project Type:
+            </span>
             <span className="ml-2 font-semibold">
               {projectData.projectType}
             </span>
           </div>
           <div>
-            <span className="text-gray-600">Location:</span>
+            <span className="text-gray-600 dark:text-gray-400">Location:</span>
             <span className="ml-2 font-semibold">{projectData.location}</span>
           </div>
           <div>
-            <span className="text-gray-600">Size:</span>
+            <span className="text-gray-600 dark:text-gray-400">Size:</span>
             <span className="ml-2 font-semibold">{projectData.size} sq ft</span>
           </div>
           <div>
-            <span className="text-gray-600">Material Quality:</span>
+            <span className="text-gray-600 dark:text-gray-400">
+              Material Quality:
+            </span>
             <span className="ml-2 font-semibold">
               {projectData.materials[0]}
             </span>
           </div>
           {projectData.features.length > 0 && (
             <div className="md:col-span-2">
-              <span className="text-gray-600">Special Features:</span>
+              <span className="text-gray-600 dark:text-gray-400">
+                Special Features:
+              </span>
               <span className="ml-2 font-semibold">
                 {projectData.features.join(", ")}
               </span>

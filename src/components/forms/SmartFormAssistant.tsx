@@ -264,21 +264,21 @@ export function SmartFormAssistant({
                       (discount: string, _index: number) => (
                         <div
                           key={_index}
-                          className="flex items-start space-x-2 bg-white p-2 border border-blue-200 rounded"
+                          className="flex items-start space-x-2 bg-white dark:bg-gray-800 p-2 border border-blue-200 dark:border-blue-700 rounded"
                         >
                           <MaterialIcon
                             icon="verified"
-                            className="mt-0.5 text-blue-600"
+                            className="mt-0.5 text-blue-600 dark:text-blue-400"
                           />
-                          <span className="text-blue-800 text-sm">
+                          <span className="text-blue-800 dark:text-blue-200 text-sm">
                             {discount}
                           </span>
                         </div>
                       ),
                     )}
                   </div>
-                  <div className="bg-blue-100 mt-4 p-3 rounded-lg">
-                    <p className="flex items-center gap-2 font-medium text-blue-800 text-sm">
+                  <div className="bg-blue-100 dark:bg-blue-900/30 mt-4 p-3 rounded-lg">
+                    <p className="flex items-center gap-2 font-medium text-blue-800 dark:text-blue-200 text-sm">
                       <MaterialIcon icon="flag" size="md" />
                       Thank you for your service! These benefits will be
                       automatically applied to your project.
@@ -312,12 +312,14 @@ export function SmartFormAssistant({
                           key={_index}
                           onClick={() => onSuggestionClick(suggestion)}
                           variant="ghost"
-                          className="justify-start bg-white hover:bg-green-100 p-3 border border-green-200 rounded-lg w-full text-left"
+                          className="justify-start bg-white dark:bg-gray-800 hover:bg-green-100 dark:hover:bg-green-900/30 p-3 border border-green-200 dark:border-green-700 rounded-lg w-full text-left"
                         >
-                          <span className="text-green-800">{suggestion}</span>
+                          <span className="text-green-800 dark:text-green-200">
+                            {suggestion}
+                          </span>
                           <MaterialIcon
                             icon="arrow_forward"
-                            className="ml-auto text-green-600"
+                            className="ml-auto text-green-600 dark:text-green-400"
                           />
                         </Button>
                       ),

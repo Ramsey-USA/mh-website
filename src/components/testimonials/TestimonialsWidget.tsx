@@ -99,13 +99,17 @@ export default function TestimonialsWidget({
       <div className="mx-auto px-4 container">
         {/* Header */}
         <div className="mb-12 text-center">
-          <h2 className="mb-4 font-bold text-gray-900 text-4xl">{title}</h2>
-          <p className="mx-auto max-w-3xl text-gray-600 text-xl">{subtitle}</p>
+          <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
+            {title}
+          </h2>
+          <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
+            {subtitle}
+          </p>
         </div>
 
         {/* Testimonial Slider */}
         <div className="relative mx-auto max-w-6xl">
-          <div className="bg-white shadow-xl rounded-2xl overflow-hidden">
+          <div className="bg-white dark:bg-gray-800 shadow-xl dark:shadow-gray-600/50 rounded-2xl overflow-hidden">
             <div className="relative min-h-[180px] sm:min-h-[280px] md:min-h-[340px] lg:min-h-[400px]">
               {featuredTestimonials.map((testimonial, _index) => (
                 <div
@@ -124,14 +128,14 @@ export default function TestimonialsWidget({
               <>
                 <button
                   onClick={goToPrevious}
-                  className="top-1/2 left-4 absolute bg-white/90 hover:bg-white shadow-lg p-3 rounded-full text-gray-800 transition-all -translate-y-1/2 duration-200 transform"
+                  className="top-1/2 left-4 absolute bg-white/90 dark:bg-gray-700/90 hover:bg-white dark:hover:bg-gray-600 shadow-lg p-3 rounded-full text-gray-800 dark:text-white transition-all -translate-y-1/2 duration-200 transform"
                   aria-label="Previous testimonial"
                 >
                   <MaterialIcon icon="chevron_left" size="lg" />
                 </button>
                 <button
                   onClick={goToNext}
-                  className="top-1/2 right-4 absolute bg-white/90 hover:bg-white shadow-lg p-3 rounded-full text-gray-800 transition-all -translate-y-1/2 duration-200 transform"
+                  className="top-1/2 right-4 absolute bg-white/90 dark:bg-gray-700/90 hover:bg-white dark:hover:bg-gray-600 shadow-lg p-3 rounded-full text-gray-800 dark:text-white transition-all -translate-y-1/2 duration-200 transform"
                   aria-label="Next testimonial"
                 >
                   <MaterialIcon icon="chevron_right" size="lg" />
@@ -301,10 +305,15 @@ function CompactTestimonialsWidget({
   const currentTestimonial = testimonials[currentIndex] ?? testimonials[0]!;
 
   return (
-    <div className="bg-white shadow-sm p-6 border rounded-lg">
+    <div className="bg-white dark:bg-gray-800 shadow-sm dark:shadow-gray-600/50 p-6 border border-gray-200 dark:border-gray-700 rounded-lg">
       <div className="flex items-center gap-2 mb-4">
-        <MaterialIcon icon="format_quote" className="w-5 h-5 text-blue-600" />
-        <h3 className="font-semibold text-gray-900">Client Testimonial</h3>
+        <MaterialIcon
+          icon="format_quote"
+          className="w-5 h-5 text-blue-600 dark:text-blue-400"
+        />
+        <h3 className="font-semibold text-gray-900 dark:text-white">
+          Client Testimonial
+        </h3>
       </div>
 
       <div className="mb-4">
@@ -316,22 +325,22 @@ function CompactTestimonialsWidget({
               className={`h-4 w-4 ${
                 i < currentTestimonial.rating
                   ? "fill-yellow-400 text-yellow-400"
-                  : "text-gray-300"
+                  : "text-gray-300 dark:text-gray-600"
               }`}
             />
           ))}
         </div>
-        <blockquote className="text-gray-700 text-sm italic line-clamp-3">
+        <blockquote className="text-gray-700 dark:text-gray-300 text-sm italic line-clamp-3">
           &quot;{currentTestimonial.testimonialText}&quot;
         </blockquote>
       </div>
 
       <div className="flex justify-between items-center">
         <div>
-          <div className="font-medium text-gray-900 text-sm">
+          <div className="font-medium text-gray-900 dark:text-white text-sm">
             {currentTestimonial.clientName}
           </div>
-          <div className="text-gray-600 text-xs">
+          <div className="text-gray-600 dark:text-gray-400 text-xs">
             {currentTestimonial.projectTitle}
           </div>
         </div>
@@ -344,7 +353,9 @@ function CompactTestimonialsWidget({
             <div
               key={_index}
               className={`w-2 h-2 rounded-full transition-colors ${
-                _index === currentIndex ? "bg-blue-600" : "bg-gray-300"
+                _index === currentIndex
+                  ? "bg-blue-600 dark:bg-blue-400"
+                  : "bg-gray-300 dark:bg-gray-600"
               }`}
             />
           ))}
@@ -366,12 +377,16 @@ function CardsTestimonialsWidget({
   showViewAll: boolean;
 }) {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white dark:bg-gray-900 py-16">
       <div className="mx-auto px-4 container">
         {/* Header */}
         <div className="mb-12 text-center">
-          <h2 className="mb-4 font-bold text-gray-900 text-4xl">{title}</h2>
-          <p className="mx-auto max-w-3xl text-gray-600 text-xl">{subtitle}</p>
+          <h2 className="mb-4 font-bold text-gray-900 dark:text-white text-4xl">
+            {title}
+          </h2>
+          <p className="mx-auto max-w-3xl text-gray-600 dark:text-gray-300 text-xl">
+            {subtitle}
+          </p>
         </div>
 
         {/* Cards Grid */}
@@ -379,7 +394,7 @@ function CardsTestimonialsWidget({
           {testimonials.slice(0, 3).map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white shadow-lg hover:shadow-xl border rounded-lg overflow-hidden transition-shadow duration-300"
+              className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden transition-shadow duration-300"
             >
               {/* Image */}
               {testimonial.images?.after && testimonial.images.after[0] && (
@@ -410,12 +425,12 @@ function CardsTestimonialsWidget({
                 </div>
 
                 {/* Project Title */}
-                <h3 className="mb-2 font-bold text-gray-900">
+                <h3 className="mb-2 font-bold text-gray-900 dark:text-white">
                   {testimonial.projectTitle}
                 </h3>
 
                 {/* Testimonial Text */}
-                <blockquote className="mb-4 text-gray-700 text-sm italic line-clamp-3">
+                <blockquote className="mb-4 text-gray-700 dark:text-gray-300 text-sm italic line-clamp-3">
                   &quot;{testimonial.testimonialText}&quot;
                 </blockquote>
 
@@ -432,10 +447,10 @@ function CardsTestimonialsWidget({
                     </div>
                   )}
                   <div>
-                    <div className="font-medium text-gray-900 text-sm">
+                    <div className="font-medium text-gray-900 dark:text-white text-sm">
                       {testimonial.clientName}
                     </div>
-                    <div className="text-gray-600 text-xs">
+                    <div className="text-gray-600 dark:text-gray-400 text-xs">
                       {testimonial.clientLocation}
                     </div>
                   </div>

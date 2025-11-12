@@ -678,7 +678,7 @@ export default function GovernmentGrantsPage() {
         </div>
       </section>
       {/* Government Project Types */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 dark:bg-gray-800 py-20">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-16 text-center">

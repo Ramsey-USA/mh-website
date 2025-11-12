@@ -98,41 +98,41 @@ export function EstimateResults({
 
         {/* Confidence Score Display */}
         <div className="mt-4 mx-auto max-w-md">
-          <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg">
+          <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 rounded-lg">
             <div className="flex justify-between items-center mb-2">
-              <span className="font-semibold text-gray-700">
+              <span className="font-semibold text-gray-700 dark:text-gray-300">
                 Confidence Score:
               </span>
               <span
                 className={`font-bold text-lg ${
                   estimate.confidenceLevel === "very-high"
-                    ? "text-green-600"
+                    ? "text-green-600 dark:text-green-400"
                     : estimate.confidenceLevel === "high"
-                      ? "text-blue-600"
+                      ? "text-blue-600 dark:text-blue-400"
                       : estimate.confidenceLevel === "medium"
-                        ? "text-yellow-600"
-                        : "text-orange-600"
+                        ? "text-yellow-600 dark:text-yellow-400"
+                        : "text-orange-600 dark:text-orange-400"
                 }`}
               >
                 {estimate.confidenceScore}% (
                 {estimate.confidenceLevel.replace("-", " ").toUpperCase()})
               </span>
             </div>
-            <div className="bg-gray-200 rounded-full w-full h-2">
+            <div className="bg-gray-200 dark:bg-gray-700 rounded-full w-full h-2">
               <div
                 className={`h-2 rounded-full ${
                   estimate.confidenceLevel === "very-high"
-                    ? "bg-green-500"
+                    ? "bg-green-500 dark:bg-green-400"
                     : estimate.confidenceLevel === "high"
-                      ? "bg-blue-500"
+                      ? "bg-blue-500 dark:bg-blue-400"
                       : estimate.confidenceLevel === "medium"
-                        ? "bg-yellow-500"
-                        : "bg-orange-500"
+                        ? "bg-yellow-500 dark:bg-yellow-400"
+                        : "bg-orange-500 dark:bg-orange-400"
                 }`}
                 style={{ width: `${estimate.confidenceScore}%` }}
               />
             </div>
-            <p className="mt-2 text-gray-600 text-sm">
+            <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
               Data completeness:{" "}
               {estimate.dataQualityFactors.completenessPercentage}%
               {estimate.confidenceLevel === "low" &&
@@ -378,18 +378,20 @@ export function EstimateResults({
             ].map((phase, _index) => (
               <div
                 key={_index}
-                className="bg-gray-50 p-4 rounded-lg text-center"
+                className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg text-center"
               >
                 <div className="flex justify-center items-center bg-brand-primary mx-auto mb-2 rounded-full w-8 h-8 font-bold text-white text-sm">
                   {_index + 1}
                 </div>
-                <h4 className="mb-1 font-semibold text-brand-primary">
+                <h4 className="mb-1 font-semibold text-brand-primary dark:text-brand-primary-light">
                   {phase.phase}
                 </h4>
-                <div className="mb-2 text-gray-600 text-sm">
+                <div className="mb-2 text-gray-600 dark:text-gray-400 text-sm">
                   {phase.duration}
                 </div>
-                <div className="text-gray-500 text-xs">{phase.description}</div>
+                <div className="text-gray-500 dark:text-gray-500 text-xs">
+                  {phase.description}
+                </div>
               </div>
             ))}
           </div>

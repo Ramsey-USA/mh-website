@@ -490,13 +490,16 @@ export function EstimatorForm() {
                   {Object.entries(suggestions).map(([k, v]) => {
                     const s = v as { suggested?: string; reasoning?: string };
                     return (
-                      <div key={k} className="p-2 bg-white rounded border">
+                      <div
+                        key={k}
+                        className="p-2 bg-white dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-700"
+                      >
                         <div className="text-sm font-medium">{k}</div>
-                        <div className="text-sm text-gray-700">
+                        <div className="text-sm text-gray-700 dark:text-gray-300">
                           {s.suggested}
                         </div>
                         {s.reasoning ? (
-                          <div className="text-xs text-gray-500">
+                          <div className="text-xs text-gray-500 dark:text-gray-400">
                             {s.reasoning}
                           </div>
                         ) : null}

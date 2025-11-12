@@ -317,7 +317,7 @@ export default function EstimatorPage() {
       </section>
 
       {/* AI Estimator Benefits */}
-      <section className="bg-white py-20 lg:py-32 xl:py-40">
+      <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-16 lg:mb-24 text-center">
@@ -404,7 +404,7 @@ export default function EstimatorPage() {
       </section>
 
       {/* Main Estimator Form */}
-      <section className="bg-gray-50 py-20 lg:py-32 xl:py-40">
+      <section className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32 xl:py-40">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-16 lg:mb-24 text-center">
@@ -464,7 +464,7 @@ export default function EstimatorPage() {
                   });
                 }
               }}
-              className="bg-white shadow-lg p-8 rounded-xl"
+              className="bg-white dark:bg-gray-800 shadow-lg dark:shadow-gray-600/50 p-8 rounded-xl"
             />
           </FadeInWhenVisible>
         </div>

@@ -36,11 +36,11 @@ export default function ProjectsPage() {
 
   return (
     <div className="relative bg-white dark:bg-gray-900 w-full min-h-screen overflow-x-hidden">
-      {/* Top Navigation */}
-      <PageNavigation items={navigationConfigs.projects} />
-
       {/* Hero Section */}
       <ProjectsHero />
+
+      {/* Page Navigation */}
+      <PageNavigation items={navigationConfigs.projects} />
 
       {/* Breadcrumb Navigation */}
       <Breadcrumb
