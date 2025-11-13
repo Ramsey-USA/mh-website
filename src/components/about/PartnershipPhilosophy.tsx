@@ -241,7 +241,7 @@ export function PartnershipPhilosophy() {
                     Jeremy Thamert
                   </p>
                   <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                    Owner & General Manager | U.S. Army Veteran
+                    Owner & President | U.S. Army Veteran
                   </p>
                 </div>
               </div>
