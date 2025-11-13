@@ -9,7 +9,7 @@ export const enhancedSEO = {
   defaultDescription:
     "Where handshakes matter and your word is your bond. Founded 2010, veteran-owned since January 2025 under Army veteran leadership. Serving Pacific Northwest communities with traditional business values, face-to-face trust, and helpful modern tools including budget planning and military precision project management.",
   siteUrl: process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com",
-  twitterHandle: "@MHConstruction",
+  twitterHandle: "@mhc_gc",
   defaultKeywords: [
     "veteran-owned contractor",
     "traditional business values construction",
@@ -72,6 +72,7 @@ export const enhancedSEO = {
     instagram: "https://www.instagram.com/mh_construction_inc/reels/",
     linkedin: "https://linkedin.com/company/mhconstruction",
     youtube: "https://youtube.com/@mhconstruction",
+    twitter: "https://x.com/mhc_gc",
   },
 };
 

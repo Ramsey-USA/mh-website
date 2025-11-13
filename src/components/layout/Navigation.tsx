@@ -272,7 +272,7 @@ export function Navigation() {
                   />
                 </a>
                 <a
-                  href="https://x.com/mhconstruction"
+                  href="https://x.com/mhc_gc"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#000000] hover:to-[#1D9BF0] p-1.5 sm:p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-8 h-8 sm:w-9 sm:h-9"

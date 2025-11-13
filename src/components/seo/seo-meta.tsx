@@ -38,7 +38,7 @@ const defaultSEO = {
     "construction estimate",
     "AI construction",
   ],
-  twitterHandle: "@MHConstruction",
+  twitterHandle: "@mhc_gc",
   companyInfo: {
     name: "MH Construction",
     address: {

@@ -503,7 +503,7 @@ export default function Footer() {
                   />
                 </a>
                 <a
-                  href="https://x.com/mhconstruction"
+                  href="https://x.com/mhc_gc"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000] hover:shadow-lg hover:shadow-black/30 p-1.5 xs:p-2 sm:p-2.5 border border-gray-600 hover:border-[#1D9BF0] dark:border-gray-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation flex-shrink-0 min-w-[36px] min-h-[36px] xs:min-w-[40px] xs:min-h-[40px]"

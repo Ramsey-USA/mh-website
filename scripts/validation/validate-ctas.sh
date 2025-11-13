@@ -202,7 +202,7 @@ validate_social_links() {
     declare -a social_platforms=(
         "facebook.com/mhconstruction"
         "instagram.com/mhconstruction"
-        "x.com/mhconstruction"
+        "x.com/mhc_gc"
         "youtube.com/@mhconstruction"
         "linkedin.com/company/mhconstruction"
     )

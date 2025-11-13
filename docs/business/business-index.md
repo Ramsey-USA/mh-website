@@ -108,7 +108,7 @@ See: /docs/branding/branding-index.md for the new structure
   - **Instagram**: [MH Construction Reels](https://www.instagram.com/mh_construction_inc/reels/)
   - **LinkedIn**: [MH Construction Company](https://linkedin.com/company/mhconstruction)
   - **YouTube**: [MH Construction Channel](https://youtube.com/@mhconstruction)
-  - **X (Twitter)**: [MH Construction](https://x.com/mhconstruction)
+  - **X (Twitter)**: [MH Construction](https://x.com/mhc_gc)
 
 ### 📈 Current Status (v3.7.2)
 
