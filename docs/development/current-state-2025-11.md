@@ -263,7 +263,7 @@ npm run test
 
 ### Bundle Size Baseline
 
-```
+```text
 Shared JS Bundle:    102 kB
 Homepage Bundle:     225 kB
 First Load JS:       ~250 kB
