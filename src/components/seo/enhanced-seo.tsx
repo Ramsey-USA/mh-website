@@ -41,7 +41,7 @@ export const enhancedSEO = {
       postalCode: "99301",
       addressCountry: "US",
     },
-    foundingDate: "2020-01-15",
+    foundingDate: "2010-01-15",
     numberOfEmployees: "15-25",
     yearlyRevenue: "$2000000-$5000000",
     serviceArea: {

@@ -60,7 +60,7 @@ Regional Commitment:
 
 > *"When you choose MH Construction, you're not hiring a contractor - you're gaining a partner
 > who genuinely cares about your success and our community's future."*
-> **- Jeremy Thamert, Owner & General Manager**
+> **- Jeremy Thamert, Owner & President**
 
 ---
 
@@ -89,7 +89,7 @@ The following roster is sourced directly from `src/lib/data/team.ts` and grouped
 
 | Name | Role | Experience | Status | Core Specialties |
 |------|------|-----------:|--------|------------------|
-| Jeremy Thamert | Owner & General Manager | 2 yrs | Civilian | Strategy; Tech; AI; Operations |
+| Jeremy Thamert | Owner & President | 2 yrs | Civilian | Strategy; Tech; AI; Operations |
 | Mike Holstein | Founder (Retired) | 30 yrs | Retired | Foundations; Quality; Leadership |
 | Arnold Garcia | Vice President | 15 yrs | Civilian | Client Relations; Service |
 

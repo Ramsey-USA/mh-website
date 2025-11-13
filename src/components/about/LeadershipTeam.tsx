@@ -15,7 +15,7 @@ import { gridPresets } from "@/lib/styles/layout-variants";
 export const leadershipTeam = [
   {
     name: "Jeremy Thamert",
-    role: "President",
+    role: "Owner & President",
     experience:
       "Presidential leadership with strategic operational focus since January 2025",
     status: "Veteran-Owned Leadership",

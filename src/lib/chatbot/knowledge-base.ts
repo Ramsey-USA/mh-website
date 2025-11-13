@@ -157,7 +157,7 @@ export const companyKnowledge: CompanyKnowledge = {
   leadership: {
     president: {
       name: "Jeremy Thamert",
-      title: "President",
+      title: "Owner & President",
       background:
         "Combat veteran and experienced construction leader with 20+ years in the industry. " +
         "Jeremy oversees all company operations and ensures every project meets MH Construction's " +

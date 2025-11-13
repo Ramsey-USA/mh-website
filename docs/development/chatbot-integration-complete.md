@@ -194,7 +194,7 @@ See `/docs/development/chatbot-enhancement-guide.md` for complete roadmap:
 - **Address:** 3111 N. Capital Ave., Pasco, WA 99301
 - **Service Areas:** WA, OR, ID (Pacific Northwest)
 - **Founded:** 2010 by Mike Holstein
-- **Current President:** Jeremy Thamert
+- **Current Owner & President:** Jeremy Thamert
 - **Vice President:** Arnold Garcia
 - **Safety Record:** 0.6 EMR (40% better than industry avg)
 - **Experience:** 150+ years combined

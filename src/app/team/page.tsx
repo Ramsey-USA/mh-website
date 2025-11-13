@@ -405,7 +405,7 @@ export default function TeamPage() {
                     that last beyond project completion.&rdquo;
                   </blockquote>
                   <cite className="font-semibold text-brand-secondary">
-                    — Jeremy Thamert, President
+                    — Jeremy Thamert, Owner & President
                   </cite>
                 </div>
               </div>

@@ -1,10 +1,10 @@
 [
   {
     "name": "Jeremy Thamert",
-    "role": "President",
+    "role": "Owner & President",
     "department": "Executive Leadership",
     "cardNumber": 1,
-    "position": "President",
+    "position": "Owner & President",
     "nickname": "The Leader",
     "yearsWithCompany": 2,
     "hometown": "Tri-Cities, WA",
@@ -22,7 +22,7 @@
       "mentorships": 8
     },
     "awards": "Presidential Leadership Excellence",
-    "bio": "Jeremy Thamert serves as the President of MH Construction, bringing focused leadership to key organizational pillars: Safety, Marketing, Workforce Development, and Human Resources. His role reflects a strategic blend of operational oversight and people-first management, ensuring each project aligns with MH's owner-centric approach. Under his leadership, MH Construction emphasizes operational excellence through strategic focus on people and safety.",
+    "bio": "Jeremy Thamert serves as the Owner & President of MH Construction, bringing focused leadership to key organizational pillars: Safety, Marketing, Workforce Development, and Human Resources. His role reflects a strategic blend of operational oversight and people-first management, ensuring each project aligns with MH's owner-centric approach. Under his leadership, MH Construction emphasizes operational excellence through strategic focus on people and safety.",
     "careerHighlights": [
       "Presidential oversight of strategic operations",
       "Safety management & organizational standards",

@@ -80,7 +80,7 @@ export const companyKnowledge = {
     licensed: ["WA", "OR", "ID"],
   },
   leadership: {
-    president: "Jeremy Thamert",
+    ownerPresident: "Jeremy Thamert",
     vp: "Arnold Garcia",
     founder: "Mike Holstein (Retired)",
   },

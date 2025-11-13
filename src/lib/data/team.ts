@@ -19,7 +19,7 @@ export const teamMembers: TeamMember[] = [
   // Executive Leadership
   {
     name: "Jeremy Thamert",
-    role: "Owner & General Manager",
+    role: "Owner & President",
     department: "Executive Leadership",
     experienceYears: 2,
     veteranStatus: "U.S. Army Veteran",

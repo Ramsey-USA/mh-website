@@ -12,12 +12,12 @@ brings unwavering dedication and owner-first focus to every project.
 
 ## 🎖️ Executive Leadership
 
-### Jeremy Thamert - President
+### Jeremy Thamert - Owner & President
 
-**PRESIDENT** - Jeremy Thamert serves as the President of MH Construction, bringing focused leadership to key
-organizational pillars: Safety, Marketing, Workforce Development, and Human Resources. His role reflects a strategic
-blend of operational oversight and people-first management, ensuring each project aligns with MH's owner-centric
-approach.
+**OWNER & PRESIDENT** - Jeremy Thamert serves as the Owner & President of MH Construction,
+bringing focused leadership to key organizational pillars: Safety, Marketing, Workforce Development,
+and Human Resources. His role reflects a strategic blend of operational oversight and people-first
+management, ensuring each project aligns with MH's owner-centric approach.
 
 - **Experience**: Presidential leadership with focus on strategic operations
 - **Status**: Civilian Leadership
