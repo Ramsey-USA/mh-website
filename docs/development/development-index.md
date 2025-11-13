@@ -1,7 +1,7 @@
 # Development Documentation Index
 
 **Category:** Development Processes & Guidelines  
-**Last Updated:** November 11, 2025  
+**Last Updated:** November 13, 2025  
 **Status:** ✅ Active - Enhanced with Breadcrumb Navigation
 
 ## 🧭 Quick Navigation
@@ -17,13 +17,14 @@
 
 ### New Developer Onboarding Path
 
-1. **[New Page Development Guide](./new-page-development-guide.md)** - ⭐ **NEW** - Complete page creation workflow
-2. **[Consistency Guide](./consistency-guide.md)** - ⭐ **MANDATORY** - Complete implementation standards
+1. **[Current State 2025-11](./current-state-2025-11.md)** - ⭐ **NEW** - Complete baseline for future development
+2. **[New Page Development Guide](./new-page-development-guide.md)** - Complete page creation workflow
+3. **[Consistency Guide](./consistency-guide.md)** - ⭐ **MANDATORY** - Complete implementation standards
    (includes AI Estimator vs. Consultation distinction)
-3. **[Cohesion Checklist](./cohesion-checklist.md)** - ⭐ **NEW** - Ensure consistency when creating/editing pages
-4. **[Style Utilities Guide](./style-utilities-guide.md)** - ⭐ **MANDATORY** - Centralized style utilities
-5. **[Quick Reference](./style-utilities-quick-reference.md)** - Daily cheat sheet for common patterns
-6. **[Development Standards](./development-standards.md)** - Core coding standards
+4. **[Cohesion Checklist](./cohesion-checklist.md)** - Ensure consistency when creating/editing pages
+5. **[Style Utilities Guide](./style-utilities-guide.md)** - ⭐ **MANDATORY** - Centralized style utilities
+6. **[Quick Reference](./style-utilities-quick-reference.md)** - Daily cheat sheet for common patterns
+7. **[Development Standards](./development-standards.md)** - Core coding standards
 
 ### 🤖 AI System Architecture (Nov 10, 2025)
 
