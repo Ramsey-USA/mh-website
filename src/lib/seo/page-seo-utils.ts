@@ -76,7 +76,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title: "About MH Construction | Veteran-Owned Partnership-Driven Platform",
     description:
-      "Founded 2010 by Mike Holstein, veteran-owned since January 2025 under Army veteran Jeremy Thamert's leadership. Partnership philosophy and revolutionary AI construction intelligence. Serving Pacific Northwest communities with military precision and authentic relationships.",
+      "Founded 2010 by Mike Holstein, veteran-owned since January 2025 under Army veteran Jeremy Thamert's (Owner & President) leadership. Partnership philosophy and revolutionary AI construction intelligence. Serving Pacific Northwest communities with military precision and authentic relationships.",
     keywords: [
       "veteran-owned construction company",
       "partnership-driven construction",

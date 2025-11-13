@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact MH Construction - Get a Free Quote | (509) 308-6489",
   description:
-    "Contact MH Construction for a free consultation. Serving Tri-Cities (Pasco, Kennewick, Richland) and Pacific Northwest. Call (509) 308-6489 or email info@mhc-gc.com. Veteran-owned excellence.",
+    "Contact MH Construction for a free consultation. Serving Tri-Cities (Pasco, Kennewick, Richland) and Pacific Northwest. Call (509) 308-6489 or email office@mhc-gc.com. Veteran-owned excellence.",
   keywords: [
     "contact MH Construction",
     "construction quote",
