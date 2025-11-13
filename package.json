@@ -46,6 +46,8 @@
     "seo:audit": "node scripts/seo-audit.js",
     "seo:check": "npm run seo:audit && echo 'SEO audit complete!'",
     "seo:report": "npm run seo:audit > seo-report.txt && cat seo-report.txt",
+    "qr:generate": "node scripts/generate-qr-codes.js",
+    "qr:help": "cat public/images/qr-codes/README.md",
     "prepare": "husky"
   },
   "keywords": [
@@ -98,6 +100,7 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^30.0.0",
+    "@types/qrcode": "^1.5.6",
     "autoprefixer": "^10.4.21",
     "husky": "^9.1.7",
     "jest": "^30.2.0",
@@ -107,6 +110,8 @@
     "markdownlint-cli2": "^0.18.1",
     "postcss": "^8.5.6",
     "prettier": "^3.1.0",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.34.5",
     "wrangler": "^4.45.3"
   },
   "lint-staged": {

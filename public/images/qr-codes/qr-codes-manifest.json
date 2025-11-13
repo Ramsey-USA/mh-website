@@ -1,0 +1,178 @@
+{
+  "generatedAt": "2025-11-13T20:26:44.038Z",
+  "baseUrl": "https://mhc-gc.com",
+  "outputDirectory": "public/images/qr-codes",
+  "qrCodeOptions": {
+    "errorCorrectionLevel": "H",
+    "type": "png",
+    "quality": 0.95,
+    "margin": 2,
+    "width": 512,
+    "color": {
+      "dark": "#386851",
+      "light": "#FFFFFF"
+    }
+  },
+  "qrCodes": [
+    {
+      "name": "homepage",
+      "filename": "qr-homepage.png",
+      "url": "https://mhc-gc.com",
+      "description": "MH Construction Homepage",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "about",
+      "filename": "qr-about.png",
+      "url": "https://mhc-gc.com/about",
+      "description": "About Us",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "services",
+      "filename": "qr-services.png",
+      "url": "https://mhc-gc.com/services",
+      "description": "Our Services",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "projects",
+      "filename": "qr-projects.png",
+      "url": "https://mhc-gc.com/projects",
+      "description": "Our Projects",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team",
+      "filename": "qr-team.png",
+      "url": "https://mhc-gc.com/team",
+      "description": "Our Team",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "careers",
+      "filename": "qr-careers.png",
+      "url": "https://mhc-gc.com/careers",
+      "description": "Careers",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "contact",
+      "filename": "qr-contact.png",
+      "url": "https://mhc-gc.com/contact",
+      "description": "Contact Us",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "booking",
+      "filename": "qr-booking.png",
+      "url": "https://mhc-gc.com/booking",
+      "description": "Schedule Consultation",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "estimator",
+      "filename": "qr-estimator.png",
+      "url": "https://mhc-gc.com/estimator",
+      "description": "AI Project Estimator",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "case-studies",
+      "filename": "qr-case-studies.png",
+      "url": "https://mhc-gc.com/case-studies",
+      "description": "Case Studies",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "trade-partners",
+      "filename": "qr-trade-partners.png",
+      "url": "https://mhc-gc.com/trade-partners",
+      "description": "Trade Partners",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "veteran-benefits",
+      "filename": "qr-veteran-benefits.png",
+      "url": "https://mhc-gc.com/veteran-benefits",
+      "description": "Veteran Benefits",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "phone",
+      "filename": "qr-phone.png",
+      "url": "tel:+15093086489",
+      "description": "Call Us: (509) 308-6489",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "email",
+      "filename": "qr-email.png",
+      "url": "mailto:office@mhc-gc.com",
+      "description": "Email: office@mhc-gc.com",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "linkedin",
+      "filename": "qr-linkedin.png",
+      "url": "https://linkedin.com/company/mhconstruction",
+      "description": "LinkedIn Profile",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "facebook",
+      "filename": "qr-facebook.png",
+      "url": "https://www.facebook.com/profile.php?id=61575511773974",
+      "description": "Facebook Page",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "instagram",
+      "filename": "qr-instagram.png",
+      "url": "https://www.instagram.com/mh_construction_inc/reels/",
+      "description": "Instagram Profile",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "youtube",
+      "filename": "qr-youtube.png",
+      "url": "https://youtube.com/@mhconstruction",
+      "description": "YouTube Channel",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "twitter",
+      "filename": "qr-twitter.png",
+      "url": "https://x.com/mhc_gc",
+      "description": "X (Twitter) Profile",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location",
+      "filename": "qr-location.png",
+      "url": "https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301",
+      "description": "Our Location",
+      "success": true,
+      "error": null
+    }
+  ]
+}
