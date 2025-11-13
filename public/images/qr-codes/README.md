@@ -14,221 +14,221 @@ Generated: 11/13/2025, 9:42:11 PM
 
 - **Name:** `homepage`
 - **File:** `qr-homepage.png`
-- **URL:** https://mhc-gc.com
+- **URL:** <https://mhc-gc.com>
 
 ### ✅ About Us
 
 - **Name:** `about`
 - **File:** `qr-about.png`
-- **URL:** https://mhc-gc.com/about
+- **URL:** <https://mhc-gc.com/about>
 
 ### ✅ Our Services
 
 - **Name:** `services`
 - **File:** `qr-services.png`
-- **URL:** https://mhc-gc.com/services
+- **URL:** <https://mhc-gc.com/services>
 
 ### ✅ Our Projects
 
 - **Name:** `projects`
 - **File:** `qr-projects.png`
-- **URL:** https://mhc-gc.com/projects
+- **URL:** <https://mhc-gc.com/projects>
 
 ### ✅ Our Team
 
 - **Name:** `team`
 - **File:** `qr-team.png`
-- **URL:** https://mhc-gc.com/team
+- **URL:** <https://mhc-gc.com/team>
 
 ### ✅ Careers
 
 - **Name:** `careers`
 - **File:** `qr-careers.png`
-- **URL:** https://mhc-gc.com/careers
+- **URL:** <https://mhc-gc.com/careers>
 
 ### ✅ Contact Us
 
 - **Name:** `contact`
 - **File:** `qr-contact.png`
-- **URL:** https://mhc-gc.com/contact
+- **URL:** <https://mhc-gc.com/contact>
 
 ### ✅ Schedule Consultation
 
 - **Name:** `booking`
 - **File:** `qr-booking.png`
-- **URL:** https://mhc-gc.com/booking
+- **URL:** <https://mhc-gc.com/booking>
 
 ### ✅ AI Project Estimator
 
 - **Name:** `estimator`
 - **File:** `qr-estimator.png`
-- **URL:** https://mhc-gc.com/estimator
+- **URL:** <https://mhc-gc.com/estimator>
 
 ### ✅ Case Studies
 
 - **Name:** `case-studies`
 - **File:** `qr-case-studies.png`
-- **URL:** https://mhc-gc.com/case-studies
+- **URL:** <https://mhc-gc.com/case-studies>
 
 ### ✅ Trade Partners
 
 - **Name:** `trade-partners`
 - **File:** `qr-trade-partners.png`
-- **URL:** https://mhc-gc.com/trade-partners
+- **URL:** <https://mhc-gc.com/trade-partners>
 
 ### ✅ Veteran Benefits
 
 - **Name:** `veteran-benefits`
 - **File:** `qr-veteran-benefits.png`
-- **URL:** https://mhc-gc.com/veteran-benefits
+- **URL:** <https://mhc-gc.com/veteran-benefits>
 
 ### ✅ Call Us: (509) 308-6489
 
 - **Name:** `phone`
 - **File:** `qr-phone.png`
-- **URL:** tel:+15093086489
+- **URL:** <tel:+15093086489>
 
-### ✅ Email: office@mhc-gc.com
+### ✅ Email: Contact MH Construction
 
 - **Name:** `email`
 - **File:** `qr-email.png`
-- **URL:** mailto:office@mhc-gc.com
+- **URL:** <mailto:office@mhc-gc.com>
 
 ### ✅ LinkedIn Profile
 
 - **Name:** `linkedin`
 - **File:** `qr-linkedin.png`
-- **URL:** https://linkedin.com/company/mhconstruction
+- **URL:** <https://linkedin.com/company/mhconstruction>
 
 ### ✅ Facebook Page
 
 - **Name:** `facebook`
 - **File:** `qr-facebook.png`
-- **URL:** https://www.facebook.com/profile.php?id=61575511773974
+- **URL:** <https://www.facebook.com/profile.php?id=61575511773974>
 
 ### ✅ Instagram Profile
 
 - **Name:** `instagram`
 - **File:** `qr-instagram.png`
-- **URL:** https://www.instagram.com/mh_construction_inc/reels/
+- **URL:** <https://www.instagram.com/mh_construction_inc/reels/>
 
 ### ✅ YouTube Channel
 
 - **Name:** `youtube`
 - **File:** `qr-youtube.png`
-- **URL:** https://youtube.com/@mhconstruction
+- **URL:** <https://youtube.com/@mhconstruction>
 
 ### ✅ X (Twitter) Profile
 
 - **Name:** `twitter`
 - **File:** `qr-twitter.png`
-- **URL:** https://x.com/mhc_gc
+- **URL:** <https://x.com/mhc_gc>
 
 ### ✅ Our Location
 
 - **Name:** `location`
 - **File:** `qr-location.png`
-- **URL:** https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301
+- **URL:** <https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301>
 
 ### ✅ Jeremy Thamert - Owner & President
 
 - **Name:** `team-jeremy-thamert`
 - **File:** `qr-team-jeremy-thamert.png`
-- **URL:** https://mhc-gc.com/team#jeremy-thamert
+- **URL:** <https://mhc-gc.com/team#jeremy-thamert>
 
 ### ✅ Mike Holstein - Founder
 
 - **Name:** `team-mike-holstein`
 - **File:** `qr-team-mike-holstein.png`
-- **URL:** https://mhc-gc.com/team#mike-holstein
+- **URL:** <https://mhc-gc.com/team#mike-holstein>
 
 ### ✅ Todd Schoeff - VP of Field Operations
 
 - **Name:** `team-todd-schoeff`
 - **File:** `qr-team-todd-schoeff.png`
-- **URL:** https://mhc-gc.com/team#todd-schoeff
+- **URL:** <https://mhc-gc.com/team#todd-schoeff>
 
 ### ✅ Brooks Morris - Safety Director
 
 - **Name:** `team-brooks-morris`
 - **File:** `qr-team-brooks-morris.png`
-- **URL:** https://mhc-gc.com/team#brooks-morris
+- **URL:** <https://mhc-gc.com/team#brooks-morris>
 
 ### ✅ Matt Ramsey - Project Manager
 
 - **Name:** `team-matt-ramsey`
 - **File:** `qr-team-matt-ramsey.png`
-- **URL:** https://mhc-gc.com/team#matt-ramsey
+- **URL:** <https://mhc-gc.com/team#matt-ramsey>
 
 ### ✅ Porter Cline - Project Manager
 
 - **Name:** `team-porter-cline`
 - **File:** `qr-team-porter-cline.png`
-- **URL:** https://mhc-gc.com/team#porter-cline
+- **URL:** <https://mhc-gc.com/team#porter-cline>
 
 ### ✅ Derek Parks - Chief Estimator
 
 - **Name:** `team-derek-parks`
 - **File:** `qr-team-derek-parks.png`
-- **URL:** https://mhc-gc.com/team#derek-parks
+- **URL:** <https://mhc-gc.com/team#derek-parks>
 
 ### ✅ Ben Woodall - Estimator
 
 - **Name:** `team-ben-woodall`
 - **File:** `qr-team-ben-woodall.png`
-- **URL:** https://mhc-gc.com/team#ben-woodall
+- **URL:** <https://mhc-gc.com/team#ben-woodall>
 
 ### ✅ Steve McClary - Senior Superintendent
 
 - **Name:** `team-steve-mcclary`
 - **File:** `qr-team-steve-mcclary.png`
-- **URL:** https://mhc-gc.com/team#steve-mcclary
+- **URL:** <https://mhc-gc.com/team#steve-mcclary>
 
 ### ✅ Arnold Garcia - Field Superintendent
 
 - **Name:** `team-arnold-garcia`
 - **File:** `qr-team-arnold-garcia.png`
-- **URL:** https://mhc-gc.com/team#arnold-garcia
+- **URL:** <https://mhc-gc.com/team#arnold-garcia>
 
 ### ✅ Trigger - Chief Morale Officer
 
 - **Name:** `team-trigger`
 - **File:** `qr-team-trigger.png`
-- **URL:** https://mhc-gc.com/team#trigger
+- **URL:** <https://mhc-gc.com/team#trigger>
 
 ### ✅ Lisa Kandle - Office Manager
 
 - **Name:** `team-lisa-kandle`
 - **File:** `qr-team-lisa-kandle.png`
-- **URL:** https://mhc-gc.com/team#lisa-kandle
+- **URL:** <https://mhc-gc.com/team#lisa-kandle>
 
 ### ✅ Reagan Massey - Executive Assistant
 
 - **Name:** `team-reagan-massey`
 - **File:** `qr-team-reagan-massey.png`
-- **URL:** https://mhc-gc.com/team#reagan-massey
+- **URL:** <https://mhc-gc.com/team#reagan-massey>
 
 ### ✅ Brittney Holstein - Project Coordinator
 
 - **Name:** `team-brittney-holstein`
 - **File:** `qr-team-brittney-holstein.png`
-- **URL:** https://mhc-gc.com/team#brittney-holstein
+- **URL:** <https://mhc-gc.com/team#brittney-holstein>
 
 ### ✅ Makayla Holstein - Accounting Specialist
 
 - **Name:** `team-makayla-holstein`
 - **File:** `qr-team-makayla-holstein.png`
-- **URL:** https://mhc-gc.com/team#makayla-holstein
+- **URL:** <https://mhc-gc.com/team#makayla-holstein>
 
 ### ✅ Jennifer Tenehuerta - Payroll & HR Coordinator
 
 - **Name:** `team-jennifer-tenehuerta`
 - **File:** `qr-team-jennifer-tenehuerta.png`
-- **URL:** https://mhc-gc.com/team#jennifer-tenehuerta
+- **URL:** <https://mhc-gc.com/team#jennifer-tenehuerta>
 
 ## Usage in React Components
 
-### Import the QRCode component:
+### Import the QRCode component
 
 ```tsx
 import { QRCode } from '@/components/ui/QRCode';
