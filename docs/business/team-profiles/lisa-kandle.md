@@ -63,4 +63,4 @@ Lisa has developed a filing system so efficient that any document can be located
 
 ---
 
-_This profile is synchronized with vintage baseball card data in `src/lib/data/vintage-team.ts`_
+_This profile is synchronized with team profile data with skills radar charts in `src/lib/data/vintage-team.ts`_

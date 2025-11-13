@@ -63,4 +63,4 @@ Brooks once identified a $50,000 cost saving opportunity by analyzing material p
 
 ---
 
-_This profile is synchronized with vintage baseball card data in `src/lib/data/vintage-team.ts`_
+_This profile is synchronized with team profile data with skills radar charts in `src/lib/data/vintage-team.ts`_

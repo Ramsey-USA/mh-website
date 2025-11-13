@@ -4,15 +4,18 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { MaterialIcon } from "../../icons/MaterialIcon";
 
-// Enhanced interface for vintage baseball cards
+// Legacy component - now deprecated
+// @deprecated This component has been replaced by TeamProfileSection
+// Please use TeamProfileSection from @/components/team/TeamProfileSection
+// This component is kept for backward compatibility only
 export interface VintageTeamMember {
   // Basic identification
   name: string;
   role: string;
   department: string;
   cardNumber: number;
-  position: string; // Simplified role for card display
-  nickname?: string; // Baseball-style nickname
+  position: string; // Simplified role for display
+  nickname?: string; // Professional nickname
 
   // Personal details
   yearsWithCompany: number;
@@ -147,7 +150,7 @@ export function VintageBaseballCard({ member }: VintageBaseballCardProps) {
       }}
       role="button"
       tabIndex={0}
-      aria-label={`Flip vintage baseball card for ${member.name}`}
+      aria-label={`View profile for ${member.name}`}
     >
       <div
         className={`vintage-card-inner ${isFlipped ? "flipped" : ""}`}

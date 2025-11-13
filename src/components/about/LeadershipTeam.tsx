@@ -1,6 +1,6 @@
 /**
  * Leadership Team Section for About Page
- * Displays leadership team members with flip cards
+ * Displays leadership team members with interactive cards
  */
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";

@@ -5,7 +5,7 @@
 /* Import CSS variables for cohesive design system */
 @import "../styles/variables.css";
 
-/* Import vintage baseball card styles */
+/* Import legacy card styles (deprecated - for backward compatibility only) */
 @import "../styles/vintage-baseball-card.css";
 
 /* Import 3D card flip utilities */

@@ -132,6 +132,88 @@ const QR_CODES = [
     url: "https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301",
     description: "Our Location",
   },
+
+  // Team member profiles
+  {
+    name: "team-jeremy-thamert",
+    url: `${BASE_URL}/team#jeremy-thamert`,
+    description: "Jeremy Thamert - Owner & President",
+  },
+  {
+    name: "team-mike-holstein",
+    url: `${BASE_URL}/team#mike-holstein`,
+    description: "Mike Holstein - Founder",
+  },
+  {
+    name: "team-todd-schoeff",
+    url: `${BASE_URL}/team#todd-schoeff`,
+    description: "Todd Schoeff - VP of Field Operations",
+  },
+  {
+    name: "team-brooks-morris",
+    url: `${BASE_URL}/team#brooks-morris`,
+    description: "Brooks Morris - Safety Director",
+  },
+  {
+    name: "team-matt-ramsey",
+    url: `${BASE_URL}/team#matt-ramsey`,
+    description: "Matt Ramsey - Project Manager",
+  },
+  {
+    name: "team-porter-cline",
+    url: `${BASE_URL}/team#porter-cline`,
+    description: "Porter Cline - Project Manager",
+  },
+  {
+    name: "team-derek-parks",
+    url: `${BASE_URL}/team#derek-parks`,
+    description: "Derek Parks - Chief Estimator",
+  },
+  {
+    name: "team-ben-woodall",
+    url: `${BASE_URL}/team#ben-woodall`,
+    description: "Ben Woodall - Estimator",
+  },
+  {
+    name: "team-steve-mcclary",
+    url: `${BASE_URL}/team#steve-mcclary`,
+    description: "Steve McClary - Senior Superintendent",
+  },
+  {
+    name: "team-arnold-garcia",
+    url: `${BASE_URL}/team#arnold-garcia`,
+    description: "Arnold Garcia - Field Superintendent",
+  },
+  {
+    name: "team-trigger",
+    url: `${BASE_URL}/team#trigger`,
+    description: "Trigger - Chief Morale Officer",
+  },
+  {
+    name: "team-lisa-kandle",
+    url: `${BASE_URL}/team#lisa-kandle`,
+    description: "Lisa Kandle - Office Manager",
+  },
+  {
+    name: "team-reagan-massey",
+    url: `${BASE_URL}/team#reagan-massey`,
+    description: "Reagan Massey - Executive Assistant",
+  },
+  {
+    name: "team-brittney-holstein",
+    url: `${BASE_URL}/team#brittney-holstein`,
+    description: "Brittney Holstein - Project Coordinator",
+  },
+  {
+    name: "team-makayla-holstein",
+    url: `${BASE_URL}/team#makayla-holstein`,
+    description: "Makayla Holstein - Accounting Specialist",
+  },
+  {
+    name: "team-jennifer-tenehuerta",
+    url: `${BASE_URL}/team#jennifer-tenehuerta`,
+    description: "Jennifer Tenehuerta - Payroll & HR Coordinator",
+  },
 ];
 
 /**

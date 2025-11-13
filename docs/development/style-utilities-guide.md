@@ -181,7 +181,7 @@ interface GridConfig {
 **Custom Example:**
 
 ```tsx
-// Vintage baseball cards: 1 → 2 → 3 → 4 columns with xl gap
+// Team profiles: 1 → 2 → 3 → 4 columns with xl gap
 <div
   className={getGridClassName(
     { base: 1, md: 2, lg: 3, xl: 4 },

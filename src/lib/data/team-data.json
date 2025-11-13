@@ -42,7 +42,16 @@
     "avatar": "/images/team/jeremy-thamert.jpg",
     "veteranStatus": "Civilian Leadership",
     "active": true,
-    "slug": "jeremy-thamert"
+    "slug": "jeremy-thamert",
+    "skills": {
+      "leadership": 68,
+      "technical": 53,
+      "communication": 66,
+      "safety": 68,
+      "problemSolving": 65,
+      "teamwork": 63
+    },
+    "qrCode": "/images/qr-codes/qr-team-jeremy-thamert.png"
   },
   {
     "name": "Mike Holstein",
@@ -87,7 +96,16 @@
     "avatar": "/images/team/mike-holstein.jpg",
     "veteranStatus": "Retired Leadership",
     "active": true,
-    "slug": "mike-holstein"
+    "slug": "mike-holstein",
+    "skills": {
+      "leadership": 70,
+      "technical": 70,
+      "communication": 70,
+      "safety": 85,
+      "problemSolving": 70,
+      "teamwork": 80
+    },
+    "qrCode": "/images/qr-codes/qr-team-mike-holstein.png"
   },
   {
     "name": "Arnold Garcia",
@@ -132,7 +150,16 @@
     "avatar": "/images/team/arnold-garcia.jpg",
     "veteranStatus": "Civilian Leadership",
     "active": true,
-    "slug": "arnold-garcia"
+    "slug": "arnold-garcia",
+    "skills": {
+      "leadership": 88,
+      "technical": 73,
+      "communication": 86,
+      "safety": 88,
+      "problemSolving": 85,
+      "teamwork": 83
+    },
+    "qrCode": "/images/qr-codes/qr-team-arnold-garcia.png"
   },
   {
     "name": "Makayla Holstein",
@@ -177,7 +204,16 @@
     "avatar": "/images/team/makayla-holstein.jpg",
     "veteranStatus": "Civilian Professional",
     "active": true,
-    "slug": "makayla-holstein"
+    "slug": "makayla-holstein",
+    "skills": {
+      "leadership": 67,
+      "technical": 72,
+      "communication": 77,
+      "safety": 75,
+      "problemSolving": 77,
+      "teamwork": 72
+    },
+    "qrCode": "/images/qr-codes/qr-team-makayla-holstein.png"
   },
   {
     "name": "Ben Woodall",
@@ -222,7 +258,16 @@
     "avatar": "/images/team/ben-woodall.jpg",
     "veteranStatus": "Civilian Professional",
     "active": true,
-    "slug": "ben-woodall"
+    "slug": "ben-woodall",
+    "skills": {
+      "leadership": 70,
+      "technical": 75,
+      "communication": 80,
+      "safety": 78,
+      "problemSolving": 80,
+      "teamwork": 75
+    },
+    "qrCode": "/images/qr-codes/qr-team-ben-woodall.png"
   },
   {
     "name": "Todd Schoeff",
@@ -267,7 +312,16 @@
     "avatar": "/images/team/todd-schoeff.jpg",
     "veteranStatus": "Civilian Professional",
     "active": true,
-    "slug": "todd-schoeff"
+    "slug": "todd-schoeff",
+    "skills": {
+      "leadership": 85,
+      "technical": 95,
+      "communication": 95,
+      "safety": 93,
+      "problemSolving": 98,
+      "teamwork": 90
+    },
+    "qrCode": "/images/qr-codes/qr-team-todd-schoeff.png"
   },
   {
     "name": "Steve McClary",
@@ -312,7 +366,16 @@
     "avatar": "/images/team/steve-mcclary.jpg",
     "veteranStatus": "Civilian Professional",
     "active": true,
-    "slug": "steve-mcclary"
+    "slug": "steve-mcclary",
+    "skills": {
+      "leadership": 87,
+      "technical": 95,
+      "communication": 85,
+      "safety": 100,
+      "problemSolving": 93,
+      "teamwork": 90
+    },
+    "qrCode": "/images/qr-codes/qr-team-steve-mcclary.png"
   },
   {
     "name": "Reagan Massey",
@@ -354,7 +417,16 @@
     "avatar": "/images/team/reagan-massey.jpg",
     "veteranStatus": "Civilian Professional",
     "active": true,
-    "slug": "reagan-massey"
+    "slug": "reagan-massey",
+    "skills": {
+      "leadership": 75,
+      "technical": 83,
+      "communication": 73,
+      "safety": 88,
+      "problemSolving": 81,
+      "teamwork": 78
+    },
+    "qrCode": "/images/qr-codes/qr-team-reagan-massey.png"
   },
   {
     "name": "Porter Cline",
@@ -399,7 +471,16 @@
     "avatar": "/images/team/porter-cline.jpg",
     "veteranStatus": "Civilian Professional",
     "active": true,
-    "slug": "porter-cline"
+    "slug": "porter-cline",
+    "skills": {
+      "leadership": 65,
+      "technical": 73,
+      "communication": 63,
+      "safety": 78,
+      "problemSolving": 71,
+      "teamwork": 68
+    },
+    "qrCode": "/images/qr-codes/qr-team-porter-cline.png"
   },
   {
     "name": "Brooks Morris",
@@ -444,7 +525,16 @@
     "avatar": "/images/team/brooks-morris.jpg",
     "veteranStatus": "Civilian Professional",
     "active": true,
-    "slug": "brooks-morris"
+    "slug": "brooks-morris",
+    "skills": {
+      "leadership": 70,
+      "technical": 70,
+      "communication": 70,
+      "safety": 85,
+      "problemSolving": 70,
+      "teamwork": 80
+    },
+    "qrCode": "/images/qr-codes/qr-team-brooks-morris.png"
   },
   {
     "name": "Brittney Holstein",
@@ -486,7 +576,16 @@
     "avatar": "/images/team/brittney-holstein.jpg",
     "veteranStatus": "Civilian Professional",
     "active": true,
-    "slug": "brittney-holstein"
+    "slug": "brittney-holstein",
+    "skills": {
+      "leadership": 67,
+      "technical": 72,
+      "communication": 77,
+      "safety": 75,
+      "problemSolving": 77,
+      "teamwork": 72
+    },
+    "qrCode": "/images/qr-codes/qr-team-brittney-holstein.png"
   },
   {
     "name": "Matt Ramsey",
@@ -531,7 +630,16 @@
     "avatar": "/images/team/matt-ramsey.jpg",
     "veteranStatus": "Navy Veteran",
     "active": true,
-    "slug": "matt-ramsey"
+    "slug": "matt-ramsey",
+    "skills": {
+      "leadership": 66,
+      "technical": 71,
+      "communication": 76,
+      "safety": 74,
+      "problemSolving": 76,
+      "teamwork": 71
+    },
+    "qrCode": "/images/qr-codes/qr-team-matt-ramsey.png"
   },
   {
     "name": "Jennifer Tenehuerta",
@@ -573,7 +681,16 @@
     "avatar": "/images/team/jennifer-tenehuerta.jpg",
     "veteranStatus": "Civilian Professional",
     "active": true,
-    "slug": "jennifer-tenehuerta"
+    "slug": "jennifer-tenehuerta",
+    "skills": {
+      "leadership": 58,
+      "technical": 63,
+      "communication": 73,
+      "safety": 68,
+      "problemSolving": 68,
+      "teamwork": 73
+    },
+    "qrCode": "/images/qr-codes/qr-team-jennifer-tenehuerta.png"
   },
   {
     "name": "Trigger",
@@ -615,7 +732,16 @@
     "avatar": "/images/team/trigger.jpg",
     "veteranStatus": "Good Boy",
     "active": true,
-    "slug": "trigger-mascot"
+    "slug": "trigger-mascot",
+    "skills": {
+      "leadership": 70,
+      "technical": 70,
+      "communication": 70,
+      "safety": 85,
+      "problemSolving": 70,
+      "teamwork": 80
+    },
+    "qrCode": "/images/qr-codes/qr-team-trigger-mascot.png"
   },
   {
     "name": "Derek Parks",
@@ -660,7 +786,16 @@
     "avatar": "/images/team/derek-parks.jpg",
     "veteranStatus": "Civilian Professional",
     "active": true,
-    "slug": "derek-parks"
+    "slug": "derek-parks",
+    "skills": {
+      "leadership": 72,
+      "technical": 80,
+      "communication": 70,
+      "safety": 85,
+      "problemSolving": 78,
+      "teamwork": 75
+    },
+    "qrCode": "/images/qr-codes/qr-team-derek-parks.png"
   },
   {
     "name": "Lisa Kandle",
@@ -705,6 +840,15 @@
     "avatar": "/images/team/lisa.jpg",
     "veteranStatus": "Civilian Professional",
     "active": true,
-    "slug": "lisa-kandle"
+    "slug": "lisa-kandle",
+    "skills": {
+      "leadership": 55,
+      "technical": 60,
+      "communication": 70,
+      "safety": 65,
+      "problemSolving": 65,
+      "teamwork": 70
+    },
+    "qrCode": "/images/qr-codes/qr-team-lisa-kandle.png"
   }
 ]

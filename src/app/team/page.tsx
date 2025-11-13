@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { VintageBaseballCard } from "@/components/ui/specialty/VintageBaseballCard";
+import { TeamProfileSection } from "@/components/team/TeamProfileSection";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import {
   vintageTeamMembers,
@@ -14,8 +14,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { TestimonialGrid } from "@/components/testimonials";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
-import "../../styles/vintage-baseball-card.css";
-import { gridPresets, getGridClassName } from "@/lib/styles/layout-variants";
+import { gridPresets } from "@/lib/styles/layout-variants";
 
 // Group team members by department
 function groupByDepartment(members: VintageTeamMember[]) {
@@ -74,8 +73,8 @@ export default function TeamPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/70 leading-relaxed px-4">
-              Click any card to explore professional stats, certifications, and
-              personal stories. We Work With You—every step.
+              Explore detailed professional profiles with skill assessments and
+              career achievements. We Work With You—every step.
             </p>
           </div>
         </div>
@@ -98,56 +97,45 @@ export default function TeamPage() {
             {/* Section Header - v4.0.2 Clean Standards */}
             <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
               <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                Professional
+                Meet Our
               </span>
               <span className="block text-brand-primary dark:text-brand-primary font-black">
-                Team Cards
+                Professional Team
               </span>
             </h2>
             <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
-              Vintage baseball cards featuring stats, achievements, and stories.
+              Modern professional profiles featuring comprehensive skill
+              assessments, career achievements, and personal stories.
               Award-winning team bringing military precision to Pacific
               Northwest construction.
             </p>
           </div>
 
           {/* Team Members by Department */}
-          <div className="space-y-24">
+          <div className="space-y-32">
             {departmentOrder.map((department) => {
               const members = membersByDepartment[department];
               if (!members || members.length === 0) return null;
 
               return (
-                <FadeInWhenVisible key={department}>
-                  <div className="relative">
-                    {/* MH-styled department header */}
-                    <div className="mb-16 text-center">
-                      <h3 className="mb-6 font-black text-brand-primary text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider">
-                        {department}
-                      </h3>
-                      <div className="bg-gradient-to-r from-transparent via-brand-secondary to-transparent mx-auto rounded-full w-48 h-1"></div>
-                    </div>
-
-                    {/* Vintage cards grid */}
-                    <div
-                      className={getGridClassName(
-                        { base: 1, md: 2, lg: 3, xl: 4 },
-                        "xl",
-                        false,
-                        "justify-items-center",
-                      )}
-                    >
-                      {members.map((member, _index) => (
-                        <div
-                          key={`${department}-${member.cardNumber || _index}`}
-                          className="transition-none"
-                        >
-                          <VintageBaseballCard member={member} />
-                        </div>
-                      ))}
-                    </div>
+                <div key={department} className="relative">
+                  {/* Department header */}
+                  <div className="mb-12 text-center">
+                    <h3 className="mb-6 font-black text-brand-primary text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider">
+                      {department}
+                    </h3>
+                    <div className="bg-gradient-to-r from-transparent via-brand-secondary to-transparent mx-auto rounded-full w-48 h-1"></div>
                   </div>
-                </FadeInWhenVisible>
+
+                  {/* Team member profiles */}
+                  <div className="space-y-12">
+                    {members.map((member, index) => (
+                      <FadeInWhenVisible key={member.slug}>
+                        <TeamProfileSection member={member} index={index} />
+                      </FadeInWhenVisible>
+                    ))}
+                  </div>
+                </div>
               );
             })}
           </div>

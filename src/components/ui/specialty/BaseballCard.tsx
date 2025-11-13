@@ -6,12 +6,13 @@ import { MaterialIcon } from "../../icons/MaterialIcon";
 import { type TeamMember } from "@/lib/data/team";
 
 /**
- * @deprecated This component has been replaced by VintageBaseballCard.tsx
- * Please use VintageBaseballCard with VintageTeamMember interface instead.
+ * @deprecated This component has been replaced by TeamProfileSection.
+ * Please use TeamProfileSection from @/components/team/TeamProfileSection instead.
+ * The modern profile system provides comprehensive information display with skills radar charts.
  * This file is kept for reference but should not be used in new development.
  *
- * @see VintageBaseballCard.tsx
- * @see /src/lib/data/vintage-team.ts
+ * @see TeamProfileSection
+ * @see /src/components/team/TeamProfileSection.tsx
  */
 
 interface BaseballCardProps {
@@ -84,7 +85,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
         }
         role="button"
         tabIndex={0}
-        aria-label={`Flip baseball card for ${member.name}`}
+        aria-label={`View profile for ${member.name}`}
       >
         <div
           className={`absolute inset-0 w-full h-full transition-transform duration-700 preserve-3d ${

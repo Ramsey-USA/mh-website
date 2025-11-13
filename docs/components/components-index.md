@@ -80,6 +80,23 @@ Interactive image comparison slider with draggable divider.
 
 ---
 
+**[team-profile-section-guide.md](./team-profile-section-guide.md)** - Team Profile Section Component
+
+Modern, professional team member profiles with skills radar charts and comprehensive statistics.
+
+**Topics Covered:**
+
+- Component implementation and layout
+- Skills radar chart integration (Recharts)
+- Alternating section designs
+- Career statistics and performance metrics
+- Automated skills generation based on role
+- Migration from baseball card theme
+
+**When to Use:** Team page displays, professional profiles, skill visualization
+
+---
+
 ### Shared Section Components
 
 **[shared-sections-guide.md](./shared-sections-guide.md)** - Shared Section Components Guide

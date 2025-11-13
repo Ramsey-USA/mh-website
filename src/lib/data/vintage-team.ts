@@ -1,5 +1,5 @@
-// Enhanced team data for vintage baseball cards
-// Includes professional statistics, career highlights, and vintage-specific fields
+// Enhanced team member data for modern professional profiles
+// Includes professional statistics, career highlights, skills, and comprehensive details
 
 // Import team data from JSON file
 import teamDataJson from "./team-data.json";
@@ -10,14 +10,24 @@ export interface VintageTeamMember {
   role: string;
   department: string;
   cardNumber: number;
-  position: string; // Simplified role for card display
-  nickname?: string; // Baseball-style nickname
+  position: string; // Simplified role for profile display
+  nickname?: string; // Professional nickname or informal name
 
   // Personal details
   yearsWithCompany: number;
   height?: string;
   hometown?: string;
   education?: string;
+
+  // Skills for radar chart (0-100 scale)
+  skills: {
+    leadership: number;
+    technical: number;
+    communication: number;
+    safety: number;
+    problemSolving: number;
+    teamwork: number;
+  };
 
   // Current year performance (2025)
   currentYearStats: {
@@ -49,6 +59,7 @@ export interface VintageTeamMember {
   // Existing fields
   specialties: string[];
   avatar?: string;
+  qrCode?: string; // QR code image path for business cards
   veteranStatus?: string;
   active: boolean;
   slug: string;

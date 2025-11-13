@@ -37,7 +37,7 @@ Organized component library for the MH Construction website with logical categor
 ### 📁 `/specialty/` - Themed & Custom Components
 
 - `BaseballCard.tsx` - Team member display component
-- `VintageBaseballCard.tsx` - Vintage-styled team member card
+- `VintageBaseballCard.tsx` - Legacy team member card (deprecated, use TeamProfileSection)
 
 ### 📁 `/shared-sections/` - Reusable Page Sections
 

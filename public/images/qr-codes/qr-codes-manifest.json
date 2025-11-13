@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-11-13T21:03:16.260Z",
+  "generatedAt": "2025-11-13T21:42:11.874Z",
   "baseUrl": "https://mhc-gc.com",
   "outputDirectory": "public/images/qr-codes",
   "qrCodeOptions": {
@@ -171,6 +171,134 @@
       "filename": "qr-location.png",
       "url": "https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301",
       "description": "Our Location",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-jeremy-thamert",
+      "filename": "qr-team-jeremy-thamert.png",
+      "url": "https://mhc-gc.com/team#jeremy-thamert",
+      "description": "Jeremy Thamert - Owner & President",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-mike-holstein",
+      "filename": "qr-team-mike-holstein.png",
+      "url": "https://mhc-gc.com/team#mike-holstein",
+      "description": "Mike Holstein - Founder",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-todd-schoeff",
+      "filename": "qr-team-todd-schoeff.png",
+      "url": "https://mhc-gc.com/team#todd-schoeff",
+      "description": "Todd Schoeff - VP of Field Operations",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-brooks-morris",
+      "filename": "qr-team-brooks-morris.png",
+      "url": "https://mhc-gc.com/team#brooks-morris",
+      "description": "Brooks Morris - Safety Director",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-matt-ramsey",
+      "filename": "qr-team-matt-ramsey.png",
+      "url": "https://mhc-gc.com/team#matt-ramsey",
+      "description": "Matt Ramsey - Project Manager",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-porter-cline",
+      "filename": "qr-team-porter-cline.png",
+      "url": "https://mhc-gc.com/team#porter-cline",
+      "description": "Porter Cline - Project Manager",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-derek-parks",
+      "filename": "qr-team-derek-parks.png",
+      "url": "https://mhc-gc.com/team#derek-parks",
+      "description": "Derek Parks - Chief Estimator",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-ben-woodall",
+      "filename": "qr-team-ben-woodall.png",
+      "url": "https://mhc-gc.com/team#ben-woodall",
+      "description": "Ben Woodall - Estimator",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-steve-mcclary",
+      "filename": "qr-team-steve-mcclary.png",
+      "url": "https://mhc-gc.com/team#steve-mcclary",
+      "description": "Steve McClary - Senior Superintendent",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-arnold-garcia",
+      "filename": "qr-team-arnold-garcia.png",
+      "url": "https://mhc-gc.com/team#arnold-garcia",
+      "description": "Arnold Garcia - Field Superintendent",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-trigger",
+      "filename": "qr-team-trigger.png",
+      "url": "https://mhc-gc.com/team#trigger",
+      "description": "Trigger - Chief Morale Officer",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-lisa-kandle",
+      "filename": "qr-team-lisa-kandle.png",
+      "url": "https://mhc-gc.com/team#lisa-kandle",
+      "description": "Lisa Kandle - Office Manager",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-reagan-massey",
+      "filename": "qr-team-reagan-massey.png",
+      "url": "https://mhc-gc.com/team#reagan-massey",
+      "description": "Reagan Massey - Executive Assistant",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-brittney-holstein",
+      "filename": "qr-team-brittney-holstein.png",
+      "url": "https://mhc-gc.com/team#brittney-holstein",
+      "description": "Brittney Holstein - Project Coordinator",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-makayla-holstein",
+      "filename": "qr-team-makayla-holstein.png",
+      "url": "https://mhc-gc.com/team#makayla-holstein",
+      "description": "Makayla Holstein - Accounting Specialist",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-jennifer-tenehuerta",
+      "filename": "qr-team-jennifer-tenehuerta.png",
+      "url": "https://mhc-gc.com/team#jennifer-tenehuerta",
+      "description": "Jennifer Tenehuerta - Payroll & HR Coordinator",
       "success": true,
       "error": null
     }

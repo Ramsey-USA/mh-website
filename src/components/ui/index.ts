@@ -32,6 +32,7 @@ export { JobApplicationModal } from "./modals/JobApplicationModal";
 export { OptimizedImage } from "./media/OptimizedImage";
 
 // Specialty Components
+// Legacy components - deprecated, use TeamProfileSection instead
 export { BaseballCard } from "./specialty/BaseballCard";
 export { VintageBaseballCard } from "./specialty/VintageBaseballCard";
 

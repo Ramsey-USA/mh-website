@@ -63,4 +63,4 @@ Ben once completed a complex commercial project 3 weeks ahead of schedule and 5%
 
 ---
 
-_This profile is synchronized with vintage baseball card data in `src/lib/data/vintage-team.ts`_
+_This profile is synchronized with team profile data with skills radar charts in `src/lib/data/vintage-team.ts`_

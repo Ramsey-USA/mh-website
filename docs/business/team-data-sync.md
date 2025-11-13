@@ -3,7 +3,7 @@
 ## Overview
 
 This document establishes a systematic approach to ensure team member information
-flows efficiently from vintage baseball cards to MD documentation files,
+flows efficiently from team profile sections to MD documentation files,
 maintaining consistency and accuracy across all platforms.
 
 ## Data Architecture
@@ -14,16 +14,17 @@ All team member information originates from the `VintageTeamMember` interface in
 vintage team data file. This centralized approach ensures:
 
 - **Single Source Updates**: Changes made in one location propagate to all displays
-- **Data Consistency**: Identical information across baseball cards and documentation
+- **Data Consistency**: Identical information across team profiles and documentation
 - **Validation**: Type-safe data structure prevents inconsistencies
 - **Maintainability**: Easier to update and manage team information
 
 ### Distribution Targets
 
-1. **Vintage Baseball Cards** (`/src/components/ui/VintageBaseballCard.tsx`)
-   - Visual display on team page
-   - Interactive flip cards with statistics
-   - Professional presentation format
+1. **Team Profile Sections** (`/src/components/team/TeamProfileSection.tsx`)
+   - Modern professional display on team page
+   - Skills radar charts with 6 key competencies
+   - Comprehensive statistics and career information
+   - Alternating layout for visual variety
 
 2. **Individual MD Files** (`/docs/business/team/[name].md`)
    - Detailed documentation format
@@ -43,31 +44,32 @@ When updating team member information:
 
 1. Update vintage-team.ts (Source of Truth)
    ↓
-2. Generate/Update individual MD file
+2. Run `node scripts/add-team-skills.js` to generate skill profiles (if needed)
    ↓
-3. Update centralized team-roster.md if needed
+3. Generate/Update individual MD file
    ↓
-4. Validate baseball card display
+4. Update centralized team-roster.md if needed
+   ↓
+5. Validate team profile display with radar charts
 
 ### 2. Required Field Mapping
 
-| VintageTeamMember Field      | Baseball Card Display    | MD File Section          |
-| ---------------------------- | ------------------------ | ------------------------ |
-| `name`                       | Front card header        | Document title           |
-| `nickname`                   | Front card subtitle      | Title subtitle           |
-| `role`/`position`            | Back card role           | Quick Facts              |
-| `department`                 | Color theming            | Header badge             |
-| `cardNumber`                 | Card numbering           | Header badge             |
-| `veteranStatus`              | Gold shield badge        | Header badge             |
-| `awards`                     | Back card awards section | Awards & Recognition     |
-| `currentYearStats`           | Back card statistics     | 2025 Performance         |
-| `careerStats`                | Back card career totals  | Career Statistics        |
-| `bio`                        | Back card about section  | Biography                |
-| `careerHighlights`           | Back card highlights     | Career Highlights        |
-| `specialties`                | Back card specialties    | Professional Specialties |
-| `certifications`             | Back card certifications | Certifications           |
-| `hobbies`/`specialInterests` | Back card personal       | Personal Interests       |
-| `funFact`                    | Back card fun fact       | Fun Fact                 |
+| VintageTeamMember Field      | Profile Display         | MD File Section          |
+| ---------------------------- | ----------------------- | ------------------------ |
+| `name`                       | Header with photo       | Document title           |
+| `nickname`                   | Subtitle quote          | Title subtitle           |
+| `role`/`position`            | Role badge              | Quick Facts              |
+| `department`                 | Department label        | Header badge             |
+| `skills`                     | Radar chart (6 metrics) | Skills section           |
+| `veteranStatus`              | Veteran badge           | Header badge             |
+| `awards`                     | Personal details card   | Awards & Recognition     |
+| `currentYearStats`           | 2025 Stats card         | 2025 Performance         |
+| `careerStats`                | Career totals card      | Career Statistics        |
+| `bio`                        | Biography section       | Biography                |
+| `careerHighlights`           | Checkmark list          | Career Highlights        |
+| `specialties`                | Tag pills               | Professional Specialties |
+| `certifications`             | Personal details        | Certifications           |
+| `hobbies`/`specialInterests` | Personal details        | Personal Interests       |
 
 ### 3. Update Triggers
 
@@ -78,30 +80,64 @@ Update MD files when these vintage-team.ts fields change:
 - Personal information (`name`, `nickname`, `role`)
 - Professional achievements (`awards`, `certifications`)
 - Performance statistics (`currentYearStats`, `careerStats`)
+- Skills profiles (`skills` object with 6 metrics)
 
 **Content Updates** (Regular sync):
 
 - Biography and highlights content
 - Hobbies and personal interests
-- Fun facts and specialties
+- Specialties
 
 **Structural Updates** (Validation required):
 
-- Department changes (affects card theming)
+- Department changes (affects display order)
 - Veteran status updates (affects badges)
-- Card numbering changes
+- Role changes (may affect skill profile generation)
 
 ### 4. Validation Checklist
 
 Before publishing updates, verify:
 
 - [ ] VintageTeamMember interface compliance
-- [ ] Baseball card displays correctly
+- [ ] Skills object with all 6 metrics (0-100 scale)
+- [ ] Team profile section displays correctly with radar chart
 - [ ] MD file follows template structure
 - [ ] All required fields populated
 - [ ] Awards formatting consistent
 - [ ] Statistics accuracy
 - [ ] Professional tone maintained
+
+## Skills Profile System
+
+### Automated Skills Generation
+
+Skills are automatically generated based on role and experience using `scripts/add-team-skills.js`:
+
+**Six Key Skills (0-100 scale):**
+
+1. **Leadership** - Team management and direction
+2. **Technical** - Construction expertise and knowledge
+3. **Communication** - Client and team interaction
+4. **Safety** - Safety protocols and awareness
+5. **Problem Solving** - Critical thinking and solutions
+6. **Teamwork** - Collaboration and cooperation
+
+**Generation Logic:**
+
+- Base score: 60-95 (based on years of experience)
+- Role adjustments:
+  - **Leadership roles**: +5 leadership, +3 communication
+  - **Project managers**: +5 communication, +5 problem solving
+  - **Field operations**: +5 technical, +10 safety
+  - **Estimators**: +5 technical, +3 problem solving
+
+**Running the Script:**
+
+```bash
+node scripts/add-team-skills.js
+```
+
+This automatically adds/updates skills for all team members in `team-data.json`.
 
 ## File Generation Process
 
@@ -122,10 +158,11 @@ cp docs/business/team/TEMPLATE.md docs/business/team/[slug].md
 When adding new team members:
 
 1. **Add to vintage-team.ts** with complete VintageTeamMember data
-2. **Generate MD file** using template
-3. **Update team-roster.md** with new entry
-4. **Test baseball card display** on team page
-5. **Validate data consistency** across all formats
+2. **Run skills generation** if adding new member: `node scripts/add-team-skills.js`
+3. **Generate MD file** using template
+4. **Update team-roster.md** with new entry
+5. **Test team profile display** with radar charts on team page
+6. **Validate data consistency** across all formats
 
 ## Quality Assurance
 
@@ -134,7 +171,7 @@ When adding new team members:
 1. **Field Completeness**: All required fields populated
 2. **Format Consistency**: Awards, dates, statistics formatting
 3. **Professional Standards**: Biography tone and content quality
-4. **Visual Validation**: Baseball card display verification
+4. **Visual Validation**: Team profile display verification with radar charts
 
 ### Regular Maintenance
 
@@ -166,14 +203,24 @@ When adding new team members:
 
 ### Completed
 
-- ✅ VintageTeamMember interface with comprehensive fields
+- ✅ VintageTeamMember interface with comprehensive fields including skills
+- ✅ Skills radar chart system with automated generation
+- ✅ Modern team profile sections replacing baseball cards
 - ✅ MD file template structure
 - ✅ Complete MD files for all 16 team members
-- ✅ Baseball card integration
+- ✅ Team profile integration with skills visualization
 - ✅ Awards and nickname system
 - ✅ New team member additions (Derek Parks, Lisa Kandle)
 
 ### Recent Updates
+
+**November 2025**: Modern Team Profile Redesign
+
+- Migrated from baseball card theme to professional profile sections
+- Implemented skills radar charts with 6 key metrics
+- Added automated skill profile generation script
+- Updated all 16 team members with comprehensive skill data
+- Maintained backward compatibility with existing data structure
 
 **October 2025**: Added new team members:
 
@@ -189,6 +236,7 @@ When adding new team members:
 
 ---
 
-*This documentation ensures efficient data flow from baseball card information to MD files while
-maintaining accuracy and professional presentation standards.*
+*This documentation ensures efficient data flow from team profile sections to MD files while
+maintaining accuracy and professional presentation standards. The modern profile system with
+skills radar charts provides comprehensive visualization of team member competencies.*
 ````

@@ -1,4 +1,6 @@
-/* ===== VINTAGE BASEBALL CARD STYLES ===== */
+/* ===== LEGACY CARD STYLES ===== */
+/* @deprecated - These styles are kept for backward compatibility only */
+/* Modern profiles use TeamProfileSection component with inline Tailwind styles */
 
 /* Container and base structure */
 .vintage-card-container {
