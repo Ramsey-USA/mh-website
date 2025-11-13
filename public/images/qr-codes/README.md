@@ -1,6 +1,6 @@
 # QR Codes for MH Construction
 
-Generated: 11/13/2025, 8:26:44 PM
+Generated: 11/13/2025, 9:03:16 PM
 
 ## Summary
 
@@ -14,125 +14,125 @@ Generated: 11/13/2025, 8:26:44 PM
 
 - **Name:** `homepage`
 - **File:** `qr-homepage.png`
-- **URL:** https://mhc-gc.com
+- **URL:** <https://mhc-gc.com>
 
 ### ✅ About Us
 
 - **Name:** `about`
 - **File:** `qr-about.png`
-- **URL:** https://mhc-gc.com/about
+- **URL:** <https://mhc-gc.com/about>
 
 ### ✅ Our Services
 
 - **Name:** `services`
 - **File:** `qr-services.png`
-- **URL:** https://mhc-gc.com/services
+- **URL:** <https://mhc-gc.com/services>
 
 ### ✅ Our Projects
 
 - **Name:** `projects`
 - **File:** `qr-projects.png`
-- **URL:** https://mhc-gc.com/projects
+- **URL:** <https://mhc-gc.com/projects>
 
 ### ✅ Our Team
 
 - **Name:** `team`
 - **File:** `qr-team.png`
-- **URL:** https://mhc-gc.com/team
+- **URL:** <https://mhc-gc.com/team>
 
 ### ✅ Careers
 
 - **Name:** `careers`
 - **File:** `qr-careers.png`
-- **URL:** https://mhc-gc.com/careers
+- **URL:** <https://mhc-gc.com/careers>
 
 ### ✅ Contact Us
 
 - **Name:** `contact`
 - **File:** `qr-contact.png`
-- **URL:** https://mhc-gc.com/contact
+- **URL:** <https://mhc-gc.com/contact>
 
 ### ✅ Schedule Consultation
 
 - **Name:** `booking`
 - **File:** `qr-booking.png`
-- **URL:** https://mhc-gc.com/booking
+- **URL:** <https://mhc-gc.com/booking>
 
 ### ✅ AI Project Estimator
 
 - **Name:** `estimator`
 - **File:** `qr-estimator.png`
-- **URL:** https://mhc-gc.com/estimator
+- **URL:** <https://mhc-gc.com/estimator>
 
 ### ✅ Case Studies
 
 - **Name:** `case-studies`
 - **File:** `qr-case-studies.png`
-- **URL:** https://mhc-gc.com/case-studies
+- **URL:** <https://mhc-gc.com/case-studies>
 
 ### ✅ Trade Partners
 
 - **Name:** `trade-partners`
 - **File:** `qr-trade-partners.png`
-- **URL:** https://mhc-gc.com/trade-partners
+- **URL:** <https://mhc-gc.com/trade-partners>
 
 ### ✅ Veteran Benefits
 
 - **Name:** `veteran-benefits`
 - **File:** `qr-veteran-benefits.png`
-- **URL:** https://mhc-gc.com/veteran-benefits
+- **URL:** <https://mhc-gc.com/veteran-benefits>
 
 ### ✅ Call Us: (509) 308-6489
 
 - **Name:** `phone`
 - **File:** `qr-phone.png`
-- **URL:** tel:+15093086489
+- **URL:** `tel:+15093086489`
 
-### ✅ Email: office@mhc-gc.com
+### ✅ Email: <office@mhc-gc.com>
 
 - **Name:** `email`
 - **File:** `qr-email.png`
-- **URL:** mailto:office@mhc-gc.com
+- **URL:** `mailto:office@mhc-gc.com`
 
 ### ✅ LinkedIn Profile
 
 - **Name:** `linkedin`
 - **File:** `qr-linkedin.png`
-- **URL:** https://linkedin.com/company/mhconstruction
+- **URL:** <https://linkedin.com/company/mhconstruction>
 
 ### ✅ Facebook Page
 
 - **Name:** `facebook`
 - **File:** `qr-facebook.png`
-- **URL:** https://www.facebook.com/profile.php?id=61575511773974
+- **URL:** <https://www.facebook.com/profile.php?id=61575511773974>
 
 ### ✅ Instagram Profile
 
 - **Name:** `instagram`
 - **File:** `qr-instagram.png`
-- **URL:** https://www.instagram.com/mh_construction_inc/reels/
+- **URL:** <https://www.instagram.com/mh_construction_inc/reels/>
 
 ### ✅ YouTube Channel
 
 - **Name:** `youtube`
 - **File:** `qr-youtube.png`
-- **URL:** https://youtube.com/@mhconstruction
+- **URL:** <https://youtube.com/@mhconstruction>
 
 ### ✅ X (Twitter) Profile
 
 - **Name:** `twitter`
 - **File:** `qr-twitter.png`
-- **URL:** https://x.com/mhc_gc
+- **URL:** <https://x.com/mhc_gc>
 
 ### ✅ Our Location
 
 - **Name:** `location`
 - **File:** `qr-location.png`
-- **URL:** https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301
+- **URL:** <https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301>
 
 ## Usage in React Components
 
-### Import the QRCode component:
+### Import the QRCode component
 
 ```tsx
 import { QRCode } from '@/components/ui/QRCode';

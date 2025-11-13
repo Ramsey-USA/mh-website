@@ -2,7 +2,9 @@
 
 ## Overview
 
-The MH Construction website includes a comprehensive QR code system for sharing pages, contact information, and social media links. The system provides both pre-generated static images and a dynamic React component for flexible usage.
+The MH Construction website includes a comprehensive QR code system for sharing pages, contact
+information, and social media links. The system provides both pre-generated static images and a
+dynamic React component for flexible usage.
 
 ## Quick Start
 
@@ -244,7 +246,7 @@ const QR_CODES = [
 ];
 ```
 
-3. Update the preset type in `/src/components/ui/QRCode.tsx`:
+1. Update the preset type in `/src/components/ui/QRCode.tsx`:
 
 ```typescript
 preset?:
@@ -253,7 +255,7 @@ preset?:
   | ...
 ```
 
-4. Regenerate QR codes:
+1. Regenerate QR codes:
 
 ```bash
 node scripts/generate-qr-codes.js
@@ -409,16 +411,16 @@ npm run qr:help      # View QR code documentation
 ### QR Code Won't Scan
 
 1. **Check size:** Ensure QR code is large enough (minimum 0.5" for print)
-2. **Test lighting:** Good lighting improves scan success
-3. **Check contrast:** Verify dark-on-light contrast
-4. **Verify URL:** Confirm URL is correct and accessible
-5. **Test device:** Try different devices/apps
+1. **Test lighting:** Good lighting improves scan success
+1. **Check contrast:** Verify dark-on-light contrast
+1. **Verify URL:** Confirm URL is correct and accessible
+1. **Test device:** Try different devices/apps
 
 ### Image Not Loading
 
 1. **Check path:** Verify file exists in `/public/images/qr-codes/`
-2. **Regenerate:** Run `node scripts/generate-qr-codes.js`
-3. **Check preset name:** Ensure preset matches generated filename
+1. **Regenerate:** Run `node scripts/generate-qr-codes.js`
+1. **Check preset name:** Ensure preset matches generated filename
 
 ### Dynamic Generation Fails
 
