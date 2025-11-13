@@ -115,7 +115,7 @@ See: /docs/branding/branding-index.md for the new structure
 - **Build Performance**: 35.5-38.7s compilation, 0 TypeScript errors
 - **Bundle Size**: 535kB optimized
 - **Documentation**: 89+ markdown files, modular brand system
-- **Architecture**: Next.js 15.5.4 foundation ready for expansion
+- **Architecture**: Next.js 15.5.2 foundation ready for expansion
 
 ---
 

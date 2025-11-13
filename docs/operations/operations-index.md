@@ -38,7 +38,7 @@ Our build process is highly optimized:
 - **Bundle Size**: 535kB optimized
 - **TypeScript Errors**: 0 maintained
 - **Pages Generated**: 26 pages
-- **Framework**: Next.js 15.5.4
+- **Framework**: Next.js 15.5.2
 
 ### **Optimization Areas**
 

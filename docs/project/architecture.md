@@ -34,10 +34,10 @@
 ### **Core Technologies**
 
 - **Framework**: Next.js 15.5.2 (App Router)
-- **Language**: TypeScript 5.9
-- **Styling**: Tailwind CSS 3.4.0
+- **Language**: TypeScript 5.9.3
+- **Styling**: Tailwind CSS 3.4.18
 - **Icons**: Google Material Icons (font-based)
-- **Animations**: Framer Motion 12+
+- **Animations**: Framer Motion 12.23.24
 - **Database**: Firebase Firestore (✅ Active - Real-time sync)
 - **Authentication**: Firebase Auth (✅ Active - Multi-provider)
 - **File Storage**: Firebase Storage (✅ Active - Secure uploads)

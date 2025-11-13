@@ -119,14 +119,14 @@ docs/technical/
 
 ### Build Performance
 
-- **Compilation Time**: 35.5-38.7s (Next.js 15.5.4)
+- **Compilation Time**: 35.5-38.7s (Next.js 15.5.2)
 - **Bundle Size**: 535kB optimized
 - **TypeScript Errors**: 0 (clean build)
 - **Page Generation**: 26 pages successfully generated
 
 ### Framework Stack
 
-- **Frontend**: Next.js 15.5.4 with React
+- **Frontend**: Next.js 15.5.2 with React
 - **Styling**: Tailwind CSS with Material Design
 - **Icons**: Google Material Icons exclusively
 - **Theme**: Light/dark mode support
@@ -161,7 +161,7 @@ docs/technical/
 
 ### 🏗️ Architecture Overview
 
-- **Foundation**: Next.js 15.5.4 production-ready foundation
+- **Foundation**: Next.js 15.5.2 production-ready foundation
 - **State**: Zero-error build with scalable architecture
 - **Expansion**: Ready for service pages and portfolio development
 - **Performance**: Optimized bundle size and loading times

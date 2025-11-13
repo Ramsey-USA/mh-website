@@ -207,9 +207,9 @@ NEXT_PUBLIC_GA_ID=your_google_analytics_id
 
 - **Next.js 15.5.2** - Modern platform for reliable performance
 - **React 18.3.1** - Industry-standard framework
-- **TypeScript 5.9** - Type safety for quality assurance
-- **Tailwind CSS 3.4** - Consistent design system
-- **Framer Motion 12.23** - Smooth, professional animations
+- **TypeScript 5.9.3** - Type safety for quality assurance
+- **Tailwind CSS 3.4.18** - Consistent design system
+- **Framer Motion 12.23.24** - Smooth, professional animations
 
 **Backend & Infrastructure:**
 
