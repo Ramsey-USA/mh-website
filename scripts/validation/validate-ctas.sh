@@ -204,7 +204,7 @@ validate_social_links() {
         "instagram.com/mhconstruction"
         "x.com/mhc_gc"
         "youtube.com/@mhconstruction"
-        "linkedin.com/company/mhconstruction"
+        "linkedin.com/company/mh-construction-general-contractor/posts"
     )
     
     for platform in "${social_platforms[@]}"; do

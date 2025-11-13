@@ -102,7 +102,7 @@ const QR_CODES = [
   // Social media (actual links from Footer.tsx)
   {
     name: "linkedin",
-    url: "https://linkedin.com/company/mhconstruction",
+    url: "https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all",
     description: "LinkedIn Profile",
   },
   {

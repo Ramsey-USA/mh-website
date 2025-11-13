@@ -186,7 +186,7 @@ export function generateOrganizationStructuredData() {
     ],
     sameAs: [
       "https://www.facebook.com/profile.php?id=61575511773974",
-      "https://www.linkedin.com/company/mhconstruction",
+      "https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all",
       "https://www.instagram.com/mh_construction_inc/reels/",
     ],
   };

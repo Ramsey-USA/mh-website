@@ -529,7 +529,7 @@ export default function Footer() {
                   />
                 </a>
                 <a
-                  href="https://linkedin.com/company/mhconstruction"
+                  href="https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] hover:shadow-lg hover:shadow-[#0A66C2]/30 p-1.5 xs:p-2 sm:p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#0A66C2] rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation flex-shrink-0 min-w-[36px] min-h-[36px] xs:min-w-[40px] xs:min-h-[40px]"

@@ -98,7 +98,7 @@ Generated: 11/13/2025, 9:42:11 PM
 
 - **Name:** `linkedin`
 - **File:** `qr-linkedin.png`
-- **URL:** <https://linkedin.com/company/mhconstruction>
+- **URL:** <https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all>
 
 ### ✅ Facebook Page
 
