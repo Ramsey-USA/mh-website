@@ -17,16 +17,10 @@ interface RefreshRequest {
 /**
  * Get user by ID from database
  * TODO: Connect to your user database
+ * Example: const user = await env.DB.prepare("SELECT * FROM users WHERE id = ?").bind(userId).first();
  */
 function getUserById(userId: string): Promise<JWTUser | null> {
-  // IMPORTANT: Replace with actual database lookup
-  // Example: Query Cloudflare D1 database
-  // const db = env.DB;
-  // const user = await db.prepare(
-  //   "SELECT * FROM users WHERE id = ? LIMIT 1"
-  // ).bind(userId).first();
-
-  // For development only
+  // Demo credentials for development only
   if (userId === "demo-user-id") {
     return Promise.resolve({
       uid: userId,

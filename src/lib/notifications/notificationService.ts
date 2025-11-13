@@ -108,6 +108,7 @@ async function sendEmail(
 /**
  * Send push notification
  * TODO: Integrate with push notification service (e.g., OneSignal, FCM)
+ * Example: POST to https://onesignal.com/api/v1/notifications with API key and user IDs
  */
 function sendPush(options: NotificationOptions): NotificationResult {
   const { recipient, message } = options;
@@ -115,20 +116,6 @@ function sendPush(options: NotificationOptions): NotificationResult {
   try {
     // Placeholder for push notification implementation
     logger.info("Push notification would be sent", { recipient, message });
-
-    // Example: Integrate with OneSignal, Firebase Cloud Messaging, etc.
-    // const response = await fetch("https://onesignal.com/api/v1/notifications", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     "Authorization": `Basic ${process.env.ONESIGNAL_API_KEY}`
-    //   },
-    //   body: JSON.stringify({
-    //     app_id: process.env.ONESIGNAL_APP_ID,
-    //     include_external_user_ids: [recipient],
-    //     contents: { en: message }
-    //   })
-    // });
 
     return {
       success: true,
@@ -149,6 +136,7 @@ function sendPush(options: NotificationOptions): NotificationResult {
 /**
  * Send SMS notification
  * TODO: Integrate with SMS service (e.g., Twilio)
+ * Example: POST to https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json
  */
 function sendSMS(options: NotificationOptions): NotificationResult {
   const { recipient, message } = options;
@@ -156,20 +144,6 @@ function sendSMS(options: NotificationOptions): NotificationResult {
   try {
     // Placeholder for SMS implementation
     logger.info("SMS would be sent", { recipient, message });
-
-    // Example: Integrate with Twilio
-    // const response = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/x-www-form-urlencoded",
-    //     "Authorization": `Basic ${btoa(`${accountSid}:${authToken}`)}`
-    //   },
-    //   body: new URLSearchParams({
-    //     From: process.env.TWILIO_PHONE_NUMBER!,
-    //     To: recipient,
-    //     Body: message
-    //   })
-    // });
 
     return {
       success: true,

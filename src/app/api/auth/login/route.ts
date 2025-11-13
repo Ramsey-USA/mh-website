@@ -19,24 +19,13 @@ interface LoginRequest {
 /**
  * Verify user credentials
  * TODO: Connect to your user database (D1, KV, or external service)
+ *
+ * Example implementation:
+ * - Query Cloudflare D1: const user = await env.DB.prepare("SELECT * FROM users WHERE email = ?").bind(email).first();
+ * - Verify password: await bcrypt.compare(password, user.password_hash)
  */
 function verifyCredentials(email: string, password: string): JWTUser | null {
-  // IMPORTANT: Replace this with actual database lookup and password verification
-  // This is a placeholder for demonstration
-
-  // Example: Query Cloudflare D1 database
-  // const db = env.DB;
-  // const user = await db.prepare(
-  //   "SELECT * FROM users WHERE email = ? LIMIT 1"
-  // ).bind(email).first();
-
-  // if (!user) return null;
-
-  // Verify password hash (use bcrypt or similar)
-  // const isValidPassword = await bcrypt.compare(password, user.password_hash);
-  // if (!isValidPassword) return null;
-
-  // For development only - remove in production
+  // Demo credentials for development only
   if (email === "demo@mhc-gc.com" && password === "demo123") {
     return {
       uid: "demo-user-id",

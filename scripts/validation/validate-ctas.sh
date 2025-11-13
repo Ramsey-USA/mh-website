@@ -203,7 +203,7 @@ validate_social_links() {
         "facebook.com/mhconstruction"
         "instagram.com/mhconstruction"
         "x.com/mhc_gc"
-        "youtube.com/@mhconstruction"
+        "youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j"
         "linkedin.com/company/mh-construction-general-contractor/posts"
     )
     

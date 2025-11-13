@@ -71,7 +71,7 @@ export const enhancedSEO = {
     facebook: "https://www.facebook.com/profile.php?id=61575511773974",
     instagram: "https://www.instagram.com/mh_construction_inc/reels/",
     linkedin: "https://linkedin.com/company/mhconstruction",
-    youtube: "https://youtube.com/@mhconstruction",
+    youtube: "https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j",
     twitter: "https://x.com/mhc_gc",
   },
 };

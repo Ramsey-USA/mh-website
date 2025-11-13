@@ -346,7 +346,7 @@ office@mhc-gc.com # Not linked
 | Facebook    | `https://www.facebook.com/profile.php?id=61575511773974` |
 | Instagram   | `https://www.instagram.com/mh_construction_inc/reels/`   |
 | X (Twitter) | `https://x.com/mhc_gc`                                   |
-| YouTube     | `https://youtube.com/@mhconstruction`                    |
+| YouTube     | `https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j`        |
 | LinkedIn    | `https://linkedin.com/company/mhconstruction`            |
 
 **Component Format:**

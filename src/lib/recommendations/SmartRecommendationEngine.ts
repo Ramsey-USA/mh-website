@@ -147,18 +147,13 @@ type ProfileAnalysis = {
 };
 
 export class SmartRecommendationEngine {
-  // Reserved for future AI integration - currently unused
-  // private aiEngine: MilitaryConstructionAI;
   private userProfiles: Map<string, UserProfile>;
   private recommendationHistory: Map<string, ProjectRecommendation[]>;
   private feedbackHistory: RecommendationFeedback[];
   private learningData: Map<string, unknown>;
   private abTestingFramework: ABTestingFramework;
 
-  constructor(aiEngine?: MilitaryConstructionAI, enableABTesting = true) {
-    // this.aiEngine = aiEngine || ({} as MilitaryConstructionAI); // Reserved for future use
-    // Suppress unused parameter warning
-    void aiEngine;
+  constructor(_aiEngine?: MilitaryConstructionAI, enableABTesting = true) {
     this.userProfiles = new Map();
     this.recommendationHistory = new Map();
     this.feedbackHistory = [];
@@ -167,12 +162,10 @@ export class SmartRecommendationEngine {
   }
 
   /**
-   * Set the AI engine (used to break circular dependency)
+   * Set the AI engine (reserved for future integration)
    */
-  setAIEngine(aiEngine: MilitaryConstructionAI): void {
-    // this.aiEngine = aiEngine; // Reserved for future use
-    // Suppress unused parameter warning
-    void aiEngine;
+  setAIEngine(_aiEngine: MilitaryConstructionAI): void {
+    // Reserved for future use
   }
 
   /**

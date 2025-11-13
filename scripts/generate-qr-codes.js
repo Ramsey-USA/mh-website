@@ -117,7 +117,7 @@ const QR_CODES = [
   },
   {
     name: "youtube",
-    url: "https://youtube.com/@mhconstruction",
+    url: "https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j",
     description: "YouTube Channel",
   },
   {

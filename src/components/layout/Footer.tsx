@@ -516,7 +516,7 @@ export default function Footer() {
                   />
                 </a>
                 <a
-                  href="https://youtube.com/@mhconstruction"
+                  href="https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000] hover:shadow-lg hover:shadow-[#FF0000]/30 p-1.5 xs:p-2 sm:p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#FF0000] rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation flex-shrink-0 min-w-[36px] min-h-[36px] xs:min-w-[40px] xs:min-h-[40px]"
