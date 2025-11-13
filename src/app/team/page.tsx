@@ -50,7 +50,7 @@ export default function TeamPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
           <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
@@ -91,9 +91,9 @@ export default function TeamPage() {
         items={[{ label: "Home", href: "/" }, { label: "Our Team" }]}
       />
 
-      <div className="bg-gray-50 dark:bg-gray-900 py-16">
-        <div className="mx-auto px-4 max-w-7xl">
-          <div className="mb-16 text-center">
+      <div className="bg-gray-50 dark:bg-gray-900 py-8 sm:py-12 md:py-16">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="mb-8 sm:mb-12 md:mb-16 text-center">
             {/* Section Header - v4.0.2 Clean Standards */}
             <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
               <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
@@ -112,7 +112,7 @@ export default function TeamPage() {
           </div>
 
           {/* Team Members by Department */}
-          <div className="space-y-32">
+          <div className="space-y-16 sm:space-y-24 md:space-y-32">
             {departmentOrder.map((department) => {
               const members = membersByDepartment[department];
               if (!members || members.length === 0) return null;
@@ -120,15 +120,15 @@ export default function TeamPage() {
               return (
                 <div key={department} className="relative">
                   {/* Department header */}
-                  <div className="mb-12 text-center">
-                    <h3 className="mb-6 font-black text-brand-primary text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider">
+                  <div className="mb-8 sm:mb-10 md:mb-12 text-center">
+                    <h3 className="mb-4 sm:mb-5 md:mb-6 font-black text-brand-primary dark:text-brand-secondary text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wide sm:tracking-wider px-2">
                       {department}
                     </h3>
-                    <div className="bg-gradient-to-r from-transparent via-brand-secondary to-transparent mx-auto rounded-full w-48 h-1"></div>
+                    <div className="bg-gradient-to-r from-transparent via-brand-secondary to-transparent mx-auto rounded-full w-32 sm:w-40 md:w-48 h-1"></div>
                   </div>
 
                   {/* Team member profiles */}
-                  <div className="space-y-12">
+                  <div className="space-y-8 sm:space-y-10 md:space-y-12">
                     {members.map((member, index) => (
                       <FadeInWhenVisible key={member.slug}>
                         <TeamProfileSection member={member} index={index} />
@@ -141,9 +141,12 @@ export default function TeamPage() {
           </div>
 
           {/* Company Culture Section */}
-          <div id="company-culture" className="mt-24">
+          <div
+            id="company-culture"
+            className="mt-12 sm:mt-16 md:mt-20 lg:mt-24"
+          >
             <FadeInWhenVisible>
-              <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 p-12 rounded-2xl">
+              <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl md:rounded-2xl">
                 <div className="mb-12 text-center">
                   {/* Section Header - v4.0.2 Clean Standards */}
                   <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
@@ -165,7 +168,7 @@ export default function TeamPage() {
                   </p>
                 </div>
 
-                <div className="gap-8 grid grid-cols-1 lg:grid-cols-3 mb-12">
+                <div className="gap-4 sm:gap-6 md:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8 sm:mb-10 md:mb-12">
                   {/* Team Unity */}
                   <FadeInWhenVisible>
                     <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
@@ -241,7 +244,7 @@ export default function TeamPage() {
                 </div>
 
                 {/* Culture Highlights */}
-                <div className="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-xl">
+                <div className="bg-white dark:bg-gray-800 shadow-lg p-6 sm:p-7 md:p-8 rounded-lg md:rounded-xl">
                   <h3 className="mb-8 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl leading-tight tracking-tight text-center">
                     <span className="block mb-2 text-gray-700 dark:text-gray-300">
                       What Makes Our Partnership
@@ -385,8 +388,8 @@ export default function TeamPage() {
                 </div>
 
                 {/* Quote Section */}
-                <div className="mt-12 text-center">
-                  <blockquote className="mb-4 font-medium text-brand-primary text-2xl italic">
+                <div className="mt-8 sm:mt-10 md:mt-12 text-center px-2">
+                  <blockquote className="mb-4 font-medium text-brand-primary text-lg sm:text-xl md:text-2xl italic">
                     &ldquo;When you join MH Construction, you&apos;re not just
                     getting a job—you&apos;re joining a veteran-owned team that
                     values integrity, transparency, and building relationships
@@ -401,9 +404,9 @@ export default function TeamPage() {
           </div>
 
           {/* Career Growth Section */}
-          <div id="career-growth" className="mt-24">
+          <div id="career-growth" className="mt-12 sm:mt-16 md:mt-20 lg:mt-24">
             <FadeInWhenVisible>
-              <div className="bg-gradient-to-br from-accent-500/5 to-primary-500/5 p-12 rounded-2xl">
+              <div className="bg-gradient-to-br from-accent-500/5 to-primary-500/5 dark:from-accent-500/10 dark:to-primary-500/10 p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl md:rounded-2xl">
                 <div className="mb-12 text-center">
                   <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
                     <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
@@ -563,36 +566,36 @@ export default function TeamPage() {
                       Investment in Your Success
                     </span>
                   </h3>
-                  <div className="gap-6 grid grid-cols-2 md:grid-cols-4">
+                  <div className="gap-4 sm:gap-6 grid grid-cols-2 md:grid-cols-4">
                     <div className="text-center">
-                      <p className="font-black text-4xl text-primary-600 dark:text-primary-400">
+                      <p className="font-black text-2xl sm:text-3xl md:text-4xl text-primary-600 dark:text-brand-secondary">
                         150+
                       </p>
-                      <p className="mt-2 text-gray-600 text-sm dark:text-gray-400">
+                      <p className="mt-2 text-gray-600 text-xs sm:text-sm dark:text-gray-400">
                         Years Combined Experience
                       </p>
                     </div>
                     <div className="text-center">
-                      <p className="font-black text-4xl text-primary-600 dark:text-primary-400">
+                      <p className="font-black text-2xl sm:text-3xl md:text-4xl text-primary-600 dark:text-brand-secondary">
                         100%
                       </p>
-                      <p className="mt-2 text-gray-600 text-sm dark:text-gray-400">
+                      <p className="mt-2 text-gray-600 text-xs sm:text-sm dark:text-gray-400">
                         Training Funding
                       </p>
                     </div>
                     <div className="text-center">
-                      <p className="font-black text-4xl text-primary-600 dark:text-primary-400">
+                      <p className="font-black text-2xl sm:text-3xl md:text-4xl text-primary-600 dark:text-brand-secondary">
                         OSHA 30
                       </p>
-                      <p className="mt-2 text-gray-600 text-sm dark:text-gray-400">
+                      <p className="mt-2 text-gray-600 text-xs sm:text-sm dark:text-gray-400">
                         Safety Certification
                       </p>
                     </div>
                     <div className="text-center">
-                      <p className="font-black text-4xl text-primary-600 dark:text-primary-400">
+                      <p className="font-black text-2xl sm:text-3xl md:text-4xl text-primary-600 dark:text-brand-secondary">
                         20+
                       </p>
-                      <p className="mt-2 text-gray-600 text-sm dark:text-gray-400">
+                      <p className="mt-2 text-gray-600 text-xs sm:text-sm dark:text-gray-400">
                         Years in Business
                       </p>
                     </div>
@@ -603,7 +606,10 @@ export default function TeamPage() {
           </div>
 
           {/* Employee Testimonials Section */}
-          <div id="employee-testimonials" className="mt-24">
+          <div
+            id="employee-testimonials"
+            className="mt-12 sm:mt-16 md:mt-20 lg:mt-24"
+          >
             <TestimonialGrid
               testimonials={getEmployeeTestimonials()}
               title="What Our Team Members Say"
@@ -615,9 +621,9 @@ export default function TeamPage() {
           </div>
 
           {/* Call to Action - Careers Link */}
-          <div className="mt-20 text-center">
+          <div className="mt-12 sm:mt-16 md:mt-20 text-center">
             <FadeInWhenVisible>
-              <div className="bg-white dark:bg-gray-800 shadow-xl mx-auto p-8 border border-brand-secondary rounded-lg max-w-2xl">
+              <div className="bg-white dark:bg-gray-800 shadow-xl mx-auto p-6 sm:p-7 md:p-8 border border-brand-secondary rounded-lg max-w-2xl">
                 {/* Section Header - v4.0.2 Clean Standards */}
                 <h3 className="mb-6 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl leading-tight tracking-tight">
                   <span className="block mb-2 text-gray-700 dark:text-gray-300">
@@ -641,7 +647,7 @@ export default function TeamPage() {
                   <Button
                     variant="primary"
                     size="lg"
-                    className="transition-all duration-300 min-w-[280px]"
+                    className="transition-all duration-300 w-full sm:w-auto sm:min-w-[280px]"
                   >
                     <MaterialIcon icon="work" size="lg" className="mr-3" />
                     <span className="font-medium">

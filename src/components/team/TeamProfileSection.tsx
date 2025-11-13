@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { type VintageTeamMember } from "@/lib/data/vintage-team";
+import { useEffect, useState } from "react";
 
 interface TeamProfileSectionProps {
   member: VintageTeamMember;
@@ -18,6 +19,26 @@ interface TeamProfileSectionProps {
 }
 
 export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
+  // Track dark mode for chart colors
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // Check initial dark mode state
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    };
+
+    checkDarkMode();
+
+    // Watch for dark mode changes
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
   // Prepare radar chart data
   const radarData = [
     { skill: "Leadership", value: member.skills.leadership, fullMark: 100 },
@@ -61,29 +82,29 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
   return (
     <div
       id={member.slug}
-      className="bg-white dark:bg-gray-800 shadow-xl rounded-2xl overflow-hidden border-2 border-brand-primary/20 dark:border-brand-primary/30 hover:border-brand-primary/40 dark:hover:border-brand-primary/50 transition-all duration-300 scroll-mt-24"
+      className="bg-white dark:bg-gray-800 shadow-xl rounded-xl md:rounded-2xl overflow-hidden border-2 border-brand-primary/20 dark:border-brand-primary/30 hover:border-brand-primary/40 dark:hover:border-brand-primary/50 transition-all duration-300 scroll-mt-24"
     >
       {" "}
       <div
-        className={`grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 ${
+        className={`grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 md:gap-8 p-4 sm:p-6 md:p-8 ${
           isReversed ? "lg:flex-row-reverse" : ""
         }`}
       >
         {/* Left Column: Photo, Bio, Highlights */}
         <div
-          className={`space-y-6 ${isReversed ? "lg:order-2" : "lg:order-1"}`}
+          className={`space-y-4 sm:space-y-5 md:space-y-6 ${isReversed ? "lg:order-2" : "lg:order-1"}`}
         >
           {/* Header with Photo */}
-          <div className="flex items-start gap-6">
+          <div className="flex items-start gap-4 sm:gap-5 md:gap-6">
             {/* Photo */}
-            <div className="relative w-32 h-32 flex-shrink-0">
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 flex-shrink-0">
               {member.avatar ? (
                 <Image
                   src={member.avatar}
                   alt={member.name}
                   fill
-                  className="rounded-xl object-cover border-4 border-brand-primary dark:border-brand-secondary shadow-lg"
-                  sizes="128px"
+                  className="rounded-lg md:rounded-xl object-cover border-2 sm:border-3 md:border-4 border-brand-primary dark:border-brand-secondary shadow-lg"
+                  sizes="(max-width: 640px) 96px, (max-width: 768px) 112px, 128px"
                 />
               ) : (
                 <div className="w-full h-full rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark flex items-center justify-center shadow-lg">
@@ -104,24 +125,24 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
             </div>
 
             {/* Name and Title */}
-            <div className="flex-1">
-              <h3 className="text-3xl font-black text-gray-900 dark:text-white leading-tight tracking-tight">
+            <div className="flex-1 min-w-0">
+              <h3 className="text-2xl sm:text-2xl md:text-3xl font-black text-gray-900 dark:text-white leading-tight tracking-tight">
                 {member.name}
               </h3>
               {member.nickname && (
-                <p className="text-lg text-brand-secondary dark:text-brand-secondary-light italic mb-1 font-medium">
+                <p className="text-base sm:text-lg text-brand-secondary dark:text-brand-secondary-light italic mb-1 font-medium">
                   &ldquo;{member.nickname}&rdquo;
                 </p>
               )}
-              <p className="text-xl text-brand-primary dark:text-brand-secondary font-bold tracking-tight">
+              <p className="text-lg sm:text-xl text-brand-primary dark:text-brand-secondary font-bold tracking-tight">
                 {member.role}
               </p>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 font-medium">
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-1 font-medium">
                 {member.department}
               </p>
 
               {/* Quick Stats */}
-              <div className="flex flex-wrap gap-4 mt-3">
+              <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mt-2 sm:mt-3">
                 <div className="flex items-center gap-2 text-sm">
                   <MaterialIcon
                     icon="work_history"
@@ -148,7 +169,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
 
           {/* Bio */}
           <div>
-            <h4 className="text-lg font-bold text-brand-primary dark:text-brand-secondary mb-2 flex items-center gap-2 tracking-tight">
+            <h4 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-2 flex items-center gap-2 tracking-tight">
               <MaterialIcon
                 icon="info"
                 size="sm"
@@ -156,7 +177,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
               />
               About
             </h4>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed font-normal">
+            <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed font-normal">
               {member.bio}
             </p>
           </div>
@@ -164,7 +185,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
           {/* Career Highlights */}
           {member.careerHighlights && member.careerHighlights.length > 0 && (
             <div>
-              <h4 className="text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 flex items-center gap-2 tracking-tight">
+              <h4 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 flex items-center gap-2 tracking-tight">
                 <MaterialIcon
                   icon="stars"
                   size="sm"
@@ -195,7 +216,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
           {/* Specialties */}
           {member.specialties && member.specialties.length > 0 && (
             <div>
-              <h4 className="text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 flex items-center gap-2 tracking-tight">
+              <h4 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 flex items-center gap-2 tracking-tight">
                 <MaterialIcon
                   icon="psychology"
                   size="sm"
@@ -219,31 +240,41 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
 
         {/* Right Column: Radar Chart, Stats, Details */}
         <div
-          className={`space-y-6 ${isReversed ? "lg:order-1" : "lg:order-2"}`}
+          className={`space-y-4 sm:space-y-5 md:space-y-6 ${isReversed ? "lg:order-1" : "lg:order-2"}`}
         >
           {/* Radar Chart */}
-          <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 p-6 rounded-xl border-2 border-brand-primary/10 dark:border-brand-primary/20">
-            <h4 className="text-lg font-bold text-brand-primary dark:text-brand-secondary mb-4 text-center tracking-tight">
+          <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 p-4 sm:p-5 md:p-6 rounded-lg md:rounded-xl border-2 border-brand-primary/10 dark:border-brand-primary/20">
+            <h4 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 sm:mb-4 text-center tracking-tight">
               Professional Skills Profile
             </h4>
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer
+              width="100%"
+              height={250}
+              className="sm:!h-[280px] md:!h-[300px]"
+            >
               <RadarChart data={radarData}>
-                <PolarGrid stroke="#386851" strokeOpacity={0.3} />
+                <PolarGrid
+                  stroke={isDark ? "#BD9264" : "#386851"}
+                  strokeOpacity={0.3}
+                />
                 <PolarAngleAxis
                   dataKey="skill"
-                  tick={{ fill: "#386851", fontSize: 12, fontWeight: 600 }}
-                  className="dark:fill-brand-secondary"
+                  tick={{
+                    fill: isDark ? "#BD9264" : "#386851",
+                    fontSize: 12,
+                    fontWeight: 600,
+                  }}
                 />
                 <PolarRadiusAxis
                   angle={90}
                   domain={[0, 100]}
-                  tick={{ fill: "#6b7280", fontSize: 10 }}
+                  tick={{ fill: isDark ? "#9ca3af" : "#6b7280", fontSize: 10 }}
                 />
                 <Radar
                   name={member.name}
                   dataKey="value"
-                  stroke="#386851"
-                  fill="#386851"
+                  stroke={isDark ? "#BD9264" : "#386851"}
+                  fill={isDark ? "#BD9264" : "#386851"}
                   fillOpacity={0.6}
                   strokeWidth={2}
                 />
@@ -252,10 +283,10 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
           </div>
 
           {/* Performance Stats */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4">
             {/* 2025 Performance */}
-            <div className="bg-brand-primary/5 dark:bg-brand-primary/10 p-4 rounded-lg border-2 border-brand-primary/10 dark:border-brand-primary/20">
-              <h5 className="text-sm font-bold text-brand-primary dark:text-brand-secondary mb-3 flex items-center gap-1 tracking-tight">
+            <div className="bg-brand-primary/5 dark:bg-brand-primary/10 p-3 sm:p-4 rounded-lg border-2 border-brand-primary/10 dark:border-brand-primary/20">
+              <h5 className="text-xs sm:text-sm font-bold text-brand-primary dark:text-brand-secondary mb-2 sm:mb-3 flex items-center gap-1 tracking-tight">
                 <MaterialIcon
                   icon="trending_up"
                   size="sm"
@@ -263,7 +294,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                 />
                 2025 Stats
               </h5>
-              <div className="space-y-2 text-sm">
+              <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-600 dark:text-gray-400 font-medium">
                     Projects
@@ -300,8 +331,8 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
             </div>
 
             {/* Career Totals */}
-            <div className="bg-brand-secondary/5 dark:bg-brand-secondary/10 p-4 rounded-lg border-2 border-brand-secondary/10 dark:border-brand-secondary/20">
-              <h5 className="text-sm font-bold text-brand-secondary dark:text-brand-secondary-light mb-3 flex items-center gap-1 tracking-tight">
+            <div className="bg-brand-secondary/5 dark:bg-brand-secondary/10 p-3 sm:p-4 rounded-lg border-2 border-brand-secondary/10 dark:border-brand-secondary/20">
+              <h5 className="text-xs sm:text-sm font-bold text-brand-secondary dark:text-brand-secondary-light mb-2 sm:mb-3 flex items-center gap-1 tracking-tight">
                 <MaterialIcon
                   icon="workspace_premium"
                   size="sm"
@@ -309,7 +340,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                 />
                 Career
               </h5>
-              <div className="space-y-2 text-sm">
+              <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-600 dark:text-gray-400 font-medium">
                     Total Projects
@@ -347,8 +378,8 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
           </div>
 
           {/* Additional Details */}
-          <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg border-2 border-gray-200 dark:border-gray-700 space-y-3">
-            <h5 className="text-sm font-bold text-brand-primary dark:text-brand-secondary flex items-center gap-1 tracking-tight">
+          <div className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-4 rounded-lg border-2 border-gray-200 dark:border-gray-700 space-y-2 sm:space-y-3">
+            <h5 className="text-xs sm:text-sm font-bold text-brand-primary dark:text-brand-secondary flex items-center gap-1 tracking-tight">
               <MaterialIcon
                 icon="person"
                 size="sm"
@@ -356,7 +387,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
               />
               Personal Details
             </h5>
-            <div className="space-y-2 text-sm">
+            <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
               {member.hometown && (
                 <div className="flex items-start gap-2">
                   <MaterialIcon

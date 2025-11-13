@@ -44,12 +44,12 @@
     "active": true,
     "slug": "jeremy-thamert",
     "skills": {
-      "leadership": 68,
-      "technical": 53,
-      "communication": 66,
-      "safety": 68,
-      "problemSolving": 65,
-      "teamwork": 63
+      "leadership": 100,
+      "technical": 60,
+      "communication": 100,
+      "safety": 100,
+      "problemSolving": 100,
+      "teamwork": 100
     },
     "qrCode": "/images/qr-codes/qr-team-jeremy-thamert.png"
   },
@@ -98,12 +98,12 @@
     "active": true,
     "slug": "mike-holstein",
     "skills": {
-      "leadership": 70,
-      "technical": 70,
-      "communication": 70,
-      "safety": 85,
-      "problemSolving": 70,
-      "teamwork": 80
+      "leadership": 100,
+      "technical": 60,
+      "communication": 100,
+      "safety": 100,
+      "problemSolving": 100,
+      "teamwork": 90
     },
     "qrCode": "/images/qr-codes/qr-team-mike-holstein.png"
   },
@@ -152,12 +152,12 @@
     "active": true,
     "slug": "arnold-garcia",
     "skills": {
-      "leadership": 88,
-      "technical": 73,
-      "communication": 86,
-      "safety": 88,
-      "problemSolving": 85,
-      "teamwork": 83
+      "leadership": 95,
+      "technical": 95,
+      "communication": 95,
+      "safety": 95,
+      "problemSolving": 95,
+      "teamwork": 95
     },
     "qrCode": "/images/qr-codes/qr-team-arnold-garcia.png"
   },
@@ -315,10 +315,10 @@
     "slug": "todd-schoeff",
     "skills": {
       "leadership": 85,
-      "technical": 95,
+      "technical": 100,
       "communication": 95,
-      "safety": 93,
-      "problemSolving": 98,
+      "safety": 75,
+      "problemSolving": 95,
       "teamwork": 90
     },
     "qrCode": "/images/qr-codes/qr-team-todd-schoeff.png"
@@ -329,7 +329,7 @@
     "department": "Site & Field Operations",
     "cardNumber": 69,
     "position": "Senior Superintendent",
-    "nickname": "The Guardian",
+    "nickname": "The Uncle",
     "yearsWithCompany": 20,
     "hometown": "Washington",
     "education": "Construction Technology",
@@ -368,12 +368,12 @@
     "active": true,
     "slug": "steve-mcclary",
     "skills": {
-      "leadership": 87,
-      "technical": 95,
-      "communication": 85,
-      "safety": 100,
-      "problemSolving": 93,
-      "teamwork": 90
+      "leadership": 95,
+      "technical": 75,
+      "communication": 95,
+      "safety": 95,
+      "problemSolving": 95,
+      "teamwork": 95
     },
     "qrCode": "/images/qr-codes/qr-team-steve-mcclary.png"
   },
@@ -419,12 +419,12 @@
     "active": true,
     "slug": "reagan-massey",
     "skills": {
-      "leadership": 75,
-      "technical": 83,
-      "communication": 73,
-      "safety": 88,
-      "problemSolving": 81,
-      "teamwork": 78
+      "leadership": 90,
+      "technical": 75,
+      "communication": 90,
+      "safety": 85,
+      "problemSolving": 90,
+      "teamwork": 85
     },
     "qrCode": "/images/qr-codes/qr-team-reagan-massey.png"
   },
@@ -473,12 +473,12 @@
     "active": true,
     "slug": "porter-cline",
     "skills": {
-      "leadership": 65,
-      "technical": 73,
-      "communication": 63,
-      "safety": 78,
-      "problemSolving": 71,
-      "teamwork": 68
+      "leadership": 85,
+      "technical": 80,
+      "communication": 75,
+      "safety": 80,
+      "problemSolving": 80,
+      "teamwork": 80
     },
     "qrCode": "/images/qr-codes/qr-team-porter-cline.png"
   },
@@ -527,12 +527,12 @@
     "active": true,
     "slug": "brooks-morris",
     "skills": {
-      "leadership": 70,
-      "technical": 70,
-      "communication": 70,
-      "safety": 85,
-      "problemSolving": 70,
-      "teamwork": 80
+      "leadership": 80,
+      "technical": 90,
+      "communication": 80,
+      "safety": 70,
+      "problemSolving": 85,
+      "teamwork": 75
     },
     "qrCode": "/images/qr-codes/qr-team-brooks-morris.png"
   },
@@ -578,12 +578,12 @@
     "active": true,
     "slug": "brittney-holstein",
     "skills": {
-      "leadership": 67,
-      "technical": 72,
-      "communication": 77,
+      "leadership": 75,
+      "technical": 80,
+      "communication": 75,
       "safety": 75,
-      "problemSolving": 77,
-      "teamwork": 72
+      "problemSolving": 80,
+      "teamwork": 85
     },
     "qrCode": "/images/qr-codes/qr-team-brittney-holstein.png"
   },
@@ -632,12 +632,12 @@
     "active": true,
     "slug": "matt-ramsey",
     "skills": {
-      "leadership": 66,
-      "technical": 71,
-      "communication": 76,
-      "safety": 74,
-      "problemSolving": 76,
-      "teamwork": 71
+      "leadership": 85,
+      "technical": 95,
+      "communication": 82,
+      "safety": 90,
+      "problemSolving": 90,
+      "teamwork": 85
     },
     "qrCode": "/images/qr-codes/qr-team-matt-ramsey.png"
   },
@@ -683,12 +683,12 @@
     "active": true,
     "slug": "jennifer-tenehuerta",
     "skills": {
-      "leadership": 58,
-      "technical": 63,
-      "communication": 73,
+      "leadership": 70,
+      "technical": 80,
+      "communication": 85,
       "safety": 68,
-      "problemSolving": 68,
-      "teamwork": 73
+      "problemSolving": 75,
+      "teamwork": 80
     },
     "qrCode": "/images/qr-codes/qr-team-jennifer-tenehuerta.png"
   },
@@ -788,11 +788,11 @@
     "active": true,
     "slug": "derek-parks",
     "skills": {
-      "leadership": 72,
-      "technical": 80,
-      "communication": 70,
-      "safety": 85,
-      "problemSolving": 78,
+      "leadership": 75,
+      "technical": 75,
+      "communication": 75,
+      "safety": 75,
+      "problemSolving": 75,
       "teamwork": 75
     },
     "qrCode": "/images/qr-codes/qr-team-derek-parks.png"
@@ -810,7 +810,7 @@
     "currentYearStats": {
       "projectsCompleted": 55,
       "clientSatisfaction": 98,
-      "safetyRecord": "N/A",
+      "safetyRecord": 60,
       "teamCollaborations": 45
     },
     "careerStats": {
