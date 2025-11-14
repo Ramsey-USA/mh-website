@@ -50,6 +50,44 @@ export default function TestimonialsSection({
     ? displayTestimonials.slice(0, maxTestimonials)
     : displayTestimonials;
 
+  // Show "Coming Soon" if no testimonials available
+  if (testimonialsToShow.length === 0) {
+    return (
+      <section
+        id={id}
+        className={`relative bg-gray-50 dark:bg-gray-900 py-20 lg:py-32 xl:py-40 ${className}`}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="mb-6 font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
+              <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
+                {title}
+              </span>
+            </h2>
+            <p className="text-xl md:text-2xl lg:text-3xl font-light text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              {subtitle}
+            </p>
+          </div>
+
+          <div className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center min-h-[400px] max-w-3xl mx-auto">
+            <MaterialIcon
+              icon="construction"
+              size="4xl"
+              className="text-brand-primary mb-6"
+            />
+            <h3 className="mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl text-center">
+              Coming Soon
+            </h3>
+            <p className="max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
+              Client testimonials will be available soon. We're committed to
+              sharing only authentic feedback from our valued partners.
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       id={id}

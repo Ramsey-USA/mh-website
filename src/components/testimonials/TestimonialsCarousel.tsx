@@ -48,6 +48,28 @@ export function TestimonialsCarousel({
     setIsAutoPlaying(false);
   };
 
+  // Show "Coming Soon" message if no testimonials
+  if (testimonials.length === 0) {
+    return (
+      <div className={`relative mx-auto max-w-5xl ${className}`}>
+        <div className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center min-h-[400px]">
+          <MaterialIcon
+            icon="construction"
+            size="4xl"
+            className="text-brand-primary mb-6"
+          />
+          <h3 className="mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl text-center">
+            Coming Soon
+          </h3>
+          <p className="max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
+            Client testimonials will be available soon. We're committed to
+            sharing only authentic feedback from our valued partners.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   const currentTestimonial = testimonials[currentIndex];
 
   if (!currentTestimonial) return null;

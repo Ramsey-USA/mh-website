@@ -75,6 +75,7 @@ export default function TestimonialsWidget({
     setTimeout(() => setIsAutoPlaying(autoSlide), 3000);
   };
 
+  // Show nothing if no testimonials available
   if (featuredTestimonials.length === 0) {
     return null;
   }

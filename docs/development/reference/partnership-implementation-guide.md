@@ -474,8 +474,8 @@ const tradeSearchCategories = [
 
 export const mockClientPartnership = {
   type: PartnershipType.CLIENT,
-  name: "John Smith",
-  email: "john@example.com",
+  name: "Jane Doe",
+  email: "jane@example.com",
   projectType: "residential",
   // ... client-specific fields
 };

@@ -234,8 +234,8 @@ const response = await fetch("/api/contact", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
-    name: "John Smith",
-    email: "john@example.com",
+    name: "Jane Doe",
+    email: "jane@example.com",
     phone: "(509) 555-1234",
     subject: "Project Inquiry",
     message: "I need a kitchen remodel estimate.",

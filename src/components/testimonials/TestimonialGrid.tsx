@@ -50,6 +50,9 @@ export function TestimonialGrid({
     4: "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
   };
 
+  // Show "Coming Soon" message if no testimonials
+  const hasNoTestimonials = displayTestimonials.length === 0;
+
   return (
     <section
       className={`relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-8 sm:py-12 lg:py-16 ${className}`}
@@ -81,24 +84,44 @@ export function TestimonialGrid({
           </FadeInWhenVisible>
         )}
 
-        {/* Testimonials Grid */}
-        <StaggeredFadeIn
-          className={`gap-4 sm:gap-6 grid ${gridCols[columns]} mb-8 sm:mb-12`}
-        >
-          {displayTestimonials.map((testimonial) => (
-            <TestimonialCard
-              key={testimonial.id}
-              testimonial={testimonial}
-              variant={variant}
-              showImage={showImage}
-              showRating={showRating}
-              showRole={showRole}
-            />
-          ))}
-        </StaggeredFadeIn>
+        {/* Testimonials Grid or Coming Soon Message */}
+        {hasNoTestimonials ? (
+          <FadeInWhenVisible>
+            <div className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center min-h-[400px]">
+              <MaterialIcon
+                icon="construction"
+                size="4xl"
+                className="text-brand-primary mb-6"
+              />
+              <h3 className="mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl text-center">
+                Coming Soon
+              </h3>
+              <p className="max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
+                Testimonials will be available soon. We're committed to sharing
+                only authentic feedback from our valued partners and team
+                members.
+              </p>
+            </div>
+          </FadeInWhenVisible>
+        ) : (
+          <StaggeredFadeIn
+            className={`gap-4 sm:gap-6 grid ${gridCols[columns]} mb-8 sm:mb-12`}
+          >
+            {displayTestimonials.map((testimonial) => (
+              <TestimonialCard
+                key={testimonial.id}
+                testimonial={testimonial}
+                variant={variant}
+                showImage={showImage}
+                showRating={showRating}
+                showRole={showRole}
+              />
+            ))}
+          </StaggeredFadeIn>
+        )}
 
         {/* View More Button */}
-        {showViewMoreButton && (
+        {showViewMoreButton && !hasNoTestimonials && (
           <FadeInWhenVisible className="text-center">
             <Link href={viewMoreHref}>
               <Button

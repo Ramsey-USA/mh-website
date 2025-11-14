@@ -65,17 +65,23 @@ export function ProjectsGridSection({
           </StaggeredFadeIn>
         ) : (
           <FadeInWhenVisible>
-            <div className="py-20 text-center">
+            <div className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center min-h-[500px]">
               <MaterialIcon
-                icon="search_off"
+                icon="construction"
                 size="4xl"
-                className="mb-4 text-gray-400"
+                className="text-brand-primary mb-6"
               />
-              <h3 className="mb-2 font-semibold text-gray-900 dark:text-white text-2xl">
-                No partnerships found
+              <h3 className="mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl text-center">
+                Coming Soon
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                Try adjusting your search or filter criteria
+              <p className="max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed mb-4">
+                Our project portfolio is under development. We're committed to
+                showcasing only real, completed partnerships with our valued
+                clients.
+              </p>
+              <p className="max-w-xl font-light text-gray-500 dark:text-gray-400 text-base sm:text-lg text-center">
+                Please check back soon or contact us to learn more about our
+                current and past projects.
               </p>
             </div>
           </FadeInWhenVisible>
