@@ -7,8 +7,10 @@
 "use client";
 
 // React import not required for modern JSX runtime; removed
+import { useEffect } from "react";
 import { Card } from "../ui";
 import { MaterialIcon } from "../icons/MaterialIcon";
+import { useChatbot } from "@/contexts/ChatbotContext";
 import { useChatbotState } from "./hooks/useChatbotState";
 import { useChatbotHandlers } from "./hooks/useChatbotHandlers";
 import { ChatbotHeader } from "./ChatbotHeader";
@@ -26,11 +28,26 @@ export default function GlobalChatbot({
   estimatorData,
   currentPage = "",
 }: GlobalChatbotProps) {
+  // Use ChatbotContext for shared state
+  const { isOpen: contextIsOpen, toggleChatbot } = useChatbot();
+
   // Initialize state
   const state = useChatbotState(currentPage, estimatorData);
 
   // Initialize handlers
   const handlers = useChatbotHandlers(state);
+
+  // Sync internal state with context
+  useEffect(() => {
+    if (contextIsOpen !== state.isOpen) {
+      handlers.handleChatbotToggle();
+    }
+  }, [contextIsOpen]); // Only sync when context changes
+
+  // Override the toggle handler to use context
+  const handleToggle = () => {
+    toggleChatbot();
+  };
 
   // Quick actions placeholder removed (reserved for future feature)
 
@@ -39,7 +56,7 @@ export default function GlobalChatbot({
     return (
       <div className="fixed bottom-6 right-6 z-50">
         <button
-          onClick={handlers.handleChatbotToggle}
+          onClick={handleToggle}
           className="bg-gradient-to-r from-brand-primary to-brand-primary-dark hover:from-brand-primary-dark hover:to-brand-primary text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center group"
           aria-label="Open General MH - MH Construction AI Assistant"
         >
@@ -94,7 +111,7 @@ export default function GlobalChatbot({
         <ChatbotHeader
           isTyping={state.isTyping}
           onMinimize={handlers.handleMinimizeToggle}
-          onClose={handlers.handleChatbotToggle}
+          onClose={handleToggle}
           onHistoryToggle={handlers.handleHistoryToggle}
           showHistory={state.showHistory}
         />

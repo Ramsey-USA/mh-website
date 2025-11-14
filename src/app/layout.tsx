@@ -4,6 +4,7 @@ import { Navigation, Footer } from "@/components/layout";
 import FaviconLinks from "@/components/layout/FaviconLinks";
 import { AuthProvider } from "@/lib/auth/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { ChatbotProvider } from "@/contexts/ChatbotContext";
 import { GlobalChatbotProvider } from "@/providers/GlobalChatbotProvider";
 import { WebVitalsReporter } from "@/components/performance/optimized-components";
 import { ErrorBoundary } from "@/components/error";
@@ -105,15 +106,17 @@ export default function RootLayout({
         <WebVitalsReporter />
         <ThemeProvider defaultTheme="light" storageKey="mh-construction-theme">
           <AuthProvider>
-            <GlobalChatbotProvider>
-              <ErrorBoundary>
-                <Navigation />
-                <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
-                  <main className="flex-grow">{children}</main>
-                  <Footer />
-                </div>
-              </ErrorBoundary>
-            </GlobalChatbotProvider>
+            <ChatbotProvider>
+              <GlobalChatbotProvider>
+                <ErrorBoundary>
+                  <Navigation />
+                  <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
+                    <main className="flex-grow">{children}</main>
+                    <Footer />
+                  </div>
+                </ErrorBoundary>
+              </GlobalChatbotProvider>
+            </ChatbotProvider>
           </AuthProvider>
         </ThemeProvider>
       </body>
