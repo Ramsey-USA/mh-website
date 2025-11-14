@@ -25,12 +25,12 @@ const coreValues = [
     stats: "Open-Book Progress",
   },
   {
-    value: "Relationship ROI",
+    value: "Partnership-Driven Trust",
     icon: "handshake",
     description:
-      "We Build Trust, Not Just Structures. THE ROI IS THE RELATIONSHIP—investing in long-term partnerships that last well beyond project completion. We measure success by relationships built, not just profit margins.",
+      "We Build Trust, Not Just Structures. Investing in long-term partnerships that last well beyond project completion. We measure success by relationships built, not just profit margins—because lasting partnerships matter more than quick wins.",
     details:
-      "Following up after completion to ensure satisfaction, being available for questions long after final payment, building referral networks based on mutual trust, and treating every interaction as an investment in lasting partnerships. Prioritizing relationship value over short-term gains.",
+      "Following up after completion to ensure satisfaction, being available for questions long after final payment, building referral networks based on mutual trust, and treating every interaction as an investment in lasting partnerships. Prioritizing relationship value over short-term gains—working WITH you to build something bigger than buildings.",
     color: "from-brand-secondary to-bronze-700",
     bgColor: "bg-brand-secondary/5",
     stats: "70% Referral Business",
@@ -97,7 +97,7 @@ export function CoreValuesSection() {
           </div>
           <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
             <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
-              THE ROI IS THE RELATIONSHIP
+              Building for the Client, NOT the Dollar
             </span>
             <span className="block text-brand-primary dark:text-brand-primary font-black">
               Our Six Core Values

@@ -54,10 +54,10 @@ const partnershipValues = [
   },
   {
     icon: "handshake",
-    title: "THE ROI IS THE RELATIONSHIP",
+    title: "Partnership-Driven Trust",
     subtitle: "Beyond Project Completion",
     description:
-      "Our partnership doesn't end when construction finishes. 70% of our business comes from referrals and repeat clients—testament to lasting partnerships that become lifelong community connections.",
+      "Our partnership doesn't end when construction finishes. 70% of our business comes from referrals and repeat clients—testament to lasting partnerships that become lifelong community connections built on trust, not transactions.",
     iconColor: "text-brand-secondary",
     highlights: [
       "70% referral & repeat business",

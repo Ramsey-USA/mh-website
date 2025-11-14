@@ -19,11 +19,12 @@ export function PartnershipCTA() {
             <MaterialIcon icon="handshake" size="xl" className="text-white" />
           </div>
           <h2 className="mb-4 sm:mb-6 font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-            THE ROI IS THE RELATIONSHIP
+            Let's Build More than Just Structures
           </h2>
           <p className="mx-auto mb-8 sm:mb-12 max-w-4xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4 break-words">
-            Partner with us to build something bigger than profit—build a
-            relationship that grows your business. Join our network of{" "}
+            Partner with a team that puts your vision—and your
+            relationship—first. We're Building for the Client, NOT the Dollar.
+            Join our network of{" "}
             <span className="font-medium text-white">
               trusted trade partners
             </span>{" "}
