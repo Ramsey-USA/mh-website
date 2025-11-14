@@ -15,8 +15,7 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { NextStepsSection } from "@/components/shared-sections";
 
 export const metadata: Metadata = {
-  title:
-    "Veterans Initiative & Annual Fishing Event | MH Construction - Veteran-Owned Company",
+  title: "Honoring our Veteran's | MH Construction - Veteran-Owned Company",
   description:
     "MH Construction, a veteran-owned business, proudly supports veterans through our annual fishing benefit event, hiring initiatives, and community partnerships. Join 40+ boats for our Spring 2026 fishing classic honoring those who served. Sponsorship opportunities available.",
   keywords: [
@@ -57,7 +56,7 @@ export default function VeteransPage() {
       ></div>
 
       {/* Page Content */}
-      <div className="relative z-10 bg-gradient-to-b from-white/95 dark:from-gray-900/95 to-gray-50/95 dark:to-gray-800/95 min-h-screen">
+      <div className="relative z-10 min-h-screen">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
           {/* Background Image */}
@@ -81,8 +80,8 @@ export default function VeteransPage() {
 
               {/* Subtitle - REQUIRED */}
               <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-                Veteran Values, Community-Focused Results • Building for the
-                Client, NOT the Dollar
+                Mission-Ready, Compliance-Driven • Building for the Client, NOT
+                the Dollar
               </p>
 
               {/* Description - REQUIRED */}
@@ -113,19 +112,23 @@ export default function VeteransPage() {
         />
 
         {/* Our Veteran Leadership Section */}
-        <Section variant="default" padding="default">
+        <Section
+          variant="default"
+          padding="default"
+          className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm"
+        >
           <SectionHeader
             subtitle="Leadership"
-            title="Veteran-to-Veteran Partnership"
-            description="MH Construction is led by Army veteran Jeremy Thamert and Navy veteran Matt Ramsey. We understand military values—integrity, discipline, and keeping your word. When veterans work with veterans, trust is built on shared experience and mutual respect."
+            title="Veteran-Owned Leadership"
+            description="MH Construction is owned and led by Army veteran Jeremy Thamert. His military service instilled values of integrity, discipline, and keeping your word—principles that define every project and partnership we build. When veterans work with veterans, trust is built on shared experience and mutual respect."
             maxWidth="4xl"
           />
 
-          <StaggeredFadeIn className={gridPresets.twoColumn("md")}>
+          <FadeInWhenVisible>
             <Card
               className={getCardClassName(
                 "default",
-                "border-l-4 border-l-brand-primary text-center",
+                "border-l-4 border-l-brand-primary text-center max-w-3xl mx-auto",
               )}
             >
               <CardHeader>
@@ -133,7 +136,7 @@ export default function VeteransPage() {
                   icon="shield"
                   className="mx-auto mb-4 text-brand-primary text-6xl"
                 />
-                <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
+                <CardTitle className="text-gray-900 dark:text-white text-2xl sm:text-3xl">
                   Jeremy Thamert
                 </CardTitle>
                 <p className="text-brand-primary font-semibold text-lg mt-2">
@@ -146,42 +149,14 @@ export default function VeteransPage() {
                   understands that your word is your bond. His military service
                   taught him the value of integrity, commitment, and personal
                   accountability—values that define every partnership we build.
-                  Building for fellow veterans isn't just business, it's
+                  Since acquiring the company in January 2025, Jeremy has been
+                  building a veteran-focused organization that honors those who
+                  served. Building for fellow veterans isn't just business, it's
                   brotherhood.
                 </p>
               </CardContent>
             </Card>
-
-            <Card
-              className={getCardClassName(
-                "default",
-                "border-l-4 border-l-brand-secondary text-center",
-              )}
-            >
-              <CardHeader>
-                <MaterialIcon
-                  icon="anchor"
-                  className="mx-auto mb-4 text-brand-secondary text-6xl"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
-                  Matt Ramsey
-                </CardTitle>
-                <p className="text-brand-secondary font-semibold text-lg mt-2">
-                  Digital Marketing Manager | Navy Veteran
-                </p>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                  Navy veteran Matt Ramsey brings military discipline to digital
-                  innovation, ensuring our veteran-owned business stays
-                  connected with those we serve. His service taught him that
-                  trust is earned through consistent action and genuine
-                  commitment—principles that guide our entire digital presence
-                  and veteran outreach.
-                </p>
-              </CardContent>
-            </Card>
-          </StaggeredFadeIn>
+          </FadeInWhenVisible>
 
           <FadeInWhenVisible className="mt-12 text-center">
             <Link
@@ -195,7 +170,11 @@ export default function VeteransPage() {
         </Section>
 
         {/* Year-Round Support Section - MOVED EARLIER FOR SEO */}
-        <Section variant="gray" padding="default">
+        <Section
+          variant="gray"
+          padding="default"
+          className="bg-gray-50/90 dark:bg-gray-800/90 backdrop-blur-sm"
+        >
           <SectionHeader
             subtitle="Beyond the Event"
             title={
@@ -203,7 +182,7 @@ export default function VeteransPage() {
                 Year-Round Veterans Support
               </span>
             }
-            description="Our commitment to veterans extends throughout the year with hiring initiatives, partnerships, and community engagement."
+            description="As a newly veteran-owned company, we're building long-term programs to support veterans. Priority hiring is active now, with apprenticeship programs and partnerships in development."
             maxWidth="4xl"
           />
 
@@ -221,8 +200,9 @@ export default function VeteransPage() {
               <CardContent>
                 <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4">
                   Qualified veterans receive priority consideration for all
-                  positions, with apprenticeship programs for transitioning
-                  service members.
+                  positions. We're developing apprenticeship programs for
+                  transitioning service members as we build our veteran support
+                  network.
                 </p>
                 <Link
                   href="/careers"
@@ -250,8 +230,10 @@ export default function VeteransPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4">
-                  Actively recruiting veteran-owned subcontractors with
-                  preferential bidding and support for business growth.
+                  Recruiting veteran-owned subcontractors for our growing
+                  network. As we establish company longevity, we're building
+                  partnerships with preferential opportunities for veteran-owned
+                  businesses.
                 </p>
                 <Link
                   href="/trade-partners"
@@ -279,9 +261,9 @@ export default function VeteransPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4">
-                  Scholarships for veterans pursuing construction trades,
-                  internships for student veterans, and GI Bill apprenticeship
-                  programs.
+                  Developing programs for veterans pursuing construction trades,
+                  including internship opportunities and GI Bill apprenticeship
+                  participation as we grow our veteran support network.
                 </p>
                 <Link
                   href="/about"
@@ -300,7 +282,11 @@ export default function VeteransPage() {
         </Section>
 
         {/* Military Standards Section */}
-        <Section variant="default" padding="default">
+        <Section
+          variant="default"
+          padding="default"
+          className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm"
+        >
           <SectionHeader
             subtitle="Our Foundation"
             title={
@@ -308,7 +294,7 @@ export default function VeteransPage() {
                 Military Standards in Every Project
               </span>
             }
-            description="The values we learned in service guide everything we do in construction."
+            description="The values we learned in service guide everything we do in construction. Our veteran team brings military discipline and precision to every aspect of our work."
             maxWidth="4xl"
           />
 
@@ -421,12 +407,45 @@ export default function VeteransPage() {
               </CardContent>
             </Card>
           </StaggeredFadeIn>
+
+          {/* Veteran Team Member */}
+          <FadeInWhenVisible className="mt-12">
+            <Card
+              className={getCardClassName(
+                "default",
+                "border-l-4 border-l-brand-secondary max-w-3xl mx-auto text-center",
+              )}
+            >
+              <CardHeader>
+                <MaterialIcon
+                  icon="anchor"
+                  className="mx-auto mb-4 text-brand-secondary text-5xl"
+                />
+                <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
+                  Matt Ramsey
+                </CardTitle>
+                <p className="text-brand-secondary font-semibold text-lg mt-2">
+                  Digital Marketing Manager | Navy Veteran
+                </p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                  Navy veteran Matt Ramsey brings military discipline to digital
+                  innovation, ensuring our veteran-owned business stays
+                  connected with those we serve. His service taught him that
+                  trust is earned through consistent action and genuine
+                  commitment—principles that guide our digital presence and
+                  veteran outreach initiatives.
+                </p>
+              </CardContent>
+            </Card>
+          </FadeInWhenVisible>
         </Section>
 
         {/* Annual Fishing Event Section - MOVED LATER FOR SEO */}
         <section
           id="fishing-event"
-          className="relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 py-20 lg:py-32"
+          className="relative bg-gradient-to-br from-gray-50/90 to-gray-100/90 dark:from-gray-800/90 dark:to-gray-900/90 backdrop-blur-sm py-20 lg:py-32"
         >
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
@@ -582,24 +601,30 @@ export default function VeteransPage() {
           </div>
         </section>
 
-        {/* Sponsorship Opportunities Section */}
-        <section id="sponsorship" className="relative py-20 lg:py-32">
+        {/* Partnership Opportunities Section */}
+        <section
+          id="sponsorship"
+          className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm py-20 lg:py-32"
+        >
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
               <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
                 <h2 className="mb-8 font-black text-brand-primary dark:text-brand-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight">
-                  Become an Event Sponsor
+                  Organizational Partnership Opportunities
                 </h2>
                 <p className="mx-auto max-w-3xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed">
-                  Support veterans in your community while gaining valuable
-                  brand exposure and making a meaningful impact on those who've
-                  served.
+                  MH Construction partners with corporations, non-profits,
+                  veteran service organizations, and community groups to co-host
+                  impactful veteran events. We provide the construction industry
+                  platform and connections—you bring your organization's
+                  resources, expertise, and mission to create meaningful
+                  experiences together.
                 </p>
               </div>
             </FadeInWhenVisible>
 
             <StaggeredFadeIn className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              {/* Platinum Sponsor */}
+              {/* Title Event Partner */}
               <Card
                 className={getCardClassName(
                   "default",
@@ -609,59 +634,99 @@ export default function VeteransPage() {
                 <CardHeader>
                   <div className="flex items-center justify-between mb-4">
                     <MaterialIcon
-                      icon="workspace_premium"
+                      icon="corporate_fare"
                       className="text-purple-500 text-5xl"
                     />
-                    <span className="text-purple-500 font-black text-3xl">
-                      $10,000+
-                    </span>
                   </div>
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                    Platinum Sponsor
+                    Title Event Partner
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4 text-base">
+                    <strong>For:</strong> Major corporations, national
+                    non-profits, veteran service organizations (VFW, American
+                    Legion, WWP, etc.), and foundations
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4 text-base font-semibold">
+                    What Your Organization Provides:
+                  </p>
+                  <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-4">
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-1 mr-3 text-purple-500"
+                      />
+                      <span>
+                        Event funding or resources (venue, catering, equipment)
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-1 mr-3 text-purple-500"
+                      />
+                      <span>
+                        Your organization's volunteer network and member base
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-1 mr-3 text-purple-500"
+                      />
+                      <span>
+                        Specialized services aligned with your mission
+                      </span>
+                    </li>
+                  </ul>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4 text-base font-semibold">
+                    What MH Construction Provides:
+                  </p>
                   <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-purple-500"
+                        icon="construction"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
                       />
-                      <span>Title sponsor recognition in all materials</span>
+                      <span>
+                        Construction industry platform and connections
+                      </span>
                     </li>
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-purple-500"
+                        icon="construction"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
                       />
-                      <span>Logo on event t-shirts and promotional items</span>
+                      <span>
+                        Event planning, logistics, and on-site management
+                      </span>
                     </li>
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-purple-500"
+                        icon="construction"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
                       />
-                      <span>Speaking opportunity at awards ceremony</span>
+                      <span>
+                        Co-branded marketing reaching Pacific Northwest
+                        community
+                      </span>
                     </li>
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-purple-500"
+                        icon="construction"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
                       />
-                      <span>20+ social media posts featuring your brand</span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-purple-500"
-                      />
-                      <span>10 complimentary event registrations</span>
+                      <span>
+                        Dedicated activation space for your organization at
+                        event
+                      </span>
                     </li>
                   </ul>
                 </CardContent>
               </Card>
 
-              {/* Gold Sponsor */}
+              {/* Co-Host Event Partner */}
               <Card
                 className={getCardClassName(
                   "default",
@@ -671,52 +736,84 @@ export default function VeteransPage() {
                 <CardHeader>
                   <div className="flex items-center justify-between mb-4">
                     <MaterialIcon
-                      icon="stars"
+                      icon="business"
                       className="text-yellow-500 text-5xl"
                     />
-                    <span className="text-yellow-500 font-black text-3xl">
-                      $5,000+
-                    </span>
                   </div>
                   <CardTitle className="text-gray-900 dark:text-white text-2xl sm:text-3xl">
-                    Gold Sponsor
+                    Co-Host Event Partner
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4 text-base">
+                    <strong>For:</strong> Regional businesses, community
+                    foundations, veteran advocacy groups, and established local
+                    non-profits
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4 text-base font-semibold">
+                    What Your Organization Provides:
+                  </p>
+                  <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-4">
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-1 mr-3 text-yellow-500"
+                      />
+                      <span>
+                        Partial event resources or specific event components
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-1 mr-3 text-yellow-500"
+                      />
+                      <span>
+                        Access to your member network and communications
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-1 mr-3 text-yellow-500"
+                      />
+                      <span>Your organization's expertise and services</span>
+                    </li>
+                  </ul>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4 text-base font-semibold">
+                    What MH Construction Provides:
+                  </p>
                   <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-yellow-500"
+                        icon="construction"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
                       />
-                      <span>Premier sponsor recognition</span>
+                      <span>Event infrastructure and operational support</span>
                     </li>
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-yellow-500"
+                        icon="construction"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
                       />
-                      <span>Logo on event t-shirts and banners</span>
+                      <span>
+                        Collaborative branding and joint marketing efforts
+                      </span>
                     </li>
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-yellow-500"
+                        icon="construction"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
                       />
-                      <span>10+ social media posts</span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-yellow-500"
-                      />
-                      <span>6 complimentary event registrations</span>
+                      <span>
+                        Space for your organization to engage attendees
+                      </span>
                     </li>
                   </ul>
                 </CardContent>
               </Card>
 
-              {/* Silver Sponsor */}
+              {/* Supporting Event Partner */}
               <Card
                 className={getCardClassName(
                   "default",
@@ -726,52 +823,68 @@ export default function VeteransPage() {
                 <CardHeader>
                   <div className="flex items-center justify-between mb-4">
                     <MaterialIcon
-                      icon="grade"
+                      icon="groups"
                       className="text-gray-400 text-5xl"
                     />
-                    <span className="text-gray-400 font-black text-3xl">
-                      $2,500+
-                    </span>
                   </div>
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                    Silver Sponsor
+                    Supporting Event Partner
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4 text-base">
+                    <strong>For:</strong> Local non-profits, veteran chapters,
+                    community organizations, and service clubs
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4 text-base font-semibold">
+                    What Your Organization Provides:
+                  </p>
+                  <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-4">
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-1 mr-3 text-gray-400"
+                      />
+                      <span>In-kind services or specific event support</span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-1 mr-3 text-gray-400"
+                      />
+                      <span>Volunteer assistance or specialized expertise</span>
+                    </li>
+                  </ul>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4 text-base font-semibold">
+                    What MH Construction Provides:
+                  </p>
                   <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-gray-400"
+                        icon="construction"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
                       />
-                      <span>Sponsor recognition in materials</span>
+                      <span>Partner recognition in event materials</span>
                     </li>
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-gray-400"
+                        icon="construction"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
                       />
-                      <span>Logo on event website</span>
+                      <span>Listing on event website and communications</span>
                     </li>
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-gray-400"
+                        icon="construction"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
                       />
-                      <span>5+ social media mentions</span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-gray-400"
-                      />
-                      <span>4 complimentary event registrations</span>
+                      <span>Opportunity to connect with veteran attendees</span>
                     </li>
                   </ul>
                 </CardContent>
               </Card>
 
-              {/* Bronze Sponsor */}
+              {/* Resource Contributor Partner */}
               <Card
                 className={getCardClassName(
                   "default",
@@ -781,46 +894,57 @@ export default function VeteransPage() {
                 <CardHeader>
                   <div className="flex items-center justify-between mb-4">
                     <MaterialIcon
-                      icon="emoji_events"
+                      icon="handshake"
                       className="text-orange-600 text-5xl"
                     />
-                    <span className="text-orange-600 font-black text-3xl">
-                      $1,000+
-                    </span>
                   </div>
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                    Bronze Sponsor
+                    Resource Contributor Partner
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4 text-base">
+                    <strong>For:</strong> Businesses and organizations providing
+                    specific resources or services
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4 text-base font-semibold">
+                    What Your Organization Provides:
+                  </p>
+                  <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-4">
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-1 mr-3 text-orange-600"
+                      />
+                      <span>
+                        Equipment, supplies, or services for the event
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-1 mr-3 text-orange-600"
+                      />
+                      <span>Professional expertise or technical support</span>
+                    </li>
+                  </ul>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4 text-base font-semibold">
+                    What MH Construction Provides:
+                  </p>
                   <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-orange-600"
+                        icon="construction"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
                       />
-                      <span>Name recognition in event materials</span>
+                      <span>Recognition as event resource partner</span>
                     </li>
                     <li className="flex items-start">
                       <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-orange-600"
+                        icon="construction"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
                       />
-                      <span>Social media mentions</span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-orange-600"
-                      />
-                      <span>2 complimentary event registrations</span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-orange-600"
-                      />
-                      <span>Company name on website</span>
+                      <span>Social media appreciation posts</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -837,34 +961,102 @@ export default function VeteransPage() {
               >
                 <CardHeader>
                   <MaterialIcon
-                    icon="volunteer_activism"
+                    icon="handshake"
                     className="mx-auto mb-4 text-brand-accent text-5xl"
                   />
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center">
-                    In-Kind Donations Welcome
+                    Example Resource Contributions From Partners
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-center text-gray-700 dark:text-gray-300 text-lg mb-6">
-                    We also accept in-kind donations including boats, food,
-                    fishing gear, prizes, professional services, and more.
+                    Organizations contribute what aligns with their mission and
+                    capabilities—we handle event coordination and execution.
                   </p>
                   <div className="flex flex-wrap gap-3 justify-center">
                     <span className="px-4 py-2 bg-white dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 text-sm sm:text-base">
                       Boats & Captains
                     </span>
                     <span className="px-4 py-2 bg-white dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                      Food & Beverage
+                      Food & Catering Services
                     </span>
                     <span className="px-4 py-2 bg-white dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 text-sm sm:text-base">
                       Fishing Equipment
                     </span>
                     <span className="px-4 py-2 bg-white dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                      Prizes & Giveaways
+                      Prizes & Awards
                     </span>
                     <span className="px-4 py-2 bg-white dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                      Photography/Video
+                      Media & Photography
                     </span>
+                    <span className="px-4 py-2 bg-white dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                      Volunteer Networks
+                    </span>
+                    <span className="px-4 py-2 bg-white dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                      Veteran Services Tables
+                    </span>
+                    <span className="px-4 py-2 bg-white dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                      Event Entertainment
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </FadeInWhenVisible>
+
+            {/* Partnership Benefits Highlight */}
+            <FadeInWhenVisible className="mt-16">
+              <Card
+                className={getCardClassName(
+                  "default",
+                  "max-w-5xl mx-auto bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10",
+                )}
+              >
+                <CardHeader>
+                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center">
+                    Why Co-Host With MH Construction?
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-3 gap-6 text-center">
+                    <div>
+                      <MaterialIcon
+                        icon="people"
+                        className="mx-auto mb-3 text-brand-primary text-4xl"
+                      />
+                      <h4 className="font-bold text-gray-900 dark:text-white mb-2">
+                        Direct Veteran Access
+                      </h4>
+                      <p className="text-gray-700 dark:text-gray-300 text-sm">
+                        Reach 100-150+ veterans and military families at every
+                        event
+                      </p>
+                    </div>
+                    <div>
+                      <MaterialIcon
+                        icon="settings"
+                        className="mx-auto mb-3 text-brand-secondary text-4xl"
+                      />
+                      <h4 className="font-bold text-gray-900 dark:text-white mb-2">
+                        Turnkey Event Management
+                      </h4>
+                      <p className="text-gray-700 dark:text-gray-300 text-sm">
+                        We handle logistics, permits, insurance, and
+                        execution—you focus on your mission
+                      </p>
+                    </div>
+                    <div>
+                      <MaterialIcon
+                        icon="campaign"
+                        className="mx-auto mb-3 text-brand-accent text-4xl"
+                      />
+                      <h4 className="font-bold text-gray-900 dark:text-white mb-2">
+                        Co-Branded Impact
+                      </h4>
+                      <p className="text-gray-700 dark:text-gray-300 text-sm">
+                        Joint marketing reaches thousands across the Pacific
+                        Northwest
+                      </p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -877,8 +1069,12 @@ export default function VeteransPage() {
                 className="inline-flex items-center gap-2 px-10 py-5 bg-brand-primary hover:bg-brand-primary/90 text-white transition-all duration-300 rounded-lg font-bold text-lg sm:text-xl shadow-lg hover:shadow-xl"
               >
                 <MaterialIcon icon="email" size="lg" />
-                <span>Contact Us About Sponsorship</span>
+                <span>Discuss Partnership Opportunities</span>
               </Link>
+              <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Organizations, non-profits, and veteran groups: Let's combine
+                resources to create meaningful veteran events together
+              </p>
             </FadeInWhenVisible>
           </div>
         </section>

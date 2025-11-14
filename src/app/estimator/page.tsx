@@ -75,12 +75,13 @@ export default function EstimatorPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Innovation with integrity. Our AI-powered budget tool draws from
-              500+ completed projects and 150+ years of combined experience to
-              give you preliminary insights—but it's just the beginning.
-              Technology serves, never replaces, the personal consultation where
-              we shake hands and earn your trust. Smart tools for smarter
-              planning, human connection for lasting partnership.
+              Where data meets decades of experience. Our AI-powered estimator
+              combines insights from 500+ completed projects with 150+ years of
+              veteran expertise—but it's just the starting point. "Building for
+              the Client, NOT the Dollar" means technology that enhances, never
+              replaces, the personal consultation where handshakes and trust
+              matter most. Smart tools for smarter planning, human partnerships
+              for lasting success.
             </p>
           </div>
         </div>
@@ -123,8 +124,9 @@ export default function EstimatorPage() {
               <Card className="border-brand-primary/30 dark:border-brand-primary/40 hover:border-brand-primary transition-all duration-300 shadow-xl hover:shadow-2xl relative">
                 {/* RECOMMENDED Badge */}
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                  <div className="bg-brand-primary text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">
-                    ⭐ RECOMMENDED
+                  <div className="bg-brand-primary text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg flex items-center gap-2">
+                    <MaterialIcon icon="star" size="sm" />
+                    RECOMMENDED
                   </div>
                 </div>
                 <CardHeader className="bg-gradient-to-br from-brand-primary/10 to-brand-primary/5 dark:from-brand-primary/20 dark:to-brand-primary/10 pb-8 pt-10">
@@ -355,16 +357,18 @@ export default function EstimatorPage() {
 
           <StaggeredFadeIn className={gridPresets.cards3("lg", "mb-12")}>
             <HoverScale>
-              <Card className="text-center h-full">
-                <CardContent className="p-6">
+              <Card className="text-center h-full flex flex-col">
+                <CardContent className="p-6 flex flex-col flex-grow">
                   <div className="flex justify-center items-center bg-brand-primary/10 mx-auto mb-4 rounded-full w-16 h-16">
                     <MaterialIcon
                       icon="speed"
                       className="w-8 h-8 text-brand-primary"
                     />
                   </div>
-                  <h3 className="mb-2 font-semibold text-xl">Lightning Fast</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <h3 className="mb-3 font-semibold text-xl min-h-[2rem]">
+                    Lightning Fast
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 flex-grow">
                     Complete estimates in under 5 minutes. No waiting, no
                     back-and-forth emails.
                   </p>
@@ -373,18 +377,18 @@ export default function EstimatorPage() {
             </HoverScale>
 
             <HoverScale>
-              <Card className="text-center h-full">
-                <CardContent className="p-6">
+              <Card className="text-center h-full flex flex-col">
+                <CardContent className="p-6 flex flex-col flex-grow">
                   <div className="flex justify-center items-center bg-brand-secondary/10 mx-auto mb-4 rounded-full w-16 h-16">
                     <MaterialIcon
                       icon="analytics"
                       className="w-8 h-8 text-brand-secondary"
                     />
                   </div>
-                  <h3 className="mb-2 font-semibold text-xl">
+                  <h3 className="mb-3 font-semibold text-xl min-h-[2rem]">
                     Pacific Northwest Market-Based
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-600 dark:text-gray-300 flex-grow">
                     Trained on regional project data from WA, OR, and ID to
                     provide helpful preliminary cost estimates specific to
                     Pacific Northwest construction markets and building
@@ -395,18 +399,18 @@ export default function EstimatorPage() {
             </HoverScale>
 
             <HoverScale>
-              <Card className="text-center h-full">
-                <CardContent className="p-6">
+              <Card className="text-center h-full flex flex-col">
+                <CardContent className="p-6 flex flex-col flex-grow">
                   <div className="flex justify-center items-center bg-brand-primary/10 mx-auto mb-4 rounded-full w-16 h-16">
                     <MaterialIcon
                       icon="savings"
                       className="w-8 h-8 text-brand-primary"
                     />
                   </div>
-                  <h3 className="mb-2 font-semibold text-xl">
+                  <h3 className="mb-3 font-semibold text-xl min-h-[2rem]">
                     Transparent Open-Book Pricing
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-600 dark:text-gray-300 flex-grow">
                     Transparent breakdown of materials, labor, permits, and all
                     associated costs. No hidden surprises—honest assessments you
                     can trust for budget planning.

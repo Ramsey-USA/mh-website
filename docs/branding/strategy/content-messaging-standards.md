@@ -87,7 +87,7 @@ Description: "Professional [service] delivering [outcome] through [method/values
 ### **Required Contact Display**
 
 - **Phone Number:** (509) 308-6489 (consistent formatting)
-- **Business Hours:** Monday-Friday, 7:00 AM - 6:00 PM PST
+- **Business Hours:** Monday-Friday, 7:00 AM - 4:00 PM PST (0700 - 1600)
 - **Response Time:** "We respond within 24 hours"
 - **Emergency:** "For urgent matters, call directly"
 
@@ -101,7 +101,7 @@ Description: "Professional [service] delivering [outcome] through [method/values
   </div>
   <div className="flex items-center gap-2">
     <MaterialIcon icon="schedule" size="sm" className="text-brand-primary" />
-    <span>Monday-Friday, 7:00 AM - 6:00 PM PST</span>
+    <span>Monday-Friday, 7:00 AM - 4:00 PM PST (0700 - 1600)</span>
   </div>
   <div className="flex items-center gap-2">
     <MaterialIcon icon="reply" size="sm" className="text-brand-primary" />

@@ -91,7 +91,7 @@ We work WITH you as a trusted subcontractor partner, providing:
 
 ## Response Time
 
-**Business Hours**: Monday - Friday, 8:00 AM - 5:00 PM PST
+**Business Hours**: Monday - Friday, 7:00 AM - 4:00 PM PST (0700 - 1600)
 
 - Initial contact response: Same business day
 - Equipment and crew availability assessment: Within 4 hours

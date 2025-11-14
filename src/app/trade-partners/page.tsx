@@ -1,6 +1,10 @@
 "use client";
 
 import { useState } from "react";
+
+// Note: Metadata export removed due to "use client" directive
+// SEO handled via next-seo or alternative client-side SEO solution
+// Page title: "THE ROI IS THE RELATIONSHIP | Trade Partnerships | MH Construction"
 import Link from "next/link";
 import {
   Button,
@@ -264,8 +268,8 @@ export default function TradePartnersPage() {
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              Building Professional Partnerships • Building for the Client, NOT
-              the Dollar
+              Building Professional Partnerships • Partnerships That Profit
+              Everyone
             </p>
 
             {/* Description */}
@@ -355,13 +359,14 @@ export default function TradePartnersPage() {
                 </span>
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                "Building for the Client, NOT the Dollar means treating our
-                trade partners with the same integrity we give our clients.
-                Quality construction is built through trusted
-                relationships—where your word is your bond, handshakes matter,
-                and mutual respect defines every partnership. Backed by
-                veteran-owned leadership, award-winning safety (.6 EMR), and
-                150+ years combined experience."
+                "THE ROI IS THE RELATIONSHIP—and we prove it. Building for the
+                Client, NOT the Dollar means treating our trade partners with
+                the same integrity we give our clients. Quality construction is
+                built through trusted relationships—where your word is your
+                bond, handshakes matter, and mutual respect defines every
+                partnership. Fair payment, clear communication, mutual success.
+                Backed by veteran-owned leadership, award-winning safety (.6
+                EMR), and 150+ years combined experience."
               </p>
               <cite className="block mt-4 font-semibold text-brand-secondary text-lg">
                 — MH Construction Leadership Team
@@ -394,23 +399,24 @@ export default function TradePartnersPage() {
           </StaggeredFadeIn>
         </section>
 
-        {/* Trade Partner Categories */}
+        {/* Trade Partner Categories - Join Our Network */}
         <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
             <div className="mb-12 lg:mb-16 text-center">
               <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                 <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                  Our Approved Trade
+                  Join Our Trade Partnership
                 </span>
                 <span className="block text-brand-primary dark:text-brand-primary font-black">
-                  Partners
+                  Network
                 </span>
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                Meet the skilled professionals in our trade partnership network
-                who bring expertise, reliability, and quality workmanship to
-                every MH Construction project—backed by veteran-owned leadership
-                and award-winning safety standards.
+                We're actively building our approved trade partnership network
+                with qualified professionals across all construction trades.
+                Your company could be featured here as a trusted
+                partner—bringing expertise, reliability, and quality workmanship
+                to MH Construction projects.
               </p>
             </div>
           </FadeInWhenVisible>
@@ -443,37 +449,25 @@ export default function TradePartnersPage() {
                       {category.partners.map((partner, partnerIndex) => (
                         <div
                           key={partnerIndex}
-                          className="bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 p-6 rounded-lg transition-colors"
+                          className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 border-2 border-dashed border-brand-primary/30 dark:border-brand-primary/40 p-6 rounded-lg transition-all hover:border-brand-primary hover:shadow-lg text-center"
                         >
-                          <div className="flex justify-between items-start mb-3">
-                            <h4 className="font-bold text-gray-900 dark:text-white text-lg">
-                              {partner.name}
-                            </h4>
-                            <span className="bg-brand-secondary/20 dark:bg-brand-secondary/30 px-2 py-1 rounded font-medium text-brand-secondary dark:text-brand-secondary-light text-xs">
-                              {partner.yearsWorking}
-                            </span>
-                          </div>
-                          <div className="space-y-2 mb-3">
-                            <div className="flex items-center text-gray-600 dark:text-gray-300 text-sm">
-                              <MaterialIcon
-                                icon="business"
-                                className="mr-2"
-                                size="sm"
-                              />
-                              {partner.specialty}
-                            </div>
-                            <div className="flex items-center text-gray-600 dark:text-gray-300 text-sm">
-                              <MaterialIcon
-                                icon="location_on"
-                                className="mr-2"
-                                size="sm"
-                              />
-                              {partner.location}
-                            </div>
-                          </div>
-                          <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                            {partner.description}
+                          <MaterialIcon
+                            icon="add_business"
+                            className="mx-auto mb-4 text-brand-primary text-5xl"
+                          />
+                          <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-3">
+                            Your Company Here
+                          </h4>
+                          <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed mb-4">
+                            {partner.specialty}
                           </p>
+                          <Link
+                            href="/contact"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary hover:bg-brand-accent text-white transition-all duration-300 rounded-lg font-semibold shadow-md hover:shadow-lg"
+                          >
+                            <MaterialIcon icon="handshake" size="sm" />
+                            <span>Apply Now</span>
+                          </Link>
                         </div>
                       ))}
                     </div>
@@ -560,27 +554,24 @@ export default function TradePartnersPage() {
             <div className="bg-gradient-to-r from-brand-primary/10 via-brand-secondary/10 to-brand-primary/10 dark:from-brand-primary/20 dark:via-brand-secondary/20 dark:to-brand-primary/20 p-8 lg:p-10 border-2 border-brand-primary/30 rounded-xl shadow-lg mb-12">
               <div className="flex flex-col lg:flex-row items-center gap-6 text-center lg:text-left">
                 <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full shadow-lg">
-                  <MaterialIcon
-                    icon="military_tech"
-                    className="text-white text-5xl"
-                  />
+                  <MaterialIcon icon="shield" className="text-white text-5xl" />
                 </div>
                 <div className="flex-1">
                   <h3 className="mb-3 font-black text-gray-900 dark:text-white text-2xl lg:text-3xl">
                     Veteran-Owned Trade Partners: Priority Consideration
                   </h3>
                   <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-4">
-                    As a veteran-owned company led by Army and Navy veterans, we
-                    prioritize partnerships with fellow veteran-owned
-                    businesses. Veteran trade partners receive expedited
-                    application review, preferential bidding opportunities, and
-                    dedicated support for business growth.
+                    As a veteran-owned company led by military veterans, we
+                    prioritize partnerships with fellow veteran-owned businesses
+                    across all service branches. Veteran trade partners receive
+                    expedited application review, preferential bidding
+                    opportunities, and dedicated support for business growth.
                   </p>
                   <Link
                     href="/veterans"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary hover:bg-brand-accent text-white transition-all duration-300 rounded-lg font-bold shadow-md hover:shadow-lg"
                   >
-                    <MaterialIcon icon="phishing" size="md" />
+                    <MaterialIcon icon="military_tech" size="md" />
                     <span>Learn About Our Veterans Initiative</span>
                   </Link>
                 </div>
@@ -779,8 +770,8 @@ export default function TradePartnersPage() {
                     size="lg"
                     className="bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark shadow-xl text-white"
                   >
-                    <MaterialIcon icon="work" className="mr-2" />
-                    Apply to be an Approved Vendor
+                    <MaterialIcon icon="handshake" className="mr-2" />
+                    Begin Partnership Application
                   </Button>
                 </Link>
                 <Link href="/projects">
@@ -795,7 +786,12 @@ export default function TradePartnersPage() {
               </div>
               <p className="mt-6 text-gray-500 dark:text-gray-400">
                 <MaterialIcon icon="phone" className="inline mr-2" size="sm" />
-                Trade Partnership Inquiries: (509) 308-6489 | office@mhc-gc.com
+                Trade Partnership Inquiries: (509) 308-6489 | 7:00 AM - 4:00 PM
+                PST
+              </p>
+              <p className="text-gray-500 dark:text-gray-400">
+                <MaterialIcon icon="email" className="inline mr-2" size="sm" />
+                office@mhc-gc.com
               </p>
             </div>
           </FadeInWhenVisible>

@@ -339,7 +339,7 @@ export const whyChooseUs: WhyChooseUsItem[] = [
     title: "Urgent Construction Support",
     description:
       "Specialized expertise, manpower, and equipment available for companies facing critical construction challenges. We partner with businesses to provide urgent structural consultation and repairs—fixing the source of problems like damaged foundations, roofing systems, and structural issues causing leaks or failures. Expert response when you need it most.",
-    ctaLink: "/contact#urgent-support",
+    ctaLink: "/urgent",
     ctaLinkText: "Get Urgent Support",
   },
 ];

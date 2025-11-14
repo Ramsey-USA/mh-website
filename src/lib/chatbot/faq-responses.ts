@@ -15,13 +15,13 @@ export const faqDatabase: FAQItem[] = [
   {
     keywords: ["phone", "call", "number", "telephone", "contact"],
     question: "What is your phone number?",
-    answer: `**[CONTACT INFORMATION]** 📞\n\n**Main Line:** (509) 308-6489\n\n**Email:** office@mhc-gc.com\n\n**Hours:** Monday-Friday, 8:00 AM - 5:00 PM PST\n\n**[Schedule Consultation →](/booking)** or **[Contact Form →](/contact)**`,
+    answer: `**[CONTACT INFORMATION]** 📞\n\n**Main Line:** (509) 308-6489\n\n**Email:** office@mhc-gc.com\n\n**Hours:** Monday-Friday, 7:00 AM - 4:00 PM PST\n\n**[Schedule Consultation →](/booking)** or **[Contact Form →](/contact)**`,
     category: "contact",
   },
   {
     keywords: ["hours", "open", "when", "schedule", "available"],
     question: "What are your business hours?",
-    answer: `**[OPERATIONAL HOURS]** ⏰\n\n**Standard Operations:**\nMonday-Friday: 8:00 AM - 5:00 PM PST\n\n**Response Times:**\n• Standard inquiries: Within 24 hours\n• Veteran priority: Within 12 hours\n• Emergency support: Same day\n\n**24/7 Available:**\n• **[AI Estimator →](/estimator)** - Instant project estimates\n• Emergency contact for urgent construction support\n\n**Ready to connect?** [Schedule Consultation →](/booking)`,
+    answer: `**[OPERATIONAL HOURS]** ⏰\n\n**Standard Operations:**\nMonday-Friday: 7:00 AM - 4:00 PM PST\n\n**Response Times:**\n• Standard inquiries: Within 24 hours\n• Veteran priority: Within 12 hours\n• Emergency support: Same day\n\n**24/7 Available:**\n• **[AI Estimator →](/estimator)** - Instant project estimates\n• Emergency contact for urgent construction support\n\n**Ready to connect?** [Schedule Consultation →](/booking)`,
     category: "contact",
   },
   {
@@ -53,7 +53,7 @@ export const faqDatabase: FAQItem[] = [
   {
     keywords: ["free", "consultation", "assessment"],
     question: "Do you offer free consultations?",
-    answer: `**[FREE CONSULTATIONS]** ✅\n\n**YES! We offer completely free consultations!**\n\n**What's Included:**\n• 60-minute comprehensive review\n• On-site assessment (if applicable)\n• Preliminary timeline estimate\n• Budget discussion\n• Expert recommendations\n• No obligation - no pressure\n\n**Schedule Options:**\n• Morning: 8:00 AM - 12:00 PM\n• Afternoon: 1:00 PM - 5:00 PM\n• Flexible for priority projects\n\n**[Schedule Free Consultation →](/booking)**\n\n**Also Available 24/7:**\n• **[AI Estimator →](/estimator)** - Instant preliminary pricing\n• Chatbot support (that's me!)\n\n**VETERAN PRIORITY:** Expedited scheduling available!`,
+    answer: `**[FREE CONSULTATIONS]** ✅\n\n**YES! We offer completely free consultations!**\n\n**What's Included:**\n• 60-minute comprehensive review\n• On-site assessment (if applicable)\n• Preliminary timeline estimate\n• Budget discussion\n• Expert recommendations\n• No obligation - no pressure\n\n**Schedule Options:**\n• Morning: 7:00 AM - 12:00 PM\n• Afternoon: 1:00 PM - 4:00 PM\n• Flexible for priority projects\n\n**[Schedule Free Consultation →](/booking)**\n\n**Also Available 24/7:**\n• **[AI Estimator →](/estimator)** - Instant preliminary pricing\n• Chatbot support (that's me!)\n\n**VETERAN PRIORITY:** Expedited scheduling available!`,
     category: "pricing",
   },
 

@@ -39,7 +39,7 @@ export default function CareersPage() {
 
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section - Group 5: Recruitment & Growth */}
       <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
@@ -88,26 +88,27 @@ export default function CareersPage() {
         {/* Why Work With Us */}
         <section className="mb-20 lg:mb-32">
           <SectionHeader
-            subtitle="Why Join"
+            subtitle="Why Choose"
             title={
               <span className="block text-brand-primary dark:text-brand-primary font-black">
                 MH Construction
               </span>
             }
-            description="Veteran-owned family investing in your success. Award-winning .6 EMR safety, 3+ years no time-loss injury. When you succeed, we all succeed."
+            description="Discover what makes MH Construction more than just a job—it's a career home where your growth is our mission and your success is celebrated."
           />
 
           <StaggeredFadeIn className={gridPresets.cards4("lg")}>
-            {cultureValues.map((value, _index) => (
-              <Card key={_index} className={getCardClassName("default")}>
-                <CardContent className="flex flex-col p-6 h-full text-center">
-                  <div
-                    className={`flex justify-center items-center bg-gradient-to-r ${value.color} mx-auto mb-4 rounded-full w-16 h-16`}
-                  >
+            {cultureValues.map((value, index) => (
+              <Card
+                key={index}
+                className={getCardClassName("default", "hover:-translate-y-2")}
+              >
+                <CardContent className="p-6 xs:p-7 sm:p-8 text-center">
+                  <div className="flex justify-center items-center bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 mx-auto mb-4 rounded-full w-16 h-16">
                     <MaterialIcon
                       icon={value.icon}
                       size="lg"
-                      className="text-white"
+                      className="text-brand-primary"
                     />
                   </div>
                   <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-lg">
@@ -131,26 +132,27 @@ export default function CareersPage() {
                 & Perks
               </span>
             }
-            description="We believe in taking care of our team members with comprehensive benefits, continuous learning opportunities, and a supportive work environment where everyone goes home safe, every single day. Professional development includes regular training on new techniques, safety standards (OSHA 30, VPP Star), technology, plus cross-training across specialties, structured mentorship programs pairing experienced professionals with emerging leaders, and industry involvement that keeps you at the forefront of construction excellence."
+            description="We invest in our team members with comprehensive benefits, competitive compensation, and opportunities for growth that support your career and personal well-being."
           />
 
-          <StaggeredFadeIn className={gridPresets.cards4("md", "mb-12")}>
-            {companyBenefits.map((benefit, _index) => (
-              <Card key={_index} className={getCardClassName("static")}>
-                <CardContent className="flex flex-col p-6 h-full">
-                  <div className="flex items-center mb-4">
-                    <div className="flex justify-center items-center bg-brand-primary mr-4 rounded-full w-12 h-12">
-                      <MaterialIcon
-                        icon={benefit.icon}
-                        size="lg"
-                        className="text-white"
-                      />
-                    </div>
-                    <h3 className="font-bold text-gray-900 dark:text-white text-lg">
+          <StaggeredFadeIn className={gridPresets.cards3("md")}>
+            {companyBenefits.map((benefit, index) => (
+              <Card
+                key={index}
+                className={getCardClassName("default", "hover:shadow-xl")}
+              >
+                <CardContent className="p-6 xs:p-7 sm:p-8">
+                  <div className="mb-4">
+                    <MaterialIcon
+                      icon={benefit.icon}
+                      size="xl"
+                      className="text-brand-primary mb-3"
+                    />
+                    <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-lg">
                       {benefit.title}
                     </h3>
                   </div>
-                  <p className="flex-grow text-gray-600 dark:text-gray-300 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                     {benefit.description}
                   </p>
                 </CardContent>
@@ -159,140 +161,67 @@ export default function CareersPage() {
           </StaggeredFadeIn>
         </section>
 
-        {/* Employee Stories Section - POSITIONED AT 25-30% PAGE DEPTH FOR SEO */}
-        <section id="employee-stories" className="mb-20 lg:mb-32">
-          <TestimonialGrid
-            testimonials={getEmployeeTestimonials()}
-            title="Hear From Our Team Members"
-            subtitle="Real stories from real people who chose to build their careers with MH Construction—from military veterans to skilled tradespeople"
-            variant="employee"
-            columns={3}
-          />
-        </section>
-
-        {/* Veteran Benefits Section - DEDICATED */}
-        <section id="veteran-benefits" className="mb-20 lg:mb-32">
+        {/* Veteran Benefits Section */}
+        <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
-            <div className="bg-gradient-to-br from-brand-primary/5 via-forest-600/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:via-forest-600/10 dark:to-brand-secondary/10 p-12 lg:p-16 rounded-2xl">
-              <SectionHeader
-                icon="military_tech"
-                iconClassName="w-16 h-16"
-                subtitle="Veteran Benefits"
-                title={
-                  <span className="block text-brand-primary dark:text-brand-primary font-black">
-                    & Support Programs
+            <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 p-8 xs:p-10 sm:p-12 rounded-2xl border border-gray-200 dark:border-gray-700">
+              <div className="mb-12 text-center">
+                <div className="flex justify-center items-center mb-4">
+                  <MaterialIcon
+                    icon="military_tech"
+                    size="2xl"
+                    className="text-brand-primary"
+                  />
+                </div>
+                <h2 className="mb-6 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+                    Supporting Our
                   </span>
-                }
-                description={
-                  <>
-                    <strong className="text-brand-primary font-semibold">
-                      Veteran-owned since January 2025 under Army veteran
-                      leadership.
-                    </strong>{" "}
-                    We honor your service with dedicated programs, priority
-                    hiring, and a workplace that understands military values—
-                    discipline, precision, mission focus, and service above
-                    self. Join a team where your military experience is not just
-                    recognized but celebrated and leveraged for construction
-                    excellence.
-                  </>
-                }
-              />
+                  <span className="block text-brand-primary dark:text-brand-primary font-black">
+                    Veterans
+                  </span>
+                </h2>
+                <p className="mx-auto max-w-3xl font-light text-gray-700 dark:text-gray-300 text-base xs:text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
+                  As a veteran-owned company, we understand the unique value
+                  military service brings. We actively recruit veterans and
+                  provide specialized support for those transitioning to
+                  civilian careers.
+                </p>
+              </div>
 
-              <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
-                {veteranBenefits.map((benefit, _index) => (
-                  <Card key={_index} className={getCardClassName("primary")}>
-                    <CardContent className="flex flex-col p-6 h-full">
-                      <div className="flex items-center mb-4">
-                        <div className="flex justify-center items-center bg-gradient-to-r from-brand-primary to-forest-600 mr-4 rounded-full w-12 h-12">
-                          <MaterialIcon
-                            icon={benefit.icon}
-                            size="lg"
-                            className="text-white"
-                          />
-                        </div>
-                        <h3 className="font-bold text-gray-900 dark:text-white text-lg">
+              <div className={gridPresets.cards3("lg")}>
+                <StaggeredFadeIn>
+                  {veteranBenefits.map((benefit, index) => (
+                    <Card
+                      key={index}
+                      className={getCardClassName(
+                        "default",
+                        "bg-white dark:bg-gray-800",
+                      )}
+                    >
+                      <CardContent className="p-6">
+                        <MaterialIcon
+                          icon={benefit.icon}
+                          size="lg"
+                          className="text-brand-primary mb-3"
+                        />
+                        <h3 className="mb-2 font-semibold text-gray-900 dark:text-white text-base">
                           {benefit.title}
                         </h3>
-                      </div>
-                      <p className="flex-grow text-gray-600 dark:text-gray-300 leading-relaxed">
-                        {benefit.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </StaggeredFadeIn>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                          {benefit.description}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </StaggeredFadeIn>
+              </div>
 
-              {/* Veteran Success Stats */}
               <FadeInWhenVisible>
-                <div className="bg-white dark:bg-gray-800 shadow-xl p-8 lg:p-12 border-2 border-brand-primary dark:border-brand-primary/50 rounded-xl">
-                  <h3 className="mb-8 font-black text-center text-gray-900 dark:text-white text-2xl sm:text-3xl">
-                    Why Veterans Choose MH Construction
-                  </h3>
-                  <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
-                    <div className="text-center">
-                      <MaterialIcon
-                        icon="shield"
-                        size="3xl"
-                        className="mb-4 text-brand-primary"
-                      />
-                      <p className="mb-2 font-black text-4xl text-brand-primary">
-                        .6 EMR
-                      </p>
-                      <p className="font-medium text-gray-700 dark:text-gray-300">
-                        Military-Grade Safety Standards
-                      </p>
-                      <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                        40% better than industry average with 3+ years no
-                        time-loss injuries
-                      </p>
-                    </div>
-                    <div className="text-center">
-                      <MaterialIcon
-                        icon="groups"
-                        size="3xl"
-                        className="mb-4 text-brand-primary"
-                      />
-                      <p className="mb-2 font-black text-4xl text-brand-primary">
-                        Army Vet
-                      </p>
-                      <p className="font-medium text-gray-700 dark:text-gray-300">
-                        Veteran-Owned Leadership
-                      </p>
-                      <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                        Led by those who understand military service and values
-                      </p>
-                    </div>
-                    <div className="text-center">
-                      <MaterialIcon
-                        icon="trending_up"
-                        size="3xl"
-                        className="mb-4 text-brand-primary"
-                      />
-                      <p className="mb-2 font-black text-4xl text-brand-primary">
-                        150+
-                      </p>
-                      <p className="font-medium text-gray-700 dark:text-gray-300">
-                        Years Combined Experience
-                      </p>
-                      <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                        Structured mentorship from veteran and civilian leaders
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-10 text-center">
-                    <blockquote className="mb-4 font-medium text-gray-700 dark:text-gray-300 text-lg sm:text-xl italic">
-                      "Veterans bring mission-focused reliability, discipline
-                      under pressure, and a commitment to excellence that
-                      directly translates to construction success. Your service
-                      matters here."
-                    </blockquote>
-                    <cite className="font-semibold text-brand-primary">
-                      — MH Construction Leadership
-                    </cite>
-                  </div>
-
+                <div className="mt-10 text-center">
+                  <p className="mb-6 font-medium text-gray-700 text-lg dark:text-gray-300">
+                    Veterans receive priority consideration for all positions
+                  </p>
                   <div className="flex sm:flex-row flex-col justify-center gap-6 mt-10">
                     <Button
                       onClick={() => handleApplyNow("Veteran Application")}
@@ -313,11 +242,7 @@ export default function CareersPage() {
                         size="lg"
                         className="transition-all duration-300 min-w-[260px]"
                       >
-                        <MaterialIcon
-                          icon="phishing"
-                          size="lg"
-                          className="mr-3"
-                        />
+                        <MaterialIcon icon="info" size="lg" className="mr-3" />
                         <span className="font-medium">Veterans Initiative</span>
                       </Button>
                     </Link>
@@ -344,7 +269,7 @@ export default function CareersPage() {
           </FadeInWhenVisible>
         </section>
 
-        {/* Open Positions - MOVED EARLIER for primary conversion focus */}
+        {/* Open Positions */}
         <section id="positions" className="mb-20 lg:mb-32">
           <SectionHeader
             icon="work"
@@ -468,17 +393,6 @@ export default function CareersPage() {
           </StaggeredFadeIn>
         </section>
 
-        {/* Employee Stories Section */}
-        <section id="employee-stories">
-          <TestimonialGrid
-            testimonials={getEmployeeTestimonials()}
-            title="Hear From Our Team Members"
-            subtitle="Real stories from real people who chose to build their careers with MH Construction—from military veterans to skilled tradespeople"
-            variant="employee"
-            columns={3}
-          />
-        </section>
-
         {/* Application Process Guide Section */}
         <section id="application-process" className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
@@ -492,6 +406,7 @@ export default function CareersPage() {
                     Join Our Team
                   </span>
                 </h2>
+
                 <p className="mx-auto max-w-3xl font-light text-gray-700 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
                   We've streamlined our hiring process to be transparent,
                   efficient, and respectful of your time. Here's what to expect
@@ -529,17 +444,7 @@ export default function CareersPage() {
                           className="text-accent-600"
                         />
                         <span className="text-gray-600 dark:text-gray-400">
-                          5-10 minutes
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MaterialIcon
-                          icon="checklist"
-                          size="sm"
-                          className="text-accent-600"
-                        />
-                        <span className="text-gray-600 dark:text-gray-400">
-                          Resume, certifications
+                          Response within 3-5 business days
                         </span>
                       </div>
                     </div>
@@ -554,7 +459,7 @@ export default function CareersPage() {
                     </div>
                     <div className="flex justify-center items-center bg-secondary-100 dark:bg-secondary-900/30 mx-auto mb-4 rounded-full w-16 h-16">
                       <MaterialIcon
-                        icon="call"
+                        icon="phone"
                         size="lg"
                         className="text-secondary-600 dark:text-secondary-400"
                       />
@@ -563,9 +468,8 @@ export default function CareersPage() {
                       Phone Screening
                     </h3>
                     <p className="mb-4 text-gray-600 text-sm dark:text-gray-300 leading-relaxed">
-                      Brief conversation with our HR team to discuss your
-                      experience, salary expectations, and availability. Expect
-                      a call within 3-5 business days.
+                      Brief 15-20 minute phone conversation to discuss your
+                      background, career goals, and answer initial questions.
                     </p>
                     <div className="space-y-2 text-xs">
                       <div className="flex items-center gap-2">
@@ -576,16 +480,6 @@ export default function CareersPage() {
                         />
                         <span className="text-gray-600 dark:text-gray-400">
                           15-20 minutes
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MaterialIcon
-                          icon="checklist"
-                          size="sm"
-                          className="text-accent-600"
-                        />
-                        <span className="text-gray-600 dark:text-gray-400">
-                          Salary range, availability
                         </span>
                       </div>
                     </div>
@@ -624,40 +518,30 @@ export default function CareersPage() {
                           45-60 minutes
                         </span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <MaterialIcon
-                          icon="checklist"
-                          size="sm"
-                          className="text-accent-600"
-                        />
-                        <span className="text-gray-600 dark:text-gray-400">
-                          Portfolio, references
-                        </span>
-                      </div>
                     </div>
                   </div>
                 </FadeInWhenVisible>
 
-                {/* Step 4: Skills Assessment */}
+                {/* Step 4: Background Check */}
                 <FadeInWhenVisible>
                   <div className="relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl p-6 rounded-xl transition-all duration-300">
-                    <div className="flex justify-center items-center bg-gradient-to-br from-primary-600 to-primary-700 mb-4 rounded-full w-14 h-14">
+                    <div className="flex justify-center items-center bg-gradient-to-br from-primary-500 to-primary-600 mb-4 rounded-full w-14 h-14">
                       <span className="font-black text-2xl text-white">4</span>
                     </div>
                     <div className="flex justify-center items-center bg-primary-100 dark:bg-primary-900/30 mx-auto mb-4 rounded-full w-16 h-16">
                       <MaterialIcon
-                        icon="engineering"
+                        icon="verified_user"
                         size="lg"
                         className="text-primary-600 dark:text-primary-400"
                       />
                     </div>
                     <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl">
-                      Skills Assessment
+                      Background Check
                     </h3>
                     <p className="mb-4 text-gray-600 text-sm dark:text-gray-300 leading-relaxed">
-                      Hands-on evaluation of technical abilities. Demonstrate
-                      your craft, equipment operation, or trade skills under
-                      real-world conditions.
+                      Standard background and reference checks to verify
+                      employment history and qualifications. Drug screening may
+                      be required.
                     </p>
                     <div className="space-y-2 text-xs">
                       <div className="flex items-center gap-2">
@@ -667,17 +551,7 @@ export default function CareersPage() {
                           className="text-accent-600"
                         />
                         <span className="text-gray-600 dark:text-gray-400">
-                          1-2 hours
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MaterialIcon
-                          icon="checklist"
-                          size="sm"
-                          className="text-accent-600"
-                        />
-                        <span className="text-gray-600 dark:text-gray-400">
-                          Tools, safety gear
+                          3-7 business days
                         </span>
                       </div>
                     </div>
@@ -687,7 +561,7 @@ export default function CareersPage() {
                 {/* Step 5: Offer & Onboarding */}
                 <FadeInWhenVisible>
                   <div className="relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl p-6 rounded-xl transition-all duration-300">
-                    <div className="flex justify-center items-center bg-gradient-to-br from-secondary-600 to-secondary-700 mb-4 rounded-full w-14 h-14">
+                    <div className="flex justify-center items-center bg-gradient-to-br from-secondary-500 to-secondary-600 mb-4 rounded-full w-14 h-14">
                       <span className="font-black text-2xl text-white">5</span>
                     </div>
                     <div className="flex justify-center items-center bg-secondary-100 dark:bg-secondary-900/30 mx-auto mb-4 rounded-full w-16 h-16">
@@ -713,17 +587,7 @@ export default function CareersPage() {
                           className="text-accent-600"
                         />
                         <span className="text-gray-600 dark:text-gray-400">
-                          1-2 days
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MaterialIcon
-                          icon="checklist"
-                          size="sm"
-                          className="text-accent-600"
-                        />
-                        <span className="text-gray-600 dark:text-gray-400">
-                          I-9, W-4, direct deposit
+                          1-2 weeks
                         </span>
                       </div>
                     </div>
@@ -731,67 +595,64 @@ export default function CareersPage() {
                 </FadeInWhenVisible>
               </div>
 
-              {/* Timeline Overview */}
-              <div className="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-xl">
-                <h3 className="flex items-center justify-center gap-3 mb-6 font-bold text-gray-900 dark:text-white text-2xl">
-                  <MaterialIcon
-                    icon="timeline"
-                    size="lg"
-                    className="text-primary-600"
-                  />
-                  Total Timeline: 1-3 Weeks
-                </h3>
-                <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
-                  <div className="text-center">
-                    <div className="flex justify-center items-center bg-primary-100 dark:bg-primary-900/30 mx-auto mb-3 rounded-full w-12 h-12">
-                      <MaterialIcon
-                        icon="flash_on"
-                        size="md"
-                        className="text-primary-600"
-                      />
+              {/* Timeline Details */}
+              <FadeInWhenVisible>
+                <div className="bg-white dark:bg-gray-800 shadow-md mt-12 p-8 rounded-xl">
+                  <h3 className="mb-6 font-bold text-center text-gray-900 text-xl dark:text-white">
+                    What to Expect Timeline
+                  </h3>
+                  <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
+                    <div className="text-center">
+                      <div className="flex justify-center items-center bg-primary-100 dark:bg-primary-900/30 mx-auto mb-3 rounded-full w-12 h-12">
+                        <MaterialIcon
+                          icon="flash_on"
+                          size="md"
+                          className="text-primary-600"
+                        />
+                      </div>
+                      <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">
+                        Fast-Track Available
+                      </h4>
+                      <p className="text-gray-600 text-sm dark:text-gray-300">
+                        Exceptional candidates with urgent availability may
+                        complete the process in 1 week
+                      </p>
                     </div>
-                    <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">
-                      Fast-Track Available
-                    </h4>
-                    <p className="text-gray-600 text-sm dark:text-gray-300">
-                      Exceptional candidates with urgent availability may
-                      complete the process in 1 week
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <div className="flex justify-center items-center bg-secondary-100 dark:bg-secondary-900/30 mx-auto mb-3 rounded-full w-12 h-12">
-                      <MaterialIcon
-                        icon="verified"
-                        size="md"
-                        className="text-secondary-600"
-                      />
+                    <div className="text-center">
+                      <div className="flex justify-center items-center bg-secondary-100 dark:bg-secondary-900/30 mx-auto mb-3 rounded-full w-12 h-12">
+                        <MaterialIcon
+                          icon="verified"
+                          size="md"
+                          className="text-secondary-600"
+                        />
+                      </div>
+                      <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">
+                        Standard Process
+                      </h4>
+                      <p className="text-gray-600 text-sm dark:text-gray-300">
+                        Most candidates complete the full process in 2-3 weeks
+                        from application to offer
+                      </p>
                     </div>
-                    <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">
-                      Background Checks
-                    </h4>
-                    <p className="text-gray-600 text-sm dark:text-gray-300">
-                      Criminal background and driving record checks conducted
-                      for all final candidates
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <div className="flex justify-center items-center bg-accent-100 dark:bg-accent-900/30 mx-auto mb-3 rounded-full w-12 h-12">
-                      <MaterialIcon
-                        icon="support_agent"
-                        size="md"
-                        className="text-accent-600"
-                      />
+                    <div className="text-center">
+                      <div className="flex justify-center items-center bg-accent-100 dark:bg-accent-900/30 mx-auto mb-3 rounded-full w-12 h-12">
+                        <MaterialIcon
+                          icon="support_agent"
+                          size="md"
+                          className="text-accent-600"
+                        />
+                      </div>
+                      <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">
+                        Always Transparent
+                      </h4>
+                      <p className="text-gray-600 text-sm dark:text-gray-300">
+                        We keep you informed at every stage and are always
+                        available for your questions
+                      </p>
                     </div>
-                    <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">
-                      Always Transparent
-                    </h4>
-                    <p className="text-gray-600 text-sm dark:text-gray-300">
-                      We'll keep you updated at every stage—no ghosting, no
-                      surprises
-                    </p>
                   </div>
                 </div>
-              </div>
+              </FadeInWhenVisible>
 
               {/* CTA Section */}
               <div className="mt-12 text-center">
@@ -827,21 +688,25 @@ export default function CareersPage() {
           </FadeInWhenVisible>
         </section>
 
-        {/* Call to Action */}
-        <section className="bg-gradient-to-br from-brand-primary/5 dark:from-brand-primary/10 via-brand-primary/10 dark:via-brand-primary/20 to-brand-secondary/5 dark:to-brand-secondary/10 p-12 lg:p-16 xl:p-20 rounded-2xl">
-          <FadeInWhenVisible>
-            <div className="text-center">
-              {/* NO SECTION BADGES - Icon only */}
-              <div className="mb-8">
-                <MaterialIcon
-                  icon="groups"
-                  size="4xl"
-                  className="text-brand-primary"
-                />
-              </div>
+        {/* Employee Testimonials */}
+        <section id="testimonials" className="mb-20 lg:mb-32">
+          <SectionHeader
+            subtitle="Hear From Our"
+            title={
+              <span className="block text-brand-primary dark:text-brand-primary font-black">
+                Team Members
+              </span>
+            }
+            description="Discover what it's really like to work at MH Construction through the experiences of our team members who've built their careers here."
+          />
+          <TestimonialGrid testimonials={getEmployeeTestimonials()} />
+        </section>
 
-              {/* Standard header - NO SECTION BADGES */}
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+        {/* General Application Section */}
+        <section id="general-application" className="mb-20 lg:mb-32">
+          <FadeInWhenVisible>
+            <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 p-10 sm:p-12 md:p-16 rounded-2xl text-center border border-gray-200 dark:border-gray-700">
+              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
                 <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
                   Don't See the
                 </span>

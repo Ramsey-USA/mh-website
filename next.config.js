@@ -86,11 +86,6 @@ const nextConfig = {
         permanent: true, // 301
       },
       {
-        source: "/urgent",
-        destination: "/contact#urgent-support",
-        permanent: true, // 301
-      },
-      {
         source: "/book",
         destination: "/booking",
         permanent: true, // 301

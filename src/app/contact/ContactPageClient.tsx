@@ -119,8 +119,8 @@ export default function ContactPageClient() {
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:00",
-      closes: "17:00",
+      opens: "07:00",
+      closes: "16:00",
     },
     areaServed: {
       "@type": "State",
@@ -182,8 +182,8 @@ export default function ContactPageClient() {
                 done. We believe in personal connection, honest handshakes, and
                 keeping our word. Building for the Client, NOT the Dollar.
                 That's not just our slogan, it's how we've done business since
-                2010. Call us, stop by, or send a message. Monday - Friday: 8:00
-                AM - 5:00 PM PST
+                2010. Call us, stop by, or send a message. Monday - Friday: 7:00
+                AM - 4:00 PM PST
               </p>
             </div>
           </div>
@@ -568,7 +568,7 @@ export default function ContactPageClient() {
                 style={{ height: "600px" }}
               >
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2732.8282!2d-119.1297!3d46.2589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54983e0a7f5b5555%3A0x0!2s3111%20N%20Capital%20Ave%2C%20Pasco%2C%20WA%2099301!5e0!3m2!1sen!2sus!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2732.828269!2d-119.1319!3d46.2589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54983e0a7f5b5555%3A0x1234567890abcdef!2s3111%20N%20Capital%20Ave%2C%20Pasco%2C%20WA%2099301!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -630,7 +630,7 @@ export default function ContactPageClient() {
                     key={_index}
                     href={cta.link}
                     aria-label={cta.ariaLabel}
-                    className="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-primary p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-brand-primary/50"
+                    className="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-primary p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-brand-primary/50 h-full flex flex-col"
                   >
                     {/* Icon Container */}
                     <div className="flex justify-center mb-6">
@@ -655,11 +655,11 @@ export default function ContactPageClient() {
                     </div>
 
                     {/* Content */}
-                    <div className="text-center">
-                      <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl">
+                    <div className="text-center flex flex-col flex-grow">
+                      <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl min-h-[3.5rem] flex items-center justify-center">
                         {cta.label}
                       </h3>
-                      <p className="mb-6 text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                      <p className="mb-6 text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed flex-grow">
                         {cta.description}
                       </p>
                       <div
@@ -702,7 +702,7 @@ export default function ContactPageClient() {
                     aria-hidden="true"
                   >
                     <MaterialIcon
-                      icon="engineering"
+                      icon="report"
                       size="4xl"
                       className="text-yellow-300"
                     />
@@ -739,7 +739,7 @@ export default function ContactPageClient() {
                 </div>
                 <p className="mt-6 text-white/70 text-sm">
                   For General Contractors • Equipment & Operators Available •
-                  Monday - Friday: 8:00 AM - 5:00 PM PST
+                  Monday - Friday: 7:00 AM - 4:00 PM PST
                 </p>
               </div>
             </FadeInWhenVisible>

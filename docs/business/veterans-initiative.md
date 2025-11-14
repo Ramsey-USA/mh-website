@@ -17,14 +17,15 @@
 
 ## Overview
 
-MH Construction is proud to be a **veteran-owned business** led by Army veteran Jeremy Thamert and
-Navy veteran Matt Ramsey. Our commitment to supporting veterans extends beyond our leadership—it's
-woven into every aspect of our operations, community engagement, and long-term vision.
+MH Construction is proud to be a **veteran-owned business** owned and led by Army veteran Jeremy Thamert,
+with Navy veteran Matt Ramsey serving as Digital Marketing Manager. Our commitment to supporting veterans
+extends beyond our leadership—it's woven into every aspect of our operations, community engagement, and
+long-term vision.
 
 ### Our Veteran Identity
 
-- **Veteran-Owned**: Certified veteran-owned construction company
-- **Military Leadership**: Army and Navy veterans in executive positions
+- **Veteran-Owned**: Certified veteran-owned construction company led by Army veteran Jeremy Thamert
+- **Military Leadership**: Owner and Digital Marketing Manager are both veterans
 - **Veteran Hiring**: Priority placement for qualified veteran candidates
 - **Military Standards**: Precision, discipline, and excellence in every project
 - **Community Support**: Active participation in veteran benefit programs
@@ -82,102 +83,126 @@ experiences for those who've served.
 
 ---
 
-## Sponsorship Opportunities
+## Organizational Partnership Opportunities
 
-### Why Sponsor?
+**IMPORTANT**: MH Construction does not collect donations. We seek organizational partnerships to co-host veteran events.
 
-By sponsoring the MH Construction Veterans Fishing Event, your organization:
+### Why Partner With MH Construction?
 
-- **Supports Veterans**: Directly impacts those who've served our country
-- **Community Visibility**: Brand recognition at high-visibility community event
-- **Business Networking**: Connect with veteran-owned businesses and local leaders
-- **Tax Benefits**: Eligible for tax deductions as charitable contribution
-- **Meaningful Impact**: Create lasting positive change in veterans' lives
+By partnering with MH Construction for veteran events, your organization:
 
-### Sponsorship Tiers
+- **Direct Veteran Impact**: Meaningful engagement with 100-150+ veterans and military families
+- **Turnkey Event Management**: MH Construction handles logistics, permits, insurance, and execution
+- **Co-Branded Marketing**: Joint promotional efforts reaching thousands across Pacific Northwest
+- **Mission Alignment**: Combine your organization's resources with our construction industry platform
+- **Community Leadership**: Demonstrate organizational commitment to veteran support
 
-#### Platinum Sponsor - $10,000+
+### Partnership Model
 
-**Benefits:**
+MH Construction provides the construction industry platform, event coordination, and logistics management.
+Partner organizations contribute resources, services, or expertise aligned with their capabilities and mission.
 
-- Title sponsor recognition in all marketing materials
-- Logo placement on event t-shirts and promotional materials
-- Company banner at registration and dinner venues
-- Speaking opportunity at awards ceremony
-- Social media promotion (20+ posts across platforms)
-- 10 complimentary event registrations
-- VIP boat assignment with company representatives
+#### Title Event Partner
 
-**Recognition:**
+**Ideal For:**
 
-- Event named "[Your Company] Veterans Fishing Classic presented by MH Construction"
-- Featured prominently in press releases and media coverage
-- Year-long recognition on MH Construction website
+- Major corporations
+- National non-profits
+- Veteran service organizations (VFW, American Legion, Wounded Warrior Project, etc.)
+- Foundations with veteran-focused missions
 
-#### Gold Sponsor - $5,000 - $9,999
+**What Your Organization Provides:**
 
-**Benefits:**
+- Event funding or substantial resources (venue, catering, equipment)
+- Access to your volunteer network and member base
+- Specialized services aligned with your mission
+- Staff support for event activation
 
-- Premier sponsor recognition in marketing materials
-- Logo on event t-shirts and banners
-- Social media promotion (10+ posts)
-- 6 complimentary event registrations
-- Company signage at key event locations
-- Recognition in awards ceremony
+**What MH Construction Provides:**
 
-**Recognition:**
+- Complete event planning, logistics, and on-site management
+- Construction industry connections and platform
+- Co-branded marketing campaign reaching regional audience
+- Permits, insurance, and regulatory compliance
+- Dedicated activation space for your organization at event
+- Post-event reporting and impact metrics
 
-- Featured sponsor on event website and materials
-- Logo displayed during event presentation
-- Acknowledged in press releases
+#### Co-Host Event Partner
 
-#### Silver Sponsor - $2,500 - $4,999
+**Ideal For:**
 
-**Benefits:**
+- Regional businesses with community focus
+- Community foundations
+- Veteran advocacy groups
+- Established local non-profits
 
-- Sponsor recognition in event materials
-- Logo on event website and promotional items
-- Social media mentions (5+ posts)
-- 4 complimentary event registrations
-- Company name in awards ceremony
+**What Your Organization Provides:**
 
-**Recognition:**
+- Partial event resources or specific event components
+- Access to your member network and communications channels
+- Your organization's expertise and services
+- Volunteer coordination from your network
 
-- Listed as supporting sponsor on all materials
-- Logo on event signage
+**What MH Construction Provides:**
 
-#### Bronze Sponsor - $1,000 - $2,499
+- Event infrastructure and operational support
+- Collaborative branding and joint marketing materials
+- Space for your organization to engage attendees
+- Event coordination and execution
+- Recognition across event communications
 
-**Benefits:**
+#### Supporting Event Partner
 
-- Name recognition in event materials
-- Social media mentions
-- 2 complimentary event registrations
-- Company name listed on website
+**Ideal For:**
 
-**Recognition:**
+- Local non-profits
+- Veteran chapters (American Legion Posts, VFW Posts, etc.)
+- Community service organizations
+- Professional associations
 
-- Supporting sponsor acknowledgment
-- Name included in event program
+**What Your Organization Provides:**
 
-#### Community Supporter - Up to $999
+- In-kind services or specific event support
+- Volunteer assistance or specialized expertise
+- Connection to veteran networks
+- Professional services related to your mission
 
-**Benefits:**
+**What MH Construction Provides:**
 
-- Name recognition in event program
-- Social media mention
-- 1 complimentary event registration
+- Partner recognition in all event materials
+- Listing on event website and communications
+- Opportunity to connect with veteran attendees
+- Table/booth space for outreach materials
+- Social media acknowledgment
 
-**Recognition:**
+#### Resource Contributor Partner
 
-- Community supporter acknowledgment
+**Ideal For:**
 
-### In-Kind Sponsorship
+- Businesses providing specific resources or services
+- Equipment rental companies
+- Catering services
+- Media production companies
 
-We also welcome in-kind donations including:
+**What Your Organization Provides:**
+
+- Equipment, supplies, or services for the event
+- Professional expertise or technical support
+- Discounted or donated resources aligned with your business
+
+**What MH Construction Provides:**
+
+- Recognition as event resource partner
+- Social media appreciation posts
+- Name listing on event website
+- Acknowledgment in event materials
+
+### Example Partner Contributions
+
+Organizations contribute what aligns with their mission and capabilities:
 
 - **Boats & Equipment**: Captains and vessels for event day
-- **Food & Beverage**: Breakfast, lunch, dinner, or refreshments
+- **Food & Catering Services**: Breakfast, lunch, dinner, or refreshments
 - **Fishing Gear**: Rods, tackle, bait, and equipment
 - **Prizes & Giveaways**: Gift cards, merchandise, raffle items
 - **Professional Services**: Photography, videography, sound systems
@@ -192,32 +217,36 @@ We also welcome in-kind donations including:
 
 **Veteran Priority Hiring:**
 
-- Qualified veterans receive priority consideration for all positions
-- Apprenticeship programs specifically for transitioning service members
+- Qualified veterans receive priority consideration for all positions (active now)
+- Apprenticeship programs for transitioning service members (in development)
 - Mentorship from veteran leadership team
 - Flexible scheduling for VA appointments and military obligations
 
 **Trade Partner Network:**
 
-- Actively recruiting veteran-owned subcontractors
-- Preferential bidding for veteran-owned businesses
-- Support for veteran contractors seeking certifications
+- Recruiting veteran-owned subcontractors for our growing network
+- Building preferential opportunities for veteran-owned businesses
+- Support for veteran contractors as we establish long-term partnerships
 
 ### Community Partnerships
 
 **Veteran Organizations:**
 
-- Partnership with local VFW and American Legion posts
-- Collaboration with VA hospitals and veteran service organizations
-- Support for veteran transition programs
+- Developing partnerships with local VFW and American Legion posts
+- Building relationships with VA hospitals and veteran service organizations
+- Planning support for veteran transition programs
 - Participation in veteran job fairs and hiring events
+
+**Note:** As a newly veteran-owned company (since January 2025), we're establishing the longevity
+needed for formal partnerships with veteran service organizations. Many groups require demonstrated
+track record before committing to organizational partnerships.
 
 **Educational Support:**
 
-- Scholarships for veterans pursuing construction trades
-- Internship opportunities for student veterans
-- GI Bill apprenticeship program participation
-- Technical training partnerships
+- Planning scholarship opportunities for veterans pursuing construction trades
+- Developing internship programs for student veterans
+- Working toward GI Bill apprenticeship program participation
+- Building technical training partnerships
 
 ### Corporate Values
 
@@ -239,7 +268,7 @@ We also welcome in-kind donations including:
 
 - Registration opens January 2026
 - Limited spaces available (first-come, first-served)
-- No cost to participate (sponsored by community partners)
+- No cost to participate (event made possible through organizational partnerships)
 - Contact: <veterans@mhconstruction.com>
 
 **Employment Opportunities:**
@@ -253,38 +282,37 @@ We also welcome in-kind donations including:
 - Veteran-owned businesses encouraged to apply
 - Visit /trade-partners for application process
 
-### For Sponsors
+### For Partner Organizations
 
-**Become an Event Sponsor:**
+**Become an Event Partner:**
 
-- Email: <sponsorship@mhconstruction.com>
-- Phone: Contact us through website
-- Partnership proposals welcome
+- Email: <office@mhc-gc.com> (subject: "Veterans Event Partnership")
+- Phone: (509) 308-6489
+- Partnership proposals welcome - we customize collaboration based on your organization's capabilities
 
-**In-Kind Donations:**
+**Resource Contributions:**
 
-- Contact event coordinator for needed items
-- Boat captains encouraged to volunteer vessels
+- Contact event coordinator to discuss how your organization can contribute
+- Boat captains and equipment providers encouraged to connect
+- Service organizations welcome to discuss collaboration opportunities
 
-**Volunteer Opportunities:**
+**Volunteer Coordination:**
 
-- Event day support staff needed
-- Marketing and outreach volunteers
-- Setup and breakdown crews
+- Bring your organization's volunteer network to support event
+- Coordinate with MH Construction on volunteer roles and responsibilities
 
 ### For Community Members
 
 **Support the Event:**
 
-- Donate to general event fund
+- Connect us with organizations that might want to partner
 - Spread awareness through social media
-- Encourage local businesses to sponsor
-- Volunteer your time and skills
+- Volunteer your time and skills (coordinated through partner organizations)
 
 **Boat Captains:**
 
 - We need 40+ boats for the event
-- Captains receive fuel reimbursement and lunch
+- Captains coordinated through partner organizations
 - Coast Guard safety requirements must be met
 - Liability insurance coverage provided
 
@@ -297,8 +325,7 @@ We also welcome in-kind donations including:
 - **Veterans Served**: 100-150 participants
 - **Boats Participating**: 40+
 - **Volunteers**: 50+ community members
-- **Funds Raised**: $75,000-$100,000
-- **Sponsor Partners**: 15-20 businesses
+- **Partner Organizations**: 10-15 collaborative partners
 - **Media Reach**: 50,000+ impressions
 
 ### Long-Term Vision (5 Years)

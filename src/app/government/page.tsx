@@ -881,7 +881,7 @@ export default function GovernmentGrantsPage() {
                   className="inline mr-2"
                   size="sm"
                 />
-                Monday - Friday: 0800 - 1700 PST | Emergency Response Available
+                Monday - Friday: 0700 - 1600 PST | Emergency Response Available
                 24/7
               </p>
             </div>

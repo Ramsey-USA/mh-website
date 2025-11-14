@@ -269,9 +269,9 @@ export class SpecialistManager {
     return [
       {
         day: "Monday-Friday",
-        startTime: "8:00 AM",
-        endTime: "6:00 PM",
-        timezone: "CST",
+        startTime: "7:00 AM",
+        endTime: "4:00 PM",
+        timezone: "PST",
         emergencyAvailable: false,
       },
     ];

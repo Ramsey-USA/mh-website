@@ -126,76 +126,40 @@ export default function UrgentSupportPage() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section
-        className="relative bg-gradient-to-br from-orange-600 via-orange-700 to-red-700 pt-20 sm:pt-24 lg:pt-32 pb-20 sm:pb-24 lg:pb-32 text-white"
-        aria-labelledby="hero-heading"
-      >
-        {/* Veteran Badge */}
-        <div className="flex justify-center items-center gap-2 mb-4 sm:mb-6">
-          <MaterialIcon
-            icon="military_tech"
-            size="lg"
-            className="text-yellow-300"
-          />
-          <span className="font-semibold text-yellow-300 text-sm sm:text-base tracking-wide uppercase">
-            Veteran-Owned Rapid Response
-          </span>
+      {/* Hero Section - Brand Standards */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-orange-700 to-red-800 h-screen flex items-center justify-center text-white overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-600/30 via-gray-900/80 to-red-700/20"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+          <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+            {/* Main Title */}
+            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+              <span className="block text-brand-secondary font-black drop-shadow-lg">
+                When Time Is Critical, We Respond
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
+              THE ROI IS THE RELATIONSHIP • Rapid Response Partnership
+            </p>
+
+            {/* Description */}
+            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
+              Professional support for General Contractors facing critical
+              challenges. "Building for the Client, NOT the Dollar" means being
+              there when you need us most. Expert consultation, heavy equipment
+              with certified operators, and experienced crews ready for
+              immediate deployment. We fix the source—foundations, structural
+              systems, and roofing failures. Your urgent need is our immediate
+              priority.
+            </p>
+          </div>
         </div>
 
-        {/* Title */}
-        <h1
-          id="hero-heading"
-          className="text-center font-bold mb-6 text-white"
-          style={{ fontSize: "clamp(2rem, 8vw, 5rem)" }}
-        >
-          When Time Is Critical, We Respond
-        </h1>
-
-        {/* Subtitle */}
-        <p
-          className="text-center mb-4 font-semibold text-yellow-200"
-          style={{ fontSize: "clamp(1.25rem, 3vw, 2rem)" }}
-        >
-          THE ROI IS THE RELATIONSHIP
-        </p>
-
-        <p
-          className="text-center mb-8 font-medium text-white/90 max-w-4xl mx-auto px-4"
-          style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)" }}
-        >
-          Emergency construction support for general contractors. Building for
-          the Client, NOT the Dollar means being there when you need us most.
-          Expert consultation, heavy equipment with operators, experienced crews
-          ready for immediate deployment. Your urgent need is our immediate
-          priority.
-        </p>
-
-        {/* Emergency Contact CTAs */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 px-4">
-          <a
-            href="tel:+15093086489"
-            className="inline-flex items-center gap-3 bg-white hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-orange-700 transition-all duration-200 hover:scale-105 shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/50"
-            aria-label="Call MH Construction urgently at 509-308-6489"
-          >
-            <MaterialIcon icon="phone" size="lg" />
-            Call Now: (509) 308-6489
-          </a>
-          <a
-            href="mailto:office@mhc-gc.com?subject=Urgent%20Construction%20Support%20Request"
-            className="inline-flex items-center gap-3 bg-orange-800 hover:bg-orange-900 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-200 hover:scale-105 shadow-xl focus:outline-none focus:ring-4 focus:ring-orange-900/50"
-            aria-label="Email urgent construction support request"
-          >
-            <MaterialIcon icon="email" size="lg" />
-            Email Support Request
-          </a>
-        </div>
-
-        <p className="text-center mt-6 text-white/80 text-sm">
-          Available Monday - Friday: 8:00 AM - 5:00 PM PST
-        </p>
-
-        {/* Page-Specific Navigation Bar */}
+        {/* Page Navigation */}
         <PageNavigation
           items={navigationConfigs.urgent}
           className="absolute bottom-0 left-0 right-0"
@@ -206,6 +170,46 @@ export default function UrgentSupportPage() {
       <Breadcrumb
         items={[{ label: "Home", href: "/" }, { label: "Urgent Support" }]}
       />
+
+      {/* Quick Contact Section */}
+      <section className="py-12 bg-orange-50 dark:bg-orange-950/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeInWhenVisible>
+            <div className="text-center mb-8">
+              <MaterialIcon
+                icon="report"
+                size="3xl"
+                className="text-orange-600 dark:text-orange-400 mx-auto mb-4"
+              />
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                Emergency Contact Information
+              </h2>
+              <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                Available Monday - Friday: 7:00 AM - 4:00 PM PST
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+              <a
+                href="tel:+15093086489"
+                className="inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-700 px-8 py-4 rounded-xl font-bold text-white transition-all duration-200 hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-600/50 w-full sm:w-auto justify-center"
+                aria-label="Call MH Construction urgently at 509-308-6489"
+              >
+                <MaterialIcon icon="phone" size="lg" />
+                Call Now: (509) 308-6489
+              </a>
+              <a
+                href="mailto:office@mhc-gc.com?subject=Urgent%20Construction%20Support%20Request"
+                className="inline-flex items-center gap-3 bg-gray-800 hover:bg-gray-900 px-8 py-4 rounded-xl font-bold text-white transition-all duration-200 hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-gray-800/50 w-full sm:w-auto justify-center"
+                aria-label="Email urgent construction support request"
+              >
+                <MaterialIcon icon="email" size="lg" />
+                Email Support Request
+              </a>
+            </div>
+          </FadeInWhenVisible>
+        </div>
+      </section>
 
       {/* Our Focus Section */}
       <section className="py-16 bg-background">

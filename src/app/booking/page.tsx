@@ -273,13 +273,14 @@ Please contact the client to confirm this consultation appointment.
             id="what-to-expect"
             className="mx-auto mb-16 max-w-5xl bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden"
           >
-            <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-8 py-6">
-              <h2 className="flex items-center gap-3 font-bold text-2xl text-white md:text-3xl">
+            <div className="bg-gradient-to-r from-brand-primary to-brand-primary-dark px-8 py-6">
+              <h2 className="flex items-center gap-3 font-black text-2xl sm:text-3xl md:text-4xl text-white">
                 <span className="material-icons text-4xl">info</span>
                 What to Expect During Your Consultation
               </h2>
-              <p className="mt-2 text-primary-100">
-                We make the process simple and transparent from start to finish
+              <p className="mt-2 text-white/90 text-base sm:text-lg">
+                Traditional business values meet modern
+                professionalism—transparent, simple, honest
               </p>
             </div>
 
@@ -287,13 +288,13 @@ Please contact the client to confirm this consultation appointment.
               {/* Left Column: Before Your Consultation */}
               <div className="space-y-6">
                 <div>
-                  <h3 className="flex items-center gap-2 mb-4 font-bold text-primary-600 text-xl dark:text-primary-400">
+                  <h3 className="flex items-center gap-2 mb-4 font-bold text-brand-primary text-xl dark:text-brand-primary">
                     <span className="material-icons">checklist</span>
                     Before Your Consultation
                   </h3>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <span className="material-icons mt-1 text-accent-600 dark:text-accent-400">
+                      <span className="material-icons mt-1 text-brand-accent dark:text-brand-accent">
                         photo_library
                       </span>
                       <div>
@@ -307,7 +308,7 @@ Please contact the client to confirm this consultation appointment.
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <span className="material-icons mt-1 text-accent-600 dark:text-accent-400">
+                      <span className="material-icons mt-1 text-brand-accent dark:text-brand-accent">
                         architecture
                       </span>
                       <div>
@@ -322,7 +323,7 @@ Please contact the client to confirm this consultation appointment.
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <span className="material-icons mt-1 text-accent-600 dark:text-accent-400">
+                      <span className="material-icons mt-1 text-brand-accent dark:text-brand-accent">
                         fact_check
                       </span>
                       <div>
@@ -336,7 +337,7 @@ Please contact the client to confirm this consultation appointment.
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <span className="material-icons mt-1 text-accent-600 dark:text-accent-400">
+                      <span className="material-icons mt-1 text-brand-accent dark:text-brand-accent">
                         schedule
                       </span>
                       <div>
@@ -350,7 +351,7 @@ Please contact the client to confirm this consultation appointment.
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <span className="material-icons mt-1 text-accent-600 dark:text-accent-400">
+                      <span className="material-icons mt-1 text-brand-accent dark:text-brand-accent">
                         attach_money
                       </span>
                       <div>
@@ -365,7 +366,7 @@ Please contact the client to confirm this consultation appointment.
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <span className="material-icons mt-1 text-accent-600 dark:text-accent-400">
+                      <span className="material-icons mt-1 text-brand-accent dark:text-brand-accent">
                         lightbulb
                       </span>
                       <div>
@@ -385,13 +386,13 @@ Please contact the client to confirm this consultation appointment.
               {/* Right Column: During & After */}
               <div className="space-y-6">
                 <div>
-                  <h3 className="flex items-center gap-2 mb-4 font-bold text-primary-600 text-xl dark:text-primary-400">
+                  <h3 className="flex items-center gap-2 mb-4 font-bold text-brand-primary text-xl dark:text-brand-primary">
                     <span className="material-icons">event_available</span>
                     During Your Consultation
                   </h3>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <span className="material-icons mt-1 text-secondary-600 dark:text-secondary-400">
+                      <span className="material-icons mt-1 text-brand-secondary dark:text-brand-secondary">
                         handshake
                       </span>
                       <div>
@@ -405,7 +406,7 @@ Please contact the client to confirm this consultation appointment.
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <span className="material-icons mt-1 text-secondary-600 dark:text-secondary-400">
+                      <span className="material-icons mt-1 text-brand-secondary dark:text-brand-secondary">
                         engineering
                       </span>
                       <div>
@@ -419,7 +420,7 @@ Please contact the client to confirm this consultation appointment.
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <span className="material-icons mt-1 text-secondary-600 dark:text-secondary-400">
+                      <span className="material-icons mt-1 text-brand-secondary dark:text-brand-secondary">
                         quiz
                       </span>
                       <div>
@@ -434,7 +435,7 @@ Please contact the client to confirm this consultation appointment.
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <span className="material-icons mt-1 text-secondary-600 dark:text-secondary-400">
+                      <span className="material-icons mt-1 text-brand-secondary dark:text-brand-secondary">
                         explore
                       </span>
                       <div>
@@ -451,13 +452,13 @@ Please contact the client to confirm this consultation appointment.
                 </div>
 
                 <div>
-                  <h3 className="flex items-center gap-2 mb-4 font-bold text-primary-600 text-xl dark:text-primary-400">
+                  <h3 className="flex items-center gap-2 mb-4 font-bold text-brand-primary text-xl dark:text-brand-primary">
                     <span className="material-icons">rocket_launch</span>
                     After Your Consultation
                   </h3>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <span className="material-icons mt-1 text-primary-600 dark:text-primary-400">
+                      <span className="material-icons mt-1 text-brand-primary dark:text-brand-primary">
                         description
                       </span>
                       <div>
@@ -472,7 +473,7 @@ Please contact the client to confirm this consultation appointment.
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <span className="material-icons mt-1 text-primary-600 dark:text-primary-400">
+                      <span className="material-icons mt-1 text-brand-primary dark:text-brand-primary">
                         support_agent
                       </span>
                       <div>
@@ -486,7 +487,7 @@ Please contact the client to confirm this consultation appointment.
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <span className="material-icons mt-1 text-primary-600 dark:text-primary-400">
+                      <span className="material-icons mt-1 text-brand-primary dark:text-brand-primary">
                         event_note
                       </span>
                       <div>

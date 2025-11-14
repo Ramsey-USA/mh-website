@@ -599,14 +599,14 @@ export class EnhancedChatbotAI {
     _message: string,
     _context: EnhancedChatbotContext,
   ): string {
-    return `**[COMMUNICATION PROTOCOLS]** 📞\n\n**Ready to establish command contact!** Here are communication channels:\n\n**IMMEDIATE TACTICAL CONTACT:**\n• **Primary Line:** (509) 308-6489\n• **Intel Email:** info@mhconstruction.com\n• **Operations Hours:** Mon-Fri, 0800-1700 PST\n\n**RESPONSE PROTOCOL TIMELINES:**\n• **Standard intel requests:** Within 24 hours\n• **Veteran priority comms:** Within 12 hours\n• **Emergency operations:** Same day deployment\n\n**CONSULTATION MISSION OPTIONS:**\n• Free on-site tactical assessments\n• Virtual operation planning sessions\n• Phone-based mission briefings\n• Command post office meetings\n\n**Ready to deploy contact form or need communication assistance?**`;
+    return `**[COMMUNICATION PROTOCOLS]** 📞\n\n**Ready to establish command contact!** Here are communication channels:\n\n**IMMEDIATE TACTICAL CONTACT:**\n• **Primary Line:** (509) 308-6489\n• **Intel Email:** info@mhconstruction.com\n• **Operations Hours:** Mon-Fri, 0700-1600 PST\n\n**RESPONSE PROTOCOL TIMELINES:**\n• **Standard intel requests:** Within 24 hours\n• **Veteran priority comms:** Within 12 hours\n• **Emergency operations:** Same day deployment\n\n**CONSULTATION MISSION OPTIONS:**\n• Free on-site tactical assessments\n• Virtual operation planning sessions\n• Phone-based mission briefings\n• Command post office meetings\n\n**Ready to deploy contact form or need communication assistance?**`;
   }
 
   private generateBookingPageResponse(
     _message: string,
     _context: EnhancedChatbotContext,
   ): string {
-    return `**[MISSION SCHEDULING OPERATIONS]** 📅\n\n**I'm here to coordinate your tactical consultation deployment!**\n\n**CONSULTATION MISSION PROTOCOL:**\n1. **Select operational date & time coordinates**\n2. **Brief mission objectives and intel requirements**\n3. **Confirm deployment schedule**\n\n**AVAILABLE OPERATION WINDOWS:**\n• Morning missions: 0800-1200 hours\n• Afternoon operations: 1300-1700 hours\n• Flexible scheduling for priority missions\n\n**MISSION BRIEFING EXPECTATIONS:**\n• 60-minute comprehensive tactical review\n• On-site reconnaissance (if applicable)\n• Preliminary timeline & budget intelligence\n• Next phase mission planning\n\n**VETERAN PRIORITY:** Expedited scheduling for service members\n\n**Need assistance with deployment coordination?**`;
+    return `**[MISSION SCHEDULING OPERATIONS]** 📅\n\n**I'm here to coordinate your tactical consultation deployment!**\n\n**CONSULTATION MISSION PROTOCOL:**\n1. **Select operational date & time coordinates**\n2. **Brief mission objectives and intel requirements**\n3. **Confirm deployment schedule**\n\n**AVAILABLE OPERATION WINDOWS:**\n• Morning missions: 0700-1200 hours\n• Afternoon operations: 1300-1600 hours\n• Flexible scheduling for priority missions\n\n**MISSION BRIEFING EXPECTATIONS:**\n• 60-minute comprehensive tactical review\n• On-site reconnaissance (if applicable)\n• Preliminary timeline & budget intelligence\n• Next phase mission planning\n\n**VETERAN PRIORITY:** Expedited scheduling for service members\n\n**Need assistance with deployment coordination?**`;
   }
 
   private generateGeneralPageResponse(
@@ -648,7 +648,7 @@ export class EnhancedChatbotAI {
     _message: string,
     _context: EnhancedChatbotContext,
   ): string {
-    return `**[URGENT SUPPORT OPERATIONS]** 🚨\n\n**Rapid response construction support for General Contractors!**\n\n**EMERGENCY CAPABILITIES:**\n• **Expert consultation** for critical structural challenges\n• **Heavy equipment & operators** available for immediate hire\n• **Experienced construction crews** ready for deployment\n• **Specialized tools and equipment** rental\n• **Foundation and structural repairs** - fix the source!\n• **Emergency roof and wall system restoration**\n\n**RESPONSE PROTOCOL:**\n• **Contact:** (509) 308-6489\n• **Email:** office@mhc-gc.com\n• **Hours:** Monday-Friday, 8:00 AM - 5:00 PM PST\n\n**WHAT WE PROVIDE:**\n✓ Urgent structural assessments\n✓ Heavy machinery with certified operators\n✓ Skilled construction professionals\n✓ Material handling and logistics support\n✓ On-site project management\n\n**NOT first responder services** - We solve structural construction problems!\n\n**Need immediate construction support?** [Contact Now →](/contact)`;
+    return `**[URGENT SUPPORT OPERATIONS]** 🚨\n\n**Rapid response construction support for General Contractors!**\n\n**EMERGENCY CAPABILITIES:**\n• **Expert consultation** for critical structural challenges\n• **Heavy equipment & operators** available for immediate hire\n• **Experienced construction crews** ready for deployment\n• **Specialized tools and equipment** rental\n• **Foundation and structural repairs** - fix the source!\n• **Emergency roof and wall system restoration**\n\n**RESPONSE PROTOCOL:**\n• **Contact:** (509) 308-6489\n• **Email:** office@mhc-gc.com\n• **Hours:** Monday-Friday, 7:00 AM - 4:00 PM PST\n\n**WHAT WE PROVIDE:**\n✓ Urgent structural assessments\n✓ Heavy machinery with certified operators\n✓ Skilled construction professionals\n✓ Material handling and logistics support\n✓ On-site project management\n\n**NOT first responder services** - We solve structural construction problems!\n\n**Need immediate construction support?** [Contact Now →](/contact)`;
   }
 
   private generateCareersPageResponse(
@@ -874,7 +874,7 @@ export class EnhancedChatbotAI {
       `**PHONE:** (509) 308-6489\n` +
       `• Veterans: Ask for priority service\n\n` +
       `**EMAIL:** office@mhc-gc.com\n\n` +
-      `**HOURS:** Monday-Friday, 8:00 AM - 5:00 PM PST\n` +
+      `**HOURS:** Monday-Friday, 7:00 AM - 4:00 PM PST\n` +
       `• Saturday consultations available by appointment\n\n` +
       `**OFFICE:** 3111 N. Capital Ave., Pasco, WA 99301\n` +
       `[**Get Directions →**](https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301)\n\n` +

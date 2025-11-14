@@ -300,7 +300,7 @@ Proper section ordering can improve rankings by 15-25% without changing any cont
     - [ ] Address: 3111 N. Capital Ave., Pasco, WA 99301
     - [ ] Phone: (509) 308-6489
     - [ ] Website: <https://www.mhc-gc.com>
-    - [ ] Hours: Monday-Friday 8:00 AM - 5:00 PM PST
+    - [ ] Hours: Monday-Friday 7:00 AM - 4:00 PM PST (0700 - 1600)
     - [ ] Service areas: Washington, Oregon, Idaho
   - [ ] Add business description (750 chars max)
   - [ ] Upload photos:

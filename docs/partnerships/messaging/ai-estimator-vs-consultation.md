@@ -338,7 +338,7 @@ Expert guidance tailored to your specific project.
 - **Phone:** (509) 308-6489
 - **Email:** <office@mhc-gc.com>
 - **Purpose:** Schedule appointments, project discussions
-- **Hours:** Monday-Friday, 8am-5pm PT
+- **Hours:** Monday-Friday, 7am-4pm PT (0700-1600)
 
 ---
 

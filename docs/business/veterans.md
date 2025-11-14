@@ -7,16 +7,22 @@
 ## Overview
 
 MH Construction is a veteran-owned company committed to honoring service members and supporting
-veterans in our communities. Our leadership includes Army veteran Jeremy Thamert and Navy veteran
-Matt Ramsey. This document outlines our public-facing Veterans Initiative, annual event planning,
-sponsorship opportunities, and developer notes for maintaining related website content.
+veterans in our communities. The company is owned and led by Army veteran Jeremy Thamert, with
+Navy veteran Matt Ramsey serving as Digital Marketing Manager. This document outlines our public-facing
+Veterans Initiative, annual event planning, organizational partnership opportunities, and developer notes
+for maintaining related website content.
+
+**IMPORTANT**: MH Construction does not collect donations. We seek organizational partnerships where
+partner organizations contribute resources, services, or expertise while MH Construction provides
+event management, construction industry platform, and logistics coordination.
 
 ## Our Commitment
 
 - Veteran-owned business since January 2025.
-- Priority hiring and apprenticeship programs for veterans and transitioning service members.
-- Preferential bidding and support for veteran-owned trade partners.
-- Year-round community engagement including education, scholarships, and events.
+- Priority hiring for veterans (active now).
+- Apprenticeship programs and veteran trade partner networks in development.
+- Building long-term partnerships with veteran organizations as we establish company longevity.
+- Year-round community engagement including events and growing veteran support initiatives.
 
 ## Annual Veterans Fishing Classic — Spring 2026 (Inaugural)
 
@@ -37,42 +43,58 @@ Event day highlights:
 Registration:
 
 - Veteran registration opens January 2026. Limited spaces; first come, first served.
-- No cost for veteran participants; fully sponsored by local partners and corporate sponsors.
+- No cost for veteran participants; event made possible through organizational partnerships.
 
-## Sponsorship & In-Kind Support
+## Organizational Partnership Model
 
-Sponsorship makes the event possible. Typical sponsorship levels and benefits (mirrored on the public web page):
+MH Construction partners with organizations to co-host veteran events. This is NOT a donation/sponsorship model.
+Partner organizations contribute resources aligned with their mission, while MH Construction provides event
+management, logistics, and construction industry connections.
 
-- Platinum Sponsor — $10,000+
-  - Title sponsor recognition, logo on t-shirts and promotional materials, speaking opportunity,
-    social promotion, 10 complimentary registrations.
+### Partnership Tiers
 
-- Gold Sponsor — $5,000+
-  - Premier recognition, logo on t-shirts and banners, social promotion, 6 complimentary registrations.
+- **Title Event Partner**
+  - For: Major corporations, national non-profits, veteran service organizations (VFW, American Legion, WWP, etc.)
+  - Organization Provides: Event funding/resources, volunteer networks, specialized services
+  - MH Construction Provides: Event management, construction platform, co-branded marketing, activation space
 
-- Silver Sponsor — $2,500+
-  - Sponsor recognition in materials, logo on website, social mentions, 4 complimentary registrations.
+- **Co-Host Event Partner**
+  - For: Regional businesses, community foundations, veteran advocacy groups
+  - Organization Provides: Partial event resources, member network access, organizational expertise
+  - MH Construction Provides: Event infrastructure, collaborative branding, attendee engagement space
 
-- Bronze Sponsor — $1,000+
-  - Name recognition in materials, social mentions, 2 complimentary registrations.
+- **Supporting Event Partner**
+  - For: Local non-profits, veteran chapters, community organizations
+  - Organization Provides: In-kind services, volunteer assistance, specialized expertise
+  - MH Construction Provides: Partner recognition, website listing, veteran attendee connections
 
-In-kind donations welcome:
+- **Resource Contributor Partner**
+  - For: Businesses providing specific resources (boats, catering, equipment, services)
+  - Organization Provides: Equipment, supplies, or professional services
+  - MH Construction Provides: Resource partner recognition, social media appreciation
 
-- Boats & captains, food & beverage, fishing gear, prizes & giveaways, photography/video, professional services.
+### Example Partner Contributions
 
-Contact for sponsorship inquiries:
+Organizations contribute what aligns with their capabilities:
 
-- Email: <office@mhc-gc.com> (subject: "Veterans Event Sponsorship")
+- Boats & captains, food & catering, fishing gear, prizes & awards, media services,
+  volunteer networks, veteran services outreach, event entertainment
+
+Contact for partnership inquiries:
+
+- Email: <office@mhc-gc.com> (subject: "Veterans Event Partnership")
 
 ## Communications & Media
 
-- Press releases and social media posts will announce registration and sponsorship opportunities.
-- Sponsors will be acknowledged across on-site signage, social channels, and event materials.
+- Press releases and social media posts will announce registration and partnership opportunities.
+- Partner organizations will be acknowledged across on-site signage, social channels, and event materials.
 
 ## Developer & Content Notes
 
 - Public page: `src/app/veterans/page.tsx` — primary public-facing page for this initiative. The
-  page already contains hero, event, sponsorship tiers, schedule, and CTAs.
+  page contains hero, event details, partnership tiers, schedule, and CTAs.
+- Partnership Model: The page clearly communicates that MH Construction seeks organizational
+  co-hosts, NOT donations. Partnership tiers show what each organization provides vs what MHC provides.
 - Navigation: Global `Navigation` includes a link to `/veterans`; `Footer` has a Veterans link and
   a Veteran-Owned badge.
 - SEO: `src/app/veterans/page.tsx` includes `metadata` and `openGraph` fields — update them when

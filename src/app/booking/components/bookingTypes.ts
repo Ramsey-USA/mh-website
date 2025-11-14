@@ -4,6 +4,7 @@
 
 // Available time slots for consultations
 export const timeSlots = [
+  "7:00 AM",
   "8:00 AM",
   "9:00 AM",
   "10:00 AM",

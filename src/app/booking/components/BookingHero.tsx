@@ -25,17 +25,18 @@ export function BookingHero() {
 
           {/* Subtitle */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            Personal Consultation • Face-to-Face Trust • Your PRIMARY Path
+            Where Handshakes Still Matter • Building for the Client, NOT the
+            Dollar
           </p>
 
           {/* Description */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            Real partnerships start with real conversations. "Building for the
-            Client, NOT the Dollar" — Meet with our veteran-owned team where we
-            shake hands, listen to your vision, and earn your trust through
-            honest dialogue. This is how we prefer to start every
-            project—person-to-person, building trust that lasts beyond the
-            construction.
+            Face-to-face consultation where trust begins. In a modern world, we
+            believe in traditional business values—real handshakes, honest
+            conversations, and keeping your word. Schedule your free
+            consultation with our veteran-owned team where we listen to your
+            vision, answer every question, and build relationships that last
+            beyond the construction. The way business should be done.
           </p>
         </div>
       </div>

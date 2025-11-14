@@ -64,7 +64,7 @@ export const companyKnowledge = {
   contact: {
     phone: "(509) 308-6489",
     email: "office@mhc-gc.com",
-    hours: "Mon-Fri, 8AM-5PM PST",
+    hours: "Mon-Fri, 7AM-4PM PST (0700-1600)",
     address: "3111 N. Capital Ave., Pasco, WA 99301",
   },
   services: {
@@ -423,7 +423,7 @@ private generateContactResponse(): string {
     `**PHONE:** (509) 308-6489\n` +
     `• Veterans: Ask for priority service\n\n` +
     `**EMAIL:** office@mhc-gc.com\n\n` +
-    `**HOURS:** Monday-Friday, 8:00 AM - 5:00 PM PST\n\n` +
+    `**HOURS:** Monday-Friday, 7:00 AM - 4:00 PM PST (0700 - 1600)\n\n` +
     `**OFFICE:** 3111 N. Capital Ave., Pasco, WA 99301\n` +
     `[Get Directions →](https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301)\n\n` +
     `**RESPONSE TIMES:**\n` +

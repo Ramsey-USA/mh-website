@@ -190,7 +190,7 @@ See `/docs/development/chatbot-enhancement-guide.md` for complete roadmap:
 
 - **Phone:** (509) 308-6489
 - **Email:** <office@mhc-gc.com>
-- **Hours:** Monday-Friday, 8:00 AM - 5:00 PM PST
+- **Hours:** Monday-Friday, 7:00 AM - 4:00 PM PST (0700 - 1600)
 - **Address:** 3111 N. Capital Ave., Pasco, WA 99301
 - **Service Areas:** WA, OR, ID (Pacific Northwest)
 - **Founded:** 2010 by Mike Holstein

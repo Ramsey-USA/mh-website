@@ -73,9 +73,9 @@ export const companyKnowledge: CompanyKnowledge = {
   contact: {
     phone: "(509) 308-6489",
     email: "office@mhc-gc.com",
-    hours: "Monday-Friday, 8:00 AM - 5:00 PM PST",
+    hours: "Monday-Friday, 7:00 AM - 4:00 PM PST",
     hoursDetails: [
-      "Monday-Friday: 8:00 AM - 5:00 PM PST",
+      "Monday-Friday: 7:00 AM - 4:00 PM PST",
       "Saturday: By appointment only",
       "Sunday: Closed",
       "Emergency services: Available 24/7 for urgent issues",
