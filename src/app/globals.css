@@ -28,6 +28,11 @@
   font-feature-settings: "liga";
 }
 
+/* Hide breadcrumb navigation globally */
+nav[aria-label="Breadcrumb navigation"] {
+  display: none;
+}
+
 /* ============================================
    TAILWIND LAYER EXTENSIONS
    Clean utility classes in proper layers
