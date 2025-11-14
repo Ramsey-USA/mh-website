@@ -57,10 +57,10 @@ Found **9 loose files** that need organization or justification.
 **Purpose:** Scripts inventory and usage documentation  
 **Indexed:** Yes, in MasterIndex and Development Index
 
-#### 5. ⚠️ `utilities/lint-progress.md` - **REVIEW**
+#### 5. ✅ `utilities/lint-progress.md` - **DELETED (Nov 14, 2025)**
 
-**Location:** `/workspaces/mh-website/scripts/utilities/lint-progress.md`  
-**Status:** ⚠️ Operational tracking document  
+**Location:** Previously at `/workspaces/mh-website/scripts/utilities/lint-progress.md`  
+**Status:** ✅ Removed - Operational tracking moved to issues/PRs  
 **Options:**
 
 1. Move to `docs/operations/` (if keeping as active reference)
@@ -395,7 +395,7 @@ mv migrations/readme.md migrations/MIGRATIONS_GUIDE.md
 
 **Medium Priority:** 3. AI estimator docs → Consider subdirectory 4. `css-js-cohesion.md` → Consider moving to performance/
 
-**Low Priority:** 5. `lint-progress.md` → Determine active status 6. Directory guides → Consider standardizing naming
+**Low Priority:** Directory guides → Consider standardizing naming conventions
 
 ---
 

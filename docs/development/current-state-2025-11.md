@@ -216,7 +216,6 @@ development, clearly documenting what's done, what works, and what can be improv
 1. Review list above (26 warnings)
 2. Focus on one file at a time
 3. Test after each fix: `npm run lint && npm run test`
-4. See: `scripts/utilities/lint-progress.md`
 
 #### **Complete Database Integration**
 

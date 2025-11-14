@@ -10,7 +10,7 @@
 messaging and voice variations, see the comprehensive
 **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** which defines 7 distinct page
 groups aligned with SEO optimization strategy documented in
-**[SEO Optimization Complete](./seo-optimization-complete-nov-2025.md)**.
+**[SEO Optimization Complete](./seo-optimization-complete.md)**.
 
 ## Quick Navigation
 
@@ -269,8 +269,8 @@ See [Core Values](../../business/core-values.md) for complete details on each pr
 - **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** - ⭐ **CRITICAL** -
   7-group messaging strategy for all pages
 - **[Messaging Guidelines](./messaging.md)** - General voice and tone principles
-- **[Homepage Optimization Guide](./homepage-optimization-nov-2025.md)** - Trust-first optimization approach
-- **[SEO Optimization Complete](./seo-optimization-complete-nov-2025.md)** - Complete SEO audit
+- **[Homepage Optimization Guide](./homepage-optimization.md)** - Trust-first optimization approach
+- **[SEO Optimization Complete](./seo-optimization-complete.md)** - Complete SEO audit
 - [**Color System**](./color-system.md) - Complete brand color palette
 - [**Icon Policy**](./icon-policy.md) - Material Icons standards
 - [**Typography**](./typography.md) - Font system and text guidelines

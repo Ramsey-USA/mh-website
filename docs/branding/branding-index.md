@@ -56,8 +56,8 @@ Brand identity, company values, messaging guidelines, and strategic positioning.
 - `brand-overview.md` - Core brand identity and mission
 - `messaging.md` - Voice, tone, and messaging framework
 - `page-specific-messaging-guide.md` - ⭐ **NEW (Nov 2025)** - 7-group page messaging strategy
-- `homepage-optimization-nov-2025.md` - Homepage trust-first optimization details
-- `seo-optimization-complete-nov-2025.md` - Complete SEO optimization audit for all 15 pages
+- `homepage-optimization.md` - Homepage trust-first optimization details
+- `seo-optimization-complete.md` - Complete SEO optimization audit for all 15 pages
 - `content-messaging-standards.md` - Content writing standards
 
 ### 🎨 [standards/](./standards/)

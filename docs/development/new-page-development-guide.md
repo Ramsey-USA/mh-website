@@ -195,8 +195,8 @@ export const metadata: Metadata = {
 **SEO Best Practices**:
 
 - Follow the trust-first, tech-later approach documented in
-  **[Homepage Optimization Guide](../branding/strategy/homepage-optimization-nov-2025.md)**
-- Review **[SEO Optimization Complete](../branding/strategy/seo-optimization-complete-nov-2025.md)**
+  **[Homepage Optimization Guide](../branding/strategy/homepage-optimization.md)**
+- Review **[SEO Optimization Complete](../branding/strategy/seo-optimization-complete.md)**
   for examples of optimized metadata across all 15 pages
 - Ensure keywords are ordered according to messaging group priorities
 
@@ -398,9 +398,9 @@ export default function YourPage() {
 
 - [**Page-Specific Messaging Guide**](../branding/strategy/page-specific-messaging-guide.md) - ⭐
   **CRITICAL** - 7 page groups with unique messaging strategies
-- [**Homepage Optimization Guide**](../branding/strategy/homepage-optimization-nov-2025.md) -
+- [**Homepage Optimization Guide**](../branding/strategy/homepage-optimization.md) -
   Trust-first optimization approach
-- [**SEO Optimization Complete**](../branding/strategy/seo-optimization-complete-nov-2025.md) - Complete
+- [**SEO Optimization Complete**](../branding/strategy/seo-optimization-complete.md) - Complete
   SEO audit with examples
 - [Navigation System](../technical/navigation/navigation-index.md) - Complete navigation documentation
 - [Design System](../technical/design-system/design-system-index.md) - Component and styling standards

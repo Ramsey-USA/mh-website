@@ -509,7 +509,7 @@ alignment with the 7-group messaging strategy defined in
 ## 📚 Related Documentation
 
 - **Page-Specific Messaging Guide:** `/docs/branding/strategy/page-specific-messaging-guide.md`
-- **Homepage Optimization:** `/docs/branding/strategy/homepage-optimization-nov-2025.md`
+- **Homepage Optimization:** `/docs/branding/strategy/homepage-optimization.md`
 - **Slogan Rotation Guide:** `/docs/branding/strategy/slogan-rotation-guide.md`
 - **Main README:** `/workspaces/mh-website/README.md`
 - **Contributing Guidelines:** `/workspaces/mh-website/contributing.md`

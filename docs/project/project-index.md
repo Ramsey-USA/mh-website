@@ -46,7 +46,7 @@ Historical records, changelogs, and development history.
 
 **Active Projects:**
 
-- **[Documentation Consolidation Review (Nov 2025)](./documentation-consolidation-review-nov-2025.md)** - ⭐
+- **[Documentation Consolidation Review (Nov 2025)](./documentation-consolidation-review.md)** - ⭐
   **NEW** - Comprehensive review of 174 markdown files with health score and recommendations
 - **[Last Reviewed Tracking](./last-reviewed-tracking.md)** - ⭐ **NEW** - System for tracking documentation
   review dates and maintaining accuracy
@@ -75,7 +75,7 @@ Historical records, changelogs, and development history.
 
 ### Documentation Management
 
-- [Documentation Consolidation Review (Nov 2025)](./documentation-consolidation-review-nov-2025.md) - Current status
+- [Documentation Consolidation Review (Nov 2025)](./documentation-consolidation-review.md) - Current status
 - [Documentation Style Guide](../development/documentation-style-guide.md) - Standards and guidelines
 - [Last Reviewed Tracking](./last-reviewed-tracking.md) - Documentation review system
 

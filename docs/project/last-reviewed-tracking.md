@@ -278,7 +278,7 @@ npm run analyze:docs  # If you create this script
 - [Documentation Maintenance Guide](../development/documentation-maintenance-guide.md)
 - [Documentation Style Guide](../development/documentation-style-guide.md)
 - [Archive README](../archive/archive-readme.md)
-- [Documentation Consolidation Review](../project/documentation-consolidation-review-nov-2025.md)
+- [Documentation Consolidation Review](../project/documentation-consolidation-review.md)
 
 ---
 

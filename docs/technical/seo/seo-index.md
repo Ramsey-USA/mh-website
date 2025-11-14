@@ -25,9 +25,9 @@ group has unique keyword priorities, tone, and messaging requirements that impac
 
 **Key Recent Updates:**
 
-- **[Homepage Optimization](../../branding/strategy/homepage-optimization-nov-2025.md)** - Trust-first,
+- **[Homepage Optimization](../../branding/strategy/homepage-optimization.md)** - Trust-first,
   tech-later approach with section reordering
-- **[SEO Optimization Complete](../../branding/strategy/seo-optimization-complete-nov-2025.md)** -
+- **[SEO Optimization Complete](../../branding/strategy/seo-optimization-complete.md)** -
   Complete audit of all 15 pages with before/after SEO changes
 
 ---
@@ -136,24 +136,8 @@ before technology features. Implements "old school business meets modern technol
 
 **Related Documentation:**
 
-- [Homepage Optimization Guide](../../branding/strategy/homepage-optimization-nov-2025.md)
+- [Homepage Optimization Guide](../../branding/strategy/homepage-optimization.md)
 - [Page-Specific Messaging Guide](../../branding/strategy/page-specific-messaging-guide.md)
-
----
-
-### SEO Section Order Implementation Summary
-
-**[seo-section-order-implementation-summary.md](./seo-section-order-implementation-summary.md)** -
-Implementation details
-
-Complete record of homepage section reordering implementation, including all file changes and testing
-results.
-
-**When to Use:**
-
-- Understanding what was changed in homepage optimization
-- Reviewing implementation approach
-- Planning similar optimizations for other pages
 
 ---
 

@@ -305,7 +305,7 @@ touch docs/category/my-new-guide.md
 
 - **[Consistency Guide](./consistency-guide.md)** - Complete standards
 - **[Development Index](./development-index.md)** - All dev docs
-- **[Cleanup Summary](./documentation-cleanup-summary.md)** - Recent changes
+- **[Last Reviewed Tracking](../project/last-reviewed-tracking.md)** - Documentation review system
 
 ### Questions?
 
