@@ -55,26 +55,29 @@ export default function TeamPage() {
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block text-brand-secondary font-black drop-shadow-lg">
-                Meet Your Partnership Team
+                Building Tomorrow's Success Today
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              &ldquo;Building for the Client, NOT the Dollar&rdquo;
+              THE ROI IS THE RELATIONSHIP • Building for the Client, NOT the
+              Dollar
             </p>
 
             {/* Leadership Statement */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4 font-medium">
-              Experience You Can Trust. 150+ years combined experience.
-              Award-winning .6 EMR safety. Military precision and owner-first
-              focus across the Pacific Northwest.
+              Leading the industry into tomorrow. 150+ years combined experience
+              meets innovative thinking—where veteran values drive continuous
+              growth. Award-winning .6 EMR safety, cutting-edge technology, and
+              a team invested in your success across the Pacific Northwest.
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/70 leading-relaxed px-4">
-              Explore detailed professional profiles with skill assessments and
-              career achievements. We Work With You—every step.
+              Meet the professionals shaping the future of construction
+              partnership. From Vision to Victory—every project, every
+              partnership.
             </p>
           </div>
         </div>

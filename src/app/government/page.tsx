@@ -289,21 +289,24 @@ export default function GovernmentGrantsPage() {
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block text-gray-300 font-black drop-shadow-lg">
-                Federal Government Contracting
+                Mission-Ready, Compliance-Driven
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              Army Veteran Leadership • Federal Compliance • Mission Execution
+              Veteran Values • Federal Excellence • Building for the Client, NOT
+              the Dollar
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Mission-Ready, Compliance-Driven. "Building for the Client, NOT
-              the Dollar" — Army veteran leadership, 150+ years combined
-              experience. Award-winning .6 EMR safety. Federal compliance, DOE &
-              Hanford expertise. Licensed WA, OR, ID.
+              Army veteran leadership brings military precision to federal
+              construction management. Excellence in Every Detail meets
+              regulatory compliance—from DOE to GSA, we understand the
+              mission-critical nature of government projects. 150+ years
+              combined experience, award-winning .6 EMR safety, serving with
+              honor, integrity, and unwavering commitment to federal standards.
             </p>
           </div>
         </div>

@@ -131,26 +131,23 @@ export default function Home() {
       {/* Home Page Hero Section */}
       <HeroSection />
 
-      {/* Modern Tools & Features Section */}
-      <FeaturesSection />
-
-      {/* Core Values Section */}
+      {/* Core Values Section - Establish trust and heritage first */}
       <CoreValuesSection />
 
-      {/* Showcase of Services Section - Positioned early for SEO (primary offerings) */}
+      {/* Showcase of Services Section - What we actually do */}
       <ServicesShowcase />
 
-      {/* Enhanced Client Testimonials - Social proof at optimal 25-30% page depth (Phase 0 optimization) */}
+      {/* Why Partner With MH Construction Section - Partnership philosophy */}
+      <WhyPartnerSection />
+
+      {/* Enhanced Client Testimonials - Social proof builds credibility */}
       <TestimonialsSection
         subtitle="What Our"
         title="Clients Say"
         description="Read testimonials from valued partners across the Pacific Northwest who have experienced our collaborative excellence firsthand."
       />
 
-      {/* Why Partner With MH Construction Section */}
-      <WhyPartnerSection />
-
-      {/* Before/After Showcase Section */}
+      {/* Before/After Showcase Section - Tangible results */}
       <section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
@@ -189,30 +186,67 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Company Statistics Section - Credibility through numbers */}
+      <CompanyStats
+        subtitle=""
+        title="Trusted by the Community"
+        description=""
+        variant="primary"
+      />
+
+      {/* Optional Planning Tools - Positioned after trust is established */}
+      <section className="relative bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-20 lg:py-32">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <FadeInWhenVisible>
+            <div className="mb-16 text-center">
+              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+                  Optional Tools to
+                </span>
+                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                  Help You Plan
+                </span>
+              </h2>
+              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
+                While we believe in{" "}
+                <span className="font-medium text-gray-800 dark:text-gray-200">
+                  face-to-face consultations
+                </span>
+                , these helpful planning tools can prepare you for our personal
+                conversation.
+              </p>
+            </div>
+          </FadeInWhenVisible>
+        </div>
+      </section>
+
+      {/* Modern Tools & Features Section - Positioned after trust foundation */}
+      <FeaturesSection />
+
       {/* Budget Planning Tool CTA Section */}
       <AIEstimatorCTA variant="full" location="homepage" />
 
-      {/* Smart Project Recommendations */}
+      {/* Smart Project Recommendations - For tech-curious visitors */}
       <section className="relative bg-white dark:bg-gray-900 py-8 sm:py-12 lg:py-16">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-8 sm:mb-12 text-center">
               <p className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
                 <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
-                  Smart Project
+                  Helpful Project
                 </span>
                 <span className="block text-brand-primary dark:text-brand-primary font-black">
-                  Recommendations
+                  Ideas & Suggestions
                 </span>
               </p>
               <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
-                Discover intelligent project recommendations based on{" "}
+                Explore project ideas based on{" "}
                 <span className="font-medium text-gray-800 dark:text-gray-200">
                   Pacific Northwest trends
                 </span>{" "}
-                and veteran preferences for{" "}
+                and veteran preferences to help you think about{" "}
                 <span className="text-brand-primary font-semibold">
-                  collaborative success
+                  your next project
                 </span>
                 .
               </p>
@@ -271,15 +305,6 @@ export default function Home() {
           </FadeInWhenVisible>
         </div>
       </section>
-
-      {/* Company Stats Section */}
-      <CompanyStats
-        subtitle=""
-        title="Trusted by the Community"
-        description=""
-        variant="primary"
-      />
-
       {/* Next Steps Section */}
       <NextStepsSection />
 

@@ -166,23 +166,24 @@ export default function ContactPageClient() {
                 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight"
               >
                 <span className="block text-brand-secondary font-black drop-shadow-lg">
-                  Let's Start with a Conversation
+                  Let's Talk Face-to-Face
                 </span>
               </h1>
 
               {/* Subtitle */}
               <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-                Where Handshakes Matter and Relationships Begin • Pacific
-                Northwest
+                Where Handshakes Still Matter • Traditional Values • Modern
+                World
               </p>
 
               {/* Description */}
               <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-                We believe in personal connection and face-to-face trust. Reach
-                out for honest communication and genuine partnership from your
-                veteran-owned construction team. "Building for the Client, NOT
-                the Dollar" — we look forward to shaking your hand. Monday -
-                Friday: 8:00 AM - 5:00 PM PST
+                Real conversations with real people—the way business should be
+                done. We believe in personal connection, honest handshakes, and
+                keeping our word. Building for the Client, NOT the Dollar.
+                That's not just our slogan, it's how we've done business since
+                2010. Call us, stop by, or send a message. Monday - Friday: 8:00
+                AM - 5:00 PM PST
               </p>
             </div>
           </div>
@@ -220,10 +221,11 @@ export default function ContactPageClient() {
                   </span>
                 </h2>
                 <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                  We believe every great partnership starts with a conversation.
-                  Multiple ways to connect with our team—phone, email, or visit
-                  us in person. Over 150 years combined experience serving the
-                  Pacific Northwest with integrity and personal attention.
+                  Every great partnership begins with an honest conversation.
+                  Pick up the phone, send an email, or stop by our office in
+                  Pasco—we do business the old-fashioned way. Over 150 years
+                  combined experience, and we still believe in looking people in
+                  the eye and shaking hands.
                 </p>
               </div>
 

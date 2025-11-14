@@ -149,7 +149,7 @@ export default function UrgentSupportPage() {
           className="text-center font-bold mb-6 text-white"
           style={{ fontSize: "clamp(2rem, 8vw, 5rem)" }}
         >
-          Urgent Construction Support
+          When Time Is Critical, We Respond
         </h1>
 
         {/* Subtitle */}
@@ -157,16 +157,18 @@ export default function UrgentSupportPage() {
           className="text-center mb-4 font-semibold text-yellow-200"
           style={{ fontSize: "clamp(1.25rem, 3vw, 2rem)" }}
         >
-          For General Contractors Facing Critical Challenges
+          THE ROI IS THE RELATIONSHIP
         </p>
 
         <p
           className="text-center mb-8 font-medium text-white/90 max-w-4xl mx-auto px-4"
           style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)" }}
         >
-          When Time Is Critical, We Respond. "Building for the Client, NOT the
-          Dollar" — Expert Consultation • Heavy Equipment & Operators •
-          Experienced Crews
+          Emergency construction support for general contractors. Building for
+          the Client, NOT the Dollar means being there when you need us most.
+          Expert consultation, heavy equipment with operators, experienced crews
+          ready for immediate deployment. Your urgent need is our immediate
+          priority.
         </p>
 
         {/* Emergency Contact CTAs */}

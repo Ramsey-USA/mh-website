@@ -63,25 +63,24 @@ export default function EstimatorPage() {
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block text-brand-secondary font-black drop-shadow-lg">
-                Quick Budget Planning Tool
+                Smart Planning Starts Here
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-              Convenient Preliminary Estimates • Prepares You for Our
-              Conversation
+              AI-Powered Estimation • Human-Centered Partnership • Building for
+              the Client, NOT the Dollar
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              A helpful planning tool to prepare for your personal consultation.
-              Get preliminary budget guidance based on 500+ completed projects
-              and 150+ years combined team experience. For accurate estimates,
-              transparent open-book pricing, and genuine partnership, schedule a
-              face-to-face consultation where we shake hands and earn your trust
-              through honest conversation. That's how we prefer to start every
-              project.
+              Innovation with integrity. Our AI-powered budget tool draws from
+              500+ completed projects and 150+ years of combined experience to
+              give you preliminary insights—but it's just the beginning.
+              Technology serves, never replaces, the personal consultation where
+              we shake hands and earn your trust. Smart tools for smarter
+              planning, human connection for lasting partnership.
             </p>
           </div>
         </div>

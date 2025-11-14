@@ -15,21 +15,23 @@ export function AboutHero() {
           {/* Main Title */}
           <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
             <span className="block text-brand-secondary font-black drop-shadow-lg">
-              Where Handshakes Matter and Your Word is Your Bond
+              Excellence Through Experience
             </span>
           </h1>
 
           {/* Subtitle - Brand Tagline */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            "Building for the Client, NOT the Dollar"
+            Trust Built, Project by Project • Building for the Client, NOT the
+            Dollar
           </p>
 
           {/* Description */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            Excellence Through Experience. Founded on traditional business
-            values where trust is earned through character and kept through
-            action. We work WITH you every step—combining veteran integrity,
-            proven craftsmanship, and genuine partnership to build your vision.
+            Founded 2010, veteran-owned since January 2025. Our story is written
+            in the projects we've completed and the relationships we've built.
+            From humble beginnings to regional leadership—150+ years of combined
+            team experience serving the Pacific Northwest with integrity. Where
+            Precision Meets Partnership.
           </p>
         </div>
       </div>

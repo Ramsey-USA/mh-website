@@ -121,7 +121,7 @@ export function HeroSection() {
       <div className="relative z-30 text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pointer-events-none">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white drop-shadow-2xl leading-tight mb-6">
           <span className="block text-brand-secondary font-black mb-4">
-            Where Handshakes Matter
+            Where Handshakes Still Matter
           </span>
           <span className="block text-white/95 font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
             Building for the Client,
@@ -130,7 +130,8 @@ export function HeroSection() {
           </span>
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 font-medium max-w-4xl mx-auto drop-shadow-lg">
-          Veteran-Owned • Where Your Word is Your Bond • Trusted Since 2010
+          Old-School Values • Your Word Is Your Bond • Traditional Business Done
+          Right
         </p>
       </div>
 

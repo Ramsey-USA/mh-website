@@ -18,21 +18,23 @@ export function ProjectsHero() {
           {/* Main Title */}
           <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
             <span className="block text-brand-secondary font-black drop-shadow-lg">
-              Partnership Success Stories
+              Trust Built, Project by Project
             </span>
           </h1>
 
           {/* Subtitle - Brand Tagline */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            "Building for the Client, NOT the Dollar"
+            Proven Results • Lasting Partnerships • Building for the Client, NOT
+            the Dollar
           </p>
 
           {/* Description */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            Proven Results, Trusted Partnerships. Building excellence together
-            across the Pacific Northwest—explore our comprehensive portfolio
-            showcasing decades of collaborative partnerships throughout the
-            Tri-Cities area.
+            Our history speaks for itself. Decades of completed projects across
+            the Pacific Northwest tell the story of a company that delivers on
+            its promises. Every structure we build, every partnership we
+            form—proof that when you do right by people, success follows. From
+            Vision to Victory, one project at a time.
           </p>
 
           {/* CTA Button */}

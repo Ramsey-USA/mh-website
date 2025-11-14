@@ -75,9 +75,10 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 
 - [Brand Overview](./branding/strategy/brand-overview.md) - Core brand identity
 - [Messaging Guidelines](./branding/strategy/messaging.md) - Voice, tone, communication
+- [Page-Specific Messaging Guide](./branding/strategy/page-specific-messaging-guide.md) -
+  ⭐ **NEW (Nov 14, 2025)** - Unique voice for each page group
 - [Slogan Rotation Guide](./branding/strategy/slogan-rotation-guide.md) - Complete slogan library
-- [Hero Tagline Strategy](./branding/strategy/hero-tagline-strategy.md) - ⭐ **NEW** (Nov 2025) -
-  Page-specific hero taglines
+- [Hero Tagline Strategy](./branding/strategy/hero-tagline-strategy.md) - ⭐ **NEW** (Nov 2025) - Page-specific hero taglines
 - [Color System](./branding/standards/color-system.md) - Complete color palette
 - [Typography](./branding/standards/typography.md) - Font system and hierarchy
 - [Hero Section Standards](./branding/standards/hero-section-standards.md) - Hero implementation
@@ -326,11 +327,13 @@ Document & code templates for rapid creation.
 
 ### **For Content Writers**
 
-1. **[Messaging Guidelines](./branding/strategy/messaging.md)** - Voice and tone
-2. **[Content Standards](./branding/strategy/content-messaging-standards.md)** - Writing rules
-3. **[Partnership Messaging](./partnerships/messaging/partnership-messaging-guide.md)** - Partner content
-4. **[SEO Best Practices](./technical/seo/ultimate-seo-guide.md)** - SEO content optimization
-5. **[CTA Standards](./branding/standards/cta-standardization-plan.md)** - Call-to-action patterns
+1. **[Page-Specific Messaging Guide](./branding/strategy/page-specific-messaging-guide.md)** -
+   ⭐ **NEW** - Unique voice for each page group
+2. **[Messaging Guidelines](./branding/strategy/messaging.md)** - Voice and tone
+3. **[Content Standards](./branding/strategy/content-messaging-standards.md)** - Writing rules
+4. **[Partnership Messaging](./partnerships/messaging/partnership-messaging-guide.md)** - Partner content
+5. **[SEO Best Practices](./technical/seo/ultimate-seo-guide.md)** - SEO content optimization
+6. **[CTA Standards](./branding/standards/cta-standardization-plan.md)** - Call-to-action patterns
 
 ### **For Project Managers**
 

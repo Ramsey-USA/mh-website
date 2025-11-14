@@ -75,22 +75,24 @@ export default function VeteransPage() {
               {/* Main Title - REQUIRED RESPONSIVE SCALING */}
               <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
                 <span className="block text-brand-secondary font-black drop-shadow-lg">
-                  Service Never Ends — Supporting Those Who Served
+                  Serving Those Who Served
                 </span>
               </h1>
 
               {/* Subtitle - REQUIRED */}
               <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-                Veteran-to-Veteran Trust • Where Your Service is Honored
+                Veteran Values, Community-Focused Results • Building for the
+                Client, NOT the Dollar
               </p>
 
               {/* Description - REQUIRED */}
               <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-                As fellow veterans, we understand commitment, integrity, and
-                keeping your word. "Building for the Client, NOT the Dollar" —
-                We honor your service through genuine support, hiring programs,
-                and community initiatives that give back to those who've given
-                so much.
+                Your word is your bond—we understand because we've lived it.
+                Army and Navy veteran leadership means we honor service through
+                action: hiring veterans, supporting military families, and
+                giving back to those who sacrificed for our nation. When
+                veterans work with veterans, trust is built on shared values and
+                mutual respect.
               </p>
             </div>
           </div>

@@ -401,6 +401,27 @@ Each page features a **unique, page-specific tagline** instead of repeating
 Complete guide:
 [Slogan & Tagline Guide](./docs/branding/strategy/slogan-rotation-guide.md)
 
+### Page-Specific Messaging (NEW - November 2025)
+
+Each page group has its own unique voice and messaging strategy:
+
+**7 Page Groups:**
+
+1. **Traditional Business** (Home, Contact) - Main slogan prominence, old-school values
+2. **Company Heritage** (About, Projects) - History, proven track record
+3. **Future Vision** (Team, Services) - Growth, innovation, forward momentum
+4. **Professional & Patriotic** (Government, Veterans) - Duty, service, compliance
+5. **Recruitment** (Careers) - Enthusiastic, opportunity-focused
+6. **Tech Innovation** (AI Estimator, 3D Explorer) - Tech-savvy, cutting-edge
+7. **Partnership & Urgency** (Trade Partners, Urgent) - **ROI-focused**
+   (exclusive use of "THE ROI IS THE RELATIONSHIP")
+
+**Key Principle:** "Building for the Client, NOT the Dollar" remains the PRIMARY SLOGAN
+across all pages, but each group has supplementary messaging that speaks to its unique audience.
+
+Complete guide:
+[Page-Specific Messaging Guide](./docs/branding/strategy/page-specific-messaging-guide.md)
+
 ### Brand Colors
 
 - **Hunter Green** (`#386851`) - Primary brand color

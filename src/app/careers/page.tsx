@@ -50,22 +50,24 @@ export default function CareersPage() {
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block text-brand-secondary font-black drop-shadow-lg">
-                Build Your Career With Us
+                Your Future Starts Here
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              Partnership Culture • Professional Growth • Veteran-Friendly •
-              Pacific Northwest
+              Join a Team That Invests in You • Building for the Client, NOT the
+              Dollar
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Your Future Starts Here. &ldquo;Building for the Client, NOT the
-              Dollar&rdquo; — Award-winning .6 EMR safety. 150+ years combined
-              experience. Veteran-owned company valuing integrity, excellence,
-              and partnership.
+              Where talent meets opportunity! Join a veteran-owned family that's
+              building more than projects—we're building careers. Award-winning
+              .6 EMR safety, 150+ years combined experience, and a culture that
+              celebrates your growth. Where veterans and civilians build
+              together, where your success is our success, and where every team
+              member matters. Ready to build your future?
             </p>
           </div>
         </div>

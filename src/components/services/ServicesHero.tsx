@@ -15,21 +15,23 @@ export function ServicesHero() {
           {/* Main Title */}
           <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
             <span className="block text-brand-secondary font-black drop-shadow-lg">
-              Your Project Deserves Expert Oversight and Genuine Partnership
+              Your Vision, Our Precision
             </span>
           </h1>
 
           {/* Subtitle - Brand Tagline */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            "Building for the Client, NOT the Dollar"
+            Shaping the Future of Construction • Building for the Client, NOT
+            the Dollar
           </p>
 
           {/* Description */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            We Work WITH You Every Step. Built on trust, integrity, and
-            face-to-face commitment—veteran-led construction management where
-            handshakes still matter and your word is your bond. Serving the
-            Pacific Northwest with proven craftsmanship and personal attention.
+            Evolving to serve you better. From traditional craftsmanship to
+            AI-powered estimation—we're expanding our capabilities to match your
+            vision. Excellence in Every Detail meets innovative solutions. Where
+            your tomorrow begins today, and every partnership drives our growth
+            forward across the Pacific Northwest.
           </p>
         </div>
       </div>

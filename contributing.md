@@ -270,6 +270,26 @@ See the [Master Documentation Index](./docs/master-index.md) for the complete do
 - **Performance**: Include `touch-manipulation` for all interactive elements
 - **Testing**: Verify functionality on 320px+ screen widths
 
+### Page-Specific Messaging (November 2025)
+
+**IMPORTANT:** Each page group has its own voice and messaging strategy. When working on any page:
+
+1. **Identify the page group** (7 groups defined)
+2. **Use appropriate voice and tone** for that group
+3. **Lead with "Building for the Client, NOT the Dollar"** (primary slogan)
+4. **Integrate group-specific slogans** as secondary messaging
+
+**The 7 Page Groups:**
+- **Group 1:** Home, Contact (Traditional business values)
+- **Group 2:** About, Projects (Company heritage)
+- **Group 3:** Team, Services (Future vision)
+- **Group 4:** Government, Veterans (Professional & patriotic)
+- **Group 5:** Careers (Recruitment & growth)
+- **Group 6:** AI Estimator, 3D Explorer (Tech innovation)
+- **Group 7:** Trade Partners, Urgent (ROI-focused - **ONLY** place for prominent "THE ROI IS THE RELATIONSHIP")
+
+**Complete Reference:** [Page-Specific Messaging Guide](./docs/branding/strategy/page-specific-messaging-guide.md)
+
 ### Icons
 
 - Use Google Material Icons via the `MaterialIcon` component

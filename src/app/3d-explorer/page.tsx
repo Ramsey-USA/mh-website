@@ -31,22 +31,24 @@ export default function ThreeDExplorerPage() {
             {/* Main Title - Brand Secondary Color (Leather Tan) */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block text-brand-secondary font-black drop-shadow-lg">
-                3D Project Explorer
+                Innovation Meets Construction Excellence
               </span>
             </h1>
 
             {/* Subtitle - Professional & Clean */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              Immersive Visualization Platform Coming Soon
+              Cutting-Edge Visualization • Traditional Values • Coming Soon
             </p>
 
             {/* Description - Partnership Language */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Innovation Meets Construction Excellence. We&apos;re developing an
-              immersive 3D visualization platform from our veteran-owned team
-              that combines military precision with cutting-edge technology to
-              bring your construction projects to life before breaking ground.
-              Serving the Pacific Northwest with 150+ years combined experience.
+              Where data meets decades of experience. We're developing an
+              immersive 3D platform that brings your vision to life before
+              breaking ground—combining veteran precision with cutting-edge
+              technology. Building for the Client, NOT the Dollar means
+              investing in tools that serve you better. Innovation with
+              integrity, technology with trust. 150+ years experience building
+              tomorrow's solutions today.
             </p>
           </div>
 
