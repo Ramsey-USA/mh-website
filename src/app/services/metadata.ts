@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Construction Management Services - MH Construction",
     description:
-      "Full-service construction management for commercial, industrial, medical, religious, and government facilities. Veteran-owned excellence. THE ROI IS THE RELATIONSHIP. Serving the Pacific Northwest.",
+      "Full-service construction management for commercial, industrial, medical, religious, and government facilities. Veteran-owned excellence. Your Vision, Our Precision. Serving the Pacific Northwest.",
     type: "website",
     url: "https://www.mhc-gc.com/services",
     images: [

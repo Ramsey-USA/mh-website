@@ -48,7 +48,7 @@ export const coreServices: CoreService[] = [
     subtitle:
       "Streamline Your Project Success with Partnership-Focused CM Services",
     description:
-      "Planning a new commercial building demands intricate details and expert partnership oversight. Put your project in the right hands with comprehensive Construction Management (CM) services throughout the Tri-Cities area. Our priority is delivering an exceptional partnership experience from concept through completion, built on THE ROI IS THE RELATIONSHIP philosophy. We believe meticulous Master Planning and thorough communication are critical to streamlining the process in later stages, which is why we minimize 'on-the-fly' decisions. Trust our experienced team to manage the intricate details, allowing you to focus on your vision's success.",
+      "Planning a new commercial building demands intricate details and expert partnership oversight. Put your project in the right hands with comprehensive Construction Management (CM) services throughout the Tri-Cities area. Our priority is delivering an exceptional partnership experience from concept through completion, built on trust and proven excellence. We believe meticulous Master Planning and thorough communication are critical to streamlining the process in later stages, which is why we minimize 'on-the-fly' decisions. Trust our experienced team to manage the intricate details, allowing you to focus on your vision's success.",
     features: [
       "Commercial Businesses (Retail Stores, Office Buildings)",
       "Medical Facilities & Healthcare Centers",
@@ -314,7 +314,7 @@ export const whyChooseUs: WhyChooseUsItem[] = [
     iconName: "handshake",
     title: "Partnership-Driven: Where Handshakes Still Matter",
     description:
-      "We believe in old school business values—where your word is your bond and trust is earned face-to-face. THE ROI IS THE RELATIONSHIP—we build lasting partnerships through genuine commitment, not just contracts. Building for the Client, NOT the Dollar is our promise to you, because real partnerships are built person-to-person and last well beyond project completion.",
+      "We believe in old school business values—where your word is your bond and trust is earned face-to-face. We build lasting partnerships through genuine commitment, not just contracts. Building for the Client, NOT the Dollar is our promise to you, because real partnerships are built person-to-person and last well beyond project completion through proven excellence.",
   },
   {
     iconName: "verified",

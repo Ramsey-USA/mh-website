@@ -194,32 +194,6 @@ export default function Home() {
         variant="primary"
       />
 
-      {/* Optional Planning Tools - Positioned after trust is established */}
-      <section className="relative bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-20 lg:py-32">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible>
-            <div className="mb-16 text-center">
-              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
-                  Optional Tools to
-                </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
-                  Help You Plan
-                </span>
-              </h2>
-              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
-                While we believe in{" "}
-                <span className="font-medium text-gray-800 dark:text-gray-200">
-                  face-to-face consultations
-                </span>
-                , these helpful planning tools can prepare you for our personal
-                conversation.
-              </p>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
-
       {/* Modern Tools & Features Section - Positioned after trust foundation */}
       <FeaturesSection />
 

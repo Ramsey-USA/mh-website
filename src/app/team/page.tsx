@@ -61,7 +61,7 @@ export default function TeamPage() {
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              THE ROI IS THE RELATIONSHIP • Building for the Client, NOT the
+              Your Vision, Our Precision • Building for the Client, NOT the
               Dollar
             </p>
 
@@ -379,10 +379,10 @@ export default function TeamPage() {
                             Long-Term Partnership Mindset
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
-                            THE ROI IS THE RELATIONSHIP. We invest in lasting
-                            partnerships that extend well beyond project
-                            completion, with 70% referral business proving the
-                            strength of our commitment to client success.
+                            Building lasting partnerships that extend well
+                            beyond project completion, with 70% referral
+                            business proving the strength of our commitment to
+                            client success and future growth together.
                           </p>
                         </div>
                       </div>
@@ -643,8 +643,8 @@ export default function TeamPage() {
                   initiatives, continuous professional development to
                   competitive benefits. View our current openings and discover
                   the benefits of joining our veteran-owned partnership company
-                  where THE ROI IS THE RELATIONSHIP applies to employees and
-                  clients alike.
+                  where your growth is our mission and every team member's
+                  success matters.
                 </p>
                 <Link href="/careers">
                   <Button

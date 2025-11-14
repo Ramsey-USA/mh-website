@@ -44,10 +44,10 @@ export const coreValues: CoreValue[] = [
   },
   {
     iconName: "handshake",
-    title: "Relationship ROI",
-    subtitle: "We Build Trust, Not Just Structures",
+    title: "Partnership Excellence",
+    subtitle: "Trust Built, Project by Project",
     description:
-      "THE ROI IS THE RELATIONSHIP - investing in long-term partnerships that last well beyond project completion. We measure success by relationships built, not just profit margins. Your success is our return on investment. Treating every interaction as an investment in lasting community partnerships.",
+      "Investing in long-term partnerships that last well beyond project completion. We measure success by relationships built and trust earned through proven excellence. Your success is our mission. Treating every interaction as an investment in lasting community partnerships built on decades of proven results.",
     practices: [
       "Following up after project completion to ensure satisfaction",
       "Being available for questions and support long after final payment",

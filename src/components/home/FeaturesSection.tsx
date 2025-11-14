@@ -1,9 +1,12 @@
+"use client";
+
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
+import { useChatbot } from "@/contexts/ChatbotContext";
 
 const features = [
   {
@@ -78,18 +81,18 @@ const features = [
 
 const ctaButtons = [
   {
-    title: "Schedule Free Consultation",
-    description: "Start with a personal conversation",
-    href: "/booking",
-    variant: "primary" as const,
-    icon: "event",
-  },
-  {
     title: "Quick Budget Planner",
     description: "Helpful tool to prepare for meeting",
     href: "/estimator",
-    variant: "secondary" as const,
+    variant: "primary" as const,
     icon: "smart_toy",
+  },
+  {
+    title: "Schedule Free Consultation",
+    description: "Start with a personal conversation",
+    href: "/booking",
+    variant: "secondary" as const,
+    icon: "event",
   },
   {
     title: "View Our Work",
@@ -99,11 +102,12 @@ const ctaButtons = [
     icon: "visibility",
   },
   {
-    title: "Get In Touch",
-    description: "Start our conversation",
-    href: "/contact",
+    title: "24/7 Support Assistant",
+    description: "Get instant help anytime",
+    href: "#",
     variant: "outline" as const,
     icon: "support_agent",
+    isChatbot: true,
   },
 ];
 
@@ -112,6 +116,8 @@ const ctaButtons = [
  * Showcases helpful planning tools with flip cards and CTAs
  */
 export function FeaturesSection() {
+  const { toggleChatbot } = useChatbot();
+
   return (
     <section
       id="helpful-features"
@@ -252,7 +258,13 @@ export function FeaturesSection() {
                 variant={cta.variant}
                 size="lg"
                 className="group mb-2 sm:mb-3 w-full transition-all duration-300 min-h-[48px] touch-manipulation"
-                onClick={() => (window.location.href = cta.href)}
+                onClick={() => {
+                  if (cta.isChatbot) {
+                    toggleChatbot();
+                  } else {
+                    window.location.href = cta.href;
+                  }
+                }}
               >
                 <MaterialIcon
                   icon={cta.icon}

@@ -970,8 +970,8 @@ export default function ServicesPage() {
                         Final walkthrough, punch list completion, warranty
                         documentation, and post-project support ensure your
                         complete satisfaction. We don't disappear after
-                        completion—THE ROI IS THE RELATIONSHIP means we're here
-                        for the long term.
+                        completion—we're here for the long term with ongoing
+                        partnership support.
                       </p>
                       <div className="flex flex-wrap gap-2">
                         <span className="bg-brand-accent/10 px-3 py-1 rounded-full text-forest-700 text-sm">

@@ -59,7 +59,7 @@ export const leadershipTeam = [
       "Partnership Philosophy: 'We Work With You'",
     ],
     philosophy:
-      'Established the "We Work With You, Not FOR You" partnership philosophy and THE ROI IS THE RELATIONSHIP mindset that defines MH Construction today',
+      'Established the "We Work With You, Not FOR You" partnership philosophy and trust-built excellence that defines MH Construction today',
     icon: "foundation",
   },
 ];
