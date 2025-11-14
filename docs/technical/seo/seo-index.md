@@ -18,6 +18,18 @@
 SEO and accessibility documentation covering search optimization, accessibility standards, and inclusive design
 practices for the MH Construction website.
 
+**⭐ IMPORTANT UPDATE (Nov 2025)**: All SEO implementations must align with the 7-group
+page-specific messaging strategy documented in
+**[Page-Specific Messaging Guide](../../branding/strategy/page-specific-messaging-guide.md)**. Each page
+group has unique keyword priorities, tone, and messaging requirements that impact SEO metadata.
+
+**Key Recent Updates:**
+
+- **[Homepage Optimization](../../branding/strategy/homepage-optimization-nov-2025.md)** - Trust-first,
+  tech-later approach with section reordering
+- **[SEO Optimization Complete](../../branding/strategy/seo-optimization-complete-nov-2025.md)** -
+  Complete audit of all 15 pages with before/after SEO changes
+
 ---
 
 ## 📚 Documentation Files
@@ -96,6 +108,52 @@ Complete inventory of all pages with SEO status, metadata compliance, schema imp
 - Reviewing page inventory
 - Planning SEO improvements
 - Quarterly audits
+
+---
+
+### SEO Section Order Optimization
+
+**[seo-section-order-optimization.md](./seo-section-order-optimization.md)** - Homepage section order
+strategy ⭐ **NEW!**
+
+Strategic approach to ordering homepage sections for optimal SEO, emphasizing trust-building elements
+before technology features. Implements "old school business meets modern technology" philosophy.
+
+**Topics Covered:**
+
+- Trust-first section ordering
+- Core values placement strategy
+- Technology positioning
+- SEO impact analysis
+- User journey optimization
+
+**When to Use:**
+
+- Planning homepage structure
+- Reordering page sections for SEO
+- Understanding trust-building approach
+- Implementing traditional-to-modern progression
+
+**Related Documentation:**
+
+- [Homepage Optimization Guide](../../branding/strategy/homepage-optimization-nov-2025.md)
+- [Page-Specific Messaging Guide](../../branding/strategy/page-specific-messaging-guide.md)
+
+---
+
+### SEO Section Order Implementation Summary
+
+**[seo-section-order-implementation-summary.md](./seo-section-order-implementation-summary.md)** -
+Implementation details
+
+Complete record of homepage section reordering implementation, including all file changes and testing
+results.
+
+**When to Use:**
+
+- Understanding what was changed in homepage optimization
+- Reviewing implementation approach
+- Planning similar optimizations for other pages
 
 ---
 

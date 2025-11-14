@@ -55,6 +55,9 @@ Brand identity, company values, messaging guidelines, and strategic positioning.
 
 - `brand-overview.md` - Core brand identity and mission
 - `messaging.md` - Voice, tone, and messaging framework
+- `page-specific-messaging-guide.md` - ⭐ **NEW (Nov 2025)** - 7-group page messaging strategy
+- `homepage-optimization-nov-2025.md` - Homepage trust-first optimization details
+- `seo-optimization-complete-nov-2025.md` - Complete SEO optimization audit for all 15 pages
 - `content-messaging-standards.md` - Content writing standards
 
 ### 🎨 [standards/](./standards/)
@@ -107,9 +110,11 @@ and superseded guidelines from documentation consolidation efforts (8 archived f
 
 ### For Developers
 
-1. Review **[Consistency Guide](../development/consistency-guide.md)** - Complete implementation standards
-2. Check **[Quick Reference](./implementation/branding-quick-reference.md)** - Developer cheat sheet
-3. Reference **[Color System](./standards/color-system.md)** and **[Typography](./standards/typography.md)**
+1. Review **[Page-Specific Messaging Guide](./strategy/page-specific-messaging-guide.md)** - 7-group
+   messaging strategy (MUST READ for all page development)
+2. Check **[Consistency Guide](../development/consistency-guide.md)** - Complete implementation standards
+3. Reference **[Quick Reference](./implementation/branding-quick-reference.md)** - Developer cheat sheet
+4. Review **[Color System](./standards/color-system.md)** and **[Typography](./standards/typography.md)**
 
 ### For Designers
 
@@ -119,9 +124,11 @@ and superseded guidelines from documentation consolidation efforts (8 archived f
 
 ### For Content Writers
 
-1. Read **[Messaging](./strategy/messaging.md)** - Voice and tone
-2. Check **[Content Standards](./strategy/content-messaging-standards.md)** - Writing guidelines
-3. Review **[CTA Standards](./standards/cta-standardization-plan.md)** - Call-to-action patterns
+1. Read **[Page-Specific Messaging Guide](./strategy/page-specific-messaging-guide.md)** - Understand
+   the 7 page groups and their unique voices (CRITICAL for all content)
+2. Review **[Messaging](./strategy/messaging.md)** - General voice and tone principles
+3. Check **[Content Standards](./strategy/content-messaging-standards.md)** - Writing guidelines
+4. Review **[CTA Standards](./standards/cta-standardization-plan.md)** - Call-to-action patterns
 
 ---
 

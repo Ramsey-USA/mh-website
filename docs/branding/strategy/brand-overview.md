@@ -4,14 +4,22 @@
 **Status:** ✅ Current
 **Category:** Business - Brand Guidelines
 **Version:** 4.0.2
-**Last Updated:** November 4, 2025
+**Last Updated:** November 15, 2025
+
+**⭐ IMPORTANT UPDATE (Nov 2025)**: This document provides core brand identity. For page-specific
+messaging and voice variations, see the comprehensive
+**[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** which defines 7 distinct page
+groups aligned with SEO optimization strategy documented in
+**[SEO Optimization Complete](./seo-optimization-complete-nov-2025.md)**.
 
 ## Quick Navigation
 
-- [🏠 Brand Documentation](./branding-index.md)
-- [🎨 Color System](./color-system.md)
-- [🔧 Icon Policy](./icon-policy.md)
-- [📝 Typography](./typography.md)
+- [🏠 Brand Documentation](../branding-index.md)
+- [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
+- [📝 Messaging Guidelines](./messaging.md)
+- [🎨 Color System](../standards/color-system.md)
+- [🔧 Icon Policy](../standards/icon-policy-complete.md)
+- [📝 Typography](../standards/typography.md)
 
 ---
 
@@ -114,6 +122,10 @@ unwavering dedication and owner-first focus to every project.
 - **Expert**: Knowledgeable, experienced, skilled
 - **Partnership-Focused**: Collaborative, supportive, responsive
 - **Results-Driven**: Efficient, effective, solution-oriented
+
+**Note**: Voice and tone vary by page group. See
+**[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** for detailed guidance on how
+each of the 7 page groups expresses these attributes differently.
 
 ### Communication Style
 
@@ -254,10 +266,14 @@ See [Core Values](../../business/core-values.md) for complete details on each pr
 
 ## Related Documentation
 
+- **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** - ⭐ **CRITICAL** -
+  7-group messaging strategy for all pages
+- **[Messaging Guidelines](./messaging.md)** - General voice and tone principles
+- **[Homepage Optimization Guide](./homepage-optimization-nov-2025.md)** - Trust-first optimization approach
+- **[SEO Optimization Complete](./seo-optimization-complete-nov-2025.md)** - Complete SEO audit
 - [**Color System**](./color-system.md) - Complete brand color palette
 - [**Icon Policy**](./icon-policy.md) - Material Icons standards
 - [**Typography**](./typography.md) - Font system and text guidelines
-- [**Messaging**](./messaging.md) - Detailed voice and tone guidelines
 - [**Implementation Guide**](./implementation-guide.md) - Technical implementation
 - [**Branding Index**](../branding-index.md) - Hub for all brand documentation
 

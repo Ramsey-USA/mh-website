@@ -4,19 +4,36 @@
 **Status:** ✅ Current
 **Category:** Business - Brand Guidelines
 **Version:** 4.0.2
-**Last Updated:** November 4, 2025
+**Last Updated:** November 15, 2025
+
+**⭐ IMPORTANT UPDATE (Nov 2025)**: This document provides general messaging principles. For
+page-specific messaging strategies, see the comprehensive
+**[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** which defines 7 distinct page
+groups with unique voices, tones, and keyword priorities.
 
 ## Quick Navigation
 
-- [🏠 Brand Documentation](./branding-index.md)
+- [🏠 Brand Documentation](../branding-index.md)
 - [📋 Brand Overview](./brand-overview.md)
-- [🎨 Color System](./color-system.md)
-- [📝 Typography](./typography.md)
-- [🔧 Icon Policy](./icon-policy.md)
+- [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
+- [🎨 Color System](../standards/color-system.md)
+- [📝 Typography](../standards/typography.md)
+- [🔧 Icon Policy](../standards/icon-policy-complete.md)
 
 ---
 
 ## Brand Voice & Tone Framework
+
+**Note**: These are general principles. Each page group has specialized voice and tone requirements.
+See **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** for details on:
+
+- **Group 1**: Traditional Business Foundation (Homepage, Contact, Booking)
+- **Group 2**: Heritage & Track Record (About, Projects)
+- **Group 3**: Future Vision & Expertise (Team, Services)
+- **Group 4**: Professional Patriotic (Government, Veterans)
+- **Group 5**: Recruitment & Opportunity (Careers)
+- **Group 6**: Tech Innovation & Optional Tools (AI Estimator, 3D Explorer)
+- **Group 7**: Partnership & Urgency (Trade Partners, Urgent Projects)
 
 ### Core Voice Attributes
 
@@ -454,12 +471,16 @@ craftsmanship and character.
 
 ## Related Documentation
 
-- [**Brand Overview**](./brand-overview.md) - Complete brand identity guide
-- [**Color System**](./color-system.md) - Visual brand standards
-- [**Typography**](./typography.md) - Text and font guidelines
-- [**Icon Policy**](./icon-policy.md) - Visual elements policy
-- [**Implementation Guide**](./implementation-guide.md) - Technical standards
-- [**Branding Index**](../branding-index.md) - Hub for all brand documentation
+- **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** - ⭐ **CRITICAL** -
+  7-group messaging strategy (MUST READ for content creators)
+- **[Brand Overview](./brand-overview.md)** - Complete brand identity guide
+- **[Homepage Optimization Guide](./homepage-optimization-nov-2025.md)** - Trust-first optimization approach
+- **[SEO Optimization Complete](./seo-optimization-complete-nov-2025.md)** - Complete SEO audit
+- **[Color System](../standards/color-system.md)** - Visual brand standards
+- **[Typography](../standards/typography.md)** - Text and font guidelines
+- **[Icon Policy](../standards/icon-policy-complete.md)** - Visual elements policy
+- **[Implementation Guide](../implementation/branding-quick-reference.md)** - Technical standards
+- **[Branding Index](../branding-index.md)** - Hub for all brand documentation
 
 ---
 

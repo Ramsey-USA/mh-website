@@ -17,14 +17,18 @@
 
 ### New Developer Onboarding Path
 
-1. **[Current State 2025-11](./current-state-2025-11.md)** - ⭐ **NEW** - Complete baseline for future development
-2. **[New Page Development Guide](./new-page-development-guide.md)** - Complete page creation workflow
-3. **[Consistency Guide](./consistency-guide.md)** - ⭐ **MANDATORY** - Complete implementation standards
+1. **[Current State 2025-11](./current-state-2025-11.md)** - ⭐ **NEW** - Complete baseline for
+   future development
+2. **[Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md)** - ⭐
+   **CRITICAL** - Understand the 7 page groups and their unique messaging strategies
+3. **[New Page Development Guide](./new-page-development-guide.md)** - Complete page creation workflow
+4. **[Consistency Guide](./consistency-guide.md)** - ⭐ **MANDATORY** - Complete implementation standards
    (includes AI Estimator vs. Consultation distinction)
-4. **[Cohesion Checklist](./cohesion-checklist.md)** - Ensure consistency when creating/editing pages
-5. **[Style Utilities Guide](./style-utilities-guide.md)** - ⭐ **MANDATORY** - Centralized style utilities
-6. **[Quick Reference](./style-utilities-quick-reference.md)** - Daily cheat sheet for common patterns
-7. **[Development Standards](./development-standards.md)** - Core coding standards
+5. **[Cohesion Checklist](./cohesion-checklist.md)** - Ensure consistency when creating/editing pages
+6. **[Style Utilities Guide](./style-utilities-guide.md)** - ⭐ **MANDATORY** - Centralized
+   style utilities
+7. **[Quick Reference](./style-utilities-quick-reference.md)** - Daily cheat sheet for common patterns
+8. **[Development Standards](./development-standards.md)** - Core coding standards
 
 ### 🤖 AI System Architecture (Nov 10, 2025)
 

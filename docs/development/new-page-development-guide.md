@@ -19,6 +19,11 @@ This guide provides a standardized approach to creating new pages for the MH Con
 Following these conventions ensures consistency, maintainability, and optimal user experience across
 the entire site.
 
+**⭐ CRITICAL**: Before creating any new page, review the
+**[Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md)** to understand
+which of the 7 messaging groups your page belongs to. Each group has unique voice, tone, and messaging
+requirements that must be followed for brand consistency.
+
 ---
 
 ## 🏗️ Standard Page Structure
@@ -167,6 +172,10 @@ export const breadcrumbPatterns = {
 
 ### 3. Create Page Metadata
 
+**Important**: Page metadata (title, description, keywords) must align with the appropriate messaging
+group from the **[Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md)**.
+Review your page's group for proper keyword prioritization and tone.
+
 ```typescript
 import type { Metadata } from "next";
 
@@ -182,6 +191,14 @@ export const metadata: Metadata = {
   },
 };
 ```
+
+**SEO Best Practices**:
+
+- Follow the trust-first, tech-later approach documented in
+  **[Homepage Optimization Guide](../branding/strategy/homepage-optimization-nov-2025.md)**
+- Review **[SEO Optimization Complete](../branding/strategy/seo-optimization-complete-nov-2025.md)**
+  for examples of optimized metadata across all 15 pages
+- Ensure keywords are ordered according to messaging group priorities
 
 ---
 
@@ -279,11 +296,14 @@ export const metadata: Metadata = {
 ### Content
 
 - [ ] Spelling and grammar checked
-- [ ] Brand voice consistent
+- [ ] Brand voice consistent with appropriate messaging group
+      (see [Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md))
 - [ ] CTAs clear and actionable
 - [ ] Contact information accurate
 - [ ] Links open appropriately (internal vs external)
 - [ ] All content factually accurate
+- [ ] Messaging aligns with one of the 7 page groups (Traditional Business, Heritage, Future Vision,
+      Professional Patriotic, Recruitment, Tech Innovation, or Partnership/Urgency)
 
 ### Testing
 
@@ -376,11 +396,16 @@ export default function YourPage() {
 
 ## 🔗 Related Documentation
 
+- [**Page-Specific Messaging Guide**](../branding/strategy/page-specific-messaging-guide.md) - ⭐
+  **CRITICAL** - 7 page groups with unique messaging strategies
+- [**Homepage Optimization Guide**](../branding/strategy/homepage-optimization-nov-2025.md) -
+  Trust-first optimization approach
+- [**SEO Optimization Complete**](../branding/strategy/seo-optimization-complete-nov-2025.md) - Complete
+  SEO audit with examples
 - [Navigation System](../technical/navigation/navigation-index.md) - Complete navigation documentation
 - [Design System](../technical/design-system/design-system-index.md) - Component and styling standards
 - [Consistency Guide](./consistency-guide.md) - Development patterns and best practices
 - [Component Standards](../branding/standards/component-standards.md) - Component design standards
-- [SEO Guide](../technical/seo-guide.md) - SEO optimization guidelines
 
 ---
 

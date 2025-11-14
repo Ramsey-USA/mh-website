@@ -76,9 +76,14 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 - [Brand Overview](./branding/strategy/brand-overview.md) - Core brand identity
 - [Messaging Guidelines](./branding/strategy/messaging.md) - Voice, tone, communication
 - [Page-Specific Messaging Guide](./branding/strategy/page-specific-messaging-guide.md) -
-  ⭐ **NEW (Nov 14, 2025)** - Unique voice for each page group
+  ⭐ **NEW (Nov 14, 2025)** - 7-group messaging strategy with unique voice/tone for each page group
+- [Homepage Optimization Guide](./branding/strategy/homepage-optimization-nov-2025.md) -
+  ⭐ **NEW (Nov 2025)** - Trust-first optimization approach
+- [SEO Optimization Complete](./branding/strategy/seo-optimization-complete-nov-2025.md) -
+  ⭐ **NEW (Nov 2025)** - Complete audit of all 15 pages
 - [Slogan Rotation Guide](./branding/strategy/slogan-rotation-guide.md) - Complete slogan library
-- [Hero Tagline Strategy](./branding/strategy/hero-tagline-strategy.md) - ⭐ **NEW** (Nov 2025) - Page-specific hero taglines
+- [Hero Tagline Strategy](./branding/strategy/hero-tagline-strategy.md) - ⭐ **NEW** (Nov 2025) -
+  Page-specific hero taglines
 - [Color System](./branding/standards/color-system.md) - Complete color palette
 - [Typography](./branding/standards/typography.md) - Font system and hierarchy
 - [Hero Section Standards](./branding/standards/hero-section-standards.md) - Hero implementation

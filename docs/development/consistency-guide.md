@@ -9,6 +9,7 @@
 ## 📋 Table of Contents
 
 - [Brand Foundation](#brand-foundation)
+- [Page-Specific Messaging Strategy](#page-specific-messaging-strategy)
 - [Hero Section Tagline Strategy](#hero-section-tagline-strategy)
 - [Typography System](#typography-system)
 - [Page Layout Standards](#page-layout-standards)
@@ -17,6 +18,74 @@
 - [Chatbot-First User Engagement](#chatbot-first-user-engagement)
 - [Mobile Consistency](#mobile-consistency)
 - [Implementation Checklist](#implementation-checklist)
+
+---
+
+## 🎯 Page-Specific Messaging Strategy
+
+### November 15, 2025 Update
+
+**⭐ CRITICAL FOR ALL CONTENT DEVELOPMENT:** All pages must follow the 7-group messaging strategy
+documented in **[Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md)**.
+
+### Why This Matters
+
+Each page has a specific role in the user journey and must use appropriate voice, tone, and keyword
+prioritization:
+
+1. **Group 1: Traditional Business Foundation** (Homepage, Contact, Booking)
+   - Voice: Warm, trustworthy, approachable
+   - Priority: Trust → Values → People → Technology
+   - Focus: Relationship-building and partnership invitation
+
+2. **Group 2: Heritage & Track Record** (About, Projects)
+   - Voice: Proud, accomplished, proven
+   - Priority: Experience → History → Results → Innovation
+   - Focus: Credibility through demonstrated success
+
+3. **Group 3: Future Vision & Expertise** (Team, Services)
+   - Voice: Professional, forward-looking, comprehensive
+   - Priority: Expertise → Capabilities → Vision → Tools
+   - Focus: What we offer and how we deliver
+
+4. **Group 4: Professional Patriotic** (Government, Veterans)
+   - Voice: Respectful, service-focused, capable
+   - Priority: Service → Standards → Capabilities → Partnership
+   - Focus: Alignment with mission and values
+
+5. **Group 5: Recruitment & Opportunity** (Careers)
+   - Voice: Welcoming, growth-focused, team-oriented
+   - Priority: Culture → Opportunity → Team → Benefits
+   - Focus: Career development and belonging
+
+6. **Group 6: Tech Innovation & Optional Tools** (AI Estimator, 3D Explorer)
+   - Voice: Innovative, helpful, optional
+   - Priority: Innovation → Convenience → Speed → Value
+   - Focus: Modern tools as enhancements, not requirements
+
+7. **Group 7: Partnership & Urgency** (Trade Partners, Urgent Projects)
+   - Voice: Decisive, responsive, solution-oriented
+   - Priority: Speed → Solution → Partnership → Action
+   - Focus: Immediate response and collaboration
+
+### Implementation Requirements
+
+**Before creating or editing any page:**
+
+1. Identify which messaging group the page belongs to
+2. Review the specific voice, tone, and keyword priorities
+3. Align hero section, page description, and CTAs with group strategy
+4. Ensure SEO metadata matches keyword prioritization
+5. Verify messaging consistency with group requirements
+
+**SEO Impact:**
+
+- Homepage follows trust-first approach (see
+  [Homepage Optimization](../branding/strategy/homepage-optimization-nov-2025.md))
+- All 15 pages optimized (see
+  [SEO Optimization Complete](../branding/strategy/seo-optimization-complete-nov-2025.md))
+- Keyword ordering varies by messaging group
+- Technology mentions positioned strategically by group
 
 ---
 
@@ -835,8 +904,13 @@ npm run build
 
 #### Messaging Compliance
 
-- [ ] Partnership language emphasized
-- [ ] Veteran heritage mentioned appropriately
+- [ ] Aligned with appropriate messaging group from
+      [Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md)
+- [ ] Voice and tone match page group requirements
+- [ ] Keyword prioritization follows group strategy
+- [ ] Partnership language emphasized appropriately for group
+- [ ] Veteran heritage mentioned appropriately (stronger in Groups 2, 4)
+- [ ] Technology positioning matches group strategy (background in Groups 1-5, forefront in Group 6)
 - [ ] Client benefits clearly communicated
 - [ ] Professional yet approachable tone
 - [ ] Contact information standardized
@@ -882,8 +956,14 @@ npm run build
 
 ---
 
-## �📚 Related Documentation
+## 📚 Related Documentation
 
+- **[Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md)** - ⭐
+  **CRITICAL** - 7-group messaging strategy
+- **[Homepage Optimization Guide](../branding/strategy/homepage-optimization-nov-2025.md)** - Trust-first
+  optimization approach
+- **[SEO Optimization Complete](../branding/strategy/seo-optimization-complete-nov-2025.md)** - Complete
+  SEO audit
 - **[Design System](../technical/design-system/design-system.md)** - Complete design system
 - **[Mobile Quick Reference](../technical/design-system/mobile-quick-reference.md)** - Mobile patterns
 - **[Brand Strategy](../branding/strategy/)** - Brand identity and messaging
