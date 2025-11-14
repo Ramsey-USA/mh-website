@@ -73,8 +73,8 @@ structure.
 - ✅ `/docs/project/COMPLETE_implementation-guide.md`
   - Updated business contact: `office@mhc-gc.com`
 
-- ✅ `/docs/project/archive/consolidated/NEW_PAGES_IMPLEMENTATION.md`
-  - Updated contact info: `office@mhc-gc.com`
+- ✅ Previous archive files cleaned (Nov 14, 2025)
+  - Historical references removed for cleaner documentation
 
 - ✅ `/docs/project/BASEBALL_CARD_SYSTEM_COMPLETE.md`
   - Updated team contact: `contact@mhc-gc.com`

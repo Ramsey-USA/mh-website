@@ -77,7 +77,7 @@ Historical records, changelogs, and development history.
 
 - [Documentation Consolidation Review (Nov 2025)](./documentation-consolidation-review-nov-2025.md) - Current status
 - [Documentation Style Guide](../development/documentation-style-guide.md) - Standards and guidelines
-- [Archive Directory](../archive/archive-readme.md) - Historical documentation
+- [Last Reviewed Tracking](./last-reviewed-tracking.md) - Documentation review system
 
 ### Core Documentation Hubs
 

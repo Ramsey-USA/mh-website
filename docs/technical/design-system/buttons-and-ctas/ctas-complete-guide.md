@@ -1186,7 +1186,7 @@ import { CONTACT_INFO } from '@/lib/constants';
 ### Historical References
 
 - Previous implementation plans and review summaries have been consolidated into current documentation
-- Archive files available in `docs/branding/archive/` for historical context
+- All current standards maintained in this guide (Nov 2025)
 
 ---
 

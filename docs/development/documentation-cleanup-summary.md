@@ -89,7 +89,7 @@ Documentation: 123 files in organized subdirectories
 - `docs/branding/strategy/`: 3 files (~2,500 lines) - Brand identity and messaging
 - `docs/branding/standards/`: 7 files (~3,200 lines) - Visual and typography standards
 - `docs/branding/implementation/`: 1 file (~800 lines) - Developer quick reference
-- `docs/branding/archive/`: 5 files (~2,250 lines) - Historical documents
+- `docs/branding/`: Consolidated current brand documentation (no archive)
 
 **Potential Consolidation**:
 

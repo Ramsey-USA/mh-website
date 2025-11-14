@@ -33,14 +33,14 @@ visibility of critical root-level guides.
 
 ## 📊 Documentation Metrics
 
-| Metric                  | Count          | Status |
-| ----------------------- | -------------- | ------ |
-| **Total MD Files**      | 174            | ✅     |
-| **Index Files**         | 29             | ✅     |
-| **Root-Level Guides**   | 4              | ✅     |
-| **Major Categories**    | 11             | ✅     |
-| **Archive Directories** | 3              | ✅     |
-| **Last Updated (Avg)**  | Nov 6-10, 2025 | ✅     |
+| Metric                 | Count        | Status |
+| ---------------------- | ------------ | ------ |
+| **Total MD Files**     | ~150         | ✅     |
+| **Index Files**        | 29           | ✅     |
+| **Root-Level Guides**  | 4            | ✅     |
+| **Major Categories**   | 11           | ✅     |
+| **Cleaned Nov 2025**   | 22 files     | ✅     |
+| **Last Updated (Avg)** | Nov 14, 2025 | ✅     |
 
 ---
 
@@ -49,9 +49,9 @@ visibility of critical root-level guides.
 ### 1. **Branding** (`docs/branding/`)
 
 - **Status:** ✅ Excellent
-- **Index:** branding-index.md (Nov 6, 2025)
-- **Subdirectories:** strategy/, standards/, implementation/, archive/
-- **Notes:** Well-organized modular structure, clear separation of concerns
+- **Index:** branding-index.md (Nov 14, 2025)
+- **Subdirectories:** strategy/, standards/, implementation/
+- **Notes:** Well-organized modular structure, archive cleaned Nov 2025
 
 ### 2. **Business** (`docs/business/`)
 

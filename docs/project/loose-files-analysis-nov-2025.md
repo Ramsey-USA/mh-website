@@ -17,6 +17,8 @@ Found **9 loose files** that need organization or justification.
 - 🔄 **4 files** should be moved to proper homes
 - ⚠️ **2 files** need review/consolidation
 
+**Note (Nov 14, 2025):** Archive directories cleaned - 22 historical files removed
+
 ---
 
 ## 📂 Current Loose Files Inventory

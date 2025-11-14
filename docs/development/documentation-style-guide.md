@@ -617,5 +617,5 @@ What type of documentation?
 ├─ Project management → project/
 ├─ Partner information → partnerships/
 ├─ Operations procedures → operations/
-└─ Historical → appropriate-folder/archive/
+└─ Historical → Remove or integrate into current docs
 ```

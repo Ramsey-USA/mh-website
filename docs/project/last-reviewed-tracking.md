@@ -58,9 +58,9 @@ Many docs don't need updates but should be periodically verified for accuracy, e
 
 **Activities:**
 
-- Review all 174+ markdown files
+- Review all 150+ markdown files
 - Update screenshots and examples
-- Archive outdated content
+- Remove outdated content
 - Consolidate where appropriate
 - Update metrics and statistics
 

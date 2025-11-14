@@ -23,11 +23,11 @@ Examples: master-index.md, archive-readme.md, phase-consolidation-plan.md
 
 ```text
 docs/master-index.md
-docs/archive/archive-readme.md
-docs/archive/completed-phases/phase-consolidation-plan.md
+docs/branding/branding-index.md
 docs/development/documentation-naming-standards.md
+docs/project/roadmaps/roadmaps-index.md
 .vscode/test-snippets-here.md
-src/components/_archived/archive-note.md
+src/components/shared-sections/NextStepsSection.tsx
 ```
 
 ### ❌ Incorrect Examples (Do Not Use)

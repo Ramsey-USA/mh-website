@@ -103,9 +103,9 @@ for historical reference and context.
 ## 📚 **REFERENCE LINKS**
 
 - **[Current Implementation Summary](../migrations/codebase-improvement-completion-report.md)** - Live project status
-- **[Technical Architecture](./architecture.md)** - System design overview
-- **[Phase Archives](archive/phases/)** - Complete historical documentation
-- **[Development Guidelines](../development/guidelines/development-guidelines.md)** - Current development standards
+- **[Technical Architecture](../architecture.md)** - System design overview
+- **[Development History](./development-history.md)** - Project timeline & evolution
+- **[Development Guidelines](../../development/development-index.md)** - Current development standards
 
 ---
 

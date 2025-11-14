@@ -41,7 +41,6 @@ docs/branding/
   strategy/        # Brand identity and messaging
   standards/       # Visual design standards
   implementation/  # Developer references
-  archive/         # Historical documents
 docs/technical/design-system/
 docs/development/guidelines/
 

@@ -86,14 +86,8 @@
 
 ### **Future Development (Optional)**
 
-- **[FUTURE_PHASES_ROADMAP.md](../../project/roadmaps/future-phases-roadmap.md)** - ⭐
-  Complete Phase 6+ roadmap & timeline
-- **[Next Phase Options](../../../README.md#-project-roadmap--next-phases)** - Phase 6+
-  Advanced Features roadmap
-- **[Future Enhancements](../../../README.md#-phase-6-advanced-features--scaling-future)** -
-  Real-time collaboration, AI, mobile
-- **[Implementation Timeline](../../../README.md#-implementation-timeline-future-phases)** -
-  2026 development schedule
+- **[Roadmaps Index](../../project/roadmaps/roadmaps-index.md)** - ⭐ Strategic planning overview
+- **[Development History](../../project/history/development-history.md)** - Project timeline & achievements
 
 ---
 
