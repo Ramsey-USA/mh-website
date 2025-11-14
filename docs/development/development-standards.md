@@ -17,15 +17,13 @@ These standards ensure consistency, maintainability, and prevent recurring bugs.
 
 **When implementing features, also consult our brand guidelines:**
 
-- **[MH Branding Index](../branding/branding-index.md)** - Modular brand docs
+- **[MH Branding Index](../branding/branding-index.md)** - Modular brand docs,
   standards and visual identity
-- **[Brand Documentation Index](../business/branding/branding-index.md)** - Modular
-  brand documentation navigation
-- **[Typography Standards](../business/branding/typography.md)** - Responsive
+- **[Typography Standards](../branding/standards/typography.md)** - Responsive
   typography patterns and hero section requirements
-- **[Color System](../business/branding/color-system.md)** - Brand colors and usage
+- **[Color System](../branding/standards/color-system.md)** - Brand colors and usage
   guidelines
-- **[Icon Policy](../business/branding/icon-policy.md)** - Material Icons standards
+- **[Icon Policy](../technical/design-system/icons/icon-policy-complete.md)** - Material Icons standards
   (NO emojis in code)
 
 **These branding standards are mandatory and enforced alongside technical standards.**

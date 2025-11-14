@@ -69,7 +69,6 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 - **[Brand Strategy](./branding/strategy/)** - Brand identity, messaging, content standards
 - **[Visual Standards](./branding/standards/)** - Colors, typography, icons, components
 - **[Implementation Reference](./branding/implementation/)** - Developer quick reference
-- **[Branding Archive](./archive/branding-archive/)** - Historical brand documents (8 files)
 
 **Key Files:**
 
@@ -393,7 +392,6 @@ Document & code templates for rapid creation.
 - **Guides**: Check `partnerships/messaging/` or `technical/`
 - **References**: See `development/reference/`
 - **Templates**: Browse `templates/`
-- **Archives**: Check central `archive/` directory (15 files organized by category)
 
 ---
 

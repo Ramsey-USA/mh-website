@@ -95,15 +95,6 @@ Developer quick references, code patterns, and implementation checklists.
 **Note**: Detailed implementation details have been consolidated into `/docs/development/consistency-guide.md` for
 unified access.
 
-### 📦 Archive
-
-Historical branding documents moved to central archive for better organization.
-
-**See**: [Branding Archive](../archive/branding-archive/) for historical optimization reports, bug fixes,
-and superseded guidelines from documentation consolidation efforts (8 archived files).
-
-**Note**: All relevant content has been integrated into the current modular documentation structure.
-
 ---
 
 ## 🚀 Quick Start

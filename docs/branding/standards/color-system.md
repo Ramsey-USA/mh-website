@@ -8,9 +8,9 @@
 
 ## Quick Navigation
 
-- [🏠 Brand Documentation](./branding-index.md)
-- [📋 Brand Overview](./brand-overview.md)
-- [🔧 Icon Policy](./icon-policy.md)
+- [🏠 Brand Documentation](../branding-index.md)
+- [📋 Brand Overview](../strategy/brand-overview.md)
+- [🔧 Icon Policy](../../technical/design-system/icons/icon-policy-complete.md)
 - [📝 Typography](./typography.md)
 
 ---

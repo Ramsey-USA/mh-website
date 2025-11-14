@@ -20,9 +20,7 @@ Strategic planning documents and future development roadmaps.
 
 **Key Files:**
 
-- `next-steps.md` - Current project status and immediate next actions
-- `future-phases-roadmap.md` - Phase 6+ development roadmap
-- `phase-master-roadmap.md` - Complete project roadmap and status
+- `roadmaps-index.md` - Overview of all project roadmaps
 
 ### `/implementation/` - Implementation Guides
 
@@ -44,10 +42,6 @@ Historical records, changelogs, and development history.
 - Changelog records
 - Decision documentation
 
-### `/archive/` - Archived Content
-
-Historical project documents and consolidated materials.
-
 ## 🎯 Root Level Project Files
 
 **Active Projects:**
@@ -56,44 +50,24 @@ Historical project documents and consolidated materials.
   **NEW** - Comprehensive review of 174 markdown files with health score and recommendations
 - **[Last Reviewed Tracking](./last-reviewed-tracking.md)** - ⭐ **NEW** - System for tracking documentation
   review dates and maintaining accuracy
-- **[Documentation Cleanup Summary (Nov 2025)](./documentation-cleanup-summary-nov-2025.md)** - ⭐ **NEW** -
-  Phase documentation cleanup and archive system establishment
-
-**Recently Completed (Archived):**
-
-- **[Documentation Optimization Phases 1-2](../archive/completed-optimization/)** - Completed Nov 6, 2025
-- **[Complete Optimization Roadmap](../archive/completed-optimization/complete-optimization-roadmap.md)** -
-  Phases 1-5 complete
-- See [Archive Directory](../archive/archive-readme.md) for all historical documentation
 
 **Project Planning:**
 
 - **[Architecture](./architecture.md)** - System architecture overview
 - **[Company Profile](./company-profile.md)** - Company profile documentation
 
-**For Historical Phase Documentation:** See [Archive Directory](../archive/archive-readme.md)
-
 **Project History:**
 
 - **[Changelog](./history/changelog.md)** - Complete project changelog
 - **[Development History](./history/development-history.md)** - Development progression overview
 
-**Archived Content:**
-
-See [Archive Directory](../archive/archive-readme.md) for:
-
-- Completed phase documentation (Phases 1-5)
-- Historical implementation reports
-- Superseded optimization guides
-- Past consolidation strategies
-
 ---
 
 ## 🚀 Quick Start Guide
 
-1. Review **[roadmaps/phase-master-roadmap.md](./roadmaps/phase-master-roadmap.md)** for project status and Phase 6+ roadmap
+1. Review **[Roadmaps Index](./roadmaps/roadmaps-index.md)** for project status and planning
 2. Check **[Architecture](./architecture.md)** for system understanding
-3. See **[Archive](../archive/archive-readme.md)** for historical documentation (Phases 1-5 complete)
+3. Review **[Development History](./history/development-history.md)** for project timeline
 
 ---
 
@@ -128,10 +102,8 @@ See [Archive Directory](../archive/archive-readme.md) for:
 
 ## 🚀 Quick Start for Development
 
-1. Check roadmap files for current priorities (Phase 6+ planning)
-2. Review [Phase Master Roadmap](./roadmaps/phase-master-roadmap.md) for project status
-3. Reference [Architecture](./architecture.md) for system understanding
-4. Update [Changelog](./history/changelog.md) when completing features
-5. See [Archive](../archive/archive-readme.md) for historical context (Phases 1-5)
+1. Check [Roadmaps Index](./roadmaps/roadmaps-index.md) for current priorities
+2. Reference [Architecture](./architecture.md) for system understanding
+3. Update [Changelog](./history/changelog.md) when completing features
 
 **Philosophy:** Simple, focused, action-oriented documentation.

@@ -20,9 +20,9 @@ introduction of inconsistencies and bugs that have historically plagued this pro
   for all code
 - **[MH Branding](../branding/branding-index.md)** - Modular brand standards (colors,
   typography, icons)
-- **[Typography Standards](../business/branding/typography.md)** - Hero section
+- **[Typography Standards](../branding/standards/typography.md)** - Hero section
   requirements, responsive scaling
-- **[Icon Policy](../business/branding/icon-policy.md)** - Material Icons only
+- **[Icon Policy](../technical/design-system/icons/icon-policy-complete.md)** - Material Icons only
   (NO emojis in code)
 - **[Consistency Master Plan](../project/consistency-master-plan.md)** - Overall
   project consistency strategy

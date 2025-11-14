@@ -996,7 +996,7 @@ For multi-language support:
 For implementation questions or SEO strategy consultation, refer to:
 
 - [Ultimate SEO Guide](./ultimate-seo-guide.md)
-- [SEO Quick Reference](../../../SEO-QUICK-REFERENCE.md)
+- [SEO Quick Reference](../../../seo-quick-reference.md)
 - Run audit: `npm run seo:audit`
 
 ---
@@ -1702,7 +1702,7 @@ If you're just starting, do these 5 things first:
 ### Internal Resources
 
 - [Ultimate SEO Guide](./ultimate-seo-guide.md)
-- [SEO Quick Reference](../../../SEO-QUICK-REFERENCE.md)
+- [SEO Quick Reference](../../../seo-quick-reference.md)
 - [Deployment Documentation](../../deployment/)
 
 ### Run Audits

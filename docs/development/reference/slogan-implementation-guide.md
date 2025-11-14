@@ -777,7 +777,7 @@ export function CTASection() {
 
 - [Complete Slogan Guide](../../branding/strategy/slogan-rotation-guide.md) - Full brand strategy
 - [Partnership Distinctions](../../partnerships/partnership-type-definitions.md) - Client vs Trade
-- [Brand Colors](../../branding/standards/color-palette.md) - Hunter green & leather tan
+- [Brand Colors](../../branding/standards/color-system.md) - Hunter green & leather tan
 - [Typography](../../branding/standards/typography.md) - Font specifications
 - [Component Library](../component-library.md) - Other UI components
 
