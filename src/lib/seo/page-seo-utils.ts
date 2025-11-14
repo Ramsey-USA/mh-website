@@ -14,7 +14,7 @@ import {
 export function getHomepageSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Veteran-Owned Construction | Traditional Values, Modern Efficiency | MH Construction",
+      "Building for the Client, NOT the Dollar | Veteran-Owned Construction | MH Construction",
     description:
       "Veteran-owned since January 2025 under Army veteran leadership. Founded 2010 serving Pacific Northwest communities with old-school business values, transparent partnerships, and face-to-face trust. Modern planning tools support our personal service approach with helpful budget calculators and scheduling assistance.",
     keywords: [
@@ -36,7 +36,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
 export function getAIEstimatorSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "AI Construction Cost Estimator | Instant Estimates 24/7 | MH Construction",
+      "AI-Powered, Human-Centered | Smart Construction Estimator | MH Construction",
     description:
       "Get instant AI-powered construction estimates with regional intelligence, veteran discounts, and Pacific Northwest market data. Revolutionary cost estimation available 24/7 with military precision accuracy.",
     keywords: [
@@ -57,7 +57,7 @@ export function getAIEstimatorSEO(): Metadata & { schemas: object[] } {
 export function getBookingSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Schedule Free Construction Consultation | Expert Site Visit | MH Construction",
+      "Face-to-Face Consultation Where Trust Begins | Book Your Meeting | MH Construction",
     description:
       "Book your complimentary on-site construction consultation with MH Construction experts. Professional evaluation, detailed estimates, and partnership development for your Pacific Northwest project.",
     keywords: [
@@ -77,7 +77,7 @@ export function getBookingSEO(): Metadata & { schemas: object[] } {
 export function getAboutSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "About MH Construction | Founded 2010, Veteran-Owned Since 2025 | Trust Built Project by Project",
+      "Trust Built, Project by Project | Founded 2010, Veteran-Owned Since 2025 | MH Construction",
     description:
       "Founded 2010 by Mike Holstein, veteran-owned since January 2025 under Army veteran Jeremy Thamert's leadership (Owner & President). 150+ years of combined excellence serving Pacific Northwest communities with partnership philosophy, traditional business values, and authentic relationships built on trust.",
     keywords: [
@@ -129,7 +129,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     title:
-      "Construction Services | Residential, Commercial & Government | MH Construction",
+      "Your Vision, Our Precision | Construction Services | MH Construction",
     description:
       "Comprehensive construction services across residential, commercial, and government projects. Veteran-owned company serving Pacific Northwest with military precision, modern planning tools, and partnership approach. Building tomorrow's excellence today.",
     keywords: [
@@ -150,7 +150,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
 export function getTeamSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Meet Our Team | Building Tomorrow's Excellence Today | MH Construction",
+      "Building Tomorrow's Success Today | Meet Our Team | MH Construction",
     description:
       "Meet the MH Construction team building the future of construction excellence. Veteran professionals, expert project managers, and partnership specialists with 150+ years combined experience serving Pacific Northwest communities with innovation, military precision, and authentic relationships.",
     keywords: [
@@ -170,7 +170,7 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
 export function getGovernmentSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Federal Government Contractor | Army Veteran Leadership | Mission-Critical Construction",
+      "Mission-Ready, Compliance-Driven | Federal Government Contractor | MH Construction",
     description:
       "Mission-critical government construction with Army veteran leadership. Federal contracting expertise, DOE compliance, and military-grade project execution for government facilities in the Pacific Northwest.",
     keywords: [
@@ -190,7 +190,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
 export function getVeteransSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Veterans Initiative & Support Programs | Veteran-Owned Since 2025 | MH Construction",
+      "Serving Those Who Served | Veterans Initiative & Support | MH Construction",
     description:
       "Serving those who served. Veteran-owned under Army veteran leadership since January 2025, MH Construction honors military service through veteran hiring initiatives, community partnerships, and annual benefit events. Supporting Pacific Northwest veterans and military families with professional construction excellence and shared values.",
     keywords: [
@@ -232,7 +232,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
 export function getCareersSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Join Our Team! Construction Careers | Grow With Us | MH Construction",
+      "Your Future Starts Here | Join Our Growing Team | MH Construction Careers",
     description:
       "Join MH Construction and build your future with a veteran-owned team that values you! Exciting construction career opportunities with competitive benefits, growth potential, cutting-edge technology, and military values in the Pacific Northwest. We're hiring skilled professionals ready to make an impact.",
     keywords: [
@@ -253,7 +253,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
 export function getProjectsSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Construction Projects Portfolio | Proven Excellence Since 2010 | MH Construction",
+      "Our History Speaks for Itself | Excellence Since 2010 | MH Construction Projects",
     description:
       "Explore MH Construction's proven track record of residential, commercial, and government projects across the Pacific Northwest. Our history speaks for itself with military precision quality, partnership-driven results, and trust built project by project since 2010.",
     keywords: [
@@ -272,7 +272,8 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
 // Contact page SEO
 export function getContactSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
-    title: "Contact MH Construction | Veteran-Owned Builder | Pasco, WA",
+    title:
+      "Where Handshakes Still Matter | Contact MH Construction | Pasco, WA",
     description:
       "Contact MH Construction for your Pacific Northwest construction needs. Founded 2010, veteran-owned since January 2025 with AI-powered estimating, military precision, and authentic partnership approach. (509) 308-6489",
     keywords: [
@@ -291,7 +292,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
 export function getUrgentSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Urgent Construction Support | Immediate Response Partnership | MH Construction",
+      "THE ROI IS THE RELATIONSHIP | Urgent Construction Support | MH Construction",
     description:
       "Professional urgent construction support where THE ROI IS THE RELATIONSHIP. Immediate response for General Contractors facing critical structural challenges. Expert consultation, specialized equipment, heavy machinery operators, and experienced crews available for rapid deployment in WA, OR, and ID. Your project success is our priority.",
     keywords: [
@@ -312,7 +313,8 @@ export function getUrgentSEO(): Metadata & { schemas: object[] } {
 // 3D Explorer page SEO
 export function get3DExplorerSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
-    title: "3D Project Explorer | Coming Soon | MH Construction",
+    title:
+      "Innovation Meets Construction Excellence | 3D Project Explorer | MH Construction",
     description:
       "Immersive 3D visualization platform for construction projects. Explore project designs, walk through virtual models, and experience MH Construction's innovative approach to project visualization. Coming soon.",
     keywords: [

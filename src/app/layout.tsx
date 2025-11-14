@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env["NEXT_PUBLIC_BASE_URL"] || "https://www.mhc-gc.com",
   ),
-  title: "MH Construction - AI-Powered Veteran-Owned Construction Excellence",
+  title: "Building for the Client, NOT the Dollar | MH Construction",
   description:
     "Revolutionary AI-powered construction intelligence with General MH military assistant. Founded 2010, veteran-owned since January 2025 under Army veteran leadership. Serving Pacific Northwest communities with authentic partnerships, transparent communication, and cutting-edge technology.",
   keywords: [
