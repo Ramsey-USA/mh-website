@@ -20,8 +20,8 @@ interface NextStepsSectionProps {
 }
 
 export function NextStepsSection({
-  title = "Ready to Start Your Project?",
-  subtitle = "Let's partner together to bring your construction vision to life with veteran-owned excellence and military precision.",
+  title = "Let's Build Your Vision Together",
+  subtitle = "Where your word is your bond, and ours is too. Partner with veteran-owned excellence backed by old-school values and modern precision.",
   className = "",
   onConsultationClick,
   onEstimateClick,
@@ -53,8 +53,8 @@ export function NextStepsSection({
               Schedule Consultation
             </h3>
             <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
-              Book a free 45-60 minute consultation to discuss your project
-              goals, timeline, and budget.
+              Sit down with us face-to-face. Let's talk about your vision over a
+              handshake, not just an email.
             </p>
             <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400">
               <li className="flex items-center gap-2">

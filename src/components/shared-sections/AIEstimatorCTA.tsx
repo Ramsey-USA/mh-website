@@ -68,17 +68,17 @@ export function AIEstimatorCTA({
                 </div>
                 <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                    Ready to Prepare for
+                    Want to Plan Ahead?
                   </span>
                   <span className="block text-brand-primary dark:text-brand-primary font-black">
-                    Your Consultation?
+                    Try Our Optional Budget Tool
                   </span>
                 </h2>
                 <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8">
-                  Get a preliminary budget estimate in under 5 minutes to
-                  prepare for your in-person consultation. Our planning tool
-                  analyzes Pacific Northwest market data to help you understand
-                  project costs before we meet.
+                  While we always recommend starting with a personal
+                  consultation, our optional planning tool can help you prepare
+                  with preliminary budget estimates. Get Pacific Northwest
+                  market insights in under 5 minutes—available 24/7.
                 </p>
               </div>
 
