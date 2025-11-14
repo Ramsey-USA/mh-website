@@ -523,7 +523,7 @@ For questions about the design system or implementation:
 **Maintained by:** MH Construction Documentation Team  
 **Status:** ✅ Active - Complete Design System Navigation Hub
 
-# MH Construction Design System
+## MH Construction Design System
 
 This document defines the design system standards for the MH Construction
 website, ensuring consistent branding and user experience across all pages
