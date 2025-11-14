@@ -83,7 +83,7 @@ prioritization:
 - Homepage follows trust-first approach (see
   [Homepage Optimization](../branding/strategy/homepage-optimization.md))
 - All 15 pages optimized (see
-  [SEO Optimization Complete](../branding/strategy/seo-optimization-complete.md))
+  [SEO Optimization Complete](../branding/strategy/seo-optimization.md))
 - Keyword ordering varies by messaging group
 - Technology mentions positioned strategically by group
 
@@ -962,7 +962,7 @@ npm run build
   **CRITICAL** - 7-group messaging strategy
 - **[Homepage Optimization Guide](../branding/strategy/homepage-optimization.md)** - Trust-first
   optimization approach
-- **[SEO Optimization Complete](../branding/strategy/seo-optimization-complete.md)** - Complete
+- **[SEO Optimization Complete](../branding/strategy/seo-optimization.md)** - Complete
   SEO audit
 - **[Design System](../technical/design-system/design-system.md)** - Complete design system
 - **[Mobile Quick Reference](../technical/design-system/mobile-quick-reference.md)** - Mobile patterns

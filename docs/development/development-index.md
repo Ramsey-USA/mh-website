@@ -84,7 +84,7 @@ Quick reference guides, troubleshooting documentation, and developer resources.
 
 ### Setup & Configuration
 
-- **[vscode-setup-complete.md](./vscode-setup-complete.md)** - ⭐ **NEW (Nov 2025)** - Complete VS Code
+- **[vscode-setup.md](./vscode-setup.md)** - ⭐ **NEW (Nov 2025)** - Complete VS Code
   setup with 24+ extensions, custom snippets, and configuration
 - **[vscode-extensions-guide.md](./vscode-extensions-guide.md)** - Detailed extension explanations and usage
 - **[deployment-setup.md](../deployment/cloudflare-pages-setup.md)** - Cloudflare Pages deployment guide
@@ -105,7 +105,7 @@ Quick reference guides, troubleshooting documentation, and developer resources.
   user engagement strategy and implementation guide
 - **[chatbot-enhancement-guide.md](./chatbot-enhancement-guide.md)** - **🤖 NEW (Nov 12, 2024)** -
   Comprehensive chatbot improvement roadmap with 10 enhancement strategies (Phases 1-3 complete)
-- **[chatbot-integration-complete.md](./chatbot-integration-complete.md)** - **🤖 NEW (Nov 12, 2024)** -
+- **[chatbot-integration.md](./chatbot-integration.md)** - **🤖 NEW (Nov 12, 2024)** -
   Complete chatbot system with query handlers, knowledge base, and analytics
 - **[chatbot-enhancement-guide.md](./chatbot-enhancement-guide.md)** - **🤖 NEW (Nov 12, 2024)** -
   Comprehensive chatbot improvement roadmap with enhancement strategies

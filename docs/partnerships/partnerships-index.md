@@ -186,7 +186,7 @@ professionals who provide services and materials to MH Construction.
 ### Technical Resources
 
 - **[Design System](../technical/design-system/design-system.md)** - Complete design system
-- **[Icon Policy](../technical/design-system/icons/icon-policy-complete.md)** - Icon usage guidelines
+- **[Icon Policy](../technical/design-system/icon-policy.md)** - Icon usage guidelines
 
 ## 📞 Contact Information
 

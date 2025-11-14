@@ -42,9 +42,9 @@
 
 ### **Page Layout Standards**
 
-- **[page-layout-quick-start.md](../design-system/layout/page-layout-quick-start.md)** -
+- **[page-layout-quick-start.md](../design-system/layout-quick-start.md)** -
   Copy-paste templates for new pages
-- **[page-layout-standards.md](../design-system/layout/page-layout-standards.md)** - Complete
+- **[page-layout-standards.md](../design-system/layout-guide.md)** - Complete
   spacing, padding, typography reference
 
 ### **Design System**
@@ -56,8 +56,8 @@
 
 ### **Icon System**
 
-- **[icon-system-quick-reference.md](../design-system/icons/icon-system-quick-reference.md)** - Icon usage guide
-- **[icon-hover-effects-guide.md](../design-system/icons/icon-hover-effects-guide.md)** - Interactive icon effects
+- **[icon-system-quick-reference.md](../design-system/icon-system-guide.md)** - Icon usage guide
+- **[icon-hover-effects-guide.md](../design-system/icon-hover-effects.md)** - Interactive icon effects
 
 ---
 
@@ -137,15 +137,15 @@ and reports that are no longer relevant have been consolidated into current docu
 
 ### Building a New Page?
 
-1. Read: [page-layout-quick-start.md](../design-system/layout/page-layout-quick-start.md)
+1. Read: [page-layout-quick-start.md](../design-system/layout-quick-start.md)
 2. Copy section template
 3. Copy card template
 4. Customize content
-5. Verify against checklist in [page-layout-standards.md](../design-system/layout/page-layout-standards.md)
+5. Verify against checklist in [page-layout-standards.md](../design-system/layout-guide.md)
 
 ### Adding Icons?
 
-1. Check: [icon-system-quick-reference.md](../design-system/icons/icon-system-quick-reference.md)
+1. Check: [icon-system-quick-reference.md](../design-system/icon-system-guide.md)
 2. Use standard sizes: `xl`, `2xl`, `3xl`
 3. Follow container patterns from layout standards
 
@@ -192,9 +192,9 @@ docs/
 
 | Task                | Documentation                                                                |
 | ------------------- | ---------------------------------------------------------------------------- |
-| Create new page     | [page-layout-quick-start.md](../design-system/layout/page-layout-quick-start.md)         |
+| Create new page     | [page-layout-quick-start.md](../design-system/layout-quick-start.md)         |
 | Style components    | [design-system.md](../design-system/design-system.md)                             |
-| Add icons           | [icon-system-quick-reference.md](../design-system/icons/icon-system-quick-reference.md) |
+| Add icons           | [icon-system-quick-reference.md](../design-system/icon-system-guide.md) |
 | Update branding     | [branding-index.md](../../branding/branding-index.md)                           |
 | Setup development   | [development-index.md](../../development/development-index.md)                               |
 | Review architecture | [architecture.md](../../project/architecture.md)                                 |

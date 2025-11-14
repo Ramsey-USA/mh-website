@@ -798,7 +798,7 @@ Keep extensions updated for best performance:
 
 ## 🔗 Related Documentation
 
-- [Page Layout Standards](../technical/design-system/layout/page-layout-standards.md)
+- [Page Layout Standards](../technical/design-system/layout-guide.md)
 - [Design System](../technical/design-system/design-system.md)
 - [Firebase Setup](../development/firebase-setup.md)
 

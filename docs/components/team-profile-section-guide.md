@@ -430,7 +430,7 @@ npm install recharts
 - [Team Data Structure](../technical/data-structures.md)
 - [Component Architecture](./components-index.md)
 - [Brand Guidelines](../branding/branding-index.md)
-- [Material Icons](../technical/design-system/icons/icons-index.md)
+- [Material Icons](../technical/design-system/icons-index.md)
 
 ---
 

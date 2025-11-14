@@ -23,7 +23,7 @@ These standards ensure consistency, maintainability, and prevent recurring bugs.
   typography patterns and hero section requirements
 - **[Color System](../branding/standards/color-system.md)** - Brand colors and usage
   guidelines
-- **[Icon Policy](../technical/design-system/icons/icon-policy-complete.md)** - Material Icons standards
+- **[Icon Policy](../technical/design-system/icon-policy.md)** - Material Icons standards
   (NO emojis in code)
 
 **These branding standards are mandatory and enforced alongside technical standards.**

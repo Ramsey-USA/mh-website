@@ -46,7 +46,7 @@ consistency with the rest of the MH Construction website.
 - [ ] **Proper Colors:** `text-brand-primary`, `text-brand-secondary`, or semantic colors
 - [ ] **Accessibility:** Include `aria-label` or text labels for icon-only buttons
 
-**Reference:** [Icon System Quick Reference](../technical/design-system/icons/icon-system-quick-reference.md)
+**Reference:** [Icon System Quick Reference](../technical/design-system/icon-system-guide.md)
 
 ---
 
@@ -521,7 +521,7 @@ consistency with the rest of the MH Construction website.
 4. **[Component Standards](../branding/standards/component-standards.md)**
    - Detailed component specifications
 
-5. **[Icon System Quick Reference](../technical/design-system/icons/icon-system-quick-reference.md)**
+5. **[Icon System Quick Reference](../technical/design-system/icon-system-guide.md)**
    - Icon usage patterns and standards
 
 6. **[Mobile Quick Reference](../technical/design-system/mobile-quick-reference.md)**

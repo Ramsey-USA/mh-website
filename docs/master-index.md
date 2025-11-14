@@ -78,7 +78,7 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
   ⭐ **NEW (Nov 14, 2025)** - 7-group messaging strategy with unique voice/tone for each page group
 - [Homepage Optimization Guide](./branding/strategy/homepage-optimization.md) -
   ⭐ **NEW (Nov 2025)** - Trust-first optimization approach
-- [SEO Optimization Complete](./branding/strategy/seo-optimization-complete.md) -
+- [SEO Optimization Complete](./branding/strategy/seo-optimization.md) -
   ⭐ **NEW (Nov 2025)** - Complete audit of all 15 pages
 - [Slogan Rotation Guide](./branding/strategy/slogan-rotation-guide.md) - Complete slogan library
 - [Hero Tagline Strategy](./branding/strategy/hero-tagline-strategy.md) - ⭐ **NEW** (Nov 2025) -
@@ -86,7 +86,7 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 - [Color System](./branding/standards/color-system.md) - Complete color palette
 - [Typography](./branding/standards/typography.md) - Font system and hierarchy
 - [Hero Section Standards](./branding/standards/hero-section-standards.md) - Hero implementation
-- [Icons Hub](./technical/design-system/icons/icons-index.md) - Complete icon system
+- [Icons Hub](./technical/design-system/icons-index.md) - Complete icon system
 
 ---
 
@@ -145,11 +145,11 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 
 **Tools & Utilities:**
 
-- [VS Code Complete Setup](./development/vscode-setup-complete.md) - ⭐ **NEW (Nov 2025)** - Full configuration guide
+- [VS Code Complete Setup](./development/vscode-setup.md) - ⭐ **NEW (Nov 2025)** - Full configuration guide
 - [VS Code Extensions Guide](./development/vscode-extensions-guide.md) - Detailed extension documentation
 - [Chatbot Enhancement Guide](./development/chatbot-enhancement-guide.md) - ⭐ **NEW (Nov 12, 2024)** -
   Comprehensive chatbot improvement strategies (Phases 1-4 roadmap)
-- [Chatbot Integration Complete](./development/chatbot-integration-complete.md) -
+- [Chatbot Integration Complete](./development/chatbot-integration.md) -
   Complete chatbot system with query handlers, knowledge base, and analytics
 - [Scripts Guide](../scripts/mh-scripts-guide.md) - ⭐ **ESSENTIAL** - Automation scripts (SEO, testing, cleanup, optimization)
 - [Testing Guide](../testing/mh-testing-guide.md) - ⭐ **ESSENTIAL** - Comprehensive testing suites (cohesion, security, responsive)
@@ -191,10 +191,10 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 **Key Design System Docs:**
 
 - [Design System Hub](./technical/design-system/design-system-index.md) - Complete navigation
-- [Buttons & CTAs Hub](./technical/design-system/buttons-and-ctas/buttons-ctas-index.md) - Button system
-- [Icons Hub](./technical/design-system/icons/icons-index.md) - Icon system
-- [Layout Hub](./technical/design-system/layout/layout-index.md) - Page layout documentation
-- [Page Layout Standards](./technical/design-system/layout/page-layout-standards.md) - Layout standards
+- [Buttons & CTAs Hub](./technical/design-system/buttons-ctas-index.md) - Button system
+- [Icons Hub](./technical/design-system/icons-index.md) - Icon system
+- [Layout Hub](./technical/design-system/layout-index.md) - Page layout documentation
+- [Page Layout Standards](./technical/design-system/layout-guide.md) - Layout standards
 - [Mobile Optimization Guide](./technical/design-system/mobile-optimization-guide.md) - Mobile design
 
 **Chatbot System:**
@@ -202,7 +202,7 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 - [Chatbot First Strategy](./development/chatbot-first-strategy.md) - Chatbot-first user engagement strategy
 - [Chatbot Enhancement Guide](./development/chatbot-enhancement-guide.md) - ⭐ **NEW (Nov 12, 2024)** -
   10 enhancement strategies and implementation roadmap (Phases 1-3 complete)
-- [Chatbot Integration Complete](./development/chatbot-integration-complete.md) -
+- [Chatbot Integration Complete](./development/chatbot-integration.md) -
   Complete system with FAQ, query handlers, knowledge base, and analytics
 
 **Summary:** Full chatbot system operational with comprehensive coverage (98-99%)
@@ -300,13 +300,13 @@ Document & code templates for rapid creation.
 4. **[Development Standards](./development/development-standards.md)** - Coding rules
 5. **[AI Guidelines](./development/ai-development-guidelines.md)** - AI assistant rules
 6. **[Design System](./technical/design-system/design-system.md)** - UI components
-7. **[VS Code Complete Setup](./development/vscode-setup-complete.md)** - ⭐ **NEW** - Full configuration + custom snippets
+7. **[VS Code Complete Setup](./development/vscode-setup.md)** - ⭐ **NEW** - Full configuration + custom snippets
 8. **[Refactoring Roadmap](./technical/refactoring-roadmap.md)** - Code improvement initiatives
 
 **Quick Actions:**
 
 - Use utilities: See [Quick Reference](./development/style-utilities-quick-reference.md)
-- Use code snippets: Type `mh-` in any `.tsx` file (see [VS Code Setup](./development/vscode-setup-complete.md))
+- Use code snippets: Type `mh-` in any `.tsx` file (see [VS Code Setup](./development/vscode-setup.md))
 - Add new page: Update `src/app/sitemap.ts` + run `npm run seo:audit`
 - Check SEO: `npm run seo:audit`
 - See [SEO Quick Reference](../seo-quick-reference.md)
@@ -318,7 +318,7 @@ Document & code templates for rapid creation.
 3. **[Typography](./branding/standards/typography.md)** - Font system
 4. **[Component Standards](./branding/standards/component-standards.md)** - UI specs
 5. **[Design System](./technical/design-system/design-system.md)** - Complete patterns
-6. **[VS Code Setup](./development/vscode-setup-complete.md)** - Editor configuration for design tokens
+6. **[VS Code Setup](./development/vscode-setup.md)** - Editor configuration for design tokens
 
 ### **For Content Writers**
 
@@ -365,11 +365,11 @@ Document & code templates for rapid creation.
 | ------------------ | ------------------ | -------------------------------------------------------------------------------------- |
 | **Brand Colors**   | Branding Standards | [color-system.md](./branding/standards/color-system.md)                                |
 | **Typography**     | Branding Standards | [typography.md](./branding/standards/typography.md)                                    |
-| **Icons**          | Design System      | [icons/](./technical/design-system/icons/icons-index.md)                               |
+| **Icons**          | Design System      | [icons/](./technical/design-system/icons-index.md)                                     |
 | **Components**     | Components         | [components-index.md](./components/components-index.md)                                |
 | **UI Library**     | Components         | [mh-ui-guide.md](./components/ui/mh-ui-guide.md)                                       |
 | **Mobile**         | Technical          | [mobile-optimization-guide.md](./technical/design-system/mobile-optimization-guide.md) |
-| **Buttons & CTAs** | Design System      | [buttons-and-ctas/](./technical/design-system/buttons-and-ctas/buttons-ctas-index.md)  |
+| **Buttons & CTAs** | Design System      | [buttons-and-ctas/](./technical/design-system/buttons-ctas-index.md)                   |
 | **Navigation**     | Technical          | [navigation/](./technical/navigation/)                                                 |
 | **SEO**            | Technical          | [seo/](./technical/seo/seo-index.md)                                                   |
 | **SEO Audit**      | Root               | Run `npm run seo:audit`                                                                |

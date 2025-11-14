@@ -255,7 +255,7 @@ import { SafetySection, AwardsSection } from "@/components/about";
 
 - [Color System](../branding/standards/color-system.md) - Color palette and usage
 - [Typography](../branding/standards/typography.md) - Font system and hierarchy
-- [Icons Index](../technical/design-system/icons/icons-index.md) - Icon system
+- [Icons Index](../technical/design-system/icons-index.md) - Icon system
 - [Style Utilities Guide](../development/style-utilities-guide.md) - Centralized utilities
 
 ### Implementation

@@ -475,7 +475,7 @@ craftsmanship and character.
   7-group messaging strategy (MUST READ for content creators)
 - **[Brand Overview](./brand-overview.md)** - Complete brand identity guide
 - **[Homepage Optimization Guide](./homepage-optimization.md)** - Trust-first optimization approach
-- **[SEO Optimization Complete](./seo-optimization-complete.md)** - Complete SEO audit
+- **[SEO Optimization Complete](./seo-optimization.md)** - Complete SEO audit
 - **[Color System](../standards/color-system.md)** - Visual brand standards
 - **[Typography](../standards/typography.md)** - Text and font guidelines
 - **[Icon Policy](../standards/icon-policy-complete.md)** - Visual elements policy

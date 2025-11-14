@@ -246,7 +246,7 @@ gap-6 lg:gap-8
 - **[Color System](../standards/color-system.md)** - Complete color reference
 - **[Component Standards](../standards/component-standards.md)** - UI component specs
 - **[Messaging Guidelines](../strategy/messaging.md)** - Brand voice and tone
-- **[Icon Policy](../../technical/design-system/icons/icon-policy-complete.md)** - Material Icons standards
+- **[Icon Policy](../../technical/design-system/icon-policy.md)** - Material Icons standards
 - **[Branding Index](../branding-index.md)** - Master branding documentation
 
 ---

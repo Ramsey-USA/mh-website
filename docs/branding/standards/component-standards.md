@@ -472,7 +472,7 @@ className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
 - **[Typography Standards](./typography.md)** - Text and heading standards
 - **[Color System](./color-system.md)** - Brand color definitions
 - **[Icon Policy](./icon-policy.md)** - Material Icons standards
-- **[Page Layout Standards](../../technical/design-system/layout/page-layout-standards.md)** - Layout specifications
+- **[Page Layout Standards](../../technical/design-system/layout-guide.md)** - Layout specifications
 
 ---
 

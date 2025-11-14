@@ -336,7 +336,7 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 ### Design System
 
 - [Design System](../design-system.md) - Complete design system overview
-- [Buttons & CTAs](../buttons-and-ctas/buttons-ctas-index.md) - Button icon integration
+- [Buttons & CTAs](../buttons-ctas-index.md) - Button icon integration
 - [Component Standards](../../../branding/standards/component-standards.md) - UI component specs
 
 ### Development

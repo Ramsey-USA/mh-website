@@ -57,7 +57,7 @@ Brand identity, company values, messaging guidelines, and strategic positioning.
 - `messaging.md` - Voice, tone, and messaging framework
 - `page-specific-messaging-guide.md` - ⭐ **NEW (Nov 2025)** - 7-group page messaging strategy
 - `homepage-optimization.md` - Homepage trust-first optimization details
-- `seo-optimization-complete.md` - Complete SEO optimization audit for all 15 pages
+- `seo-optimization.md` - Complete SEO optimization audit for all 15 pages
 - `content-messaging-standards.md` - Content writing standards
 
 ### 🎨 [standards/](./standards/)
@@ -76,7 +76,7 @@ Visual design standards, typography, colors, icons, and component specifications
 - `cta-standardization-plan.md` - Call-to-action standards
 
 **Note**: For complete icon policy, see
-[Icon Policy Complete](../technical/design-system/icons/icon-policy-complete.md) in the Design System documentation.
+[Icon Policy Complete](../technical/design-system/icon-policy.md) in the Design System documentation.
 
 **Partnership Terminology**: See [Partnership Type Definitions](../partnerships/partnership-type-definitions.md)
 for clear distinctions between Client Partnerships (project collaborations) and Trade Partnerships

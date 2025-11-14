@@ -368,7 +368,7 @@ return {
 4. ✅ **User feedback collection** - COMPLETE
 5. ⏸️ **A/B testing different responses** - Deferred to Phase 4
 
-**Documentation:** See `/docs/development/chatbot-integration-complete.md` for full system documentation
+**Documentation:** See `/docs/development/chatbot-integration.md` for full system documentation
 
 **Impact:** Enhanced UX with 98-99% coverage through personalization, memory, and intelligent
 escalation.

@@ -354,7 +354,7 @@ Time to Interactive: < 3.5s
 
 - [Scripts Guide](../../scripts/mh-scripts-guide.md)
 - [Testing Guide](../../testing/mh-testing-guide.md)
-- [VS Code Setup](./vscode-setup-complete.md)
+- [VS Code Setup](./vscode-setup.md)
 
 ---
 

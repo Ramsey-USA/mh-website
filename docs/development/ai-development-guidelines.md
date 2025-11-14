@@ -22,7 +22,7 @@ introduction of inconsistencies and bugs that have historically plagued this pro
   typography, icons)
 - **[Typography Standards](../branding/standards/typography.md)** - Hero section
   requirements, responsive scaling
-- **[Icon Policy](../technical/design-system/icons/icon-policy-complete.md)** - Material Icons only
+- **[Icon Policy](../technical/design-system/icon-policy.md)** - Material Icons only
   (NO emojis in code)
 - **[Consistency Master Plan](../project/consistency-master-plan.md)** - Overall
   project consistency strategy

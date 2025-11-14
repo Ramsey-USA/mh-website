@@ -10,7 +10,7 @@
 
 - [🏠 Brand Documentation](../branding-index.md)
 - [📋 Brand Overview](../strategy/brand-overview.md)
-- [🔧 Icon Policy](../../technical/design-system/icons/icon-policy-complete.md)
+- [🔧 Icon Policy](../../technical/design-system/icon-policy.md)
 - [📝 Typography](./typography.md)
 
 ---

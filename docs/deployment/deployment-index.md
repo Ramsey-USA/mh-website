@@ -32,7 +32,7 @@ setup, CI/CD pipeline configuration, and production environment management.
 
 ### Cloudflare Pages Deployment
 
-**[cloudflare-complete-guide.md](./cloudflare-complete-guide.md)** - Complete Cloudflare Pages deployment guide
+**[cloudflare-guide.md](./cloudflare-guide.md)** - Complete Cloudflare Pages deployment guide
 
 Comprehensive guide covering end-to-end Cloudflare Pages setup and deployment.
 
@@ -165,7 +165,7 @@ Instructions for running database migrations manually when needed.
 
 ### CI/CD Pipeline
 
-**[ci-cd-pipeline-success.md](./ci-cd-pipeline-success.md)** - CI/CD pipeline documentation
+**[ci-cd-pipeline-guide.md](./ci-cd-pipeline-guide.md)** - CI/CD pipeline documentation
 
 Documentation of successful CI/CD pipeline setup and operation.
 
@@ -193,17 +193,17 @@ Archived build settings and configuration history.
 
 ## 🎯 When to Use Each Guide
 
-| Scenario                  | Use This Guide                                                                                    | Why                     |
-| ------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------- |
-| **First deployment**      | [Complete Guide](./cloudflare-complete-guide.md) or [Pages Setup](./cloudflare-pages-setup.md)    | Full setup workflow     |
-| **Quick setup**           | [Cloudflare Pages Setup](./cloudflare-pages-setup.md)                                             | Fast initial setup      |
-| **Pre-deployment checks** | [Deployment Ready](./cloudflare-deployment-ready.md)                                              | Validation checklist    |
-| **Security setup**        | [Security Config](./cloudflare-security-config.md)                                                | WAF, DNS, rate limiting |
-| **Slow performance**      | [Cloudflare Optimization](./cloudflare-optimization.md)                                           | Edge optimization       |
-| **Database setup**        | [D1 Database Setup](./d1-database-setup.md)                                                       | DB configuration        |
-| **Migration issues**      | [Run Migrations Manually](./run-migrations-manually.md)                                           | Manual migration        |
-| **CI/CD setup**           | [API Token Setup](./cloudflare-api-token-setup.md) + [CI/CD Success](./ci-cd-pipeline-success.md) | Automation              |
-| **Build failures**        | [Deployment Ready](./cloudflare-deployment-ready.md) + Archives                                   | Troubleshooting         |
+| Scenario                  | Use This Guide                                                                                  | Why                     |
+| ------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------- |
+| **First deployment**      | [Complete Guide](./cloudflare-guide.md) or [Pages Setup](./cloudflare-pages-setup.md)           | Full setup workflow     |
+| **Quick setup**           | [Cloudflare Pages Setup](./cloudflare-pages-setup.md)                                           | Fast initial setup      |
+| **Pre-deployment checks** | [Deployment Ready](./cloudflare-deployment-ready.md)                                            | Validation checklist    |
+| **Security setup**        | [Security Config](./cloudflare-security-config.md)                                              | WAF, DNS, rate limiting |
+| **Slow performance**      | [Cloudflare Optimization](./cloudflare-optimization.md)                                         | Edge optimization       |
+| **Database setup**        | [D1 Database Setup](./d1-database-setup.md)                                                     | DB configuration        |
+| **Migration issues**      | [Run Migrations Manually](./run-migrations-manually.md)                                         | Manual migration        |
+| **CI/CD setup**           | [API Token Setup](./cloudflare-api-token-setup.md) + [CI/CD Success](./ci-cd-pipeline-guide.md) | Automation              |
+| **Build failures**        | [Deployment Ready](./cloudflare-deployment-ready.md) + Archives                                 | Troubleshooting         |
 
 ---
 
@@ -425,7 +425,7 @@ npx wrangler d1 migrations apply mh-construction-db --local
 3. Check token permissions
 4. Review workflow logs
 
-**Reference:** [API Token Setup](./cloudflare-api-token-setup.md), [CI/CD Success](./ci-cd-pipeline-success.md)
+**Reference:** [API Token Setup](./cloudflare-api-token-setup.md), [CI/CD Success](./ci-cd-pipeline-guide.md)
 
 ---
 

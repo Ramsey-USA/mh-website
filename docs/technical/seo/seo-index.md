@@ -27,7 +27,7 @@ group has unique keyword priorities, tone, and messaging requirements that impac
 
 - **[Homepage Optimization](../../branding/strategy/homepage-optimization.md)** - Trust-first,
   tech-later approach with section reordering
-- **[SEO Optimization Complete](../../branding/strategy/seo-optimization-complete.md)** -
+- **[SEO Optimization Complete](../../branding/strategy/seo-optimization.md)** -
   Complete audit of all 15 pages with before/after SEO changes
 
 ---

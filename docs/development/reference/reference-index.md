@@ -34,7 +34,7 @@ Essential branding guidelines, color codes, logos, and brand implementation patt
 
 ---
 
-#### **[Icon System Quick Reference](../../technical/design-system/icons/icon-system-quick-reference.md)**
+#### **[Icon System Quick Reference](../../technical/design-system/icon-system-guide.md)**
 
 Fast reference for icon usage, sizes, colors, and implementation patterns.
 
@@ -54,7 +54,7 @@ Mobile-first design patterns, breakpoints, and responsive implementation.
 
 ---
 
-#### **[Page Layout Quick Start](../../technical/design-system/layout/page-layout-quick-start.md)**
+#### **[Page Layout Quick Start](../../technical/design-system/layout-quick-start.md)**
 
 Quick start guide for page layouts, spacing, and structure.
 
@@ -98,7 +98,7 @@ Complete development checklist covering code quality, testing, and deployment.
 
 ### Troubleshooting Guides
 
-#### **[Icon Size Troubleshooting](../../technical/design-system/icons/icon-size-troubleshooting.md)**
+#### **[Icon Size Troubleshooting](../../technical/design-system/icon-troubleshooting.md)**
 
 Solutions for common icon sizing and display issues.
 
@@ -110,15 +110,15 @@ Solutions for common icon sizing and display issues.
 
 ## 📖 Find What You Need
 
-| Need                           | Quick Reference                                                                                   | Why                          |
-| ------------------------------ | ------------------------------------------------------------------------------------------------- | ---------------------------- |
-| **Partnership implementation** | [Partnership Implementation Guide](./partnership-implementation-guide.md)                         | Client vs Trade distinctions |
-| **Brand colors & logos**       | [Branding Quick Reference](../../branding/implementation/branding-quick-reference.md)             | Official brand assets        |
-| **Icon implementation**        | [Icon System Quick Reference](../../technical/design-system/icons/icon-system-quick-reference.md) | Icon patterns & codes        |
-| **Mobile patterns**            | [Mobile Quick Reference](../../technical/design-system/mobile-quick-reference.md)                 | Responsive design            |
-| **Page layouts**               | [Page Layout Quick Start](../../technical/design-system/layout/page-layout-quick-start.md)        | Layout structure             |
-| **Code checklist**             | [Developer Checklist](./developer-checklist.md)                                                   | Quality standards            |
-| **Icon problems**              | [Icon Size Troubleshooting](../../technical/design-system/icons/icon-size-troubleshooting.md)     | Fix icon issues              |
+| Need                           | Quick Reference                                                                       | Why                          |
+| ------------------------------ | ------------------------------------------------------------------------------------- | ---------------------------- |
+| **Partnership implementation** | [Partnership Implementation Guide](./partnership-implementation-guide.md)             | Client vs Trade distinctions |
+| **Brand colors & logos**       | [Branding Quick Reference](../../branding/implementation/branding-quick-reference.md) | Official brand assets        |
+| **Icon implementation**        | [Icon System Quick Reference](../../technical/design-system/icon-system-guide.md)     | Icon patterns & codes        |
+| **Mobile patterns**            | [Mobile Quick Reference](../../technical/design-system/mobile-quick-reference.md)     | Responsive design            |
+| **Page layouts**               | [Page Layout Quick Start](../../technical/design-system/layout-quick-start.md)        | Layout structure             |
+| **Code checklist**             | [Developer Checklist](./developer-checklist.md)                                       | Quality standards            |
+| **Icon problems**              | [Icon Size Troubleshooting](../../technical/design-system/icon-troubleshooting.md)    | Fix icon issues              |
 
 ---
 
@@ -127,9 +127,9 @@ Solutions for common icon sizing and display issues.
 ### Design System
 
 - [Design System Hub](../../technical/design-system/design-system-index.md) - Complete design system
-- [Buttons & CTAs Hub](../../technical/design-system/buttons-and-ctas/buttons-ctas-index.md) - Button system
-- [Icons Hub](../../technical/design-system/icons/icons-index.md) - Complete icon documentation
-- [Layout Hub](../../technical/design-system/layout/layout-index.md) - Layout documentation
+- [Buttons & CTAs Hub](../../technical/design-system/buttons-ctas-index.md) - Button system
+- [Icons Hub](../../technical/design-system/icons-index.md) - Complete icon documentation
+- [Layout Hub](../../technical/design-system/layout-index.md) - Layout documentation
 - [Navigation Hub](../../technical/navigation/navigation-index.md) - Navigation system
 
 ### Technical Documentation
@@ -181,10 +181,10 @@ A: Check [Branding Quick Reference](../../branding/implementation/branding-quick
 A: See [Mobile Quick Reference](../../technical/design-system/mobile-quick-reference.md) for all breakpoints.
 
 **Q: How do I add an icon?**  
-A: Use [Icon System Quick Reference](../../technical/design-system/icons/icon-system-quick-reference.md) for implementation.
+A: Use [Icon System Quick Reference](../../technical/design-system/icon-system-guide.md) for implementation.
 
 **Q: Need help with page layout?**  
-A: Start with [Page Layout Quick Start](../../technical/design-system/layout/page-layout-quick-start.md).
+A: Start with [Page Layout Quick Start](../../technical/design-system/layout-quick-start.md).
 
 ---
 

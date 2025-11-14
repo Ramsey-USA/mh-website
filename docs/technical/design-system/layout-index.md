@@ -155,8 +155,8 @@ Quick reference with copy-paste templates for common layout patterns. Perfect fo
 
 ### Components
 
-- [Buttons & CTAs](../buttons-and-ctas/buttons-ctas-index.md) - Button layouts
-- [Icons](../icons/icons-index.md) - Icon integration
+- [Buttons & CTAs](../buttons-ctas-index.md) - Button layouts
+- [Icons](../icons-index.md) - Icon integration
 
 ### Development
 

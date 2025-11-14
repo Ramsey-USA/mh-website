@@ -9,7 +9,7 @@
 - [🗂️ Master Documentation Index](../../master-index.md) - Central hub for all documentation
 - [🛠️ Technical Index](../technical-index.md) - Technical documentation hub
 - [🎨 Design System Hub](../design-system/design-system-index.md) - Design system navigation
-- [🔘 Buttons & CTAs](../design-system/buttons-and-ctas/buttons-ctas-index.md) - Navigation link patterns
+- [🔘 Buttons & CTAs](../design-system/buttons-ctas-index.md) - Navigation link patterns
 
 ---
 
@@ -274,8 +274,8 @@ PageNavigation (Page-specific navigation)
 ### Design System
 
 - [Design System Hub](../design-system/design-system-index.md) - Complete design system
-- [Buttons & CTAs](../design-system/buttons-and-ctas/buttons-ctas-index.md) - Navigation button patterns
-- [Icons](../design-system/icons/icons-index.md) - Navigation icons
+- [Buttons & CTAs](../design-system/buttons-ctas-index.md) - Navigation button patterns
+- [Icons](../design-system/icons-index.md) - Navigation icons
 - [Mobile Optimization](../design-system/mobile-optimization-guide.md) - Mobile navigation
 
 ### Development
