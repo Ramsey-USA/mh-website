@@ -285,7 +285,7 @@ See the [Master Documentation Index](./docs/master-index.md) for the complete do
 - **Group 3:** Team, Services (Future vision)
 - **Group 4:** Government, Veterans (Professional & patriotic)
 - **Group 5:** Careers (Recruitment & growth)
-- **Group 6:** AI Estimator, 3D Explorer (Tech innovation)
+- **Group 6:** Automated Estimator, 3D Explorer (Tech innovation)
 - **Group 7:** Trade Partners, Urgent (ROI-focused - **ONLY** place for prominent "THE ROI IS THE RELATIONSHIP")
 
 **Complete Reference:** [Page-Specific Messaging Guide](./docs/branding/strategy/page-specific-messaging-guide.md)

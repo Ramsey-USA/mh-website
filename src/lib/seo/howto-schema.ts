@@ -40,7 +40,7 @@ export function generateHowToSchema(howTo: HowToSchemaProps) {
     tool: [
       {
         "@type": "HowToTool",
-        name: "AI Estimator Tool",
+        name: "Automated Estimator Tool",
       },
     ],
   };
@@ -50,14 +50,14 @@ export function generateHowToSchema(howTo: HowToSchemaProps) {
  * Example: How to Get a Construction Estimate
  */
 export const getEstimateHowTo = generateHowToSchema({
-  name: "How to Get an AI Construction Estimate",
+  name: "How to Get an Automated Estimate",
   description:
-    "Get an instant, accurate construction estimate using MH Construction's AI-powered estimator tool",
+    "Get an instant, accurate construction estimate using MH Construction's automated estimator tool",
   totalTime: "PT5M",
   steps: [
     {
-      name: "Visit the AI Estimator",
-      text: "Navigate to the AI Estimator tool on MH Construction's website",
+      name: "Visit the Automated Estimator",
+      text: "Navigate to the Automated Estimator tool on MH Construction's website",
       url: "https://www.mhc-gc.com/estimator",
     },
     {
@@ -70,7 +70,7 @@ export const getEstimateHowTo = generateHowToSchema({
     },
     {
       name: "Get Instant Estimate",
-      text: "Receive an AI-powered cost estimate with detailed breakdown",
+      text: "Receive a cost estimate with detailed breakdown",
     },
     {
       name: "Schedule Consultation",

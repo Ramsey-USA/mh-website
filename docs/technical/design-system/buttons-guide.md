@@ -58,7 +58,7 @@ This comprehensive guide establishes MH Construction's cohesive button system, e
 
 **Colors:** Leather Tan (#BD9264) with white text on hover
 
-**Usage:** "Learn More", "View Portfolio", "Try AI Estimator"
+**Usage:** "Learn More", "View Portfolio", "Try Automated Estimator"
 
 ```tsx
 <Button variant="secondary" size="lg">
@@ -332,7 +332,7 @@ All buttons include prominent focus indicators:
 ### Booking/Scheduling (IRL vs AI)
 
 ```tsx
-// Scheduling flow buttons - IRL consultation vs AI estimator
+// Scheduling flow buttons - IRL consultation vs automated estimator
 <div className="space-y-4">
   {/* Primary: IRL Consultation */}
   <Button variant="primary" size="lg" className="w-full">

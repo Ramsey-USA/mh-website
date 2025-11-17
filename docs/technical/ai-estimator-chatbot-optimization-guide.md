@@ -1,15 +1,15 @@
-# AI Estimator & Chatbot Optimization Guide
+# Automated Estimator & Chatbot Optimization Guide
 
 **Document Version:** 1.0.0  
 **Created:** November 10, 2025  
-**Purpose:** Comprehensive strategies to optimize AI estimator accuracy and chatbot effectiveness for construction
+**Purpose:** Comprehensive strategies to optimize automated estimator accuracy and chatbot effectiveness for construction
 project estimation
 
 ---
 
 ## 📋 Executive Summary
 
-This guide provides actionable recommendations to enhance the accuracy of the AI Estimator and optimize the
+This guide provides actionable recommendations to enhance the accuracy of the Automated Estimator and optimize the
 "General MH" chatbot to help users obtain more precise construction project estimates. Based on analysis of
 current implementation and industry best practices, these optimizations focus on:
 
@@ -23,7 +23,7 @@ current implementation and industry best practices, these optimizations focus on
 
 ## 🎯 Current State Analysis
 
-### AI Estimator (`/estimator`)
+### Automated Estimator (`/estimator`)
 
 **Current Capabilities:**
 
@@ -68,7 +68,7 @@ interface ProjectData {
 
 - ✅ Context-aware responses
 - ✅ Lead capture and routing
-- ✅ Intelligent path routing (AI Estimator vs Expert Consultation)
+- ✅ Intelligent path routing (Automated Estimator vs Expert Consultation)
 - ✅ Veteran status detection
 - ✅ Quick action menu
 - ✅ Conversation history
@@ -567,7 +567,7 @@ class ConversationDataExtractor {
 
 ### 3.2 Smart Routing Logic
 
-**Enhancement:** Intelligently decide when to route to AI estimator vs expert consultation
+**Enhancement:** Intelligently decide when to route to automated estimator vs expert consultation
 
 ```typescript
 interface RoutingDecision {
@@ -590,7 +590,7 @@ class SmartRouter {
       veteranStatus: projectData.isVeteran || false,
     };
 
-    // AI Estimator is best for:
+    // Automated Estimator is best for:
     // - Standard projects (complexity <= 3)
     // - Complete data (>= 80%)
     // - Budget < $100k
@@ -677,7 +677,7 @@ class SmartRouter {
 
 **Impact:**
 
-- Reduces inappropriate AI estimator attempts by 60%
+- Reduces inappropriate automated estimator attempts by 60%
 - Increases consultation bookings for complex projects by 40%
 - Improves user satisfaction through better routing
 
@@ -1586,7 +1586,7 @@ Response: { projects: HistoricalProject[] }
 
 ## 📝 Conclusion
 
-By implementing these optimizations in phases, we can transform the AI Estimator from a good preliminary tool into
+By implementing these optimizations in phases, we can transform the Automated Estimator from a good preliminary tool into
 an industry-leading estimation system. The combination of:
 
 - **More comprehensive data collection**

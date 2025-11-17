@@ -1,7 +1,7 @@
 {
   "name": "MH Construction - Building Tomorrow",
   "short_name": "MH Construction",
-  "description": "Revolutionary construction services powered by cutting-edge AI technology. Veteran-owned construction excellence serving the Pacific Northwest.",
+  "description": "Building for the Client, NOT the Dollar. Veteran-owned construction excellence serving the Pacific Northwest since 2010.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#1e293b",
@@ -13,9 +13,9 @@
   "categories": ["business", "construction", "productivity"],
   "shortcuts": [
     {
-      "name": "Get AI Estimate",
+      "name": "Get Estimate",
       "short_name": "Estimate",
-      "description": "Get an instant AI-powered construction estimate",
+      "description": "Get an instant construction estimate",
       "url": "/estimator",
       "icons": [
         {
@@ -135,7 +135,7 @@
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "AI Estimator Tool - Desktop View"
+      "label": "Automated Estimator Tool - Desktop View"
     },
     {
       "src": "/screenshots/mobile-booking.png",

@@ -21,16 +21,16 @@ implementation details are organized here for easy access by the entire team.
 **✨ NEW**: Consolidated from separate business and development folders to eliminate duplication and provide a single
 source of truth.
 
-### 🤖 AI System Integration (Nov 10, 2025)
+### 🤖 Automated System Integration (Nov 10, 2025)
 
 **Critical Distinction - Two Estimation Paths:**
 
-1. **AI Estimator** (`/estimator`):
+1. **Automated Estimator** (`/estimator`):
    - **Color**: Leather Tan (`#BD9264`)
    - **Icon**: `smart_toy` or `calculate`
-   - **Messaging**: "Get AI Estimate", "Try AI Estimator", "Instant Pricing"
+   - **Messaging**: "Get Automated Estimate", "Try Automated Estimator", "Instant Pricing"
    - **Purpose**: Automated 24/7 preliminary cost estimates (under 5 min)
-   - **Technology**: AI-powered, 500+ project database
+   - **Technology**: Automated system, 500+ project database
 
 2. **Expert Consultation** (`/booking`):
    - **Color**: Hunter Green (`#386851`)

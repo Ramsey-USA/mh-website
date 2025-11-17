@@ -1,4 +1,4 @@
-# AI Estimator vs IRL Sales Consultation - Service Distinction Guide
+# Automated Estimator vs IRL Sales Consultation - Service Distinction Guide
 
 ## 🎯 Overview
 
@@ -7,7 +7,7 @@ language, icons, and messaging to differentiate these services across all platfo
 
 ---
 
-## 🤖 AI Estimator (Automated Self-Service)
+## 🤖 Automated Estimator (Automated Self-Service)
 
 ### Service Description
 
@@ -44,7 +44,7 @@ preliminary project pricing based on user input.
 #### Recommended CTAs
 
 - "Get Instant AI Estimate"
-- "Try Our AI Estimator"
+- "Try Our Automated Estimator"
 - "Get Instant AI Estimate"
 - "Get Smart Estimate"
 - "Start AI Estimate"
@@ -61,7 +61,7 @@ preliminary project pricing based on user input.
 
 #### Benefit Statements
 
-- "Get instant preliminary pricing with our AI estimator"
+- "Get instant preliminary pricing with our automated estimator"
 - "Explore project costs 24/7 with our automated estimator"
 - "See ballpark estimates in seconds using advanced AI"
 - "Plan your budget with instant intelligent cost analysis"

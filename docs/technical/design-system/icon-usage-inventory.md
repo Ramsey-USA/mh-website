@@ -26,7 +26,7 @@
 | Page/Action              | Route             | Icon              | Description                |
 | ------------------------ | ----------------- | ----------------- | -------------------------- |
 | **Start Partnership**    | `/booking`        | `handshake`       | Partnership initiation     |
-| **AI Estimator**         | `/estimator`      | `calculate`       | Calculator/estimation tool |
+| **Automated Estimator**  | `/estimator`      | `calculate`       | Calculator/estimation tool |
 | **Home**                 | `/`               | `home`            | Home/house icon            |
 | **Our Story**            | `/about`          | `info`            | Information icon           |
 | **Partnership Approach** | `/services`       | `build`           | Tools/construction icon    |
@@ -124,7 +124,7 @@ the platform name.
 | Button Type               | Icon        | Context                  |
 | ------------------------- | ----------- | ------------------------ |
 | **Schedule Consultation** | `event`     | Calendar/scheduling icon |
-| **AI Estimator**          | `smart_toy` | AI/robot icon            |
+| **Automated Estimator**   | `smart_toy` | Automated/robot icon     |
 | **Download**              | `download`  | Download action          |
 | **Upload**                | `upload`    | Upload action            |
 | **Edit**                  | `edit`      | Edit action              |
@@ -171,7 +171,7 @@ the platform name.
 Icons used for a single, specific purpose:
 
 - `handshake` - **Start Partnership** (unique)
-- `calculate` - **AI Estimator** (unique)
+- `calculate` - **Automated Estimator** (unique)
 - `home` - **Home page** (unique)
 - `info` - **Our Story / About** (unique)
 - `people` - **Our Team** (unique)
@@ -267,13 +267,13 @@ Icons used in multiple contexts with clear rationale:
 
 **✅ Good Example:**
 
-- `calculate` for AI Estimator (math/calculation connection)
+- `calculate` for Automated Estimator (math/calculation connection)
 - `account_balance` for Government (government building connection)
 
 **❌ Bad Example:**
 
 - `star` for Government (no clear connection)
-- `settings` for AI Estimator (generic, not specific)
+- `settings` for Automated Estimator (generic, not specific)
 
 ---
 
@@ -343,7 +343,7 @@ Icons used in multiple contexts with clear rationale:
 // Secondary CTA - Medium icon
 <Button variant="secondary" size="md">
   <MaterialIcon icon="calculate" size="md" className="mr-2" />
-  Try AI Estimator
+  Try Automated Estimator
 </Button>
 
 // Tertiary link - Small icon

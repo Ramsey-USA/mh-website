@@ -56,7 +56,7 @@ supplementary messaging that speaks to its unique purpose.
 
 ### Group 6: Tech Innovation
 
-**Pages:** AI Estimator, 3D Explorer  
+**Pages:** Automated Estimator, 3D Explorer  
 **Core Theme:** Tech-savvy, innovative, cutting-edge solutions
 
 ### Group 7: Partnership & Urgency
@@ -318,7 +318,7 @@ supplementary messaging that speaks to its unique purpose.
 
 ## 💻 GROUP 6: Tech Innovation
 
-### Pages: AI Estimator, 3D Explorer
+### Pages: Automated Estimator, 3D Explorer
 
 ### Voice & Tone
 

@@ -75,7 +75,7 @@ About
 ### **Page-Specific Navigation Implementations**
 
 **Note:** The homepage navigation differs from other pages - it links directly to
-standalone feature pages (AI Estimator and 3D Explorer) rather than internal page
+standalone feature pages (Automated Estimator and 3D Explorer) rather than internal page
 sections, making it unique among all page navigation bars.
 
 #### **Home Page Navigation**
@@ -83,7 +83,7 @@ sections, making it unique among all page navigation bars.
 ````typescript
 {
   items: [
-    { href: "/estimator", label: "AI Estimator", icon: "calculate" },
+    { href: "/estimator", label: "Automated Estimator", icon: "calculate" },
     { href: "/3d-explorer", label: "3D Explorer", icon: "visibility" },
     { href: "/#core-values", label: "Our Values", icon: "shield" },
     { href: "/#ai-features-cta", label: "Get Started", icon: "handshake" },
@@ -275,7 +275,7 @@ Breadcrumbs have been implemented on:
 - `/3d-explorer` - 3D Project Explorer
 - `/booking` - Book Consultation
 - `/careers` - Career Opportunities
-- `/estimator` - AI Estimator
+- `/estimator` - Automated Estimator
 - `/government` - Government Projects
 - `/projects` - Portfolio
 - `/team` - Our Team

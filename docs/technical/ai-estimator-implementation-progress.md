@@ -1,4 +1,4 @@
-# AI Estimator Optimization - Implementation Progress
+# Automated Estimator Optimization - Implementation Progress
 
 **Started:** November 10, 2025  
 **Status:** Phase 1 In Progress  

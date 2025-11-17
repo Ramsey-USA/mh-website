@@ -42,7 +42,7 @@ AI-first tech company.
 5. Testimonials
 6. Why Partner
 7. Before/After
-8. AI Estimator CTA
+8. Automated Estimator CTA
 9. Smart Recommendations
 10. Company Stats
 11. Next Steps
@@ -59,7 +59,7 @@ AI-first tech company.
 7. **Company Stats** ✅ Credibility through numbers
 8. **"Optional Tools to Help You Plan"** section introduction
 9. **Features** (repositioned with softer intro)
-10. AI Estimator CTA (positioned as helpful planning tool)
+10. Automated Estimator CTA (positioned as helpful planning tool)
 11. Smart Recommendations (renamed to "Helpful Project Ideas & Suggestions")
 12. Next Steps
 13. Partnership CTA
@@ -154,7 +154,7 @@ AI-first tech company.
 4. **Search Console keywords:** Monitor rankings for:
    - "veteran-owned construction" (should improve)
    - "traditional business construction" (should improve)
-   - "AI construction estimator" (may slightly decrease, but that's okay)
+   - "automated construction estimator" (may slightly decrease, but that's okay)
 
 ---
 

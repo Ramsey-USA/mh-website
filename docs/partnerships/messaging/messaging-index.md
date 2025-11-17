@@ -58,7 +58,7 @@ relationships, not just structures.
 
 **[ai-estimator-vs-consultation.md](./ai-estimator-vs-consultation.md)** - AI vs in-person service messaging
 
-- AI Estimator service positioning
+- Automated Estimator service positioning
 - In-person consultation messaging
 - Clear service differentiation
 - Icon and visual identity guidelines

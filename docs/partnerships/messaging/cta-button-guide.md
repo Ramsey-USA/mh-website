@@ -5,14 +5,14 @@
 This guide provides specific button text and messaging patterns using MH Construction's MaterialIcon
 standards to distinguish between:
 
-- **AI ESTIMATOR**: Automated self-service cost estimation (MaterialIcon: `smart_toy`)
+- **AUTOMATED ESTIMATOR**: Automated self-service cost estimation (MaterialIcon: `smart_toy`)
 - **IRL CONSULTATION**: In-person sales consultation (MaterialIcon: `event` or `handshake`)
 - **CLIENT PARTNERSHIPS**: Project collaborations (MaterialIcon: `handshake`)
 - **TRADE PARTNERSHIPS**: Vendor/subcontractor relationships (MaterialIcon: `construction`)
 
 ---
 
-## 🤖 **AI ESTIMATOR CTA BUTTONS**
+## 🤖 **AUTOMATED ESTIMATOR CTA BUTTONS**
 
 ### **Automated Self-Service Cost Estimation**
 
@@ -21,7 +21,7 @@ standards to distinguish between:
 **Style:** Modern, digital, instant-action focused
 
 ````tsx
-// Primary AI Estimator CTAs (using MH branding standards)
+// Primary Automated Estimator CTAs (using MH branding standards)
 <Button variant="secondary" size="lg">
   <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
   <span className="font-medium">Get Instant AI Estimate</span>
@@ -29,7 +29,7 @@ standards to distinguish between:
 
 <Button variant="secondary" size="lg">
   <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
-  <span className="font-medium">Try AI Estimator</span>
+  <span className="font-medium">Try Automated Estimator</span>
 </Button>
 
 <Button variant="secondary" size="lg">
@@ -41,7 +41,7 @@ standards to distinguish between:
 **Button Text Options:**
 
 - "Get Instant AI Estimate"
-- "Try AI Estimator"
+- "Try Automated Estimator"
 - "Start AI Estimate"
 - "See Pricing Instantly"
 - "Use Smart Estimator"
@@ -135,7 +135,7 @@ standards to distinguish between:
 "View Project Gallery"; // See completed work
 "Read Partnership Stories"; // Client testimonials
 "Download Project Guide"; // Educational resources
-"Calculate Project Cost"; // AI estimator tool
+"Calculate Project Cost"; // Automated estimator tool
 "Learn Our Process"; // How we work
 
 // Communication CTAs
@@ -224,7 +224,7 @@ standards to distinguish between:
 ```tsx
 // CLIENT VERSION - Dual CTA Approach (using MH branding standards)
 
-// AI Estimator CTA
+// Automated Estimator CTA
 <Button variant="secondary" size="lg">
   <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
   <span className="font-medium">Get Instant AI Estimate</span>
@@ -252,7 +252,7 @@ standards to distinguish between:
 
 ```tsx
 // CLIENT CONTACT OPTIONS
-// Option 1: AI Estimator
+// Option 1: Automated Estimator
 <Button variant="secondary">
   <MaterialIcon icon="smart_toy" size="md" className="mr-2" />
   Get Instant AI Estimate

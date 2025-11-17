@@ -373,7 +373,7 @@ The QR code system includes accessibility features:
 ```tsx
 <QRCodeSection
   title="Get Your Free Estimate"
-  description="Scan to use our AI estimator tool"
+  description="Scan to use our automated estimator tool"
   preset="estimator"
   size={350}
   downloadable

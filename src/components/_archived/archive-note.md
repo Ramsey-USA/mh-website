@@ -5,7 +5,7 @@ This directory contains deprecated components that have been replaced with bette
 ## calculator-deprecated-2025-11-10
 
 **Archived:** November 10, 2025  
-**Reason:** Replaced with AI Estimator (`/estimator` page)
+**Reason:** Replaced with Automated Estimator (`/estimator` page)
 
 ### What was removed
 
@@ -15,11 +15,11 @@ This directory contains deprecated components that have been replaced with bette
 
 ### Why removed
 
-- **Redundancy**: Two separate estimation systems (simple calculator vs AI estimator)
+- **Redundancy**: Two separate estimation systems (simple calculator vs automated estimator)
 - **User confusion**: Unclear which tool to use
 - **Maintenance burden**: Two codebases to maintain
 - **Weaker UX**: Simple calculator undermined sophisticated AI system
-- **Brand dilution**: Calculator felt "cheap" vs AI estimator's intelligence
+- **Brand dilution**: Calculator felt "cheap" vs automated estimator's intelligence
 
 ### Replacement
 
@@ -35,8 +35,8 @@ All estimation functionality now uses the AI-powered estimator at `/estimator`:
 
 ### Migration
 
-- **Homepage** (`/src/app/page.tsx`): Replaced with AI Estimator CTA section
-- **Services Page** (`/src/app/services/page.tsx`): Replaced with AI Estimator CTA section
+- **Homepage** (`/src/app/page.tsx`): Replaced with Automated Estimator CTA section
+- **Services Page** (`/src/app/services/page.tsx`): Replaced with Automated Estimator CTA section
 
 Both pages now have compelling CTAs that direct users to the superior `/estimator` experience.
 
@@ -56,4 +56,4 @@ git log --all --full-history -- "src/components/calculator/*"
 ---
 
 **Status:** Phase 1 Complete ✅  
-**Next Phase:** Enhance AI Estimator with quick mode and homepage integration
+**Next Phase:** Enhance Automated Estimator with quick mode and homepage integration

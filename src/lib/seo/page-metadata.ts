@@ -9,34 +9,33 @@ const baseUrl = process.env["NEXT_PUBLIC_BASE_URL"] || "https://www.mhc-gc.com";
 
 export const pageMetadata: Record<string, Metadata> = {
   "/": {
-    title:
-      "MH Construction | AI-Powered Veteran-Owned General Contractor - Pasco, WA",
+    title: "MH Construction | Veteran-Owned General Contractor - Pasco, WA",
     description:
-      "Revolutionary AI-powered construction intelligence with General MH military assistant. Veteran-owned general contractor serving Tri-Cities, WA since 2010. Expert concrete, carpentry, and construction management with cutting-edge technology and military precision.",
+      "Building for the Client, NOT the Dollar. Veteran-owned general contractor serving Tri-Cities, WA since 2010. Expert concrete, carpentry, and construction management with military precision and transparent partnerships.",
     keywords: [
-      "AI construction assistant",
       "veteran-owned contractor Pasco",
       "Tri-Cities general contractor",
       "military precision construction",
-      "AI cost estimator",
-      "construction intelligence Washington",
+      "construction services Washington",
       "Pasco WA contractor",
       "veteran benefits construction",
-      "General MH military AI",
+      "commercial construction",
+      "concrete services Pasco",
+      "carpentry contractor",
     ],
     openGraph: {
-      title: "MH Construction | AI-Powered Veteran-Owned Excellence",
+      title: "MH Construction | Veteran-Owned Construction Excellence",
       description:
-        "Revolutionary construction services with AI-powered estimating and military precision. Serving the Pacific Northwest since 2010.",
+        "Building for the Client, NOT the Dollar. Expert construction services with military precision. Serving the Pacific Northwest since 2010.",
       type: "website",
       locale: "en_US",
       url: `${baseUrl}/`,
     },
     twitter: {
       card: "summary_large_image",
-      title: "MH Construction | AI-Powered Construction",
+      title: "MH Construction | Veteran-Owned Construction",
       description:
-        "Veteran-owned general contractor with cutting-edge AI technology. Building partnerships, not just projects.",
+        "Veteran-owned general contractor with military precision. Building partnerships, not just projects.",
     },
     alternates: {
       canonical: "/",
@@ -80,7 +79,7 @@ export const pageMetadata: Record<string, Metadata> = {
     title:
       "Construction Services | Concrete, Carpentry & General Contracting - MH Construction",
     description:
-      "Comprehensive construction management services in Pasco, WA and Tri-Cities area. Expert concrete work, carpentry, commercial projects, tenant improvements, and site development. Partnership-focused approach with AI-powered cost estimating and military precision execution.",
+      "Comprehensive construction management services in Pasco, WA and Tri-Cities area. Expert concrete work, carpentry, commercial projects, tenant improvements, and site development. Partnership-focused approach with transparent pricing and military precision execution.",
     keywords: [
       "construction services Pasco WA",
       "commercial construction Tri-Cities",
@@ -95,7 +94,7 @@ export const pageMetadata: Record<string, Metadata> = {
     openGraph: {
       title: "Construction Services | MH Construction",
       description:
-        "Expert concrete, carpentry, and construction management services with AI-powered estimating and veteran-owned excellence.",
+        "Expert concrete, carpentry, and construction management services with transparent pricing and veteran-owned excellence.",
       type: "website",
       locale: "en_US",
       url: `${baseUrl}/services`,
@@ -179,7 +178,7 @@ export const pageMetadata: Record<string, Metadata> = {
     title:
       "Book Consultation | Schedule Construction Estimate - MH Construction",
     description:
-      "Schedule your free construction consultation with MH Construction. Get AI-powered project estimates, discuss your construction needs, and partner with veteran-owned excellence. Serving Pasco, Kennewick, Richland, and the greater Tri-Cities area. Easy online booking available now.",
+      "Schedule your free construction consultation with MH Construction. Get detailed project estimates, discuss your construction needs, and partner with veteran-owned excellence. Serving Pasco, Kennewick, Richland, and the greater Tri-Cities area. Easy online booking available now.",
     keywords: [
       "book construction consultation",
       "schedule construction estimate",
@@ -192,7 +191,7 @@ export const pageMetadata: Record<string, Metadata> = {
     openGraph: {
       title: "Book Consultation | MH Construction",
       description:
-        "Schedule your free consultation and get AI-powered project estimates from veteran-owned professionals.",
+        "Schedule your free consultation and get detailed project estimates from veteran-owned professionals.",
       type: "website",
       locale: "en_US",
       url: `${baseUrl}/booking`,
@@ -306,33 +305,32 @@ export const pageMetadata: Record<string, Metadata> = {
     },
   },
   "/estimator": {
-    title:
-      "AI Construction Estimator | Instant Project Cost Estimates - MH Construction",
+    title: "Construction Estimator | Project Cost Estimates - MH Construction",
     description:
-      "Revolutionary AI-powered construction estimator by MH Construction. Get instant, accurate project cost estimates for commercial and residential construction in the Tri-Cities area. General MH AI assistant provides real-time cost analysis, material estimates, and project timelines. Free online construction estimating tool.",
+      "Get accurate project cost estimates for commercial and residential construction in the Tri-Cities area. Our online estimator provides detailed cost analysis, material estimates, and project timelines. Free construction estimating tool.",
     keywords: [
-      "AI construction estimator",
+      "automated estimator",
       "construction cost calculator",
       "project estimate tool",
       "instant construction estimate",
-      "AI cost estimator",
+      "automated cost estimator",
       "construction pricing tool",
       "project cost analysis",
-      "General MH AI estimator",
+      "automated construction estimator",
     ],
     openGraph: {
-      title: "AI Construction Estimator | MH Construction",
+      title: "Automated Estimator | MH Construction",
       description:
-        "Revolutionary AI-powered estimator for instant, accurate construction project cost estimates.",
+        "Get instant, accurate construction project cost estimates with our automated estimator tool.",
       type: "website",
       locale: "en_US",
       url: `${baseUrl}/estimator`,
     },
     twitter: {
       card: "summary_large_image",
-      title: "AI Construction Estimator",
+      title: "Automated Estimator",
       description:
-        "Get instant project estimates with our AI-powered construction estimator.",
+        "Get instant project estimates with our automated construction estimator.",
     },
     alternates: {
       canonical: "/estimator",
@@ -379,7 +377,7 @@ export function getPageMetadata(pathname: string): Metadata {
     pageMetadata[pathname] || {
       title: "MH Construction - Veteran-Owned Construction Excellence",
       description:
-        "Revolutionary construction services in the Pacific Northwest. Veteran-owned general contractor serving the Tri-Cities area with military precision and partnership focus.",
+        "Building for the Client, NOT the Dollar. Veteran-owned general contractor serving the Pacific Northwest and Tri-Cities area with military precision and partnership focus.",
     }
   );
 }

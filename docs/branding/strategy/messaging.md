@@ -32,7 +32,7 @@ See **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** for 
 - **Group 3**: Future Vision & Expertise (Team, Services)
 - **Group 4**: Professional Patriotic (Government, Veterans)
 - **Group 5**: Recruitment & Opportunity (Careers)
-- **Group 6**: Tech Innovation & Optional Tools (AI Estimator, 3D Explorer)
+- **Group 6**: Tech Innovation & Optional Tools (Automated Estimator, 3D Explorer)
 - **Group 7**: Partnership & Urgency (Trade Partners, Urgent Projects)
 
 ### Core Voice Attributes

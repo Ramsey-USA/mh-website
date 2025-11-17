@@ -351,7 +351,7 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 <Button variant="secondary">
   <MaterialIcon icon="smart_toy" className="mr-2" />
-  Try AI Estimator
+  Try Automated Estimator
 </Button>
 ```
 
@@ -452,16 +452,16 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 ### Action Icons
 
-| Icon Name        | Use Case       | Context                               |
-| ---------------- | -------------- | ------------------------------------- |
-| `phone` / `call` | Phone contact  | Contact information, call actions     |
-| `mail` / `email` | Email contact  | Email addresses, contact forms        |
-| `event`          | Scheduling     | IRL consultations, appointments       |
-| `smart_toy`      | AI features    | AI Estimator tool, automated services |
-| `calculate`      | Calculations   | Cost estimator, pricing tools         |
-| `arrow_forward`  | Next/Continue  | Navigation, progression               |
-| `download`       | File downloads | Resource downloads, documents         |
-| `upload`         | File uploads   | Form submissions, document uploads    |
+| Icon Name        | Use Case           | Context                                      |
+| ---------------- | ------------------ | -------------------------------------------- |
+| `phone` / `call` | Phone contact      | Contact information, call actions            |
+| `mail` / `email` | Email contact      | Email addresses, contact forms               |
+| `event`          | Scheduling         | IRL consultations, appointments              |
+| `smart_toy`      | Automated features | Automated Estimator tool, automated services |
+| `calculate`      | Calculations       | Cost estimator, pricing tools                |
+| `arrow_forward`  | Next/Continue      | Navigation, progression                      |
+| `download`       | File downloads     | Resource downloads, documents                |
+| `upload`         | File uploads       | Form submissions, document uploads           |
 
 ### Navigation Icons
 

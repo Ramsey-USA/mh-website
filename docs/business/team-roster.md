@@ -261,7 +261,7 @@ project is completed to a high standard and on schedule.
   - Marketing Coordination & Brand Management
   - Technology Advocacy & Innovation
   - Client Presentations & Proposals
-  - AI Estimator Development & Promotion
+  - Automated Estimator Development & Promotion
 - **Unique Role**: Bridging technology innovation with practical construction applications
 - **Focus**: Promoting MH Construction's technological capabilities and veteran-owned status
 

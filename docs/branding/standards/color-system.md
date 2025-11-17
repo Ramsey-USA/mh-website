@@ -260,7 +260,7 @@
 - Border: `2px solid #a67d52`
 - Text: `white`
 
-**Usage:** AI Estimator, secondary actions, supporting CTAs, trade partnerships
+**Usage:** Automated Estimator, secondary actions, supporting CTAs, trade partnerships
 
 ### Outline Buttons
 
@@ -325,7 +325,7 @@
 #### Supporting Actions
 
 - Secondary buttons use Leather Tan outline
-- Complementary to primary actions (e.g., AI Estimator vs IRL Consultation)
+- Complementary to primary actions (e.g., Automated Estimator vs IRL Consultation)
 - Hover states: Solid Leather Tan background with white text
 
 #### Accent and Decorative Elements
@@ -468,7 +468,7 @@ module.exports = {
 - "Get Professional Estimate" (icon: `engineering`)
 - "Book Site Visit" (icon: `place`)
 
-**AI Estimator Actions (Secondary - Leather Tan):**
+**Automated Estimator Actions (Secondary - Leather Tan):**
 
 - "Get Instant AI Estimate" (icon: `smart_toy`)
 - "Try AI Cost Calculator" (icon: `smart_toy`)
@@ -533,7 +533,7 @@ module.exports = {
 | **Hunter Green** | `#386851` | Primary buttons, main CTAs, IRL consultations |
 | **Hunter Green Light** | `#4a7a63` | Hover states, lighter accents |
 | **Hunter Green Dark** | `#2d5240` | Active states, pressed buttons |
-| **Leather Tan** | `#BD9264` | Secondary buttons, AI Estimator, trade partnerships |
+| **Leather Tan** | `#BD9264` | Secondary buttons, Automated Estimator, trade partnerships |
 | **Leather Tan Light** | `#c9a176` | Hover states, lighter accents |
 | **Leather Tan Dark** | `#a67d52` | Active states, pressed buttons |
 
@@ -543,7 +543,7 @@ module.exports = {
 |---------------------|--------------|------|-------------|
 | **IRL Consultation** | Hunter Green (Primary) | `event` | "Schedule Free Consultation" |
 | **Client Partnership** | Hunter Green (Primary) | `handshake` | "Begin Partnership" |
-| **AI Estimator** | Leather Tan (Secondary) | `smart_toy` | "Get Instant AI Estimate" |
+| **Automated Estimator** | Leather Tan (Secondary) | `smart_toy` | "Get Instant Automated Estimate" |
 | **Trade Partnership** | Leather Tan (Secondary) | `construction` | "Join Trade Network" |
 
 ### Contact Information Color Coding

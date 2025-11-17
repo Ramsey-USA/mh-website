@@ -36,7 +36,7 @@
 5. **Testimonials** (25-30%) - Social proof at OPTIMAL depth ✅
 6. **Why Partner** (30-40%) - Differentiation ✅
 7. **Before/After Showcase** (40-50%) - Visual proof ✅
-8. **AI Estimator CTA** (50-60%) - Interactive tool ✅
+8. **Automated Estimator CTA** (50-60%) - Interactive tool ✅
 9. **Smart Recommendations** (60-70%) - Personalization ✅
 10. **Company Stats** (70-80%) - Trust indicators ✅
 11. **Next Steps** (80-90%) - Conversion guidance ✅
@@ -79,7 +79,7 @@
 10. **Process** (55-65%) - Detailed walkthrough
 11. **Partnership Types** (65-75%) - Segmentation
 12. **Next Steps** (75-85%) - Conversion guidance
-13. **AI Estimator CTA** (85-90%) - Tool promotion
+13. **Automated Estimator CTA** (85-90%) - Tool promotion
 14. **Portfolio Preview** (90-95%) - Visual proof
 15. **Final CTA** (95-100%) - Conversion
 

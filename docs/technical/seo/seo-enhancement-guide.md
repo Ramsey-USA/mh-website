@@ -21,7 +21,7 @@ excellence.
 **Priority Optimization:**
 
 - Homepage: 1.0 (highest)
-- AI Estimator: 0.95 (critical business tool)
+- Automated Estimator: 0.95 (critical business tool)
 - Services/About: 0.9 (core business pages)
 - Projects/Portfolio: 0.8 (showcase content)
 - Contact/Government: 0.8 (conversion pages)
@@ -58,7 +58,7 @@ veteran-owned status, and Pacific Northwest community focus.
 
 #### New Service Schemas
 
-1. **AI Estimator Schema** (`generateAIEstimatorSchema()`)
+1. **Automated Estimator Schema** (`generateAutomatedEstimatorSchema()`)
    - Software Application type
    - Free service offering
    - 24/7 availability
@@ -89,8 +89,8 @@ veteran-owned status, and Pacific Northwest community focus.
 
 **Complete SEO functions for all pages:**
 
-- `getHomepageSEO()` - Partnership and AI focus
-- `getAIEstimatorSEO()` - Instant estimates and veteran discounts
+- `getHomepageSEO()` - Partnership and focus
+- `getAutomatedEstimatorSEO()` - Instant estimates and veteran discounts
 - `getBookingSEO()` - Free consultation scheduling
 - `getServicesSEO()` - Comprehensive construction services
 - `getAboutSEO()` - Veteran heritage and partnerships
@@ -118,18 +118,18 @@ veteran-owned status, and Pacific Northwest community focus.
 For each page, import and use the appropriate SEO function:
 
 ````tsx
-// Example: AI Estimator page
-import { getAIEstimatorSEO } from '@/lib/seo/page-seo-utils';
+// Example: Automated Estimator page
+import { getAutomatedEstimatorSEO } from '@/lib/seo/page-seo-utils';
 import { StructuredData } from '@/components/seo/enhanced-seo';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const seoData = getAIEstimatorSEO();
+  const seoData = getAutomatedEstimatorSEO();
   const { schemas, ...metadata } = seoData;
   return metadata;
 }
 
 export default function EstimatorPage() {
-  const seoData = getAIEstimatorSEO();
+  const seoData = getAutomatedEstimatorSEO();
 
   return (
     <>
@@ -143,7 +143,7 @@ export default function EstimatorPage() {
 ### Step 2: Add Schema to Specific Pages
 
 **Homepage:** Add FAQ and Local Business schemas
-**Estimator:** Add AI Estimator schema
+**Estimator:** Add Automated Estimator schema
 **Booking:** Add IRL Consultation schema
 **Services:** Add multiple service schemas
 

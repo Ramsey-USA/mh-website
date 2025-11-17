@@ -56,7 +56,7 @@ alignment with the 7-group messaging strategy defined in
 7. Company Stats
 8. "Optional Tools to Help You Plan" intro
 9. Features (positioned as helpful extras)
-10. AI Estimator CTA
+10. Automated Estimator CTA
 11. Smart Recommendations
 12. Next Steps
 13. Partnership CTA
@@ -174,7 +174,7 @@ alignment with the 7-group messaging strategy defined in
 10. Process Overview
 11. Partnership Types (client + trade)
 12. Next Steps
-13. AI Estimator CTA
+13. Automated Estimator CTA
 14. Portfolio link
 
 ---
@@ -261,7 +261,7 @@ alignment with the 7-group messaging strategy defined in
 
 ### GROUP 6: Tech Innovation & Tools
 
-#### **AI Estimator Page** (`/estimator`)
+#### **Automated Estimator Page** (`/estimator`)
 
 **Previous:**
 
@@ -273,7 +273,7 @@ alignment with the 7-group messaging strategy defined in
 - Title: "AI Construction Cost Estimator | Instant Estimates 24/7" (KEPT - perfect for tech page)
 - Description: (See updated SEO function for full text)
 - Tone: Tech-savvy, innovative, cutting-edge
-- Keywords: AI estimator → instant estimates → real-time pricing → automated calculator
+- Keywords: automated estimator → instant estimates → real-time pricing → automated calculator
 
 **Section Order:** ✅ Tech innovation appropriate
 

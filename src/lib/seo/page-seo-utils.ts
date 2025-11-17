@@ -2,7 +2,7 @@
 import { type Metadata } from "next";
 import {
   generateEnhancedMetadata,
-  generateAIEstimatorSchema,
+  generateAutomatedEstimatorSchema,
   generateIRLConsultationSchema,
   generateConstructionFAQSchema,
   generateServiceSchema,
@@ -32,15 +32,16 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
   });
 }
 
-// AI Estimator page SEO
-export function getAIEstimatorSEO(): Metadata & { schemas: object[] } {
+// Automated Estimator page SEO
+export function getAutomatedEstimatorSEO(): Metadata & {
+  schemas: object[];
+} {
   return generateEnhancedMetadata({
-    title:
-      "AI-Powered, Human-Centered | Smart Construction Estimator | MH Construction",
+    title: "Smart Automated Estimator | MH Construction",
     description:
-      "Get instant AI-powered construction estimates with regional intelligence, veteran discounts, and Pacific Northwest market data. Revolutionary cost estimation available 24/7 with military precision accuracy.",
+      "Get instant estimates with regional intelligence, veteran discounts, and Pacific Northwest market data. Automated cost estimation available 24/7 with military precision accuracy.",
     keywords: [
-      "AI construction cost estimator",
+      "automated cost estimator",
       "instant construction estimates",
       "veteran discount construction",
       "Pacific Northwest construction costs",
@@ -49,7 +50,7 @@ export function getAIEstimatorSEO(): Metadata & { schemas: object[] } {
       "military precision cost analysis",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/estimator`,
-    schemas: [generateAIEstimatorSchema()],
+    schemas: [generateAutomatedEstimatorSchema()],
   });
 }
 
@@ -98,9 +99,9 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
 export function getServicesSEO(): Metadata & { schemas: object[] } {
   const constructionServices = [
     {
-      name: "AI-Powered Construction Intelligence",
+      name: "Construction Intelligence Tools",
       description:
-        "Revolutionary construction assistance with General MH military AI for cost estimation, project assessment, and veteran services",
+        "Construction assistance with General MH for cost estimation, project assessment, and veteran services",
       category: "Construction Technology",
     },
     {
@@ -275,7 +276,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     title:
       "Where Handshakes Still Matter | Contact MH Construction | Pasco, WA",
     description:
-      "Contact MH Construction for your Pacific Northwest construction needs. Founded 2010, veteran-owned since January 2025 with AI-powered estimating, military precision, and authentic partnership approach. (509) 308-6489",
+      "Contact MH Construction for your Pacific Northwest construction needs. Founded 2010, veteran-owned since January 2025 with online estimating tools, military precision, and authentic partnership approach. (509) 308-6489",
     keywords: [
       "contact construction contractor Pasco WA",
       "veteran-owned construction contact",

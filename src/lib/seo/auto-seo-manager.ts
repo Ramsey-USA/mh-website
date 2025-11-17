@@ -365,19 +365,19 @@ export function autoGenerateSEO(
   // Generate description based on page type
   const descriptions: Record<string, string> = {
     homepage: enhancedSEO.defaultDescription,
-    services: `Professional ${pageName.toLowerCase()} services from MH Construction. Veteran-owned construction excellence serving the Pacific Northwest with AI-powered solutions and military precision.`,
+    services: `Professional ${pageName.toLowerCase()} services from MH Construction. Veteran-owned construction excellence serving the Pacific Northwest with modern tools and military precision.`,
     projects: `Explore MH Construction's ${pageName.toLowerCase()} portfolio. Quality craftsmanship and partnership-driven results across Washington, Oregon, and Idaho.`,
     team: `Meet the MH Construction ${pageName.toLowerCase()} team. Veteran-led professionals bringing military precision and authentic relationships to every project.`,
     contact: `Get in touch with MH Construction. Schedule consultations, request estimates, or connect with our veteran-owned construction team serving the Pacific Northwest.`,
     careers: `Join MH Construction's veteran-owned team. ${pageName} opportunities with competitive benefits and a partnership-driven culture.`,
-    tools: `${pageName} tool from MH Construction. AI-powered construction technology for instant estimates and project planning in the Pacific Northwest.`,
+    tools: `${pageName} tool from MH Construction. Construction technology for instant estimates and project planning in the Pacific Northwest.`,
     emergency: `${pageName} construction support from MH Construction. Expert response for critical structural challenges with veteran-owned reliability.`,
     partnerships: `${pageName} opportunities with MH Construction. Build lasting partnerships with our veteran-owned construction platform.`,
   };
 
   const description = category
     ? descriptions[pageType as keyof typeof descriptions]
-    : `${pageName} | MH Construction - Veteran-owned construction excellence serving the Pacific Northwest with AI-powered solutions, military precision, and authentic partnerships.`;
+    : `${pageName} | MH Construction - Veteran-owned construction excellence serving the Pacific Northwest with modern tools, military precision, and authentic partnerships.`;
 
   // Generate keywords
   const keywords = [

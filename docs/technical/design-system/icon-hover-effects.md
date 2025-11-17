@@ -41,7 +41,7 @@ sizing and construction-themed alignment
 
 1. **AIIcon** (Brain Circuit Design)
    - **Effect**: `pulse` + `glow` (electric blue)
-   - **Usage**: AI estimator features, homepage CTAs, estimator page
+   - **Usage**: Automated estimator features, homepage CTAs, estimator page
    - **Consistency**: Used throughout for all AI-powered features
    - **Sizing**: sm in buttons, lg in features, xl in hero
 

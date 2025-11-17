@@ -85,13 +85,13 @@ Consolidates all CTA-related technical specifications.
 Messaging perspective
 
 Partnership-specific CTA messaging and language standards. Covers how to phrase CTAs for different audiences
-(clients vs vendors) and contexts (AI estimator vs consultation).
+(clients vs vendors) and contexts (Automated Estimator vs consultation).
 
 **Topics Covered:**
 
 - Client-focused CTA language
 - Vendor-focused CTA language
-- AI Estimator vs Consultation distinctions
+- Automated Estimator vs Consultation distinctions
 - Partnership-centered phrasing
 - Service-specific CTA patterns
 
@@ -156,7 +156,7 @@ MH Construction brand identity.
 1. Read [Partnership Messaging Guide](../../partnerships/messaging/cta-button-guide.md)
 2. Use partnership-centered language ("Start Partnership" not "Get Quote")
 3. Distinguish between client and vendor audiences
-4. Follow AI Estimator vs Consultation distinctions
+4. Follow Automated Estimator vs Consultation distinctions
 5. Keep CTA text concise and action-oriented
 
 ---
@@ -185,7 +185,7 @@ MH Construction brand identity.
 // Supporting actions
 <Button variant="secondary" size="lg">
   <MaterialIcon icon="smart_toy" className="mr-2" />
-  Try AI Estimator
+  Try Automated Estimator
 </Button>
 ```
 

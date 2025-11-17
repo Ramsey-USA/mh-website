@@ -392,7 +392,7 @@ Proper section ordering can improve rankings by 15-25% without changing any cont
     - [ ] Booking form submissions
     - [ ] Phone clicks
     - [ ] Email clicks
-    - [ ] AI Estimator usage
+    - [ ] Automated Estimator usage
   - [ ] Enable enhanced measurement
   - [ ] Set up custom events:
     - [ ] Scroll depth tracking
@@ -1067,7 +1067,7 @@ For implementation questions or SEO strategy consultation, refer to:
 - "how much does commercial construction cost in Washington"
 - "best veteran-owned construction company Pasco"
 - "licensed general contractor Tri-Cities area"
-- "construction company with AI estimator"
+- "construction company with automated estimator"
 - "emergency construction services Washington"
 
 **Intent-Based Keywords:**
@@ -1284,7 +1284,7 @@ MH Construction Team
 - Contact form submissions
 - Booking form submissions
 - Phone calls
-- AI Estimator completions
+- Automated Estimator completions
 
 **Secondary Conversions:**
 
@@ -1510,7 +1510,7 @@ MH Construction Team
 - Contact form submissions
 - Booking completions
 - Phone calls tracked
-- AI Estimator usage
+- Automated Estimator usage
 - Conversion rate by source
 
 #### Automated Reporting Tools
@@ -2129,7 +2129,7 @@ ROI = (Revenue from SEO - Cost of SEO) / Cost of SEO × 100
 **Leverage Your Unique Advantages:**
 
 - ✅ **Veteran-Owned Status** - Prominent in all content
-- ✅ **AI Estimator** - Unique technology advantage
+- ✅ **Automated Estimator** - Unique technology advantage
 - ✅ **Multi-State Service** - Broader reach than locals
 - ✅ **Design-Build Expertise** - Comprehensive service
 - ✅ **Government Experience** - Trust and credibility

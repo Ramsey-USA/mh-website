@@ -56,10 +56,10 @@ export const enhancedSEO = {
       "Building partnerships, serving communities, creating lasting value in the Pacific Northwest",
     partnershipPhilosophy:
       "We Work With You - Collaborative Construction Partners",
-    aiCapabilities: {
-      hasAI: true,
-      aiAssistant: "General MH - Military AI Assistant",
-      aiServices: [
+    constructionTools: {
+      hasTools: true,
+      toolName: "General MH - Construction Assistant",
+      toolServices: [
         "Real-time cost estimation",
         "Construction intelligence",
         "Lead qualification",
@@ -160,8 +160,7 @@ export function generateEnhancedOrganizationSchema() {
     technology: {
       "@type": "SoftwareApplication",
       name: "General MH - Construction Planning Assistant",
-      description:
-        "Helpful construction planning tools with military precision",
+      description: "Construction planning tools with military precision",
       applicationCategory: "Construction Management Software",
       features: [
         "Budget planning estimates",
@@ -280,15 +279,15 @@ export function generateServiceSchema(service: {
   };
 }
 
-// Generate AI Estimator service schema
-export function generateAIEstimatorSchema() {
+// Generate Automated Estimator service schema
+export function generateAutomatedEstimatorSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "@id": `${enhancedSEO.siteUrl}/estimator#budget-planner`,
-    name: "Construction Budget Planning Tool",
+    "@id": `${enhancedSEO.siteUrl}/estimator#automated-estimator`,
+    name: "Automated Construction Estimator",
     description:
-      "Helpful budget planning tool providing preliminary project cost estimates with regional intelligence and veteran benefits integration to prepare for personal consultation",
+      "Automated estimator providing instant project cost estimates with regional intelligence and veteran benefits integration",
     applicationCategory: "Construction Estimation Software",
     operatingSystem: "Web Browser",
     offers: {
@@ -404,14 +403,14 @@ export function generateConstructionFAQSchema() {
   const faqs = [
     {
       question:
-        "What is the difference between AI Estimator and IRL Consultation?",
+        "What is the difference between Automated Estimator and In-Person Consultation?",
       answer:
-        "Our AI Estimator provides instant, preliminary cost estimates available 24/7 for research phase clients, while IRL Consultation offers personalized on-site evaluations with our experienced sales representatives during business hours. AI Estimator is automated and immediate, while IRL Consultation provides detailed human expertise and relationship building.",
+        "Our Automated Estimator provides instant, preliminary cost estimates available 24/7 for research phase clients, while In-Person Consultation offers personalized on-site evaluations with our experienced sales representatives during business hours. The Automated Estimator is instant and immediate, while In-Person Consultation provides detailed human expertise and relationship building.",
     },
     {
       question: "Do you offer veteran benefits and discounts?",
       answer:
-        "Yes! As a veteran-owned business since January 2025, we proudly offer automatic 12% combat veteran discounts through our AI Estimator system, plus specialized protocols for veteran recognition and service-specific benefits. Our General MH military AI assistant provides veteran advisory services for accessibility, energy efficiency, and security guidance.",
+        "Yes! As a veteran-owned business since January 2025, we proudly offer automatic 12% combat veteran discounts through our Automated Estimator system, plus specialized protocols for veteran recognition and service-specific benefits. Our General MH assistant provides veteran advisory services for accessibility, energy efficiency, and security guidance.",
     },
     {
       question: "What areas do you serve in the Pacific Northwest?",
@@ -426,7 +425,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "How does the construction planning assistant work?",
       answer:
-        "General MH is our helpful construction planning assistant available 24/7 on every page. It provides construction support, preliminary budget planning, veteran recognition, lead qualification, and construction guidance with military-style professionalism. The assistant uses helpful tools to prepare you for your in-person consultation with our team.",
+        "General MH is our construction planning assistant available 24/7 on every page. It provides construction support, preliminary budget planning, veteran recognition, lead qualification, and construction guidance with military-style professionalism. The assistant prepares you for your in-person consultation with our team.",
     },
     {
       question: "What types of construction services do you provide?",

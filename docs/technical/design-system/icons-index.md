@@ -250,7 +250,7 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 
 <Link href="/estimator">
   <MaterialIcon icon="calculate" size="md" />
-  AI Estimator
+  Automated Estimator
 </Link>
 ```
 

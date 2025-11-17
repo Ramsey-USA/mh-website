@@ -10,7 +10,7 @@ import {
   Button,
 } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { getAIEstimatorSEO } from "@/lib/seo/page-seo-utils";
+import { getAutomatedEstimatorSEO } from "@/lib/seo/page-seo-utils";
 import { gridPresets } from "@/lib/styles/layout-variants";
 // Dynamically import heavy components
 const EstimatorForm = dynamic(
@@ -46,7 +46,7 @@ import { StructuredData } from "@/components/seo/enhanced-seo";
 
 export default function EstimatorPage() {
   // Get SEO data for structured data
-  const seoData = getAIEstimatorSEO();
+  const seoData = getAutomatedEstimatorSEO();
   return (
     <>
       {/* Enhanced AI Estimator Structured Data for SEO */}

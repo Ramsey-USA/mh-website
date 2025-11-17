@@ -75,12 +75,12 @@ Complete documentation for all button variants, CTA patterns, link validation, a
 
 **Quick Reference:**
 
-| Button Variant | Color                  | Use Case                         |
-| -------------- | ---------------------- | -------------------------------- |
-| Primary        | Hunter Green (#386851) | Main actions, IRL consultations  |
-| Secondary      | Leather Tan (#BD9264)  | AI Estimator, supporting actions |
-| Outline        | Transparent border     | Subtle actions, navigation       |
-| Neutral        | Theme-aware gray       | System actions, UI controls      |
+| Button Variant | Color                  | Use Case                                |
+| -------------- | ---------------------- | --------------------------------------- |
+| Primary        | Hunter Green (#386851) | Main actions, IRL consultations         |
+| Secondary      | Leather Tan (#BD9264)  | Automated Estimator, supporting actions |
+| Outline        | Transparent border     | Subtle actions, navigation              |
+| Neutral        | Theme-aware gray       | System actions, UI controls             |
 
 **When to Use:**
 

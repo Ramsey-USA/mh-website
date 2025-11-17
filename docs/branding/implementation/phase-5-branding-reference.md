@@ -10,12 +10,12 @@
 
 ### Primary Brand Colors
 
-| Color                  | Hex       | Usage                                               | Example                 |
-| ---------------------- | --------- | --------------------------------------------------- | ----------------------- |
-| **Hunter Green**       | `#386851` | Primary buttons, main CTAs, IRL consultations       | "Schedule Consultation" |
-| **Leather Tan**        | `#BD9264` | Secondary buttons, AI Estimator, trade partnerships | "Get AI Estimate"       |
-| **Hunter Green Light** | `#4a7a63` | Hover states, lighter accents                       | Button hover            |
-| **Hunter Green Dark**  | `#2d5240` | Active states, pressed buttons                      | Button active           |
+| Color                  | Hex       | Usage                                                      | Example                  |
+| ---------------------- | --------- | ---------------------------------------------------------- | ------------------------ |
+| **Hunter Green**       | `#386851` | Primary buttons, main CTAs, IRL consultations              | "Schedule Consultation"  |
+| **Leather Tan**        | `#BD9264` | Secondary buttons, Automated Estimator, trade partnerships | "Get Automated Estimate" |
+| **Hunter Green Light** | `#4a7a63` | Hover states, lighter accents                              | Button hover             |
+| **Hunter Green Dark**  | `#2d5240` | Active states, pressed buttons                             | Button active            |
 
 ### Phase 5 Component Color Associations
 

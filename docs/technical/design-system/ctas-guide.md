@@ -47,12 +47,12 @@ across the MH Construction website.
 
 ### Button Variant Quick Reference
 
-| Variant       | Color                  | When to Use                                   | Example Text                 |
-| ------------- | ---------------------- | --------------------------------------------- | ---------------------------- |
-| **Primary**   | Hunter Green (#386851) | Main CTAs, IRL consultations, primary actions | "Schedule Free Consultation" |
-| **Secondary** | Leather Tan (#BD9264)  | AI Estimator, supporting actions              | "Get Instant AI Estimate"    |
-| **Outline**   | Transparent            | Subtle actions, navigation                    | "Learn More"                 |
-| **Neutral**   | Theme-aware            | System actions, UI controls                   | "Back", "Cancel"             |
+| Variant       | Color                  | When to Use                                   | Example Text                     |
+| ------------- | ---------------------- | --------------------------------------------- | -------------------------------- |
+| **Primary**   | Hunter Green (#386851) | Main CTAs, IRL consultations, primary actions | "Schedule Free Consultation"     |
+| **Secondary** | Leather Tan (#BD9264)  | Automated Estimator, supporting actions       | "Get Instant Automated Estimate" |
+| **Outline**   | Transparent            | Subtle actions, navigation                    | "Learn More"                     |
+| **Neutral**   | Theme-aware            | System actions, UI controls                   | "Back", "Cancel"                 |
 
 ### CTA Text Standards
 
@@ -102,7 +102,7 @@ across the MH Construction website.
 
 ## 🤖 Service Type CTAs
 
-### AI Estimator (Automated Self-Service)
+### Automated Estimator (Automated Self-Service)
 
 **Button Variant:** Secondary  
 **Icon:** `smart_toy`, `calculate`  
@@ -458,18 +458,18 @@ export const navigationConfigs = {
 
 ### Common CTA Icons
 
-| CTA Type     | Icon Name      | Usage                 |
-| ------------ | -------------- | --------------------- |
-| Schedule     | `event`        | Consultation bookings |
-| Location     | `place`        | Site visits           |
-| Partnership  | `handshake`    | Client relationships  |
-| Construction | `construction` | Vendor partnerships   |
-| AI/Tech      | `smart_toy`    | AI estimator          |
-| Calculate    | `calculate`    | Cost calculations     |
-| Apply        | `check_circle` | Vendor applications   |
-| Download     | `download`     | Resource downloads    |
-| Contact      | `mail`         | Email communications  |
-| Phone        | `phone`        | Phone contacts        |
+| CTA Type       | Icon Name      | Usage                 |
+| -------------- | -------------- | --------------------- |
+| Schedule       | `event`        | Consultation bookings |
+| Location       | `place`        | Site visits           |
+| Partnership    | `handshake`    | Client relationships  |
+| Construction   | `construction` | Vendor partnerships   |
+| Automated Tech | `smart_toy`    | Automated estimator   |
+| Calculate      | `calculate`    | Cost calculations     |
+| Apply          | `check_circle` | Vendor applications   |
+| Download       | `download`     | Resource downloads    |
+| Contact        | `mail`         | Email communications  |
+| Phone          | `phone`        | Phone contacts        |
 
 ### Icon Format in Markdown
 
@@ -586,7 +586,7 @@ Get instant preliminary pricing with our automated cost estimation tool.
         </div>
       </div>
 
-      {/* AI Estimator */}
+      {/* Automated Estimator */}
       <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
         <h3 className="text-2xl font-semibold mb-4">AI Cost Estimator</h3>
         <p className="text-gray-600 dark:text-gray-400 mb-6">

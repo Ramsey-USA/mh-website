@@ -9,7 +9,7 @@ implement consistent "we work WITH you" messaging across all client and vendor c
 **Key Sections:**
 
 1. **Core Messaging Framework** - Primary brand messages and language patterns
-2. **Service Distinctions** - AI Estimator vs IRL Consultation differences
+2. **Service Distinctions** - Automated Estimator vs IRL Consultation differences
 3. **Partnership Language Pillars** - Client vs trade messaging distinctions with MaterialIcons
 4. **Website Implementation** - Page-specific messaging examples with MH branding
 5. **UI/UX Elements** - Button text, navigation, and interactive elements
@@ -43,14 +43,14 @@ _This tagline emphasizes our commitment to client success over profit maximizati
 
 ## 🤖 **SERVICE TYPE DISTINCTIONS**
 
-### **AI Estimator (Automated Self-Service)**
+### **Automated Estimator (Automated Self-Service)**
 
 **MaterialIcon:** `smart_toy`
 **Service Type:** Instant, automated, 24/7 cost estimation
 **Best For:** Initial research, budget planning, preliminary pricing
 
 `````tsx
-// AI Estimator CTAs (MH Branding Standards)
+// Automated Estimator CTAs (MH Branding Standards)
 <Button variant="secondary" size="lg">
   <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
   <span className="font-medium">Get Instant AI Estimate</span>
@@ -405,7 +405,7 @@ Form Submissions:
 "About" → "Our Story & Values"
 "Portfolio" → "Partnership Success Stories"
 "Booking" → "Schedule Consultation"
-"Estimator" → "AI Estimator"
+"Estimator" → "Automated Estimator"
 
 // VENDOR-FOCUSED NAVIGATION
 "Trade Partners" → "Trade Partnership Network"

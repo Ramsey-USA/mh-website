@@ -99,7 +99,7 @@ This document tracks SEO compliance across all pages of the MH Construction webs
 **Functions Available:**
 
 - `getHomepageSEO()` - Homepage with FAQ + LocalBusiness schemas
-- `getAIEstimatorSEO()` - Estimator with AI schema
+- `getAutomatedEstimatorSEO()` - Estimator with automated schema
 - `getBookingSEO()` - Booking with consultation schema
 - `getAboutSEO()` - About page metadata
 - `getServicesSEO()` - Services with service schemas
@@ -180,7 +180,7 @@ For client components, consider:
 **Available But Not Yet Integrated:**
 
 - ⚠️ Service schemas (for /services page)
-- ⚠️ AI Estimator schema (for /estimator)
+- ⚠️ Automated Estimator schema (for /estimator)
 - ⚠️ IRL Consultation schema (for /booking)
 
 ---
@@ -284,7 +284,7 @@ For client components, consider:
 
 2. **Add Missing Schemas**
    - Service schema on `/services` page
-   - AI Estimator schema on `/estimator`
+   - Automated Estimator schema on `/estimator`
    - Consultation schema on `/booking`
 
 3. **Enhanced Local SEO**

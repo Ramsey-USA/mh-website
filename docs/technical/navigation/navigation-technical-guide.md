@@ -232,7 +232,7 @@ export function PageNavigation({ items, className = "" }: PageNavigationProps) {
 export const navigationConfigs = {
   // Home page navigation - unique: links to standalone pages not sections
   home: [
-    { href: "/estimator", label: "AI Estimator", icon: "calculate" },
+    { href: "/estimator", label: "Automated Estimator", icon: "calculate" },
     { href: "/3d-explorer", label: "3D Explorer", icon: "visibility" },
     { href: "/#core-values", label: "Our Values", icon: "shield" },
     { href: "/#ai-features-cta", label: "Get Started", icon: "handshake" },
