@@ -20,8 +20,9 @@ interface NextStepsSectionProps {
 }
 
 export function NextStepsSection({
-  title = "Let's Build Your Vision Together",
-  subtitle = "Where your word is your bond, and ours is too. Partner with veteran-owned excellence backed by old-school values and modern precision.",
+  title: _title = "Let's Build Your Vision Together",
+  subtitle:
+    _subtitle = "Where your word is your bond, and ours is too. Partner with veteran-owned excellence backed by old-school values and modern precision.",
   className = "",
   onConsultationClick,
   onEstimateClick,
@@ -49,8 +50,8 @@ export function NextStepsSection({
         <div className="mb-12 sm:mb-16 text-center">
           <div className="flex justify-center items-center mb-6 sm:mb-8">
             <div className="relative">
-              <div className="absolute inset-0 bg-white/30 blur-xl rounded-full"></div>
-              <div className="relative bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-lg">
+              <div className="absolute inset-0 bg-brand-accent/30 blur-xl rounded-full"></div>
+              <div className="relative bg-gradient-to-br from-brand-accent to-bronze-600 p-4 rounded-2xl shadow-lg">
                 <MaterialIcon
                   icon="handshake"
                   size="2xl"
@@ -59,17 +60,32 @@ export function NextStepsSection({
               </div>
             </div>
           </div>
-          <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-            {title}
+          <h2 className="mb-6 sm:mb-8 font-black text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+            <span className="block mb-3 sm:mb-4 font-semibold text-white/90 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight drop-shadow-sm">
+              Let's Build Your
+            </span>
+            <span className="block text-brand-accent font-black drop-shadow-lg">
+              Vision Together
+            </span>
           </h2>
           <p className="mx-auto max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-            {subtitle}
+            Where your word is your bond, and{" "}
+            <span className="font-medium text-brand-accent">ours is too</span>.
+            Partner with veteran-owned excellence backed by{" "}
+            <span className="font-medium text-brand-accent">
+              old-school values
+            </span>{" "}
+            and{" "}
+            <span className="font-medium text-brand-accent">
+              modern precision
+            </span>
+            .
           </p>
         </div>
 
         <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
           {/* Option 1: Schedule Consultation */}
-          <div className="group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2">
+          <div className="group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
             <div className="flex justify-center mb-6">
               <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <MaterialIcon icon="event" size="xl" className="text-white" />
@@ -82,7 +98,7 @@ export function NextStepsSection({
               Sit down with us face-to-face. Let's talk about your vision over a
               handshake, not just an email.
             </p>
-            <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400">
+            <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
               <li className="flex items-center gap-2">
                 <MaterialIcon
                   icon="check_circle"
@@ -126,7 +142,7 @@ export function NextStepsSection({
           </div>
 
           {/* Option 2: Get Quick Estimate */}
-          <div className="group relative bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 border-2 border-brand-secondary">
+          <div className="group relative bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 border-2 border-brand-secondary flex flex-col h-full">
             <div className="bg-brand-secondary -top-4 left-1/2 absolute px-4 py-1 rounded-full -translate-x-1/2 shadow-md">
               <span className="font-bold text-sm text-white uppercase tracking-wide">
                 Most Popular
@@ -148,7 +164,7 @@ export function NextStepsSection({
               Receive a detailed project estimate within 3-5 business days with
               transparent pricing.
             </p>
-            <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400">
+            <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
               <li className="flex items-center gap-2">
                 <MaterialIcon
                   icon="check_circle"
@@ -192,7 +208,7 @@ export function NextStepsSection({
           </div>
 
           {/* Option 3: Contact Us */}
-          <div className="group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2">
+          <div className="group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
             <div className="flex justify-center mb-6">
               <div className="rounded-xl bg-gradient-to-br from-brand-accent to-bronze-600 p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <MaterialIcon
@@ -209,7 +225,7 @@ export function NextStepsSection({
               Reach out via phone, email, or contact form for immediate
               assistance with your project.
             </p>
-            <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400">
+            <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
               <li className="flex items-center gap-2">
                 <MaterialIcon
                   icon="check_circle"

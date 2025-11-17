@@ -62,25 +62,38 @@ export default function AboutPage() {
       {/* Why Values Matter Section */}
       <section className="relative bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden">
         {/* Background Effects */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.08)_0%,transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.15)_0%,transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.12)_0%,transparent_50%)]"></div>
+        <div className="top-20 right-10 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
+        <div
+          className="left-10 bottom-20 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
+          style={{ animationDelay: "1s" }}
+        ></div>
+        <div
+          className="top-1/2 left-1/4 absolute bg-brand-secondary/5 dark:bg-brand-secondary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
+          style={{ animationDelay: "0.5s" }}
+        ></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-12 sm:mb-16 lg:mb-20 text-center">
               <div className="mb-6 sm:mb-8 flex justify-center">
-                <div className="rounded-2xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg">
-                  <MaterialIcon
-                    icon="verified"
-                    className="text-5xl text-white"
-                  />
+                <div className="relative">
+                  <div className="absolute inset-0 bg-brand-accent/20 dark:bg-brand-accent/30 blur-xl rounded-full"></div>
+                  <div className="relative rounded-2xl bg-gradient-to-br from-brand-accent to-bronze-600 p-4 shadow-lg">
+                    <MaterialIcon
+                      icon="verified"
+                      size="2xl"
+                      className="text-white"
+                    />
+                  </div>
                 </div>
               </div>
-              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                   Why Our Values
                 </span>
-                <span className="block text-brand-primary dark:text-brand-primary-light font-black">
+                <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
                   Matter
                 </span>
               </h2>
@@ -266,20 +279,46 @@ export default function AboutPage() {
       {/* News & Achievements Section - MERGED from Company Blog + Latest News */}
       <section
         id="news"
-        className="relative bg-gray-50 dark:bg-gray-800 py-20 lg:py-32"
+        className="relative bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden"
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        {/* Enhanced Background Effects */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,104,81,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(56,104,81,0.15)_0%,transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(189,146,100,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_right,rgba(189,146,100,0.12)_0%,transparent_50%)]"></div>
+        <div className="top-20 left-10 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
+        <div
+          className="right-10 bottom-20 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
+          style={{ animationDelay: "1s" }}
+        ></div>
+        <div
+          className="top-1/2 right-1/4 absolute bg-brand-primary/5 dark:bg-brand-primary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
+          style={{ animationDelay: "0.5s" }}
+        ></div>
+
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
-            <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-gray-100 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+            <div className="mx-auto max-w-4xl text-center mb-12 sm:mb-16 lg:mb-20">
+              {/* Icon Header with Glow Effect */}
+              <div className="flex justify-center items-center mb-6 sm:mb-8">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-brand-secondary/20 dark:bg-brand-secondary/30 blur-xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
+                    <MaterialIcon
+                      icon="article"
+                      size="2xl"
+                      className="text-white"
+                    />
+                  </div>
+                </div>
+              </div>
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                   News, Insights &
                 </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
                   Company Achievements
                 </span>
               </h2>
-              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
+              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
                 Stay updated with our latest projects, partnerships, industry
                 insights, and milestones from our veteran-owned team
               </p>

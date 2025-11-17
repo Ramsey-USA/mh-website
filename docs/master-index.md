@@ -135,6 +135,8 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 **⭐ Essential Reading:**
 
 - **[Consistency Guide](./development/consistency-guide.md)** - ⭐ Complete implementation standards (733 lines)
+- **[Section Visual Standards](./development/guidelines/section-visual-standards.md)** - ⭐ **NEW (Nov 2025)** -
+  Complete section styling guide
 - **[Development Standards](./development/development-standards.md)** - Coding conventions
 - **[AI Development Guidelines](./development/ai-development-guidelines.md)** - Rules for AI assistants
 

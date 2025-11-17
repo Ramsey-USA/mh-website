@@ -960,6 +960,8 @@ npm run build
 
 - **[Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md)** - ⭐
   **CRITICAL** - 7-group messaging strategy
+- **[Section Visual Standards](./guidelines/section-visual-standards.md)** - ⭐ **NEW** -
+  Complete section styling guide
 - **[Homepage Optimization Guide](../branding/strategy/homepage-optimization.md)** - Trust-first
   optimization approach
 - **[SEO Optimization Complete](../branding/strategy/seo-optimization.md)** - Complete

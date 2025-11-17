@@ -70,15 +70,24 @@ export function LeadershipTeam() {
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <FadeInWhenVisible>
           <div className="mb-16 text-center">
-            <MaterialIcon
-              icon="people"
-              className="mb-6 text-brand-primary text-6xl"
-            />
-            <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
-              <span className="block mb-3 font-semibold text-gray-700 dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            {/* Icon Header with Glow Effect */}
+            <div className="flex justify-center items-center mb-6 sm:mb-8">
+              <div className="relative">
+                <div className="absolute inset-0 bg-brand-accent/20 dark:bg-brand-accent/30 blur-xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-accent to-bronze-600 p-4 rounded-2xl shadow-lg">
+                  <MaterialIcon
+                    icon="people"
+                    size="2xl"
+                    className="text-white"
+                  />
+                </div>
+              </div>
+            </div>
+            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                 Meet Our
               </span>
-              <span className="block text-brand-primary dark:text-brand-primary font-black">
+              <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
                 Team
               </span>
             </h2>
@@ -96,18 +105,19 @@ export function LeadershipTeam() {
           {leadershipTeam.map((member, _index) => (
             <div
               key={_index}
-              className="group h-[500px] sm:h-[550px] lg:h-[600px]"
+              className="group h-[450px] sm:h-[480px] md:h-[500px] lg:h-[520px]"
               style={{ perspective: "1000px" }}
             >
               <div className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
                 {/* Front of card */}
                 <div className="absolute inset-0 backface-hidden">
-                  <Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 w-full h-full flex flex-col overflow-hidden">
+                  <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 border border-gray-200 dark:border-gray-700 w-full h-full flex flex-col overflow-hidden transition-all duration-300">
                     <CardHeader className="pb-6 text-center flex-shrink-0 px-4 sm:px-6">
                       <div className="flex justify-center items-center bg-brand-primary mx-auto mb-4 p-4 rounded-full w-20 h-20">
                         <MaterialIcon
                           icon={member.icon}
-                          className="text-white text-3xl"
+                          size="xl"
+                          className="text-white"
                         />
                       </div>
                       <CardTitle className="mb-2 text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
@@ -119,7 +129,8 @@ export function LeadershipTeam() {
                       <div className="flex justify-center items-center mt-2">
                         <MaterialIcon
                           icon="schedule"
-                          className="mr-2 text-brand-accent text-xs sm:text-sm"
+                          size="sm"
+                          className="mr-2 text-brand-accent"
                         />
                         <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                           {member.experience}
@@ -133,18 +144,24 @@ export function LeadershipTeam() {
                     </CardHeader>
                     <CardContent className="pt-0 flex-grow px-4 sm:px-6">
                       <div className="pt-4 border-gray-100 dark:border-gray-600 border-t">
-                        <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base italic leading-relaxed mb-6 break-words">
+                        <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base italic leading-relaxed break-words">
                           "{member.philosophy}"
                         </p>
                       </div>
-                      <div className="flex items-center justify-center mt-4 text-brand-primary">
-                        <MaterialIcon
-                          icon="autorenew"
-                          className="mr-2 text-xl sm:text-2xl animate-pulse"
-                        />
-                        <span className="font-medium text-xs sm:text-sm">
-                          Hover to see specialties
-                        </span>
+                      <div className="flex-shrink-0 mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-gray-300 dark:border-gray-600">
+                        <div className="flex items-center justify-center gap-2 text-brand-primary dark:text-brand-primary-light">
+                          <MaterialIcon
+                            icon="autorenew"
+                            size="md"
+                            className="animate-spin-slow group-hover:animate-spin"
+                          />
+                          <span className="font-semibold text-xs sm:text-sm uppercase tracking-wider">
+                            <span className="hidden sm:inline">
+                              Hover to learn more
+                            </span>
+                            <span className="sm:hidden">Tap to learn more</span>
+                          </span>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
@@ -155,12 +172,13 @@ export function LeadershipTeam() {
                   className="absolute inset-0 backface-hidden rotate-y-180"
                   style={{ transform: "rotateY(180deg)" }}
                 >
-                  <Card className="bg-gradient-to-br from-brand-secondary to-brand-primary dark:from-brand-primary-dark dark:to-gray-900 border border-brand-secondary dark:border-brand-secondary/50 w-full h-full flex flex-col overflow-hidden">
+                  <Card className="bg-gradient-to-br from-brand-secondary to-brand-primary dark:from-brand-primary-dark dark:to-gray-900 shadow-2xl dark:shadow-brand-primary/30 border border-brand-secondary dark:border-brand-secondary/50 w-full h-full flex flex-col overflow-hidden transition-all duration-300">
                     <CardHeader className="pb-4 text-center flex-shrink-0 px-4 sm:px-6">
                       <div className="flex justify-center items-center bg-white/20 mx-auto mb-4 p-4 rounded-full w-20 h-20">
                         <MaterialIcon
                           icon={member.icon}
-                          className="text-white text-3xl"
+                          size="xl"
+                          className="text-white"
                         />
                       </div>
                       <CardTitle className="mb-2 text-white text-lg sm:text-xl md:text-2xl">
@@ -169,7 +187,8 @@ export function LeadershipTeam() {
                       <div className="flex items-center justify-center mb-4">
                         <MaterialIcon
                           icon="star"
-                          className="mr-2 text-brand-accent text-lg sm:text-xl"
+                          size="md"
+                          className="mr-2 text-brand-accent"
                         />
                         <p className="font-bold text-white text-base sm:text-lg md:text-xl">
                           Core Specialties
@@ -182,7 +201,8 @@ export function LeadershipTeam() {
                           <li key={sIndex} className="flex items-start">
                             <MaterialIcon
                               icon="check_circle"
-                              className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-base sm:text-lg"
+                              size="sm"
+                              className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
                             />
                             <span className="text-white leading-relaxed text-xs sm:text-sm md:text-base break-words">
                               {specialty}
@@ -190,15 +210,6 @@ export function LeadershipTeam() {
                           </li>
                         ))}
                       </ul>
-                      <div className="flex items-center justify-center mt-6 text-white/80">
-                        <MaterialIcon
-                          icon="autorenew"
-                          className="mr-2 text-lg sm:text-xl"
-                        />
-                        <span className="font-medium text-xs">
-                          Hover to return
-                        </span>
-                      </div>
                     </CardContent>
                   </Card>
                 </div>

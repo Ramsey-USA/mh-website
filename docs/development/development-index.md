@@ -95,6 +95,8 @@ Quick reference guides, troubleshooting documentation, and developer resources.
   Complete standardized workflow for creating new pages with navigation, breadcrumbs, and SEO
 - **[consistency-guide.md](./consistency-guide.md)** - **⭐ PRIMARY REFERENCE** - Complete
   consistency standards for pages, sections, components, typography, colors, and mobile
+- **[section-visual-standards.md](./guidelines/section-visual-standards.md)** - **⭐ NEW (Nov 17, 2025)** -
+  Complete section styling guide with icon headers, cards, CTAs (based on homepage/about)
 - **[cohesion-checklist.md](./cohesion-checklist.md)** - **⭐ NEW (Nov 2025)** - Comprehensive
   checklist to ensure consistency across all pages when creating or editing content
 - **[style-utilities-guide.md](./style-utilities-guide.md)** - **⭐ NEW (Nov 2025)** - Centralized

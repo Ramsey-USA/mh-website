@@ -18,6 +18,8 @@
 ### 📋 Available Guidelines
 
 - [**Development Guidelines**](./development-guidelines.md) - Complete development standards and practices
+- [**Section Visual Standards**](./section-visual-standards.md) - ⭐ **NEW (Nov 17, 2025)** -
+  Complete section styling guide (icon headers, gradients, cards, CTAs)
 
 ### 📚 Related Standards
 

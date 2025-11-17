@@ -19,11 +19,24 @@ export function SafetySection() {
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <FadeInWhenVisible>
           <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
-            <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+            {/* Icon Header with Glow Effect */}
+            <div className="flex justify-center items-center mb-6 sm:mb-8">
+              <div className="relative">
+                <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 rounded-2xl shadow-lg">
+                  <MaterialIcon
+                    icon="security"
+                    size="2xl"
+                    className="text-white"
+                  />
+                </div>
+              </div>
+            </div>
+            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                 Safety &
               </span>
-              <span className="block text-brand-primary dark:text-brand-primary font-black">
+              <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
                 Compliance
               </span>
             </h2>

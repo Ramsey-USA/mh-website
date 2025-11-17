@@ -148,7 +148,7 @@ export function CoreValuesSection() {
           {coreValues.map((item, _index) => (
             <div
               key={item.value}
-              className="group perspective-1000 scroll-reveal value-card h-[450px] sm:h-[480px] md:h-[500px] lg:h-[520px]"
+              className="group perspective-1000 scroll-reveal value-card h-[400px] sm:h-[420px] md:h-[440px] lg:h-[460px]"
               style={{ animationDelay: `${_index * 0.1}s` }}
             >
               <div className="relative w-full h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">

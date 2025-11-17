@@ -12,90 +12,91 @@ export { SafetySection } from "./SafetySection";
 export { AwardsSection } from "./AwardsSection";
 import type { CoreValue } from "./AboutValues";
 
-// Core Values Data - 6-Value Professional Foundation System
+// Core Values Data - Heritage Storytelling (About Page)
+// Uses past-tense language to emphasize proven track record and history
 export const coreValues: CoreValue[] = [
   {
     iconName: "balance",
     title: "Integrity First",
-    subtitle: "Doing What's Right, Every Time",
+    subtitle: "Founded on Ethical Excellence",
     description:
-      "Ethical business practices, quality workmanship, and promise keeping define everything we do. Making the right decision even when it costs us more, because our reputation is built on unwavering commitment to ethical practices. We never cut corners—even when no one is watching—and we stand behind our work with comprehensive warranties.",
+      "Since 2010, we built our reputation on ethical practices and quality workmanship. We chose integrity over profit, stood behind every project with warranties, and earned trust through 650+ successful partnerships.",
     practices: [
-      "Recommending solutions that benefit you, not just our profit margin",
-      "Using specified materials and methods, never substituting without approval",
-      "Standing behind our work with comprehensive warranties",
-      "Treating your property with the same care we'd want for our own",
-      "Making the right decision even when it costs us more",
+      "Recommended solutions that benefited clients, even when it reduced our margins",
+      "Never substituted materials without approval—maintained specifications religiously",
+      "Stood behind every project with ironclad warranties",
+      "Treated client properties with the same care as our own homes",
+      "Built a reputation where our word became our bond",
     ],
   },
   {
     iconName: "visibility",
     title: "Owner-Focused Transparency",
-    subtitle: "No Surprises",
+    subtitle: "No Surprises—Ever",
     description:
-      "Open communication, transparent pricing, and honest assessments mean you're never left wondering what's happening with your project. No hidden costs, surprise changes, or unclear timelines. You control it, we manage it—full visibility into every decision with detailed breakdowns of every cost component.",
+      "We established open communication and transparent pricing as our standard. We eliminated hidden costs, provided detailed breakdowns, and kept clients informed at every stage through 650+ successful projects.",
     practices: [
-      "Pre-construction meetings with complete cost breakdowns",
-      "Regular project updates with photo documentation",
-      "Open-book approach to material costs and labor",
-      "Immediate notification of any project changes or delays",
-      "All agreements, changes, and decisions in writing",
+      "Conducted pre-construction meetings with complete cost breakdowns",
+      "Provided regular updates with detailed photo documentation",
+      "Maintained open-book approach to all material costs and labor",
+      "Immediately notified clients of any changes or delays—no surprises",
+      "Documented all agreements, changes, and decisions in writing",
     ],
   },
   {
     iconName: "handshake",
     title: "Partnership Excellence",
-    subtitle: "Trust Built, Project by Project",
+    subtitle: "Relationships That Outlasted Buildings",
     description:
-      "Investing in long-term partnerships that last well beyond project completion. We measure success by relationships built and trust earned through proven excellence. Your success is our mission. Treating every interaction as an investment in lasting community partnerships built on decades of proven results.",
+      "We built lasting partnerships extending decades beyond projects. Our 70% referral rate proved we invested in people, not just projects—following up years later and building a community network based on proven excellence.",
     practices: [
-      "Following up after project completion to ensure satisfaction",
-      "Being available for questions and support long after final payment",
-      "Building referral networks based on mutual trust",
-      "Treating every interaction as an investment in long-term partnership",
-      "Prioritizing relationship value over short-term gains",
+      "Followed up months and years after completion to ensure satisfaction",
+      "Remained available for questions and support long after final payments",
+      "Built a referral network where 70% of business came from past clients",
+      "Treated every interaction as an investment in lasting partnership",
+      "Prioritized relationship value over short-term gains consistently",
     ],
   },
   {
     iconName: "military_tech",
     title: "Veteran-Fueled Reliability",
-    subtitle: "Calm and Precise Under Pressure",
+    subtitle: "Military Precision Proven on Every Project",
     description:
-      "Military-trained discipline and attention to detail honed through service meet construction expertise to deliver reliable results no matter the challenges. Staying unshakably calm when challenges arise, with clear objectives and disciplined execution. Following through on commitments no matter the obstacles.",
+      "Military discipline translated directly to construction excellence. When challenges arose, we stayed calm. When conditions changed, we adapted without losing focus. This veteran-led reliability earned trust across 650+ projects.",
     practices: [
-      "Systematic approach to problem-solving under pressure",
-      "Clear communication chains and decision-making processes",
-      "Adapting quickly to changing conditions without losing focus",
-      "Following through on commitments no matter the obstacles",
-      "Leading with confidence earned through military experience",
+      "Applied systematic problem-solving under pressure on every project",
+      "Maintained clear communication chains and decision-making processes",
+      "Adapted quickly to changing conditions without compromising quality",
+      "Followed through on every commitment—no obstacles stopped us",
+      "Led teams with confidence earned through military service and proven results",
     ],
   },
   {
     iconName: "construction",
     title: "Craftsmanship that Lasts",
-    subtitle: "Built for the Long Run",
+    subtitle: "Built for Generations",
     description:
-      "Quality over speed, meticulous attention to every detail, and selecting durable materials that stand the test of time. Taking time to do it right with pride in workmanship—building as if it's for our own families. Creating structures that serve communities for generations with proven construction methods.",
+      "We chose quality over speed on every project. We selected materials for longevity, applied methods refined over 150+ years of team experience, and created structures that served communities for decades.",
     practices: [
-      "Using proven construction methods refined over decades",
-      "Selecting materials based on longevity, not just cost",
-      "Quality control checkpoints at every project phase",
-      "Building structures that serve communities for generations",
-      "Taking pride in work—building as if for our own families",
+      "Used proven construction methods refined over 150+ years of experience",
+      "Selected materials based on durability and longevity, not lowest cost",
+      "Implemented quality control checkpoints at every project phase",
+      "Built structures that served Pacific Northwest communities for generations",
+      "Took pride in every detail—built as if for our own families",
     ],
   },
   {
     iconName: "precision_manufacturing",
     title: "Precision & Experience",
-    subtitle: "150+ Years Combined Team Expertise",
+    subtitle: "150+ Years of Proven Expertise",
     description:
-      "Deep technical mastery across all construction disciplines with time-tested approaches refined through decades of successful projects. Leveraging 150+ years of combined team experience to provide expert problem-solving and guidance. Bringing calm, experienced leadership to even the most complex projects.",
+      "We brought deep technical mastery earned through decades of projects. Our 150+ years of combined experience provided expert problem-solving, detailed planning, and calm leadership even on complex projects.",
     practices: [
-      "Detailed project planning with multiple contingency scenarios",
-      "Precise measurements, calculations, and material estimates",
-      "Leveraging 150+ years of combined team experience",
-      "Expert guidance that helps you avoid costly mistakes",
-      "Continuous learning—staying current with industry innovations",
+      "Created detailed project plans with multiple contingency scenarios",
+      "Maintained precision in measurements, calculations, and material estimates",
+      "Leveraged 150+ years of combined team experience on every decision",
+      "Provided expert guidance that saved clients from expensive errors",
+      "Stayed current with industry innovations through continuous learning",
     ],
   },
 ];
