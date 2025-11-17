@@ -25,15 +25,6 @@ const EstimatorForm = dynamic(
     ssr: false,
   },
 );
-const SmartRecommendations = dynamic(
-  () => import("../../components/recommendations/SmartRecommendations"),
-  {
-    loading: () => (
-      <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-64 animate-pulse"></div>
-    ),
-    ssr: false,
-  },
-);
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -447,45 +438,6 @@ export default function EstimatorPage() {
           <div className="mx-auto max-w-4xl">
             <EstimatorForm />
           </div>
-        </div>
-      </section>
-
-      {/* Smart Project Recommendations */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20 lg:py-32 xl:py-40">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible>
-            <SmartRecommendations
-              variant="compact"
-              maxRecommendations={6}
-              showVeteranBenefits={true}
-              onRecommendationClick={(recommendation) => {
-                // Track recommendation click
-                if (typeof window !== "undefined" && window.gtag) {
-                  window.gtag("event", "estimator_recommendation_click", {
-                    project_type: recommendation.projectType,
-                    confidence: recommendation.confidence,
-                  });
-                }
-              }}
-              onGetEstimate={(recommendation) => {
-                // Scroll back to estimator form and pre-fill
-                const estimatorSection =
-                  document.querySelector(".estimator-form");
-                if (estimatorSection) {
-                  estimatorSection.scrollIntoView({ behavior: "smooth" });
-                }
-
-                // Track estimate request from recommendation
-                if (typeof window !== "undefined" && window.gtag) {
-                  window.gtag("event", "recommendation_estimate_request", {
-                    project_type: recommendation.projectType,
-                    estimated_value: recommendation.estimatedCost.min,
-                  });
-                }
-              }}
-              className="bg-white dark:bg-gray-800 shadow-lg dark:shadow-gray-600/50 p-8 rounded-xl"
-            />
-          </FadeInWhenVisible>
         </div>
       </section>
 
