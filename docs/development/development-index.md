@@ -23,22 +23,22 @@
    **CRITICAL** - Understand the 7 page groups and their unique messaging strategies
 3. **[New Page Development Guide](./new-page-development-guide.md)** - Complete page creation workflow
 4. **[Consistency Guide](./consistency-guide.md)** - ⭐ **MANDATORY** - Complete implementation standards
-   (includes AI Estimator vs. Consultation distinction)
+   (includes Automated Estimator vs. Consultation distinction)
 5. **[Cohesion Checklist](./cohesion-checklist.md)** - Ensure consistency when creating/editing pages
 6. **[Style Utilities Guide](./style-utilities-guide.md)** - ⭐ **MANDATORY** - Centralized
    style utilities
 7. **[Quick Reference](./style-utilities-quick-reference.md)** - Daily cheat sheet for common patterns
 8. **[Development Standards](./development-standards.md)** - Core coding standards
 
-### 🤖 AI System Architecture (Nov 10, 2025)
+### 🤖 Automated System Architecture (Nov 10, 2025)
 
 **Critical Understanding - Two Distinct Paths:**
 
-- **AI Estimator** (`/estimator`) - Automated instant estimates (AI-powered, 24/7, under 5 min)
+- **Automated Estimator** (`/estimator`) - Automated instant estimates (automated analysis, 24/7, under 5 min)
 - **Expert Consultation** (`/booking`) - Human expert analysis (scheduled, detailed, customized)
 - **Chatbot Integration** - "General MH" routes users intelligently based on query intent
 
-See [Consistency Guide - AI System Architecture](./consistency-guide.md#-ai-system-architecture-nov-10-2025)
+See [Consistency Guide - Automated System Architecture](./consistency-guide.md#-automated-system-architecture-nov-10-2025)
 for complete details.
 
 ---

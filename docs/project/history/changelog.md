@@ -27,16 +27,16 @@ Complete AI ecosystem featuring "General MH" - Army General construction intelli
 officer with advanced business capabilities
 
 - **Global Military Chatbot**: Available on ALL pages with authentic Army terminology
-- **Advanced AI Estimator**: Real-time pricing with 95% accuracy guarantee
-- **Smart Form Assistant**: AI-powered form completion with intelligent suggestions
+- **Advanced Automated Estimator**: Real-time pricing with 95% accuracy guarantee
+- **Smart Form Assistant**: Automated form completion with intelligent suggestions
 - **Lead Qualification Engine**: 0-100 scoring system with military-style assessment
 - **Veteran Recognition System**: Automatic service branch detection and specialized protocols
 - **Construction Intelligence Engine**: Expert knowledge base with tactical guidance
 - **Draggable Interface**: User-controlled positioning with military-style UI
 
-#### ✅ **Phase 2: AI Estimator Enhancement (v3.9.0)**
+#### ✅ **Phase 2: Automated Estimator Enhancement (v3.9.0)**
 
-**Transformed basic estimator into advanced AI-powered cost intelligence system:**
+**Transformed basic estimator into advanced automated cost intelligence system:**
 
 - **Real-Time Pricing Intelligence**: Dynamic cost calculations with location and seasonal factors
 - **Material Database Integration**: 4-tier quality system (Standard, Enhanced, Premium, Elite)
@@ -112,7 +112,7 @@ officer with advanced business capabilities
 
 | Component                | Bundle Size | Performance           | Status                |
 | ------------------------ | ----------- | --------------------- | --------------------- |
-| **AI Estimator**         | 8.66kB      | 95% Accuracy          | ✅ Optimized          |
+| **Automated Estimator**  | 8.66kB      | 95% Accuracy          | ✅ Optimized          |
 | **Global Chatbot**       | 14.1kB      | <1.5s Response        | ✅ Military Precision |
 | **Smart Form Assistant** | 7kB         | 40% Faster Completion | ✅ Intelligent        |
 | **Total AI System**      | ~35kB       | 24/7 Available        | ✅ Global Deployment  |
@@ -143,7 +143,7 @@ officer with advanced business capabilities
 - **Clean Slate Approach**: Removed ALL custom icon imports and dependencies
 - **Universal Icon System**: Migrated to Google Material Icons for consistency and reliability
 - **Professional Semantic Mapping**:
-  - **AI Estimator** → `smart_toy` (🤖 Robot) - Modern AI representation
+  - **Automated Estimator** → `smart_toy` (🤖 Robot) - Modern automated representation
   - **Scheduling/Calendar** → `event` (📅 Calendar) - Clear scheduling functionality
   - **Phone/Call** → `phone` (📞 Phone) - Direct communication
   - **Construction Services** → `construction` (🏗️ Construction Helmet) - Industry standard

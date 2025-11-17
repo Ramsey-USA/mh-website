@@ -37,7 +37,7 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon'
 | Contact Information | `phone` | Phone numbers, calls |
 | Email Communication | `email` | Email addresses, messages |
 | Location/Address | `place` | Addresses, locations |
-| AI/Smart Features | `smart_toy` | AI estimator, chatbot |
+| AI/Smart Features | `smart_toy` | Automated estimator, chatbot |
 | Security Features | `security` | Protection, safety |
 | Success/Completion | `check_circle` | Success states |
 | Warnings/Alerts | `warning` | Caution, alerts |

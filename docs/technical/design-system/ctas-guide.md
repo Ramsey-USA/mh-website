@@ -74,10 +74,10 @@ across the MH Construction website.
 - Download Vendor Package
 - Submit Vendor Application
 
-**AI Estimator:**
+**Automated Estimator:**
 
-- Get Instant AI Estimate
-- Try AI Cost Calculator
+- Get Instant Automated Estimate
+- Try Automated Cost Calculator
 - Calculate Project Cost
 
 **Information:**
@@ -118,9 +118,9 @@ across the MH Construction website.
 **Markdown Format:**
 
 ```markdown
-**AI Estimator:**
+**Automated Estimator:**
 
-- **Get Instant AI Estimate** - Automated cost calculation (`smart_toy`)
+- **Get Instant Automated Estimate** - Automated cost calculation (`smart_toy`)
 ```
 
 **Component Format:**
@@ -128,7 +128,7 @@ across the MH Construction website.
 ```tsx
 <Button variant="secondary" size="lg">
   <MaterialIcon icon="smart_toy" className="mr-2" size="md" />
-  Get Instant AI Estimate
+  Get Instant Automated Estimate
 </Button>
 ```
 
@@ -857,10 +857,10 @@ Call (509) 308-6489 for more information
 
 ```markdown
 ❌ WRONG:
-AI Estimator with Primary button variant
+Automated Estimator with Primary button variant
 
 ✅ CORRECT:
-AI Estimator with Secondary button variant
+Automated Estimator with Secondary button variant
 IRL Consultation with Primary button variant
 ```
 
@@ -1201,10 +1201,10 @@ import { CONTACT_INFO } from '@/lib/constants';
 - **Book Site Visit** - On-location assessment (`place`)
 ```
 
-**AI Estimator:**
+**Automated Estimator:**
 
 ```markdown
-- **Get Instant AI Estimate** - Automated cost calculation (`smart_toy`)
+- **Get Instant Automated Estimate** - Automated cost calculation (`smart_toy`)
 ```
 
 **Vendor Partnerships:**

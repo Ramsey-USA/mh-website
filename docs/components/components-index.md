@@ -107,7 +107,7 @@ Reusable, full-featured sections for consistent implementation across pages.
 
 - **TestimonialsSection** - Client testimonials carousel with customizable content
 - **NextStepsSection** - Three-option CTA cards (Consultation, Estimate, Contact)
-- **AIEstimatorCTA** - AI estimator promotional section with two variants
+- **AIEstimatorCTA** - Automated estimator promotional section with two variants
 
 **Topics Covered:**
 
@@ -210,7 +210,7 @@ import { SafetySection, AwardsSection } from "@/components/about";
 
 - **TestimonialsSection** - Reusable testimonials carousel section
 - **NextStepsSection** - Three-option CTA cards for key actions
-- **AIEstimatorCTA** - AI estimator promotional section with analytics
+- **AIEstimatorCTA** - Automated estimator promotional section with analytics
 
 **Impact**: ~425 lines removed, 3 pages refactored. See [Shared Sections Guide](./shared-sections-guide.md).
 

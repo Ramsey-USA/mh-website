@@ -60,7 +60,7 @@ _This tagline emphasizes our commitment to client success over profit maximizati
 **Messaging Language:**
 
 - "Instant preliminary pricing"
-- "AI-powered estimator"
+- "Automated estimator"
 - "24/7 automated estimates"
 - "Smart cost estimation"
 - "Preliminary budget planning"

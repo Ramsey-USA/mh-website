@@ -18,17 +18,17 @@ This directory contains deprecated components that have been replaced with bette
 - **Redundancy**: Two separate estimation systems (simple calculator vs automated estimator)
 - **User confusion**: Unclear which tool to use
 - **Maintenance burden**: Two codebases to maintain
-- **Weaker UX**: Simple calculator undermined sophisticated AI system
+- **Weaker UX**: Simple calculator undermined sophisticated automated system
 - **Brand dilution**: Calculator felt "cheap" vs automated estimator's intelligence
 
 ### Replacement
 
-All estimation functionality now uses the AI-powered estimator at `/estimator`:
+All estimation functionality now uses the automated estimator at `/estimator`:
 
 - Multi-step intelligent form
 - 500+ project database
 - Regional Pacific Northwest data
-- AI-powered cost analysis (`CostAnalyzer.ts`)
+- Automated cost analysis (`CostAnalyzer.ts`)
 - Detailed breakdowns (materials, labor, permits)
 - Progress saving to localStorage
 - Veteran discounts
@@ -42,8 +42,8 @@ Both pages now have compelling CTAs that direct users to the superior `/estimato
 
 ### Files Affected
 
-- ✅ `/src/app/page.tsx` - Removed `ProjectCostCalculator`, added AI CTA
-- ✅ `/src/app/services/page.tsx` - Removed `QuickCostCalculator`, added AI CTA
+- ✅ `/src/app/page.tsx` - Removed `ProjectCostCalculator`, added Automated CTA
+- ✅ `/src/app/services/page.tsx` - Removed `QuickCostCalculator`, added Automated CTA
 
 ### Recovery
 

@@ -571,7 +571,10 @@ class ConversationDataExtractor {
 
 ```typescript
 interface RoutingDecision {
-  recommendedPath: "ai-estimator" | "expert-consultation" | "more-info-needed";
+  recommendedPath:
+    | "automated-estimator"
+    | "expert-consultation"
+    | "more-info-needed";
   confidence: number;
   reasoning: string[];
   userMessage: string;
@@ -603,10 +606,10 @@ class SmartRouter {
       !factors.urgency
     ) {
       return {
-        recommendedPath: "ai-estimator",
+        recommendedPath: "automated-estimator",
         confidence: 0.85,
         reasoning: [
-          "Standard project scope fits AI estimation well",
+          "Standard project scope fits automated estimation well",
           "Sufficient information for accurate automated estimate",
           "Budget range suitable for preliminary AI estimate",
         ],

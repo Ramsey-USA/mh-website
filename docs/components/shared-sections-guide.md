@@ -183,7 +183,7 @@ When components have significant styling differences, it's better to keep them s
 
 **File**: `/src/components/shared-sections/AIEstimatorCTA.tsx` (230 lines)
 
-AI-powered estimator promotional section with analytics tracking and two layout variants.
+Automated estimator promotional section with analytics tracking and two layout variants.
 
 #### Features
 
@@ -191,7 +191,7 @@ AI-powered estimator promotional section with analytics tracking and two layout 
 - **Analytics Integration**: useAnalytics hook for click event tracking
 - **Feature Grid**: Four key features with icons
 - **Stats Display**: Project count and accuracy percentage (full variant only)
-- **CTA Buttons**: Primary "Try AI Estimator" and secondary "Learn More"
+- **CTA Buttons**: Primary "Try Automated Estimator" and secondary "Learn More"
 - **Gradient Backgrounds**: Brand-themed accents with decorative elements
 - **Material Icons**: Visual icons for features
 - **Animations**: FadeInWhenVisible for smooth entry
@@ -214,7 +214,7 @@ Two-column layout with stats panel on the right:
 
 - **Left Column**: Title, description, feature grid, CTA buttons
 - **Right Column**: Large stats display with project count and accuracy percentage
-- **Best For**: Homepage, landing pages, AI estimator feature promotion
+- **Best For**: Homepage, landing pages, Automated estimator feature promotion
 
 #### Variant: Compact
 
@@ -452,17 +452,17 @@ All shared sections follow MH Construction design standards:
 
 ## 📊 Component Comparison Matrix
 
-| Feature           | TestimonialsSection              | NextStepsSection           | AIEstimatorCTA                  |
-| ----------------- | -------------------------------- | -------------------------- | ------------------------------- |
-| **Purpose**       | Display client testimonials      | CTA cards for key actions  | Promote AI estimator feature    |
-| **Layout**        | Single full-width section        | Three-column card grid     | Two variants: full/compact      |
-| **Interactive**   | Carousel navigation              | Button clicks              | Button clicks with analytics    |
-| **Props**         | 7 props (all optional)           | 1 prop (optional)          | 3 props (all optional)          |
-| **Dependencies**  | TestimonialsCarousel, data utils | Button, MaterialIcon, Link | Button, MaterialIcon, analytics |
-| **Analytics**     | No                               | No                         | Yes (2 events)                  |
-| **Variants**      | No                               | No                         | Yes (full/compact)              |
-| **Lines of Code** | 120                              | 140                        | 230                             |
-| **Used On**       | 2 pages                          | 2 pages                    | 2 pages                         |
+| Feature           | TestimonialsSection              | NextStepsSection           | AIEstimatorCTA                      |
+| ----------------- | -------------------------------- | -------------------------- | ----------------------------------- |
+| **Purpose**       | Display client testimonials      | CTA cards for key actions  | Promote Automated estimator feature |
+| **Layout**        | Single full-width section        | Three-column card grid     | Two variants: full/compact          |
+| **Interactive**   | Carousel navigation              | Button clicks              | Button clicks with analytics        |
+| **Props**         | 7 props (all optional)           | 1 prop (optional)          | 3 props (all optional)              |
+| **Dependencies**  | TestimonialsCarousel, data utils | Button, MaterialIcon, Link | Button, MaterialIcon, analytics     |
+| **Analytics**     | No                               | No                         | Yes (2 events)                      |
+| **Variants**      | No                               | No                         | Yes (full/compact)                  |
+| **Lines of Code** | 120                              | 140                        | 230                                 |
+| **Used On**       | 2 pages                          | 2 pages                    | 2 pages                             |
 
 ---
 

@@ -4,7 +4,7 @@
 
 **Building for the Client, NOT the Dollar** — Where traditional business values meet modern tools.
 Next.js 15 platform emphasizing personal relationships, veteran integrity, and proven craftsmanship.
-Features consultation-first workflows, transparent pricing, and helpful tools like AI estimation and
+Features consultation-first workflows, transparent pricing, and helpful tools like automated estimation and
 interactive project showcase to serve our clients better.
 
 ---
@@ -52,7 +52,7 @@ interactive project showcase to serve our clients better.
 - ActivityFeed for real-time updates
 - TeamMemberTag for personnel display
 - BeforeAfterSlider for project showcases
-- AI Estimator system (`/estimator`)
+- Automated Estimator system (`/estimator`)
 - Shared section components (Testimonials, NextSteps, AIEstimatorCTA)
 
 **Expected Impact:** +35–60% engagement uplift, +25–50% qualified leads increase.
@@ -266,7 +266,7 @@ mh-website/
 │   │   └── layout.tsx    # Root layout with providers
 │   ├── components/       # React components (30+ subdirectories)
 │   │   ├── chatbot/      # General MH AI assistant
-│   │   ├── estimator/    # AI estimation system
+│   │   ├── estimator/    # Automated estimation system
 │   │   ├── forms/        # Form components
 │   │   ├── layout/       # Navigation, Footer, Header
 │   │   ├── seo/          # SEO components
@@ -412,7 +412,7 @@ Each page group has its own unique voice and messaging strategy:
 3. **Future Vision** (Team, Services) - Growth, innovation, forward momentum
 4. **Professional & Patriotic** (Government, Veterans) - Duty, service, compliance
 5. **Recruitment** (Careers) - Enthusiastic, opportunity-focused
-6. **Tech Innovation** (AI Estimator, 3D Explorer) - Tech-savvy, cutting-edge
+6. **Tech Innovation** (Automated Estimator, 3D Explorer) - Tech-savvy, cutting-edge
 7. **Partnership & Urgency** (Trade Partners, Urgent) - **ROI-focused**
    (exclusive use of "THE ROI IS THE RELATIONSHIP")
 
@@ -661,7 +661,7 @@ See [contributing.md](./contributing.md) for contribution guidelines.
 - ✅ Interactive component system deployed (6 major components)
 - ✅ Code optimization: ~750 lines removed through refactoring
 - ✅ Shared section components: ~425 additional lines eliminated
-- ✅ AI estimator system fully integrated
+- ✅ Automated estimator system fully integrated
 - ✅ Documentation system organized (470+ files)
 - ✅ Zero TypeScript errors maintained
 - ⚠️ 32 ESLint warnings (minor: accessibility & async patterns)

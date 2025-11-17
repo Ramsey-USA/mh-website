@@ -62,7 +62,7 @@ development, clearly documenting what's done, what works, and what can be improv
 #### ✅ Business Features
 
 - Consultation booking system (`/booking`)
-- AI-powered estimator (`/estimator`)
+- Automated estimator (`/estimator`)
 - Trade partner application system
 - Career applications
 - Contact forms with dual email recipients
@@ -78,7 +78,7 @@ development, clearly documenting what's done, what works, and what can be improv
   - Confidence scoring
   - Personalization
   - Veteran recognition
-- **AI Estimator** - Instant project estimates
+- **Automated Estimator** - Instant project estimates
   - Based on 500+ project database
   - 24/7 availability
   - Preliminary budget planning

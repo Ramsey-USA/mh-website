@@ -25,14 +25,14 @@ See: [Style Utilities Guide](./development/style-utilities-guide.md) · [Refacto
 ### ⚡ Interactive Enhancements (Phase 5 Complete)
 
 Delivered FormProgress, InteractiveTimeline, ActivityFeed, TeamMemberTag, BeforeAfterSlider.
-Replaced simple calculators with AI-powered estimator system (`/estimator`) →
+Replaced simple calculators with automated estimator system (`/estimator`) →
 +35–60% engagement uplift expected. Build: 31.0s, Homepage bundle 217 kB, zero TS/ESLint errors.
 
-### 🤖 AI System Integration (Nov 10, 2025)
+### 🤖 Automated System Integration (Nov 10, 2025)
 
 **Two Distinct User Paths:**
 
-1. **AI Estimator** (`/estimator`) - Automated instant estimates
+1. **Automated Estimator** (`/estimator`) - Automated instant estimates
    - 24/7 availability, under 5 minutes
    - Based on 500+ project database
    - Preliminary budget planning
@@ -53,7 +53,7 @@ Created reusable page sections to eliminate duplicate code across website.
 
 - `TestimonialsSection` - Testimonials carousel with customizable content
 - `NextStepsSection` - Three-option CTA cards (Consultation, Estimate, Contact)
-- `AIEstimatorCTA` - AI estimator promotion with full/compact variants
+- `AIEstimatorCTA` - Automated estimator promotion with full/compact variants
 
 **Impact:** ~425 lines removed, 3 pages refactored (homepage, about, services).
 See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Components Index](./components/components-index.md).

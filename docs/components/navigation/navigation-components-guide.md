@@ -59,7 +59,7 @@ import { navigationConfigs } from "../../components/navigation/navigationConfigs
 export const navigationConfigs = {
   // Home page - unique: links to standalone feature pages not sections
   home: [
-    { href: "/estimator", label: "AI Estimator", icon: "calculate" },
+    { href: "/estimator", label: "Automated Estimator", icon: "calculate" },
     { href: "/3d-explorer", label: "3D Explorer", icon: "visibility" },
     { href: "/#core-values", label: "Our Values", icon: "shield" },
     // ... more items
@@ -115,7 +115,7 @@ The navigation components use:
 ### Related Page Links
 
 ```typescript
-{ href: "/estimator", label: "AI Estimator", icon: "calculate" }
+{ href: "/estimator", label: "Automated Estimator", icon: "calculate" }
 ```text
 
 ### Call-to-Action Links

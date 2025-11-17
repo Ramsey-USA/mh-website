@@ -42,21 +42,21 @@ Each hero section now features a **unique, page-specific tagline** instead of re
 
 ### Current Page-Specific Taglines
 
-| Page           | Unique Tagline                             | Purpose                  |
-| -------------- | ------------------------------------------ | ------------------------ |
-| Homepage       | "Where Vision Meets Execution"             | Partnership + delivery   |
-| About          | "Excellence Through Experience"            | Veteran values + quality |
-| Services       | "Your project deserves expert oversight"   | Service quality focus    |
-| Projects       | "Proven Results, Trusted Partnerships"     | Track record emphasis    |
-| Team           | "Experience You Can Trust"                 | Team expertise focus     |
-| Careers        | "Your Future Starts Here"                  | Career growth focus      |
-| Booking        | "Start Your Project With Confidence"       | Consultation confidence  |
-| Urgent         | "When Time Is Critical, We Respond"        | Rapid response emphasis  |
-| Government     | "Mission-Ready, Compliance-Driven"         | Federal expertise focus  |
-| Trade Partners | "Building Success Together"                | B2B partnership focus    |
-| Estimator      | "Smart Planning Starts Here"               | AI estimation focus      |
-| 3D Explorer    | "Innovation Meets Construction Excellence" | Technology focus         |
-| Veterans       | "Honoring Those Who Served"                | Veteran support          |
+| Page           | Unique Tagline                             | Purpose                    |
+| -------------- | ------------------------------------------ | -------------------------- |
+| Homepage       | "Where Vision Meets Execution"             | Partnership + delivery     |
+| About          | "Excellence Through Experience"            | Veteran values + quality   |
+| Services       | "Your project deserves expert oversight"   | Service quality focus      |
+| Projects       | "Proven Results, Trusted Partnerships"     | Track record emphasis      |
+| Team           | "Experience You Can Trust"                 | Team expertise focus       |
+| Careers        | "Your Future Starts Here"                  | Career growth focus        |
+| Booking        | "Start Your Project With Confidence"       | Consultation confidence    |
+| Urgent         | "When Time Is Critical, We Respond"        | Rapid response emphasis    |
+| Government     | "Mission-Ready, Compliance-Driven"         | Federal expertise focus    |
+| Trade Partners | "Building Success Together"                | B2B partnership focus      |
+| Estimator      | "Smart Planning Starts Here"               | Automated estimation focus |
+| 3D Explorer    | "Innovation Meets Construction Excellence" | Technology focus           |
+| Veterans       | "Honoring Those Who Served"                | Veteran support            |
 
 **Note:** "THE ROI IS THE RELATIONSHIP" remains important in body content,
 testimonials, and value propositions—just not repeated in every hero section.

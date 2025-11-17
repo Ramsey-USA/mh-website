@@ -45,7 +45,7 @@ Located at `/src/components/shared-sections/` (separate from `/ui/`)
 
 - `TestimonialsSection.tsx` - Testimonials carousel section
 - `NextStepsSection.tsx` - Three-option CTA cards section
-- `AIEstimatorCTA.tsx` - AI estimator promotional section
+- `AIEstimatorCTA.tsx` - Automated estimator promotional section
 
 **Note**: See [Shared Sections Guide](../shared-sections-guide.md) for detailed documentation on these components.
 

@@ -58,7 +58,7 @@ prioritization:
    - Priority: Culture → Opportunity → Team → Benefits
    - Focus: Career development and belonging
 
-6. **Group 6: Tech Innovation & Optional Tools** (AI Estimator, 3D Explorer)
+6. **Group 6: Tech Innovation & Optional Tools** (Automated Estimator, 3D Explorer)
    - Voice: Innovative, helpful, optional
    - Priority: Innovation → Convenience → Speed → Value
    - Focus: Modern tools as enhancements, not requirements
@@ -164,7 +164,7 @@ When creating a new page hero section:
 | Urgent         | "When Time Is Critical, We Respond"        | Rapid response           |
 | Government     | "Mission-Ready, Compliance-Driven"         | Federal expertise        |
 | Trade Partners | "Building Success Together"                | B2B partnership          |
-| Estimator      | "Smart Planning Starts Here"               | AI estimation            |
+| Estimator      | "Smart Planning Starts Here"               | Automated estimation     |
 | 3D Explorer    | "Innovation Meets Construction Excellence" | Technology               |
 | Veterans       | "Honoring Those Who Served"                | Veteran support          |
 
@@ -176,19 +176,19 @@ When creating a new page hero section:
 
 **Replace static FAQs with interactive chatbot CTAs** to drive personalized engagement.
 
-### 🎯 AI System Architecture (Nov 10, 2025)
+### 🎯 Automated System Architecture (Nov 10, 2025)
 
 **Two Distinct User Paths:**
 
-#### 1. AI Estimator (`/estimator`) - Automated
+#### 1. Automated Estimator (`/estimator`) - Automated
 
 - **Purpose**: Instant preliminary cost estimates
-- **Technology**: AI-powered analysis, 500+ project database
+- **Technology**: Automated analysis, 500+ project database
 - **Availability**: 24/7, under 5 minutes
-- **User Flow**: Automated form → AI calculation → Preliminary pricing
+- **User Flow**: Automated form → Automated calculation → Preliminary pricing
 - **Color**: Leather Tan (`#BD9264`)
 - **Icons**: `smart_toy`, `calculate`
-- **CTAs**: "Get AI Estimate", "Try AI Estimator", "Start AI Estimate"
+- **CTAs**: "Get Automated Estimate", "Try Automated Estimator", "Start Automated Estimate"
 
 #### 2. Expert Consultation (`/booking`) - Human
 
@@ -203,7 +203,7 @@ When creating a new page hero section:
 **Chatbot Integration**: "General MH" intelligently routes users based on query:
 
 - Cost/price/estimate queries → Presents BOTH options with distinction
-- Quick/instant queries → Emphasizes AI Estimator
+- Quick/instant queries → Emphasizes Automated Estimator
 - Detailed/custom queries → Emphasizes Expert Consultation
 
 ### When to Use ChatbotCTASection

@@ -161,7 +161,7 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 **Tagline:** "Smart Planning Starts Here"
 
-- **Focus:** AI estimation and preliminary planning
+- **Focus:** Automated estimation and preliminary planning
 - **Tone:** Modern, intelligent
 - **Context:** Positions tool as strategic planning resource
 - **Replaces:** Traditional relationship focus

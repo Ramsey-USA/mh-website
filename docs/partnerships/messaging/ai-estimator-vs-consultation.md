@@ -11,7 +11,7 @@ language, icons, and messaging to differentiate these services across all platfo
 
 ### Service Description
 
-**What It Is:** An instant, automated, AI-powered cost estimation tool available 24/7 on our website that provides
+**What It Is:** An instant, automated cost estimation tool available 24/7 on our website that provides
 preliminary project pricing based on user input.
 
 **Who It's For:**
@@ -25,7 +25,7 @@ preliminary project pricing based on user input.
 ### Key Characteristics
 
 - ⚡ **Instant Results** - Receive estimate in seconds
-- 🤖 **AI-Powered** - Advanced algorithms providing regional estimates
+- 🤖 **Automated** - Advanced algorithms providing regional estimates
 - 📱 **Available 24/7** - Access anytime, anywhere
 - 🔢 **Preliminary Pricing** - Ballpark estimates for planning
 - 🎮 **Interactive** - Adjust parameters and see real-time changes
@@ -34,7 +34,7 @@ preliminary project pricing based on user input.
 
 ### Icons & Visual Identity
 
-**Primary Icon:** `smart_toy` - Robot/AI representation (MaterialIcon)
+**Primary Icon:** `smart_toy` - Robot/Automated representation (MaterialIcon)
 **Alternative Icons:** `calculate`, `analytics`, `auto_awesome`
 **Color Palette:** Blue/tech colors suggesting innovation
 **UI Style:** Modern, digital, tech-forward
@@ -43,16 +43,15 @@ preliminary project pricing based on user input.
 
 #### Recommended CTAs
 
-- "Get Instant AI Estimate"
+- "Get Instant Automated Estimate"
 - "Try Our Automated Estimator"
-- "Get Instant AI Estimate"
 - "Get Smart Estimate"
-- "Start AI Estimate"
+- "Start Automated Estimate"
 - "See Pricing Instantly"
 
 #### Descriptive Language
 
-- "AI-powered cost estimation"
+- "Automated cost estimation"
 - "Instant preliminary pricing"
 - "Automated estimator system"
 - "Smart cost estimation tool"
@@ -63,7 +62,7 @@ preliminary project pricing based on user input.
 
 - "Get instant preliminary pricing with our automated estimator"
 - "Explore project costs 24/7 with our automated estimator"
-- "See ballpark estimates in seconds using advanced AI"
+- "See ballpark estimates in seconds using advanced automation"
 - "Plan your budget with instant intelligent cost analysis"
 - "No waiting - get preliminary pricing right now"
 
@@ -134,7 +133,7 @@ visits your site, understands your vision, and provides detailed professional es
 
 ## 📊 Side-by-Side Comparison
 
-| Feature           | AI Estimator           | IRL Consultation        |
+| Feature           | Automated Estimator    | IRL Consultation        |
 | ----------------- | ---------------------- | ----------------------- |
 | **Speed**         | Instant (seconds)      | Scheduled (days)        |
 | **Interaction**   | Digital/Automated      | Human/Personal          |
@@ -145,7 +144,7 @@ visits your site, understands your vision, and provides detailed professional es
 | **Cost**          | Free (Self-service)    | Free (Scheduled)        |
 | **Commitment**    | None Required          | Exploring Partnership   |
 | **Site Visit**    | Not Included           | Included                |
-| **Expert Advice** | AI Guidance            | Human Expertise         |
+| **Expert Advice** | Automated Guidance     | Human Expertise         |
 | **MaterialIcon**  | `smart_toy`            | `handshake`             |
 | **CTA Example**   | "Get Instant Estimate" | "Schedule Consultation" |
 
@@ -158,10 +157,10 @@ visits your site, understands your vision, and provides detailed professional es
 **Dual CTA Approach:**
 
 ````tsx
-// AI Estimator Section
+// Automated Estimator Section
 <Button variant="secondary" size="lg">
   <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
-  <span className="font-medium">Get Instant AI Estimate</span>
+  <span className="font-medium">Get Instant Automated Estimate</span>
 </Button>
 
 // Consultation Section
@@ -180,12 +179,12 @@ visits your site, understands your vision, and provides detailed professional es
 
 ### Two Ways to Get Pricing:
 
-#### 1. Instant AI Estimator
+#### 1. Instant Automated Estimator
 
 Icon: MaterialIcon "smart_toy"
-Get preliminary project costs in seconds with our AI-powered estimator.
+Get preliminary project costs in seconds with our automated estimator.
 Available 24/7 for immediate budget planning.
-[Try AI Estimator →]
+[Try Automated Estimator →]
 
 #### 2. Professional Consultation
 
@@ -202,7 +201,7 @@ Expert guidance tailored to your specific project.
 ```markdown
 ## How Would You Like to Proceed?
 
-○ Get Instant AI Estimate (Automated, Immediate)
+○ Get Instant Automated Estimate (Automated, Immediate)
 → Use our digital estimator for quick preliminary pricing
 
 ○ Schedule Sales Consultation (In-Person, Detailed)
@@ -213,9 +212,9 @@ Expert guidance tailored to your specific project.
 
 ## 🔄 User Journey Mapping
 
-### AI Estimator Journey
+### Automated Estimator Journey
 
-1. **Discovery:** User finds AI estimator on website
+1. **Discovery:** User finds Automated estimator on website
 2. **Input:** Enters project parameters (type, size, materials)
 3. **Results:** Receives instant preliminary estimate
 4. **Options:**
@@ -238,7 +237,7 @@ Expert guidance tailored to your specific project.
 
 ## 📱 Mobile Considerations
 
-### AI Estimator Mobile
+### Automated Estimator Mobile
 
 - Prominent placement in mobile navigation
 - Quick access from sticky header
@@ -257,19 +256,19 @@ Expert guidance tailored to your specific project.
 
 ## 🎯 Marketing Messages
 
-### AI Estimator Marketing
+### Automated Estimator Marketing
 
 **Value Propositions:**
 
 - "See Your Project Cost in Seconds"
-- "Military-Grade AI Pricing Technology"
+- "Military-Grade Automated Pricing Technology"
 - "Regional Pricing Intelligence"
 - "No Appointment Needed"
 - "Explore Options Instantly"
 
 **Use Cases:**
 
-- "Planning your budget? Try our AI estimator"
+- "Planning your budget? Try our automated estimator"
 - "Not sure what it costs? Get instant preliminary pricing"
 - "Research phase? Use our 24/7 cost calculator"
 
@@ -293,14 +292,13 @@ Expert guidance tailored to your specific project.
 
 ## ✅ Quality Assurance Checklist
 
-### Before Publishing - AI Estimator Content
+### Before Publishing - Automated Estimator Content
 
 - [ ] Uses 🤖 `smart_toy` or calculator icons consistently
-- [ ] Emphasizes "instant," "automated," "AI-powered" language
+- [ ] Emphasizes "instant," "automated" language
 - [ ] Clearly states "preliminary" or "ballpark" estimate nature
 - [ ] Includes 24/7 availability messaging
 - [ ] CTAs use words like "calculate," "instant," "try now"
-- [ ] Clearly states "preliminary" or "ballpark" estimate nature
 - [ ] Links to consultation option for next step
 
 ### Before Publishing - IRL Consultation Content
@@ -317,7 +315,7 @@ Expert guidance tailored to your specific project.
 
 - [ ] Both services clearly differentiated on all pages
 - [ ] No confusion between automated and human services
-- [ ] Upgrade path from AI to consultation is clear
+- [ ] Upgrade path from automated to consultation is clear
 - [ ] Icons are used consistently across all platforms
 - [ ] CTAs are distinct and never ambiguous
 - [ ] Both options presented as complementary, not competitive
@@ -326,10 +324,10 @@ Expert guidance tailored to your specific project.
 
 ## 📞 Contact Information Distinction
 
-### AI Estimator Support
+### Automated Estimator Support
 
 - **Access:** Website tool at /estimator
-- **Help:** AI chatbot assistance
+- **Help:** Automated chatbot assistance
 - **Tech Support:** <office@mhc-gc.com>
 - **Purpose:** Tool usage, technical questions
 
@@ -344,7 +342,7 @@ Expert guidance tailored to your specific project.
 
 ## 🚀 Future Enhancements
 
-### AI Estimator Evolution
+### Automated Estimator Evolution
 
 - Voice-activated estimation
 - Photo-based project input
