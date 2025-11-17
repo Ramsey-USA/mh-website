@@ -15,11 +15,14 @@
 
 ## 🎯 Purpose
 
-This guide defines **universal language and terminology standards** that should be used consistently across all MH Construction communications—website, marketing materials, proposals, emails, and verbal communications. These standards ensure brand coherence and professional consistency company-wide.
+This guide defines **universal language and terminology standards** that should be used consistently across all MH
+Construction communications—website, marketing materials, proposals, emails, and verbal communications. These
+standards ensure brand coherence and professional consistency company-wide.
 
 ### Core Principle
 
-**Consistency builds trust.** When we use the same terms the same way across all touchpoints, we strengthen our brand identity and make our message clearer to clients, partners, and team members.
+**Consistency builds trust.** When we use the same terms the same way across all touchpoints, we strengthen our
+brand identity and make our message clearer to clients, partners, and team members.
 
 ---
 
@@ -29,7 +32,8 @@ This guide defines **universal language and terminology standards** that should 
 
 #### **Client Partners** (PREFERRED - UNIVERSAL STANDARD)
 
-**Definition:** Businesses, organizations, or individuals who hire MH Construction for project work. They are the project owners/decision-makers.
+**Definition:** Businesses, organizations, or individuals who hire MH Construction for project work. They are the
+project owners/decision-makers.
 
 **When to Use:**
 
@@ -48,7 +52,7 @@ This guide defines **universal language and terminology standards** that should 
 
 **Examples of Correct Usage:**
 
-```
+```text
 ✅ "What Our Client Partners Say"
 ✅ "Building trust with every Client Partner"
 ✅ "Client Partner success is our success"
@@ -68,7 +72,8 @@ This guide defines **universal language and terminology standards** that should 
 
 #### **Trade Partners** (DISTINCT FROM CLIENT PARTNERS)
 
-**Definition:** Subcontractors, vendors, suppliers, and industry professionals we collaborate with on projects. They are NOT the client.
+**Definition:** Subcontractors, vendors, suppliers, and industry professionals we collaborate with on projects.
+They are NOT the client.
 
 **When to Use:**
 
@@ -87,7 +92,7 @@ This guide defines **universal language and terminology standards** that should 
 
 **Examples of Correct Usage:**
 
-```
+```text
 ✅ "Join our Trade Partner network"
 ✅ "We treat Trade Partners with respect"
 ✅ "Certified Trade Partners"
@@ -99,7 +104,8 @@ This guide defines **universal language and terminology standards** that should 
 - **Client Partners** = Those who HIRE us (project owners)
 - **Trade Partners** = Those we HIRE or work alongside (subcontractors/vendors)
 
-**Never interchange these terms.** Using "Trade Partners" when referring to clients, or "Client Partners" when referring to subcontractors creates confusion.
+**Never interchange these terms.** Using "Trade Partners" when referring to clients, or "Client Partners" when
+referring to subcontractors creates confusion.
 
 ---
 
@@ -123,7 +129,7 @@ This guide defines **universal language and terminology standards** that should 
 
 **Context Examples:**
 
-```
+```text
 ✅ "We work WITH you to achieve your vision"
 ✅ "Partnership-focused management services"
 ✅ "Collaborative excellence in every project"
@@ -153,7 +159,7 @@ This guide defines **universal language and terminology standards** that should 
 
 **Examples of Correct Usage:**
 
-```
+```text
 ✅ "Veteran-Owned Excellence since January 2025"
 ✅ "Army veteran leadership brings military precision"
 ✅ "Our veteran-owned team understands discipline"
@@ -189,7 +195,7 @@ This guide defines **universal language and terminology standards** that should 
 
 **Examples of Correct Usage:**
 
-```
+```text
 ✅ "Award-winning team bringing military precision to construction"
 ✅ "Mission-focused project execution"
 ✅ "Military discipline meets construction excellence"
@@ -217,7 +223,7 @@ This guide defines **universal language and terminology standards** that should 
 
 **Primary Standard Format:**
 
-```
+```text
 Licensed in WA, OR, ID
 OR
 Licensed in Washington, Oregon, Idaho
@@ -227,7 +233,7 @@ Licensed in Washington, Oregon, Idaho
 
 **Headquarters:**
 
-```
+```text
 3111 N. Capital Ave.
 Pasco, WA 99301
 ```
@@ -243,7 +249,7 @@ Pasco, WA 99301
 
 **Examples of Correct Usage:**
 
-```
+```text
 ✅ "Serving the Pacific Northwest"
 ✅ "Licensed in WA, OR, ID"
 ✅ "Headquartered in Pasco, WA"
@@ -277,7 +283,7 @@ Pasco, WA 99301
 
 **Transparency Language:**
 
-```
+```text
 ✅ "Open-book pricing with no hidden costs"
 ✅ "Transparent communication keeps you informed"
 ✅ "Complete transparency in every decision"
@@ -286,7 +292,7 @@ Pasco, WA 99301
 
 **Face-to-Face Value:**
 
-```
+```text
 ✅ "Face-to-face consultation where trust begins"
 ✅ "Where handshakes still matter"
 ✅ "Real handshakes, honest conversations"
@@ -296,7 +302,7 @@ Pasco, WA 99301
 
 **Integrity Phrases:**
 
-```
+```text
 ✅ "Your word is your bond - so is ours"
 ✅ "Veteran-owned integrity"
 ✅ "Innovation with integrity"
@@ -329,7 +335,7 @@ Pasco, WA 99301
 
 **Examples of Correct Usage:**
 
-```
+```text
 ✅ "Veteran-Owned Excellence"
 ✅ "Award-winning team bringing military precision"
 ✅ "Quality craftsmanship in every build"
@@ -361,7 +367,7 @@ Pasco, WA 99301
 
 **Official Safety Record Statements:**
 
-```
+```text
 ✅ "0.6 EMR safety record"
 ✅ ".6 EMR award-winning safety record"
 ✅ "Industry-leading 0.6 EMR (40% better than industry average)"
@@ -380,7 +386,7 @@ Pasco, WA 99301
 
 **Examples of Correct Usage:**
 
-```
+```text
 ✅ "Our .6 EMR is 40% better than industry average"
 ✅ "Award-winning safety with .6 EMR safety record"
 ✅ "Industry-leading 0.6 EMR safety record"
@@ -423,7 +429,7 @@ Pasco, WA 99301
 
 **Examples of Correct Usage:**
 
-```
+```text
 ✅ "AI-powered estimation meets personal consultation"
 ✅ "General MH military assistant provides 24/7 support"
 ✅ "Our AI-powered estimator combines data with experience"
@@ -434,7 +440,7 @@ Pasco, WA 99301
 **Key Balance:**
 Always emphasize technology ENHANCES relationships, never REPLACES them:
 
-```
+```text
 ✅ "Technology that serves, never replaces, relationships"
 ✅ "Innovation with integrity, technology with trust"
 ✅ "AI-powered, human-centered"
@@ -455,15 +461,16 @@ Always emphasize technology ENHANCES relationships, never REPLACES them:
 
 **SIGNATURE PHRASE (Use consistently):**
 
-```
+```text
 "You control it, we manage it"
 ```
 
-This phrase appears 8+ times across the website and should be used consistently when discussing project oversight and client involvement.
+This phrase appears 8+ times across the website and should be used consistently when discussing project oversight
+and client involvement.
 
 **Full Context Examples:**
 
-```
+```text
 ✅ "You control it, we manage it—full visibility into every decision"
 ✅ "Open-book pricing. You control it, we manage it"
 ✅ "Transparent communication. You control it, we manage it—together with award-winning execution"
@@ -480,7 +487,7 @@ This phrase appears 8+ times across the website and should be used consistently 
 
 **Examples:**
 
-```
+```text
 ✅ "We work WITH you to achieve YOUR vision"
 ✅ "Bringing YOUR vision to life through expert construction"
 ✅ "Tell us about YOUR project and contact information"
@@ -490,7 +497,7 @@ This phrase appears 8+ times across the website and should be used consistently 
 **Empowerment Language:**
 Always emphasize client is in control, we're supporting their success:
 
-```
+```text
 ✅ "You control it, we manage it"
 ✅ "Your vision, our precision"
 ✅ "Complete cost breakdowns mean YOU'RE never left wondering"
@@ -505,19 +512,19 @@ Always emphasize client is in control, we're supporting their success:
 
 **Phone:**
 
-```
+```text
 (509) 308-6489
 ```
 
 **Email:**
 
-```
+```text
 office@mhc-gc.com
 ```
 
 **Address:**
 
-```
+```text
 3111 N. Capital Ave.
 Pasco, WA 99301
 ```
@@ -535,7 +542,7 @@ Pasco, WA 99301
 
 #### **Primary Slogan (UNIVERSAL - USE EVERYWHERE)**
 
-```
+```text
 "Building for the Client, NOT the Dollar"
 ```
 
@@ -549,7 +556,7 @@ Pasco, WA 99301
 
 **Examples in Context:**
 
-```
+```text
 ✅ "Building for the Client, NOT the Dollar - Our Core Philosophy"
 ✅ "Where talent meets opportunity • Building for the Client, NOT the Dollar"
 ✅ "Building for the Client, NOT the Dollar means being available when you need us"
@@ -559,7 +566,7 @@ Pasco, WA 99301
 
 #### **Secondary Slogan (SPECIFIC USAGE)**
 
-```
+```text
 "THE ROI IS THE RELATIONSHIP"
 ```
 
@@ -572,7 +579,7 @@ Pasco, WA 99301
 
 **Examples in Context:**
 
-```
+```text
 ✅ "THE ROI IS THE RELATIONSHIP - and we prove it" (Trade Partners)
 ✅ "THE ROI IS THE RELATIONSHIP - even in emergencies" (Urgent)
 ```
@@ -624,7 +631,7 @@ Use these based on page context and messaging group:
 
 ### Homepage Example (Correct)
 
-```
+```text
 ✅ Hero: "Building for the Client, NOT the Dollar"
 ✅ Values: "Where handshakes matter and your word is your bond"
 ✅ Testimonials: "What Our Client Partners Say"
@@ -633,7 +640,7 @@ Use these based on page context and messaging group:
 
 ### Trade Partners Page (Correct)
 
-```
+```text
 ✅ Hero: "THE ROI IS THE RELATIONSHIP"
 ✅ Benefits: "We treat our Trade Partners with integrity and respect"
 ✅ Values: "Building for the Client, NOT the Dollar means treating partners fairly"
@@ -642,7 +649,7 @@ Use these based on page context and messaging group:
 
 ### Services Page (Correct)
 
-```
+```text
 ✅ Hero: "Your Vision, Our Precision • Building for the Client, NOT the Dollar"
 ✅ Process: "We work WITH you to achieve your vision"
 ✅ Benefits: "You control it, we manage it—full visibility into every decision"
@@ -655,7 +662,7 @@ Use these based on page context and messaging group:
 
 ### 1. Partnership Terminology Errors
 
-```
+```text
 ❌ "Our clients appreciate our work"
 ✅ "Our Client Partners appreciate our collaborative approach"
 
@@ -668,7 +675,7 @@ Use these based on page context and messaging group:
 
 ### 2. Location Inconsistencies
 
-```
+```text
 ❌ "Licensed in Idaho, Oregon, Washington" (wrong order)
 ✅ "Licensed in WA, OR, ID" OR "Licensed in Washington, Oregon, Idaho"
 
@@ -678,7 +685,7 @@ Use these based on page context and messaging group:
 
 ### 3. Safety Record Errors
 
-```
+```text
 ❌ "0.6 EMR" (without context)
 ✅ "0.6 EMR - 40% better than industry average"
 
@@ -688,7 +695,7 @@ Use these based on page context and messaging group:
 
 ### 4. Technology Balance Errors
 
-```
+```text
 ❌ "Our AI automates your project" (suggests no human involvement)
 ✅ "Our AI-powered tools enhance your consultation experience"
 
@@ -698,7 +705,7 @@ Use these based on page context and messaging group:
 
 ### 5. Slogan Misuse
 
-```
+```text
 ❌ "THE ROI IS THE RELATIONSHIP" on homepage (wrong context)
 ✅ "Building for the Client, NOT the Dollar" on homepage
 
@@ -809,13 +816,14 @@ Contact the Marketing & Brand Team with:
 - Examples of inconsistencies found
 - Requests for terminology review
 
-This guide is a living document. When patterns emerge or new terminology becomes standard, this guide will be updated to reflect the evolution.
+This guide is a living document. When patterns emerge or new terminology becomes standard, this guide will be
+updated to reflect the evolution.
 
 ---
 
 **Last Updated:** January 2025 | **Version:** 1.0.0  
 **Maintained by:** MH Construction Marketing & Brand Team  
-**Status:** ✅ Active - Official Brand Standard
+**Status:** Active - Official Brand Standard
 
 ---
 
