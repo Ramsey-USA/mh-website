@@ -45,8 +45,10 @@ Organized automation scripts for the MH Construction website development workflo
 - `health-check-final.sh` - Final health check validation
 - `validate-css-js-cohesion.sh` - CSS/JavaScript cohesion validation
 
-### �� **Root Level - Core Operations**
+### 🎯 **Root Level - Core Operations**
 
+- `generate-qr-codes.js` - Generate QR codes (color & B&W variants with labels)
+- `add-team-qr-codes.js` - Add QR code references to team data
 - `extract-team-data.js` - Extract team member data
 - `test-api-endpoints.sh` - Test API endpoint functionality
 - `test-d1-integration.sh` - Test Cloudflare D1 database integration
@@ -78,6 +80,8 @@ npm run domain:check
 
 Access these scripts via npm:
 
+- `npm run qr:generate` - Generate all QR codes (color & B&W variants)
+- `npm run qr:team` - Add QR code references to team data
 - `npm run clean` - Run cleanup script
 - `npm run optimize:images` - Optimize images
 - `npm run lint:markdown` - Lint markdown files
@@ -90,5 +94,5 @@ Access these scripts via npm:
 
 ---
 
-**Last Updated:** November 7, 2025
+**Last Updated:** November 17, 2025
 **Maintainer:** MH Construction Development Team

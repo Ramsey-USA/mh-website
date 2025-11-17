@@ -1,22 +1,53 @@
 {
-  "generatedAt": "2025-11-13T21:42:11.874Z",
+  "generatedAt": "2025-11-17T19:01:35.592Z",
   "baseUrl": "https://mhc-gc.com",
   "outputDirectory": "public/images/qr-codes",
-  "qrCodeOptions": {
-    "errorCorrectionLevel": "H",
-    "type": "png",
-    "quality": 0.95,
-    "margin": 2,
-    "width": 512,
+  "variants": {
     "color": {
-      "dark": "#386851",
-      "light": "#FFFFFF"
+      "description": "Color QR codes with MH brand colors (Hunter Green & Leather Tan)",
+      "qrOptions": {
+        "errorCorrectionLevel": "H",
+        "type": "png",
+        "quality": 0.95,
+        "margin": 2,
+        "width": 512,
+        "color": {
+          "dark": "#386851",
+          "light": "#FFFFFF"
+        }
+      },
+      "logo": "mh-logo.png"
+    },
+    "bw": {
+      "description": "Black & white QR codes for any background",
+      "qrOptions": {
+        "errorCorrectionLevel": "H",
+        "type": "png",
+        "quality": 0.95,
+        "margin": 2,
+        "width": 512,
+        "color": {
+          "dark": "#000000",
+          "light": "#FFFFFF"
+        }
+      },
+      "logo": "mh-logo-black.png"
     }
   },
   "qrCodes": [
     {
       "name": "homepage",
-      "filename": "qr-homepage.png",
+      "filename": "qr-homepage-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com",
+      "description": "MH Construction Homepage",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "homepage",
+      "filename": "qr-homepage-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com",
       "description": "MH Construction Homepage",
       "success": true,
@@ -24,7 +55,17 @@
     },
     {
       "name": "about",
-      "filename": "qr-about.png",
+      "filename": "qr-about-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/about",
+      "description": "About Us",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "about",
+      "filename": "qr-about-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/about",
       "description": "About Us",
       "success": true,
@@ -32,7 +73,17 @@
     },
     {
       "name": "services",
-      "filename": "qr-services.png",
+      "filename": "qr-services-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/services",
+      "description": "Our Services",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "services",
+      "filename": "qr-services-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/services",
       "description": "Our Services",
       "success": true,
@@ -40,7 +91,17 @@
     },
     {
       "name": "projects",
-      "filename": "qr-projects.png",
+      "filename": "qr-projects-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/projects",
+      "description": "Our Projects",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "projects",
+      "filename": "qr-projects-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/projects",
       "description": "Our Projects",
       "success": true,
@@ -48,7 +109,17 @@
     },
     {
       "name": "team",
-      "filename": "qr-team.png",
+      "filename": "qr-team-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team",
+      "description": "Our Team",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team",
+      "filename": "qr-team-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team",
       "description": "Our Team",
       "success": true,
@@ -56,7 +127,17 @@
     },
     {
       "name": "careers",
-      "filename": "qr-careers.png",
+      "filename": "qr-careers-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/careers",
+      "description": "Careers",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "careers",
+      "filename": "qr-careers-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/careers",
       "description": "Careers",
       "success": true,
@@ -64,7 +145,17 @@
     },
     {
       "name": "contact",
-      "filename": "qr-contact.png",
+      "filename": "qr-contact-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/contact",
+      "description": "Contact Us",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "contact",
+      "filename": "qr-contact-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/contact",
       "description": "Contact Us",
       "success": true,
@@ -72,7 +163,17 @@
     },
     {
       "name": "booking",
-      "filename": "qr-booking.png",
+      "filename": "qr-booking-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/booking",
+      "description": "Schedule Consultation",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "booking",
+      "filename": "qr-booking-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/booking",
       "description": "Schedule Consultation",
       "success": true,
@@ -80,7 +181,17 @@
     },
     {
       "name": "estimator",
-      "filename": "qr-estimator.png",
+      "filename": "qr-estimator-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/estimator",
+      "description": "AI Project Estimator",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "estimator",
+      "filename": "qr-estimator-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/estimator",
       "description": "AI Project Estimator",
       "success": true,
@@ -88,7 +199,17 @@
     },
     {
       "name": "case-studies",
-      "filename": "qr-case-studies.png",
+      "filename": "qr-case-studies-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/case-studies",
+      "description": "Case Studies",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "case-studies",
+      "filename": "qr-case-studies-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/case-studies",
       "description": "Case Studies",
       "success": true,
@@ -96,7 +217,17 @@
     },
     {
       "name": "trade-partners",
-      "filename": "qr-trade-partners.png",
+      "filename": "qr-trade-partners-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/trade-partners",
+      "description": "Trade Partners",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "trade-partners",
+      "filename": "qr-trade-partners-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/trade-partners",
       "description": "Trade Partners",
       "success": true,
@@ -104,7 +235,17 @@
     },
     {
       "name": "veteran-benefits",
-      "filename": "qr-veteran-benefits.png",
+      "filename": "qr-veteran-benefits-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/veteran-benefits",
+      "description": "Veteran Benefits",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "veteran-benefits",
+      "filename": "qr-veteran-benefits-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/veteran-benefits",
       "description": "Veteran Benefits",
       "success": true,
@@ -112,7 +253,17 @@
     },
     {
       "name": "phone",
-      "filename": "qr-phone.png",
+      "filename": "qr-phone-color.png",
+      "variant": "color",
+      "url": "tel:+15093086489",
+      "description": "Call Us: (509) 308-6489",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "phone",
+      "filename": "qr-phone-bw.png",
+      "variant": "bw",
       "url": "tel:+15093086489",
       "description": "Call Us: (509) 308-6489",
       "success": true,
@@ -120,7 +271,17 @@
     },
     {
       "name": "email",
-      "filename": "qr-email.png",
+      "filename": "qr-email-color.png",
+      "variant": "color",
+      "url": "mailto:office@mhc-gc.com",
+      "description": "Email: office@mhc-gc.com",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "email",
+      "filename": "qr-email-bw.png",
+      "variant": "bw",
       "url": "mailto:office@mhc-gc.com",
       "description": "Email: office@mhc-gc.com",
       "success": true,
@@ -128,7 +289,17 @@
     },
     {
       "name": "linkedin",
-      "filename": "qr-linkedin.png",
+      "filename": "qr-linkedin-color.png",
+      "variant": "color",
+      "url": "https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all",
+      "description": "LinkedIn Profile",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "linkedin",
+      "filename": "qr-linkedin-bw.png",
+      "variant": "bw",
       "url": "https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all",
       "description": "LinkedIn Profile",
       "success": true,
@@ -136,7 +307,17 @@
     },
     {
       "name": "facebook",
-      "filename": "qr-facebook.png",
+      "filename": "qr-facebook-color.png",
+      "variant": "color",
+      "url": "https://www.facebook.com/profile.php?id=61575511773974",
+      "description": "Facebook Page",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "facebook",
+      "filename": "qr-facebook-bw.png",
+      "variant": "bw",
       "url": "https://www.facebook.com/profile.php?id=61575511773974",
       "description": "Facebook Page",
       "success": true,
@@ -144,7 +325,17 @@
     },
     {
       "name": "instagram",
-      "filename": "qr-instagram.png",
+      "filename": "qr-instagram-color.png",
+      "variant": "color",
+      "url": "https://www.instagram.com/mh_construction_inc/reels/",
+      "description": "Instagram Profile",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "instagram",
+      "filename": "qr-instagram-bw.png",
+      "variant": "bw",
       "url": "https://www.instagram.com/mh_construction_inc/reels/",
       "description": "Instagram Profile",
       "success": true,
@@ -152,7 +343,17 @@
     },
     {
       "name": "youtube",
-      "filename": "qr-youtube.png",
+      "filename": "qr-youtube-color.png",
+      "variant": "color",
+      "url": "https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j",
+      "description": "YouTube Channel",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "youtube",
+      "filename": "qr-youtube-bw.png",
+      "variant": "bw",
       "url": "https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j",
       "description": "YouTube Channel",
       "success": true,
@@ -160,7 +361,17 @@
     },
     {
       "name": "twitter",
-      "filename": "qr-twitter.png",
+      "filename": "qr-twitter-color.png",
+      "variant": "color",
+      "url": "https://x.com/mhc_gc",
+      "description": "X (Twitter) Profile",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "twitter",
+      "filename": "qr-twitter-bw.png",
+      "variant": "bw",
       "url": "https://x.com/mhc_gc",
       "description": "X (Twitter) Profile",
       "success": true,
@@ -168,7 +379,17 @@
     },
     {
       "name": "location",
-      "filename": "qr-location.png",
+      "filename": "qr-location-color.png",
+      "variant": "color",
+      "url": "https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301",
+      "description": "Our Location",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location",
+      "filename": "qr-location-bw.png",
+      "variant": "bw",
       "url": "https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301",
       "description": "Our Location",
       "success": true,
@@ -176,7 +397,17 @@
     },
     {
       "name": "team-jeremy-thamert",
-      "filename": "qr-team-jeremy-thamert.png",
+      "filename": "qr-team-jeremy-thamert-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#jeremy-thamert",
+      "description": "Jeremy Thamert - Owner & President",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-jeremy-thamert",
+      "filename": "qr-team-jeremy-thamert-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#jeremy-thamert",
       "description": "Jeremy Thamert - Owner & President",
       "success": true,
@@ -184,7 +415,17 @@
     },
     {
       "name": "team-mike-holstein",
-      "filename": "qr-team-mike-holstein.png",
+      "filename": "qr-team-mike-holstein-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#mike-holstein",
+      "description": "Mike Holstein - Founder",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-mike-holstein",
+      "filename": "qr-team-mike-holstein-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#mike-holstein",
       "description": "Mike Holstein - Founder",
       "success": true,
@@ -192,7 +433,17 @@
     },
     {
       "name": "team-todd-schoeff",
-      "filename": "qr-team-todd-schoeff.png",
+      "filename": "qr-team-todd-schoeff-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#todd-schoeff",
+      "description": "Todd Schoeff - VP of Field Operations",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-todd-schoeff",
+      "filename": "qr-team-todd-schoeff-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#todd-schoeff",
       "description": "Todd Schoeff - VP of Field Operations",
       "success": true,
@@ -200,7 +451,17 @@
     },
     {
       "name": "team-brooks-morris",
-      "filename": "qr-team-brooks-morris.png",
+      "filename": "qr-team-brooks-morris-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#brooks-morris",
+      "description": "Brooks Morris - Safety Director",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-brooks-morris",
+      "filename": "qr-team-brooks-morris-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#brooks-morris",
       "description": "Brooks Morris - Safety Director",
       "success": true,
@@ -208,7 +469,17 @@
     },
     {
       "name": "team-matt-ramsey",
-      "filename": "qr-team-matt-ramsey.png",
+      "filename": "qr-team-matt-ramsey-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#matt-ramsey",
+      "description": "Matt Ramsey - Project Manager",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-matt-ramsey",
+      "filename": "qr-team-matt-ramsey-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#matt-ramsey",
       "description": "Matt Ramsey - Project Manager",
       "success": true,
@@ -216,7 +487,17 @@
     },
     {
       "name": "team-porter-cline",
-      "filename": "qr-team-porter-cline.png",
+      "filename": "qr-team-porter-cline-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#porter-cline",
+      "description": "Porter Cline - Project Manager",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-porter-cline",
+      "filename": "qr-team-porter-cline-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#porter-cline",
       "description": "Porter Cline - Project Manager",
       "success": true,
@@ -224,7 +505,17 @@
     },
     {
       "name": "team-derek-parks",
-      "filename": "qr-team-derek-parks.png",
+      "filename": "qr-team-derek-parks-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#derek-parks",
+      "description": "Derek Parks - Chief Estimator",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-derek-parks",
+      "filename": "qr-team-derek-parks-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#derek-parks",
       "description": "Derek Parks - Chief Estimator",
       "success": true,
@@ -232,7 +523,17 @@
     },
     {
       "name": "team-ben-woodall",
-      "filename": "qr-team-ben-woodall.png",
+      "filename": "qr-team-ben-woodall-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#ben-woodall",
+      "description": "Ben Woodall - Estimator",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-ben-woodall",
+      "filename": "qr-team-ben-woodall-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#ben-woodall",
       "description": "Ben Woodall - Estimator",
       "success": true,
@@ -240,7 +541,17 @@
     },
     {
       "name": "team-steve-mcclary",
-      "filename": "qr-team-steve-mcclary.png",
+      "filename": "qr-team-steve-mcclary-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#steve-mcclary",
+      "description": "Steve McClary - Senior Superintendent",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-steve-mcclary",
+      "filename": "qr-team-steve-mcclary-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#steve-mcclary",
       "description": "Steve McClary - Senior Superintendent",
       "success": true,
@@ -248,7 +559,17 @@
     },
     {
       "name": "team-arnold-garcia",
-      "filename": "qr-team-arnold-garcia.png",
+      "filename": "qr-team-arnold-garcia-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#arnold-garcia",
+      "description": "Arnold Garcia - Field Superintendent",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-arnold-garcia",
+      "filename": "qr-team-arnold-garcia-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#arnold-garcia",
       "description": "Arnold Garcia - Field Superintendent",
       "success": true,
@@ -256,7 +577,17 @@
     },
     {
       "name": "team-trigger",
-      "filename": "qr-team-trigger.png",
+      "filename": "qr-team-trigger-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#trigger",
+      "description": "Trigger - Chief Morale Officer",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-trigger",
+      "filename": "qr-team-trigger-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#trigger",
       "description": "Trigger - Chief Morale Officer",
       "success": true,
@@ -264,7 +595,17 @@
     },
     {
       "name": "team-lisa-kandle",
-      "filename": "qr-team-lisa-kandle.png",
+      "filename": "qr-team-lisa-kandle-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#lisa-kandle",
+      "description": "Lisa Kandle - Office Manager",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-lisa-kandle",
+      "filename": "qr-team-lisa-kandle-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#lisa-kandle",
       "description": "Lisa Kandle - Office Manager",
       "success": true,
@@ -272,7 +613,17 @@
     },
     {
       "name": "team-reagan-massey",
-      "filename": "qr-team-reagan-massey.png",
+      "filename": "qr-team-reagan-massey-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#reagan-massey",
+      "description": "Reagan Massey - Executive Assistant",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-reagan-massey",
+      "filename": "qr-team-reagan-massey-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#reagan-massey",
       "description": "Reagan Massey - Executive Assistant",
       "success": true,
@@ -280,7 +631,17 @@
     },
     {
       "name": "team-brittney-holstein",
-      "filename": "qr-team-brittney-holstein.png",
+      "filename": "qr-team-brittney-holstein-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#brittney-holstein",
+      "description": "Brittney Holstein - Project Coordinator",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-brittney-holstein",
+      "filename": "qr-team-brittney-holstein-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#brittney-holstein",
       "description": "Brittney Holstein - Project Coordinator",
       "success": true,
@@ -288,7 +649,17 @@
     },
     {
       "name": "team-makayla-holstein",
-      "filename": "qr-team-makayla-holstein.png",
+      "filename": "qr-team-makayla-holstein-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#makayla-holstein",
+      "description": "Makayla Holstein - Accounting Specialist",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-makayla-holstein",
+      "filename": "qr-team-makayla-holstein-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#makayla-holstein",
       "description": "Makayla Holstein - Accounting Specialist",
       "success": true,
@@ -296,7 +667,17 @@
     },
     {
       "name": "team-jennifer-tenehuerta",
-      "filename": "qr-team-jennifer-tenehuerta.png",
+      "filename": "qr-team-jennifer-tenehuerta-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/team#jennifer-tenehuerta",
+      "description": "Jennifer Tenehuerta - Payroll & HR Coordinator",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-jennifer-tenehuerta",
+      "filename": "qr-team-jennifer-tenehuerta-bw.png",
+      "variant": "bw",
       "url": "https://mhc-gc.com/team#jennifer-tenehuerta",
       "description": "Jennifer Tenehuerta - Payroll & HR Coordinator",
       "success": true,

@@ -20,16 +20,18 @@ const BASE_URL = "https://mhc-gc.com";
 // Output directory
 const OUTPUT_DIR = path.join(__dirname, "../public/images/qr-codes");
 
-// Logo path
-const LOGO_PATH = path.join(__dirname, "../public/images/logo/mh-logo.png");
+// Logo paths
+const LOGO_COLOR = path.join(__dirname, "../public/images/logo/mh-logo.png");
+const LOGO_BW = path.join(__dirname, "../public/images/logo/mh-logo-black.png");
 
 // Brand colors
 const HUNTER_GREEN = "#386851";
 const LEATHER_TAN = "#BD9264";
 const WHITE = "#FFFFFF";
+const BLACK = "#000000";
 
-// QR Code configuration
-const QR_OPTIONS = {
+// QR Code configurations
+const QR_OPTIONS_COLOR = {
   errorCorrectionLevel: "H", // High error correction
   type: "png",
   quality: 0.95,
@@ -41,28 +43,68 @@ const QR_OPTIONS = {
   },
 };
 
+const QR_OPTIONS_BW = {
+  errorCorrectionLevel: "H", // High error correction
+  type: "png",
+  quality: 0.95,
+  margin: 2,
+  width: 512, // 512x512 pixels
+  color: {
+    dark: BLACK, // Black
+    light: WHITE, // White background
+  },
+};
+
 // Define all QR codes to generate
 const QR_CODES = [
   // Main pages
-  { name: "homepage", url: BASE_URL, description: "MH Construction Homepage" },
-  { name: "about", url: `${BASE_URL}/about`, description: "About Us" },
+  {
+    name: "homepage",
+    url: BASE_URL,
+    description: "MH Construction Homepage",
+    label: "mhc-gc.com",
+  },
+  {
+    name: "about",
+    url: `${BASE_URL}/about`,
+    description: "About Us",
+    label: "mhc-gc.com/about",
+  },
   {
     name: "services",
     url: `${BASE_URL}/services`,
     description: "Our Services",
+    label: "mhc-gc.com/services",
   },
   {
     name: "projects",
     url: `${BASE_URL}/projects`,
     description: "Our Projects",
+    label: "mhc-gc.com/projects",
   },
-  { name: "team", url: `${BASE_URL}/team`, description: "Our Team" },
-  { name: "careers", url: `${BASE_URL}/careers`, description: "Careers" },
-  { name: "contact", url: `${BASE_URL}/contact`, description: "Contact Us" },
+  {
+    name: "team",
+    url: `${BASE_URL}/team`,
+    description: "Our Team",
+    label: "mhc-gc.com/team",
+  },
+  {
+    name: "careers",
+    url: `${BASE_URL}/careers`,
+    description: "Careers",
+    label: "mhc-gc.com/careers",
+  },
+  {
+    name: "contact",
+    url: `${BASE_URL}/contact`,
+    description: "Contact Us",
+    label: "mhc-gc.com/contact",
+  },
   {
     name: "booking",
     url: `${BASE_URL}/booking`,
     description: "Schedule Consultation",
+    label: "mhc-gc.com/booking",
   },
 
   // Special pages
@@ -70,21 +112,25 @@ const QR_CODES = [
     name: "estimator",
     url: `${BASE_URL}/estimator`,
     description: "AI Project Estimator",
+    label: "mhc-gc.com/estimator",
   },
   {
     name: "case-studies",
     url: `${BASE_URL}/case-studies`,
     description: "Case Studies",
+    label: "mhc-gc.com/case-studies",
   },
   {
     name: "trade-partners",
     url: `${BASE_URL}/trade-partners`,
     description: "Trade Partners",
+    label: "mhc-gc.com/trade-partners",
   },
   {
     name: "veteran-benefits",
     url: `${BASE_URL}/veteran-benefits`,
     description: "Veteran Benefits",
+    label: "mhc-gc.com/veteran-benefits",
   },
 
   // Contact methods
@@ -92,11 +138,13 @@ const QR_CODES = [
     name: "phone",
     url: "tel:+15093086489",
     description: "Call Us: (509) 308-6489",
+    label: "☎ PHONE",
   },
   {
     name: "email",
     url: "mailto:office@mhc-gc.com",
     description: "Email: office@mhc-gc.com",
+    label: "✉ EMAIL",
   },
 
   // Social media (actual links from Footer.tsx)
@@ -104,26 +152,31 @@ const QR_CODES = [
     name: "linkedin",
     url: "https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all",
     description: "LinkedIn Profile",
+    label: "LINKEDIN",
   },
   {
     name: "facebook",
     url: "https://www.facebook.com/profile.php?id=61575511773974",
     description: "Facebook Page",
+    label: "FACEBOOK",
   },
   {
     name: "instagram",
     url: "https://www.instagram.com/mh_construction_inc/reels/",
     description: "Instagram Profile",
+    label: "INSTAGRAM",
   },
   {
     name: "youtube",
     url: "https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j",
     description: "YouTube Channel",
+    label: "YOUTUBE",
   },
   {
     name: "twitter",
     url: "https://x.com/mhc_gc",
     description: "X (Twitter) Profile",
+    label: "X/TWITTER",
   },
 
   // Location
@@ -131,6 +184,7 @@ const QR_CODES = [
     name: "location",
     url: "https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301",
     description: "Our Location",
+    label: "📍 LOCATION",
   },
 
   // Team member profiles
@@ -138,81 +192,97 @@ const QR_CODES = [
     name: "team-jeremy-thamert",
     url: `${BASE_URL}/team#jeremy-thamert`,
     description: "Jeremy Thamert - Owner & President",
+    label: "JEREMY THAMERT",
   },
   {
     name: "team-mike-holstein",
     url: `${BASE_URL}/team#mike-holstein`,
     description: "Mike Holstein - Founder",
+    label: "MIKE HOLSTEIN",
   },
   {
     name: "team-todd-schoeff",
     url: `${BASE_URL}/team#todd-schoeff`,
     description: "Todd Schoeff - VP of Field Operations",
+    label: "TODD SCHOEFF",
   },
   {
     name: "team-brooks-morris",
     url: `${BASE_URL}/team#brooks-morris`,
     description: "Brooks Morris - Safety Director",
+    label: "BROOKS MORRIS",
   },
   {
     name: "team-matt-ramsey",
     url: `${BASE_URL}/team#matt-ramsey`,
     description: "Matt Ramsey - Project Manager",
+    label: "MATT RAMSEY",
   },
   {
     name: "team-porter-cline",
     url: `${BASE_URL}/team#porter-cline`,
     description: "Porter Cline - Project Manager",
+    label: "PORTER CLINE",
   },
   {
     name: "team-derek-parks",
     url: `${BASE_URL}/team#derek-parks`,
     description: "Derek Parks - Chief Estimator",
+    label: "DEREK PARKS",
   },
   {
     name: "team-ben-woodall",
     url: `${BASE_URL}/team#ben-woodall`,
     description: "Ben Woodall - Estimator",
+    label: "BEN WOODALL",
   },
   {
     name: "team-steve-mcclary",
     url: `${BASE_URL}/team#steve-mcclary`,
     description: "Steve McClary - Senior Superintendent",
+    label: "STEVE MCCLARY",
   },
   {
     name: "team-arnold-garcia",
     url: `${BASE_URL}/team#arnold-garcia`,
     description: "Arnold Garcia - Field Superintendent",
+    label: "ARNOLD GARCIA",
   },
   {
     name: "team-trigger",
     url: `${BASE_URL}/team#trigger`,
     description: "Trigger - Chief Morale Officer",
+    label: "TRIGGER 🐕",
   },
   {
     name: "team-lisa-kandle",
     url: `${BASE_URL}/team#lisa-kandle`,
     description: "Lisa Kandle - Office Manager",
+    label: "LISA KANDLE",
   },
   {
     name: "team-reagan-massey",
     url: `${BASE_URL}/team#reagan-massey`,
     description: "Reagan Massey - Executive Assistant",
+    label: "REAGAN MASSEY",
   },
   {
     name: "team-brittney-holstein",
     url: `${BASE_URL}/team#brittney-holstein`,
     description: "Brittney Holstein - Project Coordinator",
+    label: "BRITTNEY HOLSTEIN",
   },
   {
     name: "team-makayla-holstein",
     url: `${BASE_URL}/team#makayla-holstein`,
     description: "Makayla Holstein - Accounting Specialist",
+    label: "MAKAYLA HOLSTEIN",
   },
   {
     name: "team-jennifer-tenehuerta",
     url: `${BASE_URL}/team#jennifer-tenehuerta`,
     description: "Jennifer Tenehuerta - Payroll & HR Coordinator",
+    label: "JENNIFER TENEHUERTA",
   },
 ];
 
@@ -307,29 +377,76 @@ async function colorFinderPatterns(qrBuffer, width, height) {
 }
 
 /**
- * Generate a single QR code with logo overlay and colored finder patterns
+ * Create a text label overlay for QR code identification
+ * @param {string} text - The text to display
+ * @param {number} width - Width of the QR code
+ * @param {string} variant - 'color' or 'bw'
  */
-async function generateQRCode(qrData) {
-  const filename = `qr-${qrData.name}.png`;
+async function createTextLabel(text, width, variant) {
+  const labelHeight = Math.floor(width * 0.12); // 12% of QR code height
+  const fontSize = Math.floor(labelHeight * 0.45); // 45% of label height
+  const bgColor = variant === "color" ? HUNTER_GREEN : BLACK;
+  const textColor = WHITE;
+
+  // Create SVG with text
+  const svgLabel = `
+    <svg width="${width}" height="${labelHeight}">
+      <rect width="${width}" height="${labelHeight}" fill="${bgColor}"/>
+      <text
+        x="50%"
+        y="50%"
+        font-family="Arial, sans-serif"
+        font-size="${fontSize}"
+        font-weight="bold"
+        fill="${textColor}"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        letter-spacing="1"
+      >${text}</text>
+    </svg>
+  `;
+
+  return sharp(Buffer.from(svgLabel)).png().toBuffer();
+}
+
+/**
+ * Generate a single QR code with logo overlay and colored finder patterns
+ * @param {object} qrData - QR code data (name, url, description, label)
+ * @param {string} variant - 'color' or 'bw'
+ */
+async function generateQRCode(qrData, variant = "color") {
+  const suffix = variant === "color" ? "-color" : "-bw";
+  const filename = `qr-${qrData.name}${suffix}.png`;
   const filepath = path.join(OUTPUT_DIR, filename);
   const tempFilepath = path.join(OUTPUT_DIR, `temp-${filename}`);
   const tempColoredPath = path.join(OUTPUT_DIR, `temp-colored-${filename}`);
 
+  // Select appropriate logo and QR options based on variant
+  const logoPath = variant === "color" ? LOGO_COLOR : LOGO_BW;
+  const qrOptions = variant === "color" ? QR_OPTIONS_COLOR : QR_OPTIONS_BW;
+  const shouldColorFinders = variant === "color"; // Only color finders for color variant
+
   try {
     // Step 1: Generate base QR code to temporary file
-    await QRCode.toFile(tempFilepath, qrData.url, QR_OPTIONS);
+    await QRCode.toFile(tempFilepath, qrData.url, qrOptions);
 
-    // Step 2: Color the finder patterns (corner squares) with Leather Tan
+    // Step 2: Color the finder patterns (corner squares) with Leather Tan (only for color variant)
     const qrBuffer = fs.readFileSync(tempFilepath);
     const qrMetadata = await sharp(qrBuffer).metadata();
-    const coloredQRBuffer = await colorFinderPatterns(
-      qrBuffer,
-      qrMetadata.width,
-      qrMetadata.height,
-    );
+    let processedQRBuffer;
 
-    // Save colored QR code
-    await sharp(coloredQRBuffer).toFile(tempColoredPath);
+    if (shouldColorFinders) {
+      processedQRBuffer = await colorFinderPatterns(
+        qrBuffer,
+        qrMetadata.width,
+        qrMetadata.height,
+      );
+    } else {
+      processedQRBuffer = qrBuffer;
+    }
+
+    // Save processed QR code
+    await sharp(processedQRBuffer).toFile(tempColoredPath);
 
     // Step 3: Add logo overlay using sharp
     const qrImage = await sharp(tempColoredPath);
@@ -338,38 +455,40 @@ async function generateQRCode(qrData) {
     // Logo should be about 20% of QR code size (with error correction H, up to 30% can be covered)
     const logoSize = Math.floor(metadata.width * 0.2);
 
-    // Prepare logo with white background circle for better visibility
-    const logo = await sharp(LOGO_PATH)
+    // Prepare logo with white background for better visibility
+    const logo = await sharp(logoPath)
       .resize(logoSize, logoSize, {
         fit: "contain",
         background: { r: 255, g: 255, b: 255, alpha: 1 },
       })
       .toBuffer();
 
-    // Create white circle background for logo
-    const circleSize = Math.floor(logoSize * 1.2);
-    const circleSvg = `
-      <svg width="${circleSize}" height="${circleSize}">
-        <circle cx="${circleSize / 2}" cy="${circleSize / 2}" r="${circleSize / 2}" fill="white"/>
+    // Create white rounded square background for logo
+    const squareSize = Math.floor(logoSize * 1.2);
+    const cornerRadius = Math.floor(squareSize * 0.15); // 15% corner radius
+    const roundedSquareSvg = `
+      <svg width="${squareSize}" height="${squareSize}">
+        <rect x="0" y="0" width="${squareSize}" height="${squareSize}" 
+              rx="${cornerRadius}" ry="${cornerRadius}" fill="white"/>
       </svg>
     `;
 
-    const circleBackground = await sharp(Buffer.from(circleSvg))
+    const squareBackground = await sharp(Buffer.from(roundedSquareSvg))
       .png()
       .toBuffer();
 
     // Calculate center position
-    const centerX = Math.floor((metadata.width - circleSize) / 2);
-    const centerY = Math.floor((metadata.height - circleSize) / 2);
+    const centerX = Math.floor((metadata.width - squareSize) / 2);
+    const centerY = Math.floor((metadata.height - squareSize) / 2);
 
-    const logoOffsetX = Math.floor((circleSize - logoSize) / 2);
-    const logoOffsetY = Math.floor((circleSize - logoSize) / 2);
+    const logoOffsetX = Math.floor((squareSize - logoSize) / 2);
+    const logoOffsetY = Math.floor((squareSize - logoSize) / 2);
 
-    // Composite: QR code + white circle + logo
-    await sharp(tempColoredPath)
+    // First, composite logo onto QR code
+    const qrWithLogo = await sharp(tempColoredPath)
       .composite([
         {
-          input: circleBackground,
+          input: squareBackground,
           top: centerY,
           left: centerX,
         },
@@ -379,14 +498,53 @@ async function generateQRCode(qrData) {
           left: centerX + logoOffsetX,
         },
       ])
-      .toFile(filepath);
+      .toBuffer();
+
+    // If label is provided, extend canvas and add label at bottom
+    if (qrData.label) {
+      const labelBuffer = await createTextLabel(
+        qrData.label,
+        metadata.width,
+        variant,
+      );
+      const labelMetadata = await sharp(labelBuffer).metadata();
+      const totalHeight = metadata.height + labelMetadata.height;
+
+      // Create extended canvas with QR code and label
+      await sharp({
+        create: {
+          width: metadata.width,
+          height: totalHeight,
+          channels: 4,
+          background: { r: 255, g: 255, b: 255, alpha: 255 },
+        },
+      })
+        .composite([
+          {
+            input: qrWithLogo,
+            top: 0,
+            left: 0,
+          },
+          {
+            input: labelBuffer,
+            top: metadata.height,
+            left: 0,
+          },
+        ])
+        .toFile(filepath);
+    } else {
+      // No label, just save the QR code with logo
+      await sharp(qrWithLogo).toFile(filepath);
+    }
 
     // Clean up temporary files
     fs.unlinkSync(tempFilepath);
     fs.unlinkSync(tempColoredPath);
 
-    console.log(`✓ Generated: ${filename} → ${qrData.description}`);
-    return { success: true, filename, ...qrData };
+    console.log(
+      `✓ Generated: ${filename} → ${qrData.description} (${variant})`,
+    );
+    return { success: true, filename, variant, ...qrData };
   } catch (error) {
     console.error(`✗ Failed: ${filename} - ${error.message}`);
     // Clean up temp files if they exist
@@ -396,7 +554,13 @@ async function generateQRCode(qrData) {
     if (fs.existsSync(tempColoredPath)) {
       fs.unlinkSync(tempColoredPath);
     }
-    return { success: false, filename, error: error.message, ...qrData };
+    return {
+      success: false,
+      filename,
+      variant,
+      error: error.message,
+      ...qrData,
+    };
   }
 }
 
@@ -408,10 +572,23 @@ function generateManifest(results) {
     generatedAt: new Date().toISOString(),
     baseUrl: BASE_URL,
     outputDirectory: "public/images/qr-codes",
-    qrCodeOptions: QR_OPTIONS,
+    variants: {
+      color: {
+        description:
+          "Color QR codes with MH brand colors (Hunter Green & Leather Tan)",
+        qrOptions: QR_OPTIONS_COLOR,
+        logo: "mh-logo.png",
+      },
+      bw: {
+        description: "Black & white QR codes for any background",
+        qrOptions: QR_OPTIONS_BW,
+        logo: "mh-logo-black.png",
+      },
+    },
     qrCodes: results.map((r) => ({
       name: r.name,
       filename: r.filename,
+      variant: r.variant,
       url: r.url,
       description: r.description,
       success: r.success,
@@ -508,14 +685,23 @@ To update URLs or add new QR codes, edit \`scripts/generate-qr-codes.js\`.
 async function main() {
   console.log("🎯 MH Construction QR Code Generator\n");
   console.log(`Base URL: ${BASE_URL}`);
-  console.log(`Output: ${OUTPUT_DIR}\n`);
+  console.log(`Output: ${OUTPUT_DIR}`);
+  console.log(`Variants: color, bw\n`);
 
   // Ensure output directory exists
   ensureOutputDir();
 
-  // Generate all QR codes
+  // Generate all QR codes (2 variants each)
   console.log("Generating QR codes...\n");
-  const results = await Promise.all(QR_CODES.map(generateQRCode));
+  const allTasks = [];
+
+  // Generate two variants for each QR code
+  for (const qrCode of QR_CODES) {
+    allTasks.push(generateQRCode(qrCode, "color"));
+    allTasks.push(generateQRCode(qrCode, "bw"));
+  }
+
+  const results = await Promise.all(allTasks);
 
   // Generate manifest and documentation
   const manifest = generateManifest(results);
@@ -524,11 +710,15 @@ async function main() {
   // Summary
   const successCount = results.filter((r) => r.success).length;
   const failCount = results.filter((r) => !r.success).length;
+  const uniqueQRCount = QR_CODES.length;
 
   console.log("\n" + "=".repeat(50));
-  console.log(`✅ Successfully generated: ${successCount} QR codes`);
+  console.log(`✅ Successfully generated: ${successCount} QR code files`);
+  console.log(
+    `   (${uniqueQRCount} unique QR codes × 2 variants = ${successCount})`,
+  );
   if (failCount > 0) {
-    console.log(`❌ Failed: ${failCount} QR codes`);
+    console.log(`❌ Failed: ${failCount} QR code files`);
   }
   console.log("=".repeat(50) + "\n");
 
@@ -536,13 +726,33 @@ async function main() {
   console.log(`   ${OUTPUT_DIR}/`);
   console.log(`   ├── qr-codes-manifest.json`);
   console.log(`   ├── README.md`);
+
+  // Group results by name for display
+  const groupedResults = {};
   results.forEach((r) => {
-    if (r.success) {
-      console.log(`   ├── ${r.filename}`);
+    if (!groupedResults[r.name]) {
+      groupedResults[r.name] = [];
     }
+    groupedResults[r.name].push(r);
   });
 
-  console.log("\n✨ Done! QR codes are ready to use.\n");
+  Object.keys(groupedResults)
+    .slice(0, 5)
+    .forEach((name) => {
+      console.log(`   ├── qr-${name}-color.png`);
+      console.log(`   ├── qr-${name}-bw.png`);
+    });
+
+  if (Object.keys(groupedResults).length > 5) {
+    console.log(
+      `   └── ... and ${(Object.keys(groupedResults).length - 5) * 2} more files`,
+    );
+  }
+
+  console.log("\n✨ Done! QR codes are ready for marketing use.\n");
+  console.log("📋 Two variants available for each QR code:");
+  console.log("   • Color (with MH branding colors)");
+  console.log("   • Black & White (for any background)\n");
 }
 
 // Run the script

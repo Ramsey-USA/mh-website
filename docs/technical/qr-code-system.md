@@ -13,9 +13,11 @@ dynamic React component for flexible usage.
 ```tsx
 import { QRCode } from '@/components/ui/QRCode';
 
-// Use a preset QR code (recommended - better performance)
-<QRCode preset="homepage" size={200} />
-<QRCode preset="booking" size={150} downloadable />
+// Use color variant (default)
+<QRCode preset="homepage" variant="color" size={200} />
+
+// Use black & white variant
+<QRCode preset="booking" variant="bw" size={150} downloadable />
 ```
 
 ### Generating Dynamic QR Codes
@@ -79,6 +81,9 @@ import { QRCodeSection } from "@/components/ui/QRCode";
 interface QRCodeProps {
   // Use pre-generated image (recommended)
   preset?: 'homepage' | 'about' | 'services' | ... ;
+
+  // QR code variant
+  variant?: 'color' | 'bw'; // default: 'color'
 
   // Or generate dynamically
   url?: string;
@@ -181,14 +186,49 @@ interface QRCodeSectionProps {
 />
 ```
 
+## QR Code Variants
+
+Each QR code is generated in **two variants**:
+
+### Color Variant (`-color.png`)
+
+- **QR Pattern:** Hunter Green (#386851)
+- **Corner Finders:** Leather Tan (#BD9264)
+- **Logo:** Full-color MH logo with rounded square background
+- **Label:** White text on Hunter Green background
+- **Best For:** Full-color print materials, digital displays, branded marketing
+
+### Black & White Variant (`-bw.png`)
+
+- **QR Pattern:** Black (#000000)
+- **Logo:** Black logo (`mh-logo-black.png`) with rounded square background
+- **Label:** White text on Black background
+- **Best For:** Black & white printing, photocopies, cost-effective materials
+
+### Naming Convention
+
+- Color: `qr-{name}-color.png` (e.g., `qr-homepage-color.png`)
+- B&W: `qr-{name}-bw.png` (e.g., `qr-homepage-bw.png`)
+
+## Identification Labels
+
+All QR codes include an identifying text label at the bottom:
+
+- **Pages:** "HOME", "ABOUT", "SERVICES", "CONTACT", etc.
+- **Team Members:** Full names in uppercase (e.g., "MATT RAMSEY")
+- **Contact Methods:** Icons + text (e.g., "☎ PHONE", "✉ EMAIL", "📍 LOCATION")
+- **Social Media:** Platform names (e.g., "LINKEDIN", "INSTAGRAM")
+
 ## Print Specifications
 
 All QR codes are optimized for both digital and print use:
 
-- **Resolution:** 512x512 pixels
-- **Format:** PNG with transparency support
+- **QR Code Size:** 512×512 pixels
+- **Total Size with Label:** 512×573 pixels (QR code + label)
+- **Format:** PNG with RGBA color
 - **Error Correction:** High (30% damage tolerance)
-- **Colors:** Hunter Green (#386851) on white background
+- **Logo Background:** Rounded square (15% corner radius)
+- **Colors:** Hunter Green (#386851) or Black (#000000) on white background
 
 ### Recommended Print Sizes
 
@@ -241,6 +281,7 @@ const QR_CODES = [
     name: "new-page",
     url: `${BASE_URL}/new-page`,
     description: "New Page Title",
+    label: "NEW PAGE", // Identifying label (optional)
   },
   // ... existing entries
 ];
@@ -458,6 +499,6 @@ For questions or issues with the QR code system:
 
 ---
 
-**Last Updated:** November 13, 2025
-**Version:** 1.0.0
+**Last Updated:** November 17, 2025
+**Version:** 2.0.0 - Enhanced with variants and labels
 **Status:** Production Ready

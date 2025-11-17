@@ -14,11 +14,12 @@ website, complete with skills radar chart, career statistics, and full professio
 
 ### QR Code Integration
 
-- **Unique QR Code per Team Member:** Each member has a personalized QR code
+- **Unique QR Code per Team Member:** Each member has a personalized QR code in two variants
 - **Direct Profile Links:** QR codes link to `https://mhc-gc.com/team#[member-slug]`
-- **Brand Styling:** QR codes use MH Construction brand colors (Hunter Green & Leather Tan)
-- **Logo Overlay:** MH Construction logo appears in the center of each QR code
-- **High Resolution:** 512x512px for optimal print quality
+- **Two Variants:** Color (Hunter Green/Leather Tan) and B&W (Black) versions available
+- **Logo Overlay:** MH Construction logo in rounded square (15% corner radius)
+- **Identification Labels:** Team member name displayed at bottom of QR code
+- **High Resolution:** 512×573px (512×512 QR + 61px label) for optimal print quality
 - **Error Correction:** Level H (30% damage tolerance)
 
 ### Print Features
@@ -34,9 +35,12 @@ website, complete with skills radar chart, career statistics, and full professio
 
 ```text
 public/images/qr-codes/
-├── qr-team-jeremy-thamert.png       # Owner & President
-├── qr-team-mike-holstein.png        # Founder
-├── qr-team-todd-schoeff.png         # VP of Field Operations
+├── qr-team-jeremy-thamert-color.png # Owner & President (Color)
+├── qr-team-jeremy-thamert-bw.png    # Owner & President (B&W)
+├── qr-team-mike-holstein-color.png  # Founder (Color)
+├── qr-team-mike-holstein-bw.png     # Founder (B&W)
+├── qr-team-todd-schoeff-color.png   # VP of Field Operations (Color)
+├── qr-team-todd-schoeff-bw.png      # VP of Field Operations (B&W)
 ├── qr-team-brooks-morris.png        # Safety Director
 ├── qr-team-matt-ramsey.png          # Project Manager
 ├── qr-team-porter-cline.png         # Project Manager
@@ -177,24 +181,41 @@ Back:
 **Configuration:**
 
 ```javascript
-const QR_OPTIONS = {
-  errorCorrectionLevel: "H", // High (30% damage tolerance)
+// Color variant
+const QR_OPTIONS_COLOR = {
+  errorCorrectionLevel: "H",
   type: "png",
   quality: 0.95,
   margin: 2,
-  width: 512, // 512x512 pixels
+  width: 512,
   color: {
     dark: "#386851", // Hunter Green
-    light: "#FFFFFF", // White background
+    light: "#FFFFFF",
+  },
+};
+
+// B&W variant
+const QR_OPTIONS_BW = {
+  errorCorrectionLevel: "H",
+  type: "png",
+  quality: 0.95,
+  margin: 2,
+  width: 512,
+  color: {
+    dark: "#000000", // Black
+    light: "#FFFFFF",
   },
 };
 ```
 
 **Features:**
 
-- Colored finder patterns (Leather Tan corners)
+- Two variants: Color (Hunter Green/Leather Tan) and B&W (Black)
+- Colored finder patterns for color variant (Leather Tan corners)
 - Center logo overlay (20% of QR code size)
-- White circle background for logo visibility
+- Rounded square background (15% corner radius) for logo
+- Team member name label at bottom
+- Extended canvas (512×573px) to accommodate label
 - High error correction for durability
 
 ### URL Structure
