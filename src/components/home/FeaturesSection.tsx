@@ -121,21 +121,41 @@ export function FeaturesSection() {
   return (
     <section
       id="helpful-features"
-      className="relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-8 sm:py-12 lg:py-16 features-section"
+      className="relative bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-24 xl:py-32 features-section overflow-hidden"
     >
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(56,104,81,0.05)_0%,transparent_50%)] opacity-60"></div>
-      <div className="top-20 right-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
-      <div className="bottom-20 left-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-40 h-40"></div>
+      {/* Enhanced Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.15)_0%,transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.12)_0%,transparent_50%)]"></div>
+      <div className="top-20 left-10 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
+      <div
+        className="right-10 bottom-20 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
+        style={{ animationDelay: "1s" }}
+      ></div>
+      <div
+        className="top-1/2 right-1/4 absolute bg-brand-accent/5 dark:bg-brand-accent/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
+        style={{ animationDelay: "0.5s" }}
+      ></div>
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}
-        <FadeInWhenVisible className="mb-8 sm:mb-10 lg:mb-12 text-center">
-          <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-            <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+        <FadeInWhenVisible className="mb-12 sm:mb-16 lg:mb-20 text-center scroll-reveal">
+          <div className="flex justify-center items-center mb-6 sm:mb-8">
+            <div className="relative">
+              <div className="absolute inset-0 bg-brand-accent/20 dark:bg-brand-accent/30 blur-xl rounded-full"></div>
+              <div className="relative bg-gradient-to-br from-brand-accent to-bronze-700 p-4 rounded-2xl shadow-lg">
+                <MaterialIcon
+                  icon="engineering"
+                  size="2xl"
+                  className="text-white"
+                />
+              </div>
+            </div>
+          </div>
+          <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+            <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
               Traditional Values Meet
             </span>
-            <span className="block text-brand-primary dark:text-brand-primary font-black">
+            <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
               Modern Tools
             </span>
           </h2>
@@ -172,7 +192,7 @@ export function FeaturesSection() {
                   <div className="z-10 relative flex flex-col h-full">
                     <div className="flex-grow">
                       <div
-                        className={`w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-3 sm:mb-4 lg:mb-6 shadow-lg p-2`}
+                        className={`w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-3 sm:mb-4 lg:mb-6 shadow-lg p-2 group-hover:scale-110 transition-transform duration-300`}
                       >
                         <MaterialIcon
                           icon={feature.icon}
@@ -190,11 +210,18 @@ export function FeaturesSection() {
                       </p>
                     </div>
 
-                    <div className="mt-auto pt-3 sm:pt-4 lg:pt-6 font-semibold text-brand-primary dark:text-bronze-400 text-xs uppercase tracking-wider">
-                      <span className="hidden sm:inline">
-                        Hover for details
+                    <div className="mt-auto pt-3 sm:pt-4 lg:pt-6 flex items-center justify-center text-brand-primary dark:text-brand-primary-light">
+                      <MaterialIcon
+                        icon="autorenew"
+                        size="md"
+                        className="mr-2 animate-spin-slow group-hover:animate-spin"
+                      />
+                      <span className="font-semibold text-xs uppercase tracking-wider">
+                        <span className="hidden sm:inline">
+                          Hover for details
+                        </span>
+                        <span className="sm:hidden">Tap for details</span>
                       </span>
-                      <span className="sm:hidden">Tap for details</span>
                     </div>
                   </div>
                 </div>
@@ -257,7 +284,7 @@ export function FeaturesSection() {
               <Button
                 variant={cta.variant}
                 size="lg"
-                className="group mb-2 sm:mb-3 w-full transition-all duration-300 min-h-[48px] touch-manipulation"
+                className="group/btn mb-2 sm:mb-3 w-full transition-all duration-300 min-h-[48px] touch-manipulation"
                 onClick={() => {
                   if (cta.isChatbot) {
                     toggleChatbot();
@@ -269,7 +296,7 @@ export function FeaturesSection() {
                 <MaterialIcon
                   icon={cta.icon}
                   size="lg"
-                  className="mr-2 sm:mr-3 flex-shrink-0 text-current"
+                  className="mr-2 sm:mr-3 flex-shrink-0 group-hover/btn:scale-110 transition-transform"
                 />
                 <span className="font-medium text-sm sm:text-base">
                   {cta.title}

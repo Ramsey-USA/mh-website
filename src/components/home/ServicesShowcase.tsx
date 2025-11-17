@@ -2,7 +2,13 @@ import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { gridPresets } from "@/lib/styles/layout-variants";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  Button,
+} from "@/components/ui";
 
 const services = [
   {
@@ -139,20 +145,40 @@ const services = [
  */
 export function ServicesShowcase() {
   return (
-    <section className="relative bg-white dark:bg-gray-900 py-8 sm:py-12 lg:py-16 showcase-section">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 dark:from-gray-800/50 to-white dark:to-gray-900"></div>
-      <div className="top-20 right-20 absolute bg-brand-primary/5 blur-3xl rounded-full w-32 h-32"></div>
-      <div className="bottom-20 left-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-40 h-40"></div>
+    <section className="relative bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-24 xl:py-32 showcase-section overflow-hidden">
+      {/* Enhanced Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(189,146,100,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(189,146,100,0.15)_0%,transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(56,104,81,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_right,rgba(56,104,81,0.12)_0%,transparent_50%)]"></div>
+      <div className="top-20 right-10 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
+      <div
+        className="left-10 bottom-20 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
+        style={{ animationDelay: "1s" }}
+      ></div>
+      <div
+        className="top-1/2 left-1/4 absolute bg-brand-secondary/5 dark:bg-brand-secondary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
+        style={{ animationDelay: "0.5s" }}
+      ></div>
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}
-        <FadeInWhenVisible className="mb-8 sm:mb-12 lg:mb-16 text-center">
-          <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-            <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+        <FadeInWhenVisible className="mb-12 sm:mb-16 lg:mb-20 text-center">
+          <div className="flex justify-center items-center mb-6 sm:mb-8">
+            <div className="relative">
+              <div className="absolute inset-0 bg-brand-secondary/20 dark:bg-brand-secondary/30 blur-xl rounded-full"></div>
+              <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
+                <MaterialIcon
+                  icon="explore"
+                  size="2xl"
+                  className="text-white"
+                />
+              </div>
+            </div>
+          </div>
+          <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+            <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
               Comprehensive
             </span>
-            <span className="block text-brand-primary dark:text-brand-primary font-black">
+            <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
               Construction Services
             </span>
           </h2>
@@ -175,8 +201,8 @@ export function ServicesShowcase() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group perspective h-[420px] sm:h-[460px] cursor-pointer"
-              style={{ perspective: "1000px" }}
+              className="group perspective-1000 scroll-reveal h-[450px] sm:h-[480px] md:h-[500px] lg:h-[520px] cursor-pointer"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div
                 className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180"
@@ -187,42 +213,52 @@ export function ServicesShowcase() {
                   className="absolute inset-0 w-full h-full backface-hidden"
                   style={{ backfaceVisibility: "hidden" }}
                 >
-                  <Card className="flex flex-col bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl h-full shadow-lg hover:shadow-2xl transition-all duration-300 p-4 sm:p-6 lg:p-8 overflow-hidden">
-                    <CardHeader className="flex-shrink-0 pb-4 px-0">
-                      <div className="flex justify-center items-center bg-brand-primary/10 mb-3 sm:mb-4 rounded-2xl w-14 h-14 sm:w-16 sm:h-16 p-2">
-                        <MaterialIcon
-                          icon={service.icon}
-                          size="xl"
-                          className="text-brand-primary"
-                        />
-                      </div>
-                      <CardTitle className="mb-2 text-gray-900 dark:text-white text-base sm:text-lg md:text-xl lg:text-2xl font-black leading-tight break-words">
-                        {service.title}
-                      </CardTitle>
-                      <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-xs sm:text-sm break-words">
-                        {service.subtitle}
-                      </p>
-                    </CardHeader>
-                    <CardContent className="flex flex-col flex-grow pt-0 px-0">
-                      <p className="mb-4 text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed break-words">
-                        {service.description}
-                      </p>
-                      <div className="mt-auto pt-3 sm:pt-4 border-t border-gray-200 dark:border-gray-700">
-                        <div className="flex items-center justify-center text-brand-secondary dark:text-brand-secondary-light">
-                          <MaterialIcon
-                            icon="autorenew"
-                            size="sm"
-                            className="mr-2 animate-pulse"
-                          />
-                          <span className="text-xs font-medium">
-                            <span className="hidden sm:inline">
-                              Hover for details
-                            </span>
-                            <span className="sm:hidden">Tap for details</span>
-                          </span>
+                  <Card className="flex flex-col bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-brand-secondary/20 border border-gray-200 dark:border-gray-700 rounded-3xl h-full transition-all duration-300 p-5 sm:p-6 md:p-7 lg:p-8 overflow-hidden group-hover:scale-[1.02]">
+                    {/* Gradient Background Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/5 to-brand-primary/5 dark:from-brand-secondary/10 dark:to-brand-primary/10 opacity-80 dark:opacity-60"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent dark:from-gray-800/40"></div>
+
+                    <div className="relative z-10 flex flex-col h-full">
+                      <CardHeader className="flex-shrink-0 pb-4 px-0">
+                        {/* Enhanced Icon Container */}
+                        <div className="relative inline-block mb-4 sm:mb-5 flex-shrink-0">
+                          <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/30 to-brand-primary/30 blur-xl rounded-3xl"></div>
+                          <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-secondary to-brand-secondary-dark rounded-2xl w-16 h-16 sm:w-20 sm:h-20 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                            <MaterialIcon
+                              icon={service.icon}
+                              size="xl"
+                              className="text-white"
+                            />
+                          </div>
                         </div>
-                      </div>
-                    </CardContent>
+                        <CardTitle className="mb-2 sm:mb-3 text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl font-black leading-tight break-words">
+                          {service.title}
+                        </CardTitle>
+                        <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-sm sm:text-base break-words">
+                          {service.subtitle}
+                        </p>
+                      </CardHeader>
+                      <CardContent className="flex flex-col flex-grow pt-0 px-0">
+                        <p className="mb-4 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed break-words">
+                          {service.description}
+                        </p>
+                        <div className="mt-auto pt-3 sm:pt-4 border-t border-gray-300 dark:border-gray-600">
+                          <div className="flex items-center justify-center text-brand-primary dark:text-brand-primary-light">
+                            <MaterialIcon
+                              icon="autorenew"
+                              size="md"
+                              className="mr-2 animate-spin-slow group-hover:animate-spin"
+                            />
+                            <span className="font-semibold text-xs sm:text-sm uppercase tracking-wider">
+                              <span className="hidden sm:inline">
+                                Hover for details
+                              </span>
+                              <span className="sm:hidden">Tap for details</span>
+                            </span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </div>
                   </Card>
                 </div>
 
@@ -234,107 +270,83 @@ export function ServicesShowcase() {
                     transform: "rotateY(180deg)",
                   }}
                 >
-                  <Card className="flex flex-col bg-gradient-to-br from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-gray-900 border border-brand-primary dark:border-brand-primary/50 rounded-3xl h-full shadow-xl p-4 sm:p-5 lg:p-6 overflow-hidden">
-                    <CardHeader className="flex-shrink-0 pb-2 sm:pb-3 px-0">
-                      <div className="flex items-center mb-2">
-                        <MaterialIcon
-                          icon={service.icon}
-                          className="mr-2 text-brand-secondary text-lg sm:text-xl flex-shrink-0"
-                        />
-                        <CardTitle className="text-white text-sm sm:text-base md:text-lg font-bold leading-tight break-words">
-                          {service.title}
-                        </CardTitle>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="flex flex-col flex-grow pt-0 px-0 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-                      {/* What's Included */}
-                      <div className="mb-3 sm:mb-4">
-                        <div className="flex items-center mb-1.5 sm:mb-2">
-                          <MaterialIcon
-                            icon="checklist"
-                            className="mr-1.5 text-brand-secondary text-sm sm:text-base flex-shrink-0"
-                          />
-                          <p className="font-bold text-white text-xs sm:text-sm">
-                            What's Included:
-                          </p>
-                        </div>
-                        <ul className="space-y-1 sm:space-y-1.5">
-                          {service.features.map((feature, fIndex) => (
-                            <li
-                              key={fIndex}
-                              className="flex items-start text-xs"
-                            >
-                              <MaterialIcon
-                                icon="check_circle"
-                                className="flex-shrink-0 mt-0.5 mr-1.5 text-brand-secondary text-sm"
-                              />
-                              <span className="text-white leading-tight break-words">
-                                {feature}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                  <Card className="flex flex-col bg-gradient-to-br from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-gray-900 border border-brand-primary dark:border-brand-primary/50 rounded-3xl h-full shadow-xl p-5 sm:p-6 md:p-7 lg:p-8 overflow-hidden">
+                    {/* Overlay for better text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/20"></div>
 
-                      {/* Partnership Benefits */}
-                      <div className="mb-3 sm:mb-4">
-                        <div className="flex items-center mb-1.5 sm:mb-2">
-                          <MaterialIcon
-                            icon="stars"
-                            className="mr-1.5 text-brand-secondary text-sm sm:text-base flex-shrink-0"
-                          />
-                          <p className="font-bold text-white text-xs sm:text-sm">
-                            Partnership Benefits:
-                          </p>
+                    <div className="relative flex flex-col h-full">
+                      <CardHeader className="flex-shrink-0 pb-3 px-0">
+                        <div className="flex items-center mb-2">
+                          <div className="inline-block bg-white/20 backdrop-blur-sm p-2 rounded-xl mr-2">
+                            <MaterialIcon
+                              icon={service.icon}
+                              size="md"
+                              className="text-white"
+                            />
+                          </div>
+                          <CardTitle className="text-white text-base sm:text-lg md:text-xl font-bold leading-tight break-words">
+                            {service.title}
+                          </CardTitle>
                         </div>
-                        <ul className="space-y-1 sm:space-y-1.5">
-                          {service.benefits.map((benefit, bIndex) => (
-                            <li
-                              key={bIndex}
-                              className="flex items-start text-xs"
-                            >
-                              <MaterialIcon
-                                icon="military_tech"
-                                className="flex-shrink-0 mt-0.5 mr-1.5 text-brand-secondary text-sm"
-                              />
-                              <span className="text-white leading-tight break-words">
-                                {benefit}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* CTA Button */}
-                      <Link
-                        href={service.link}
-                        className="flex-shrink-0 bg-brand-secondary hover:bg-brand-secondary-dark mt-auto p-2.5 sm:p-3 rounded-lg transition-all duration-300 hover:scale-105"
-                      >
-                        <div className="flex items-center justify-center text-white">
-                          <MaterialIcon
-                            icon="arrow_forward"
-                            size="sm"
-                            className="mr-1.5 sm:mr-2"
-                          />
-                          <span className="font-bold text-xs sm:text-sm">
-                            {service.cta}
-                          </span>
+                      </CardHeader>
+                      <CardContent className="flex flex-col flex-1 pt-0 px-0 min-h-0">
+                        {/* What's Included */}
+                        <div className="mb-3">
+                          <div className="flex items-center mb-2">
+                            <MaterialIcon
+                              icon="checklist"
+                              className="mr-1.5 text-brand-secondary text-sm flex-shrink-0"
+                            />
+                            <p className="font-bold text-white text-xs sm:text-sm">
+                              What's Included:
+                            </p>
+                          </div>
+                          <ul className="space-y-1">
+                            {service.features
+                              .slice(0, 3)
+                              .map((feature, fIndex) => (
+                                <li key={fIndex} className="flex items-start">
+                                  <MaterialIcon
+                                    icon="check_circle"
+                                    className="flex-shrink-0 mt-0.5 mr-1.5 text-brand-secondary text-xs"
+                                  />
+                                  <span className="text-white text-xs sm:text-sm leading-snug break-words">
+                                    {feature}
+                                  </span>
+                                </li>
+                              ))}
+                          </ul>
                         </div>
-                      </Link>
 
-                      <div className="flex items-center justify-center mt-2 sm:mt-3 text-brand-secondary flex-shrink-0">
-                        <MaterialIcon
-                          icon="autorenew"
-                          className="mr-1.5 text-sm"
-                        />
-                        <span className="font-medium text-xs">
-                          <span className="hidden sm:inline">
-                            Hover to return
-                          </span>
-                          <span className="sm:hidden">Tap to return</span>
-                        </span>
-                      </div>
-                    </CardContent>
+                        {/* Partnership Benefits */}
+                        <div>
+                          <div className="flex items-center mb-2">
+                            <MaterialIcon
+                              icon="stars"
+                              className="mr-1.5 text-brand-secondary text-sm flex-shrink-0"
+                            />
+                            <p className="font-bold text-white text-xs sm:text-sm">
+                              Key Benefits:
+                            </p>
+                          </div>
+                          <ul className="space-y-1">
+                            {service.benefits
+                              .slice(0, 3)
+                              .map((benefit, bIndex) => (
+                                <li key={bIndex} className="flex items-start">
+                                  <MaterialIcon
+                                    icon="military_tech"
+                                    className="flex-shrink-0 mt-0.5 mr-1.5 text-brand-secondary text-xs"
+                                  />
+                                  <span className="text-white text-xs sm:text-sm leading-snug break-words">
+                                    {benefit}
+                                  </span>
+                                </li>
+                              ))}
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </div>
                   </Card>
                 </div>
               </div>
@@ -346,24 +358,30 @@ export function ServicesShowcase() {
         <FadeInWhenVisible className="mt-12 sm:mt-16 text-center">
           <div className="inline-flex flex-col sm:flex-row gap-4 sm:gap-6">
             <Link href="/services">
-              <button className="group bg-brand-primary hover:bg-brand-primary-dark text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-lg min-w-[240px]">
+              <Button
+                variant="primary"
+                className="group/btn min-w-[240px] min-h-[48px] text-base sm:text-lg"
+              >
                 <MaterialIcon
                   icon="explore"
                   size="lg"
-                  className="inline mr-2 group-hover:rotate-12 transition-transform"
+                  className="mr-2 group-hover/btn:scale-110 transition-transform"
                 />
                 View All Services
-              </button>
+              </Button>
             </Link>
             <Link href="/contact">
-              <button className="group bg-brand-secondary hover:bg-brand-secondary-dark text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-lg min-w-[240px]">
+              <Button
+                variant="secondary"
+                className="group/btn min-w-[240px] min-h-[48px] text-base sm:text-lg"
+              >
                 <MaterialIcon
                   icon="phone"
                   size="lg"
-                  className="inline mr-2 group-hover:rotate-12 transition-transform"
+                  className="mr-2 group-hover/btn:scale-110 transition-transform"
                 />
                 Call (509) 308-6489
-              </button>
+              </Button>
             </Link>
           </div>
         </FadeInWhenVisible>

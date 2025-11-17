@@ -39,6 +39,7 @@ const SmartRecommendations = dynamic(
   },
 );
 import Head from "next/head";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { useAnalytics } from "@/components/analytics/enhanced-analytics";
 import { useImagePreloader } from "@/hooks/usePerformanceOptimization";
@@ -148,25 +149,50 @@ export default function Home() {
       />
 
       {/* Before/After Showcase Section - Tangible results */}
-      <section className="relative bg-white dark:bg-gray-900 py-20 lg:py-32">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <section className="relative bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden">
+        {/* Enhanced Background Effects */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.15)_0%,transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.12)_0%,transparent_50%)]"></div>
+        <div className="top-20 left-10 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
+        <div
+          className="right-10 bottom-20 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
+          style={{ animationDelay: "1s" }}
+        ></div>
+        <div
+          className="top-1/2 right-1/4 absolute bg-brand-primary/5 dark:bg-brand-primary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
+          style={{ animationDelay: "0.5s" }}
+        ></div>
+
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
-            <div className="mb-12 text-center">
-              <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            <div className="mb-12 sm:mb-16 lg:mb-20 text-center scroll-reveal">
+              <div className="flex justify-center items-center mb-6 sm:mb-8">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 rounded-2xl shadow-lg">
+                    <MaterialIcon
+                      icon="compare"
+                      size="2xl"
+                      className="text-white"
+                    />
+                  </div>
+                </div>
+              </div>
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                   See Our
                 </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
                   Quality Transformations
                 </span>
               </h2>
-              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
+              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
                 Drag the slider to compare{" "}
-                <span className="font-medium text-gray-800 dark:text-gray-200">
+                <span className="font-semibold text-gray-800 dark:text-gray-200">
                   before and after
                 </span>{" "}
                 on our{" "}
-                <span className="text-brand-primary font-semibold">
+                <span className="text-brand-primary dark:text-brand-primary-light font-bold">
                   construction projects
                 </span>
                 .
@@ -201,19 +227,44 @@ export default function Home() {
       <AIEstimatorCTA variant="full" location="homepage" />
 
       {/* Smart Project Recommendations - For tech-curious visitors */}
-      <section className="relative bg-white dark:bg-gray-900 py-8 sm:py-12 lg:py-16">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <section className="relative bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden">
+        {/* Enhanced Background Effects */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(189,146,100,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(189,146,100,0.15)_0%,transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(56,104,81,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_right,rgba(56,104,81,0.12)_0%,transparent_50%)]"></div>
+        <div className="top-20 right-10 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
+        <div
+          className="left-10 bottom-20 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
+          style={{ animationDelay: "1s" }}
+        ></div>
+        <div
+          className="top-1/2 left-1/4 absolute bg-brand-secondary/5 dark:bg-brand-secondary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
+          style={{ animationDelay: "0.5s" }}
+        ></div>
+
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
-            <div className="mb-8 sm:mb-12 text-center">
-              <p className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            <div className="mb-12 sm:mb-16 lg:mb-20 text-center scroll-reveal">
+              <div className="flex justify-center items-center mb-6 sm:mb-8">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-brand-secondary/20 dark:bg-brand-secondary/30 blur-xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
+                    <MaterialIcon
+                      icon="lightbulb"
+                      size="2xl"
+                      className="text-white"
+                    />
+                  </div>
+                </div>
+              </div>
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                   Helpful Project
                 </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
                   Ideas & Suggestions
                 </span>
-              </p>
-              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide px-2">
+              </h2>
+              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
                 Explore project ideas based on{" "}
                 <span className="font-medium text-gray-800 dark:text-gray-200">
                   Pacific Northwest trends

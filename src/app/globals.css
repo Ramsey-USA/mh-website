@@ -103,6 +103,20 @@ nav[aria-label="Breadcrumb navigation"] {
     backface-visibility: hidden;
   }
 
+  /* Custom animation utilities */
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   /* Extra small mobile utilities */
   @media (max-width: 374px) {
     .mobile-sm\:text-micro {

@@ -77,21 +77,21 @@ export const companyStats: StatItem[] = [
     animated: true,
   },
   {
-    iconName: "diversity_3",
-    value: 70,
-    label: "Referral & Repeat Business",
-    suffix: "%",
+    iconName: "check_circle",
+    value: 650,
+    label: "Successful Projects",
+    suffix: "+",
     animated: true,
   },
 ];
 
 const gradientVariants = {
   primary:
-    "bg-gradient-to-br from-brand-primary via-brand-accent to-brand-primary-dark dark:from-brand-primary-dark dark:via-gray-800 dark:to-gray-900",
+    "bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900 dark:from-brand-primary-dark dark:via-gray-900 dark:to-gray-950",
   secondary:
-    "bg-gradient-to-br from-brand-secondary via-brand-secondary/80 to-brand-primary dark:from-brand-secondary/80 dark:via-gray-800 dark:to-gray-900",
+    "bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-brand-primary dark:from-brand-secondary/80 dark:via-gray-800 dark:to-gray-900",
   accent:
-    "bg-gradient-to-br from-brand-accent via-brand-primary to-brand-primary-dark dark:from-brand-accent/80 dark:via-gray-800 dark:to-gray-900",
+    "bg-gradient-to-br from-brand-primary-dark via-brand-primary to-brand-secondary dark:from-brand-accent/80 dark:via-gray-800 dark:to-gray-900",
 };
 
 export function CompanyStats({
@@ -107,44 +107,64 @@ export function CompanyStats({
 
   return (
     <section
-      className={`${gradientClass} py-12 lg:py-16 text-white ${className}`}
+      className={`relative ${gradientClass} py-12 sm:py-16 lg:py-24 xl:py-32 text-white overflow-hidden ${className}`}
     >
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      {/* Enhanced Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(189,146,100,0.15)_0%,transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.1)_0%,transparent_50%)]"></div>
+      <div className="top-20 right-10 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
+      <div
+        className="left-10 bottom-20 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
+        style={{ animationDelay: "1s" }}
+      ></div>
+      <div
+        className="top-1/2 left-1/4 absolute bg-brand-secondary/5 dark:bg-brand-secondary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
+        style={{ animationDelay: "0.5s" }}
+      ></div>
+
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <FadeInWhenVisible>
-          <div className="mb-8 lg:mb-12 text-center">
+          <div className="mb-12 sm:mb-16 lg:mb-20 text-center">
             {headerIcon && (
-              <div className="flex justify-center mb-4">
-                <MaterialIcon
-                  icon={headerIcon}
-                  className="text-brand-secondary text-4xl sm:text-5xl"
-                />
+              <div className="flex justify-center items-center mb-6 sm:mb-8">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-brand-secondary/30 blur-xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
+                    <MaterialIcon
+                      icon={headerIcon}
+                      size="2xl"
+                      className="text-white"
+                    />
+                  </div>
+                </div>
               </div>
             )}
-            <h2 className="mb-4 pb-2 font-black text-white text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tighter">
+            <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
               {subtitle && (
-                <span className="block mb-2 font-semibold text-white/90 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+                <span className="block mb-3 sm:mb-4 font-semibold text-white/80 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
                   {subtitle}
                 </span>
               )}
-              <span className="block text-brand-secondary font-black drop-shadow-lg">
+              <span className="block text-brand-secondary font-black drop-shadow-sm">
                 {title}
               </span>
             </h2>
             {description && (
-              <p className="mx-auto max-w-3xl mb-6 font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-2">
+              <p className="mx-auto max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
                 {description}
               </p>
             )}
           </div>
-          <div className="gap-4 lg:gap-6 grid grid-cols-2 lg:grid-cols-4 mx-auto max-w-5xl">
+          <div className="gap-4 sm:gap-6 grid grid-cols-2 lg:grid-cols-4 mx-auto max-w-6xl">
             {stats.map((stat, _index) => (
               <HoverScale key={_index}>
-                <div className="h-full flex flex-col text-center p-4 sm:p-5 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 hover:shadow-xl transition-all duration-300">
+                <div className="h-full flex flex-col text-center p-5 sm:p-6 lg:p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 hover:bg-white/20 hover:shadow-2xl hover:border-white/40 transition-all duration-300 group">
                   <MaterialIcon
                     icon={stat.iconName}
-                    className="mb-3 text-brand-secondary text-3xl sm:text-4xl"
+                    className="mb-4 text-brand-secondary group-hover:animate-spin"
+                    size="xl"
                   />
-                  <div className="mb-2 font-black text-3xl sm:text-4xl text-white drop-shadow-lg">
+                  <div className="mb-2 font-black text-3xl sm:text-4xl lg:text-5xl text-white drop-shadow-lg">
                     {stat.animated ? (
                       <AnimatedCounter
                         value={stat.value}
@@ -157,7 +177,7 @@ export function CompanyStats({
                       stat.value
                     )}
                   </div>
-                  <div className="text-white/90 font-medium text-xs sm:text-sm leading-relaxed mt-auto">
+                  <div className="text-white/90 font-medium text-xs sm:text-sm lg:text-base leading-relaxed mt-auto">
                     {stat.label}
                   </div>
                 </div>

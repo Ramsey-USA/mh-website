@@ -1,8 +1,11 @@
 # MH Construction CTA Standardization Plan
 
-**Date:** November 4, 2025  
+**Date:** November 17, 2025  
+**Primary Reference:** [Section Enhancement Patterns](../implementation/section-enhancement-patterns.md) - Button implementation standards  
 **Standards Reference:** [Content & Messaging Standards](./content-messaging-standards.md)  
 **Status:** 🔄 Implementation Phase
+
+> **📝 Note:** All button implementations must follow [Section Enhancement Patterns](../implementation/section-enhancement-patterns.md) for technical requirements including icon sizing, hover animations, and accessibility standards.
 
 ---
 
@@ -12,16 +15,18 @@
 
 1. **"Schedule Free Consultation"** - ✅ Perfect
    - Found in: homepage, about page, services page
-   - Variant: `primary`
-   - Icon: `event`
+   - Component: `<Button variant="primary" size="lg">`
+   - Icon: `<MaterialIcon icon="event" size="lg" />`
 
 2. **"Get Instant AI Estimate"** - ✅ Good (AI-specific)
    - Found in: homepage, contact page
-   - Variant: `secondary`
-   - Icon: `smart_toy`
+   - Component: `<Button variant="secondary" size="lg">`
+   - Icon: `<MaterialIcon icon="smart_toy" size="lg" />`
 
 3. **"View Our Work"** - ✅ Perfect
    - Standard secondary portfolio CTA
+   - Component: `<Button variant="secondary" size="lg">`
+   - Icon: `<MaterialIcon icon="visibility" size="lg" />`
    - Should be used consistently
 
 ### ⚠️ **NON-COMPLIANT CTAs** (Need Standardization)

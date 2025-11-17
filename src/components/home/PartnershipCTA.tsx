@@ -9,29 +9,53 @@ export function PartnershipCTA() {
   return (
     <section
       id="partnership-cta"
-      className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-brand-secondary py-12 sm:py-16 lg:py-24 cta-section"
+      className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary dark:from-brand-primary-dark dark:via-gray-900 dark:to-brand-secondary-dark py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
+      {/* Enhanced Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.08)_0%,transparent_50%)]"></div>
+      <div className="top-20 right-10 absolute bg-white/10 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
+      <div
+        className="left-10 bottom-20 absolute bg-white/8 blur-3xl rounded-full w-40 h-40 animate-pulse"
+        style={{ animationDelay: "1s" }}
+      ></div>
+      <div
+        className="top-1/2 left-1/4 absolute bg-white/5 blur-3xl rounded-full w-24 h-24 animate-pulse"
+        style={{ animationDelay: "0.5s" }}
+      ></div>
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
         <FadeInWhenVisible>
-          <div className="flex justify-center items-center mb-4 sm:mb-6">
-            <MaterialIcon icon="handshake" size="xl" className="text-white" />
+          <div className="mb-12 sm:mb-16 lg:mb-20 scroll-reveal">
+            <div className="flex justify-center items-center mb-6 sm:mb-8">
+              <div className="relative">
+                <div className="absolute inset-0 bg-white/30 blur-xl rounded-full"></div>
+                <div className="relative bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-lg">
+                  <MaterialIcon
+                    icon="handshake"
+                    size="2xl"
+                    className="text-white"
+                  />
+                </div>
+              </div>
+            </div>
+            <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter drop-shadow-sm">
+              Let's Build More than Just Structures
+            </h2>
+            <p className="mx-auto mb-8 sm:mb-12 max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
+              Partner with a team that puts your vision—and your
+              relationship—first. We're Building for the Client, NOT the Dollar.
+              Join our network of{" "}
+              <span className="font-medium text-white">
+                trusted trade partners
+              </span>{" "}
+              with consistent projects including{" "}
+              <span className="font-medium text-white">
+                government contracts
+              </span>{" "}
+              across the Pacific Northwest.
+            </p>
           </div>
-          <h2 className="mb-4 sm:mb-6 font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-            Let's Build More than Just Structures
-          </h2>
-          <p className="mx-auto mb-8 sm:mb-12 max-w-4xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4 break-words">
-            Partner with a team that puts your vision—and your
-            relationship—first. We're Building for the Client, NOT the Dollar.
-            Join our network of{" "}
-            <span className="font-medium text-white">
-              trusted trade partners
-            </span>{" "}
-            with consistent projects including{" "}
-            <span className="font-medium text-white">government contracts</span>{" "}
-            across the Pacific Northwest.
-          </p>
 
           {/* Trade Partnership CTA Buttons - Mobile optimized 4 Button Grid */}
           <div className="gap-3 sm:gap-4 lg:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto mb-4 sm:mb-6 max-w-6xl">
@@ -39,13 +63,13 @@ export function PartnershipCTA() {
               <Button
                 variant="primary"
                 size="lg"
-                className="group w-full h-auto min-h-[56px] sm:min-h-[64px] transition-all duration-300 p-3 sm:p-4 touch-manipulation"
+                className="group/btn w-full h-auto min-h-[56px] sm:min-h-[64px] transition-all duration-300 p-3 sm:p-4 touch-manipulation"
               >
                 <div className="flex flex-col justify-center items-center">
                   <MaterialIcon
                     icon="diversity_3"
                     size="lg"
-                    className="flex-shrink-0 mb-1"
+                    className="flex-shrink-0 mb-1 group-hover/btn:scale-110 transition-transform"
                   />
                   <span className="font-medium text-center text-xs sm:text-sm leading-tight">
                     Become a Trade
@@ -60,13 +84,13 @@ export function PartnershipCTA() {
               <Button
                 variant="secondary"
                 size="lg"
-                className="group w-full h-auto min-h-[56px] sm:min-h-[64px] transition-all duration-300 p-3 sm:p-4 touch-manipulation"
+                className="group/btn w-full h-auto min-h-[56px] sm:min-h-[64px] transition-all duration-300 p-3 sm:p-4 touch-manipulation"
               >
                 <div className="flex flex-col justify-center items-center">
                   <MaterialIcon
                     icon="flag"
                     size="lg"
-                    className="flex-shrink-0 mb-1"
+                    className="flex-shrink-0 mb-1 group-hover/btn:scale-110 transition-transform"
                   />
                   <span className="font-medium text-center text-xs sm:text-sm leading-tight">
                     Government
@@ -81,13 +105,13 @@ export function PartnershipCTA() {
               <Button
                 variant="secondary"
                 size="xl"
-                className="group w-full h-auto min-h-[64px] sm:min-h-[72px] transition-all duration-300 p-4 sm:p-5 touch-manipulation"
+                className="group/btn w-full h-auto min-h-[64px] sm:min-h-[72px] transition-all duration-300 p-4 sm:p-5 touch-manipulation"
               >
                 <div className="flex flex-col justify-center items-center">
                   <MaterialIcon
                     icon="photo_library"
                     size="xl"
-                    className="flex-shrink-0 mb-1"
+                    className="flex-shrink-0 mb-1 group-hover/btn:scale-110 transition-transform"
                   />
                   <span className="font-bold text-center text-sm sm:text-base leading-tight">
                     View Portfolio

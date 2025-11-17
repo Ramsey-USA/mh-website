@@ -30,29 +30,55 @@ export function NextStepsSection({
   return (
     <section
       id="next-steps"
-      className={`relative bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 py-20 lg:py-32 ${className}`}
+      className={`relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary dark:from-brand-primary-dark dark:via-gray-900 dark:to-brand-secondary-dark py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden ${className}`}
     >
-      <div className="absolute inset-0 bg-[url('/images/textures/construction-pattern.png')] opacity-5"></div>
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.08)_0%,transparent_50%)]"></div>
+      <div className="top-20 left-10 absolute bg-white/10 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
+      <div
+        className="right-10 bottom-20 absolute bg-white/15 blur-3xl rounded-full w-40 h-40 animate-pulse"
+        style={{ animationDelay: "1s" }}
+      ></div>
+      <div
+        className="top-1/2 right-1/4 absolute bg-white/5 blur-3xl rounded-full w-24 h-24 animate-pulse"
+        style={{ animationDelay: "0.5s" }}
+      ></div>
+
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="mb-16 text-center">
-          <h2 className="mb-6 font-black text-4xl text-white sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+        <div className="mb-12 sm:mb-16 text-center">
+          <div className="flex justify-center items-center mb-6 sm:mb-8">
+            <div className="relative">
+              <div className="absolute inset-0 bg-white/30 blur-xl rounded-full"></div>
+              <div className="relative bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-lg">
+                <MaterialIcon
+                  icon="handshake"
+                  size="2xl"
+                  className="text-white"
+                />
+              </div>
+            </div>
+          </div>
+          <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
             {title}
           </h2>
-          <p className="mx-auto max-w-3xl font-light text-primary-100 text-xl sm:text-2xl md:text-3xl leading-relaxed">
+          <p className="mx-auto max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
             {subtitle}
           </p>
         </div>
 
-        <div className="gap-8 grid grid-cols-1 md:grid-cols-3 mb-12">
+        <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
           {/* Option 1: Schedule Consultation */}
-          <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
-            <div className="flex justify-center items-center bg-gradient-to-br from-primary-500 to-primary-600 mx-auto mb-6 rounded-full w-20 h-20 shadow-lg">
-              <MaterialIcon icon="event" size="xl" className="text-white" />
+          <div className="group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2">
+            <div className="flex justify-center mb-6">
+              <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <MaterialIcon icon="event" size="xl" className="text-white" />
+              </div>
             </div>
             <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
               Schedule Consultation
             </h3>
-            <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
+            <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
               Sit down with us face-to-face. Let's talk about your vision over a
               handshake, not just an email.
             </p>
@@ -61,7 +87,7 @@ export function NextStepsSection({
                 <MaterialIcon
                   icon="check_circle"
                   size="sm"
-                  className="text-primary-600 flex-shrink-0"
+                  className="text-brand-primary flex-shrink-0"
                 />
                 <span>Free consultation</span>
               </li>
@@ -69,7 +95,7 @@ export function NextStepsSection({
                 <MaterialIcon
                   icon="check_circle"
                   size="sm"
-                  className="text-primary-600 flex-shrink-0"
+                  className="text-brand-primary flex-shrink-0"
                 />
                 <span>Expert recommendations</span>
               </li>
@@ -77,7 +103,7 @@ export function NextStepsSection({
                 <MaterialIcon
                   icon="check_circle"
                   size="sm"
-                  className="text-primary-600 flex-shrink-0"
+                  className="text-brand-primary flex-shrink-0"
                 />
                 <span>No obligation</span>
               </li>
@@ -86,13 +112,13 @@ export function NextStepsSection({
               <Button
                 variant="primary"
                 size="lg"
-                className="w-full group"
+                className="w-full group/btn"
                 onClick={onConsultationClick}
               >
                 <MaterialIcon
                   icon="calendar_today"
-                  size="md"
-                  className="mr-2 group-hover:scale-110 transition-transform"
+                  size="lg"
+                  className="mr-2 group-hover/btn:scale-110 transition-transform"
                 />
                 Book Consultation
               </Button>
@@ -100,19 +126,25 @@ export function NextStepsSection({
           </div>
 
           {/* Option 2: Get Quick Estimate */}
-          <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 border-4 border-secondary-500">
-            <div className="bg-secondary-500 -top-4 left-1/2 absolute px-4 py-1 rounded-full -translate-x-1/2 shadow-md">
+          <div className="group relative bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 border-2 border-brand-secondary">
+            <div className="bg-brand-secondary -top-4 left-1/2 absolute px-4 py-1 rounded-full -translate-x-1/2 shadow-md">
               <span className="font-bold text-sm text-white uppercase tracking-wide">
                 Most Popular
               </span>
             </div>
-            <div className="flex justify-center items-center bg-gradient-to-br from-secondary-500 to-secondary-600 mx-auto mb-6 rounded-full w-20 h-20 shadow-lg">
-              <MaterialIcon icon="calculate" size="xl" className="text-white" />
+            <div className="flex justify-center mb-6">
+              <div className="rounded-xl bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <MaterialIcon
+                  icon="calculate"
+                  size="xl"
+                  className="text-white"
+                />
+              </div>
             </div>
             <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
               Get Quick Estimate
             </h3>
-            <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
+            <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
               Receive a detailed project estimate within 3-5 business days with
               transparent pricing.
             </p>
@@ -121,7 +153,7 @@ export function NextStepsSection({
                 <MaterialIcon
                   icon="check_circle"
                   size="sm"
-                  className="text-secondary-600 flex-shrink-0"
+                  className="text-brand-secondary flex-shrink-0"
                 />
                 <span>3-5 day turnaround</span>
               </li>
@@ -129,7 +161,7 @@ export function NextStepsSection({
                 <MaterialIcon
                   icon="check_circle"
                   size="sm"
-                  className="text-secondary-600 flex-shrink-0"
+                  className="text-brand-secondary flex-shrink-0"
                 />
                 <span>Detailed line items</span>
               </li>
@@ -137,7 +169,7 @@ export function NextStepsSection({
                 <MaterialIcon
                   icon="check_circle"
                   size="sm"
-                  className="text-secondary-600 flex-shrink-0"
+                  className="text-brand-secondary flex-shrink-0"
                 />
                 <span>Open-book pricing</span>
               </li>
@@ -146,13 +178,13 @@ export function NextStepsSection({
               <Button
                 variant="secondary"
                 size="lg"
-                className="w-full group"
+                className="w-full group/btn"
                 onClick={onEstimateClick}
               >
                 <MaterialIcon
                   icon="description"
-                  size="md"
-                  className="mr-2 group-hover:scale-110 transition-transform"
+                  size="lg"
+                  className="mr-2 group-hover/btn:scale-110 transition-transform"
                 />
                 Request Estimate
               </Button>
@@ -160,18 +192,20 @@ export function NextStepsSection({
           </div>
 
           {/* Option 3: Contact Us */}
-          <div className="bg-white dark:bg-gray-800 shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
-            <div className="flex justify-center items-center bg-gradient-to-br from-accent-500 to-accent-600 mx-auto mb-6 rounded-full w-20 h-20 shadow-lg">
-              <MaterialIcon
-                icon="contact_phone"
-                size="xl"
-                className="text-white"
-              />
+          <div className="group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2">
+            <div className="flex justify-center mb-6">
+              <div className="rounded-xl bg-gradient-to-br from-brand-accent to-bronze-600 p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <MaterialIcon
+                  icon="contact_phone"
+                  size="xl"
+                  className="text-white"
+                />
+              </div>
             </div>
             <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
               Contact Us Directly
             </h3>
-            <p className="mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
+            <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
               Reach out via phone, email, or contact form for immediate
               assistance with your project.
             </p>
@@ -180,7 +214,7 @@ export function NextStepsSection({
                 <MaterialIcon
                   icon="check_circle"
                   size="sm"
-                  className="text-accent-600 flex-shrink-0"
+                  className="text-brand-accent flex-shrink-0"
                 />
                 <span>24-48hr response</span>
               </li>
@@ -188,7 +222,7 @@ export function NextStepsSection({
                 <MaterialIcon
                   icon="check_circle"
                   size="sm"
-                  className="text-accent-600 flex-shrink-0"
+                  className="text-brand-accent flex-shrink-0"
                 />
                 <span>Multiple contact methods</span>
               </li>
@@ -196,7 +230,7 @@ export function NextStepsSection({
                 <MaterialIcon
                   icon="check_circle"
                   size="sm"
-                  className="text-accent-600 flex-shrink-0"
+                  className="text-brand-accent flex-shrink-0"
                 />
                 <span>Direct team access</span>
               </li>
@@ -205,13 +239,13 @@ export function NextStepsSection({
               <Button
                 variant="primary"
                 size="lg"
-                className="w-full bg-accent-600 hover:bg-accent-700 group"
+                className="w-full bg-brand-accent hover:bg-brand-accent/90 group/btn"
                 onClick={onContactClick}
               >
                 <MaterialIcon
                   icon="mail"
-                  size="md"
-                  className="mr-2 group-hover:scale-110 transition-transform"
+                  size="lg"
+                  className="mr-2 group-hover/btn:scale-110 transition-transform"
                 />
                 Get In Touch
               </Button>

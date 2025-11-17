@@ -104,12 +104,37 @@ const partnershipValues = [
 
 export function WhyPartnerSection() {
   return (
-    <section className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-gray-900 py-8 sm:py-12 lg:py-16 text-white">
+    <section className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900 dark:from-brand-primary-dark dark:via-gray-900 dark:to-gray-950 py-12 sm:py-16 lg:py-24 xl:py-32 text-white overflow-hidden">
+      {/* Enhanced Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(189,146,100,0.15)_0%,transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.1)_0%,transparent_50%)]"></div>
+      <div className="top-20 left-10 absolute bg-brand-secondary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
+      <div
+        className="right-10 bottom-20 absolute bg-brand-secondary/15 blur-3xl rounded-full w-40 h-40 animate-pulse"
+        style={{ animationDelay: "1s" }}
+      ></div>
+      <div
+        className="top-1/2 right-1/4 absolute bg-brand-secondary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
+        style={{ animationDelay: "0.5s" }}
+      ></div>
+
       <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}
-        <div className="mb-8 sm:mb-10 lg:mb-12 text-center scroll-reveal">
-          <h2 className="mb-4 sm:mb-6 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-            <span className="block mb-2 sm:mb-3 font-semibold text-white/80 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+        <div className="mb-12 sm:mb-16 lg:mb-20 text-center scroll-reveal">
+          <div className="flex justify-center items-center mb-6 sm:mb-8">
+            <div className="relative">
+              <div className="absolute inset-0 bg-brand-secondary/30 blur-xl rounded-full"></div>
+              <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
+                <MaterialIcon
+                  icon="handshake"
+                  size="2xl"
+                  className="text-white"
+                />
+              </div>
+            </div>
+          </div>
+          <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+            <span className="block mb-3 sm:mb-4 font-semibold text-white/80 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
               The MH Partnership
             </span>
             <span className="block text-white font-black drop-shadow-lg">
@@ -135,79 +160,119 @@ export function WhyPartnerSection() {
         </div>
 
         {/* Core Partnership Values - Interactive Flip Cards */}
-        <div className="gap-4 sm:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-8 sm:mb-12">
+        <div className="gap-4 sm:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-12 sm:mb-16">
           {partnershipValues.map((value, _index) => (
-            <div key={_index} className="group h-80 sm:h-96 perspective-1000">
+            <div
+              key={_index}
+              className="group perspective-1000 scroll-reveal h-[450px] sm:h-[480px] md:h-[500px] lg:h-[520px]"
+              style={{ animationDelay: `${_index * 0.1}s` }}
+            >
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}
                 <div className="absolute inset-0 backface-hidden">
-                  <div className="flex flex-col justify-between bg-white/10 backdrop-blur-sm p-6 sm:p-8 border border-white/20 rounded-lg sm:rounded-xl h-full">
-                    <div>
-                      <div className="mb-4">
-                        <MaterialIcon
-                          icon={value.icon}
-                          size="xl"
-                          className={`drop-shadow-lg ${value.iconColor || "text-white"}`}
-                        />
+                  <div className="flex flex-col h-full bg-white/10 backdrop-blur-md shadow-lg hover:shadow-2xl p-5 sm:p-6 md:p-7 lg:p-8 border border-white/30 rounded-3xl transition-all duration-300 group-hover:scale-[1.02]">
+                    {/* Gradient Background Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-80 rounded-3xl"></div>
+
+                    <div className="relative z-10 flex flex-col h-full">
+                      <div className="flex-1 flex flex-col justify-center min-h-0">
+                        {/* Enhanced Icon Container */}
+                        <div className="relative inline-block mb-4 sm:mb-5 mx-auto flex-shrink-0">
+                          <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/40 to-brand-secondary-dark/40 blur-xl rounded-3xl"></div>
+                          <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-secondary to-brand-secondary-dark rounded-2xl w-16 h-16 sm:w-20 sm:h-20 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                            <MaterialIcon
+                              icon={value.icon}
+                              size="xl"
+                              className="text-white"
+                            />
+                          </div>
+                        </div>
+                        <h3 className="mb-2 sm:mb-3 font-black text-white text-lg sm:text-xl md:text-2xl tracking-tight leading-tight break-words px-2 flex-shrink-0 text-center">
+                          {value.title}
+                        </h3>
+                        <p className="mb-3 sm:mb-4 text-brand-secondary text-sm sm:text-base font-semibold break-words px-2 flex-shrink-0 text-center">
+                          {value.subtitle}
+                        </p>
+                        <p className="text-white/90 text-xs sm:text-sm md:text-base leading-relaxed break-words px-2 flex-shrink-0 text-center">
+                          {value.description.split(".")[0]}.
+                        </p>
                       </div>
-                      <h3 className="font-black text-white text-xl sm:text-2xl lg:text-3xl tracking-tight leading-tight mb-2 break-words">
-                        {value.title}
-                      </h3>
-                      <p className="text-brand-secondary text-sm sm:text-base font-semibold mb-4">
-                        {value.subtitle}
-                      </p>
-                      <p className="text-white/80 text-sm sm:text-base leading-relaxed break-words">
-                        {value.description.split(".")[0]}.
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-2 text-white/60 text-xs sm:text-sm">
-                      <MaterialIcon icon="touch_app" size="sm" />
-                      <span className="hidden sm:inline">
-                        Hover for details
-                      </span>
-                      <span className="sm:hidden">Tap for details</span>
+                      <div className="flex-shrink-0 mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-white/30">
+                        <div className="flex items-center justify-center gap-2 text-brand-secondary">
+                          <MaterialIcon
+                            icon="autorenew"
+                            size="md"
+                            className="animate-spin-slow group-hover:animate-spin"
+                          />
+                          <span className="font-semibold text-xs sm:text-sm uppercase tracking-wider">
+                            <span className="hidden sm:inline">
+                              Hover for details
+                            </span>
+                            <span className="sm:hidden">Tap for details</span>
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Back of Card - Detailed highlights and stats */}
                 <div className="absolute inset-0 rotate-y-180 backface-hidden">
-                  <div className="h-full rounded-lg sm:rounded-xl bg-gradient-to-br from-brand-primary/95 via-brand-accent/95 to-gray-900/95 p-6 sm:p-8 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-                    {/* Stat Highlight */}
-                    <div className="mb-6 text-center">
-                      <div className="text-4xl sm:text-5xl font-bold text-brand-secondary mb-1">
-                        {value.stat}
-                      </div>
-                      <div className="text-sm sm:text-base text-brand-secondary/80 font-medium">
-                        {value.statLabel}
-                      </div>
-                    </div>
+                  <div className="h-full rounded-3xl bg-gradient-to-br from-brand-primary to-brand-primary-dark shadow-2xl p-5 sm:p-6 md:p-7 lg:p-8 overflow-hidden">
+                    {/* Overlay for better text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/20 rounded-3xl"></div>
 
-                    {/* Description */}
-                    <p className="text-sm sm:text-base text-white/90 mb-6 leading-relaxed break-words">
-                      {value.description}
-                    </p>
-
-                    {/* Highlights List */}
-                    <div className="space-y-3">
-                      <h4 className="text-sm font-semibold text-brand-secondary uppercase tracking-wider mb-3">
-                        Key Highlights
-                      </h4>
-                      {value.highlights.map((highlight, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-start gap-2 text-white/90"
-                        >
+                    <div className="relative flex flex-col h-full">
+                      {/* Stat Highlight */}
+                      <div className="flex-shrink-0 mb-4">
+                        <div className="inline-block bg-white/20 backdrop-blur-sm p-3 rounded-2xl mb-3 mx-auto">
                           <MaterialIcon
-                            icon="check_circle"
-                            className="text-brand-secondary flex-shrink-0 mt-0.5"
-                            size="sm"
+                            icon={value.icon}
+                            size="lg"
+                            className="text-white"
                           />
-                          <span className="text-xs sm:text-sm leading-snug break-words">
-                            {highlight}
-                          </span>
                         </div>
-                      ))}
+                        <div className="text-center">
+                          <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-secondary mb-1">
+                            {value.stat}
+                          </div>
+                          <div className="text-xs sm:text-sm text-brand-secondary/90 font-semibold uppercase tracking-wider">
+                            {value.statLabel}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Description */}
+                      <div className="flex-1 min-h-0 mb-4">
+                        <p className="text-xs sm:text-sm md:text-base text-white/95 leading-relaxed break-words text-center">
+                          {value.description}
+                        </p>
+                      </div>
+
+                      {/* Highlights List - Top 3 only */}
+                      <div className="flex-shrink-0">
+                        <h4 className="text-xs sm:text-sm font-bold text-brand-secondary uppercase tracking-wider mb-2 text-center">
+                          Key Highlights
+                        </h4>
+                        <div className="space-y-1.5">
+                          {value.highlights
+                            .slice(0, 3)
+                            .map((highlight, idx) => (
+                              <div
+                                key={idx}
+                                className="flex items-start gap-2 text-white/95"
+                              >
+                                <MaterialIcon
+                                  icon="check_circle"
+                                  className="text-brand-secondary flex-shrink-0 mt-0.5 text-xs"
+                                />
+                                <span className="text-xs sm:text-sm leading-snug break-words">
+                                  {highlight}
+                                </span>
+                              </div>
+                            ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -6,6 +6,7 @@
 
 ## 🧭 Quick Navigation
 
+- [🎨 Section Enhancement Patterns](../../branding/implementation/section-enhancement-patterns.md) - **PRIMARY REFERENCE** for button implementation
 - [🗂️ Master Documentation Index](../../master-index.md) - Central hub for all documentation
 - [🛠️ Technical Index](../../technical/technical-index.md) - Technical documentation hub
 - [🎨 Design System](../design-system.md) - Complete design system

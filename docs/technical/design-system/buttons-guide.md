@@ -7,6 +7,7 @@
 ## 🧭 Quick Navigation
 
 - [🔘 Button System Hub](./buttons-ctas-index.md) - Buttons & CTAs documentation hub
+- [🎨 Section Enhancement Patterns](../../branding/implementation/section-enhancement-patterns.md) - **PRIMARY REFERENCE** for button implementation
 - [🗂️ Master Documentation Index](../../master-index.md) - Central hub for all documentation
 - [🎨 Branding Standards](../../branding/standards/cta-standardization-plan.md) - Brand CTA standards
 - [💬 Partnership Messaging](../../partnerships/messaging/cta-button-guide.md) - CTA messaging guide
@@ -36,12 +37,16 @@ This comprehensive guide establishes MH Construction's cohesive button system, e
 
 **Usage:** "Schedule Free Consultation", "Request Project Review", "Contact Client Services"
 
-`````tsx
-<Button variant="primary" size="lg">
-  <MaterialIcon icon="event" className="mr-2 w-5 h-5" />
+```tsx
+<Button variant="primary" size="lg" className="group/btn">
+  <MaterialIcon
+    icon="event"
+    size="lg"
+    className="mr-2 group-hover/btn:scale-110 transition-transform"
+  />
   Schedule Free Consultation
 </Button>
-```text
+```
 
 **When to Use:**
 
@@ -60,9 +65,13 @@ This comprehensive guide establishes MH Construction's cohesive button system, e
 
 **Usage:** "Learn More", "View Portfolio", "Try Automated Estimator"
 
-```tsx
-<Button variant="secondary" size="lg">
-  <MaterialIcon icon="smart_toy" className="mr-2 w-5 h-5" />
+`````tsx
+<Button variant="secondary" size="lg" className="group/btn">
+  <MaterialIcon
+    icon="smart_toy"
+    size="lg"
+    className="mr-2 group-hover/btn:scale-110 transition-transform"
+  />
   Try AI Estimator
 </Button>
 ```text
@@ -85,8 +94,12 @@ This comprehensive guide establishes MH Construction's cohesive button system, e
 **Usage:** "Cancel", "Back", "Skip", "Filter"
 
 ```tsx
-<Button variant="outline" size="default">
-  <MaterialIcon icon="arrow_back" className="mr-2 w-5 h-5" />
+<Button variant="outline" size="default" className="group/btn">
+  <MaterialIcon
+    icon="arrow_back"
+    size="md"
+    className="mr-2 group-hover/btn:scale-110 transition-transform"
+  />
   Go Back
 </Button>
 ```text
@@ -109,8 +122,12 @@ This comprehensive guide establishes MH Construction's cohesive button system, e
 **Usage:** Settings, toggles, utility functions
 
 ```tsx
-<Button variant="neutral" size="default">
-  <MaterialIcon icon="settings" className="mr-2 w-5 h-5" />
+<Button variant="neutral" size="default" className="group/btn">
+  <MaterialIcon
+    icon="settings"
+    size="md"
+    className="mr-2 group-hover/btn:scale-110 transition-transform"
+  />
   Account Settings
 </Button>
 ```text

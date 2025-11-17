@@ -1,5 +1,7 @@
 # MH Construction CTA Button Guide - Service & Partnership Distinctions
 
+> **📋 Implementation Reference:** See [Section Enhancement Patterns](../../branding/implementation/section-enhancement-patterns.md) for complete button implementation standards including icon sizing, hover animations, and technical requirements.
+
 ## 🎯 **CTA BUTTON FRAMEWORK**
 
 This guide provides specific button text and messaging patterns using MH Construction's MaterialIcon
@@ -9,6 +11,18 @@ standards to distinguish between:
 - **IRL CONSULTATION**: In-person sales consultation (MaterialIcon: `event` or `handshake`)
 - **CLIENT PARTNERSHIPS**: Project collaborations (MaterialIcon: `handshake`)
 - **TRADE PARTNERSHIPS**: Vendor/subcontractor relationships (MaterialIcon: `construction`)
+
+### **Critical Implementation Requirements**
+
+All buttons MUST include:
+
+- ✅ Button component from `@/components/ui`
+- ✅ Proper variant: `primary`, `secondary`, or `outline`
+- ✅ MaterialIcon with `icon=` prop and `size="lg"` for CTAs
+- ✅ Icon hover animation: `group-hover/btn:scale-110 transition-transform`
+- ✅ Responsive text sizing: `text-sm sm:text-base`
+- ✅ Minimum height: `min-h-[48px]` for accessibility
+- ✅ Semantic HTML: `<Link>` wrapping `<Button>` for navigation
 
 ---
 
@@ -22,19 +36,31 @@ standards to distinguish between:
 
 ````tsx
 // Primary Automated Estimator CTAs (using MH branding standards)
-<Button variant="secondary" size="lg">
-  <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
-  <span className="font-medium">Get Instant AI Estimate</span>
+<Button variant="secondary" size="lg" className="group/btn">
+  <MaterialIcon
+    icon="smart_toy"
+    size="lg"
+    className="mr-2 sm:mr-3 group-hover/btn:scale-110 transition-transform"
+  />
+  <span className="font-medium text-sm sm:text-base">Get Instant AI Estimate</span>
 </Button>
 
-<Button variant="secondary" size="lg">
-  <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
-  <span className="font-medium">Try Automated Estimator</span>
+<Button variant="secondary" size="lg" className="group/btn">
+  <MaterialIcon
+    icon="smart_toy"
+    size="lg"
+    className="mr-2 sm:mr-3 group-hover/btn:scale-110 transition-transform"
+  />
+  <span className="font-medium text-sm sm:text-base">Try Automated Estimator</span>
 </Button>
 
-<Button variant="secondary" size="lg">
-  <MaterialIcon icon="calculate" size="lg" className="mr-3" />
-  <span className="font-medium">Get AI Estimate</span>
+<Button variant="secondary" size="lg" className="group/btn">
+  <MaterialIcon
+    icon="calculate"
+    size="lg"
+    className="mr-2 sm:mr-3 group-hover/btn:scale-110 transition-transform"
+  />
+  <span className="font-medium text-sm sm:text-base">Get AI Estimate</span>
 </Button>
 ```text
 
@@ -59,19 +85,31 @@ standards to distinguish between:
 
 ```tsx
 // Primary Consultation CTAs (using MH branding standards)
-<Button variant="primary" size="lg">
-  <MaterialIcon icon="event" size="lg" className="mr-3" />
-  <span className="font-medium">Schedule Free Consultation</span>
+<Button variant="primary" size="lg" className="group/btn">
+  <MaterialIcon
+    icon="event"
+    size="lg"
+    className="mr-2 sm:mr-3 group-hover/btn:scale-110 transition-transform"
+  />
+  <span className="font-medium text-sm sm:text-base">Schedule Free Consultation</span>
 </Button>
 
-<Button variant="primary" size="lg">
-  <MaterialIcon icon="handshake" size="lg" className="mr-3" />
-  <span className="font-medium">Meet with Sales Rep</span>
+<Button variant="primary" size="lg" className="group/btn">
+  <MaterialIcon
+    icon="handshake"
+    size="lg"
+    className="mr-2 sm:mr-3 group-hover/btn:scale-110 transition-transform"
+  />
+  <span className="font-medium text-sm sm:text-base">Meet with Sales Rep</span>
 </Button>
 
-<Button variant="primary" size="lg">
-  <MaterialIcon icon="place" size="lg" className="mr-3" />
-  <span className="font-medium">Book Site Visit</span>
+<Button variant="primary" size="lg" className="group/btn">
+  <MaterialIcon
+    icon="place"
+    size="lg"
+    className="mr-2 sm:mr-3 group-hover/btn:scale-110 transition-transform"
+  />
+  <span className="font-medium text-sm sm:text-base">Book Site Visit</span>
 </Button>
 ```text
 
@@ -96,14 +134,22 @@ standards to distinguish between:
 
 ```tsx
 // Client Partnership CTAs (using MH branding standards)
-<Button variant="primary" size="lg">
-  <MaterialIcon icon="handshake" size="lg" className="mr-3" />
-  <span className="font-medium">Begin Partnership</span>
+<Button variant="primary" size="lg" className="group/btn">
+  <MaterialIcon
+    icon="handshake"
+    size="lg"
+    className="mr-2 sm:mr-3 group-hover/btn:scale-110 transition-transform"
+  />
+  <span className="font-medium text-sm sm:text-base">Begin Partnership</span>
 </Button>
 
-<Button variant="primary" size="lg">
-  <MaterialIcon icon="engineering" size="lg" className="mr-3" />
-  <span className="font-medium">Discuss Your Vision</span>
+<Button variant="primary" size="lg" className="group/btn">
+  <MaterialIcon
+    icon="engineering"
+    size="lg"
+    className="mr-2 sm:mr-3 group-hover/btn:scale-110 transition-transform"
+  />
+  <span className="font-medium text-sm sm:text-base">Discuss Your Vision</span>
 </Button>
 ```text
 

@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
+import { Card, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
-import { Section, SectionHeader } from "@/components/ui/layout";
 import {
   AboutHero,
   AboutValues,
@@ -18,7 +17,6 @@ import {
   SafetySection,
   AwardsSection,
 } from "@/components/about";
-import { getCardClassName } from "@/lib/styles/card-variants";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { PartnershipCTA } from "@/components/home/PartnershipCTA";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
@@ -62,191 +60,205 @@ export default function AboutPage() {
       <AwardsSection />
 
       {/* Why Values Matter Section */}
-      <Section variant="default" padding="default">
-        <SectionHeader
-          subtitle="Why Our Values"
-          title={
-            <span className="block text-brand-primary dark:text-brand-primary font-black">
-              Matter
-            </span>
-          }
-          description="Our commitment to integrity, transparency, and excellence drives every project decision and partnership we build. These aren't just words on a wall—they're the foundation of how we do business and the promise we make to every Client Partner."
-          maxWidth="4xl"
-        />
+      <section className="relative bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.08)_0%,transparent_50%)]"></div>
 
-        <StaggeredFadeIn className={gridPresets.cards3("md")}>
-          <Card
-            className={getCardClassName(
-              "default",
-              "border-l-4 border-l-brand-primary hover:-translate-y-2 duration-300 hover:shadow-xl",
-            )}
-          >
-            <CardHeader className="text-center">
-              <MaterialIcon
-                icon="people"
-                className="mb-4 text-brand-primary text-5xl"
-              />
-              <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
-                For Our Partners
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <FadeInWhenVisible>
+            <div className="mb-12 sm:mb-16 lg:mb-20 text-center">
+              <div className="mb-6 sm:mb-8 flex justify-center">
+                <div className="rounded-2xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg">
                   <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    icon="verified"
+                    className="text-5xl text-white"
                   />
-                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                    Predictable, consistent experience you can count on
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                  />
-                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                    Peace of mind knowing your project is in capable hands
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                  />
-                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                    Long-term partnership beyond project completion
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                  />
-                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                    True ROI—the return is the relationship
-                  </span>
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
+                </div>
+              </div>
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+                  Why Our Values
+                </span>
+                <span className="block text-brand-primary dark:text-brand-primary-light font-black">
+                  Matter
+                </span>
+              </h2>
+              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
+                Our commitment to integrity, transparency, and excellence drives
+                every project decision and partnership we build. These
+                aren&apos;t just words on a wall—they&apos;re the foundation of
+                how we do business and the promise we make to every Client
+                Partner.
+              </p>
+            </div>
+          </FadeInWhenVisible>
 
-          <Card
-            className={getCardClassName(
-              "default",
-              "border-l-4 border-l-brand-secondary hover:-translate-y-2 duration-300 hover:shadow-xl",
-            )}
-          >
-            <CardHeader className="text-center">
-              <MaterialIcon
-                icon="location_city"
-                className="mb-4 text-brand-secondary text-5xl"
-              />
-              <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
-                For Our Community
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                  />
-                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                    Economic development supporting local suppliers
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                  />
-                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                    Raising quality standards in construction industry
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                  />
-                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                    Veteran support and opportunities for military families
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                  />
-                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                    Building structures serving communities for generations
-                  </span>
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
+          <StaggeredFadeIn className={gridPresets.cards3("md")}>
+            <div className="group h-full">
+              <div className="h-full flex flex-col p-6 sm:p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                <div className="mb-6 flex justify-center">
+                  <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-3 shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <MaterialIcon
+                      icon="people"
+                      className="text-4xl text-white"
+                    />
+                  </div>
+                </div>
+                <h3 className="mb-4 text-center font-bold text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
+                  For Our Partners
+                </h3>
+                <ul className="space-y-3 text-gray-700 dark:text-gray-300 flex-grow">
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Predictable, consistent experience you can count on
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Peace of mind knowing your project is in capable hands
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Long-term partnership beyond project completion
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      True ROI—the return is the relationship
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-          <Card
-            className={getCardClassName(
-              "default",
-              "border-l-4 border-l-brand-accent hover:-translate-y-2 duration-300 hover:shadow-xl",
-            )}
-          >
-            <CardHeader className="text-center">
-              <MaterialIcon
-                icon="engineering"
-                className="mb-4 text-brand-accent text-5xl"
-              />
-              <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
-                For Our Team
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                  />
-                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                    Professional pride in meaningful work
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                  />
-                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                    Clear standards and expectations in every interaction
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                  />
-                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                    Personal growth in environment valuing excellence
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
-                  />
-                  <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                    Being part of something larger than individual projects
-                  </span>
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
-        </StaggeredFadeIn>
-      </Section>
+            <div className="group h-full">
+              <div className="h-full flex flex-col p-6 sm:p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                <div className="mb-6 flex justify-center">
+                  <div className="rounded-xl bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-3 shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <MaterialIcon
+                      icon="location_city"
+                      className="text-4xl text-white"
+                    />
+                  </div>
+                </div>
+                <h3 className="mb-4 text-center font-bold text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
+                  For Our Community
+                </h3>
+                <ul className="space-y-3 text-gray-700 dark:text-gray-300 flex-grow">
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Economic development supporting local suppliers
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Raising quality standards in construction industry
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Veteran support and opportunities for military families
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Building structures serving communities for generations
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="group h-full">
+              <div className="h-full flex flex-col p-6 sm:p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                <div className="mb-6 flex justify-center">
+                  <div className="rounded-xl bg-gradient-to-br from-brand-accent to-bronze-600 p-3 shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <MaterialIcon
+                      icon="engineering"
+                      className="text-4xl text-white"
+                    />
+                  </div>
+                </div>
+                <h3 className="mb-4 text-center font-bold text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
+                  For Our Team
+                </h3>
+                <ul className="space-y-3 text-gray-700 dark:text-gray-300 flex-grow">
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Professional pride in meaningful work
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Clear standards and expectations in every interaction
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Personal growth in environment valuing excellence
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                    />
+                    <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                      Being part of something larger than individual projects
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </StaggeredFadeIn>
+        </div>
+      </section>
 
       {/* Safety & Compliance Section */}
       <SafetySection />

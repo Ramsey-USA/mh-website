@@ -93,6 +93,7 @@ Developer quick references, code patterns, and implementation checklists.
 **Key Files**:
 
 - `branding-quick-reference.md` - Quick developer reference
+- `section-enhancement-patterns.md` - ⭐ **NEW (Nov 2025)** - Standardized visual enhancement patterns for sections
 
 **Note**: Detailed implementation details have been consolidated into `/docs/development/consistency-guide.md` for
 unified access.
