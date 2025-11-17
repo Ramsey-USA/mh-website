@@ -5,7 +5,9 @@
 **Updated:** November 17, 2025  
 **Status:** ✅ Active Standard
 
-> **Purpose:** Standardized visual enhancement patterns for sections across the website, ensuring consistent and polished presentation that aligns with MH branding. Includes architectural patterns for composition, animations, performance, and comprehensive button guidelines.
+> **Purpose:** Standardized visual enhancement patterns for sections across the website, ensuring consistent
+> and polished presentation that aligns with MH branding. Includes architectural patterns for composition,
+> animations, performance, and comprehensive button guidelines.
 
 ---
 
@@ -696,7 +698,8 @@ When enhancing a section, ensure:
 
 ### **Sections Following This Pattern:**
 
-All major content sections should follow this enhancement pattern for visual consistency across the website. When creating new sections or updating existing ones, reference the implemented examples above.
+All major content sections should follow this enhancement pattern for visual consistency across
+the website. When creating new sections or updating existing ones, reference the implemented examples above.
 
 ---
 

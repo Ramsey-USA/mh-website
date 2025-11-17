@@ -1,6 +1,7 @@
 # MH Construction CTA Button Guide - Service & Partnership Distinctions
 
-> **📋 Implementation Reference:** See [Section Enhancement Patterns](../../branding/implementation/section-enhancement-patterns.md) for complete button implementation standards including icon sizing, hover animations, and technical requirements.
+**Purpose:** Comprehensive guide for consistent CTA (Call-to-Action) button implementation, messaging,
+and placement across all MH Construction web pages to maximize conversions and maintain brand consistency.
 
 ## 🎯 **CTA BUTTON FRAMEWORK**
 
