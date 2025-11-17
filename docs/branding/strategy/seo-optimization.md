@@ -34,7 +34,7 @@ alignment with the 7-group messaging strategy defined in
 
 **Previous:**
 
-- Title: "AI-Powered Veteran-Owned Construction Excellence"
+- Title: "Automated Veteran-Owned Construction Excellence"
 - Description: (See updated SEO function for full text)
 - Led with: Technology focus
 
@@ -68,7 +68,7 @@ alignment with the 7-group messaging strategy defined in
 **Previous:**
 
 - Title: "Contact MH Construction | Veteran-Owned Builder | Pasco, WA"
-- Description: Mentioned "AI-powered estimating" prominently
+- Description: Mentioned "automated estimating" prominently
 
 **Optimized:**
 
@@ -148,7 +148,7 @@ alignment with the 7-group messaging strategy defined in
 
 **Previous:**
 
-- Title: "Construction Services | AI-Powered Building Solutions"
+- Title: "Construction Services | Automated Building Solutions"
 - Description: (See updated SEO function for full text)
 - Tech-heavy focus
 
@@ -265,19 +265,19 @@ alignment with the 7-group messaging strategy defined in
 
 **Previous:**
 
-- Title: "AI Construction Cost Estimator | Instant Estimates 24/7"
+- Title: "Automated Construction Cost Estimator | Instant Estimates 24/7"
 - Description: Tech-focused, appropriate for this page
 
 **Optimized:**
 
-- Title: "AI Construction Cost Estimator | Instant Estimates 24/7" (KEPT - perfect for tech page)
+- Title: "Automated Construction Cost Estimator | Instant Estimates 24/7" (KEPT - perfect for tech page)
 - Description: (See updated SEO function for full text)
 - Tone: Tech-savvy, innovative, cutting-edge
 - Keywords: automated estimator → instant estimates → real-time pricing → automated calculator
 
 **Section Order:** ✅ Tech innovation appropriate
 
-- AI tool front and center
+- Automated tool front and center
 - Technical capabilities showcased
 - Innovation highlighted
 
@@ -355,9 +355,9 @@ alignment with the 7-group messaging strategy defined in
 
 | Page               | BEFORE                                      | AFTER                                                                      | Improvement                             |
 | ------------------ | ------------------------------------------- | -------------------------------------------------------------------------- | --------------------------------------- |
-| **Homepage**       | "AI-Powered Veteran-Owned..."               | "Veteran-Owned \| Traditional Values, Modern Efficiency"                   | ✅ Leads with brand identity, tech last |
+| **Homepage**       | "Automated Veteran-Owned..."                | "Veteran-Owned \| Traditional Values, Modern Efficiency"                   | ✅ Leads with brand identity, tech last |
 | **About**          | "Veteran-Owned Partnership-Driven Platform" | "Founded 2010, Veteran-Owned Since 2025 \| Trust Built Project by Project" | ✅ Heritage timeline, trust focus       |
-| **Services**       | "AI-Powered Building Solutions"             | "Residential, Commercial & Government"                                     | ✅ Service types first, future vision   |
+| **Services**       | "Automated Building Solutions"              | "Residential, Commercial & Government"                                     | ✅ Service types first, future vision   |
 | **Team**           | "Meet Our Veteran-Owned Team"               | "Building Tomorrow's Excellence Today"                                     | ✅ Growth trajectory emphasis           |
 | **Careers**        | "Join Our Veteran-Owned Team"               | "Join Our Team! Careers \| Grow With Us"                                   | ✅ Enthusiasm, opportunity focus        |
 | **Trade Partners** | "Join Our Subcontractor Team"               | "THE ROI IS THE RELATIONSHIP"                                              | ✅ Unique value prop prominent          |
@@ -378,8 +378,8 @@ alignment with the 7-group messaging strategy defined in
 **BEFORE (Homepage example):**
 
 ```text
-"AI construction assistant"
-"General MH military AI"
+"automated construction assistant"
+"General MH military automation"
 "veteran-owned contractor"
 ```
 

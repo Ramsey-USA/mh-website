@@ -3,7 +3,7 @@
 ## Overview
 
 This document outlines the comprehensive SEO enhancements implemented based on the new information from the README
-file, focusing on AI-powered construction intelligence, veteran-owned business status, and Pacific Northwest service
+file, focusing on automated construction intelligence, veteran-owned business status, and Pacific Northwest service
 excellence.
 
 ## Key SEO Improvements Implemented
@@ -16,7 +16,7 @@ excellence.
 - `/government` - Government construction projects
 - `/team` - Veteran construction team
 - `/trade-partners` - Subcontractor network
-- `/estimator` - AI-powered cost estimation (highest priority: 0.95)
+- `/estimator` - Automated cost estimation (highest priority: 0.95)
 
 **Priority Optimization:**
 
@@ -29,21 +29,21 @@ excellence.
 
 ### 2. Enhanced Root Metadata (`/src/app/layout.tsx`)
 
-**Updated Title:** "MH Construction - AI-Powered Veteran-Owned Construction Excellence"
+**Updated Title:** "MH Construction - Veteran-Owned Construction | Traditional Values, Modern Tools"
 
-**Enhanced Description:** Highlights revolutionary AI construction intelligence with General MH military assistant,
-veteran-owned status, and Pacific Northwest community focus.
+**Enhanced Description:** Highlights veteran-owned business status, traditional partnership approach, Pacific Northwest
+community focus, with modern tools supporting personal service.
 
 **Expanded Keywords:**
 
-- AI construction assistant
-- Veteran-owned contractor
+- Veteran-owned contractor Pacific Northwest
+- Traditional business construction
+- Face-to-face construction consultation
+- Construction partnerships Tri-Cities
 - Military precision construction
-- Pacific Northwest builder
-- General MH military AI
-- Construction intelligence
+- Transparent construction communication
+- Construction planning tools (supporting role)
 - Veteran benefits construction
-- Transparent construction partnerships
 
 ### 3. Comprehensive Schema Markup (`/src/components/seo/enhanced-seo.tsx`)
 
@@ -51,7 +51,7 @@ veteran-owned status, and Pacific Northwest community focus.
 
 - **Dual Type:** `["GeneralContractor", "VeteranOwnedBusiness"]`
 - **Veteran Certification:** U.S. Small Business Administration verification
-- **AI Technology Integration:** General MH military assistant details
+- **Modern Support Tools:** Digital assistants and planning tools available
 - **Multi-state Licensing:** WA, OR, ID credentials
 - **Service Area:** Pacific Northwest region with Tri-Cities focus
 - **Mission Statement:** "We Work With You" partnership philosophy
@@ -76,11 +76,11 @@ veteran-owned status, and Pacific Northwest community focus.
 
 **8 Comprehensive FAQs covering:**
 
-- AI vs IRL service comparison
+- Automated tools vs personal consultation options
 - Veteran benefits and discounts
 - Pacific Northwest service area
-- Unique AI technology differentiators
-- General MH assistant capabilities
+- Modern planning tools as helpful extras
+- General MH assistant for guidance
 - Construction service types
 - Getting started process
 - Veteran-owned business certification
@@ -154,9 +154,9 @@ export default function EstimatorPage() {
 ```tsx
 const services = [
   {
-    name: "AI-Powered Construction Intelligence",
-    description: "Revolutionary construction assistance with General MH military AI",
-    category: "Construction Technology"
+    name: "Partnership-Driven Construction Management",
+    description: "Traditional values with modern planning tools to support your project",
+    category: "Construction Services"
   },
   // ... more services
 ];
@@ -168,7 +168,7 @@ const serviceSchemas = services.map(service => generateServiceSchema(service));
 
 ### 1. Search Visibility Improvements
 
-- **AI Construction Terms:** First-mover advantage in AI construction search
+- **Traditional Business Terms:** Enhanced visibility for relationship-focused construction
 - **Veteran-Owned Queries:** Enhanced visibility for veteran business searches
 - **Pacific Northwest Local:** Improved regional construction search ranking
 - **Service-Specific:** Better ranking for specific construction services
@@ -183,7 +183,7 @@ const serviceSchemas = services.map(service => generateServiceSchema(service));
 ### 3. User Experience Enhancement
 
 - **Instant Answers:** FAQ schema provides quick information access
-- **Service Clarity:** Clear distinction between AI and human services
+- **Service Clarity:** Clear distinction between planning tools and personal consultation
 - **Veteran Focus:** Dedicated content for veteran community
 - **Local Relevance:** Pacific Northwest regional optimization
 

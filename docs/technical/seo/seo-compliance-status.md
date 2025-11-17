@@ -219,7 +219,7 @@ For client components, consider:
 - Commercial construction
 - Government construction
 - Emergency/urgent construction support
-- AI-powered estimation
+- Automated planning tools (supporting service)
 - Trade partnerships
 
 ---
