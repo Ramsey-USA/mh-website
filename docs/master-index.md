@@ -76,6 +76,10 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 - [Messaging Guidelines](./branding/strategy/messaging.md) - Voice, tone, communication
 - [Page-Specific Messaging Guide](./branding/strategy/page-specific-messaging-guide.md) -
   ⭐ **NEW (Nov 14, 2025)** - 7-group messaging strategy with unique voice/tone for each page group
+- [Universal Terminology Guide](./branding/strategy/universal-terminology-guide.md) -
+  ⭐ **NEW (Jan 2025)** - Universal language & terminology standards (Client Partners, veteran status, etc.)
+- [Estimator vs Consultation Language Guide](./branding/strategy/estimator-vs-consultation-language.md) -
+  ⭐ **NEW (Nov 17, 2025)** - Clear language distinctions between AI Budget Planning Tool and Human Expert Consultations
 - [Homepage Optimization Guide](./branding/strategy/homepage-optimization.md) -
   ⭐ **NEW (Nov 2025)** - Trust-first optimization approach
 - [SEO Optimization Complete](./branding/strategy/seo-optimization.md) -
@@ -324,11 +328,13 @@ Document & code templates for rapid creation.
 
 1. **[Page-Specific Messaging Guide](./branding/strategy/page-specific-messaging-guide.md)** -
    ⭐ **NEW** - Unique voice for each page group
-2. **[Messaging Guidelines](./branding/strategy/messaging.md)** - Voice and tone
-3. **[Content Standards](./branding/strategy/content-messaging-standards.md)** - Writing rules
-4. **[Partnership Messaging](./partnerships/messaging/partnership-messaging-guide.md)** - Partner content
-5. **[SEO Best Practices](./technical/seo/ultimate-seo-guide.md)** - SEO content optimization
-6. **[CTA Standards](./branding/standards/cta-standardization-plan.md)** - Call-to-action patterns
+2. **[Universal Terminology Guide](./branding/strategy/universal-terminology-guide.md)** -
+   ⭐ **NEW (Jan 2025)** - Company-wide language standards (ESSENTIAL)
+3. **[Messaging Guidelines](./branding/strategy/messaging.md)** - Voice and tone
+4. **[Content Standards](./branding/strategy/content-messaging-standards.md)** - Writing rules
+5. **[Partnership Messaging](./partnerships/messaging/partnership-messaging-guide.md)** - Partner content
+6. **[SEO Best Practices](./technical/seo/ultimate-seo-guide.md)** - SEO content optimization
+7. **[CTA Standards](./branding/standards/cta-standardization-plan.md)** - Call-to-action patterns
 
 ### **For Project Managers**
 

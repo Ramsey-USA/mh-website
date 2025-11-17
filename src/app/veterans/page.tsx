@@ -371,7 +371,7 @@ export default function VeteransPage() {
                         Service
                       </h4>
                       <p className="text-base">
-                        Putting client mission above company profit
+                        Putting client partner mission above company profit
                       </p>
                     </div>
                   </li>

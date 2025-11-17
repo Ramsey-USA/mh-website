@@ -40,7 +40,7 @@ export function generateHowToSchema(howTo: HowToSchemaProps) {
     tool: [
       {
         "@type": "HowToTool",
-        name: "Automated Estimator Tool",
+        name: "AI Budget Planning Tool",
       },
     ],
   };
@@ -52,12 +52,12 @@ export function generateHowToSchema(howTo: HowToSchemaProps) {
 export const getEstimateHowTo = generateHowToSchema({
   name: "How to Get an Automated Estimate",
   description:
-    "Get an instant, accurate construction estimate using MH Construction's automated estimator tool",
+    "Get preliminary budget estimates in under 5 minutes using MH Construction's AI planning tool to prepare for your consultation",
   totalTime: "PT5M",
   steps: [
     {
-      name: "Visit the Automated Estimator",
-      text: "Navigate to the Automated Estimator tool on MH Construction's website",
+      name: "Visit the AI Budget Estimator",
+      text: "Navigate to the AI Budget Planning Tool on MH Construction's website",
       url: "https://www.mhc-gc.com/estimator",
     },
     {

@@ -183,7 +183,7 @@ export const openPositions: JobPosition[] = [
     type: "Full-time",
     experience: "2-4 years",
     description:
-      "Prepare accurate cost estimates for commercial and residential projects using industry software. Partner with clients to understand project scope and deliver competitive bids.",
+      "Prepare accurate cost estimates for commercial and residential projects using industry software. Partner with client partners to understand project scope and deliver competitive bids.",
     requirements: [
       "Experience with estimating software (ProEst, PlanSwift, etc.)",
       "2+ years of construction estimating experience",
@@ -205,13 +205,13 @@ export const openPositions: JobPosition[] = [
     type: "Full-time",
     experience: "Entry Level Welcome",
     description:
-      "Support daily operations with scheduling, documentation, and partner communication. Be the welcoming face of our veteran-owned company.",
+      "Support daily operations with scheduling, documentation, and client partner communication. Be the welcoming face of our veteran-owned company.",
     requirements: [
       "High school diploma or equivalent",
       "Excellent communication skills",
       "Proficiency in Microsoft Office Suite",
       "Strong organizational abilities",
-      "Customer service orientation",
+      "Client Partner service orientation",
     ],
     benefits: [
       "Competitive starting salary",
@@ -302,7 +302,7 @@ export const cultureValues: CultureValue[] = [
     icon: "handshake",
     title: "Integrity & Trust",
     description:
-      "We build relationships based on honesty, transparency, and mutual respect. 'Building for the Client, NOT the Dollar' means transparent communication, open-book pricing, and collaborative problem-solving define every interaction—from apprentice to owner. 70% of our business comes from referrals and repeat clients.",
+      "We build relationships based on honesty, transparency, and mutual respect. 'Building for the Client, NOT the Dollar' means transparent communication, open-book pricing, and collaborative problem-solving define every interaction—from apprentice to owner. 70% of our business comes from referrals and repeat client partners.",
     color: "from-brand-primary to-brand-primary-dark",
   },
   {

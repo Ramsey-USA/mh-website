@@ -55,7 +55,7 @@ export const breadcrumbPatterns = {
   ],
   estimator: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Automated Estimator", url: "https://www.mhc-gc.com/estimator" },
+    { name: "AI Estimator", url: "https://www.mhc-gc.com/estimator" },
   ],
   government: [
     { name: "Home", url: "https://www.mhc-gc.com" },

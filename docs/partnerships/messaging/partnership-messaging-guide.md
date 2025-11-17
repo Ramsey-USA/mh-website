@@ -399,15 +399,15 @@ Form Submissions:
 ### **Navigation and Menu Items**
 
 ```typescript
-// CLIENT-FOCUSED NAVIGATION
-"Services" → "Partnership Approach" (for clients)
-"Contact" → "Get Free Estimate" (for clients)
+// CLIENT PARTNER-FOCUSED NAVIGATION
+"Services" → "Partnership Approach" (for Client Partners)
+"Contact" → "Get Free Estimate" (for Client Partners)
 "About" → "Our Story & Values"
 "Portfolio" → "Partnership Success Stories"
 "Booking" → "Schedule Consultation"
 "Estimator" → "Automated Estimator"
 
-// VENDOR-FOCUSED NAVIGATION
+// VENDOR-FOCUSED NAVIGATION (TRADE PARTNERS)
 "Trade Partners" → "Trade Partnership Network"
 "Vendor Portal" → "Approved Vendor Login"
 "Apply" → "Vendor Application"
@@ -707,10 +707,10 @@ Follow these priority phases to ensure systematic and effective rollout.*
 
 ### **Phase 1: Client Partnership Language (Week 1)**
 
-- [ ] Homepage hero messaging update with client-focused CTAs
-- [ ] Contact page with client consultation language
-- [ ] Services page with client partnership terminology
-- [ ] Navigation menu updates for client journey
+- [ ] Homepage hero messaging update with Client Partner-focused CTAs
+- [ ] Contact page with Client Partner consultation language
+- [ ] Services page with Client Partner partnership terminology
+- [ ] Navigation menu updates for Client Partner journey
 - [ ] Button text changes: "Get Free Estimate", "Schedule Consultation"
 
 ### **Phase 2: Vendor Partnership Content (Week 2)**
@@ -723,17 +723,17 @@ Follow these priority phases to ensure systematic and effective rollout.*
 
 ### **Phase 3: Form and Interactive Updates (Week 3)**
 
-- [ ] Client form language: "Share Your Project Vision"
+- [ ] Client Partner form language: "Share Your Project Vision"
 - [ ] Vendor application forms and documentation
 - [ ] Chat/AI assistant responses for both audiences
-- [ ] Email templates for client vs vendor communications
-- [ ] Footer messaging with both client and vendor paths
+- [ ] Email templates for Client Partner vs vendor communications
+- [ ] Footer messaging with both Client Partner and vendor paths
 
 ### **Phase 4: Advanced Features (Week 4)**
 
-- [ ] Separate client and vendor contact workflows
+- [ ] Separate Client Partner and vendor contact workflows
 - [ ] Vendor portal development
-- [ ] Client project journey visualization
+- [ ] Client Partner project journey visualization
 - [ ] Trade partner dashboard
 - [ ] Distinct analytics tracking for both audiences
 

@@ -1,6 +1,6 @@
 /**
  * Shared Testimonials Section Component
- * Displays client testimonials in a consistent format across pages
+ * Displays client partner testimonials in a consistent format across pages
  * Used on: Homepage, About, Services, Projects pages
  */
 
@@ -20,7 +20,7 @@ interface TestimonialsSectionProps {
 }
 
 export function TestimonialsSection({
-  title = "What Our Clients Say",
+  title = "What Our Client Partners Say",
   subtitle = "What Our",
   description = "Read testimonials from valued partners across the Pacific Northwest who have experienced our collaborative excellence firsthand.",
   className = "",

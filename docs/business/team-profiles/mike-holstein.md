@@ -44,7 +44,7 @@ defines MH Construction today.
 
 - Company Foundations & Core Values Establishment
 - Quality Standards Development
-- Client Trust & Reputation Building
+- Client Partner Trust & Reputation Building
 - Mentorship & Succession Planning
 
 ## 📜 Certifications

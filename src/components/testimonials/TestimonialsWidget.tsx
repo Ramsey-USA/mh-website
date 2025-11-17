@@ -22,8 +22,8 @@ interface TestimonialsWidgetProps {
 }
 
 export default function TestimonialsWidget({
-  title = "What Our Clients Say",
-  subtitle = "Read testimonials from satisfied customers across the Pacific Northwest",
+  title = "What Our Client Partners Say",
+  subtitle = "Read testimonials from satisfied Client Partners across the Pacific Northwest",
   showViewAll = true,
   autoSlide = true,
   slideDuration = 5000,

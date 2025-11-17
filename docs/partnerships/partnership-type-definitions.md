@@ -253,12 +253,12 @@ focused on business growth and quality project delivery.
 #### Body Copy
 
 ```markdown
-✅ CLIENT CONTEXT:
+✅ CLIENT PARTNER CONTEXT:
 "At MH Construction, we believe in building partnerships, not just projects.
-When you work with us, you're not just a customer—you're a valued partner
+When you work with us, you're not just a customer—you're a valued Client Partner
 in creating something exceptional."
 
-✅ TRADE CONTEXT:
+✅ TRADE PARTNER CONTEXT:
 "MH Construction is building a network of quality trade professionals across
 the Pacific Northwest. Join our approved vendor program and grow your business
 with consistent, quality project opportunities."
@@ -271,20 +271,20 @@ with consistent, quality project opportunities."
 
 #### Email Segmentation
 
-- **Client List:** Project updates, consultation offers, success stories
+- **Client Partner List:** Project updates, consultation offers, success stories
 - **Trade Partner List:** Project opportunities, vendor news, qualification updates
 - **Never mix segments** - Messages are fundamentally different
 
 #### Campaign Tracking
 
 ```text
-utm_source=website&utm_campaign=client-partnership-2025
+utm_source=website&utm_campaign=client-partner-2025
 utm_source=website&utm_campaign=trade-partnership-recruitment-2025
 ```
 
 #### Ad Copy Targeting
 
-- **Client Ads:** Focus on vision, consultation, partnership approach
+- **Client Partner Ads:** Focus on vision, consultation, partnership approach
 - **Trade Ads:** Focus on opportunities, business growth, professional network
 
 ---
@@ -294,7 +294,7 @@ utm_source=website&utm_campaign=trade-partnership-recruitment-2025
 ### Website Footer
 
 ```tsx
-// Column: For Clients
+// Column: For Client Partners
 - "Get Free Estimate" → /booking
 - "Schedule Consultation" → /booking
 - "Our Services" → /services
@@ -310,9 +310,9 @@ utm_source=website&utm_campaign=trade-partnership-recruitment-2025
 ### Contact Page
 
 ```tsx
-// Section 1: Project Consultations (Client Partnerships)
+// Section 1: Project Consultations (Client Partner Partnerships)
 <h2>Start Your Project Partnership</h2>
-<ClientConsultationForm />
+<ClientPartnerConsultationForm />
 
 // Section 2: Trade Partnership Inquiries (Vendor Partnerships)
 <h2>Join Our Trade Partnership Network</h2>
@@ -406,8 +406,8 @@ Before publishing any content mentioning "partnership", ask:
    - Is the language specific to the partnership type?
 
 4. **Is the visual identity consistent?**
-   - Correct colors (Hunter Green for client, Leather Tan for trade)?
-   - Correct icons (handshake for client, construction for trade)?
+   - Correct colors (Hunter Green for Client Partners, Leather Tan for Trade Partners)?
+   - Correct icons (handshake for Client Partners, construction for Trade Partners)?
 
 ---
 

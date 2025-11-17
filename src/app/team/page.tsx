@@ -164,10 +164,10 @@ export default function TeamPage() {
                     &ldquo;All for one, one for all&rdquo; isn&apos;t just a
                     motto—it&apos;s how we partner, grow, and succeed together.
                     Our people-centered culture starts with leadership committed
-                    to serving both clients and communities, maintaining the
-                    highest standards of safety (.6 EMR award-winning), quality
-                    craftsmanship, and transparent communication that defines
-                    every partnership.
+                    to serving both Client Partners and communities, maintaining
+                    the highest standards of safety (.6 EMR award-winning),
+                    quality craftsmanship, and transparent communication that
+                    defines every partnership.
                   </p>
                 </div>
 
@@ -189,9 +189,10 @@ export default function TeamPage() {
                         From veterans to civilians, office to field—we&apos;re
                         one partnership team with shared values forged through
                         military discipline and construction excellence. Every
-                        partner success belongs to all of us, every safety
-                        milestone reflects our collective commitment, and every
-                        project showcases our unified dedication to quality.
+                        client partner success belongs to all of us, every
+                        safety milestone reflects our collective commitment, and
+                        every project showcases our unified dedication to
+                        quality.
                       </p>
                     </div>
                   </FadeInWhenVisible>
@@ -234,8 +235,8 @@ export default function TeamPage() {
                         Partnership Success
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
-                        When our partners win, we all win—from AGC-WA Top EMR
-                        Awards to 3+ years without time-loss injuries.
+                        When our client partners win, we all win—from AGC-WA Top
+                        EMR Awards to 3+ years without time-loss injuries.
                         Celebrating partnership achievements together (70%
                         referral business), learning from setbacks as a unified
                         team, and building lasting relationships that extend
@@ -382,7 +383,7 @@ export default function TeamPage() {
                             Building lasting partnerships that extend well
                             beyond project completion, with 70% referral
                             business proving the strength of our commitment to
-                            client success and future growth together.
+                            client partner success and future growth together.
                           </p>
                         </div>
                       </div>
@@ -532,8 +533,8 @@ export default function TeamPage() {
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
                         Emerging leaders receive specialized training in project
-                        management, team leadership, client relations, and
-                        business development. We build tomorrow&apos;s
+                        management, team leadership, client partner relations,
+                        and business development. We build tomorrow&apos;s
                         construction leaders today.
                       </p>
                     </div>

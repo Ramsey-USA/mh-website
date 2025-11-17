@@ -286,11 +286,11 @@ export default function ServicesPage() {
           </StaggeredFadeIn>
         </Section>
 
-        {/* Client Testimonials Section - POSITIONED AT 25-30% PAGE DEPTH FOR SEO OPTIMIZATION */}
+        {/* Client Partner Testimonials Section - POSITIONED AT 25-30% PAGE DEPTH FOR SEO OPTIMIZATION */}
         <TestimonialGrid
           testimonials={getClientTestimonials()}
-          title="What Our Partners Say About Us"
-          subtitle="Real feedback from partners who trust us with their commercial and residential construction projects"
+          title="What Our Client Partners Say About Us"
+          subtitle="Real feedback from Client Partners who trust us with their commercial and residential construction projects"
           variant="client"
           showViewMoreButton={true}
           viewMoreHref="/about#testimonials"
@@ -1039,7 +1039,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Partnership Types Section - Client vs Trade */}
+        {/* Partnership Types Section - Client Partner vs Trade Partner */}
         <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
@@ -1053,8 +1053,8 @@ export default function ServicesPage() {
                   </span>
                 </h2>
                 <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed px-4 break-words">
-                  Whether you're a client with a construction project or a trade
-                  professional seeking partnership opportunities, MH
+                  Whether you're a Client Partner with a construction project or
+                  a Trade Partner seeking partnership opportunities, MH
                   Construction offers dedicated pathways to collaboration and
                   success.
                 </p>
@@ -1062,7 +1062,7 @@ export default function ServicesPage() {
             </FadeInWhenVisible>
 
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
-              {/* Client Partnerships */}
+              {/* Client Partner Relationships */}
               <FadeInWhenVisible>
                 <Card className="relative bg-gradient-to-br from-brand-primary/5 via-brand-primary/8 to-brand-primary/10 dark:from-gray-800 dark:via-gray-850 dark:to-gray-900 border-2 border-brand-primary hover:border-brand-primary-dark dark:hover:border-brand-primary-light h-full hover:shadow-2xl dark:hover:shadow-brand-primary/20 hover:-translate-y-2 transition-all duration-500 group overflow-hidden">
                   {/* Decorative background elements */}
@@ -1079,7 +1079,7 @@ export default function ServicesPage() {
                       </div>
                       <div>
                         <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl leading-tight">
-                          Client Partnerships
+                          Client Partner Relationships
                         </h3>
                         <p className="text-brand-primary dark:text-brand-primary-light font-semibold text-lg">
                           Project Collaboration
@@ -1088,8 +1088,9 @@ export default function ServicesPage() {
                     </div>
 
                     <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
-                      For businesses and organizations planning construction
-                      projects. We work{" "}
+                      For Client Partners—businesses and organizations—planning
+                      construction projects across the Pacific Northwest. We
+                      work{" "}
                       <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
                         WITH you
                       </span>{" "}
@@ -1099,7 +1100,7 @@ export default function ServicesPage() {
 
                     <div className="mb-6 flex-grow">
                       <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-4">
-                        What We Offer Clients:
+                        What We Offer Client Partners:
                       </h4>
                       <ul className="space-y-3">
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">

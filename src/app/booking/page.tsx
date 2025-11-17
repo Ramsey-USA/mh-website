@@ -193,7 +193,7 @@ export default function BookingPage() {
         const emailMessage = `
 New Partnership Discussion Booking
 
-Client Information:
+Client Partner Information:
 Name: ${formData.clientName}
 Email: ${formData.email}
 Phone: ${formData.phone}
@@ -214,7 +214,7 @@ Additional Notes:
 ${formData.additionalNotes || "None provided"}
 
 ---
-Please contact the client to confirm this consultation appointment.
+Please contact the client partner to confirm this consultation appointment.
         `.trim();
 
         const emailResponse = await fetch("/api/contact", {

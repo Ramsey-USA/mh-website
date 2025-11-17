@@ -309,7 +309,8 @@ export const pageMetadata: Record<string, Metadata> = {
     description:
       "Get accurate project cost estimates for commercial and residential construction in the Tri-Cities area. Our online estimator provides detailed cost analysis, material estimates, and project timelines. Free construction estimating tool.",
     keywords: [
-      "automated estimator",
+      "AI estimator",
+      "budget planning tool",
       "construction cost calculator",
       "project estimate tool",
       "instant construction estimate",
@@ -319,16 +320,16 @@ export const pageMetadata: Record<string, Metadata> = {
       "automated construction estimator",
     ],
     openGraph: {
-      title: "Automated Estimator | MH Construction",
+      title: "AI Estimator - Budget Planning Tool | MH Construction",
       description:
-        "Get instant, accurate construction project cost estimates with our automated estimator tool.",
+        "Get preliminary budget estimates in under 5 minutes with our AI planning tool. Prepare for your consultation with instant cost intelligence.",
       type: "website",
       locale: "en_US",
       url: `${baseUrl}/estimator`,
     },
     twitter: {
       card: "summary_large_image",
-      title: "Automated Estimator",
+      title: "AI Budget Estimator",
       description:
         "Get instant project estimates with our automated construction estimator.",
     },

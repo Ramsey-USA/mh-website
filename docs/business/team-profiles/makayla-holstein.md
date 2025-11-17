@@ -41,12 +41,12 @@ budgets, submittals, RFIs, change orders, and field coordination.
 - Zero project delays in 2025
 - Developed timeline optimization system
 - Led cross-functional team coordination
-- Achieved 96% client satisfaction
+- Achieved 96% Client Partner satisfaction
 
 ## Professional Specialties
 
 - Project Coordination & Timeline Management
-- Client Communication & Stakeholder Relations
+- Client Partner Communication & Stakeholder Relations
 - Risk Mitigation & Problem Resolution
 - Multi-Phase Project Leadership
 

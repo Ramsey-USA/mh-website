@@ -1,7 +1,7 @@
 /**
  * Centralized Testimonials Data
  * Single source of truth for all testimonials across the website
- * Categories: client, employee, veteran
+ * Categories: Client Partner, employee, veteran
  */
 
 export interface Testimonial {
@@ -9,9 +9,9 @@ export interface Testimonial {
   name: string;
   role?: string; // For employees
   title?: string; // For employees
-  location?: string; // For clients
-  project?: string; // For clients
-  company?: string; // For clients
+  location?: string; // For Client Partners
+  project?: string; // For Client Partners
+  company?: string; // For Client Partners
   rating?: number; // 1-5 stars
   quote: string;
   image?: string;
@@ -22,7 +22,7 @@ export interface Testimonial {
   veteranStatus?: boolean; // For veteran-specific testimonials
 }
 
-// CLIENT TESTIMONIALS - Coming Soon
+// CLIENT PARTNER TESTIMONIALS - Coming Soon
 export const clientTestimonials: Testimonial[] = [];
 
 // EMPLOYEE TESTIMONIALS - Coming Soon

@@ -77,7 +77,7 @@ export function ProjectsGridSection({
               <p className="max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed mb-4">
                 Our project portfolio is under development. We're committed to
                 showcasing only real, completed partnerships with our valued
-                clients.
+                Client Partners.
               </p>
               <p className="max-w-xl font-light text-gray-500 dark:text-gray-400 text-base sm:text-lg text-center">
                 Please check back soon or contact us to learn more about our

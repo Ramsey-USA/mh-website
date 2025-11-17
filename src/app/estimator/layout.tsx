@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getAutomatedEstimatorSEO } from "@/lib/seo/page-seo-utils";
 
-// Enhanced SEO metadata for Automated Estimator
+// Enhanced SEO metadata for AI Budget Estimator
 const seoData = getAutomatedEstimatorSEO();
 const { schemas, ...metadataProps } = seoData;
 export const metadata: Metadata = metadataProps;
@@ -15,7 +15,7 @@ export default function EstimatorLayout({
 }) {
   return (
     <>
-      {/* Enhanced Automated Estimator Structured Data for SEO */}
+      {/* Enhanced AI Budget Estimator Structured Data for SEO */}
       <StructuredData data={schemas} />
       {children}
     </>

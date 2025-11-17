@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Automated Estimator - Free Instant Quote | MH Construction",
+  title: "AI Estimator - Free Instant Budget Planning | MH Construction",
   description:
-    "Get an instant estimate with our automated tool. Free preliminary cost analysis for commercial, industrial, and medical facility projects. Advanced automated estimator with veteran precision.",
+    "Get preliminary budget estimates in under 5 minutes with our AI planning tool. Free cost intelligence for commercial, industrial, and medical facility projects. Prepare for your consultation with veteran precision.",
   keywords: [
-    "automated estimator",
+    "AI estimator",
+    "budget planning tool",
     "construction estimate",
     "free construction quote",
     "instant construction estimate",
@@ -17,9 +18,9 @@ export const metadata: Metadata = {
     "veteran-owned estimator",
   ],
   openGraph: {
-    title: "Automated Estimator - Free Instant Quote",
+    title: "AI Estimator - Free Budget Planning Tool",
     description:
-      "Get accurate preliminary costs instantly with our automated estimator tool.",
+      "Get preliminary budget estimates instantly with our AI planning tool - prepare for your consultation.",
     type: "website",
     url: "https://www.mhc-gc.com/estimator",
   },

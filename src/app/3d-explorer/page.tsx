@@ -364,7 +364,7 @@ export default function ThreeDExplorerPage() {
                     <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                       Bring all stakeholders together in a shared visual
                       environment. Architects, engineers, contractors, and
-                      clients collaborate seamlessly.
+                      Client Partners collaborate seamlessly.
                     </p>
                   </div>
                 </div>

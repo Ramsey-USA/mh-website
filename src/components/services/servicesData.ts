@@ -116,7 +116,7 @@ export const coreServices: CoreService[] = [
       "Timely delivery and professional installation",
       "Proactive management of long lead item delays",
       "Established network of quality trade professionals",
-      "Eliminates client burden of vendor coordination",
+      "Eliminates Client Partner burden of vendor coordination",
       "Advanced notice enables streamlined operations",
       "Consistent project opportunities for trade partners",
     ],
@@ -128,7 +128,7 @@ export const coreServices: CoreService[] = [
     title: "Constructability & Budget Control",
     subtitle: "Proactive Feasibility Review & Strategic Cost Optimization",
     description:
-      "Is your project possible? And if so, how can it be cost-effective? MH Construction is committed to improving project planning and execution by conducting comprehensive early-stage analysis of construction feasibility and cost considerations. We offer critical Constructability and Budget Control Services to clients throughout Washington, Oregon, and Idaho. Our partnership-driven process involves working closely with our network of approved trade professionals. This collaborative relationship eliminates guesswork, allowing us to determine the most efficient construction sequence and assembly, coordinate logistics for specialty items, and ensure precise parts ordering, timing, and cost control.",
+      "Is your project possible? And if so, how can it be cost-effective? MH Construction is committed to improving project planning and execution by conducting comprehensive early-stage analysis of construction feasibility and cost considerations. We offer critical Constructability and Budget Control Services to Client Partners throughout Washington, Oregon, and Idaho. Our partnership-driven process involves working closely with our network of approved Trade Partners. This collaborative relationship eliminates guesswork, allowing us to determine the most efficient construction sequence and assembly, coordinate logistics for specialty items, and ensure precise parts ordering, timing, and cost control.",
     features: [
       "Most efficient construction sequence and assembly planning",
       "Comprehensive logistics coordination for specialty items",
@@ -153,7 +153,7 @@ export const coreServices: CoreService[] = [
     title: "Modularization & Subproject Management",
     subtitle: "Advanced Project Division for Complex Builds",
     description:
-      "Project Modularization involves strategically dividing a project into smaller, more manageable subprojects. This advanced process simplifies design, execution, and maintenance by breaking complex builds into focused phases. MH Construction focuses on Subproject Management to help clients complete large, complex projects more efficiently and consistently meet schedules across the Tri-Cities and the Pacific Northwest. Ushering in a new era of project management—replacing a single project manager with a team of phase specialists is the smartest decision you can make. Our subproject management services help streamline the transitions between different construction phases, improve resource allocation and communication efficiency, and leverage our expertise specifically at each stage of the process.",
+      "Project Modularization involves strategically dividing a project into smaller, more manageable subprojects. This advanced process simplifies design, execution, and maintenance by breaking complex builds into focused phases. MH Construction focuses on Subproject Management to help Client Partners complete large, complex projects more efficiently and consistently meet schedules across the Tri-Cities and the Pacific Northwest. Ushering in a new era of project management—replacing a single project manager with a team of phase specialists is the smartest decision you can make. Our subproject management services help streamline the transitions between different construction phases, improve resource allocation and communication efficiency, and leverage our expertise specifically at each stage of construction.",
     features: [
       "Strategic division into manageable subprojects",
       "Streamlined transitions between construction phases",
@@ -320,7 +320,7 @@ export const whyChooseUs: WhyChooseUsItem[] = [
     iconName: "verified",
     title: "Licensed & Insured Across Three States",
     description:
-      "Fully licensed for commercial construction across Washington, Oregon, and Idaho with comprehensive insurance coverage for your complete protection. Our multi-state licensing demonstrates our commitment to professional standards and our ability to serve clients throughout the entire Pacific Northwest region.",
+      "Fully licensed for commercial construction across Washington, Oregon, and Idaho with comprehensive insurance coverage for your complete protection. Our multi-state licensing demonstrates our commitment to professional standards and our ability to serve Client Partners throughout the entire Pacific Northwest region.",
   },
   {
     iconName: "high_quality",

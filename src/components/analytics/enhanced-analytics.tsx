@@ -147,7 +147,7 @@ export function useAnalytics() {
   const trackTestimonialSubmission = () => {
     trackEvent("testimonial_submission", {
       event_category: "user_generated_content",
-      event_label: "Customer testimonial submitted",
+      event_label: "Client Partner testimonial submitted",
     });
   };
 

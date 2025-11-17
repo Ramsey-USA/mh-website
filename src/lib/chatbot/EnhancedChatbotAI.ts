@@ -592,7 +592,7 @@ export class EnhancedChatbotAI {
     _message: string,
     _context: EnhancedChatbotContext,
   ): string {
-    return `**[COMMAND PERSONNEL DIRECTORY]** 👥\n\n**Meet the elite construction force behind MH Construction!**\n\n**COMMAND STRUCTURE:**\n• **General Staff** - Strategic planning & mission operations\n• **Project Officers** - Mission coordination & tactical execution\n• **Skilled Combat Engineers** - Precision construction operations\n• **Support Battalion** - Administrative & customer intelligence\n\n**VETERAN REPRESENTATION:**\nMany command personnel are fellow veterans who understand:\n• Military precision and attention to detail\n• Mission-critical deadlines and budgets\n• Superior communication protocols\n• Honor, integrity, and service excellence\n\n**Request specific personnel briefings or command structure intel?**`;
+    return `**[COMMAND PERSONNEL DIRECTORY]** 👥\n\n**Meet the elite construction force behind MH Construction!**\n\n**COMMAND STRUCTURE:**\n• **General Staff** - Strategic planning & mission operations\n• **Project Officers** - Mission coordination & tactical execution\n• **Skilled Combat Engineers** - Precision construction operations\n• **Support Battalion** - Administrative & Client Partner intelligence\n\n**VETERAN REPRESENTATION:**\nMany command personnel are fellow veterans who understand:\n• Military precision and attention to detail\n• Mission-critical deadlines and budgets\n• Superior communication protocols\n• Honor, integrity, and service excellence\n\n**Request specific personnel briefings or command structure intel?**`;
   }
 
   private generateContactPageResponse(

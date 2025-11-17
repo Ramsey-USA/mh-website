@@ -178,7 +178,7 @@ const partnershipValues = [
     icon: "handshake",
     title: "Where Handshakes Still Matter",
     description:
-      "Your word is your bond. We treat our trade partners with the same integrity and respect we give our clients—building relationships through face-to-face trust, mutual respect, and shared commitment to doing what's right. Veteran-owned leadership brings honor, accountability, and unwavering integrity to every partnership.",
+      "Your word is your bond. We treat our Trade Partners with the same integrity and respect we give our Client Partners—building relationships through face-to-face trust, mutual respect, and shared commitment to doing what's right. Veteran-owned leadership brings honor, accountability, and unwavering integrity to every partnership.",
     color: "from-brand-primary to-brand-primary-dark",
   },
   {
@@ -192,7 +192,7 @@ const partnershipValues = [
     icon: "payments",
     title: "Fair & Prompt Payment Terms",
     description:
-      "Competitive compensation and reliable payment schedules support the financial health and business growth of our trade partners. Building for the Client, NOT the Dollar means treating partners with the same transparency and fairness we give clients.",
+      "Competitive compensation and reliable payment schedules support the financial health and business growth of our Trade Partners. Building for the Client, NOT the Dollar means treating partners with the same transparency and fairness we give Client Partners.",
     color: "from-brand-accent to-brand-accent-dark",
   },
   {
@@ -338,7 +338,9 @@ export default function TradePartnersPage() {
                     >
                       Services
                     </Link>{" "}
-                    to learn about client partnerships.
+                    to learn about Client Partner relationships. Visit our
+                    Services page for detailed information about project
+                    collaboration.
                   </p>
                 </div>
               </div>
@@ -361,12 +363,12 @@ export default function TradePartnersPage() {
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 "THE ROI IS THE RELATIONSHIP—and we prove it. Building for the
                 Client, NOT the Dollar means treating our trade partners with
-                the same integrity we give our clients. Quality construction is
-                built through trusted relationships—where your word is your
-                bond, handshakes matter, and mutual respect defines every
-                partnership. Fair payment, clear communication, mutual success.
-                Backed by veteran-owned leadership, award-winning safety (.6
-                EMR), and 150+ years combined experience."
+                the same integrity we give our Client Partners. Quality
+                construction is built through trusted relationships—where your
+                word is your bond, handshakes matter, and mutual respect defines
+                every partnership. Fair payment, clear communication, mutual
+                success. Backed by veteran-owned leadership, award-winning
+                safety (.6 EMR), and 150+ years combined experience."
               </p>
               <cite className="block mt-4 font-semibold text-brand-secondary text-lg">
                 — MH Construction Leadership Team

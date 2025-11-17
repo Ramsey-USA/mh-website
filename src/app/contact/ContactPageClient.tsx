@@ -288,7 +288,7 @@ export default function ContactPageClient() {
           </div>
         </section>
 
-        {/* Two Pathways to Partnership - Trade Partners vs Clients */}
+        {/* Two Pathways to Partnership - Trade Partners vs Client Partners */}
         <section
           className="relative py-20 lg:py-32 xl:py-40 bg-gray-50 dark:bg-gray-800"
           aria-labelledby="partnership-pathways-heading"
@@ -326,7 +326,7 @@ export default function ContactPageClient() {
                       />
                     </div>
                     <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl">
-                      For Project Clients
+                      For Client Partners
                     </h3>
                   </div>
 
@@ -336,7 +336,7 @@ export default function ContactPageClient() {
                     professional construction management.
                   </p>
 
-                  {/* Client Contact Info */}
+                  {/* Client Partner Contact Info */}
                   <div className="bg-gray-50 dark:bg-gray-800 p-6 border-l-4 border-brand-primary rounded-xl mb-6">
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
@@ -347,12 +347,12 @@ export default function ContactPageClient() {
                         />
                         <div>
                           <p className="font-semibold text-gray-900 dark:text-white text-sm">
-                            Client Services
+                            Client Partner Services
                           </p>
                           <a
                             href="tel:+15093086489"
                             className="text-brand-primary hover:text-brand-accent text-lg font-bold transition-colors"
-                            aria-label="Call client services at 509-308-6489"
+                            aria-label="Call Client Partner services at 509-308-6489"
                           >
                             (509) 308-6489
                           </a>
@@ -386,7 +386,7 @@ export default function ContactPageClient() {
                     </div>
                   </div>
 
-                  {/* Client CTAs */}
+                  {/* Client Partner CTAs */}
                   <div className="space-y-3">
                     <h4 className="font-semibold text-gray-900 dark:text-white text-lg mb-4">
                       Get Started:

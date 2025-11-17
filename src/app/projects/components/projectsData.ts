@@ -118,7 +118,7 @@ export const whyChooseReasons = [
     iconName: "verified",
     title: "Licensed & Insured Across Three States",
     description:
-      "Fully licensed for commercial construction across Washington, Oregon, and Idaho with comprehensive insurance coverage for your complete protection. Our multi-state licensing demonstrates our commitment to professional standards and our ability to serve clients throughout the entire Pacific Northwest region.",
+      "Fully licensed for commercial construction across Washington, Oregon, and Idaho with comprehensive insurance coverage for your complete protection. Our multi-state licensing demonstrates our commitment to professional standards and our ability to serve Client Partners throughout the entire Pacific Northwest region.",
   },
   {
     iconName: "high_quality",

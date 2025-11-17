@@ -113,18 +113,12 @@ export const SLOGANS: Record<string, Slogan> = {
   ROI_IS_RELATIONSHIP: {
     text: "THE ROI IS THE RELATIONSHIP",
     tier: SloganTier.TIER_1_FOUNDATION,
-    reusable: true,
+    reusable: false,
     tone: "powerful-memorable",
-    contexts: ["hero", "tagline", "footer", "social-media"],
+    contexts: ["hero", "tagline", "footer"],
     description:
-      "Flagship slogan redefining ROI as relationship value rather than purely financial returns",
-    assignedPages: [
-      "homepage",
-      "team-page",
-      "careers-page",
-      "trade-partners-page",
-      "email-footers",
-    ],
+      "Trade Partner-specific slogan redefining ROI as relationship value rather than purely financial returns. ONLY used on Trade Partners and Urgent pages to emphasize partner relationships.",
+    assignedPages: ["trade-partners-page", "urgent-page"],
   },
 
   BUILD_MORE_THAN_STRUCTURES: {

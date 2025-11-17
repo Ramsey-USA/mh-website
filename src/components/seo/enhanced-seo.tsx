@@ -279,7 +279,7 @@ export function generateServiceSchema(service: {
   };
 }
 
-// Generate Automated Estimator service schema
+// Generate AI Budget Estimator service schema
 export function generateAutomatedEstimatorSchema() {
   return {
     "@context": "https://schema.org",
@@ -287,7 +287,7 @@ export function generateAutomatedEstimatorSchema() {
     "@id": `${enhancedSEO.siteUrl}/estimator#automated-estimator`,
     name: "Automated Construction Estimator",
     description:
-      "Automated estimator providing instant project cost estimates with regional intelligence and veteran benefits integration",
+      "AI Budget Planning Tool providing preliminary cost estimates in under 5 minutes with Pacific Northwest regional intelligence and veteran benefits integration",
     applicationCategory: "Construction Estimation Software",
     operatingSystem: "Web Browser",
     offers: {
@@ -403,14 +403,14 @@ export function generateConstructionFAQSchema() {
   const faqs = [
     {
       question:
-        "What is the difference between Automated Estimator and In-Person Consultation?",
+        "What is the difference between AI Budget Estimator and Expert Consultation?",
       answer:
-        "Our Automated Estimator provides instant, preliminary cost estimates available 24/7 for research phase clients, while In-Person Consultation offers personalized on-site evaluations with our experienced sales representatives during business hours. The Automated Estimator is instant and immediate, while In-Person Consultation provides detailed human expertise and relationship building.",
+        "Our AI Budget Planning Tool provides preliminary cost estimates in under 5 minutes, available 24/7 to help Client Partners prepare for consultations. Expert Consultation offers comprehensive on-site evaluations with detailed open-book pricing and personalized recommendations during business hours. Personal consultation is recommended first, with the planning tool available as an optional preparation aid.",
     },
     {
       question: "Do you offer veteran benefits and discounts?",
       answer:
-        "Yes! As a veteran-owned business since January 2025, we proudly offer automatic 12% combat veteran discounts through our Automated Estimator system, plus specialized protocols for veteran recognition and service-specific benefits. Our General MH assistant provides veteran advisory services for accessibility, energy efficiency, and security guidance.",
+        "Yes! As a veteran-owned business since January 2025, we proudly offer automatic 12% combat veteran discounts through our AI Budget Planning Tool, plus specialized protocols for veteran recognition and service-specific benefits. Our General MH assistant provides veteran advisory services for accessibility, energy efficiency, and security guidance.",
     },
     {
       question: "What areas do you serve in the Pacific Northwest?",
@@ -435,7 +435,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "How can I get started with my construction project?",
       answer:
-        "We recommend starting with a personal consultation—schedule your free on-site evaluation for personalized assessment. You can also use our 24/7 Budget Planning Tool for preliminary estimates to help prepare for our meeting. Contact us at (509) 308-6489.",
+        "We recommend starting with a free expert consultation—schedule your on-site evaluation for comprehensive assessment and detailed open-book pricing. You can also use our 24/7 AI Budget Planning Tool for preliminary estimates to help prepare for your consultation. Contact us at (509) 308-6489.",
     },
     {
       question: "Are you a veteran-owned business?",

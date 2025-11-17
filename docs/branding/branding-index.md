@@ -56,6 +56,8 @@ Brand identity, company values, messaging guidelines, and strategic positioning.
 - `brand-overview.md` - Core brand identity and mission
 - `messaging.md` - Voice, tone, and messaging framework
 - `page-specific-messaging-guide.md` - ⭐ **NEW (Nov 2025)** - 7-group page messaging strategy
+- `universal-terminology-guide.md` - ⭐ **NEW (Jan 2025)** - Universal language & terminology standards
+- `estimator-vs-consultation-language.md` - ⭐ **NEW (Nov 2025)** - AI tool vs human consultation language distinctions
 - `homepage-optimization.md` - Homepage trust-first optimization details
 - `seo-optimization.md` - Complete SEO optimization audit for all 15 pages
 - `content-messaging-standards.md` - Content writing standards
@@ -117,9 +119,11 @@ unified access.
 
 1. Read **[Page-Specific Messaging Guide](./strategy/page-specific-messaging-guide.md)** - Understand
    the 7 page groups and their unique voices (CRITICAL for all content)
-2. Review **[Messaging](./strategy/messaging.md)** - General voice and tone principles
-3. Check **[Content Standards](./strategy/content-messaging-standards.md)** - Writing guidelines
-4. Review **[CTA Standards](./standards/cta-standardization-plan.md)** - Call-to-action patterns
+2. Review **[Universal Terminology Guide](./strategy/universal-terminology-guide.md)** - ⭐ **NEW** -
+   Company-wide language standards (ESSENTIAL for consistency)
+3. Review **[Messaging](./strategy/messaging.md)** - General voice and tone principles
+4. Check **[Content Standards](./strategy/content-messaging-standards.md)** - Writing guidelines
+5. Review **[CTA Standards](./standards/cta-standardization-plan.md)** - Call-to-action patterns
 
 ---
 

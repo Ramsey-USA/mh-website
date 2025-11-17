@@ -32,21 +32,22 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
   });
 }
 
-// Automated Estimator page SEO
+// AI Budget Estimator page SEO
 export function getAutomatedEstimatorSEO(): Metadata & {
   schemas: object[];
 } {
   return generateEnhancedMetadata({
-    title: "Smart Automated Estimator | MH Construction",
+    title: "AI Budget Estimator - Free Planning Tool | MH Construction",
     description:
-      "Get instant estimates with regional intelligence, veteran discounts, and Pacific Northwest market data. Automated cost estimation available 24/7 with military precision accuracy.",
+      "Get preliminary budget estimates in under 5 minutes with regional intelligence, veteran discounts, and Pacific Northwest market data. AI planning tool available 24/7 to prepare for your consultation.",
     keywords: [
-      "automated cost estimator",
+      "AI cost estimator",
+      "budget planning tool",
       "instant construction estimates",
       "veteran discount construction",
       "Pacific Northwest construction costs",
-      "real-time construction pricing",
-      "automated construction calculator",
+      "preliminary cost estimates",
+      "construction budget calculator",
       "military precision cost analysis",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/estimator`,

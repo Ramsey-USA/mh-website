@@ -1,6 +1,6 @@
 /**
  * Testimonials Section
- * Displays client testimonials from completed projects
+ * Displays Client Partner testimonials from completed projects
  */
 
 import { Card, CardContent } from "@/components/ui";
@@ -32,7 +32,7 @@ export function TestimonialsSection({ projects }: TestimonialsSectionProps) {
               Testimonials
             </span>
           }
-          description="Hear how we work WITH our partners, not just for them"
+          description="Hear how we work WITH our Client Partners, not just for them"
         />
 
         <div className="gap-8 grid md:grid-cols-2">

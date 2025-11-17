@@ -1,6 +1,6 @@
 /**
  * Testimonials Section Component
- * A reusable section that displays customer testimonials and reviews
+ * A reusable section that displays Client Partner testimonials and reviews
  * Can be embedded on multiple pages (About, Projects, etc.)
  */
 
@@ -20,8 +20,8 @@ interface TestimonialsSectionProps {
 }
 
 export default function TestimonialsSection({
-  title = "Customer Testimonials",
-  subtitle = "Read what our satisfied customers say about our construction, renovation, and home improvement services across the Pacific Northwest.",
+  title = "Client Partner Testimonials",
+  subtitle = "Read what our satisfied Client Partners say about our construction, renovation, and commercial services across the Pacific Northwest.",
   showStats = true,
   maxTestimonials,
   showCTA = true,
@@ -79,8 +79,9 @@ export default function TestimonialsSection({
               Coming Soon
             </h3>
             <p className="max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
-              Client testimonials will be available soon. We're committed to
-              sharing only authentic feedback from our valued partners.
+              Client Partner testimonials will be available soon. We're
+              committed to sharing only authentic feedback from our valued
+              partners.
             </p>
           </div>
         </div>

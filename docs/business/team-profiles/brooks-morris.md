@@ -31,7 +31,7 @@ Financial Excellence Award, Transparency Leadership Recognition
 
 Brooks ensures financial transparency and accurate project cost tracking with 10 years of
 construction finance experience. His detail-oriented financial management supports project
-profitability and client trust, upholding MH Construction's commitment to honest, transparent
+profitability and Client Partner trust, upholding MH Construction's commitment to honest, transparent
 business practices that build lasting partnerships.
 
 ## Career Highlights

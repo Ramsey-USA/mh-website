@@ -6,6 +6,7 @@
 
 ## 🧭 Quick Navigation
 
+- [📖 Universal Terminology Guide](./universal-terminology-guide.md) ⭐ **NEW**
 - [🗂️ Slogan Rotation Guide](./slogan-rotation-guide.md)
 - [📝 Messaging Guidelines](./messaging.md)
 - [🎨 Branding Index](../branding-index.md)
@@ -24,6 +25,14 @@ personality and communication style designed to resonate with its specific audie
 **"Building for the Client, NOT the Dollar"** is our PRIMARY SLOGAN and should be prominently
 featured across the site. However, each page group also has freedom to create and use
 supplementary messaging that speaks to its unique purpose.
+
+### 🔗 Related Standards
+
+For **universal terminology that applies across all pages** (partnership language, veteran status,
+location references, safety record, etc.), see the
+**[Universal Terminology Guide](./universal-terminology-guide.md)**. This document focuses on
+page-group-specific voice and tone, while the Universal Terminology Guide ensures consistency in
+specific terms and phrases.
 
 ---
 
@@ -468,6 +477,15 @@ supplementary messaging that speaks to its unique purpose.
 ---
 
 ## 🔄 Version Control
+
+### Version 1.1.0 - January 2025
+
+**Updates:**
+
+- Added link to new Universal Terminology Guide
+- Integrated terminology standards reference
+- Clarified relationship between page-specific messaging and universal terminology
+- Updated navigation to include Universal Terminology Guide
 
 ### Version 1.0.0 - November 14, 2025
 

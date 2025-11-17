@@ -70,7 +70,7 @@ export default function AboutPage() {
               Matter
             </span>
           }
-          description="Our commitment to integrity, transparency, and excellence drives every project decision and partnership we build. These aren't just words on a wall—they're the foundation of how we do business and the promise we make to every client."
+          description="Our commitment to integrity, transparency, and excellence drives every project decision and partnership we build. These aren't just words on a wall—they're the foundation of how we do business and the promise we make to every Client Partner."
           maxWidth="4xl"
         />
 
@@ -301,8 +301,8 @@ export default function AboutPage() {
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
                     We&apos;re proud to announce reaching a major milestone:
                     over 50 completed construction partnerships across
-                    Washington and Oregon. Thank you to all our clients and
-                    trade partners who made this possible.
+                    Washington and Oregon. Thank you to all our Client Partners
+                    and Trade Partners for your continued trust.
                   </p>
                   <Link
                     href="/projects"
@@ -345,7 +345,8 @@ export default function AboutPage() {
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
                     We&apos;re implementing High-Level CRM to provide seamless
                     communication, real-time project updates, and enhanced
-                    client experience throughout your construction journey.
+                    Client Partner experience throughout your construction
+                    journey. Feedback from every project helps us improve.
                   </p>
                   <Link
                     href="/contact"
@@ -386,9 +387,10 @@ export default function AboutPage() {
                     Expanding Trade Partner Network
                   </h3>
                   <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
-                    We&apos;re actively growing our network of skilled trade
-                    partners to better serve our clients across the Pacific
-                    Northwest. Join our veteran-owned partnership program.
+                    We&apos;re actively growing our network of skilled Trade
+                    Partners to better serve our Client Partners across the
+                    Pacific Northwest. Join our veteran-owned partnership
+                    program.
                   </p>
                   <Link
                     href="/trade-partners"

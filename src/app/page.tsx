@@ -140,11 +140,11 @@ export default function Home() {
       {/* Why Partner With MH Construction Section - Partnership philosophy */}
       <WhyPartnerSection />
 
-      {/* Enhanced Client Testimonials - Social proof builds credibility */}
+      {/* Enhanced Client Partner Testimonials - Social proof builds credibility */}
       <TestimonialsSection
         subtitle="What Our"
-        title="Clients Say"
-        description="Read testimonials from valued partners across the Pacific Northwest who have experienced our collaborative excellence firsthand."
+        title="Client Partners Say"
+        description="Read testimonials from valued Client Partners across the Pacific Northwest who have experienced our collaborative excellence firsthand."
       />
 
       {/* Before/After Showcase Section - Tangible results */}
