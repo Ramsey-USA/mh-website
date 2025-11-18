@@ -120,7 +120,7 @@ MH Construction implements a **dual navigation system** with distinct purposes:
 
 #### Category Structure
 
-```
+```text
 Main Pages
 ├── Home
 ├── Team
@@ -310,7 +310,8 @@ export const navigationConfigs = {
 
 ### Homepage Navigation (Unique)
 
-**Note:** The homepage navigation differs from other pages - it links directly to standalone feature pages rather than internal page sections.
+**Note:** The homepage navigation differs from other pages - it links directly to standalone feature pages rather
+than internal page sections.
 
 ```typescript
 home: [
@@ -401,7 +402,8 @@ estimator: [
 
 **Status:** ✅ Implemented (November 2025)
 
-Breadcrumb navigation provides hierarchical navigation context across the site, helping users understand their location in the site structure and providing quick access to parent pages.
+Breadcrumb navigation provides hierarchical navigation context across the site, helping users understand their location
+in the site structure and providing quick access to parent pages.
 
 ### Implementation
 
@@ -487,7 +489,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 
 Breadcrumbs are placed immediately after the hero section and before the main content:
 
-```
+```text
 Page Structure:
 ├── Hero Section
 ├── Breadcrumb Navigation ← NEW
@@ -855,4 +857,5 @@ This comprehensive navigation system provides:
 
 ---
 
-_This complete guide serves as the single source of truth for all navigation implementation and configuration on the MH Construction website._
+_This complete guide serves as the single source of truth for all navigation implementation and configuration on the MH
+Construction website._

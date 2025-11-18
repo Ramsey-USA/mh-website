@@ -427,7 +427,8 @@ The design system implements brand standards from multiple sources:
 
 - [Partnership Messaging](../../partnerships/messaging/messaging-index.md) - Messaging hub
 - [Buttons & CTAs Complete Guide](./buttons-ctas-complete-guide.md) - Partnership CTAs
-- [Partnership Messaging Complete Guide](../../partnerships/messaging/partnership-messaging-complete-guide.md) - Messaging standards
+- [Partnership Messaging Complete Guide](../../partnerships/messaging/partnership-messaging-complete-guide.md) -
+  Messaging standards
 
 ---
 

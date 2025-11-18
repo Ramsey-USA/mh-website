@@ -301,9 +301,10 @@ Want to prepare first? Try our Budget Planning Tool for instant preliminary esti
 ## 📝 Related Documentation
 
 - [Universal Terminology Guide](./universal-terminology-guide.md) - Company-wide language standards
-- [Partnership Messaging Complete Guide](../../partnerships/messaging/partnership-messaging-complete-guide.md) - Complete messaging framework including service type distinctions
-  Client Partner vs Trade Partner language
-- [Buttons & CTAs Complete Guide](../../technical/design-system/buttons-ctas-complete-guide.md) - Button language and design standards
+- [Partnership Messaging Complete Guide](../../partnerships/messaging/partnership-messaging-complete-guide.md) -
+  Complete messaging framework including service type distinctions Client Partner vs Trade Partner language
+- [Buttons & CTAs Complete Guide](../../technical/design-system/buttons-ctas-complete-guide.md) -
+  Button language and design standards
 - [Branding Index](../branding-index.md) - Overall branding guidelines
 
 ---

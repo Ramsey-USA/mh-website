@@ -390,37 +390,37 @@
 import { Button } from "@/components/ui/button";
 ```
 
-2. **Proper Variant:** `primary`, `secondary`, `outline`, or `neutral`
+1. **Proper Variant:** `primary`, `secondary`, `outline`, or `neutral`
 
 ```tsx
 <Button variant="primary">...</Button>
 ```
 
-3. **MaterialIcon Integration:** Use `icon=` prop with proper size
+1. **MaterialIcon Integration:** Use `icon=` prop with proper size
 
 ```tsx
 <MaterialIcon icon="event" size="lg" />
 ```
 
-4. **Hover Animation:** Icon scale on hover
+1. **Hover Animation:** Icon scale on hover
 
 ```tsx
 className = "group-hover/btn:scale-110 transition-transform";
 ```
 
-5. **Responsive Text:** Scale across breakpoints
+1. **Responsive Text:** Scale across breakpoints
 
 ```tsx
 className = "text-sm sm:text-base";
 ```
 
-6. **Accessibility Height:** Minimum 48px touch target
+1. **Accessibility Height:** Minimum 48px touch target
 
 ```tsx
 className = "min-h-[48px]";
 ```
 
-7. **Semantic HTML:** Wrap in `<Link>` for navigation
+1. **Semantic HTML:** Wrap in `<Link>` for navigation
 
 ```tsx
 <Link href="/booking">

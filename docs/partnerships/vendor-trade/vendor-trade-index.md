@@ -92,7 +92,8 @@ network partners.
 
 ## 📚 Related Documentation
 
-- [Partnership Messaging Complete Guide](../messaging/partnership-messaging-complete-guide.md) - Communication guidelines and audience-specific messaging
+- [Partnership Messaging Complete Guide](../messaging/partnership-messaging-complete-guide.md) -
+  Communication guidelines and audience-specific messaging
 - [Services Overview](../../business/services.md) - What we build
 - [Core Values](../../business/core-values.md) - Professional foundation
 

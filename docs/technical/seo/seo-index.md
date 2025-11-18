@@ -84,7 +84,8 @@ group has unique keyword priorities, tone, and messaging requirements that impac
 
 **Archived:** [seo-compliance-status.md](../../project/history/seo-compliance-status.md)
 
-Historical SEO compliance tracking document moved to project history. For current SEO status, see the [Complete SEO Guide](./seo-complete-guide.md) monitoring section.
+Historical SEO compliance tracking document moved to project history. For current SEO status, see the
+[Complete SEO Guide](./seo-complete-guide.md) monitoring section.
 
 **Use the Complete SEO Guide for:**
 

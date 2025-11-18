@@ -37,7 +37,8 @@
 - "Where Military Precision Meets Construction Excellence"
 - "Your Partner in Building Tomorrow"
 
-**Core Philosophy:** We work **WITH** clients and partners, not just **FOR** them. This partnership-centered culture must be reflected in all communications.
+**Core Philosophy:** We work **WITH** clients and partners, not just **FOR** them. This partnership-centered culture
+must be reflected in all communications.
 
 ---
 
@@ -45,7 +46,7 @@
 
 ### Primary Brand Message
 
-**"Building for the Client, NOT the Dollar"**
+#### "Building for the Client, NOT the Dollar"
 
 This tagline emphasizes our commitment to client success over profit maximization — the heart of veteran-owned business values.
 
@@ -83,7 +84,8 @@ MH Construction serves two fundamentally different partnership audiences:
 
 ### Target Audience
 
-Homeowners, businesses, and organizations seeking construction services — the people and entities who hire MH Construction for project delivery.
+Homeowners, businesses, and organizations seeking construction services — the people and entities who hire MH
+Construction for project delivery.
 
 ### Visual Identity
 
@@ -128,7 +130,7 @@ Homeowners, businesses, and organizations seeking construction services — the 
 
 **Homepage Hero:**
 
-```
+```text
 "Your Partner in Building Tomorrow"
 "We work WITH you to bring your vision to life through collaborative
 partnership and military-grade precision."
@@ -136,7 +138,7 @@ partnership and military-grade precision."
 
 **Services Page:**
 
-```
+```text
 "Partnership-Driven Construction Management"
 "From initial consultation to project completion, we work WITH you every
 step of the way."
@@ -144,10 +146,9 @@ step of the way."
 
 **Contact Page:**
 
-```
+```text
 "Ready to start your project partnership?"
-"Schedule a free consultation and discover how we work WITH clients to
-deliver exceptional results."
+"Schedule a free consultation and discover how we work WITH clients to deliver exceptional results."
 ```
 
 ---
@@ -156,7 +157,8 @@ deliver exceptional results."
 
 ### Target Audience
 
-Subcontractors, suppliers, and vendors seeking business relationships with MH Construction — the professionals who provide specialized services TO our projects.
+Subcontractors, suppliers, and vendors seeking business relationships with MH Construction — the professionals who
+provide specialized services TO our projects.
 
 ### Visual Identity
 
@@ -201,7 +203,7 @@ Subcontractors, suppliers, and vendors seeking business relationships with MH Co
 
 **Trade Partners Page:**
 
-```
+```text
 "Join the MH Construction Trade Network"
 "Grow your business with a veteran-owned construction leader. Access
 consistent, quality projects and professional partnership opportunities."
@@ -209,7 +211,7 @@ consistent, quality projects and professional partnership opportunities."
 
 **Application Page:**
 
-```
+```text
 "Become a Valued Trade Partner"
 "We're seeking qualified subcontractors and suppliers who share our
 commitment to quality, safety, and collaborative professionalism."
@@ -217,7 +219,7 @@ commitment to quality, safety, and collaborative professionalism."
 
 **Trade Partner Benefits:**
 
-```
+```text
 ✓ Consistent project flow year-round
 ✓ Fair payment terms and professional treatment
 ✓ Long-term partnership growth opportunities
@@ -240,7 +242,8 @@ MH Construction offers two ways to get project cost estimates, each with unique 
 
 ### Service Description
 
-**What It Is:** An instant, automated cost estimation tool available 24/7 that provides preliminary project pricing based on user input.
+**What It Is:** An instant, automated cost estimation tool available 24/7 that provides preliminary project pricing
+based on user input.
 
 **Who It's For:**
 
@@ -327,7 +330,8 @@ MH Construction offers two ways to get project cost estimates, each with unique 
 
 ### Service Description
 
-**What It Is:** A personalized, in-depth consultation with a qualified MH Construction sales representative who visits your site, understands your vision, and provides detailed professional estimates.
+**What It Is:** A personalized, in-depth consultation with a qualified MH Construction sales representative who
+visits your site, understands your vision, and provides detailed professional estimates.
 
 **Who It's For:**
 
@@ -430,7 +434,7 @@ MH Construction offers two ways to get project cost estimates, each with unique 
 
 **Both Options Available:**
 
-```
+```text
 Choose Your Path to Project Success:
 
 🤖 Quick Start: Get instant ballpark pricing with our Automated Estimator
@@ -596,7 +600,7 @@ Either path connects you with MH Construction's partnership-driven service.
 
 #### Main Navigation
 
-```
+```text
 Home | Services | Projects | About | Team | Contact
 
 // Services Dropdown
@@ -609,7 +613,7 @@ Home | Services | Projects | About | Team | Contact
 
 #### Footer Navigation
 
-```
+```text
 Client Partnerships
 ├── Schedule Consultation
 ├── Get AI Estimate
@@ -627,7 +631,7 @@ Trade Partnerships
 
 #### Client Contact Form
 
-```
+```text
 Your Name*
 Project Type*
 [ ] Residential  [ ] Commercial  [ ] Government
@@ -642,7 +646,7 @@ Preferred Contact Method: [ ] Phone  [ ] Email
 
 #### Trade Partner Application
 
-```
+```text
 Company Name*
 Trade Specialty*
 Years in Business*
@@ -784,4 +788,5 @@ This comprehensive partnership messaging guide provides:
 
 ---
 
-_This complete guide serves as the single source of truth for all partnership messaging, language distinctions, and service type communications for the MH Construction website and marketing materials._
+_This complete guide serves as the single source of truth for all partnership messaging, language distinctions, and
+service type communications for the MH Construction website and marketing materials._

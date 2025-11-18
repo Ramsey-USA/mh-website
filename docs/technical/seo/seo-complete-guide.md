@@ -129,7 +129,8 @@ npm run seo:audit
 
 ### Why Section Order Matters
 
-Search engines prioritize content that appears earlier in HTML structure. Proper section ordering can improve rankings by **15-25%** without changing any content.
+Search engines prioritize content that appears earlier in HTML structure. Proper section ordering can improve
+rankings by **15-25%** without changing any content.
 
 ### General Ordering Principles
 
@@ -162,7 +163,7 @@ Search engines prioritize content that appears earlier in HTML structure. Proper
 
 ### Homepage (Already Optimized) ✅
 
-**Current Structure - SEO Score: 95/100**
+#### Current Structure - SEO Score: 95/100
 
 1. Hero Section (0-10%) - Primary value proposition ✅
 2. Features Section (10-15%) - Revolutionary features ✅
@@ -332,8 +333,9 @@ Search engines prioritize content that appears earlier in HTML structure. Proper
 
 **Example (154 characters - PERFECT!):**
 
-```
-Professional construction services from MH Construction. Veteran-owned excellence serving the Pacific Northwest with AI-powered solutions. Schedule your free consultation today.
+```text
+Professional construction services from MH Construction. Veteran-owned excellence serving the Pacific Northwest
+with AI-powered solutions. Schedule your free consultation today.
 ```
 
 ### Keywords Strategy
@@ -416,7 +418,8 @@ const ACTIVE_PAGES = [
 
 **Enhanced Title:** "MH Construction - Veteran-Owned Construction | Traditional Values, Modern Tools"
 
-**Enhanced Description:** Highlights veteran-owned business status, traditional partnership approach, Pacific Northwest community focus, with modern tools supporting personal service.
+**Enhanced Description:** Highlights veteran-owned business status, traditional partnership approach, Pacific
+Northwest community focus, with modern tools supporting personal service.
 
 ### Dynamic Metadata for Client Components
 
@@ -835,9 +838,9 @@ Before deploying changes:
 
 ### Complete Implementation Checklist
 
-**Phase 0: Content Structure & Section Ordering (Days 1-3) 🏗️**
+#### Phase 0: Content Structure & Section Ordering (Days 1-3)
 
-**Priority: CRITICAL** | **Time: 2-3 days** | **Impact: 15-25% ranking improvement**
+**Priority: CRITICAL** | **Time: 2-3 days** | **Impact: 15-25% ranking improvement** 🏗️
 
 ✅ **Homepage** - Already optimized (95/100)  
 ⚠️ **Services Page** - Move testimonials to 25-30% position  
@@ -866,7 +869,7 @@ export default function ServicesPage() {
 }
 ```
 
-**Phase 1: Enhanced Metadata Integration**
+#### Phase 1: Enhanced Metadata Integration
 
 1. **Integrate Page-Specific Metadata**
    - Consider server/client split for key pages
@@ -878,14 +881,14 @@ export default function ServicesPage() {
    - Automated Estimator schema on `/estimator`
    - Consultation schema on `/booking`
 
-**Phase 2: Local SEO Enhancement**
+#### Phase 2: Local SEO Enhancement
 
 - Verify Google Business Profile integration
 - Add local service area schema
 - Include city/region targeting in content
 - Create location-specific pages (if expanding)
 
-**Phase 3: Performance Monitoring**
+#### Phase 3: Performance Monitoring
 
 - Set up Core Web Vitals tracking
 - Monitor Lighthouse scores
@@ -894,21 +897,21 @@ export default function ServicesPage() {
 
 ### Expected SEO Benefits
 
-**1. Search Visibility Improvements**
+#### 1. Search Visibility Improvements
 
 - Traditional Business Terms: Enhanced visibility for relationship-focused construction
 - Veteran-Owned Queries: Enhanced visibility for veteran business searches
 - Pacific Northwest Local: Improved regional construction search ranking
 - Service-Specific: Better ranking for specific construction services
 
-**2. Rich Results Opportunities**
+#### 2. Rich Results Opportunities
 
 - FAQ Rich Snippets: Common questions directly in search results
 - Business Information: Enhanced Google Business Profile integration
 - Service Listings: Structured service information for search engines
 - Local Business: Improved local search presence
 
-**3. User Experience Enhancement**
+#### 3. User Experience Enhancement
 
 - Instant Answers: FAQ schema provides quick information access
 - Service Clarity: Clear distinction between planning tools and personal consultation
@@ -1169,4 +1172,5 @@ This comprehensive SEO system provides:
 
 ---
 
-_This complete guide serves as the single source of truth for all SEO, search functionality, and accessibility optimization for the MH Construction website._
+_This complete guide serves as the single source of truth for all SEO, search functionality, and accessibility
+optimization for the MH Construction website._

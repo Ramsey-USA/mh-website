@@ -124,7 +124,8 @@ unified access.
    Company-wide language standards (ESSENTIAL for consistency)
 3. Review **[Messaging](./strategy/messaging.md)** - General voice and tone principles
 4. Check **[Content Standards](./strategy/content-messaging-standards.md)** - Writing guidelines
-5. Review **[Buttons & CTAs Complete Guide](../technical/design-system/buttons-ctas-complete-guide.md)** - Call-to-action patterns
+5. Review **[Buttons & CTAs Complete Guide](../technical/design-system/buttons-ctas-complete-guide.md)** -
+   Call-to-action patterns
 
 ---
 

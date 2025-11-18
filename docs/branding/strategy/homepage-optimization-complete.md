@@ -29,7 +29,9 @@
 
 ### Core Philosophy
 
-The MH Construction homepage expresses **"old school business meets modern technology"** by leading with traditional values and positioning technology as optional enhancement tools, ensuring tech-averse clients feel comfortable while tech-savvy clients discover helpful features naturally.
+The MH Construction homepage expresses **"old school business meets modern technology"** by leading with traditional
+values and positioning technology as optional enhancement tools, ensuring tech-averse clients feel comfortable while
+tech-savvy clients discover helpful features naturally.
 
 ### Current Performance
 
@@ -308,11 +310,13 @@ className = "text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl";
 #### AFTER (Current)
 
 - **Title:** "Veteran-Owned Construction | Traditional Values, Modern Efficiency"
-- **Description Lead:** "Veteran-owned since January 2025 under Army veteran leadership. Founded 2010 serving Pacific Northwest communities with old-school business values, transparent partnerships, and face-to-face trust."
+- **Description Lead:** "Veteran-owned since January 2025 under Army veteran leadership. Founded 2010 serving Pacific
+  Northwest communities with old-school business values, transparent partnerships, and face-to-face trust."
 - **Technology Mentioned:** Last - "Modern planning tools support our personal service approach"
 - **Keywords Reordered:** Traditional business first, planning tools last
 
-**Impact:** Search engines now see us primarily as a traditional, veteran-owned construction company with helpful technology, not an AI-first tech company.
+**Impact:** Search engines now see us primarily as a traditional, veteran-owned construction company with helpful
+technology, not an AI-first tech company.
 
 ---
 

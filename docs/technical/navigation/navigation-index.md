@@ -81,7 +81,8 @@ and component patterns for both main navigation and page-specific navigation.
 
 **Archived:** [navigation-audit-report.md](../../project/history/navigation-audit-report.md)
 
-Historical navigation audit stub moved to project history. For current navigation testing and QA, see the [Complete Navigation Guide](./navigation-complete-guide.md) Quality Assurance section.
+Historical navigation audit stub moved to project history. For current navigation testing and QA, see the
+[Complete Navigation Guide](./navigation-complete-guide.md) Quality Assurance section.
 
 **Use the Complete Navigation Guide for:**
 
