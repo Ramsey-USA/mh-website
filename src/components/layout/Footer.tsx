@@ -610,7 +610,9 @@ export default function Footer() {
                 size="sm"
                 className="text-gray-500 dark:text-gray-400"
               />
-              <span>&copy; 2025 MH Construction LLC. All rights reserved.</span>
+              <span>
+                &copy; 2025 MH Construction, Inc. All rights reserved.
+              </span>
             </div>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-end gap-4 text-xs">

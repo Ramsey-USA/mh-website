@@ -168,7 +168,7 @@ optimal readability and professional appearance across all devices.
 h1 {
   @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
   @apply font-bold leading-tight tracking-tight;
-  @apply text-gray-900 dark:text-white;
+  @apply text-gray-900 dark:text-gray-100;
 }
 ```
 
@@ -400,7 +400,7 @@ navigation visibility, and optimal typography scaling across the entire website.
 - **Line Height**: 1.2
 - **Usage**: Page titles, primary headlines
 
-````css
+`````css
 h1 {
   font-size: 3rem;
   font-weight: 700;
@@ -453,10 +453,10 @@ h3 {
 **Usage**: Card titles, minor headings, component headers
 
 ```tsx
-<CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
+<CardTitle className="text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
   Card Title Content
 </CardTitle>
-````
+```
 
 ```css
 h4,
@@ -518,7 +518,7 @@ h6 {
   text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide">
   Section introduction text
 </p>
-````
+`````
 
 #### Body Default - Responsive (Card Content, Lists)
 

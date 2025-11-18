@@ -115,6 +115,40 @@ Call-to-action standards (consolidated)
 
 ---
 
+## 🗺️ Next Steps: Implementation
+
+**Completed Visual Standards? Continue your journey:**
+
+### Ready to Implement?
+
+After understanding visual standards, move to implementation:
+
+1. **[Developer Workflow Pathway](../../development/developer-workflow-pathway.md)** - ⭐ **NEW** -
+   Complete step-by-step implementation guide
+2. **[Consistency Guide](../../development/consistency-guide.md)** - Complete implementation patterns
+3. **[Style Utilities Guide](../../development/style-utilities-guide.md)** - Centralized utilities
+4. **[Homepage Compliance Checklist](./homepage-compliance-checklist.md)** - Validation standards
+
+### Complete Learning Path
+
+```text
+Branding Index → Strategy → YOU ARE HERE: Standards → Implementation
+    ↓
+Standards Complete ✅
+    ↓
+NEXT: Developer Workflow Pathway
+    ↓
+Consistency Guide (implementation patterns)
+    ↓
+Style Utilities Guide (code utilities)
+    ↓
+Components (UI library)
+    ↓
+Page Development (create pages)
+```
+
+---
+
 ## 📚 Related Documentation
 
 - [Brand Strategy](../strategy/strategy-index.md) - Brand identity and messaging

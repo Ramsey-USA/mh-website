@@ -23,7 +23,9 @@ interface JobApplicationData {
   availability?: string;
   coverLetter?: string;
   resumeUrl?: string;
+  resumeKey?: string;
   resumeFileName?: string;
+  resumeFileSize?: number;
   veteranStatus?: string;
   referralSource?: string;
 }
@@ -62,6 +64,8 @@ export function POST(request: NextRequest) {
       referral_source: data.referralSource || null,
       metadata: JSON.stringify({
         resumeFileName: data.resumeFileName,
+        resumeFileSize: data.resumeFileSize,
+        resumeKey: data.resumeKey,
         submittedAt: new Date().toISOString(),
       }),
     }),
@@ -88,7 +92,9 @@ ${data.city || ""}, ${data.state || ""} ${data.zipCode || ""}
 Cover Letter:
 ${data.coverLetter || "Not provided"}
 
-Resume: ${data.resumeUrl ? `Attached (${data.resumeFileName})` : "Not provided"}
+Resume: ${data.resumeUrl ? `Available - Download at: ${data.resumeUrl}` : "Not provided"}
+${data.resumeFileName ? `Filename: ${data.resumeFileName}` : ""}
+${data.resumeFileSize ? `Size: ${(data.resumeFileSize / 1024).toFixed(2)} KB` : ""}
 
 Referral Source: ${data.referralSource || "Not specified"}
 

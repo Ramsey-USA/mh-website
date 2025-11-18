@@ -120,7 +120,7 @@ consistency with the rest of the MH Construction website.
 - [ ] **Standard Header Pattern:**
 
   ```tsx
-  <h2 className="text-3xl lg:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
+  <h2 className="text-3xl lg:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-gray-100">
     Section Title
   </h2>
   <p className="text-base lg:text-lg text-center mb-12 text-gray-600 dark:text-gray-300 max-w-5xl mx-auto">

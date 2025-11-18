@@ -431,4 +431,4 @@ and commitment to community service."
 
 ---
 
-#### Last updated: October 2025 | MH Construction LLC
+**Last updated:** October 2025 | MH Construction, Inc.

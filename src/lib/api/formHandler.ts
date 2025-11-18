@@ -7,6 +7,17 @@ import { NextResponse, type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { createDbClient, type D1Database } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
+import {
+  getR2Bucket,
+  R2StorageService,
+  isSmallEnoughForEmail,
+  fileToBase64,
+} from "@/lib/cloudflare/r2";
+import {
+  generateJobApplicationAcknowledgment,
+  generateConsultationAcknowledgment,
+  generateContactAcknowledgment,
+} from "@/lib/email/templates";
 
 export interface FormSubmissionConfig<T = unknown> {
   tableName: string;
@@ -92,13 +103,15 @@ export async function handleFormSubmission<T = unknown>(
       // Continue to send email even if DB fails
     }
 
+    // Convert data to Record format for email processing
+    const formData = data as unknown as Record<string, unknown>;
+
     // Send email notification
     let emailSent = false;
     try {
       const emailSubject = config.emailSubject(data as T);
       const emailMessage = config.emailMessage(data as T);
 
-      const formData = data as unknown as Record<string, unknown>;
       const name =
         typeof formData["name"] === "string"
           ? (formData["name"] as string)
@@ -108,7 +121,7 @@ export async function handleFormSubmission<T = unknown>(
         subject: emailSubject,
         message: emailMessage,
         type: config.submissionType.toLowerCase().replace(/\s+/g, "-"),
-        recipientEmail: "office@mhc-gc.com", // This will be expanded to include matt@ in the contact API
+        recipientEmail: "office@mhc-gc.com", // This will be expanded to include matt@ and arnold@ (for job apps) in the contact API
         metadata: {
           submissionId,
           submissionType: config.submissionType,
@@ -121,6 +134,48 @@ export async function handleFormSubmission<T = unknown>(
           ? { phone: formData["phone"] }
           : {}),
       };
+
+      // Check if this is a job application with a resume that's small enough to attach
+      if (
+        config.submissionType === "Job Application" &&
+        typeof formData["resumeKey"] === "string" &&
+        typeof formData["resumeFileSize"] === "number" &&
+        isSmallEnoughForEmail(formData["resumeFileSize"] as number)
+      ) {
+        try {
+          const r2Bucket = getR2Bucket("RESUMES");
+          const r2Service = new R2StorageService(
+            r2Bucket,
+            "mh-construction-resumes",
+          );
+
+          const resumeResult = await r2Service.getFile(
+            formData["resumeKey"] as string,
+          );
+
+          if (resumeResult.success && resumeResult.data) {
+            const base64Content = await fileToBase64(resumeResult.data);
+            emailPayload["attachments"] = [
+              {
+                content: base64Content,
+                filename:
+                  (formData["resumeFileName"] as string) || "resume.pdf",
+                contentType: resumeResult.contentType || "application/pdf",
+              },
+            ];
+            logger.info("Resume attached to email (file size within limit)", {
+              size: formData["resumeFileSize"],
+            });
+          }
+        } catch (attachErr: unknown) {
+          const error =
+            attachErr instanceof Error
+              ? attachErr
+              : new Error(String(attachErr));
+          logger.error("Failed to attach resume to email:", error);
+          // Continue without attachment - download link will still be in email
+        }
+      }
 
       const emailResponse = await fetch(
         `${request.nextUrl.origin}/api/contact`,
@@ -144,6 +199,113 @@ export async function handleFormSubmission<T = unknown>(
         emailErr instanceof Error ? emailErr : new Error(String(emailErr));
       logger.error(`Error sending ${config.submissionType} email:`, error);
       // Continue even if email fails
+    }
+
+    // Send acknowledgment email to the applicant/client
+    try {
+      const applicantEmail =
+        typeof formData["email"] === "string"
+          ? (formData["email"] as string)
+          : null;
+
+      if (applicantEmail) {
+        let acknowledgment: {
+          subject: string;
+          html: string;
+          text: string;
+        } | null = null;
+
+        // Generate appropriate acknowledgment based on submission type
+        if (config.submissionType === "Job Application") {
+          acknowledgment = generateJobApplicationAcknowledgment({
+            firstName:
+              (formData["firstName"] as string) ||
+              (formData["name"] as string)?.split(" ")[0] ||
+              "Applicant",
+            lastName:
+              (formData["lastName"] as string) ||
+              (formData["name"] as string)?.split(" ").slice(1).join(" ") ||
+              "",
+            position: (formData["position"] as string) || "Position",
+            email: applicantEmail,
+          });
+        } else if (config.submissionType === "Consultation") {
+          const consultationData: {
+            name: string;
+            projectType: string;
+            email: string;
+            selectedDate?: string;
+            selectedTime?: string;
+          } = {
+            name: (formData["name"] as string) || "Client",
+            projectType: (formData["projectType"] as string) || "your project",
+            email: applicantEmail,
+          };
+
+          // Only add optional properties if they have values
+          if (
+            formData["selectedDate"] &&
+            typeof formData["selectedDate"] === "string"
+          ) {
+            consultationData.selectedDate = formData["selectedDate"] as string;
+          }
+          if (
+            formData["selectedTime"] &&
+            typeof formData["selectedTime"] === "string"
+          ) {
+            consultationData.selectedTime = formData["selectedTime"] as string;
+          }
+
+          acknowledgment = generateConsultationAcknowledgment(consultationData);
+        } else {
+          // General contact form
+          acknowledgment = generateContactAcknowledgment({
+            name: (formData["name"] as string) || "there",
+            email: applicantEmail,
+            type: config.submissionType,
+          });
+        }
+
+        if (acknowledgment) {
+          const ackResponse = await fetch(
+            `${request.nextUrl.origin}/api/contact`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                name:
+                  (formData["name"] as string) ||
+                  `${formData["firstName"]} ${formData["lastName"]}`,
+                email: "noreply@mhc-gc.com",
+                subject: acknowledgment.subject,
+                message: acknowledgment.text,
+                type: "acknowledgment",
+                recipientEmail: applicantEmail,
+                metadata: {
+                  isAcknowledgment: true,
+                  submissionType: config.submissionType,
+                },
+                customHtml: acknowledgment.html,
+              }),
+            },
+          );
+
+          if (ackResponse.ok) {
+            logger.info(`Acknowledgment email sent to ${applicantEmail}`);
+          } else {
+            logger.error(
+              `Failed to send acknowledgment email to ${applicantEmail}`,
+            );
+          }
+        }
+      }
+    } catch (ackErr: unknown) {
+      const error =
+        ackErr instanceof Error ? ackErr : new Error(String(ackErr));
+      logger.error("Error sending acknowledgment email:", error);
+      // Don't fail the request if acknowledgment fails
     }
 
     return NextResponse.json({

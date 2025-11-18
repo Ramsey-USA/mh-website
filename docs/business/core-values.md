@@ -311,4 +311,4 @@ Experience these values in action on your next construction project.
 
 ---
 
-**Last updated:** November 6, 2025 | MH Construction LLC
+**Last updated:** November 6, 2025 | MH Construction, Inc.

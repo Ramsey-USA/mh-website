@@ -417,4 +417,4 @@ network of quality professionals serving the Pacific Northwest market.
 
 _Building partnerships, serving communities, creating lasting value in the Pacific Northwest._
 
-**Last updated:** October 2025 | MH Construction LLC
+**Last updated:** October 2025 | MH Construction, Inc.

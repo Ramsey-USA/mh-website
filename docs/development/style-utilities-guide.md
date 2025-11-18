@@ -311,7 +311,7 @@ interface SectionHeaderProps {
         <p className="mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl">
           Subtitle
         </p>
-        <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+        <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-gray-100 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
           Title
         </h2>
         <p className="text-gray-600 dark:text-gray-300 text-lg">

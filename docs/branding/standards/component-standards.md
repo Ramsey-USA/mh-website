@@ -91,7 +91,7 @@ balance and cleaner layout.
 
   {/* Card Header */}
   <CardHeader>
-    <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
+    <CardTitle className="text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
       Card Title
     </CardTitle>
   </CardHeader>
@@ -143,7 +143,7 @@ for clean UX with single main page scroll.
               className="mr-3 text-brand-primary text-4xl"
             />
           </div>
-          <CardTitle className="mb-2 text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
+          <CardTitle className="mb-2 text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
             Card Title
           </CardTitle>
         </CardHeader>

@@ -102,11 +102,36 @@ export function JobApplicationModal({
     setSubmitError("");
 
     try {
-      // Submit to API endpoint (which will handle Cloudflare storage)
+      let resumeUrl = "";
+      let resumeKey = "";
+
+      // Upload resume file first if provided
+      if (formData.resumeFile) {
+        const uploadFormData = new FormData();
+        uploadFormData.append("file", formData.resumeFile);
+        uploadFormData.append("email", formData.email);
+
+        const uploadResponse = await fetch("/api/upload/resume", {
+          method: "POST",
+          body: uploadFormData,
+        });
+
+        if (!uploadResponse.ok) {
+          throw new Error("Failed to upload resume");
+        }
+
+        const uploadResult = await uploadResponse.json();
+        resumeUrl = uploadResult.data.url;
+        resumeKey = uploadResult.data.key;
+      }
+
+      // Submit application with resume URL
       const applicationData = {
         ...formData,
         resumeFileName: formData.resumeFile?.name || "",
         resumeFileSize: formData.resumeFile?.size || 0,
+        resumeUrl: resumeUrl,
+        resumeKey: resumeKey,
         submittedAt: new Date().toISOString(),
         status: "new",
       };
@@ -162,12 +187,13 @@ export function JobApplicationModal({
             <MaterialIcon icon="check_circle" size="4xl" />
           </div>
           <h3 className="mb-4 font-black text-3xl sm:text-4xl md:text-5xl leading-tight text-gray-900 dark:text-white">
-            Welcome to Our Team!
+            🌟 Your Future Starts Now!
           </h3>
           <p className="mb-6 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-            Thank you for your interest in joining our veteran-owned company.
-            We'll review your application and contact you soon to discuss how we
-            can work together.
+            Welcome to the MH Construction family! We're excited to have
+            received your application and can't wait to learn more about you.
+            Check your email for a confirmation—we'll be in touch within 3-5
+            business days to discuss your future with us.
           </p>
 
           {/* Veteran Badge */}
@@ -224,10 +250,10 @@ export function JobApplicationModal({
             <div className="flex justify-between items-start">
               <div className="flex-1">
                 <h2 className="mb-2 font-black text-2xl sm:text-3xl md:text-4xl leading-tight">
-                  Join Our Team
+                  Build Your Future With Us
                 </h2>
                 <p className="text-white/90 text-sm sm:text-base">
-                  Build Your Career with Excellence
+                  Where Your Growth Is Our Mission
                 </p>
               </div>
               <button
@@ -242,9 +268,8 @@ export function JobApplicationModal({
             {/* Partnership Tagline */}
             <div className="mt-4 bg-white/10 backdrop-blur-sm p-3 border border-white/20 rounded-lg inline-block">
               <p className="text-sm sm:text-base font-bold text-white">
-                "Building for the Client,{" "}
-                <span className="font-black text-bronze-300">NOT</span> the
-                Dollar"
+                "Where Talent Meets{" "}
+                <span className="font-black text-bronze-300">OPPORTUNITY</span>"
               </p>
             </div>
           </div>
@@ -574,19 +599,14 @@ export function JobApplicationModal({
               <div className="bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 mb-6 p-4 border border-brand-primary/30 dark:border-brand-primary/40 rounded-xl">
                 <p className="text-gray-800 dark:text-gray-200 text-sm leading-relaxed">
                   <MaterialIcon
-                    icon="info"
+                    icon="celebration"
                     size="sm"
                     className="inline mr-2 text-brand-primary"
                   />
-                  Your application will be sent to our HR team at{" "}
-                  <a
-                    href="mailto:office@mhc-gc.com"
-                    className="font-semibold text-brand-primary hover:text-brand-secondary underline"
-                  >
-                    office@mhc-gc.com
-                  </a>
-                  . We'll review your submission and contact you within 3-5
-                  business days.
+                  Exciting! Your application will be sent to our HR team who
+                  can't wait to meet you. We'll review your information and
+                  reach out within 3-5 business days to discuss your career
+                  opportunities with MH Construction. Your future starts here!
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row justify-end gap-4">

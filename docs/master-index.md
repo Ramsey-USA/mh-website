@@ -14,9 +14,16 @@ See [Project History](./project/history/) for archived completion reports.
 
 **New to the project?**
 
+### 🎯 Complete Developer Journey
+
+- 🗺️ **[Developer Workflow Pathway](./development/developer-workflow-pathway.md)** -
+  ⭐ **NEW** - Step-by-step guide connecting ALL documentation (START HERE)
+
+### 📚 Essential Documents
+
 - 🆕 **[Development Quick Start](./development/development-index.md)** - Get up and running
-- 📖 **[Consistency Guide](./development/consistency-guide.md)** - Implementation standards (START HERE for development)
-- ⚡ **[Style Utilities Guide](./development/style-utilities-guide.md)** - ⭐ **NEW** - Centralized style utilities (mandatory)
+- 📖 **[Consistency Guide](./development/consistency-guide.md)** - Implementation standards (PRIMARY REFERENCE)
+- ⚡ **[Style Utilities Guide](./development/style-utilities-guide.md)** - Centralized style utilities (mandatory)
 - 🎨 **[Branding Overview](./branding/branding-index.md)** - Brand guidelines and visual standards
 - 🏗️ **[Project Overview](./project/project-index.md)** - Architecture and roadmaps
 
@@ -307,14 +314,27 @@ Document & code templates for rapid creation.
 
 ### **For Developers**
 
-1. **[Consistency Guide](./development/consistency-guide.md)** ⭐ START HERE
-2. **[Style Utilities Guide](./development/style-utilities-guide.md)** ⭐ NEW - Mandatory for all development
-3. **[Ultimate SEO Guide](./technical/seo/ultimate-seo-guide.md)** ⭐ AUTO-ADAPTIVE SEO
-4. **[Development Standards](./development/development-standards.md)** - Coding rules
-5. **[AI Guidelines](./development/ai-development-guidelines.md)** - AI assistant rules
-6. **[Design System](./technical/design-system/design-system.md)** - UI components
-7. **[VS Code Complete Setup](./development/vscode-setup.md)** - ⭐ **NEW** - Full configuration + custom snippets
-8. **[Refactoring Roadmap](./technical/refactoring-roadmap.md)** - Code improvement initiatives
+**🗺️ Start Here**:
+
+1. **[Developer Workflow Pathway](./development/developer-workflow-pathway.md)** -
+   ⭐ **NEW** - Complete guided journey through ALL documentation
+
+**📚 Core References**:
+
+1. **[Consistency Guide](./development/consistency-guide.md)** ⭐ PRIMARY REFERENCE
+2. **[Style Utilities Guide](./development/style-utilities-guide.md)** ⭐ MANDATORY
+3. **[Page-Specific Messaging Guide](./branding/strategy/page-specific-messaging-guide.md)** ⭐ CRITICAL
+4. **[Universal Terminology Guide](./branding/strategy/universal-terminology-guide.md)** ⭐ ESSENTIAL
+5. **[Homepage Compliance Checklist](./branding/standards/homepage-compliance-checklist.md)** ⭐ NEW
+
+**🛠️ Tools & Systems**:
+
+1. **[Ultimate SEO Guide](./technical/seo/ultimate-seo-guide.md)** - AUTO-ADAPTIVE SEO
+2. **[Development Standards](./development/development-standards.md)** - Coding rules
+3. **[AI Guidelines](./development/ai-development-guidelines.md)** - AI assistant rules
+4. **[Design System](./technical/design-system/design-system.md)** - UI components
+5. **[VS Code Complete Setup](./development/vscode-setup.md)** - Full configuration
+6. **[Refactoring Roadmap](./technical/refactoring-roadmap.md)** - Code improvements
 
 **Quick Actions:**
 

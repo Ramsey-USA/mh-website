@@ -347,4 +347,4 @@ application through completion.**
 **Partnership Philosophy:** "We Work With You" - Collaborative approach to
 government and grant projects
 
-**Last Updated:** October 2025 | MH Construction LLC | Veteran-Owned
+**Last Updated:** October 2025 | MH Construction, Inc. | Veteran-Owned

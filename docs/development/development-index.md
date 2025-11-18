@@ -15,6 +15,57 @@
 
 ## 🚀 **START HERE for Developers**
 
+### 📋 Prerequisites: What to Read First
+
+**Before diving into development, understand the brand foundation:**
+
+#### Phase 1: Brand Foundation (30-45 min)
+
+1. **[Brand Overview](../branding/strategy/brand-overview.md)** (10 min) -
+   Company identity, values, and partnership philosophy
+2. **[Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md)** ⭐ **CRITICAL** (15 min) -
+   7 page groups with unique voices (MUST READ)
+3. **[Universal Terminology Guide](../branding/strategy/universal-terminology-guide.md)** ⭐ **ESSENTIAL** (10 min) -
+   Company-wide language standards
+4. **[Color System](../branding/standards/color-system.md)** (5 min) - Brand colors
+5. **[Typography Standards](../branding/standards/typography.md)** (10 min) - Typography system
+
+#### Phase 2: Implementation (45-60 min)
+
+1. **[Developer Workflow Pathway](./developer-workflow-pathway.md)** ⭐ **NEW** (15 min) -
+   Complete guided journey through ALL documentation
+2. **[Consistency Guide](./consistency-guide.md)** ⭐ **PRIMARY** (30 min) - Implementation patterns
+3. **[Style Utilities Guide](./style-utilities-guide.md)** ⭐ **MANDATORY** (10 min) - Code utilities
+
+**Why Prerequisites Matter**: Understanding brand identity and messaging BEFORE coding ensures consistency.
+Each page group has a unique voice - using the wrong voice damages brand integrity.
+
+---
+
+### 🗺️ Complete Developer Journey
+
+```text
+Prerequisites (Brand Foundation)
+    ↓
+Brand Overview + Page-Specific Messaging ✅
+    ↓
+Universal Terminology + Color System + Typography ✅
+    ↓
+YOU ARE HERE: Development Documentation
+    ↓
+Developer Workflow Pathway (guided journey)
+    ↓
+Consistency Guide (implementation patterns)
+    ↓
+Style Utilities Guide (code utilities)
+    ↓
+Components (UI library)
+    ↓
+Page Development (create pages)
+```
+
+---
+
 ### New Developer Onboarding Path
 
 1. **[Current State 2025-11](./current-state-2025-11.md)** - ⭐ **NEW** - Complete baseline for

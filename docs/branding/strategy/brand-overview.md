@@ -27,7 +27,7 @@ groups aligned with SEO optimization strategy documented in
 
 ### Company Information
 
-- **Company Name**: MH Construction LLC
+- **Company Name**: MH Construction, Inc.
 - **Industry**: Commercial Construction Management
 - **Founded**: Veteran-owned and operated
 - **Service Area**: Tri-Cities, WA | Licensed in WA, OR, ID

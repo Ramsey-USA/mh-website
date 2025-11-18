@@ -162,7 +162,7 @@ decorative elements. Headings should be clean and readable, not competing with b
 "text-brand-secondary";
 
 // Dark contrast for light containers
-"text-gray-900 dark:text-white";
+"text-gray-900 dark:text-gray-100";
 
 // Muted for subtle headings
 "text-gray-700 dark:text-gray-300";

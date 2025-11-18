@@ -68,7 +68,7 @@ Regional Commitment:
 
 | Information | Details |
 |-------------|---------|
-| **Business Name** | MH Construction LLC (Veteran-Owned) |
+| **Business Name** | MH Construction, Inc. (Veteran-Owned) |
 | **Partnership Philosophy** | "We Work With You" - Collaborative Construction Partners |
 | **Community Focus** | Serving Pacific Northwest Communities Since 2010 |
 | **Phone** | (509) 308-6489 |

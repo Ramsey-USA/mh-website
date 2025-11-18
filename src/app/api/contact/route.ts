@@ -12,11 +12,12 @@ export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 /**
- * Contact API - Handles all form submissions and sends emails to office@mhc-gc.com and matt@mhc-gc.com
+ * Contact API - Handles all form submissions and sends emails to office@mhc-gc.com, matt@mhc-gc.com, and arnold@mhc-gc.com (for job applications)
  * This endpoint serves as the central hub for all contact forms, job applications,
  * consultations, and other submissions that need to be emailed to the office.
  *
- * Note: office@mhc-gc.com is the displayed/public email, matt@mhc-gc.com receives copies but is not displayed
+ * Note: office@mhc-gc.com is the displayed/public email, matt@mhc-gc.com and arnold@mhc-gc.com receive copies but are not displayed
+ * arnold@mhc-gc.com receives job applications for HR review
  *
  * Email Service: Resend (https://resend.com)
  */
@@ -27,9 +28,21 @@ interface ContactRequest {
   phone?: string;
   subject?: string;
   message: string;
-  type?: "contact" | "job-application" | "consultation" | "urgent" | "general";
-  recipientEmail?: string; // Primary recipient (defaults to office@mhc-gc.com), matt@mhc-gc.com is auto-CC'd
+  type?:
+    | "contact"
+    | "job-application"
+    | "consultation"
+    | "urgent"
+    | "general"
+    | "acknowledgment";
+  recipientEmail?: string; // Primary recipient (defaults to office@mhc-gc.com), matt@mhc-gc.com and arnold@mhc-gc.com (for job apps) are auto-CC'd
   metadata?: Record<string, string | number | boolean | null>;
+  attachments?: Array<{
+    content: string; // base64 encoded
+    filename: string;
+    contentType: string;
+  }>;
+  customHtml?: string; // For custom email templates (e.g., acknowledgments)
 }
 
 export async function POST(request: NextRequest) {
@@ -61,15 +74,35 @@ export async function POST(request: NextRequest) {
     const emailSubject =
       data.subject || `New ${data.type || "Contact"} Form Submission`;
 
-    // Send to both office@ (displayed) and matt@ (CC'd, not displayed)
-    const emailRecipients = [recipientEmail, "matt@mhc-gc.com"];
+    // For acknowledgment emails, only send to the recipient (not office/matt/arnold)
+    // For job applications, send to office@, matt@, and arnold@
+    // For other notifications, send to office@ and matt@
+    const isAcknowledgment =
+      data.type === "acknowledgment" || data.metadata?.["isAcknowledgment"];
+    const isJobApplication = data.type === "job-application";
+
+    let emailRecipients: string[];
+    if (isAcknowledgment) {
+      emailRecipients = [recipientEmail];
+    } else if (isJobApplication) {
+      emailRecipients = [
+        recipientEmail,
+        "matt@mhc-gc.com",
+        "arnold@mhc-gc.com",
+      ];
+    } else {
+      emailRecipients = [recipientEmail, "matt@mhc-gc.com"];
+    }
 
     const emailData = {
       to: emailRecipients,
       from: process.env["EMAIL_FROM"] || "noreply@mhc-gc.com",
       subject: emailSubject,
-      html: generateEmailHTML(data),
+      html: data.customHtml || generateEmailHTML(data),
       text: generateEmailText(data),
+      ...(data.attachments && data.attachments.length > 0
+        ? { attachments: data.attachments }
+        : {}),
     };
 
     // Send email using Resend
@@ -80,13 +113,33 @@ export async function POST(request: NextRequest) {
       try {
         const resend = new Resend(process.env["RESEND_API_KEY"]);
 
-        const { data: emailResult, error } = await resend.emails.send({
+        const emailPayload: {
+          from: string;
+          to: string[];
+          subject: string;
+          html: string;
+          text: string;
+          attachments?: Array<{
+            content: string;
+            filename: string;
+          }>;
+        } = {
           from: emailData.from,
           to: emailData.to,
           subject: emailData.subject,
           html: emailData.html,
           text: emailData.text,
-        });
+        };
+
+        if (data.attachments && data.attachments.length > 0) {
+          emailPayload.attachments = data.attachments.map((att) => ({
+            content: att.content,
+            filename: att.filename,
+          }));
+        }
+
+        const { data: emailResult, error } =
+          await resend.emails.send(emailPayload);
 
         if (error) {
           logger.error("Resend API error:", error);
@@ -97,6 +150,7 @@ export async function POST(request: NextRequest) {
             id: emailResult?.id,
             to: recipientEmail, // Log only the primary recipient for clarity
             subject: emailData.subject,
+            attachments: data.attachments?.length || 0,
           });
         }
       } catch (_error) {
@@ -237,7 +291,7 @@ function generateEmailHTML(data: ContactRequest): string {
     <!-- Header -->
     <tr>
       <td style="background: linear-gradient(135deg, #386851 0%, #2d5340 100%); padding: 30px; text-align: center;">
-        <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction LLC</h1>
+        <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
         <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Veteran-Owned Excellence</p>
       </td>
     </tr>
@@ -284,7 +338,7 @@ function generateEmailHTML(data: ContactRequest): string {
     <tr>
       <td style="background-color: #f5f5f5; padding: 20px; text-align: center; border-top: 1px solid #e5e5e5;">
         <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">
-          <strong>MH Construction LLC</strong><br>
+          <strong>MH Construction, Inc.</strong><br>
           3111 N. Capital Ave., Pasco, WA 99301<br>
           Phone: <a href="tel:+15093086489" style="color: #386851; text-decoration: none;">(509) 308-6489</a><br>
           Email: <a href="mailto:office@mhc-gc.com" style="color: #386851; text-decoration: none;">office@mhc-gc.com</a>
@@ -311,7 +365,7 @@ function generateEmailText(data: ContactRequest): string {
     : "";
 
   return `
-MH Construction LLC - New ${data.type || "Contact"} Form Submission
+MH Construction, Inc. - New ${data.type || "Contact"} Form Submission
 
 Veteran-Owned Excellence
 
@@ -331,7 +385,7 @@ Submission Time: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_A
 
 ---
 
-MH Construction LLC
+MH Construction, Inc.
 3111 N. Capital Ave., Pasco, WA 99301
 Phone: (509) 308-6489
 Email: office@mhc-gc.com

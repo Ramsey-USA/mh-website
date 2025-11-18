@@ -35,7 +35,7 @@ export default function ServicesPage() {
     serviceType: "Construction Management Services",
     provider: {
       "@type": "Organization",
-      name: "MH Construction LLC",
+      name: "MH Construction, Inc.",
       "@id": "https://www.mhc-gc.com/#organization",
       url: "https://www.mhc-gc.com",
       telephone: "+1-509-308-6489",

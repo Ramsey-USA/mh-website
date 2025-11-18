@@ -307,22 +307,39 @@ Full navigation: [MasterIndex](./docs/master-index.md)
 
 ---
 
-## � Documentation System
+## 📁 Documentation System
 
 ### Start Here
 
 **[MasterIndex](./docs/master-index.md)** - Central documentation hub with complete navigation
 
+### New Developer - Start Here
+
+**[Developer Workflow Pathway](./docs/development/developer-workflow-pathway.md)** - ⭐ **START HERE** -
+Complete step-by-step guide connecting ALL documentation (brand → development → implementation)
+
+This comprehensive guide provides:
+
+- **Phase-by-phase learning path** (Brand Foundation → Implementation → Page Development)
+- **Visual flow charts** showing how all documentation connects
+- **Task-based pathways** ("I need to create a new page", "I need to update an existing page")
+- **Time estimates** for each phase (30 min, 45 min, etc.)
+- **Validation checklists** to ensure nothing is missed
+
+**Total onboarding time:** 2-3 hours to become productive
+
 ### Key Documentation Areas
 
 #### For New Developers
 
-1. **[Development Quick Start](./docs/development/development-index.md)** - Get started
-2. **[Consistency Guide](./docs/development/consistency-guide.md)** - ⭐ **MANDATORY** -
+1. **[Developer Workflow Pathway](./docs/development/developer-workflow-pathway.md)** - ⭐ **START HERE** -
+   Complete guided journey
+2. **[Development Quick Start](./docs/development/development-index.md)** - Get up and running
+3. **[Consistency Guide](./docs/development/consistency-guide.md)** - ⭐ **MANDATORY** -
    Implementation standards
-3. **[Style Utilities Guide](./docs/development/style-utilities-guide.md)** - ⭐ **MANDATORY** -
+4. **[Style Utilities Guide](./docs/development/style-utilities-guide.md)** - ⭐ **MANDATORY** -
    Centralized utilities
-4. **[AI Development Guidelines](./docs/development/ai-development-guidelines.md)** -
+5. **[AI Development Guidelines](./docs/development/ai-development-guidelines.md)** -
    Working with AI features
 
 #### Branding & Design
@@ -446,15 +463,36 @@ Complete reference: [Icons Hub](./docs/technical/design-system/icons/icons-index
 
 ## 👨‍💻 Development Workflow
 
+### 🎯 New to Development? Follow This Path
+
+**Before writing any code**, follow the complete learning path:
+
+1. **[Developer Workflow Pathway](./docs/development/developer-workflow-pathway.md)** - ⭐ **READ FIRST** -
+   Complete step-by-step guide through all documentation
+2. **Phase 1: Brand Foundation** (30-45 min) - Understand brand identity, messaging, and visual standards
+3. **Phase 2: Implementation** (45-60 min) - Learn technical patterns and coding standards
+4. **Phase 3: Page Development** (15-20 min) - Master the page creation workflow
+5. **Phase 4: Specialized Topics** (as needed) - Deep dive into specific areas
+
 ### Creating New Pages
 
-1. Create page component in `src/app/[route]/page.tsx`
-2. Add metadata export with SEO information
-3. Update `src/app/sitemap.ts` with new route
-4. Use centralized utilities from `src/lib/styles/`
-5. Test with `npm run dev`
-6. Validate with `npm run type-check && npm run lint`
-7. Run SEO audit with `npm run seo:audit`
+**Prerequisites**: Complete the [Developer Workflow Pathway](./docs/development/developer-workflow-pathway.md) first!
+
+1. **Understand the brand** - Read [Page-Specific Messaging Guide](./docs/branding/strategy/page-specific-messaging-guide.md)
+   to identify which of the 7 page groups your page belongs to
+2. **Review standards** - Check [Homepage Compliance Checklist](./docs/branding/standards/homepage-compliance-checklist.md)
+   for validation requirements
+3. **Create page component** in `src/app/[route]/page.tsx`
+4. **Add metadata export** with SEO information (see [SEO Complete Guide](./docs/technical/seo/seo-complete-guide.md))
+5. **Update sitemap** in `src/app/sitemap.ts` with new route
+6. **Use centralized utilities** from `src/lib/styles/` (see [Style Utilities Guide](./docs/development/style-utilities-guide.md))
+7. **Test locally** with `npm run dev`
+8. **Validate code quality** with `npm run type-check && npm run lint`
+9. **Run SEO audit** with `npm run seo:audit`
+10. **Use cohesion checklist** - Follow [Cohesion Checklist](./docs/development/cohesion-checklist.md)
+    to ensure consistency
+
+**Detailed Guide**: See [New Page Development Guide](./docs/development/new-page-development-guide.md)
 
 ### Code Standards
 

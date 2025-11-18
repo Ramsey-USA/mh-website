@@ -114,7 +114,7 @@ function generatePhoneTrackingEmailHTML(
     <tr>
       <td style="background: linear-gradient(135deg, #386851 0%, #2d5340 100%); padding: 30px; text-align: center;">
         <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">📞 Phone Call Activity</h1>
-        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">MH Construction LLC</p>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">MH Construction, Inc.</p>
       </td>
     </tr>
     
@@ -185,7 +185,7 @@ function generatePhoneTrackingEmailHTML(
     <tr>
       <td style="background-color: #f5f5f5; padding: 20px; text-align: center; border-top: 1px solid #e5e5e5;">
         <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">
-          <strong>MH Construction LLC</strong><br>
+          <strong>MH Construction, Inc.</strong><br>
           Automated Phone Call Tracking System
         </p>
         <p style="margin: 0; font-size: 12px; color: #999;">
@@ -206,7 +206,7 @@ function generatePhoneTrackingEmailText(
   data: PhoneCallTrackingRequest,
 ): string {
   return `
-MH Construction LLC - Phone Call Activity
+MH Construction, Inc. - Phone Call Activity
 
 📞 A visitor clicked the phone number on your website!
 
@@ -220,7 +220,7 @@ Be prepared for an incoming call to ${data.phoneNumber}.
 
 ---
 
-MH Construction LLC
+MH Construction, Inc.
 Automated Phone Call Tracking System
   `.trim();
 }

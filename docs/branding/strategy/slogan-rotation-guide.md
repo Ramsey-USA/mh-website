@@ -237,7 +237,7 @@ These are MH Construction's cornerstone messages that define our core brand prom
 "MH Construction - Building for the Client, NOT the Dollar since 2025";
 
 // Email signature
-"Building for the Client, NOT the Dollar | MH Construction LLC";
+"Building for the Client, NOT the Dollar | MH Construction, Inc.";
 ```
 
 **Variations:**

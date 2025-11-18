@@ -129,11 +129,46 @@ unified access.
 
 ---
 
+## 🗺️ Your Development Pathway
+
+**Completed Brand Foundation? Continue your journey:**
+
+### Next Step: Implementation
+
+After understanding brand strategy and standards, move to implementation:
+
+1. **[Developer Workflow Pathway](../development/developer-workflow-pathway.md)** - ⭐ **NEW** -
+   Complete step-by-step guide connecting brand → development → implementation
+2. **[Development Index](../development/development-index.md)** - Development documentation hub
+3. **[Consistency Guide](../development/consistency-guide.md)** - Complete implementation patterns
+
+### Complete Learning Path
+
+```text
+YOU ARE HERE: Branding Documentation
+    ↓
+📘 Strategy (brand-overview.md, page-specific-messaging-guide.md) ✅
+    ↓
+🎨 Standards (color-system.md, typography.md, component-standards.md) ✅
+    ↓
+🔧 Implementation (branding-quick-reference.md) ✅
+    ↓
+NEXT: Developer Workflow Pathway
+    ↓
+💻 Development (consistency-guide.md, style-utilities-guide.md)
+    ↓
+🧩 Components (UI components, shared sections)
+    ↓
+🚀 Page Development (new-page-development-guide.md)
+```
+
+---
+
 ## 🎯 Key Brand Elements
 
 ### Core Identity
 
-- **Company**: MH Construction LLC
+- **Company**: MH Construction, Inc.
 - **Tagline**: "Building for the Client, NOT the Dollar"
 - **Focus**: Veteran-owned, partnership-driven construction management
 - **Service Area**: Tri-Cities, WA | Licensed in WA, OR, ID

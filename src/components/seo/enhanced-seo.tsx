@@ -30,8 +30,8 @@ export const enhancedSEO = {
     "face-to-face trust builder",
   ],
   companyInfo: {
-    name: "MH Construction LLC",
-    legalName: "MH Construction Limited Liability Company - Veteran-Owned",
+    name: "MH Construction, Inc.",
+    legalName: "MH Construction Incorporated - Veteran-Owned",
     telephone: "(509) 308-6489",
     email: "office@mhc-gc.com",
     address: {

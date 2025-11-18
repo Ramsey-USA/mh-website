@@ -490,7 +490,7 @@ export default function PageName() {
     <FadeInWhenVisible>
       {/* Section Header - NO BADGES */}
       <div className="mx-auto mb-16 lg:mb-24 max-w-4xl text-center">
-        <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
+        <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-gray-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
           <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
             Subtitle Text
           </span>
@@ -586,7 +586,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
       icon="construction"
       className="mb-4 text-brand-primary text-5xl"
     />
-    <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
+    <CardTitle className="text-gray-900 dark:text-gray-100 text-xl sm:text-2xl md:text-3xl">
       Card Title
     </CardTitle>
   </CardHeader>
@@ -833,7 +833,7 @@ npm run build
 
 **Required Elements**:
 
-- Company name: "MH Construction LLC"
+- Company name: "MH Construction, Inc."
 - Primary tagline: "Building for the Client, NOT the Dollar"
 - Phone: (509) 308-6489
 - Address: "3111 N. Capital Ave., Pasco, WA 99301"
@@ -849,7 +849,7 @@ npm run build
   <div style="font-weight: 600; color: #386851; margin-bottom: 8px;">
     [Name] | [Title]
   </div>
-  <div style="font-weight: 600; margin-bottom: 4px;">MH Construction LLC</div>
+  <div style="font-weight: 600; margin-bottom: 4px;">MH Construction, Inc.</div>
   <div style="color: #757575; margin-bottom: 8px;">
     Building for the Client, NOT the Dollar
   </div>
