@@ -301,9 +301,9 @@ Want to prepare first? Try our Budget Planning Tool for instant preliminary esti
 ## 📝 Related Documentation
 
 - [Universal Terminology Guide](./universal-terminology-guide.md) - Company-wide language standards
-- [Partnership Messaging Guide](../../partnerships/messaging/partnership-messaging-guide.md) -
+- [Partnership Messaging Complete Guide](../../partnerships/messaging/partnership-messaging-complete-guide.md) - Complete messaging framework including service type distinctions
   Client Partner vs Trade Partner language
-- [CTAs Guide](../../technical/design-system/ctas-guide.md) - Button language and design standards
+- [Buttons & CTAs Complete Guide](../../technical/design-system/buttons-ctas-complete-guide.md) - Button language and design standards
 - [Branding Index](../branding-index.md) - Overall branding guidelines
 
 ---
@@ -318,7 +318,7 @@ Want to prepare first? Try our Budget Planning Tool for instant preliminary esti
 
 **For Development Questions:**
 
-- See `/docs/technical/design-system/ctas-guide.md` for button implementations
+- See `/docs/technical/design-system/buttons-ctas-complete-guide.md` for button implementations
 - Use Material Icons: `event` for consultation, `calculate` for tool
 - Hunter Green for consultation CTAs, Leather Tan for tool CTAs
 

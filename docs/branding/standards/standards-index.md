@@ -81,7 +81,7 @@ brand consistency across the website and marketing materials.
 - Styling requirements
 - Accessibility considerations
 
-**[cta-standardization-plan.md](./cta-standardization-plan.md)** - Call-to-action standards
+**[Buttons & CTAs Complete Guide](../../technical/design-system/buttons-ctas-complete-guide.md)** - Call-to-action standards (consolidated)
 
 - CTA button text guidelines
 - Placement recommendations

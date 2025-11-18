@@ -269,7 +269,7 @@ See [Core Values](../../business/core-values.md) for complete details on each pr
 - **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** - ⭐ **CRITICAL** -
   7-group messaging strategy for all pages
 - **[Messaging Guidelines](./messaging.md)** - General voice and tone principles
-- **[Homepage Optimization Guide](./homepage-optimization.md)** - Trust-first optimization approach
+- **[Homepage Optimization Guide](./homepage-optimization-complete.md)** - Trust-first optimization approach
 - **[SEO Optimization Complete](./seo-optimization.md)** - Complete SEO audit
 - [**Color System**](./color-system.md) - Complete brand color palette
 - [**Icon Policy**](./icon-policy.md) - Material Icons standards

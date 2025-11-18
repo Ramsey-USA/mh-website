@@ -43,12 +43,12 @@ communications.
 
 **Key Files:**
 
-- `partnership-messaging-guide.md` - Comprehensive messaging framework (650+ lines)
-- `cta-button-guide.md` - Button text and CTA implementations
-- `client-vs-vendor-distinctions.md` - Language patterns for different audiences
+- `partnership-messaging-complete-guide.md` - Complete messaging framework (1,050 lines) - Consolidates messaging,
+  client vs trade distinctions, service type distinctions
+- `buttons-ctas-complete-guide.md` - Consolidated button & CTA guide (see technical/design-system/)
+- `trade-partnership-guide.md` - Vendor/trade-specific guidance (400+ lines)
 
-**Note:** These files may contain some overlapping content with the new `partnership-type-definitions.md`.
-The new definitions file is the authoritative source for partnership type distinctions.
+**Note:** partnership-messaging-complete-guide.md is the authoritative source for all messaging and language patterns.
 
 ### `/vendor-trade/` - Trade Partnership Specifics
 
@@ -176,7 +176,7 @@ professionals who provide services and materials to MH Construction.
 
 - **[Branding Index](../branding/branding-index.md)** - Brand guidelines and visual identity
 - **[Color System](../branding/standards/color-system.md)** - Brand color specifications
-- **[CTA Standardization](../branding/standards/cta-standardization-plan.md)** - Call-to-action standards
+- **[Buttons & CTAs Complete Guide](../technical/design-system/buttons-ctas-complete-guide.md)** - Call-to-action standards
 
 ### Business Resources
 

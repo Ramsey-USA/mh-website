@@ -474,7 +474,7 @@ craftsmanship and character.
 - **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** - ⭐ **CRITICAL** -
   7-group messaging strategy (MUST READ for content creators)
 - **[Brand Overview](./brand-overview.md)** - Complete brand identity guide
-- **[Homepage Optimization Guide](./homepage-optimization.md)** - Trust-first optimization approach
+- **[Homepage Optimization Guide](./homepage-optimization-complete.md)** - Trust-first optimization approach
 - **[SEO Optimization Complete](./seo-optimization.md)** - Complete SEO audit
 - **[Color System](../standards/color-system.md)** - Visual brand standards
 - **[Typography](../standards/typography.md)** - Text and font guidelines

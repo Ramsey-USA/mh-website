@@ -88,7 +88,7 @@ Use these suffixes to indicate file type and purpose:
 - **Business content:** `services.md`, `core-values.md`
 - **Profiles:** `matt-ramsey.md`, `team-roster.md`
 - **Specific tasks:** `d1-database-setup.md`, `run-migrations-manually.md`
-- **Reports:** `build-optimization-success.md`
+- **Reports:** `build-optimization-success.md` (archived to project/history/)
 - **Archives:** `archive-branding-optimization-report-nov-2025.md`
 
 ### Naming Best Practices

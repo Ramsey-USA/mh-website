@@ -58,7 +58,7 @@ Brand identity, company values, messaging guidelines, and strategic positioning.
 - `page-specific-messaging-guide.md` - ⭐ **NEW (Nov 2025)** - 7-group page messaging strategy
 - `universal-terminology-guide.md` - ⭐ **NEW (Jan 2025)** - Universal language & terminology standards
 - `estimator-vs-consultation-language.md` - ⭐ **NEW (Nov 2025)** - AI tool vs human consultation language distinctions
-- `homepage-optimization.md` - Homepage trust-first optimization details
+- `homepage-optimization-complete.md` - Homepage trust-first optimization (consolidated guide)
 - `seo-optimization.md` - Complete SEO optimization audit for all 15 pages
 - `content-messaging-standards.md` - Content writing standards
 
@@ -75,7 +75,7 @@ Visual design standards, typography, colors, icons, and component specifications
 - `component-standards.md` - UI component specifications
 - `hero-section-standards.md` - Hero section requirements
 - `bubble-headings-policy.md` - Professional heading guidelines
-- `cta-standardization-plan.md` - Call-to-action standards
+- `buttons-ctas-complete-guide.md` - Consolidated button & CTA standards (see technical/design-system/)
 
 **Note**: For complete icon policy, see
 [Icon Policy Complete](../technical/design-system/icon-policy.md) in the Design System documentation.
@@ -124,7 +124,7 @@ unified access.
    Company-wide language standards (ESSENTIAL for consistency)
 3. Review **[Messaging](./strategy/messaging.md)** - General voice and tone principles
 4. Check **[Content Standards](./strategy/content-messaging-standards.md)** - Writing guidelines
-5. Review **[CTA Standards](./standards/cta-standardization-plan.md)** - Call-to-action patterns
+5. Review **[Buttons & CTAs Complete Guide](../technical/design-system/buttons-ctas-complete-guide.md)** - Call-to-action patterns
 
 ---
 

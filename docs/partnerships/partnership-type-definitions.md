@@ -421,8 +421,7 @@ Before publishing any content mentioning "partnership", ask:
 
 ### Related Documentation
 
-- [Partnership Messaging Guide](./messaging/partnership-messaging-guide.md)
-- [Client vs Vendor Distinctions](./messaging/client-vs-vendor-distinctions.md)
+- [Partnership Messaging Complete Guide](./messaging/partnership-messaging-complete-guide.md)
 - [Trade Partnership Guide](./vendor-trade/trade-partnership-guide.md)
 - [Development Terminology Guide](../development/terminology-guide.md)
 - [Branding Standards](../branding/branding-index.md)

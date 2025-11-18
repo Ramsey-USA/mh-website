@@ -70,8 +70,8 @@ Complete documentation for all button variants, CTA patterns, link validation, a
 **Documentation Structure:**
 
 - **[Buttons & CTAs Index](./buttons-ctas-index.md)** - Navigation hub
-- **[Buttons Complete Guide](./buttons-guide.md)** - All button specifications
-- **[CTAs Complete Guide](./ctas-guide.md)** - CTA patterns and validation
+- **[Buttons & CTAs Complete Guide](./buttons-ctas-complete-guide.md)** - All button & CTA specifications
+- **[Buttons & CTAs Complete Guide](./buttons-ctas-complete-guide.md)** - Consolidated CTA patterns and validation
 
 **Quick Reference:**
 
@@ -286,18 +286,18 @@ Standards for footer layout, navigation, contact information, and social media i
 
 ### Decision Matrix for Common Tasks
 
-| Task                      | Primary Documentation                                              | Secondary Reference                                                       |
-| ------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| **Implementing a button** | [Buttons Complete Guide](./buttons-guide.md)                       | [Design System](./design-system.md)                                       |
-| **Creating a CTA**        | [CTAs Complete Guide](./ctas-guide.md)                             | [Partnership Messaging](../../partnerships/messaging/cta-button-guide.md) |
-| **Adding an icon**        | [Icons Index](./icons-index.md)                                    | [Icon Usage Inventory](./icons/icon-usage-inventory.md)                   |
-| **Page layout**           | [Page Layout Standards](./layout-guide.md)                         | [Page Layout Quick Start](./layout-quick-start.md)                        |
-| **Mobile optimization**   | [Mobile Optimization Guide](./mobile-optimization-guide.md)        | [Mobile Quick Reference](./mobile-quick-reference.md)                     |
-| **Typography**            | [Typography Examples](./typography-examples-clean.md)              | [Design System](./design-system.md)                                       |
-| **Section header**        | [Design System - Typography](./design-system.md#typography-system) | [Typography Examples](./typography-examples-clean.md)                     |
-| **Responsive design**     | [Mobile Optimization Guide](./mobile-optimization-guide.md)        | [Page Layout Standards](./layout-guide.md)                                |
-| **Icon policy check**     | [Icon Policy Complete](./icon-policy.md)                           | [Icons Index](./icons-index.md)                                           |
-| **Footer updates**        | [Footer Enhancements](./footer-enhancements.md)                    | [Design System](./design-system.md)                                       |
+| Task                      | Primary Documentation                                              | Secondary Reference                                                                |
+| ------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| **Implementing a button** | [Buttons & CTAs Complete Guide](./buttons-ctas-complete-guide.md)  | [Design System](./design-system.md)                                                |
+| **Creating a CTA**        | [Buttons & CTAs Complete Guide](./buttons-ctas-complete-guide.md)  | [Partnership Type Definitions](../../partnerships/partnership-type-definitions.md) |
+| **Adding an icon**        | [Icons Index](./icons-index.md)                                    | [Icon Usage Inventory](./icons/icon-usage-inventory.md)                            |
+| **Page layout**           | [Page Layout Standards](./layout-guide.md)                         | [Page Layout Quick Start](./layout-quick-start.md)                                 |
+| **Mobile optimization**   | [Mobile Optimization Guide](./mobile-optimization-guide.md)        | [Mobile Quick Reference](./mobile-quick-reference.md)                              |
+| **Typography**            | [Typography Examples](./typography-examples-clean.md)              | [Design System](./design-system.md)                                                |
+| **Section header**        | [Design System - Typography](./design-system.md#typography-system) | [Typography Examples](./typography-examples-clean.md)                              |
+| **Responsive design**     | [Mobile Optimization Guide](./mobile-optimization-guide.md)        | [Page Layout Standards](./layout-guide.md)                                         |
+| **Icon policy check**     | [Icon Policy Complete](./icon-policy.md)                           | [Icons Index](./icons-index.md)                                                    |
+| **Footer updates**        | [Footer Enhancements](./footer-enhancements.md)                    | [Design System](./design-system.md)                                                |
 
 ---
 
@@ -309,7 +309,7 @@ Standards for footer layout, navigation, contact information, and social media i
 
 1. Review [Design System](./design-system.md) for standards
 2. Check [Page Layout Standards](./layout-guide.md) for structure
-3. Use [Buttons Complete Guide](./buttons-guide.md) for interactive elements
+3. Use [Buttons & CTAs Complete Guide](./buttons-ctas-complete-guide.md) for interactive elements
 4. Reference [Icons Index](./icons-index.md) for visual indicators
 5. Test with [Mobile Optimization Guide](./mobile-optimization-guide.md)
 
@@ -329,7 +329,7 @@ Standards for footer layout, navigation, contact information, and social media i
 
 1. Use [Design System](./design-system.md) for color palette and typography
 2. Reference [Page Layout Standards](./layout-guide.md) for spacing
-3. Follow [Button variants](./buttons-guide.md) for CTAs
+3. Follow [Button variants](./buttons-ctas-complete-guide.md) for CTAs
 4. Choose icons from [Icon Usage Inventory](./icons/icon-usage-inventory.md)
 5. Design for mobile using [Mobile Optimization Guide](./mobile-optimization-guide.md)
 
@@ -426,8 +426,8 @@ The design system implements brand standards from multiple sources:
 ### Partnership Documentation
 
 - [Partnership Messaging](../../partnerships/messaging/messaging-index.md) - Messaging hub
-- [CTA Button Guide](../../partnerships/messaging/cta-button-guide.md) - Partnership CTAs
-- [Partnership Guide](../../partnerships/messaging/partnership-messaging-guide.md) - Messaging standards
+- [Buttons & CTAs Complete Guide](./buttons-ctas-complete-guide.md) - Partnership CTAs
+- [Partnership Messaging Complete Guide](../../partnerships/messaging/partnership-messaging-complete-guide.md) - Messaging standards
 
 ---
 
@@ -448,7 +448,7 @@ The design system implements brand standards from multiple sources:
 #### Issue: Button Not Matching Design
 
 - **Solution:** Check variant prop and review button guide
-- **Reference:** [Buttons Complete Guide](./buttons-guide.md)
+- **Reference:** [Buttons & CTAs Complete Guide](./buttons-ctas-complete-guide.md)
 
 #### Issue: Icon Not Displaying
 

@@ -147,14 +147,12 @@ Comprehensive safety validation ensuring optimizations didn't break functionalit
 
 ## 🎯 When to Use Each Guide
 
-| Need                  | Use This Guide                                        | Why                     |
-| --------------------- | ----------------------------------------------------- | ----------------------- |
-| **Quick overview**    | [Final Results](./build-optimization-final.md)        | Complete summary        |
-| **Success metrics**   | [Success Report](./build-optimization-success.md)     | Before/after comparison |
-| **Deep analysis**     | [Ultra-Fast Analysis](./ultra-fast-build-analysis.md) | Technical deep-dive     |
-| **Step-by-step**      | [Detailed Results](./build-optimization-results.md)   | Implementation sequence |
-| **Safety check**      | [Safety Report](./ultra-fast-safety-report.md)        | Validation results      |
-| **New optimizations** | All guides + Performance Hub                          | Complete context        |
+| Need                   | Use This Guide                                                                | Why                          |
+| ---------------------- | ----------------------------------------------------------------------------- | ---------------------------- |
+| **Current config**     | [Build Optimization Guide](../../technical/performance/build-optimization.md) | Active implementation        |
+| **Historical results** | [Archived Reports](../../project/history/build-optimization/)                 | October 2025 project results |
+| **Safety validation**  | [Safety Report](./ultra-fast-safety-report.md)                                | Validation results           |
+| **Performance hub**    | [Performance Index](../../technical/performance/performance-index.md)         | All performance docs         |
 
 ---
 
@@ -243,7 +241,7 @@ Comprehensive safety validation ensuring optimizations didn't break functionalit
    # Verify no regressions
    ```
 
-**Full Implementation:** See [Detailed Results](./build-optimization-results.md)
+**Full Implementation:** See [Archived Reports](../../project/history/build-optimization/)
 
 ---
 
@@ -259,7 +257,7 @@ time npm run build
 # Warning if: > 30s (needs optimization)
 ```
 
-**Reference:** [Ultra-Fast Analysis](./ultra-fast-build-analysis.md)
+**Reference:** [Archived Reports](../../project/history/build-optimization/)
 
 ---
 
@@ -275,7 +273,7 @@ npm run analyze
 # - Unused code
 ```
 
-**Reference:** [Build Optimization Results](./build-optimization-results.md)
+**Reference:** [Archived Reports](../../project/history/build-optimization/)
 
 ---
 
@@ -352,7 +350,7 @@ time npm run build | tee build-time.log
    NODE_OPTIONS="--max-old-space-size=4096" npm run build
    ```
 
-**Reference:** [Ultra-Fast Analysis](./ultra-fast-build-analysis.md)
+**Reference:** [Archived Reports](../../project/history/build-optimization/)
 
 ---
 
@@ -398,7 +396,7 @@ time npm run build | tee build-time.log
    import debounce from "lodash/debounce";
    ```
 
-**Reference:** [Build Optimization Results](./build-optimization-results.md)
+**Reference:** [Archived Reports](../../project/history/build-optimization/)
 
 ---
 
@@ -443,7 +441,7 @@ time npm run build | tee build-time.log
    .next/cache/
    ```
 
-**Reference:** [Detailed Results](./build-optimization-results.md)
+**Reference:** [Archived Reports](../../project/history/build-optimization/)
 
 ---
 
@@ -522,7 +520,7 @@ time npm run build | tee build-time.log
    - Use configs from this documentation
    - Follow step-by-step implementation
 
-**Reference:** [Ultra-Fast Analysis](./ultra-fast-build-analysis.md), [Final Results](./build-optimization-final.md)
+**Reference:** [Archived Reports](../../project/history/build-optimization/), [Archived Reports](../../project/history/build-optimization/)
 
 ---
 

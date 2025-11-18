@@ -25,44 +25,32 @@ relationships, not just structures.
 
 ### Core Messaging Framework
 
-**[partnership-messaging-guide.md](./partnership-messaging-guide.md)** - Complete framework (650+ lines)
+**[partnership-messaging-complete-guide.md](./partnership-messaging-complete-guide.md)** - Complete framework (1,050 lines)
 
-- Partnership philosophy and principles
-- Language patterns for client communications
-- Vendor/trade relationship messaging
-- Voice and tone guidelines
-- Approved terminology and phrases
-- What to avoid in messaging
+Comprehensive consolidated guide covering all aspects of partnership messaging:
+
+- Core messaging framework and philosophy
+- Client vs Trade partnership distinctions (warm vs professional language)
+- Service type distinctions (automated AI estimator vs IRL consultation)
+- Website implementation examples and patterns
+- UI/UX elements and component guidelines
+- Partnership-specific messaging strategies
+- Anti-patterns to avoid
+- Quality guidelines and best practices
+
+**Status**: Active reference (2.0.0) | Consolidated 3 files (1,459 → 1,050 lines)  
+**Consolidates**: partnership-messaging-guide.md, client-vs-vendor-distinctions.md, ai-estimator-vs-consultation.md
 
 ### CTA Implementation
 
-**[cta-button-guide.md](./cta-button-guide.md)** - Call-to-action button standards
+**[Buttons & CTAs Complete Guide](../../technical/design-system/buttons-ctas-complete-guide.md)** -
+Consolidated button & CTA standards
 
 - Button text guidelines
 - Partnership-centered CTA language
 - Conversion-optimized phrasing
 - Context-specific recommendations
 - Examples: "Start Your Project" vs "Get a Quote"
-
-### Audience Distinctions
-
-**[client-vs-vendor-distinctions.md](./client-vs-vendor-distinctions.md)** - Audience-specific language
-
-- Client-facing communication patterns
-- Vendor/trade professional messaging
-- Tone adjustments by audience
-- Terminology differences
-- Examples and use cases
-
-### Service Distinctions
-
-**[ai-estimator-vs-consultation.md](./ai-estimator-vs-consultation.md)** - Automated vs in-person service messaging
-
-- Automated Estimator service positioning
-- In-person consultation messaging
-- Clear service differentiation
-- Icon and visual identity guidelines
-- CTA language for each service type
 
 ---
 
@@ -103,7 +91,7 @@ relationships, not just structures.
 
 - [Brand Messaging](../../branding/strategy/messaging.md) - Core brand voice and tone
 - [Content Standards](../../branding/strategy/content-messaging-standards.md) - Writing guidelines
-- [CTA Standardization](../../branding/standards/cta-standardization-plan.md) - Technical implementation
+- [Buttons & CTAs Complete Guide](../../technical/design-system/buttons-ctas-complete-guide.md) - Technical implementation
 - [Services Overview](../../business/services.md) - What we offer
 
 ---

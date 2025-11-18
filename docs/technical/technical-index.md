@@ -44,9 +44,7 @@ Complete navigation architecture, technical implementation, and best practices.
 **Key Files:**
 
 - `navigation-index.md` - Navigation documentation hub
-- `navigation.md` - Navigation system overview
-- `navigation-architecture.md` - Complete dual navigation system documentation
-- `navigation-technical-guide.md` - Technical implementation details
+- `navigation-complete-guide.md` - Complete navigation system guide (consolidates 4 previous documents)
 
 ### `/performance/` - Performance Optimization
 
@@ -70,8 +68,7 @@ Search engine optimization, accessibility standards, and implementation guides.
 **Key Files:**
 
 - `seo-index.md` - SEO documentation hub
-- `seo-enhancement-guide.md` - SEO implementation guide
-- `search-accessibility-guide.md` - Search and accessibility standards
+- `seo-complete-guide.md` - Complete SEO, search, and accessibility guide (consolidates 5 previous documents)
 
 ## 🛠️ Root Level Technical Files
 

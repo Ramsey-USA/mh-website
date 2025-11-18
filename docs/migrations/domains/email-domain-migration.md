@@ -32,18 +32,14 @@ structure.
 
 ### **1. Partnership & Messaging Documents**
 
-- ✅ `/docs/partnerships/messaging/partnership-messaging-guide.md`
-  - Updated `collaboration@mhconstruction.com` → `office@mhc-gc.com`
-  - Updated `vendors@mhconstruction.com` → `office@mhc-gc.com`
+- ✅ `/docs/partnerships/messaging/partnership-messaging-complete-guide.md`
+  - Updated partnership messaging: `office@mhc-gc.com`
+  - Consolidated guide (replaces partnership-messaging-guide.md, client-vs-vendor-distinctions.md)
 
 - ✅ `/docs/partnerships/vendor-trade/trade-partnership-guide.md`
   - Updated vendor relations: `office@mhc-gc.com`
   - Updated project coordination: `office@mhc-gc.com`
   - Updated safety: `office@mhc-gc.com`
-
-- ✅ `/docs/partnerships/messaging/client-vs-vendor-distinctions.md`
-  - Updated client contact: `office@mhc-gc.com`
-  - Updated vendor contact: `office@mhc-gc.com`
 
 ### **2. Business Documentation**
 

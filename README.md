@@ -282,7 +282,7 @@ mh-website/
 │   ├── hooks/            # Custom React hooks
 │   ├── providers/        # Provider components
 │   └── types/            # TypeScript definitions
-├── docs/                 # Comprehensive documentation (470+ files)
+├── docs/                 # Comprehensive documentation (163 files)
 │   ├── master-index.md    # Documentation hub (START HERE)
 │   ├── branding/         # Brand guidelines
 │   ├── components/       # Component documentation
@@ -355,10 +355,12 @@ Full navigation: [MasterIndex](./docs/master-index.md)
 
 ### Documentation Stats
 
-- **470+ Markdown files** across all categories
+- **163 Markdown files** across all categories (consolidated from 178 in Nov 2025)
 - **Fully indexed** through MasterIndex system
-- **Active maintenance** - Updated November 2025
+- **Active maintenance** - Updated November 18, 2025
 - **Comprehensive coverage** - Business, technical, branding, components
+- **6 consolidated guides** - Single source of truth per topic
+- **Historical archives** - Completed projects in `/docs/project/history/`
 
 ---
 
@@ -662,7 +664,7 @@ See [contributing.md](./contributing.md) for contribution guidelines.
 - ✅ Code optimization: ~750 lines removed through refactoring
 - ✅ Shared section components: ~425 additional lines eliminated
 - ✅ Automated estimator system fully integrated
-- ✅ Documentation system organized (470+ files)
+- ✅ Documentation system consolidated (178 → 163 files, -8.4%)
 - ✅ Zero TypeScript errors maintained
 - ⚠️ 32 ESLint warnings (minor: accessibility & async patterns)
 - ✅ Build time optimized to 31.0s
@@ -778,7 +780,7 @@ npm run build:profile
 
 1. Check [MasterIndex](./docs/master-index.md) for relevant documentation
 2. Review [Development Index](./docs/development/development-index.md)
-3. Search existing documentation (470+ files)
+3. Search existing documentation (163 files, well-organized)
 4. Check component documentation in [Components Index](./docs/components/components-index.md)
 5. Review recent changes in git history
 
