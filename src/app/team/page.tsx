@@ -15,6 +15,10 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { TestimonialGrid } from "@/components/testimonials";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
 import { gridPresets } from "@/lib/styles/layout-variants";
+import { UnderConstruction } from "@/components/layout/UnderConstruction";
+
+// Feature flag - set to false to show full page content
+const SHOW_UNDER_CONSTRUCTION = true;
 
 // Group team members by department
 function groupByDepartment(members: VintageTeamMember[]) {
@@ -32,6 +36,18 @@ function groupByDepartment(members: VintageTeamMember[]) {
 }
 
 export default function TeamPage() {
+  // Show under construction notice while preserving all content below
+  if (SHOW_UNDER_CONSTRUCTION) {
+    return (
+      <UnderConstruction
+        pageName="Our Team"
+        description="We're finalizing team member profiles and information to showcase the dedicated professionals who make MH Construction exceptional."
+        estimatedCompletion="December 2025"
+      />
+    );
+  }
+
+  // Original page content preserved below - will be shown when flag is set to false
   const membersByDepartment = groupByDepartment(vintageTeamMembers);
 
   // Define department order matching the actual data

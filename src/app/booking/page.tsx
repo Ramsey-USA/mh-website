@@ -23,8 +23,13 @@ import {
   convertTo24Hour,
 } from "./components/bookingUtils";
 import type { BookingFormData } from "./components/bookingTypes";
+import { UnderConstruction } from "@/components/layout/UnderConstruction";
+
+// Feature flag - set to false to show full page content
+const SHOW_UNDER_CONSTRUCTION = true;
 
 export default function BookingPage() {
+  // ALL HOOKS MUST BE CALLED BEFORE ANY CONDITIONAL RETURNS
   const { setFormData: setGlobalFormData } = useGlobalChatbot();
 
   const [step, setStep] = useState(1); // 1: Date/Time, 2: Details, 3: Confirmation
@@ -139,6 +144,18 @@ export default function BookingPage() {
 
   const calendarDays = generateCalendarDays();
 
+  // Show under construction notice while preserving all content below
+  if (SHOW_UNDER_CONSTRUCTION) {
+    return (
+      <UnderConstruction
+        pageName="Consultation Booking"
+        description="We're enhancing our booking system for a seamless consultation scheduling experience. Please call us directly to schedule your consultation."
+        estimatedCompletion="December 2025"
+      />
+    );
+  }
+
+  // Original page content preserved below - will be shown when flag is set to false
   const handleDateSelect = (dateStr: string) => {
     setSelectedDate(dateStr);
     setFormData((prev) => ({ ...prev, selectedDate: dateStr }));

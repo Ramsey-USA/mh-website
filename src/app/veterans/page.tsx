@@ -13,6 +13,10 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { NextStepsSection } from "@/components/shared-sections";
+import { UnderConstruction } from "@/components/layout/UnderConstruction";
+
+// Feature flag - set to false to show full page content
+const SHOW_UNDER_CONSTRUCTION = true;
 
 export const metadata: Metadata = {
   title: "Honoring our Veteran's | MH Construction - Veteran-Owned Company",
@@ -44,6 +48,18 @@ export const metadata: Metadata = {
  * Showcasing MH Construction's veteran-owned status and community support programs
  */
 export default function VeteransPage() {
+  // Show under construction notice while preserving all content below
+  if (SHOW_UNDER_CONSTRUCTION) {
+    return (
+      <UnderConstruction
+        pageName="Veterans Services"
+        description="We're honoring our commitment to veterans by perfecting every detail about our specialized services and benefits for those who served."
+        estimatedCompletion="December 2025"
+      />
+    );
+  }
+
+  // Original page content preserved below - will be shown when flag is set to false
   return (
     <div className="relative min-h-screen">
       {/* Parallax Background - Fixed for entire page */}

@@ -23,6 +23,10 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { getCardClassName } from "@/lib/styles/card-variants";
 import { gridPresets } from "@/lib/styles/layout-variants";
+import { UnderConstruction } from "@/components/layout/UnderConstruction";
+
+// Feature flag - set to false to show full page content
+const SHOW_UNDER_CONSTRUCTION = true;
 
 // Trade Partner Categories
 const partnerCategories = [
@@ -245,9 +249,22 @@ const partnershipBenefits = [
 ];
 
 export default function TradePartnersPage() {
-  const [_selectedCategory, _setSelectedCategory] = useState<string | null>(
+  const [_expandedCategory, _setExpandedCategory] = useState<string | null>(
     null,
   );
+
+  // Show under construction notice while preserving all content below
+  if (SHOW_UNDER_CONSTRUCTION) {
+    return (
+      <UnderConstruction
+        pageName="Trade Partners"
+        description="We're refining our trade partner information to accurately represent partnership opportunities and requirements for subcontractors and suppliers."
+        estimatedCompletion="December 2025"
+      />
+    );
+  }
+
+  // Original page content preserved below - will be shown when flag is set to false
 
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">

@@ -27,7 +27,24 @@ import {
   NextStepsSection,
 } from "@/components/shared-sections";
 
+import { UnderConstruction } from "@/components/layout/UnderConstruction";
+
+// Feature flag - set to false to show full page content
+const SHOW_UNDER_CONSTRUCTION = true;
+
 export default function AboutPage() {
+  // Show under construction notice while preserving all content below
+  if (SHOW_UNDER_CONSTRUCTION) {
+    return (
+      <UnderConstruction
+        pageName="About Us"
+        description="We're ensuring every detail about our company history, values, and team accurately reflects the excellence you'll experience when partnering with us."
+        estimatedCompletion="December 2025"
+      />
+    );
+  }
+
+  // Original page content preserved below - will be shown when flag is set to false
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       {/* Hero Section */}

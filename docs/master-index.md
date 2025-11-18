@@ -163,6 +163,8 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 
 - [VS Code Complete Setup](./development/vscode-setup.md) - ⭐ **NEW (Nov 2025)** - Full configuration guide
 - [VS Code Extensions Guide](./development/vscode-extensions-guide.md) - Detailed extension documentation
+- [Reactivating Pages Guide](./development/reactivating-pages-guide.md) - ⭐ **NEW (Nov 18, 2025)** -
+  Instructions for removing under construction wrappers and restoring full page content
 - [Chatbot Enhancement Guide](./development/chatbot-enhancement-guide.md) - ⭐ **NEW (Nov 12, 2024)** -
   Comprehensive chatbot improvement strategies (Phases 1-4 roadmap)
 - [Chatbot Integration Complete](./development/chatbot-integration.md) -

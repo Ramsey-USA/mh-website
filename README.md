@@ -96,6 +96,15 @@ npm run dev
 # Visit http://localhost:3000
 ```
 
+### 🚧 Page Status & Reactivation
+
+**Current Status (November 2025):** All pages except the homepage are currently showing
+"under construction" notices while we ensure 100% accuracy. All original code is preserved
+and can be reactivated instantly.
+
+**To reactivate pages:** See [Reactivating Pages Guide](./docs/development/reactivating-pages-guide.md)
+for complete instructions on removing under construction wrappers and restoring full page functionality.
+
 ### Development Commands
 
 ```bash

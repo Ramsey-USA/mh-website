@@ -26,8 +26,24 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 
 // Import shared sections
 import { AIEstimatorCTA } from "@/components/shared-sections";
+import { UnderConstruction } from "@/components/layout/UnderConstruction";
+
+// Feature flag - set to false to show full page content
+const SHOW_UNDER_CONSTRUCTION = true;
 
 export default function ServicesPage() {
+  // Show under construction notice while preserving all content below
+  if (SHOW_UNDER_CONSTRUCTION) {
+    return (
+      <UnderConstruction
+        pageName="Services"
+        description="We're refining our services descriptions to ensure 100% accuracy in what we offer and how we deliver exceptional results for every project."
+        estimatedCompletion="December 2025"
+      />
+    );
+  }
+
+  // Original page content preserved below - will be shown when flag is set to false
   // Structured Data for SEO
   const serviceSchema = {
     "@context": "https://schema.org",

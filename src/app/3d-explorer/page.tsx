@@ -7,6 +7,10 @@ import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponent
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { UnderConstruction } from "@/components/layout/UnderConstruction";
+
+// Feature flag - set to false to show full page content
+const SHOW_UNDER_CONSTRUCTION = true;
 
 /**
  * 3D Explorer - Under Development Page
@@ -24,6 +28,18 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
  * - Brand colors: Hunter Green and Leather Tan
  */
 export default function ThreeDExplorerPage() {
+  // Show under construction notice while preserving all content below
+  if (SHOW_UNDER_CONSTRUCTION) {
+    return (
+      <UnderConstruction
+        pageName="3D Project Explorer"
+        description="We're preparing our interactive 3D project visualization tool. This cutting-edge technology will allow you to explore our projects in immersive detail."
+        estimatedCompletion="January 2026"
+      />
+    );
+  }
+
+  // Original page content preserved below - will be shown when flag is set to false
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section - Clean & Professional Per Brand Standards */}

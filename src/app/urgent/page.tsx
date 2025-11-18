@@ -8,6 +8,10 @@ import { gridPresets } from "@/lib/styles/layout-variants";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { UnderConstruction } from "@/components/layout/UnderConstruction";
+
+// Feature flag - set to false to show full page content
+const SHOW_UNDER_CONSTRUCTION = true;
 
 export const metadata: Metadata = {
   title:
@@ -41,6 +45,18 @@ export const metadata: Metadata = {
  * Professional support for General Contractors facing critical construction challenges
  */
 export default function UrgentSupportPage() {
+  // Show under construction notice while preserving all content below
+  if (SHOW_UNDER_CONSTRUCTION) {
+    return (
+      <UnderConstruction
+        pageName="Urgent Support"
+        description="We're updating our emergency response information. For urgent construction needs, please call us immediately at (509) 308-6489."
+        estimatedCompletion="December 2025"
+      />
+    );
+  }
+
+  // Original page content preserved below - will be shown when flag is set to false
   const equipmentList = [
     {
       icon: "precision_manufacturing",

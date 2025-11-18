@@ -25,6 +25,11 @@ const EstimatorForm = dynamic(
     ssr: false,
   },
 );
+import { UnderConstruction } from "@/components/layout/UnderConstruction";
+
+// Feature flag - set to false to show full page content
+const SHOW_UNDER_CONSTRUCTION = true;
+
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -36,6 +41,18 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { StructuredData } from "@/components/seo/enhanced-seo";
 
 export default function EstimatorPage() {
+  // Show under construction notice while preserving all content below
+  if (SHOW_UNDER_CONSTRUCTION) {
+    return (
+      <UnderConstruction
+        pageName="Budget Estimator"
+        description="We're calibrating our AI-powered budget estimator to provide the most accurate project cost estimates. Contact us for a detailed quote."
+        estimatedCompletion="December 2025"
+      />
+    );
+  }
+
+  // Original page content preserved below - will be shown when flag is set to false
   // Get SEO data for structured data
   const seoData = getAutomatedEstimatorSEO();
   return (
