@@ -2,7 +2,8 @@
 
 ## Overview
 
-The MH Construction website now uses Cloudflare R2 storage for handling job application resumes. This provides secure, scalable file storage with automatic handling of file uploads and email attachments.
+The MH Construction website now uses Cloudflare R2 storage for handling job application resumes. This provides
+secure, scalable file storage with automatic handling of file uploads and email attachments.
 
 ## Features
 
@@ -17,7 +18,7 @@ The MH Construction website now uses Cloudflare R2 storage for handling job appl
 
 ### 1. Application Flow
 
-```
+```text
 Applicant submits form with resume
          ↓
 Resume uploaded to /api/upload/resume
@@ -35,7 +36,7 @@ If file < 2MB: Resume also attached to email
 
 ### 2. File Organization in R2
 
-```
+```text
 resumes/
   ├── email@example.com/
   │   ├── 1700000001-john-doe-resume.pdf
@@ -131,7 +132,7 @@ Returns the file with proper content-type headers for download.
 
 ### Email Template Format
 
-```
+```text
 New Job Application Received
 
 Position: [Position]

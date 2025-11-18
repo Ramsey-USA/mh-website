@@ -13,12 +13,7 @@
     "MD041": false,
     "MD051": false,
   },
-  "globs": [
-    "**/*.md",
-    "!node_modules/**",
-    "!firebase/functions/node_modules/**",
-    "!.next/**",
-  ],
+  "globs": ["**/*.md", "!node_modules/**", "!.next/**"],
   // Per-file overrides for exceptionally long documentation reports
   "overrides": [
     {

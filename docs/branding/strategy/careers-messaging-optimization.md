@@ -6,7 +6,9 @@
 
 ## 🎯 Purpose
 
-This document outlines the comprehensive optimization of the Careers page and job application reply system to achieve perfect cohesion with Group 5 (Recruitment & Growth) messaging guidelines from the [Page-Specific Messaging Guide](./page-specific-messaging-guide.md).
+This document outlines the comprehensive optimization of the Careers page and job application reply system to
+achieve perfect cohesion with Group 5 (Recruitment & Growth) messaging guidelines from the
+[Page-Specific Messaging Guide](./page-specific-messaging-guide.md).
 
 ---
 
