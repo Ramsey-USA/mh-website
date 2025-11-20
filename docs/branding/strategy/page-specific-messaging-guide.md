@@ -616,7 +616,7 @@ specific terms and phrases.
 
 ### Version 2.0.0 - November 20, 2025
 
-**Major Update: Six-Value Professional Foundation Integration**
+#### Major Update: Six-Value Professional Foundation Integration
 
 - Integrated six-value professional foundation system across all page groups
 - Added trust-centered philosophy as ultimate goal
