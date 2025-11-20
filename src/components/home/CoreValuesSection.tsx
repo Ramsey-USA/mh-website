@@ -3,87 +3,87 @@ import { gridPresets } from "@/lib/styles/layout-variants";
 
 const coreValues = [
   {
-    value: "Integrity First",
-    icon: "balance",
-    tagline: "Doing What's Right, Every Time",
+    value: "Professionalism",
+    icon: "business_center",
+    tagline: "Excellence in Every Interaction",
     description:
-      "Ethical business practices, quality workmanship, and promise keeping—making the right decision even when it costs us more. We never cut corners, even when no one is watching.",
+      "Conducting business with expert knowledge, respectful communication, and industry-leading standards in every interaction.",
     details:
-      "We recommend solutions that benefit you, not just our profit margin. Using specified materials and methods, never substituting without approval, standing behind our work with comprehensive warranties, and treating your property with the same care we'd want for our own.",
+      "Arriving on time, prepared, and ready to work. Clear, professional communication in all interactions. Proper job site management with organized work areas. Treating your property and neighbors with respect. Maintaining industry-leading credentials and training.",
     color: "from-brand-primary to-brand-primary-dark",
     bgColor: "bg-gradient-to-br from-brand-primary/10 to-brand-primary/5",
     iconBg: "bg-brand-primary",
-    stats: "Character-Driven Excellence",
+    stats: "Expert Service Standards",
   },
   {
-    value: "Owner-Focused Transparency",
-    icon: "visibility",
-    tagline: "No Surprises, Ever",
+    value: "Thoroughness",
+    icon: "task_alt",
+    tagline: "Attention to Detail in Everything We Do",
     description:
-      "Open communication, transparent pricing, and honest assessments. You control it, we manage it.",
+      "Comprehensive planning, meticulous execution, and complete documentation ensuring nothing is overlooked.",
     details:
-      "Pre-construction meetings with complete cost breakdowns, regular updates with photo documentation, open-book approach to material costs and labor, immediate notification of any changes or delays. All agreements, changes, and decisions in writing—full visibility into every decision.",
-    color: "from-brand-primary-dark to-primary-800",
+      "Detailed pre-construction site analysis and planning. Precise measurements and calculations for material estimates. Systematic quality control at every project phase. Complete project documentation with photo records. Comprehensive final walkthrough with detailed punch lists.",
+    color: "from-primary-700 to-primary-900",
     bgColor:
       "bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/20",
     iconBg: "bg-primary-600",
-    stats: "Open-Book Progress",
+    stats: "Zero Details Missed",
   },
   {
-    value: "Partnership-Driven Trust",
-    icon: "handshake",
-    tagline: "We Build Trust, Not Just Structures",
+    value: "Honesty",
+    icon: "verified",
+    tagline: "Transparent Communication Always",
     description:
-      "Investing in long-term partnerships that last well beyond project completion. We measure success by relationships built, not just profit margins.",
+      "Truthful assessments, open communication, transparent pricing, and honest recommendations in every situation.",
     details:
-      "Following up after completion to ensure satisfaction, being available for questions long after final payment, building referral networks based on mutual trust, and treating every interaction as an investment in lasting partnerships. Prioritizing relationship value over short-term gains—working WITH you to build something bigger than buildings.",
+      "Upfront discussion of project challenges and potential issues. Immediate notification of any timeline or budget changes. Honest assessment when a project isn't the right fit. Clear explanation of all costs before work begins. Telling you what you need to know, not just what you want to hear.",
     color: "from-brand-secondary to-brand-secondary-dark",
     bgColor:
       "bg-gradient-to-br from-brand-secondary/10 to-bronze-200/30 dark:from-brand-secondary/20 dark:to-bronze-900/30",
     iconBg: "bg-brand-secondary",
-    stats: "70% Referral Business",
+    stats: "100% Transparent Pricing",
   },
   {
-    value: "Veteran-Fueled Reliability",
-    icon: "military_tech",
-    tagline: "Calm and Precise Under Pressure",
+    value: "Integrity",
+    icon: "balance",
+    tagline: "Doing What's Right, Every Time",
     description:
-      "Military-trained discipline and attention to detail honed through service meet construction expertise to deliver reliable results no matter the challenges.",
+      "Ethical decisions, promise keeping, moral leadership, and accountability in every action we take.",
     details:
-      "Systematic approach to problem-solving under pressure, clear communication chains and decision-making processes, adapting quickly to changing conditions without losing focus, and following through on commitments no matter the obstacles. Leading with confidence earned through military experience. Staying unshakably calm when challenges arise.",
-    color: "from-primary-700 to-primary-900",
+      "Using specified materials and methods without unauthorized substitutions. Standing behind our work with comprehensive warranties. Making decisions that benefit the client, not just our bottom line. Following through on commitments even when circumstances change. Never cutting corners, even when no one is watching.",
+    color: "from-primary-800 to-brand-primary-dark",
     bgColor:
       "bg-gradient-to-br from-primary-100/50 to-brand-primary/10 dark:from-primary-900/20 dark:to-primary-800/30",
     iconBg: "bg-primary-700",
-    stats: "Military Precision",
+    stats: "Unwavering Ethics",
   },
   {
-    value: "Craftsmanship that Lasts",
-    icon: "construction",
-    tagline: "Built for the Long Run",
+    value: "Reliability",
+    icon: "military_tech",
+    tagline: "Dependable Results You Can Count On",
     description:
-      "Quality over speed, meticulous attention to every detail, and selecting durable materials that stand the test of time. Building as if it's for our own families.",
+      "Veteran-trained discipline delivering consistent, dependable results with steady leadership through every project phase.",
     details:
-      "Using proven construction methods refined over decades, selecting materials based on longevity not just cost, quality control checkpoints at every phase, and building structures that serve communities for generations with unwavering attention to detail. Taking pride in work that lasts.",
+      "Showing up when we say we will, every time. Following through on commitments regardless of obstacles. Systematic approach to problem-solving under pressure. Consistent communication throughout the project. Building a track record you and others can depend on.",
     color: "from-bronze-600 to-bronze-800",
     bgColor:
       "bg-gradient-to-br from-bronze-100/60 to-bronze-200/40 dark:from-bronze-900/30 dark:to-bronze-800/20",
     iconBg: "bg-bronze-600",
-    stats: "Generational Quality",
+    stats: "Military Precision",
   },
   {
-    value: "Precision & Experience",
-    icon: "precision_manufacturing",
-    tagline: "150+ Years Combined Team Expertise",
+    value: "Quality Craftsmanship",
+    icon: "construction",
+    tagline: "Excellence That Stands the Test of Time",
     description:
-      "Deep technical mastery across all construction disciplines with time-tested approaches refined through decades of successful projects.",
+      "Superior workmanship, lasting quality, and no shortcuts—building structures that serve for generations.",
     details:
-      "Detailed project planning with multiple contingency scenarios, precise measurements and calculations, leveraging 150+ years of combined team experience, continuous learning staying current with industry innovations, and bringing calm experienced leadership to complex projects. Expert guidance that helps you avoid costly mistakes.",
+      "Using proven construction methods refined over 150+ years of combined experience. Selecting materials based on longevity and performance, not just cost. Multiple quality control checkpoints throughout construction. Expert tradesmen on every aspect of your project. Work so good we're proud to put our name on it.",
     color: "from-brand-primary to-brand-secondary",
     bgColor:
       "bg-gradient-to-br from-brand-primary/8 to-brand-secondary/8 dark:from-brand-primary/15 dark:to-brand-secondary/15",
     iconBg: "bg-gradient-to-br from-brand-primary to-brand-secondary",
-    stats: "150+ Years Combined Experience",
+    stats: "Generational Quality",
   },
 ];
 
@@ -272,12 +272,11 @@ export function CoreValuesSection() {
               Trust isn't just another value—it's the result when all other
               values are consistently demonstrated. It's earned through{" "}
               <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
-                partnership excellence, military precision, transparent
-                communication, quality craftsmanship,
+                professionalism, thoroughness, honesty, integrity,
               </span>{" "}
               and{" "}
               <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
-                150+ years of combined experience
+                reliability with quality craftsmanship
               </span>
               .
             </p>

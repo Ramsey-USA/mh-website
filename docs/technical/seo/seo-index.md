@@ -18,6 +18,9 @@
 SEO and accessibility documentation covering search optimization, accessibility standards, and inclusive design
 practices for the MH Construction website.
 
+**⭐ NEW: GEO Optimization (Nov 20, 2025)** - AI Search Engine Optimization with robots.txt and llms.txt
+for improved discoverability in AI-powered search (ChatGPT, Perplexity, Claude, etc.).
+
 **⭐ IMPORTANT UPDATE (Nov 2025)**: All SEO implementations must align with the 7-group
 page-specific messaging strategy documented in
 **[Page-Specific Messaging Guide](../../branding/strategy/page-specific-messaging-guide.md)**. Each page
@@ -92,6 +95,47 @@ Historical SEO compliance tracking document moved to project history. For curren
 - Current page inventory and status
 - Running SEO audits with `npm run seo:audit`
 - Tracking compliance over time
+
+---
+
+### AI Search Engine Optimization (GEO) ⭐ NEW
+
+**Implementation:** November 20, 2025
+
+**Files:**
+
+- `public/robots.txt` - AI crawler permissions and directives
+- `public/llms.txt` - LLM-optimized content for AI retrieval
+
+**Supported AI Crawlers:**
+
+- GPTBot (OpenAI/ChatGPT)
+- OAI-SearchBot (OpenAI Search)
+- CCBot (Common Crawl)
+- Google-Extended (Google AI)
+- anthropic-ai (Claude)
+- PerplexityBot
+- YouBot
+
+**Purpose:**
+
+Optimizes website discoverability in AI-powered search engines and ensures accurate information retrieval
+when users ask AI assistants about MH Construction.
+
+**llms.txt Contents:**
+
+- Company overview and veteran-owned status
+- Core capabilities (Commercial, Industrial, PEMB)
+- Leadership information
+- Contact details and service area
+- Structured markdown optimized for LLM parsing
+
+**When to Update:**
+
+- Company information changes
+- New services added
+- Contact information updates
+- Quarterly review recommended
 
 ---
 

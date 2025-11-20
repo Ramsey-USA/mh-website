@@ -1,6 +1,25 @@
 # SEO Quick Reference Card
 
-**🚀 Your website now has ULTIMATE SEO optimization!**
+**🚀 Your website now has ULTIMATE SEO optimization + AI Search (GEO)!**
+
+---
+
+## 🤖 AI Search Optimization (NEW - Nov 20, 2025)
+
+**Files:**
+
+- `public/robots.txt` - Allows AI crawlers (GPTBot, OAI-SearchBot, CCBot, Google-Extended)
+- `public/llms.txt` - LLM-optimized content for accurate AI responses
+
+**Supported AI Systems:**
+
+- ChatGPT (OpenAI)
+- Perplexity AI
+- Claude (Anthropic)
+- Google AI
+- You.com
+
+**Result:** When users ask AI assistants about MH Construction, they get accurate, up-to-date information.
 
 ---
 

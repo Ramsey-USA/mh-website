@@ -19,8 +19,8 @@ export const navigationConfigs = {
   home: [
     {
       href: "/estimator",
-      label: "AI Estimator",
-      mobileLabel: "Estimator",
+      label: "Budget Planning Tool",
+      mobileLabel: "Budget Tool",
       icon: "calculate",
     },
     {
@@ -31,15 +31,15 @@ export const navigationConfigs = {
     },
     {
       href: "/booking",
-      label: "Get Started",
+      label: "Begin Your Project",
       mobileLabel: "Start",
-      icon: "event",
+      icon: "handshake",
     },
     {
       href: "/trade-partners",
-      label: "Start Partnership",
+      label: "Build Partnership",
       mobileLabel: "Partner",
-      icon: "launch",
+      icon: "diversity_3",
     },
     { href: "/contact", label: "Contact", icon: "contact_phone" },
   ],
@@ -48,13 +48,13 @@ export const navigationConfigs = {
     { href: "/", label: "Home", icon: "home" },
     {
       href: "/about#partnership-philosophy",
-      label: "Our Philosophy",
-      mobileLabel: "Philosophy",
-      icon: "handshake",
+      label: "Our Values",
+      mobileLabel: "Values",
+      icon: "foundation",
     },
     {
       href: "/about#values",
-      label: "Core Values",
+      label: "Six Core Values",
       mobileLabel: "Values",
       icon: "shield",
     },
@@ -66,9 +66,9 @@ export const navigationConfigs = {
     },
     {
       href: "/about#testimonials",
-      label: "Client Reviews",
-      mobileLabel: "Reviews",
-      icon: "star",
+      label: "Trust In Action",
+      mobileLabel: "Trust",
+      icon: "verified",
     },
     {
       href: "/about#safety",
@@ -84,9 +84,9 @@ export const navigationConfigs = {
     },
     {
       href: "/contact",
-      label: "Partner With Us",
-      mobileLabel: "Partner",
-      icon: "contact_phone",
+      label: "Begin Your Project",
+      mobileLabel: "Start",
+      icon: "handshake",
     },
   ],
 
@@ -94,7 +94,7 @@ export const navigationConfigs = {
     { href: "/", label: "Home", icon: "home" },
     {
       href: "/services#core-services",
-      label: "Core Services",
+      label: "Values-Driven Services",
       mobileLabel: "Services",
       icon: "build",
     },
@@ -106,9 +106,9 @@ export const navigationConfigs = {
     },
     {
       href: "/services#testimonials",
-      label: "Client Reviews",
-      mobileLabel: "Reviews",
-      icon: "star",
+      label: "Trust In Action",
+      mobileLabel: "Trust",
+      icon: "verified",
     },
     {
       href: "/services#faq",
@@ -130,15 +130,15 @@ export const navigationConfigs = {
     },
     {
       href: "/estimator",
-      label: "Get Estimate",
-      mobileLabel: "Estimate",
+      label: "Budget Tool",
+      mobileLabel: "Budget",
       icon: "calculate",
     },
     {
-      href: "/contact",
-      label: "Start Project",
+      href: "/booking",
+      label: "Begin Project",
       mobileLabel: "Start",
-      icon: "contact_phone",
+      icon: "handshake",
     },
   ],
 
@@ -150,7 +150,12 @@ export const navigationConfigs = {
       mobileLabel: "Stats",
       icon: "analytics",
     },
-    { href: "/projects#portfolio", label: "Portfolio", icon: "photo_library" },
+    {
+      href: "/projects#portfolio",
+      label: "Trust In Action",
+      mobileLabel: "Portfolio",
+      icon: "verified",
+    },
     {
       href: "/projects#veteran-owned",
       label: "Veteran-Owned",
@@ -159,15 +164,15 @@ export const navigationConfigs = {
     },
     {
       href: "/estimator",
-      label: "Get Estimate",
-      mobileLabel: "Estimate",
+      label: "Budget Tool",
+      mobileLabel: "Budget",
       icon: "calculate",
     },
     {
-      href: "/contact",
-      label: "Start Project",
+      href: "/booking",
+      label: "Begin Project",
       mobileLabel: "Start",
-      icon: "contact_phone",
+      icon: "handshake",
     },
   ],
 
@@ -235,7 +240,7 @@ export const navigationConfigs = {
       href: "/careers#employee-stories",
       label: "Employee Stories",
       mobileLabel: "Stories",
-      icon: "star",
+      icon: "verified",
     },
     {
       href: "/careers#application-process",
@@ -263,9 +268,9 @@ export const navigationConfigs = {
     },
     {
       href: "/about#values",
-      label: "Our Values",
+      label: "Our Foundation",
       mobileLabel: "Values",
-      icon: "shield",
+      icon: "foundation",
     },
     {
       href: "/about#safety",
@@ -287,9 +292,9 @@ export const navigationConfigs = {
     },
     {
       href: "/contact",
-      label: "Apply Now",
+      label: "Build With Us",
       mobileLabel: "Apply",
-      icon: "contact_phone",
+      icon: "handshake",
     },
   ],
 
@@ -297,13 +302,13 @@ export const navigationConfigs = {
     { href: "/", label: "Home", icon: "home" },
     {
       href: "/estimator",
-      label: "Get Estimate",
-      mobileLabel: "Estimate",
+      label: "Budget Tool",
+      mobileLabel: "Budget",
       icon: "calculate",
     },
     {
       href: "/booking",
-      label: "Book Consultation",
+      label: "Schedule Meeting",
       mobileLabel: "Book",
       icon: "calendar_month",
     },
@@ -315,21 +320,21 @@ export const navigationConfigs = {
     },
     {
       href: "/projects",
-      label: "Our Projects",
+      label: "Trust In Action",
       mobileLabel: "Projects",
-      icon: "photo_library",
+      icon: "verified",
     },
     {
       href: "/about",
-      label: "About Us",
+      label: "Our Foundation",
       mobileLabel: "About",
-      icon: "info",
+      icon: "foundation",
     },
     {
       href: "/careers",
-      label: "Join Team",
+      label: "Build With Us",
       mobileLabel: "Careers",
-      icon: "work",
+      icon: "handshake",
     },
   ],
 
@@ -355,15 +360,15 @@ export const navigationConfigs = {
     },
     {
       href: "/projects#portfolio",
-      label: "Past Projects",
+      label: "Trust In Action",
       mobileLabel: "Projects",
-      icon: "photo_library",
+      icon: "verified",
     },
     {
       href: "/booking",
-      label: "Schedule Call",
+      label: "Schedule Meeting",
       mobileLabel: "Schedule",
-      icon: "calendar_today",
+      icon: "handshake",
     },
   ],
 
@@ -411,27 +416,27 @@ export const navigationConfigs = {
     },
     {
       href: "/about#testimonials",
-      label: "Client Reviews",
-      mobileLabel: "Reviews",
-      icon: "star",
+      label: "Trust In Action",
+      mobileLabel: "Trust",
+      icon: "verified",
     },
     {
       href: "/careers",
-      label: "Join Network",
+      label: "Build With Us",
       mobileLabel: "Join",
-      icon: "badge",
+      icon: "handshake",
     },
     {
       href: "/projects#portfolio",
-      label: "Partnerships",
+      label: "Our Partnerships",
       mobileLabel: "Partners",
       icon: "photo_library",
     },
     {
       href: "/contact",
-      label: "Partner With Us",
+      label: "Begin Partnership",
       mobileLabel: "Partner",
-      icon: "handshake",
+      icon: "diversity_3",
     },
   ],
 
@@ -451,8 +456,8 @@ export const navigationConfigs = {
     },
     {
       href: "/estimator",
-      label: "Quick Estimate",
-      mobileLabel: "Estimate",
+      label: "Budget Tool",
+      mobileLabel: "Budget",
       icon: "calculate",
     },
     {
@@ -495,8 +500,8 @@ export const navigationConfigs = {
     { href: "/", label: "Home", icon: "home" },
     {
       href: "/estimator",
-      label: "AI Estimator",
-      mobileLabel: "Estimator",
+      label: "Budget Planning Tool",
+      mobileLabel: "Budget",
       icon: "calculate",
     },
     {

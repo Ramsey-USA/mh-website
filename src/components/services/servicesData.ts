@@ -216,7 +216,7 @@ export const specialtyServices: SpecialtyService[] = [
     title: "Commercial New Build-Outs",
     subtitle: "Build Your Business Right from the Ground Up",
     description:
-      "Looking for a committed, quality construction partner for your new commercial building? We offer comprehensive Commercial Construction Services to business owners throughout Kennewick, WA and the entire Tri-Cities area. Whether you need a small professional office or a large automotive dealership, we construct functional spaces where your business can thrive. With over 150 years of combined experience, our crew uses top-grade materials and partners with the best architects in the Pacific Northwest to ensure your building meets your exact specifications and supports your business success. Every project is built with craftsmanship that lasts—quality construction that serves your business for generations.",
+      "Looking for a committed, quality construction partner for your new commercial building? We offer comprehensive Commercial Construction Services to business owners throughout Kennewick, WA and the entire Tri-Cities area. Whether you need a small professional office or a large automotive dealership, we construct functional spaces where your business can thrive. With over 150 years of combined experience, our crew uses top-grade materials and partners with the best architects in the Pacific Northwest to ensure your building meets your exact specifications and supports your business success. Every project is built with quality craftsmanship—construction excellence that serves your business for generations.",
     buildTypes: [
       "Retail Construction (Stores, Shopping Centers)",
       "Medical Office Construction (Clinics, Healthcare)",

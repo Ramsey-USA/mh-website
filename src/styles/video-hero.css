@@ -1,0 +1,172 @@
+/**
+ * Video Hero Section Styles
+ * Optimized for Core Web Vitals (LCP < 2.5s)
+ * 
+ * Key Features:
+ * - Video positioned behind content (z-index: -1)
+ * - Full-screen coverage with object-fit: cover
+ * - Smooth transitions between poster and video
+ * - Responsive design for all screen sizes
+ */
+
+/* Main Container */
+.video-hero-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Video Background - Behind Everything */
+.video-hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+
+  /* Ensure poster image displays immediately for LCP */
+  background-color: #1e293b; /* Fallback color */
+
+  /* Smooth transition when video starts playing */
+  opacity: 0.95;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Video playing state - Full opacity */
+.video-hero-background.video-playing {
+  opacity: 1;
+}
+
+/* Dark Overlay for Text Readability */
+.video-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.7) 0%,
+    rgba(30, 41, 59, 0.6) 50%,
+    rgba(15, 23, 42, 0.8) 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Content Wrapper - Above Video */
+.video-hero-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding: 2rem 1rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Scroll Indicator */
+.video-hero-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  animation: fadeIn 2s ease-out 1s both;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Tablet Responsiveness */
+@media (max-width: 768px) {
+  .video-hero-container {
+    min-height: 500px;
+    height: 100svh; /* Use svh for better mobile support */
+  }
+
+  .video-hero-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .video-hero-scroll-indicator {
+    bottom: 1.5rem;
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 640px) {
+  .video-hero-container {
+    min-height: 450px;
+  }
+
+  /* Ensure video covers properly on mobile */
+  .video-hero-background {
+    object-fit: cover;
+    /* iOS Safari fix */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .video-hero-scroll-indicator {
+    bottom: 1rem;
+  }
+}
+
+/* Reduced Motion Support - Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .video-hero-background,
+  .video-hero-content,
+  .video-hero-scroll-indicator {
+    animation: none;
+    transition: none;
+  }
+
+  .video-hero-scroll-indicator svg {
+    animation: none;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .video-hero-overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .video-hero-background {
+    display: none;
+  }
+
+  .video-hero-container {
+    height: auto;
+    min-height: auto;
+    page-break-inside: avoid;
+  }
+}

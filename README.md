@@ -24,6 +24,15 @@ interactive project showcase to serve our clients better.
 
 ### Recent Achievements (November 2025)
 
+**GEO Optimization (Nov 20, 2025):**
+
+- AI Search Engine Optimization (robots.txt with GPTBot, OAI-SearchBot, CCBot, Google-Extended)
+- LLM-optimized content file (llms.txt) for AI retrieval systems
+- Video Hero Component with LCP optimization (poster-first strategy)
+- Core Web Vitals maintained (LCP < 2.5s with video backgrounds)
+- [Video Hero Implementation Guide](./docs/components/video-hero-implementation.md)
+- [Core Web Vitals Optimization](./docs/optimization/video-hero-core-web-vitals.md)
+
 **Code Optimization:** ~750 lines removed through centralized patterns
 (cards, grids, sections, career data, shared sections).
 
@@ -307,6 +316,9 @@ mh-website/
 ├── public/               # Static assets
 │   ├── icons/            # PWA icons
 │   ├── images/           # Optimized images
+│   ├── videos/           # Optimized video assets
+│   ├── robots.txt        # AI crawler permissions (GEO)
+│   ├── llms.txt          # LLM-optimized content
 │   └── sitemap.xml       # SEO sitemap
 ├── testing/              # Testing utilities
 └── coverage/             # Test coverage reports
@@ -392,16 +404,56 @@ This comprehensive guide provides:
 
 ## 🎨 Brand Essentials
 
-### Core Values
+### Core Values - Six-Value Professional Foundation System
 
 #### "Old School Business" — Where Your Word is Your Bond
 
-- **Integrity First** - Doing what's right, every time. Honest communication where handshakes matter
-- **Veteran Reliability** - Military-trained discipline and promise-keeping
-- **Relationship ROI** - Long-term partnerships over short-term profit. THE ROI IS THE RELATIONSHIP
-- **Lasting Craftsmanship** - Quality that endures generations
-- **Owner-Focused Transparency** - Open-book pricing, no surprises, full visibility
-- **Trust Over Transactions** - Building relationships that last longer than buildings
+**Trust-Centered Philosophy**: "Trust as our ultimate goal and measurable company foundation"
+
+Our six core values build toward trust as the culmination of excellence in every interaction:
+
+1. **Professionalism** - Excellence in Every Interaction
+   - Expert construction knowledge and industry best practices
+   - Professional conduct with respectful, timely communication
+   - Industry-leading credentials and organized processes
+
+2. **Thoroughness** - Attention to Detail in Everything We Do
+   - Comprehensive planning with contingency scenarios
+   - Meticulous execution and complete documentation
+   - Multiple quality control checkpoints
+
+3. **Honesty** - Transparent Communication Always
+   - Realistic timelines and accurate cost estimates
+   - No hidden costs, transparent pricing breakdowns
+   - Immediate notification of any changes
+
+4. **Integrity** - Doing What's Right, Every Time
+   - Ethical decisions even when it costs more
+   - Following through on every commitment
+   - Making decisions that benefit clients, not our bottom line
+
+5. **Reliability** - Dependable Results You Can Count On
+   - Military-honed consistency and follow-through
+   - Meeting deadlines and keeping commitments
+   - Systematic problem-solving under pressure
+
+6. **Quality Craftsmanship** - Excellence That Stands the Test of Time
+   - Skilled execution by experienced craftsmen
+   - Building structures that serve for generations
+   - Using proven methods refined over 150+ years combined experience
+
+**How Values Build Trust**:
+
+- Professionalism builds confidence
+- Thoroughness creates peace of mind
+- Honesty eliminates doubt
+- Integrity builds credibility
+- Reliability inspires trust
+- Quality Craftsmanship speaks for itself
+
+**Measuring Success**: 98% satisfaction rate, 70% referral rate, active community involvement
+
+See [Core Values Guide](./docs/business/core-values.md) for complete details.
 
 ### Core Slogan
 
@@ -865,7 +917,9 @@ Current implementation achieves 100/100 scores through:
 
 - Comprehensive metadata system
 - Structured data (JSON-LD)
-- Optimized images and assets
+- **AI Search Engine Optimization (GEO)** - robots.txt + llms.txt for AI crawlers
+- **Core Web Vitals optimized** - LCP < 2.5s with video hero backgrounds
+- Optimized images and video assets
 - Mobile-first responsive design
 - Fast loading times (< 3.5s interactive)
 - Semantic HTML structure

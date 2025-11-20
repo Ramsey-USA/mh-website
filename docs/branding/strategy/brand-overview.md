@@ -1,22 +1,26 @@
 # MH Construction Brand Overview
 
-**Date:** November 4, 2025
+**Date:** November 20, 2025
 **Status:** ✅ Current
 **Category:** Business - Brand Guidelines
-**Version:** 4.0.2
-**Last Updated:** November 15, 2025
+**Version:** 5.0.0
+**Last Updated:** November 20, 2025
 
-**⭐ IMPORTANT UPDATE (Nov 2025)**: This document provides core brand identity. For page-specific
-messaging and voice variations, see the comprehensive
+**⭐ IMPORTANT UPDATE (Nov 2025)**: This document integrates our **six-value professional foundation
+system** from [core-values.md](../../business/core-values.md). All brand identity is built upon
+Professionalism, Thoroughness, Honesty, Integrity, Reliability, and Quality Craftsmanship—culminating
+in **Trust** as our ultimate goal.
+
+For page-specific messaging and voice variations, see the comprehensive
 **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** which defines 7 distinct page
-groups aligned with SEO optimization strategy documented in
-**[SEO Optimization Complete](./seo-optimization.md)**.
+groups aligned with SEO optimization strategy.
 
 ## Quick Navigation
 
 - [🏠 Brand Documentation](../branding-index.md)
+- [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Six-value professional system
+- [📝 Messaging Guidelines](./messaging.md) - Built on core values
 - [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
-- [📝 Messaging Guidelines](./messaging.md)
 - [🎨 Color System](../standards/color-system.md)
 - [🔧 Icon Policy](../standards/icon-policy-complete.md)
 - [📝 Typography](../standards/typography.md)
@@ -146,63 +150,106 @@ each of the 7 page groups expresses these attributes differently.
 
 ## Brand Values
 
-### Six Core Values
+### Six-Value Professional Foundation System
 
-**Trust-Centered Philosophy**: Building trust through six foundational values
+**Trust-Centered Philosophy**: "Trust as our ultimate goal and measurable company foundation"
 
-1. **Integrity First** - Doing What's Right, Every Time
-2. **Owner-Focused Transparency** - No Surprises
-3. **Relationship ROI** - We Build Trust, Not Just Structures
-4. **Veteran-Fueled Reliability** - Calm and Precise Under Pressure
-5. **Craftsmanship that Lasts** - Built for the Long Run
-6. **Precision & Experience** - 150+ Years Combined Team Expertise
+Our six core values build toward trust as the culmination of excellence in every interaction.
+Each value is essential, and together they create the foundation of lasting partnerships.
 
-### Value Statements
+#### 1. Professionalism - Excellence in Every Interaction
 
-#### Integrity First
+**Core Message**: Expert knowledge meets professional conduct
+
+> "Excellence in every interaction. From our first conversation to final walk-through, we represent the
+> highest standards of professionalism in the construction industry."
+
+**Key Elements**: Expert construction knowledge, professional conduct, industry-leading credentials,
+organized processes, proper job site management
+
+#### 2. Thoroughness - Attention to Detail in Everything We Do
+
+**Core Message**: Comprehensive planning meets meticulous execution
+
+> "Meticulous attention to detail. We don't cut corners—every measurement, every material choice, every
+> finish is executed with precision and care."
+
+**Key Elements**: Detailed project planning, careful attention to every measurement, complete documentation,
+multiple quality checkpoints, systematic verification
+
+#### 3. Honesty - Transparent Communication Always
+
+**Core Message**: Truthful assessments and open communication
+
+> "Transparent communication always. Open-book pricing, realistic timelines, and honest assessments mean
+> you're never left wondering about your project."
+
+**Key Elements**: Realistic timelines, accurate cost estimates, no hidden costs, transparent pricing,
+immediate notification of changes
+
+#### 4. Integrity - Doing What's Right, Every Time
+
+**Core Message**: Ethical decisions and promise keeping
 
 > "Doing what's right, every time. Making the right decision even when it costs us more, because our
 > reputation is built on unwavering commitment to ethical practices."
 
-#### Owner-Focused Transparency
+**Key Elements**: Choosing the right path, following through on commitments, taking responsibility,
+using specified materials, making client-first decisions
 
-> "No surprises. Open communication, detailed breakdowns, and honest assessments mean you're never left
-> wondering what's happening with your project."
+#### 5. Reliability - Dependable Results You Can Count On
 
-#### Relationship ROI
+**Core Message**: Veteran-trained discipline delivers consistent performance
 
-> "We build trust, not just structures. THE ROI IS THE RELATIONSHIP - investing in long-term partnerships
-> that last well beyond project completion."
+> "Veteran-trained dependability you can count on. Military discipline meets construction expertise to
+> deliver consistent, reliable results on every project."
 
-#### Veteran-Fueled Reliability
+**Key Elements**: Military-honed consistency, meeting deadlines, steady leadership,
+systematic problem-solving, building a dependable track record
 
-> "Calm and precise under pressure. Military-trained discipline meets construction expertise to deliver
-> reliable results no matter the challenges."
+#### 6. Quality Craftsmanship - Excellence That Stands the Test of Time
 
-#### Craftsmanship that Lasts
+**Core Message**: Superior workmanship building lasting quality
 
-> "Built for the long run. Quality over speed, attention to every detail, selecting materials that stand
-> the test of time."
+> "Excellence that stands the test of time. Quality over speed, precision in execution, selecting
+> materials and methods that last for generations."
 
-#### Precision & Experience
+**Key Elements**: Skilled execution by experienced craftsmen, building for longevity,
+never compromising standards, using proven methods, pride in every project
 
-> "150+ years combined team expertise. Deep knowledge across all construction disciplines, refined through
-> decades of successful projects."
+### Building Trust Through Our Values
 
 **Ultimate Goal**: All six values work together to build **TRUST** - the foundation of every lasting
 partnership.
+
+**How Values Build Trust**:
+
+- **Professionalism**: Expert conduct builds confidence
+- **Thoroughness**: Attention to detail creates peace of mind
+- **Honesty**: Transparent communication eliminates doubt
+- **Integrity**: Doing what's right builds credibility
+- **Reliability**: Consistent delivery inspires trust
+- **Quality Craftsmanship**: Excellent work speaks for itself
+
+**Measuring Our Success**:
+
+- 98% client satisfaction rate maintained
+- 70% of new business from client referrals
+- Active involvement in Pacific Northwest communities
+- Many clients return for additional projects
+- Respected by peers and competitors
 
 ### Our Owner-First Process
 
 How we put values into action on every project:
 
-1. **Pre-Construction Planning** - Comprehensive planning to understand your vision
-2. **Budget Transparency** - Detailed, open-book pricing with no surprises
-3. **Proactive Communication** - Regular updates and immediate notification of changes
-4. **Quality Execution** - Military precision with experienced craftsmen
-5. **Seamless Close-Out** - Comprehensive completion with ongoing support
+1. **Pre-Construction Planning** (Professionalism + Thoroughness) - Comprehensive planning
+2. **Budget Transparency** (Honesty + Integrity) - Detailed, open-book pricing
+3. **Proactive Communication** (Honesty + Reliability) - Regular updates and transparency
+4. **Quality Execution** (Quality Craftsmanship + Thoroughness) - Military precision
+5. **Seamless Close-Out** (Reliability) - Comprehensive completion with ongoing support
 
-See [Core Values](../../business/core-values.md) for complete details on each process step.
+See [Core Values](../../business/core-values.md) for complete details on our six-value system.
 
 ## Current Architecture & Implementation
 
@@ -266,9 +313,11 @@ See [Core Values](../../business/core-values.md) for complete details on each pr
 
 ## Related Documentation
 
+- **[Core Values](../../business/core-values.md)** - ⭐ **CRITICAL** - Six-value professional foundation
+  (MUST READ for all team members)
+- **[Messaging Guidelines](./messaging.md)** - Voice and tone built on core values
 - **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** - ⭐ **CRITICAL** -
   7-group messaging strategy for all pages
-- **[Messaging Guidelines](./messaging.md)** - General voice and tone principles
 - **[Homepage Optimization Guide](./homepage-optimization-complete.md)** - Trust-first optimization approach
 - **[SEO Optimization Complete](./seo-optimization.md)** - Complete SEO audit
 - [**Color System**](./color-system.md) - Complete brand color palette
@@ -280,5 +329,11 @@ See [Core Values](../../business/core-values.md) for complete details on each pr
 ---
 
 **Brand Authority**: MH Construction Leadership Team
-**Last Major Update**: November 3, 2025 (v4.0.1)
+**Last Major Update**: November 20, 2025 (v5.0.0 - Core Values Integration)
 **Next Review**: Quarterly brand compliance assessment
+
+**Version History**:
+
+- v5.0.0 (Nov 20, 2025): Integrated six-value professional foundation system from core-values.md
+- v4.0.2 (Nov 15, 2025): Page-specific messaging updates
+- v4.0.1 (Nov 3, 2025): Hero section standards finalized

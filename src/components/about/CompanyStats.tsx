@@ -35,7 +35,7 @@ export interface CompanyStatsProps {
    */
   subtitle?: string;
   /**
-   * Section description
+   * Section description - emphasizes measurable trust through proven performance
    */
   description?: string;
   /**

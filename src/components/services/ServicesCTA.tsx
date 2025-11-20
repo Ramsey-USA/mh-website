@@ -14,17 +14,17 @@ export function ServicesCTA() {
             {/* Section Header - v4.0.2 Clean Standards (NO BADGES) */}
             <h2 className="mb-8 pb-2 font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
               <span className="block mb-4 font-semibold text-white/90 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                Ready to Start Your
+                Build Trust Through Our
               </span>
               <span className="block text-white font-black drop-shadow-lg">
-                Partnership?
+                Six Core Values?
               </span>
             </h2>
 
             <p className="mb-10 text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4 break-words">
-              Contact us today for a free consultation and let's discuss how we
-              can bring your vision to life through partnership and
-              collaboration.
+              Experience professionalism, thoroughness, honesty, integrity,
+              reliability, and quality craftsmanship in every project. Let's
+              discuss how our values create lasting partnerships.
             </p>
 
             {/* CTA Buttons - v4.0.2 Brand Standards */}
@@ -36,7 +36,7 @@ export function ServicesCTA() {
                   className="transition-all duration-300 border-2 border-white bg-white text-brand-primary hover:bg-brand-primary hover:text-white hover:border-white min-w-[280px]"
                 >
                   <MaterialIcon icon="handshake" size="lg" className="mr-3" />
-                  <span className="font-medium">Start Partnership</span>
+                  <span className="font-medium">Begin Your Project</span>
                 </Button>
               </Link>
               <Link href="/projects">
@@ -45,8 +45,8 @@ export function ServicesCTA() {
                   size="lg"
                   className="transition-all duration-300 border-2 border-white bg-transparent text-white hover:bg-white hover:text-brand-primary hover:border-white min-w-[280px]"
                 >
-                  <MaterialIcon icon="visibility" size="lg" className="mr-3" />
-                  <span className="font-medium">View Our Work</span>
+                  <MaterialIcon icon="verified" size="lg" className="mr-3" />
+                  <span className="font-medium">Trust In Action</span>
                 </Button>
               </Link>
             </div>

@@ -430,17 +430,17 @@ Generated: 11/17/2025, 7:01:35 PM
 - **File:** `qr-team-makayla-holstein-bw.png`
 - **URL:** [https://mhc-gc.com/team#makayla-holstein](https://mhc-gc.com/team#makayla-holstein)
 
-### Jennifer Tenehuerta Payroll and HR Coordinator (Color)
+### Jennifer Tene Payroll and HR Coordinator (Color)
 
-- **Name:** `team-jennifer-tenehuerta`
-- **File:** `qr-team-jennifer-tenehuerta-color.png`
-- **URL:** [https://mhc-gc.com/team#jennifer-tenehuerta](https://mhc-gc.com/team#jennifer-tenehuerta)
+- **Name:** `team-jennifer-tene`
+- **File:** `qr-team-jennifer-tene-color.png`
+- **URL:** [https://mhc-gc.com/team#jennifer-tene](https://mhc-gc.com/team#jennifer-tene)
 
-### Jennifer Tenehuerta Payroll and HR Coordinator (Black and White)
+### Jennifer Tene Payroll and HR Coordinator (Black and White)
 
-- **Name:** `team-jennifer-tenehuerta`
-- **File:** `qr-team-jennifer-tenehuerta-bw.png`
-- **URL:** [https://mhc-gc.com/team#jennifer-tenehuerta](https://mhc-gc.com/team#jennifer-tenehuerta)
+- **Name:** `team-jennifer-tene`
+- **File:** `qr-team-jennifer-tene-bw.png`
+- **URL:** [https://mhc-gc.com/team#jennifer-tene](https://mhc-gc.com/team#jennifer-tene)
 
 ## Usage in React Components
 

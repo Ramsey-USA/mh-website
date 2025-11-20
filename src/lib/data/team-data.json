@@ -642,7 +642,7 @@
     "qrCode": "/images/qr-codes/qr-team-matt-ramsey.png"
   },
   {
-    "name": "Jennifer Tenehuerta",
+    "name": "Jennifer Tene",
     "role": "Administrative Assistant",
     "department": "Administration & Support",
     "cardNumber": 14,
@@ -678,10 +678,10 @@
       "Team Support & Communication",
       "Information Flow & Documentation"
     ],
-    "avatar": "/images/team/jennifer-tenehuerta.jpg",
+    "avatar": "/images/team/jennifer-tene.jpg",
     "veteranStatus": "Civilian Professional",
     "active": true,
-    "slug": "jennifer-tenehuerta",
+    "slug": "jennifer-tene",
     "skills": {
       "leadership": 70,
       "technical": 80,
@@ -690,7 +690,7 @@
       "problemSolving": 75,
       "teamwork": 80
     },
-    "qrCode": "/images/qr-codes/qr-team-jennifer-tenehuerta.png"
+    "qrCode": "/images/qr-codes/qr-team-jennifer-tene.png"
   },
   {
     "name": "Trigger",

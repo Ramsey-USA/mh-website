@@ -22,7 +22,7 @@ interface NextStepsSectionProps {
 export function NextStepsSection({
   title: _title = "Let's Build Your Vision Together",
   subtitle:
-    _subtitle = "Where your word is your bond, and ours is too. Partner with veteran-owned excellence backed by old-school values and modern precision.",
+    _subtitle = "Six core values create one result: Trust. Partner with veteran-owned excellence where professionalism, thoroughness, honesty, integrity, reliability, and quality craftsmanship guide every decision.",
   className = "",
   onConsultationClick,
   onEstimateClick,
@@ -92,11 +92,11 @@ export function NextStepsSection({
               </div>
             </div>
             <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
-              Schedule Consultation
+              Begin Your Project
             </h3>
             <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-              Sit down with us face-to-face. Let's talk about your vision over a
-              handshake, not just an email.
+              Sit down with us face-to-face. Let's talk about your vision
+              through the lens of our six core values.
             </p>
             <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
               <li className="flex items-center gap-2">
@@ -132,11 +132,11 @@ export function NextStepsSection({
                 onClick={onConsultationClick}
               >
                 <MaterialIcon
-                  icon="calendar_today"
+                  icon="handshake"
                   size="lg"
                   className="mr-2 group-hover/btn:scale-110 transition-transform"
                 />
-                Book Consultation
+                Start Your Partnership
               </Button>
             </Link>
           </div>
@@ -158,11 +158,11 @@ export function NextStepsSection({
               </div>
             </div>
             <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
-              Get Quick Estimate
+              Budget Planning Tool
             </h3>
             <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-              Receive a detailed project estimate within 3-5 business days with
-              transparent pricing.
+              Prepare for your consultation with our honest, transparent budget
+              planning tool.
             </p>
             <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
               <li className="flex items-center gap-2">
@@ -171,7 +171,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-secondary flex-shrink-0"
                 />
-                <span>3-5 day turnaround</span>
+                <span>Instant preliminary budget</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -179,7 +179,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-secondary flex-shrink-0"
                 />
-                <span>Detailed line items</span>
+                <span>Honest cost ranges</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -187,7 +187,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-secondary flex-shrink-0"
                 />
-                <span>Open-book pricing</span>
+                <span>Transparent pricing</span>
               </li>
             </ul>
             <Link href="/estimator">
@@ -198,11 +198,11 @@ export function NextStepsSection({
                 onClick={onEstimateClick}
               >
                 <MaterialIcon
-                  icon="description"
+                  icon="calculate"
                   size="lg"
                   className="mr-2 group-hover/btn:scale-110 transition-transform"
                 />
-                Request Estimate
+                Try Planning Tool
               </Button>
             </Link>
           </div>

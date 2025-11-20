@@ -265,7 +265,7 @@ project is completed to a high standard and on schedule.
 - **Unique Role**: Bridging technology innovation with practical construction applications
 - **Focus**: Promoting MH Construction's technological capabilities and veteran-owned status
 
-### Jennifer Tenehuerta - Administrative Assistant
+### Jennifer Tene - Administrative Assistant
 
 - **Experience**: 5 years construction administration
 - **Status**: Civilian Professional
@@ -390,7 +390,7 @@ Connect with our experienced team to discuss your construction project needs.
 ### Administrative Support
 
 - **HR & Employment**: Brittney Holstein
-- **Scheduling & Coordination**: Jennifer Tenehuerta
+- **Scheduling & Coordination**: Jennifer Tene
 - **Marketing & Technology**: Matt Ramsey
 
 ### Emergency & Field Issues

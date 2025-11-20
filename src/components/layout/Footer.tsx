@@ -126,7 +126,7 @@ export default function Footer() {
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Start Partnership</span>
+                <span>Begin Your Project</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -173,11 +173,11 @@ export default function Footer() {
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
-                  icon="smart_toy"
+                  icon="calculate"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>AI Cost Estimator</span>
+                <span>Budget Planning Tool</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -307,11 +307,11 @@ export default function Footer() {
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
-                  icon="info"
+                  icon="foundation"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Our Story</span>
+                <span>Our Foundation</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -392,11 +392,11 @@ export default function Footer() {
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
-                  icon="badge"
+                  icon="handshake"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Join Our Team</span>
+                <span>Build With Us</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -409,11 +409,11 @@ export default function Footer() {
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
-                  icon="star"
+                  icon="verified"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Client Reviews</span>
+                <span>Trust In Action</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -473,7 +473,7 @@ export default function Footer() {
             {/* Social Media Links */}
             <div className="space-y-2 xs:space-y-3">
               <div className="mb-2 text-gray-400 dark:text-gray-300 text-xs">
-                Follow Our Partnership Journey
+                Our Values in Action
               </div>
               <div className="flex items-center justify-start gap-1.5 xs:gap-2 sm:gap-3 overflow-x-auto pb-1">
                 <a

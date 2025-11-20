@@ -145,7 +145,7 @@ export function Navigation() {
                 <div className="gap-1.5 sm:gap-2 grid grid-cols-2">
                   {[
                     { href: "/", label: "Home", icon: "home" },
-                    { href: "/about", label: "About", icon: "info" },
+                    { href: "/about", label: "Foundation", icon: "foundation" },
                     { href: "/services", label: "Services", icon: "build" },
                     {
                       href: "/projects",
@@ -153,7 +153,11 @@ export function Navigation() {
                       icon: "photo_library",
                     },
                     { href: "/team", label: "Team", icon: "people" },
-                    { href: "/careers", label: "Careers", icon: "badge" },
+                    {
+                      href: "/careers",
+                      label: "Build With Us",
+                      icon: "handshake",
+                    },
                     {
                       href: "/contact",
                       label: "Contact",
@@ -161,7 +165,7 @@ export function Navigation() {
                     },
                     {
                       href: "/estimator",
-                      label: "Estimator",
+                      label: "Budget Tool",
                       icon: "calculate",
                     },
                     {
@@ -191,8 +195,8 @@ export function Navigation() {
                     },
                     {
                       href: "/booking",
-                      label: "Book",
-                      icon: "calendar_today",
+                      label: "Start Project",
+                      icon: "handshake",
                     },
                   ].map((item) => (
                     <Link

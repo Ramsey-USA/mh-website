@@ -1,0 +1,56 @@
+# MH Construction, Inc. - Robots Configuration
+# Website: https://mhc-gc.com
+# Optimized for AI Search Engines (GEO)
+
+# AI Crawlers - Explicitly Allow for Retrieval & Indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# Traditional Search Engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# General Crawlers
+User-agent: *
+Allow: /
+Disallow: /api/private/
+Disallow: /admin/
+Disallow: /_next/static/
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://mhc-gc.com/sitemap-index.xml
+Sitemap: https://mhc-gc.com/sitemap.xml
+
+# Host
+Host: https://mhc-gc.com

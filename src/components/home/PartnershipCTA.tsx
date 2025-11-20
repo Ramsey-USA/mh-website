@@ -32,7 +32,7 @@ export function PartnershipCTA() {
                 <div className="absolute inset-0 bg-brand-accent/30 blur-xl rounded-full"></div>
                 <div className="relative bg-gradient-to-br from-brand-accent to-bronze-600 p-4 rounded-2xl shadow-lg">
                   <MaterialIcon
-                    icon="handshake"
+                    icon="verified"
                     size="2xl"
                     className="text-white"
                   />
@@ -41,24 +41,23 @@ export function PartnershipCTA() {
             </div>
             <h2 className="mb-6 sm:mb-8 font-black text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
               <span className="block mb-3 sm:mb-4 font-semibold text-white/90 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight drop-shadow-sm">
-                Let's Build More than
+                Let's Build Trust Through
               </span>
               <span className="block text-brand-accent font-black drop-shadow-lg">
-                Just Structures
+                Lasting Partnerships
               </span>
             </h2>
             <p className="mx-auto mb-8 sm:mb-12 max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-              Partner with a team that puts your vision—and your
-              relationship—first. We're Building for the Client, NOT the Dollar.
-              Join our network of{" "}
+              Partner with a veteran-led team where{" "}
+              <span className="font-bold text-brand-accent">
+                six core values create one result: Trust
+              </span>
+              . We're Building for the Client, NOT the Dollar. Experience{" "}
               <span className="font-medium text-brand-accent">
-                trusted trade partners
+                professionalism, thoroughness, honesty, integrity, reliability,
+                and quality craftsmanship
               </span>{" "}
-              with consistent projects including{" "}
-              <span className="font-medium text-brand-accent">
-                government contracts
-              </span>{" "}
-              across the Pacific Northwest.
+              in every project across the Pacific Northwest.
             </p>
           </div>
 

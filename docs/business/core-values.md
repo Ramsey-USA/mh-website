@@ -10,135 +10,134 @@
 
 ## Our Professional Foundation
 
-MH Construction operates on a comprehensive 6-principle system that evolved from our original values to reflect
-our growth as a construction industry leader. Each value builds toward our ultimate goal: **Trust** - the
-culmination of all other values working together.
+MH Construction operates on a comprehensive 6-principle system that defines who we are and how we work.
+Each value builds toward our ultimate goal: **Trust** - the culmination of all other values working together.
 
 ---
 
-## 🔍 1. Integrity First
+## 💼 1. Professionalism
+
+### Excellence in Every Interactionn
+
+### What This Means
+
+- **Expert Knowledge**: Deep understanding of construction methods, codes, and best practices
+- **Professional Conduct**: Respectful communication, timely responses, and courteous behavior
+- **Industry Standards**: Maintaining proper licensing, insurance, and certifications
+- **Business Excellence**: Organized processes, clear documentation, and efficient operations
+
+### Professionalism in Practice
+
+- Arriving on time, prepared, and ready to work
+- Clear, professional communication in all interactions
+- Proper job site management with organized work areas
+- Treating your property and neighbors with respect
+- Maintaining industry-leading credentials and training
+
+---
+
+## 🔍 2. Thoroughness
+
+### Attention to Detail in Everything We Do
+
+### What This Means
+
+- **Comprehensive Planning**: Detailed project planning with contingency scenarios
+- **Meticulous Execution**: Careful attention to every measurement, connection, and finish
+- **Complete Documentation**: Thorough records of all decisions, changes, and specifications
+- **Quality Verification**: Multiple checkpoints to ensure nothing is overlooked
+
+### Thoroughness in Practice
+
+- Detailed pre-construction site analysis and planning
+- Precise measurements and calculations for material estimates
+- Systematic quality control at every project phase
+- Complete project documentation with photo records
+- Comprehensive final walkthrough with detailed punch lists
+
+---
+
+## 💬 3. Honesty
+
+### Transparent Communication Always
+
+### What This Means
+
+- **Truthful Assessments**: Realistic timelines, accurate cost estimates, and candid evaluations
+- **Open Communication**: No hidden costs, surprise changes, or unclear expectations
+- **Transparent Pricing**: Detailed breakdowns showing exactly where your money goes
+- **Honest Recommendations**: Advising what's best for you, not what's most profitable for us
+
+### Honesty in Practice
+
+- Upfront discussion of project challenges and potential issues
+- Immediate notification of any timeline or budget changes
+- Honest assessment when a project isn't the right fit
+- Clear explanation of all costs before work begins
+- Telling you what you need to know, not just what you want to hear
+
+---
+
+## ⚖️ 4. Integrity
 
 ### Doing What's Right, Every Time
 
 ### What This Means
 
-- **Ethical Business Practices**: Fair pricing, honest recommendations, proper licensing
-- **Quality Workmanship**: Never cutting corners, even when no one is watching
+- **Ethical Decisions**: Choosing the right path even when it costs more
 - **Promise Keeping**: When we commit to something, we deliver
 - **Moral Leadership**: Setting the standard for construction industry ethics
+- **Accountability**: Taking responsibility for our work and our words
 
-### Integrity First in Practice
+### Integrity in Practice
 
-- Recommending solutions that benefit you, not just our profit margin
-- Using specified materials and methods, never substituting without approval
+- Using specified materials and methods without unauthorized substitutions
 - Standing behind our work with comprehensive warranties
-- Treating your property with the same care we'd want for our own
-- Making the right decision even when it costs us more
+- Making decisions that benefit the client, not just our bottom line
+- Following through on commitments even when circumstances change
+- Never cutting corners, even when no one is watching
 
 ---
 
-## 🔓 2. Owner-Focused Transparency
+## 🛡️ 5. Reliability
 
-### No Surprises
-
-### What This Means
-
-- **Open Communication**: No hidden costs, surprise changes, or unclear timelines
-- **Transparent Pricing**: Detailed breakdowns of every cost component
-- **Honest Assessments**: Realistic project timelines and potential challenges
-- **Clear Documentation**: All agreements, changes, and decisions in writing
-
-### Owner-Focused Transparency in Practice
-
-- Pre-construction meetings with complete cost breakdowns
-- Regular project updates with photo documentation
-- Open-book approach to material costs and labor
-- Immediate notification of any project changes or delays
-- You control it, we manage it - full visibility into every decision
-
----
-
-## 🤝 3. Relationship ROI
-
-### We Build Trust, Not Just Structures
+### Dependable Results You Can Count On
 
 ### What This Means
 
-- **Long-Term Partnerships**: Building relationships that last beyond project completion
-- **Community Partnership**: Investing in lasting connections, not just transactions
-- **Client Success Focus**: Your success is our return on investment
-- **Value Beyond Numbers**: Measuring success by relationships built, not just profit
+- **Veteran-Trained Discipline**: Military-honed consistency and follow-through
+- **Consistent Performance**: Delivering the same high standards on every project
+- **Promise Fulfillment**: Meeting deadlines and keeping commitments
+- **Steady Leadership**: Calm, dependable guidance through every project phase
 
-### Relationship ROI in Practice
+### Reliability in Practice
 
-- Following up after project completion to ensure satisfaction
-- Being available for questions and support long after final payment
-- Building referral networks based on mutual trust
-- Treating every interaction as an investment in long-term partnership
-- Prioritizing relationship value over short-term gains
-
----
-
-## �️ 4. Veteran-Fueled Reliability
-
-### Calm and Precise Under Pressure
-
-### What This Means
-
-- **Military Precision**: Attention to detail honed through service
-- **Unshakable Composure**: Staying calm when challenges arise
-- **Mission-Focused**: Clear objectives with disciplined execution
-- **Team Accountability**: Everyone takes ownership of their role
-
-### Veteran-Fueled Reliability in Practice
-
+- Showing up when we say we will, every time
+- Following through on commitments regardless of obstacles
 - Systematic approach to problem-solving under pressure
-- Clear communication chains and decision-making processes
-- Adapting quickly to changing conditions without losing focus
-- Following through on commitments no matter the obstacles
-- Leading with confidence earned through experience
+- Consistent communication throughout the project
+- Building a track record you and others can depend on
 
 ---
 
-## 🛠️ 5. Craftsmanship that Lasts
+## 🏗️ 6. Quality Craftsmanship
 
-### Built for the Long Run
+### Excellence That Stands the Test of Time
 
 ### What This Means
 
-- **Quality Over Speed**: Taking time to do it right
-- **Attention to Detail**: Every connection, every finish matters
-- **Durable Materials**: Selecting components that stand the test of time
+- **Superior Workmanship**: Skilled execution by experienced craftsmen
+- **Lasting Quality**: Building structures that serve for generations
+- **No Shortcuts**: Taking time to do it right, never compromising standards
 - **Pride in Work**: Building as if it's for our own families
 
-### Craftsmanship that Lasts in Practice
+### Quality Craftsmanship in Practice
 
-- Using proven construction methods refined over decades
-- Selecting materials based on longevity, not just cost
-- Quality control checkpoints at every project phase
-- Building structures that serve communities for generations
-- Standing behind our work with comprehensive warranties
-
----
-
-## � 6. Precision & Experience
-
-### 150+ Years Combined Team Expertise
-
-### What This Means
-
-- **Technical Mastery**: Deep knowledge across all construction disciplines
-- **Proven Methods**: Time-tested approaches refined through decades of experience
-- **Continuous Learning**: Staying current with industry innovations and best practices
-- **Expert Problem-Solving**: Drawing on experience when challenges arise
-
-### Precision & Experience in Practice
-
-- Detailed project planning with multiple contingency scenarios
-- Precise measurements, calculations, and material estimates
-- Leveraging 150+ years of combined team experience
-- Expert guidance that helps you avoid costly mistakes
-- Bringing calm, experienced leadership to complex projects
+- Using proven construction methods refined over 150+ years of combined experience
+- Selecting materials based on longevity and performance, not just cost
+- Multiple quality control checkpoints throughout construction
+- Expert tradesmen on every aspect of your project
+- Work so good we're proud to put our name on it
 
 ---
 
@@ -155,12 +154,12 @@ Trust isn't just another value - it's the result when all other values are consi
 
 ### How We Build Trust
 
-- **Integrity First**: Doing what's right builds confidence
-- **Owner-Focused Transparency**: No surprises creates peace of mind
-- **Relationship ROI**: Investing in people builds loyalty
-- **Veteran-Fueled Reliability**: Calm under pressure inspires confidence
-- **Craftsmanship that Lasts**: Quality work speaks for itself
-- **Precision & Experience**: Expertise earns respect
+- **Professionalism**: Expert conduct builds confidence
+- **Thoroughness**: Attention to detail creates peace of mind
+- **Honesty**: Transparent communication eliminates doubt
+- **Integrity**: Doing what's right builds credibility
+- **Reliability**: Consistent delivery inspires trust
+- **Quality Craftsmanship**: Excellent work speaks for itself
 
 ### Measuring Our Success
 
@@ -189,7 +188,7 @@ commitment to transparency, quality, and relationship-building.
 - Clear project scope definition
 - Timeline development with realistic milestones
 
-**Value Connection**: _Precision & Experience_ combined with _Owner-Focused Transparency_
+**Value Connection**: _Professionalism_ combined with _Thoroughness_
 
 ### 2. Budget Transparency
 
@@ -201,7 +200,7 @@ commitment to transparency, quality, and relationship-building.
 - Multiple budget scenarios when applicable
 - Upfront discussion of potential variables
 
-**Value Connection**: _Owner-Focused Transparency_ and _Integrity First_
+**Value Connection**: _Honesty_ and _Integrity_
 
 ### 3. Proactive Communication
 
@@ -213,7 +212,7 @@ commitment to transparency, quality, and relationship-building.
 - Weekly progress meetings during construction
 - Always available for your questions and concerns
 
-**Value Connection**: _Relationship ROI_ and _Veteran-Fueled Reliability_
+**Value Connection**: _Honesty_ and _Reliability_
 
 ### 4. Quality Execution
 
@@ -225,7 +224,7 @@ commitment to transparency, quality, and relationship-building.
 - Premium materials selected for longevity
 - Continuous site supervision and coordination
 
-**Value Connection**: _Craftsmanship that Lasts_ and _Veteran-Fueled Reliability_
+**Value Connection**: _Quality Craftsmanship_ and _Thoroughness_
 
 ### 5. Seamless Close-Out
 
@@ -237,7 +236,7 @@ commitment to transparency, quality, and relationship-building.
 - Post-completion follow-up
 - Ongoing support for any questions
 
-**Value Connection**: _Relationship ROI_ - the partnership continues beyond completion
+**Value Connection**: _Reliability_ - consistent support that continues beyond completion
 
 ---
 

@@ -1,9 +1,9 @@
 # Buttons & CTAs - Complete Implementation Guide
 
 **Category:** UI Components - Buttons & Call-to-Actions  
-**Last Updated:** November 17, 2025  
-**Status:** ✅ Active - Consolidated Documentation  
-**Version:** 2.0.0 (Consolidated)
+**Last Updated:** November 20, 2025  
+**Status:** ✅ Active - Six-Value Foundation Aligned  
+**Version:** 3.0.0 (Trust-Centered Messaging)
 
 **⚠️ CONSOLIDATED DOCUMENT:** This guide consolidates and supersedes:
 
@@ -81,12 +81,14 @@
 
 **Approved Text Patterns:**
 
-- "Schedule Free Consultation"
+- "Begin Your Project"
+- "Schedule Consultation"
 - "Book Site Visit"
-- "Request Project Review"
+- "Start Your Partnership"
 - "Discuss Your Vision"
-- "Begin Our Partnership"
+- "Build With Us"
 - "Contact Client Services"
+- "Experience Our Values"
 
 ---
 
@@ -119,12 +121,14 @@
 
 **Approved Text Patterns:**
 
-- "Get Instant AI Estimate"
-- "Try Automated Estimator"
-- "View Our Work"
-- "Explore Our Solutions"
+- "Budget Planning Tool"
+- "Get Project Estimate"
+- "Try Planning Tool"
+- "Trust In Action" (for portfolio/testimonials)
+- "Our Values-Driven Services"
+- "Our Foundation" (for about/values)
 - "Apply as Vendor"
-- "Download Vendor Package"
+- "Download Resources"
 
 ---
 

@@ -88,18 +88,18 @@ const ctaButtons = [
     icon: "smart_toy",
   },
   {
-    title: "Schedule Free Consultation",
+    title: "Begin Your Project",
     description: "Start with a personal conversation",
     href: "/booking",
     variant: "secondary" as const,
-    icon: "event",
+    icon: "handshake",
   },
   {
-    title: "View Our Work",
-    description: "Explore our partnerships",
-    href: "/services#portfolio",
+    title: "Trust In Action",
+    description: "See our values at work",
+    href: "/projects",
     variant: "outline" as const,
-    icon: "visibility",
+    icon: "verified",
   },
   {
     title: "24/7 Support Assistant",
@@ -153,24 +153,22 @@ export function FeaturesSection() {
           </div>
           <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
             <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-              Traditional Values Meet
+              Core Values Meet
             </span>
             <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
               Modern Tools
             </span>
           </h2>
           <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-            Where{" "}
+            Technology serves relationships, never replaces them. Our{" "}
+            <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
+              honest, thorough, and professional
+            </span>{" "}
+            planning tools help prepare for the personal consultations where{" "}
             <span className="font-medium text-gray-800 dark:text-gray-200">
-              personal partnerships meet helpful technology
+              trust is built and partnerships begin
             </span>
-            . Our veteran-led team combines decades of experience and old school
-            business values with modern planning tools to deliver construction
-            management built on{" "}
-            <span className="text-brand-primary font-semibold">
-              trust and face-to-face relationships
-            </span>
-            .
+            . Innovation with integrity, guided by six core values.
           </p>
         </FadeInWhenVisible>
 

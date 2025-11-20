@@ -279,10 +279,10 @@ const QR_CODES = [
     label: "MAKAYLA HOLSTEIN",
   },
   {
-    name: "team-jennifer-tenehuerta",
-    url: `${BASE_URL}/team#jennifer-tenehuerta`,
-    description: "Jennifer Tenehuerta - Payroll & HR Coordinator",
-    label: "JENNIFER TENEHUERTA",
+    name: "team-jennifer-tene",
+    url: `${BASE_URL}/team#jennifer-tene`,
+    description: "Jennifer Tene - Payroll & HR Coordinator",
+    label: "JENNIFER TENE",
   },
 ];
 

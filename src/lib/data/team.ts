@@ -232,7 +232,7 @@ export const teamMembers: TeamMember[] = [
     active: true,
   },
   {
-    name: "Jennifer Tenehuerta",
+    name: "Jennifer Tene",
     role: "Administrative Assistant",
     department: "Administration & Support",
     experienceYears: 5, // Assumed
@@ -243,8 +243,8 @@ export const teamMembers: TeamMember[] = [
       "Team Support",
       "Information Flow",
     ],
-    bio: "Jennifer Tenehuerta is a highly organized and efficient Admin Assistant who keeps the office running smoothly. She supports the entire team with administrative tasks, scheduling, and communication, ensuring a seamless flow of information.",
-    slug: "jennifer-tenehuerta",
+    bio: "Jennifer Tene is a highly organized and efficient Admin Assistant who keeps the office running smoothly. She supports the entire team with administrative tasks, scheduling, and communication, ensuring a seamless flow of information.",
+    slug: "jennifer-tene",
     active: true,
   },
 ];

@@ -1,13 +1,17 @@
 # MH Construction Messaging Guidelines
 
-**Date:** November 4, 2025
+**Date:** November 20, 2025
 **Status:** ✅ Current
 **Category:** Business - Brand Guidelines
-**Version:** 4.0.2
-**Last Updated:** November 15, 2025
+**Version:** 5.0.0
+**Last Updated:** November 20, 2025
 
-**⭐ IMPORTANT UPDATE (Nov 2025)**: This document provides general messaging principles. For
-page-specific messaging strategies, see the comprehensive
+**⭐ IMPORTANT UPDATE (Nov 2025)**: This document integrates our **six-value professional foundation
+system** from [core-values.md](../../business/core-values.md). All messaging is built upon our core values:
+Professionalism, Thoroughness, Honesty, Integrity, Reliability, and Quality Craftsmanship—culminating in
+**Trust** as our ultimate goal.
+
+For page-specific messaging strategies, see the comprehensive
 **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** which defines 7 distinct page
 groups with unique voices, tones, and keyword priorities.
 
@@ -15,10 +19,28 @@ groups with unique voices, tones, and keyword priorities.
 
 - [🏠 Brand Documentation](../branding-index.md)
 - [📋 Brand Overview](./brand-overview.md)
+- [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Six-value professional system
 - [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
 - [🎨 Color System](../standards/color-system.md)
 - [📝 Typography](../standards/typography.md)
 - [🔧 Icon Policy](../standards/icon-policy-complete.md)
+
+---
+
+## Overview
+
+This messaging guide is built upon MH Construction's **six-value professional foundation system** detailed in
+[core-values.md](../../business/core-values.md). All messaging, communications, and brand voice should reflect
+these core values:
+
+1. **Professionalism** - Excellence in Every Interaction
+2. **Thoroughness** - Attention to Detail in Everything We Do
+3. **Honesty** - Transparent Communication Always
+4. **Integrity** - Doing What's Right, Every Time
+5. **Reliability** - Dependable Results You Can Count On
+6. **Quality Craftsmanship** - Excellence That Stands the Test of Time
+
+**Ultimate Goal**: **Trust** - Built through consistent demonstration of all six values
 
 ---
 
@@ -91,6 +113,14 @@ Our voice balances military precision with partnership warmth, creating communic
 > management to deliver exceptional results for commercial, industrial, and medical
 > facility projects throughout the Pacific Northwest."
 
+### Trust-Centered Philosophy
+
+> "Trust as our ultimate goal and measurable company foundation"
+
+Trust isn't just another value—it's the result when all our core values are consistently demonstrated.
+Our six-value professional foundation system builds toward trust as the culmination of excellence in
+every interaction.
+
 ### Core Brand Slogans
 
 #### Primary Slogan: "Building for the Client, NOT the Dollar"
@@ -133,7 +163,138 @@ craftsmanship and character.
 
 ### Key Message Pillars
 
-#### 1. Partnership-Focused Approach
+Our six-value professional foundation system guides all messaging and communications:
+
+#### 1. Professionalism - Excellence in Every Interaction
+
+**Core Message**: "Expert knowledge meets professional conduct"
+
+**Supporting Points**:
+
+- Expert construction knowledge and industry best practices
+- Professional conduct with respectful, timely communication
+- Industry-leading credentials and certifications
+- Organized processes and efficient operations
+- Proper job site management
+
+**Example Applications**:
+
+- "Professionalism means arriving on time, prepared, and ready to deliver excellence"
+- "Expert knowledge backed by professional conduct in every interaction"
+- "Industry standards aren't our goal—they're our starting point"
+
+#### 2. Thoroughness - Attention to Detail in Everything We Do
+
+**Core Message**: "Comprehensive planning meets meticulous execution"
+
+**Supporting Points**:
+
+- Detailed project planning with contingency scenarios
+- Careful attention to every measurement and connection
+- Complete documentation of all decisions and changes
+- Multiple quality control checkpoints
+- Systematic verification at every phase
+
+**Example Applications**:
+
+- "Thoroughness means nothing is overlooked, nothing is assumed"
+- "From pre-construction analysis to final walkthrough, every detail matters"
+- "Precise measurements and systematic quality control throughout"
+
+#### 3. Honesty - Transparent Communication Always
+
+**Core Message**: "Truthful assessments and open communication"
+
+**Supporting Points**:
+
+- Realistic timelines and accurate cost estimates
+- No hidden costs or surprise changes
+- Transparent pricing with detailed breakdowns
+- Honest recommendations that benefit you, not us
+- Immediate notification of any changes
+
+**Example Applications**:
+
+- "Honesty means telling you what you need to know, not just what you want to hear"
+- "Transparent pricing shows exactly where your investment goes"
+- "No surprises, just solutions—that's our commitment"
+
+#### 4. Integrity - Doing What's Right, Every Time
+
+**Core Message**: "Ethical decisions and promise keeping"
+
+**Supporting Points**:
+
+- Choosing the right path even when it costs more
+- Following through on every commitment
+- Taking responsibility for our work and words
+- Using specified materials without unauthorized substitutions
+- Making decisions that benefit clients, not our bottom line
+
+**Example Applications**:
+
+- "Integrity means doing what's right, even when no one is watching"
+- "Our promises are backed by action, every single time"
+- "We stand behind our work with comprehensive warranties"
+
+#### 5. Reliability - Dependable Results You Can Count On
+
+**Core Message**: "Veteran-trained discipline delivers consistent performance"
+
+**Supporting Points**:
+
+- Military-honed consistency and follow-through
+- Meeting deadlines and keeping commitments
+- Steady leadership through every project phase
+- Systematic problem-solving under pressure
+- Building a track record you can depend on
+
+**Example Applications**:
+
+- "Reliability means showing up when we say we will, every time"
+- "Military discipline applied to construction management"
+- "Consistent communication and dependable results throughout"
+
+#### 6. Quality Craftsmanship - Excellence That Stands the Test of Time
+
+**Core Message**: "Superior workmanship building lasting quality"
+
+**Supporting Points**:
+
+- Skilled execution by experienced craftsmen
+- Building structures that serve for generations
+- Taking time to do it right, never compromising standards
+- Using proven methods refined over 150+ years combined experience
+- Pride in work as if building for our own families
+
+**Example Applications**:
+
+- "Quality craftsmanship means building excellence that lasts"
+- "We select materials based on longevity and performance"
+- "Work so good we're proud to put our name on it"
+
+### How Our Values Build Trust
+
+Trust is the ultimate goal—earned through consistent demonstration of all six values:
+
+- **Professionalism**: Expert conduct builds confidence
+- **Thoroughness**: Attention to detail creates peace of mind
+- **Honesty**: Transparent communication eliminates doubt
+- **Integrity**: Doing what's right builds credibility
+- **Reliability**: Consistent delivery inspires trust
+- **Quality Craftsmanship**: Excellent work speaks for itself
+
+**Measuring Our Success**:
+
+- 98% client satisfaction rate maintained
+- 70% of new business from client referrals
+- Active involvement in Pacific Northwest communities
+- Many clients return for additional projects
+- Respected by peers and competitors throughout the industry
+
+### Additional Message Pillars
+
+#### Partnership-Focused Approach
 
 **Core Message**: "We work WITH you, not FOR you"
 
@@ -150,7 +311,7 @@ craftsmanship and character.
 - "Partnership means your vision guides our precision"
 - "We believe in building relationships alongside buildings"
 
-#### 2. Military Precision & Excellence
+#### Military Precision & Excellence
 
 **Core Message**: "Veteran-owned excellence where every detail matters"
 
@@ -174,7 +335,7 @@ craftsmanship and character.
 - "Veteran values drive our commitment to excellence"
 - "Leadership crafted through military structure"
 
-#### 3. Regional Expertise
+#### Regional Expertise
 
 **Core Message**: "Deep Pacific Northwest knowledge and connections"
 
@@ -190,23 +351,6 @@ craftsmanship and character.
 - "Rooted in the Tri-Cities, serving the Pacific Northwest"
 - "Local expertise, regional reach"
 - "Your neighbors in quality construction"
-
-#### 4. Transparent Communication
-
-**Core Message**: "Open communication, honest progress, clear expectations"
-
-**Supporting Points**:
-
-- Regular progress updates
-- Transparent pricing and timelines
-- Proactive problem-solving
-- Accessible project management
-
-**Example Applications**:
-
-- "No surprises, just solutions"
-- "Transparent progress, predictable results"
-- "Communication you can count on"
 
 ## Content Style Guidelines
 
@@ -254,6 +398,28 @@ craftsmanship and character.
 | Investment          | Cost/Price      | Value perspective          |
 | Timeline            | Deadline        | Collaborative planning     |
 | Vision              | Requirements    | Client empowerment         |
+| Trust               | Satisfaction    | Ultimate goal emphasis     |
+| Thoroughness        | Attention       | Comprehensive approach     |
+| Integrity           | Ethics          | Deeper moral commitment    |
+| Craftsmanship       | Workmanship     | Artisan-level quality      |
+
+#### Core Values Language
+
+**The Six Values - Use Consistently**:
+
+1. **Professionalism**: Expert conduct in every interaction
+2. **Thoroughness**: Comprehensive attention to detail
+3. **Honesty**: Transparent communication always
+4. **Integrity**: Doing what's right, every time
+5. **Reliability**: Dependable results you can count on
+6. **Quality Craftsmanship**: Excellence that stands the test of time
+
+**Trust Language**:
+
+- "Trust is earned through consistent demonstration of our values"
+- "Building trust through professionalism, thoroughness, and integrity"
+- "Trust as the ultimate goal and measurable foundation"
+- "The ROI is the relationship - trust is the return"
 
 #### Veteran Heritage Language
 
@@ -277,25 +443,30 @@ craftsmanship and character.
 1. **Headline**: Clear service + benefit
 2. **Subheading**: Partnership approach
 3. **Overview**: What we do and why it matters
-4. **Process**: How we work WITH clients
-5. **Benefits**: What clients gain
-6. **Call-to-Action**: Partnership invitation
+4. **Our Values in Action**: How our six core values apply to this service
+5. **Process**: How we work WITH clients
+6. **Benefits**: What clients gain
+7. **Call-to-Action**: Partnership invitation
 
 #### Project Case Study Template
 
 1. **Client Challenge**: What they needed
 2. **Our Partnership Approach**: How we worked together
-3. **Precision in Execution**: Military-quality delivery
-4. **Results**: Measurable outcomes
-5. **Client Voice**: Partnership testimonial
+3. **Values in Practice**: Which core values were demonstrated
+4. **Precision in Execution**: Military-quality delivery
+5. **Results**: Measurable outcomes
+6. **Trust Built**: How the relationship grew
+7. **Client Voice**: Partnership testimonial
 
 #### Blog Post Template
 
 1. **Industry Challenge**: Common client problem
 2. **Expert Insight**: Our professional perspective
-3. **Partnership Solution**: Collaborative approach
-4. **Implementation**: Practical steps
-5. **Call-to-Partnership**: Invitation to work together
+3. **Value Connection**: How our core values address the challenge
+4. **Partnership Solution**: Collaborative approach
+5. **Implementation**: Practical steps
+6. **Trust Building**: Long-term relationship impact
+7. **Call-to-Partnership**: Invitation to work together
 
 ## Audience-Specific Messaging
 
@@ -308,13 +479,16 @@ craftsmanship and character.
 - Long-term maintenance considerations
 - Timeline predictability
 
+**Core Values Emphasis**: Professionalism, Thoroughness, Reliability
+
 **Tone**: Professional, business-focused, efficiency-oriented
 
 **Sample Message**:
 
 > "We understand your property is a business asset. Our partnership approach ensures
 > minimal operational disruption while maximizing your investment value through precision
-> construction management."
+> construction management. Trust built through professionalism, thoroughness, and
+> reliable delivery—every time."
 
 ### Industrial Facility Managers
 
@@ -325,13 +499,15 @@ craftsmanship and character.
 - Minimal production downtime
 - Technical expertise
 
+**Core Values Emphasis**: Thoroughness, Integrity, Quality Craftsmanship
+
 **Tone**: Technical competence, safety-conscious, detail-oriented
 
 **Sample Message**:
 
 > "Industrial construction demands precision. Our military-trained team understands complex
 > systems, safety requirements, and the critical need to maintain operations throughout
-> your project."
+> your project. Thoroughness and integrity drive every decision we make."
 
 ### Medical Facility Administrators
 
@@ -342,13 +518,16 @@ craftsmanship and character.
 - Patient care continuity
 - Specialized infrastructure needs
 
+**Core Values Emphasis**: Thoroughness, Honesty, Integrity
+
 **Tone**: Compliance-focused, detail-oriented, patient-centered
 
 **Sample Message**:
 
 > "Medical facility construction requires unwavering attention to detail. We partner with
 > healthcare leaders to ensure every requirement is met while maintaining the highest
-> standards of patient care."
+> standards of patient care. Our thoroughness and integrity ensure regulatory compliance
+> and operational excellence."
 
 ### Religious Organization Leaders
 
@@ -359,13 +538,16 @@ craftsmanship and character.
 - Congregation involvement and communication
 - Long-term durability
 
+**Core Values Emphasis**: Honesty, Integrity, Quality Craftsmanship
+
 **Tone**: Respectful, community-minded, transparent
 
 **Sample Message**:
 
 > "Building spaces for community requires partnership built on trust. We work WITH
 > congregations to create lasting spaces that serve your mission while honoring your
-> stewardship responsibilities."
+> stewardship responsibilities. Honest communication and quality craftsmanship in
+> service to your community."
 
 ## Digital Content Guidelines
 
@@ -373,20 +555,23 @@ craftsmanship and character.
 
 #### Homepage Messaging Hierarchy
 
-1. **Hero Section**: Primary value proposition
-2. **Partnership Promise**: How we work differently
+1. **Hero Section**: Primary value proposition + trust-centered philosophy
+2. **Partnership Promise**: How we work differently (six core values)
 3. **Service Overview**: What we do
-4. **Military Excellence**: Why we're different
-5. **Client Success**: Proof of partnership
-6. **Call-to-Action**: Start the partnership
+4. **Values Demonstration**: Our six-value professional foundation
+5. **Trust Building**: How values create measurable trust
+6. **Client Success**: Proof of partnership and trust earned
+7. **Call-to-Action**: Start the partnership
 
 #### Service Page Structure
 
 - **Headline**: Service + Partnership Benefit
 - **Overview**: Client-focused description
+- **Values Application**: How our core values apply to this service
 - **Our Approach**: Partnership methodology
 - **Process**: Step-by-step collaboration
 - **Results**: Expected outcomes
+- **Trust Promise**: Building relationships beyond projects
 - **Next Steps**: Partnership invitation
 
 ### Social Media Messaging
@@ -398,9 +583,13 @@ craftsmanship and character.
 - Industry insights and expertise
 - Project completion announcements
 - Partnership success stories
+- Core values in action examples
+- Trust-building case studies
 - Construction industry leadership
 
 **Tone**: Professional, authoritative, thought-leadership
+
+**Core Values Integration**: Emphasize professionalism, expertise, and thought leadership
 
 #### Facebook (Community Connection)
 
@@ -410,8 +599,12 @@ craftsmanship and character.
 - Behind-the-scenes construction
 - Local business partnerships
 - Veteran community involvement
+- Values-driven stories
+- Trust-building community engagement
 
 **Tone**: Community-minded, approachable, locally-connected
+
+**Core Values Integration**: Emphasize integrity, community service, and relationship building
 
 ### Email Communications
 
@@ -421,11 +614,12 @@ craftsmanship and character.
 
 **Structure**:
 
-1. Progress summary with specifics
-2. Upcoming milestones and timelines
-3. Any decisions needed from client
-4. Contact information for questions
-5. Partnership appreciation
+1. Progress summary with specifics (Reliability in action)
+2. Quality checkpoints met (Thoroughness demonstrated)
+3. Upcoming milestones and timelines (Honest communication)
+4. Any decisions needed from client (Partnership approach)
+5. Contact information for questions (Professional accessibility)
+6. Partnership appreciation and trust acknowledgment
 
 #### Proposal Communication
 
@@ -433,34 +627,45 @@ craftsmanship and character.
 
 **Structure**:
 
-1. Understanding of client vision
-2. Our partnership approach
-3. Proposed timeline and process
-4. Investment overview
-5. Next steps for collaboration
+1. Understanding of client vision (Thoroughness)
+2. Our six-value foundation and approach (Trust building)
+3. How our values apply to your specific project
+4. Proposed timeline and process (Reliability)
+5. Transparent investment overview (Honesty)
+6. Quality and integrity commitments (Craftsmanship)
+7. Next steps for collaboration (Partnership invitation)
 
 ## Brand Messaging Compliance
 
 ### Message Consistency Checklist
 
 - [ ] Partnership language used over client/customer
+- [ ] Six core values referenced appropriately (Professionalism, Thoroughness, Honesty, Integrity,
+      Reliability, Quality Craftsmanship)
+- [ ] Trust-centered philosophy incorporated
+- [ ] "THE ROI IS THE RELATIONSHIP" messaging present where appropriate
 - [ ] Military precision referenced appropriately
 - [ ] Veteran heritage mentioned authentically
 - [ ] Client benefits clearly communicated
-- [ ] Transparent communication promised
+- [ ] Transparent communication promised (Honesty value)
 - [ ] Local/regional expertise highlighted
-- [ ] Quality commitment stated
+- [ ] Quality commitment stated (Craftsmanship value)
+- [ ] Reliability and follow-through emphasized
+- [ ] Integrity and ethical decision-making highlighted
 - [ ] Call-to-action includes partnership invitation
 
 ### Content Review Process
 
 #### Pre-Publication Review
 
-1. **Message Alignment**: Does content reflect brand voice?
+1. **Message Alignment**: Does content reflect brand voice and six core values?
 2. **Partnership Focus**: Is collaborative approach emphasized?
-3. **Veteran Values**: Are military principles appropriately represented?
-4. **Client Benefit**: Is value clear to target audience?
-5. **Quality Standards**: Does content reflect our excellence commitment?
+3. **Values Integration**: Are relevant core values appropriately demonstrated?
+4. **Trust Building**: Does content contribute to trust-centered philosophy?
+5. **Veteran Values**: Are military principles appropriately represented?
+6. **Client Benefit**: Is value clear to target audience?
+7. **Quality Standards**: Does content reflect our excellence commitment?
+8. **Honesty & Transparency**: Is communication open and truthful?
 
 #### Approval Authority
 
@@ -468,9 +673,12 @@ craftsmanship and character.
 - **Website Content**: Marketing and Operations review
 - **Client Communications**: Project Manager and Leadership
 - **Social Media**: Marketing Team with Leadership oversight
+- **Core Values Content**: Must align with core-values.md documentation
 
 ## Related Documentation
 
+- **[Core Values](../../business/core-values.md)** - ⭐ **CRITICAL** - Six-value professional foundation
+  system (MUST READ for all content creators)
 - **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** - ⭐ **CRITICAL** -
   7-group messaging strategy (MUST READ for content creators)
 - **[Brand Overview](./brand-overview.md)** - Complete brand identity guide
@@ -485,5 +693,11 @@ craftsmanship and character.
 ---
 
 **Messaging Authority**: MH Construction Leadership Team
-**Last Update**: November 4, 2025 (v4.0.2)
+**Last Update**: November 20, 2025 (v5.0.0 - Core Values Integration)
 **Next Review**: Quarterly brand compliance assessment
+
+**Version History**:
+
+- v5.0.0 (Nov 20, 2025): Integrated six-value professional foundation system from core-values.md
+- v4.0.2 (Nov 15, 2025): Page-specific messaging references
+- v4.0.0 (Nov 4, 2025): Initial comprehensive messaging guidelines

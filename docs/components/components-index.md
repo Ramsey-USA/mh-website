@@ -64,6 +64,29 @@ Implementation guide for navigation components and patterns.
 
 ### Interactive Components
 
+**[video-hero-implementation.md](./video-hero-implementation.md)** - Video Hero Component ⭐ **NEW (Nov 20, 2025)**
+
+LCP-optimized video hero section with poster-first loading strategy for Core Web Vitals.
+
+**Topics Covered:**
+
+- React component implementation
+- Vanilla HTML/CSS version
+- LCP optimization (poster image priority)
+- Deferred video loading strategy
+- WebM + MP4 format support
+- Responsive video sources (mobile/desktop)
+- Core Web Vitals compliance (LCP < 2.5s)
+- FFmpeg optimization commands
+- Browser support and fallbacks
+- Accessibility features
+
+**When to Use:** Hero sections with video backgrounds, landing pages, homepage headers
+
+**Related:** [Core Web Vitals Guide](../optimization/video-hero-core-web-vitals.md)
+
+---
+
 **[before-after-slider-guide.md](./before-after-slider-guide.md)** - Before/After Slider Component
 
 Interactive image comparison slider with draggable divider.

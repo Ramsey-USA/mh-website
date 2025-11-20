@@ -38,10 +38,10 @@ const partnershipValues = [
   },
   {
     icon: "visibility",
-    title: "Owner-Focused Transparency",
+    title: "Transparent Honesty",
     subtitle: "No Surprises Partnership",
     description:
-      "Open-book pricing, honest timelines, and constant communication. You control it, we manage it—full visibility into every decision. Veteran integrity means no hidden costs, ever.",
+      "Open-book pricing, honest timelines, and constant communication. You control it, we manage it—full visibility into every decision. Our commitment to honesty means no hidden costs, ever.",
     iconColor: "text-brand-secondary",
     highlights: [
       "Open-book pricing & budgets",
@@ -70,8 +70,8 @@ const partnershipValues = [
   },
   {
     icon: "military_tech",
-    title: "Veteran-Fueled Reliability",
-    subtitle: "Military Precision Meets Construction",
+    title: "Reliability",
+    subtitle: "Veteran-Trained Dependability",
     description:
       "Army veteran leadership brings military discipline, attention to detail, and calm decision-making under pressure. We deliver reliable results no matter the challenges, backed by service-earned integrity.",
     iconColor: "text-brand-secondary",
@@ -288,19 +288,19 @@ export function WhyPartnerSection() {
               href="/about"
               className="inline-flex items-center gap-2 bg-brand-secondary hover:bg-brand-secondary/90 text-brand-primary font-bold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-base sm:text-lg"
             >
-              <MaterialIcon icon="info" size="sm" />
-              Learn More About Us
+              <MaterialIcon icon="foundation" size="sm" />
+              Our Foundation
             </Link>
             <Link
-              href="/contact"
+              href="/booking"
               className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-lg border-2 border-white/30 transition-all duration-300 text-base sm:text-lg"
             >
               <MaterialIcon icon="handshake" size="sm" />
-              Start a Partnership
+              Begin Your Project
             </Link>
           </div>
           <p className="mt-6 text-white/70 text-sm sm:text-base">
-            Ready to experience the difference? Call us at{" "}
+            Experience our six core values in action. Call us at{" "}
             <a
               href="tel:+15093086489"
               className="text-brand-secondary hover:text-brand-secondary/80 font-semibold transition-colors"

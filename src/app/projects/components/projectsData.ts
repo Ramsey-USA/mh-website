@@ -122,7 +122,7 @@ export const whyChooseReasons = [
   },
   {
     iconName: "high_quality",
-    title: "Craftsmanship that Lasts",
+    title: "Quality Craftsmanship",
     description:
       "Quality control processes at every project phase ensure work consistently meets our high standards and your expectations. We don't cut corners—we build it right the first time with materials that last. Pride in workmanship drives everything we do, building structures that serve communities for generations with unwavering attention to detail.",
   },

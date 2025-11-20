@@ -18,8 +18,12 @@
 This is the central hub for all MH Construction branding documentation. All brand standards, guidelines, and
 implementation details are organized here for easy access by the entire team.
 
-**✨ NEW**: Consolidated from separate business and development folders to eliminate duplication and provide a single
-source of truth.
+**✨ NEW (Nov 2025)**: All branding is built upon our **six-value professional foundation system**:
+Professionalism, Thoroughness, Honesty, Integrity, Reliability, and Quality Craftsmanship—culminating in
+**Trust** as our ultimate goal. See [core-values.md](../business/core-values.md) for complete details.
+
+**Consolidated Structure**: Combined from separate business and development folders to eliminate duplication
+and provide a single source of truth.
 
 ### 🤖 Automated System Integration (Nov 10, 2025)
 
@@ -53,8 +57,9 @@ Brand identity, company values, messaging guidelines, and strategic positioning.
 
 **Key Files**:
 
-- `brand-overview.md` - Core brand identity and mission
-- `messaging.md` - Voice, tone, and messaging framework
+- `brand-overview.md` - Core brand identity and mission (built on six core values)
+- `messaging.md` - Voice, tone, and messaging framework (reflects six-value system)
+- **Note**: See [core-values.md](../business/core-values.md) for the foundational six-value professional system
 - `page-specific-messaging-guide.md` - ⭐ **NEW (Nov 2025)** - 7-group page messaging strategy
 - `universal-terminology-guide.md` - ⭐ **NEW (Jan 2025)** - Universal language & terminology standards
 - `estimator-vs-consultation-language.md` - ⭐ **NEW (Nov 2025)** - AI tool vs human consultation language distinctions
@@ -118,13 +123,15 @@ unified access.
 
 ### For Content Writers
 
-1. Read **[Page-Specific Messaging Guide](./strategy/page-specific-messaging-guide.md)** - Understand
+1. Read **[Core Values](../business/core-values.md)** - ⭐ **START HERE** - Understand our six-value
+   professional foundation (CRITICAL for all messaging)
+2. Read **[Page-Specific Messaging Guide](./strategy/page-specific-messaging-guide.md)** - Understand
    the 7 page groups and their unique voices (CRITICAL for all content)
-2. Review **[Universal Terminology Guide](./strategy/universal-terminology-guide.md)** - ⭐ **NEW** -
+3. Review **[Messaging](./strategy/messaging.md)** - General voice and tone principles built on core values
+4. Review **[Universal Terminology Guide](./strategy/universal-terminology-guide.md)** - ⭐ **NEW** -
    Company-wide language standards (ESSENTIAL for consistency)
-3. Review **[Messaging](./strategy/messaging.md)** - General voice and tone principles
-4. Check **[Content Standards](./strategy/content-messaging-standards.md)** - Writing guidelines
-5. Review **[Buttons & CTAs Complete Guide](../technical/design-system/buttons-ctas-complete-guide.md)** -
+5. Check **[Content Standards](./strategy/content-messaging-standards.md)** - Writing guidelines
+6. Review **[Buttons & CTAs Complete Guide](../technical/design-system/buttons-ctas-complete-guide.md)** -
    Call-to-action patterns
 
 ---

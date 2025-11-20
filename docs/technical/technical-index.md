@@ -70,6 +70,11 @@ Search engine optimization, accessibility standards, and implementation guides.
 - `seo-index.md` - SEO documentation hub
 - `seo-complete-guide.md` - Complete SEO, search, and accessibility guide (consolidates 5 previous documents)
 
+#### AI Search Engine Optimization (GEO) - Nov 20, 2025
+
+- `public/robots.txt` - AI crawler permissions (GPTBot, OAI-SearchBot, CCBot, Google-Extended)
+- `public/llms.txt` - LLM-optimized content for AI retrieval systems
+
 ## 🛠️ Root Level Technical Files
 
 ### 🏗️ System Architecture & Design

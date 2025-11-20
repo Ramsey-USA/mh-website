@@ -23,7 +23,7 @@ interface TestimonialsSectionProps {
 export function TestimonialsSection({
   title = "What Our Client Partners Say",
   subtitle = "What Our",
-  description = "Read testimonials from valued partners across the Pacific Northwest who have experienced our collaborative excellence firsthand.",
+  description = "Hear from valued partners who've experienced our six core values in action—professionalism, thoroughness, honesty, integrity, reliability, and quality craftsmanship building trust on every project.",
   className = "",
   autoPlay = true,
   autoPlayInterval = 5000,

@@ -199,6 +199,15 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
 - **[Performance Hub](./technical/performance/performance-index.md)** - Performance optimization
 - **[SEO & Accessibility Hub](./technical/seo/seo-index.md)** - Search and accessibility
 
+**GEO & Core Web Vitals (NEW - Nov 20, 2025):**
+
+- **[Video Hero Core Web Vitals](./optimization/video-hero-core-web-vitals.md)** - ⭐ **NEW** -
+  LCP optimization for video backgrounds
+- **[Video Hero Implementation](./components/video-hero-implementation.md)** - ⭐ **NEW** -
+  Complete component guide
+- **AI Search Optimization** - robots.txt (GPTBot, OAI-SearchBot, CCBot, Google-Extended)
+- **LLM Content** - llms.txt optimized for AI retrieval systems
+
 **SEO Documentation:**
 
 - **[SEO Complete Guide](./technical/seo/seo-complete-guide.md)** - ⭐ **CONSOLIDATED** -
@@ -482,6 +491,8 @@ A: [Consistency Guide](./development/consistency-guide.md) has everything - it's
 
 ## 🔄 Recent Highlights (Condensed)
 
+- **GEO Optimization** (Nov 20, 2025) - AI search engine ready (robots.txt + llms.txt) ✔️
+- **Video Hero Component** - LCP-optimized (< 2.5s) with Core Web Vitals compliance ✔️
 - Docs filing optimization complete (174 MD files indexed) ✔️
 - Phase 5 interactive feature set deployed (6 major components) ✔️
 - 100/100 SEO across 13 audited pages ✔️

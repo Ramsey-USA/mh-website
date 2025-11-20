@@ -291,9 +291,9 @@ interface SectionHeaderProps {
 <Section variant="gradient" id="core-values">
   <SectionHeader
     subtitle="Company Values"
-    title="Integrity First"
-    description="Our commitment to excellence"
-    icon="balance"
+    title="Professionalism"
+    description="Excellence in every interaction"
+    icon="business_center"
     alignment="left"
   />
   {/* Content */}

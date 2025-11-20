@@ -172,18 +172,22 @@ export default function Home() {
                   Our Commitment to
                 </span>
                 <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                  Transparency & Excellence
+                  Honesty & Excellence
                 </span>
               </h2>
 
               <div className="mx-auto max-w-4xl space-y-6">
                 <p className="font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4">
-                  Just as we bring{" "}
+                  Just as{" "}
                   <span className="font-semibold text-gray-800 dark:text-gray-200">
-                    military precision and traditional values
+                    honesty and integrity
                   </span>{" "}
-                  to every construction project, we're applying the same
-                  standards to our digital presence.
+                  guide every construction project, we apply the same core
+                  values to our digital presence—because{" "}
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    trust is built through transparent communication
+                  </span>
+                  .
                 </p>
 
                 {/* Transparency Notice */}
@@ -203,20 +207,21 @@ export default function Home() {
                   </h3>
 
                   <p className="mb-4 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                    Because we value{" "}
+                    Because our core values include{" "}
                     <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                      transparency and accuracy
-                    </span>{" "}
-                    above all else, we want you to know: this website is
-                    currently being optimized to provide you with the best
-                    possible experience.
+                      honesty, thoroughness, and integrity
+                    </span>
+                    , we want you to know: this website is currently being
+                    optimized to reflect the same professional excellence we
+                    bring to every construction project.
                   </p>
 
                   <p className="mb-4 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                    <em>"Your Word Is Your Bond - So Is Ours."</em> That's not
-                    just a saying—it's how we operate. Every detail on this site
-                    will reflect the same commitment to excellence you'll
-                    experience when we build your project.
+                    <em>"Your Word Is Your Bond - So Is Ours."</em> Trust isn't
+                    just earned on job sites—it's built through transparent
+                    communication everywhere. Every detail on this site will
+                    reflect our six core values: Professionalism, Thoroughness,
+                    Honesty, Integrity, Reliability, and Quality Craftsmanship.
                   </p>
 
                   <div className="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm p-6 border border-brand-secondary/30 rounded-xl mt-6">
@@ -282,8 +287,9 @@ export default function Home() {
                   <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
                     Building for the Client, NOT the Dollar
                   </span>{" "}
-                  means never compromising—whether it's a construction project
-                  or the information we provide online. Thank you for your
+                  means never compromising our values—whether it’s a
+                  construction project or the information we provide online. Our
+                  six core values guide everything we do. Thank you for your
                   patience as we perfect every detail to serve you better.
                 </p>
               </div>

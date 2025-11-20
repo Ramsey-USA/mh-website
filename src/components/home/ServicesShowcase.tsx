@@ -176,7 +176,7 @@ export function ServicesShowcase() {
           </div>
           <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
             <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-              Comprehensive
+              Values-Driven
             </span>
             <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
               Construction Services
@@ -187,12 +187,12 @@ export function ServicesShowcase() {
             <span className="font-medium text-gray-800 dark:text-gray-200">
               master planning to final walkthrough
             </span>
-            , we deliver partnership-focused construction management throughout
-            the Tri-Cities area. Each service reflects our commitment to{" "}
-            <span className="text-brand-primary font-semibold">
-              building trust, not just structures
-            </span>
-            .
+            , every service reflects our six core values. We deliver{" "}
+            <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
+              professionalism, thoroughness, honesty, integrity, reliability,
+              and quality craftsmanship
+            </span>{" "}
+            throughout the Tri-Cities area—building trust, not just structures.
           </p>
         </FadeInWhenVisible>
 
@@ -367,7 +367,7 @@ export function ServicesShowcase() {
                   size="lg"
                   className="mr-2 group-hover/btn:scale-110 transition-transform"
                 />
-                View All Services
+                Our Values-Driven Services
               </Button>
             </Link>
             <Link href="/contact">
@@ -376,11 +376,11 @@ export function ServicesShowcase() {
                 className="group/btn min-w-[240px] min-h-[48px] text-base sm:text-lg"
               >
                 <MaterialIcon
-                  icon="phone"
+                  icon="handshake"
                   size="lg"
                   className="mr-2 group-hover/btn:scale-110 transition-transform"
                 />
-                Call (509) 308-6489
+                Begin Your Project
               </Button>
             </Link>
           </div>

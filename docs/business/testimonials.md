@@ -44,11 +44,11 @@ Please check back soon, or contact us directly to learn more about our client ex
 - Professional subcontractor coordination
 - 150+ combined years of team experience
 
-### 5. **Relationship ROI**
+### 5. **Quality Craftsmanship**
 
-- Building trust, not just structures
-- Fair and transparent dealings
-- Long-term client satisfaction
+- Excellence that stands the test of time
+- Superior materials and methods
+- Building for generations to come
 
 ---
 
@@ -56,12 +56,12 @@ Please check back soon, or contact us directly to learn more about our client ex
 
 Our approach consistently demonstrates our six core values:
 
-1. **Integrity First** - Honest communication and quality delivery
-2. **Owner-Focused Transparency** - No surprises, clear updates
-3. **Relationship ROI** - Building trust through every project
-4. **Veteran-Fueled Reliability** - Precision and calm under pressure
-5. **Craftsmanship that Lasts** - Exceeding quality expectations
-6. **Precision & Experience** - 150+ years combined expertise
+1. **Professionalism** - Excellence in every interaction and project phase
+2. **Thoroughness** - Meticulous attention to detail in all we do
+3. **Honesty** - Transparent communication and realistic timelines
+4. **Integrity** - Doing what's right, even when no one is watching
+5. **Reliability** - Veteran-trained dependability you can count on
+6. **Quality Craftsmanship** - Building excellence that stands the test of time
 
 ---
 

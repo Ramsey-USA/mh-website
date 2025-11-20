@@ -16,16 +16,17 @@ export function ProjectsCTASection() {
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
               <span className="block mb-4 font-semibold text-white/80 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                Ready to Build
+                Ready to Build Trust
               </span>
               <span className="block text-white font-black drop-shadow-lg">
-                Together?
+                Through Partnership?
               </span>
             </h2>
 
             <p className="mb-10 text-white/90 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
-              Let's start our partnership and bring your vision to life with the
-              same veteran-owned dedication and quality you see in our portfolio
+              Experience our six core values in action: Professionalism,
+              Thoroughness, Honesty, Integrity, Reliability, and Quality
+              Craftsmanship—all working together to build lasting partnerships
             </p>
 
             {/* CTA Buttons */}
@@ -41,9 +42,7 @@ export function ProjectsCTASection() {
                     size="lg"
                     className="mr-3 group-hover:scale-110 transition-transform duration-300"
                   />
-                  <span className="font-medium">
-                    Schedule Free Consultation
-                  </span>
+                  <span className="font-medium">Begin Your Project</span>
                 </Button>
               </Link>
               <Link href="/services">
@@ -57,7 +56,9 @@ export function ProjectsCTASection() {
                     size="lg"
                     className="mr-3 group-hover:scale-110 transition-transform duration-300"
                   />
-                  <span className="font-medium">Explore Our Solutions</span>
+                  <span className="font-medium">
+                    Our Values-Driven Services
+                  </span>
                 </Button>
               </Link>
             </div>

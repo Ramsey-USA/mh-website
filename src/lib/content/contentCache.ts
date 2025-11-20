@@ -13,20 +13,27 @@ export interface ContentItem {
 const contentCache: Record<string, ContentItem> = {
   "core-values": {
     title: "Core Values",
-    excerpt: "Our commitment to excellence, integrity, and service",
+    excerpt:
+      "Our commitment to professionalism, thoroughness, and unwavering integrity",
     content: `# Core Values
 
-## Excellence in Every Project
-We maintain the highest standards in all our construction projects.
+## Professionalism
+We maintain excellence in every interaction and project phase.
 
-## Integrity First
-Our word is our bond. We operate with complete transparency.
+## Thoroughness
+Meticulous attention to detail ensures quality that exceeds expectations.
 
-## Veteran Leadership
-Bringing military discipline and precision to construction.
+## Honesty
+Transparent communication and realistic timelines build lasting trust.
 
-## Community Focus
-Building not just structures, but lasting relationships in our community.
+## Integrity
+Doing what's right, even when no one is watching.
+
+## Reliability
+Veteran-trained dependability you can count on, project after project.
+
+## Quality Craftsmanship
+Building excellence that stands the test of time.
 `,
     lastUpdated: new Date().toISOString(),
   },
