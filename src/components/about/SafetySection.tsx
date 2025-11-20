@@ -44,8 +44,8 @@ export function SafetySection() {
               Safety is never compromised at MH Construction. Our award-winning
               comprehensive safety programs and regulatory compliance ensure
               every project meets the highest standards. With multiple AGC-WA
-              Top EMR Awards and a .6 EMR (40% better than industry average), we
-              demonstrate unwavering commitment to zero-incident workplace
+              Top EMR Awards and a .64 EMR (40% better than industry average),
+              we demonstrate unwavering commitment to zero-incident workplace
               culture.
             </p>
           </div>

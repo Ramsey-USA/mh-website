@@ -74,7 +74,7 @@ Pasco, WA 99301
 - ✓ Full-service general contracting
 - ✓ Transparent pricing and open communication
 - ✓ On-time, on-budget project delivery
-- ✓ Award-winning safety record (0.6 EMR - 40% better than industry average)
+- ✓ Award-winning safety record (0.64 EMR - 40% better than industry average)
 - ✓ Deep roots in the Pacific Northwest community
 
 ## Project Portfolio

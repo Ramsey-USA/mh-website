@@ -252,7 +252,7 @@ export const companyBenefits: CompanyBenefit[] = [
     icon: "local_hospital",
     title: "Award-Winning Safety First Culture",
     description:
-      "Industry-leading .6 EMR safety record (40% better than industry average), multiple AGC-WA Top EMR Awards (2019-2021, 2025 Most Improved), OSHA VPP Star designation, and 3+ consecutive years without time-loss injuries. Presidential leadership focused on safety management, organizational standards, proactive hazard identification, regular training, and high-quality equipment. Everyone goes home safe, every single day—no timeline or budget overrides safety.",
+      "Industry-leading .64 EMR safety record (40% better than industry average), multiple AGC-WA Top EMR Awards (2019-2021, 2025 Most Improved), OSHA VPP Star designation, and 3+ consecutive years without time-loss injuries. Presidential leadership focused on safety management, organizational standards, proactive hazard identification, regular training, and high-quality equipment. Everyone goes home safe, every single day—no timeline or budget overrides safety.",
   },
 ];
 
@@ -323,7 +323,7 @@ export const cultureValues: CultureValue[] = [
     icon: "favorite",
     title: "Community Impact & Safety First",
     description:
-      "Building stronger communities, one project and one relationship at a time. Award-winning safety (.6 EMR—40% better than industry, multiple AGC-WA Top EMR Awards, OSHA VPP Star) ensures everyone goes home safe. Understanding that every project serves the broader community through quality craftsmanship and lasting relationships.",
+      "Building stronger communities, one project and one relationship at a time. Award-winning safety (.64 EMR—40% better than industry, multiple AGC-WA Top EMR Awards, OSHA VPP Star) ensures everyone goes home safe. Understanding that every project serves the broader community through quality craftsmanship and lasting relationships.",
     color: "from-brand-primary-light to-brand-primary",
   },
 ];

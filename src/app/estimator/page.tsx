@@ -357,7 +357,7 @@ export default function EstimatorPage() {
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
                 Get preliminary cost estimates instantly, powered by regional
                 Pacific Northwest construction data, AI technology, and backed
-                by award-winning safety (.6 EMR) and 150+ years combined team
+                by award-winning safety (.64 EMR) and 150+ years combined team
                 experience for accurate initial budget planning
               </p>
             </div>
@@ -472,7 +472,7 @@ export default function EstimatorPage() {
             </h2>
             <p className="mx-auto mb-10 max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 leading-relaxed">
               For complex projects, unique sites, custom architectural features,
-              or projects requiring award-winning safety management (.6 EMR),
+              or projects requiring award-winning safety management (.64 EMR),
               our veteran-owned expert team provides detailed consultations,
               site evaluations, and transparent open-book pricing with 150+
               years combined experience.

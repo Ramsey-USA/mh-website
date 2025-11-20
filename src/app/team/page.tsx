@@ -85,7 +85,7 @@ export default function TeamPage() {
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4 font-medium">
               Leading the industry into tomorrow. 150+ years combined experience
               meets innovative thinking—where veteran values drive continuous
-              growth. Award-winning .6 EMR safety, cutting-edge technology, and
+              growth. Award-winning .64 EMR safety, cutting-edge technology, and
               a team invested in your success across the Pacific Northwest.
             </p>
 
@@ -181,7 +181,7 @@ export default function TeamPage() {
                     motto—it&apos;s how we partner, grow, and succeed together.
                     Our people-centered culture starts with leadership committed
                     to serving both Client Partners and communities, maintaining
-                    the highest standards of safety (.6 EMR award-winning),
+                    the highest standards of safety (.64 EMR award-winning),
                     quality craftsmanship, and transparent communication that
                     defines every partnership.
                   </p>
@@ -333,7 +333,7 @@ export default function TeamPage() {
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300">
                             Presidential leadership focused on safety management
-                            drives our .6 EMR award-winning record—40% better
+                            drives our .64 EMR award-winning record—40% better
                             than industry average. Multiple AGC-WA Top EMR
                             Awards, OSHA VPP Star designation, and 3+
                             consecutive years without time-loss injuries.
@@ -656,7 +656,7 @@ export default function TeamPage() {
                 <p className="mb-6 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                   Explore partnership opportunities and learn more about what
                   makes MH Construction a great place to work— from
-                  award-winning safety culture (.6 EMR) to veteran hiring
+                  award-winning safety culture (.64 EMR) to veteran hiring
                   initiatives, continuous professional development to
                   competitive benefits. View our current openings and discover
                   the benefits of joining our veteran-owned partnership company

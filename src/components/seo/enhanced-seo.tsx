@@ -205,7 +205,7 @@ export function generateEnhancedOrganizationSchema() {
       },
     ],
     award: [
-      "Award-Winning .6 EMR Safety Record",
+      "Award-Winning .64 EMR Safety Record",
       "Traditional Business Values Excellence 2025",
       "Veteran Business Excellence - Pacific Northwest 2025",
     ],

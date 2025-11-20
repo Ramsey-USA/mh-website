@@ -125,7 +125,7 @@ export function AIEstimatorCTA({
                   Veteran-Owned
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                  Military precision & .6 EMR
+                  Military precision & .64 EMR
                 </div>
               </div>
             </div>
@@ -263,7 +263,8 @@ export function AIEstimatorCTA({
                         Veteran-Owned Expertise
                       </h4>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Military precision backed by award-winning .6 EMR safety
+                        Military precision backed by award-winning .64 EMR
+                        safety
                       </p>
                     </div>
                   </div>
@@ -334,7 +335,7 @@ export function AIEstimatorCTA({
                       />
                     </div>
                     <div>
-                      <div className="text-3xl font-black">.6 EMR</div>
+                      <div className="text-3xl font-black">.64 EMR</div>
                       <div className="text-white/80 text-sm">
                         Award-Winning Safety
                       </div>

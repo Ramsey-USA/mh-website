@@ -13,7 +13,7 @@ interface AnimatedCounterProps {
    */
   duration?: number;
   /**
-   * Decimal places to show (for values like .6 EMR)
+   * Decimal places to show (for values like .64 EMR)
    * @default 0
    */
   decimals?: number;

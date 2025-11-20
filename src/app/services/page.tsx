@@ -1105,8 +1105,8 @@ export default function ServicesPage() {
                       </div>
                       <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
                         Our Senior Superintendent oversees all on-site
-                        operations with award-winning safety standards (.6 EMR).
-                        We provide regular progress updates, coordinate
+                        operations with award-winning safety standards (.64
+                        EMR). We provide regular progress updates, coordinate
                         subcontractors, manage quality inspections, and address
                         any issues immediately. You're never left wondering
                         what's happening.
@@ -1116,7 +1116,7 @@ export default function ServicesPage() {
                           Daily Updates
                         </span>
                         <span className="bg-brand-primary/10 px-3 py-1 rounded-full text-brand-primary text-sm">
-                          .6 EMR Safety
+                          .64 EMR Safety
                         </span>
                         <span className="bg-brand-primary/10 px-3 py-1 rounded-full text-brand-primary text-sm">
                           Quality Control
@@ -1769,7 +1769,7 @@ export default function ServicesPage() {
               </div>
               <div className="group">
                 <p className="mb-2 font-black text-4xl lg:text-5xl group-hover:scale-110 transition-transform duration-300 inline-block">
-                  .6 EMR
+                  .64 EMR
                 </p>
                 <p className="text-accent-100 text-lg">Award-Winning Safety</p>
               </div>

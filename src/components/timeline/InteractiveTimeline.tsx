@@ -112,7 +112,7 @@ const BASE_PHASES: TimelinePhase[] = [
     id: "prep",
     name: "Site Preparation",
     description:
-      "Site clearing, excavation, utility connections, and foundation work. Safety protocols established (.6 EMR standard).",
+      "Site clearing, excavation, utility connections, and foundation work. Safety protocols established (.64 EMR standard).",
     durationWeeks: 2,
     icon: "construction",
     color: "from-yellow-500 to-yellow-600",

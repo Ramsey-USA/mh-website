@@ -22,14 +22,16 @@ export function HeroSection() {
             Where Handshakes Still Matter
           </span>
           <span className="block text-white/95 font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-            Building for the Client,
+            Veteran Values,
             <br />
-            <span className="text-brand-primary">NOT the Dollar</span>
+            <span className="text-brand-primary">
+              Community-Focused Results
+            </span>
           </span>
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 font-medium max-w-4xl mx-auto drop-shadow-lg">
-          Old-School Values • Your Word Is Your Bond • Traditional Business Done
-          Right
+          Military Precision • Your Word Is Your Bond • Serving the Pacific
+          Northwest
         </p>
       </div>
 

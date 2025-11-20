@@ -23,9 +23,9 @@ export const projectStats = [
   },
   {
     icon: "emoji_events",
-    value: 0.6,
+    value: 0.64,
     suffix: " EMR",
-    decimals: 1,
+    decimals: 2,
     label: "Award-Winning Safety",
     animated: true,
   },
@@ -106,7 +106,7 @@ export const whyChooseReasons = [
     iconName: "emoji_events",
     title: "Award-Winning Safety Record",
     description:
-      "Multiple AGC-WA Top EMR Awards (2019-2021, 2025 Most Improved). Our Experience Modification Rate of .6 is 40% better than industry average, demonstrating our unwavering commitment to worker safety and zero-incident workplace culture. Over 3 consecutive years without time-loss injuries and OSHA VPP Star designation.",
+      "Multiple AGC-WA Top EMR Awards (2019-2021, 2025 Most Improved). Our Experience Modification Rate of .64 is 40% better than industry average, demonstrating our unwavering commitment to worker safety and zero-incident workplace culture. Over 3 consecutive years without time-loss injuries and OSHA VPP Star designation.",
   },
   {
     iconName: "handshake",

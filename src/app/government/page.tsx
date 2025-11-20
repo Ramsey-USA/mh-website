@@ -225,7 +225,7 @@ const hanfordCapabilities = [
     icon: "health_and_safety",
     title: "Award-Winning Safety Protocols",
     description:
-      ".6 EMR award-winning safety record (40% better than industry), OSHA VPP Star designation, and mission-specific safety system implementation",
+      ".64 EMR award-winning safety record (40% better than industry), OSHA VPP Star designation, and mission-specific safety system implementation",
   },
   {
     icon: "handshake",
@@ -321,7 +321,7 @@ export default function GovernmentGrantsPage() {
               construction management. Excellence in Every Detail meets
               regulatory compliance—from DOE to GSA, we understand the
               mission-critical nature of government projects. 150+ years
-              combined experience, award-winning .6 EMR safety, serving with
+              combined experience, award-winning .64 EMR safety, serving with
               honor, integrity, and unwavering commitment to federal standards.
             </p>
           </div>
@@ -358,7 +358,7 @@ export default function GovernmentGrantsPage() {
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 Veteran-owned Army veteran leadership delivers mission-critical
                 construction services with unwavering commitment to federal
-                specifications, operational success, award-winning safety (.6
+                specifications, operational success, award-winning safety (.64
                 EMR), and transparent open-book partnership throughout the
                 application and execution process—Building for the Client, NOT
                 the Dollar with 150+ years combined experience
@@ -437,7 +437,7 @@ export default function GovernmentGrantsPage() {
                 <p className="mx-auto max-w-4xl font-light text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                   Proven operational excellence in high-security DOE and Hanford
                   environments with comprehensive understanding of federal
-                  compliance requirements, award-winning safety protocols (.6
+                  compliance requirements, award-winning safety protocols (.64
                   EMR—40% better than industry), mission-critical construction
                   protocols, and veteran-owned reliability since January 2025
                 </p>

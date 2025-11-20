@@ -69,11 +69,11 @@ export const companyStats: StatItem[] = [
   },
   {
     iconName: "emoji_events",
-    value: 0.6,
+    value: 0.64,
     label: "Award-Winning Safety Record",
     prefix: "",
     suffix: " EMR",
-    decimals: 1,
+    decimals: 2,
     animated: true,
   },
   {

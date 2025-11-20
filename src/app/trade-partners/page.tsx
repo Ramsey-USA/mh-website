@@ -189,7 +189,7 @@ const partnershipValues = [
     icon: "schedule",
     title: "Reliable Scheduling & Clear Communication",
     description:
-      "Transparent open-book communication and dependable project timelines help our trade partners plan effectively and manage their resources with confidence. You control it, we manage it—together with award-winning execution (.6 EMR safety record).",
+      "Transparent open-book communication and dependable project timelines help our trade partners plan effectively and manage their resources with confidence. You control it, we manage it—together with award-winning execution (.64 EMR safety record).",
     color: "from-brand-secondary to-brand-secondary-dark",
   },
   {
@@ -203,7 +203,7 @@ const partnershipValues = [
     icon: "support",
     title: "Collaborative Excellence & Safety First",
     description:
-      "Working together to solve challenges, share expertise, and deliver exceptional results with award-winning safety standards (.6 EMR—40% better than industry). Everyone goes home safe, every single day, strengthening our network through mutual success.",
+      "Working together to solve challenges, share expertise, and deliver exceptional results with award-winning safety standards (.64 EMR—40% better than industry). Everyone goes home safe, every single day, strengthening our network through mutual success.",
     color: "from-brand-primary-light to-brand-primary",
   },
 ];
@@ -226,7 +226,7 @@ const partnershipBenefits = [
     icon: "verified",
     title: "Clear Quality Standards & Safety Excellence",
     description:
-      "Well-defined quality expectations and project specifications help trade partners deliver their best work with confidence and consistency. Award-winning safety protocols (.6 EMR) ensure everyone goes home safe while maintaining the highest standards.",
+      "Well-defined quality expectations and project specifications help trade partners deliver their best work with confidence and consistency. Award-winning safety protocols (.64 EMR) ensure everyone goes home safe while maintaining the highest standards.",
   },
   {
     icon: "school",
@@ -385,7 +385,7 @@ export default function TradePartnersPage() {
                 word is your bond, handshakes matter, and mutual respect defines
                 every partnership. Fair payment, clear communication, mutual
                 success. Backed by veteran-owned leadership, award-winning
-                safety (.6 EMR), and 150+ years combined experience."
+                safety (.64 EMR), and 150+ years combined experience."
               </p>
               <cite className="block mt-4 font-semibold text-brand-secondary text-lg">
                 — MH Construction Leadership Team
@@ -561,8 +561,8 @@ export default function TradePartnersPage() {
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 We seek qualified trade professionals who share our commitment
-                to quality, safety excellence (.6 EMR award-winning record), and
-                professional integrity. Here's what we look for in approved
+                to quality, safety excellence (.64 EMR award-winning record),
+                and professional integrity. Here's what we look for in approved
                 vendors seeking partnership with our veteran-owned company.
               </p>
             </div>

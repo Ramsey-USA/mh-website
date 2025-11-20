@@ -73,7 +73,7 @@ export const faqDatabase: FAQItem[] = [
   {
     keywords: ["licensed", "insured", "bonded", "certified"],
     question: "Are you licensed and insured?",
-    answer: `**[CREDENTIALS & COMPLIANCE]** ✅\n\n**YES! Fully licensed, bonded, and insured.**\n\n**LICENSES:**\n• Licensed in Washington State\n• Licensed in Oregon\n• Licensed in Idaho\n• All required municipal permits\n\n**INSURANCE & BONDING:**\n• General liability insurance\n• Workers' compensation\n• Bonded for client protection\n• Equipment insurance\n\n**SAFETY RECORD:**\n• **0.6 EMR** - Industry-leading (40% better than average)\n• Multiple AGC-WA Top EMR Awards\n• OSHA VPP Star designation\n• 3+ years without time-loss injuries\n\n**CERTIFICATIONS:**\n• Veteran-Owned Business (SDVOSB/VOSB)\n• OSHA 30-Hour Certified\n• AGC Member\n• NAIOP Member\n\n**[Learn More →](/about#awards)**`,
+    answer: `**[CREDENTIALS & COMPLIANCE]** ✅\n\n**YES! Fully licensed, bonded, and insured.**\n\n**LICENSES:**\n• Licensed in Washington State\n• Licensed in Oregon\n• Licensed in Idaho\n• All required municipal permits\n\n**INSURANCE & BONDING:**\n• General liability insurance\n• Workers' compensation\n• Bonded for client protection\n• Equipment insurance\n\n**SAFETY RECORD:**\n• **0.64 EMR** - Industry-leading (40% better than average)\n• Multiple AGC-WA Top EMR Awards\n• OSHA VPP Star designation\n• 3+ years without time-loss injuries\n\n**CERTIFICATIONS:**\n• Veteran-Owned Business (SDVOSB/VOSB)\n• OSHA 30-Hour Certified\n• AGC Member\n• NAIOP Member\n\n**[Learn More →](/about#awards)**`,
     category: "credentials",
   },
 

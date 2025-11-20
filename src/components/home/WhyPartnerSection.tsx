@@ -7,17 +7,17 @@ const partnershipValues = [
   {
     icon: "emoji_events",
     title: "Award-Winning Safety",
-    subtitle: ".6 EMR Excellence",
+    subtitle: ".64 EMR Excellence",
     description:
-      "Multiple AGC-WA Top EMR Awards with .6 EMR—40% better than industry average. 3+ years without time-loss injury and OSHA VPP Star designation demonstrate our unwavering commitment to zero-incident workplace culture.",
+      "Multiple AGC-WA Top EMR Awards with .64 EMR—40% better than industry average. 3+ years without time-loss injury and OSHA VPP Star designation demonstrate our unwavering commitment to zero-incident workplace culture.",
     iconColor: "text-brand-secondary",
     highlights: [
-      ".6 EMR (40% better than industry)",
+      ".64 EMR (40% better than industry)",
       "3+ years without time-loss injury",
       "OSHA VPP Star designation",
       "Multiple AGC-WA Top EMR Awards",
     ],
-    stat: ".6 EMR",
+    stat: ".64 EMR",
     statLabel: "Safety Rating",
   },
   {

@@ -21,7 +21,7 @@ const emrTimeline = [
   {
     year: "2021",
     title: "Top EMR Award",
-    achievement: ".6 EMR - 'As Low as You Can Go'",
+    achievement: ".64 EMR - 'As Low as You Can Go'",
     details:
       "40% better than industry average with 7-year average EMR of .65 and 3+ consecutive years claims-free",
     icon: "shield",
@@ -29,14 +29,14 @@ const emrTimeline = [
   {
     year: "2020",
     title: "Top EMR Award",
-    achievement: ".6 EMR - 'As Low as You Can Go'",
+    achievement: ".64 EMR - 'As Low as You Can Go'",
     details: "6-year average EMR of .66 with 3+ years claims-free",
     icon: "shield",
   },
   {
     year: "2019",
     title: "Top EMR Award",
-    achievement: ".6 EMR - 'As Low as You Can Go'",
+    achievement: ".64 EMR - 'As Low as You Can Go'",
     details: "5-year average EMR of .68 with 3+ years claims-free",
     icon: "shield",
   },
