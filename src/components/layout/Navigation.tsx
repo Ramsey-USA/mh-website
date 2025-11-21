@@ -194,6 +194,11 @@ export function Navigation() {
                       icon: "engineering",
                     },
                     {
+                      href: "/faq",
+                      label: "FAQ",
+                      icon: "help",
+                    },
+                    {
                       href: "/booking",
                       label: "Start Project",
                       icon: "handshake",

@@ -24,6 +24,7 @@ const ACTIVE_PAGES = [
   { path: "/estimator", priority: 0.95, changeFreq: "monthly" as const },
   { path: "/urgent", priority: 0.85, changeFreq: "monthly" as const },
   { path: "/3d-explorer", priority: 0.5, changeFreq: "monthly" as const },
+  { path: "/faq", priority: 0.85, changeFreq: "monthly" as const },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
