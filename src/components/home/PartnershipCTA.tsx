@@ -54,8 +54,8 @@ export function PartnershipCTA() {
               </span>
               . We're Building for the Client, NOT the Dollar. Experience{" "}
               <span className="font-medium text-brand-accent">
-                professionalism, thoroughness, honesty, integrity, reliability,
-                and quality craftsmanship
+                professionalism, thoroughness, honesty, integrity, innovation,
+                and partnership
               </span>{" "}
               in every project across the Pacific Northwest.
             </p>

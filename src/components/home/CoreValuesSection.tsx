@@ -58,32 +58,32 @@ const coreValues = [
     stats: "Unwavering Ethics",
   },
   {
-    value: "Reliability",
-    icon: "military_tech",
-    tagline: "Dependable Results You Can Count On",
+    value: "Innovation",
+    icon: "lightbulb",
+    tagline: "Modern Tools Meeting Traditional Values",
     description:
-      "Veteran-trained discipline delivering consistent, dependable results with steady leadership through every project phase.",
+      "Cutting-edge construction technology and AI-powered planning tools that serve you better while maintaining old-school business values.",
     details:
-      "Showing up when we say we will, every time. Following through on commitments regardless of obstacles. Systematic approach to problem-solving under pressure. Consistent communication throughout the project. Building a track record you and others can depend on.",
+      "AI-powered estimation and planning tools. Digital project management and real-time updates. Modern construction materials and techniques. Leveraging technology to improve communication and transparency. Continuous learning and adoption of proven innovations.",
     color: "from-bronze-600 to-bronze-800",
     bgColor:
       "bg-gradient-to-br from-bronze-100/60 to-bronze-200/40 dark:from-bronze-900/30 dark:to-bronze-800/20",
     iconBg: "bg-bronze-600",
-    stats: "Military Precision",
+    stats: "Industry-Leading Tools",
   },
   {
-    value: "Quality Craftsmanship",
-    icon: "construction",
-    tagline: "Excellence That Stands the Test of Time",
+    value: "Partnership",
+    icon: "handshake",
+    tagline: "Building Relationships That Last",
     description:
-      "Superior workmanship, lasting quality, and no shortcuts—building structures that serve for generations.",
+      "Collaborative approach where we work WITH you, not FOR you—building connections that extend beyond single projects.",
     details:
-      "Using proven construction methods refined over 150+ years of combined experience. Selecting materials based on longevity and performance, not just cost. Multiple quality control checkpoints throughout construction. Expert tradesmen on every aspect of your project. Work so good we're proud to put our name on it.",
+      "Involving you in key decisions throughout the project. Building relationships that lead to repeat business and referrals. Treating every project as the beginning of a long-term partnership. Open communication channels and collaborative problem-solving. Celebrating successes together and learning from challenges as a team.",
     color: "from-brand-primary to-brand-secondary",
     bgColor:
       "bg-gradient-to-br from-brand-primary/8 to-brand-secondary/8 dark:from-brand-primary/15 dark:to-brand-secondary/15",
     iconBg: "bg-gradient-to-br from-brand-primary to-brand-secondary",
-    stats: "Generational Quality",
+    stats: "70% Referral Rate",
   },
 ];
 
@@ -276,7 +276,7 @@ export function CoreValuesSection() {
               </span>{" "}
               and{" "}
               <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
-                reliability with quality craftsmanship
+                innovation with partnership
               </span>
               .
             </p>

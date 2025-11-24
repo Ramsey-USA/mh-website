@@ -19,7 +19,7 @@ This is the central hub for all MH Construction branding documentation. All bran
 implementation details are organized here for easy access by the entire team.
 
 **✨ NEW (Nov 2025)**: All branding is built upon our **six-value professional foundation system**:
-Professionalism, Thoroughness, Honesty, Integrity, Reliability, and Quality Craftsmanship—culminating in
+Professionalism, Thoroughness, Honesty, Integrity, Innovation, and Partnership—culminating in
 **Trust** as our ultimate goal. See [core-values.md](../business/core-values.md) for complete details.
 
 **Consolidated Structure**: Combined from separate business and development folders to eliminate duplication

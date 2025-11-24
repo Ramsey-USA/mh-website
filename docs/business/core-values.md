@@ -99,45 +99,45 @@ Each value builds toward our ultimate goal: **Trust** - the culmination of all o
 
 ---
 
-## 🛡️ 5. Reliability
+## 💡 5. Innovation
 
-### Dependable Results You Can Count On
+### Modern Tools Meeting Traditional Values
 
 ### What This Means
 
-- **Veteran-Trained Discipline**: Military-honed consistency and follow-through
-- **Consistent Performance**: Delivering the same high standards on every project
-- **Promise Fulfillment**: Meeting deadlines and keeping commitments
-- **Steady Leadership**: Calm, dependable guidance through every project phase
+- **Cutting-Edge Technology**: Using modern construction tech, AI-powered planning, and digital tools
+- **Advanced Methods**: Embracing innovative construction techniques and materials
+- **Continuous Improvement**: Always seeking better ways to serve our clients
+- **Future-Focused**: Staying ahead of industry trends while maintaining quality standards
 
-### Reliability in Practice
+### Innovation in Practice
 
-- Showing up when we say we will, every time
-- Following through on commitments regardless of obstacles
-- Systematic approach to problem-solving under pressure
-- Consistent communication throughout the project
-- Building a track record you and others can depend on
+- AI-powered estimation and planning tools
+- Digital project management and real-time updates
+- Modern construction materials and techniques
+- Leveraging technology to improve communication and transparency
+- Continuous learning and adoption of proven innovations
 
 ---
 
-## 🏗️ 6. Quality Craftsmanship
+## 🤝 6. Partnership
 
-### Excellence That Stands the Test of Time
+### Building Relationships That Last
 
 ### What This Means
 
-- **Superior Workmanship**: Skilled execution by experienced craftsmen
-- **Lasting Quality**: Building structures that serve for generations
-- **No Shortcuts**: Taking time to do it right, never compromising standards
-- **Pride in Work**: Building as if it's for our own families
+- **Collaborative Approach**: Working WITH you, not FOR you
+- **Long-Term Relationships**: Building connections that extend beyond single projects
+- **Client-Centered Decisions**: Your vision guides every choice we make
+- **Mutual Success**: When you succeed, we succeed
 
-### Quality Craftsmanship in Practice
+### Partnership in Practice
 
-- Using proven construction methods refined over 150+ years of combined experience
-- Selecting materials based on longevity and performance, not just cost
-- Multiple quality control checkpoints throughout construction
-- Expert tradesmen on every aspect of your project
-- Work so good we're proud to put our name on it
+- Involving you in key decisions throughout the project
+- Building relationships that lead to repeat business and referrals
+- Treating every project as the beginning of a long-term partnership
+- Open communication channels and collaborative problem-solving
+- Celebrating successes together and learning from challenges as a team
 
 ---
 
@@ -158,8 +158,8 @@ Trust isn't just another value - it's the result when all other values are consi
 - **Thoroughness**: Attention to detail creates peace of mind
 - **Honesty**: Transparent communication eliminates doubt
 - **Integrity**: Doing what's right builds credibility
-- **Reliability**: Consistent delivery inspires trust
-- **Quality Craftsmanship**: Excellent work speaks for itself
+- **Innovation**: Modern tools demonstrate progress
+- **Partnership**: Collaborative relationships create lasting bonds
 
 ### Measuring Our Success
 
@@ -224,7 +224,7 @@ commitment to transparency, quality, and relationship-building.
 - Premium materials selected for longevity
 - Continuous site supervision and coordination
 
-**Value Connection**: _Quality Craftsmanship_ and _Thoroughness_
+**Value Connection**: _Partnership_ and _Thoroughness_
 
 ### 5. Seamless Close-Out
 
@@ -236,7 +236,7 @@ commitment to transparency, quality, and relationship-building.
 - Post-completion follow-up
 - Ongoing support for any questions
 
-**Value Connection**: _Reliability_ - consistent support that continues beyond completion
+**Value Connection**: _Partnership_ - consistent support that continues beyond completion
 
 ---
 

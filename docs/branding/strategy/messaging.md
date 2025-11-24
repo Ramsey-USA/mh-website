@@ -8,7 +8,7 @@
 
 **⭐ IMPORTANT UPDATE (Nov 2025)**: This document integrates our **six-value professional foundation
 system** from [core-values.md](../../business/core-values.md). All messaging is built upon our core values:
-Professionalism, Thoroughness, Honesty, Integrity, Reliability, and Quality Craftsmanship—culminating in
+Professionalism, Thoroughness, Honesty, Integrity, Innovation, and Partnership—culminating in
 **Trust** as our ultimate goal.
 
 For page-specific messaging strategies, see the comprehensive
@@ -37,8 +37,8 @@ these core values:
 2. **Thoroughness** - Attention to Detail in Everything We Do
 3. **Honesty** - Transparent Communication Always
 4. **Integrity** - Doing What's Right, Every Time
-5. **Reliability** - Dependable Results You Can Count On
-6. **Quality Craftsmanship** - Excellence That Stands the Test of Time
+5. **Innovation** - Modern Tools Meeting Traditional Values
+6. **Partnership** - Building Relationships That Last
 
 **Ultimate Goal**: **Trust** - Built through consistent demonstration of all six values
 
@@ -237,41 +237,41 @@ Our six-value professional foundation system guides all messaging and communicat
 - "Our promises are backed by action, every single time"
 - "We stand behind our work with comprehensive warranties"
 
-#### 5. Reliability - Dependable Results You Can Count On
+#### 5. Innovation - Modern Tools Meeting Traditional Values
 
-**Core Message**: "Veteran-trained discipline delivers consistent performance"
-
-**Supporting Points**:
-
-- Military-honed consistency and follow-through
-- Meeting deadlines and keeping commitments
-- Steady leadership through every project phase
-- Systematic problem-solving under pressure
-- Building a track record you can depend on
-
-**Example Applications**:
-
-- "Reliability means showing up when we say we will, every time"
-- "Military discipline applied to construction management"
-- "Consistent communication and dependable results throughout"
-
-#### 6. Quality Craftsmanship - Excellence That Stands the Test of Time
-
-**Core Message**: "Superior workmanship building lasting quality"
+**Core Message**: "Cutting-edge technology serving timeless values"
 
 **Supporting Points**:
 
-- Skilled execution by experienced craftsmen
-- Building structures that serve for generations
-- Taking time to do it right, never compromising standards
-- Using proven methods refined over 150+ years combined experience
-- Pride in work as if building for our own families
+- Using modern construction technology and AI-powered planning
+- Embracing innovative construction techniques and materials
+- Digital project management and real-time communication
+- Continuous improvement and industry-leading methods
+- Technology that improves transparency and client service
 
 **Example Applications**:
 
-- "Quality craftsmanship means building excellence that lasts"
-- "We select materials based on longevity and performance"
-- "Work so good we're proud to put our name on it"
+- "Innovation means leveraging modern tools to serve you better"
+- "Cutting-edge technology meets old-school business values"
+- "AI-powered planning with human-centered service"
+
+#### 6. Partnership - Building Relationships That Last
+
+**Core Message**: "Working WITH you, not FOR you"
+
+**Supporting Points**:
+
+- Collaborative approach to every project decision
+- Long-term relationships beyond single builds
+- Your vision guides every choice we make
+- Open communication and mutual success
+- Building connections that lead to repeat business
+
+**Example Applications**:
+
+- "Partnership means your success is our success"
+- "Building relationships that last longer than buildings"
+- "Collaborative problem-solving at every step"
 
 ### How Our Values Build Trust
 
@@ -281,8 +281,8 @@ Trust is the ultimate goal—earned through consistent demonstration of all six 
 - **Thoroughness**: Attention to detail creates peace of mind
 - **Honesty**: Transparent communication eliminates doubt
 - **Integrity**: Doing what's right builds credibility
-- **Reliability**: Consistent delivery inspires trust
-- **Quality Craftsmanship**: Excellent work speaks for itself
+- **Innovation**: Modern tools demonstrate progress
+- **Partnership**: Collaborative relationships create lasting bonds
 
 **Measuring Our Success**:
 
@@ -411,8 +411,8 @@ Trust is the ultimate goal—earned through consistent demonstration of all six 
 2. **Thoroughness**: Comprehensive attention to detail
 3. **Honesty**: Transparent communication always
 4. **Integrity**: Doing what's right, every time
-5. **Reliability**: Dependable results you can count on
-6. **Quality Craftsmanship**: Excellence that stands the test of time
+5. **Innovation**: Modern tools meeting traditional values
+6. **Partnership**: Building relationships that last
 
 **Trust Language**:
 
@@ -479,7 +479,7 @@ Trust is the ultimate goal—earned through consistent demonstration of all six 
 - Long-term maintenance considerations
 - Timeline predictability
 
-**Core Values Emphasis**: Professionalism, Thoroughness, Reliability
+**Core Values Emphasis**: Professionalism, Thoroughness, Innovation
 
 **Tone**: Professional, business-focused, efficiency-oriented
 
@@ -488,7 +488,7 @@ Trust is the ultimate goal—earned through consistent demonstration of all six 
 > "We understand your property is a business asset. Our partnership approach ensures
 > minimal operational disruption while maximizing your investment value through precision
 > construction management. Trust built through professionalism, thoroughness, and
-> reliable delivery—every time."
+> innovative solutions—every time."
 
 ### Industrial Facility Managers
 
@@ -499,7 +499,7 @@ Trust is the ultimate goal—earned through consistent demonstration of all six 
 - Minimal production downtime
 - Technical expertise
 
-**Core Values Emphasis**: Thoroughness, Integrity, Quality Craftsmanship
+**Core Values Emphasis**: Thoroughness, Integrity, Partnership
 
 **Tone**: Technical competence, safety-conscious, detail-oriented
 
@@ -538,7 +538,7 @@ Trust is the ultimate goal—earned through consistent demonstration of all six 
 - Congregation involvement and communication
 - Long-term durability
 
-**Core Values Emphasis**: Honesty, Integrity, Quality Craftsmanship
+**Core Values Emphasis**: Honesty, Integrity, Partnership
 
 **Tone**: Respectful, community-minded, transparent
 
@@ -546,7 +546,7 @@ Trust is the ultimate goal—earned through consistent demonstration of all six 
 
 > "Building spaces for community requires partnership built on trust. We work WITH
 > congregations to create lasting spaces that serve your mission while honoring your
-> stewardship responsibilities. Honest communication and quality craftsmanship in
+> stewardship responsibilities. Honest communication and collaborative partnership in
 > service to your community."
 
 ## Digital Content Guidelines
@@ -641,7 +641,7 @@ Trust is the ultimate goal—earned through consistent demonstration of all six 
 
 - [ ] Partnership language used over client/customer
 - [ ] Six core values referenced appropriately (Professionalism, Thoroughness, Honesty, Integrity,
-      Reliability, Quality Craftsmanship)
+      Innovation, and Partnership)
 - [ ] Trust-centered philosophy incorporated
 - [ ] "THE ROI IS THE RELATIONSHIP" messaging present where appropriate
 - [ ] Military precision referenced appropriately
@@ -649,8 +649,8 @@ Trust is the ultimate goal—earned through consistent demonstration of all six 
 - [ ] Client benefits clearly communicated
 - [ ] Transparent communication promised (Honesty value)
 - [ ] Local/regional expertise highlighted
-- [ ] Quality commitment stated (Craftsmanship value)
-- [ ] Reliability and follow-through emphasized
+- [ ] Innovation and modern tools highlighted
+- [ ] Partnership and collaborative approach emphasized
 - [ ] Integrity and ethical decision-making highlighted
 - [ ] Call-to-action includes partnership invitation
 

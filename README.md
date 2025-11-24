@@ -432,15 +432,15 @@ Our six core values build toward trust as the culmination of excellence in every
    - Following through on every commitment
    - Making decisions that benefit clients, not our bottom line
 
-5. **Reliability** - Dependable Results You Can Count On
-   - Military-honed consistency and follow-through
-   - Meeting deadlines and keeping commitments
-   - Systematic problem-solving under pressure
+5. **Innovation** - Modern Tools Meeting Traditional Values
+   - Cutting-edge construction technology and methods
+   - AI-powered planning and estimation tools
+   - Leveraging innovation to serve clients better
 
-6. **Quality Craftsmanship** - Excellence That Stands the Test of Time
-   - Skilled execution by experienced craftsmen
-   - Building structures that serve for generations
-   - Using proven methods refined over 150+ years combined experience
+6. **Partnership** - Building Relationships That Last
+   - Collaborative approach to every project
+   - Long-term client relationships beyond single builds
+   - Working WITH you, not FOR you
 
 **How Values Build Trust**:
 
@@ -448,8 +448,8 @@ Our six core values build toward trust as the culmination of excellence in every
 - Thoroughness creates peace of mind
 - Honesty eliminates doubt
 - Integrity builds credibility
-- Reliability inspires trust
-- Quality Craftsmanship speaks for itself
+- Innovation demonstrates progress
+- Partnership creates lasting bonds
 
 **Measuring Success**: 98% satisfaction rate, 70% referral rate, active community involvement
 

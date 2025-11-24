@@ -54,7 +54,7 @@ const faqCategories = [
         question:
           "What makes MH Construction different from other construction companies?",
         answer:
-          "We're built on a six-value professional foundation system: Professionalism, Thoroughness, Honesty, Integrity, Reliability, and Quality Craftsmanship—all culminating in Trust as our ultimate goal. As a veteran-owned company since January 2025, we combine military precision with partnership-driven construction management. Our philosophy is simple: Building for the Client, NOT the Dollar. We work WITH you, not FOR you, ensuring your vision guides every decision.",
+          "We're built on a six-value professional foundation system: Professionalism, Thoroughness, Honesty, Integrity, Innovation, and Partnership—all culminating in Trust as our ultimate goal. As a veteran-owned company since January 2025, we combine military precision with partnership-driven construction management. Our philosophy is simple: Building for the Client, NOT the Dollar. We work WITH you, not FOR you, ensuring your vision guides every decision.",
       },
       {
         question: "Where are you licensed and what areas do you serve?",
@@ -101,7 +101,7 @@ const faqCategories = [
       {
         question: "How do you communicate project updates?",
         answer:
-          "Regular communication is part of our Reliability value. You'll receive consistent progress updates, access to our team for questions, and systematic reporting at key project milestones. We believe you should never be left wondering what's happening with your project—transparency and accessibility are non-negotiable.",
+          "Regular communication is part of our Partnership value. You'll receive consistent progress updates, access to our team for questions, and systematic reporting at key project milestones. We believe you should never be left wondering what's happening with your project—transparency and accessibility are non-negotiable.",
       },
     ],
   },
@@ -113,12 +113,12 @@ const faqCategories = [
       {
         question: "What is your safety record?",
         answer:
-          "We maintain an industry-leading 0.6 EMR (Experience Modification Rate)—40% better than the industry average of 1.0. We've earned multiple AGC-WA Top EMR Awards, hold OSHA VPP Star designation, and have maintained 3+ consecutive years without time-loss injuries. Our team is OSHA 30-Hour Certified, and safety excellence is a core part of our Quality Craftsmanship value.",
+          "We maintain an industry-leading 0.6 EMR (Experience Modification Rate)—40% better than the industry average of 1.0. We've earned multiple AGC-WA Top EMR Awards, hold OSHA VPP Star designation, and have maintained 3+ consecutive years without time-loss injuries. Our team is OSHA 30-Hour Certified, and safety excellence is a core part of our Professionalism value.",
       },
       {
         question: "What quality standards do you follow?",
         answer:
-          "Quality Craftsmanship is one of our six core values. We implement multiple quality control checkpoints throughout every project, use proven methods refined over 150+ years of combined experience, and build as if constructing for our own families. Our systematic approach includes detailed inspections, comprehensive documentation, and taking the time to do it right—never compromising standards.",
+          "Partnership is one of our six core values. We implement multiple quality control checkpoints throughout every project, use proven methods refined over 150+ years of combined experience, and build as if constructing for our own families. Our systematic approach includes detailed inspections, comprehensive documentation, and taking the time to do it right—never compromising standards.",
       },
       {
         question: "Do you have insurance and bonding?",
@@ -128,7 +128,7 @@ const faqCategories = [
       {
         question: "What happens if something goes wrong?",
         answer:
-          "Our Integrity value means taking responsibility. If issues arise, we address them immediately with honest communication and ethical solutions. We stand behind our work with comprehensive warranties and systematic problem-solving. Our reliability means you can count on us to make things right, even when challenges occur.",
+          "Our Integrity value means taking responsibility. If issues arise, we address them immediately with honest communication and ethical solutions. We stand behind our work with comprehensive warranties and systematic problem-solving. Our partnership approach means you can count on us to make things right, even when challenges occur.",
       },
     ],
   },

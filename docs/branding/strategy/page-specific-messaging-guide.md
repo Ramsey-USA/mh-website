@@ -18,7 +18,7 @@
 
 This guide defines the **unique voice, tone, and messaging strategy** for each page group on the
 MH Construction website. While our **six-value professional foundation system** (Professionalism,
-Thorough ness, Honesty, Integrity, Reliability, Quality Craftsmanship) and **trust-centered
+Thorough ness, Honesty, Integrity, Innovation, Partnership) and **trust-centered
 philosophy** remain constant across all pages, each page group has its own personality and
 communication style designed to resonate with its specific audience.
 
@@ -133,7 +133,7 @@ specific terms and phrases.
 ### Key Phrases
 
 - "Where handshakes matter and your word is your bond"
-- "Trust built through professionalism, thoroughness, honesty, integrity, reliability, and quality craftsmanship"
+- "Trust built through professionalism, thoroughness, honesty, integrity, innovation, and partnership"
 - "Six core values working together to create one result: Trust"
 - "Face-to-face consultation where trust begins"
 - "Founded on integrity, built on relationships, measured by trust"
@@ -164,7 +164,7 @@ specific terms and phrases.
 
 ### Core Values Emphasis
 
-**Featured Values:** Quality Craftsmanship, Reliability, Integrity
+**Featured Values:** Partnership, Innovation, Integrity
 
 - Track record demonstrating consistent value delivery
 - Projects showcasing craftsmanship that stands test of time
@@ -199,7 +199,7 @@ specific terms and phrases.
 ### Key Phrases
 
 - "Founded in 2010, veteran-owned since January 2025"
-- "Trust earned through professionalism, thoroughness, honesty, integrity, reliability, and quality craftsmanship"
+- "Trust earned through professionalism, thoroughness, honesty, integrity, innovation, and partnership"
 - "98% client satisfaction rate - trust you can measure"
 - "70% referral rate - trust clients share with others"
 - "Built on a foundation of six core values"
@@ -232,7 +232,7 @@ specific terms and phrases.
 
 ### Core Values Emphasis
 
-**Featured Values:** Professionalism, Thoroughness, Quality Craftsmanship
+**Featured Values:** Professionalism, Thoroughness, Partnership
 
 - Team expertise and professional growth
 - Comprehensive service offerings with meticulous execution
@@ -300,7 +300,7 @@ specific terms and phrases.
 
 ### Core Values Emphasis
 
-**Featured Values:** Integrity, Reliability, Professionalism
+**Featured Values:** Integrity, Innovation, Professionalism
 
 - Integrity in all dealings (military values applied to construction)
 - Reliability earned through consistent performance

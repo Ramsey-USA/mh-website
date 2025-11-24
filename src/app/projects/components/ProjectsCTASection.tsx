@@ -25,7 +25,7 @@ export function ProjectsCTASection() {
 
             <p className="mb-10 text-white/90 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
               Experience our six core values in action: Professionalism,
-              Thoroughness, Honesty, Integrity, Reliability, and Quality
+              Thoroughness, Honesty, Integrity, Innovation, and Partnership
               Craftsmanship—all working together to build lasting partnerships
             </p>
 

@@ -91,16 +91,16 @@ export default function Home() {
 
       <Head>
         <title>
-          MH Construction - Building for the Client, NOT the Dollar |
-          Veteran-Owned
+          MH Construction - Innovation Meets Partnership | Veteran-Owned Since
+          2025
         </title>
         <meta
           name="description"
-          content="Where handshakes matter and your word is your bond. Founded 2010, veteran-owned since January 2025 under Army veteran leadership. Serving Pacific Northwest communities with traditional business values and face-to-face trust."
+          content="Veteran-owned construction management services since 2010. Specializing in commercial construction services, master planning and preconstruction services, tenant improvement services, and light industrial construction. Six core values—Professionalism, Thoroughness, Honesty, Integrity, Innovation, Partnership—building trust through modern tools and lasting relationships. Serving Pacific Northwest communities."
         />
         <meta
           name="keywords"
-          content="veteran-owned construction, military precision construction, traditional business values, commercial construction management, Tri-Cities construction, Pasco construction, Kennewick construction, Richland construction, veteran business, trust-based construction, construction management services"
+          content="construction management services, commercial construction services, master planning and preconstruction services, tenant improvement services, light industrial construction, veteran-owned construction, innovation construction technology, partnership construction approach, AI-powered construction planning, collaborative building relationships, modern tools traditional values, Tri-Cities construction, Pasco construction, Kennewick construction, Professionalism Thoroughness Honesty Integrity Innovation Partnership, trust-based construction"
         />
         <meta
           property="og:title"
@@ -108,7 +108,7 @@ export default function Home() {
         />
         <meta
           property="og:description"
-          content="Founded 2010, veteran-owned since January 2025. Commercial Construction Management with military precision and AI technology. Serving the Tri-Cities area. Call (509) 308-6489."
+          content="Founded 2010, veteran-owned since January 2025. Six core values: Professionalism, Thoroughness, Honesty, Integrity, Innovation, Partnership. Modern AI-powered tools meet traditional business values. Serving Tri-Cities. Call (509) 308-6489."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://www.mhc-gc.com" />
@@ -221,7 +221,7 @@ export default function Home() {
                     just earned on job sites—it's built through transparent
                     communication everywhere. Every detail on this site will
                     reflect our six core values: Professionalism, Thoroughness,
-                    Honesty, Integrity, Reliability, and Quality Craftsmanship.
+                    Honesty, Integrity, Innovation, and Partnership.
                   </p>
 
                   <div className="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm p-6 border border-brand-secondary/30 rounded-xl mt-6">
