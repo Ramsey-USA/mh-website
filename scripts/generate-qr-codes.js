@@ -182,7 +182,7 @@ const QR_CODES = [
   // Location
   {
     name: "location",
-    url: "https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301",
+    url: "https://maps.google.com/?q=3111+N.+Capitol+Ave.,+Pasco,+WA+99301",
     description: "Our Location",
     label: "📍 LOCATION",
   },

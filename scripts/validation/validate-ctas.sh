@@ -148,7 +148,7 @@ validate_external_links() {
     check_contact_info "mailto:" "Email address" "office@mhc-gc.com"
     
     # Check address format
-    check_contact_info "3111" "Physical address" "3111 N. Capital Ave"
+    check_contact_info "3111" "Physical address" "3111 N. Capitol Ave"
 }
 
 # Function to check Button component usage

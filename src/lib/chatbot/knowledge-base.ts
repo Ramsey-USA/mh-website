@@ -80,11 +80,11 @@ export const companyKnowledge: CompanyKnowledge = {
       "Sunday: Closed",
       "Emergency services: Available 24/7 for urgent issues",
     ],
-    address: "3111 N. Capital Ave.",
+    address: "3111 N. Capitol Ave.",
     city: "Pasco",
     state: "WA",
     zip: "99301",
-    mapsLink: "https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301",
+    mapsLink: "https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301",
     responseTimes: {
       standard: "Within 24 hours",
       veterans: "Within 12 hours (priority service)",

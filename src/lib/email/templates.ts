@@ -102,7 +102,7 @@ export function generateJobApplicationAcknowledgment(
       <td style="background-color: #f5f5f5; padding: 20px; text-align: center; border-top: 1px solid #e5e5e5;">
         <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">
           <strong>MH Construction, Inc.</strong><br>
-          3111 N. Capital Ave., Pasco, WA 99301<br>
+          3111 N. Capitol Ave., Pasco, WA 99301<br>
           Phone: <a href="tel:+15093086489" style="color: #386851; text-decoration: none;">(509) 308-6489</a><br>
           Email: <a href="mailto:office@mhc-gc.com" style="color: #386851; text-decoration: none;">office@mhc-gc.com</a>
         </p>
@@ -141,7 +141,7 @@ Your Future Team at MH Construction
 ---
 
 MH Construction, Inc.
-3111 N. Capital Ave., Pasco, WA 99301
+3111 N. Capitol Ave., Pasco, WA 99301
 Phone: (509) 308-6489
 Email: office@mhc-gc.com
 
@@ -247,7 +247,7 @@ export function generateConsultationAcknowledgment(
       <td style="background-color: #f5f5f5; padding: 20px; text-align: center; border-top: 1px solid #e5e5e5;">
         <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">
           <strong>MH Construction, Inc.</strong><br>
-          3111 N. Capital Ave., Pasco, WA 99301<br>
+          3111 N. Capitol Ave., Pasco, WA 99301<br>
           Phone: <a href="tel:+15093086489" style="color: #386851; text-decoration: none;">(509) 308-6489</a><br>
           Email: <a href="mailto:office@mhc-gc.com" style="color: #386851; text-decoration: none;">office@mhc-gc.com</a>
         </p>
@@ -297,7 +297,7 @@ The MH Construction Team
 ---
 
 MH Construction, Inc.
-3111 N. Capital Ave., Pasco, WA 99301
+3111 N. Capitol Ave., Pasco, WA 99301
 Phone: (509) 308-6489
 Email: office@mhc-gc.com
 
@@ -372,7 +372,7 @@ export function generateContactAcknowledgment(data: ContactEmailData): {
       <td style="background-color: #f5f5f5; padding: 20px; text-align: center; border-top: 1px solid #e5e5e5;">
         <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">
           <strong>MH Construction, Inc.</strong><br>
-          3111 N. Capital Ave., Pasco, WA 99301<br>
+          3111 N. Capitol Ave., Pasco, WA 99301<br>
           Phone: <a href="tel:+15093086489" style="color: #386851; text-decoration: none;">(509) 308-6489</a><br>
           Email: <a href="mailto:office@mhc-gc.com" style="color: #386851; text-decoration: none;">office@mhc-gc.com</a>
         </p>
@@ -404,7 +404,7 @@ The MH Construction Team
 ---
 
 MH Construction, Inc.
-3111 N. Capital Ave., Pasco, WA 99301
+3111 N. Capitol Ave., Pasco, WA 99301
 Phone: (509) 308-6489
 Email: office@mhc-gc.com
 

@@ -96,8 +96,8 @@ ensure knowledge retention and repeatable processes.
 **Recently Completed:**
 
 - ✅ Address formatting standardization (Oct 23, 2025)
-  - Professional display format: "3111 N. Capital Ave., Pasco, WA 99301"
-  - Google Maps links format: "3111 N Capital Ave, Pasco, WA 99301"
+  - Professional display format: "3111 N. Capitol Ave., Pasco, WA 99301"
+  - Google Maps links format: "3111 N Capitol Ave, Pasco, WA 99301"
 
 ## 🔄 Last Updated
 

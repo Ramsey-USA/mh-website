@@ -860,7 +860,7 @@ export default function GovernmentGrantsPage() {
                     />
                     <p className="mb-1 text-gray-400 text-sm">Visit Us</p>
                     <p className="font-bold text-white text-lg">
-                      3111 N. Capital Ave.
+                      3111 N. Capitol Ave.
                       <br />
                       Pasco, WA 99301
                     </p>

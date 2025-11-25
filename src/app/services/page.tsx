@@ -57,7 +57,7 @@ export default function ServicesPage() {
       telephone: "+1-509-308-6489",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "3111 N. Capital Ave.",
+        streetAddress: "3111 N. Capitol Ave.",
         addressLocality: "Pasco",
         addressRegion: "WA",
         postalCode: "99301",

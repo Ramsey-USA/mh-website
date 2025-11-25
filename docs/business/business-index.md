@@ -97,7 +97,7 @@ See: /docs/branding/branding-index.md for the new structure
 - **Phone**: [(509) 308-6489](tel:+15093086489)
 - **Client Contact**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
 - **Vendor Contact**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
-- **Address**: 3111 N. Capital Ave., Pasco, WA 99301
+- **Address**: 3111 N. Capitol Ave., Pasco, WA 99301
 - **Licensed**: WA, OR, ID | Veteran-Owned & Operated
 
 ### 🌐 Digital Presence

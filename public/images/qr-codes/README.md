@@ -242,13 +242,13 @@ Generated: 11/17/2025, 7:01:35 PM
 
 - **Name:** `location`
 - **File:** `qr-location-color.png`
-- **URL:** [https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301](https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301)
+- **URL:** [https://maps.google.com/?q=3111+N.+Capitol+Ave.,+Pasco,+WA+99301](https://maps.google.com/?q=3111+N.+Capitol+Ave.,+Pasco,+WA+99301)
 
 ### Our Location (Black and White)
 
 - **Name:** `location`
 - **File:** `qr-location-bw.png`
-- **URL:** [https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301](https://maps.google.com/?q=3111+N.+Capital+Ave.,+Pasco,+WA+99301)
+- **URL:** [https://maps.google.com/?q=3111+N.+Capitol+Ave.,+Pasco,+WA+99301](https://maps.google.com/?q=3111+N.+Capitol+Ave.,+Pasco,+WA+99301)
 
 ### Jeremy Thamert Owner and President (Color)
 

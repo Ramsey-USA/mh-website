@@ -27,7 +27,7 @@ export const faqDatabase: FAQItem[] = [
   {
     keywords: ["address", "location", "where", "office", "visit"],
     question: "Where are you located?",
-    answer: `**[OFFICE LOCATION]** 📍\n\n**Headquarters:**\n3111 N. Capital Ave.\nPasco, WA 99301\n\n**Service Areas:**\n• Washington State\n• Oregon\n• Idaho\n• Tri-Cities Region (Pasco, Kennewick, Richland)\n\n**[Get Directions →](https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301)**\n\n**Want to visit?** Schedule an appointment: **[Book Consultation →](/booking)**`,
+    answer: `**[OFFICE LOCATION]** 📍\n\n**Headquarters:**\n3111 N. Capitol Ave.\nPasco, WA 99301\n\n**Service Areas:**\n• Washington State\n• Oregon\n• Idaho\n• Tri-Cities Region (Pasco, Kennewick, Richland)\n\n**[Get Directions →](https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301)**\n\n**Want to visit?** Schedule an appointment: **[Book Consultation →](/booking)**`,
     category: "contact",
   },
   {
@@ -103,7 +103,7 @@ export const faqDatabase: FAQItem[] = [
   {
     keywords: ["area", "serve", "region", "coverage", "travel"],
     question: "What areas do you serve?",
-    answer: `**[SERVICE COVERAGE]** 🗺️\n\n**PRIMARY SERVICE AREAS:**\n\n**WASHINGTON:**\n• Tri-Cities (Pasco, Kennewick, Richland)\n• Walla Walla\n• Yakima\n• Eastern Washington region\n\n**OREGON:**\n• Eastern Oregon\n• Surrounding areas\n\n**IDAHO:**\n• Western Idaho\n• Border regions\n\n**HEADQUARTERS:**\n3111 N. Capital Ave., Pasco, WA 99301\n\n**PROJECT RANGE:**\nTypically within 150-mile radius of Tri-Cities, but we evaluate all project opportunities.\n\n**TRAVEL FEES:**\nDepend on distance and project scope - discussed during consultation\n\n**Outside our area?** Contact us anyway - we may still be able to help!\n\n**[Schedule Consultation →](/booking)**`,
+    answer: `**[SERVICE COVERAGE]** 🗺️\n\n**PRIMARY SERVICE AREAS:**\n\n**WASHINGTON:**\n• Tri-Cities (Pasco, Kennewick, Richland)\n• Walla Walla\n• Yakima\n• Eastern Washington region\n\n**OREGON:**\n• Eastern Oregon\n• Surrounding areas\n\n**IDAHO:**\n• Western Idaho\n• Border regions\n\n**HEADQUARTERS:**\n3111 N. Capitol Ave., Pasco, WA 99301\n\n**PROJECT RANGE:**\nTypically within 150-mile radius of Tri-Cities, but we evaluate all project opportunities.\n\n**TRAVEL FEES:**\nDepend on distance and project scope - discussed during consultation\n\n**Outside our area?** Contact us anyway - we may still be able to help!\n\n**[Schedule Consultation →](/booking)**`,
     category: "service-area",
   },
 

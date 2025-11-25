@@ -65,7 +65,7 @@ export const companyKnowledge = {
     phone: "(509) 308-6489",
     email: "office@mhc-gc.com",
     hours: "Mon-Fri, 7AM-4PM PST (0700-1600)",
-    address: "3111 N. Capital Ave., Pasco, WA 99301",
+    address: "3111 N. Capitol Ave., Pasco, WA 99301",
   },
   services: {
     residential: ["Custom homes", "Kitchen remodels", "Bathroom renovations", ...],
@@ -424,8 +424,8 @@ private generateContactResponse(): string {
     `• Veterans: Ask for priority service\n\n` +
     `**EMAIL:** office@mhc-gc.com\n\n` +
     `**HOURS:** Monday-Friday, 7:00 AM - 4:00 PM PST (0700 - 1600)\n\n` +
-    `**OFFICE:** 3111 N. Capital Ave., Pasco, WA 99301\n` +
-    `[Get Directions →](https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301)\n\n` +
+    `**OFFICE:** 3111 N. Capitol Ave., Pasco, WA 99301\n` +
+    `[Get Directions →](https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301)\n\n` +
     `**RESPONSE TIMES:**\n` +
     `• Standard: Within 24 hours\n` +
     `• Veterans: Within 12 hours\n` +
@@ -469,7 +469,7 @@ Track these to measure improvement:
 
 ### 1. Always Provide Context
 
-✅ Good: "We're located at 3111 N. Capital Ave., Pasco, WA"
+✅ Good: "We're located at 3111 N. Capitol Ave., Pasco, WA"
 ❌ Bad: "We're in Pasco"
 
 ### 2. Include Call-to-Actions

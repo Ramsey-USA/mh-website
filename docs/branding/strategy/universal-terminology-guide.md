@@ -234,7 +234,7 @@ Licensed in Washington, Oregon, Idaho
 **Headquarters:**
 
 ```text
-3111 N. Capital Ave.
+3111 N. Capitol Ave.
 Pasco, WA 99301
 ```
 
@@ -525,7 +525,7 @@ office@mhc-gc.com
 **Address:**
 
 ```text
-3111 N. Capital Ave.
+3111 N. Capitol Ave.
 Pasco, WA 99301
 ```
 

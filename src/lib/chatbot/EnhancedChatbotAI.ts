@@ -876,8 +876,8 @@ export class EnhancedChatbotAI {
       `**EMAIL:** office@mhc-gc.com\n\n` +
       `**HOURS:** Monday-Friday, 7:00 AM - 4:00 PM PST\n` +
       `• Saturday consultations available by appointment\n\n` +
-      `**OFFICE:** 3111 N. Capital Ave., Pasco, WA 99301\n` +
-      `[**Get Directions →**](https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301)\n\n` +
+      `**OFFICE:** 3111 N. Capitol Ave., Pasco, WA 99301\n` +
+      `[**Get Directions →**](https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301)\n\n` +
       `**RESPONSE TIMES:**\n` +
       `• Standard inquiries: Within 24 hours\n` +
       `• Veterans: Within 12 hours\n` +

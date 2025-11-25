@@ -466,7 +466,7 @@ export default function UrgentSupportPage() {
                 <strong>Service Area:</strong> Washington, Oregon, and Idaho
               </p>
               <p className="text-white/90">
-                <strong>Headquarters:</strong> 3111 N. Capital Ave., Pasco, WA
+                <strong>Headquarters:</strong> 3111 N. Capitol Ave., Pasco, WA
                 99301
               </p>
             </div>

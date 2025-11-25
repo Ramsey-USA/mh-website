@@ -59,7 +59,7 @@ const faqCategories = [
       {
         question: "Where are you licensed and what areas do you serve?",
         answer:
-          "MH Construction is licensed in Washington, Oregon, and Idaho. We're headquartered in Pasco, WA (3111 N. Capital Ave., Pasco, WA 99301) and serve the entire Pacific Northwest region, with particular expertise in the Tri-Cities area (Pasco, Kennewick, and Richland).",
+          "MH Construction is licensed in Washington, Oregon, and Idaho. We're headquartered in Pasco, WA (3111 N. Capitol Ave., Pasco, WA 99301) and serve the entire Pacific Northwest region, with particular expertise in the Tri-Cities area (Pasco, Kennewick, and Richland).",
       },
       {
         question: "What types of projects do you specialize in?",
@@ -212,7 +212,7 @@ const faqCategories = [
       {
         question: "What is MH Construction's service area?",
         answer:
-          "We are based in Pasco, WA (3111 N. Capital Ave) and serve the entire Tri-Cities region, including Kennewick, Richland, West Richland, Burbank, and Connell. We are also equipped to handle government and industrial projects near the Hanford Site.",
+          "We are based in Pasco, WA (3111 N. Capitol Ave) and serve the entire Tri-Cities region, including Kennewick, Richland, West Richland, Burbank, and Connell. We are also equipped to handle government and industrial projects near the Hanford Site.",
       },
       {
         question: "Is MH Construction a certified Veteran-Owned business?",

@@ -64,13 +64,13 @@ export default function Footer() {
                         MHC Office
                       </div>
                       <a
-                        href="https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301"
+                        href="https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-xs leading-tight hover:text-brand-primary transition-colors duration-300 cursor-pointer block"
                         title="Get directions to our office"
                       >
-                        3111 N. Capital Ave.
+                        3111 N. Capitol Ave.
                         <br />
                         Pasco, WA 99301
                       </a>

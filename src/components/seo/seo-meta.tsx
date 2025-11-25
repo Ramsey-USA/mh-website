@@ -42,7 +42,7 @@ const defaultSEO = {
   companyInfo: {
     name: "MH Construction",
     address: {
-      streetAddress: "3111 N. Capital Ave.",
+      streetAddress: "3111 N. Capitol Ave.",
       addressLocality: "Pasco",
       addressRegion: "WA",
       postalCode: "99301",

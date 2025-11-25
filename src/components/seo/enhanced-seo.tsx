@@ -43,7 +43,7 @@ export const enhancedSEO = {
     telephone: "(509) 308-6489",
     email: "office@mhc-gc.com",
     address: {
-      streetAddress: "3111 N. Capital Ave.",
+      streetAddress: "3111 N. Capitol Ave.",
       addressLocality: "Pasco",
       addressRegion: "WA",
       postalCode: "99301",

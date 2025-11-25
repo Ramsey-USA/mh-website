@@ -836,7 +836,7 @@ npm run build
 - Company name: "MH Construction, Inc."
 - Primary tagline: "Building for the Client, NOT the Dollar"
 - Phone: (509) 308-6489
-- Address: "3111 N. Capital Ave., Pasco, WA 99301"
+- Address: "3111 N. Capitol Ave., Pasco, WA 99301"
 - Email: <office@mhc-gc.com>
 - "Licensed in WA, OR, ID | Veteran-Owned & Operated"
 
@@ -872,18 +872,18 @@ npm run build
 
 **Display Format** (business cards, websites, documents):
 
-- "3111 N. Capital Ave., Pasco, WA 99301" (with periods)
+- "3111 N. Capitol Ave., Pasco, WA 99301" (with periods)
 
 **Map Link Format** (Google Maps integration):
 
-- "3111 N Capital Ave, Pasco, WA 99301" (no periods)
+- "3111 N Capitol Ave, Pasco, WA 99301" (no periods)
 
 ```html
 <!-- Professional Display -->
-<p>Visit us at: 3111 N. Capital Ave., Pasco, WA 99301</p>
+<p>Visit us at: 3111 N. Capitol Ave., Pasco, WA 99301</p>
 
 <!-- Map Link -->
-<a href="https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301">
+<a href="https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301">
   Get Directions
 </a>
 ```

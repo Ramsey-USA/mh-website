@@ -725,7 +725,7 @@ Full documentation: [Partnership Type Definitions](./docs/partnerships/partnersh
 
 **Email:** [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
-**Address:** 3111 N. Capital Ave., Pasco, WA 99301
+**Address:** 3111 N. Capitol Ave., Pasco, WA 99301
 
 **Service Area:** Pacific Northwest (Washington, Oregon, Idaho)
 

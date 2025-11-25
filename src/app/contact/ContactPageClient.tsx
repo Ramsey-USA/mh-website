@@ -36,8 +36,8 @@ const quickContact = [
   {
     icon: "location_on",
     label: "Visit Us",
-    value: "3111 N. Capital Ave., Pasco, WA 99301",
-    link: "https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301",
+    value: "3111 N. Capitol Ave., Pasco, WA 99301",
+    link: "https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301",
     color: "brand-primary",
     ariaLabel: "Get directions to MH Construction office in Pasco, WA",
   },
@@ -121,7 +121,7 @@ export default function ContactPageClient() {
     email: "office@mhc-gc.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "3111 N. Capital Ave.",
+      streetAddress: "3111 N. Capitol Ave.",
       addressLocality: "Pasco",
       addressRegion: "WA",
       postalCode: "99301",
@@ -606,7 +606,7 @@ export default function ContactPageClient() {
                 </h2>
                 <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
                   <span itemProp="address">
-                    3111 N. Capital Ave., Pasco, WA 99301
+                    3111 N. Capitol Ave., Pasco, WA 99301
                   </span>
                 </p>
                 <p className="mt-4 text-gray-500 dark:text-gray-400 text-base sm:text-lg">
@@ -620,14 +620,14 @@ export default function ContactPageClient() {
                 style={{ height: "600px" }}
               >
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2732.828269!2d-119.1319!3d46.2589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54983e0a7f5b5555%3A0x1234567890abcdef!2s3111%20N%20Capital%20Ave%2C%20Pasco%2C%20WA%2099301!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2732.828269!2d-119.1319!3d46.2589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54983e0a7f5b5555%3A0x1234567890abcdef!2s3111%20N%20Capitol%20Ave%2C%20Pasco%2C%20WA%2099301!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="MH Construction Office Location - 3111 N. Capital Ave., Pasco, WA 99301"
+                  title="MH Construction Office Location - 3111 N. Capitol Ave., Pasco, WA 99301"
                   className="absolute inset-0"
                 ></iframe>
               </div>
@@ -635,7 +635,7 @@ export default function ContactPageClient() {
               {/* Map CTA */}
               <div className="text-center">
                 <a
-                  href="https://maps.google.com/?q=3111+N+Capital+Ave+Pasco+WA+99301"
+                  href="https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Get directions to MH Construction office in Pasco, Washington"

@@ -158,7 +158,7 @@ interface QRCodeSectionProps {
   />
   <QRCodeSection
     title="Visit Us"
-    description="3111 N. Capital Ave., Pasco, WA"
+    description="3111 N. Capitol Ave., Pasco, WA"
     preset="location"
     size={150}
   />

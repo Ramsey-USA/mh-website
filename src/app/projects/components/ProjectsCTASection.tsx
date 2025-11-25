@@ -75,7 +75,7 @@ export function ProjectsCTASection() {
                   size="md"
                   className="inline mr-2"
                 />
-                3111 N. Capital Ave., Pasco, WA 99301
+                3111 N. Capitol Ave., Pasco, WA 99301
               </p>
               <p>
                 <MaterialIcon icon="email" size="md" className="inline mr-2" />

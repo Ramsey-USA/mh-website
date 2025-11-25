@@ -234,7 +234,7 @@ organizations navigate the complexities of grant-funded builds.
 
 **Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
-**Office:** 3111 N. Capital Ave., Pasco, WA 99301
+**Office:** 3111 N. Capitol Ave., Pasco, WA 99301
 
 ### Service Hours
 

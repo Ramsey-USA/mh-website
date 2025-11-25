@@ -72,7 +72,7 @@ Regional Commitment:
 | **Partnership Philosophy** | "We Work With You" - Collaborative Construction Partners |
 | **Community Focus** | Serving Pacific Northwest Communities Since 2010 |
 | **Phone** | (509) 308-6489 |
-| **Address** | 3111 N. Capital Ave., Pasco, WA 99301 |
+| **Address** | 3111 N. Capitol Ave., Pasco, WA 99301 |
 | **Service Area** | Pacific Northwest (WA, OR, ID) |
 | **Email** | <office@mhc-gc.com> |
 | **Website** | [www.mhc-gc.com](https://www.mhc-gc.com) |

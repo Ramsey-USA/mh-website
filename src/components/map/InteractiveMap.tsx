@@ -35,7 +35,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     lat: 46.2396,
     lng: -119.1006,
     title: "MH Construction Headquarters",
-    description: "3111 N. Capital Ave., Pasco, WA 99301",
+    description: "3111 N. Capitol Ave., Pasco, WA 99301",
     type: "office",
   };
 
@@ -121,7 +121,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const handleGetDirections = (location: MapLocation) => {
     const address = encodeURIComponent(
       location.type === "office"
-        ? "3111 N Capital Ave, Pasco, WA 99301"
+        ? "3111 N Capitol Ave, Pasco, WA 99301"
         : `${location.title}, WA`,
     );
     window.open(`https://maps.google.com/maps?daddr=${address}`, "_blank");

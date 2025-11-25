@@ -212,7 +212,7 @@ guidelines on terminology, messaging, and implementation across all channels.
 
 - **Phone**: [(509) 308-6489](tel:+15093086489)
 - **Email**: <office@mhc-gc.com>
-- **Address**: 3111 N. Capital Ave., Pasco, WA 99301
+- **Address**: 3111 N. Capitol Ave., Pasco, WA 99301
 - **Website**: [mhc-gc.com](https://www.mhc-gc.com)
 
 ---
