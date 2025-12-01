@@ -16,12 +16,12 @@ export function HeroSection() {
       </div>
 
       {/* Main Tagline Overlay - Centered */}
-      <div className="relative z-30 text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pointer-events-none pt-32 sm:pt-36 md:pt-40 lg:pt-44">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white drop-shadow-2xl leading-tight mb-6">
-          <span className="block text-brand-secondary font-black mb-4">
+      <div className="relative z-30 text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pointer-events-none pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
+        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white drop-shadow-2xl leading-tight mb-3 xs:mb-4 sm:mb-6">
+          <span className="block text-brand-secondary font-black mb-2 xs:mb-3 sm:mb-4">
             Where Handshakes Still Matter
           </span>
-          <span className="block text-white/95 font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+          <span className="block text-white/95 font-bold text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
             Veteran Values,
             <br />
             <span className="text-brand-primary">
@@ -29,7 +29,7 @@ export function HeroSection() {
             </span>
           </span>
         </h1>
-        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 font-medium max-w-4xl mx-auto drop-shadow-lg">
+        <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 font-medium max-w-4xl mx-auto drop-shadow-lg px-2">
           Military Precision • Your Word Is Your Bond • Serving the Pacific
           Northwest
         </p>

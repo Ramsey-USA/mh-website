@@ -353,7 +353,7 @@ export default function FAQPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 pt-32 sm:pt-36 md:pt-40 lg:pt-48 pb-16 sm:pb-20 md:pb-24 lg:pb-32 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-20 sm:pb-24 md:pb-28 lg:pb-32 text-white overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(189,146,100,0.2)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(189,146,100,0.3)_0%,transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(205,127,50,0.15)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(205,127,50,0.25)_0%,transparent_50%)]"></div>
