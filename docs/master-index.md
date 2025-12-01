@@ -65,7 +65,8 @@ Created reusable page sections to eliminate duplicate code across website.
 - `NextStepsSection` - Three-option CTA cards (Consultation, Estimate, Contact)
 - `AIEstimatorCTA` - Automated estimator promotion with full/compact variants
 
-**Impact:** ~490 lines removed, 3 pages refactored (homepage, about, services). Note: AIEstimatorCTA and FeaturesSection removed from homepage (Dec 2025).
+**Impact:** ~490 lines removed, 3 pages refactored (homepage, about, services).
+Note: AIEstimatorCTA and FeaturesSection removed from homepage (Dec 2025).
 See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Components Index](./components/components-index.md).
 
 ---

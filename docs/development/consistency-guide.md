@@ -831,7 +831,8 @@ npm run build
 
 ### Primary Slogan Styling Rule
 
-**CRITICAL STYLING REQUIREMENT**: When displaying the slogan "Building for the Client, NOT the Dollar", the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the core philosophy.
+**CRITICAL STYLING REQUIREMENT**: When displaying the slogan "Building for the Client, NOT the Dollar",
+the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the core philosophy.
 
 **Implementation Standards**:
 
