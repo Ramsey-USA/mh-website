@@ -27,7 +27,7 @@ export function ChatbotMessages({ messages, isTyping }: ChatbotMessagesProps) {
 
   return (
     <div className="flex-1 overflow-y-auto p-4 space-y-4 max-h-[400px]">
-      {messages.map((message: any) => (
+      {messages.map((message: ChatMessageType) => (
         <ChatMessage
           key={message.id}
           message={message}

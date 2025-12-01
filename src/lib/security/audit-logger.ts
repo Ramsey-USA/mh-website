@@ -206,7 +206,7 @@ export class AuditLogger {
   /**
    * Query audit events
    */
-  async queryEvents(query: AuditQuery): Promise<AuditEvent[]> {
+  queryEvents(query: AuditQuery): AuditEvent[] {
     let filteredEvents = [...this.events];
 
     // Filter by event types
@@ -287,10 +287,7 @@ export class AuditLogger {
   /**
    * Get audit statistics
    */
-  async getStatistics(dateRange?: {
-    start: Date;
-    end: Date;
-  }): Promise<AuditStatistics> {
+  getStatistics(dateRange?: { start: Date; end: Date }): AuditStatistics {
     let events = this.events;
 
     if (dateRange) {
@@ -302,7 +299,10 @@ export class AuditLogger {
     }
 
     // Event counts by type
-    const eventsByType: Record<AuditEventType, number> = {} as any;
+    const eventsByType: Record<AuditEventType, number> = {} as Record<
+      AuditEventType,
+      number
+    >;
     Object.values(AuditEventType).forEach((type) => {
       eventsByType[type] = 0;
     });

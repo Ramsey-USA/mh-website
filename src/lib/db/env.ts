@@ -22,7 +22,14 @@ export function getD1Database(): unknown | null {
       typeof globalThis !== "undefined" &&
       "getRequestContext" in globalThis
     ) {
-      const context = (globalThis as any).getRequestContext();
+      const context = (
+        globalThis as unknown as {
+          getRequestContext: () => {
+            env?: { DB?: unknown };
+            cloudflare?: { env?: { DB?: unknown } };
+          };
+        }
+      ).getRequestContext();
       const env = context?.env || context?.cloudflare?.env;
       return env?.DB || null;
     }
@@ -42,7 +49,11 @@ export function getKVNamespace(binding: string): unknown | null {
       typeof globalThis !== "undefined" &&
       "getRequestContext" in globalThis
     ) {
-      const { env } = (globalThis as any).getRequestContext();
+      const { env } = (
+        globalThis as unknown as {
+          getRequestContext: () => { env?: Record<string, unknown> };
+        }
+      ).getRequestContext();
       return env?.[binding] || null;
     }
     return null;
@@ -61,7 +72,11 @@ export function getR2Bucket(binding: string): unknown | null {
       typeof globalThis !== "undefined" &&
       "getRequestContext" in globalThis
     ) {
-      const { env } = (globalThis as any).getRequestContext();
+      const { env } = (
+        globalThis as unknown as {
+          getRequestContext: () => { env?: Record<string, unknown> };
+        }
+      ).getRequestContext();
       return env?.[binding] || null;
     }
     return null;

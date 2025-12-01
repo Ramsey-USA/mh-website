@@ -6,7 +6,7 @@
 import { logger } from "@/lib/utils/logger";
 
 // Cache entry interface
-export interface CacheEntry<T = any> {
+export interface CacheEntry<T = unknown> {
   key: string;
   data: T;
   timestamp: number;
@@ -89,7 +89,7 @@ export class AIResponseCache {
       return null;
     }
 
-    return entry.data;
+    return entry.data as string;
   }
 
   /**
@@ -124,7 +124,11 @@ export class AIResponseCache {
     let removed = 0;
     const entries = Array.from(this.cache.entries());
     for (const [key, entry] of entries) {
-      if (key.includes(pattern) || entry.data.includes(pattern)) {
+      const dataString =
+        typeof entry.data === "string"
+          ? entry.data
+          : JSON.stringify(entry.data);
+      if (key.includes(pattern) || dataString.includes(pattern)) {
         this.cache.delete(key);
         removed++;
       }

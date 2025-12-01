@@ -91,11 +91,19 @@ export function OptimizedGallery({
           {images.map((image, _index) => (
             <div
               key={_index}
+              role="button"
+              tabIndex={0}
               className={`relative h-16 sm:h-18 md:h-20 rounded cursor-pointer transition-opacity ${
                 _index === activeIndex
                   ? "ring-2 ring-primary-500"
                   : "hover:opacity-80"
               }`}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  onImageClick(_index);
+                }
+              }}
               onClick={() => onImageClick(_index)}
             >
               <Image

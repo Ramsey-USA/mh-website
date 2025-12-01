@@ -42,7 +42,7 @@ export default function GlobalChatbot({
     if (contextIsOpen !== state.isOpen) {
       handlers.handleChatbotToggle();
     }
-  }, [contextIsOpen]); // Only sync when context changes
+  }, [contextIsOpen, handlers, state.isOpen]); // Include all dependencies
 
   // Override the toggle handler to use context
   const handleToggle = () => {

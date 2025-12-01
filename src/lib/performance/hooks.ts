@@ -146,12 +146,22 @@ export function useMemoryMonitoring(componentName: string, interval = 10000) {
       performanceManager.recordMemoryUsage(componentName);
 
       if (typeof window !== "undefined" && "memory" in performance) {
-        const memory = (performance as any).memory;
-        setMemoryInfo({
-          usedJSHeapSize: memory.usedJSHeapSize,
-          totalJSHeapSize: memory.totalJSHeapSize,
-          jsHeapSizeLimit: memory.jsHeapSizeLimit,
-        });
+        const memory = (
+          performance as Performance & {
+            memory?: {
+              usedJSHeapSize: number;
+              totalJSHeapSize: number;
+              jsHeapSizeLimit: number;
+            };
+          }
+        ).memory;
+        if (memory) {
+          setMemoryInfo({
+            usedJSHeapSize: memory.usedJSHeapSize,
+            totalJSHeapSize: memory.totalJSHeapSize,
+            jsHeapSizeLimit: memory.jsHeapSizeLimit,
+          });
+        }
       }
     };
 

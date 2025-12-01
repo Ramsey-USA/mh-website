@@ -14,7 +14,7 @@ export interface CacheEntry {
 
 export interface FormCache {
   formId: string;
-  data: Record<string, any>;
+  data: Record<string, unknown>;
   lastUpdated: number;
 }
 
@@ -70,7 +70,7 @@ class AIResponseCache {
   /**
    * Cache form data for persistence
    */
-  setFormData(formId: string, data: Record<string, any>): void {
+  setFormData(formId: string, data: Record<string, unknown>): void {
     const formEntry: FormCache = {
       formId,
       data,
@@ -84,7 +84,7 @@ class AIResponseCache {
   /**
    * Get cached form data
    */
-  getFormData(formId: string): Record<string, any> | null {
+  getFormData(formId: string): Record<string, unknown> | null {
     const formEntry = this.formCache.get(formId);
 
     if (!formEntry) return null;
@@ -261,13 +261,16 @@ export const getCachedAIResponse = (key: string): string | null => {
   return aiCache.get(key);
 };
 
-export const cacheFormData = (formId: string, data: Record<string, any>) => {
+export const cacheFormData = (
+  formId: string,
+  data: Record<string, unknown>,
+) => {
   aiCache.setFormData(formId, data);
 };
 
 export const getCachedFormData = (
   formId: string,
-): Record<string, any> | null => {
+): Record<string, unknown> | null => {
   return aiCache.getFormData(formId);
 };
 

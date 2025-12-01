@@ -222,12 +222,12 @@ export class RateLimiter {
   /**
    * Check if request should be rate limited
    */
-  async checkRateLimit(request: NextRequest): Promise<{
+  checkRateLimit(request: NextRequest): {
     allowed: boolean;
     remaining: number;
     resetTime: number;
     retryAfter?: number;
-  }> {
+  } {
     const ip = this.getClientIP(request);
     const key = `rate_limit:${ip}`;
     const now = Date.now();

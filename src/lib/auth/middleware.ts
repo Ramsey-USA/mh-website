@@ -75,6 +75,7 @@ export function requireRole(
     context?: unknown,
   ) => Promise<NextResponse>,
 ) {
+  // eslint-disable-next-line require-await
   return requireAuth(async (request, user, context) => {
     if (!user.role || !allowedRoles.includes(user.role)) {
       logger.warn("Insufficient permissions", {
@@ -175,6 +176,7 @@ export function hasPermission(user: JWTUser, requiredRole: string): boolean {
 export function requireApiKey(
   handler: (request: NextRequest, context?: unknown) => Promise<NextResponse>,
 ) {
+  // eslint-disable-next-line require-await
   return async function apiKeyHandler(
     request: NextRequest,
     context?: unknown,

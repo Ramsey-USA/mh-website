@@ -43,39 +43,56 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+interface User {
+  uid: string;
+  email: string | null;
+  displayName: string | null;
+  photoURL: string | null;
+}
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<any | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [loading] = useState(false);
 
+  // These functions return Promises to match the AuthContextType interface
+  // eslint-disable-next-line require-await
   const signIn = async () => {
-    throw new Error("Authentication not configured");
+    return Promise.reject(new Error("Authentication not configured"));
   };
 
+  // eslint-disable-next-line require-await
   const signUp = async () => {
-    throw new Error("Authentication not configured");
+    return Promise.reject(new Error("Authentication not configured"));
   };
 
+  // eslint-disable-next-line require-await
   const signInWithGoogle = async () => {
-    throw new Error("Authentication not configured");
+    return Promise.reject(new Error("Authentication not configured"));
   };
 
+  // eslint-disable-next-line require-await
   const logout = async () => {
     setUser(null);
     setUserProfile(null);
+    return Promise.resolve();
   };
 
+  // eslint-disable-next-line require-await
   const resetPassword = async () => {
-    throw new Error("Authentication not configured");
+    return Promise.reject(new Error("Authentication not configured"));
   };
 
+  // eslint-disable-next-line require-await
   const updateUserProfile = async (updates: Partial<UserProfile>) => {
-    if (!userProfile) throw new Error("No user profile");
+    if (!userProfile) return Promise.reject(new Error("No user profile"));
     setUserProfile({ ...userProfile, ...updates });
+    return Promise.resolve();
   };
 
+  // eslint-disable-next-line require-await
   const updateUserProfileById = async () => {
-    throw new Error("Authentication not configured");
+    return Promise.reject(new Error("Authentication not configured"));
   };
 
   const value = {
