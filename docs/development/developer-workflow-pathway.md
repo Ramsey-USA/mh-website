@@ -148,7 +148,7 @@ It connects brand standards to actual code patterns.
 2. **[Shared Sections Guide](../components/shared-sections-guide.md)** (10 min)
    - TestimonialsSection
    - NextStepsSection
-   - AIEstimatorCTA
+   - AIEstimatorCTA (Note: Removed from homepage Dec 2025)
 
 **Why this matters**: Use existing components instead of creating new ones. This ensures consistency and reduces code duplication.
 

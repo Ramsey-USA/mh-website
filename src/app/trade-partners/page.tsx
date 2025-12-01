@@ -274,7 +274,7 @@ export default function TradePartnersPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 sm:pt-36 md:pt-40 lg:pt-44 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
           <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
@@ -379,13 +379,14 @@ export default function TradePartnersPage() {
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
                 "THE ROI IS THE RELATIONSHIP—and we prove it. Building for the
-                Client, NOT the Dollar means treating our trade partners with
-                the same integrity we give our Client Partners. Quality
-                construction is built through trusted relationships—where your
-                word is your bond, handshakes matter, and mutual respect defines
-                every partnership. Fair payment, clear communication, mutual
-                success. Backed by veteran-owned leadership, award-winning
-                safety (.64 EMR), and 150+ years combined experience."
+                Client, <span className="font-black text-bronze-300">NOT</span>{" "}
+                the Dollar means treating our trade partners with the same
+                integrity we give our Client Partners. Quality construction is
+                built through trusted relationships—where your word is your
+                bond, handshakes matter, and mutual respect defines every
+                partnership. Fair payment, clear communication, mutual success.
+                Backed by veteran-owned leadership, award-winning safety (.64
+                EMR), and 150+ years combined experience."
               </p>
               <cite className="block mt-4 font-semibold text-brand-secondary text-lg">
                 — MH Construction Leadership Team

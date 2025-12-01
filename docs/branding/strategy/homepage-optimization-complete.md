@@ -99,12 +99,8 @@ tech-savvy clients discover helpful features naturally.
 5. **Testimonials** ✅ - Social proof from real clients
 6. **Before/After** ✅ - Tangible results, not promises
 7. **Company Stats** ✅ - Credibility through numbers
-8. **"Optional Tools to Help You Plan"** - Section introduction
-9. **Features** - Repositioned with softer intro
-10. **Automated Estimator CTA** - Positioned as helpful planning tool
-11. **Smart Recommendations** - "Helpful Project Ideas & Suggestions"
-12. **Next Steps** - Multiple engagement paths
-13. **Partnership CTA** - Final conversion opportunity
+8. **Next Steps** - Multiple engagement paths
+9. **Partnership CTA** - Final conversion opportunity
 
 ### Strategic Rationale
 

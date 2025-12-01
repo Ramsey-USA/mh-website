@@ -114,9 +114,11 @@
 
 ### FeaturesSection Cards
 
-**Location:** Homepage, "Modern Tools" section
+**Note:** This section was removed from the homepage in December 2025. Tests below are retained for historical reference.
 
-**Tests:**
+**Previous Location:** Homepage, "Modern Tools" section
+
+**Historical Tests:**
 
 1. **Front Side:**
    - [ ] Icon container proper size

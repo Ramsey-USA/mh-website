@@ -66,7 +66,7 @@ export default function EstimatorPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 sm:pt-36 md:pt-40 lg:pt-44 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
           <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
@@ -78,7 +78,8 @@ export default function EstimatorPage() {
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
               AI-Powered Estimation • Human-Centered Partnership • Building for
-              the Client, NOT the Dollar
+              the Client,{" "}
+              <span className="font-black text-bronze-300">NOT</span> the Dollar
             </p>
 
             {/* Description */}
@@ -86,10 +87,12 @@ export default function EstimatorPage() {
               Where data meets decades of experience. Our AI-powered estimator
               combines insights from 500+ completed projects with 150+ years of
               veteran expertise—but it's just the starting point. "Building for
-              the Client, NOT the Dollar" means technology that enhances, never
-              replaces, the personal consultation where handshakes and trust
-              matter most. Smart tools for smarter planning, human partnerships
-              for lasting success.
+              the Client,{" "}
+              <span className="font-black text-bronze-300">NOT</span> the
+              Dollar" means technology that enhances, never replaces, the
+              personal consultation where handshakes and trust matter most.
+              Smart tools for smarter planning, human partnerships for lasting
+              success.
             </p>
           </div>
         </div>

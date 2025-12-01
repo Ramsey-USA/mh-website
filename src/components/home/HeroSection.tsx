@@ -16,7 +16,7 @@ export function HeroSection() {
       </div>
 
       {/* Main Tagline Overlay - Centered */}
-      <div className="relative z-30 text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pointer-events-none">
+      <div className="relative z-30 text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pointer-events-none pt-32 sm:pt-36 md:pt-40 lg:pt-44">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white drop-shadow-2xl leading-tight mb-6">
           <span className="block text-brand-secondary font-black mb-4">
             Where Handshakes Still Matter

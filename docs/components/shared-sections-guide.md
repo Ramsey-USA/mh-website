@@ -37,11 +37,11 @@ that can be used throughout the website.
 
 ### Pages Updated
 
-| Page                                         | Before       | After        | Reduction  | Components Used                       |
-| -------------------------------------------- | ------------ | ------------ | ---------- | ------------------------------------- |
-| **Homepage** (`/app/page.tsx`)               | ~1,200 lines | ~1,040 lines | ~160 lines | All 3 components                      |
-| **About Page** (`/app/about/page.tsx`)       | ~980 lines   | ~830 lines   | ~150 lines | TestimonialsSection, NextStepsSection |
-| **Services Page** (`/app/services/page.tsx`) | ~740 lines   | ~625 lines   | ~115 lines | AIEstimatorCTA (compact)              |
+| Page                                         | Before       | After      | Reduction  | Components Used                       |
+| -------------------------------------------- | ------------ | ---------- | ---------- | ------------------------------------- |
+| **Homepage** (`/app/page.tsx`)               | ~1,200 lines | ~975 lines | ~225 lines | TestimonialsSection, NextStepsSection |
+| **About Page** (`/app/about/page.tsx`)       | ~980 lines   | ~830 lines | ~150 lines | TestimonialsSection, NextStepsSection |
+| **Services Page** (`/app/services/page.tsx`) | ~740 lines   | ~625 lines | ~115 lines | AIEstimatorCTA (compact)              |
 
 ---
 
@@ -268,9 +268,8 @@ Each event includes the `location` prop for tracking where the click originated.
 
 #### Used On
 
-- **Homepage**: Full variant with all features and stats
 - **Services Page**: Compact variant without stats panel
-- **Potential**: Projects, About, Contact pages
+- **Potential**: Projects, About, Contact, Homepage pages
 
 ---
 
@@ -462,7 +461,7 @@ All shared sections follow MH Construction design standards:
 | **Analytics**     | No                               | No                         | Yes (2 events)                      |
 | **Variants**      | No                               | No                         | Yes (full/compact)                  |
 | **Lines of Code** | 120                              | 140                        | 230                                 |
-| **Used On**       | 2 pages                          | 2 pages                    | 2 pages                             |
+| **Used On**       | 2 pages                          | 2 pages                    | 1 page                              |
 
 ---
 

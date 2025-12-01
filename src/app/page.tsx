@@ -12,7 +12,6 @@ import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
 // Homepage sections
 import {
   HeroSection,
-  FeaturesSection,
   CoreValuesSection,
   ServicesShowcase,
   WhyPartnerSection,
@@ -24,7 +23,6 @@ import { CompanyStats } from "@/components/about/CompanyStats";
 import {
   TestimonialsSection,
   NextStepsSection,
-  AIEstimatorCTA,
 } from "@/components/shared-sections";
 
 import Head from "next/head";
@@ -304,12 +302,6 @@ export default function Home() {
         description=""
         variant="primary"
       />
-
-      {/* Modern Tools & Features Section - Positioned after trust foundation */}
-      <FeaturesSection />
-
-      {/* Budget Planning Tool CTA Section */}
-      <AIEstimatorCTA variant="full" location="homepage" />
 
       {/* Next Steps Section */}
       <NextStepsSection />

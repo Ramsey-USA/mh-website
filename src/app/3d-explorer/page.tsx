@@ -52,7 +52,7 @@ export default function ThreeDExplorerPage() {
         <div className="absolute bottom-20 left-20 bg-brand-secondary/10 blur-3xl rounded-full w-96 h-96 animate-pulse"></div>
 
         {/* Content - Clean and Simple Per Brand Standards */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 sm:pt-36 md:pt-40 lg:pt-44 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
           <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
             {/* Main Title - Brand Secondary Color (Leather Tan) */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
@@ -70,7 +70,8 @@ export default function ThreeDExplorerPage() {
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
               Where data meets decades of experience. We're developing an
               immersive 3D visualization platform that brings your vision to
-              life before breaking ground. "Building for the Client, NOT the
+              life before breaking ground. "Building for the Client,{" "}
+              <span className="font-black text-bronze-300">NOT</span> the
               Dollar" means investing in innovative tools that enhance—never
               replace—the personal partnerships that define our work. AI-powered
               estimation meets personal consultation. Smart tools for smarter

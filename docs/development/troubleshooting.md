@@ -54,7 +54,7 @@ container, causing sections to capture scroll events.
 - ❌ Do NOT use in Hero sections (they need different treatment)
 - ❌ Do NOT use in modals or fixed-position overlays
 
-**Reference**: Home page components (FeaturesSection, CoreValuesSection) use this pattern correctly.
+**Reference**: Home page components (CoreValuesSection, ServicesShowcase) use this pattern correctly.
 
 ---
 

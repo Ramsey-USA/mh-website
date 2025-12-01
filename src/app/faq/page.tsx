@@ -353,7 +353,7 @@ export default function FAQPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 pt-24 sm:pt-32 md:pt-40 lg:pt-48 pb-16 sm:pb-20 md:pb-24 lg:pb-32 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 pt-32 sm:pt-36 md:pt-40 lg:pt-48 pb-16 sm:pb-20 md:pb-24 lg:pb-32 text-white overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(189,146,100,0.2)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(189,146,100,0.3)_0%,transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(205,127,50,0.15)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(205,127,50,0.25)_0%,transparent_50%)]"></div>
@@ -394,8 +394,9 @@ export default function FAQPage() {
 
               {/* Subtitle */}
               <p className="mb-8 sm:mb-10 md:mb-12 text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto">
-                Your Questions, Honest Answers • Building for the Client, NOT
-                the Dollar
+                Your Questions, Honest Answers • Building for the Client,{" "}
+                <span className="font-black text-bronze-300">NOT</span> the
+                Dollar
               </p>
 
               {/* Quick CTA */}

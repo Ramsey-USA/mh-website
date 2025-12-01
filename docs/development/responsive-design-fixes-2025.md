@@ -80,7 +80,9 @@ The website was experiencing several responsive design issues:
 
 #### FeaturesSection (`src/components/home/FeaturesSection.tsx`)
 
-**Improvements:**
+**Note:** This section was removed from the homepage in December 2025.
+
+**Historical Improvements (for reference):**
 
 - Card height: `h-80 sm:h-96 lg:h-[450px]`
 - Responsive icon container: `w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20`
@@ -304,7 +306,7 @@ All responsive changes follow mobile-first methodology:
 2. `src/components/services/ServiceCard.tsx`
 3. `src/components/services/SpecialtyServiceCard.tsx`
 4. `src/components/home/CoreValuesSection.tsx`
-5. `src/components/home/FeaturesSection.tsx`
+5. `src/components/home/FeaturesSection.tsx` (Note: Removed from homepage Dec 2025)
 6. `src/components/home/WhyPartnerSection.tsx`
 7. `src/components/home/ServicesShowcase.tsx`
 

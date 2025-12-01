@@ -174,7 +174,7 @@ export default function ContactPageClient() {
           ></div>
 
           {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 sm:pt-36 md:pt-40 lg:pt-44 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
             <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
               {/* Main Title */}
               <h1

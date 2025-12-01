@@ -142,10 +142,11 @@ Reusable, full-featured sections for consistent implementation across pages.
 
 **Refactoring Impact:**
 
-- 425 lines of duplicate code removed
+- 490 lines of duplicate code removed
 - 490 lines of reusable code created
 - 3 pages refactored (homepage, about, services)
 - Consistent sections across multiple pages
+- Note: AIEstimatorCTA and FeaturesSection removed from homepage (Dec 2025)
 
 **When to Use:** Building new pages, ensuring consistency, reducing code bloat, maintaining sections in one place
 
