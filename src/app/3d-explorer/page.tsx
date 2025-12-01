@@ -454,8 +454,10 @@ export default function ThreeDExplorerPage() {
                   We're investing in 3D visualization not to replace
                   relationships, but to strengthen them. Better tools mean
                   better communication, clearer understanding, and stronger
-                  partnerships—because "Building for the Client, NOT the Dollar"
-                  means continually finding new ways to serve you better.
+                  partnerships—because "Building for the Client,{" "}
+                  <span className="font-black text-bronze-300">NOT</span> the
+                  Dollar" means continually finding new ways to serve you
+                  better.
                 </p>
               </div>
             </div>

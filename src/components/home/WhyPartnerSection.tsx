@@ -164,7 +164,7 @@ export function WhyPartnerSection() {
           {partnershipValues.map((value, _index) => (
             <div
               key={_index}
-              className="group perspective-1000 scroll-reveal h-[450px] sm:h-[480px] md:h-[500px] lg:h-[520px]"
+              className="group perspective-1000 scroll-reveal h-[400px] sm:h-[420px] md:h-[440px] lg:h-[460px]"
               style={{ animationDelay: `${_index * 0.1}s` }}
             >
               <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">

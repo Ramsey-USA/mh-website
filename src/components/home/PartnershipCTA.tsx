@@ -52,7 +52,9 @@ export function PartnershipCTA() {
               <span className="font-bold text-brand-accent">
                 six core values create one result: Trust
               </span>
-              . We're Building for the Client, NOT the Dollar. Experience{" "}
+              . We're Building for the Client,{" "}
+              <span className="font-black text-brand-accent">NOT</span> the
+              Dollar. Experience{" "}
               <span className="font-medium text-brand-accent">
                 professionalism, thoroughness, honesty, integrity, innovation,
                 and partnership

@@ -2,10 +2,7 @@
 
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import {
-  FadeInWhenVisible,
-  StaggeredFadeIn,
-} from "@/components/animations/FramerMotionComponents";
+import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
 import { useChatbot } from "@/contexts/ChatbotContext";
 
 const features = [
@@ -138,7 +135,7 @@ export function FeaturesSection() {
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}
-        <FadeInWhenVisible className="mb-12 sm:mb-16 lg:mb-20 text-center scroll-reveal">
+        <div className="mb-12 sm:mb-16 lg:mb-20 text-center scroll-reveal">
           <div className="flex justify-center items-center mb-6 sm:mb-8">
             <div className="relative">
               <div className="absolute inset-0 bg-brand-accent/20 dark:bg-brand-accent/30 blur-xl rounded-full"></div>
@@ -170,7 +167,7 @@ export function FeaturesSection() {
             </span>
             . Innovation with integrity, guided by six core values.
           </p>
-        </FadeInWhenVisible>
+        </div>
 
         {/* Feature Cards */}
         <StaggeredFadeIn className="gap-4 sm:gap-6 lg:gap-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
@@ -178,7 +175,7 @@ export function FeaturesSection() {
             <div
               key={feature.id}
               id={`feature-${feature.id}`}
-              className="group perspective-1000 feature-card h-80 sm:h-96 lg:h-[450px]"
+              className="group perspective-1000 feature-card h-[400px] sm:h-[420px] md:h-[440px] lg:h-[460px]"
             >
               <div className="relative w-full h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
                 {/* Front of Card */}

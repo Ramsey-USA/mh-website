@@ -29,7 +29,6 @@ import {
 
 import Head from "next/head";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { useAnalytics } from "@/components/analytics/enhanced-analytics";
 import { useImagePreloader } from "@/hooks/usePerformanceOptimization";
 
@@ -123,11 +122,11 @@ export default function Home() {
       {/* Core Values Section - Establish trust and heritage first */}
       <CoreValuesSection />
 
-      {/* Showcase of Services Section - What we actually do */}
-      <ServicesShowcase />
-
       {/* Why Partner With MH Construction Section - Partnership philosophy */}
       <WhyPartnerSection />
+
+      {/* Showcase of Services Section - What we actually do */}
+      <ServicesShowcase />
 
       {/* Enhanced Client Partner Testimonials - Social proof builds credibility */}
       <TestimonialsSection
@@ -152,149 +151,149 @@ export default function Home() {
         ></div>
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible>
-            <div className="mb-12 sm:mb-16 text-center">
-              <div className="flex justify-center items-center mb-6 sm:mb-8">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 rounded-2xl shadow-lg">
+          <div className="mb-12 sm:mb-16 lg:mb-20 text-center scroll-reveal">
+            <div className="flex justify-center items-center mb-6 sm:mb-8">
+              <div className="relative">
+                <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 rounded-2xl shadow-lg">
+                  <MaterialIcon
+                    icon="construction"
+                    size="2xl"
+                    className="text-white"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+                Our Commitment to
+              </span>
+              <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
+                Honesty & Excellence
+              </span>
+            </h2>
+
+            <div className="mx-auto max-w-4xl space-y-6">
+              <p className="font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4">
+                Just as{" "}
+                <span className="font-semibold text-gray-800 dark:text-gray-200">
+                  honesty and integrity
+                </span>{" "}
+                guide every construction project, we apply the same core values
+                to our digital presence—because{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  trust is built through transparent communication
+                </span>
+                .
+              </p>
+
+              {/* Transparency Notice */}
+              <div className="bg-gradient-to-br from-brand-primary/10 via-white to-brand-secondary/10 dark:from-brand-primary/20 dark:via-gray-800 dark:to-brand-secondary/20 p-8 sm:p-10 border-2 border-brand-primary/30 dark:border-brand-primary/40 rounded-2xl shadow-lg mx-4 sm:mx-8">
+                <div className="flex justify-center items-center mb-6">
+                  <div className="bg-brand-primary/20 dark:bg-brand-primary/30 p-3 rounded-full">
                     <MaterialIcon
-                      icon="construction"
-                      size="2xl"
-                      className="text-white"
+                      icon="handshake"
+                      size="xl"
+                      className="text-brand-primary dark:text-brand-primary-light"
                     />
                   </div>
                 </div>
-              </div>
 
-              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                  Our Commitment to
-                </span>
-                <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                  Honesty & Excellence
-                </span>
-              </h2>
+                <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 text-xl sm:text-2xl">
+                  🔧 Website Enhancement In Progress
+                </h3>
 
-              <div className="mx-auto max-w-4xl space-y-6">
-                <p className="font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4">
-                  Just as{" "}
-                  <span className="font-semibold text-gray-800 dark:text-gray-200">
-                    honesty and integrity
-                  </span>{" "}
-                  guide every construction project, we apply the same core
-                  values to our digital presence—because{" "}
+                <p className="mb-4 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                  Because our core values include{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    trust is built through transparent communication
+                    honesty, thoroughness, and integrity
                   </span>
-                  .
+                  , we want you to know: this website is currently being
+                  optimized to reflect the same professional excellence we bring
+                  to every construction project.
                 </p>
 
-                {/* Transparency Notice */}
-                <div className="bg-gradient-to-br from-brand-primary/10 via-white to-brand-secondary/10 dark:from-brand-primary/20 dark:via-gray-800 dark:to-brand-secondary/20 p-8 sm:p-10 border-2 border-brand-primary/30 dark:border-brand-primary/40 rounded-2xl shadow-lg mx-4 sm:mx-8">
-                  <div className="flex justify-center items-center mb-6">
-                    <div className="bg-brand-primary/20 dark:bg-brand-primary/30 p-3 rounded-full">
+                <p className="mb-4 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                  <em>"Your Word Is Your Bond - So Is Ours."</em> Trust isn't
+                  just earned on job sites—it's built through transparent
+                  communication everywhere. Every detail on this site will
+                  reflect our six core values: Professionalism, Thoroughness,
+                  Honesty, Integrity, Innovation, and Partnership.
+                </p>
+
+                <div className="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm p-6 border border-brand-secondary/30 rounded-xl mt-6">
+                  <p className="font-semibold text-gray-900 dark:text-gray-100 text-base sm:text-lg">
+                    💬 What This Means for You:
+                  </p>
+                  <ul className="space-y-2 mt-4 text-gray-700 dark:text-gray-300 text-sm sm:text-base text-left">
+                    <li className="flex items-start">
                       <MaterialIcon
-                        icon="handshake"
-                        size="xl"
-                        className="text-brand-primary dark:text-brand-primary-light"
+                        icon="check_circle"
+                        size="sm"
+                        className="text-brand-primary mr-2 mt-1 flex-shrink-0"
                       />
-                    </div>
-                  </div>
-
-                  <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 text-xl sm:text-2xl">
-                    🔧 Website Enhancement In Progress
-                  </h3>
-
-                  <p className="mb-4 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                    Because our core values include{" "}
-                    <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                      honesty, thoroughness, and integrity
-                    </span>
-                    , we want you to know: this website is currently being
-                    optimized to reflect the same professional excellence we
-                    bring to every construction project.
-                  </p>
-
-                  <p className="mb-4 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                    <em>"Your Word Is Your Bond - So Is Ours."</em> Trust isn't
-                    just earned on job sites—it's built through transparent
-                    communication everywhere. Every detail on this site will
-                    reflect our six core values: Professionalism, Thoroughness,
-                    Honesty, Integrity, Innovation, and Partnership.
-                  </p>
-
-                  <div className="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm p-6 border border-brand-secondary/30 rounded-xl mt-6">
-                    <p className="font-semibold text-gray-900 dark:text-gray-100 text-base sm:text-lg">
-                      💬 What This Means for You:
-                    </p>
-                    <ul className="space-y-2 mt-4 text-gray-700 dark:text-gray-300 text-sm sm:text-base text-left">
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary mr-2 mt-1 flex-shrink-0"
-                        />
-                        <span>
-                          All core services, contact information, and booking
-                          capabilities are fully operational
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary mr-2 mt-1 flex-shrink-0"
-                        />
-                        <span>
-                          We're refining content to ensure 100% accuracy and
-                          authenticity
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary mr-2 mt-1 flex-shrink-0"
-                        />
-                        <span>
-                          Every word, image, and detail will meet our exacting
-                          standards
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary mr-2 mt-1 flex-shrink-0"
-                        />
-                        <span>
-                          You can still reach us at{" "}
-                          <a
-                            href="tel:+15093086489"
-                            className="font-semibold text-brand-primary hover:text-brand-primary-dark underline"
-                          >
-                            (509) 308-6489
-                          </a>{" "}
-                          for immediate assistance
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
+                      <span>
+                        All core services, contact information, and booking
+                        capabilities are fully operational
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        size="sm"
+                        className="text-brand-primary mr-2 mt-1 flex-shrink-0"
+                      />
+                      <span>
+                        We're refining content to ensure 100% accuracy and
+                        authenticity
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        size="sm"
+                        className="text-brand-primary mr-2 mt-1 flex-shrink-0"
+                      />
+                      <span>
+                        Every word, image, and detail will meet our exacting
+                        standards
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="check_circle"
+                        size="sm"
+                        className="text-brand-primary mr-2 mt-1 flex-shrink-0"
+                      />
+                      <span>
+                        You can still reach us at{" "}
+                        <a
+                          href="tel:+15093086489"
+                          className="font-semibold text-brand-primary hover:text-brand-primary-dark underline"
+                        >
+                          (509) 308-6489
+                        </a>{" "}
+                        for immediate assistance
+                      </span>
+                    </li>
+                  </ul>
                 </div>
-
-                <p className="font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed tracking-wide px-4 mt-8">
-                  <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
-                    Building for the Client, NOT the Dollar
-                  </span>{" "}
-                  means never compromising our values—whether it’s a
-                  construction project or the information we provide online. Our
-                  six core values guide everything we do. Thank you for your
-                  patience as we perfect every detail to serve you better.
-                </p>
               </div>
+
+              <p className="font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed tracking-wide px-4 mt-8">
+                <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
+                  Building for the Client,{" "}
+                  <span className="font-black text-bronze-300">NOT</span> the
+                  Dollar
+                </span>{" "}
+                means never compromising our values—whether it’s a construction
+                project or the information we provide online. Our six core
+                values guide everything we do. Thank you for your patience as we
+                perfect every detail to serve you better.
+              </p>
             </div>
-          </FadeInWhenVisible>
+          </div>
         </div>
       </section>
 

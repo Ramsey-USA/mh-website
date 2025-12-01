@@ -31,10 +31,11 @@ export function AboutHero() {
 
           {/* Description - Heritage storytelling with past achievements */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            "Building for the Client, NOT the Dollar" — Founded 2010,
-            veteran-owned since January 2025 under Army veteran leadership. Our
-            story is written in the projects we've completed and the
-            relationships we've built. From humble beginnings to regional
+            "Building for the Client,{" "}
+            <span className="font-black text-bronze-300">NOT</span> the Dollar"
+            — Founded 2010, veteran-owned since January 2025 under Army veteran
+            leadership. Our story is written in the projects we've completed and
+            the relationships we've built. From humble beginnings to regional
             leadership, our history speaks for itself. Where Precision Meets
             Partnership.
           </p>

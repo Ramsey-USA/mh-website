@@ -165,12 +165,13 @@ export default function UrgentSupportPage() {
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
               Professional support for General Contractors facing critical
-              challenges. "Building for the Client, NOT the Dollar" means being
-              there when you need us most. Expert consultation, heavy equipment
-              with certified operators, and experienced crews ready for
-              immediate deployment. We fix the source—foundations, structural
-              systems, and roofing failures. Your urgent need is our immediate
-              priority.
+              challenges. "Building for the Client,{" "}
+              <span className="font-black text-bronze-300">NOT</span> the
+              Dollar" means being there when you need us most. Expert
+              consultation, heavy equipment with certified operators, and
+              experienced crews ready for immediate deployment. We fix the
+              source—foundations, structural systems, and roofing failures. Your
+              urgent need is our immediate priority.
             </p>
           </div>
         </div>

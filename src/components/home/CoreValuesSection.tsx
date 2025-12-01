@@ -123,7 +123,8 @@ export function CoreValuesSection() {
           </div>
           <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
             <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-              Building for the Client, NOT the Dollar
+              Building for the Client,{" "}
+              <span className="font-black text-bronze-300">NOT</span> the Dollar
             </span>
             <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
               Our Six Core Values

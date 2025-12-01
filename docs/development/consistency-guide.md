@@ -829,12 +829,51 @@ npm run build
 
 ## � Digital Asset Implementation
 
+### Primary Slogan Styling Rule
+
+**CRITICAL STYLING REQUIREMENT**: When displaying the slogan "Building for the Client, NOT the Dollar", the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the core philosophy.
+
+**Implementation Standards**:
+
+```tsx
+// ✅ CORRECT - Light backgrounds
+<p>
+  Building for the Client,{" "}
+  <span className="font-black text-bronze-300">NOT</span> the Dollar
+</p>
+
+// ✅ CORRECT - Dark backgrounds
+<p>
+  Building for the Client,{" "}
+  <span className="font-black text-brand-accent">NOT</span> the Dollar
+</p>
+
+// ❌ INCORRECT - No color distinction
+<p>Building for the Client, NOT the Dollar</p>
+```
+
+**Color Choices by Context**:
+
+- **Light backgrounds**: Use `text-bronze-300` or `text-brand-secondary`
+- **Dark backgrounds**: Use `text-bronze-300` or `text-brand-accent`
+- **Hero sections**: Use `text-bronze-300` for strong contrast
+- **Always bold**: Use `font-black` or `font-bold` on "NOT"
+
+**This applies to**:
+
+- All page hero sections
+- Footer taglines
+- Section descriptions
+- Email signatures (use color: #cd7f32)
+- Documentation examples
+- Marketing materials
+
 ### Business Card Standards
 
 **Required Elements**:
 
 - Company name: "MH Construction, Inc."
-- Primary tagline: "Building for the Client, NOT the Dollar"
+- Primary tagline: "Building for the Client, **NOT** the Dollar" (NOT in contrasting color)
 - Phone: (509) 308-6489
 - Address: "3111 N. Capitol Ave., Pasco, WA 99301"
 - Email: <office@mhc-gc.com>
