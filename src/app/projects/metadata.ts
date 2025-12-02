@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     "Pasco projects",
     "Kennewick construction",
     "Richland contractor projects",
+    "Benton County construction portfolio",
+    "Franklin County projects",
+    "general contractor projects Tri-Cities",
     "Pacific Northwest construction",
   ],
   openGraph: {

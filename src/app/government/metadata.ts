@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     "federal contracting",
     "government building construction",
     "veteran federal contractor",
+    "Tri-Cities government contractor",
+    "Richland federal contractor",
+    "Pasco government construction",
+    "Hanford contractor services",
+    "Benton County government projects",
+    "Franklin County federal contractor",
   ],
   openGraph: {
     title: "Government Construction Services - MH Construction",

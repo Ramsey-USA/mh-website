@@ -13,6 +13,11 @@ export const metadata: Metadata = {
     "construction vendor",
     "partner with contractor",
     "Tri-Cities subcontractors",
+    "Richland trade partner network",
+    "Pasco subcontractor work",
+    "Kennewick construction partnerships",
+    "Benton County subcontractors",
+    "Franklin County trade partners",
     "veteran-owned partnerships",
   ],
   openGraph: {

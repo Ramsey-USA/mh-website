@@ -16,6 +16,10 @@ export const metadata: Metadata = {
     "commercial construction estimate",
     "cost calculator",
     "veteran-owned estimator",
+    "Tri-Cities construction estimator",
+    "Richland construction estimates",
+    "Pasco construction costs",
+    "Kennewick construction estimator",
   ],
   openGraph: {
     title: "AI Estimator - Free Budget Planning Tool",
