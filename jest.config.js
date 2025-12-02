@@ -54,12 +54,7 @@ const customJestConfig = {
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
 
   // Ignore patterns
-  testPathIgnorePatterns: [
-    "/node_modules/",
-    "/.next/",
-    "/backups/",
-    "/.config-backup/",
-  ],
+  testPathIgnorePatterns: ["/node_modules/", "/.next/", "/backups/"],
 
   // Coverage report formats
   coverageReporters: ["text", "lcov", "html", "json"],

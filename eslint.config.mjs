@@ -58,7 +58,6 @@ const eslintConfig = [
       // Backups
       "**/*.bak",
       "**/*.backup",
-      ".config-backup/**",
 
       // IDE and OS files
       ".vscode/**",

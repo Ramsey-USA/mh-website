@@ -111,7 +111,7 @@ needed during local development.
 
 - ✅ Moved all primary configs to project root
 - ✅ Removed duplicate build configs from `config/build/`
-- ✅ Cleaned up `.bak` files (moved to `.config-backup/`)
+- ✅ Cleaned up `.bak` files (git history maintained)
 - ✅ Created comprehensive configuration documentation
 - ✅ Standardized configuration system across the project
 - ✅ Updated all 7 core configuration files with inline documentation
@@ -120,10 +120,10 @@ needed during local development.
 
 - ❌ `config/build/postcss.config.js` - Duplicate of root config
 - ❌ `config/build/tailwind.config.ts` - Duplicate of root config
-- ❌ Root-level `.bak` files - Moved to `.config-backup/` directory
+- ❌ Root-level `.bak` files - Tracked in git history
 
-**Why?** Eliminated confusion from duplicates. All active configs are now in the project root with backups stored
-in `.config-backup/` directory.
+**Why?** Eliminated confusion from duplicates. All active configs are in
+project root with full history in git.
 
 ### Before November 8, 2025
 

@@ -9,35 +9,29 @@
 This folder contains reusable templates and guidelines for creating consistent, high-quality documentation across
 the MH Construction codebase.
 
-## Available Templates
+## Available Template
 
 ### [Markdown Template](./markdown-template.md)
 
-Standard template for creating new documentation files with proper structure and metadata.
+Comprehensive template for creating new documentation files with proper
+structure, metadata, formatting rules, and best practices. Includes:
 
-### [Perfect Markdown Template](./perfect-markdown-template.md)
+- Proper spacing and formatting guidelines
+- Code block examples with language specifications
+- Status indicators and metadata blocks
+- Navigation patterns
+- Pre-commit checklist
+- Common lint issue solutions
 
-Enhanced template with best practices, advanced formatting, and comprehensive examples.
+## Using the Template
 
-### [Simple Rules](./simple-rules.md)
-
-Quick reference for markdown documentation standards and conventions.
-
-## Using Templates
-
-1. Copy the appropriate template file
+1. Copy `markdown-template.md` to your target location
 2. Rename to match your documentation topic
-3. Fill in the sections with your content
-4. Follow the metadata and formatting guidelines
-5. Link from appropriate index files
-
-## Template Selection Guide
-
-| Use Case                 | Template                       | When to Use                          |
-| ------------------------ | ------------------------------ | ------------------------------------ |
-| **Simple docs**          | `markdown-template.md`         | Quick references, small guides       |
-| **Comprehensive guides** | `perfect-markdown-template.md` | Technical documentation, full guides |
-| **Quick checks**         | `simple-rules.md`              | Validation, standards reference      |
+3. Fill in the metadata block (Category, Date, Status)
+4. Add navigation links to parent/related documents
+5. Replace content sections with your documentation
+6. Follow the formatting guidelines provided in template
+7. Run `npm run lint:markdown` before committing
 
 ## Best Practices
 

@@ -106,7 +106,7 @@ npm run lint:fix
 - Build outputs: `.next/`, `dist/`, `build/`
 - Tests: `**/*.test.*`, `**/*.spec.*`
 - Config files: `*.config.js`, `*.config.mjs`
-- Backups: `.config-backup/`, `**/*.bak`
+- Backups: `backups/`, `**/*.bak`
 - Scripts: `scripts/**/*.js`
 
 ---
@@ -487,25 +487,28 @@ Comprehensive spell checking for code and documentation files.
 
 ---
 
-## 🔄 Configuration Backups
+## 🔄 Configuration History
 
-All original configuration files are backed up in `.config-backup/` directory:
-
-```text
-.config-backup/
-├── eslint.config.mjs
-├── tsconfig.json
-├── next.config.js
-├── tailwind.config.ts
-├── jest.config.js
-├── postcss.config.js
-└── cspell.json
-```
-
-To restore a previous configuration:
+All configuration changes are tracked in git history. To restore a
+previous configuration or view changes:
 
 ```bash
-cp .config-backup/[filename] ./[filename]
+# View configuration file history
+git log --follow -- eslint.config.mjs
+
+# See changes in a specific commit
+git show <commit-hash>:eslint.config.mjs
+
+# Restore a previous version
+git checkout <commit-hash> -- eslint.config.mjs
+```
+
+Common configuration recovery:
+
+```bash
+# Restore from a specific date
+git log --until="2025-11-01" --format=%H --max-count=1 | \
+  xargs git checkout -- eslint.config.mjs
 ```
 
 ---

@@ -48,13 +48,7 @@ const nextConfig = {
     // Exclude backup directories from compilation
     config.module.rules.push({
       test: /\.(ts|tsx|js|jsx)$/,
-      exclude: [
-        /node_modules/,
-        /backups/,
-        /\.backup\./,
-        /\.next/,
-        /\.config-backup/,
-      ],
+      exclude: [/node_modules/, /backups/, /\.backup\./, /\.next/],
     });
 
     // Enhanced module resolution
