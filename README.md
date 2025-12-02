@@ -729,6 +729,9 @@ Full documentation: [Partnership Type Definitions](./docs/partnerships/partnersh
 
 **Service Area:** Pacific Northwest (Washington, Oregon, Idaho)
 
+- **Primary:** Tri-Cities area (Richland, Pasco, Kennewick), Benton County, Franklin County
+- **Extended:** Yakima, Spokane, Walla Walla, Hermiston, Coeur d'Alene, Eastern Washington
+
 ---
 
 ## 🤝 Contributing

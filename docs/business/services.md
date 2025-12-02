@@ -4,6 +4,9 @@
 
 **Tri-Cities Headquarters**: Pasco, WA | **Service Area**: Washington, Oregon, Idaho
 
+**Primary Service Area**: Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County
+**Extended Service Areas**: Yakima, Spokane, Walla Walla, Hermiston, Coeur d'Alene, Eastern Washington
+
 ---
 
 ## 🏗️ Our Construction Expertise
@@ -264,15 +267,19 @@ or new construction project.
 
 ### **Primary Service Area**
 
-- **Tri-Cities, WA**: Pasco, Kennewick, Richland
+- **Tri-Cities, WA**: Richland, Pasco, Kennewick
 - **Benton County, WA**
 - **Franklin County, WA**
 
 ### **Extended Service Area**
 
-- **Washington State**: Statewide commercial projects
-- **Oregon**: Licensed for commercial construction
-- **Idaho**: Licensed for commercial construction
+- **Washington State**: Yakima, Spokane, Walla Walla, Eastern Washington
+- **Oregon**: Hermiston and licensed for commercial construction statewide
+- **Idaho**: Coeur d'Alene and licensed for commercial construction statewide
+
+**Note**: Many users search for "general contractor" followed by city name (e.g., "general contractor Richland",
+"Pasco general contractor", "general contractor Kennewick"). MH Construction is a licensed general contractor
+serving all these communities.
 
 ### **Project Size Range**
 

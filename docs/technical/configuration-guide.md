@@ -304,12 +304,14 @@ dark mode support.
 ```typescript
 brand: {
   primary: "#386851",        // Hunter Green
-  "primary-light": "#4a8166",
-  "primary-dark": "#2a5240",
+  "primary-light": "#4a7a63",
+  "primary-dark": "#2d5240",
   secondary: "#BD9264",      // Leather Tan
-  "secondary-light": "#d4a876",
-  "secondary-dark": "#a57d52",
-  accent: "#D4AF37",         // Gold accent
+  "secondary-light": "#c9a176",
+  "secondary-dark": "#a67d52",
+  accent: "#BD9264",         // Leather Tan (matches secondary)
+  "accent-light": "#c9a176",
+  "accent-dark": "#a67d52",
 }
 ```
 

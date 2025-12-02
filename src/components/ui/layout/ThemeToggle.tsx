@@ -92,7 +92,7 @@ export function ThemeToggle({
           <div
             className={`
               absolute inset-1 rounded-full 
-              bg-gradient-to-r from-[#386851] to-[#2D5443]
+              bg-gradient-to-r from-[#386851] to-[#2d5240]
               transition-transform duration-300 ease-in-out
               ${isDarkMode ? "translate-x-0" : "translate-x-full"}
             `}
@@ -147,7 +147,7 @@ export function ThemeToggle({
               focus:outline-none focus:ring-2 focus:ring-[#386851] focus:ring-offset-2
               ${
                 theme === key
-                  ? "bg-gradient-to-r from-[#386851] to-[#2D5443] text-white shadow-md transform scale-105"
+                  ? "bg-gradient-to-r from-[#386851] to-[#2d5240] text-white shadow-md transform scale-105"
                   : "text-gray-600 dark:text-gray-400 hover:text-[#386851] dark:hover:text-[#BD9264] hover:bg-white dark:hover:bg-gray-700"
               }
             `}

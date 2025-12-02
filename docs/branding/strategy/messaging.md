@@ -3,8 +3,12 @@
 **Date:** November 20, 2025
 **Status:** ✅ Current
 **Category:** Business - Brand Guidelines
-**Version:** 5.0.0
-**Last Updated:** November 20, 2025
+**Version:** 5.1.0
+**Last Updated:** December 2, 2025
+
+**⭐ IMPORTANT UPDATE (Dec 2, 2025)**: New **[SEO Messaging Strategy](../../technical/seo/seo-messaging-strategy.md)**
+provides systematic implementation of local SEO keywords across all website content using centralized content
+fragments and reusable patterns.
 
 **⭐ IMPORTANT UPDATE (Nov 2025)**: This document integrates our **six-value professional foundation
 system** from [core-values.md](../../business/core-values.md). All messaging is built upon our core values:
@@ -21,6 +25,7 @@ groups with unique voices, tones, and keyword priorities.
 - [📋 Brand Overview](./brand-overview.md)
 - [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Six-value professional system
 - [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
+- [🔍 SEO Messaging Strategy](../../technical/seo/seo-messaging-strategy.md) - ⭐ **NEW** - Local SEO optimization
 - [🎨 Color System](../standards/color-system.md)
 - [📝 Typography](../standards/typography.md)
 - [🔧 Icon Policy](../standards/icon-policy-complete.md)
@@ -341,16 +346,33 @@ Trust is the ultimate goal—earned through consistent demonstration of all six 
 
 **Supporting Points**:
 
-- Tri-Cities area specialization
+- Tri-Cities area specialization (Richland, Pasco, Kennewick)
+- Benton County and Franklin County expertise
 - Licensed in WA, OR, ID
+- Extended service areas: Yakima, Spokane, Walla Walla, Hermiston, Coeur d'Alene
 - Local supplier relationships
 - Understanding of regional regulations
 
+**Service Area Details**:
+
+- **Primary**: Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County
+- **Extended**: Yakima, Spokane, Walla Walla, Hermiston, Coeur d'Alene, Eastern Washington
+
 **Example Applications**:
 
-- "Rooted in the Tri-Cities, serving the Pacific Northwest"
-- "Local expertise, regional reach"
-- "Your neighbors in quality construction"
+- "Rooted in the Tri-Cities (Richland, Pasco, Kennewick), serving the Pacific Northwest"
+- "Serving Benton and Franklin Counties with local expertise and regional reach"
+- "Your neighbors in quality construction across Eastern Washington"
+
+**⭐ SEO Integration**: For systematic application of location keywords across all web content, see the
+**[SEO Messaging Strategy](../../technical/seo/seo-messaging-strategy.md)** which provides:
+
+- Centralized SEO content fragments library
+- Reusable location and keyword patterns
+- Natural language integration guidelines
+- Page-by-page implementation strategy
+
+Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, SEO-optimized location mentions.
 
 ## Content Style Guidelines
 

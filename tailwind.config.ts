@@ -16,13 +16,13 @@ const config: Config = {
       colors: {
         brand: {
           primary: "#386851",
-          "primary-light": "#4a8d6a",
-          "primary-dark": "#2a503d",
+          "primary-light": "#4a7a63",
+          "primary-dark": "#2d5240",
           secondary: "#BD9264",
-          "secondary-light": "#d4a877",
+          "secondary-light": "#c9a176",
           "secondary-dark": "#a67d52",
           accent: "#BD9264",
-          "accent-light": "#d4a877",
+          "accent-light": "#c9a176",
           "accent-dark": "#a67d52",
         },
         bronze: {
@@ -44,7 +44,7 @@ const config: Config = {
           300: "#8cc3a8",
           400: "#66af8b",
           500: "#386851",
-          600: "#2f5844",
+          600: "#2d5240",
           700: "#264737",
           800: "#1d362a",
           900: "#14251d",
@@ -169,7 +169,7 @@ const config: Config = {
             a: {
               color: "#386851",
               "&:hover": {
-                color: "#2a503d",
+                color: "#2d5240",
               },
             },
           },

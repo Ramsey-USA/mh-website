@@ -105,8 +105,8 @@ export function BaseballCard({ member }: BaseballCardProps) {
               className={`${
                 isMascot
                   ? "bg-gradient-to-r from-amber-500 to-orange-500"
-                  : "bg-gradient-to-r from-[#386851] to-[#2D5443]"
-              } px-6 py-4`}
+                  : "bg-gradient-to-r from-[#386851] to-[#2d5240]"
+              } px-6 py-3`}
             >
               <div className="flex justify-between items-center">
                 <div className="flex items-center">
@@ -212,13 +212,13 @@ export function BaseballCard({ member }: BaseballCardProps) {
                 : "bg-gradient-to-br from-white via-gray-50 to-gray-100 border-gray-200"
             } shadow-lg border-2 rounded-2xl overflow-hidden`}
           >
-            {/* Back Header */}
+            {/* Footer */}
             <div
               className={`${
                 isMascot
                   ? "bg-gradient-to-r from-amber-500 to-orange-500"
-                  : "bg-gradient-to-r from-[#386851] to-[#2D5443]"
-              } px-6 py-4`}
+                  : "bg-gradient-to-r from-[#386851] to-[#2d5240]"
+              } px-6 py-3`}
             >
               <div className="text-center">
                 <span className="font-bold text-white text-sm uppercase tracking-wide">

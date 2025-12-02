@@ -190,26 +190,26 @@
 
 ### Success Colors
 
-**Light Mode:** Hunter Green `#386851` - Using brand primary for positive states
-**Dark Mode:** Hunter Green Light `#4a7a63` - Lighter variant for dark backgrounds
+**Light Mode:** `#10b981` (Tailwind Green-500) - Standard success green
+**Dark Mode:** `#22c55e` (Tailwind Green-400) - Lighter variant for dark backgrounds
 **Usage:** Success messages, completed states, positive indicators
 
 ### Warning Colors
 
-**Light Mode:** Leather Tan `#BD9264` - Using brand secondary for caution states
-**Dark Mode:** Leather Tan Light `#c9a176` - Lighter variant for dark backgrounds
+**Light Mode:** `#f59e0b` (Tailwind Amber-500) - Standard warning amber
+**Dark Mode:** `#fbbf24` (Tailwind Amber-400) - Lighter variant for dark backgrounds
 **Usage:** Warning messages, caution states, attention indicators
 
 ### Error Colors
 
-**Light Mode:** `#424242` (Dark Gray) - Professional error indication
-**Dark Mode:** `#BDBDBD` (Light Gray) - Inverted for dark backgrounds
+**Light Mode:** `#ef4444` (Tailwind Red-500) - Standard error red
+**Dark Mode:** `#f87171` (Tailwind Red-400) - Lighter variant for dark backgrounds
 **Usage:** Error messages, failure states, destructive actions
 
 ### Info Colors
 
-**Light Mode:** `#757575` (Medium Gray) - Neutral information indication
-**Dark Mode:** `#9E9E9E` (Medium Light Gray) - Adjusted for dark backgrounds
+**Light Mode:** `#3b82f6` (Tailwind Blue-500) - Standard info blue
+**Dark Mode:** `#60a5fa` (Tailwind Blue-400) - Lighter variant for dark backgrounds
 **Usage:** Information messages, neutral notifications
 
 ---
@@ -384,10 +384,10 @@
   --color-border: #E0E0E0;
 
   /* Semantic Colors */
-  --color-success: #4CAF50;
-  --color-warning: #FF9800;
-  --color-error: #F44336;
-  --color-info: #2196F3;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
 }
 
 [data-theme="dark"] {
@@ -399,10 +399,10 @@
   --color-border: #424242;
 
   /* Dark Mode Semantic */
-  --color-success: #66BB6A;
-  --color-warning: #FFB74D;
-  --color-error: #EF5350;
-  --color-info: #42A5F5;
+  --color-success: #22c55e;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
 }
 ```text
 
@@ -434,10 +434,10 @@ module.exports = {
           900: '#212121'
         },
         semantic: {
-          success: '#4CAF50',
-          warning: '#FF9800',
-          error: '#F44336',
-          info: '#2196F3'
+          success: '#10b981',
+          warning: '#f59e0b',
+          error: '#ef4444',
+          info: '#3b82f6'
         }
       }
     }
