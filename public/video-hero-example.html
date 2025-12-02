@@ -1,437 +1,471 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MH Construction, Inc. - Veteran-owned general contractor serving the Pacific Northwest. Building for the Client, NOT the Dollar.">
-  <title>MH Construction, Inc. - Building Excellence</title>
-  
-  <style>
-    /* Reset & Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MH Construction, Inc. - Veteran-owned general contractor serving the Pacific Northwest. Building for the Client, NOT the Dollar."
+    />
+    <title>MH Construction, Inc. - Building Excellence</title>
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1e293b;
-    }
-
-    /* Video Hero Container */
-    .video-hero-container {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      min-height: 600px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Video Background - Behind Everything (z-index: -1) */
-    .video-hero-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      z-index: -1;
-      background-color: #1e293b;
-      opacity: 0.95;
-      transition: opacity 1s ease-in-out;
-    }
-
-    /* Video playing state */
-    .video-hero-background.video-playing {
-      opacity: 1;
-    }
-
-    /* Dark overlay for text contrast */
-    .video-hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        135deg,
-        rgba(15, 23, 42, 0.7) 0%,
-        rgba(30, 41, 59, 0.6) 50%,
-        rgba(15, 23, 42, 0.8) 100%
-      );
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Content Wrapper */
-    .video-hero-content {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      max-width: 1200px;
-      padding: 2rem;
-      text-align: center;
-      color: white;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    /* Badge */
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(16, 185, 129, 0.8);
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      margin-bottom: 1.5rem;
-      backdrop-filter: blur(8px);
-    }
-
-    .hero-badge svg {
-      width: 1.25rem;
-      height: 1.25rem;
-    }
-
-    .hero-badge span {
-      font-size: 0.875rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
-
-    /* Main Heading */
-    .hero-heading {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      line-height: 1.1;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Tagline */
-    .hero-tagline {
-      font-size: clamp(1.25rem, 3vw, 2rem);
-      font-weight: 600;
-      color: #a7f3d0;
-      margin-bottom: 1rem;
-    }
-
-    /* Description */
-    .hero-description {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      color: #e2e8f0;
-      max-width: 48rem;
-      margin: 0 auto 2.5rem;
-    }
-
-    /* CTA Buttons */
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 0.5rem;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: #10b981;
-      color: white;
-      box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
-    }
-
-    .btn-primary:hover {
-      background: #059669;
-      box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.4);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border: 2px solid white;
-      backdrop-filter: blur(8px);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-    }
-
-    .btn svg {
-      width: 1.25rem;
-      height: 1.25rem;
-    }
-
-    /* Scroll Indicator */
-    .scroll-indicator {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-      text-align: center;
-      animation: fadeIn 2s ease-out 1s both;
-    }
-
-    .scroll-indicator span {
-      display: block;
-      font-size: 0.875rem;
-      color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 0.5rem;
-    }
-
-    .scroll-indicator svg {
-      width: 1.5rem;
-      height: 1.5rem;
-      color: white;
-      animation: bounce 2s infinite;
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+    <style>
+      /* Reset & Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        color: #1e293b;
       }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
+      /* Video Hero Container */
       .video-hero-container {
-        min-height: 500px;
-        height: 100svh;
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        min-height: 600px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
+      /* Video Background - Behind Everything (z-index: -1) */
+      .video-hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: -1;
+        background-color: #1e293b;
+        opacity: 0.95;
+        transition: opacity 1s ease-in-out;
+      }
+
+      /* Video playing state */
+      .video-hero-background.video-playing {
+        opacity: 1;
+      }
+
+      /* Dark overlay for text contrast */
+      .video-hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.7) 0%,
+          rgba(30, 41, 59, 0.6) 50%,
+          rgba(15, 23, 42, 0.8) 100%
+        );
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      /* Content Wrapper */
       .video-hero-content {
-        padding: 1.5rem;
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        max-width: 1200px;
+        padding: 2rem;
+        text-align: center;
+        color: white;
+        animation: fadeInUp 1s ease-out;
       }
 
+      /* Badge */
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(16, 185, 129, 0.8);
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        margin-bottom: 1.5rem;
+        backdrop-filter: blur(8px);
+      }
+
+      .hero-badge svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+
+      .hero-badge span {
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+      }
+
+      /* Main Heading */
+      .hero-heading {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Tagline */
+      .hero-tagline {
+        font-size: clamp(1.25rem, 3vw, 2rem);
+        font-weight: 600;
+        color: #a7f3d0;
+        margin-bottom: 1rem;
+      }
+
+      /* Description */
+      .hero-description {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        color: #e2e8f0;
+        max-width: 48rem;
+        margin: 0 auto 2.5rem;
+      }
+
+      /* CTA Buttons */
       .hero-cta {
-        flex-direction: column;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
       }
 
       .btn {
-        width: 100%;
-        justify-content: center;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
       }
-    }
 
-    @media (max-width: 640px) {
-      .video-hero-container {
-        min-height: 450px;
+      .btn-primary {
+        background: #10b981;
+        color: white;
+        box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
       }
 
+      .btn-primary:hover {
+        background: #059669;
+        box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.4);
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 2px solid white;
+        backdrop-filter: blur(8px);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .btn svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+
+      /* Scroll Indicator */
       .scroll-indicator {
-        bottom: 1rem;
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        text-align: center;
+        animation: fadeIn 2s ease-out 1s both;
       }
-    }
 
-    /* Accessibility: Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
-      .video-hero-background,
-      .video-hero-content,
-      .scroll-indicator,
+      .scroll-indicator span {
+        display: block;
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 0.5rem;
+      }
+
       .scroll-indicator svg {
-        animation: none;
-        transition: none;
+        width: 1.5rem;
+        height: 1.5rem;
+        color: white;
+        animation: bounce 2s infinite;
       }
-    }
 
-    /* Screen Reader Only */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border-width: 0;
-    }
-  </style>
-</head>
-<body>
-  <!-- Video Hero Section -->
-  <section class="video-hero-container">
-    <!-- Video Background with Poster (CRITICAL for LCP) -->
-    <video
-      id="hero-video"
-      class="video-hero-background"
-      poster="/images/hero-poster-optimized.webp"
-      loop
-      muted
-      playsinline
-      preload="none"
-      aria-label="MH Construction hero background video"
-    >
-      <!-- WebM Format - Best Compression (Primary) -->
-      <source
-        src="/videos/mh-hero-desktop.webm"
-        type="video/webm"
-        media="(min-width: 769px)"
-      />
-      <source
-        src="/videos/mh-hero-mobile.webm"
-        type="video/webm"
-        media="(max-width: 768px)"
-      />
-      
-      <!-- MP4 Format - Universal Fallback -->
-      <source
-        src="/videos/mh-hero-desktop.mp4"
-        type="video/mp4"
-        media="(min-width: 769px)"
-      />
-      <source
-        src="/videos/mh-hero-mobile.mp4"
-        type="video/mp4"
-        media="(max-width: 768px)"
-      />
-      
-      <!-- Fallback for browsers without video support -->
-      <p class="sr-only">
-        Your browser does not support the video tag. MH Construction - Building Excellence.
-      </p>
-    </video>
-
-    <!-- Overlay for text contrast -->
-    <div class="video-hero-overlay"></div>
-
-    <!-- Hero Content -->
-    <div class="video-hero-content">
-      <!-- Veteran Badge -->
-      <div class="hero-badge">
-        <svg fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
-        </svg>
-        <span>Veteran-Owned & Operated</span>
-      </div>
-
-      <!-- Main Heading -->
-      <h1 class="hero-heading">MH Construction, Inc.</h1>
-
-      <!-- Tagline -->
-      <p class="hero-tagline">Building for the Client, NOT the Dollar</p>
-
-      <!-- Description -->
-      <p class="hero-description">
-        Serving the Pacific Northwest with integrity, quality craftsmanship, 
-        and an old-school mentality since 2010.
-      </p>
-
-      <!-- Call-to-Action Buttons -->
-      <div class="hero-cta">
-        <a href="/contact" class="btn btn-primary">
-          Get Free Consultation
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
-        </a>
-        <a href="/portfolio" class="btn btn-secondary">
-          View Our Work
-        </a>
-      </div>
-    </div>
-
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-      <span>Scroll to explore</span>
-      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-      </svg>
-    </div>
-  </section>
-
-  <!-- JavaScript for LCP Optimization -->
-  <script>
-    /**
-     * LCP-Optimized Video Loading Strategy
-     * 
-     * Key Points:
-     * 1. Poster image displays immediately (LCP element)
-     * 2. Video only loads/plays AFTER window.load event
-     * 3. Smooth transition from poster to video
-     */
-    
-    (function() {
-      const video = document.getElementById('hero-video');
-      
-      if (!video) return;
-
-      // Wait for page load (after LCP is recorded)
-      window.addEventListener('load', function() {
-        // Small delay to ensure LCP is captured
-        setTimeout(function() {
-          // Start loading video
-          video.load();
-          
-          // Attempt autoplay
-          video.play()
-            .then(function() {
-              // Video is playing - add class for transition
-              video.classList.add('video-playing');
-              console.log('Video playing successfully');
-            })
-            .catch(function(error) {
-              console.log('Video autoplay prevented:', error);
-              // Poster image will remain visible as fallback
-            });
-        }, 100);
-      });
-
-      // Fallback: Handle video load errors
-      video.addEventListener('error', function() {
-        console.log('Video failed to load - poster image fallback active');
-      });
-
-      // Optional: Pause video when tab is not visible (saves bandwidth)
-      document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-          video.pause();
-        } else if (video.paused) {
-          video.play().catch(function(error) {
-            console.log('Video resume prevented:', error);
-          });
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
         }
-      });
-    })();
-  </script>
-</body>
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .video-hero-container {
+          min-height: 500px;
+          height: 100svh;
+        }
+
+        .video-hero-content {
+          padding: 1.5rem;
+        }
+
+        .hero-cta {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .video-hero-container {
+          min-height: 450px;
+        }
+
+        .scroll-indicator {
+          bottom: 1rem;
+        }
+      }
+
+      /* Accessibility: Reduced Motion */
+      @media (prefers-reduced-motion: reduce) {
+        .video-hero-background,
+        .video-hero-content,
+        .scroll-indicator,
+        .scroll-indicator svg {
+          animation: none;
+          transition: none;
+        }
+      }
+
+      /* Screen Reader Only */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Video Hero Section -->
+    <section class="video-hero-container">
+      <!-- Video Background with Poster (CRITICAL for LCP) -->
+      <video
+        id="hero-video"
+        class="video-hero-background"
+        poster="/images/hero-poster-optimized.webp"
+        loop
+        muted
+        playsinline
+        preload="none"
+        aria-label="MH Construction hero background video"
+      >
+        <!-- WebM Format - Best Compression (Primary) -->
+        <source
+          src="/videos/mh-hero-desktop.webm"
+          type="video/webm"
+          media="(min-width: 769px)"
+        />
+        <source
+          src="/videos/mh-hero-mobile.webm"
+          type="video/webm"
+          media="(max-width: 768px)"
+        />
+
+        <!-- MP4 Format - Universal Fallback -->
+        <source
+          src="/videos/mh-hero-desktop.mp4"
+          type="video/mp4"
+          media="(min-width: 769px)"
+        />
+        <source
+          src="/videos/mh-hero-mobile.mp4"
+          type="video/mp4"
+          media="(max-width: 768px)"
+        />
+
+        <!-- Fallback for browsers without video support -->
+        <p class="sr-only">
+          Your browser does not support the video tag. MH Construction -
+          Building Excellence.
+        </p>
+      </video>
+
+      <!-- Overlay for text contrast -->
+      <div class="video-hero-overlay"></div>
+
+      <!-- Hero Content -->
+      <div class="video-hero-content">
+        <!-- Veteran Badge -->
+        <div class="hero-badge">
+          <svg fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span>Veteran-Owned & Operated</span>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="hero-heading">MH Construction, Inc.</h1>
+
+        <!-- Tagline -->
+        <p class="hero-tagline">Building for the Client, NOT the Dollar</p>
+
+        <!-- Description -->
+        <p class="hero-description">
+          Serving the Pacific Northwest with integrity, quality craftsmanship,
+          and an old-school mentality since 2010.
+        </p>
+
+        <!-- Call-to-Action Buttons -->
+        <div class="hero-cta">
+          <a href="/contact" class="btn btn-primary">
+            Get Free Consultation
+            <svg
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
+            </svg>
+          </a>
+          <a href="/portfolio" class="btn btn-secondary"> View Our Work </a>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <span>Scroll to explore</span>
+        <svg
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <!-- JavaScript for LCP Optimization -->
+    <script>
+      /**
+       * LCP-Optimized Video Loading Strategy
+       *
+       * Key Points:
+       * 1. Poster image displays immediately (LCP element)
+       * 2. Video only loads/plays AFTER window.load event
+       * 3. Smooth transition from poster to video
+       */
+
+      (function () {
+        const video = document.getElementById("hero-video");
+
+        if (!video) return;
+
+        // Wait for page load (after LCP is recorded)
+        window.addEventListener("load", function () {
+          // Small delay to ensure LCP is captured
+          setTimeout(function () {
+            // Start loading video
+            video.load();
+
+            // Attempt autoplay
+            video
+              .play()
+              .then(function () {
+                // Video is playing - add class for transition
+                video.classList.add("video-playing");
+                console.log("Video playing successfully");
+              })
+              .catch(function (error) {
+                console.log("Video autoplay prevented:", error);
+                // Poster image will remain visible as fallback
+              });
+          }, 100);
+        });
+
+        // Fallback: Handle video load errors
+        video.addEventListener("error", function () {
+          console.log("Video failed to load - poster image fallback active");
+        });
+
+        // Optional: Pause video when tab is not visible (saves bandwidth)
+        document.addEventListener("visibilitychange", function () {
+          if (document.hidden) {
+            video.pause();
+          } else if (video.paused) {
+            video.play().catch(function (error) {
+              console.log("Video resume prevented:", error);
+            });
+          }
+        });
+      })();
+    </script>
+  </body>
 </html>
