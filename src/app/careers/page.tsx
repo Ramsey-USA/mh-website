@@ -77,9 +77,9 @@ export default function CareersPage() {
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              "Building for the Client,{" "}
-              <span className="font-black text-bronze-300">NOT</span> the
-              Dollar" — This isn't just how we treat customers—it's how we treat
+              "Building projects for the client,{" "}
+              <span className="font-black italic text-bronze-300">NOT</span> the
+              dollar" — This isn't just how we treat customers—it's how we treat
               YOU. Join a veteran-led team where your career growth is our
               mission, your success is celebrated daily, and your future matters
               as much as any project we build. Award-winning safety (.64 EMR),

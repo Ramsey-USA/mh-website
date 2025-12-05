@@ -304,7 +304,7 @@ Experience these values in action on your next construction project.
 
 ---
 
-**Partnership Philosophy**: "Building for the Client, NOT the Dollar"
+**Partnership Philosophy**: "Building projects for the client, NOT the dollar"
 **Core Message**: "THE ROI IS THE RELATIONSHIP"
 **Community Focus**: Serving Pacific Northwest Communities with Excellence
 

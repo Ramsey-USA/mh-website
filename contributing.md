@@ -276,7 +276,7 @@ See the [Master Documentation Index](./docs/master-index.md) for the complete do
 
 1. **Identify the page group** (7 groups defined)
 2. **Use appropriate voice and tone** for that group
-3. **Lead with "Building for the Client, NOT the Dollar"** (primary slogan)
+3. **Lead with "Building projects for the client, NOT the dollar"** (primary slogan)
 4. **Integrate group-specific slogans** as secondary messaging
 
 **The 7 Page Groups:**

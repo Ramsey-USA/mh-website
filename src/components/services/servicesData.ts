@@ -65,7 +65,7 @@ export const coreServices: CoreService[] = [
       "Expert oversight and intricate detail management",
       "Proven experience across all commercial sectors",
       "Military precision applied to civilian construction",
-      "Building for the Client, NOT the Dollar",
+      "Building projects for the client, NOT the dollar",
     ],
     ctaText:
       "Ready to start your commercial construction project? Call (509) 308-6489 or schedule a free consultation to discuss your vision with our partnership-focused team.",
@@ -314,7 +314,7 @@ export const whyChooseUs: WhyChooseUsItem[] = [
     iconName: "handshake",
     title: "Partnership-Driven: Where Handshakes Still Matter",
     description:
-      "We believe in old school business values—where your word is your bond and trust is earned face-to-face. We build lasting partnerships through genuine commitment, not just contracts. Building for the Client, NOT the Dollar is our promise to you, because real partnerships are built person-to-person and last well beyond project completion through proven excellence.",
+      "We believe in old school business values—where your word is your bond and trust is earned face-to-face. We build lasting partnerships through genuine commitment, not just contracts. Building projects for the client, NOT the dollar is our promise to you, because real partnerships are built person-to-person and last well beyond project completion through proven excellence.",
   },
   {
     iconName: "verified",

@@ -65,7 +65,7 @@ These documents define WHO MH Construction is and HOW we communicate our brand.
 
 **Tier 1 - Foundation Slogans:**
 
-- Primary: "Building for the Client, NOT the Dollar"
+- Primary: "Building projects for the client, NOT the dollar"
 - Philosophy: "THE ROI IS THE RELATIONSHIP"
 - CTA: "Let's Build More than Just Structures"
 

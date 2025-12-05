@@ -36,8 +36,8 @@ echo ""
 
 # Check for primary tagline presence
 echo "💬 Checking for primary tagline..."
-tagline_usage=$(find src/app -name "*.tsx" -exec grep -l "Building for the Client" {} \; | wc -l)
-echo "✅ $tagline_usage files include primary tagline"
+tagline_usage=$(find src/app -name "*.tsx" -exec grep -l "Building projects for the client" {} \; | wc -l)
+echo "✓ $tagline_usage files include primary tagline"
 echo ""
 
 # Check for partnership messaging

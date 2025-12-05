@@ -32,7 +32,7 @@ communication style designed to resonate with its specific audience.
 
 ### Core Principle
 
-**"Building for the Client, NOT the Dollar"** is our PRIMARY SLOGAN and should be prominently
+**"Building projects for the client, NOT the dollar"** is our PRIMARY SLOGAN and should be prominently
 featured across the site. However, each page group also has freedom to create and use
 supplementary messaging that speaks to its unique purpose while always reflecting our six core values.
 
@@ -108,7 +108,7 @@ specific terms and phrases.
 
 **Main Slogan (Featured Prominently):**
 
-- "Building for the Client, NOT the Dollar"
+- "Building projects for the client, NOT the dollar"
 
 **Trust-Centered Messaging:**
 
@@ -174,7 +174,7 @@ specific terms and phrases.
 
 **Main Slogan:**
 
-- "Building for the Client, NOT the Dollar" (as foundation)
+- "Building projects for the client, NOT the dollar" (as foundation)
 
 **Trust-Heritage Messaging:**
 
@@ -242,7 +242,7 @@ specific terms and phrases.
 
 **Main Slogan:**
 
-- "Building for the Client, NOT the Dollar" (as foundation)
+- "Building projects for the client, NOT the dollar" (as foundation)
 
 **Values-Future Messaging:**
 
@@ -310,7 +310,7 @@ specific terms and phrases.
 
 **Main Slogan:**
 
-- "Building for the Client, NOT the Dollar" (as foundation)
+- "Building projects for the client, NOT the dollar" (as foundation)
 
 **Values-Patriotic Messaging:**
 
@@ -379,7 +379,7 @@ specific terms and phrases.
 
 **Main Slogan:**
 
-- "Building for the Client, NOT the Dollar" (as foundation)
+- "Building projects for the client, NOT the dollar" (as foundation)
 
 **Values-Recruitment Messaging:**
 
@@ -448,7 +448,7 @@ specific terms and phrases.
 
 **Main Slogan:**
 
-- "Building for the Client, NOT the Dollar" (still applies)
+- "Building projects for the client, NOT the dollar" (still applies)
 
 **Values-Tech Messaging:**
 
@@ -525,7 +525,7 @@ specific terms and phrases.
 
 **Also Use:**
 
-- "Building for the Client, NOT the Dollar"
+- "Building projects for the client, NOT the dollar"
 - "Six Values Create One ROI: Trust"
 - "When Time Is Critical, Our Values Don't Waver"
 - "Professional Partnerships Built on Six Foundations"
@@ -575,7 +575,7 @@ specific terms and phrases.
 
 1. **Identify the page group** before writing any content
 2. **Lead with the appropriate voice and tone** for that group
-3. **Use "Building for the Client, NOT the Dollar"** as the primary slogan across all pages
+3. **Use "Building projects for the client, NOT the dollar"** as the primary slogan across all pages
 4. **Integrate group-specific slogans** as secondary messaging
 5. **Maintain consistency** within each page group
 6. **Test messaging** against the characteristics for that group
@@ -649,7 +649,7 @@ specific terms and phrases.
 
 - Established 7 page groups with distinct messaging
 - Defined voice, tone, and language characteristics for each group
-- Created slogan hierarchy with "Building for the Client, NOT the Dollar" as primary
+- Created slogan hierarchy with "Building projects for the client, NOT the dollar" as primary
 - Designated Trade Partners and Urgent pages as exclusive "ROI IS THE RELATIONSHIP" showcase
 
 **Philosophy:**
@@ -688,7 +688,7 @@ Contact the Marketing & Brand Team with:
 
 ---
 
-**Primary Slogan:** "Building for the Client, NOT the Dollar"  
+**Primary Slogan:** "Building projects for the client, NOT the dollar"  
 **Core Message:** THE ROI IS THE RELATIONSHIP (built on six core values)  
 **Brand Promise:** Trust Built Through Excellence  
 **Trust Foundation:** Six values working together create one result: Trust  

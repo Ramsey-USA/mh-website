@@ -29,7 +29,7 @@
 
 ### Core Messaging Principles
 
-**Primary Brand Message:** "Building for the Client, NOT the Dollar"
+**Primary Brand Message:** "Building projects for the client, NOT the dollar"
 
 **Supporting Taglines:**
 
@@ -46,7 +46,7 @@ must be reflected in all communications.
 
 ### Primary Brand Message
 
-#### "Building for the Client, NOT the Dollar"
+#### "Building projects for the client, NOT the dollar"
 
 This tagline emphasizes our commitment to client success over profit maximization — the heart of veteran-owned business values.
 

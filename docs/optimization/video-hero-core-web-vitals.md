@@ -149,7 +149,7 @@ export default function VideoHero() {
             MH Construction, Inc.
           </h1>
           <p className="mt-4 text-xl md:text-2xl">
-            Building for the Client, NOT the Dollar
+            Building projects for the client, NOT the dollar
           </p>
         </div>
       </div>
@@ -255,7 +255,7 @@ export default function VideoHero() {
       <div class="hero-content">
         <div>
           <h1>MH Construction, Inc.</h1>
-          <p>Building for the Client, NOT the Dollar</p>
+          <p>Building projects for the client, <em>NOT</em> the dollar</p>
         </div>
       </div>
     </section>

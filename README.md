@@ -1,8 +1,8 @@
 # MH Construction – Trusted Construction Partnership
 
-🎯 Production Ready | ✅ Cloudflare Optimized | 🇺🇸 Veteran-Owned (Since Jan 2025)
+🎯 Production Ready | ✓ Cloudflare Optimized | 🇺🇸 Veteran-Owned (Since Jan 2025)
 
-**Building for the Client, NOT the Dollar** — Where traditional business values meet modern tools.
+**Building projects for the client, NOT the dollar** — Where traditional business values meet modern tools.
 Next.js 15 platform emphasizing personal relationships, veteran integrity, and proven craftsmanship.
 Features consultation-first workflows, transparent pricing, and helpful tools like automated estimation and
 interactive project showcase to serve our clients better.
@@ -457,7 +457,7 @@ See [Core Values Guide](./docs/business/core-values.md) for complete details.
 
 ### Core Slogan
 
-#### "Building for the Client, NOT the Dollar"
+#### "Building projects for the client, NOT the dollar"
 
 _Where handshakes matter, promises are kept, and relationships last longer than buildings._
 
@@ -496,7 +496,7 @@ Each page group has its own unique voice and messaging strategy:
 7. **Partnership & Urgency** (Trade Partners, Urgent) - **ROI-focused**
    (exclusive use of "THE ROI IS THE RELATIONSHIP")
 
-**Key Principle:** "Building for the Client, NOT the Dollar" remains the PRIMARY SLOGAN
+**Key Principle:** "Building projects for the client, NOT the dollar" remains the PRIMARY SLOGAN
 across all pages, but each group has supplementary messaging that speaks to its unique audience.
 
 Complete guide:

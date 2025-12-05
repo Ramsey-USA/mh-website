@@ -429,7 +429,7 @@ npm run seo:audit   # Verify SEO (if pages changed)
 
 ### Messaging
 
-- **Primary Slogan:** "Building for the Client, NOT the Dollar"
+- **Primary Slogan:** "Building projects for the client, NOT the dollar"
 - **Core Tagline:** "THE ROI IS THE RELATIONSHIP"
 - **Hero Taglines:** Unique per page (see slogan rotation guide)
 

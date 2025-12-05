@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "FAQ - Your Construction Questions Answered | MH Construction",
     description:
-      "Get answers about our veteran-owned construction services, partnership approach, safety excellence, and consultation process. Building for the Client, NOT the Dollar.",
+      "Get answers about our veteran-owned construction services, partnership approach, safety excellence, and consultation process. Building projects for the client, NOT the dollar.",
     type: "website",
     locale: "en_US",
   },
@@ -54,7 +54,7 @@ const faqCategories = [
         question:
           "What makes MH Construction different from other construction companies?",
         answer:
-          "We're built on a six-value professional foundation system: Professionalism, Thoroughness, Honesty, Integrity, Innovation, and Partnership—all culminating in Trust as our ultimate goal. As a veteran-owned company since January 2025, we combine military precision with partnership-driven construction management. Our philosophy is simple: Building for the Client, NOT the Dollar. We work WITH you, not FOR you, ensuring your vision guides every decision.",
+          "We're built on a six-value professional foundation system: Professionalism, Thoroughness, Honesty, Integrity, Innovation, and Partnership—all culminating in Trust as our ultimate goal. As a veteran-owned company since January 2025, we combine military precision with partnership-driven construction management. Our philosophy is simple: Building projects for the client, NOT the dollar. We work WITH you, not FOR you, ensuring your vision guides every decision.",
       },
       {
         question: "Where are you licensed and what areas do you serve?",
@@ -217,7 +217,7 @@ const faqCategories = [
       {
         question: "Is MH Construction a certified Veteran-Owned business?",
         answer:
-          "Yes, MH Construction is a Veteran-Owned business founded by U.S. Army Veteran Jeremy Thamert. We operate with an 'Old School' mentality where your word is your bond, living by the slogan: 'Building for the Client, NOT the Dollar.'",
+          "Yes, MH Construction is a Veteran-Owned business founded by U.S. Army Veteran Jeremy Thamert. We operate with an 'Old School' mentality where your word is your bond, living by the slogan: 'Building projects for the client, NOT the dollar.'",
       },
       {
         question:
@@ -394,9 +394,10 @@ export default function FAQPage() {
 
               {/* Subtitle */}
               <p className="mb-8 sm:mb-10 md:mb-12 text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto">
-                Your Questions, Honest Answers • Building for the Client,{" "}
-                <span className="font-black text-bronze-300">NOT</span> the
-                Dollar
+                Your Questions, Honest Answers • Building projects for the
+                client,{" "}
+                <span className="font-black italic text-bronze-300">NOT</span>{" "}
+                the dollar
               </p>
 
               {/* Quick CTA */}

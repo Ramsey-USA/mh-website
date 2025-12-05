@@ -265,8 +265,8 @@ navigation visibility, and optimal typography scaling across the entire website.
       {/* Description - REQUIRED */}
       <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
         {/* Page-specific description - Include tagline here */}
-        "Building for the Client, NOT the Dollar" — Your descriptive text about
-        the page content.
+        "Building projects for the client, NOT the dollar" — Your descriptive
+        text about the page content.
       </p>
     </div>
   </div>
@@ -348,7 +348,7 @@ navigation visibility, and optimal typography scaling across the entire website.
 
 // 6. Partnership Tagline as separate large element
 <p className="font-bold text-2xl">
-  "Building for the Client, NOT the Dollar"
+  "Building projects for the client, NOT the dollar"
 </p>
 ```
 
@@ -372,8 +372,8 @@ navigation visibility, and optimal typography scaling across the entire website.
       </p>
 
       <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-        "Building for the Client, NOT the Dollar" — Veteran-owned excellence
-        serving the Pacific Northwest with authentic partnerships and
+        "Building projects for the client, NOT the dollar" — Veteran-owned
+        excellence serving the Pacific Northwest with authentic partnerships and
         cutting-edge technology.
       </p>
     </div>

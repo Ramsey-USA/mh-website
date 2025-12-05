@@ -196,7 +196,7 @@ const partnershipValues = [
     icon: "payments",
     title: "Fair & Prompt Payment Terms",
     description:
-      "Competitive compensation and reliable payment schedules support the financial health and business growth of our Trade Partners. Building for the Client, NOT the Dollar means treating partners with the same transparency and fairness we give Client Partners.",
+      "Competitive compensation and reliable payment schedules support the financial health and business growth of our Trade Partners. Building projects for the client, NOT the dollar means treating partners with the same transparency and fairness we give Client Partners.",
     color: "from-brand-accent to-brand-accent-dark",
   },
   {

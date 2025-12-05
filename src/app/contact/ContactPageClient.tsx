@@ -142,7 +142,7 @@ export default function ContactPageClient() {
       "@type": "State",
       name: "Washington",
     },
-    slogan: "Building for the Client, NOT the Dollar",
+    slogan: "Building projects for the client, NOT the dollar",
   };
 
   return (
@@ -196,11 +196,11 @@ export default function ContactPageClient() {
               <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
                 Real conversations with real people—the way business should be
                 done. We believe in personal connection, honest handshakes, and
-                keeping our word. Building for the Client,{" "}
-                <span className="font-black text-bronze-300">NOT</span> the
-                Dollar. That's not just our slogan, it's how we've done business
-                since 2010. Call us, stop by, or send a message. Monday -
-                Friday: 7:00 AM - 4:00 PM PST
+                keeping our word. Building projects for the client,{" "}
+                <span className="font-black italic text-bronze-300">NOT</span>{" "}
+                the dollar. That's not just our slogan, it's how we've done
+                business since 2010. Call us, stop by, or send a message. Monday
+                - Friday: 7:00 AM - 4:00 PM PST
               </p>
             </div>
           </div>

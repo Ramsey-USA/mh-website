@@ -22,8 +22,8 @@ material_icons=$(find $SRC_DIR -name "*.tsx" | xargs grep -l "MaterialIcon" | wc
 echo "🔧 Material Icons: ✅ $material_icons files using MaterialIcon component"
 
 # Primary tagline check
-primary_taglines=$(find $SRC_DIR -name "*.tsx" | xargs grep -l "Building for the Client, NOT the Dollar" | wc -l)
-echo "💬 Primary Taglines: ✅ $primary_taglines pages include primary tagline"
+primary_taglines=$(find $SRC_DIR -name "*.tsx" | xargs grep -l "Building projects for the client, NOT the dollar" | wc -l)
+echo "💬 Primary Taglines: ✓ $primary_taglines pages include primary tagline"
 
 echo ""
 echo "📱 Phase 2: Mobile Responsiveness Validation..."

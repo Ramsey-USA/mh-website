@@ -112,7 +112,7 @@ export const whyChooseReasons = [
     iconName: "handshake",
     title: "Trust Built, Project by Project",
     description:
-      "We're not just contractors—we're community partners invested in the long-term success of the Pacific Northwest region. Excellence through experience—we build lasting partnerships that extend well beyond project completion. Building for the Client, NOT the Dollar is more than a slogan—it's our proven commitment to you.",
+      "We're not just contractors—we're community partners invested in the long-term success of the Pacific Northwest region. Excellence through experience—we build lasting partnerships that extend well beyond project completion. Building projects for the client, NOT the dollar is more than a slogan—it's our proven commitment to you.",
   },
   {
     iconName: "verified",

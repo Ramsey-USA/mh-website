@@ -70,9 +70,9 @@ export default function ThreeDExplorerPage() {
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
               Where data meets decades of experience. We're developing an
               immersive 3D visualization platform that brings your vision to
-              life before breaking ground. "Building for the Client,{" "}
-              <span className="font-black text-bronze-300">NOT</span> the
-              Dollar" means investing in innovative tools that enhance—never
+              life before breaking ground. "Building projects for the client,{" "}
+              <span className="font-black italic text-bronze-300">NOT</span> the
+              dollar" means investing in innovative tools that enhance—never
               replace—the personal partnerships that define our work. AI-powered
               estimation meets personal consultation. Smart tools for smarter
               planning. Innovation with integrity, technology with trust.
@@ -455,9 +455,9 @@ export default function ThreeDExplorerPage() {
                   We're investing in 3D visualization not to replace
                   relationships, but to strengthen them. Better tools mean
                   better communication, clearer understanding, and stronger
-                  partnerships—because "Building for the Client,{" "}
-                  <span className="font-black text-bronze-300">NOT</span> the
-                  Dollar" means continually finding new ways to serve you
+                  partnerships—because "Building projects for the client,{" "}
+                  <span className="font-black italic text-bronze-300">NOT</span>{" "}
+                  the dollar" means continually finding new ways to serve you
                   better.
                 </p>
               </div>

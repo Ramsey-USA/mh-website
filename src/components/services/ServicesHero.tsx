@@ -21,8 +21,9 @@ export function ServicesHero() {
 
           {/* Subtitle - Brand Tagline */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            Shaping the Future of Construction • Building for the Client, NOT
-            the Dollar
+            Shaping the Future of Construction • Building projects for the
+            client, <em>NOT</em>
+            the dollar
           </p>
 
           {/* Description */}

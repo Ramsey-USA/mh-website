@@ -60,7 +60,7 @@ PMP, LEED AP
 
 ## 💡 Fun Fact
 
-Jeremy champions the philosophy "Building for the Client, NOT the Dollar" -
+Jeremy champions the philosophy "Building projects for the client, NOT the dollar" -
 emphasizing traditional business values where handshakes matter and your word is your bond.
 
 ---

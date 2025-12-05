@@ -93,7 +93,7 @@ See: /docs/branding/branding-index.md for the new structure
 ### 🆔 Company Information
 
 - **Name**: MH Construction, Inc.
-- **Tagline**: "Building for the Client, NOT the Dollar"
+- **Tagline**: "Building projects for the client, NOT the dollar"
 - **Phone**: [(509) 308-6489](tel:+15093086489)
 - **Client Contact**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
 - **Vendor Contact**: [office@mhc-gc.com](mailto:office@mhc-gc.com)

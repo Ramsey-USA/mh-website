@@ -215,7 +215,7 @@ Before finalizing a hero tagline:
 
 These are MH Construction's cornerstone messages that define our core brand promise.
 
-#### 1. "Building for the Client, NOT the Dollar"
+#### 1. "Building projects for the client, NOT the dollar"
 
 **Category:** Primary Brand Tagline  
 **Tone:** Bold, distinctive, client-first  
@@ -231,20 +231,20 @@ These are MH Construction's cornerstone messages that define our core brand prom
 
 ```tsx
 // Hero subtitle
-"Building for the Client, NOT the Dollar";
+"Building projects for the client, NOT the dollar";
 
 // Footer signature
-"MH Construction - Building for the Client, NOT the Dollar since 2025";
+"MH Construction - Building projects for the client, NOT the dollar since 2025";
 
 // Email signature
-"Building for the Client, NOT the Dollar | MH Construction, Inc.";
+"Building projects for the client, NOT the dollar | MH Construction, Inc.";
 ```
 
 **Variations:**
 
-- "Building for the Client, NOT the Dollar - Every Time"
+- "Building projects for the client, NOT the dollar - Every Time"
 - "We Build for the Client, NOT the Dollar"
-- "Your Vision, Our Precision - Building for the Client, NOT the Dollar"
+- "Your Vision, Our Precision - Building projects for the client, NOT the dollar"
 
 ---
 
@@ -680,7 +680,7 @@ purpose. **Tier 1 slogans can be reused across pages** as they represent core br
 #### Homepage
 
 **Hero:** "THE ROI IS THE RELATIONSHIP" _(Tier 1 - Can reuse)_  
-**Tagline:** "Building for the Client, NOT the Dollar" _(Tier 1 - Can reuse)_  
+**Tagline:** "Building projects for the client, NOT the dollar" _(Tier 1 - Can reuse)_  
 **CTA:** "Let's Build More than Just Structures" _(Tier 1 - Can reuse)_
 
 **Assignment Rationale:** Foundation slogans establish primary brand identity and core values on main entry point.
@@ -814,7 +814,7 @@ under pressure, and reliable service.
 
 **Client Project Updates:**
 
-- Signature: "Building for the Client, NOT the Dollar" _(Tier 1)_
+- Signature: "Building projects for the client, NOT the dollar" _(Tier 1)_
 - Footer: "THE ROI IS THE RELATIONSHIP" _(Tier 1)_
 
 **Trade Partner Communications:**
@@ -843,7 +843,7 @@ These remain consistent week-to-week to build recognition and brand association.
 
 ### Print Materials
 
-**Business Cards:** "Building for the Client, NOT the Dollar" _(Tier 1 - consistent across all cards)_  
+**Business Cards:** "Building projects for the client, NOT the dollar" _(Tier 1 - consistent across all cards)_  
 **Brochures:** "THE ROI IS THE RELATIONSHIP" + context-specific Tier 2-3 slogans  
 **Vehicle Wraps:** "Where Precision Meets Partnership" _(Tier 2 - consistent across fleet)_  
 **Job Site Signs:** "Excellence in Every Detail" _(Tier 2 - consistent across all sites)_
@@ -860,7 +860,7 @@ These remain consistent week-to-week to build recognition and brand association.
 
 **Print/Display:** Use core brand slogans consistently
 
-- "Building for the Client, NOT the Dollar"
+- "Building projects for the client, NOT the dollar"
 - "Let's Build More than Just Structures"
 - "Relationships That Last, Projects That Endure"
 
@@ -964,7 +964,7 @@ These remain consistent week-to-week to build recognition and brand association.
 
 | Slogan                                             | Tier | Reusable?    | When to Use       | Tone                       |
 | -------------------------------------------------- | ---- | ------------ | ----------------- | -------------------------- |
-| Building for the Client, NOT the Dollar            | 1    | ✅ Yes       | Hero, signature   | Bold, distinctive          |
+| Building projects for the client, NOT the dollar   | 1    | ✅ Yes       | Hero, signature   | Bold, distinctive          |
 | THE ROI IS THE RELATIONSHIP                        | 1    | ✅ Yes       | Hero, partnership | Powerful, memorable        |
 | Let's Build More than Just Structures              | 1    | ✅ Yes       | CTAs, contact     | Inviting, collaborative    |
 | Where Precision Meets Partnership                  | 2    | ❌ Dedicated | About page        | Professional, balanced     |
@@ -1004,4 +1004,4 @@ These remain consistent week-to-week to build recognition and brand association.
 
 ---
 
-**Signature:** "THE ROI IS THE RELATIONSHIP" - Building for the Client, NOT the Dollar
+**Signature:** "THE ROI IS THE RELATIONSHIP" - Building projects for the client, NOT the dollar

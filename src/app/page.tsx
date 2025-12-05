@@ -281,9 +281,9 @@ export default function Home() {
 
               <p className="font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed tracking-wide px-4 mt-8">
                 <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
-                  Building for the Client,{" "}
-                  <span className="font-black text-bronze-300">NOT</span> the
-                  Dollar
+                  Building projects for the client,{" "}
+                  <span className="font-black italic text-bronze-300">NOT</span>{" "}
+                  the dollar
                 </span>{" "}
                 means never compromising our values—whether it’s a construction
                 project or the information we provide online. Our six core

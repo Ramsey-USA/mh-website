@@ -144,9 +144,11 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                   {/* Partnership Tagline */}
                   <div className="mt-4 bg-white/10 backdrop-blur-sm p-3 border border-white/20 rounded-lg inline-block">
                     <p className="text-sm font-bold text-white">
-                      "Building for the Client,{" "}
-                      <span className="font-black text-bronze-300">NOT</span>{" "}
-                      the Dollar"
+                      "Building projects for the client,{" "}
+                      <span className="font-black italic text-bronze-300">
+                        NOT
+                      </span>{" "}
+                      the dollar"
                     </p>
                   </div>
 

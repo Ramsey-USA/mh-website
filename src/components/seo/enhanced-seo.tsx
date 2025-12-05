@@ -5,7 +5,7 @@ import { type Metadata } from "next";
 export const enhancedSEO = {
   siteName: "MH Construction",
   defaultTitle:
-    "MH Construction - Building for the Client, NOT the Dollar | Veteran-Owned",
+    "MH Construction - Building projects for the client, NOT the dollar | Veteran-Owned",
   defaultDescription:
     "Veteran-owned construction management services provider since 2010. Specializing in commercial construction services, master planning and preconstruction services, tenant improvement services, and light industrial construction. Six core values—Professionalism, Thoroughness, Honesty, Integrity, Innovation, Partnership—building trust through modern AI-powered tools and lasting relationships throughout the Pacific Northwest.",
   siteUrl: process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com",
@@ -244,7 +244,7 @@ export function generateEnhancedOrganizationSchema() {
     ],
     veteranOwned: true,
     ownershipType: "Veteran-Owned Small Business",
-    slogan: "Building for the Client, NOT the Dollar",
+    slogan: "Building projects for the client, NOT the dollar",
     mission:
       "Building partnerships through traditional values, serving communities with face-to-face trust, creating lasting value in the Pacific Northwest",
     technology: {
@@ -510,7 +510,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "What makes MH Construction different from other contractors?",
       answer:
-        "We're a veteran-owned construction company where traditional business values come first: handshakes matter, your word is your bond, and face-to-face trust defines every partnership. Founded in 2010, veteran-owned since January 2025 under Army veteran leadership, we combine military precision with helpful modern planning tools, transparent communication, and authentic community relationships. Our motto: 'Building for the Client, NOT the Dollar.'",
+        "We're a veteran-owned construction company where traditional business values come first: handshakes matter, your word is your bond, and face-to-face trust defines every partnership. Founded in 2010, veteran-owned since January 2025 under Army veteran leadership, we combine military precision with helpful modern planning tools, transparent communication, and authentic community relationships. Our motto: 'Building projects for the client, NOT the dollar.'",
     },
     {
       question: "How does the construction planning assistant work?",

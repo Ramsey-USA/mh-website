@@ -168,9 +168,9 @@ export function UnderConstruction({
                 </div>
 
                 <p className="text-center mt-6 font-semibold text-brand-primary dark:text-brand-primary-light text-lg">
-                  Building for the Client,{" "}
-                  <span className="font-black text-bronze-300">NOT</span> the
-                  Dollar
+                  Building projects for the client,{" "}
+                  <span className="font-black italic text-bronze-300">NOT</span>{" "}
+                  the dollar
                 </p>
 
                 <p className="text-center text-sm text-gray-600 dark:text-gray-400">

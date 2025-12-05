@@ -313,7 +313,7 @@ export default function HomePage() {
         page="homepage"
         heading="Welcome to MH Construction"
         heroContext="hero" // "THE ROI IS THE RELATIONSHIP"
-        taglineContext="tagline" // "Building for the Client, NOT the Dollar"
+        taglineContext="tagline" // "Building projects for the client, NOT the dollar"
         cta={<Button href="/booking">Schedule Consultation</Button>}
         backgroundImage="/images/homepage-hero.jpg"
       />
@@ -335,7 +335,7 @@ export default function HomePage() {
 **Assigned Slogans:**
 
 - Hero: "THE ROI IS THE RELATIONSHIP" _(Tier 1 - Reusable)_
-- Tagline: "Building for the Client, NOT the Dollar" _(Tier 1 - Reusable)_
+- Tagline: "Building projects for the client, NOT the dollar" _(Tier 1 - Reusable)_
 - CTA: "Let's Build More than Just Structures" _(Tier 1 - Reusable)_
 
 ---
@@ -805,4 +805,4 @@ export function CTASection() {
 
 ---
 
-**Signature:** "THE ROI IS THE RELATIONSHIP" - Building for the Client, NOT the Dollar
+**Signature:** "THE ROI IS THE RELATIONSHIP" - Building projects for the client, NOT the dollar

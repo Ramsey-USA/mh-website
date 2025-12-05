@@ -11,7 +11,7 @@ export const pageMetadata: Record<string, Metadata> = {
   "/": {
     title: "MH Construction | Veteran-Owned General Contractor - Pasco, WA",
     description:
-      "Building for the Client, NOT the Dollar. Veteran-owned general contractor serving Tri-Cities, WA since 2010. Expert concrete, carpentry, and construction management with military precision and transparent partnerships.",
+      "Building projects for the client, NOT the dollar. Veteran-owned general contractor serving Tri-Cities, WA since 2010. Expert concrete, carpentry, and construction management with military precision and transparent partnerships.",
     keywords: [
       "veteran-owned contractor Pasco",
       "Tri-Cities general contractor",
@@ -26,7 +26,7 @@ export const pageMetadata: Record<string, Metadata> = {
     openGraph: {
       title: "MH Construction | Veteran-Owned Construction Excellence",
       description:
-        "Building for the Client, NOT the Dollar. Expert construction services with military precision. Serving the Pacific Northwest since 2010.",
+        "Building projects for the client, NOT the dollar. Expert construction services with military precision. Serving the Pacific Northwest since 2010.",
       type: "website",
       locale: "en_US",
       url: `${baseUrl}/`,
@@ -45,7 +45,7 @@ export const pageMetadata: Record<string, Metadata> = {
     title:
       "About MH Construction | Veteran-Owned Partnership-Driven Excellence - Pasco, WA",
     description:
-      "Founded in 2010, veteran-owned since January 2025 under Army veteran leadership. MH Construction brings military precision, authentic partnerships, and cutting-edge technology to commercial construction in the Tri-Cities area. Meet our leadership team committed to Building for the Client, NOT the Dollar.",
+      "Founded in 2010, veteran-owned since January 2025 under Army veteran leadership. MH Construction brings military precision, authentic partnerships, and cutting-edge technology to commercial construction in the Tri-Cities area. Meet our leadership team committed to Building projects for the client, NOT the dollar.",
     keywords: [
       "veteran-owned construction company",
       "military precision construction",
@@ -378,7 +378,7 @@ export function getPageMetadata(pathname: string): Metadata {
     pageMetadata[pathname] || {
       title: "MH Construction - Veteran-Owned Construction Excellence",
       description:
-        "Building for the Client, NOT the Dollar. Veteran-owned general contractor serving the Pacific Northwest and Tri-Cities area with military precision and partnership focus.",
+        "Building projects for the client, NOT the dollar. Veteran-owned general contractor serving the Pacific Northwest and Tri-Cities area with military precision and partnership focus.",
     }
   );
 }

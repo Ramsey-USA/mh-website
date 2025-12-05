@@ -110,8 +110,8 @@ testimonials, and value propositions—just not repeated in every hero section.
 
       {/* Description */}
       <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-        "Building for the Client, NOT the Dollar" — Your page description text
-        here.
+        "Building projects for the client, NOT the dollar" — Your page
+        description text here.
       </p>
     </div>
   </div>
@@ -181,14 +181,14 @@ Use this checklist when creating or reviewing any page's hero section:
 ```tsx
 <h1>Commercial Construction Excellence</h1>
 <p>Your trusted construction partner in Pasco, Kennewick, and Richland.</p>
-<p>"Building for the Client, NOT the Dollar" — Veteran-owned excellence...</p>
+<p>"Building projects for the client, NOT the dollar" — Veteran-owned excellence...</p>
 ```
 
 ### Services Page
 
 ```tsx
 <h1>Construction Excellence</h1>
-<p>"Building for the Client, NOT the Dollar"</p>
+<p>"Building projects for the client, NOT the dollar"</p>
 <p>We Work WITH You Every Step. Military Precision. Advanced Technology...</p>
 ```
 
@@ -196,7 +196,7 @@ Use this checklist when creating or reviewing any page's hero section:
 
 ```tsx
 <h1>Partnership Success Stories</h1>
-<p>"Building for the Client, NOT the Dollar"</p>
+<p>"Building projects for the client, NOT the dollar"</p>
 <p>Building Excellence Together Across the Pacific Northwest...</p>
 ```
 

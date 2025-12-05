@@ -160,7 +160,7 @@ export const veteranFragments = {
 
 export const brandValueFragments = {
   // Core slogan
-  mainSlogan: "Building for the Client, NOT the Dollar",
+  mainSlogan: "Building projects for the client, NOT the dollar",
   relationshipROI: "THE ROI IS THE RELATIONSHIP",
 
   // Six core values

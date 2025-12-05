@@ -236,4 +236,4 @@ For issues or questions, refer to:
 ---
 
 **Built for MH Construction, Inc.**
-_Building for the Client, NOT the Dollar_
+_Building projects for the client, NOT the dollar_

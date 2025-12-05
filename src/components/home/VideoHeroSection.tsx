@@ -135,8 +135,9 @@ export function VideoHeroSection() {
 
           {/* Tagline */}
           <p className="mb-4 text-xl font-medium text-emerald-100 sm:text-2xl md:text-3xl">
-            Building for the Client,{" "}
-            <span className="font-black text-bronze-300">NOT</span> the Dollar
+            Building projects for the client,{" "}
+            <span className="font-black italic text-bronze-300">NOT</span> the
+            dollar
           </p>
 
           {/* Description */}

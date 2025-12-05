@@ -100,7 +100,7 @@ export const SLOGANS: Record<string, Slogan> = {
   // ===== TIER 1: FOUNDATION SLOGANS (Reusable) =====
 
   BUILDING_FOR_OWNER: {
-    text: "Building for the Client, NOT the Dollar",
+    text: "Building projects for the client, NOT the dollar",
     tier: SloganTier.TIER_1_FOUNDATION,
     reusable: true,
     tone: "bold-distinctive",

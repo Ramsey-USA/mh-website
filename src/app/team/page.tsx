@@ -77,8 +77,9 @@ export default function TeamPage() {
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              Your Vision, Our Precision • Building for the Client,{" "}
-              <span className="font-black text-bronze-300">NOT</span> the Dollar
+              Your Vision, Our Precision • Building projects for the client,{" "}
+              <span className="font-black italic text-bronze-300">NOT</span> the
+              dollar
             </p>
 
             {/* Leadership Statement */}

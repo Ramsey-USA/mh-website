@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env["NEXT_PUBLIC_BASE_URL"] || "https://www.mhc-gc.com",
   ),
-  title: "Building for the Client, NOT the Dollar | MH Construction",
+  title: "Building projects for the client, NOT the dollar | MH Construction",
   description:
     "Veteran-owned general contractor serving the Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County, and Pacific Northwest since 2010. Expert concrete, carpentry, and construction management with military precision, authentic partnerships, and transparent communication. Licensed in WA, OR, ID.",
   keywords: [

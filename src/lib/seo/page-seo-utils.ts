@@ -14,7 +14,7 @@ import {
 export function getHomepageSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Building for the Client, NOT the Dollar | Veteran-Owned Construction | MH Construction",
+      "Building projects for the client, NOT the dollar | Veteran-Owned Construction | MH Construction",
     description:
       "Veteran-owned construction management services since 2010. Specializing in commercial construction services, master planning and preconstruction services, tenant improvement services, and light industrial construction throughout the Pacific Northwest. Six core values (Professionalism, Thoroughness, Honesty, Integrity, Innovation, Partnership) building trust through modern AI-powered tools and face-to-face consultation.",
     keywords: [

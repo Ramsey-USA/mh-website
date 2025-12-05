@@ -176,7 +176,7 @@ NEXT: Developer Workflow Pathway
 ### Core Identity
 
 - **Company**: MH Construction, Inc.
-- **Tagline**: "Building for the Client, NOT the Dollar"
+- **Tagline**: "Building projects for the client, NOT the dollar"
 - **Focus**: Veteran-owned, partnership-driven construction management
 - **Service Area**: Tri-Cities, WA | Licensed in WA, OR, ID
 

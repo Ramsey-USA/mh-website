@@ -337,7 +337,7 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
   /* Hero Tagline */
 }
 <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-  "Building for the Client, NOT the Dollar"
+  "Building projects for the client, NOT the dollar"
 </p>;
 
 {
@@ -471,8 +471,11 @@ export default function PageName() {
       className="text-center mb-8 font-medium"
       style={{ fontSize: "clamp(1.125rem, 3vw, 2.25rem)" }}
     >
-      "Building for the Client,
-      <span className="text-bronze-300">NOT</span> the Dollar"
+      "Building projects for the client,
+      <span className="text-bronze-300">
+        <em>NOT</em>
+      </span>{" "}
+      the dollar"
     </p>
   </div>
 </section>
@@ -831,7 +834,7 @@ npm run build
 
 ### Primary Slogan Styling Rule
 
-**CRITICAL STYLING REQUIREMENT**: When displaying the slogan "Building for the Client, NOT the Dollar",
+**CRITICAL STYLING REQUIREMENT**: When displaying the slogan "Building projects for the client, NOT the dollar",
 the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the core philosophy.
 
 **Implementation Standards**:
@@ -839,18 +842,18 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 ```tsx
 // ✅ CORRECT - Light backgrounds
 <p>
-  Building for the Client,{" "}
-  <span className="font-black text-bronze-300">NOT</span> the Dollar
+  Building projects for the client,{" "}
+  <span className="font-black italic text-bronze-300">NOT</span> the dollar
 </p>
 
 // ✅ CORRECT - Dark backgrounds
 <p>
-  Building for the Client,{" "}
-  <span className="font-black text-brand-accent">NOT</span> the Dollar
+  Building projects for the client,{" "}
+  <span className="font-black italic text-brand-accent">NOT</span> the dollar
 </p>
 
 // ❌ INCORRECT - No color distinction
-<p>Building for the Client, NOT the Dollar</p>
+<p>Building projects for the client, <em>NOT</em> the dollar</p>
 ```
 
 **Color Choices by Context**:
@@ -874,7 +877,7 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 **Required Elements**:
 
 - Company name: "MH Construction, Inc."
-- Primary tagline: "Building for the Client, **NOT** the Dollar" (NOT in contrasting color)
+- Primary tagline: "Building projects for the client, **NOT** the dollar" (NOT in contrasting color)
 - Phone: (509) 308-6489
 - Address: "3111 N. Capitol Ave., Pasco, WA 99301"
 - Email: <office@mhc-gc.com>
@@ -891,7 +894,7 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
   </div>
   <div style="font-weight: 600; margin-bottom: 4px;">MH Construction, Inc.</div>
   <div style="color: #757575; margin-bottom: 8px;">
-    Building for the Client, NOT the Dollar
+    Building projects for the client, NOT the dollar
   </div>
   <div style="margin-bottom: 4px;">
     Phone: <a href="tel:+15093086489" style="color: #386851;">(509) 308-6489</a>

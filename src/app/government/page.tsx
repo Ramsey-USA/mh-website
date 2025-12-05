@@ -311,8 +311,10 @@ export default function GovernmentGrantsPage() {
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              Veteran Values • Federal Excellence • Building for the Client,{" "}
-              <span className="font-black text-bronze-300">NOT</span> the Dollar
+              Veteran Values • Federal Excellence • Building projects for the
+              client,{" "}
+              <span className="font-black italic text-bronze-300">NOT</span> the
+              dollar
             </p>
 
             {/* Description */}
@@ -360,9 +362,10 @@ export default function GovernmentGrantsPage() {
                 construction services with unwavering commitment to federal
                 specifications, operational success, award-winning safety (.64
                 EMR), and transparent open-book partnership throughout the
-                application and execution process—Building for the Client,{" "}
-                <span className="font-black text-bronze-300">NOT</span> the
-                Dollar with 150+ years combined experience
+                application and execution process—Building projects for the
+                client,{" "}
+                <span className="font-black italic text-bronze-300">NOT</span>{" "}
+                the dollar with 150+ years combined experience
               </p>
             </div>
           </FadeInWhenVisible>

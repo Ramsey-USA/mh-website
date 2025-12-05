@@ -539,7 +539,7 @@ The SEO fragments complement (not replace) brand messaging:
 
 ```typescript
 // Brand message from messaging.md
-const brandMessage = "Building for the Client, NOT the Dollar";
+const brandMessage = "Building projects for the client, NOT the dollar";
 
 // SEO-optimized location context
 const seoContext = SEOFragments.location.servingPhrase;

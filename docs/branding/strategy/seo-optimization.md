@@ -22,7 +22,7 @@ alignment with the 7-group messaging strategy defined in
 2. **Emphasize unique value proposition** in descriptions
 3. **Order keywords by priority** (brand values → capabilities → tech tools)
 4. **Match section order** to messaging priority (trust first, tech tools later)
-5. **Maintain consistent branding** ("Building for the Client, NOT the Dollar" across all)
+5. **Maintain consistent branding** ("Building projects for the client, NOT the dollar" across all)
 
 ---
 

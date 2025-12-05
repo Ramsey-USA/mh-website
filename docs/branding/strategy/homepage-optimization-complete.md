@@ -73,7 +73,7 @@ tech-savvy clients discover helpful features naturally.
 - **Material Icons**: Consistently used throughout
 - **Brand Colors**: Hunter Green & Leather Tan properly applied via Tailwind
 - **Typography**: Responsive scaling across all breakpoints
-- **Core Messaging**: "Building for the Client, NOT the Dollar" prominently featured
+- **Core Messaging**: "Building projects for the client, NOT the dollar" prominently featured
 - **Veteran Branding**: Present but not overwhelming
 - **Interactive Components**: Phase 5 features well-integrated
 - **Trust-First Structure**: Technology sections repositioned below fold
@@ -172,7 +172,7 @@ tech-savvy clients discover helpful features naturally.
 </p>
 
 <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-  "Building for the Client, NOT the Dollar" — Veteran-owned commercial construction management serving the Tri-Cities with military precision and genuine partnership. 150+ years combined experience. Licensed WA, OR, ID.
+  "Building projects for the client, NOT the dollar" — Veteran-owned commercial construction management serving the Tri-Cities with military precision and genuine partnership. 150+ years combined experience. Licensed WA, OR, ID.
 </p>
 ```
 
@@ -184,7 +184,7 @@ tech-savvy clients discover helpful features naturally.
 
 #### Primary Slogan Usage: Excellent ⭐
 
-"Building for the Client, NOT the Dollar" prominently featured in:
+"Building projects for the client, NOT the dollar" prominently featured in:
 
 - WhyPartnerSection (with emphasis on "NOT")
 - Multiple strategic placements throughout page
@@ -589,7 +589,7 @@ with our collaborative approach and lasting relationships."
 2. **Reassuring Language** - Technology as "optional helpers" not core identity
 3. **Clear User Paths** - Both traditional and tech-savvy clients find comfortable journey
 4. **SEO Optimization** - Traditional keywords weighted higher for broader appeal
-5. **Brand Consistency** - "Building for the Client, NOT the Dollar" + "THE ROI IS THE RELATIONSHIP"
+5. **Brand Consistency** - "Building projects for the client, NOT the dollar" + "THE ROI IS THE RELATIONSHIP"
 
 ### Boss's Concerns: Addressed ✅
 

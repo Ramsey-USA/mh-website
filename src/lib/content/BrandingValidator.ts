@@ -23,7 +23,7 @@ export interface BrandingGuidelines {
 
 // MH Construction branding guidelines from MD files
 export const MH_BRANDING_GUIDELINES: BrandingGuidelines = {
-  primaryTagline: "Building for the Client, NOT the Dollar",
+  primaryTagline: "Building projects for the client, NOT the dollar",
   supportingTaglines: [
     "Your Partner in Building Tomorrow",
     "Working WITH you to serve our communities",

@@ -150,11 +150,11 @@ export function WhyPartnerSection() {
           {/* Core Philosophy Tagline */}
           <div className="mt-6 sm:mt-8 mb-3 sm:mb-4">
             <p className="mx-auto max-w-4xl font-bold text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed tracking-wide px-2">
-              "Building for the Client,{" "}
-              <span className="font-black text-bronze-300 text-xl sm:text-2xl md:text-3xl">
+              "Building projects for the client,{" "}
+              <span className="font-black italic text-bronze-300 text-xl sm:text-2xl md:text-3xl">
                 NOT
               </span>{" "}
-              the Dollar"
+              the dollar"
             </p>
           </div>
         </div>

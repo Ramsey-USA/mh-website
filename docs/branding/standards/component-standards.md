@@ -363,8 +363,8 @@ className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
 
       {/* Description */}
       <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-        "Building for the Client, NOT the Dollar" — Supporting description with
-        partnership language
+        "Building projects for the client, NOT the dollar" — Supporting
+        description with partnership language
       </p>
     </div>
   </div>

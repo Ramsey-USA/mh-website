@@ -543,7 +543,7 @@ Pasco, WA 99301
 #### **Primary Slogan (UNIVERSAL - USE EVERYWHERE)**
 
 ```text
-"Building for the Client, NOT the Dollar"
+"Building projects for the client, NOT the dollar"
 ```
 
 **Usage Rules:**
@@ -557,9 +557,9 @@ Pasco, WA 99301
 **Examples in Context:**
 
 ```text
-✅ "Building for the Client, NOT the Dollar - Our Core Philosophy"
-✅ "Where talent meets opportunity • Building for the Client, NOT the Dollar"
-✅ "Building for the Client, NOT the Dollar means being available when you need us"
+✓ "Building projects for the client, NOT the dollar - Our Core Philosophy"
+✓ "Where talent meets opportunity • Building projects for the client, NOT the dollar"
+✓ "Building projects for the client, NOT the dollar means being available when you need us"
 ```
 
 ---
@@ -586,9 +586,9 @@ Pasco, WA 99301
 
 **DO NOT use on:**
 
-- ❌ Homepage (use "Building for the Client")
-- ❌ About page (use "Building for the Client")
-- ❌ Services page (use "Building for the Client")
+- ❌ Homepage (use "Building projects for the client")
+- ❌ About page (use "Building projects for the client")
+- ❌ Services page (use "Building projects for the client")
 
 ---
 
@@ -632,7 +632,7 @@ Use these based on page context and messaging group:
 ### Homepage Example (Correct)
 
 ```text
-✅ Hero: "Building for the Client, NOT the Dollar"
+✓ Hero: "Building projects for the client, NOT the dollar"
 ✅ Values: "Where handshakes matter and your word is your bond"
 ✅ Testimonials: "What Our Client Partners Say"
 ✅ CTA: "Partner with veteran-owned excellence"
@@ -643,14 +643,14 @@ Use these based on page context and messaging group:
 ```text
 ✅ Hero: "THE ROI IS THE RELATIONSHIP"
 ✅ Benefits: "We treat our Trade Partners with integrity and respect"
-✅ Values: "Building for the Client, NOT the Dollar means treating partners fairly"
+✓ Values: "Building projects for the client, NOT the dollar means treating partners fairly"
 ✅ CTA: "Join our Trade Partner network"
 ```
 
 ### Services Page (Correct)
 
 ```text
-✅ Hero: "Your Vision, Our Precision • Building for the Client, NOT the Dollar"
+✓ Hero: "Your Vision, Our Precision • Building projects for the client, NOT the dollar"
 ✅ Process: "We work WITH you to achieve your vision"
 ✅ Benefits: "You control it, we manage it—full visibility into every decision"
 ✅ Testimonials: "What Our Client Partners Say About Our Services"
@@ -707,10 +707,10 @@ Use these based on page context and messaging group:
 
 ```text
 ❌ "THE ROI IS THE RELATIONSHIP" on homepage (wrong context)
-✅ "Building for the Client, NOT the Dollar" on homepage
+✓ "Building projects for the client, NOT the dollar" on homepage
 
 ❌ "Building for the Trade Partner" (never alter the slogan)
-✅ "Building for the Client, NOT the Dollar" (unchanged, with Trade Partner context explained separately)
+✓ "Building projects for the client, NOT the dollar" (unchanged, with Trade Partner context explained separately)
 ```
 
 ---
@@ -723,7 +723,7 @@ Use these based on page context and messaging group:
 - [ ] Veteran status: "Veteran-Owned" (capitalized, hyphenated)?
 - [ ] Location: States listed as WA, OR, ID (in that order)?
 - [ ] Safety: "0.6 EMR" with context (40% better)?
-- [ ] Primary slogan: "Building for the Client, NOT the Dollar" included?
+- [ ] Primary slogan: "Building projects for the client, NOT the dollar" included?
 - [ ] "THE ROI IS THE RELATIONSHIP" ONLY on Trade Partners/Urgent pages?
 - [ ] "You control it, we manage it" used for client empowerment?
 - [ ] "Work WITH" (not "work FOR") phrasing?
@@ -788,7 +788,7 @@ These frequencies indicate well-established terminology that should be maintaine
 
 1. "Client Partner" vs "client" distinction
 2. "Trade Partner" vs "Client Partner" distinction
-3. Primary slogan usage ("Building for the Client, NOT the Dollar")
+3. Primary slogan usage ("Building projects for the client, NOT the dollar")
 4. "work WITH" vs "work FOR"
 
 ### Phase 2: Brand Identity (High Priority)
@@ -829,6 +829,6 @@ updated to reflect the evolution.
 
 **Remember:** Consistency builds trust. When we all use the same language, we strengthen the brand.
 
-**Primary Slogan:** "Building for the Client, NOT the Dollar"  
+**Primary Slogan:** "Building projects for the client, NOT the dollar"  
 **Core Partnership Term:** Client Partner (not "client")  
 **Brand Promise:** Trust Built Through Excellence
