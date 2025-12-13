@@ -260,6 +260,39 @@ Experience these values in action on your next construction project.
 
 ---
 
+## How Our 4 Values Create 6 Measurable Differences
+
+### Values in Action: From Principles to Proof
+
+Our 4 Core Values aren't abstract concepts—they create 6 measurable differences that clients experience on every project:
+
+| Core Value          | Measurable Differences for You                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Honesty**         | **→ Transparent Honesty Difference**<br>• Open-book pricing with detailed breakdowns<br>• No hidden costs or surprise charges<br>• Complete visibility into every decision<br>• Real-time project updates                                                                                                                                                                                                                    |
+| **Integrity**       | **→ Partnership-Driven Trust Difference**<br>• 70% referral & repeat business (clients recommend us)<br>• Lifelong partnerships beyond project completion<br><br>**→ 650+ Successful Projects - Reliability Difference**<br>• We finish what we start, every time<br>• Proven track record of promise-keeping                                                                                                                |
+| **Professionalism** | **→ .64 EMR Award-Winning Safety Difference**<br>• Industry-leading safety (40% better than average)<br>• Professional safety standards on every job<br><br>**→ 150+ Years Combined Experience Difference**<br>• Deep expertise across all disciplines<br>• Proven methods refined through generations<br><br>**→ 3 State Licensed & Insured Difference**<br>• Licensed in WA, OR, ID<br>• Complete professional credentials |
+| **Thoroughness**    | **→ Enhanced Safety Performance**<br>• .64 EMR through attention to detail<br>• 3+ years without time-loss injury<br><br>**→ Zero-Gap Project Execution**<br>• 650+ projects completed with nothing missed<br>• Systematic quality control prevents problems                                                                                                                                                                 |
+
+### The Connection Story
+
+**How It Works:**
+
+1. **Honesty** → You know exactly what you're paying for and why
+2. **Integrity** → We keep our promises, proven by 650+ completed projects and 70% referrals
+3. **Professionalism** → Award-winning safety, deep expertise, full licensing show expert standards
+4. **Thoroughness** → Every detail matters, preventing accidents and ensuring completion
+5. **Result** → **Trust** → Partnerships that last generations
+
+**Measurable Outcomes:**
+
+- 70% of business from referrals (trust in action)
+- .64 EMR safety rating (thoroughness + professionalism)
+- 650+ successful projects (integrity + thoroughness)
+- 150+ years combined experience (professionalism)
+- 3-state licensing (professionalism)
+
+---
+
 **Partnership Philosophy**: "Building projects for the client, NOT the dollar"
 **Core Message**: "THE ROI IS THE RELATIONSHIP"
 **Community Focus**: Serving Pacific Northwest Communities with Excellence

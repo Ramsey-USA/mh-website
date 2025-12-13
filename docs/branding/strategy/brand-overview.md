@@ -6,10 +6,10 @@
 **Version:** 5.0.0
 **Last Updated:** November 20, 2025
 
-**⭐ IMPORTANT UPDATE (Nov 2025)**: This document integrates our **four-value professional foundation
-system** from [core-values.md](../../business/core-values.md). All brand identity is built upon
-Professionalism, Thoroughness, Honesty, Integrity, Reliability, and Quality Craftsmanship—culminating
-in **Trust** as our ultimate goal.
+**⭐ IMPORTANT UPDATE (Dec 2025)**: This document integrates our **four-value professional foundation
+system** from [core-values.md](../../business/core-values.md). All brand identity is built upon our
+4 core values in hierarchical order: **Honesty, Integrity, Professionalism, Thoroughness**—culminating
+in **Trust** as our ultimate goal. These 4 values create 6 measurable differences clients experience.
 
 For page-specific messaging and voice variations, see the comprehensive
 **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** which defines 7 distinct page
@@ -88,11 +88,17 @@ projects throughout the Pacific Northwest.
 
 ### Key Differentiators
 
-1. **Veteran-Owned Leadership**: Military precision and attention to detail
-2. **Partnership Focus**: Building relationships, not just buildings
-3. **Transparent Communication**: Open-book progress meetings
-4. **Regional Expertise**: Deep Tri-Cities area knowledge and connections
-5. **Full-Service Management**: From planning to completion
+Our 4 Core Values create 6 measurable differences:
+
+1. **.64 EMR - Award-Winning Safety**: Industry-leading safety (40% better than average)
+2. **150+ Years of Combined Experience**: Deep expertise across all construction disciplines
+3. **Transparent Honesty**: Open-book pricing, no hidden costs, complete visibility
+4. **Partnership-Driven Trust**: 70% referral business from promise-keeping
+5. **650+ Successful Projects - Reliability**: Proven track record of completion
+6. **3 State - Licensed & Insured**: Licensed in WA, OR, ID with full credentials
+
+**The Connection**: Our 4 values (Honesty, Integrity, Professionalism, Thoroughness) aren't just principles—
+they create measurable outcomes clients can see and experience on every project.
 
 ### Our Team
 

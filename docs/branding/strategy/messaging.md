@@ -36,16 +36,22 @@ groups with unique voices, tones, and keyword priorities.
 
 This messaging guide is built upon MH Construction's **four-value professional foundation system** detailed in
 [core-values.md](../../business/core-values.md). All messaging, communications, and brand voice should reflect
-these core values:
+these core values in hierarchical order:
 
-1. **Professionalism** - Excellence in Every Interaction
-2. **Thoroughness** - Attention to Detail in Everything We Do
-3. **Honesty** - Transparent Communication Always
-4. **Integrity** - Doing What's Right, Every Time
-5. **Innovation** - Modern Tools Meeting Traditional Values
-6. **Partnership** - Building Relationships That Last
+1. **Honesty** - Transparent Communication Always
+2. **Integrity** - Doing What's Right, Every Time
+3. **Professionalism** - Excellence in Every Interaction
+4. **Thoroughness** - Attention to Detail in Everything We Do
 
 **Ultimate Goal**: **Trust** - Built through consistent demonstration of all four values
+
+### Our 4 Values Create 6 Measurable Differences
+
+- **Honesty** → Transparent Pricing (no surprises)
+- **Integrity** → 650+ Completed Projects & 70% Referral Business (we keep promises)
+- **Professionalism** → Award-Winning Safety, 150+ Years Expertise, 3-State Licensing (expert credentials)
+- **Thoroughness** → Zero Accidents & Zero Shortcuts (details matter)
+- **Together** → **Trust** → Partnership relationships that last
 
 ---
 
@@ -97,6 +103,126 @@ Our voice balances military precision with partnership warmth, creating communic
 **Tone**: Collaborative, supportive, transparent
 
 **Example**:
+
+---
+
+## 5 Key Messaging Pillars
+
+### Foundation → Action → Excellence → Completion → Outcome
+
+Our messaging is structured around five interconnected pillars that flow from our 4 core values:
+
+### 1. Truth-First Communication (Honesty)
+
+**Core Message**: "Say what we mean, mean what we say"
+
+**Key Points**:
+
+- Open-book pricing with detailed breakdowns
+- Realistic timelines based on actual experience
+- Honest assessments even when it's difficult
+- No surprises, no hidden costs, no unclear expectations
+
+**Messaging Examples**:
+
+- "You control it, we manage it—full visibility into every decision"
+- "We tell you what you need to know, not just what you want to hear"
+- "Complete transparency from estimate to completion"
+
+### 2. Promise-Keeping Culture (Integrity)
+
+**Core Message**: "Our word is our bond"
+
+**Key Points**:
+
+- Following through on commitments
+- Doing right even when it costs more
+- Standing behind our work with comprehensive warranties
+- Making decisions that benefit the client
+
+**Messaging Examples**:
+
+- "When we commit to something, we deliver"
+- "Building projects for the client, NOT the dollar"
+- "70% referral business proves our promise-keeping"
+
+### 3. Expert Execution (Professionalism)
+
+**Core Message**: "Military precision meets construction excellence"
+
+**Key Points**:
+
+- Licensed, insured, certified across 3 states
+- Industry-leading .64 EMR safety record
+- 150+ years combined team experience
+- Veteran-owned precision and discipline
+
+**Messaging Examples**:
+
+- "Award-winning safety: .64 EMR—40% better than industry average"
+- "Professional credentials backed by proven performance"
+- "Veteran-trained reliability and calm under pressure"
+
+### 4. Zero-Gap Quality (Thoroughness)
+
+**Core Message**: "Every detail matters"
+
+**Key Points**:
+
+- Nothing overlooked, nothing forgotten
+- Systematic quality control at every phase
+- Comprehensive planning prevents last-minute changes
+- Meticulous execution from foundation to finish
+
+**Messaging Examples**:
+
+- "Master planning ensures zero gaps in scope coverage"
+- "Quality control checkpoints at every project phase"
+- "Attention to detail that prevents problems before they start"
+
+### 5. Earned Trust (Ultimate Goal)
+
+**Core Message**: "Trust through action, not just words"
+
+**Key Points**:
+
+- 650+ successfully completed projects
+- 70% referral and repeat business
+- Relationships that last beyond projects
+- Community partnerships built on proven excellence
+
+**Messaging Examples**:
+
+- "Your trust is earned through action, not just words"
+- "Partnerships that become lifelong community connections"
+- "Building relationships, not just buildings"
+
+---
+
+## Core Values to Differentiators Framework
+
+### How Our 4 Values Create 6 Measurable Differences
+
+| Core Value          | Measurable Differences                                                                                                                                                                                                                               |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Honesty**         | **→ Transparent Honesty**<br>Open-book pricing, no hidden costs, complete visibility                                                                                                                                                                 |
+| **Integrity**       | **→ Partnership-Driven Trust**<br>70% referral business from promise-keeping<br>**→ 650+ Successful Projects - Reliability**<br>We finish what we start, every time                                                                                  |
+| **Professionalism** | **→ .64 EMR Award-Winning Safety**<br>Industry-leading professional standards<br>**→ 150+ Years Combined Experience**<br>Deep professional expertise across disciplines<br>**→ 3 State Licensed & Insured**<br>Professional credentials & compliance |
+| **Thoroughness**    | **→ .64 EMR Award-Winning Safety**<br>Attention to detail prevents accidents<br>**→ 650+ Successful Projects**<br>Nothing missed = projects completed right                                                                                          |
+
+**The Connection Story**:
+
+Our 4 Core Values aren't just words on a wall—they create 6 measurable differences you can see in every project:
+
+- **Honesty** gives you transparent pricing with no surprises
+- **Integrity** delivers 650+ completed projects and 70% referral business because we keep our promises
+- **Professionalism** means award-winning safety, 150+ years expertise, and 3-state licensing
+- **Thoroughness** ensures zero accidents and zero shortcuts because every detail matters
+- **Together** = **Trust** = Partnership relationships that last generations
+
+---
+
+## Example
 
 > "We're working WITH you to ensure every detail aligns with your vision. Here's our
 > progress update and next steps for your project..."
