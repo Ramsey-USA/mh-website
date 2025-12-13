@@ -136,12 +136,13 @@ export const companyKnowledge: CompanyKnowledge = {
   stats: {
     founded: "2010",
     experience: "150+ years combined team experience",
-    projects: "500+ completed projects",
-    emr: "0.6 (40% better than industry average)",
+    projects: "650+ successfully completed projects",
+    emr: "0.64 EMR (40% better than industry average) - Award-Winning Safety",
     licensed: ["Washington", "Oregon", "Idaho"],
     certifications: [
       "Licensed General Contractor",
-      "OSHA Safety Certified",
+      "OSHA VPP Star Designation",
+      "AGC-WA Top EMR Award Winner (Multiple Years)",
       "Lead-Safe Certified",
       "Energy Star Partner",
       "EPA Certified",
@@ -149,7 +150,7 @@ export const companyKnowledge: CompanyKnowledge = {
     insurance: [
       "Full general liability insurance",
       "Workers compensation insurance",
-      "Bonded and insured",
+      "Bonded and insured across 3 states",
       "Builder's risk insurance available",
     ],
   },

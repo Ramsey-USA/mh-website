@@ -13,7 +13,7 @@ comprehensive pages, advanced features, and modern functionality.
 
 - **Full Website Suite**: 10 production pages with comprehensive functionality
   - Homepage with partnership messaging and core values showcase
-  - About page with 6-value professional foundation
+  - About page with 4-value professional foundation
   - Services page with detailed construction capabilities
   - Projects page with portfolio showcase and category filtering
   - Team page with leadership profiles and specializations

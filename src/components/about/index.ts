@@ -16,34 +16,6 @@ import type { CoreValue } from "./AboutValues";
 // Uses past-tense language to emphasize proven track record and history
 export const coreValues: CoreValue[] = [
   {
-    iconName: "business_center",
-    title: "Professionalism",
-    subtitle: "Excellence in Every Interaction",
-    description:
-      "Since 2010, we've conducted business with expert knowledge, respectful communication, and industry-leading standards. Our professional approach earned trust through organized processes, timely responses, and courteous behavior on every project.",
-    practices: [
-      "Arrived on time, prepared, and ready to work on every job site",
-      "Maintained clear, professional communication in all interactions",
-      "Managed job sites with organized, respectful work areas",
-      "Treated client properties and neighbors with utmost respect",
-      "Maintained industry-leading credentials, licensing, and training",
-    ],
-  },
-  {
-    iconName: "task_alt",
-    title: "Thoroughness",
-    subtitle: "Attention to Detail in Everything",
-    description:
-      "We established comprehensive planning and meticulous execution as our standard. Through detailed site analysis, precise measurements, and systematic quality control, we ensured nothing was overlooked on 650+ successful projects.",
-    practices: [
-      "Conducted detailed pre-construction site analysis and planning",
-      "Performed precise measurements and calculations for all estimates",
-      "Implemented systematic quality control at every project phase",
-      "Maintained complete documentation with comprehensive photo records",
-      "Completed thorough final walkthroughs with detailed punch lists",
-    ],
-  },
-  {
     iconName: "verified",
     title: "Honesty",
     subtitle: "Transparent Communication Always",
@@ -72,31 +44,31 @@ export const coreValues: CoreValue[] = [
     ],
   },
   {
-    iconName: "lightbulb",
-    title: "Innovation",
-    subtitle: "Modern Tools Meeting Traditional Values",
+    iconName: "business_center",
+    title: "Professionalism",
+    subtitle: "Excellence in Every Interaction",
     description:
-      "We leverage cutting-edge construction technology and AI-powered planning tools to serve clients better. Embracing modern methods while maintaining old-school business values, we continuously improve to stay ahead of industry trends.",
+      "Since 2010, we've conducted business with expert knowledge, respectful communication, and industry-leading standards. Our professional approach earned trust through organized processes, timely responses, and courteous behavior on every project.",
     practices: [
-      "Implemented AI-powered estimation and planning tools",
-      "Used digital project management for real-time updates",
-      "Adopted modern construction materials and techniques",
-      "Leveraged technology to improve communication and transparency",
-      "Continuously learned and adopted proven innovations",
+      "Arrived on time, prepared, and ready to work on every job site",
+      "Maintained clear, professional communication in all interactions",
+      "Managed job sites with organized, respectful work areas",
+      "Treated client properties and neighbors with utmost respect",
+      "Maintained industry-leading credentials, licensing, and training",
     ],
   },
   {
-    iconName: "handshake",
-    title: "Partnership",
-    subtitle: "Building Relationships That Last",
+    iconName: "task_alt",
+    title: "Thoroughness",
+    subtitle: "Attention to Detail in Everything",
     description:
-      "We work WITH clients, not FOR them. Our collaborative approach builds long-term relationships that extend beyond single projects, treating every engagement as the beginning of a lasting partnership with open communication and shared success.",
+      "We established comprehensive planning and meticulous execution as our standard. Through detailed site analysis, precise measurements, and systematic quality control, we ensured nothing was overlooked on 650+ successful projects.",
     practices: [
-      "Involved clients in key decisions throughout every project",
-      "Built relationships leading to repeat business and referrals",
-      "Treated every project as the beginning of a long-term partnership",
-      "Maintained open communication channels and collaborative problem-solving",
-      "Celebrated successes together and learned from challenges as a team",
+      "Conducted detailed pre-construction site analysis and planning",
+      "Performed precise measurements and calculations for all estimates",
+      "Implemented systematic quality control at every project phase",
+      "Maintained complete documentation with comprehensive photo records",
+      "Completed thorough final walkthroughs with detailed punch lists",
     ],
   },
 ];

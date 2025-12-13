@@ -304,7 +304,7 @@ Our award-winning safety record provides clients with:
 
 ## 🔗 Related Documentation
 
-- [**Core Values**](./core-values.md) - Six-value professional foundation
+- [**Core Values**](./core-values.md) - Four-value professional foundation
 - [**Team Roster**](./team-roster.md) - Meet our award-winning team
 - [**Services Overview**](./services.md) - Complete service offerings
 

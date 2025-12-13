@@ -1,34 +1,6 @@
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { gridPresets } from "@/lib/styles/layout-variants";
 
 const coreValues = [
-  {
-    value: "Professionalism",
-    icon: "business_center",
-    tagline: "Excellence in Every Interaction",
-    description:
-      "Conducting business with expert knowledge, respectful communication, and industry-leading standards in every interaction.",
-    details:
-      "Arriving on time, prepared, and ready to work. Clear, professional communication in all interactions. Proper job site management with organized work areas. Treating your property and neighbors with respect. Maintaining industry-leading credentials and training.",
-    color: "from-brand-primary to-brand-primary-dark",
-    bgColor: "bg-gradient-to-br from-brand-primary/10 to-brand-primary/5",
-    iconBg: "bg-brand-primary",
-    stats: "Expert Service Standards",
-  },
-  {
-    value: "Thoroughness",
-    icon: "task_alt",
-    tagline: "Attention to Detail in Everything We Do",
-    description:
-      "Comprehensive planning, meticulous execution, and complete documentation ensuring nothing is overlooked.",
-    details:
-      "Detailed pre-construction site analysis and planning. Precise measurements and calculations for material estimates. Systematic quality control at every project phase. Complete project documentation with photo records. Comprehensive final walkthrough with detailed punch lists.",
-    color: "from-primary-700 to-primary-900",
-    bgColor:
-      "bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/20",
-    iconBg: "bg-primary-600",
-    stats: "Zero Details Missed",
-  },
   {
     value: "Honesty",
     icon: "verified",
@@ -58,38 +30,37 @@ const coreValues = [
     stats: "Unwavering Ethics",
   },
   {
-    value: "Innovation",
-    icon: "lightbulb",
-    tagline: "Modern Tools Meeting Traditional Values",
+    value: "Professionalism",
+    icon: "business_center",
+    tagline: "Excellence in Every Interaction",
     description:
-      "Cutting-edge construction technology and AI-powered planning tools that serve you better while maintaining old-school business values.",
+      "Conducting business with expert knowledge, respectful communication, and industry-leading standards in every interaction.",
     details:
-      "AI-powered estimation and planning tools. Digital project management and real-time updates. Modern construction materials and techniques. Leveraging technology to improve communication and transparency. Continuous learning and adoption of proven innovations.",
-    color: "from-bronze-600 to-bronze-800",
-    bgColor:
-      "bg-gradient-to-br from-bronze-100/60 to-bronze-200/40 dark:from-bronze-900/30 dark:to-bronze-800/20",
-    iconBg: "bg-bronze-600",
-    stats: "Industry-Leading Tools",
+      "Arriving on time, prepared, and ready to work. Clear, professional communication in all interactions. Proper job site management with organized work areas. Treating your property and neighbors with respect. Maintaining industry-leading credentials and training.",
+    color: "from-brand-primary to-brand-primary-dark",
+    bgColor: "bg-gradient-to-br from-brand-primary/10 to-brand-primary/5",
+    iconBg: "bg-brand-primary",
+    stats: "Expert Service Standards",
   },
   {
-    value: "Partnership",
-    icon: "handshake",
-    tagline: "Building Relationships That Last",
+    value: "Thoroughness",
+    icon: "task_alt",
+    tagline: "Attention to Detail in Everything We Do",
     description:
-      "Collaborative approach where we work WITH you, not FOR you—building connections that extend beyond single projects.",
+      "Comprehensive planning, meticulous execution, and complete documentation ensuring nothing is overlooked.",
     details:
-      "Involving you in key decisions throughout the project. Building relationships that lead to repeat business and referrals. Treating every project as the beginning of a long-term partnership. Open communication channels and collaborative problem-solving. Celebrating successes together and learning from challenges as a team.",
-    color: "from-brand-primary to-brand-secondary",
+      "Detailed pre-construction site analysis and planning. Precise measurements and calculations for material estimates. Systematic quality control at every project phase. Complete project documentation with photo records. Comprehensive final walkthrough with detailed punch lists.",
+    color: "from-primary-700 to-primary-900",
     bgColor:
-      "bg-gradient-to-br from-brand-primary/8 to-brand-secondary/8 dark:from-brand-primary/15 dark:to-brand-secondary/15",
-    iconBg: "bg-gradient-to-br from-brand-primary to-brand-secondary",
-    stats: "70% Referral Rate",
+      "bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/20",
+    iconBg: "bg-primary-600",
+    stats: "Zero Details Missed",
   },
 ];
 
 /**
  * Core Values Section
- * Displays the six foundational principles with flip cards
+ * Displays the four foundational principles with flip cards in a 2x2 grid
  */
 export function CoreValuesSection() {
   return (
@@ -128,13 +99,13 @@ export function CoreValuesSection() {
               dollar
             </span>
             <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-              Our Six Core Values
+              Our Four Core Values
             </span>
           </h2>
           <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
             Building trust through{" "}
             <span className="font-semibold text-gray-800 dark:text-gray-200">
-              six foundational values
+              four foundational values
             </span>{" "}
             that guide every partnership, every decision, and every
             relationship—because{" "}
@@ -145,8 +116,8 @@ export function CoreValuesSection() {
           </p>
         </div>
 
-        {/* Value Cards */}
-        <div className={gridPresets.cards3("sm")}>
+        {/* Value Cards - 2x2 Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
           {coreValues.map((item, _index) => (
             <div
               key={item.value}
@@ -274,11 +245,11 @@ export function CoreValuesSection() {
               Trust isn't just another value—it's the result when all other
               values are consistently demonstrated. It's earned through{" "}
               <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
-                professionalism, thoroughness, honesty, integrity,
+                honesty, integrity, professionalism,
               </span>{" "}
               and{" "}
               <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
-                innovation with partnership
+                thoroughness
               </span>
               .
             </p>

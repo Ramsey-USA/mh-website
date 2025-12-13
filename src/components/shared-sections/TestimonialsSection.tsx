@@ -23,7 +23,7 @@ interface TestimonialsSectionProps {
 export function TestimonialsSection({
   title = "What Our Client Partners Say",
   subtitle = "What Our",
-  description = "Hear from valued partners who've experienced our six core values in action—professionalism, thoroughness, honesty, integrity, innovation, and partnership building trust on every project.",
+  description = "Hear from valued partners who've experienced our four core values in action—honesty, integrity, professionalism, and thoroughness building trust on every project.",
   className = "",
   autoPlay = true,
   autoPlayInterval = 5000,

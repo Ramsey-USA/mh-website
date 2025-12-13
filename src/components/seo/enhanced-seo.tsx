@@ -7,7 +7,7 @@ export const enhancedSEO = {
   defaultTitle:
     "MH Construction - Building projects for the client, NOT the dollar | Veteran-Owned",
   defaultDescription:
-    "Veteran-owned construction management services provider since 2010. Specializing in commercial construction services, master planning and preconstruction services, tenant improvement services, and light industrial construction. Six core values—Professionalism, Thoroughness, Honesty, Integrity, Innovation, Partnership—building trust through modern AI-powered tools and lasting relationships throughout the Pacific Northwest.",
+    "Veteran-owned construction management services provider since 2010. Specializing in commercial construction services, master planning and preconstruction services, tenant improvement services, and light industrial construction. Four core values—Honesty, Integrity, Professionalism, Thoroughness—building trust through transparent communication and lasting relationships throughout the Pacific Northwest.",
   siteUrl: process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com",
   twitterHandle: "@mhc_gc",
   defaultKeywords: [

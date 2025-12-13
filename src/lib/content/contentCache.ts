@@ -14,14 +14,8 @@ const contentCache: Record<string, ContentItem> = {
   "core-values": {
     title: "Core Values",
     excerpt:
-      "Our commitment to professionalism, thoroughness, and unwavering integrity",
+      "Our commitment to honesty, integrity, professionalism, and thoroughness",
     content: `# Core Values
-
-## Professionalism
-We maintain excellence in every interaction and project phase.
-
-## Thoroughness
-Meticulous attention to detail ensures quality that exceeds expectations.
 
 ## Honesty
 Transparent communication and realistic timelines build lasting trust.
@@ -29,11 +23,11 @@ Transparent communication and realistic timelines build lasting trust.
 ## Integrity
 Doing what's right, even when no one is watching.
 
-## Reliability
-Veteran-trained dependability you can count on, project after project.
+## Professionalism
+We maintain excellence in every interaction and project phase.
 
-## Quality Craftsmanship
-Building excellence that stands the test of time.
+## Thoroughness
+Meticulous attention to detail ensures quality that exceeds expectations.
 `,
     lastUpdated: new Date().toISOString(),
   },

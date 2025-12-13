@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title:
     "Frequently Asked Questions | MH Construction - Veteran-Owned Excellence",
   description:
-    "Find answers to common questions about MH Construction's services, process, safety record, veteran benefits, and partnership approach. Learn about our 0.6 EMR safety record, open-book pricing, Design-Build vs Design-Bid-Build, PEMB buildings, Procore project management, and face-to-face consultation process.",
+    "Find answers to common questions about MH Construction's services, process, safety record, veteran benefits, and partnership approach. Learn about our 0.64 EMR safety record, open-book pricing, Design-Build vs Design-Bid-Build, PEMB buildings, Procore project management, and face-to-face consultation process.",
   keywords: [
     "construction FAQ",
     "construction management questions",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "construction process explained",
     "open-book pricing",
     "construction safety record",
-    "0.6 EMR safety",
+    "0.64 EMR safety",
     "Pacific Northwest construction",
     "construction consultation",
     "licensed WA OR ID",
@@ -54,7 +54,7 @@ const faqCategories = [
         question:
           "What makes MH Construction different from other construction companies?",
         answer:
-          "We're built on a six-value professional foundation system: Professionalism, Thoroughness, Honesty, Integrity, Innovation, and Partnership—all culminating in Trust as our ultimate goal. As a veteran-owned company since January 2025, we combine military precision with partnership-driven construction management. Our philosophy is simple: Building projects for the client, NOT the dollar. We work WITH you, not FOR you, ensuring your vision guides every decision.",
+          "We're built on a four-value professional foundation system: Honesty, Integrity, Professionalism, and Thoroughness—all culminating in Trust as our ultimate goal. As a veteran-owned company since January 2025, we combine military precision with partnership-driven construction management. Our philosophy is simple: Building projects for the client, NOT the dollar. We work WITH you, not FOR you, ensuring your vision guides every decision.",
       },
       {
         question: "Where are you licensed and what areas do you serve?",
@@ -113,12 +113,12 @@ const faqCategories = [
       {
         question: "What is your safety record?",
         answer:
-          "We maintain an industry-leading 0.6 EMR (Experience Modification Rate)—40% better than the industry average of 1.0. We've earned multiple AGC-WA Top EMR Awards, hold OSHA VPP Star designation, and have maintained 3+ consecutive years without time-loss injuries. Our team is OSHA 30-Hour Certified, and safety excellence is a core part of our Professionalism value.",
+          "We maintain an industry-leading 0.64 EMR (Experience Modification Rate)—40% better than the industry average of 1.0. We've earned multiple AGC-WA Top EMR Awards, hold OSHA VPP Star designation, and have maintained 3+ consecutive years without time-loss injuries. Our team is OSHA 30-Hour Certified, and safety excellence is a core part of our Professionalism value.",
       },
       {
         question: "What quality standards do you follow?",
         answer:
-          "Partnership is one of our six core values. We implement multiple quality control checkpoints throughout every project, use proven methods refined over 150+ years of combined experience, and build as if constructing for our own families. Our systematic approach includes detailed inspections, comprehensive documentation, and taking the time to do it right—never compromising standards.",
+          "Quality is central to our core values of Professionalism and Thoroughness. We implement multiple quality control checkpoints throughout every project, use proven methods refined over 150+ years of combined experience, and build as if constructing for our own families. Our systematic approach includes detailed inspections, comprehensive documentation, and taking the time to do it right—never compromising standards.",
       },
       {
         question: "Do you have insurance and bonding?",
@@ -452,7 +452,7 @@ export default function FAQPage() {
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
                   <MaterialIcon icon="shield" className="text-brand-primary" />
-                  <span>0.6 EMR Safety Record</span>
+                  <span>0.64 EMR Safety Record</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
                   <MaterialIcon

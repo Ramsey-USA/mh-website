@@ -5,7 +5,7 @@
 ### **Live Production Pages**
 
 - ✅ **Homepage** (`/src/app/page.tsx`) - Partnership-focused landing with core values
-- ✅ **About Page** (`/src/app/about/page.tsx`) - Company story and 6-value foundation
+- ✅ **About Page** (`/src/app/about/page.tsx`) - Company story and 4-value foundation
 - ✅ **Services Page** (`/src/app/services/page.tsx`) - Construction capabilities and expertise
 - ✅ **Projects Page** (`/src/app/projects/page.tsx`) - Portfolio showcase with filtering
 - ✅ **Team Page** (`/src/app/team/page.tsx`) - Leadership profiles and specializations

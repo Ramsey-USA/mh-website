@@ -6,7 +6,7 @@
 **Version:** 5.0.0
 **Last Updated:** November 20, 2025
 
-**⭐ IMPORTANT UPDATE (Nov 2025)**: This document integrates our **six-value professional foundation
+**⭐ IMPORTANT UPDATE (Nov 2025)**: This document integrates our **four-value professional foundation
 system** from [core-values.md](../../business/core-values.md). All brand identity is built upon
 Professionalism, Thoroughness, Honesty, Integrity, Reliability, and Quality Craftsmanship—culminating
 in **Trust** as our ultimate goal.
@@ -18,7 +18,7 @@ groups aligned with SEO optimization strategy.
 ## Quick Navigation
 
 - [🏠 Brand Documentation](../branding-index.md)
-- [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Six-value professional system
+- [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Four-value professional system
 - [📝 Messaging Guidelines](./messaging.md) - Built on core values
 - [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
 - [🎨 Color System](../standards/color-system.md)
@@ -150,11 +150,11 @@ each of the 7 page groups expresses these attributes differently.
 
 ## Brand Values
 
-### Six-Value Professional Foundation System
+### Four-Value Professional Foundation System
 
 **Trust-Centered Philosophy**: "Trust as our ultimate goal and measurable company foundation"
 
-Our six core values build toward trust as the culmination of excellence in every interaction.
+Our four core values build toward trust as the culmination of excellence in every interaction.
 Each value is essential, and together they create the foundation of lasting partnerships.
 
 #### 1. Professionalism - Excellence in Every Interaction
@@ -219,7 +219,7 @@ never compromising standards, using proven methods, pride in every project
 
 ### Building Trust Through Our Values
 
-**Ultimate Goal**: All six values work together to build **TRUST** - the foundation of every lasting
+**Ultimate Goal**: All four values work together to build **TRUST** - the foundation of every lasting
 partnership.
 
 **How Values Build Trust**:
@@ -249,7 +249,7 @@ How we put values into action on every project:
 4. **Quality Execution** (Quality Craftsmanship + Thoroughness) - Military precision
 5. **Seamless Close-Out** (Reliability) - Comprehensive completion with ongoing support
 
-See [Core Values](../../business/core-values.md) for complete details on our six-value system.
+See [Core Values](../../business/core-values.md) for complete details on our four-value system.
 
 ## Current Architecture & Implementation
 
@@ -313,7 +313,7 @@ See [Core Values](../../business/core-values.md) for complete details on our six
 
 ## Related Documentation
 
-- **[Core Values](../../business/core-values.md)** - ⭐ **CRITICAL** - Six-value professional foundation
+- **[Core Values](../../business/core-values.md)** - ⭐ **CRITICAL** - Four-value professional foundation
   (MUST READ for all team members)
 - **[Messaging Guidelines](./messaging.md)** - Voice and tone built on core values
 - **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** - ⭐ **CRITICAL** -
@@ -334,6 +334,6 @@ See [Core Values](../../business/core-values.md) for complete details on our six
 
 **Version History**:
 
-- v5.0.0 (Nov 20, 2025): Integrated six-value professional foundation system from core-values.md
+- v5.0.0 (Nov 20, 2025): Integrated four-value professional foundation system from core-values.md
 - v4.0.2 (Nov 15, 2025): Page-specific messaging updates
 - v4.0.1 (Nov 3, 2025): Hero section standards finalized

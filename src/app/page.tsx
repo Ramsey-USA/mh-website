@@ -87,17 +87,14 @@ export default function Home() {
       <StructuredData data={homepageSEO.schemas} />
 
       <Head>
-        <title>
-          MH Construction - Innovation Meets Partnership | Veteran-Owned Since
-          2025
-        </title>
+        <title>MH Construction - Veteran-Owned Excellence Since 2025</title>
         <meta
           name="description"
-          content="Veteran-owned construction management services since 2010. Specializing in commercial construction services, master planning and preconstruction services, tenant improvement services, and light industrial construction. Six core values—Professionalism, Thoroughness, Honesty, Integrity, Innovation, Partnership—building trust through modern tools and lasting relationships. Serving Pacific Northwest communities."
+          content="Veteran-owned construction management services since 2010. Specializing in commercial construction services, master planning and preconstruction services, tenant improvement services, and light industrial construction. Four core values—Honesty, Integrity, Professionalism, Thoroughness—building trust through transparent communication and lasting relationships. Serving Pacific Northwest communities."
         />
         <meta
           name="keywords"
-          content="construction management services, commercial construction services, master planning and preconstruction services, tenant improvement services, light industrial construction, veteran-owned construction, innovation construction technology, partnership construction approach, AI-powered construction planning, collaborative building relationships, modern tools traditional values, Tri-Cities construction, Pasco construction, Kennewick construction, Professionalism Thoroughness Honesty Integrity Innovation Partnership, trust-based construction"
+          content="construction management services, commercial construction services, master planning and preconstruction services, tenant improvement services, light industrial construction, veteran-owned construction, transparent construction communication, collaborative building relationships, traditional business values, Tri-Cities construction, Pasco construction, Kennewick construction, Honesty Integrity Professionalism Thoroughness, trust-based construction"
         />
         <meta
           property="og:title"
@@ -105,7 +102,7 @@ export default function Home() {
         />
         <meta
           property="og:description"
-          content="Founded 2010, veteran-owned since January 2025. Six core values: Professionalism, Thoroughness, Honesty, Integrity, Innovation, Partnership. Modern AI-powered tools meet traditional business values. Serving Tri-Cities. Call (509) 308-6489."
+          content="Founded 2010, veteran-owned since January 2025. Four core values: Honesty, Integrity, Professionalism, Thoroughness. Transparent communication and traditional business values. Serving Tri-Cities. Call (509) 308-6489."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://www.mhc-gc.com" />
@@ -216,8 +213,8 @@ export default function Home() {
                   <em>"Your Word Is Your Bond - So Is Ours."</em> Trust isn't
                   just earned on job sites—it's built through transparent
                   communication everywhere. Every detail on this site will
-                  reflect our six core values: Professionalism, Thoroughness,
-                  Honesty, Integrity, Innovation, and Partnership.
+                  reflect our four core values: Honesty, Integrity,
+                  Professionalism, and Thoroughness.
                 </p>
 
                 <div className="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm p-6 border border-brand-secondary/30 rounded-xl mt-6">
@@ -286,7 +283,7 @@ export default function Home() {
                   the dollar
                 </span>{" "}
                 means never compromising our values—whether it’s a construction
-                project or the information we provide online. Our six core
+                project or the information we provide online. Our four core
                 values guide everything we do. Thank you for your patience as we
                 perfect every detail to serve you better.
               </p>

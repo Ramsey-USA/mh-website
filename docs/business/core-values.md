@@ -1,6 +1,6 @@
 # MH Construction Core Values
 
-## 6-Value Professional Foundation System
+## 4-Value Professional Foundation System
 
 **Trust-Centered Philosophy**: "Trust as our ultimate goal and measurable company foundation"
 
@@ -10,54 +10,12 @@
 
 ## Our Professional Foundation
 
-MH Construction operates on a comprehensive 6-principle system that defines who we are and how we work.
+MH Construction operates on a comprehensive 4-principle system that defines who we are and how we work.
 Each value builds toward our ultimate goal: **Trust** - the culmination of all other values working together.
 
 ---
 
-## 💼 1. Professionalism
-
-### Excellence in Every Interactionn
-
-### What This Means
-
-- **Expert Knowledge**: Deep understanding of construction methods, codes, and best practices
-- **Professional Conduct**: Respectful communication, timely responses, and courteous behavior
-- **Industry Standards**: Maintaining proper licensing, insurance, and certifications
-- **Business Excellence**: Organized processes, clear documentation, and efficient operations
-
-### Professionalism in Practice
-
-- Arriving on time, prepared, and ready to work
-- Clear, professional communication in all interactions
-- Proper job site management with organized work areas
-- Treating your property and neighbors with respect
-- Maintaining industry-leading credentials and training
-
----
-
-## 🔍 2. Thoroughness
-
-### Attention to Detail in Everything We Do
-
-### What This Means
-
-- **Comprehensive Planning**: Detailed project planning with contingency scenarios
-- **Meticulous Execution**: Careful attention to every measurement, connection, and finish
-- **Complete Documentation**: Thorough records of all decisions, changes, and specifications
-- **Quality Verification**: Multiple checkpoints to ensure nothing is overlooked
-
-### Thoroughness in Practice
-
-- Detailed pre-construction site analysis and planning
-- Precise measurements and calculations for material estimates
-- Systematic quality control at every project phase
-- Complete project documentation with photo records
-- Comprehensive final walkthrough with detailed punch lists
-
----
-
-## 💬 3. Honesty
+## 💬 1. Honesty
 
 ### Transparent Communication Always
 
@@ -78,7 +36,7 @@ Each value builds toward our ultimate goal: **Trust** - the culmination of all o
 
 ---
 
-## ⚖️ 4. Integrity
+## ⚖️ 2. Integrity
 
 ### Doing What's Right, Every Time
 
@@ -99,67 +57,65 @@ Each value builds toward our ultimate goal: **Trust** - the culmination of all o
 
 ---
 
-## 💡 5. Innovation
+## 💼 3. Professionalism
 
-### Modern Tools Meeting Traditional Values
+### Excellence in Every Interaction
 
 ### What This Means
 
-- **Cutting-Edge Technology**: Using modern construction tech, AI-powered planning, and digital tools
-- **Advanced Methods**: Embracing innovative construction techniques and materials
-- **Continuous Improvement**: Always seeking better ways to serve our clients
-- **Future-Focused**: Staying ahead of industry trends while maintaining quality standards
+- **Expert Knowledge**: Deep understanding of construction methods, codes, and best practices
+- **Professional Conduct**: Respectful communication, timely responses, and courteous behavior
+- **Industry Standards**: Maintaining proper licensing, insurance, and certifications
+- **Business Excellence**: Organized processes, clear documentation, and efficient operations
 
-### Innovation in Practice
+### Professionalism in Practice
 
-- AI-powered estimation and planning tools
-- Digital project management and real-time updates
-- Modern construction materials and techniques
-- Leveraging technology to improve communication and transparency
-- Continuous learning and adoption of proven innovations
+- Arriving on time, prepared, and ready to work
+- Clear, professional communication in all interactions
+- Proper job site management with organized work areas
+- Treating your property and neighbors with respect
+- Maintaining industry-leading credentials and training
 
 ---
 
-## 🤝 6. Partnership
+## 🔍 4. Thoroughness
 
-### Building Relationships That Last
+### Attention to Detail in Everything We Do
 
 ### What This Means
 
-- **Collaborative Approach**: Working WITH you, not FOR you
-- **Long-Term Relationships**: Building connections that extend beyond single projects
-- **Client-Centered Decisions**: Your vision guides every choice we make
-- **Mutual Success**: When you succeed, we succeed
+- **Comprehensive Planning**: Detailed project planning with contingency scenarios
+- **Meticulous Execution**: Careful attention to every measurement, connection, and finish
+- **Complete Documentation**: Thorough records of all decisions, changes, and specifications
+- **Quality Verification**: Multiple checkpoints to ensure nothing is overlooked
 
-### Partnership in Practice
+### Thoroughness in Practice
 
-- Involving you in key decisions throughout the project
-- Building relationships that lead to repeat business and referrals
-- Treating every project as the beginning of a long-term partnership
-- Open communication channels and collaborative problem-solving
-- Celebrating successes together and learning from challenges as a team
+- Detailed pre-construction site analysis and planning
+- Precise measurements and calculations for material estimates
+- Systematic quality control at every project phase
+- Complete project documentation with photo records
+- Comprehensive final walkthrough with detailed punch lists
 
 ---
 
 ## 🌟 The Ultimate Goal: Trust
 
-### Built Through All Six Values Working Together
+### Built Through All Four Values Working Together
 
 Trust isn't just another value - it's the result when all other values are consistently demonstrated. Trust is:
 
-- **Earned**: Through consistent demonstration of our six core values
+- **Earned**: Through consistent demonstration of our four core values
 - **Measurable**: Reflected in client satisfaction, referrals, and repeat business
 - **Foundational**: The basis for all our client relationships and community standing
 - **Sustainable**: What allows us to build lasting partnerships beyond individual projects
 
 ### How We Build Trust
 
-- **Professionalism**: Expert conduct builds confidence
-- **Thoroughness**: Attention to detail creates peace of mind
 - **Honesty**: Transparent communication eliminates doubt
 - **Integrity**: Doing what's right builds credibility
-- **Innovation**: Modern tools demonstrate progress
-- **Partnership**: Collaborative relationships create lasting bonds
+- **Professionalism**: Expert conduct builds confidence
+- **Thoroughness**: Attention to detail creates peace of mind
 
 ### Measuring Our Success
 
@@ -240,7 +196,7 @@ commitment to transparency, quality, and relationship-building.
 
 ---
 
-## �💡 Why Our Values Matter
+## 💡 Why Our Values Matter
 
 ### For Our Clients
 
@@ -268,7 +224,7 @@ commitment to transparency, quality, and relationship-building.
 ## 🎯 Our Promise
 
 **When you choose MH Construction, you're not just hiring a contractor - you're partnering with a veteran-led
-team committed to these six core values.**
+team committed to these four core values.**
 
 Every decision we make, every process we follow, and every interaction we have is measured against these values.
 They're not just words on a wall - they're the foundation of how we do business and the promise we make to every
@@ -310,4 +266,4 @@ Experience these values in action on your next construction project.
 
 ---
 
-**Last updated:** November 6, 2025 | MH Construction, Inc.
+**Last updated:** December 13, 2025 | MH Construction, Inc.

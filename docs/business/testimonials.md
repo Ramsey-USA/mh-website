@@ -54,7 +54,7 @@ Please check back soon, or contact us directly to learn more about our client ex
 
 ## Core Values Reflected in Our Work
 
-Our approach consistently demonstrates our six core values:
+Our approach consistently demonstrates our four core values:
 
 1. **Professionalism** - Excellence in every interaction and project phase
 2. **Thoroughness** - Meticulous attention to detail in all we do

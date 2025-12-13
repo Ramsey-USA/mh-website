@@ -17,24 +17,24 @@
 ## 🎯 Purpose
 
 This guide defines the **unique voice, tone, and messaging strategy** for each page group on the
-MH Construction website. While our **six-value professional foundation system** (Professionalism,
-Thorough ness, Honesty, Integrity, Innovation, Partnership) and **trust-centered
+MH Construction website. While our **four-value professional foundation system** (Honesty, Integrity,
+Honesty, Integrity, Professionalism, Thoroughness) and **trust-centered
 philosophy** remain constant across all pages, each page group has its own personality and
 communication style designed to resonate with its specific audience.
 
 ### Core Foundation
 
-**Six-Value Professional Foundation System:**
+**Four-Value Professional Foundation System:**
 
 - Trust is our ultimate goal and measurable company foundation
-- Each of the six core values builds toward trust
+- Each of the four core values builds toward trust
 - Trust is earned, measurable, and foundational to everything we do
 
 ### Core Principle
 
 **"Building projects for the client, NOT the dollar"** is our PRIMARY SLOGAN and should be prominently
 featured across the site. However, each page group also has freedom to create and use
-supplementary messaging that speaks to its unique purpose while always reflecting our six core values.
+supplementary messaging that speaks to its unique purpose while always reflecting our four core values.
 
 ### 🔗 Related Standards
 
@@ -93,12 +93,12 @@ specific terms and phrases.
 
 - **Authentic:** Real people, real handshakes, real relationships
 - **Timeless:** Old-school values that never go out of style
-- **Trust-Centered:** Building trust through six foundational values
+- **Trust-Centered:** Building trust through four foundational values
 - **Personal:** Face-to-face, human connection emphasized
 
 ### Core Values Emphasis
 
-**Featured Values:** All six values prominently displayed
+**Featured Values:** All four values prominently displayed
 
 - **Professionalism** - First impressions matter
 - **Honesty** - Transparent communication from day one
@@ -112,7 +112,7 @@ specific terms and phrases.
 
 **Trust-Centered Messaging:**
 
-- "Trust Built Through Six Core Values"
+- "Trust Built Through Four Core Values"
 - "Trust as Our Ultimate Goal"
 - "THE ROI IS THE RELATIONSHIP"
 
@@ -120,7 +120,7 @@ specific terms and phrases.
 
 - "Where Handshakes Still Matter"
 - "Your Word Is Your Bond - So Is Ours"
-- "Six Values, One Result: Trust"
+- "Four Values, One Result: Trust"
 
 ### Language Characteristics
 
@@ -133,8 +133,8 @@ specific terms and phrases.
 ### Key Phrases
 
 - "Where handshakes matter and your word is your bond"
-- "Trust built through professionalism, thoroughness, honesty, integrity, innovation, and partnership"
-- "Six core values working together to create one result: Trust"
+- "Trust built through honesty, integrity, professionalism, and thoroughness"
+- "Four core values working together to create one result: Trust"
 - "Face-to-face consultation where trust begins"
 - "Founded on integrity, built on relationships, measured by trust"
 - "The way business should be done - with values you can count on"
@@ -199,10 +199,10 @@ specific terms and phrases.
 ### Key Phrases
 
 - "Founded in 2010, veteran-owned since January 2025"
-- "Trust earned through professionalism, thoroughness, honesty, integrity, innovation, and partnership"
+- "Trust earned through honesty, integrity, professionalism, and thoroughness"
 - "98% client satisfaction rate - trust you can measure"
 - "70% referral rate - trust clients share with others"
-- "Built on a foundation of six core values"
+- "Built on a foundation of four core values"
 - "Our history speaks for itself - our values speak through every project"
 - "From humble beginnings to regional leadership, values remained constant"
 - "Every project demonstrates our commitment to trust"
@@ -226,7 +226,7 @@ specific terms and phrases.
 
 - **Forward-looking:** What's next, where we're going
 - **Growth-oriented:** Expanding capabilities and vision
-- **Values-Driven:** Six values guide our future direction
+- **Values-Driven:** Four values guide our future direction
 - **Innovative:** Embracing new methods while honoring core values
 - **Empowering:** Enabling client success and team development
 
@@ -269,7 +269,7 @@ specific terms and phrases.
 - "Leading the industry into tomorrow with timeless values"
 - "Evolving to serve you better, our values remain constant"
 - "Expanding our capabilities to match your vision, grounded in trust"
-- "The future of construction partnership built on six core values"
+- "The future of construction partnership built on four core values"
 - "Where your tomorrow begins today, on a foundation of trust"
 - "Growing together, building together, trusting together"
 - "Professional excellence today creates trusted partnerships tomorrow"
@@ -335,7 +335,7 @@ specific terms and phrases.
 ### Key Phrases
 
 - "Army veteran leadership since January 2025"
-- "Military precision meets construction excellence through six core values"
+- "Military precision meets construction excellence through four core values"
 - "Serving those who served our nation with integrity and reliability"
 - "Mission-focused project execution guided by unwavering values"
 - "Compliance-driven, quality-assured, integrity-based"
@@ -363,7 +363,7 @@ specific terms and phrases.
 
 - **Enthusiastic:** Excited about growth and new team members
 - **Welcoming:** Open arms, inclusive language
-- **Values-Centered:** Join a team built on six core values
+- **Values-Centered:** Join a team built on four core values
 - **Inspirational:** Career growth and opportunity focus
 - **Energetic:** Dynamic, upbeat, forward momentum
 
@@ -406,7 +406,7 @@ specific terms and phrases.
 - "Build your future with a team that cares and lives its values"
 - "Where talent meets opportunity in a culture of trust"
 - "Your success is our success - that's integrity in action"
-- "Join a family, not just a company - built on six core values"
+- "Join a family, not just a company - built on four core values"
 - "Careers built on partnership and professional development"
 - "Where veterans and civilians build together with shared values"
 - "Professionalism isn't just expected, it's mentored and celebrated"
@@ -476,7 +476,7 @@ specific terms and phrases.
 - "Technology that serves, never replaces, relationships built on trust"
 - "Smart tools for smarter planning, honest assessments for better decisions"
 - "Innovation with integrity and transparency at every step"
-- "Where data meets decades of experience and six core values"
+- "Where data meets decades of experience and four core values"
 - "Cutting-edge tools, old-school values, unwavering honesty"
 - "Thorough analysis through technology, honest communication through people"
 - "Professional tools supporting professional relationships"
@@ -507,7 +507,7 @@ specific terms and phrases.
 
 ### Core Values Emphasis
 
-**Featured Values:** ALL SIX values create the ROI
+**Featured Values:** ALL FOUR values create the ROI
 
 - **Honesty** in pricing and timelines
 - **Integrity** in all business dealings
@@ -521,14 +521,14 @@ specific terms and phrases.
 **UNIQUE FEATURE: This is the ONLY place we prominently use:**
 
 - "THE ROI IS THE RELATIONSHIP" (featured heavily)
-  - _But now emphasize: The relationship works BECAUSE of our six core values_
+  - _But now emphasize: The relationship works BECAUSE of our four core values_
 
 **Also Use:**
 
 - "Building projects for the client, NOT the dollar"
-- "Six Values Create One ROI: Trust"
+- "Four Values Create One ROI: Trust"
 - "When Time Is Critical, Our Values Don't Waver"
-- "Professional Partnerships Built on Six Foundations"
+- "Professional Partnerships Built on Four Foundations"
 
 ### Language Characteristics
 
@@ -540,12 +540,12 @@ specific terms and phrases.
 
 ### Key Phrases (Trade Partners)
 
-- "THE ROI IS THE RELATIONSHIP - built on six core values"
+- "THE ROI IS THE RELATIONSHIP - built on four core values"
 - "Partnerships that profit everyone through honesty and integrity"
 - "Fair payment (integrity), clear communication (honesty), mutual success (trust)"
 - "Building your business while building ours - with professionalism and reliability"
 - "Professional partnerships, profitable results, lasting trust"
-- "Six values create measurable ROI: 70% referral rate proves it"
+- "Four values create measurable ROI: 70% referral rate proves it"
 - "Quality craftsmanship and reliability make partnerships profitable"
 
 ### Key Phrases (Urgent Support)
@@ -600,15 +600,15 @@ specific terms and phrases.
 
 ## 📊 Messaging Matrix
 
-| Page Group             | Primary Audience      | Dominant Emotion         | Core Values Focus                    | Call-to-Action Focus |
-| ---------------------- | --------------------- | ------------------------ | ------------------------------------ | -------------------- |
-| Traditional Business   | All potential clients | Trust & Comfort          | All six values prominently displayed | "Let's talk"         |
-| Heritage               | Curious prospects     | Confidence & Credibility | Quality, Reliability, Integrity      | "See our work"       |
-| Future Vision          | Strategic clients     | Excitement & Possibility | Professionalism, Thoroughness        | "Partner with us"    |
-| Professional/Patriotic | Gov't & Veterans      | Respect & Duty           | Integrity, Reliability, Professional | "Work with us"       |
-| Recruitment            | Job seekers           | Enthusiasm & Hope        | Professionalism, Integrity           | "Join us"            |
-| Tech Innovation        | Tech-curious clients  | Curiosity & Innovation   | Honesty, Thoroughness                | "Try it"             |
-| Partnership/Urgency    | Trade/Emergency       | Urgency & ROI            | All six create the ROI               | "Get started now"    |
+| Page Group             | Primary Audience      | Dominant Emotion         | Core Values Focus                     | Call-to-Action Focus |
+| ---------------------- | --------------------- | ------------------------ | ------------------------------------- | -------------------- |
+| Traditional Business   | All potential clients | Trust & Comfort          | All four values prominently displayed | "Let's talk"         |
+| Heritage               | Curious prospects     | Confidence & Credibility | Quality, Reliability, Integrity       | "See our work"       |
+| Future Vision          | Strategic clients     | Excitement & Possibility | Professionalism, Thoroughness         | "Partner with us"    |
+| Professional/Patriotic | Gov't & Veterans      | Respect & Duty           | Integrity, Reliability, Professional  | "Work with us"       |
+| Recruitment            | Job seekers           | Enthusiasm & Hope        | Professionalism, Integrity            | "Join us"            |
+| Tech Innovation        | Tech-curious clients  | Curiosity & Innovation   | Honesty, Thoroughness                 | "Try it"             |
+| Partnership/Urgency    | Trade/Emergency       | Urgency & ROI            | All four create the ROI               | "Get started now"    |
 
 ---
 
@@ -616,13 +616,13 @@ specific terms and phrases.
 
 ### Version 2.0.0 - November 20, 2025
 
-#### Major Update: Six-Value Professional Foundation Integration
+#### Major Update: Four-Value Professional Foundation Integration
 
-- Integrated six-value professional foundation system across all page groups
+- Integrated four-value professional foundation system across all page groups
 - Added trust-centered philosophy as ultimate goal
 - Updated each group with specific core values emphasis
 - Added measurable trust metrics (98% satisfaction, 70% referrals)
-- Connected Group 7's "ROI IS THE RELATIONSHIP" to six values that create it
+- Connected Group 7's "ROI IS THE RELATIONSHIP" to four values that create it
 - Enhanced key phrases with values-specific language
 - Updated messaging matrix to include core values focus
 - Maintained unique messaging for each group while adding values foundation
@@ -630,9 +630,9 @@ specific terms and phrases.
 **Core Philosophy Update:**
 
 - Trust is our ultimate goal and measurable company foundation
-- Six values (Professionalism, Thoroughness, Honesty, Integrity, Reliability, Quality Craftsmanship) build trust
-- Each page group emphasizes different values while maintaining all six as foundation
-- "THE ROI IS THE RELATIONSHIP" works because of the six values that create it
+- Four values (Honesty, Integrity, Professionalism, Thoroughness) build trust
+- Each page group emphasizes different values while maintaining all four as foundation
+- "THE ROI IS THE RELATIONSHIP" works because of the four values that create it
 
 ### Version 1.1.0 - January 2025
 
@@ -689,7 +689,7 @@ Contact the Marketing & Brand Team with:
 ---
 
 **Primary Slogan:** "Building projects for the client, NOT the dollar"  
-**Core Message:** THE ROI IS THE RELATIONSHIP (built on six core values)  
+**Core Message:** THE ROI IS THE RELATIONSHIP (built on four core values)  
 **Brand Promise:** Trust Built Through Excellence  
-**Trust Foundation:** Six values working together create one result: Trust  
+**Trust Foundation:** Four values working together create one result: Trust  
 **Measurable Trust:** 98% satisfaction rate | 70% referral rate

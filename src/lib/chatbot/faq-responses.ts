@@ -47,7 +47,7 @@ export const faqDatabase: FAQItem[] = [
   {
     keywords: ["estimate", "quote", "assessment", "evaluation"],
     question: "How do I get an estimate?",
-    answer: `**[ESTIMATE OPTIONS]** 🎯\n\n**Two Pathways Available:**\n\n**🤖 AI ESTIMATOR (Instant)**\n• Get preliminary cost intel in under 5 minutes\n• Available 24/7 - no waiting\n• Based on 500+ completed projects\n• Free - no commitment required\n• **[Launch AI Estimator →](/estimator)**\n\n**👤 EXPERT CONSULTATION (Comprehensive)**\n• Free on-site assessment\n• Detailed open-book pricing\n• Timeline and planning discussion\n• Personalized recommendations\n• **[Schedule Consultation →](/booking)**\n\n**RECOMMENDED:** Start with AI Estimator for instant ballpark, then schedule consultation for detailed planning.\n\n**VETERAN PRIORITY:** Expedited processing + 12% discount!`,
+    answer: `**[ESTIMATE OPTIONS]** 🎯\n\n**Two Pathways Available:**\n\n**🤖 AI ESTIMATOR (Instant)**\n• Get preliminary cost intel in under 5 minutes\n• Available 24/7 - no waiting\n• Based on 650+ completed projects\n• Free - no commitment required\n• **[Launch AI Estimator →](/estimator)**\n\n**👤 EXPERT CONSULTATION (Comprehensive)**\n• Free on-site assessment\n• Detailed open-book pricing\n• Timeline and planning discussion\n• Personalized recommendations\n• **[Schedule Consultation →](/booking)**\n\n**RECOMMENDED:** Start with AI Estimator for instant ballpark, then schedule consultation for detailed planning.\n\n**VETERAN PRIORITY:** Expedited processing + 12% discount!`,
     category: "pricing",
   },
   {

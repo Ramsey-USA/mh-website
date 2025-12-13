@@ -96,7 +96,7 @@
 
 ### CoreValuesSection Cards
 
-**Location:** Homepage, "Six Core Values"
+**Location:** Homepage, "Four Core Values"
 
 **Tests:**
 

@@ -163,7 +163,7 @@ export const brandValueFragments = {
   mainSlogan: "Building projects for the client, NOT the dollar",
   relationshipROI: "THE ROI IS THE RELATIONSHIP",
 
-  // Six core values
+  // Four core values
   coreValues: [
     "Professionalism",
     "Thoroughness",
@@ -173,8 +173,7 @@ export const brandValueFragments = {
     "Partnership",
   ],
 
-  coreValuesPhrase:
-    "Professionalism, Thoroughness, Honesty, Integrity, Innovation, and Partnership",
+  coreValuesPhrase: "Honesty, Integrity, Professionalism, and Thoroughness",
   trustPhrase: "building trust through proven excellence",
 
   // Value proposition snippets

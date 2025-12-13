@@ -2,7 +2,7 @@
 
 **Category:** UI Components - Buttons & Call-to-Actions  
 **Last Updated:** November 20, 2025  
-**Status:** ✅ Active - Six-Value Foundation Aligned  
+**Status:** ✅ Active - Four-Value Foundation Aligned  
 **Version:** 3.0.0 (Trust-Centered Messaging)
 
 **⚠️ CONSOLIDATED DOCUMENT:** This guide consolidates and supersedes:

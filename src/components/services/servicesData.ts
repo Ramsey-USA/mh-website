@@ -293,53 +293,39 @@ export const serviceAreas: ServiceArea[] = [
 // Why Choose Us
 export const whyChooseUs: WhyChooseUsItem[] = [
   {
-    iconName: "workspace_premium",
-    title: "150+ Years Combined Experience",
-    description:
-      "Our team brings deep expertise across all construction disciplines—from foundation to finish. This experience has been refined through decades of successful projects across commercial, industrial, medical, and specialty facilities throughout the Pacific Northwest. We leverage proven methods refined through generations of construction excellence.",
-  },
-  {
-    iconName: "military_tech",
-    title: "Veteran-Owned Excellence Since January 2025",
-    description:
-      "Veteran-owned under Army veteran leadership. We apply military precision, discipline, and unwavering attention to detail to every construction project, ensuring reliable execution and mission-focused results. Our veteran-fueled reliability means staying calm and precise under pressure—delivering results when it matters most.",
-  },
-  {
     iconName: "emoji_events",
-    title: "Award-Winning Safety Record",
+    title: ".64 EMR - Award-Winning Safety",
     description:
-      "Multiple AGC-WA Top EMR Awards (2019-2021, 2025 Most Improved). Our Experience Modification Rate of .6 is 40% better than industry average, demonstrating our unwavering commitment to worker safety and zero-incident workplace culture. Over 3 consecutive years without time-loss injuries and OSHA VPP Star designation.",
+      "Multiple AGC-WA Top EMR Awards (2019-2021, 2025 Most Improved). Our Experience Modification Rate of .64 is 40% better than industry average, demonstrating our unwavering commitment to worker safety and zero-incident workplace culture. Over 3 consecutive years without time-loss injuries and OSHA VPP Star designation.",
   },
   {
-    iconName: "handshake",
-    title: "Partnership-Driven: Where Handshakes Still Matter",
+    iconName: "workspace_premium",
+    title: "150+ Years of 'Combined' Experience",
     description:
-      "We believe in old school business values—where your word is your bond and trust is earned face-to-face. We build lasting partnerships through genuine commitment, not just contracts. Building projects for the client, NOT the dollar is our promise to you, because real partnerships are built person-to-person and last well beyond project completion through proven excellence.",
-  },
-  {
-    iconName: "verified",
-    title: "Licensed & Insured Across Three States",
-    description:
-      "Fully licensed for commercial construction across Washington, Oregon, and Idaho with comprehensive insurance coverage for your complete protection. Our multi-state licensing demonstrates our commitment to professional standards and our ability to serve Client Partners throughout the entire Pacific Northwest region.",
-  },
-  {
-    iconName: "high_quality",
-    title: "Craftsmanship Built to Last Generations",
-    description:
-      "We build it right the first time with quality that endures. No shortcuts, no compromises—just honest craftsmanship where pride in workmanship drives everything we do. Our commitment is to build structures that serve communities for generations, with attention to detail earned through years of experience and maintained through personal integrity.",
+      "Our team brings over 150 years of combined expertise across all construction disciplines—from foundation to finish. This experience has been refined through decades of successful projects across commercial, industrial, medical, and specialty facilities throughout the Pacific Northwest. We leverage proven methods refined through generations of construction excellence.",
   },
   {
     iconName: "visibility",
-    title: "Complete Transparency: No Surprises, Ever",
+    title: "Transparent Honesty",
     description:
       "Open-book pricing where you see everything—detailed cost breakdowns, regular updates, and honest assessments. We believe in doing business the right way: total transparency, clear communication, and keeping our promises. You control it, we manage it—full visibility into every decision. Your trust is earned through action, not just words.",
   },
   {
-    iconName: "engineering",
-    title: "Urgent Construction Support",
+    iconName: "handshake",
+    title: "Partnership-Driven Trust",
     description:
-      "Specialized expertise, manpower, and equipment available for companies facing critical construction challenges. We partner with businesses to provide urgent structural consultation and repairs—fixing the source of problems like damaged foundations, roofing systems, and structural issues causing leaks or failures. Expert response when you need it most.",
-    ctaLink: "/urgent",
-    ctaLinkText: "Get Urgent Support",
+      "We believe in old school business values—where your word is your bond and trust is earned face-to-face. We build lasting partnerships through genuine commitment, not just contracts. Building projects for the client, NOT the dollar is our promise to you, because real partnerships are built person-to-person and last well beyond project completion through proven excellence.",
+  },
+  {
+    iconName: "military_tech",
+    title: "650+ Successful Projects - Reliability",
+    description:
+      "Over 650 successfully completed projects demonstrate our veteran-trained reliability. Veteran-owned under Army veteran leadership since January 2025. We apply military precision, discipline, and unwavering attention to detail to every construction project, ensuring reliable execution and mission-focused results. Our veteran-fueled reliability means staying calm and precise under pressure—delivering results when it matters most.",
+  },
+  {
+    iconName: "verified",
+    title: "3 State - Licensed & Insured",
+    description:
+      "Fully licensed for commercial construction across Washington, Oregon, and Idaho with comprehensive insurance coverage for your complete protection. Our multi-state licensing demonstrates our commitment to professional standards and our ability to serve Client Partners throughout the entire Pacific Northwest region.",
   },
 ];

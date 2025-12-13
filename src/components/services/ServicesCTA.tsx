@@ -17,7 +17,7 @@ export function ServicesCTA() {
                 Build Trust Through Our
               </span>
               <span className="block text-white font-black drop-shadow-lg">
-                Six Core Values?
+                Four Core Values?
               </span>
             </h2>
 

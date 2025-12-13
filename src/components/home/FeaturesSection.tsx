@@ -165,7 +165,8 @@ export function FeaturesSection() {
             <span className="font-medium text-gray-800 dark:text-gray-200">
               trust is built and partnerships begin
             </span>
-            . Innovation with integrity, guided by six core values.
+            . Transparent communication with integrity, guided by four core
+            values.
           </p>
         </div>
 

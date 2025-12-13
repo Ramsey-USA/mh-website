@@ -12,15 +12,8 @@ export const categories = [
   { id: "renovation", label: "Renovations", icon: "construction" },
 ];
 
-// Project statistics - Updated with award-winning metrics
+// Project statistics - Updated with 6 Differences Key Metrics
 export const projectStats = [
-  {
-    icon: "check_circle",
-    value: 50,
-    suffix: "+",
-    label: "Partnership Projects",
-    animated: true,
-  },
   {
     icon: "emoji_events",
     value: 0.64,
@@ -30,17 +23,24 @@ export const projectStats = [
     animated: true,
   },
   {
-    icon: "calendar_today",
-    value: 2010,
-    label: "Building Since",
-    animated: false,
+    icon: "workspace_premium",
+    value: 150,
+    suffix: "+",
+    label: "Years Combined Experience",
+    animated: true,
   },
   {
-    icon: "handshake",
-    value: 70,
-    suffix: "%",
-    label: "Referral & Repeat Business",
+    icon: "military_tech",
+    value: 650,
+    suffix: "+",
+    label: "Successful Projects",
     animated: true,
+  },
+  {
+    icon: "verified_user",
+    value: 3,
+    label: "States Licensed",
+    animated: false,
   },
 ];
 
@@ -91,40 +91,40 @@ export type Capability = (typeof capabilities)[number];
 // Why Choose MH reasons - Enhanced with award-winning achievements
 export const whyChooseReasons = [
   {
-    iconName: "workspace_premium",
-    title: "150+ Years Combined Team Experience",
-    description:
-      "Our team brings deep expertise across all construction disciplines—from foundation to finish. This experience has been refined through decades of successful projects across commercial, industrial, medical, and specialty facilities throughout the Pacific Northwest. We leverage proven methods refined through generations of construction excellence.",
-  },
-  {
-    iconName: "military_tech",
-    title: "Veteran-Owned Excellence Since January 2025",
-    description:
-      "Veteran-owned under Army veteran leadership. We apply military precision, discipline, and unwavering attention to detail to every construction project, ensuring reliable execution and mission-focused results. Our veteran-fueled reliability means staying calm and precise under pressure—delivering results when it matters most.",
-  },
-  {
     iconName: "emoji_events",
-    title: "Award-Winning Safety Record",
+    title: ".64 EMR - Award-Winning Safety",
     description:
       "Multiple AGC-WA Top EMR Awards (2019-2021, 2025 Most Improved). Our Experience Modification Rate of .64 is 40% better than industry average, demonstrating our unwavering commitment to worker safety and zero-incident workplace culture. Over 3 consecutive years without time-loss injuries and OSHA VPP Star designation.",
   },
   {
+    iconName: "workspace_premium",
+    title: "150+ Years of 'Combined' Experience",
+    description:
+      "Our team brings over 150 years of combined expertise across all construction disciplines—from foundation to finish. This experience has been refined through decades of successful projects across commercial, industrial, medical, and specialty facilities throughout the Pacific Northwest. We leverage proven methods refined through generations of construction excellence.",
+  },
+  {
+    iconName: "visibility",
+    title: "Transparent Honesty",
+    description:
+      "Open-book pricing where you see everything—detailed cost breakdowns, regular updates, and honest assessments. We believe in doing business the right way: total transparency, clear communication, and keeping our promises. You control it, we manage it—full visibility into every decision. Your trust is earned through action, not just words.",
+  },
+  {
     iconName: "handshake",
-    title: "Trust Built, Project by Project",
+    title: "Partnership-Driven Trust",
     description:
       "We're not just contractors—we're community partners invested in the long-term success of the Pacific Northwest region. Excellence through experience—we build lasting partnerships that extend well beyond project completion. Building projects for the client, NOT the dollar is more than a slogan—it's our proven commitment to you.",
   },
   {
-    iconName: "verified",
-    title: "Licensed & Insured Across Three States",
+    iconName: "military_tech",
+    title: "650+ Successful Projects - Reliability",
     description:
-      "Fully licensed for commercial construction across Washington, Oregon, and Idaho with comprehensive insurance coverage for your complete protection. Our multi-state licensing demonstrates our commitment to professional standards and our ability to serve Client Partners throughout the entire Pacific Northwest region.",
+      "Over 650 successfully completed projects demonstrate our veteran-trained reliability. Veteran-owned under Army veteran leadership since January 2025. We apply military precision, discipline, and unwavering attention to detail to every construction project, ensuring reliable execution and mission-focused results. Our veteran-fueled reliability means staying calm and precise under pressure—delivering results when it matters most.",
   },
   {
-    iconName: "high_quality",
-    title: "Quality Craftsmanship",
+    iconName: "verified",
+    title: "3 State - Licensed & Insured",
     description:
-      "Quality control processes at every project phase ensure work consistently meets our high standards and your expectations. We don't cut corners—we build it right the first time with materials that last. Pride in workmanship drives everything we do, building structures that serve communities for generations with unwavering attention to detail.",
+      "Fully licensed for commercial construction across Washington, Oregon, and Idaho with comprehensive insurance coverage for your complete protection. Our multi-state licensing demonstrates our commitment to professional standards and our ability to serve Client Partners throughout the entire Pacific Northwest region.",
   },
 ];
 

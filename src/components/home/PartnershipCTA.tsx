@@ -50,14 +50,13 @@ export function PartnershipCTA() {
             <p className="mx-auto mb-8 sm:mb-12 max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
               Partner with a veteran-led team where{" "}
               <span className="font-bold text-brand-accent">
-                six core values create one result: Trust
+                four core values create one result: Trust
               </span>
               . We're Building projects for the client,{" "}
               <span className="font-black italic text-brand-accent">NOT</span>{" "}
               the dollar. Experience{" "}
               <span className="font-medium text-brand-accent">
-                professionalism, thoroughness, honesty, integrity, innovation,
-                and partnership
+                honesty, integrity, professionalism, and thoroughness
               </span>{" "}
               in every project across the Pacific Northwest.
             </p>

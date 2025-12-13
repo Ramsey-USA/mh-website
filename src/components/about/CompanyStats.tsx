@@ -52,36 +52,36 @@ export interface CompanyStatsProps {
   className?: string;
 }
 
-// Company Stats Data - Updated with Award-Winning Safety Record
+// Company Stats Data - Updated with 6 Differences Key Metrics
 export const companyStats: StatItem[] = [
-  {
-    iconName: "calendar_today",
-    value: 2010,
-    label: "Company Founded",
-    animated: false,
-  },
-  {
-    iconName: "groups",
-    value: 150,
-    label: "Years Combined Team Experience",
-    suffix: "+",
-    animated: true,
-  },
   {
     iconName: "emoji_events",
     value: 0.64,
-    label: "Award-Winning Safety Record",
+    label: "Award-Winning Safety EMR",
     prefix: "",
-    suffix: " EMR",
+    suffix: "",
     decimals: 2,
     animated: true,
   },
   {
-    iconName: "check_circle",
+    iconName: "workspace_premium",
+    value: 150,
+    label: "Years Combined Experience",
+    suffix: "+",
+    animated: true,
+  },
+  {
+    iconName: "military_tech",
     value: 650,
     label: "Successful Projects",
     suffix: "+",
     animated: true,
+  },
+  {
+    iconName: "verified_user",
+    value: 3,
+    label: "States Licensed & Insured",
+    animated: false,
   },
 ];
 

@@ -319,7 +319,7 @@ your vision—and your relationship—first."
 
 ### Tier 2: Value-Based Slogans (Core Values Messaging)
 
-These slogans emphasize specific aspects of MH Construction's 6 core values.
+These slogans emphasize specific aspects of MH Construction's 4 core values.
 
 #### 4. "Where Precision Meets Partnership"
 

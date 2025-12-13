@@ -6,10 +6,10 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 const partnershipValues = [
   {
     icon: "emoji_events",
-    title: "Award-Winning Safety",
-    subtitle: ".64 EMR Excellence",
+    title: ".64 EMR - Award-Winning Safety",
+    subtitle: "Industry-Leading Safety Excellence",
     description:
-      "Multiple AGC-WA Top EMR Awards with .64 EMR—40% better than industry average. 3+ years without time-loss injury and OSHA VPP Star designation demonstrate our unwavering commitment to zero-incident workplace culture.",
+      "Multiple AGC-WA Top EMR Awards with .64 EMR—40% better than industry average. 3+ years without time-loss injury and OSHA VPP Star designation demonstrate our unwavering commitment to zero-incident workplace culture and protecting every team member.",
     iconColor: "text-brand-secondary",
     highlights: [
       ".64 EMR (40% better than industry)",
@@ -22,16 +22,16 @@ const partnershipValues = [
   },
   {
     icon: "workspace_premium",
-    title: "150+ Years Experience",
-    subtitle: "Proven Excellence",
+    title: "150+ Years of 'Combined' Experience",
+    subtitle: "Generational Construction Expertise",
     description:
-      "Our team brings deep expertise across all construction disciplines—refined through decades of successful projects. We leverage proven methods refined through generations of construction excellence.",
+      "Our team brings over 150 years of combined expertise across all construction disciplines—refined through decades of successful projects. We leverage proven methods refined through generations of construction excellence and deep industry knowledge.",
     iconColor: "text-brand-secondary",
     highlights: [
       "150+ years combined team experience",
       "Expertise across all disciplines",
       "Proven methods & best practices",
-      "Continuous learning & innovation",
+      "Multi-generational knowledge transfer",
     ],
     stat: "150+",
     statLabel: "Years Combined Experience",
@@ -39,9 +39,9 @@ const partnershipValues = [
   {
     icon: "visibility",
     title: "Transparent Honesty",
-    subtitle: "No Surprises Partnership",
+    subtitle: "No Surprises, Ever",
     description:
-      "Open-book pricing, honest timelines, and constant communication. You control it, we manage it—full visibility into every decision. Our commitment to honesty means no hidden costs, ever.",
+      "Open-book pricing, honest timelines, and constant communication. You control it, we manage it—full visibility into every decision. Our commitment to honesty means no hidden costs, complete transparency, and truthful assessments at every project phase.",
     iconColor: "text-brand-secondary",
     highlights: [
       "Open-book pricing & budgets",
@@ -55,9 +55,9 @@ const partnershipValues = [
   {
     icon: "handshake",
     title: "Partnership-Driven Trust",
-    subtitle: "Beyond Project Completion",
+    subtitle: "Relationships That Last",
     description:
-      "Our partnership doesn't end when construction finishes. 70% of our business comes from referrals and repeat client partners—testament to lasting partnerships that become lifelong community connections built on trust, not transactions.",
+      "Our partnership doesn't end when construction finishes. 70% of our business comes from referrals and repeat client partners—testament to lasting partnerships that become lifelong community connections built on trust, integrity, and genuine care for your success.",
     iconColor: "text-brand-secondary",
     highlights: [
       "70% referral & repeat business",
@@ -70,26 +70,26 @@ const partnershipValues = [
   },
   {
     icon: "military_tech",
-    title: "Reliability",
-    subtitle: "Veteran-Trained Dependability",
+    title: "650+ Successful Projects - Reliability",
+    subtitle: "Proven Track Record",
     description:
-      "Army veteran leadership brings military discipline, attention to detail, and calm decision-making under pressure. We deliver reliable results no matter the challenges, backed by service-earned integrity.",
+      "Over 650 successfully completed projects demonstrate our veteran-trained reliability. Army veteran leadership brings military discipline, attention to detail, and calm decision-making under pressure. We deliver reliable results no matter the challenges, backed by service-earned integrity.",
     iconColor: "text-brand-secondary",
     highlights: [
-      "Army veteran-owned since Jan 2025",
+      "650+ completed projects",
+      "Veteran-owned since Jan 2025",
       "Military precision & discipline",
-      "Calm under pressure leadership",
       "Service-earned integrity values",
     ],
-    stat: "Veteran",
-    statLabel: "Owned & Operated",
+    stat: "650+",
+    statLabel: "Successful Projects",
   },
   {
     icon: "verified_user",
-    title: "Licensed & Insured",
-    subtitle: "Multi-State Capabilities",
+    title: "3 State - Licensed & Insured",
+    subtitle: "Multi-State Professional Coverage",
     description:
-      "Fully licensed general contractor across Washington, Oregon, and Idaho. Comprehensive insurance coverage and bonding provide peace of mind for every project phase.",
+      "Fully licensed general contractor across Washington, Oregon, and Idaho. Comprehensive insurance coverage and bonding provide peace of mind for every project phase. Our multi-state licensing demonstrates our commitment to professional standards throughout the Pacific Northwest.",
     iconColor: "text-brand-secondary",
     highlights: [
       "Licensed in WA, OR, and ID",
@@ -300,7 +300,7 @@ export function WhyPartnerSection() {
             </Link>
           </div>
           <p className="mt-6 text-white/70 text-sm sm:text-base">
-            Experience our six core values in action. Call us at{" "}
+            Experience our four core values in action. Call us at{" "}
             <a
               href="tel:+15093086489"
               className="text-brand-secondary hover:text-brand-secondary/80 font-semibold transition-colors"

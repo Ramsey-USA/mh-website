@@ -404,52 +404,40 @@ This comprehensive guide provides:
 
 ## 🎨 Brand Essentials
 
-### Core Values - Six-Value Professional Foundation System
+### Core Values - Four-Value Professional Foundation System
 
 #### "Old School Business" — Where Your Word is Your Bond
 
 **Trust-Centered Philosophy**: "Trust as our ultimate goal and measurable company foundation"
 
-Our six core values build toward trust as the culmination of excellence in every interaction:
+Our four core values build toward trust as the culmination of excellence in every interaction:
 
-1. **Professionalism** - Excellence in Every Interaction
-   - Expert construction knowledge and industry best practices
-   - Professional conduct with respectful, timely communication
-   - Industry-leading credentials and organized processes
-
-2. **Thoroughness** - Attention to Detail in Everything We Do
-   - Comprehensive planning with contingency scenarios
-   - Meticulous execution and complete documentation
-   - Multiple quality control checkpoints
-
-3. **Honesty** - Transparent Communication Always
+1. **Honesty** - Transparent Communication Always
    - Realistic timelines and accurate cost estimates
    - No hidden costs, transparent pricing breakdowns
    - Immediate notification of any changes
 
-4. **Integrity** - Doing What's Right, Every Time
+2. **Integrity** - Doing What's Right, Every Time
    - Ethical decisions even when it costs more
    - Following through on every commitment
    - Making decisions that benefit clients, not our bottom line
 
-5. **Innovation** - Modern Tools Meeting Traditional Values
-   - Cutting-edge construction technology and methods
-   - AI-powered planning and estimation tools
-   - Leveraging innovation to serve clients better
+3. **Professionalism** - Excellence in Every Interaction
+   - Expert construction knowledge and industry best practices
+   - Professional conduct with respectful, timely communication
+   - Industry-leading credentials and organized processes
 
-6. **Partnership** - Building Relationships That Last
-   - Collaborative approach to every project
-   - Long-term client relationships beyond single builds
-   - Working WITH you, not FOR you
+4. **Thoroughness** - Attention to Detail in Everything We Do
+   - Comprehensive planning with contingency scenarios
+   - Meticulous execution and complete documentation
+   - Multiple quality control checkpoints
 
 **How Values Build Trust**:
 
-- Professionalism builds confidence
-- Thoroughness creates peace of mind
 - Honesty eliminates doubt
 - Integrity builds credibility
-- Innovation demonstrates progress
-- Partnership creates lasting bonds
+- Professionalism builds confidence
+- Thoroughness creates peace of mind
 
 **Measuring Success**: 98% satisfaction rate, 70% referral rate, active community involvement
 

@@ -50,7 +50,7 @@ interface ChatbotCTASectionProps {
  */
 export function ChatbotCTASection({
   title = "Have Questions?",
-  subtitle = "Chat with General MH for instant answers about our six core values, services, and trust-building approach",
+  subtitle = "Chat with General MH for instant answers about our four core values, services, and trust-building approach",
   exampleQuestions = [],
   context = "general",
   className = "",

@@ -85,7 +85,7 @@ export default function EstimatorPage() {
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
               Where data meets decades of experience. Our AI-powered estimator
-              combines insights from 500+ completed projects with 150+ years of
+              combines insights from 650+ completed projects with 150+ years of
               veteran expertise—but it's just the starting point. "Building for
               the Client,{" "}
               <span className="font-black text-bronze-300">NOT</span> the
@@ -279,7 +279,7 @@ export default function EstimatorPage() {
                         <strong className="font-bold text-brand-secondary">
                           Helpful Guidance:
                         </strong>{" "}
-                        Based on 500+ completed projects
+                        Based on 650+ completed projects
                       </span>
                     </li>
                     <li className="flex items-start">

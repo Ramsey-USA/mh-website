@@ -10,9 +10,9 @@
 provides systematic implementation of local SEO keywords across all website content using centralized content
 fragments and reusable patterns.
 
-**⭐ IMPORTANT UPDATE (Nov 2025)**: This document integrates our **six-value professional foundation
+**⭐ IMPORTANT UPDATE (Nov 2025)**: This document integrates our **four-value professional foundation
 system** from [core-values.md](../../business/core-values.md). All messaging is built upon our core values:
-Professionalism, Thoroughness, Honesty, Integrity, Innovation, and Partnership—culminating in
+Honesty, Integrity, Professionalism, and Thoroughness—culminating in
 **Trust** as our ultimate goal.
 
 For page-specific messaging strategies, see the comprehensive
@@ -23,7 +23,7 @@ groups with unique voices, tones, and keyword priorities.
 
 - [🏠 Brand Documentation](../branding-index.md)
 - [📋 Brand Overview](./brand-overview.md)
-- [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Six-value professional system
+- [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Four-value professional system
 - [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
 - [🔍 SEO Messaging Strategy](../../technical/seo/seo-messaging-strategy.md) - ⭐ **NEW** - Local SEO optimization
 - [🎨 Color System](../standards/color-system.md)
@@ -34,7 +34,7 @@ groups with unique voices, tones, and keyword priorities.
 
 ## Overview
 
-This messaging guide is built upon MH Construction's **six-value professional foundation system** detailed in
+This messaging guide is built upon MH Construction's **four-value professional foundation system** detailed in
 [core-values.md](../../business/core-values.md). All messaging, communications, and brand voice should reflect
 these core values:
 
@@ -45,7 +45,7 @@ these core values:
 5. **Innovation** - Modern Tools Meeting Traditional Values
 6. **Partnership** - Building Relationships That Last
 
-**Ultimate Goal**: **Trust** - Built through consistent demonstration of all six values
+**Ultimate Goal**: **Trust** - Built through consistent demonstration of all four values
 
 ---
 
@@ -123,7 +123,7 @@ Our voice balances military precision with partnership warmth, creating communic
 > "Trust as our ultimate goal and measurable company foundation"
 
 Trust isn't just another value—it's the result when all our core values are consistently demonstrated.
-Our six-value professional foundation system builds toward trust as the culmination of excellence in
+Our four-value professional foundation system builds toward trust as the culmination of excellence in
 every interaction.
 
 ### Core Brand Slogans
@@ -168,7 +168,7 @@ craftsmanship and character.
 
 ### Key Message Pillars
 
-Our six-value professional foundation system guides all messaging and communications:
+Our four-value professional foundation system guides all messaging and communications:
 
 #### 1. Professionalism - Excellence in Every Interaction
 
@@ -280,7 +280,7 @@ Our six-value professional foundation system guides all messaging and communicat
 
 ### How Our Values Build Trust
 
-Trust is the ultimate goal—earned through consistent demonstration of all six values:
+Trust is the ultimate goal—earned through consistent demonstration of all four values:
 
 - **Professionalism**: Expert conduct builds confidence
 - **Thoroughness**: Attention to detail creates peace of mind
@@ -427,7 +427,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 
 #### Core Values Language
 
-**The Six Values - Use Consistently**:
+**The Four Values - Use Consistently**:
 
 1. **Professionalism**: Expert conduct in every interaction
 2. **Thoroughness**: Comprehensive attention to detail
@@ -465,7 +465,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 1. **Headline**: Clear service + benefit
 2. **Subheading**: Partnership approach
 3. **Overview**: What we do and why it matters
-4. **Our Values in Action**: How our six core values apply to this service
+4. **Our Values in Action**: How our four core values apply to this service
 5. **Process**: How we work WITH clients
 6. **Benefits**: What clients gain
 7. **Call-to-Action**: Partnership invitation
@@ -578,9 +578,9 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 #### Homepage Messaging Hierarchy
 
 1. **Hero Section**: Primary value proposition + trust-centered philosophy
-2. **Partnership Promise**: How we work differently (six core values)
+2. **Partnership Promise**: How we work differently (four core values)
 3. **Service Overview**: What we do
-4. **Values Demonstration**: Our six-value professional foundation
+4. **Values Demonstration**: Our four-value professional foundation
 5. **Trust Building**: How values create measurable trust
 6. **Client Success**: Proof of partnership and trust earned
 7. **Call-to-Action**: Start the partnership
@@ -650,7 +650,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 **Structure**:
 
 1. Understanding of client vision (Thoroughness)
-2. Our six-value foundation and approach (Trust building)
+2. Our four-value foundation and approach (Trust building)
 3. How our values apply to your specific project
 4. Proposed timeline and process (Reliability)
 5. Transparent investment overview (Honesty)
@@ -662,8 +662,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 ### Message Consistency Checklist
 
 - [ ] Partnership language used over client/customer
-- [ ] Six core values referenced appropriately (Professionalism, Thoroughness, Honesty, Integrity,
-      Innovation, and Partnership)
+- [ ] Four core values referenced appropriately (Honesty, Integrity, Professionalism, and Thoroughness)
 - [ ] Trust-centered philosophy incorporated
 - [ ] "THE ROI IS THE RELATIONSHIP" messaging present where appropriate
 - [ ] Military precision referenced appropriately
@@ -680,7 +679,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 
 #### Pre-Publication Review
 
-1. **Message Alignment**: Does content reflect brand voice and six core values?
+1. **Message Alignment**: Does content reflect brand voice and four core values?
 2. **Partnership Focus**: Is collaborative approach emphasized?
 3. **Values Integration**: Are relevant core values appropriately demonstrated?
 4. **Trust Building**: Does content contribute to trust-centered philosophy?
@@ -699,7 +698,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 
 ## Related Documentation
 
-- **[Core Values](../../business/core-values.md)** - ⭐ **CRITICAL** - Six-value professional foundation
+- **[Core Values](../../business/core-values.md)** - ⭐ **CRITICAL** - Four-value professional foundation
   system (MUST READ for all content creators)
 - **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** - ⭐ **CRITICAL** -
   7-group messaging strategy (MUST READ for content creators)
@@ -720,6 +719,6 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 
 **Version History**:
 
-- v5.0.0 (Nov 20, 2025): Integrated six-value professional foundation system from core-values.md
+- v5.0.0 (Nov 20, 2025): Integrated four-value professional foundation system from core-values.md
 - v4.0.2 (Nov 15, 2025): Page-specific messaging references
 - v4.0.0 (Nov 4, 2025): Initial comprehensive messaging guidelines

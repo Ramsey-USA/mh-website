@@ -187,10 +187,9 @@ export function ServicesShowcase() {
             <span className="font-medium text-gray-800 dark:text-gray-200">
               initial master planning to final walkthrough and delivery
             </span>
-            , every service reflects our six core values. We deliver{" "}
+            , every service reflects our four core values. We deliver{" "}
             <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
-              professionalism, thoroughness, honesty, integrity, innovation, and
-              partnership
+              honesty, integrity, professionalism, and thoroughness
             </span>{" "}
             throughout the Tri-Cities area—building trust, not just structures.
           </p>

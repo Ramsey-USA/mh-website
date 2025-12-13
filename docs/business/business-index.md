@@ -17,7 +17,7 @@
 
 ### 🏢 Core Business Information
 
-- [**Core Values**](./core-values.md) - ⭐ **FOUNDATION** - Six-value professional foundation system
+- [**Core Values**](./core-values.md) - ⭐ **FOUNDATION** - Four-value professional foundation system
   (MUST READ for all team members)
 - [**Services Overview**](./services.md) - Complete service offerings and construction capabilities
 - [**Veterans Initiative**](./veterans-initiative.md) - Veteran-owned status and annual fishing benefit event

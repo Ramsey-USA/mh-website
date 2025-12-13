@@ -107,7 +107,7 @@ export function AIEstimatorCTA({
                   />
                 </div>
                 <div className="font-bold text-gray-900 dark:text-white mb-1 text-lg">
-                  500+ Projects
+                  650+ Projects
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
                   Data-driven intelligence

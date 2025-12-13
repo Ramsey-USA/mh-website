@@ -18,8 +18,8 @@
 This is the central hub for all MH Construction branding documentation. All brand standards, guidelines, and
 implementation details are organized here for easy access by the entire team.
 
-**✨ NEW (Nov 2025)**: All branding is built upon our **six-value professional foundation system**:
-Professionalism, Thoroughness, Honesty, Integrity, Innovation, and Partnership—culminating in
+**✨ NEW (Nov 2025)**: All branding is built upon our **four-value professional foundation system**:
+Honesty, Integrity, Professionalism, and Thoroughness—culminating in
 **Trust** as our ultimate goal. See [core-values.md](../business/core-values.md) for complete details.
 
 **Consolidated Structure**: Combined from separate business and development folders to eliminate duplication
@@ -57,9 +57,9 @@ Brand identity, company values, messaging guidelines, and strategic positioning.
 
 **Key Files**:
 
-- `brand-overview.md` - Core brand identity and mission (built on six core values)
-- `messaging.md` - Voice, tone, and messaging framework (reflects six-value system)
-- **Note**: See [core-values.md](../business/core-values.md) for the foundational six-value professional system
+- `brand-overview.md` - Core brand identity and mission (built on four core values)
+- `messaging.md` - Voice, tone, and messaging framework (reflects four-value system)
+- **Note**: See [core-values.md](../business/core-values.md) for the foundational four-value professional system
 - `page-specific-messaging-guide.md` - ⭐ **NEW (Nov 2025)** - 7-group page messaging strategy
 - `universal-terminology-guide.md` - ⭐ **NEW (Jan 2025)** - Universal language & terminology standards
 - `estimator-vs-consultation-language.md` - ⭐ **NEW (Nov 2025)** - AI tool vs human consultation language distinctions
@@ -123,7 +123,7 @@ unified access.
 
 ### For Content Writers
 
-1. Read **[Core Values](../business/core-values.md)** - ⭐ **START HERE** - Understand our six-value
+1. Read **[Core Values](../business/core-values.md)** - ⭐ **START HERE** - Understand our four-value
    professional foundation (CRITICAL for all messaging)
 2. Read **[Page-Specific Messaging Guide](./strategy/page-specific-messaging-guide.md)** - Understand
    the 7 page groups and their unique voices (CRITICAL for all content)

@@ -6,7 +6,6 @@ import {
   FadeInWhenVisible,
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
-import { gridPresets } from "@/lib/styles/layout-variants";
 
 export interface CoreValue {
   iconName: string;
@@ -57,7 +56,7 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
             </div>
             <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
               <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                Our 6 Core
+                Our 4 Core
               </span>
               <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
                 Values
@@ -76,9 +75,7 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
           </div>
         </FadeInWhenVisible>
 
-        <StaggeredFadeIn
-          className={gridPresets.cards3Alt("md", "mx-auto max-w-7xl")}
-        >
+        <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 mx-auto max-w-7xl">
           {coreValues.map((value, _index) => (
             <div
               key={_index}

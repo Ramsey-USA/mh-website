@@ -22,7 +22,7 @@ interface NextStepsSectionProps {
 export function NextStepsSection({
   title: _title = "Let's Build Your Vision Together",
   subtitle:
-    _subtitle = "Six core values create one result: Trust. Partner with veteran-owned excellence where professionalism, thoroughness, honesty, integrity, innovation, and partnership guide every decision.",
+    _subtitle = "Four core values create one result: Trust. Partner with veteran-owned excellence where honesty, integrity, professionalism, and thoroughness guide every decision.",
   className = "",
   onConsultationClick,
   onEstimateClick,
@@ -96,7 +96,7 @@ export function NextStepsSection({
             </h3>
             <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
               Sit down with us face-to-face. Let's talk about your vision
-              through the lens of our six core values.
+              through the lens of our four core values.
             </p>
             <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
               <li className="flex items-center gap-2">

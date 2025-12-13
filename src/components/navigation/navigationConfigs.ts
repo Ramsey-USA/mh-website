@@ -54,7 +54,7 @@ export const navigationConfigs = {
     },
     {
       href: "/about#values",
-      label: "Six Core Values",
+      label: "Four Core Values",
       mobileLabel: "Values",
       icon: "shield",
     },
