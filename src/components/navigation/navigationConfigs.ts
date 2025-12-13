@@ -18,12 +18,41 @@ export function getNavigationLabel(
 export const navigationConfigs = {
   home: [
     {
-      href: "/trade-partners",
-      label: "Build Partnership",
-      mobileLabel: "Partner",
-      icon: "diversity_3",
+      href: "#core-values",
+      label: "Core Values",
+      mobileLabel: "Values",
+      icon: "shield",
     },
-    { href: "/contact", label: "Contact", icon: "contact_phone" },
+    {
+      href: "#why-partner",
+      label: "Why Partner",
+      mobileLabel: "Why Us",
+      icon: "handshake",
+    },
+    {
+      href: "#services",
+      label: "Services",
+      mobileLabel: "Services",
+      icon: "build",
+    },
+    {
+      href: "#testimonials",
+      label: "Testimonials",
+      mobileLabel: "Reviews",
+      icon: "verified",
+    },
+    {
+      href: "#stats",
+      label: "Our Track Record",
+      mobileLabel: "Stats",
+      icon: "analytics",
+    },
+    {
+      href: "#next-steps",
+      label: "Get Started",
+      mobileLabel: "Start",
+      icon: "rocket_launch",
+    },
   ],
 
   about: [

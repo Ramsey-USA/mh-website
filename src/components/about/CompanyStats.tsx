@@ -50,6 +50,10 @@ export interface CompanyStatsProps {
    * Additional CSS classes
    */
   className?: string;
+  /**
+   * Optional section ID for anchor links
+   */
+  id?: string;
 }
 
 // Company Stats Data - Updated with 6 Differences Key Metrics
@@ -102,11 +106,13 @@ export function CompanyStats({
   headerIcon = "analytics",
   variant = "primary",
   className = "",
+  id,
 }: CompanyStatsProps) {
   const gradientClass = gradientVariants[variant];
 
   return (
     <section
+      id={id}
       className={`relative ${gradientClass} py-12 sm:py-16 lg:py-24 xl:py-32 text-white overflow-hidden ${className}`}
     >
       {/* Enhanced Background Effects */}

@@ -104,7 +104,10 @@ const partnershipValues = [
 
 export function WhyPartnerSection() {
   return (
-    <section className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900 dark:from-brand-primary-dark dark:via-gray-900 dark:to-gray-950 py-12 sm:py-16 lg:py-24 xl:py-32 text-white overflow-hidden">
+    <section
+      id="why-partner"
+      className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900 dark:from-brand-primary-dark dark:via-gray-900 dark:to-gray-950 py-12 sm:py-16 lg:py-24 xl:py-32 text-white overflow-hidden"
+    >
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(189,146,100,0.15)_0%,transparent_50%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.1)_0%,transparent_50%)]"></div>

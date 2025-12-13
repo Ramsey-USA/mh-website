@@ -125,6 +125,7 @@ export default function Home() {
 
       {/* Enhanced Client Partner Testimonials - Social proof builds credibility */}
       <TestimonialsSection
+        id="testimonials"
         subtitle="What Our"
         title="Client Partners Say"
         description="Read testimonials from valued Client Partners across the Pacific Northwest who have experienced our collaborative excellence firsthand."
@@ -294,6 +295,7 @@ export default function Home() {
 
       {/* Company Statistics Section - Credibility through numbers */}
       <CompanyStats
+        id="stats"
         subtitle=""
         title="Trusted by the Community"
         description=""
