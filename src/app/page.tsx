@@ -87,22 +87,24 @@ export default function Home() {
       <StructuredData data={homepageSEO.schemas} />
 
       <Head>
-        <title>MH Construction - Veteran-Owned Excellence Since 2025</title>
+        <title>
+          MH Construction - Veteran-Owned Integrity & Honest Communication
+        </title>
         <meta
           name="description"
-          content="Veteran-owned construction management services since 2010. Specializing in commercial construction services, master planning and preconstruction services, tenant improvement services, and light industrial construction. Four core values—Honesty, Integrity, Professionalism, Thoroughness—building trust through transparent communication and lasting relationships. Serving Pacific Northwest communities."
+          content="Veteran-owned construction management since 2010. Honest communication, transparent pricing, proven craftsmanship. Specializing in commercial construction, master planning, tenant improvements, and light industrial projects. Four core values—Honesty, Integrity, Professionalism, Thoroughness—building trust through face-to-face consultation and lasting relationships. Serving Pacific Northwest communities."
         />
         <meta
           name="keywords"
-          content="construction management services, commercial construction services, master planning and preconstruction services, tenant improvement services, light industrial construction, veteran-owned construction, transparent construction communication, collaborative building relationships, traditional business values, Tri-Cities construction, Pasco construction, Kennewick construction, Honesty Integrity Professionalism Thoroughness, trust-based construction"
+          content="veteran-owned construction, honest communication construction, transparent pricing construction, proven craftsmanship, construction management services, commercial construction services, master planning preconstruction, tenant improvement services, light industrial construction, face-to-face consultation, traditional business values, Tri-Cities construction, Pasco construction, Kennewick construction, Honesty Integrity Professionalism Thoroughness, trust-based partnerships"
         />
         <meta
           property="og:title"
-          content="MH Construction - Veteran-Led Construction Management | Tri-Cities WA"
+          content="MH Construction - Veteran-Owned Integrity & Honest Communication | Tri-Cities WA"
         />
         <meta
           property="og:description"
-          content="Founded 2010, veteran-owned since January 2025. Four core values: Honesty, Integrity, Professionalism, Thoroughness. Transparent communication and traditional business values. Serving Tri-Cities. Call (509) 308-6489."
+          content="Veteran-owned since January 2025. Built on honest communication, transparent pricing, and proven craftsmanship. Four core values: Honesty, Integrity, Professionalism, Thoroughness. Serving Tri-Cities with face-to-face consultation. Call (509) 308-6489."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://www.mhc-gc.com" />
@@ -163,25 +165,24 @@ export default function Home() {
 
             <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
               <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                Our Commitment to
+                Veteran-Owned Commitment to
               </span>
               <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                Honesty & Excellence
+                Honest Excellence
               </span>
             </h2>
 
             <div className="mx-auto max-w-4xl space-y-6">
               <p className="font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4">
-                Just as{" "}
+                As a{" "}
                 <span className="font-semibold text-gray-800 dark:text-gray-200">
-                  honesty and integrity
-                </span>{" "}
-                guide every construction project, we apply the same core values
-                to our digital presence—because{" "}
-                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  trust is built through transparent communication
+                  veteran-owned company
                 </span>
-                .
+                , we apply the same values that guide our construction projects—
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  honesty, integrity, and transparent communication
+                </span>
+                —to everything we do, including our digital presence.
               </p>
 
               {/* Transparency Notice */}
@@ -201,21 +202,21 @@ export default function Home() {
                 </h3>
 
                 <p className="mb-4 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                  Because our core values include{" "}
+                  Our veteran-owned values—
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                     honesty, thoroughness, and integrity
                   </span>
-                  , we want you to know: this website is currently being
-                  optimized to reflect the same professional excellence we bring
-                  to every construction project.
+                  —mean we're transparent about everything, including this: our
+                  website is being refined to reflect the same proven
+                  craftsmanship and excellence we bring to every construction
+                  project.
                 </p>
 
                 <p className="mb-4 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                  <em>"Your Word Is Your Bond - So Is Ours."</em> Trust isn't
-                  just earned on job sites—it's built through transparent
-                  communication everywhere. Every detail on this site will
-                  reflect our four core values: Honesty, Integrity,
-                  Professionalism, and Thoroughness.
+                  <em>"Your Word Is Your Bond - So Is Ours."</em> Trust earned
+                  through honest communication isn't just for job sites—it
+                  applies everywhere. Every detail will reflect our commitment
+                  to transparent relationships and proven results.
                 </p>
 
                 <div className="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm p-6 border border-brand-secondary/30 rounded-xl mt-6">
@@ -283,10 +284,11 @@ export default function Home() {
                   <span className="font-black italic text-bronze-300">NOT</span>{" "}
                   the dollar
                 </span>{" "}
-                means never compromising our values—whether it’s a construction
-                project or the information we provide online. Our four core
-                values guide everything we do. Thank you for your patience as we
-                perfect every detail to serve you better.
+                means never compromising our veteran-owned values—whether it's
+                honest communication on a construction project or the
+                transparent information we provide online. Thank you for your
+                patience as we perfect every detail with the same proven
+                craftsmanship that defines our work.
               </p>
             </div>
           </div>

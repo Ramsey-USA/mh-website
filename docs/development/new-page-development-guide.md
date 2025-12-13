@@ -1,8 +1,11 @@
 # New Page Development Guide
 
 **Category:** Development - Page Creation  
-**Last Updated:** November 11, 2025  
+**Last Updated:** December 13, 2025  
 **Status:** ✅ Active
+
+**⭐ UPDATE (Dec 2025)**: All new pages must emphasize veteran-owned excellence, honest communication,
+and proven craftsmanship. See updated hero patterns below.
 
 ## 🧭 Quick Navigation
 
@@ -32,14 +35,23 @@ Every page should follow this consistent structure:
 
 ### 1. Hero Section
 
-Full-height section with background gradient and main page title.
+**NOTE**: Two hero patterns exist based on page type:
+
+- **Pattern A (Homepage/Primary)**: Bottom-right text allowing photos/videos to be focal point
+- **Pattern B (Standard Pages)**: Centered text with gradient background
+
+**See [Hero Section Standards](../branding/standards/hero-section-standards.md) for complete details.**
+
+#### Standard Hero Pattern (Centered - Most Pages)
+
+Full-height section with background gradient and centered content.
 
 ```tsx
 <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
   {/* Background Elements */}
   <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
-  {/* Content */}
+  {/* Content - Centered for standard pages */}
   <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
     <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
       <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
@@ -48,7 +60,7 @@ Full-height section with background gradient and main page title.
         </span>
       </h1>
       <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-        Compelling subtitle or tagline
+        Compelling subtitle emphasizing veteran values and honest communication
       </p>
     </div>
   </div>
@@ -353,7 +365,8 @@ export default function YourPage() {
               </span>
             </h1>
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              Compelling subtitle
+              Compelling subtitle emphasizing veteran values and honest
+              communication
             </p>
           </div>
         </div>

@@ -1,16 +1,19 @@
 # MH Construction Hero Section Standards
 
-**Version:** 4.1.0
-**Date:** November 11, 2025
+**Version:** 5.0.0
+**Date:** December 13, 2025
 **Status:** ✅ Official Standard
 **Category:** Brand Standards - Hero Sections
+
+**⭐ UPDATE (Dec 2025)**: Hero sections use **bottom-right text positioning** to allow photos/videos
+to be the primary visual focal point. Text complements imagery rather than competing with it.
 
 ---
 
 ## Quick Reference
 
 This document defines the official MH Construction hero section standard implemented
-across all website pages, including the November 2025 update for unique page-specific taglines.
+across all website pages, with veteran-focused messaging and visual-first design philosophy.
 
 ## 🎯 Tagline Strategy Update (November 11, 2025)
 
@@ -42,21 +45,21 @@ Each hero section now features a **unique, page-specific tagline** instead of re
 
 ### Current Page-Specific Taglines
 
-| Page           | Unique Tagline                             | Purpose                    |
-| -------------- | ------------------------------------------ | -------------------------- |
-| Homepage       | "Where Vision Meets Execution"             | Partnership + delivery     |
-| About          | "Excellence Through Experience"            | Veteran values + quality   |
-| Services       | "Your project deserves expert oversight"   | Service quality focus      |
-| Projects       | "Proven Results, Trusted Partnerships"     | Track record emphasis      |
-| Team           | "Experience You Can Trust"                 | Team expertise focus       |
-| Careers        | "Your Future Starts Here"                  | Career growth focus        |
-| Booking        | "Start Your Project With Confidence"       | Consultation confidence    |
-| Urgent         | "When Time Is Critical, We Respond"        | Rapid response emphasis    |
-| Government     | "Mission-Ready, Compliance-Driven"         | Federal expertise focus    |
-| Trade Partners | "Building Success Together"                | B2B partnership focus      |
-| Estimator      | "Smart Planning Starts Here"               | Automated estimation focus |
-| 3D Explorer    | "Innovation Meets Construction Excellence" | Technology focus           |
-| Veterans       | "Honoring Those Who Served"                | Veteran support            |
+| Page           | Unique Tagline                                                             | Purpose                    |
+| -------------- | -------------------------------------------------------------------------- | -------------------------- |
+| Homepage       | "Veteran-Owned Excellence \| Honest Communication \| Proven Craftsmanship" | Veteran values emphasis    |
+| About          | "Excellence Through Experience"                                            | Veteran values + quality   |
+| Services       | "Your project deserves expert oversight"                                   | Service quality focus      |
+| Projects       | "Proven Results, Trusted Partnerships"                                     | Track record emphasis      |
+| Team           | "Experience You Can Trust"                                                 | Team expertise focus       |
+| Careers        | "Your Future Starts Here"                                                  | Career growth focus        |
+| Booking        | "Start Your Project With Confidence"                                       | Consultation confidence    |
+| Urgent         | "When Time Is Critical, We Respond"                                        | Rapid response emphasis    |
+| Government     | "Mission-Ready, Compliance-Driven"                                         | Federal expertise focus    |
+| Trade Partners | "Building Success Together"                                                | B2B partnership focus      |
+| Estimator      | "Smart Planning Starts Here"                                               | Automated estimation focus |
+| 3D Explorer    | "Innovation Meets Construction Excellence"                                 | Technology focus           |
+| Veterans       | "Honoring Those Who Served"                                                | Veteran support            |
 
 **Note:** "THE ROI IS THE RELATIONSHIP" remains important in body content,
 testimonials, and value propositions—just not repeated in every hero section.
@@ -67,10 +70,10 @@ testimonials, and value propositions—just not repeated in every hero section.
 
 ### ✅ MUST INCLUDE
 
-1. **Full Viewport Height**: `h-screen flex items-center justify-center`
-2. **Title**: Main page heading with `text-brand-secondary`
-3. **Subtitle**: Brief tagline or description
-4. **Description**: Detailed text including company tagline
+1. **Full Viewport Height**: `h-screen flex items-end justify-end` (bottom-right positioning)
+2. **Visual-First Design**: Text positioned bottom-right to allow photos/videos to be focal point
+3. **Multi-line Format**: Vertical text arrangement with separators for emphasis
+4. **Veteran Messaging**: Emphasize veteran-owned, honest communication, proven craftsmanship
 5. **Navigation**: PageNavigation at bottom
 
 ### ❌ MUST NOT INCLUDE
@@ -86,39 +89,43 @@ testimonials, and value propositions—just not repeated in every hero section.
 
 ## Standard Implementation
 
-### Complete Hero Section Template
+### Complete Hero Section Template (Bottom-Right Text Positioning)
+
+**Design Philosophy**: Text in bottom-right allows background photos/videos to be the primary
+visual element. This creates a more impactful first impression where imagery speaks first.
 
 ```tsx
-<section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
-  {/* Background Elements */}
-  <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
+<section className="relative h-screen flex items-end justify-end text-white overflow-hidden">
+  {/* Background - Photo or Video Focal Point */}
+  <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900">
+    {/* Add background image or video here */}
+    {/* <img src="/path/to/image.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" /> */}
+    {/* <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover" /> */}
 
-  {/* Content - CLEAN AND SIMPLE */}
-  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
-    <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-      {/* Main Title */}
-      <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-        <span className="block text-brand-secondary font-black drop-shadow-lg">
-          Your Page Title
-        </span>
-      </h1>
-
-      {/* Subtitle */}
-      <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-        Your compelling subtitle or tagline
-      </p>
-
-      {/* Description */}
-      <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-        "Building projects for the client, NOT the dollar" — Your page
-        description text here.
-      </p>
-    </div>
+    {/* Overlay for text readability */}
+    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
   </div>
 
-  {/* Navigation Bar - ALWAYS AT BOTTOM */}
+  {/* Header Text - Bottom Right (Allows visual to dominate) */}
+  <div className="relative z-30 mb-20 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+    <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+      <span className="block text-brand-secondary">
+        Veteran-Owned Excellence
+      </span>
+      <span className="block">|</span>
+      <span className="block text-white/95">Honest Communication</span>
+      <span className="block">|</span>
+      <span className="block text-brand-primary">Proven Craftsmanship</span>
+      <span className="block">|</span>
+      <span className="block text-white/90">
+        Building Trust, Not Just Structures
+      </span>
+    </h1>
+  </div>
+
+  {/* Page-Specific Navigation Bar - ALWAYS AT BOTTOM */}
   <PageNavigation
-    items={navigationConfigs.pageName}
+    items={navigationConfigs.home}
     className="absolute bottom-0 left-0 right-0"
   />
 </section>
@@ -126,28 +133,24 @@ testimonials, and value propositions—just not repeated in every hero section.
 
 ---
 
-## Typography Scaling
+## Typography Scaling (Bottom-Right Text)
 
 ### Responsive Size Guide
 
-| Element         | Mobile    | Tablet         | Desktop       |
-| --------------- | --------- | -------------- | ------------- |
-| **Title**       | `text-lg` | `sm:text-2xl`  | `xl:text-5xl` |
-| **Subtitle**    | `text-xs` | `sm:text-base` | `lg:text-xl`  |
-| **Description** | `text-xs` | `sm:text-sm`   | `lg:text-lg`  |
+| Element           | Mobile      | Tablet       | Desktop       |
+| ----------------- | ----------- | ------------ | ------------- |
+| **Multi-line H1** | `text-base` | `sm:text-xl` | `xl:text-4xl` |
 
-### Full Responsive Classes
+### Full Responsive Classes (Right-Aligned)
 
 ```tsx
-// Title
-className =
-  "text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl";
+// Multi-line heading with vertical format
+className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed"
 
-// Subtitle
-className = "text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl";
-
-// Description
-className = "text-xs sm:text-sm md:text-base lg:text-lg";
+// Individual lines with different accent colors
+<span className="block text-brand-secondary">Line 1</span>
+<span className="block">|</span>  // Separator
+<span className="block text-white/95">Line 2</span>
 ```
 
 ---

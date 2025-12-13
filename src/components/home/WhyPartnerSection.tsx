@@ -138,16 +138,19 @@ export function WhyPartnerSection() {
           </div>
           <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
             <span className="block mb-3 sm:mb-4 font-semibold text-white/80 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-              The MH Partnership
+              Why Veteran-Owned
             </span>
             <span className="block text-white font-black drop-shadow-lg">
-              Difference
+              Excellence Matters
             </span>
           </h2>
 
           <p className="mx-auto max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-            Experience the collaborative approach where veteran values and
-            genuine partnership create extraordinary results.
+            Experience where{" "}
+            <span className="font-semibold text-brand-secondary">
+              honest communication, proven craftsmanship, and veteran integrity
+            </span>{" "}
+            create partnerships built on trust.
           </p>
 
           {/* Core Philosophy Tagline */}

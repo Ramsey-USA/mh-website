@@ -2,7 +2,10 @@
 
 ## Comprehensive Standards for Pages, Sections, Components, and Mobile
 
-**Last Updated**: November 11, 2025 | **Version**: 1.1.0 | **Status**: Official Standard
+**Last Updated**: December 13, 2025 | **Version**: 2.0.0 | **Status**: Official Standard
+
+**⭐ UPDATE (Dec 2025)**: Complete shift to veteran/honest messaging. All content now emphasizes
+veteran-owned excellence, honest communication, transparent pricing, and proven craftsmanship.
 
 ---
 
@@ -58,10 +61,10 @@ prioritization:
    - Priority: Culture → Opportunity → Team → Benefits
    - Focus: Career development and belonging
 
-6. **Group 6: Resources & Help** (FAQ, Contact, Support)
+6. **Group 6: Resources & Help** (FAQ, Support, Resources)
    - Voice: Helpful, accessible, professional
    - Priority: Service → Support → Communication → Trust
-   - Focus: Modern tools as enhancements, not requirements
+   - Focus: Direct human assistance, no automation emphasis
 
 7. **Group 7: Partnership & Urgency** (Trade Partners, Urgent Projects)
    - Voice: Decisive, responsive, solution-oriented
@@ -152,45 +155,43 @@ When creating a new page hero section:
 
 ### Current Hero Taglines Reference
 
-| Page           | Unique Hero Tagline                        | Focus Area               |
-| -------------- | ------------------------------------------ | ------------------------ |
-| Homepage       | "Where Vision Meets Execution"             | Partnership + delivery   |
-| About          | "Excellence Through Experience"            | Veteran values + quality |
-| Services       | "Your project deserves expert oversight"   | Service quality          |
-| Projects       | "Proven Results, Trusted Partnerships"     | Track record             |
-| Team           | "Experience You Can Trust"                 | Team expertise           |
-| Careers        | "Your Future Starts Here"                  | Career growth            |
-| Booking        | "Start Your Project With Confidence"       | Consultation confidence  |
-| Urgent         | "When Time Is Critical, We Respond"        | Rapid response           |
-| Government     | "Mission-Ready, Compliance-Driven"         | Federal expertise        |
-| Trade Partners | "Building Success Together"                | B2B partnership          |
-| Estimator      | "Smart Planning Starts Here"               | Automated estimation     |
-| 3D Explorer    | "Innovation Meets Construction Excellence" | Technology               |
-| Veterans       | "Honoring Those Who Served"                | Veteran support          |
+| Page           | Unique Hero Tagline                                                        | Focus Area               |
+| -------------- | -------------------------------------------------------------------------- | ------------------------ |
+| Homepage       | "Veteran-Owned Excellence \| Honest Communication \| Proven Craftsmanship" | Veteran values emphasis  |
+| About          | "Excellence Through Experience"                                            | Veteran values + quality |
+| Services       | "Your project deserves expert oversight"                                   | Service quality          |
+| Projects       | "Proven Results, Trusted Partnerships"                                     | Track record             |
+| Team           | "Experience You Can Trust"                                                 | Team expertise           |
+| Careers        | "Your Future Starts Here"                                                  | Career growth            |
+| Booking        | "Start Your Project With Confidence"                                       | Consultation confidence  |
+| Urgent         | "When Time Is Critical, We Respond"                                        | Rapid response           |
+| Government     | "Mission-Ready, Compliance-Driven"                                         | Federal expertise        |
+| Trade Partners | "Building Success Together"                                                | B2B partnership          |
+| Veterans       | "Honoring Those Who Served"                                                | Veteran support          |
+
+**NOTE**: Booking, AI Estimator, and 3D Explorer pages have been removed (Dec 2025).
+All consultation CTAs now direct to `/contact` for face-to-face consultation.
 
 ---
 
 ## 🤖 Chatbot-First User Engagement
 
-### Strategy (November 2025)
+### Strategy (December 2025)
 
-**Replace static FAQs with interactive chatbot CTAs** to drive personalized engagement.
+**Interactive chatbot provides 24/7 support** while directing all project consultations
+to human team members via `/contact` for face-to-face discussions.
 
-### 🎯 Automated System Architecture (Nov 10, 2025)
+### 🎯 Direct Consultation Path (Dec 2025)
 
-**Two Distinct User Paths:**
+#### Single User Path: Direct Human Consultation
 
-#### 1. Automated Estimator (`/estimator`) - Automated
-
-- **Purpose**: Instant preliminary cost estimates
-- **Technology**: Automated analysis, 500+ project database
-- **Availability**: 24/7, under 5 minutes
-- **User Flow**: Automated form → Automated calculation → Preliminary pricing
-- **Color**: Leather Tan (`#BD9264`)
-- **Icons**: `smart_toy`, `calculate`
-- **CTAs**: "Get Automated Estimate", "Try Automated Estimator", "Start Automated Estimate"
-
-#### 2. Expert Consultation (`/booking`) - Human
+- **Purpose**: Face-to-face project consultation and assessment
+- **Approach**: Honest communication, transparent pricing
+- **Availability**: Scheduled consultations with veteran-owned team
+- **User Flow**: Contact form → Human response → In-person consultation
+- **Color**: Hunter Green (`#386851`)
+- **Icons**: `handshake`, `person`, `schedule`
+- **CTAs**: "Schedule Consultation", "Discuss Your Project", "Contact Our Team"
 
 - **Purpose**: Detailed in-person project assessment
 - **Technology**: Scheduled appointments with human experts
@@ -319,7 +320,7 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 #### 1. Hero Section Typography (Background Images/Videos)
 
-**Used on**: Pages with photo/video backgrounds (3D Explorer, Careers, Team, Estimator, Government, Trade Partners)
+**Used on**: Pages with photo/video backgrounds (Homepage, Careers, Team, Government, Trade Partners)
 
 #### NO veteran badges in hero sections
 
@@ -431,27 +432,36 @@ export default function PageName() {
 
 ### Hero Section Patterns
 
-#### Pattern A: Image/Video Background Hero (No Badges)
+#### Pattern A: Image/Video Background Hero (Bottom-Right Text)
+
+**HOMEPAGE/PRIMARY PAGES**: Text positioned bottom-right to allow photos/videos to be focal point.
 
 ```tsx
-<section className="relative min-h-[70vh] flex items-center justify-center text-white overflow-hidden">
-  {/* Background Image/Video */}
-  <div className="absolute inset-0 z-0">
+<section className="relative h-screen flex items-end justify-end text-white overflow-hidden">
+  {/* Background Image/Video - Primary Visual */}
+  <div className="absolute inset-0">
     <Image src="/images/hero-bg.jpg" fill className="object-cover" />
-    <div className="absolute inset-0 bg-black/40" />
+    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80" />
   </div>
 
-  {/* Content - NO BADGES */}
-  <div className="relative z-10 text-center px-4 container mx-auto">
-    <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-      <span className="block text-brand-secondary font-black drop-shadow-lg">
-        Page Title
+  {/* Header Text - Bottom Right (Allows visual to dominate) */}
+  <div className="relative z-30 mb-20 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+    <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+      <span className="block text-brand-secondary">
+        Veteran-Owned Excellence
       </span>
+      <span className="block">|</span>
+      <span className="block text-white/95">Honest Communication</span>
+      <span className="block">|</span>
+      <span className="block text-brand-primary">Proven Craftsmanship</span>
     </h1>
-    <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium mt-4">
-      Tagline content
-    </p>
   </div>
+
+  {/* Page Navigation */}
+  <PageNavigation
+    items={navigationConfigs.page}
+    className="absolute bottom-0 left-0 right-0"
+  />
 </section>
 ```
 

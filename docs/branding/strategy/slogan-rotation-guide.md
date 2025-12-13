@@ -69,12 +69,13 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 #### Homepage Hero Tagline
 
-**Tagline:** "Where Vision Meets Execution"
+**Tagline:** "Veteran-Owned Excellence | Honest Communication | Proven Craftsmanship"
 
-- **Focus:** Partnership + delivery excellence
-- **Tone:** Confident, action-oriented
-- **Context:** Sets expectation for collaborative building process
-- **Replaces:** Generic use of "THE ROI IS THE RELATIONSHIP"
+- **Focus:** Veteran values + honest communication + proven results
+- **Tone:** Confident, integrity-driven, veteran-focused
+- **Context:** Establishes core differentiators and veteran-owned identity
+- **Emphasizes:** Trust through transparent communication and craftsmanship
+- **Format:** Multi-line vertical format emphasizing key pillars
 
 #### About Page Hero Tagline
 

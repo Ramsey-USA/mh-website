@@ -23,15 +23,17 @@ export function HeroSection() {
       {/* Header Text - Bottom Right */}
       <div className="relative z-30 mb-20 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
         <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
-          <span className="block text-brand-secondary">Military Precision</span>
-          <span className="block">|</span>
-          <span className="block text-white/95">Veteran Values</span>
-          <span className="block">|</span>
-          <span className="block text-brand-primary">
-            Honoring Partnerships
+          <span className="block text-brand-secondary">
+            Veteran-Owned Excellence
           </span>
           <span className="block">|</span>
-          <span className="block text-white/90">Multi-State Insured</span>
+          <span className="block text-white/95">Honest Communication</span>
+          <span className="block">|</span>
+          <span className="block text-brand-primary">Proven Craftsmanship</span>
+          <span className="block">|</span>
+          <span className="block text-white/90">
+            Building Trust, Not Just Structures
+          </span>
         </h1>
       </div>
 

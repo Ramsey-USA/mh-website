@@ -497,43 +497,46 @@ specific terms and phrases.
 **Values-Tech Messaging:**
 
 - "Technology with Transparency"
-- "Innovation Built on Trust and Honesty"
+- "Innovation Built on Trust and Honesty" (DEPRECATED - Use proven methods messaging)
 
-**Tech-Focused Slogans:**
+**Former Tech-Focused Slogans (DEPRECATED):**
 
-- "Smart Planning Starts Here, Trust Continues Throughout"
-- "Innovation Meets Construction Excellence and Core Values"
-- "Technology Serving Traditional Values and Building Trust"
-- "AI-Powered, Human-Centered, Values-Driven"
+- ~~"Smart Planning Starts Here, Trust Continues Throughout"~~
+- ~~"Innovation Meets Construction Excellence and Core Values"~~
+- ~~"Technology Serving Traditional Values and Building Trust"~~
+- ~~"AI-Powered, Human-Centered, Values-Driven"~~
 
-### Language Characteristics (Tech Innovation - Deprecated)
+**✅ REPLACEMENT MESSAGING:** Use "Proven craftsmanship over cutting-edge technology" and
+"Traditional business values that last" instead.
 
-- Use tech terminology, but explain it
-- Emphasize technology as enhancement, not replacement
-- Show how innovation serves client needs
-- Balance cutting-edge with proven methods
-- Maintain warmth despite technical subject
+### Language Characteristics (DEPRECATED - Group 6 Removed)
 
-### Key Phrases (Tech Innovation - Deprecated)
+**NOTE:** This section is deprecated. Direct human consultation is now prioritized over automated tools.
 
-- "AI-powered estimation meets personal consultation and professional guidance"
-- "Technology that serves, never replaces, relationships built on trust"
-- "Smart tools for smarter planning, honest assessments for better decisions"
-- "Innovation with integrity and transparency at every step"
-- "Where data meets decades of experience and four core values"
-- "Cutting-edge tools, old-school values, unwavering honesty"
-- "Thorough analysis through technology, honest communication through people"
-- "Professional tools supporting professional relationships"
-- "Trust the technology, trust the team behind it"
+### Key Phrases (DEPRECATED - Replaced with Direct Consultation)
 
-### Avoid (Tech Innovation - Deprecated)
+**Former phrases (no longer use):**
 
-- Tech jargon without explanation
-- Implying automation replaces people
-- Cold, impersonal technology language
-- Over-hyping capabilities without honest limitations
-- Forgetting the human element and values
-- Technology talk without trust and honesty emphasis
+- ~~"AI-powered estimation meets personal consultation"~~
+- ~~"Technology that serves, never replaces, relationships"~~
+- ~~"Smart tools for smarter planning"~~
+- ~~"Cutting-edge tools, old-school values"~~
+
+**✅ REPLACEMENT PHRASES:**
+
+- "Face-to-face consultation builds trust"
+- "Honest communication from the start"
+- "Direct human expertise, no automated shortcuts"
+- "Traditional consultation methods that work"
+- "Proven processes, personal attention"
+
+### Avoid (Updated for Veteran/Honest Messaging)
+
+- ~~Tech jargon without explanation~~ → Avoid all tech-focused language
+- ~~Implying automation replaces people~~ → Never mention automation positively
+- ~~Cold, impersonal technology language~~ → Use warm, personal, veteran-focused language
+- Any reference to "AI-powered", "cutting-edge", "innovative technology"
+- Forgetting veteran values and honest communication emphasis
 
 ---
 

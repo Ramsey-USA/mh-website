@@ -61,18 +61,19 @@ with unique, page-specific taglines across all website pages.
 
 ### Homepage
 
-**Tagline:** "Where Vision Meets Execution"
+**Tagline:** "Veteran-Owned Excellence | Honest Communication | Proven Craftsmanship"
 
 **Strategy:**
 
-- Communicates dual commitment: client vision + professional execution
-- Sets expectation for partnership-driven approach
-- Balances aspiration (vision) with capability (execution)
-- Memorable 4-word structure
+- Establishes veteran-owned identity immediately
+- Emphasizes honest communication as core differentiator
+- Highlights proven craftsmanship over innovation
+- Multi-line vertical format for emphasis and readability
+- Trust-building through transparency
 
 **Context:**
-First impression page needs to establish core value proposition of
-collaborative excellence.
+First impression page establishes veteran values, honest relationships,
+and proven results as primary differentiators.
 
 ---
 

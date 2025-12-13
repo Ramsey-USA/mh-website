@@ -94,23 +94,20 @@ export function CoreValuesSection() {
           </div>
           <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
             <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-              Building projects for the client,{" "}
-              <span className="font-black italic text-bronze-300">NOT</span> the
-              dollar
+              Veteran-Owned Values That
             </span>
             <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-              Our Four Core Values
+              Build Lasting Trust
             </span>
           </h2>
           <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-            Building trust through{" "}
             <span className="font-semibold text-gray-800 dark:text-gray-200">
-              four foundational values
+              Four foundational values
             </span>{" "}
-            that guide every partnership, every decision, and every
+            guide every honest conversation, transparent decision, and lasting
             relationship—because{" "}
             <span className="text-brand-primary dark:text-brand-primary-light font-bold">
-              we build trust, not just structures
+              we build partnerships through integrity, not just projects
             </span>
             .
           </p>

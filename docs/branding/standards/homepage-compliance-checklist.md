@@ -1,16 +1,20 @@
 # Homepage Compliance Checklist
 
-**Version:** 1.0.0  
-**Date:** November 18, 2025  
+**Version:** 2.0.0  
+**Date:** December 13, 2025  
 **Status:** ✅ Active Standard  
-**Purpose:** Ensure all new pages match homepage implementation
+**Purpose:** Ensure all new pages match homepage implementation with veteran/honest messaging
+
+**⭐ UPDATE (Dec 2025)**: Checklist updated to reflect veteran-focused messaging transformation.
+All pages should emphasize veteran-owned excellence, honest communication, and proven craftsmanship.
 
 ---
 
 ## 🎯 Purpose
 
 This checklist ensures that all new pages and edits follow the exact same patterns, attributes, and standards as
-the homepage implementation (the source of truth for MH Construction branding).
+the homepage implementation (the source of truth for MH Construction branding), with emphasis on veteran-owned
+values and honest communication messaging.
 
 ---
 
@@ -55,7 +59,11 @@ the homepage implementation (the source of truth for MH Construction branding).
 
 All major content sections must follow this exact structure from the homepage:
 
-### Required Elements (ALL sections)
+**NOTE**: This applies to **content sections**, not the hero section. The hero section uses
+bottom-right text positioning to allow photos/videos to be the focal point (see
+[Hero Section Standards](./hero-section-standards.md) for hero-specific patterns).
+
+### Required Elements (ALL content sections)
 
 #### 1. Background Gradient with Radial Overlays
 

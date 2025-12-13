@@ -1,6 +1,10 @@
 # MH Construction Branding Quick Reference
 
-**For Developers** | **Last Updated**: November 4, 2025 | **Version**: 4.0.2
+**For Developers** | **Last Updated**: December 13, 2025 | **Version**: 5.0.0
+
+**⭐ MAJOR UPDATE (Dec 2025)**: Complete shift to veteran/honest messaging. All branding now emphasizes
+veteran-owned excellence, honest communication, transparent pricing, and proven craftsmanship over
+technology or innovation.
 
 ## 🚨 Critical Requirements (Must-Have)
 
@@ -63,6 +67,20 @@ className="bg-[#BD9264]"
 
 ## 📝 Required Messaging
 
+### Core Veteran/Honest Messaging (Priority)
+
+**Veteran-Owned Excellence:**
+
+> "Veteran-owned excellence where honest communication and proven craftsmanship build lasting trust."
+
+**Honest Communication:**
+
+> "Honest communication, transparent pricing, face-to-face consultation."
+
+**Proven Craftsmanship:**
+
+> "Proven craftsmanship over cutting-edge technology. Traditional business values that last."
+
 ### Core Brand Slogans
 
 **Primary Slogan:**
@@ -85,11 +103,11 @@ Use these companion slogans to emphasize our partnership-first approach.
 
 ### Mission & Vision
 
-**Mission**: We deliver high-quality construction rooted in integrity, clear communication, and long-term
-relationships.
+**Mission**: We deliver high-quality construction rooted in veteran integrity, honest communication,
+and long-term relationships built on transparency.
 
-**Vision**: To be the Pacific Northwest's most trusted veteran-led construction partner - renowned for
-craftsmanship and character.
+**Vision**: To be the Pacific Northwest's most trusted veteran-owned construction partner - renowned for
+honest communication, proven craftsmanship, and transparent pricing.
 
 ### Partnership Language
 
@@ -115,13 +133,25 @@ Use these process steps to communicate our systematic, client-focused approach.
 - Service regions: Washington, Oregon, Idaho
 - Pacific Northwest
 
-### Veteran Identity
+### Veteran Identity & Honest Communication
 
-- "Veteran-owned excellence"
-- "Military precision"
-- "Where military precision meets construction excellence"
-- "Our leadership, crafted through military structure, alongside a team of skilled professionals, brings unwavering
-  dedication and owner-first focus to every project"
+**Veteran-Owned Excellence:**
+- "Veteran-owned since January 2025"
+- "Veteran integrity in every project"
+- "Military precision meets honest communication"
+- "Service-earned values guide every partnership"
+
+**Honest Communication Priority:**
+- "Honest communication always"
+- "Transparent pricing, no hidden costs"
+- "Face-to-face consultation over automated tools"
+- "Your word is your bond - so is ours"
+
+**Proven Craftsmanship:**
+- "Proven methods over innovation"
+- "650+ completed projects demonstrate reliability"
+- "Traditional business values that last generations"
+- "Craftsmanship you can see and trust"
 
 ## 🎨 Brand Colors
 
