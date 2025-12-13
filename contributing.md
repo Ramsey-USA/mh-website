@@ -25,7 +25,7 @@ trade partnerships, and veteran excellence.
 
 **⚠️ CRITICAL PARTNERSHIP DISTINCTION:** The platform serves two distinct partnership audiences:
 
-- **Client Partnerships** 🏠 - Project collaborations with homeowners and businesses (routes: `/services`, `/booking`)
+- **Client Partnerships** 🏠 - Project collaborations with homeowners and businesses (routes: `/services`, `/contact`)
 - **Trade Partnerships** 🏗️ - Business relationships with subcontractors and vendors (routes: `/trade-partners`)
 
 See [Partnership Type Definitions](./docs/partnerships/partnership-type-definitions.md) for complete implementation guidelines.
@@ -285,7 +285,7 @@ See the [Master Documentation Index](./docs/master-index.md) for the complete do
 - **Group 3:** Team, Services (Future vision)
 - **Group 4:** Government, Veterans (Professional & patriotic)
 - **Group 5:** Careers (Recruitment & growth)
-- **Group 6:** Automated Estimator, 3D Explorer (Tech innovation)
+- **Group 6:** Resources & Help (FAQ, Contact, Support)
 - **Group 7:** Trade Partners, Urgent (ROI-focused - **ONLY** place for prominent "THE ROI IS THE RELATIONSHIP")
 
 **Complete Reference:** [Page-Specific Messaging Guide](./docs/branding/strategy/page-specific-messaging-guide.md)

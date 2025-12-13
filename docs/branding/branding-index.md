@@ -18,6 +18,13 @@
 This is the central hub for all MH Construction branding documentation. All brand standards, guidelines, and
 implementation details are organized here for easy access by the entire team.
 
+**✨ NEW (Dec 2025)**: **Military-Themed Rebrand** - All major pages now feature military-inspired names
+while maintaining SEO-friendly URLs. See [military-themed-rebrand.md](./strategy/military-themed-rebrand.md)
+for complete details on the new naming strategy.
+
+**⚠️ REMOVED (Dec 2025)**: Booking, AI Estimator, and 3D Explorer pages have been removed. All CTAs now
+direct users to `/contact` for direct communication or `/projects` to view completed work.
+
 **✨ NEW (Nov 2025)**: All branding is built upon our **four-value professional foundation system**:
 Honesty, Integrity, Professionalism, and Thoroughness—culminating in
 **Trust** as our ultimate goal. See [core-values.md](../business/core-values.md) for complete details.
@@ -25,25 +32,16 @@ Honesty, Integrity, Professionalism, and Thoroughness—culminating in
 **Consolidated Structure**: Combined from separate business and development folders to eliminate duplication
 and provide a single source of truth.
 
-### 🤖 Automated System Integration (Nov 10, 2025)
+### ⚠️ Removed Features (December 2025)
 
-**Critical Distinction - Two Estimation Paths:**
+The following pages and features have been removed as part of the strategic simplification:
 
-1. **Automated Estimator** (`/estimator`):
-   - **Color**: Leather Tan (`#BD9264`)
-   - **Icon**: `smart_toy` or `calculate`
-   - **Messaging**: "Get Automated Estimate", "Try Automated Estimator", "Instant Pricing"
-   - **Purpose**: Automated 24/7 preliminary cost estimates (under 5 min)
-   - **Technology**: Automated system, 500+ project database
+1. **Booking System** (`/booking`): Replaced with direct contact via `/contact`
+2. **AI Estimator** (`/estimator`): Replaced with contact consultation and project viewing
+3. **3D Explorer** (`/3d-explorer`): Feature consolidated into main projects page
 
-2. **Expert Consultation** (`/booking`):
-   - **Color**: Hunter Green (`#386851`)
-   - **Icon**: `handshake` or `event`
-   - **Messaging**: "Schedule Consultation", "Book Expert Analysis"
-   - **Purpose**: In-person detailed project assessment with human experts
-   - **Technology**: Scheduled appointments, customized analysis
-
-**Chatbot Integration**: "General MH" chatbot intelligently routes users to appropriate path based on query intent.
+**Impact**: All CTAs, navigation links, and service worker references updated to reflect these changes.
+See [military-themed-rebrand.md](./strategy/military-themed-rebrand.md) for complete migration details.
 
 ---
 
@@ -59,6 +57,7 @@ Brand identity, company values, messaging guidelines, and strategic positioning.
 
 - `brand-overview.md` - Core brand identity and mission (built on four core values)
 - `messaging.md` - Voice, tone, and messaging framework (reflects four-value system)
+- `military-themed-rebrand.md` - ⭐ **NEW (Dec 2025)** - Military-inspired page naming strategy
 - **Note**: See [core-values.md](../business/core-values.md) for the foundational four-value professional system
 - `page-specific-messaging-guide.md` - ⭐ **NEW (Nov 2025)** - 7-group page messaging strategy
 - `universal-terminology-guide.md` - ⭐ **NEW (Jan 2025)** - Universal language & terminology standards

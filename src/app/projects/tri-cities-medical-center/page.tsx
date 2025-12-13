@@ -19,7 +19,7 @@ export default function ProjectCaseStudyComingSoon() {
       <Breadcrumb
         items={[
           { label: "Home", href: "/" },
-          { label: "Projects", href: "/projects" },
+          { label: "Victories", href: "/projects" },
           { label: "Case Study" },
         ]}
       />

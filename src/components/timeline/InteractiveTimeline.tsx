@@ -460,16 +460,20 @@ export function InteractiveTimeline({
               </p>
             </div>
             <div className="flex gap-3">
-              <Link href="/estimator">
+              <Link href="/projects">
                 <Button variant="outline" size="lg">
-                  <MaterialIcon icon="calculate" size="sm" className="mr-2" />
-                  Get Estimate
+                  <MaterialIcon
+                    icon="photo_library"
+                    size="sm"
+                    className="mr-2"
+                  />
+                  View Work
                 </Button>
               </Link>
-              <Link href="/booking">
+              <Link href="/contact">
                 <Button variant="primary" size="lg">
-                  <MaterialIcon icon="event" size="sm" className="mr-2" />
-                  Book Consultation
+                  <MaterialIcon icon="phone" size="sm" className="mr-2" />
+                  Contact Us
                 </Button>
               </Link>
             </div>

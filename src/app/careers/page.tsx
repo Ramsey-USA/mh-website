@@ -66,13 +66,13 @@ export default function CareersPage() {
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block text-brand-secondary font-black drop-shadow-lg">
-                Your Future Starts Here
+                Occupation Specialties
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              Join a Team That Invests in You • Where Your Growth Is Our Mission
+              Your Future Starts Here
             </p>
 
             {/* Description */}
@@ -99,7 +99,10 @@ export default function CareersPage() {
 
       {/* Breadcrumb Navigation */}
       <Breadcrumb
-        items={[{ label: "Home", href: "/" }, { label: "Careers" }]}
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Occupation Specialties" },
+        ]}
       />
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl">

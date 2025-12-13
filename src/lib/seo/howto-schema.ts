@@ -50,32 +50,32 @@ export function generateHowToSchema(howTo: HowToSchemaProps) {
  * Example: How to Get a Construction Estimate
  */
 export const getEstimateHowTo = generateHowToSchema({
-  name: "How to Get an Automated Estimate",
+  name: "How to Get an Expert Consultation",
   description:
-    "Get preliminary budget estimates in under 5 minutes using MH Construction's AI planning tool to prepare for your consultation",
-  totalTime: "PT5M",
+    "Schedule a free consultation with MH Construction to discuss your project and receive expert guidance",
+  totalTime: "PT10M",
   steps: [
     {
-      name: "Visit the AI Budget Estimator",
-      text: "Navigate to the AI Budget Planning Tool on MH Construction's website",
-      url: "https://www.mhc-gc.com/estimator",
+      name: "Visit the Contact Page",
+      text: "Navigate to the contact page on MH Construction's website",
+      url: "https://www.mhc-gc.com/contact",
     },
     {
-      name: "Select Your Project Type",
-      text: "Choose from residential, commercial, or government construction projects",
+      name: "Fill Out the Contact Form",
+      text: "Provide your name, contact information, and project details",
     },
     {
-      name: "Enter Project Details",
-      text: "Provide information about square footage, materials, and special requirements",
+      name: "Submit Your Request",
+      text: "Send the form to request a consultation with our expert team",
     },
     {
-      name: "Get Instant Estimate",
-      text: "Receive a cost estimate with detailed breakdown",
+      name: "Await Response",
+      text: "Our team will contact you within 24 hours to schedule your free consultation",
     },
     {
-      name: "Schedule Consultation",
-      text: "Book a free consultation to discuss your project with our expert team",
-      url: "https://www.mhc-gc.com/booking",
+      name: "Meet for Consultation",
+      text: "Discuss your project in person or virtually with our construction experts",
+      url: "https://www.mhc-gc.com/contact",
     },
   ],
 });

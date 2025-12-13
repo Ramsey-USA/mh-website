@@ -514,20 +514,24 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
               excellence and dedication shown in this project.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/estimator">
+              <Link href="/contact">
                 <Button
                   variant="primary"
                   size="lg"
                   className="bg-white hover:bg-gray-100 text-primary-600"
                 >
-                  <MaterialIcon icon="calculate" size="md" className="mr-2" />
-                  Get Estimate
+                  <MaterialIcon icon="phone" size="md" className="mr-2" />
+                  Contact Us
                 </Button>
               </Link>
-              <Link href="/booking">
+              <Link href="/services">
                 <Button variant="secondary" size="lg">
-                  <MaterialIcon icon="event" size="md" className="mr-2" />
-                  Schedule Consultation
+                  <MaterialIcon
+                    icon="construction"
+                    size="md"
+                    className="mr-2"
+                  />
+                  View Services
                 </Button>
               </Link>
               <Link href="/projects">

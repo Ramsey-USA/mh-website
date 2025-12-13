@@ -15,9 +15,14 @@ export function AboutHero() {
           {/* Main Title */}
           <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
             <span className="block text-brand-secondary font-black drop-shadow-lg">
-              Trust Built, Project by Project
+              Our Oath
             </span>
           </h1>
+
+          {/* Subtitle - Military Oath Connection */}
+          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
+            Trust Built, Project by Project
+          </p>
 
           {/* ROI Slogan - Prominent placement matching homepage */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">

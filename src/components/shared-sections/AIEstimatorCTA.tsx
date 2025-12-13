@@ -131,7 +131,7 @@ export function AIEstimatorCTA({
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
-              <Link href="/booking" className="flex-1">
+              <Link href="/contact" className="flex-1">
                 <Button
                   variant="primary"
                   size="lg"
@@ -139,14 +139,14 @@ export function AIEstimatorCTA({
                   onClick={handleConsultationClick}
                 >
                   <MaterialIcon
-                    icon="event"
+                    icon="phone"
                     size="lg"
                     className="mr-2 group-hover/btn:scale-110 transition-transform"
                   />
-                  Schedule Consultation
+                  Contact Us
                 </Button>
               </Link>
-              <Link href="/estimator" className="flex-1">
+              <Link href="/projects" className="flex-1">
                 <Button
                   variant="outline"
                   size="lg"
@@ -154,18 +154,17 @@ export function AIEstimatorCTA({
                   onClick={handleEstimatorClick}
                 >
                   <MaterialIcon
-                    icon="calculate"
+                    icon="photo_library"
                     size="lg"
                     className="mr-2 group-hover/btn:scale-110 transition-transform"
                   />
-                  Try Budget Tool
+                  View Our Work
                 </Button>
               </Link>
             </div>
 
             <p className="mt-6 text-sm text-gray-500 dark:text-gray-400 italic">
-              Personal consultation recommended first • Planning tool available
-              24/7
+              Contact us to discuss your project • View our completed work
             </p>
           </FadeInWhenVisible>
         </div>
@@ -272,7 +271,7 @@ export function AIEstimatorCTA({
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/booking" className="flex-1">
+                  <Link href="/contact" className="flex-1">
                     <Button
                       variant="primary"
                       size="lg"
@@ -280,14 +279,14 @@ export function AIEstimatorCTA({
                       onClick={handleConsultationClick}
                     >
                       <MaterialIcon
-                        icon="event"
+                        icon="phone"
                         size="lg"
                         className="mr-2 group-hover/btn:scale-110 transition-transform"
                       />
-                      Schedule Consultation
+                      Contact Us
                     </Button>
                   </Link>
-                  <Link href="/estimator" className="flex-1">
+                  <Link href="/projects" className="flex-1">
                     <Button
                       variant="outline"
                       size="lg"
@@ -295,7 +294,7 @@ export function AIEstimatorCTA({
                       onClick={handleEstimatorClick}
                     >
                       <MaterialIcon
-                        icon="calculate"
+                        icon="photo_library"
                         size="lg"
                         className="mr-2 group-hover/btn:scale-110 transition-transform"
                       />

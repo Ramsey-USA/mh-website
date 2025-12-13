@@ -3,7 +3,7 @@ import ContactPageClient from "./ContactPageClient";
 
 export const metadata: Metadata = {
   title:
-    "Contact Us | MH Construction - Concrete, Carpentry & General Contracting",
+    "Introductions | Contact Us | MH Construction - Concrete, Carpentry & General Contracting",
   description:
     "Connect with MH Construction for expert concrete, carpentry, and general contracting services in Pasco, WA. Call (509) 308-6489 or visit us at 3111 N. Capitol Ave. Building projects for the client, NOT the dollar.",
   keywords: [

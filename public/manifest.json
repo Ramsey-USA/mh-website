@@ -13,32 +13,6 @@
   "categories": ["business", "construction", "productivity"],
   "shortcuts": [
     {
-      "name": "Get Estimate",
-      "short_name": "Estimate",
-      "description": "Get an instant construction estimate",
-      "url": "/estimator",
-      "icons": [
-        {
-          "src": "/icons/shortcut-estimate.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "Book Consultation",
-      "short_name": "Book Now",
-      "description": "Schedule a free consultation with our experts",
-      "url": "/booking",
-      "icons": [
-        {
-          "src": "/icons/shortcut-booking.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
       "name": "View Projects",
       "short_name": "Projects",
       "description": "Browse our portfolio of completed projects",

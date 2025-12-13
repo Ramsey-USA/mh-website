@@ -145,33 +145,23 @@ export function Navigation() {
                 <div className="gap-1.5 sm:gap-2 grid grid-cols-2">
                   {[
                     { href: "/", label: "Home", icon: "home" },
-                    { href: "/about", label: "Foundation", icon: "foundation" },
-                    { href: "/services", label: "Services", icon: "build" },
+                    { href: "/about", label: "Our Oath", icon: "foundation" },
+                    { href: "/services", label: "Battle Plan", icon: "build" },
                     {
                       href: "/projects",
-                      label: "Projects",
+                      label: "Victories",
                       icon: "photo_library",
                     },
-                    { href: "/team", label: "Team", icon: "people" },
+                    { href: "/team", label: "Team Six", icon: "people" },
                     {
                       href: "/careers",
-                      label: "Build With Us",
+                      label: "Occupation Specialties",
                       icon: "handshake",
                     },
                     {
                       href: "/contact",
-                      label: "Contact",
+                      label: "Introductions",
                       icon: "contact_phone",
-                    },
-                    {
-                      href: "/estimator",
-                      label: "Budget Tool",
-                      icon: "calculate",
-                    },
-                    {
-                      href: "/3d-explorer",
-                      label: "3D Explorer",
-                      icon: "view_in_ar",
                     },
                     {
                       href: "/government",
@@ -180,28 +170,23 @@ export function Navigation() {
                     },
                     {
                       href: "/trade-partners",
-                      label: "Partners",
+                      label: "Allies in Force",
                       icon: "handshake",
                     },
                     {
                       href: "/veterans",
-                      label: "Veterans",
+                      label: "Combat Proven",
                       icon: "military_tech",
                     },
                     {
                       href: "/urgent",
-                      label: "Urgent",
+                      label: "PRT",
                       icon: "engineering",
                     },
                     {
                       href: "/faq",
                       label: "FAQ",
                       icon: "help",
-                    },
-                    {
-                      href: "/booking",
-                      label: "Start Project",
-                      icon: "handshake",
                     },
                   ].map((item) => (
                     <Link

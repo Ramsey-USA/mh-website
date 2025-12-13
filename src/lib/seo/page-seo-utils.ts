@@ -2,8 +2,6 @@
 import { type Metadata } from "next";
 import {
   generateEnhancedMetadata,
-  generateAutomatedEstimatorSchema,
-  generateIRLConsultationSchema,
   generateConstructionFAQSchema,
   generateServiceSchema,
   generateLocalBusinessSchema,
@@ -34,82 +32,27 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
       "general contractor Pasco WA",
       "general contractor Kennewick WA",
       "Tri-Cities construction company",
-      "innovative construction technology",
       "construction partnership approach",
-      "AI-powered construction planning",
       "face-to-face construction consultation",
       "construction partnerships Tri-Cities WA",
       "modern construction tools traditional values",
       "collaborative construction relationships",
       "transparent construction communication",
       "long-term construction partnerships",
-      "innovation meets integrity construction",
     ],
     canonicalUrl: enhancedSEO.siteUrl,
     schemas: [generateConstructionFAQSchema(), generateLocalBusinessSchema()],
   });
 }
 
-// AI Budget Estimator page SEO
-export function getAutomatedEstimatorSEO(): Metadata & {
-  schemas: object[];
-} {
-  return generateEnhancedMetadata({
-    title: "AI Budget Estimator - Free Planning Tool | MH Construction",
-    description:
-      "Get preliminary budget estimates in under 5 minutes with regional intelligence, veteran discounts, and Pacific Northwest market data. AI planning tool available 24/7 to prepare for your consultation.",
-    keywords: [
-      "AI cost estimator",
-      "budget planning tool",
-      "instant construction estimates",
-      "veteran discount construction",
-      "Pacific Northwest construction costs",
-      "preliminary cost estimates",
-      "construction budget calculator",
-      "military precision cost analysis",
-      "Tri-Cities construction estimator",
-      "Richland construction estimates",
-      "Pasco construction costs",
-      "Kennewick construction estimator",
-      "Benton County construction budget",
-      "Franklin County construction costs",
-    ],
-    canonicalUrl: `${enhancedSEO.siteUrl}/estimator`,
-    schemas: [generateAutomatedEstimatorSchema()],
-  });
-}
-
-// Booking/Consultation page SEO
-export function getBookingSEO(): Metadata & { schemas: object[] } {
-  return generateEnhancedMetadata({
-    title:
-      "Face-to-Face Consultation Where Trust Begins | Book Your Meeting | MH Construction",
-    description:
-      "Book your complimentary on-site construction consultation with MH Construction experts. Professional evaluation, detailed estimates, and partnership development for your Pacific Northwest project.",
-    keywords: [
-      "free construction consultation",
-      "on-site construction evaluation",
-      "construction expert visit",
-      "professional construction assessment",
-      "construction project planning",
-      "veteran-owned construction consultation",
-      "Tri-Cities construction consultation",
-      "Richland general contractor consultation",
-      "Pasco contractor meeting",
-      "Kennewick construction assessment",
-      "Benton County construction consultation",
-      "Franklin County contractor visit",
-    ],
-    canonicalUrl: `${enhancedSEO.siteUrl}/booking`,
-    schemas: [generateIRLConsultationSchema()],
-  });
-}
+// Removed: AI Budget Estimator page SEO (feature deprecated)
+// Removed: Booking/Consultation page SEO (feature deprecated)
 
 // About page SEO - GROUP 2: Heritage & Trust Foundation
 export function getAboutSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Trust Built, Project by Project | Founded 2010, Veteran-Owned Since 2025 | MH Construction",
+      "Our Oath | Trust Built, Project by Project | Veteran-Owned Since 2025 | MH Construction",
     description:
       "Founded 2010 by Mike Holstein, veteran-owned since January 2025 under Army veteran Jeremy Thamert's leadership (Owner & President). 150+ years of combined excellence serving Pacific Northwest communities with partnership philosophy, traditional business values, and authentic relationships built on trust.",
     keywords: [
@@ -167,7 +110,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     title:
-      "Your Vision, Our Precision | Construction Services | MH Construction",
+      "The Battle Plan | Your Vision, Our Precision | Construction Services | MH Construction",
     description:
       "Comprehensive construction services across residential, commercial, and government projects. Veteran-owned company serving Pacific Northwest with military precision, modern planning tools, and partnership approach. Building tomorrow's excellence today.",
     keywords: [
@@ -197,9 +140,9 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
 export function getTeamSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Building Tomorrow's Success Today | Meet Our Team | MH Construction",
+      "Team Six | Building Tomorrow's Success Today | Meet Our Team | MH Construction",
     description:
-      "Meet the MH Construction team building the future of construction excellence. Veteran professionals, expert project managers, and partnership specialists with 150+ years combined experience serving Pacific Northwest communities with innovation, military precision, and authentic relationships.",
+      "Meet the MH Construction team building lasting partnerships through construction excellence. Veteran professionals, expert project managers, and relationship specialists with 150+ years combined experience serving Pacific Northwest communities with honesty, military precision, and authentic relationships.",
     keywords: [
       "veteran construction team",
       "construction project managers",
@@ -296,9 +239,9 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
 export function getCareersSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Your Future Starts Here | Join Our Growing Team | MH Construction Careers",
+      "Occupation Specialties | Your Future Starts Here | Join Our Growing Team | MH Construction",
     description:
-      "Join MH Construction and build your future with a veteran-owned team that values you! Exciting construction career opportunities with competitive benefits, growth potential, cutting-edge technology, and military values in the Pacific Northwest. We're hiring skilled professionals ready to make an impact.",
+      "Join MH Construction and build your future with a veteran-owned team that values you! Exciting construction career opportunities with competitive benefits, growth potential, proven methods, and military values in the Pacific Northwest. We're hiring skilled professionals ready to make an impact.",
     keywords: [
       "construction jobs Pacific Northwest",
       "construction career opportunities",
@@ -336,7 +279,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
 export function getProjectsSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Our History Speaks for Itself | Excellence Since 2010 | MH Construction Projects",
+      "Victories | Our History Speaks for Itself | Excellence Since 2010 | MH Construction",
     description:
       "Explore MH Construction's proven track record of residential, commercial, and government projects across the Pacific Northwest. Our history speaks for itself with military precision quality, partnership-driven results, and trust built project by project since 2010.",
     keywords: [
@@ -362,7 +305,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
 export function getContactSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Where Handshakes Still Matter | Contact MH Construction | Pasco, WA",
+      "Introductions | Where Handshakes Still Matter | Contact MH Construction | Pasco, WA",
     description:
       "Contact MH Construction for your Pacific Northwest construction needs. Founded 2010, veteran-owned since January 2025 with online estimating tools, military precision, and authentic partnership approach. (509) 308-6489",
     keywords: [
@@ -411,21 +354,4 @@ export function getUrgentSEO(): Metadata & { schemas: object[] } {
   });
 }
 
-// 3D Explorer page SEO
-export function get3DExplorerSEO(): Metadata & { schemas: object[] } {
-  return generateEnhancedMetadata({
-    title:
-      "Innovation Meets Construction Excellence | 3D Project Explorer | MH Construction",
-    description:
-      "Immersive 3D visualization platform for construction projects. Explore project designs, walk through virtual models, and experience MH Construction's innovative approach to project visualization. Coming soon.",
-    keywords: [
-      "3D construction visualization",
-      "virtual construction walkthrough",
-      "construction project 3D models",
-      "immersive construction experience",
-      "construction technology innovation",
-    ],
-    canonicalUrl: `${enhancedSEO.siteUrl}/3d-explorer`,
-    schemas: [],
-  });
-}
+// Removed: get3DExplorerSEO function (feature deprecated Dec 2025)

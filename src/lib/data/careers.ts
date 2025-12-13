@@ -309,7 +309,7 @@ export const cultureValues: CultureValue[] = [
     icon: "emoji_people",
     title: "Team Unity & Military Precision",
     description:
-      "Veteran-owned since January 2025 under Army veteran leadership. From veterans to civilians, office to field—we're one team with shared values. Military discipline and structured processes meet civilian innovation, combining unwavering attention to detail with creative problem-solving and mission-focused reliability.",
+      "Veteran-owned since January 2025 under Army veteran leadership. From veterans to civilians, office to field—we're one team with shared values. Military discipline and structured processes meet proven craftsmanship, combining unwavering attention to detail with reliable execution and mission-focused excellence.",
     color: "from-brand-secondary to-brand-secondary-dark",
   },
   {

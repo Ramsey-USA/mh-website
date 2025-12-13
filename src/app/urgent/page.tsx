@@ -153,13 +153,13 @@ export default function UrgentSupportPage() {
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block text-brand-secondary font-black drop-shadow-lg">
-                When Time Is Critical, We Respond
+                PRT - Project Response Team
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              THE ROI IS THE RELATIONSHIP • Rapid Response Partnership
+              When Time Is Critical, We Respond
             </p>
 
             {/* Description */}
@@ -185,7 +185,10 @@ export default function UrgentSupportPage() {
 
       {/* Breadcrumb Navigation */}
       <Breadcrumb
-        items={[{ label: "Home", href: "/" }, { label: "Urgent Support" }]}
+        items={[
+          { label: "Home", href: "/" },
+          { label: "PRT - Project Response Team" },
+        ]}
       />
 
       {/* Quick Contact Section */}

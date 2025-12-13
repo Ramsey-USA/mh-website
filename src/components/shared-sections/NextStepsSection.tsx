@@ -124,7 +124,7 @@ export function NextStepsSection({
                 <span>No obligation</span>
               </li>
             </ul>
-            <Link href="/booking">
+            <Link href="/contact">
               <Button
                 variant="primary"
                 size="lg"
@@ -141,7 +141,7 @@ export function NextStepsSection({
             </Link>
           </div>
 
-          {/* Option 2: Get Quick Estimate */}
+          {/* Option 2: View Our Work */}
           <div className="group relative bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 border-2 border-brand-secondary flex flex-col h-full">
             <div className="bg-brand-secondary -top-4 left-1/2 absolute px-4 py-1 rounded-full -translate-x-1/2 shadow-md">
               <span className="font-bold text-sm text-white uppercase tracking-wide">
@@ -151,18 +151,17 @@ export function NextStepsSection({
             <div className="flex justify-center mb-6">
               <div className="rounded-xl bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <MaterialIcon
-                  icon="calculate"
+                  icon="photo_library"
                   size="xl"
                   className="text-white"
                 />
               </div>
             </div>
             <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
-              Budget Planning Tool
+              See Our Victories
             </h3>
             <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-              Prepare for your consultation with our honest, transparent budget
-              planning tool.
+              Explore our completed projects and see the quality we deliver.
             </p>
             <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
               <li className="flex items-center gap-2">
@@ -171,7 +170,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-secondary flex-shrink-0"
                 />
-                <span>Instant preliminary budget</span>
+                <span>650+ completed projects</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -179,7 +178,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-secondary flex-shrink-0"
                 />
-                <span>Honest cost ranges</span>
+                <span>Industry-leading quality</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -187,10 +186,10 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-secondary flex-shrink-0"
                 />
-                <span>Transparent pricing</span>
+                <span>Diverse project types</span>
               </li>
             </ul>
-            <Link href="/estimator">
+            <Link href="/projects">
               <Button
                 variant="secondary"
                 size="lg"
@@ -198,11 +197,11 @@ export function NextStepsSection({
                 onClick={onEstimateClick}
               >
                 <MaterialIcon
-                  icon="calculate"
+                  icon="photo_library"
                   size="lg"
                   className="mr-2 group-hover/btn:scale-110 transition-transform"
                 />
-                Try Planning Tool
+                View Our Work
               </Button>
             </Link>
           </div>

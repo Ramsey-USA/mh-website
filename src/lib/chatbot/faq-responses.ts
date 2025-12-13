@@ -15,25 +15,25 @@ export const faqDatabase: FAQItem[] = [
   {
     keywords: ["phone", "call", "number", "telephone", "contact"],
     question: "What is your phone number?",
-    answer: `**[CONTACT INFORMATION]** 📞\n\n**Main Line:** (509) 308-6489\n\n**Email:** office@mhc-gc.com\n\n**Hours:** Monday-Friday, 7:00 AM - 4:00 PM PST\n\n**[Schedule Consultation →](/booking)** or **[Contact Form →](/contact)**`,
+    answer: `**[CONTACT INFORMATION]** 📞\n\n**Main Line:** (509) 308-6489\n\n**Email:** office@mhc-gc.com\n\n**Hours:** Monday-Friday, 7:00 AM - 4:00 PM PST\n\n**[Contact Form →](/contact)**`,
     category: "contact",
   },
   {
     keywords: ["hours", "open", "when", "schedule", "available"],
     question: "What are your business hours?",
-    answer: `**[OPERATIONAL HOURS]** ⏰\n\n**Standard Operations:**\nMonday-Friday: 7:00 AM - 4:00 PM PST\n\n**Response Times:**\n• Standard inquiries: Within 24 hours\n• Veteran priority: Within 12 hours\n• Emergency support: Same day\n\n**24/7 Available:**\n• **[AI Estimator →](/estimator)** - Instant project estimates\n• Emergency contact for urgent construction support\n\n**Ready to connect?** [Schedule Consultation →](/booking)`,
+    answer: `**[OPERATIONAL HOURS]** ⏰\n\n**Standard Operations:**\nMonday-Friday: 7:00 AM - 4:00 PM PST\n\n**Response Times:**\n• Standard inquiries: Within 24 hours\n• Veteran priority: Within 12 hours\n• Emergency support: Same day\n\n**24/7 Available:**\n• Emergency contact for urgent construction support\n• Chatbot support (that's me!)\n\n**Ready to connect?** [Contact Us →](/contact)`,
     category: "contact",
   },
   {
     keywords: ["address", "location", "where", "office", "visit"],
     question: "Where are you located?",
-    answer: `**[OFFICE LOCATION]** 📍\n\n**Headquarters:**\n3111 N. Capitol Ave.\nPasco, WA 99301\n\n**Service Areas:**\n• Washington State\n• Oregon\n• Idaho\n• Tri-Cities Region (Pasco, Kennewick, Richland)\n\n**[Get Directions →](https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301)**\n\n**Want to visit?** Schedule an appointment: **[Book Consultation →](/booking)**`,
+    answer: `**[OFFICE LOCATION]** 📍\n\n**Headquarters:**\n3111 N. Capitol Ave.\nPasco, WA 99301\n\n**Service Areas:**\n• Washington State\n• Oregon\n• Idaho\n• Tri-Cities Region (Pasco, Kennewick, Richland)\n\n**[Get Directions →](https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301)**\n\n**Want to visit?** Schedule an appointment: **[Contact Us →](/contact)**`,
     category: "contact",
   },
   {
     keywords: ["email", "e-mail", "mail"],
     question: "What is your email?",
-    answer: `**[EMAIL CONTACT]** ✉️\n\n**Primary:** office@mhc-gc.com\n\n**Response Time:**\n• Standard: Within 24 hours\n• Veteran priority: Within 12 hours\n\n**Alternative Contact:**\n• **Phone:** (509) 308-6489\n• **[Contact Form →](/contact)** - Web submission\n• **[Schedule Meeting →](/booking)** - Direct consultation\n\nPrefer instant communication? Try our AI chatbot!`,
+    answer: `**[EMAIL CONTACT]** ✉️\n\n**Primary:** office@mhc-gc.com\n\n**Response Time:**\n• Standard: Within 24 hours\n• Veteran priority: Within 12 hours\n\n**Alternative Contact:**\n• **Phone:** (509) 308-6489\n• **[Contact Form →](/contact)** - Web submission\n\nPrefer instant communication? Try our AI chatbot!`,
     category: "contact",
   },
 
@@ -41,19 +41,19 @@ export const faqDatabase: FAQItem[] = [
   {
     keywords: ["cost", "price", "pricing", "expensive", "charge", "rates"],
     question: "How much do projects cost?",
-    answer: `**[PRICING INFORMATION]** 💰\n\n**Project pricing varies based on:**\n• Scope and complexity\n• Materials and specifications\n• Timeline requirements\n• Location and site conditions\n\n**GET YOUR ESTIMATE:**\n\n**Option 1: AI Estimator (Instant)**\n• Free preliminary estimate in under 5 minutes\n• Available 24/7\n• **[Try AI Estimator →](/estimator)**\n\n**Option 2: Expert Consultation (Detailed)**\n• Comprehensive on-site assessment\n• Detailed open-book pricing\n• Timeline and budget planning\n• **[Schedule Free Consultation →](/booking)**\n\n**VETERAN DISCOUNT:** 12% for combat veterans!\n\n**Transparent Pricing Promise:**\n"Building projects for the client, NOT the dollar" - No hidden fees, open-book pricing`,
+    answer: `**[PRICING INFORMATION]** 💰\n\n**Project pricing varies based on:**\n• Scope and complexity\n• Materials and specifications\n• Timeline requirements\n• Location and site conditions\n\n**GET YOUR ESTIMATE:**\n\n**Expert Consultation (Free):**\n• Comprehensive on-site assessment\n• Detailed open-book pricing\n• Timeline and budget planning\n• **[Contact Us →](/contact)**\n\n**VETERAN DISCOUNT:** 12% for combat veterans!\n\n**Transparent Pricing Promise:**\n"Building projects for the client, NOT the dollar" - No hidden fees, open-book pricing`,
     category: "pricing",
   },
   {
     keywords: ["estimate", "quote", "assessment", "evaluation"],
     question: "How do I get an estimate?",
-    answer: `**[ESTIMATE OPTIONS]** 🎯\n\n**Two Pathways Available:**\n\n**🤖 AI ESTIMATOR (Instant)**\n• Get preliminary cost intel in under 5 minutes\n• Available 24/7 - no waiting\n• Based on 650+ completed projects\n• Free - no commitment required\n• **[Launch AI Estimator →](/estimator)**\n\n**👤 EXPERT CONSULTATION (Comprehensive)**\n• Free on-site assessment\n• Detailed open-book pricing\n• Timeline and planning discussion\n• Personalized recommendations\n• **[Schedule Consultation →](/booking)**\n\n**RECOMMENDED:** Start with AI Estimator for instant ballpark, then schedule consultation for detailed planning.\n\n**VETERAN PRIORITY:** Expedited processing + 12% discount!`,
+    answer: `**[ESTIMATE OPTIONS]** 🎯\n\n**Free Expert Consultation:**\n• Comprehensive on-site assessment\n• Detailed open-book pricing\n• Timeline and planning discussion\n• Personalized recommendations\n• **[Contact Us to Schedule →](/contact)**\n\n**What We'll Cover:**\n• Project scope and goals\n• Budget planning and options\n• Timeline expectations\n• Material selections\n• Veteran benefits (12% discount)\n\n**VETERAN PRIORITY:** Expedited processing + 12% discount!`,
     category: "pricing",
   },
   {
     keywords: ["free", "consultation", "assessment"],
     question: "Do you offer free consultations?",
-    answer: `**[FREE CONSULTATIONS]** ✅\n\n**YES! We offer completely free consultations!**\n\n**What's Included:**\n• 60-minute comprehensive review\n• On-site assessment (if applicable)\n• Preliminary timeline estimate\n• Budget discussion\n• Expert recommendations\n• No obligation - no pressure\n\n**Schedule Options:**\n• Morning: 7:00 AM - 12:00 PM\n• Afternoon: 1:00 PM - 4:00 PM\n• Flexible for priority projects\n\n**[Schedule Free Consultation →](/booking)**\n\n**Also Available 24/7:**\n• **[AI Estimator →](/estimator)** - Instant preliminary pricing\n• Chatbot support (that's me!)\n\n**VETERAN PRIORITY:** Expedited scheduling available!`,
+    answer: `**[FREE CONSULTATIONS]** ✅\n\n**YES! We offer completely free consultations!**\n\n**What's Included:**\n• 60-minute comprehensive review\n• On-site assessment (if applicable)\n• Preliminary timeline estimate\n• Budget discussion\n• Expert recommendations\n• No obligation - no pressure\n\n**Schedule Options:**\n• Morning: 7:00 AM - 12:00 PM\n• Afternoon: 1:00 PM - 4:00 PM\n• Flexible for priority projects\n\n**[Contact Us to Schedule →](/contact)**\n\n**Also Available 24/7:**\n• Chatbot support (that's me!)\n• Email: office@mhc-gc.com\n\n**VETERAN PRIORITY:** Expedited scheduling available!`,
     category: "pricing",
   },
 
@@ -61,13 +61,13 @@ export const faqDatabase: FAQItem[] = [
   {
     keywords: ["services", "do you do", "offer", "provide", "capabilities"],
     question: "What services do you offer?",
-    answer: `**[SERVICE CAPABILITIES]** 🔧\n\n**RESIDENTIAL:**\n• Custom home construction\n• Kitchen & bathroom remodels\n• Home additions & renovations\n• Decks & outdoor spaces\n\n**COMMERCIAL:**\n• Office buildings\n• Retail spaces\n• Industrial facilities\n• Tenant improvements\n• Medical facilities\n\n**SPECIALTY:**\n• Government & grant-funded projects\n• Veteran-focused services\n• Energy-efficient construction\n• Emergency repair support\n\n**TRADE SUPPORT:**\n• General contractor assistance\n• Equipment & operator rental\n• Crew deployment\n\n**Explore Details:**\n• **[View All Services →](/services)**\n• **[See Our Work →](/projects)**\n• **[Get Estimate →](/estimator)**`,
+    answer: `**[SERVICE CAPABILITIES]** 🔧\n\n**RESIDENTIAL:**\n• Custom home construction\n• Kitchen & bathroom remodels\n• Home additions & renovations\n• Decks & outdoor spaces\n\n**COMMERCIAL:**\n• Office buildings\n• Retail spaces\n• Industrial facilities\n• Tenant improvements\n• Medical facilities\n\n**SPECIALTY:**\n• Government & grant-funded projects\n• Veteran-focused services\n• Energy-efficient construction\n• Emergency repair support\n\n**TRADE SUPPORT:**\n• General contractor assistance\n• Equipment & operator rental\n• Crew deployment\n\n**Explore Details:**\n• **[View All Services →](/services)**\n• **[See Our Work →](/projects)**\n• **[Contact Us →](/contact)**`,
     category: "services",
   },
   {
     keywords: ["do you build", "construct", "remodel", "renovate"],
     question: "What types of projects do you build?",
-    answer: `**[PROJECT CAPABILITIES]** 🏗️\n\n**We handle diverse construction projects:**\n\n**RESIDENTIAL:**\n✓ New home construction\n✓ Kitchen remodeling\n✓ Bathroom renovations\n✓ Home additions\n✓ Deck construction\n✓ Garage builds\n\n**COMMERCIAL:**\n✓ Office buildings\n✓ Retail spaces\n✓ Restaurants\n✓ Medical facilities\n✓ Industrial warehouses\n✓ Multi-tenant buildings\n\n**SPECIALTY:**\n✓ Government facilities\n✓ Grant-funded projects\n✓ Veteran-accessible homes\n✓ Energy-efficient builds\n\n**Project Size:** From small remodels to multi-million dollar commercial builds\n\n**[View Portfolio →](/projects)** to see completed work!\n**[Get Your Estimate →](/estimator)**`,
+    answer: `**[PROJECT CAPABILITIES]** 🏗️\n\n**We handle diverse construction projects:**\n\n**RESIDENTIAL:**\n✓ New home construction\n✓ Kitchen remodeling\n✓ Bathroom renovations\n✓ Home additions\n✓ Deck construction\n✓ Garage builds\n\n**COMMERCIAL:**\n✓ Office buildings\n✓ Retail spaces\n✓ Restaurants\n✓ Medical facilities\n✓ Industrial warehouses\n✓ Multi-tenant buildings\n\n**SPECIALTY:**\n✓ Government facilities\n✓ Grant-funded projects\n✓ Veteran-accessible homes\n✓ Energy-efficient builds\n\n**Project Size:** From small remodels to multi-million dollar commercial builds\n\n**[View Portfolio →](/projects)** to see completed work!\n**[Contact Us for Estimate →](/contact)**`,
     category: "services",
   },
   {
@@ -81,13 +81,13 @@ export const faqDatabase: FAQItem[] = [
   {
     keywords: ["how long", "timeline", "duration", "time", "takes"],
     question: "How long do projects take?",
-    answer: `**[PROJECT TIMELINES]** ⏱️\n\n**Timelines vary by project scope:**\n\n**RESIDENTIAL PROJECTS:**\n• Kitchen remodel: 3-6 weeks\n• Bathroom remodel: 2-4 weeks\n• Home addition: 3-6 months\n• Deck construction: 1-3 weeks\n• Full home build: 6-12 months\n\n**COMMERCIAL PROJECTS:**\n• Tenant improvement: 4-8 weeks\n• Small commercial build: 3-6 months\n• Large commercial: 6-18 months\n• Restaurant buildout: 6-12 weeks\n\n**FACTORS AFFECTING TIMELINE:**\n• Project size and complexity\n• Material availability\n• Permit approval process\n• Weather conditions\n• Design changes\n\n**PROCESS:**\n1. Consultation & Planning: 1-2 weeks\n2. Permits & Approvals: 2-6 weeks\n3. Construction: Project-specific\n4. Final Inspection: 1 week\n\n**Get accurate timeline:** **[Schedule Consultation →](/booking)**`,
+    answer: `**[PROJECT TIMELINES]** ⏱️\n\n**Timelines vary by project scope:**\n\n**RESIDENTIAL PROJECTS:**\n• Kitchen remodel: 3-6 weeks\n• Bathroom remodel: 2-4 weeks\n• Home addition: 3-6 months\n• Deck construction: 1-3 weeks\n• Full home build: 6-12 months\n\n**COMMERCIAL PROJECTS:**\n• Tenant improvement: 4-8 weeks\n• Small commercial build: 3-6 months\n• Large commercial: 6-18 months\n• Restaurant buildout: 6-12 weeks\n\n**FACTORS AFFECTING TIMELINE:**\n• Project size and complexity\n• Material availability\n• Permit approval process\n• Weather conditions\n• Design changes\n\n**PROCESS:**\n1. Consultation & Planning: 1-2 weeks\n2. Permits & Approvals: 2-6 weeks\n3. Construction: Project-specific\n4. Final Inspection: 1 week\n\n**Get accurate timeline:** **[Contact Us to Schedule →](/contact)**`,
     category: "process",
   },
   {
     keywords: ["process", "steps", "how does it work", "procedure"],
     question: "What is your construction process?",
-    answer: `**[CONSTRUCTION PROCESS]** 📋\n\n**OUR PARTNERSHIP APPROACH:**\n\n**PHASE 1: DISCOVERY**\n• Initial consultation (free)\n• Site assessment\n• Needs analysis\n• Budget discussion\n\n**PHASE 2: PLANNING**\n• Detailed proposal\n• Open-book pricing\n• Timeline development\n• Contract signing\n\n**PHASE 3: PERMITTING**\n• Permit applications\n• Code compliance review\n• Approval coordination\n\n**PHASE 4: CONSTRUCTION**\n• Regular progress updates\n• Photo documentation\n• Quality inspections\n• Client walkthroughs\n\n**PHASE 5: COMPLETION**\n• Final inspection\n• Punch list completion\n• Warranty documentation\n• Ongoing support\n\n**TRANSPARENCY PROMISE:**\nRegular communication, no surprises, open-book pricing\n\n**"We Work With You" - Every Step**\n\n**Ready to start?** **[Schedule Consultation →](/booking)**`,
+    answer: `**[CONSTRUCTION PROCESS]** 📋\n\n**OUR PARTNERSHIP APPROACH:**\n\n**PHASE 1: DISCOVERY**\n• Initial consultation (free)\n• Site assessment\n• Needs analysis\n• Budget discussion\n\n**PHASE 2: PLANNING**\n• Detailed proposal\n• Open-book pricing\n• Timeline development\n• Contract signing\n\n**PHASE 3: PERMITTING**\n• Permit applications\n• Code compliance review\n• Approval coordination\n\n**PHASE 4: CONSTRUCTION**\n• Regular progress updates\n• Photo documentation\n• Quality inspections\n• Client walkthroughs\n\n**PHASE 5: COMPLETION**\n• Final inspection\n• Punch list completion\n• Warranty documentation\n• Ongoing support\n\n**TRANSPARENCY PROMISE:**\nRegular communication, no surprises, open-book pricing\n\n**"We Work With You" - Every Step**\n\n**Ready to start?** **[Contact Us to Begin →](/contact)**`,
     category: "process",
   },
 
@@ -103,7 +103,7 @@ export const faqDatabase: FAQItem[] = [
   {
     keywords: ["area", "serve", "region", "coverage", "travel"],
     question: "What areas do you serve?",
-    answer: `**[SERVICE COVERAGE]** 🗺️\n\n**PRIMARY SERVICE AREAS:**\n\n**WASHINGTON:**\n• Tri-Cities (Pasco, Kennewick, Richland)\n• Walla Walla\n• Yakima\n• Eastern Washington region\n\n**OREGON:**\n• Eastern Oregon\n• Surrounding areas\n\n**IDAHO:**\n• Western Idaho\n• Border regions\n\n**HEADQUARTERS:**\n3111 N. Capitol Ave., Pasco, WA 99301\n\n**PROJECT RANGE:**\nTypically within 150-mile radius of Tri-Cities, but we evaluate all project opportunities.\n\n**TRAVEL FEES:**\nDepend on distance and project scope - discussed during consultation\n\n**Outside our area?** Contact us anyway - we may still be able to help!\n\n**[Schedule Consultation →](/booking)**`,
+    answer: `**[SERVICE COVERAGE]** 🗺️\n\n**PRIMARY SERVICE AREAS:**\n\n**WASHINGTON:**\n• Tri-Cities (Pasco, Kennewick, Richland)\n• Walla Walla\n• Yakima\n• Eastern Washington region\n\n**OREGON:**\n• Eastern Oregon\n• Surrounding areas\n\n**IDAHO:**\n• Western Idaho\n• Border regions\n\n**HEADQUARTERS:**\n3111 N. Capitol Ave., Pasco, WA 99301\n\n**PROJECT RANGE:**\nTypically within 150-mile radius of Tri-Cities, but we evaluate all project opportunities.\n\n**TRAVEL FEES:**\nDepend on distance and project scope - discussed during consultation\n\n**Outside our area?** Contact us anyway - we may still be able to help!\n\n**[Schedule Consultation →](/contact)**`,
     category: "service-area",
   },
 
@@ -119,7 +119,7 @@ export const faqDatabase: FAQItem[] = [
   {
     keywords: ["payment", "pay", "financing", "terms"],
     question: "What are your payment terms?",
-    answer: `**[PAYMENT INFORMATION]** 💳\n\n**PAYMENT STRUCTURE:**\nTypically milestone-based:\n• Deposit at contract signing\n• Progress payments at key phases\n• Final payment upon completion\n\n**PAYMENT METHODS ACCEPTED:**\n• Check\n• Bank transfer\n• Credit card (fees may apply)\n• Financing options available\n\n**FINANCING:**\nWe work with multiple financing partners to help make your project affordable.\n\n**VETERAN BENEFITS:**\n• VA loan coordination assistance\n• Additional financing options for veterans\n\n**TRANSPARENT PRICING:**\n• Open-book pricing model\n• No hidden fees\n• Detailed cost breakdowns\n• Change order documentation\n\n**"Building projects for the client, NOT the dollar"**\n\nPayment details discussed during consultation.\n\n**[Schedule Consultation →](/booking)**`,
+    answer: `**[PAYMENT INFORMATION]** 💳\n\n**PAYMENT STRUCTURE:**\nTypically milestone-based:\n• Deposit at contract signing\n• Progress payments at key phases\n• Final payment upon completion\n\n**PAYMENT METHODS ACCEPTED:**\n• Check\n• Bank transfer\n• Credit card (fees may apply)\n• Financing options available\n\n**FINANCING:**\nWe work with multiple financing partners to help make your project affordable.\n\n**VETERAN BENEFITS:**\n• VA loan coordination assistance\n• Additional financing options for veterans\n\n**TRANSPARENT PRICING:**\n• Open-book pricing model\n• No hidden fees\n• Detailed cost breakdowns\n• Change order documentation\n\n**"Building projects for the client, NOT the dollar"**\n\nPayment details discussed during consultation.\n\n**[Schedule Consultation →](/contact)**`,
     category: "payment",
   },
   {

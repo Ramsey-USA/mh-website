@@ -259,10 +259,10 @@ project is completed to a high standard and on schedule.
 - **Status**: Veteran
 - **Core Specialties**:
   - Marketing Coordination & Brand Management
-  - Technology Advocacy & Innovation
+  - Technology Expertise & Application
   - Client Presentations & Proposals
   - Automated Estimator Development & Promotion
-- **Unique Role**: Bridging technology innovation with practical construction applications
+- **Unique Role**: Bridging proven technology with practical construction applications
 - **Focus**: Promoting MH Construction's technological capabilities and veteran-owned status
 
 ### Jennifer Tene - Administrative Assistant

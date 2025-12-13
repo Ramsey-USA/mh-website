@@ -71,23 +71,21 @@ export default function TeamPage() {
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block text-brand-secondary font-black drop-shadow-lg">
-                Building Tomorrow's Success Today
+                Team Six
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              Your Vision, Our Precision • Building projects for the client,{" "}
-              <span className="font-black italic text-bronze-300">NOT</span> the
-              dollar
+              Building Tomorrow's Success Today
             </p>
 
             {/* Leadership Statement */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4 font-medium">
               Leading the industry into tomorrow. 150+ years combined experience
-              meets innovative thinking—where veteran values drive continuous
-              growth. Award-winning .64 EMR safety, cutting-edge technology, and
-              a team invested in your success across the Pacific Northwest.
+              meets proven craftsmanship—where veteran values drive continuous
+              growth. Award-winning .64 EMR safety, transparent communication,
+              and a team invested in your success across the Pacific Northwest.
             </p>
 
             {/* Description */}
@@ -108,7 +106,7 @@ export default function TeamPage() {
 
       {/* Breadcrumb Navigation */}
       <Breadcrumb
-        items={[{ label: "Home", href: "/" }, { label: "Our Team" }]}
+        items={[{ label: "Home", href: "/" }, { label: "Team Six" }]}
       />
 
       <div className="bg-gray-50 dark:bg-gray-900 py-8 sm:py-12 md:py-16">

@@ -873,7 +873,7 @@ export default function GovernmentGrantsPage() {
               </div>
 
               <div className="flex sm:flex-row flex-col justify-center gap-4">
-                <Link href="/booking">
+                <Link href="/contact">
                   <Button
                     size="lg"
                     className="bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-800 px-10 py-7 text-white text-xl"

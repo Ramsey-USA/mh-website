@@ -1,6 +1,6 @@
 # MH Construction Documentation Master Index
 
-**Welcome to the MH Construction Documentation Hub** | **Last Updated**: November 18, 2025
+**Welcome to the MH Construction Documentation Hub** | **Last Updated**: December 13, 2025
 
 This is your central navigation point for all MH Construction project documentation. Whether you're a developer,
 designer, content writer, or stakeholder, start here to find what you need.
@@ -35,39 +35,39 @@ See: [Style Utilities Guide](./development/style-utilities-guide.md) · [Refacto
 ### ⚡ Interactive Enhancements (Phase 5 Complete)
 
 Delivered FormProgress, InteractiveTimeline, ActivityFeed, TeamMemberTag, BeforeAfterSlider.
-Replaced simple calculators with automated estimator system (`/estimator`) →
-+35–60% engagement uplift expected. Build: 31.0s, Homepage bundle 217 kB, zero TS/ESLint errors.
+Build: 31.0s, Homepage bundle 217 kB, zero TS/ESLint errors.
 
-### 🤖 Automated System Integration (Nov 10, 2025)
+### 🚀 Veteran-Owned Excellence Transformation (December 2025)
 
-**Two Distinct User Paths:**
+**Complete messaging shift from tech innovation to veteran values and honest relationships:**
 
-1. **Automated Estimator** (`/estimator`) - Automated instant estimates
-   - 24/7 availability, under 5 minutes
-   - Based on 500+ project database
-   - Preliminary budget planning
+**Transformation Highlights:**
 
-2. **Expert Consultation** (`/booking`) - Human expert analysis
-   - In-person detailed assessment
-   - Custom solutions & open-book pricing
-   - Scheduled appointments
+- Shifted entire codebase from AI/tech-focused to veteran-owned/honesty-focused messaging
+- Updated 50+ instances removing "AI-powered", "cutting-edge", "innovative" language
+- Replaced with "veteran values", "proven craftsmanship", "honest communication"
+- Team bios rewritten to emphasize veteran leadership over technology
+- SEO keywords updated: veteran-owned, transparent pricing, face-to-face consultation
+- All CTAs unified through `/contact` for direct human consultation
 
-**Chatbot Integration**: "General MH" intelligently routes users to appropriate path based on query intent.
-Use `ChatbotCTASection` + contextual prompts for lead capture & analytics.
+**Removed Features:**
 
-### 🧩 Shared Section Components (Nov 10, 2025)
+- `/booking` - Booking/consultation scheduling (deprecated Dec 2025)
+- `/estimator` - AI Budget Estimator tool (deprecated Dec 2025)
+- `/3d-explorer` - 3D visualization platform (deprecated Dec 2025)
+- All CTAs now redirect to `/contact` for unified user experience
 
-Created reusable page sections to eliminate duplicate code across website.
+**Core Focus:**
 
-**Components Created:**
+- **Honesty:** Transparent pricing, open communication
+- **Integrity:** Traditional business values, keeping promises
+- **Veteran Values:** Military precision, proven craftsmanship
+- **Personal Relationships:** Face-to-face consultation prioritized
 
-- `TestimonialsSection` - Testimonials carousel with customizable content
-- `NextStepsSection` - Three-option CTA cards (Consultation, Estimate, Contact)
-- `AIEstimatorCTA` - Automated estimator promotion with full/compact variants
+**Documentation:**
 
-**Impact:** ~490 lines removed, 3 pages refactored (homepage, about, services).
-Note: AIEstimatorCTA and FeaturesSection removed from homepage (Dec 2025).
-See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Components Index](./components/components-index.md).
+- [Messaging Guidelines v7.0.0](./branding/strategy/messaging.md)
+- [Page-Specific Messaging Guide](./branding/strategy/page-specific-messaging-guide.md)
 
 ---
 
@@ -89,8 +89,8 @@ See: [Shared Sections Guide](./components/shared-sections-guide.md) · [Componen
   ⭐ **NEW (Nov 14, 2025)** - 7-group messaging strategy with unique voice/tone for each page group
 - [Universal Terminology Guide](./branding/strategy/universal-terminology-guide.md) -
   ⭐ **NEW (Jan 2025)** - Universal language & terminology standards (Client Partners, veteran status, etc.)
-- [Estimator vs Consultation Language Guide](./branding/strategy/estimator-vs-consultation-language.md) -
-  ⭐ **NEW (Nov 17, 2025)** - Clear language distinctions between AI Budget Planning Tool and Human Expert Consultations
+- [Consultation Language Guide](./branding/strategy/estimator-vs-consultation-language.md) -
+  **DEPRECATED (Dec 2025)** - Historical reference for language distinctions (features removed)
 - [Homepage Optimization Guide](./branding/strategy/homepage-optimization-complete.md) -
   ⭐ **NEW (Nov 2025)** - Trust-first optimization approach
 - [SEO Optimization Complete](./branding/strategy/seo-optimization.md) -

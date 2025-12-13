@@ -289,10 +289,10 @@ export function WhyPartnerSection() {
               className="inline-flex items-center gap-2 bg-brand-secondary hover:bg-brand-secondary/90 text-brand-primary font-bold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-base sm:text-lg"
             >
               <MaterialIcon icon="foundation" size="sm" />
-              Our Foundation
+              Our Oath
             </Link>
             <Link
-              href="/booking"
+              href="/contact"
               className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-lg border-2 border-white/30 transition-all duration-300 text-base sm:text-lg"
             >
               <MaterialIcon icon="handshake" size="sm" />

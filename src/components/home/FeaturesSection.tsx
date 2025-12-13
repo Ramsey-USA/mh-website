@@ -78,16 +78,16 @@ const features = [
 
 const ctaButtons = [
   {
-    title: "Quick Budget Planner",
-    description: "Helpful tool to prepare for meeting",
-    href: "/estimator",
+    title: "View Our Work",
+    description: "See our values at work",
+    href: "/projects",
     variant: "primary" as const,
-    icon: "smart_toy",
+    icon: "photo_library",
   },
   {
     title: "Begin Your Project",
     description: "Start with a personal conversation",
-    href: "/booking",
+    href: "/contact",
     variant: "secondary" as const,
     icon: "handshake",
   },

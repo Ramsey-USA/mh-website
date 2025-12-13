@@ -73,14 +73,6 @@ const QUICK_ACTIONS: QuickAction[] = [
     priority: "high",
   },
   {
-    id: "3d-explorer",
-    label: "3D Explorer",
-    icon: "view_in_ar",
-    message: "Tell me about the 3D Project Explorer visualization platform",
-    description: "Explore immersive 3D project visualization technology",
-    priority: "medium",
-  },
-  {
     id: "project-portfolio",
     label: "View Projects",
     icon: "business",

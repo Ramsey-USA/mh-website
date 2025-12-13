@@ -13,7 +13,7 @@
 
 ## Overview
 
-MH Construction has been recognized for excellence in safety, quality, and innovation
+MH Construction has been recognized for excellence in safety, quality, and proven craftsmanship
 throughout our history. This document chronicles our awards and achievements, with a
 particular focus on our industry-leading safety record and Experience Modification Rate
 (EMR) performance.
@@ -178,16 +178,16 @@ Our multi-year streak demonstrates sustained excellence, not just periodic compl
 
 ---
 
-## 🚀 Innovation & Technology
+## 🚀 Excellence & Quality
 
 ### Construction Technology Advancement Award
 
 **Recognition for:**
 
-- Innovative use of AI in project management
+- Proven excellence in project management
 - Real-time cost estimation technology
 - Digital transformation leadership
-- Military precision meets cutting-edge innovation
+- Military precision meets proven craftsmanship
 
 ---
 

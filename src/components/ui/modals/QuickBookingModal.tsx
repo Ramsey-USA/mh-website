@@ -71,17 +71,8 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
   };
 
   const handleQuickSubmit = () => {
-    // Redirect to full booking page with pre-filled data
-    const params = new URLSearchParams({
-      date: selectedDate,
-      time: selectedTime,
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      projectType: formData.projectType,
-    });
-
-    window.location.href = `/booking?${params.toString()}`;
+    // Redirect to contact page
+    window.location.href = `/contact`;
   };
 
   const resetModal = () => {
@@ -325,11 +316,11 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                       </Button>
                       <Button
                         variant="outline"
-                        onClick={() => (window.location.href = "/booking")}
+                        onClick={() => (window.location.href = "/contact")}
                         className="hover:bg-brand-primary border-2 border-brand-primary text-brand-primary hover:text-white transition-all duration-300"
                       >
                         <MaterialIcon icon="event" className="mr-2" />
-                        Full Booking Form
+                        Full Contact Form
                       </Button>
                     </div>
                   </div>

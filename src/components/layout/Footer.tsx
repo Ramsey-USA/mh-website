@@ -118,7 +118,7 @@ export default function Footer() {
             </div>
             <nav className="space-y-1.5 xs:space-y-2">
               <Link
-                href="/booking"
+                href="/contact"
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
@@ -161,40 +161,6 @@ export default function Footer() {
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
                 <span>Portfolio & Projects</span>
-                <MaterialIcon
-                  icon="arrow_forward"
-                  size="sm"
-                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                />
-              </Link>
-
-              <Link
-                href="/estimator"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
-              >
-                <MaterialIcon
-                  icon="calculate"
-                  size="sm"
-                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
-                />
-                <span>Budget Planning Tool</span>
-                <MaterialIcon
-                  icon="arrow_forward"
-                  size="sm"
-                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                />
-              </Link>
-
-              <Link
-                href="/3d-explorer"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
-              >
-                <MaterialIcon
-                  icon="view_in_ar"
-                  size="sm"
-                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
-                />
-                <span>3D Project Explorer</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -328,7 +294,7 @@ export default function Footer() {
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Our Foundation</span>
+                <span>Our Oath</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -345,7 +311,7 @@ export default function Footer() {
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Our Team</span>
+                <span>Team Six</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -362,7 +328,7 @@ export default function Footer() {
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Trade Partners</span>
+                <span>Allies in Force</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -396,7 +362,7 @@ export default function Footer() {
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Veterans Initiative</span>
+                <span>Combat Proven</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -413,7 +379,7 @@ export default function Footer() {
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Build With Us</span>
+                <span>Occupation Specialties</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"

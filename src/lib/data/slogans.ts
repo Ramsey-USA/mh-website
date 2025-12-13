@@ -129,12 +129,7 @@ export const SLOGANS: Record<string, Slogan> = {
     contexts: ["cta", "hero", "button"],
     description:
       "Inviting CTA emphasizing relationship-building beyond physical construction",
-    assignedPages: [
-      "homepage",
-      "contact-page",
-      "booking-page",
-      "3d-explorer-page",
-    ],
+    assignedPages: ["homepage", "contact-page"],
   },
 
   // ===== TIER 2: VALUE-DRIVEN SLOGANS (Dedicated) =====
@@ -196,11 +191,7 @@ export const SLOGANS: Record<string, Slogan> = {
     contexts: ["hero", "section-heading"],
     description:
       "Client-empowering slogan balancing vision ownership with professional precision execution",
-    assignedPages: [
-      "services-page",
-      "estimator-page",
-      "3d-explorer-page-visualization",
-    ],
+    assignedPages: ["services-page"],
   },
 
   // ===== TIER 3: ACTION-ORIENTED SLOGANS (Dedicated) =====
@@ -245,11 +236,7 @@ export const SLOGANS: Record<string, Slogan> = {
     contexts: ["hero", "section-heading"],
     description:
       "Journey-focused slogan emphasizing complete project lifecycle success",
-    assignedPages: [
-      "projects-page-timeline",
-      "booking-page-journey",
-      "3d-explorer-page-hero",
-    ],
+    assignedPages: ["projects-page-timeline"],
   },
 
   RELATIONSHIPS_THAT_LAST: {
@@ -438,12 +425,7 @@ export const PAGE_SLOGANS: Record<
     cta: getSlogan("PARTNER_WITH_PRECISION"),
   },
 
-  // 3D Explorer Page
-  "3d-explorer": {
-    hero: getSlogan("FROM_VISION_TO_VICTORY"),
-    tagline: getSlogan("YOUR_VISION_OUR_PRECISION"),
-    cta: getSlogan("BUILD_MORE_THAN_STRUCTURES"),
-  },
+  // Removed: 3D Explorer Page slogans (feature deprecated Dec 2025)
 
   // Urgent Support Page
   "urgent-support": {

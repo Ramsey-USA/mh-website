@@ -264,9 +264,9 @@ export class ContentPersonalizationEngine {
           "Always ready, always prepared, always reliable - just like the Coast Guard.",
       },
       "Space Force": {
-        heroMessage: "Innovation Meets Construction - Semper Supra",
+        heroMessage: "Excellence Meets Construction - Semper Supra",
         branchSpecificMessage:
-          "Forward-thinking construction solutions with cutting-edge technology.",
+          "Forward-thinking construction solutions with proven excellence.",
       },
       Unknown: {
         heroMessage: "Military Precision Meets Construction Excellence",
@@ -470,7 +470,7 @@ export class ContentPersonalizationEngine {
         {
           projectType: "Smart Technology",
           title: "Advanced Smart Home Integration",
-          description: "Cutting-edge technology integration for modern living",
+          description: "Modern technology integration for efficient living",
           benefits: [
             "Advanced automation",
             "Energy efficiency",

@@ -45,7 +45,7 @@ export const pageMetadata: Record<string, Metadata> = {
     title:
       "About MH Construction | Veteran-Owned Partnership-Driven Excellence - Pasco, WA",
     description:
-      "Founded in 2010, veteran-owned since January 2025 under Army veteran leadership. MH Construction brings military precision, authentic partnerships, and cutting-edge technology to commercial construction in the Tri-Cities area. Meet our leadership team committed to Building projects for the client, NOT the dollar.",
+      "Founded in 2010, veteran-owned since January 2025 under Army veteran leadership. MH Construction brings military precision, authentic partnerships, and transparent communication to commercial construction in the Tri-Cities area. Meet our leadership team committed to Building projects for the client, NOT the dollar.",
     keywords: [
       "veteran-owned construction company",
       "military precision construction",
@@ -174,38 +174,8 @@ export const pageMetadata: Record<string, Metadata> = {
       canonical: "/team",
     },
   },
-  "/booking": {
-    title:
-      "Book Consultation | Schedule Construction Estimate - MH Construction",
-    description:
-      "Schedule your free construction consultation with MH Construction. Get detailed project estimates, discuss your construction needs, and partner with veteran-owned excellence. Serving Pasco, Kennewick, Richland, and the greater Tri-Cities area. Easy online booking available now.",
-    keywords: [
-      "book construction consultation",
-      "schedule construction estimate",
-      "free construction consultation Pasco",
-      "construction appointment booking",
-      "project estimate scheduling",
-      "contractor consultation Tri-Cities",
-      "construction meeting request",
-    ],
-    openGraph: {
-      title: "Book Consultation | MH Construction",
-      description:
-        "Schedule your free consultation and get detailed project estimates from veteran-owned professionals.",
-      type: "website",
-      locale: "en_US",
-      url: `${baseUrl}/booking`,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Book Consultation | MH Construction",
-      description:
-        "Schedule your free construction consultation and project estimate.",
-    },
-    alternates: {
-      canonical: "/booking",
-    },
-  },
+  // Removed: /booking metadata (feature deprecated Dec 2025)
+
   "/careers": {
     title:
       "Careers at MH Construction | Join Our Veteran-Owned Construction Team",
@@ -239,6 +209,8 @@ export const pageMetadata: Record<string, Metadata> = {
       canonical: "/careers",
     },
   },
+  // Removed: /booking metadata (feature deprecated)
+
   "/government": {
     title:
       "Government Construction Projects | Veteran-Owned Contractor - MH Construction",
@@ -304,70 +276,33 @@ export const pageMetadata: Record<string, Metadata> = {
       canonical: "/trade-partners",
     },
   },
-  "/estimator": {
-    title: "Construction Estimator | Project Cost Estimates - MH Construction",
-    description:
-      "Get accurate project cost estimates for commercial and residential construction in the Tri-Cities area. Our online estimator provides detailed cost analysis, material estimates, and project timelines. Free construction estimating tool.",
-    keywords: [
-      "AI estimator",
-      "budget planning tool",
-      "construction cost calculator",
-      "project estimate tool",
-      "instant construction estimate",
-      "automated cost estimator",
-      "construction pricing tool",
-      "project cost analysis",
-      "automated construction estimator",
-    ],
-    openGraph: {
-      title: "AI Estimator - Budget Planning Tool | MH Construction",
-      description:
-        "Get preliminary budget estimates in under 5 minutes with our AI planning tool. Prepare for your consultation with instant cost intelligence.",
-      type: "website",
-      locale: "en_US",
-      url: `${baseUrl}/estimator`,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "AI Budget Estimator",
-      description:
-        "Get instant project estimates with our automated construction estimator.",
-    },
-    alternates: {
-      canonical: "/estimator",
-    },
-  },
-  "/3d-explorer": {
+  "/contact": {
     title:
-      "3D Project Explorer | Interactive Construction Visualization - MH Construction",
+      "Contact MH Construction | Tri-Cities General Contractor - Schedule Consultation",
     description:
-      "Explore construction projects in immersive 3D with MH Construction's interactive visualization tool. View completed projects, explore building designs, and experience our construction work in virtual reality. Cutting-edge technology meets construction excellence in the Pacific Northwest.",
+      "Contact MH Construction for your commercial and residential construction needs in the Tri-Cities area. Schedule a free consultation with our experienced team. Serving Richland, Pasco, and Kennewick with exceptional construction services.",
     keywords: [
-      "3D construction visualization",
-      "interactive project explorer",
-      "construction 3D viewer",
-      "virtual construction tour",
-      "3D building visualization",
-      "construction VR experience",
-      "interactive project gallery",
+      "contact general contractor",
+      "construction consultation tri-cities",
+      "schedule contractor meeting",
+      "construction estimate request",
+      "tri-cities contractor contact",
+      "richland contractor",
+      "pasco contractor",
+      "kennewick contractor",
     ],
     openGraph: {
-      title: "3D Project Explorer | MH Construction",
+      title: "Contact | MH Construction",
       description:
-        "Explore construction projects in immersive 3D with our interactive visualization tool.",
+        "Contact MH Construction for your project. Free consultations available.",
       type: "website",
       locale: "en_US",
-      url: `${baseUrl}/3d-explorer`,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "3D Project Explorer",
-      description: "Interactive 3D visualization of MH Construction projects.",
-    },
-    alternates: {
-      canonical: "/3d-explorer",
+      url: `${baseUrl}/contact`,
     },
   },
+  // Removed: /estimator metadata (feature deprecated)
+  // Removed: /3d-explorer metadata (feature deprecated)
+  // Removed: /booking metadata (feature deprecated)
 };
 
 /**

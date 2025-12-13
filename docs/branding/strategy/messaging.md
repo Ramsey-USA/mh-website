@@ -1,10 +1,32 @@
 # MH Construction Messaging Guidelines
 
-**Date:** November 20, 2025
-**Status:** ✅ Current
+**Date:** December 13, 2025
+**Status:** ✅ Current - Veteran-Owned Excellence Transformation
 **Category:** Business - Brand Guidelines
-**Version:** 5.1.0
-**Last Updated:** December 2, 2025
+**Version:** 7.0.0
+**Last Updated:** December 13, 2025
+
+**⭐ MAJOR UPDATE (Dec 13, 2025)**: **Veteran-Owned Excellence Transformation** - Complete shift from
+AI/tech-focused messaging to veteran values and honest relationships:
+
+**Transformation Summary:**
+
+- Removed 50+ instances of "AI-powered", "cutting-edge", "innovative" language
+- Updated to emphasize "veteran-owned", "proven craftsmanship", "honest communication"
+- Team bios rewritten: veteran leadership over technology innovation
+- SEO keywords: transparent pricing, face-to-face consultation, military precision
+- All tools/automation removed in favor of direct human consultation
+
+**Current Focus:**
+
+- **Veteran Values:** Military discipline, proven methods, traditional excellence
+- **Honest Relationships:** Face-to-face meetings, transparent pricing, direct communication
+- **Traditional Business:** Handshakes matter, promises kept, relationships last
+- **Personal Consultation:** All CTAs direct to `/contact` for human interaction
+
+**⚠️ REMOVED FEATURES (Dec 13, 2025)**: Booking, AI Estimator, and 3D Explorer pages have been removed
+as part of our shift to veteran-owned values and direct human consultation. All CTAs now direct to
+`/contact` for personal communication focused on honest relationships and transparent pricing.
 
 **⭐ IMPORTANT UPDATE (Dec 2, 2025)**: New **[SEO Messaging Strategy](../../technical/seo/seo-messaging-strategy.md)**
 provides systematic implementation of local SEO keywords across all website content using centralized content
@@ -57,16 +79,17 @@ these core values in hierarchical order:
 
 ## Brand Voice & Tone Framework
 
-**Note**: These are general principles. Each page group has specialized voice and tone requirements.
-See **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** for details on:
+**Note**: These are general principles. Each page has specialized voice and tone requirements:
 
-- **Group 1**: Traditional Business Foundation (Homepage, Contact, Booking)
-- **Group 2**: Heritage & Track Record (About, Projects)
-- **Group 3**: Future Vision & Expertise (Team, Services)
-- **Group 4**: Professional Patriotic (Government, Veterans)
-- **Group 5**: Recruitment & Opportunity (Careers)
-- **Group 6**: Tech Innovation & Optional Tools (Automated Estimator, 3D Explorer)
-- **Group 7**: Partnership & Urgency (Trade Partners, Urgent Projects)
+- **About**: Traditional business foundation, veteran values, honest relationships
+- **Services**: Expert consultation, proven methods, transparent pricing
+- **Projects**: Track record, successful completions, relationship results
+- **Team**: Veteran leadership, proven experience, personal commitment
+- **Careers**: Growth opportunities, team culture, veteran values
+- **Contact**: Direct communication, personal consultation, relationship initiation
+- **Trade Partners**: Collaborative partnerships, honest dealings
+- **Veterans**: Military heritage, veteran support, service recognition
+- **Urgent**: Rapid response, reliable support, proven expertise
 
 ### Core Voice Attributes
 
@@ -90,17 +113,17 @@ Our voice balances military precision with partnership warmth, creating communic
 
 #### Website & Marketing Materials
 
-**Tone**: Professional, confident, solution-focused
+**Tone**: Professional, confident, veteran-focused, relationship-driven
 
 **Example**:
 
 > "Building projects for the client, NOT the dollar. Our veteran-owned team combines military
-> precision with partnership-driven construction management to deliver exceptional
-> results for commercial projects throughout the Pacific Northwest."
+> precision with traditional business values to deliver exceptional results through honest
+> communication and proven craftsmanship for commercial projects throughout the Pacific Northwest."
 
 #### Client Communications
 
-**Tone**: Collaborative, supportive, transparent
+**Tone**: Collaborative, supportive, transparent, personal
 
 **Example**:
 
@@ -138,6 +161,7 @@ Our messaging is structured around five interconnected pillars that flow from ou
 - Following through on commitments
 - Doing right even when it costs more
 - Standing behind our work with comprehensive warranties
+
 - Making decisions that benefit the client
 
 **Messaging Examples**:
@@ -153,6 +177,7 @@ Our messaging is structured around five interconnected pillars that flow from ou
 **Key Points**:
 
 - Licensed, insured, certified across 3 states
+
 - Industry-leading .64 EMR safety record
 - 150+ years combined team experience
 - Veteran-owned precision and discipline
@@ -177,6 +202,7 @@ Our messaging is structured around five interconnected pillars that flow from ou
 **Messaging Examples**:
 
 - "Master planning ensures zero gaps in scope coverage"
+
 - "Quality control checkpoints at every project phase"
 - "Attention to detail that prevents problems before they start"
 
@@ -227,7 +253,7 @@ Our 4 Core Values aren't just words on a wall—they create 6 measurable differe
 > "We're working WITH you to ensure every detail aligns with your vision. Here's our
 > progress update and next steps for your project..."
 
-#### Project Documentation
+### Project Documentation
 
 **Tone**: Clear, detailed, accountability-focused
 
@@ -240,8 +266,8 @@ Our 4 Core Values aren't just words on a wall—they create 6 measurable differe
 
 ### Primary Value Proposition
 
-> "MH Construction combines military precision with partnership-driven construction
-> management to deliver exceptional results for commercial, industrial, and medical
+> "MH Construction combines veteran-owned integrity with proven craftsmanship to deliver exceptional
+> results through honest communication and transparent pricing for commercial, industrial, and medical
 > facility projects throughout the Pacific Northwest."
 
 ### Trust-Centered Philosophy

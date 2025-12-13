@@ -232,7 +232,7 @@ const partnershipBenefits = [
     icon: "school",
     title: "Industry Collaboration & Continuous Improvement",
     description:
-      "Share best practices, innovative solutions, and industry insights in a professional environment that values continuous improvement. 150+ years combined experience means learning from proven methods while embracing innovation.",
+      "Share best practices, proven solutions, and industry insights in a professional environment that values continuous improvement. 150+ years combined experience means learning from reliable methods while embracing excellence.",
   },
   {
     icon: "security",
@@ -279,14 +279,13 @@ export default function TradePartnersPage() {
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block text-brand-secondary font-black drop-shadow-lg">
-                THE ROI IS THE RELATIONSHIP
+                Allies in Force
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              Building Professional Partnerships • Partnerships That Profit
-              Everyone
+              THE ROI IS THE RELATIONSHIP
             </p>
 
             {/* Description */}
@@ -311,7 +310,7 @@ export default function TradePartnersPage() {
 
       {/* Breadcrumb Navigation */}
       <Breadcrumb
-        items={[{ label: "Home", href: "/" }, { label: "Trade Partners" }]}
+        items={[{ label: "Home", href: "/" }, { label: "Allies in Force" }]}
       />
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl">

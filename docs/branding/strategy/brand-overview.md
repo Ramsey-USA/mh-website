@@ -1,15 +1,20 @@
 # MH Construction Brand Overview
 
-**Date:** November 20, 2025
-**Status:** ✅ Current
+**Date:** December 13, 2025
+**Status:** ✅ Current - Veteran-Owned Excellence Focus
 **Category:** Business - Brand Guidelines
-**Version:** 5.0.0
-**Last Updated:** November 20, 2025
+**Version:** 6.0.0
+**Last Updated:** December 13, 2025
 
-**⭐ IMPORTANT UPDATE (Dec 2025)**: This document integrates our **four-value professional foundation
-system** from [core-values.md](../../business/core-values.md). All brand identity is built upon our
-4 core values in hierarchical order: **Honesty, Integrity, Professionalism, Thoroughness**—culminating
-in **Trust** as our ultimate goal. These 4 values create 6 measurable differences clients experience.
+**⭐ MAJOR UPDATE (Dec 2025)**: Complete shift from AI/tech-focused messaging to veteran-owned values
+and honest relationships. This document integrates our **four-value professional foundation system**
+from [core-values.md](../../business/core-values.md). All brand identity is built upon our 4 core values
+in hierarchical order: **Honesty, Integrity, Professionalism, Thoroughness**—culminating in **Trust** as
+our ultimate goal. These 4 values create 6 measurable differences clients experience.
+
+**Transformation Summary**: Removed 50+ instances of "AI-powered", "cutting-edge", "innovative" language.
+Replaced with emphasis on veteran values, proven craftsmanship, honest communication, and face-to-face
+consultation. All tools and automation removed in favor of direct human relationships.
 
 For page-specific messaging and voice variations, see the comprehensive
 **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** which defines 7 distinct page
@@ -82,8 +87,8 @@ These companion slogans work together to emphasize our partnership-first, relati
 
 ### Unique Value Proposition
 
-MH Construction combines **military precision** with **partnership-driven** construction
-management to deliver exceptional results for commercial, industrial, and medical facility
+MH Construction combines **veteran-owned integrity** with **proven craftsmanship** to deliver exceptional
+results through honest communication and transparent pricing for commercial, industrial, and medical facility
 projects throughout the Pacific Northwest.
 
 ### Key Differentiators

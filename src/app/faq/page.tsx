@@ -134,28 +134,18 @@ const faqCategories = [
   },
   {
     id: "technology",
-    title: "Technology & Innovation",
+    title: "Communication & Support",
     icon: "computer",
     questions: [
-      {
-        question: "What is your AI-powered estimator?",
-        answer:
-          "Our Automated Estimator is a convenient planning tool available 24/7 for preliminary budget estimates. It uses data from 500+ completed regional projects to provide instant estimates. However, it's important to know this is an optional tool that enhances—not replaces—our face-to-face consultation process. Technology serves our relationships; it never replaces the personal touch.",
-      },
-      {
-        question: "Do I have to use your automated tools?",
-        answer:
-          "Not at all! Our AI tools and 3D visualization are optional enhancements designed to help you prepare for our consultation, but they're never required. We believe the best projects start with personal, face-to-face conversations where we shake hands and build trust. The tools are there to serve you when convenient, but relationships always come first.",
-      },
       {
         question: "Can I speak with a real person?",
         answer:
           "Always! You can call us at (509) 308-6489 or email office@mhc-gc.com anytime. Our General MH chatbot assistant is available 24/7 to help answer quick questions, but we prioritize personal communication. Face-to-face consultation is where real partnerships begin, and we're always ready to meet with you in person.",
       },
       {
-        question: "What is the 3D Explorer?",
+        question: "How do I schedule a consultation?",
         answer:
-          "Our 3D Explorer is an interactive visualization tool that helps you explore design possibilities and see your project in three dimensions before construction begins. Like our estimator, it's an optional tool that supports—but doesn't replace—the collaborative planning process we do together during consultation.",
+          "Getting started is easy! You can call us at (509) 308-6489, email office@mhc-gc.com, or visit our Contact page to submit a request. We offer free consultations where we meet face-to-face to discuss your project, review your needs, and develop a custom plan together. This personal approach is how we build lasting partnerships.",
       },
     ],
   },
@@ -402,7 +392,7 @@ export default function FAQPage() {
 
               {/* Quick CTA */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="/booking">
+                <Link href="/contact">
                   <Button
                     size="lg"
                     className="bg-brand-secondary hover:bg-brand-secondary-dark text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
@@ -560,7 +550,7 @@ export default function FAQPage() {
                 and transparency.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="/booking">
+                <Link href="/contact">
                   <Button
                     size="lg"
                     className="bg-brand-primary hover:bg-brand-primary-dark text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"

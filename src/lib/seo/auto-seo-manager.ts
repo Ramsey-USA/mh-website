@@ -102,7 +102,7 @@ export const PAGE_CATEGORIES = {
     schemas: ["Person", "Organization"],
   },
   contact: {
-    patterns: ["/contact", "/booking", "/consultation"],
+    patterns: ["/contact", "/consultation"],
     priority: 0.9,
     changeFrequency: "monthly" as const,
     schemas: ["ContactPage", "LocalBusiness"],
@@ -114,7 +114,8 @@ export const PAGE_CATEGORIES = {
     schemas: ["JobPosting"],
   },
   tools: {
-    patterns: ["/estimator", "/calculator", "/3d-explorer"],
+    patterns: ["/contact"],
+    // Removed: /estimator, /calculator, /3d-explorer (features deprecated)
     priority: 0.85,
     changeFrequency: "monthly" as const,
     schemas: ["SoftwareApplication"],

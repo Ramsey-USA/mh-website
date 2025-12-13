@@ -16,7 +16,7 @@ interface HeroNavItem {
 }
 
 const heroNavItems: HeroNavItem[] = [
-  { href: "/booking", label: "Start Partnership", icon: "handshake" },
+  { href: "/contact", label: "Start Partnership", icon: "handshake" },
   { href: "/", label: "Home", icon: "home" },
   { href: "/about", label: "Our Story", icon: "info" },
   { href: "/services", label: "Partnership Approach", icon: "build" },

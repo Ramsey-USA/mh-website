@@ -18,16 +18,13 @@ export function ProjectsHero() {
           {/* Main Title */}
           <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
             <span className="block text-brand-secondary font-black drop-shadow-lg">
-              Trust Built, Project by Project
+              Victories
             </span>
           </h1>
 
           {/* Subtitle - Brand Tagline */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            Proven Results • Lasting Partnerships • Building projects for the
-            client,{" "}
-            <span className="font-black italic text-bronze-300">NOT</span> the
-            dollar
+            Trust Built, Project by Project
           </p>
 
           {/* Description */}

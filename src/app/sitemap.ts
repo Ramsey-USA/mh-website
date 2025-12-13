@@ -16,14 +16,14 @@ const ACTIVE_PAGES = [
   { path: "/projects", priority: 0.8, changeFreq: "weekly" as const },
   { path: "/team", priority: 0.7, changeFreq: "monthly" as const },
   { path: "/contact", priority: 0.8, changeFreq: "monthly" as const },
-  { path: "/booking", priority: 0.9, changeFreq: "monthly" as const },
+  // Removed: /booking (feature deprecated)
   { path: "/careers", priority: 0.7, changeFreq: "weekly" as const },
   { path: "/government", priority: 0.8, changeFreq: "monthly" as const },
   { path: "/trade-partners", priority: 0.7, changeFreq: "monthly" as const },
   { path: "/veterans", priority: 0.85, changeFreq: "monthly" as const },
-  { path: "/estimator", priority: 0.95, changeFreq: "monthly" as const },
+  // Removed: /estimator (feature deprecated)
   { path: "/urgent", priority: 0.85, changeFreq: "monthly" as const },
-  { path: "/3d-explorer", priority: 0.5, changeFreq: "monthly" as const },
+  // Removed: /3d-explorer (feature deprecated)
   { path: "/faq", priority: 0.85, changeFreq: "monthly" as const },
 ];
 

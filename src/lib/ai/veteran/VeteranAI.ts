@@ -129,7 +129,7 @@ Our veteran-owned team understands the unique needs of service members. We've he
 • **Energy-Efficient Windows** - Thermal regulation enhancement  
 • **Insulation Upgrade** - Climate control optimization
 • **HVAC System Enhancement** - Strategic comfort deployment
-• **Smart Home Technology** - Automated efficiency protocols
+• **Smart Home Technology** - Energy efficiency protocols
 • **LED Lighting Conversion** - Low-power illumination systems
 
 [SHIELD] **VETERAN ENERGY BENEFITS**

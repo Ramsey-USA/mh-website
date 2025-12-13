@@ -168,7 +168,7 @@ export class CoreAIEngine {
 [MILITARY_TECH] **TACTICAL BUDGET ANALYSIS**
 
 • **Free Consultation**: No-cost tactical assessment
-• **AI Estimator**: Immediate preliminary intelligence
+• **Expert Planning**: Detailed mission intelligence
 • **Transparent Pricing**: No hidden operational costs
 
 **Budget Operation Categories:**
@@ -259,7 +259,7 @@ Our veteran-owned team understands military precision and attention to detail.`;
 
 **IMMEDIATE TACTICAL OPTIONS:**
 • Request free consultation: Strategic mission planning
-• AI Estimator: Rapid preliminary cost intelligence
+• Contact our team: Expert tactical intelligence
 • Portfolio Review: Previous successful operations
 
 [HANDSHAKE] **PARTNERSHIP PROTOCOL**

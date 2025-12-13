@@ -42,18 +42,15 @@ const STATIC_ASSETS = [
   "/portfolio",
   "/projects",
   "/contact",
-  "/estimator",
-  "/booking",
   "/_next/static/css/app/layout.css",
   "/_next/static/css/app/page.css",
 ];
 
 // API endpoints to cache with different strategies
-const CRITICAL_API_ENDPOINTS = ["/api/estimator", "/api/contact"];
+const CRITICAL_API_ENDPOINTS = ["/api/contact"];
 
 const _API_ENDPOINTS = [
   ...CRITICAL_API_ENDPOINTS,
-  "/api/booking",
   "/api/projects",
   "/api/notifications/subscribe",
   "/api/notifications/send",
@@ -230,7 +227,7 @@ self.addEventListener("notificationclick", (event) => {
   } else if (data.type === "project") {
     url = "/projects";
   } else if (data.type === "appointment") {
-    url = "/booking";
+    url = "/contact";
   } else if (data.type === "message") {
     url = "/contact";
   }
@@ -643,26 +640,12 @@ function createOfflineApiResponse(request) {
   const url = new URL(request.url);
 
   // Return appropriate offline responses for different API endpoints
-  if (url.pathname.includes("/estimator")) {
+  if (url.pathname.includes("/contact")) {
     return new Response(
       JSON.stringify({
         error: "Offline",
         message:
-          "Estimator service is unavailable offline. Please try again when connected.",
-      }),
-      {
-        status: 503,
-        headers: { "Content-Type": "application/json" },
-      },
-    );
-  }
-
-  if (url.pathname.includes("/booking")) {
-    return new Response(
-      JSON.stringify({
-        error: "Offline",
-        message:
-          "Booking service requires internet connection. Your request will be processed when online.",
+          "Contact service requires internet connection. Your message will be sent when online.",
       }),
       {
         status: 503,
@@ -742,31 +725,10 @@ async function syncContactForms() {
   }
 }
 
-// Sync pending bookings
-async function syncBookings() {
-  try {
-    const db = await openIndexedDB();
-    const pendingBookings = await getAllPendingForms(db, "bookings");
-
-    for (const booking of pendingBookings) {
-      try {
-        const response = await fetch("/api/booking", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(booking.data),
-        });
-
-        if (response.ok) {
-          await deletePendingForm(db, "bookings", booking.id);
-          console.info("[SW] Synced booking:", booking.id);
-        }
-      } catch (_error) {
-        console.info("[SW] Failed to sync booking:", booking.id);
-      }
-    }
-  } catch (_error) {
-    console.info("[SW] Booking sync failed");
-  }
+// Bookings feature removed - function kept for backward compatibility
+function syncBookings() {
+  // No-op: booking functionality has been removed
+  return Promise.resolve();
 }
 
 // Sync pending testimonials

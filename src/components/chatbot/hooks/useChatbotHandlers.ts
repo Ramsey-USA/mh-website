@@ -257,21 +257,14 @@ export function useChatbotHandlers(props: ChatbotHandlersProps) {
   // Quick action select
   const handleQuickActionSelect = useCallback(
     (actionId: string, message: string) => {
-      // Handle AI Estimator action - direct navigation
-      if (actionId === "ai-estimator") {
-        if (typeof window !== "undefined") {
-          window.location.href = "/estimator";
-        }
-        return;
-      }
-
-      // Handle consultation action - direct navigation
+      // Handle contact action - direct navigation
       if (
+        actionId === "ai-estimator" ||
         actionId === "get-partnership-estimate" ||
         actionId === "schedule-consultation"
       ) {
         if (typeof window !== "undefined") {
-          window.location.href = "/booking";
+          window.location.href = "/contact";
         }
         return;
       }

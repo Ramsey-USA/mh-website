@@ -267,11 +267,11 @@ export default function TestimonialsSection({
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/estimator"
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
-                <MaterialIcon icon="calculate" className="w-5 h-5" />
-                Get Free Estimate
+                <MaterialIcon icon="phone" className="w-5 h-5" />
+                Contact Us Today
               </a>
               <a
                 href="/contact"

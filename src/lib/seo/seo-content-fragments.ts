@@ -169,7 +169,7 @@ export const brandValueFragments = {
     "Thoroughness",
     "Honesty",
     "Integrity",
-    "Innovation",
+    "Honesty",
     "Partnership",
   ],
 

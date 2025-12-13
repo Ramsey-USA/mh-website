@@ -46,16 +46,8 @@ const quickContact = [
 // Main CTAs - Strategic navigation with consultation prioritized
 const mainCTAs = [
   {
-    icon: "calendar_month",
-    label: "Schedule Consultation",
-    description: "Personal expert assessment",
-    link: "/booking",
-    variant: "primary" as const,
-    ariaLabel: "Schedule a personal consultation with MH Construction experts",
-  },
-  {
     icon: "construction",
-    label: "Our Services",
+    label: "The Battle Plan",
     description: "What we build together",
     link: "/services",
     variant: "primary" as const,
@@ -63,7 +55,7 @@ const mainCTAs = [
   },
   {
     icon: "photo_library",
-    label: "View Our Work",
+    label: "Victories",
     description: "See completed projects",
     link: "/projects",
     variant: "primary" as const,
@@ -71,24 +63,15 @@ const mainCTAs = [
   },
   {
     icon: "groups",
-    label: "Meet the Team",
+    label: "Team Six",
     description: "Your partnership team",
     link: "/team",
     variant: "primary" as const,
     ariaLabel: "Meet the MH Construction partnership team",
   },
   {
-    icon: "calculate",
-    label: "Quick Budget Tool",
-    description: "Preliminary planning help",
-    link: "/estimator",
-    variant: "secondary" as const,
-    ariaLabel:
-      "Use quick budget tool for preliminary planning (leads to consultation)",
-  },
-  {
     icon: "work",
-    label: "Join Our Team",
+    label: "Occupation Specialties",
     description: "Career opportunities",
     link: "/careers",
     variant: "secondary" as const,
@@ -214,7 +197,7 @@ export default function ContactPageClient() {
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb
-          items={[{ label: "Home", href: "/" }, { label: "Contact" }]}
+          items={[{ label: "Home", href: "/" }, { label: "Introductions" }]}
         />
 
         {/* Quick Contact Section */}
@@ -433,12 +416,12 @@ export default function ContactPageClient() {
                       Get Started:
                     </h4>
                     <Link
-                      href="/booking"
+                      href="/contact"
                       className="flex items-center justify-between bg-brand-primary hover:bg-brand-accent text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
                     >
                       <div className="flex items-center gap-3">
-                        <MaterialIcon icon="event" size="lg" />
-                        <span>Schedule Free Consultation</span>
+                        <MaterialIcon icon="phone" size="lg" />
+                        <span>Contact Us Today</span>
                       </div>
                       <MaterialIcon
                         icon="arrow_forward"
@@ -447,12 +430,12 @@ export default function ContactPageClient() {
                       />
                     </Link>
                     <Link
-                      href="/estimator"
+                      href="/services"
                       className="flex items-center justify-between bg-white dark:bg-gray-700 border-2 border-brand-primary text-brand-primary dark:text-brand-secondary hover:bg-brand-primary hover:text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
                     >
                       <div className="flex items-center gap-3">
-                        <MaterialIcon icon="calculate" size="lg" />
-                        <span>Get Instant AI Estimate</span>
+                        <MaterialIcon icon="construction" size="lg" />
+                        <span>Explore Services</span>
                       </div>
                       <MaterialIcon
                         icon="arrow_forward"

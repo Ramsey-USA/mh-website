@@ -1,15 +1,15 @@
-# MH Construction – Trusted Construction Partnership
+# MH Construction – Veteran-Owned Excellence
 
 🎯 Production Ready | ✓ Cloudflare Optimized | 🇺🇸 Veteran-Owned (Since Jan 2025)
 
-**Building projects for the client, NOT the dollar** — Where traditional business values meet modern tools.
-Next.js 15 platform emphasizing personal relationships, veteran integrity, and proven craftsmanship.
-Features consultation-first workflows, transparent pricing, and helpful tools like automated estimation and
-interactive project showcase to serve our clients better.
+**Building projects for the client, NOT the dollar** — Where traditional business values, veteran integrity,
+and proven craftsmanship create lasting partnerships.
+Next.js 15 platform emphasizing personal relationships, transparent communication, and face-to-face consultation
+to serve our clients better.
 
 ---
 
-## 🚀 Current Status (November 2025)
+## 🚀 Current Status (December 2025)
 
 ### Production-Ready Platform ✅
 
@@ -22,12 +22,24 @@ interactive project showcase to serve our clients better.
 - **Test Coverage:** 7 test files, Jest configured
 - **Pages:** 21+ routes including dynamic pages
 
-### Recent Achievements (November 2025)
+### Recent Achievements (December 2025)
 
-**GEO Optimization (Nov 20, 2025):**
+**Complete Messaging Transformation (Dec 2025):**
 
-- AI Search Engine Optimization (robots.txt with GPTBot, OAI-SearchBot, CCBot, Google-Extended)
-- LLM-optimized content file (llms.txt) for AI retrieval systems
+- Shifted entire codebase from AI/tech focus to veteran-owned/honesty focus
+- Removed deprecated features: `/booking`, `/estimator`, `/3d-explorer`
+- All CTAs now unified through `/contact` page for direct human consultation
+- Updated team bios to emphasize veteran values over technology
+- Removed 50+ instances of "AI-powered", "cutting-edge", "innovative" language
+- SEO keywords updated: removed tech-focused, added veteran/honesty emphasis
+- Chatbot updated: 3D Explorer and estimator responses now redirect to contact
+- Core focus: Honest relationships, transparent pricing, face-to-face consultation
+
+**Veteran-First Optimization (Nov-Dec 2025):**
+
+- Enhanced focus on veteran-owned values and military precision
+- Honesty-first messaging across all pages
+- Direct human consultation prioritized over automated tools
 - Video Hero Component with LCP optimization (poster-first strategy)
 - Core Web Vitals maintained (LCP < 2.5s with video backgrounds)
 - [Video Hero Implementation Guide](./docs/components/video-hero-implementation.md)
@@ -40,31 +52,36 @@ interactive project showcase to serve our clients better.
 - [Refactoring Roadmap](./docs/technical/refactoring-roadmap.md)
 - [Shared Sections Guide](./docs/components/shared-sections-guide.md)
 
-**Chatbot Intelligence Enhancement (Phases 1-3 - November 2024):**
+**General MH Assistant Enhancement (Phases 1-3 - November 2024):**
 
 - **Phase 1:** FAQ database (20+ responses), contact/pricing/timeline handlers, fallback improvements
 - **Phase 2:** Centralized knowledge base, synonym recognition (30+ variations), conversation follow-ups,
   analytics tracking
 - **Phase 3:** Conversation memory, confidence scoring (0-1 scale), personalization, user feedback collection,
-  smart escalation
+  smart escalation to human team
+- **Purpose:** 24/7 quick answers while prioritizing human consultation for all project decisions
 - **Coverage Progression:** 60% → 90-95% (Phase 1) → 95-98% (Phase 2) → 98-99% (Phase 3) ✨
-- **Code:** ~965 lines of intelligent functionality across all phases
+- **Code:** ~965 lines of helpful functionality across all phases
 - [Phase 1 Complete](./docs/development/chatbot-integration-complete.md) |
   [Phase 2 Complete](./docs/development/chatbot-phase2-complete.md) |
   [Phase 2 Short-term](./docs/development/chatbot-phase2-short-term-complete.md) |
   [Phase 3 Complete](./docs/development/chatbot-phase3-complete.md)
 
-**Interactive Components Delivered:**
+**Relationship-Focused Components Delivered:**
 
-- FormProgress with step indicators
-- InteractiveTimeline for project milestones
-- ActivityFeed for real-time updates
-- TeamMemberTag for personnel display
-- BeforeAfterSlider for project showcases
-- Automated Estimator system (`/estimator`)
-- Shared section components (Testimonials, NextSteps, AIEstimatorCTA)
+- FormProgress with step indicators for clear communication
+- InteractiveTimeline for transparent project milestones
+- ActivityFeed for real-time project updates
+- TeamMemberTag for personal team connection
+- BeforeAfterSlider for proven results showcase
+- Shared section components (Testimonials, NextSteps)
 
-**Expected Impact:** +35–60% engagement uplift, +25–50% qualified leads increase.
+**Core Values:**
+
+- **Honesty:** Transparent pricing and open communication
+- **Integrity:** Your word is your bond - so is ours
+- **Professionalism:** Military precision in every detail
+- **Thoroughness:** No detail overlooked, no shortcut taken
 
 ### Quality Score Evolution
 
@@ -211,7 +228,7 @@ NEXT_PUBLIC_GA_ID=your_google_analytics_id
   - Expert on-site assessments with transparent pricing
   - Open-book methodology - no hidden costs
   - Veteran priority scheduling
-  - Primary path: `/booking` for consultation requests
+  - Primary path: `/contact` for all consultation requests
 - **"General MH" Assistant** - Helpful 24/7 support tool ⭐ **Phases 1-3 Complete (November 2024)**
   - 98-99% question coverage to help clients find information
   - Context-aware responses guiding to personal consultation
@@ -220,10 +237,6 @@ NEXT_PUBLIC_GA_ID=your_google_analytics_id
   - [Phase 1 Report](./docs/development/chatbot-integration-complete.md) |
     [Phase 2 Report](./docs/development/chatbot-phase2-complete.md) |
     [Phase 3 Report](./docs/development/chatbot-phase3-complete.md)
-- **Helpful Planning Tools:**
-  - AI Estimator (`/estimator`) - Convenient preliminary budget planning
-  - 3D Explorer - Visualization tool to support conversations
-  - These tools serve the relationship, guiding clients to personal consultation
 - **Veteran Benefits Integration:**
   - 12% Combat Veteran Discount
   - Priority scheduling
@@ -250,7 +263,7 @@ NEXT_PUBLIC_GA_ID=your_google_analytics_id
 MH Construction believes in **personal relationships and face-to-face conversations**.
 Our tools exist to serve you better, not replace the human touch.
 
-**1. Start with Conversation (`/booking`) — RECOMMENDED:**
+**Start with Direct Conversation (`/contact`) — THE MH WAY:**
 
 - Personal consultation with experienced professionals
 - On-site assessment where we shake hands and earn your trust
@@ -259,17 +272,9 @@ Our tools exist to serve you better, not replace the human touch.
 - Priority scheduling for veterans
 - **This is how real partnerships begin**
 
-**2. Quick Planning Tool (`/estimator`) — OPTIONAL:**
-
-- Convenient preliminary budget estimates
-- Available 24/7 for your convenience
-- Helps you prepare for our conversation
-- Based on 500+ completed regional projects
-- **Always leads to personal consultation for accurate estimates**
-
-**Our Philosophy:** Technology should make us more accessible and transparent,
-not more impersonal. Every tool guides you toward a real conversation with real people
-who care about your project.
+**Our Philosophy:** We believe the best results come from honest, direct communication.
+Every interaction should bring us closer to understanding your vision and building
+a partnership that lasts beyond project completion.
 
 ---
 
@@ -283,8 +288,7 @@ mh-website/
 │   │   ├── (pages)/      # Public pages (21+ routes)
 │   │   └── layout.tsx    # Root layout with providers
 │   ├── components/       # React components (30+ subdirectories)
-│   │   ├── chatbot/      # General MH AI assistant
-│   │   ├── estimator/    # Automated estimation system
+│   │   ├── chatbot/      # General MH assistant
 │   │   ├── forms/        # Form components
 │   │   ├── layout/       # Navigation, Footer, Header
 │   │   ├── seo/          # SEO components
@@ -469,7 +473,7 @@ Each page features a **unique, page-specific tagline** instead of repeating
 Complete guide:
 [Slogan & Tagline Guide](./docs/branding/strategy/slogan-rotation-guide.md)
 
-### Page-Specific Messaging (NEW - November 2025)
+### Page-Specific Messaging (Updated December 2025)
 
 Each page group has its own unique voice and messaging strategy:
 
@@ -477,10 +481,10 @@ Each page group has its own unique voice and messaging strategy:
 
 1. **Traditional Business** (Home, Contact) - Main slogan prominence, old-school values
 2. **Company Heritage** (About, Projects) - History, proven track record
-3. **Future Vision** (Team, Services) - Growth, innovation, forward momentum
+3. **Future Vision** (Team, Services) - Growth, proven methods, forward momentum
 4. **Professional & Patriotic** (Government, Veterans) - Duty, service, compliance
 5. **Recruitment** (Careers) - Enthusiastic, opportunity-focused
-6. **Tech Innovation** (Automated Estimator, 3D Explorer) - Tech-savvy, cutting-edge
+6. **Resources & Help** (FAQ, Support) - Helpful, accessible, professional
 7. **Partnership & Urgency** (Trade Partners, Urgent) - **ROI-focused**
    (exclusive use of "THE ROI IS THE RELATIONSHIP")
 

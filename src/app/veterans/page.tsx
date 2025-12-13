@@ -90,16 +90,13 @@ export default function VeteransPage() {
               {/* Main Title - REQUIRED RESPONSIVE SCALING */}
               <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
                 <span className="block text-brand-secondary font-black drop-shadow-lg">
-                  Serving Those Who Served
+                  Combat Proven
                 </span>
               </h1>
 
               {/* Subtitle - REQUIRED */}
               <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-                Mission-Ready, Compliance-Driven • Building projects for the
-                client,{" "}
-                <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the dollar
+                Serving Those Who Served
               </p>
 
               {/* Description - REQUIRED */}
@@ -123,10 +120,7 @@ export default function VeteransPage() {
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Veterans Initiative" },
-          ]}
+          items={[{ label: "Home", href: "/" }, { label: "Combat Proven" }]}
         />
 
         {/* Our Veteran Leadership Section */}
@@ -449,7 +443,7 @@ export default function VeteransPage() {
               <CardContent>
                 <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                   Navy veteran Matt Ramsey brings military discipline to digital
-                  innovation, ensuring our veteran-owned business stays
+                  excellence, ensuring our veteran-owned business stays
                   connected with those we serve. His service taught him that
                   trust is earned through consistent action and genuine
                   commitment—principles that guide our digital presence and

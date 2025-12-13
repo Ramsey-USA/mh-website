@@ -41,12 +41,12 @@
 
 ### Service Type Distinctions
 
-| Service Type            | Icon                     | Color        | Button Variant | Example Text                 |
-| ----------------------- | ------------------------ | ------------ | -------------- | ---------------------------- |
-| **Automated Estimator** | `smart_toy`, `calculate` | Leather Tan  | `secondary`    | "Get Instant AI Estimate"    |
-| **IRL Consultation**    | `event`, `handshake`     | Hunter Green | `primary`      | "Schedule Free Consultation" |
-| **Client Partnership**  | `handshake`              | Hunter Green | `primary`      | "Begin Our Partnership"      |
-| **Trade Partnership**   | `construction`           | Leather Tan  | `secondary`    | "Apply as Vendor"            |
+| Service Type           | Icon             | Color        | Button Variant | Example Text            |
+| ---------------------- | ---------------- | ------------ | -------------- | ----------------------- |
+| **Direct Contact**     | `phone`, `email` | Hunter Green | `primary`      | "Contact Us Today"      |
+| **View Work**          | `photo_library`  | Leather Tan  | `secondary`    | "View Our Victories"    |
+| **Client Partnership** | `handshake`      | Hunter Green | `primary`      | "Begin Our Partnership" |
+| **Trade Partnership**  | `construction`   | Leather Tan  | `secondary`    | "Apply as Vendor"       |
 
 ---
 
@@ -193,59 +193,43 @@
 
 ## 🎯 Service Type CTAs
 
-### 🤖 Automated Estimator CTAs
+### 📞 Direct Contact CTAs
 
-**Service:** Automated self-service cost estimation  
-**Icon:** `smart_toy` or `calculate`  
-**Color:** Leather Tan (#BD9264)  
-**Variant:** `secondary`  
-**Style:** Modern, digital, instant-action focused
+**Service:** Direct communication with team  
+**Icon:** `phone`, `email`, or `handshake`  
+**Color:** Hunter Green (#386851)  
+**Variant:** `primary`  
+**Style:** Professional, personal, action-focused
 
 **Implementation:**
 
 ```tsx
-<Link href="/estimator">
-  <Button variant="secondary" size="lg" className="group/btn min-h-[48px]">
+<Link href="/contact">
+  <Button variant="primary" size="lg" className="group/btn min-h-[48px]">
     <MaterialIcon
-      icon="smart_toy"
+      icon="phone"
       size="lg"
       className="mr-2 sm:mr-3 group-hover/btn:scale-110 transition-transform"
     />
-    <span className="font-medium text-sm sm:text-base">
-      Get Instant AI Estimate
-    </span>
+    <span className="font-medium text-sm sm:text-base">Contact Us Today</span>
   </Button>
 </Link>
 ```
 
 **Approved Button Text:**
 
-- "Get Instant AI Estimate" (primary)
-- "Try Automated Estimator"
-- "Start AI Estimate"
-- "Calculate Project Cost"
-- "Get Preliminary Pricing"
-- "Use Smart Estimator"
+- "Contact Us Today" (primary)
+- "Introductions" (page title)
+- "Get In Touch"
+- "Start Your Project"
+- "Call (509) 308-6489"
 
 **Messaging Guidelines:**
 
-- Emphasize speed & convenience ("instant", "in minutes")
-- Highlight 24/7 availability
-- Note it's preliminary/optional
-- Always offer human consultation alternative
-
-**Example Context:**
-
-```tsx
-<p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-  Get a preliminary estimate in under 5 minutes using our AI-powered tool.
-  Available 24/7, no appointment needed.
-</p>
-<Button variant="secondary">Get Instant AI Estimate</Button>
-<p className="text-xs text-gray-500 mt-2">
-  Prefer human expertise? <Link href="/booking">Schedule a consultation</Link>
-</p>
-```
+- Emphasize personal service & expertise
+- Highlight veteran-owned values
+- Focus on partnership approach
+- Clear contact information
 
 ---
 

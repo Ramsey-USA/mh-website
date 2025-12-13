@@ -51,7 +51,9 @@ export default function AboutPage() {
       <AboutHero />
 
       {/* Breadcrumb Navigation */}
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About" }]} />
+      <Breadcrumb
+        items={[{ label: "Home", href: "/" }, { label: "Our Oath" }]}
+      />
 
       {/* Partnership Philosophy Section */}
       <PartnershipPhilosophy />

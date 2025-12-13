@@ -262,6 +262,7 @@ export class EnhancedChatbotAI {
       baseResponse = this.generatePageSpecificResponse(
         normalizedMessage,
         context,
+        conversationHistory,
       );
       confidence = this.calculateConfidence(responseType, userMessage);
 
@@ -451,7 +452,6 @@ export class EnhancedChatbotAI {
       response += `• Deploy to [Mission Portfolio](/projects) for project reconnaissance\n`;
       response += `• Brief on [Service Capabilities](/services) for operational intel\n`;
       response += `• Review [Command Structure](/team) for personnel directory\n`;
-      response += `• Explore [3D Visualization](/3d-explorer) for immersive project previews\n`;
       response += `• Check [Career Opportunities](/careers) to join our elite force\n\n`;
 
       // Add page-specific search suggestions
@@ -503,10 +503,17 @@ export class EnhancedChatbotAI {
       "/projects": ["portfolio", "examples", "previous work", "gallery"],
       "/team": ["team", "staff", "employees", "who works"],
       "/about": ["about", "company", "history", "story"],
-      "/contact": ["contact", "phone", "email", "address", "location"],
-      "/booking": ["schedule", "appointment", "consultation", "meeting"],
-      "/estimator": ["estimator", "estimate", "cost", "price", "pricing"],
-      "/3d-explorer": ["3d", "explorer", "visualization", "virtual", "tour"],
+      "/contact": [
+        "contact",
+        "phone",
+        "email",
+        "address",
+        "location",
+        "schedule",
+        "appointment",
+        "consultation",
+        "meeting",
+      ],
       "/government": ["government", "grants", "public", "municipal", "federal"],
       "/trade-partners": ["trade", "partners", "subcontractor", "partnership"],
       "/urgent": ["urgent", "emergency", "immediate", "rapid", "support"],
@@ -523,6 +530,7 @@ export class EnhancedChatbotAI {
   private generatePageSpecificResponse(
     message: string,
     context: EnhancedChatbotContext,
+    conversationHistory: unknown[],
   ): string {
     switch (context.currentPage) {
       case "/services":
@@ -533,12 +541,6 @@ export class EnhancedChatbotAI {
         return this.generateTeamPageResponse(message, context);
       case "/contact":
         return this.generateContactPageResponse(message, context);
-      case "/booking":
-        return this.generateBookingPageResponse(message, context);
-      case "/estimator":
-        return this.generateEstimatorPageResponse(message, context);
-      case "/3d-explorer":
-        return this.generate3DExplorerPageResponse(message, context);
       case "/government":
         return this.generateGovernmentPageResponse(message, context);
       case "/trade-partners":
@@ -550,7 +552,11 @@ export class EnhancedChatbotAI {
       case "/about":
         return this.generateAboutPageResponse(message, context);
       default:
-        return this.generateGeneralPageResponse(message, context);
+        return this.generateGeneralResponse(
+          message,
+          context,
+          conversationHistory,
+        );
     }
   }
 
@@ -558,7 +564,7 @@ export class EnhancedChatbotAI {
     _message: string,
     _context: EnhancedChatbotContext,
   ): string {
-    return `**[SERVICE CAPABILITIES BRIEF]** 🔧\n\nReporting operational capabilities! Here's what this construction unit offers:\n\n**RESIDENTIAL OPERATIONS:**\n• Custom home construction missions\n• Kitchen & bathroom tactical remodels\n• Home additions & strategic renovations\n• Deck & outdoor living space deployments\n\n**COMMERCIAL MISSIONS:**\n• Office building construction operations\n• Retail space development campaigns\n• Industrial facility builds\n• Tenant improvement missions\n\n**SPECIALIZED OPERATIONS:**\n• Veteran-owned business priority protocols\n• Energy-efficient construction missions\n• Sustainable building tactical approaches\n• Emergency repair rapid response\n\n**INTELLIGENCE GATHERING OPTIONS:**\n• [AI Estimator →](/estimator) - Instant preliminary intel (24/7)\n• [Expert Consultation →](/booking) - Detailed mission analysis\n\n**Ready for instant cost intel or expert briefing?**`;
+    return `**[SERVICE CAPABILITIES BRIEF]** 🔧\n\nReporting operational capabilities! Here's what this construction unit offers:\n\n**RESIDENTIAL OPERATIONS:**\n• Custom home construction missions\n• Kitchen & bathroom tactical remodels\n• Home additions & strategic renovations\n• Deck & outdoor living space deployments\n\n**COMMERCIAL MISSIONS:**\n• Office building construction operations\n• Retail space development campaigns\n• Industrial facility builds\n• Tenant improvement missions\n\n**SPECIALIZED OPERATIONS:**\n• Veteran-owned business priority protocols\n• Energy-efficient construction missions\n• Sustainable building tactical approaches\n• Emergency repair rapid response\n\n**INTELLIGENCE GATHERING OPTIONS:**\n• [Contact Us →](/contact) - Expert consultation and detailed mission analysis\n\n**Ready to begin your project?**`;
   }
 
   private generateProjectsPageResponse(
@@ -602,33 +608,9 @@ export class EnhancedChatbotAI {
     return `**[COMMUNICATION PROTOCOLS]** 📞\n\n**Ready to establish command contact!** Here are communication channels:\n\n**IMMEDIATE TACTICAL CONTACT:**\n• **Primary Line:** (509) 308-6489\n• **Intel Email:** info@mhconstruction.com\n• **Operations Hours:** Mon-Fri, 0700-1600 PST\n\n**RESPONSE PROTOCOL TIMELINES:**\n• **Standard intel requests:** Within 24 hours\n• **Veteran priority comms:** Within 12 hours\n• **Emergency operations:** Same day deployment\n\n**CONSULTATION MISSION OPTIONS:**\n• Free on-site tactical assessments\n• Virtual operation planning sessions\n• Phone-based mission briefings\n• Command post office meetings\n\n**Ready to deploy contact form or need communication assistance?**`;
   }
 
-  private generateBookingPageResponse(
-    _message: string,
-    _context: EnhancedChatbotContext,
-  ): string {
-    return `**[MISSION SCHEDULING OPERATIONS]** 📅\n\n**I'm here to coordinate your tactical consultation deployment!**\n\n**CONSULTATION MISSION PROTOCOL:**\n1. **Select operational date & time coordinates**\n2. **Brief mission objectives and intel requirements**\n3. **Confirm deployment schedule**\n\n**AVAILABLE OPERATION WINDOWS:**\n• Morning missions: 0700-1200 hours\n• Afternoon operations: 1300-1600 hours\n• Flexible scheduling for priority missions\n\n**MISSION BRIEFING EXPECTATIONS:**\n• 60-minute comprehensive tactical review\n• On-site reconnaissance (if applicable)\n• Preliminary timeline & budget intelligence\n• Next phase mission planning\n\n**VETERAN PRIORITY:** Expedited scheduling for service members\n\n**Need assistance with deployment coordination?**`;
-  }
-
-  private generateGeneralPageResponse(
-    _message: string,
-    _context: EnhancedChatbotContext,
-  ): string {
-    return `**[GENERAL TACTICAL ASSISTANCE]** 🏗️\n\n**General MH reporting!** I can provide intelligence on:\n\n• **Navigate** you to optimal mission objectives\n• **Brief** on service capabilities and operations\n• **Reconnaissance** for specific projects or personnel\n• **Assist** with forms and consultation deployment\n• **Intel** on veteran benefits and priority protocols\n\n**What specific intelligence can I provide for your construction mission?**`;
-  }
-
-  private generateEstimatorPageResponse(
-    _message: string,
-    _context: EnhancedChatbotContext,
-  ): string {
-    return `**[AI INTELLIGENCE SYSTEM]** 🤖\n\n**Welcome to the AI Cost Estimator station!**\n\n**INSTANT INTEL CAPABILITIES:**\n• Get preliminary budget intelligence in under 5 minutes\n• Receive strategic cost analysis for your mission\n• No commitment - completely free reconnaissance\n• Available 24/7 for instant mission planning\n\n**OPERATION PROTOCOL:**\n1. **Input mission parameters** (project type, size, scope)\n2. **AI processes tactical data** using our intelligence database\n3. **Receive preliminary cost intelligence** instantly\n4. **Optional: Schedule expert consultation** for detailed analysis\n\n**ACCURACY INTEL:** Our AI is trained on thousands of completed missions in the Pacific Northwest region.\n\n**Need help with the estimator form or have questions?**`;
-  }
-
-  private generate3DExplorerPageResponse(
-    _message: string,
-    _context: EnhancedChatbotContext,
-  ): string {
-    return `**[3D VISUALIZATION OPERATIONS]** 🏗️\n\n**Welcome to the 3D Project Explorer!** This advanced tactical visualization platform is currently under development.\n\n**UPCOMING CAPABILITIES:**\n• **Immersive 3D walkthroughs** of project designs\n• **Real-time design modifications** and adjustments\n• **Collaborative planning tools** for your construction team\n• **Virtual reality integration** for ultimate project visualization\n• **HD rendering** of your vision before construction begins\n\n**CURRENT OPTIONS:**\n• **[AI Estimator →](/estimator)** - Get instant project intelligence\n• **[Book Consultation →](/booking)** - Meet with our team for detailed planning\n• **[View Portfolio →](/projects)** - See our completed missions\n\n**Want to be notified when 3D Explorer launches? Contact us!**`;
-  }
+  // Removed: generateBookingPageResponse (feature deprecated Dec 2025)
+  // Removed: generateEstimatorPageResponse (feature deprecated Dec 2025)
+  // Removed: generate3DExplorerPageResponse (feature deprecated Dec 2025)
 
   private generateGovernmentPageResponse(
     _message: string,
@@ -662,7 +644,7 @@ export class EnhancedChatbotAI {
     _message: string,
     _context: EnhancedChatbotContext,
   ): string {
-    return `**[COMMAND INTELLIGENCE BRIEF]** 📋\n\n**Learn about MH Construction's mission and values!**\n\n**OUR FOUNDATION:**\n• **Veteran-Owned** - Military precision applied to construction\n• **150+ Years Combined Experience** - Elite construction expertise\n• **Licensed WA, OR, ID** - Serving the Pacific Northwest\n• **Award-Winning Safety** - Industry-leading 0.64 EMR\n• **"Building projects for the client, NOT the dollar"** - Our core philosophy\n\n**CORE VALUES:**\n• **Honesty** - Transparent communication always\n• **Integrity** - Doing what's right, every time\n• **Professionalism** - Excellence in every interaction\n• **Thoroughness** - Meticulous attention to detail\n\n**OUR STORY:**\nFounded in 2010 by Mike Holstein, MH Construction became veteran-owned in January 2025 under Army veteran Jeremy Thamert's leadership. We bring military-grade excellence and partnership-driven values to every construction project.\n\n**EXPLORE MORE:**\n• [Meet Our Team →](/team)\n• [View Our Work →](/projects)\n• [Client Testimonials →](/about#testimonials)\n• [Awards & Recognition →](/about#awards)\n\n**Want to partner with us?** [Get Started →](/booking)`;
+    return `**[COMMAND INTELLIGENCE BRIEF]** 📋\n\n**Learn about MH Construction's mission and values!**\n\n**OUR FOUNDATION:**\n• **Veteran-Owned** - Military precision applied to construction\n• **150+ Years Combined Experience** - Elite construction expertise\n• **Licensed WA, OR, ID** - Serving the Pacific Northwest\n• **Award-Winning Safety** - Industry-leading 0.64 EMR\n• **"Building projects for the client, NOT the dollar"** - Our core philosophy\n\n**CORE VALUES:**\n• **Honesty** - Transparent communication always\n• **Integrity** - Doing what's right, every time\n• **Professionalism** - Excellence in every interaction\n• **Thoroughness** - Meticulous attention to detail\n\n**OUR STORY:**\nFounded in 2010 by Mike Holstein, MH Construction became veteran-owned in January 2025 under Army veteran Jeremy Thamert's leadership. We bring military-grade excellence and partnership-driven values to every construction project.\n\n**EXPLORE MORE:**\n• [Meet Our Team →](/team)\n• [View Our Work →](/projects)\n• [Client Testimonials →](/about#testimonials)\n• [Awards & Recognition →](/about#awards)\n\n**Want to partner with us?** [Get Started →](/contact)`;
   }
 
   private isVeteranQuery(
@@ -883,9 +865,9 @@ export class EnhancedChatbotAI {
       `• Veterans: Within 12 hours\n` +
       `• Emergency support: Same day\n\n` +
       `**QUICK ACTIONS:**\n` +
-      `• **[Schedule Consultation →](/booking)**\n` +
+      `• **[Contact Us →](/contact)**\n` +
       `• **[Contact Form →](/contact)**\n` +
-      `• **[Get AI Estimate →](/estimator)**\n\n` +
+      `• **[Get Project Intel →](/projects)**\n\n` +
       `**How can we support your construction mission today?**`
     );
   }
@@ -944,8 +926,8 @@ export class EnhancedChatbotAI {
     }
 
     response += `**FREE ESTIMATE OPTIONS:**\n`;
-    response += `• **[AI Estimator →](/estimator)** - Get instant ballpark pricing\n`;
-    response += `• **[Schedule Consultation →](/booking)** - Detailed on-site assessment\n`;
+    response += `• **[Contact Us →](/contact)** - Schedule consultation for detailed on-site assessment\n`;
+    response += `• **[Contact Us to Schedule →](/contact)** - Detailed on-site assessment\n`;
     response += `• **[Call (509) 308-6489](tel:5093086489)** - Speak with our team\n\n`;
     response += `**VETERAN DISCOUNT:** 12% off for combat veterans!\n\n`;
     response += `**PAYMENT OPTIONS:**\n`;
@@ -1136,9 +1118,8 @@ export class EnhancedChatbotAI {
     response += `• Veterans receive priority scheduling\n`;
     response += `• Emergency repair services within 24-48 hours\n\n`;
     response += `**Want a specific timeline for your project?**\n`;
-    response += `• **[Schedule Consultation →](/booking)**\n`;
-    response += `• **[Call (509) 308-6489)](tel:5093086489)**\n`;
-    response += `• **[Get AI Estimate →](/estimator)**`;
+    response += `• **[Contact Us →](/contact)**\n`;
+    response += `• **[Call (509) 308-6489)](tel:5093086489)**`;
 
     return response;
   }
@@ -1161,13 +1142,13 @@ export class EnhancedChatbotAI {
     response += `• Get preliminary cost intel in under 5 minutes\n`;
     response += `• Available 24/7 for immediate budget planning\n`;
     response += `• Based on 500+ completed missions\n`;
-    response += `• [Launch AI Estimator →](/estimator)\n\n`;
+    response += `• [Contact Us to Schedule →](/contact)\n\n`;
 
     response += `**👤 EXPERT CONSULTATION (Detailed):**\n`;
     response += `• Schedule in-person tactical assessment\n`;
     response += `• Customized mission planning with human experts\n`;
     response += `• Detailed open-book pricing & timeline intel\n`;
-    response += `• [Schedule Consultation →](/booking)\n\n`;
+    response += `• [Contact Us to Schedule →](/contact)\n\n`;
 
     response += `**RECOMMENDED:** Start with AI Estimator for instant preliminary pricing, then schedule consultation for detailed analysis.\n\n`;
 
@@ -1300,7 +1281,7 @@ export class EnhancedChatbotAI {
       `• **Phone:** (509) 308-6489\n` +
       `• **Email:** office@mhc-gc.com\n` +
       `• **[Contact Form →](/contact)**\n` +
-      `• **[Schedule Consultation →](/booking)**`
+      `• **[Contact Us →](/contact)**`
     );
   }
 
@@ -1656,7 +1637,7 @@ export class EnhancedChatbotAI {
       `\n\n**🤝 Need More Help?**\n` +
       `I might not have all the details you need. For the most accurate information:\n` +
       `• **Call:** (509) 308-6489 (speak with our team)\n` +
-      `• **Schedule:** [Book a Consultation →](/booking)\n` +
+      `• **Schedule:** [Contact Us →](/contact)\n` +
       `• **Email:** office@mhc-gc.com\n\n` +
       `Our team can provide detailed answers and personalized guidance.`;
 

@@ -1,6 +1,9 @@
 # Page-Specific Messaging & Language Guide
 
-**Last Updated:** November 14, 2025 | **Version:** 1.0.0 | **Status:** Official Brand Standard
+**Last Updated:** December 13, 2025 | **Version:** 2.0.0 | **Status:** Official Brand Standard
+
+**⚠️ UPDATE (Dec 13, 2025)**: Group 6 (Tech Innovation) has been deprecated. Automated Estimator and 3D Explorer
+features have been removed in favor of direct human consultation. Group 6 is now "Resources & Help" (FAQ, Support).
 
 ---
 
@@ -50,7 +53,7 @@ specific terms and phrases.
 
 ### Group 1: Traditional Business Foundation
 
-**Pages:** Home, Contact, Booking  
+**Pages:** Home, Contact  
 **Core Theme:** Main slogan prominence, old-school business values meeting modern world
 
 ### Group 2: Company Heritage
@@ -73,10 +76,10 @@ specific terms and phrases.
 **Pages:** Careers  
 **Core Theme:** Enthusiastic, welcoming, opportunity-focused
 
-### Group 6: Tech Innovation
+### Group 6: Resources & Help
 
-**Pages:** Automated Estimator, 3D Explorer  
-**Core Theme:** Tech-savvy, innovative, cutting-edge solutions
+**Pages:** FAQ, Support, Resources  
+**Core Theme:** Helpful, accessible, service-focused, professional support
 
 ### Group 7: Partnership & Urgency
 
@@ -122,7 +125,7 @@ specific terms and phrases.
 - "Your Word Is Your Bond - So Is Ours"
 - "Four Values, One Result: Trust"
 
-### Language Characteristics
+### Language Characteristics (Group 1)
 
 - Use traditional business terminology
 - Emphasize face-to-face meetings and personal connection
@@ -130,7 +133,7 @@ specific terms and phrases.
 - Contrast modern world with old-school principles
 - Warm, welcoming, approachable
 
-### Key Phrases
+### Key Phrases (Group 1)
 
 - "Where handshakes matter and your word is your bond"
 - "Trust built through honesty, integrity, professionalism, and thoroughness"
@@ -140,7 +143,7 @@ specific terms and phrases.
 - "The way business should be done - with values you can count on"
 - "98% satisfaction rate, 70% referral rate - trust you can measure"
 
-### Avoid
+### Avoid (Group 1)
 
 - Overly corporate language
 - Tech jargon (save for tech pages)
@@ -188,7 +191,7 @@ specific terms and phrases.
 - "Where Precision Meets Partnership"
 - "150+ Years of Combined Excellence"
 
-### Language Characteristics
+### Language Characteristics (Group 2)
 
 - Use past-tense achievements as proof points
 - Tell the company's story chronologically
@@ -196,7 +199,7 @@ specific terms and phrases.
 - Connect past success to present capabilities
 - Reference founding principles and how they endure
 
-### Key Phrases
+### Key Phrases (Group 2)
 
 - "Founded in 2010, veteran-owned since January 2025"
 - "Trust earned through honesty, integrity, professionalism, and thoroughness"
@@ -208,7 +211,7 @@ specific terms and phrases.
 - "Every project demonstrates our commitment to trust"
 - "Decades of experience, unwavering values"
 
-### Avoid
+### Avoid (Group 2)
 
 - Future promises without past proof
 - Generic industry claims without value connection
@@ -227,7 +230,7 @@ specific terms and phrases.
 - **Forward-looking:** What's next, where we're going
 - **Growth-oriented:** Expanding capabilities and vision
 - **Values-Driven:** Four values guide our future direction
-- **Innovative:** Embracing new methods while honoring core values
+- **Proven Methods:** Embracing excellence while honoring core values
 - **Empowering:** Enabling client success and team development
 
 ### Core Values Emphasis
@@ -256,7 +259,7 @@ specific terms and phrases.
 - "From Vision to Victory Through Values"
 - "Shaping the Future with Timeless Values"
 
-### Language Characteristics
+### Language Characteristics (Group 3)
 
 - Use future-tense language about capabilities
 - Emphasize growth trajectory and expansion
@@ -264,7 +267,7 @@ specific terms and phrases.
 - Focus on potential and possibility
 - Show team development and career paths
 
-### Key Phrases
+### Key Phrases (Group 3)
 
 - "Leading the industry into tomorrow with timeless values"
 - "Evolving to serve you better, our values remain constant"
@@ -275,7 +278,7 @@ specific terms and phrases.
 - "Professional excellence today creates trusted partnerships tomorrow"
 - "Thorough planning now prevents problems later"
 
-### Avoid
+### Avoid (Group 3)
 
 - Dwelling too much on the past
 - Suggesting instability or uncertainty
@@ -324,7 +327,7 @@ specific terms and phrases.
 - "Serving Those Who Served with Integrity and Reliability"
 - "Excellence in Every Detail, Trust in Every Interaction"
 
-### Language Characteristics
+### Language Characteristics (Group 4)
 
 - Use military-adjacent terminology appropriately
 - Reference veteran values: duty, integrity, mission focus
@@ -332,7 +335,7 @@ specific terms and phrases.
 - Show respect for government processes
 - Honor veteran sacrifice without exploitation
 
-### Key Phrases
+### Key Phrases (Group 4)
 
 - "Army veteran leadership since January 2025"
 - "Military precision meets construction excellence through four core values"
@@ -344,7 +347,7 @@ specific terms and phrases.
 - "Professionalism learned in uniform, applied to every project"
 - "Trust: earned in service, demonstrated in construction"
 
-### Avoid
+### Avoid (Group 4)
 
 - Over-militarization of language
 - Exploiting veteran status for gain
@@ -393,7 +396,7 @@ specific terms and phrases.
 - "Where Your Growth Is Our Mission, Trust Is Our Foundation"
 - "Join a Team That Invests in You and Lives Its Values"
 
-### Language Characteristics
+### Language Characteristics (Group 5)
 
 - Use second-person ("you") frequently
 - Emphasize opportunity and growth potential
@@ -401,7 +404,7 @@ specific terms and phrases.
 - Paint picture of career trajectory
 - Show investment in employee success
 
-### Key Phrases
+### Key Phrases (Group 5)
 
 - "Build your future with a team that cares and lives its values"
 - "Where talent meets opportunity in a culture of trust"
@@ -413,7 +416,7 @@ specific terms and phrases.
 - "Reliable leadership that invests in your growth"
 - "Work with integrity, grow with purpose, build with trust"
 
-### Avoid
+### Avoid (Group 5)
 
 - Unrealistic promises about advancement
 - Ignoring work-life balance concerns
@@ -424,29 +427,70 @@ specific terms and phrases.
 
 ---
 
-## 💻 GROUP 6: Tech Innovation
+## � GROUP 6: Resources & Help
 
-### Pages: Automated Estimator, 3D Explorer
+### Pages: FAQ, Support, Resources
 
 ### Voice & Tone
 
-- **Tech-savvy:** Modern, innovative, forward-thinking
-- **Educational:** Explaining technology accessibly
-- **Honest:** Transparent about technology capabilities and limitations
-- **Confident:** Comfortable with innovation
-- **Balanced:** Tech as tool, not replacement for relationship
+- **Helpful:** Supportive, accessible, service-oriented
+- **Clear:** Straightforward answers, no jargon
+- **Patient:** Understanding client questions and concerns
+- **Professional:** Expert guidance with approachable delivery
+- **Personal:** Human touch, not automated responses
 
 ### Core Values Emphasis
 
-**Featured Values:** Honesty, Thoroughness, Professionalism
+**Featured Values:** Honesty, Professionalism, Thoroughness
 
-- Honest about what technology can and cannot do
-- Thorough data and analysis behind automated tools
-- Professional guidance alongside technological innovation
+- Honest answers to common questions
+- Professional support and guidance
+- Thorough information to help clients make informed decisions
 
 ### Primary Messaging
 
 **Main Slogan:**
+
+- "Building projects for the client, NOT the dollar" (as foundation)
+
+**Values-Support Messaging:**
+
+- "Honest Answers to Your Questions"
+- "Professional Support When You Need It"
+
+**Support-Focused Slogans:**
+
+- "We're Here to Help"
+- "Your Questions, Our Priority"
+- "Clear Answers, Professional Guidance"
+- "Support Built on Trust"
+
+### Language Characteristics (Group 6)
+
+- Direct, clear answers without corporate speak
+- Anticipate common concerns and address proactively
+- Provide context and explanation, not just facts
+- Offer next steps and clear paths forward
+- Emphasize personal consultation availability
+
+### Key Phrases (Group 6)
+
+- "Let's discuss your specific situation"
+- "We're here to answer any questions"
+- "Contact us for personalized guidance"
+- "Every project is unique - let's talk about yours"
+- "Our team is ready to help you"
+- "Straightforward answers from experienced professionals"
+- "No question is too small - we're here to help"
+
+### Avoid (Group 6)
+
+- Automated, impersonal responses
+- Tech jargon or complex terminology
+- Dismissive or condescending tone
+- Generic answers that don't address real concerns
+- Pushing sales instead of providing help
+- Referring to automated tools or AI systems
 
 - "Building projects for the client, NOT the dollar" (still applies)
 
@@ -462,7 +506,7 @@ specific terms and phrases.
 - "Technology Serving Traditional Values and Building Trust"
 - "AI-Powered, Human-Centered, Values-Driven"
 
-### Language Characteristics
+### Language Characteristics (Tech Innovation - Deprecated)
 
 - Use tech terminology, but explain it
 - Emphasize technology as enhancement, not replacement
@@ -470,7 +514,7 @@ specific terms and phrases.
 - Balance cutting-edge with proven methods
 - Maintain warmth despite technical subject
 
-### Key Phrases
+### Key Phrases (Tech Innovation - Deprecated)
 
 - "AI-powered estimation meets personal consultation and professional guidance"
 - "Technology that serves, never replaces, relationships built on trust"
@@ -482,7 +526,7 @@ specific terms and phrases.
 - "Professional tools supporting professional relationships"
 - "Trust the technology, trust the team behind it"
 
-### Avoid
+### Avoid (Tech Innovation - Deprecated)
 
 - Tech jargon without explanation
 - Implying automation replaces people
@@ -530,7 +574,7 @@ specific terms and phrases.
 - "When Time Is Critical, Our Values Don't Waver"
 - "Professional Partnerships Built on Four Foundations"
 
-### Language Characteristics
+### Language Characteristics (Group 7)
 
 - Emphasize mutual benefit and ROI
 - Use business-to-business language
@@ -558,7 +602,7 @@ specific terms and phrases.
 - "Emergency response driven by reliability, guided by thoroughness"
 - "Critical situations demand honesty - we deliver it every time"
 
-### Avoid
+### Avoid (Group 7)
 
 - Transactional language without relationship or values emphasis
 - Vague partnership promises without values foundation

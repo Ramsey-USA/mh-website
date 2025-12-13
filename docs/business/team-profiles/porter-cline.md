@@ -55,7 +55,7 @@ CDL, NCCO
 ## Personal Interests
 
 - **Hobbies**: Heavy Machinery, Off-road
-- **Special Interests**: Equipment Innovation
+- **Special Interests**: Equipment Expertise
 
 ## Fun Fact
 

@@ -92,7 +92,7 @@ export class SpecialistManager {
         "Project Management Professional",
       ],
       languages: ["English"],
-      bio: "Air Force veteran with expertise in cutting-edge technology integration and energy-efficient construction solutions.",
+      bio: "Air Force veteran with expertise in proven construction methods and energy-efficient building solutions.",
     },
   ];
 

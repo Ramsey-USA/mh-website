@@ -15,21 +15,19 @@ export function ServicesHero() {
           {/* Main Title */}
           <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
             <span className="block text-brand-secondary font-black drop-shadow-lg">
-              Your Vision, Our Precision
+              The Battle Plan
             </span>
           </h1>
 
           {/* Subtitle - Brand Tagline */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            Shaping the Future of Construction • Building projects for the
-            client, <em>NOT</em>
-            the dollar
+            Your Vision, Our Precision
           </p>
 
           {/* Description */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
             Evolving to serve you better. From traditional craftsmanship to
-            AI-powered estimation—we're expanding our capabilities to match your
+            expert consultation—we're expanding our capabilities to match your
             vision. Excellence in Every Detail meets innovative solutions. Where
             your tomorrow begins today, and every partnership drives our growth
             forward across the Pacific Northwest.

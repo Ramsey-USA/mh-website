@@ -25,7 +25,7 @@
 
 ## Awards & Recognition
 
-Team Building Excellence Award, HR Innovation Recognition
+Team Building Excellence Award, HR Excellence Recognition
 
 ## Biography
 

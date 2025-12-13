@@ -22,101 +22,99 @@ Generated: 11/17/2025, 7:01:35 PM
 - **File:** `qr-homepage-bw.png`
 - **URL:** [https://mhc-gc.com](https://mhc-gc.com)
 
-### About Us (Color)
+### Our Oath (About - Color)
 
 - **Name:** `about`
 - **File:** `qr-about-color.png`
 - **URL:** [https://mhc-gc.com/about](https://mhc-gc.com/about)
+- **Display Name:** "Our Oath"
 
-### About Us (Black and White)
+### Our Oath (About - Black and White)
 
 - **Name:** `about`
 - **File:** `qr-about-bw.png`
 - **URL:** [https://mhc-gc.com/about](https://mhc-gc.com/about)
+- **Display Name:** "Our Oath"
 
-### Our Services (Color)
+### The Battle Plan (Services - Color)
 
 - **Name:** `services`
 - **File:** `qr-services-color.png`
 - **URL:** [https://mhc-gc.com/services](https://mhc-gc.com/services)
+- **Display Name:** "The Battle Plan"
 
-### Our Services (Black and White)
+### The Battle Plan (Services - Black and White)
 
 - **Name:** `services`
 - **File:** `qr-services-bw.png`
 - **URL:** [https://mhc-gc.com/services](https://mhc-gc.com/services)
+- **Display Name:** "The Battle Plan"
 
-### Our Projects (Color)
+### Victories (Projects - Color)
 
 - **Name:** `projects`
 - **File:** `qr-projects-color.png`
 - **URL:** [https://mhc-gc.com/projects](https://mhc-gc.com/projects)
+- **Display Name:** "Victories"
 
-### Our Projects (Black and White)
+### Victories (Projects - Black and White)
 
 - **Name:** `projects`
 - **File:** `qr-projects-bw.png`
 - **URL:** [https://mhc-gc.com/projects](https://mhc-gc.com/projects)
+- **Display Name:** "Victories"
 
-### Our Team (Color)
+### Team Six (Color)
 
 - **Name:** `team`
 - **File:** `qr-team-color.png`
 - **URL:** [https://mhc-gc.com/team](https://mhc-gc.com/team)
+- **Display Name:** "Team Six"
 
-### Our Team (Black and White)
+### Team Six (Black and White)
 
 - **Name:** `team`
 - **File:** `qr-team-bw.png`
 - **URL:** [https://mhc-gc.com/team](https://mhc-gc.com/team)
+- **Display Name:** "Team Six"
 
-### Careers (Color)
+### Occupation Specialties (Careers - Color)
 
 - **Name:** `careers`
 - **File:** `qr-careers-color.png`
 - **URL:** [https://mhc-gc.com/careers](https://mhc-gc.com/careers)
+- **Display Name:** "Occupation Specialties"
 
-### Careers (Black and White)
+### Occupation Specialties (Careers - Black and White)
 
 - **Name:** `careers`
 - **File:** `qr-careers-bw.png`
 - **URL:** [https://mhc-gc.com/careers](https://mhc-gc.com/careers)
+- **Display Name:** "Occupation Specialties"
 
-### Contact Us (Color)
+### Introductions (Contact - Color)
 
 - **Name:** `contact`
 - **File:** `qr-contact-color.png`
 - **URL:** [https://mhc-gc.com/contact](https://mhc-gc.com/contact)
+- **Display Name:** "Introductions"
 
-### Contact Us (Black and White)
+### Introductions (Contact - Black and White)
 
 - **Name:** `contact`
 - **File:** `qr-contact-bw.png`
 - **URL:** [https://mhc-gc.com/contact](https://mhc-gc.com/contact)
+- **Display Name:** "Introductions"
 
-### Schedule Consultation (Color)
+### ~~Schedule Consultation~~ (DEPRECATED)
 
-- **Name:** `booking`
-- **File:** `qr-booking-color.png`
-- **URL:** [https://mhc-gc.com/booking](https://mhc-gc.com/booking)
+- **Name:** `booking` (REMOVED)
+- **URL:** ~~<https://mhc-gc.com/booking>~~ (Page removed - use `/contact` instead)
 
-### Schedule Consultation (Black and White)
+### ~~AI Project Estimator~~ (DEPRECATED)
 
-- **Name:** `booking`
-- **File:** `qr-booking-bw.png`
-- **URL:** [https://mhc-gc.com/booking](https://mhc-gc.com/booking)
-
-### AI Project Estimator (Color)
-
-- **Name:** `estimator`
-- **File:** `qr-estimator-color.png`
-- **URL:** [https://mhc-gc.com/estimator](https://mhc-gc.com/estimator)
-
-### AI Project Estimator (Black and White)
-
-- **Name:** `estimator`
-- **File:** `qr-estimator-bw.png`
-- **URL:** [https://mhc-gc.com/estimator](https://mhc-gc.com/estimator)
+- **Name:** `estimator` (REMOVED)
+- **URL:** ~~<https://mhc-gc.com/estimator>~~ (Page removed - contact us directly)
 
 ### Case Studies (Color)
 

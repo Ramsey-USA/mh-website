@@ -45,18 +45,12 @@ export const breadcrumbPatterns = {
     { name: "Home", url: "https://www.mhc-gc.com" },
     { name: "Contact", url: "https://www.mhc-gc.com/contact" },
   ],
-  booking: [
-    { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Book Consultation", url: "https://www.mhc-gc.com/booking" },
-  ],
+  // Removed: booking breadcrumb (feature deprecated Dec 2025)
   careers: [
     { name: "Home", url: "https://www.mhc-gc.com" },
     { name: "Careers", url: "https://www.mhc-gc.com/careers" },
   ],
-  estimator: [
-    { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "AI Estimator", url: "https://www.mhc-gc.com/estimator" },
-  ],
+  // Removed: estimator breadcrumb (feature deprecated Dec 2025)
   government: [
     { name: "Home", url: "https://www.mhc-gc.com" },
     { name: "Government Projects", url: "https://www.mhc-gc.com/government" },
@@ -69,8 +63,5 @@ export const breadcrumbPatterns = {
     { name: "Home", url: "https://www.mhc-gc.com" },
     { name: "Urgent Support", url: "https://www.mhc-gc.com/urgent" },
   ],
-  "3dExplorer": [
-    { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "3D Explorer", url: "https://www.mhc-gc.com/3d-explorer" },
-  ],
+  // Removed: 3dExplorer breadcrumb (feature deprecated)
 };

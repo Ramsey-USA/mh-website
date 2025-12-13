@@ -60,7 +60,7 @@ OSHA 30, CPR
 ## Personal Interests
 
 - **Hobbies**: Safety Training, Hiking
-- **Special Interests**: Safety Innovation
+- **Special Interests**: Safety Excellence
 
 ## Fun Fact
 

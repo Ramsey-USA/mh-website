@@ -56,7 +56,7 @@ PMP, LEED AP
 ## 🎯 Personal Interests
 
 - **Hobbies**: Technology, Golf
-- **Special Interests**: Business Innovation & Client Relations
+- **Special Interests**: Client Relationships & Veteran Values
 
 ## 💡 Fun Fact
 

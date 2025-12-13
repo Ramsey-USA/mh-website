@@ -23,13 +23,13 @@ export const ACTIVE_PAGES = [
   "/projects",
   "/team",
   "/contact",
-  "/booking",
+  // Removed: /booking (feature deprecated)
   "/careers",
   "/government",
   "/trade-partners",
-  "/estimator",
+  // Removed: /estimator (feature deprecated)
   "/urgent",
-  "/3d-explorer",
+  // Removed: /3d-explorer (feature deprecated)
 ] as const;
 
 /**

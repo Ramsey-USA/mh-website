@@ -40,7 +40,7 @@ prioritization:
 
 2. **Group 2: Heritage & Track Record** (About, Projects)
    - Voice: Proud, accomplished, proven
-   - Priority: Experience → History → Results → Innovation
+   - Priority: Experience → History → Results → Relationships
    - Focus: Credibility through demonstrated success
 
 3. **Group 3: Future Vision & Expertise** (Team, Services)
@@ -58,9 +58,9 @@ prioritization:
    - Priority: Culture → Opportunity → Team → Benefits
    - Focus: Career development and belonging
 
-6. **Group 6: Tech Innovation & Optional Tools** (Automated Estimator, 3D Explorer)
-   - Voice: Innovative, helpful, optional
-   - Priority: Innovation → Convenience → Speed → Value
+6. **Group 6: Resources & Help** (FAQ, Contact, Support)
+   - Voice: Helpful, accessible, professional
+   - Priority: Service → Support → Communication → Trust
    - Focus: Modern tools as enhancements, not requirements
 
 7. **Group 7: Partnership & Urgency** (Trade Partners, Urgent Projects)

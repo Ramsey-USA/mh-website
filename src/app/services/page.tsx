@@ -25,7 +25,6 @@ import { gridPresets } from "@/lib/styles/layout-variants";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 
 // Import shared sections
-import { AIEstimatorCTA } from "@/components/shared-sections";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 
 // Feature flag - set to false to show full page content
@@ -174,7 +173,7 @@ export default function ServicesPage() {
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb
-          items={[{ label: "Home", href: "/" }, { label: "Services" }]}
+          items={[{ label: "Home", href: "/" }, { label: "The Battle Plan" }]}
         />
 
         {/* Construction Expertise Section */}
@@ -274,20 +273,18 @@ export default function ServicesPage() {
                       <span className="font-medium">Call (509) 308-6489</span>
                     </Button>
                   </Link>
-                  <Link href="/booking" className="w-full sm:w-auto">
+                  <Link href="/contact" className="w-full sm:w-auto">
                     <Button
                       variant="outline"
                       size="lg"
                       className="w-full sm:w-auto transition-all duration-300 hover:scale-105 hover:shadow-lg min-w-[280px] group"
                     >
                       <MaterialIcon
-                        icon="event"
+                        icon="email"
                         size="lg"
                         className="mr-3 group-hover:scale-110 transition-transform duration-300"
                       />
-                      <span className="font-medium">
-                        Schedule Free Consultation
-                      </span>
+                      <span className="font-medium">Contact Us Today</span>
                     </Button>
                   </Link>
                 </div>
@@ -692,7 +689,7 @@ export default function ServicesPage() {
 
                     {/* CTA */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <Link href="/booking" className="w-full sm:w-auto">
+                      <Link href="/contact" className="w-full sm:w-auto">
                         <Button
                           variant="primary"
                           size="lg"
@@ -1222,30 +1219,28 @@ export default function ServicesPage() {
                     partnership-focused collaboration from day one.
                   </p>
                   <div className="flex sm:flex-row flex-col justify-center gap-6">
-                    <Link href="/booking">
+                    <Link href="/contact">
                       <Button
                         variant="primary"
                         size="lg"
                         className="transition-all duration-300 min-w-[260px]"
                       >
-                        <MaterialIcon icon="event" size="lg" className="mr-3" />
-                        <span className="font-medium">
-                          Schedule Free Consultation
-                        </span>
+                        <MaterialIcon icon="phone" size="lg" className="mr-3" />
+                        <span className="font-medium">Contact Us Today</span>
                       </Button>
                     </Link>
-                    <Link href="/estimator">
+                    <Link href="/projects">
                       <Button
                         variant="secondary"
                         size="lg"
                         className="transition-all duration-300 min-w-[260px]"
                       >
                         <MaterialIcon
-                          icon="smart_toy"
+                          icon="photo_library"
                           size="lg"
                           className="mr-3"
                         />
-                        <span className="font-medium">Get AI Estimate</span>
+                        <span className="font-medium">View Our Work</span>
                       </Button>
                     </Link>
                   </div>
@@ -1372,7 +1367,7 @@ export default function ServicesPage() {
                             />
                           </div>
                           <span className="text-gray-700 dark:text-gray-300">
-                            AI-powered instant estimates (24/7)
+                            Free expert consultation (comprehensive)
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
@@ -1415,28 +1410,28 @@ export default function ServicesPage() {
                     </div>
 
                     <div className="space-y-3 mt-auto">
-                      <Link href="/estimator" className="block">
+                      <Link href="/projects" className="block">
                         <Button
                           variant="secondary"
                           size="lg"
                           className="w-full hover:scale-105 transition-transform duration-300 group"
                         >
                           <MaterialIcon
-                            icon="smart_toy"
+                            icon="photo_library"
                             size="md"
                             className="mr-2 group-hover:scale-110 transition-transform duration-300"
                           />
-                          Get Instant AI Estimate
+                          View Our Work
                         </Button>
                       </Link>
-                      <Link href="/booking" className="block">
+                      <Link href="/contact" className="block">
                         <Button
                           variant="outline"
                           size="lg"
                           className="w-full hover:scale-105 transition-transform duration-300 group"
                         >
                           <MaterialIcon
-                            icon="event"
+                            icon="phone"
                             size="md"
                             className="mr-2 group-hover:scale-110 transition-transform duration-300"
                           />
@@ -1670,49 +1665,48 @@ export default function ServicesPage() {
                   Get a detailed, transparent estimate with line-item pricing
                   within 3-5 business days.
                 </p>
-                <Link href="/estimator">
+                <Link href="/contact">
                   <Button
                     variant="primary"
                     size="lg"
                     className="relative w-full group/btn hover:scale-105 transition-transform duration-200"
                   >
                     <MaterialIcon
-                      icon="calculate"
+                      icon="phone"
                       size="md"
                       className="mr-2 group-hover/btn:rotate-12 transition-transform duration-300"
                     />
-                    Get Expert Estimate
+                    Contact Us Today
                   </Button>
                 </Link>
               </div>
 
-              {/* Option 2: Schedule Consultation */}
+              {/* Option 2: View Our Work */}
               <div className="relative bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-850 dark:to-gray-800 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(189,146,100,0.3)] p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700 hover:border-secondary-400 group overflow-hidden">
                 {/* Decorative background blur */}
                 <div className="absolute -top-10 -left-10 w-32 h-32 bg-secondary-500/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
 
                 <div className="relative flex justify-center items-center bg-gradient-to-br from-secondary-500 to-secondary-600 mx-auto mb-6 rounded-full w-20 h-20 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <MaterialIcon
-                    icon="event"
+                    icon="photo_library"
                     size="xl"
                     className="text-white group-hover:rotate-12 transition-transform duration-300"
                   />
                 </div>
                 <h3 className="relative mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
-                  Schedule Free Consultation
+                  See Our Victories
                 </h3>
                 <p className="relative mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
-                  Book a free consultation to discuss your project scope,
-                  timeline, and goals.
+                  Browse our completed projects and see the quality we deliver.
                 </p>
-                <Link href="/booking">
+                <Link href="/projects">
                   <Button
                     variant="secondary"
                     size="lg"
                     className="relative w-full group/btn hover:scale-105 transition-transform duration-200"
                   >
                     <MaterialIcon
-                      icon="calendar_today"
+                      icon="photo_library"
                       size="md"
                       className="mr-2 group-hover/btn:rotate-12 transition-transform duration-300"
                     />
@@ -1788,9 +1782,6 @@ export default function ServicesPage() {
             </div>
           </div>
         </section>
-
-        {/* AI Estimator CTA - Services Page */}
-        <AIEstimatorCTA variant="compact" location="services" />
 
         {/* Chatbot CTA - Ask Questions */}
         <ChatbotCTASection

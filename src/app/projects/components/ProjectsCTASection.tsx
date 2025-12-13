@@ -31,7 +31,7 @@ export function ProjectsCTASection() {
 
             {/* CTA Buttons */}
             <div className="flex sm:flex-row flex-col justify-center gap-6 mb-10">
-              <Link href="/booking">
+              <Link href="/contact">
                 <Button
                   variant="primary"
                   size="lg"

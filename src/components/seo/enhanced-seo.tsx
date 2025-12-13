@@ -18,15 +18,12 @@ export const enhancedSEO = {
     "master planning and preconstruction services",
     "tenant improvement services",
     "light industrial construction",
-    "innovation construction technology",
     "partnership construction approach",
-    "AI-powered construction planning",
     "collaborative building relationships",
     "modern tools traditional values",
     "military precision construction",
     "Pacific Northwest builder",
     "long-term construction partnerships",
-    "innovative construction methods",
     "trust-based construction",
     "veteran benefits construction",
     "Tri-Cities WA contractor",
@@ -312,14 +309,9 @@ export function generateEnhancedOrganizationSchema() {
         "query-input": "required name=search_term_string",
       },
       {
-        "@type": "ReserveAction",
-        target: `${enhancedSEO.siteUrl}/booking`,
-        name: "Schedule Free Consultation",
-      },
-      {
-        "@type": "OrderAction",
-        target: `${enhancedSEO.siteUrl}/estimator`,
-        name: "Get Budget Planning Estimate",
+        "@type": "ContactAction",
+        target: `${enhancedSEO.siteUrl}/contact`,
+        name: "Contact Us",
       },
     ],
   };
@@ -369,55 +361,12 @@ export function generateServiceSchema(service: {
   };
 }
 
-// Generate AI Budget Estimator service schema
-export function generateAutomatedEstimatorSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "@id": `${enhancedSEO.siteUrl}/estimator#automated-estimator`,
-    name: "Automated Construction Estimator",
-    description:
-      "AI Budget Planning Tool providing preliminary cost estimates in under 5 minutes with Pacific Northwest regional intelligence and veteran benefits integration",
-    applicationCategory: "Construction Estimation Software",
-    operatingSystem: "Web Browser",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      name: "Free Budget Planning",
-      description:
-        "Helpful budget estimation service available 24/7 to prepare for consultation",
-    },
-    provider: {
-      "@id": `${enhancedSEO.siteUrl}/#organization`,
-    },
-    featureList: [
-      "Real-Time Pricing Intelligence",
-      "Material Database with 4-tier quality system",
-      "Pacific Northwest location intelligence with 8 zones",
-      "Seasonal adjustments for weather and market conditions",
-      "Automatic 12% combat veteran discount application",
-      "Regional market intelligence with live cost calculations",
-      "Instant preliminary estimates in seconds",
-      "24/7 availability for research phase clients",
-    ],
-    screenshot: `${enhancedSEO.siteUrl}/images/ai-estimator-screenshot.jpg`,
-    softwareVersion: "4.0.0",
-    datePublished: "2025-10-23",
-    isAccessibleForFree: true,
-    audience: {
-      "@type": "Audience",
-      audienceType: "Construction Project Clients, Homeowners, Business Owners",
-    },
-  };
-}
-
-// Generate IRL Consultation service schema
+// Generate IRL Consultation service schema (removed booking/estimator schemas Dec 2025)
 export function generateIRLConsultationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${enhancedSEO.siteUrl}/booking#irl-consultation`,
+    "@id": `${enhancedSEO.siteUrl}/contact#irl-consultation`,
     name: "In-Person Construction Consultation",
     alternateName: "IRL Sales Consultation",
     description:
@@ -464,7 +413,7 @@ export function generateIRLConsultationSchema() {
     },
     potentialAction: {
       "@type": "ReserveAction",
-      target: `${enhancedSEO.siteUrl}/booking`,
+      target: `${enhancedSEO.siteUrl}/contact`,
       name: "Schedule Free Consultation",
     },
   };
@@ -493,14 +442,14 @@ export function generateConstructionFAQSchema() {
   const faqs = [
     {
       question:
-        "What is the difference between AI Budget Estimator and Expert Consultation?",
+        "What is the difference between preliminary planning and Expert Consultation?",
       answer:
-        "Our AI Budget Planning Tool provides preliminary cost estimates in under 5 minutes, available 24/7 to help Client Partners prepare for consultations. Expert Consultation offers comprehensive on-site evaluations with detailed open-book pricing and personalized recommendations during business hours. Personal consultation is recommended first, with the planning tool available as an optional preparation aid.",
+        "Our free Expert Consultation offers comprehensive on-site evaluations with detailed open-book pricing and personalized recommendations during business hours. This face-to-face approach is how we build trust and lasting partnerships. We believe the best projects start with honest conversation and a firm handshake.",
     },
     {
       question: "Do you offer veteran benefits and discounts?",
       answer:
-        "Yes! As a veteran-owned business since January 2025, we proudly offer automatic 12% combat veteran discounts through our AI Budget Planning Tool, plus specialized protocols for veteran recognition and service-specific benefits. Our General MH assistant provides veteran advisory services for accessibility, energy efficiency, and security guidance.",
+        "Yes! As a veteran-owned business since January 2025, we proudly offer automatic 12% combat veteran discounts on all projects, plus specialized protocols for veteran recognition and service-specific benefits. Our team provides veteran advisory services for accessibility, energy efficiency, and security guidance. Contact us directly for personalized veteran support.",
     },
     {
       question: "What areas do you serve in the Pacific Northwest?",
@@ -525,7 +474,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "How can I get started with my construction project?",
       answer:
-        "We recommend starting with a free expert consultation—schedule your on-site evaluation for comprehensive assessment and detailed open-book pricing. You can also use our 24/7 AI Budget Planning Tool for preliminary estimates to help prepare for your consultation. Contact us at (509) 308-6489.",
+        "We recommend starting with a free expert consultation—schedule your on-site evaluation for comprehensive assessment and detailed open-book pricing. This face-to-face meeting is where partnerships begin. Contact us at (509) 308-6489 or visit our Contact page to get started.",
     },
     {
       question: "Are you a veteran-owned business?",

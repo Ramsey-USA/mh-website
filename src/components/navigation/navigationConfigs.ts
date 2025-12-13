@@ -18,24 +18,6 @@ export function getNavigationLabel(
 export const navigationConfigs = {
   home: [
     {
-      href: "/estimator",
-      label: "Budget Planning Tool",
-      mobileLabel: "Budget Tool",
-      icon: "calculate",
-    },
-    {
-      href: "/3d-explorer",
-      label: "3D Explorer",
-      mobileLabel: "3D View",
-      icon: "visibility",
-    },
-    {
-      href: "/booking",
-      label: "Begin Your Project",
-      mobileLabel: "Start",
-      icon: "handshake",
-    },
-    {
       href: "/trade-partners",
       label: "Build Partnership",
       mobileLabel: "Partner",
@@ -129,13 +111,7 @@ export const navigationConfigs = {
       icon: "build_circle",
     },
     {
-      href: "/estimator",
-      label: "Budget Tool",
-      mobileLabel: "Budget",
-      icon: "calculate",
-    },
-    {
-      href: "/booking",
+      href: "/contact",
       label: "Begin Project",
       mobileLabel: "Start",
       icon: "handshake",
@@ -163,13 +139,7 @@ export const navigationConfigs = {
       icon: "military_tech",
     },
     {
-      href: "/estimator",
-      label: "Budget Tool",
-      mobileLabel: "Budget",
-      icon: "calculate",
-    },
-    {
-      href: "/booking",
+      href: "/contact",
       label: "Begin Project",
       mobileLabel: "Start",
       icon: "handshake",
@@ -301,18 +271,6 @@ export const navigationConfigs = {
   contact: [
     { href: "/", label: "Home", icon: "home" },
     {
-      href: "/estimator",
-      label: "Budget Tool",
-      mobileLabel: "Budget",
-      icon: "calculate",
-    },
-    {
-      href: "/booking",
-      label: "Schedule Meeting",
-      mobileLabel: "Book",
-      icon: "calendar_month",
-    },
-    {
       href: "/services",
       label: "Our Services",
       mobileLabel: "Services",
@@ -338,40 +296,6 @@ export const navigationConfigs = {
     },
   ],
 
-  estimator: [
-    { href: "/", label: "Home", icon: "home" },
-    {
-      href: "/services#core-services",
-      label: "Our Services",
-      mobileLabel: "Services",
-      icon: "build",
-    },
-    {
-      href: "/services#maintenance",
-      label: "Maintenance & Repairs",
-      mobileLabel: "Repairs",
-      icon: "build_circle",
-    },
-    {
-      href: "/contact",
-      label: "Talk to Expert",
-      mobileLabel: "Expert",
-      icon: "contact_phone",
-    },
-    {
-      href: "/projects#portfolio",
-      label: "Trust In Action",
-      mobileLabel: "Projects",
-      icon: "verified",
-    },
-    {
-      href: "/booking",
-      label: "Schedule Meeting",
-      mobileLabel: "Schedule",
-      icon: "handshake",
-    },
-  ],
-
   government: [
     { href: "/", label: "Home", icon: "home" },
     {
@@ -385,12 +309,6 @@ export const navigationConfigs = {
       label: "Quality Inspections",
       mobileLabel: "Inspections",
       icon: "fact_check",
-    },
-    {
-      href: "/estimator",
-      label: "Cost Estimator",
-      mobileLabel: "Estimate",
-      icon: "calculate",
     },
     {
       href: "/about#team",
@@ -440,34 +358,6 @@ export const navigationConfigs = {
     },
   ],
 
-  booking: [
-    { href: "/", label: "Home", icon: "home" },
-    {
-      href: "/booking#what-to-expect",
-      label: "What to Expect",
-      mobileLabel: "Expect",
-      icon: "info",
-    },
-    {
-      href: "/services",
-      label: "Our Services",
-      mobileLabel: "Services",
-      icon: "build",
-    },
-    {
-      href: "/estimator",
-      label: "Budget Tool",
-      mobileLabel: "Budget",
-      icon: "calculate",
-    },
-    {
-      href: "/contact",
-      label: "Contact Us",
-      mobileLabel: "Contact",
-      icon: "contact_phone",
-    },
-  ],
-
   urgent: [
     { href: "/", label: "Home", icon: "home" },
     {
@@ -493,34 +383,6 @@ export const navigationConfigs = {
       label: "Contact Now",
       mobileLabel: "Contact",
       icon: "phone",
-    },
-  ],
-
-  "3dExplorer": [
-    { href: "/", label: "Home", icon: "home" },
-    {
-      href: "/estimator",
-      label: "Budget Planning Tool",
-      mobileLabel: "Budget",
-      icon: "calculate",
-    },
-    {
-      href: "/services",
-      label: "Our Services",
-      mobileLabel: "Services",
-      icon: "build",
-    },
-    {
-      href: "/projects",
-      label: "Our Projects",
-      mobileLabel: "Projects",
-      icon: "photo_library",
-    },
-    {
-      href: "/contact",
-      label: "Get Notified",
-      mobileLabel: "Notify",
-      icon: "notifications",
     },
   ],
 
