@@ -273,12 +273,6 @@ const QR_CODES = [
     label: "BRITTNEY HOLSTEIN",
   },
   {
-    name: "team-makayla-holstein",
-    url: `${BASE_URL}/team#makayla-holstein`,
-    description: "Makayla Holstein - Accounting Specialist",
-    label: "MAKAYLA HOLSTEIN",
-  },
-  {
     name: "team-jennifer-tene",
     url: `${BASE_URL}/team#jennifer-tene`,
     description: "Jennifer Tene - Payroll & HR Coordinator",

@@ -84,22 +84,6 @@ export const teamMembers: TeamMember[] = [
 
   // Project Management & Estimating
   {
-    name: "Makayla Holstein",
-    role: "Project Manager",
-    department: "Project Management & Estimating",
-    experienceYears: 8, // Assumed
-    veteranStatus: "Civilian",
-    specialties: [
-      "Project Coordination",
-      "Timeline Management",
-      "Client Partner Communication",
-      "Risk Mitigation",
-    ],
-    bio: "Makayla grew up immersed in construction, learning from her father and working hands-on in framing, roofing, and site problem-solving. Project management was a natural fit for her organizational and communication skills. As Project Manager, she oversees projects from estimating to close-out - managing contracts, budgets, submittals, RFIs, change orders, and field coordination.",
-    slug: "makayla-holstein",
-    active: true,
-  },
-  {
     name: "Ben Woodall",
     role: "Project Manager",
     department: "Project Management & Estimating",

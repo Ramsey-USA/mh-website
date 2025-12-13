@@ -648,24 +648,6 @@
       "error": null
     },
     {
-      "name": "team-makayla-holstein",
-      "filename": "qr-team-makayla-holstein-color.png",
-      "variant": "color",
-      "url": "https://mhc-gc.com/team#makayla-holstein",
-      "description": "Makayla Holstein - Accounting Specialist",
-      "success": true,
-      "error": null
-    },
-    {
-      "name": "team-makayla-holstein",
-      "filename": "qr-team-makayla-holstein-bw.png",
-      "variant": "bw",
-      "url": "https://mhc-gc.com/team#makayla-holstein",
-      "description": "Makayla Holstein - Accounting Specialist",
-      "success": true,
-      "error": null
-    },
-    {
       "name": "team-jennifer-tene",
       "filename": "qr-team-jennifer-tene-color.png",
       "variant": "color",

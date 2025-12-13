@@ -52,7 +52,6 @@ public/images/qr-codes/
 ├── qr-team-lisa-kandle.png          # Office Manager
 ├── qr-team-reagan-massey.png        # Executive Assistant
 ├── qr-team-brittney-holstein.png    # Project Coordinator
-├── qr-team-makayla-holstein.png     # Accounting Specialist
 └── qr-team-jennifer-tene.png  # Payroll & HR Coordinator
 ```
 

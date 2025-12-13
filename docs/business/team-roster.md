@@ -56,36 +56,6 @@ management, ensuring each project aligns with MH's owner-centric approach.
 
 ## 🏗️ Project Management & Estimating
 
-### Makayla Holstein - Project Manager
-
-**BIO**: Makayla grew up immersed in construction, learning from her father and working hands-on in
-framing, roofing, and site problem-solving. Project management was a natural fit for her
-organizational and communication skills. As Project Manager, she oversees projects from estimating
-to close-out - managing contracts, budgets, submittals, RFIs, change orders, and field
-coordination.
-
-- **Experience**: 8 years construction project management
-- **Status**: Civilian Professional
-- **Certifications**:
-  - PMP (Project Management Professional)
-  - AAS in Business Management
-- **Core Specialties**:
-  - Project Coordination & Timeline Management
-  - Client Communication & Stakeholder Relations
-  - Risk Mitigation & Problem Resolution
-  - Multi-Phase Project Leadership
-- **Notable Projects**:
-  - Baskin Robbins remodel (completed in 14 days)
-  - Hydraulic building lift project (raising structure 5 feet to resolve height constraints)
-- **Strengths**:
-  - Communication
-  - Organization
-  - Problem-Solving
-  - Leadership
-  - Client Relationship Building
-  - Pride in Work - Delivering quality jobs that make clients happy, reflecting positively on the team
-- **Approach**: Detail-oriented coordination with emphasis on transparent communication
-
 ### Ben Woodall - Project Manager
 
 - **Experience**: 10 years project management
@@ -354,7 +324,7 @@ Every team member embodies our core partnership approach:
 
 ### Commercial Construction
 
-- **Project Managers**: Makayla Holstein, Ben Woodall
+- **Project Manager**: Ben Woodall
 - **Superintendents**: Steve McClary, Reagan Massey
 - **Specialties**: Office buildings, retail centers, medical facilities
 
@@ -384,7 +354,7 @@ Connect with our experienced team to discuss your construction project needs.
 ### Project Team Contacts
 
 - **Primary Contact**: Arnold Garcia, Vice President
-- **Project Management**: Makayla Holstein or Ben Woodall
+- **Project Management**: Ben Woodall
 - **Estimating**: Todd Schoeff
 
 ### Administrative Support

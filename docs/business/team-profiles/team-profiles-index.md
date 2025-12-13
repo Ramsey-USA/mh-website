@@ -42,7 +42,6 @@
 
 - **[Jennifer Tene](./jennifer-tene.md)** - Administration
 - **[Lisa Kandle](./lisa-kandle.md)** - Administrative support
-- **[Makayla Holstein](./makayla-holstein.md)** - Administrative coordination
 - **[Brittney Holstein](./brittney-holstein.md)** - Administrative support
 - **[Reagan Massey](./reagan-massey.md)** - Administrative operations
 

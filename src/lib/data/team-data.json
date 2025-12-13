@@ -162,60 +162,6 @@
     "qrCode": "/images/qr-codes/qr-team-arnold-garcia.png"
   },
   {
-    "name": "Makayla Holstein",
-    "role": "Project Manager",
-    "department": "Project Management & Estimating",
-    "cardNumber": 3,
-    "position": "Project Manager",
-    "nickname": "The Scheduler",
-    "yearsWithCompany": 8,
-    "hometown": "Tri-Cities, WA",
-    "education": "Project Management",
-    "currentYearStats": {
-      "projectsCompleted": 32,
-      "clientSatisfaction": 96,
-      "safetyRecord": "EXCELLENT",
-      "teamCollaborations": 28
-    },
-    "careerStats": {
-      "totalProjects": 180,
-      "yearsExperience": 8,
-      "specialtyAreas": 4,
-      "mentorships": 12
-    },
-    "awards": "Perfect Project Delivery Award, Rising Star Recognition",
-    "bio": "Makayla grew up immersed in construction, learning from her father and working hands-on in framing, roofing, and site problem-solving. Project management was a natural fit for her organizational and communication skills. As Project Manager, she oversees projects from estimating to close-out - managing contracts, budgets, submittals, RFIs, change orders, and field coordination.",
-    "careerHighlights": [
-      "Baskin Robbins remodel - completed in 14 days",
-      "Hydraulic building lift - raised structure 5 feet",
-      "Zero project delays in 2025",
-      "Achieved 96% client satisfaction"
-    ],
-    "funFact": "Makayla has never had a project finish late, earning her the nickname \"The Scheduler\".",
-    "certifications": "PMP (Project Management Professional), AAS in Business Management",
-    "hobbies": "Organization, Travel",
-    "specialInterests": "Client satisfaction through quality delivery",
-    "specialties": [
-      "Project Coordination & Timeline Management",
-      "Client Communication & Stakeholder Relations",
-      "Risk Mitigation & Problem Resolution",
-      "Multi-Phase Project Leadership"
-    ],
-    "avatar": "/images/team/makayla-holstein.jpg",
-    "veteranStatus": "Civilian Professional",
-    "active": true,
-    "slug": "makayla-holstein",
-    "skills": {
-      "leadership": 67,
-      "technical": 72,
-      "communication": 77,
-      "safety": 75,
-      "problemSolving": 77,
-      "teamwork": 72
-    },
-    "qrCode": "/images/qr-codes/qr-team-makayla-holstein.png"
-  },
-  {
     "name": "Ben Woodall",
     "role": "Project Manager",
     "department": "Project Management & Estimating",

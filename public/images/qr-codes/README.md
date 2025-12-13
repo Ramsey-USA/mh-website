@@ -416,18 +416,6 @@ Generated: 11/17/2025, 7:01:35 PM
 - **File:** `qr-team-brittney-holstein-bw.png`
 - **URL:** [https://mhc-gc.com/team#brittney-holstein](https://mhc-gc.com/team#brittney-holstein)
 
-### Makayla Holstein Accounting Specialist (Color)
-
-- **Name:** `team-makayla-holstein`
-- **File:** `qr-team-makayla-holstein-color.png`
-- **URL:** [https://mhc-gc.com/team#makayla-holstein](https://mhc-gc.com/team#makayla-holstein)
-
-### Makayla Holstein Accounting Specialist (Black and White)
-
-- **Name:** `team-makayla-holstein`
-- **File:** `qr-team-makayla-holstein-bw.png`
-- **URL:** [https://mhc-gc.com/team#makayla-holstein](https://mhc-gc.com/team#makayla-holstein)
-
 ### Jennifer Tene Payroll and HR Coordinator (Color)
 
 - **Name:** `team-jennifer-tene`

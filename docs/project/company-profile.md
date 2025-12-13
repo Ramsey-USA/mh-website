@@ -97,7 +97,6 @@ The following roster is sourced directly from `src/lib/data/team.ts` and grouped
 
 | Name | Role | Experience | Status | Core Specialties |
 |------|------|-----------:|--------|------------------|
-| Makayla Holstein | Project Manager | 8 yrs | Civilian | Coordination; Timeline; Communication |
 | Ben Woodall | Project Manager | 10 yrs | Civilian | Efficiency; Budget; Resources |
 | Todd Schoeff | Lead Estimator | 20 yrs | Civilian | Cost Estimation; Commercial |
 
