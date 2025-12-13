@@ -7,7 +7,9 @@
 
 ## Overview
 
-MH Construction has rebranded all major pages with military-inspired names to emphasize the company's veteran-owned identity and values. This strategic rebrand maintains SEO-friendly URLs while creating a distinctive, memorable brand voice that resonates with our military heritage.
+MH Construction has rebranded all major pages with military-inspired names to emphasize the company's
+veteran-owned identity and values. This strategic rebrand maintains SEO-friendly URLs while creating a
+distinctive, memorable brand voice that resonates with our military heritage.
 
 ## Core Principle
 
