@@ -46,7 +46,7 @@ results on time and within budget.
 - Project Efficiency & Process Optimization
 - Budget Management & Cost Control
 - Resource Planning & Allocation
-- Client Partner Alignment & Expectation Management
+- Client Alignment & Expectation Management
 
 ## Certifications
 

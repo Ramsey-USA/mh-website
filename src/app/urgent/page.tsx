@@ -109,7 +109,7 @@ export default function UrgentSupportPage() {
       icon: "handshake",
       title: "General Contractor Partnership",
       description:
-        "We work WITH you as a subcontractor partner, providing the specialized resources you need NOW",
+        "We work WITH you as an Ally, providing the specialized resources you need NOW",
     },
   ];
 

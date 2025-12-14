@@ -64,7 +64,7 @@ const faqCategories = [
       {
         question: "What types of projects do you specialize in?",
         answer:
-          "We specialize in commercial, industrial, and medical facility construction management. Our core services include Master Planning & Pre-Construction, Procurement & Trade Partnership Management, Constructability & Budget Control, and Project Modularization. We also offer specialized services for tenant improvements, religious facility construction, and government projects.",
+          "We specialize in commercial, industrial, and medical facility construction management. Our core services include Master Planning & Pre-Construction, Procurement & Ally Management, Constructability & Budget Control, and Project Modularization. We also offer specialized services for tenant improvements, religious facility construction, and government projects.",
       },
       {
         question: "Are you really veteran-owned?",
@@ -245,9 +245,9 @@ const faqCategories = [
           "We use 'Client Partner' instead of just 'client' because we believe in true partnership—working WITH you, not FOR you. Your success is our success. This isn't just terminology; it's our operating philosophy reflected in collaborative decision-making, transparent communication, and shared commitment to your project's success.",
       },
       {
-        question: "How do you select subcontractors and vendors?",
+        question: "How do you select Allies and vendors?",
         answer:
-          "We work with an approved network of Trade Partners who share our values and quality standards. Our Thoroughness means carefully vetting every subcontractor for quality, reliability, and safety. We maintain these relationships through fair treatment, timely payment, and mutual respect—the same Integrity we extend to our Client Partners.",
+          "We work with an approved network of Allies who share our values and quality standards. Our Thoroughness means carefully vetting every Ally for quality, reliability, and safety. We maintain these relationships through fair treatment, timely payment, and mutual respect—the same Integrity we extend to our clients.",
       },
       {
         question: "Can I use my own subcontractors?",

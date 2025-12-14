@@ -206,7 +206,8 @@ See `/docs/development/chatbot-enhancement-guide.md` for complete roadmap:
 - **Hours:** Monday-Friday, 7:00 AM - 4:00 PM PST (0700 - 1600)
 - **Address:** 3111 N. Capitol Ave., Pasco, WA 99301
 - **Service Areas:** WA, OR, ID (Pacific Northwest)
-- **Founded:** 2010 by Mike Holstein
+- **Founded:** 2010 by Mike Holstein (Former Owner, Retired)
+- **Current Owner:** Jeremy Thamert (Owner & President, since January 2025)
 - **Current Owner & President:** Jeremy Thamert
 - **Vice President:** Arnold Garcia
 - **Safety Record:** 0.6 EMR (40% better than industry avg)

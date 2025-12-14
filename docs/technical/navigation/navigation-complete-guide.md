@@ -129,7 +129,7 @@ Main Pages
 
 Services
 ├── Estimator
-├── Trade Partners
+├── Allies in Force
 └── Government
 
 About
@@ -523,7 +523,7 @@ Page Structure:
 - `/government` - Government Projects
 - `/projects` - Portfolio
 - `/team` - Our Team
-- `/trade-partners` - Trade Partners
+- `/trade-partners` - Allies in Force
 - `/urgent` - Urgent Support
 
 ---

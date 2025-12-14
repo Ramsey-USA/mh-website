@@ -58,7 +58,7 @@ import { QRCodeSection } from "@/components/ui/QRCode";
 
 - `estimator` - AI Project Estimator
 - `case-studies` - Case Studies
-- `trade-partners` - Trade Partners
+- `allies` - Allies (Ally Network)
 - `veteran-benefits` - Veteran Benefits
 
 ### Contact Methods

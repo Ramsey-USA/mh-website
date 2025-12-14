@@ -41,12 +41,12 @@
 
 ### Service Type Distinctions
 
-| Service Type           | Icon             | Color        | Button Variant | Example Text            |
-| ---------------------- | ---------------- | ------------ | -------------- | ----------------------- |
-| **Direct Contact**     | `phone`, `email` | Hunter Green | `primary`      | "Contact Us Today"      |
-| **View Work**          | `photo_library`  | Leather Tan  | `secondary`    | "View Our Victories"    |
-| **Client Partnership** | `handshake`      | Hunter Green | `primary`      | "Begin Our Partnership" |
-| **Trade Partnership**  | `construction`   | Leather Tan  | `secondary`    | "Apply as Vendor"       |
+| Service Type         | Icon             | Color        | Button Variant | Example Text            |
+| -------------------- | ---------------- | ------------ | -------------- | ----------------------- |
+| **Direct Contact**   | `phone`, `email` | Hunter Green | `primary`      | "Contact Us Today"      |
+| **View Work**        | `photo_library`  | Leather Tan  | `secondary`    | "View Our Victories"    |
+| **Client CTA**       | `handshake`      | Hunter Green | `primary`      | "Begin Our Partnership" |
+| **Ally Partnership** | `construction`   | Leather Tan  | `secondary`    | "Apply as Vendor"       |
 
 ---
 
@@ -117,7 +117,7 @@
 - Secondary information requests
 - Portfolio viewing
 - Resource downloads
-- Trade partner applications
+- Ally applications
 
 **Approved Text Patterns:**
 
@@ -291,7 +291,7 @@
 
 ## 🤝 Partnership Type CTAs
 
-### Client Partnership CTAs
+### Client CTAs
 
 **Audience:** Homeowners, businesses hiring MH for projects  
 **Icon:** `handshake`  
@@ -323,18 +323,18 @@
 
 - Collaborative relationship
 - Long-term trust
-- "Client Partner" terminology (not "customer")
+- "Client" terminology (not "customer")
 - Partnership-first philosophy
 
 ---
 
-### Trade Partnership CTAs
+### Ally Partnership CTAs
 
-**Audience:** Subcontractors, suppliers, vendors  
+**Audience:** Allies (subcontractors, suppliers, vendors)  
 **Icon:** `construction`  
 **Color:** Leather Tan (#BD9264)  
 **Variant:** `secondary`  
-**Routes:** `/trade-partners`, `/vendor-application`
+**Routes:** `/allies`, `/vendor-application`
 
 **Implementation:**
 
@@ -352,8 +352,8 @@
 **Approved Button Text:**
 
 - "Apply as Approved Vendor"
-- "Join Trade Network"
-- "Become Trade Partner"
+- "Join Ally Network"
+- "Become an Ally"
 - "Download Vendor Package"
 - "Submit Vendor Application"
 
@@ -361,7 +361,7 @@
 
 - Professional business relationship
 - Mutual benefit & growth
-- "Trade Partner" or "Vendor" terminology
+- "Ally" terminology for trade partners/vendors
 - Quality standards & approval process
 
 ---
@@ -931,7 +931,7 @@ export function MobileCTA() {
 
 2. **Partnership Type Matters**
    - Client Projects = Primary with `handshake`
-   - Trade Partners = Secondary with `construction`
+   - Allies = Secondary with `construction`
 
 3. **Be Specific**
    - ✅ "Schedule Free Consultation"

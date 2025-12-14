@@ -1,16 +1,16 @@
-# MH Construction Trade Partnership Content Guide
+# MH Construction Ally Content Guide
 
-## 🎯 **VENDOR/TRADE PARTNERSHIP MESSAGING FRAMEWORK**
+## 🎯 **ALLY MESSAGING FRAMEWORK**
 
 This guide provides specific content and messaging for attracting, onboarding, and managing
 relationships with subcontractors, suppliers, and trade professionals who want to join the MH
-Construction network.
+Construction Ally Network.
 
 ---
 
-## 🤝 **TRADE PARTNERSHIP VALUE PROPOSITION**
+## 🤝 **ALLY VALUE PROPOSITION**
 
-### **Core Benefits for Trade Partners**
+### **Core Benefits for Allies**
 
 ````typescript
 // Primary Value Propositions
@@ -30,7 +30,7 @@ Construction network.
 "Veteran-owned business supporting veteran entrepreneurs";
 ```text
 
-### **Trade Partner Requirements**
+### **Ally Requirements**
 
 ```typescript
 // Essential Qualifications
@@ -52,7 +52,7 @@ Construction network.
 
 ---
 
-## 📋 **TRADE PARTNERSHIP APPLICATION PROCESS**
+## 📋 **ALLY APPLICATION PROCESS**
 
 ### **Step 1: Initial Application**
 
@@ -145,24 +145,24 @@ Evaluation Process:
 ### **Welcome Package Contents**
 
 ```typescript
-New Trade Partner Kit:
-├── Welcome Letter and Partnership Agreement
+New Ally Kit:
+├── Welcome Letter and Ally Agreement
 ├── MH Construction Standards and Procedures Manual
 ├── Project Communication Protocols
 ├── Safety Requirements and Procedures
 ├── Payment Terms and Invoicing Instructions
 ├── Quality Control Standards and Expectations
 ├── Contact Directory and Emergency Procedures
-└── Trade Partner Portal Access and Training
-```text
+└── Ally Portal Access and Training
+```
 
 ### **Integration Process**
 
 ```typescript
 Onboarding Timeline:
 Week 1: Documentation and Portal Setup
-├── Complete partnership agreement
-├── Set up vendor portal access
+├── Complete Ally agreement
+├── Set up Ally portal access
 ├── Review standards and procedures
 └── Initial team introductions
 
@@ -178,16 +178,16 @@ Week 3: First Project Assignment
 ├── Performance evaluation
 └── Feedback and adjustment session
 
-Week 4: Full Partnership Activation
+Week 4: Full Activation
 ├── Performance review and confirmation
 ├── Full project access activation
 ├── Long-term planning discussion
-└── Partnership optimization planning
-```text
+└── Optimization planning
+```
 
 ---
 
-## 📊 **TRADE PARTNER CATEGORIES**
+## 📊 **ALLY CATEGORIES**
 
 ### **Primary Trade Categories**
 
@@ -241,7 +241,7 @@ Professional Services:
 
 ## 💼 **VENDOR PORTAL FEATURES**
 
-### **Trade Partner Dashboard**
+### **Ally Dashboard**
 
 ```typescript
 Portal Capabilities:
@@ -299,22 +299,22 @@ Partnership Levels:
 
 ---
 
-## 📞 **TRADE PARTNERSHIP CONTACT METHODS**
+## 📞 **ALLY CONTACT METHODS**
 
 ### **Application and Inquiry Contacts**
 
 ```typescript
-Trade Partnership Team:
-├── Vendor Relations Manager
+Ally Relations Team:
+├── Ally Relations Manager
 │   ├── Phone: (509) 308-6489
 │   ├── Email: office@mhc-gc.com
 │   ├── Primary contact for new applications
-│   └── Partnership development and growth
+│   └── Relationship development and growth
 ├── Project Coordination Manager
 │   ├── Phone: (509) 308-6489
 │   ├── Email: office@mhc-gc.com
 │   ├── Active project coordination and management
-│   └── Ongoing partnership support and communication
+│   └── Ongoing Ally support and communication
 └── Safety and Compliance Officer
     ├── Phone: (509) 308-6489
     ├── Email: office@mhc-gc.com
@@ -324,7 +324,7 @@ Trade Partnership Team:
 
 ### **Quick Contact Links**
 
-**Vendor Applications:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
+**Ally Applications:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 **Project Coordination:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
@@ -332,13 +332,13 @@ Trade Partnership Team:
 
 ---
 
-## 🎯 **TRADE PARTNERSHIP MARKETING MESSAGES**
+## 🎯 **ALLY MARKETING MESSAGES**
 
 ### **Recruitment Headlines**
 
 ```typescript
 // Primary Headlines
-"Join the MH Construction Trade Partnership Network";
+"Join the MH Construction Ally Network";
 "Grow Your Business with a Veteran-Owned Construction Leader";
 "Quality Projects, Fair Pay, Professional Respect";
 "Build Your Future with Pacific Northwest's Premier Builder";
@@ -348,22 +348,22 @@ Trade Partnership Team:
 "Professional Partnerships That Grow Your Business";
 "Join Quality Professionals Serving the Tri-Cities";
 "Veteran-Owned Business Supporting Trade Professionals";
-```text
+```
 
 ### **Call-to-Action Messaging**
 
 ```typescript
 // Primary CTAs
-"Apply to be an Approved Vendor";
-"Join Our Trade Partnership Network";
-"Submit Your Vendor Application";
-"Become a Trade Partner Today";
+"Apply to be an Approved Ally";
+"Join Our Ally Network";
+"Submit Your Ally Application";
+"Become an Ally Today";
 
 // Secondary CTAs
-"Download Vendor Requirements Package";
+"Download Ally Requirements Package";
 "Schedule Partnership Discussion";
-"Learn About Trade Opportunities";
-"Contact Vendor Relations Team";
+"Learn About Ally Opportunities";
+"Contact Ally Relations Team";
 
 // Information CTAs
 "View Partnership Benefits";
@@ -374,6 +374,6 @@ Trade Partnership Team:
 
 ---
 
-**Trade Partnership Guide** | **Version 1.0** | **October 14, 2025**
+**Ally Guide** | **Version 2.0** | **December 14, 2025**
 _Building quality partnerships with Pacific Northwest trade professionals_
 ````

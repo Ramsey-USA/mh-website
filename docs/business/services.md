@@ -23,7 +23,7 @@ construction expertise.
 
 Put your commercial building project in the right hands. MH Construction delivers full
 Construction Management (CM) services throughout the Tri-Cities area, including Pasco,
-Kennewick, and Richland, WA. Our priority is delivering an exceptional Client Partner experience
+Kennewick, and Richland, WA. Our priority is delivering an exceptional Client experience
 from concept through completion.
 
 **Key Focus**: We believe meticulous Master Planning and thorough communication are
@@ -45,7 +45,7 @@ Trust our experienced team to manage the intricate details, allowing you to focu
 Planning a new commercial building demands intricate details and expert oversight. Put your
 project in the right hands by hiring MH Construction for comprehensive Construction
 Management (CM) services throughout the Tri-Cities (Pasco, WA) area. Our priority is
-delivering an exceptional Client Partner experience from start to finish. Our commitment to
+delivering an exceptional Client experience from start to finish. Our commitment to
 thorough communication and upfront planning is critical to streamlining the process,
 preventing costly on-the-fly decisions later on.
 
@@ -92,21 +92,21 @@ We meticulously consider:
 
 ---
 
-### 3. **Procurement & Trade Partnership Management**
+### 3. **Procurement & Ally Management**
 
-#### Reliable Construction Material Procurement and Trade Partnership Coordination
+#### Reliable Construction Material Procurement and Ally Coordination
 
 Navigating the logistics of construction requires extensive planning and coordination.
-At MH Construction, we offer comprehensive Trade Partnership Management services throughout the
+At MH Construction, we offer comprehensive Ally Management services throughout the
 Tri-Cities that specialize in sourcing quality materials and coordinating with our network of
 approved vendors tailored to your project goals. Our reliable Master Planning gives our
-trade partners the advanced notice necessary to streamline procurement and proactively
+Allies the advanced notice necessary to streamline procurement and proactively
 manage long lead item delays, ensuring timely delivery and installation.
 
-_For Client Partners: We handle all vendor coordination so you don't have to worry about managing
-multiple trade relationships - we work with our established network of quality professionals._
+_For Clients: We handle all vendor coordination so you don't have to worry about managing
+multiple relationships - we work with our established network of quality professionals._
 
-_For Trade Partners: Join our approved vendor network for consistent project opportunities
+_For Allies: Join our approved vendor network for consistent project opportunities
 and professional partnership growth in the Pacific Northwest construction market._
 
 #### **What Our Service Provides**
@@ -129,22 +129,21 @@ We pay meticulous attention to detail throughout the entire procurement process.
 Is your project possible? And if so, how can it be cost-effective? MH Construction is
 committed to improving project planning and execution by conducting early-stage analysis
 of construction feasibility and cost considerations. We offer these critical
-Constructability and Budget Control Services to Client Partners throughout Washington, Oregon,
+Constructability and Budget Control Services to Clients throughout Washington, Oregon,
 and Idaho.
 
 #### **Partnership-Driven Process**
 
-Our proactive approach involves partnering closely with our network of approved trade
-professionals. This collaborative relationship eliminates guesswork and allows us to determine:
+Our proactive approach involves partnering closely with our network of approved Allies. This collaborative relationship eliminates guesswork and allows us to determine:
 
 - **The most efficient construction sequence and assembly**
 - **Logistics for specialty items** (like equipment and infrastructure)
 - **Precise parts ordering, timing, and cost control**
 
-_For Client Partners: We coordinate with our trusted trade partners to ensure your project
+_For Clients: We coordinate with our trusted Allies to ensure your project
 stays on schedule and within budget through expert collaboration._
 
-_For Trade Partners: Join our network to participate in early-stage project planning
+_For Allies: Join our network to participate in early-stage project planning
 and secure consistent work through our constructability review process._
 
 ---
@@ -155,7 +154,7 @@ and secure consistent work through our constructability review process._
 
 Project Modularization involves strategically dividing a project into smaller, more
 manageable subprojects. This process simplifies design, execution, and maintenance.
-MH Construction focuses on Subproject Management to help Client Partners complete large, complex
+MH Construction focuses on Subproject Management to help Clients complete large, complex
 projects more efficiently and consistently meet schedules across the Tri-Cities and the
 Northwest.
 
@@ -365,7 +364,7 @@ roofing systems, and structural issues causing leaks or failures.
 
 ## Get Started Today
 
-### **For Client Partners**
+### **For Clients**
 
 Ready to begin your construction partnership? We're here to listen, collaborate, and
 bring your vision to life through professional construction management.
@@ -376,7 +375,7 @@ bring your vision to life through professional construction management.
 
 Schedule a personalized consultation with our experienced team for detailed professional estimates and expert guidance.
 
-**Client Partner Services:**
+**Client Services:**
 
 - **Schedule Free Consultation** - Meet with our project specialists (`event`)
 - **Book Site Visit** - On-location assessment (`place`)
@@ -393,15 +392,14 @@ Available 24/7 to prepare for your consultation.
 
 **Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
-### **For Trade Partners**
+### **For Allies**
 
-Looking to grow your business with a veteran-owned construction leader? Join our
-network of quality professionals serving the Pacific Northwest market.
+**Building Relationships with Professional Construction Partners**
 
-**Trade Partnership Opportunities:**
+**Ally Opportunities:**
 
 - **Apply to be Approved Vendor** - Submit application to join network (`check_circle`)
-- **Join Trade Partnership Network** - Partner with established contractor (`construction`)
+- **Join Ally Network** - Partner with established contractor (`construction`)
 - **Download Vendor Package** - Get requirements and materials (`download`)
 
 **Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
@@ -410,17 +408,17 @@ network of quality professionals serving the Pacific Northwest market.
 
 ## Contact Information
 
-### **Project Consultations** (Client Partnerships)
+### **Project Consultations** (Clients)
 
 **Phone:** [(509) 308-6489](tel:+15093086489)
 **Email:** [office@mhc-gc.com](mailto:office@mhc-gc.com)
 **For:** Free estimates, consultations, and project discussions
 
-### **Trade Partnership Inquiries** (Vendor Partnerships)
+### **Ally Inquiries** (Vendor Relationships)
 
 **Phone:** [(509) 308-6489](tel:+15093086489)
 **Email:** [office@mhc-gc.com](mailto:office@mhc-gc.com)
-**For:** Vendor applications, trade partnerships, and business opportunities
+**For:** Vendor applications, Ally relationships, and business opportunities
 
 ### **General Information**
 

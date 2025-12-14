@@ -36,7 +36,7 @@ equipment machines. Known for his staying busy and constantly learning new trade
 a career on reliability and skill diversity.
 
 As Senior Superintendent, Steve oversees all on-site construction operations - ensuring projects
-are safe, efficient, and on-plan. He coordinates subcontractor teams, mentors newcomers, manages
+are safe, efficient, and on-plan. He coordinates Ally teams, mentors newcomers, manages
 resources, and serves as a key liaison between clients and design teams.
 
 ## Career Highlights

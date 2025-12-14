@@ -129,7 +129,7 @@ the unique requirements of Department of Energy projects.
 - DOE compliance and documentation
 - Radiation safety protocols understanding
 - Hanford-specific contractor relationships
-- Local subcontractor network
+- Local Ally network
 - Emergency response capabilities
 
 **Hanford Project Types:**

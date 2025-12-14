@@ -279,7 +279,7 @@ Experience these values in action on your next construction project.
 
 **Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
-### **For Trade Partners**
+### **For Allies**
 
 - **Apply to be Approved Vendor** - Join our professional network
 

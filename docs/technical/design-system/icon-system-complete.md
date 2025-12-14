@@ -560,7 +560,7 @@ style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
 
 **Service Icons:**
 
-- `construction` - Trade partners, vendor services
+- `construction` - Allies, vendor services
 - `business` - Commercial projects, business services
 - `home` - Residential projects, homeowner services
 - `factory` - Industrial projects, manufacturing facilities
@@ -839,8 +839,8 @@ import { MaterialIcon } from '@/components/ui/material-icon';
 | ------------------ | -------------- | ---- | ------------ |
 | Schedule CTA       | `event`        | `lg` | Hunter Green |
 | AI Estimator       | `smart_toy`    | `lg` | Leather Tan  |
-| Client Partnership | `handshake`    | `lg` | Hunter Green |
-| Trade Partnership  | `construction` | `lg` | Leather Tan  |
+| Client CTA         | `handshake`    | `lg` | Hunter Green |
+| Ally Partnership   | `construction` | `lg` | Leather Tan  |
 | Verified/Certified | `verified`     | `md` | Bronze       |
 | Engineering        | `engineering`  | `xl` | Hunter Green |
 | Success Check      | `check_circle` | `md` | Green        |

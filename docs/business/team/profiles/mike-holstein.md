@@ -1,13 +1,14 @@
-# Mike Holstein - "The Foundation"
+# Mike Holstein - "The Foundation" (Founder & Former Owner)
 
-> **Card #2** | **Executive Leadership** | **Retired Leadership**
+> **Card #2** | **Executive Leadership** | **Retired Leadership - Former Owner**
 
 ## 📋 Quick Facts
 
-- **Role**: Founder (Retired)
-- **Years with Company**: 30
+- **Role**: Founder & Former Owner (Retired)
+- **Years with Company**: 15 years (2010-2025)
 - **Hometown**: Pacific Northwest
 - **Education**: Construction Management
+- **Status**: Ownership transferred to Jeremy Thamert (January 2025)
 
 ## 📊 2025 Performance Statistics
 
@@ -29,7 +30,7 @@ Lifetime Achievement Award, Regional Business Excellence Award
 
 ## 👤 Biography
 
-Mike Holstein founded MH Construction in 2010 and established its reputation for integrity, quality, and
+Mike Holstein founded MH Construction in 2010 and served as owner until January 2025 when ownership transferred to Jeremy Thamert. He established the company's reputation for integrity, quality, and
 precision. His leadership and vision established the "We Work With You" partnership philosophy that
 defines MH Construction today.
 
@@ -44,7 +45,7 @@ defines MH Construction today.
 
 - Company Foundations & Core Values Establishment
 - Quality Standards Development
-- Client Partner Trust & Reputation Building
+- Client Trust & Reputation Building
 - Mentorship & Succession Planning
 
 ## 📜 Certifications

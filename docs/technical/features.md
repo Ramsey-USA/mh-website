@@ -21,7 +21,7 @@ comprehensive pages, advanced features, and modern functionality.
   - Booking page with appointment scheduling system
   - Careers page with job listings and company benefits
   - Government page focused on public sector projects
-  - Trade Partners page showcasing subcontractor network
+  - Allies page showcasing Ally network
 
 ### **Advanced Technical Implementation**
 
@@ -127,7 +127,7 @@ Production Platform:
 │   ├── booking/page.tsx            # Booking page (Complete)
 │   ├── careers/page.tsx            # Careers page (Complete)
 │   ├── government/page.tsx         # Government page (Complete)
-│   ├── trade-partners/page.tsx     # Trade partners (Complete)
+│   ├── trade-partners/page.tsx     # Allies (Complete)
 │   ├── layout.tsx                  # Root layout with providers
 │   ├── sitemap.ts                  # SEO sitemap
 │   └── robots.ts                   # SEO robots.txt

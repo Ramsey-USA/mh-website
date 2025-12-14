@@ -15,22 +15,22 @@
 
 ## 🎯 Purpose
 
-This document establishes clear, unambiguous definitions for the two distinct types of partnerships at MH Construction:
+This document establishes clear, unambiguous definitions for the two distinct types of relationships at MH Construction:
 
-1. **Client Partnerships** - Project collaborations with homeowners, businesses, and organizations
-2. **Trade Partnerships** - Business relationships with subcontractors, suppliers, and vendors
+1. **Client Relationships** - Project collaborations with homeowners, businesses, and organizations
+2. **Ally Relationships** - Business relationships with subcontractors, suppliers, and vendors
 
 **CRITICAL:** These terms are NOT interchangeable and must be used consistently across all documentation, code, and communications.
 
 ---
 
-## 📋 Partnership Type Definitions
+## 📋 Relationship Type Definitions
 
-### 1. Client Partnerships
+### 1. Client Relationships
 
 #### Definition
 
-**Client Partnerships** are collaborative relationships between MH Construction and the people or organizations who hire
+**Clients** are the people or organizations who hire
 us to complete construction projects. This represents our core business philosophy of working WITH clients, not just FOR
 them.
 
@@ -55,18 +55,18 @@ them.
 
 ✅ **CORRECT USAGE:**
 
-- "Client Partnership"
-- "Project Partnership"
+- "Client"
+- "Project Client"
 - "Client Collaboration"
-- "Your Partnership Team" (referring to client + MH team working together)
+- "Partnership" (when context is clear it refers to working with clients)
 - "Partnership-Driven Approach" (describing how we work with clients)
 
 ❌ **AVOID:**
 
 - "Customer" (transactional, not partnership-focused)
 - "Buyer" (too sales-focused)
-- "Owner" (ambiguous, could mean business owner)
-- Just "Partnership" without qualifier (ambiguous)
+- "Owner" (ambiguous - Jeremy is the owner)
+- "Client Partner" (redundant)
 
 #### Typical Journey Stages
 
@@ -85,11 +85,11 @@ them.
 
 ---
 
-### 2. Trade Partnerships
+### 2. Ally Relationships
 
 #### Definition
 
-**Trade Partnerships** are professional business relationships between MH Construction and the subcontractors,
+**Allies** are professional business relationships between MH Construction and the subcontractors,
 suppliers, and specialty trade professionals who help us deliver projects. These are vendor-to-vendor relationships
 focused on business growth and quality project delivery.
 
@@ -108,25 +108,24 @@ focused on business growth and quality project delivery.
 - **Nature:** Professional B2B partnership with mutual business growth
 - **Communication:** Project-specific coordination and business development
 - **Goal:** Deliver quality work/materials while growing both businesses
-- **Financial Flow:** MH Construction pays trade partner for services/goods
+- **Financial Flow:** MH Construction pays Ally for services/goods
 
 #### Key Terms & Synonyms
 
 ✅ **CORRECT USAGE:**
 
-- "Trade Partner"
-- "Trade Partnership"
-- "Vendor Partner"
-- "Subcontractor Partnership"
-- "Trade Network Member"
-- "Approved Vendor"
+- "Ally"
+- "Allies"
+- "Ally Network"
+- "Approved Ally"
+- "Vendor" (when technical specificity needed)
 
 ❌ **AVOID:**
 
-- Just "Vendor" (too transactional)
-- Just "Subcontractor" (doesn't emphasize partnership)
-- "Partner" without qualifier (ambiguous with client partnerships)
-- "Supplier" alone (doesn't emphasize relationship)
+- "Trade Partner" (old terminology)
+- "Subcontractor Partner" (redundant)
+- "Partner" without qualifier (ambiguous with client relationships)
+- Just "Supplier" (doesn't emphasize relationship)
 
 #### Typical Journey Stages
 
@@ -136,18 +135,18 @@ focused on business growth and quality project delivery.
 4. **Activation:** First project assignments and performance monitoring
 5. **Growth:** Advancing partnership levels based on performance
 
-#### Partnership Levels
+#### Ally Levels
 
-1. **Approved Vendor** - Entry level with project opportunities
-2. **Preferred Partner** - Priority consideration, enhanced terms
-3. **Strategic Partner** - Exclusive opportunities, premium benefits
+1. **Approved Ally** - Entry level with project opportunities
+2. **Preferred Ally** - Priority consideration, enhanced terms
+3. **Strategic Ally** - Exclusive opportunities, premium benefits
 4. **Alliance Partner** - Joint ventures, co-marketing, strategic planning
 
 #### Where They Interact
 
-- **Website Pages:** `/trade-partners`, `/contact` (vendor section)
-- **CTAs:** "Apply to be Approved Vendor", "Join Trade Partnership Network"
-- **Forms:** Vendor applications, qualification submissions
+- **Website Pages:** `/trade-partners` (Allies in Force page), `/contact` (Ally section)
+- **CTAs:** "Apply to be Approved Ally", "Join Ally Network"
+- **Forms:** Ally applications, qualification submissions
 - **Portal:** Vendor dashboard, project opportunities, invoicing
 - **Communications:** Project coordination, business development discussions
 
@@ -157,29 +156,29 @@ focused on business growth and quality project delivery.
 
 ### Terminology Comparison
 
-| Aspect                   | Client Partnerships              | Trade Partnerships                       |
+| Aspect                   | Client Relationships             | Ally Relationships                       |
 | ------------------------ | -------------------------------- | ---------------------------------------- |
 | **Primary Page**         | `/services`, `/booking`          | `/trade-partners`                        |
-| **Navigation Label**     | "Services", "Book Consultation"  | "Trade Partners"                         |
+| **Navigation Label**     | "Services", "Book Consultation"  | "Allies in Force"                        |
 | **Icon (Material)**      | `handshake`, `event`             | `construction`, `business`               |
-| **Primary CTA**          | "Get Free Estimate"              | "Apply to be Approved Vendor"            |
-| **Secondary CTA**        | "Schedule Consultation"          | "Join Trade Partnership Network"         |
-| **Form Type**            | Project consultation request     | Vendor application                       |
+| **Primary CTA**          | "Get Free Estimate"              | "Apply to be Approved Ally"              |
+| **Secondary CTA**        | "Schedule Consultation"          | "Join Ally Network"                      |
+| **Form Type**            | Project consultation request     | Ally application                         |
 | **Communication Focus**  | Project vision, timeline, budget | Qualifications, capacity, business terms |
-| **Email Subject Prefix** | "New Project Inquiry:"           | "New Vendor Application:"                |
-| **Portal Access**        | Client project dashboard         | Vendor business portal                   |
+| **Email Subject Prefix** | "New Project Inquiry:"           | "New Ally Application:"                  |
+| **Portal Access**        | Client project dashboard         | Ally business portal                     |
 | **Relationship Goal**    | Successful project delivery      | Ongoing business growth                  |
 
 ### Visual Identity Distinctions
 
-#### Client Partnership Branding
+#### Client Branding
 
 - **Primary Color:** Hunter Green (#386851) - Trust and partnership
 - **Primary Icon:** `handshake` - Collaborative relationship
 - **Tone:** Welcoming, consultative, vision-focused
 - **Photography:** Happy homeowners, finished projects, team collaboration
 
-#### Trade Partnership Branding
+#### Ally Branding
 
 - **Primary Color:** Leather Tan (#BD9264) - Professional and business-focused
 - **Primary Icon:** `construction` or `business` - Professional trades
@@ -195,36 +194,36 @@ focused on business growth and quality project delivery.
 #### Code Comments
 
 ```tsx
-// CLIENT PARTNERSHIP: Consultation booking for project clients
-// NOT for trade partner applications
+// CLIENT: Consultation booking for project clients
+// NOT for Ally applications
 
-// TRADE PARTNERSHIP: Vendor application form
+// ALLY: Ally application form
 // NOT for client project inquiries
 ```
 
 #### Component Naming
 
-````tsx
+```tsx
 // ✅ CLEAR NAMING
 <ClientConsultationForm />
-<TradePartnerApplicationForm />
+<AllyApplicationForm />
 <ClientPartnershipCTA />
-<TradePartnerRecruitmentSection />
+<AllyRecruitmentSection />
 
 // ❌ AMBIGUOUS NAMING
 <PartnershipForm />  // Which type?
-<PartnerCTA />       // Client or trade?
-<ApplicationForm />  // Job or vendor?
-```text
+<PartnerCTA />       // Client or ally?
+<ApplicationForm />  // Job or ally?
+```
 
 #### Route Organization
 
 ```text
 /booking           → Client consultation booking
 /contact           → General contact (both audiences)
-/trade-partners    → Trade partner information and application
+/trade-partners    → Ally information and application ("Allies in Force" page)
 /services          → Client-facing service descriptions
-````
+```
 
 ### For Content Writers
 
@@ -237,30 +236,30 @@ focused on business growth and quality project delivery.
 - "Schedule Your Free Consultation"
 - "Let's Discuss Your Vision"
 
-✅ TRADE-FOCUSED:
+✅ ALLY-FOCUSED:
 
-- "Join Our Trade Partnership Network"
-- "Apply to Become an Approved Vendor"
+- "Join Our Ally Network"
+- "Apply to Become an Approved Ally"
 - "Grow Your Business with MH Construction"
 
 ❌ AMBIGUOUS:
 
 - "Become a Partner" (Which type?)
-- "Join Our Network" (Client or trade?)
+- "Join Our Network" (Client or ally?)
 - "Apply Today" (For what?)
 ```
 
 #### Body Copy
 
 ```markdown
-✅ CLIENT PARTNER CONTEXT:
+✅ CLIENT CONTEXT:
 "At MH Construction, we believe in building partnerships, not just projects.
-When you work with us, you're not just a customer—you're a valued Client Partner
+When you work with us, you're not just a customer—you're a valued client
 in creating something exceptional."
 
-✅ TRADE PARTNER CONTEXT:
+✅ ALLY CONTEXT:
 "MH Construction is building a network of quality trade professionals across
-the Pacific Northwest. Join our approved vendor program and grow your business
+the Pacific Northwest. Join our Ally Network and grow your business
 with consistent, quality project opportunities."
 
 ❌ MIXED CONTEXT:
@@ -271,21 +270,21 @@ with consistent, quality project opportunities."
 
 #### Email Segmentation
 
-- **Client Partner List:** Project updates, consultation offers, success stories
-- **Trade Partner List:** Project opportunities, vendor news, qualification updates
+- **Client List:** Project updates, consultation offers, success stories
+- **Ally List:** Project opportunities, vendor news, qualification updates
 - **Never mix segments** - Messages are fundamentally different
 
 #### Campaign Tracking
 
 ```text
-utm_source=website&utm_campaign=client-partner-2025
-utm_source=website&utm_campaign=trade-partnership-recruitment-2025
+utm_source=website&utm_campaign=client-2025
+utm_source=website&utm_campaign=ally-recruitment-2025
 ```
 
 #### Ad Copy Targeting
 
-- **Client Partner Ads:** Focus on vision, consultation, partnership approach
-- **Trade Ads:** Focus on opportunities, business growth, professional network
+- **Client Ads:** Focus on vision, consultation, partnership approach
+- **Ally Ads:** Focus on opportunities, business growth, professional network
 
 ---
 
@@ -294,29 +293,29 @@ utm_source=website&utm_campaign=trade-partnership-recruitment-2025
 ### Website Footer
 
 ```tsx
-// Column: For Client Partners
+// Column: For Clients
 - "Get Free Estimate" → /booking
 - "Schedule Consultation" → /booking
 - "Our Services" → /services
 - "Success Stories" → /success-stories
 
-// Column: For Trade Partners
-- "Join Trade Network" → /trade-partners
-- "Apply as Vendor" → /trade-partners#application
-- "Vendor Portal Login" → /vendor-portal
-- "Trade Partner Benefits" → /trade-partners#benefits
+// Column: For Allies
+- "Join Ally Network" → /trade-partners
+- "Apply as Ally" → /trade-partners#application
+- "Ally Portal Login" → /vendor-portal
+- "Ally Benefits" → /trade-partners#benefits
 ```
 
 ### Contact Page
 
 ```tsx
-// Section 1: Project Consultations (Client Partner Partnerships)
-<h2>Start Your Project Partnership</h2>
-<ClientPartnerConsultationForm />
+// Section 1: Project Consultations (Clients)
+<h2>Start Your Project</h2>
+<ClientConsultationForm />
 
-// Section 2: Trade Partnership Inquiries (Vendor Partnerships)
-<h2>Join Our Trade Partnership Network</h2>
-<TradePartnerApplicationForm />
+// Section 2: Ally Inquiries
+<h2>Join Our Ally Network</h2>
+<AllyApplicationForm />
 ```
 
 ### Navigation Menu
@@ -324,7 +323,7 @@ utm_source=website&utm_campaign=trade-partnership-recruitment-2025
 ```tsx
 // Main Nav
 Services → /services          // CLIENT
-Trade Partners → /trade-partners  // TRADE
+Allies in Force → /trade-partners  // ALLIES
 Book Consultation → /booking     // CLIENT
 Our Team → /team                // INFORMATIONAL
 
@@ -339,11 +338,11 @@ Our Team → /team                // INFORMATIONAL
 
 ```markdown
 WRONG:
-"Whether you're a client or trade partner, contact us to get started!"
+"Whether you're a client or Ally, contact us to get started!"
 
 RIGHT:
 Page 1: "Ready to begin your project? Schedule a free consultation with our team."
-Page 2: "Looking to join our trade network? Apply to become an approved vendor."
+Page 2: "Looking to join our Ally Network? Apply to become an approved Ally."
 ```
 
 ### ❌ Don't Use Generic "Partnership"
@@ -355,8 +354,8 @@ WRONG:
 RIGHT (Client):
 "Begin your project partnership with MH Construction"
 
-RIGHT (Trade):
-"Join our trade partnership network as an approved vendor"
+RIGHT (Ally):
+"Join our Ally Network as an approved member"
 ```
 
 ### ❌ Don't Mix Audience Benefits
@@ -364,14 +363,14 @@ RIGHT (Trade):
 ```markdown
 WRONG:
 "Partners enjoy free consultations and business growth opportunities"
-// Mixes client and trade benefits
+// Mixes client and Ally benefits
 
 RIGHT (Client):
-"Project partners receive free consultations, transparent communication,
+"Clients receive free consultations, transparent communication,
 and collaborative project planning"
 
-RIGHT (Trade):
-"Trade partners access consistent project opportunities, fair payment terms,
+RIGHT (Ally):
+"Allies access consistent project opportunities, fair payment terms,
 and professional business growth support"
 ```
 
@@ -382,19 +381,19 @@ and professional business growth support"
 ### Quarterly Review Checklist
 
 - [ ] Review all "partnership" terminology for clarity
-- [ ] Verify client vs trade distinction in all new content
-- [ ] Check that CTAs route to correct partnership type
+- [ ] Verify client vs Ally distinction in all new content
+- [ ] Check that CTAs route to correct audience type
 - [ ] Confirm email segmentation maintains separation
 - [ ] Validate form routing and response templates
-- [ ] Test user journeys for both partnership types
+- [ ] Test user journeys for both audience types
 
 ### New Content Review Questions
 
 Before publishing any content mentioning "partnership", ask:
 
-1. **Which partnership type does this reference?**
-   - Client partnership (project collaboration)
-   - Trade partnership (vendor/subcontractor relationship)
+1. **Which audience type does this reference?**
+   - Client (project collaboration)
+   - Ally (vendor/subcontractor relationship)
    - Both (requires separate sections)
 
 2. **Is the context immediately clear?**
@@ -403,11 +402,11 @@ Before publishing any content mentioning "partnership", ask:
 
 3. **Are the CTAs audience-appropriate?**
    - Do buttons lead to correct forms/pages?
-   - Is the language specific to the partnership type?
+   - Is the language specific to the audience type?
 
 4. **Is the visual identity consistent?**
-   - Correct colors (Hunter Green for Client Partners, Leather Tan for Trade Partners)?
-   - Correct icons (handshake for Client Partners, construction for Trade Partners)?
+   - Correct colors (Hunter Green for Clients, Leather Tan for Allies)?
+   - Correct icons (handshake for Clients, construction for Allies)?
 
 ---
 
@@ -422,7 +421,7 @@ Before publishing any content mentioning "partnership", ask:
 ### Related Documentation
 
 - [Partnership Messaging Complete Guide](./messaging/partnership-messaging-complete-guide.md)
-- [Trade Partnership Guide](./vendor-trade/trade-partnership-guide.md)
+- [Ally Guide](./vendor-trade/trade-partnership-guide.md)
 - [Development Terminology Guide](../development/terminology-guide.md)
 - [Branding Standards](../branding/branding-index.md)
 
@@ -431,7 +430,7 @@ Before publishing any content mentioning "partnership", ask:
 ## ✅ Quick Reference Card
 
 ```text
-CLIENT PARTNERSHIPS = Project Collaborations
+CLIENTS = Project Collaborations
 ├─ WHO: Homeowners, businesses hiring us for projects
 ├─ PAGE: /services, /booking
 ├─ CTA: "Get Free Estimate", "Schedule Consultation"
@@ -439,10 +438,10 @@ CLIENT PARTNERSHIPS = Project Collaborations
 ├─ COLOR: Hunter Green (#386851)
 └─ GOAL: Successful project delivery
 
-TRADE PARTNERSHIPS = Vendor/Subcontractor Relationships
+ALLIES = Vendor/Subcontractor Relationships
 ├─ WHO: Subcontractors, suppliers providing services/goods to us
 ├─ PAGE: /trade-partners
-├─ CTA: "Apply to be Approved Vendor", "Join Trade Network"
+├─ CTA: "Apply to be Approved Ally", "Join Ally Network"
 ├─ ICON: construction, business (professional trades)
 ├─ COLOR: Leather Tan (#BD9264)
 └─ GOAL: Mutual business growth

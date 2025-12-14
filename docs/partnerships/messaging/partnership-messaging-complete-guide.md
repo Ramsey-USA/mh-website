@@ -69,18 +69,18 @@ This tagline emphasizes our commitment to client success over profit maximizatio
 
 ## 🏷️ Partnership Language Distinctions
 
-### Two Distinct Partnership Types
+### Two Distinct Relationship Types
 
-MH Construction serves two fundamentally different partnership audiences:
+MH Construction serves two fundamentally different audiences:
 
-1. **CLIENT PARTNERSHIPS** - Project collaborations with homeowners, businesses, and organizations
-2. **TRADE PARTNERSHIPS** - Business relationships with subcontractors, suppliers, and vendors
+1. **CLIENTS** - Project collaborations with homeowners, businesses, and organizations
+2. **ALLIES** - Business relationships with subcontractors, suppliers, and vendors
 
 **CRITICAL:** These terms are NOT interchangeable. Clear distinction is essential for proper messaging.
 
 ---
 
-## 👥 CLIENT PARTNERSHIP MESSAGING
+## 👥 CLIENT MESSAGING
 
 ### Target Audience
 

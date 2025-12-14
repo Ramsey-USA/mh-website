@@ -5,7 +5,7 @@
 **Building projects for the client, NOT the dollar** — Where traditional business values, veteran integrity,
 and proven craftsmanship create lasting partnerships.
 Next.js 15 platform emphasizing personal relationships, transparent communication, and face-to-face consultation
-to serve our clients better.
+to serve clients and Allies better.
 
 **All Branches Welcome:** Army | Navy | Air Force | Marines | Coast Guard | Space Force — We speak your language.
 

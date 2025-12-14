@@ -95,7 +95,8 @@ export const companyKnowledge = {
   leadership: {
     ownerPresident: "Jeremy Thamert",
     vp: "Arnold Garcia",
-    founder: "Mike Holstein (Retired)",
+    founder: "Mike Holstein (Founder & Former Owner, Retired)",
+    currentOwner: "Jeremy Thamert (Owner & President, since January 2025)",
   },
 };
 ```

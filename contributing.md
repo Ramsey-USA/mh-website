@@ -20,13 +20,13 @@ developers working on this project.
 ## 🏗️ Project Overview
 
 This is a partnership-driven foundation platform for MH Construction, a veteran-owned company
-serving the Pacific Northwest. The platform emphasizes collaborative client partnerships, professional
-trade partnerships, and veteran excellence.
+serving the Pacific Northwest. The platform emphasizes collaborative client relationships, professional
+Ally relationships, and veteran excellence.
 
-**⚠️ CRITICAL PARTNERSHIP DISTINCTION:** The platform serves two distinct partnership audiences:
+**⚠️ CRITICAL RELATIONSHIP DISTINCTION:** The platform serves two distinct audiences:
 
-- **Client Partnerships** 🏠 - Project collaborations with homeowners and businesses (routes: `/services`, `/contact`)
-- **Trade Partnerships** 🏗️ - Business relationships with subcontractors and vendors (routes: `/trade-partners`)
+- **Clients** 🏠 - Project collaborations with homeowners and businesses (routes: `/services`, `/contact`)
+- **Allies** 🏗️ - Business relationships with subcontractors and vendors (routes: `/trade-partners`)
 
 See [Partnership Type Definitions](./docs/partnerships/partnership-type-definitions.md) for complete implementation guidelines.
 
@@ -286,7 +286,7 @@ See the [Master Documentation Index](./docs/master-index.md) for the complete do
 - **Group 4:** Government, Veterans (Professional & patriotic)
 - **Group 5:** Careers (Recruitment & growth)
 - **Group 6:** Resources & Help (FAQ, Contact, Support)
-- **Group 7:** Trade Partners, Urgent (ROI-focused - **ONLY** place for prominent "THE ROI IS THE RELATIONSHIP")
+- **Group 7:** Allies, Urgent (ROI-focused - **ONLY** place for prominent "THE ROI IS THE RELATIONSHIP")
 
 **Complete Reference:** [Page-Specific Messaging Guide](./docs/branding/strategy/page-specific-messaging-guide.md)
 
@@ -722,8 +722,8 @@ All submissions are logged even if email service is unavailable (graceful fallba
 - **General Inquiries**: [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 - **General Email**: <office@mhc-gc.com>
 
-**Partnership Distinction:** See [Partnership Type Definitions](./docs/partnerships/partnership-type-definitions.md)
-for guidance on client vs trade partnership communications.
+**Relationship Distinction:** See [Partnership Type Definitions](./docs/partnerships/partnership-type-definitions.md)
+for guidance on client vs Ally communications.
 
 ---
 
@@ -731,8 +731,8 @@ for guidance on client vs trade partnership communications.
 
 Remember that this project represents MH Construction's commitment to:
 
-- **Client Partnerships**: "We Work With You" philosophy for project collaborations
-- **Trade Partnerships**: Professional business relationships with quality vendors and subcontractors
+- **Clients**: "We Work With You" philosophy for project collaborations
+- **Allies**: Professional business relationships with quality vendors and subcontractors
 - **Community**: Serving Pacific Northwest communities
 - **Excellence**: Veteran-owned quality and precision
 - **Transparency**: Open communication and honest practices
@@ -740,8 +740,8 @@ Remember that this project represents MH Construction's commitment to:
 Every contribution should reflect these values and support the company's mission of building lasting
 partnerships through exceptional construction services.
 
-**Partnership Implementation:** Always maintain clear distinction between Client Partnerships
-(homeowners/businesses hiring us) and Trade Partnerships (vendors/subcontractors working with us).
+**Relationship Implementation:** Always maintain clear distinction between Clients
+(homeowners/businesses hiring us) and Allies (vendors/subcontractors working with us).
 See [Partnership Implementation Guide](./docs/development/reference/partnership-implementation-guide.md).
 
 ---

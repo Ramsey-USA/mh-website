@@ -228,9 +228,9 @@ Organizations contribute what aligns with their mission and capabilities:
 - Mentorship from veteran leadership team
 - Flexible scheduling for VA appointments and military obligations
 
-**Trade Partner Network:**
+**Ally Network:**
 
-- Recruiting veteran-owned subcontractors for our growing network
+- Recruiting veteran-owned Allies for our growing network
 - Building preferential opportunities for veteran-owned businesses
 - Support for veteran contractors as we establish long-term partnerships
 
@@ -283,7 +283,7 @@ track record before committing to organizational partnerships.
 - Submit resume to <careers@mhconstruction.com>
 - Indicate veteran status in application
 
-**Trade Partnership:**
+**Ally Partnerships:**
 
 - Veteran-owned businesses encouraged to apply
 - Visit /trade-partners for application process
@@ -402,7 +402,7 @@ understand the sacrifices our service members have made, and we're proud to give
 
 - Sponsor co-marketing opportunities
 - Veteran organization newsletters
-- Trade partner network communications
+- Ally network communications
 - Chamber of commerce announcements
 
 ---

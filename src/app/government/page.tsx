@@ -235,8 +235,7 @@ const hanfordCapabilities = [
   {
     icon: "handshake",
     title: "Strategic Partner Network",
-    description:
-      "Vetted subcontractor relationships for federal project execution",
+    description: "Vetted Ally relationships for federal project execution",
   },
   {
     icon: "engineering",

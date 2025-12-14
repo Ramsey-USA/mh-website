@@ -83,7 +83,7 @@ emergency response.
 ## Our Focus
 
 When General Contractors face urgent construction challenges, MH Construction partners with
-them as a subcontractor to solve the structural issues at their source - whether that's
+them as an Ally to solve the structural issues at their source - whether that's
 damaged foundations, failing roofing systems, load-bearing problems, or other structural
 issues causing secondary problems.
 
@@ -91,7 +91,7 @@ issues causing secondary problems.
 
 ## Partnership Approach
 
-We work WITH you as a trusted subcontractor partner, providing:
+We work WITH you as a trusted Ally partner, providing:
 
 - **Immediate Response** - Fast mobilization when you need specialized resources NOW
 - **Expert Support** - Professional consultation and experienced crews

@@ -274,7 +274,7 @@ Our award-winning safety record provides clients with:
 
 ### What Our Awards Mean for Partners
 
-**Subcontractors & Vendors:**
+**Allies & Vendors:**
 
 - Work in safer environment
 - Professional safety leadership

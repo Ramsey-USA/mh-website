@@ -39,10 +39,10 @@ management, ensuring each project aligns with MH's owner-centric approach.
 - **Leadership Philosophy**: Operational excellence through strategic focus on people and safety
 - **Contact**: Presidential oversight for organizational strategy and key initiatives
 
-### Mike Holstein - Founder (Retired)
+### Mike Holstein - Founder & Former Owner (Retired)
 
 - **Experience**: Company founder in 2010, construction industry leadership since 1995
-- **Status**: Retired Leadership
+- **Status**: Retired Leadership - Ownership transferred to Jeremy Thamert (January 2025)
 - **Legacy Contributions**:
   - Company Foundations & Core Values Establishment
   - Quality Standards Development
@@ -115,7 +115,7 @@ years he discovered his passion for construction outweighed his original pursuit
 heavy equipment machines. Known for his staying busy and constantly learning new trades, Steve has
 built a career on reliability and skill diversity. As Senior Superintendent, Steve oversees all
 on-site construction operations - ensuring projects are safe, efficient, and on-plan. He
-coordinates subcontractor teams, mentors newcomers, manages resources, and serves as a key liaison
+coordinates Ally teams, mentors newcomers, manages resources, and serves as a key liaison
 between clients and design teams.
 
 - **Experience**: 20+ years field operations leadership
@@ -386,7 +386,7 @@ Connect with our experienced team to discuss your construction project needs.
 
 - **Shared Expertise**: Each team member brings unique strengths and experience
 - **Cross-Functional Support**: Team members support each other across project phases
-- **Client-Focused**: All team members trained in client partnership approach
+- **Client-Focused**: All team members trained in client relationship approach
 
 ### Continuous Improvement
 

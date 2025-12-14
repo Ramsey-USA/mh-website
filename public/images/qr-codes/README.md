@@ -128,13 +128,13 @@ Generated: 11/17/2025, 7:01:35 PM
 - **File:** `qr-case-studies-bw.png`
 - **URL:** [https://mhc-gc.com/case-studies](https://mhc-gc.com/case-studies)
 
-### Trade Partners (Color)
+### Allies (Color)
 
 - **Name:** `trade-partners`
 - **File:** `qr-trade-partners-color.png`
 - **URL:** [https://mhc-gc.com/trade-partners](https://mhc-gc.com/trade-partners)
 
-### Trade Partners (Black and White)
+### Allies (Black and White)
 
 - **Name:** `trade-partners`
 - **File:** `qr-trade-partners-bw.png`

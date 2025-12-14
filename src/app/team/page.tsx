@@ -144,11 +144,12 @@ export default function TeamPage() {
               <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
                 "Building projects for the client,{" "}
                 <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the dollar" — Meet the veteran-led professionals empowering
-                Pacific Northwest growth. Honest communication, transparent
-                pricing, proven craftsmanship—where professional excellence
-                today creates trusted partnerships tomorrow. Award-winning .64
-                EMR safety record, military precision, values-driven leadership.
+                the dollar" — Meet the veteran-led professionals driving Pacific
+                Northwest construction excellence. Honest communication,
+                transparent pricing, proven craftsmanship—where military
+                precision meets partnership-driven results. Award-winning .64
+                EMR safety record, 150+ years combined expertise, values-driven
+                leadership.
               </p>
             </div>
           </div>
@@ -171,8 +172,8 @@ export default function TeamPage() {
               icon="groups"
               iconVariant="primary"
               subtitle="Meet Our"
-              title="Professional Team"
-              description="Modern professional profiles featuring comprehensive skill assessments, career achievements, and personal stories. Award-winning team bringing military precision to Pacific Northwest construction."
+              title="Elite Team"
+              description="Modern professional profiles featuring comprehensive skill assessments, career achievements, and personal stories. Award-winning team bringing 150+ years combined experience and military precision to Pacific Northwest construction."
             />
 
             {/* Team Members by Department */}
@@ -216,7 +217,7 @@ export default function TeamPage() {
                     iconVariant="secondary"
                     subtitle="Our Partnership"
                     title="Company Culture"
-                    description="&ldquo;All for one, one for all&rdquo; isn't just a motto—it's how we partner, grow, and succeed together. Our people-centered culture starts with leadership committed to serving both Client Partners and communities, maintaining the highest standards of safety (.64 EMR award-winning), quality craftsmanship, and transparent communication that defines every partnership."
+                    description="&ldquo;All for one, one for all&rdquo; isn't just a motto—it's how we partner, grow, and succeed together. Our people-centered culture starts with leadership committed to serving both clients and communities, maintaining the highest standards of safety (.64 EMR award-winning), quality craftsmanship, and transparent communication that defines every partnership."
                   />
 
                   <div className="gap-4 sm:gap-6 md:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8 sm:mb-10 md:mb-12">
@@ -231,16 +232,15 @@ export default function TeamPage() {
                           />
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
-                          Partnership Unity
+                          Team Unity
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
                           From veterans to civilians, office to field—we&apos;re
-                          one partnership team with shared values forged through
-                          military discipline and construction excellence. Every
-                          client partner success belongs to all of us, every
-                          safety milestone reflects our collective commitment,
-                          and every project showcases our unified dedication to
-                          quality.
+                          one team with shared values forged through military
+                          discipline and construction excellence. Every client
+                          success belongs to all of us, every safety milestone
+                          reflects our collective commitment, and every project
+                          showcases our unified dedication to quality.
                         </p>
                       </div>
                     </FadeInWhenVisible>
@@ -281,15 +281,15 @@ export default function TeamPage() {
                           />
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl text-center">
-                          Partnership Success
+                          Shared Success
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
-                          When our client partners win, we all win—from AGC-WA
-                          Top EMR Awards to 3+ years without time-loss injuries.
-                          Celebrating partnership achievements together (70%
-                          referral business), learning from setbacks as a
-                          unified team, and building lasting relationships that
-                          extend well beyond project completion. THE ROI IS THE
+                          When our clients win, we all win—from AGC-WA Top EMR
+                          Awards to 3+ years without time-loss injuries.
+                          Celebrating achievements together (70% referral
+                          business), learning from setbacks as a unified team,
+                          and building lasting relationships that extend well
+                          beyond project completion. THE ROI IS THE
                           RELATIONSHIP.
                         </p>
                       </div>
@@ -300,10 +300,10 @@ export default function TeamPage() {
                   <div className="bg-white dark:bg-gray-800 shadow-lg p-6 sm:p-7 md:p-8 rounded-lg md:rounded-xl">
                     <h3 className="mb-8 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl leading-tight tracking-tight text-center">
                       <span className="block mb-2 text-gray-700 dark:text-gray-300">
-                        What Makes Our Partnership
+                        What Makes Our
                       </span>
                       <span className="block text-brand-primary">
-                        Culture Special
+                        Team Culture Special
                       </span>
                     </h3>
                     <div className={gridPresets.twoColumn("lg")}>
@@ -427,13 +427,13 @@ export default function TeamPage() {
                           </div>
                           <div>
                             <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">
-                              Long-Term Partnership Mindset
+                              Long-Term Relationship Mindset
                             </h4>
                             <p className="text-gray-600 dark:text-gray-300">
-                              Building lasting partnerships that extend well
+                              Building lasting relationships that extend well
                               beyond project completion, with 70% referral
                               business proving the strength of our commitment to
-                              client partner success and future growth together.
+                              client success and future growth together.
                             </p>
                           </div>
                         </div>
@@ -577,9 +577,9 @@ export default function TeamPage() {
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
                           Emerging leaders receive specialized training in
-                          project management, team leadership, client partner
-                          relations, and business development. We build
-                          tomorrow&apos;s construction leaders today.
+                          project management, team leadership, client relations,
+                          and business development. We build tomorrow&apos;s
+                          construction leaders today.
                         </p>
                       </div>
                     </FadeInWhenVisible>
@@ -678,19 +678,16 @@ export default function TeamPage() {
                     <span className="block mb-2 text-gray-700 dark:text-gray-300">
                       Interested in Joining
                     </span>
-                    <span className="block text-brand-primary">
-                      Our Partnership Team?
-                    </span>
+                    <span className="block text-brand-primary">Team Six?</span>
                   </h3>
                   <p className="mb-6 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                    Explore partnership opportunities and learn more about what
-                    makes MH Construction a great place to work— from
-                    award-winning safety culture (.64 EMR) to veteran hiring
-                    initiatives, continuous professional development to
-                    competitive benefits. View our current openings and discover
-                    the benefits of joining our veteran-owned partnership
-                    company where your growth is our mission and every team
-                    member's success matters.
+                    Explore career opportunities and learn more about what makes
+                    MH Construction a great place to work—from award-winning
+                    safety culture (.64 EMR) to veteran hiring initiatives,
+                    continuous professional development to competitive benefits.
+                    View our current openings and discover the benefits of
+                    joining our veteran-owned team where your growth is our
+                    mission and every team member's success matters.
                   </p>
                   <Link href="/careers">
                     <Button
@@ -700,7 +697,7 @@ export default function TeamPage() {
                     >
                       <MaterialIcon icon="work" size="lg" className="mr-3" />
                       <span className="font-medium">
-                        View Partnership Opportunities
+                        View Career Opportunities
                       </span>
                     </Button>
                   </Link>

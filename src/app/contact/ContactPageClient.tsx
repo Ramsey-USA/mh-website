@@ -300,7 +300,7 @@ export default function ContactPageClient() {
           </div>
         </section>
 
-        {/* Two Pathways to Partnership - Trade Partners vs Client Partners */}
+        {/* Two Pathways - Allies vs Clients */}
         <section
           className="relative py-20 lg:py-32 xl:py-40 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden"
           aria-labelledby="partnership-pathways-heading"
@@ -332,8 +332,8 @@ export default function ContactPageClient() {
                   </span>
                 </h2>
                 <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                  Whether you're a project owner or a trade professional, we
-                  have a pathway designed for you
+                  Whether you're a client or an Ally, we have a pathway designed
+                  for you
                 </p>
               </div>
 
@@ -350,17 +350,17 @@ export default function ContactPageClient() {
                       />
                     </div>
                     <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl">
-                      For Client Partners
+                      For Clients
                     </h3>
                   </div>
 
                   <p className="mb-6 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                    Ready to begin your construction partnership? We're here to
+                    Ready to begin your construction project? We're here to
                     listen, collaborate, and bring your vision to life through
                     professional construction management.
                   </p>
 
-                  {/* Client Partner Contact Info */}
+                  {/* Client Contact Info */}
                   <div className="bg-gray-50 dark:bg-gray-800 p-6 border-l-4 border-brand-primary rounded-xl mb-6">
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
@@ -371,12 +371,12 @@ export default function ContactPageClient() {
                         />
                         <div>
                           <p className="font-semibold text-gray-900 dark:text-white text-sm">
-                            Client Partner Services
+                            Client Services
                           </p>
                           <a
                             href="tel:+15093086489"
                             className="text-brand-primary hover:text-brand-accent text-lg font-bold transition-colors"
-                            aria-label="Call Client Partner services at 509-308-6489"
+                            aria-label="Call Client services at 509-308-6489"
                           >
                             (509) 308-6489
                           </a>
@@ -446,7 +446,7 @@ export default function ContactPageClient() {
                   </div>
                 </div>
 
-                {/* Trade Partners Pathway */}
+                {/* Allies Pathway */}
                 <div className="bg-white dark:bg-gray-900 border-4 border-brand-secondary p-8 lg:p-10 rounded-3xl shadow-2xl hover:shadow-brand-secondary/20 transition-all duration-300">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="bg-brand-secondary/10 dark:bg-brand-secondary/20 p-4 rounded-2xl">
@@ -457,7 +457,7 @@ export default function ContactPageClient() {
                       />
                     </div>
                     <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl">
-                      For Trade Partners
+                      For Allies
                     </h3>
                   </div>
 
@@ -467,7 +467,7 @@ export default function ContactPageClient() {
                     professionals serving the Pacific Northwest market.
                   </p>
 
-                  {/* Trade Partner Contact Info */}
+                  {/* Ally Contact Info */}
                   <div className="bg-gray-50 dark:bg-gray-800 p-6 border-l-4 border-brand-secondary rounded-xl mb-6">
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
@@ -478,12 +478,12 @@ export default function ContactPageClient() {
                         />
                         <div>
                           <p className="font-semibold text-gray-900 dark:text-white text-sm">
-                            Trade Partner Inquiries
+                            Ally Inquiries
                           </p>
                           <a
                             href="tel:+15093086489"
                             className="text-brand-secondary hover:text-brand-accent text-lg font-bold transition-colors"
-                            aria-label="Call trade partner inquiries at 509-308-6489"
+                            aria-label="Call Ally inquiries at 509-308-6489"
                           >
                             (509) 308-6489
                           </a>
@@ -500,9 +500,9 @@ export default function ContactPageClient() {
                             Email
                           </p>
                           <a
-                            href="mailto:office@mhc-gc.com?subject=Trade%20Partnership%20Inquiry"
+                            href="mailto:office@mhc-gc.com?subject=Ally%20Inquiry"
                             className="text-brand-secondary hover:text-brand-accent text-lg font-bold transition-colors"
-                            aria-label="Email office@mhc-gc.com for trade partnership inquiries"
+                            aria-label="Email office@mhc-gc.com for Ally inquiries"
                           >
                             office@mhc-gc.com
                           </a>
@@ -510,14 +510,14 @@ export default function ContactPageClient() {
                       </div>
                       <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
                         <p className="text-gray-600 dark:text-gray-400 text-sm italic">
-                          For: Vendor applications, trade partnerships, and
+                          For: Vendor applications, Ally relationships, and
                           business opportunities
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  {/* Trade Partner CTAs */}
+                  {/* Ally CTAs */}
                   <div className="space-y-3">
                     <h4 className="font-semibold text-gray-900 dark:text-white text-lg mb-4">
                       Join Our Network:
@@ -542,7 +542,7 @@ export default function ContactPageClient() {
                     >
                       <div className="flex items-center gap-3">
                         <MaterialIcon icon="handshake" size="lg" />
-                        <span>View Partnership Benefits</span>
+                        <span>View Ally Benefits</span>
                       </div>
                       <MaterialIcon
                         icon="arrow_forward"

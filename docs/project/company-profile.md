@@ -90,7 +90,7 @@ The following roster is sourced directly from `src/lib/data/team.ts` and grouped
 | Name | Role | Experience | Status | Core Specialties |
 |------|------|-----------:|--------|------------------|
 | Jeremy Thamert | Owner & President | 2 yrs | Civilian | Strategy; Tech; AI; Operations |
-| Mike Holstein | Founder (Retired) | 30 yrs | Retired | Foundations; Quality; Leadership |
+| Mike Holstein | Founder & Former Owner (Retired) | 30 yrs | Retired | Foundations; Quality; Leadership |
 | Arnold Garcia | Vice President | 15 yrs | Civilian | Client Relations; Service |
 
 ### Project Management & Estimating

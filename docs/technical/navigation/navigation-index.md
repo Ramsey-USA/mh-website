@@ -389,7 +389,7 @@ When implementing navigation:
 - Government Projects (`/government`)
 - Projects (`/projects`)
 - Team (`/team`)
-- Trade Partners (`/trade-partners`)
+- Allies in Force (`/trade-partners`)
 - Urgent Support (`/urgent`)
 
 ---

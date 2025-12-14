@@ -1,4 +1,4 @@
-# Vendor & Trade Partnership Documentation
+# Ally Documentation
 
 **Category:** Subcontractor & Supplier Relationships
 **Last Updated:** December 14, 2025
@@ -16,16 +16,16 @@
 ## 📋 Overview
 
 Documentation for managing relationships with subcontractors, suppliers, and trade professionals. These guides cover
-vendor onboarding, trade partnership programs, and maintaining professional relationships with our construction
-network partners.
+Ally onboarding, Ally programs, and maintaining professional relationships with our construction
+network.
 
 ---
 
 ## 📄 Key Documents
 
-### Trade Partnership Guide
+### Ally Guide
 
-**[trade-partnership-guide.md](./trade-partnership-guide.md)** - Vendor application and onboarding
+**[trade-partnership-guide.md](./trade-partnership-guide.md)** - Ally application and onboarding
 
 - Partnership philosophy for trade relationships
 - Application process for subcontractors
@@ -39,11 +39,11 @@ network partners.
 
 ## 🎯 Partnership Principles
 
-### Our Approach to Trade Partnerships
+### Our Approach to Allies
 
 #### Mutual Respect & Professionalism
 
-- We treat trade partners as valued members of our team
+- We treat Allies as valued members of our team
 - Clear communication and fair treatment
 - Timely payments and transparent processes
 
