@@ -134,7 +134,8 @@ and Idaho.
 
 #### **Partnership-Driven Process**
 
-Our proactive approach involves partnering closely with our network of approved Allies. This collaborative relationship eliminates guesswork and allows us to determine:
+Our proactive approach involves partnering closely with our network of approved Allies. This
+collaborative relationship eliminates guesswork and allows us to determine:
 
 - **The most efficient construction sequence and assembly**
 - **Logistics for specialty items** (like equipment and infrastructure)
@@ -394,7 +395,7 @@ Available 24/7 to prepare for your consultation.
 
 ### **For Allies**
 
-**Building Relationships with Professional Construction Partners**
+#### Building Relationships with Professional Construction Partners
 
 **Ally Opportunities:**
 

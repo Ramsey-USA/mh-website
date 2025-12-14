@@ -30,7 +30,8 @@ Lifetime Achievement Award, Regional Business Excellence Award
 
 ## 👤 Biography
 
-Mike Holstein founded MH Construction in 2010 and served as owner until January 2025 when ownership transferred to Jeremy Thamert. He established the company's reputation for integrity, quality, and
+Mike Holstein founded MH Construction in 2010 and served as owner until January 2025 when ownership
+transferred to Jeremy Thamert. He established the company's reputation for integrity, quality, and
 precision. His leadership and vision established the "We Work With You" partnership philosophy that
 defines MH Construction today.
 
