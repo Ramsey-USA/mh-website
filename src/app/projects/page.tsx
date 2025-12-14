@@ -21,11 +21,17 @@ import { TestimonialsSection } from "./components/TestimonialsSection";
 import { PartnershipProcessSection } from "./components/PartnershipProcessSection";
 import { ProjectsCTASection } from "./components/ProjectsCTASection";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
+import Head from "next/head";
+import { StructuredData } from "@/components/seo/seo-meta";
+import { getProjectsSEO } from "@/lib/seo/page-seo-utils";
 
 // Feature flag - set to false to show full page content
-const SHOW_UNDER_CONSTRUCTION = true;
+const SHOW_UNDER_CONSTRUCTION = false;
 
 export default function ProjectsPage() {
+  // Get enhanced SEO data for Projects page
+  const projectsSEO = getProjectsSEO();
+
   // ALL HOOKS MUST BE CALLED BEFORE ANY CONDITIONAL RETURNS
   const {
     selectedCategory,
@@ -52,53 +58,103 @@ export default function ProjectsPage() {
 
   // Original page content preserved below - will be shown when flag is set to false
   return (
-    <div className="relative bg-white dark:bg-gray-900 w-full min-h-screen overflow-x-hidden">
-      {/* Hero Section */}
-      <ProjectsHero />
+    <>
+      {/* SEO Meta Tags */}
+      <Head>
+        <title>{projectsSEO.title as string}</title>
+        <meta name="description" content={projectsSEO.description as string} />
+        {projectsSEO.keywords && (
+          <meta
+            name="keywords"
+            content={
+              Array.isArray(projectsSEO.keywords)
+                ? projectsSEO.keywords.join(", ")
+                : projectsSEO.keywords
+            }
+          />
+        )}
+        <link rel="canonical" href={projectsSEO.openGraph?.url as string} />
 
-      {/* Page Navigation */}
-      <PageNavigation items={navigationConfigs.projects} />
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content={projectsSEO.openGraph?.title as string}
+        />
+        <meta
+          property="og:description"
+          content={projectsSEO.openGraph?.description as string}
+        />
+        <meta
+          property="og:url"
+          content={projectsSEO.openGraph?.url as string}
+        />
+        <meta property="og:type" content="website" />
 
-      {/* Breadcrumb Navigation */}
-      <Breadcrumb
-        items={[{ label: "Home", href: "/" }, { label: "Victories" }]}
-      />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={projectsSEO.twitter?.title as string}
+        />
+        <meta
+          name="twitter:description"
+          content={projectsSEO.twitter?.description as string}
+        />
+      </Head>
 
-      {/* Stats Section */}
-      <ProjectsStatsSection />
+      {/* Structured Data */}
+      {projectsSEO.schemas && projectsSEO.schemas.length > 0 && (
+        <StructuredData data={projectsSEO.schemas} />
+      )}
 
-      {/* Veteran-Owned Benefits Banner */}
-      <VeteranBenefitsBanner />
+      <div className="relative bg-white dark:bg-gray-900 w-full min-h-screen overflow-x-hidden">
+        {/* Hero Section */}
+        <ProjectsHero />
 
-      {/* Filter & Search Section */}
-      <ProjectsFilterSection
-        selectedCategory={selectedCategory}
-        onCategoryChange={setSelectedCategory}
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        onClearSearch={clearSearch}
-      />
+        {/* Page Navigation */}
+        <PageNavigation items={navigationConfigs.projects} />
 
-      {/* Projects Grid */}
-      <ProjectsGridSection
-        projects={projects}
-        selectedCategory={selectedCategory}
-      />
+        {/* Breadcrumb Navigation */}
+        <Breadcrumb
+          items={[{ label: "Home", href: "/" }, { label: "Victories" }]}
+        />
 
-      {/* Capabilities Section */}
-      <CapabilitiesSection />
+        {/* Stats Section */}
+        <ProjectsStatsSection />
 
-      {/* Why Choose MH Section */}
-      <WhyChooseSection />
+        {/* Veteran-Owned Benefits Banner */}
+        <VeteranBenefitsBanner />
 
-      {/* Testimonials Section */}
-      <TestimonialsSection projects={allProjects} />
+        {/* Filter & Search Section */}
+        <ProjectsFilterSection
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          onClearSearch={clearSearch}
+        />
 
-      {/* Partnership Process Section */}
-      <PartnershipProcessSection />
+        {/* Projects Grid */}
+        <ProjectsGridSection
+          projects={projects}
+          selectedCategory={selectedCategory}
+        />
 
-      {/* CTA Section */}
-      <ProjectsCTASection />
-    </div>
+        {/* Capabilities Section */}
+        <CapabilitiesSection />
+
+        {/* Why Choose MH Section */}
+        <WhyChooseSection />
+
+        {/* Testimonials Section */}
+        <TestimonialsSection projects={allProjects} />
+
+        {/* Partnership Process Section */}
+        <PartnershipProcessSection />
+
+        {/* CTA Section */}
+        <ProjectsCTASection />
+      </div>
+    </>
   );
 }

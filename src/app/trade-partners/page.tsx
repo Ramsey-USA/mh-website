@@ -4,7 +4,8 @@ import { useState } from "react";
 
 // Note: Metadata export removed due to "use client" directive
 // SEO handled via next-seo or alternative client-side SEO solution
-// Page title: "THE ROI IS THE RELATIONSHIP | Trade Partnerships | MH Construction"
+import Head from "next/head";
+import { getTradePartnersSEO } from "@/lib/seo/page-seo-utils";
 import Link from "next/link";
 import {
   Button,
@@ -26,7 +27,10 @@ import { gridPresets } from "@/lib/styles/layout-variants";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 
 // Feature flag - set to false to show full page content
-const SHOW_UNDER_CONSTRUCTION = true;
+const SHOW_UNDER_CONSTRUCTION = false;
+
+// Get SEO metadata
+const tradePartnersSEOData = getTradePartnersSEO();
 
 // Trade Partner Categories
 const partnerCategories = [
@@ -268,7 +272,24 @@ export default function TradePartnersPage() {
 
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
-      {/* Hero Section */}
+      {/* Enhanced SEO Meta Tags */}
+      <Head>
+        <title>{tradePartnersSEOData.title as string}</title>
+        <meta
+          name="description"
+          content={(tradePartnersSEOData.description as string) || ""}
+        />
+        <meta
+          name="keywords"
+          content={
+            Array.isArray(tradePartnersSEOData.keywords)
+              ? tradePartnersSEOData.keywords.join(", ")
+              : (tradePartnersSEOData.keywords as string) || ""
+          }
+        />
+      </Head>
+
+      {/* Hero Section - Group 7: Partnership & ROI Focus */}
       <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
@@ -279,24 +300,30 @@ export default function TradePartnersPage() {
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block text-brand-secondary font-black drop-shadow-lg">
-                Allies in Force
+                THE ROI IS THE RELATIONSHIP
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              THE ROI IS THE RELATIONSHIP
+              Veteran-Owned Trade Partner Network · Allies in Force
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Partnerships that profit everyone. Fair payment, clear
-              communication, mutual success—that's the real return on
-              investment. Join a network of trusted trade professionals building
-              more than projects across the Pacific Northwest. Where vendor
-              relationships become lasting partnerships, and your business
-              growth matters as much as ours. 150+ years combined experience,
-              award-winning safety, veteran-owned integrity.
+              <strong>Partnerships built on trust, not transactions.</strong>{" "}
+              Veteran-owned integrity driving fair payment, honest
+              communication, and mutual success. "Building projects for the
+              client,{" "}
+              <span className="font-black italic text-bronze-300">NOT</span> the
+              dollar" means transparent expectations, reliable project flow, and
+              relationships that profit everyone. Join elite trade professionals
+              across the Pacific Northwest where your business growth matters as
+              much as ours.{" "}
+              <strong>
+                150+ years combined experience, award-winning
+                safety—partnerships that last.
+              </strong>
             </p>
           </div>
         </div>

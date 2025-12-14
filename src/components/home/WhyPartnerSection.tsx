@@ -173,9 +173,9 @@ export function WhyPartnerSection() {
               className="group perspective-1000 scroll-reveal h-[400px] sm:h-[420px] md:h-[440px] lg:h-[460px]"
               style={{ animationDelay: `${_index * 0.1}s` }}
             >
-              <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d">
+              <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d [transform-style:preserve-3d]">
                 {/* Front of Card */}
-                <div className="absolute inset-0 backface-hidden">
+                <div className="absolute inset-0 backface-hidden [backface-visibility:hidden]">
                   <div className="flex flex-col h-full bg-white/10 backdrop-blur-md shadow-lg hover:shadow-2xl p-5 sm:p-6 md:p-7 lg:p-8 border border-white/30 rounded-3xl transition-all duration-300 group-hover:scale-[1.02]">
                     {/* Gradient Background Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-80 rounded-3xl"></div>
@@ -223,8 +223,8 @@ export function WhyPartnerSection() {
                 </div>
 
                 {/* Back of Card - Detailed highlights and stats */}
-                <div className="absolute inset-0 rotate-y-180 backface-hidden">
-                  <div className="h-full rounded-3xl bg-gradient-to-br from-brand-primary to-brand-primary-dark shadow-2xl p-5 sm:p-6 md:p-7 lg:p-8 overflow-hidden">
+                <div className="absolute inset-0 rotate-y-180 backface-hidden [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                  <div className="h-full rounded-3xl bg-gradient-to-br from-brand-primary to-brand-primary-dark shadow-2xl p-5 sm:p-6 md:p-7 lg:p-8 overflow-y-auto">
                     {/* Overlay for better text readability */}
                     <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/20 rounded-3xl"></div>
 

@@ -26,11 +26,8 @@ export function HeroSection() {
           <span className="block text-brand-secondary">
             Veteran-Owned Excellence
           </span>
-          <span className="block">|</span>
           <span className="block text-white/95">Honest Communication</span>
-          <span className="block">|</span>
           <span className="block text-brand-primary">Proven Craftsmanship</span>
-          <span className="block">|</span>
           <span className="block text-white/90">
             Building Trust, Not Just Structures
           </span>

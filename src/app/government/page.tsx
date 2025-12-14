@@ -20,9 +20,14 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
+import Head from "next/head";
+import { getGovernmentSEO } from "@/lib/seo/page-seo-utils";
 
 // Feature flag - set to false to show full page content
-const SHOW_UNDER_CONSTRUCTION = true;
+const SHOW_UNDER_CONSTRUCTION = false;
+
+// Get SEO metadata
+const governmentSEOData = getGovernmentSEO();
 
 // Federal contracting services
 const grantSupportServices = [
@@ -294,7 +299,23 @@ export default function GovernmentGrantsPage() {
   // Original page content preserved below - will be shown when flag is set to false
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-      {/* Hero Section */}
+      {/* Enhanced SEO Meta Tags */}
+      <Head>
+        <title>{governmentSEOData.title as string}</title>
+        <meta
+          name="description"
+          content={(governmentSEOData.description as string) || ""}
+        />
+        <meta
+          name="keywords"
+          content={
+            Array.isArray(governmentSEOData.keywords)
+              ? governmentSEOData.keywords.join(", ")
+              : (governmentSEOData.keywords as string) || ""
+          }
+        />
+      </Head>
+      {/* Hero Section - Group 4: Professional & Patriotic */}
       <section className="relative bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-700/30 via-gray-900/80 to-gray-600/20"></div>
@@ -311,20 +332,25 @@ export default function GovernmentGrantsPage() {
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              Veteran Values • Federal Excellence • Building projects for the
-              client,{" "}
-              <span className="font-black italic text-bronze-300">NOT</span> the
-              dollar
+              Veteran-Owned Federal Contractor · Army Veteran Leadership
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Army veteran leadership brings military precision to federal
-              construction management. Excellence in Every Detail meets
-              regulatory compliance—from DOE to GSA, we understand the
-              mission-critical nature of government projects. 150+ years
-              combined experience, award-winning .64 EMR safety, serving with
-              honor, integrity, and unwavering commitment to federal standards.
+              <strong>
+                Mission-critical precision meets federal excellence.
+              </strong>{" "}
+              Army veteran leadership driving honest, transparent federal
+              contracting for DOE, GSA, and government facilities. "Building
+              projects for the client,{" "}
+              <span className="font-black italic text-bronze-300">NOT</span> the
+              dollar" means regulatory compliance without compromise,
+              transparent cost analysis, and mission-focused execution. 150+
+              years combined experience, award-winning .64 EMR safety—
+              <strong>
+                serving with honor, integrity, and unwavering commitment to
+                federal standards.
+              </strong>
             </p>
           </div>
         </div>

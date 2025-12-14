@@ -9,32 +9,23 @@ import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
+import { getUrgentSEO } from "@/lib/seo/page-seo-utils";
 
 // Feature flag - set to false to show full page content
-const SHOW_UNDER_CONSTRUCTION = true;
+const SHOW_UNDER_CONSTRUCTION = false;
+
+// Get SEO metadata
+const urgentSEOData = getUrgentSEO();
 
 export const metadata: Metadata = {
-  title:
-    "Urgent Construction Support | MH Construction - Emergency Structural Services for General Contractors",
-  description:
-    "Professional urgent construction support for General Contractors facing critical structural challenges. Expert consultation, specialized equipment, heavy machinery operators, and experienced crews available for immediate deployment. We fix the source - foundations, structural systems, roofing failures.",
-  keywords: [
-    "urgent construction support",
-    "emergency structural repairs",
-    "construction equipment rental",
-    "heavy machinery operators",
-    "general contractor support",
-    "structural assessment",
-    "foundation repair urgent",
-    "commercial construction emergency",
-    "construction crew hiring",
-    "Pacific Northwest urgent construction",
-  ],
+  title: urgentSEOData.title as string,
+  description: urgentSEOData.description as string,
+  keywords: Array.isArray(urgentSEOData.keywords)
+    ? urgentSEOData.keywords
+    : [urgentSEOData.keywords || ""],
   openGraph: {
-    title:
-      "Urgent Construction Support for General Contractors | MH Construction",
-    description:
-      "Expert consultation, specialized equipment, and experienced crews for critical structural challenges. Available for immediate deployment in WA, OR, and ID.",
+    title: urgentSEOData.openGraph?.title as string,
+    description: urgentSEOData.openGraph?.description as string,
     type: "website",
     locale: "en_US",
   },
@@ -150,28 +141,31 @@ export default function UrgentSupportPage() {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
           <div className="space-y-2 sm:space-y-3 md:space-y-4">
-            {/* Main Title */}
+            {/* Main Title - Group 7: Partnership & Urgency */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block text-brand-secondary font-black drop-shadow-lg">
-                PRT - Project Response Team
+                THE ROI IS THE RELATIONSHIP
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              When Time Is Critical, We Respond
+              Veteran-Owned Rapid Response · PRT - Project Response Team
             </p>
 
             {/* Description */}
             <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-              Professional support for General Contractors facing critical
-              challenges. "Building projects for the client,{" "}
+              <strong>When time is critical, honesty matters most.</strong> Army
+              veteran leadership driving rapid response for General Contractors
+              facing urgent structural challenges. "Building projects for the
+              client,{" "}
               <span className="font-black italic text-bronze-300">NOT</span> the
-              dollar" means being there when you need us most. Expert
-              consultation, heavy equipment with certified operators, and
-              experienced crews ready for immediate deployment. We fix the
-              source—foundations, structural systems, and roofing failures. Your
-              urgent need is our immediate priority.
+              dollar" means transparent assessment, no-surprise pricing, and
+              decisive action. Expert consultation, heavy equipment with
+              certified operators, experienced crews—immediate deployment WA,
+              OR, ID. We fix the source: foundations, structural systems,
+              roofing failures.{" "}
+              <strong>Your project success is our mission.</strong>
             </p>
           </div>
         </div>

@@ -14,30 +14,23 @@ import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { NextStepsSection } from "@/components/shared-sections";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
+import { getVeteransSEO } from "@/lib/seo/page-seo-utils";
 
 // Feature flag - set to false to show full page content
-const SHOW_UNDER_CONSTRUCTION = true;
+const SHOW_UNDER_CONSTRUCTION = false;
+
+// Get SEO metadata
+const veteransSEOData = getVeteransSEO();
 
 export const metadata: Metadata = {
-  title: "Honoring our Veteran's | MH Construction - Veteran-Owned Company",
-  description:
-    "MH Construction, a veteran-owned business, proudly supports veterans through our annual fishing benefit event, hiring initiatives, and community partnerships. Join 40+ boats for our Spring 2026 fishing classic honoring those who served. Sponsorship opportunities available.",
-  keywords: [
-    "veteran-owned construction",
-    "veterans fishing event",
-    "veteran support programs",
-    "military veteran hiring",
-    "veteran benefit event",
-    "community fishing event",
-    "veteran sponsorship opportunities",
-    "Pacific Northwest veterans",
-    "Army veteran owned business",
-    "Navy veteran business",
-  ],
+  title: veteransSEOData.title as string,
+  description: veteransSEOData.description as string,
+  keywords: Array.isArray(veteransSEOData.keywords)
+    ? veteransSEOData.keywords
+    : [veteransSEOData.keywords || ""],
   openGraph: {
-    title: "Veterans Initiative & Annual Fishing Event | MH Construction",
-    description:
-      "Supporting veterans through community events, hiring initiatives, and partnerships. Join our inaugural fishing classic Spring 2026 with 40+ boats honoring service members.",
+    title: veteransSEOData.openGraph?.title as string,
+    description: veteransSEOData.openGraph?.description as string,
     type: "website",
     locale: "en_US",
   },
@@ -94,19 +87,31 @@ export default function VeteransPage() {
                 </span>
               </h1>
 
-              {/* Subtitle - REQUIRED */}
-              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-                Serving Those Who Served
+              {/* Subtitle - Group 4: Professional & Patriotic */}
+              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
+                Honoring Those Who Served
               </p>
 
-              {/* Description - REQUIRED */}
+              {/* Veteran-Owned Leadership Emphasis */}
+              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
+                Army Veteran Leadership Since January 2025
+              </p>
+
+              {/* Group 4: Service & Values Focus */}
+              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
+                Mission-Focused Excellence · Shared Military Values
+              </p>
+
+              {/* Description - Respectful, professional, integrity-driven */}
               <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-                Your word is your bond—we understand because we've lived it.
-                Army and Navy veteran leadership means we honor service through
-                action: hiring veterans, supporting military families, and
-                giving back to those who sacrificed for our nation. When
-                veterans work with veterans, trust is built on shared values and
-                mutual respect.
+                "Building projects for the client,{" "}
+                <span className="font-black italic text-bronze-300">NOT</span>{" "}
+                the dollar" — Veteran-owned and veteran-led, we serve those who
+                served with honest communication, transparent pricing, and
+                proven craftsmanship. Supporting Pacific Northwest veterans
+                through hiring initiatives, community partnerships, and shared
+                commitment to integrity. Your service is honored. Your trust is
+                earned.
               </p>
             </div>
           </div>

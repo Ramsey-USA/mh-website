@@ -19,30 +19,30 @@ export function AboutHero() {
             </span>
           </h1>
 
-          {/* Subtitle - Military Oath Connection */}
+          {/* Heritage Tagline - Group 2 messaging */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            Trust Built, Project by Project
+            Excellence Through Experience
           </p>
 
-          {/* ROI Slogan - Prominent placement matching homepage */}
+          {/* Heritage & Veteran-Owned Emphasis */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
-            THE ROI IS THE RELATIONSHIP
+            Veteran-Owned · 150+ Years of Combined Excellence
           </p>
 
-          {/* Subtitle - Heritage Messaging */}
+          {/* Trust-Heritage Messaging - Group 2 focus */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            Excellence Through Experience • 150+ Years of Combined Excellence
+            Trust Built Through Values, Proven Through Projects
           </p>
 
-          {/* Description - Heritage storytelling with past achievements */}
+          {/* Description - Heritage storytelling with veteran ownership */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            "Building projects for the client,{" "}
+            Founded in 2010, veteran-owned since January 2025. "Building
+            projects for the client,{" "}
             <span className="font-black italic text-bronze-300">NOT</span> the
-            dollar" — Founded 2010, veteran-owned since January 2025 under Army
-            veteran leadership. Our story is written in the projects we've
-            completed and the relationships we've built. From humble beginnings
-            to regional leadership, our history speaks for itself. Where
-            Precision Meets Partnership.
+            dollar" — Our story is written in the projects we&apos;ve completed
+            and the relationships we&apos;ve built. From humble beginnings to
+            regional leadership, our history of honest communication,
+            transparent pricing, and proven craftsmanship speaks for itself.
           </p>
         </div>
       </div>

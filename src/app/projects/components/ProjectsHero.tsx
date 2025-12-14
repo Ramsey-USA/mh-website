@@ -22,18 +22,30 @@ export function ProjectsHero() {
             </span>
           </h1>
 
-          {/* Subtitle - Brand Tagline */}
+          {/* Heritage Tagline - Group 2 messaging */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            Trust Built, Project by Project
+            Proven Results, Trusted Partnerships
           </p>
 
-          {/* Description */}
+          {/* Veteran-Owned Emphasis */}
+          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
+            Trust Built Through Values, Proven Through Projects
+          </p>
+
+          {/* Group 2: Heritage Focus */}
+          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
+            Excellence Through Experience Since 2010
+          </p>
+
+          {/* Description - Heritage storytelling with veteran values */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            Our history speaks for itself. Decades of completed projects across
-            the Pacific Northwest tell the story of a company that delivers on
-            its promises. Every structure we build, every partnership we
-            form—proof that when you do right by people, success follows. From
-            Vision to Victory, one project at a time.
+            "Building projects for the client,{" "}
+            <span className="font-black italic text-bronze-300">NOT</span> the
+            dollar" — Veteran-owned since 2025, our history of honest
+            communication, transparent pricing, and proven craftsmanship speaks
+            for itself. Every completed project demonstrates our commitment to
+            excellence. From humble beginnings to regional leadership—our track
+            record proves what values-driven construction delivers.
           </p>
 
           {/* CTA Button */}

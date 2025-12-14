@@ -84,19 +84,23 @@ export function NextStepsSection({
         </div>
 
         <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
-          {/* Option 1: Schedule Consultation */}
+          {/* Option 1: Download Pitch Deck */}
           <div className="group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
             <div className="flex justify-center mb-6">
               <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <MaterialIcon icon="event" size="xl" className="text-white" />
+                <MaterialIcon
+                  icon="picture_as_pdf"
+                  size="xl"
+                  className="text-white"
+                />
               </div>
             </div>
             <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
-              Begin Your Project
+              Download Pitch Deck
             </h3>
             <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-              Sit down with us face-to-face. Let's talk about your vision
-              through the lens of our four core values.
+              Get our comprehensive printable overview. Everything you need to
+              know about partnering with MH Construction.
             </p>
             <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
               <li className="flex items-center gap-2">
@@ -105,7 +109,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-primary flex-shrink-0"
                 />
-                <span>Free consultation</span>
+                <span>Company overview & values</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -113,7 +117,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-primary flex-shrink-0"
                 />
-                <span>Expert recommendations</span>
+                <span>Services & capabilities</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -121,24 +125,22 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-primary flex-shrink-0"
                 />
-                <span>No obligation</span>
+                <span>Project portfolio & stats</span>
               </li>
             </ul>
-            <Link href="/contact">
-              <Button
-                variant="primary"
-                size="lg"
-                className="w-full group/btn"
-                onClick={onConsultationClick}
-              >
-                <MaterialIcon
-                  icon="handshake"
-                  size="lg"
-                  className="mr-2 group-hover/btn:scale-110 transition-transform"
-                />
-                Start Your Partnership
-              </Button>
-            </Link>
+            <Button
+              variant="primary"
+              size="lg"
+              className="w-full group/btn opacity-60 cursor-not-allowed"
+              onClick={(e) => {
+                e.preventDefault();
+                onConsultationClick?.();
+              }}
+              disabled
+            >
+              <MaterialIcon icon="schedule" size="lg" className="mr-2" />
+              Coming Soon
+            </Button>
           </div>
 
           {/* Option 2: View Our Work */}

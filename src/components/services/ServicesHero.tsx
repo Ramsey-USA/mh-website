@@ -19,18 +19,30 @@ export function ServicesHero() {
             </span>
           </h1>
 
-          {/* Subtitle - Brand Tagline */}
+          {/* Subtitle - Group 3: Future Vision */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
             Your Vision, Our Precision
           </p>
 
-          {/* Description */}
+          {/* Veteran-Owned Emphasis */}
+          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
+            Veteran-Owned Excellence · Comprehensive Solutions
+          </p>
+
+          {/* Values-Future Messaging - Group 3 */}
+          <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
+            Building Tomorrow's Success on Today's Values
+          </p>
+
+          {/* Description - Future-focused with veteran values */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-            Evolving to serve you better. From traditional craftsmanship to
-            expert consultation—we're expanding our capabilities to match your
-            vision. Excellence in Every Detail meets innovative solutions. Where
-            your tomorrow begins today, and every partnership drives our growth
-            forward across the Pacific Northwest.
+            "Building projects for the client,{" "}
+            <span className="font-black italic text-bronze-300">NOT</span> the
+            dollar" — Veteran-owned precision meets comprehensive service
+            offerings. From honest communication and transparent pricing to
+            proven craftsmanship across residential, commercial, and government
+            projects. Where professional excellence today creates trusted
+            partnerships tomorrow.
           </p>
         </div>
       </div>

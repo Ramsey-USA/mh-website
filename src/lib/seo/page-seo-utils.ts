@@ -52,21 +52,23 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
 export function getAboutSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Our Oath | Trust Built, Project by Project | Veteran-Owned Since 2025 | MH Construction",
+      "Our Oath | Excellence Through Experience | Veteran-Owned Since 2025 | MH Construction",
     description:
-      "Founded 2010 by Mike Holstein, veteran-owned since January 2025 under Army veteran Jeremy Thamert's leadership (Owner & President). 150+ years of combined excellence serving Pacific Northwest communities with partnership philosophy, traditional business values, and authentic relationships built on trust.",
+      "Founded 2010, veteran-owned since January 2025. Our story: honest communication, transparent pricing, proven craftsmanship. 150+ years of combined excellence building trust project by project across the Pacific Northwest. From humble beginnings to regional leadership—our history speaks for itself.",
     keywords: [
       "veteran-owned construction company",
+      "honest construction communication",
+      "transparent pricing contractor",
+      "proven craftsmanship Pacific Northwest",
       "construction company founded 2010",
-      "Pacific Northwest construction heritage",
+      "heritage construction excellence",
       "partnership-driven construction",
-      "authentic construction relationships",
-      "community-focused construction",
-      "military precision building",
-      "Tri-Cities general contractor",
-      "Richland contractor history",
-      "Pasco construction company",
-      "Kennewick veteran contractor",
+      "military veteran leadership",
+      "trust-built construction relationships",
+      "Tri-Cities veteran general contractor",
+      "Richland honest contractor",
+      "Pasco veteran-owned construction",
+      "Kennewick transparent contractor",
       "Benton County construction heritage",
       "Franklin County veteran-owned",
     ],
@@ -75,32 +77,32 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
   });
 }
 
-// Services page SEO
+// Services page SEO - GROUP 3: Future Vision & Expertise
 export function getServicesSEO(): Metadata & { schemas: object[] } {
   const constructionServices = [
     {
-      name: "Construction Intelligence Tools",
-      description:
-        "Construction assistance with General MH for cost estimation, project assessment, and veteran services",
-      category: "Construction Technology",
-    },
-    {
       name: "Residential Construction",
       description:
-        "Custom homes, renovations, and residential projects with military precision and partnership approach",
+        "Custom homes, renovations, and residential projects with veteran-owned precision and honest communication",
       category: "Residential Services",
     },
     {
       name: "Commercial Construction",
       description:
-        "Commercial buildings, renovations, and business projects serving Pacific Northwest communities",
+        "Commercial buildings, renovations, and business projects with transparent pricing and proven craftsmanship",
       category: "Commercial Services",
     },
     {
       name: "Government Construction Projects",
       description:
-        "Specialized government and military construction projects with veteran-owned business certification",
+        "Specialized government and military construction projects with veteran-owned business expertise",
       category: "Government Services",
+    },
+    {
+      name: "Construction Management",
+      description:
+        "Comprehensive project oversight with military precision and partnership approach",
+      category: "Project Management",
     },
   ];
 
@@ -110,26 +112,25 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     title:
-      "The Battle Plan | Your Vision, Our Precision | Construction Services | MH Construction",
+      "The Battle Plan | Veteran-Owned Comprehensive Services | MH Construction",
     description:
-      "Comprehensive construction services across residential, commercial, and government projects. Veteran-owned company serving Pacific Northwest with military precision, modern planning tools, and partnership approach. Building tomorrow's excellence today.",
+      "Veteran-owned construction services: honest communication, transparent pricing, proven craftsmanship. Residential, commercial, and government projects across Pacific Northwest. Where professional excellence today creates trusted partnerships tomorrow.",
     keywords: [
+      "veteran-owned construction services",
+      "honest construction communication",
+      "transparent pricing contractor",
+      "proven craftsmanship services",
       "residential commercial construction",
       "government construction projects",
-      "veteran construction services",
-      "Pacific Northwest builder",
-      "military precision construction",
-      "construction project management",
-      "construction planning services",
+      "comprehensive construction management",
+      "Pacific Northwest construction services",
+      "military precision building",
       "Tri-Cities construction services",
-      "Richland general contractor services",
-      "Pasco commercial construction",
-      "Kennewick residential construction",
+      "Richland honest contractor services",
+      "Pasco veteran-owned construction",
+      "Kennewick transparent contractor",
       "Benton County construction services",
-      "Franklin County contractor services",
-      "Yakima general contractor",
-      "Spokane construction services",
-      "Walla Walla contractor",
+      "Franklin County veteran contractor",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/services`,
     schemas: serviceSchemas,
@@ -140,21 +141,24 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
 export function getTeamSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Team Six | Building Tomorrow's Success Today | Meet Our Team | MH Construction",
+      "Team Six | Veteran-Owned Professional Excellence | Meet Our Team | MH Construction",
     description:
-      "Meet the MH Construction team building lasting partnerships through construction excellence. Veteran professionals, expert project managers, and relationship specialists with 150+ years combined experience serving Pacific Northwest communities with honesty, military precision, and authentic relationships.",
+      "Meet the veteran-led team building tomorrow's success today. 150+ years combined expertise in honest communication, transparent pricing, and proven craftsmanship. Professional excellence empowering Pacific Northwest growth through military precision and values-driven construction leadership.",
     keywords: [
       "veteran construction team",
+      "veteran-owned construction leadership",
+      "honest construction professionals",
+      "transparent pricing experts",
+      "proven craftsmanship team",
       "construction project managers",
       "Pacific Northwest construction professionals",
-      "military construction expertise",
-      "veteran-owned construction specialists",
-      "construction team leadership",
-      "Tri-Cities construction team",
-      "Richland contractor team",
-      "Pasco construction professionals",
-      "Kennewick general contractor team",
-      "Benton County construction experts",
+      "military veteran expertise",
+      "construction team excellence",
+      "Tri-Cities veteran construction team",
+      "Richland honest contractor team",
+      "Pasco veteran professionals",
+      "Kennewick construction experts",
+      "Benton County veteran-owned team",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/team`,
     schemas: [],
@@ -191,18 +195,22 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
 export function getVeteransSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Serving Those Who Served | Veterans Initiative & Support | MH Construction",
+      "Combat Proven | Honoring Those Who Served | Veteran-Owned Since 2025 | MH Construction",
     description:
-      "Serving those who served. Veteran-owned under Army veteran leadership since January 2025, MH Construction honors military service through veteran hiring initiatives, community partnerships, and annual benefit events. Supporting Pacific Northwest veterans and military families with professional construction excellence and shared values.",
+      "Veteran-owned under Army veteran leadership since January 2025. Serving those who served with honest communication, transparent pricing, and proven craftsmanship. Supporting Pacific Northwest veterans through hiring initiatives, community partnerships, and shared military values. Mission-focused excellence honoring service.",
     keywords: [
       "veteran-owned construction company",
+      "Army veteran leadership",
       "veteran support programs",
       "military veteran hiring",
-      "Army veteran leadership",
+      "honest veteran employer",
+      "transparent veteran business",
       "veteran benefit events",
       "Pacific Northwest veterans",
       "military family support",
       "veteran community partnerships",
+      "service-disabled veteran business",
+      "military values construction",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/veterans`,
     schemas: [],
@@ -239,36 +247,28 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
 export function getCareersSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Occupation Specialties | Your Future Starts Here | Join Our Growing Team | MH Construction",
+      "Occupation Specialties | Build Your Future with Veteran Values | MH Construction Careers",
     description:
-      "Join MH Construction and build your future with a veteran-owned team that values you! Exciting construction career opportunities with competitive benefits, growth potential, proven methods, and military values in the Pacific Northwest. We're hiring skilled professionals ready to make an impact.",
+      "Your career growth is our mission. Join a veteran-owned team where honest communication, transparent expectations, and proven mentorship create tomorrow's leaders. Exciting construction career opportunities with competitive benefits, award-winning safety (.64 EMR), and a culture where your potential matters as much as any project we build.",
     keywords: [
+      "veteran-owned construction careers",
+      "honest construction employer",
+      "transparent career growth",
       "construction jobs Pacific Northwest",
-      "construction career opportunities",
       "veteran construction careers",
+      "construction career opportunities",
       "construction employment Tri-Cities WA",
-      "hiring construction professionals",
       "military values construction jobs",
       "construction career growth",
       "Project Manager jobs",
       "Superintendent jobs",
       "Carpenter jobs",
       "Project Engineer jobs",
-      "Admin Assistant jobs",
-      "construction Project Manager",
-      "construction Superintendent",
-      "construction Carpenter",
-      "construction Project Engineer",
-      "Project Manager Tri-Cities",
-      "Superintendent Tri-Cities",
-      "Carpenter Tri-Cities",
-      "Project Engineer Tri-Cities",
-      "Richland construction jobs",
+      "Richland veteran-owned jobs",
       "Pasco construction careers",
       "Kennewick construction employment",
-      "Benton County construction jobs",
+      "Benton County veteran careers",
       "Franklin County construction careers",
-      "general contractor jobs Tri-Cities",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/careers`,
     schemas: [],
@@ -279,22 +279,24 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
 export function getProjectsSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Victories | Our History Speaks for Itself | Excellence Since 2010 | MH Construction",
+      "Victories | Proven Results Through Veteran Values | Excellence Since 2010 | MH Construction",
     description:
-      "Explore MH Construction's proven track record of residential, commercial, and government projects across the Pacific Northwest. Our history speaks for itself with military precision quality, partnership-driven results, and trust built project by project since 2010.",
+      "Veteran-owned since 2025, building excellence since 2010. Our completed projects showcase honest communication, transparent pricing, and proven craftsmanship across residential, commercial, and government work. Trust built project by project—our history speaks for itself.",
     keywords: [
-      "construction project portfolio",
+      "veteran-owned construction portfolio",
       "proven construction track record",
+      "honest construction results",
+      "transparent pricing projects",
+      "proven craftsmanship examples",
       "Pacific Northwest construction projects",
-      "veteran-owned construction examples",
       "construction excellence since 2010",
-      "military precision construction quality",
-      "Tri-Cities construction projects",
-      "Richland construction portfolio",
+      "military precision quality",
+      "Tri-Cities construction portfolio",
+      "Richland veteran contractor projects",
       "Pasco construction examples",
-      "Kennewick contractor projects",
+      "Kennewick proven results",
       "Benton County construction work",
-      "Franklin County project portfolio",
+      "Franklin County veteran-owned portfolio",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/projects`,
     schemas: [],
@@ -326,28 +328,28 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
   });
 }
 
-// Urgent Support page SEO - GROUP 7: Partnership & ROI Focus
+// Urgent Support page SEO - GROUP 7: Partnership & Urgency
 export function getUrgentSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "THE ROI IS THE RELATIONSHIP | Urgent Construction Support | MH Construction",
+      "When Time Is Critical, We Respond | Veteran-Owned Urgent Support | MH Construction",
     description:
-      "Professional urgent construction support where THE ROI IS THE RELATIONSHIP. Immediate response for General Contractors facing critical structural challenges. Expert consultation, specialized equipment, heavy machinery operators, and experienced crews available for rapid deployment in WA, OR, and ID. Your project success is our priority.",
+      "THE ROI IS THE RELATIONSHIP. Veteran-owned rapid response for critical construction challenges. Honest assessment, transparent pricing, proven solutions. Expert consultation, specialized equipment, experienced crews—immediate deployment WA, OR, ID. Your project success is our mission. Call (509) 308-6489.",
     keywords: [
+      "veteran-owned urgent construction",
+      "honest emergency assessment",
+      "transparent urgent pricing",
       "urgent construction support",
       "emergency structural repairs",
       "immediate construction response",
       "construction equipment rental",
       "heavy machinery operators",
       "general contractor support",
-      "structural assessment urgent",
       "Pacific Northwest urgent construction",
       "Tri-Cities emergency construction",
       "Richland urgent contractor support",
       "Pasco emergency repairs",
       "Kennewick urgent construction",
-      "Benton County emergency contractor",
-      "Franklin County urgent support",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/urgent`,
     schemas: [],

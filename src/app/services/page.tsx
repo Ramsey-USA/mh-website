@@ -26,11 +26,17 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 
 // Import shared sections
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
+import Head from "next/head";
+import { StructuredData } from "@/components/seo/seo-meta";
+import { getServicesSEO } from "@/lib/seo/page-seo-utils";
 
 // Feature flag - set to false to show full page content
-const SHOW_UNDER_CONSTRUCTION = true;
+const SHOW_UNDER_CONSTRUCTION = false;
 
 export default function ServicesPage() {
+  // Get enhanced SEO data for Services page
+  const servicesSEO = getServicesSEO();
+
   // Show under construction notice while preserving all content below
   if (SHOW_UNDER_CONSTRUCTION) {
     return (
@@ -161,7 +167,55 @@ export default function ServicesPage() {
 
   return (
     <>
-      {/* Structured Data */}
+      {/* SEO Meta Tags */}
+      <Head>
+        <title>{servicesSEO.title as string}</title>
+        <meta name="description" content={servicesSEO.description as string} />
+        {servicesSEO.keywords && (
+          <meta
+            name="keywords"
+            content={
+              Array.isArray(servicesSEO.keywords)
+                ? servicesSEO.keywords.join(", ")
+                : servicesSEO.keywords
+            }
+          />
+        )}
+        <link rel="canonical" href={servicesSEO.openGraph?.url as string} />
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content={servicesSEO.openGraph?.title as string}
+        />
+        <meta
+          property="og:description"
+          content={servicesSEO.openGraph?.description as string}
+        />
+        <meta
+          property="og:url"
+          content={servicesSEO.openGraph?.url as string}
+        />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={servicesSEO.twitter?.title as string}
+        />
+        <meta
+          name="twitter:description"
+          content={servicesSEO.twitter?.description as string}
+        />
+      </Head>
+
+      {/* Structured Data from servicesSEO */}
+      {servicesSEO.schemas && servicesSEO.schemas.length > 0 && (
+        <StructuredData data={servicesSEO.schemas} />
+      )}
+
+      {/* Legacy Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
