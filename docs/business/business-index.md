@@ -17,7 +17,8 @@
 
 ## 📋 Overview
 
-This hub contains all business-related documentation including services, team information, and strategic documents WITH military-construction terminology integration (December 2025).
+This hub contains all business-related documentation including services, team information, and
+strategic documents WITH military-construction terminology integration (December 2025).
 
 **Strategic Focus:** Professional veteran recruitment through award-winning website and authentic service-earned messaging.
 
@@ -25,7 +26,7 @@ This hub contains all business-related documentation including services, team in
 
 ## Directory Structure
 
-```
+```text
 docs/business/
 ├── business-index.md            # This navigation hub
 ├── services.md                  # Complete service offerings
@@ -59,7 +60,7 @@ docs/business/
 
 ## 👥 Team Documentation
 
-**NEW: Consolidated team folder structure**
+### NEW: Consolidated Team Folder Structure
 
 - **[Team Roster](./team/team-roster.md)** ⭐ **UPDATED Dec 14, 2025** - Leadership and team members
 - **[Team Data Sync](./team/team-data-sync.md)** - Data synchronization system

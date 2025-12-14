@@ -17,7 +17,8 @@
 
 ## 🎯 Purpose
 
-Establish a clear baseline for future development by documenting the complete state of the MH Construction website as of November 2025.
+Establish a clear baseline for future development by documenting the complete state of the MH
+Construction website as of November 2025.
 
 ---
 

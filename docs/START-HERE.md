@@ -40,7 +40,7 @@
 
 ## 🎖️ Mission Statement
 
-**Building projects for the client, NOT the dollar**
+### Building projects for the client, NOT the dollar
 
 We are a **veteran-owned construction company** with all-branch military leadership:
 

@@ -39,7 +39,8 @@ to serve our clients better.
 
 **Veteran-First Implementation (Nov-Dec 2025):**
 
-- **Military precision from all branches**—Army thoroughness, Navy reliability, Air Force excellence, Marine Corps discipline, Coast Guard adaptability, Space Force innovation
+- **Military precision from all branches**—Army thoroughness, Navy reliability, Air Force excellence,
+  Marine Corps discipline, Coast Guard adaptability, Space Force innovation
 - **Mission-focused execution:** No shortcuts, no compromises—every project treated like an operation
 - **Chain of command clarity:** Direct communication lines, clear accountability, transparent reporting
 - Honesty-first messaging: transparent pricing, realistic timelines, open communication

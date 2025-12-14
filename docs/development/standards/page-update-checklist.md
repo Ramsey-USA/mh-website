@@ -251,16 +251,16 @@ Use the decision tree from [icon-variant-quick-reference.md](./icon-variant-quic
 
 ### Medium Priority
 
-6. ❌ Veterans
-7. ❌ Careers
-8. ❌ Trade Partners
-9. ❌ Contact
+1. Veterans
+2. Careers
+3. Trade Partners
+4. Contact
 
 ### Low Priority
 
-10. ❌ FAQ
-11. ❌ Urgent
-12. ❌ Government (currently under construction)
+1. FAQ
+2. Urgent
+3. Government (currently under construction)
 
 ---
 
@@ -270,13 +270,15 @@ For rapid updates, use this find-and-replace pattern:
 
 **Search for:**
 
-```
+```tsx
 <div className="flex justify-center items-center mb-6 sm:mb-8">
   <div className="relative">
     <div className="absolute inset-0 bg-brand-
 ```
 
-**Replace with SectionHeader and choose appropriate variant**
+### Replace Pattern
+
+Replace with SectionHeader and choose appropriate variant
 
 ---
 

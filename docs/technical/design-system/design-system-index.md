@@ -184,7 +184,8 @@ Complete standards for page layout, spacing, containers, and grid systems.
 **Mobile Documentation:**
 
 - **[Mobile Optimization Guide](./mobile-optimization-guide.md)** - Comprehensive mobile guide
-- **[Mobile Optimization Guide](./mobile-optimization-guide.md)** - Complete mobile implementation guide (includes quick reference cheat sheet)
+- **[Mobile Optimization Guide](./mobile-optimization-guide.md)** - Complete mobile implementation guide
+  (includes quick reference cheat sheet)
 
 **Topics Covered:**
 

@@ -72,7 +72,7 @@ Complete navigation architecture, technical implementation, and best practices.
 - `navigation-index.md` - Navigation documentation hub
 - `navigation-complete-guide.md` - Complete navigation system guide (consolidates 4 previous documents)
 
-### `/performance/` - Performance Optimization
+### `/performance/` - Performance & Optimization
 
 **[Performance Index](./performance/performance-index.md)** - Performance optimization hub
 

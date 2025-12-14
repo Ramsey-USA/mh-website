@@ -1028,7 +1028,8 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 - **[SEO Optimization Complete](../branding/strategy/seo-optimization.md)** - Complete
   SEO audit
 - **[Design System](../technical/design-system/design-system.md)** - Complete design system
-- **[Mobile Optimization Guide](../../technical/design-system/mobile-optimization-guide.md)** - Mobile patterns (includes quick reference cheat sheet)
+- **[Mobile Optimization Guide](../../technical/design-system/mobile-optimization-guide.md)** - Mobile
+  patterns (includes quick reference cheat sheet)
 - **[Brand Strategy](../branding/strategy/)** - Brand identity and messaging
 - **[Brand Standards](../branding/standards/)** - Visual and typography standards
 - **[Component Library](../components/ui/mh-ui-guide.md)** - UI components

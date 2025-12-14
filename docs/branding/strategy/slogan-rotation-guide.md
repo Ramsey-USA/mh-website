@@ -1,6 +1,7 @@
 # MH Construction Slogan & Hero Tagline Guide
 
-**Last Updated:** December 14, 2025 | **Version:** 4.0.0 | **Status:** Official Brand Standard - Military/Construction Terminology Blend
+**Last Updated:** December 14, 2025 | **Version:** 4.0.0 | **Status:** Official Brand Standard -
+Military/Construction Terminology Blend
 
 ---
 
@@ -86,7 +87,8 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 #### Homepage Hero Tagline
 
-**Tagline:** "Veteran-Owned Excellence | Mission-Focused Execution | Proven Craftsmanship | Building Projects for the Client, NOT the Dollar"
+**Tagline:** "Veteran-Owned Excellence | Mission-Focused Execution | Proven Craftsmanship | Building
+Projects for the Client, NOT the Dollar"
 
 - **Focus:** All-branch veteran values + mission execution + proven results + core mission
 - **Tone:** Confident, service-earned, mission-driven

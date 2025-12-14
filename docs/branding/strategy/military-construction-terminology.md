@@ -6,9 +6,13 @@
 
 ## 🎯 Purpose
 
-This guide defines **professional military-construction terminology integration** for MH Construction's veteran-owned brand identity. We use military operations language naturally and professionally to reflect our service-earned values and veteran leadership while maintaining accessibility for all audiences.
+This guide defines **professional military-construction terminology integration** for MH
+Construction’s veteran-owned brand identity. We use military operations language naturally and
+professionally to reflect our service-earned values and veteran leadership while maintaining
+accessibility for all audiences.
 
-**Core Principle:** Military terminology enhances authenticity and demonstrates our veteran-owned expertise when used professionally and appropriately.
+**Core Principle:** Military terminology enhances authenticity and demonstrates our veteran-owned
+expertise when used professionally and appropriately.
 
 ---
 
@@ -116,15 +120,19 @@ This guide defines **professional military-construction terminology integration*
 
 #### ✅ EXCELLENT - Natural & Professional
 
-> "Schedule your initial project mission brief to discuss your construction objectives and receive a comprehensive tactical plan with transparent pricing."
-
-> "We provide weekly project SITREPs (situation reports) so you're never in the dark about timeline, budget, or progress."
-
-> "From pre-construction recon to final after-action review, military precision guides every phase of your build."
+> "Schedule your initial project mission brief to discuss your construction objectives and receive a
+> comprehensive tactical plan with transparent pricing."
+>
+> "We provide weekly project SITREPs (situation reports) so you're never in the dark about timeline,
+> budget, or progress."
+>
+> "From pre-construction recon to final after-action review, military precision guides every phase of
+> your build."
 
 #### ⚠️ AVOID - Forced or Excessive
 
-> "Our tactical construction operators will execute precision building operations within your AO according to mission ROE and deliver regular SITREP intel for your mission command review."
+> "Our tactical construction operators will execute precision building operations within your AO
+> according to mission ROE and deliver regular SITREP intel for your mission command review."
 
 ---
 

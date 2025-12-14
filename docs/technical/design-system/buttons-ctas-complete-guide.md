@@ -901,7 +901,7 @@ export function MobileCTA() {
 
 ### Essential References
 
-- **[Button System Documentation](#)** - This complete guide (you are here)
+- **[Button System Documentation](./buttons-ctas-complete-guide.md)** - This complete guide (you are here)
 - **[Section Enhancement Patterns](../../branding/implementation/section-enhancement-patterns.md)** - Technical patterns
 - **[Partnership Type Definitions](../../partnerships/partnership-type-definitions.md)** - Client vs Trade
 - **[Messaging Guidelines](../../branding/strategy/messaging.md)** - Voice & tone
@@ -959,6 +959,6 @@ export function MobileCTA() {
 
 **Questions or Issues?**
 
-- [Button System Documentation](#) - This complete guide
+- [Button System Documentation](./buttons-ctas-complete-guide.md) - This complete guide
 - [Master Index](../../master-index.md) - Central documentation hub
 - [Consistency Guide](../../development/consistency-guide.md) - General implementation standards

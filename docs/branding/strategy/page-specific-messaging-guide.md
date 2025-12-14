@@ -167,7 +167,10 @@ specific terms and phrases.
 - **Combat-aggressive terminology** ("assault the project", "engage the enemy")
 - **Exploiting veteran status** for sales pressure or manipulation
 
-**Note:** Use military-construction terminology professionally per the **[Military-Construction Terminology Guide](./military-construction-terminology.md)**. Terms like SITREP, mission brief, recon, rally point, AO, and ROE are ENCOURAGED when used naturally and appropriately.
+**Note:** Use military-construction terminology professionally per the
+**[Military-Construction Terminology Guide](./military-construction-terminology.md)**. Terms like
+SITREP, mission brief, recon, rally point, AO, and ROE are ENCOURAGED when used naturally and
+appropriately.
 
 ---
 
@@ -392,7 +395,7 @@ specific terms and phrases.
 - **Proven Methods:** Embracing excellence while honoring core values
 - **Empowering:** Enabling client success and team development
 
-### Core Values Emphasis
+### Core Values Emphasis (Services)
 
 **Featured Values:** Professionalism, Thoroughness, Partnership
 
@@ -400,7 +403,7 @@ specific terms and phrases.
 - Comprehensive service offerings with meticulous execution
 - Building tomorrow's trust today
 
-### Primary Messaging
+### Primary Messaging (Services)
 
 **Main Slogan:**
 
@@ -459,7 +462,8 @@ specific terms and phrases.
 - **Integrity-Driven:** Doing what's right, every time (core values from every service branch)
 - **Reliable:** Veteran-trained dependability (from boot camp to boardroom)
 - **Patriotic:** Proud American values without being over-the-top
-- **Branch-Aware:** Understanding unique cultures—Army's "Hooah", Navy's "Hooyah", Air Force's "Aim High", Marine's "Oorah", Coast Guard's "Semper Paratus", Space Force's "Semper Supra"
+- **Branch-Aware:** Understanding unique cultures—Army’s "Hooah", Navy's "Hooyah", Air Force’s
+  "Aim High", Marine’s "Oorah", Coast Guard’s "Semper Paratus", Space Force’s "Semper Supra"
 
 ### Core Values Emphasis
 
@@ -498,15 +502,19 @@ specific terms and phrases.
 ### Key Phrases (Group 4)
 
 - "Veteran leadership since January 2025 — **all branches represented, all values honored**"
-- "Military precision from every service branch meets construction excellence through four core values"
-- "Serving those who served our nation with integrity and reliability — Army, Navy, Air Force, Marines, Coast Guard, Space Force"
-- "Mission-focused project execution guided by unwavering values (from parade ground to construction ground)"
+- "Military precision from every service branch meets construction excellence through four core
+  values"
+- "Serving those who served our nation with integrity and reliability — Army, Navy, Air Force,
+  Marines, Coast Guard, Space Force"
+- "Mission-focused project execution guided by unwavering values (from parade ground to construction
+  ground)"
 - "Compliance-driven, quality-assured, integrity-based (federal standards meet military standards)"
 - "Your word is your bond - we understand that through military service across all branches"
 - "Reliability trained in service, proven in construction (deployment discipline in every detail)"
 - "Professionalism learned in uniform, applied to every project (military bearing in business)"
 - "Trust: earned in service, demonstrated in construction"
-- "Whether you wore Army green, Navy blue, Air Force blue, Marine Corps red, Coast Guard blue, or Space Force black — we honor your service"
+- "Whether you wore Army green, Navy blue, Air Force blue, Marine Corps red, Coast Guard blue, or
+  Space Force black — we honor your service"
 
 ### Avoid (Group 4)
 

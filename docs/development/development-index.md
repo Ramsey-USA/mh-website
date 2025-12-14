@@ -60,7 +60,7 @@
 - **[Responsive Visual Testing Guide](./testing/responsive-visual-testing-guide.md)** - Visual testing
 - **[Troubleshooting](./testing/troubleshooting.md)** - Common issues & fixes
 
-5. **[Typography Standards](../branding/standards/typography.md)** (10 min) - Typography system
+1. **[Typography Standards](../branding/standards/typography.md)** (10 min) - Typography system
 
 #### Phase 2: Implementation (45-60 min)
 

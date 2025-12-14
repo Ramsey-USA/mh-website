@@ -58,7 +58,8 @@ These standards ensure consistency, maintainability, and prevent recurring bugs.
 
 ### 🚨 EMOJI-FREE SOURCE CODE POLICY
 
-**Core Policy:** MH Construction maintains a strict policy prohibiting emojis in all source code files (.ts, .tsx, .js, .jsx, .vue, etc.)
+**Core Policy:** MH Construction maintains a strict policy prohibiting emojis in all source code files
+(.ts, .tsx, .js, .jsx, .vue, etc.)
 
 ### ✅ APPROVED PRACTICES
 

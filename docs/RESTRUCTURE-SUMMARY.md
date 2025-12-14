@@ -74,7 +74,7 @@ Updated all index files with new paths:
 
 ## 📁 New Structure
 
-```
+```text
 docs/
 ├── START-HERE.md          ⭐ NEW - Quick role-based navigation
 ├── master-index.md        ✅ Updated - Comprehensive navigation
@@ -159,37 +159,37 @@ docs/
 
 ### Files Moved
 
-**From operations/ → technical/operations/**
+#### From operations/ → technical/operations/
 
 - operations-index.md
 - build-optimization/ (entire folder)
 
-**From optimization/ → technical/performance/**
+#### From optimization/ → technical/performance/
 
 - video-hero-core-web-vitals.md
 
-**From migrations/ → \_archive/migrations/**
+#### From migrations/ → \_archive/migrations/
 
 - migrations-index.md
 - documentation/ (entire folder)
 - domains/ (entire folder)
 
-**From business/ → business/team/**
+#### From business/ → business/team/
 
 - team-roster.md
 - team-data-sync.md
 - team-profiles/ → profiles/
 
-**From components/ → business/team/**
+#### From components/ → business/team/
 
 - team-qr-codes-guide.md
 
-**From templates/ → development/documentation/**
+#### From templates/ → development/documentation/
 
 - templates-index.md
 - markdown-template.md
 
-**Development/ Reorganization:**
+#### Development/ Reorganization
 
 - 19 files moved to subdirectories
 - 5 new subdirectories created

@@ -340,7 +340,8 @@ className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
 
 ### **Enhanced Icon Standard (v4.1.0 - December 2024)**
 
-**NEW STANDARD:** All section header icons should use this enhanced layered design for visual consistency and professional appearance.
+**NEW STANDARD:** All section header icons should use this enhanced layered design for visual
+consistency and professional appearance.
 
 #### **Header Icon Pattern**
 

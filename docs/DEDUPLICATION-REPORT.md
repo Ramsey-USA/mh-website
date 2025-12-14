@@ -48,7 +48,7 @@ After restructure, several duplicate and overlapping files remained causing conf
 
 ### Content Merges
 
-**1. Icon/Emoji Policy Integration**
+#### 1. Icon/Emoji Policy Integration
 
 Added comprehensive icon standards section to `development-standards.md`:
 
@@ -98,7 +98,7 @@ Added comprehensive icon standards section to `development-standards.md`:
 
 ## 📁 Current Clean Structure
 
-```
+```text
 docs/
 ├── START-HERE.md
 ├── master-index.md

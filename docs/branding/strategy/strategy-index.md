@@ -59,7 +59,8 @@ our brand (military operations terminology blended with construction expertise).
 - Messaging frameworks and templates
 - Communication principles (SITREP-level transparency)
 
-**[slogan-rotation-guide.md](./slogan-rotation-guide.md)** ⭐ **UPDATED Dec 14, 2025** - Complete slogan library with military-construction terminology
+**[slogan-rotation-guide.md](./slogan-rotation-guide.md)** ⭐ **UPDATED Dec 14, 2025** - Complete
+slogan library with military-construction terminology
 
 - 17+ slogans across 5 strategic tiers WITH military operations integration
 - Page-by-page rotation assignments (all updated December 2025)
@@ -110,7 +111,8 @@ our brand (military operations terminology blended with construction expertise).
 - "From Mission Brief to Mission Completion"
 - "Building Trust Through SITREP-Level Transparency"
 
-**Complete Library:** See [Slogan Rotation Guide](./slogan-rotation-guide.md) for 17+ slogans with military-construction integration.
+**Complete Library:** See [Slogan Rotation Guide](./slogan-rotation-guide.md) for 17+ slogans with
+military-construction integration.
 
 ### Hero Taglines by Page (December 2025)
 

@@ -1,6 +1,6 @@
 # MH Construction Branding Documentation
 
-**Last Updated: December 14, 2025 | **Version**: 4.0.3 | **Status\*\*: Official
+**Last Updated:** December 14, 2025 | **Version:** 4.0.3 | **Status:** Official
 
 ---
 
@@ -221,7 +221,8 @@ guidelines on terminology, messaging, and implementation across all channels.
 
 - **[Consistency Guide](../development/consistency-guide.md)** - Complete implementation guide
 - **[Design System](../technical/design-system/design-system.md)** - Complete design system
-- **[Mobile Optimization Guide](../technical/design-system/mobile-optimization-guide.md)** - Mobile patterns (includes quick reference cheat sheet)
+- **[Mobile Optimization Guide](../technical/design-system/mobile-optimization-guide.md)** - Mobile
+  patterns (includes quick reference cheat sheet)
 - **[Component Library](../components/ui/mh-ui-guide.md)** - UI components
 
 ---

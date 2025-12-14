@@ -113,7 +113,8 @@ through authentic service-earned messaging, tactical terminology, and veteran-fr
 
 ### Homepage
 
-**Tagline:** "Veteran-Owned Excellence | Mission-Focused Execution | Proven Craftsmanship | Building Projects for the Client, NOT the Dollar"
+**Tagline:** "Veteran-Owned Excellence | Mission-Focused Execution | Proven Craftsmanship |
+Building Projects for the Client, NOT the Dollar"
 
 **Military Terminology:** Mission-focused execution  
 **Construction Terminology:** Proven craftsmanship, building projects  
